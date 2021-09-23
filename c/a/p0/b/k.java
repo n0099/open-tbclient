@@ -10,10 +10,10 @@ public class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f10093a;
+    public static final String f10101a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10094b;
+    public static final String f10102b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,25 +29,25 @@ public class k {
                 return;
             }
         }
-        f10093a = c.a.p0.a.d0.a.b();
-        f10094b = c.a.p0.a.r1.l.b.m() ? c.a.p0.a.d0.a.b() : f10093a;
+        f10101a = c.a.p0.a.d0.a.b();
+        f10102b = c.a.p0.a.r1.l.b.m() ? c.a.p0.a.d0.a.b() : f10101a;
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? String.format("%s/smtapp/ad/auto", f10094b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? String.format("%s/smtapp/ad/auto", f10102b) : (String) invokeV.objValue;
     }
 
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? String.format("%s/smtapp/ad/similar", f10094b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? String.format("%s/smtapp/ad/similar", f10102b) : (String) invokeV.objValue;
     }
 
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? String.format("%s/searchbox?action=userx&type=attribute", f10094b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? String.format("%s/searchbox?action=userx&type=attribute", f10102b) : (String) invokeV.objValue;
     }
 }

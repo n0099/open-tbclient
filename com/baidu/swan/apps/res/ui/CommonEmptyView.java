@@ -42,7 +42,7 @@ public class CommonEmptyView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonEmptyView f46259a;
+        public final /* synthetic */ CommonEmptyView f46361a;
 
         public a(CommonEmptyView commonEmptyView) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class CommonEmptyView extends RelativeLayout {
                     return;
                 }
             }
-            this.f46259a = commonEmptyView;
+            this.f46361a = commonEmptyView;
         }
     }
 

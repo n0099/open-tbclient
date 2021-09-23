@@ -41,7 +41,7 @@ public class w extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ w f27237b;
+        public final /* synthetic */ w f27257b;
 
         public a(w wVar) {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class w extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
                     return;
                 }
             }
-            this.f27237b = wVar;
+            this.f27257b = wVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,18 +69,18 @@ public class w extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var) == null) || view == null || d2Var == null) {
                 return;
             }
-            if (this.f27237b.u != null) {
-                this.f27237b.u.b(view, d2Var, this.f27237b.K());
+            if (this.f27257b.u != null) {
+                this.f27257b.u.b(view, d2Var, this.f27257b.K());
             }
-            if ("c13010".equals(this.f27237b.x)) {
+            if ("c13010".equals(this.f27257b.x)) {
                 TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 1).param("fid", d2Var.T()).param("tid", d2Var.s1()));
             }
-            c.a.r0.w0.k2.a.e(d2Var, 1, this.f27237b.f2961i, c.a.r0.w0.k2.d.h0, this.f27237b.i0());
-            if (this.f27237b.n != null && this.f27237b.n.getForum() != null) {
-                c.a.r0.w0.k2.a.c(d2Var, this.f27237b.n.getForum().getId());
+            c.a.r0.w0.k2.a.e(d2Var, 1, this.f27257b.f2962i, c.a.r0.w0.k2.d.h0, this.f27257b.i0());
+            if (this.f27257b.n != null && this.f27257b.n.getForum() != null) {
+                c.a.r0.w0.k2.a.c(d2Var, this.f27257b.n.getForum().getId());
             }
             if (view.getId() == R.id.thread_card_root && d2Var.E2()) {
-                this.f27237b.E0(d2Var);
+                this.f27257b.E0(d2Var);
             }
             if (!(view instanceof ThreadSmartAppLayout) && view.getId() != R.id.iv_thread_smart_app_head && view.getId() != R.id.tv_thread_smart_app_title && view.getId() != R.id.tv_thread_smart_app_abstract) {
                 c.a.r0.w0.k2.c.j().g(c.a.r0.w0.k2.d.h0, d2Var, 1);
@@ -115,7 +115,7 @@ public class w extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         this.z = 3;
         this.A = new a(this);
         this.o = tbPageContext;
-        this.f2961i = bdUniqueId2;
+        this.f2962i = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -130,7 +130,7 @@ public class w extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             l0 k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.q);
             k.r(3);
             ThreadCardViewHolder<d2> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.setPageId(this.f2961i);
+            threadCardViewHolder.setPageId(this.f2962i);
             d0(this);
             return threadCardViewHolder;
         }
@@ -153,7 +153,7 @@ public class w extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             threadCardViewHolder.onBindDataToView(c2Var.w);
             threadCardViewHolder.getCardView().onChangeSkinType(this.o, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.getCardView().p(this.A);
-            c2Var.w.N4();
+            c2Var.w.M4();
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

@@ -16,19 +16,19 @@ public class g extends TouchDelegate {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f65237a;
+    public View f65548a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f65238b;
+    public Rect f65549b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f65239c;
+    public Rect f65550c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f65240d;
+    public boolean f65551d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f65241e;
+    public int f65552e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(Rect rect, View view) {
@@ -49,13 +49,13 @@ public class g extends TouchDelegate {
                 return;
             }
         }
-        this.f65238b = rect;
-        this.f65241e = ViewConfiguration.get(view.getContext()).getScaledTouchSlop();
+        this.f65549b = rect;
+        this.f65552e = ViewConfiguration.get(view.getContext()).getScaledTouchSlop();
         Rect rect2 = new Rect(rect);
-        this.f65239c = rect2;
-        int i4 = this.f65241e;
+        this.f65550c = rect2;
+        int i4 = this.f65552e;
         rect2.inset(-i4, -i4);
-        this.f65237a = view;
+        this.f65548a = view;
     }
 
     @Override // android.view.TouchDelegate
@@ -70,37 +70,37 @@ public class g extends TouchDelegate {
             boolean z2 = true;
             if (action != 0) {
                 if (action == 1 || action == 2) {
-                    boolean z3 = this.f65240d;
+                    boolean z3 = this.f65551d;
                     if (z3) {
-                        z = this.f65239c.contains(x, y);
+                        z = this.f65550c.contains(x, y);
                         z2 = z3;
                     } else {
                         z2 = z3;
                     }
                 } else {
                     if (action == 3) {
-                        boolean z4 = this.f65240d;
-                        this.f65240d = false;
+                        boolean z4 = this.f65551d;
+                        this.f65551d = false;
                         z2 = z4;
                     }
                     z = true;
                     z2 = false;
                 }
                 z = true;
-            } else if (this.f65238b.contains(x, y)) {
-                this.f65240d = true;
+            } else if (this.f65549b.contains(x, y)) {
+                this.f65551d = true;
                 z = true;
             } else {
-                this.f65240d = false;
+                this.f65551d = false;
                 z = true;
                 z2 = false;
             }
             if (z2) {
-                View view = this.f65237a;
+                View view = this.f65548a;
                 if (z) {
                     motionEvent.setLocation(view.getWidth() / 2, view.getHeight() / 2);
                 } else {
-                    float f2 = -(this.f65241e * 2);
+                    float f2 = -(this.f65552e * 2);
                     motionEvent.setLocation(f2, f2);
                 }
                 if (view.getVisibility() == 0) {

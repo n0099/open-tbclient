@@ -21,7 +21,7 @@ public class f implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f8343e;
+    public static final boolean f8351e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class f implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
                 return;
             }
         }
-        f8343e = k.f7077a;
+        f8351e = k.f7085a;
     }
 
     public f() {
@@ -69,16 +69,16 @@ public class f implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
             c.a.p0.a.a2.e i2 = c.a.p0.a.a2.e.i();
-            if (hybridUbcFlow == null || hybridUbcFlow.f46164f.isEmpty()) {
+            if (hybridUbcFlow == null || hybridUbcFlow.f46266f.isEmpty()) {
                 return;
             }
             long e2 = hybridUbcFlow.e("slave_first_rendered", "master_dispatch_start");
-            c.a.p0.a.q2.d.f8130g.d(Long.valueOf(e2));
-            c.a.p0.a.q2.d.f8125b.d(Long.valueOf(hybridUbcFlow.e("slave_first_rendered", "naStart")));
+            c.a.p0.a.q2.d.f8138g.d(Long.valueOf(e2));
+            c.a.p0.a.q2.d.f8133b.d(Long.valueOf(hybridUbcFlow.e("slave_first_rendered", "naStart")));
             String str = "aps_start_download";
             String str2 = "aps_end_req";
-            c.a.p0.a.q2.d.f8126c.d(Long.valueOf(hybridUbcFlow.e("aps_end_download", "aps_start_download", "aps_end_req", "aps_start_req", "naStart")));
-            if ((f8343e || c.a.p0.a.u1.a.a.d("aiapps_startup_reporter", false)) && i2 != null) {
+            c.a.p0.a.q2.d.f8134c.d(Long.valueOf(hybridUbcFlow.e("aps_end_download", "aps_start_download", "aps_end_req", "aps_start_req", "naStart")));
+            if ((f8351e || c.a.p0.a.u1.a.a.d("aiapps_startup_reporter", false)) && i2 != null) {
                 long e3 = hybridUbcFlow.e("na_first_meaningful_paint", "naStart");
                 if (e3 < 1) {
                     e3 = hybridUbcFlow.e("na_first_paint", "naStart");
@@ -91,21 +91,21 @@ public class f implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
                 if (TextUtils.isEmpty(O)) {
                     O = "";
                 }
-                r0 = "\n\n  小程序启动性能报告: " + O + " appID: " + (!TextUtils.isEmpty(i2.f4558f) ? i2.f4558f : "") + " speedLog\n";
+                r0 = "\n\n  小程序启动性能报告: " + O + " appID: " + (!TextUtils.isEmpty(i2.f4566f) ? i2.f4566f : "") + " speedLog\n";
                 StringBuilder sb = new StringBuilder();
                 for (int i4 = 0; i4 < i3; i4++) {
                     sb.append("&");
                 }
                 boolean z = true;
                 String.format(" Cost [%s] Delta Src  Total Action", sb.toString());
-                long g2 = hybridUbcFlow.f46164f.get(0).g();
-                Iterator<UbcFlowEvent> it = hybridUbcFlow.f46164f.iterator();
+                long g2 = hybridUbcFlow.f46266f.get(0).g();
+                Iterator<UbcFlowEvent> it = hybridUbcFlow.f46266f.iterator();
                 long j2 = 0;
                 while (it.hasNext()) {
                     UbcFlowEvent next = it.next();
                     if (!next.b() || c.a.p0.a.u1.a.a.d("aiapps_startup_reporter_local_report", z)) {
                         String[] strArr = new String[2];
-                        strArr[0] = next.f46174a;
+                        strArr[0] = next.f46276a;
                         strArr[z ? 1 : 0] = "naStart";
                         long e4 = hybridUbcFlow.e(strArr);
                         boolean z2 = e4 < 0;
@@ -149,7 +149,7 @@ public class f implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
                         sb2.append(String.format(Locale.getDefault(), "%5d", Long.valueOf(j3)));
                         sb2.append(String.format("  %s", next.f()));
                         sb2.append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(next.g() - g2)));
-                        sb2.append(next.f46174a);
+                        sb2.append(next.f46276a);
                         if (next.b()) {
                             sb2.append("(LocalRecord)");
                         }
@@ -165,7 +165,7 @@ public class f implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
                 String str5 = str;
                 String str6 = str2;
                 long j6 = e3;
-                String str7 = "Total  ： " + hybridUbcFlow.f46164f.size();
+                String str7 = "Total  ： " + hybridUbcFlow.f46266f.size();
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("\n========APS下载完成:" + hybridUbcFlow.e("aps_end_download", "naStart"));
                 sb3.append("\n========解压包时长:" + hybridUbcFlow.e("package_end_unzip", "first_anim_start", "aps_end_download"));
@@ -201,7 +201,7 @@ public class f implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
                 String g5 = hybridUbcFlow.g("package_type");
                 String str8 = TextUtils.isEmpty(g5) ? "-1" : g5;
                 sb3.append("\n\n小程序启动总时长：========> " + j6 + " LaunchDiff=" + hybridUbcFlow.e("naStart", "user_action"));
-                sb3.append(hybridUbcFlow.f46162d.contains("package_start_unzip") ^ true ? "(热启动)" : "(冷启动)");
+                sb3.append(hybridUbcFlow.f46264d.contains("package_start_unzip") ^ true ? "(热启动)" : "(冷启动)");
                 sb3.append("  relaunchType:" + optInt);
                 sb3.append("  preloadType:" + g3);
                 sb3.append(" packageType:" + str8);

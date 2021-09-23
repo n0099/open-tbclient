@@ -13,6 +13,7 @@ public class PayDataBean implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
+    public int alipayVersion;
     public String appid;
     public String appurl;
     public String auth_appurl;

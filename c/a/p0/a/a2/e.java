@@ -35,19 +35,19 @@ public class e extends m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f4558f;
+    public final String f4566f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f4559g;
+    public final boolean f4567g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SwanAppConfigData f4560h;
+    public SwanAppConfigData f4568h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.p0.a.a2.n.a f4561i;
+    public c.a.p0.a.a2.n.a f4569i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.p0.a.k2.c f4562j;
+    public c.a.p0.a.k2.c f4570j;
     public c.a.p0.a.k2.f.d k;
     public c.a.p0.a.e2.a l;
     public c.a.p0.a.m.b m;
@@ -76,7 +76,7 @@ public class e extends m {
                 return;
             }
         }
-        y = c.a.p0.a.k.f7077a;
+        y = c.a.p0.a.k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -102,15 +102,15 @@ public class e extends m {
         boolean z = false;
         this.w = false;
         str = str == null ? "" : str;
-        this.f4558f = str;
-        z = (!TextUtils.isEmpty(str) || TextUtils.equals(this.f4558f, "swan_id_unknown")) ? true : true;
-        this.f4559g = z;
+        this.f4566f = str;
+        z = (!TextUtils.isEmpty(str) || TextUtils.equals(this.f4566f, "swan_id_unknown")) ? true : true;
+        this.f4567g = z;
         if (z) {
             c.a.p0.a.b2.a.a aVar = new c.a.p0.a.b2.a.a();
             this.p = aVar;
-            aVar.f(this.f4558f);
+            aVar.f(this.f4566f);
         }
-        c.a.p0.a.e0.d.h("SwanApp", "new SwanApp id = " + this.f4558f + StringUtil.ARRAY_ELEMENT_SEPARATOR + Log.getStackTraceString(new RuntimeException("SwanApp log")));
+        c.a.p0.a.e0.d.h("SwanApp", "new SwanApp id = " + this.f4566f + StringUtil.ARRAY_ELEMENT_SEPARATOR + Log.getStackTraceString(new RuntimeException("SwanApp log")));
     }
 
     public static e Q() {
@@ -152,7 +152,7 @@ public class e extends m {
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4559g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4567g : invokeV.booleanValue;
     }
 
     public String D() {
@@ -176,7 +176,7 @@ public class e extends m {
     public SwanAppConfigData F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4560h : (SwanAppConfigData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4568h : (SwanAppConfigData) invokeV.objValue;
     }
 
     public String G(String str) {
@@ -185,8 +185,8 @@ public class e extends m {
         Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            SwanAppConfigData swanAppConfigData = this.f4560h;
-            if (swanAppConfigData == null || (kVar = swanAppConfigData.f46556d) == null || (map = kVar.f46595a) == null) {
+            SwanAppConfigData swanAppConfigData = this.f4568h;
+            if (swanAppConfigData == null || (kVar = swanAppConfigData.f46658d) == null || (map = kVar.f46697a) == null) {
                 return null;
             }
             return map.get(str);
@@ -199,7 +199,7 @@ public class e extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             Bundle bundle = new Bundle();
-            bundle.putString("mAppId", this.f4558f);
+            bundle.putString("mAppId", this.f4566f);
             return bundle;
         }
         return (Bundle) invokeV.objValue;
@@ -208,7 +208,7 @@ public class e extends m {
     public c.a.p0.a.a2.n.a I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f4561i : (c.a.p0.a.a2.n.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f4569i : (c.a.p0.a.a2.n.a) invokeV.objValue;
     }
 
     @NonNull
@@ -290,11 +290,11 @@ public class e extends m {
         SwanAppConfigData.j jVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            SwanAppConfigData swanAppConfigData = this.f4560h;
-            if (swanAppConfigData == null || (jVar = swanAppConfigData.f46555c) == null || jVar.f46591c == null) {
+            SwanAppConfigData swanAppConfigData = this.f4568h;
+            if (swanAppConfigData == null || (jVar = swanAppConfigData.f46657c) == null || jVar.f46693c == null) {
                 return null;
             }
-            return this.f4560h.f46555c.f46591c.get(c.a.p0.a.c2.f.p0.j.b(str));
+            return this.f4568h.f46657c.f46693c.get(c.a.p0.a.c2.f.p0.j.b(str));
         }
         return (String) invokeL.objValue;
     }
@@ -303,7 +303,7 @@ public class e extends m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            SwanAppConfigData swanAppConfigData = this.f4560h;
+            SwanAppConfigData swanAppConfigData = this.f4568h;
             return swanAppConfigData != null ? swanAppConfigData.g(str) : "";
         }
         return (String) invokeL.objValue;
@@ -326,10 +326,10 @@ public class e extends m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.f4562j == null) {
-                this.f4562j = new c.a.p0.a.k2.c(this);
+            if (this.f4570j == null) {
+                this.f4570j = new c.a.p0.a.k2.c(this);
             }
-            return this.f4562j;
+            return this.f4570j;
         }
         return (c.a.p0.a.k2.c) invokeV.objValue;
     }
@@ -432,7 +432,7 @@ public class e extends m {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f4559g && this.u.b0() && l() > -1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f4567g && this.u.b0() && l() > -1 : invokeV.booleanValue;
     }
 
     public boolean e0() {
@@ -477,7 +477,7 @@ public class e extends m {
         SwanAppConfigData swanAppConfigData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f4560h) == null) {
+            if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f4568h) == null) {
                 return false;
             }
             return swanAppConfigData.n(str);
@@ -489,7 +489,7 @@ public class e extends m {
     public String getAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f4558f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f4566f : (String) invokeV.objValue;
     }
 
     public final String h(int i2) {
@@ -519,7 +519,7 @@ public class e extends m {
         SwanAppConfigData.d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f4560h) == null || (dVar = swanAppConfigData.f46554b) == null) {
+            if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f4568h) == null || (dVar = swanAppConfigData.f46656b) == null) {
                 return false;
             }
             return dVar.c(str);
@@ -552,11 +552,11 @@ public class e extends m {
         Map<String, Boolean> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f4560h) == null || (jVar = swanAppConfigData.f46555c) == null || (map = jVar.f46590b) == null || !map.containsKey(str)) {
+            if (TextUtils.isEmpty(str) || (swanAppConfigData = this.f4568h) == null || (jVar = swanAppConfigData.f46657c) == null || (map = jVar.f46692b) == null || !map.containsKey(str)) {
                 return false;
             }
             boolean z = y;
-            return this.f4560h.f46555c.f46590b.get(str).booleanValue();
+            return this.f4568h.f46657c.f46692b.get(str).booleanValue();
         }
         return invokeL.booleanValue;
     }
@@ -579,7 +579,7 @@ public class e extends m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            if (this.f4559g) {
+            if (this.f4567g) {
                 return L().G();
             }
             return -1;
@@ -594,7 +594,7 @@ public class e extends m {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return c.a.p0.n.g.a.h().m(this.f4558f, Z(), str);
+            return c.a.p0.n.g.a.h().m(this.f4566f, Z(), str);
         }
         return invokeL.booleanValue;
     }
@@ -636,7 +636,7 @@ public class e extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, strArr)) == null) {
             if (y) {
-                String str = "——> release client Id " + this.f4558f;
+                String str = "——> release client Id " + this.f4566f;
             }
             SwanAppActivity x = x();
             if (x != null && !x.isDestroyed() && !x.isFinishing() && x.hasActivedFrame()) {
@@ -647,7 +647,7 @@ public class e extends m {
             if (gVar != null) {
                 gVar.g();
             }
-            c.a.p0.t.d.j(c.a.p0.a.k2.b.x(this.f4558f));
+            c.a.p0.t.d.j(c.a.p0.a.k2.b.x(this.f4566f));
             c.a.p0.a.i1.c.c cVar = this.q;
             if (cVar != null) {
                 cVar.E();
@@ -660,11 +660,11 @@ public class e extends m {
             if (kVar != null) {
                 kVar.d();
             }
-            this.f4562j = null;
+            this.f4570j = null;
             this.l = null;
             this.o = null;
             this.w = false;
-            return this.f4558f;
+            return this.f4566f;
         }
         return (String) invokeL.objValue;
     }
@@ -704,7 +704,7 @@ public class e extends m {
             if (z) {
                 q("event_on_app_occupied");
             }
-            if (this.f4559g && !this.u.b0() && !this.u.a0()) {
+            if (this.f4567g && !this.u.b0() && !this.u.a0()) {
                 UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("swan_app_maintain_start");
                 ubcFlowEvent3.a(true);
                 p.C(ubcFlowEvent3);
@@ -753,14 +753,14 @@ public class e extends m {
     public void t0(SwanAppConfigData swanAppConfigData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048630, this, swanAppConfigData) == null) {
-            this.f4560h = swanAppConfigData;
+            this.f4568h = swanAppConfigData;
         }
     }
 
     public void u0(c.a.p0.a.a2.n.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048631, this, aVar) == null) {
-            this.f4561i = aVar;
+            this.f4569i = aVar;
         }
     }
 
@@ -814,12 +814,12 @@ public class e extends m {
         SwanAppConfigData swanAppConfigData;
         SwanAppConfigData.j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048636, this, str, z) == null) || TextUtils.isEmpty(str) || (swanAppConfigData = this.f4560h) == null || (jVar = swanAppConfigData.f46555c) == null || jVar.f46590b == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048636, this, str, z) == null) || TextUtils.isEmpty(str) || (swanAppConfigData = this.f4568h) == null || (jVar = swanAppConfigData.f46657c) == null || jVar.f46692b == null) {
             return;
         }
         if (y) {
             String str2 = "更新内存缓存信息: " + str + ": " + z;
         }
-        this.f4560h.f46555c.f46590b.put(str, Boolean.valueOf(z));
+        this.f4568h.f46657c.f46692b.put(str, Boolean.valueOf(z));
     }
 }

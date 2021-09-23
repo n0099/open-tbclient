@@ -27,16 +27,16 @@ public class ForumRuleEditModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.r0.w0.q1.b.b f51129e;
+    public final c.a.r0.w0.q1.b.b f51244e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51130f;
+    public int f51245f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f51131g;
+    public HttpMessageListener f51246g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f51132h;
+    public HttpMessageListener f51247h;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -44,7 +44,7 @@ public class ForumRuleEditModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumRuleEditModel f51133a;
+        public final /* synthetic */ ForumRuleEditModel f51248a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ForumRuleEditModel forumRuleEditModel, int i2) {
@@ -64,7 +64,7 @@ public class ForumRuleEditModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f51133a = forumRuleEditModel;
+            this.f51248a = forumRuleEditModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,12 +73,12 @@ public class ForumRuleEditModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseHttpRorumRuleDraftMessage)) {
-                    this.f51133a.f51129e.draftCallback(0, null, "");
+                    this.f51248a.f51244e.draftCallback(0, null, "");
                     return;
                 }
                 ResponseHttpRorumRuleDraftMessage responseHttpRorumRuleDraftMessage = (ResponseHttpRorumRuleDraftMessage) httpResponsedMessage;
                 if (responseHttpRorumRuleDraftMessage != null) {
-                    this.f51133a.f51129e.draftCallback(responseHttpRorumRuleDraftMessage.getError(), responseHttpRorumRuleDraftMessage.getData(), responseHttpRorumRuleDraftMessage.getErrorString());
+                    this.f51248a.f51244e.draftCallback(responseHttpRorumRuleDraftMessage.getError(), responseHttpRorumRuleDraftMessage.getData(), responseHttpRorumRuleDraftMessage.getErrorString());
                 }
             }
         }
@@ -90,7 +90,7 @@ public class ForumRuleEditModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumRuleEditModel f51134a;
+        public final /* synthetic */ ForumRuleEditModel f51249a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ForumRuleEditModel forumRuleEditModel, int i2) {
@@ -110,7 +110,7 @@ public class ForumRuleEditModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f51134a = forumRuleEditModel;
+            this.f51249a = forumRuleEditModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,11 +118,11 @@ public class ForumRuleEditModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             ResponseHttpRorumRuleCommitMessage responseHttpRorumRuleCommitMessage;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseHttpRorumRuleCommitMessage) || (responseHttpRorumRuleCommitMessage = (ResponseHttpRorumRuleCommitMessage) httpResponsedMessage) == null || this.f51134a.f51130f == -1) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseHttpRorumRuleCommitMessage) || (responseHttpRorumRuleCommitMessage = (ResponseHttpRorumRuleCommitMessage) httpResponsedMessage) == null || this.f51249a.f51245f == -1) {
                 return;
             }
-            this.f51134a.f51129e.commitCallback(responseHttpRorumRuleCommitMessage.getError(), responseHttpRorumRuleCommitMessage.getErrorString(), this.f51134a.f51130f == 1);
-            this.f51134a.f51130f = -1;
+            this.f51249a.f51244e.commitCallback(responseHttpRorumRuleCommitMessage.getError(), responseHttpRorumRuleCommitMessage.getErrorString(), this.f51249a.f51245f == 1);
+            this.f51249a.f51245f = -1;
         }
     }
 
@@ -144,10 +144,10 @@ public class ForumRuleEditModel extends BdBaseModel {
                 return;
             }
         }
-        this.f51130f = -1;
-        this.f51131g = new a(this, CmdConfigHttp.CMD_FORUM_RULES_DRAFT);
-        this.f51132h = new b(this, CmdConfigHttp.CMD_FORUM_RULES_COMMIT);
-        this.f51129e = bVar;
+        this.f51245f = -1;
+        this.f51246g = new a(this, CmdConfigHttp.CMD_FORUM_RULES_DRAFT);
+        this.f51247h = new b(this, CmdConfigHttp.CMD_FORUM_RULES_COMMIT);
+        this.f51244e = bVar;
         B();
     }
 
@@ -163,10 +163,10 @@ public class ForumRuleEditModel extends BdBaseModel {
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.r0.j3.d0.a.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
-            c.a.r0.j3.d0.a.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
-            registerListener(this.f51131g);
-            registerListener(this.f51132h);
+            c.a.r0.j3.e0.a.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
+            c.a.r0.j3.e0.a.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
+            registerListener(this.f51246g);
+            registerListener(this.f51247h);
         }
     }
 
@@ -218,7 +218,7 @@ public class ForumRuleEditModel extends BdBaseModel {
             httpMessage.addParam("preface", forumRuleBaseData.getPreface());
             httpMessage.addParam("rules", C(forumRuleBaseData.getList()));
             httpMessage.addParam("is_draft", z ? 1 : 0);
-            this.f51130f = z ? 1 : 0;
+            this.f51245f = z ? 1 : 0;
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }

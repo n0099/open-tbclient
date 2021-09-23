@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.util.e;
+import com.alipay.sdk.util.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.CashierDataNew;
 import com.baidu.android.lbspay.GetPayOrderListener;
@@ -230,7 +230,7 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                 iChannelPay2.payCancel();
             }
         } else {
-            string.equalsIgnoreCase(e.f36070a);
+            string.equalsIgnoreCase(f.f36105j);
         }
     }
 
@@ -246,16 +246,16 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f36809a;
+            public final /* synthetic */ int f36857a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f36810b;
+            public final /* synthetic */ int f36858b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f36811c;
+            public final /* synthetic */ String f36859c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ PayChannelController f36812d;
+            public final /* synthetic */ PayChannelController f36860d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -272,17 +272,17 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                         return;
                     }
                 }
-                this.f36812d = this;
-                this.f36809a = i2;
-                this.f36810b = i3;
-                this.f36811c = str;
+                this.f36860d = this;
+                this.f36857a = i2;
+                this.f36858b = i3;
+                this.f36859c = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f36812d.handleFailure(this.f36809a, this.f36810b, this.f36811c);
+                    this.f36860d.handleFailure(this.f36857a, this.f36858b, this.f36859c);
                 }
             }
         });
@@ -300,16 +300,16 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f36805a;
+            public final /* synthetic */ int f36853a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Object f36806b;
+            public final /* synthetic */ Object f36854b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f36807c;
+            public final /* synthetic */ String f36855c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ PayChannelController f36808d;
+            public final /* synthetic */ PayChannelController f36856d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -326,17 +326,17 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                         return;
                     }
                 }
-                this.f36808d = this;
-                this.f36805a = i2;
-                this.f36806b = obj;
-                this.f36807c = str;
+                this.f36856d = this;
+                this.f36853a = i2;
+                this.f36854b = obj;
+                this.f36855c = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f36808d.handlerResponse(this.f36805a, this.f36806b, this.f36807c);
+                    this.f36856d.handlerResponse(this.f36853a, this.f36854b, this.f36855c);
                 }
             }
         });

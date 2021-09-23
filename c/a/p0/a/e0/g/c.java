@@ -23,7 +23,7 @@ public class c extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f5337c;
+    public a f5345c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(e eVar) {
@@ -51,7 +51,7 @@ public class c extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
                 return false;
             }
@@ -65,10 +65,10 @@ public class c extends a0 {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str2 = "handleSubAction subAction: " + str;
             }
-            if (!a0.f4766b) {
+            if (!a0.f4774b) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(403));
                 return false;
             }
@@ -87,10 +87,10 @@ public class c extends a0 {
                 c2 = 2;
             }
             if (c2 == 0) {
-                if (this.f5337c == null) {
-                    this.f5337c = new a();
+                if (this.f5345c == null) {
+                    this.f5345c = new a();
                 }
-                this.f5337c.h();
+                this.f5345c.h();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 c.a.p0.a.e0.d.g("SwanAppPropertyLogAction", " Start property log：");
                 return true;
@@ -102,30 +102,30 @@ public class c extends a0 {
                 if (optParamsAsJo == null) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
                 } else {
-                    if (this.f5337c != null) {
-                        this.f5337c.g(optParamsAsJo.optInt("duration"));
+                    if (this.f5345c != null) {
+                        this.f5345c.g(optParamsAsJo.optInt("duration"));
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 }
                 return true;
             } else {
                 JSONObject jSONObject = new JSONObject();
-                a aVar = this.f5337c;
+                a aVar = this.f5345c;
                 if (aVar == null) {
                     c.a.p0.a.e0.d.b("SwanAppPropertyLogAction", "Property log never start");
                 } else {
                     String i2 = aVar.i();
-                    this.f5337c = null;
+                    this.f5345c = null;
                     f.V().D();
                     try {
                         jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, f.V().D());
                         jSONObject.put("path", i2);
                     } catch (JSONException e2) {
-                        if (a0.f4766b) {
+                        if (a0.f4774b) {
                             e2.printStackTrace();
                         }
                     }
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         String str3 = "Video dispatch Params : " + jSONObject.toString();
                     }
                     c.a.p0.a.e0.d.g("SwanAppPropertyLogAction", "Stop property log");

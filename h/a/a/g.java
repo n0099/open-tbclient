@@ -10,13 +10,13 @@ public final class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f78429a;
+    public int f78748a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f78430b;
+    public int[] f78749b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f78431c;
+    public int[] f78750c;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -35,11 +35,11 @@ public final class g {
     public static void a(g gVar, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, gVar, aVar) == null) {
-            int length = gVar.f78431c.length;
+            int length = gVar.f78750c.length;
             int i2 = 0;
             for (int i3 = 0; i3 < length; i3++) {
-                gVar.f78431c[i3] = i2;
-                d.n(gVar.f78429a, gVar.f78430b, i2, aVar);
+                gVar.f78750c[i3] = i2;
+                d.n(gVar.f78748a, gVar.f78749b, i2, aVar);
                 i2 += 1080;
             }
         }
@@ -48,9 +48,9 @@ public final class g {
     public static void b(g gVar, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65538, null, gVar, i2, i3) == null) {
-            gVar.f78429a = i2;
-            gVar.f78430b = new int[i3 * 1080];
-            gVar.f78431c = new int[i3];
+            gVar.f78748a = i2;
+            gVar.f78749b = new int[i3 * 1080];
+            gVar.f78750c = new int[i3];
         }
     }
 }

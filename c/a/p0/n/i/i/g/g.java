@@ -12,13 +12,13 @@ public class g implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f11934e;
+    public b f11942e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f11935f;
+    public AtomicBoolean f11943f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f11936g;
+    public a f11944g;
 
     public g(AtomicBoolean atomicBoolean, b bVar, a aVar) {
         Interceptable interceptable = $ic;
@@ -35,25 +35,25 @@ public class g implements Runnable {
                 return;
             }
         }
-        this.f11935f = atomicBoolean;
-        this.f11934e = bVar;
-        this.f11936g = aVar;
+        this.f11943f = atomicBoolean;
+        this.f11942e = bVar;
+        this.f11944g = aVar;
     }
 
     public final <T> void a(f<T> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.f11934e.a(fVar);
+            this.f11942e.a(fVar);
             try {
                 try {
                     fVar.run();
                 } catch (Exception e2) {
-                    if (c.a.p0.n.c.f11856a) {
+                    if (c.a.p0.n.c.f11864a) {
                         String str = "run task error:" + e2.toString();
                     }
                 }
             } finally {
-                this.f11934e.b(fVar);
+                this.f11942e.b(fVar);
             }
         }
     }
@@ -63,11 +63,11 @@ public class g implements Runnable {
         Runnable a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.f11935f.get() && (a2 = this.f11936g.a(true)) != null && (a2 instanceof f)) {
+            while (!this.f11943f.get() && (a2 = this.f11944g.a(true)) != null && (a2 instanceof f)) {
                 try {
                     a((f) a2);
                 } catch (Throwable th) {
-                    if (c.a.p0.n.c.f11856a) {
+                    if (c.a.p0.n.c.f11864a) {
                         String str = "runTask error:" + th.toString();
                     }
                 }

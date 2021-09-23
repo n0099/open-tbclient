@@ -98,7 +98,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicActivity f52681a;
+        public final /* synthetic */ HotTopicActivity f52794a;
 
         public a(HotTopicActivity hotTopicActivity) {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                     return;
                 }
             }
-            this.f52681a = hotTopicActivity;
+            this.f52794a = hotTopicActivity;
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
@@ -141,7 +141,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicActivity f52682a;
+        public final /* synthetic */ HotTopicActivity f52795a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(HotTopicActivity hotTopicActivity, int i2, int i3) {
@@ -162,7 +162,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                     return;
                 }
             }
-            this.f52682a = hotTopicActivity;
+            this.f52795a = hotTopicActivity;
         }
 
         @Override // c.a.e.c.g.a
@@ -174,19 +174,19 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                 if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                     GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                     if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                        errorString2 = this.f52682a.getResources().getString(R.string.neterror);
+                        errorString2 = this.f52795a.getResources().getString(R.string.neterror);
                     } else {
                         errorString2 = getMyPostHttpResponseMessage.getErrorString();
                     }
-                    this.f52682a.handleGetMyPostResponse(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
+                    this.f52795a.handleGetMyPostResponse(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
                 } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                     GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                     if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                        errorString = this.f52682a.getResources().getString(R.string.neterror);
+                        errorString = this.f52795a.getResources().getString(R.string.neterror);
                     } else {
                         errorString = getMyPostSocketResponseMessage.getErrorString();
                     }
-                    this.f52682a.handleGetMyPostResponse(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
+                    this.f52795a.handleGetMyPostResponse(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
                 }
             }
         }
@@ -198,7 +198,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicActivity f52683a;
+        public final /* synthetic */ HotTopicActivity f52796a;
 
         public c(HotTopicActivity hotTopicActivity) {
             Interceptable interceptable = $ic;
@@ -215,19 +215,19 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                     return;
                 }
             }
-            this.f52683a = hotTopicActivity;
+            this.f52796a = hotTopicActivity;
         }
 
         @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (!AntiHelper.m(this.f52683a.likeModel.getErrorCode(), this.f52683a.likeModel.getErrorString())) {
-                    if (StringUtils.isNull(this.f52683a.likeModel.getErrorString())) {
+                if (!AntiHelper.m(this.f52796a.likeModel.getErrorCode(), this.f52796a.likeModel.getErrorString())) {
+                    if (StringUtils.isNull(this.f52796a.likeModel.getErrorString())) {
                         return;
                     }
-                    l.M(TbadkCoreApplication.getInst(), this.f52683a.likeModel.getErrorString());
-                } else if (AntiHelper.w(this.f52683a.getActivity(), this.f52683a.likeModel.getErrorString(), this.f52683a.likeModel.getErrorCode(), this.f52683a.mAntiInjectListener) != null) {
+                    l.M(TbadkCoreApplication.getInst(), this.f52796a.likeModel.getErrorString());
+                } else if (AntiHelper.w(this.f52796a.getActivity(), this.f52796a.likeModel.getErrorString(), this.f52796a.likeModel.getErrorCode(), this.f52796a.mAntiInjectListener) != null) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
                 }
             }
@@ -240,7 +240,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicActivity f52684e;
+        public final /* synthetic */ HotTopicActivity f52797e;
 
         public d(HotTopicActivity hotTopicActivity) {
             Interceptable interceptable = $ic;
@@ -257,7 +257,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                     return;
                 }
             }
-            this.f52684e = hotTopicActivity;
+            this.f52797e = hotTopicActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -265,7 +265,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                if (!ViewHelper.checkUpIsLogin(this.f52684e.getActivity())) {
+                if (!ViewHelper.checkUpIsLogin(this.f52797e.getActivity())) {
                 }
                 return true;
             }
@@ -279,7 +279,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicActivity f52685e;
+        public final /* synthetic */ HotTopicActivity f52798e;
 
         public e(HotTopicActivity hotTopicActivity) {
             Interceptable interceptable = $ic;
@@ -296,22 +296,22 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                     return;
                 }
             }
-            this.f52685e = hotTopicActivity;
+            this.f52798e = hotTopicActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f52685e.mainView.E(!z);
-                if (!z || this.f52685e.hotTopicModel == null || ListUtils.getItem(this.f52685e.mHotTopicDataList, this.f52685e.mainView.q()) == null) {
+                this.f52798e.mainView.E(!z);
+                if (!z || this.f52798e.hotTopicModel == null || ListUtils.getItem(this.f52798e.mHotTopicDataList, this.f52798e.mainView.q()) == null) {
                     return;
                 }
-                c.a.r0.i1.c.e eVar = (c.a.r0.i1.c.e) this.f52685e.mHotTopicDataList.get(this.f52685e.mainView.q());
+                c.a.r0.i1.c.e eVar = (c.a.r0.i1.c.e) this.f52798e.mHotTopicDataList.get(this.f52798e.mainView.q());
                 if (eVar == null || ListUtils.isEmpty(eVar.i())) {
-                    this.f52685e.mainView.x();
-                    this.f52685e.mainView.N();
-                    this.f52685e.loadHotTopicData();
+                    this.f52798e.mainView.x();
+                    this.f52798e.mainView.N();
+                    this.f52798e.loadHotTopicData();
                 }
             }
         }
@@ -463,7 +463,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
             } else {
                 list.clear();
             }
-            this.mDataList.add(new HotTopicBussinessData(0L, "", eVar.h().f19280f, this.mIsGlobalBlock));
+            this.mDataList.add(new HotTopicBussinessData(0L, "", eVar.h().f19295f, this.mIsGlobalBlock));
         }
     }
 
@@ -509,7 +509,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c13021");
-        statisticItem.param("tid", bVar.getThreadData().s1()).param("fid", bVar.getThreadData().T()).param("obj_source", bVar.getThreadData().W0).param("obj_locate", getFrom()).param("obj_name", getTopicName()).param(TiebaStatic.Params.OBJ_PARAM3, m.e()).param("ab_tag", bVar.g());
+        statisticItem.param("tid", bVar.getThreadData().s1()).param("fid", bVar.getThreadData().T()).param("obj_source", bVar.getThreadData().X0).param("obj_locate", getFrom()).param("obj_name", getTopicName()).param(TiebaStatic.Params.OBJ_PARAM3, m.e()).param("ab_tag", bVar.g());
         t.b().a(statisticItem);
     }
 
@@ -581,16 +581,16 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
             }
             StringBuilder sb = new StringBuilder();
             ShareFromTopicMsgData shareFromTopicMsgData = new ShareFromTopicMsgData();
-            shareFromTopicMsgData.setContent(h2.f19284j);
+            shareFromTopicMsgData.setContent(h2.f19299j);
             shareFromTopicMsgData.setImageUrl(h2.k);
-            shareFromTopicMsgData.setTitle(h2.f19280f);
-            shareFromTopicMsgData.setHotTopicID(h2.f19279e);
-            shareFromTopicMsgData.setHotTopicName(h2.f19280f);
+            shareFromTopicMsgData.setTitle(h2.f19295f);
+            shareFromTopicMsgData.setHotTopicID(h2.f19294e);
+            shareFromTopicMsgData.setHotTopicName(h2.f19295f);
             sb.append(TbDomainConfig.DOMAIN_HTTPS_TIEBA);
             sb.append("mo/q/hotMessage?topic_id=");
-            sb.append(h2.f19279e);
+            sb.append(h2.f19294e);
             sb.append("&topic_name=");
-            sb.append(h2.f19280f);
+            sb.append(h2.f19295f);
             shareFromTopicMsgData.setLinkUrl(sb.toString());
             return shareFromTopicMsgData;
         }
@@ -638,7 +638,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     public void hotRelateThreadCallback(boolean z, c.a.r0.i1.c.d dVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), dVar, Integer.valueOf(i2)}) == null) {
-            if (z && dVar != null && !ListUtils.isEmpty(this.mHotTopicDataList) && ListUtils.getCount(dVar.W3) != 0) {
+            if (z && dVar != null && !ListUtils.isEmpty(this.mHotTopicDataList) && ListUtils.getCount(dVar.X3) != 0) {
                 c.a.r0.i1.c.e eVar = (c.a.r0.i1.c.e) ListUtils.getItem(this.mHotTopicDataList, getTabPosBySortType(i2));
                 if (eVar == null) {
                     this.mainView.w(getTabPosBySortType(i2));
@@ -646,7 +646,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
                 }
                 eVar.a(dVar);
                 this.mainView.A(this.mHotTopicDataList);
-                updateReqPageInfo(i2, dVar.X3);
+                updateReqPageInfo(i2, dVar.Y3);
                 return;
             }
             this.mainView.w(getTabPosBySortType(i2));
@@ -684,9 +684,9 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
             if (eVar.c() != null && eVar.d() != null) {
                 this.mainView.y(8, true, 0L, 0);
             } else if (eVar.c() != null) {
-                this.mainView.y(0, true, eVar.c().f19252e, eVar.c().f19253f);
+                this.mainView.y(0, true, eVar.c().f19267e, eVar.c().f19268f);
             } else if (eVar.d() != null) {
-                this.mainView.y(0, false, eVar.d().f19252e, eVar.d().f19253f);
+                this.mainView.y(0, false, eVar.d().f19267e, eVar.d().f19268f);
             }
             this.mainView.A(this.mHotTopicDataList);
             this.mainView.L(eVar);
@@ -879,9 +879,9 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         c.a.r0.i1.c.a c2 = this.mHotTopicDataList.get(0).c();
         c.a.r0.i1.c.a d2 = this.mHotTopicDataList.get(0).d();
         if (c2 != null) {
-            this.blessModel.w(c2.f19254g, Long.parseLong(this.topicId), 1, 0, 1, c2.f19255h);
+            this.blessModel.w(c2.f19269g, Long.parseLong(this.topicId), 1, 0, 1, c2.f19270h);
         } else if (d2 != null) {
-            this.blessModel.w(d2.f19254g, Long.parseLong(this.topicId), 1, 0, 1, d2.f19255h);
+            this.blessModel.w(d2.f19269g, Long.parseLong(this.topicId), 1, 0, 1, d2.f19270h);
         }
     }
 
@@ -900,6 +900,6 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         if (!(interceptable == null || interceptable.invokeV(1048605, this) == null) || ListUtils.isEmpty(this.mHotTopicDataList) || (h2 = this.mHotTopicDataList.get(0).h()) == null) {
             return;
         }
-        this.hotTopicShareModel.e(h2.f19279e, h2.f19280f, null, h2.k, h2.f19284j, true);
+        this.hotTopicShareModel.e(h2.f19294e, h2.f19295f, null, h2.k, h2.f19299j, true);
     }
 }

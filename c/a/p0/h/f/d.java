@@ -26,14 +26,14 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11202b;
+    public static final boolean f11210b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f11203c;
+    public static d f11211c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f11204a;
+    public boolean f11212a;
 
     /* loaded from: classes3.dex */
     public class a implements e.c {
@@ -41,16 +41,16 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ File f11205a;
+        public final /* synthetic */ File f11213a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f11206b;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f11214b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f11207c;
+        public final /* synthetic */ boolean f11215c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d f11208d;
+        public final /* synthetic */ d f11216d;
 
         public a(d dVar, File file, c.a.p0.a.v2.e1.b bVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -67,18 +67,18 @@ public class d {
                     return;
                 }
             }
-            this.f11208d = dVar;
-            this.f11205a = file;
-            this.f11206b = bVar;
-            this.f11207c = z;
+            this.f11216d = dVar;
+            this.f11213a = file;
+            this.f11214b = bVar;
+            this.f11215c = z;
         }
 
         @Override // c.a.p0.a.a1.e.c
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11206b.onCallback(Boolean.FALSE);
-                this.f11208d.f11204a = this.f11207c;
+                this.f11214b.onCallback(Boolean.FALSE);
+                this.f11216d.f11212a = this.f11215c;
             }
         }
 
@@ -93,19 +93,19 @@ public class d {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                File k = this.f11208d.k();
+                File k = this.f11216d.k();
                 if (k.exists()) {
                     c.a.p0.t.d.i(k);
                 }
-                boolean T = c.a.p0.t.d.T(this.f11205a.getAbsolutePath(), k.getAbsolutePath());
+                boolean T = c.a.p0.t.d.T(this.f11213a.getAbsolutePath(), k.getAbsolutePath());
                 if (T) {
-                    this.f11208d.r();
+                    this.f11216d.r();
                     Date date = new Date();
-                    this.f11208d.q(k.e(date, "'debug'-HH:mm:ss"), date.getTime());
+                    this.f11216d.q(k.e(date, "'debug'-HH:mm:ss"), date.getTime());
                 }
-                c.a.p0.t.d.i(this.f11205a);
-                this.f11206b.onCallback(Boolean.valueOf(T));
-                this.f11208d.f11204a = this.f11207c;
+                c.a.p0.t.d.i(this.f11213a);
+                this.f11214b.onCallback(Boolean.valueOf(T));
+                this.f11216d.f11212a = this.f11215c;
             }
         }
     }
@@ -116,10 +116,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f11209e;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f11217e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f11210f;
+        public final /* synthetic */ d f11218f;
 
         public b(d dVar, c.a.p0.a.v2.e1.b bVar) {
             Interceptable interceptable = $ic;
@@ -136,15 +136,15 @@ public class d {
                     return;
                 }
             }
-            this.f11210f = dVar;
-            this.f11209e = bVar;
+            this.f11218f = dVar;
+            this.f11217e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11209e.onCallback(Boolean.valueOf(this.f11210f.n()));
+                this.f11217e.onCallback(Boolean.valueOf(this.f11218f.n()));
             }
         }
     }
@@ -194,10 +194,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f11211a;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f11219a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f11212b;
+        public final /* synthetic */ d f11220b;
 
         /* renamed from: c.a.p0.h.f.d$d$a */
         /* loaded from: classes3.dex */
@@ -206,7 +206,7 @@ public class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0569d f11213e;
+            public final /* synthetic */ C0569d f11221e;
 
             public a(C0569d c0569d) {
                 Interceptable interceptable = $ic;
@@ -223,15 +223,15 @@ public class d {
                         return;
                     }
                 }
-                this.f11213e = c0569d;
+                this.f11221e = c0569d;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    C0569d c0569d = this.f11213e;
-                    c0569d.f11211a.onCallback(Boolean.valueOf(c0569d.f11212b.n()));
+                    C0569d c0569d = this.f11221e;
+                    c0569d.f11219a.onCallback(Boolean.valueOf(c0569d.f11220b.n()));
                 }
             }
         }
@@ -251,15 +251,15 @@ public class d {
                     return;
                 }
             }
-            this.f11212b = dVar;
-            this.f11211a = bVar;
+            this.f11220b = dVar;
+            this.f11219a = bVar;
         }
 
         @Override // c.a.p0.h.f.b
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f11212b.r();
+                this.f11220b.r();
                 q0.b0(new a(this));
             }
         }
@@ -278,7 +278,7 @@ public class d {
                 return;
             }
         }
-        f11202b = c.a.p0.a.k.f7077a;
+        f11210b = c.a.p0.a.k.f7085a;
     }
 
     public d() {
@@ -294,32 +294,32 @@ public class d {
                 return;
             }
         }
-        this.f11204a = f11202b && c.a.p0.a.u1.a.a.u();
+        this.f11212a = f11210b && c.a.p0.a.u1.a.a.u();
     }
 
     public static d m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f11203c == null) {
+            if (f11211c == null) {
                 synchronized (d.class) {
-                    if (f11203c == null) {
-                        f11203c = new d();
+                    if (f11211c == null) {
+                        f11211c = new d();
                     }
                 }
             }
-            return f11203c;
+            return f11211c;
         }
         return (d) invokeV.objValue;
     }
 
     public void c(String str, c.a.p0.a.v2.e1.b<Boolean> bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, bVar) == null) && f11202b) {
-            boolean z = this.f11204a;
-            this.f11204a = true;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, bVar) == null) && f11210b) {
+            boolean z = this.f11212a;
+            this.f11212a = true;
             e.d dVar = new e.d();
-            dVar.f4497a = str;
+            dVar.f4505a = str;
             File g2 = g();
             new c.a.p0.a.k0.a().e(dVar, g2.getAbsolutePath(), new a(this, g2, bVar, z));
         }
@@ -346,7 +346,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             File file = new File(c.a.p0.h.s.a.d(), "game_core_console");
-            if (f11202b && this.f11204a) {
+            if (f11210b && this.f11212a) {
                 file = new File(file, "debug");
             }
             if (!file.exists()) {
@@ -376,7 +376,7 @@ public class d {
             try {
                 return h().toURI().toURL().toString();
             } catch (Exception e2) {
-                if (f11202b) {
+                if (f11210b) {
                     String str = "getGameConsoleHtmlUrl:" + e2;
                     return "";
                 }
@@ -413,7 +413,7 @@ public class d {
     public void o(@NonNull c.a.p0.a.v2.e1.b<Boolean> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            if (f11202b && this.f11204a) {
+            if (f11210b && this.f11212a) {
                 q0.b0(new b(this, bVar));
             } else {
                 c.a.p0.n.b.e(new c.a.p0.n.i.m.a(e(), d()), new c.a.p0.h.f.j.a(new c(this), new C0569d(this, bVar)));

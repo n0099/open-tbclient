@@ -19,7 +19,7 @@ public class e implements b<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f12394a;
+    public Context f12402a;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public class e implements b<String> {
                 return;
             }
         }
-        this.f12394a = context.getApplicationContext();
+        this.f12402a = context.getApplicationContext();
     }
 
     @Override // c.a.p0.u.c.b
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !new File(this.f12394a.getFilesDir(), "libuuid.so").exists() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !new File(this.f12402a.getFilesDir(), "libuuid.so").exists() : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public class e implements b<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File file = new File(this.f12394a.getFilesDir(), "libuuid.so");
+            File file = new File(this.f12402a.getFilesDir(), "libuuid.so");
             if (file.exists()) {
                 return c.a.p0.u.d.a.c(file);
             }
@@ -83,12 +83,12 @@ public class e implements b<String> {
     public final void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            File file = new File(this.f12394a.getFilesDir(), "libuuid.so");
+            File file = new File(this.f12402a.getFilesDir(), "libuuid.so");
             int i2 = Build.VERSION.SDK_INT >= 24 ? 1 : 0;
             FileOutputStream fileOutputStream = null;
             try {
                 try {
-                    fileOutputStream = this.f12394a.openFileOutput("libuuid.so", i2 ^ 1);
+                    fileOutputStream = this.f12402a.openFileOutput("libuuid.so", i2 ^ 1);
                     fileOutputStream.write(str.getBytes());
                     fileOutputStream.flush();
                 } catch (Exception e2) {

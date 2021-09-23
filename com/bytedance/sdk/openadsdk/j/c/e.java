@@ -11,7 +11,7 @@ public class e implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f67961a;
+    public static volatile e f68272a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public e() {
@@ -32,14 +32,14 @@ public class e implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f67961a == null) {
+            if (f68272a == null) {
                 synchronized (e.class) {
-                    if (f67961a == null) {
-                        f67961a = new e();
+                    if (f68272a == null) {
+                        f68272a = new e();
                     }
                 }
             }
-            return f67961a;
+            return f68272a;
         }
         return (e) invokeV.objValue;
     }

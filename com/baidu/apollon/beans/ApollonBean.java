@@ -137,13 +137,13 @@ public abstract class ApollonBean<T> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Class f37822a;
+                public final /* synthetic */ Class f37870a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Class f37823b;
+                public final /* synthetic */ Class f37871b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ApollonBean f37824c;
+                public final /* synthetic */ ApollonBean f37872c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -160,9 +160,9 @@ public abstract class ApollonBean<T> {
                             return;
                         }
                     }
-                    this.f37824c = this;
-                    this.f37822a = cls;
-                    this.f37823b = cls2;
+                    this.f37872c = this;
+                    this.f37870a = cls;
+                    this.f37871b = cls2;
                 }
 
                 @Override // java.lang.Runnable
@@ -171,13 +171,13 @@ public abstract class ApollonBean<T> {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             try {
-                                this.f37824c.prepareRestTemplate();
-                                this.f37824c.executeAndHandleResponse(this.f37822a, this.f37823b);
+                                this.f37872c.prepareRestTemplate();
+                                this.f37872c.executeAndHandleResponse(this.f37870a, this.f37871b);
                             } catch (Exception e2) {
-                                this.f37824c.handleCommonErrors(e2);
+                                this.f37872c.handleCommonErrors(e2);
                             }
                         } finally {
-                            this.f37824c.mRspCallback = null;
+                            this.f37872c.mRspCallback = null;
                         }
                     }
                 }

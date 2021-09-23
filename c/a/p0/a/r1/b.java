@@ -15,13 +15,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, Map<String, HybridUbcFlow>> f8336a;
+    public final Map<String, Map<String, HybridUbcFlow>> f8344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, c.a.p0.a.v2.e1.b<HybridUbcFlow>> f8337b;
+    public final Map<String, c.a.p0.a.v2.e1.b<HybridUbcFlow>> f8345b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.p0.a.v2.e1.b<HybridUbcFlow> f8338c;
+    public final c.a.p0.a.v2.e1.b<HybridUbcFlow> f8346c;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
@@ -29,7 +29,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f8339e;
+        public final /* synthetic */ b f8347e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class b {
                     return;
                 }
             }
-            this.f8339e = bVar;
+            this.f8347e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class b {
         public void onCallback(HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
-                this.f8339e.g(hybridUbcFlow.p);
+                this.f8347e.g(hybridUbcFlow.p);
             }
         }
     }
@@ -73,9 +73,9 @@ public class b {
                 return;
             }
         }
-        this.f8336a = new HashMap();
-        this.f8337b = new HashMap();
-        this.f8338c = new a(this);
+        this.f8344a = new HashMap();
+        this.f8345b = new HashMap();
+        this.f8346c = new a(this);
     }
 
     public final HybridUbcFlow a(String str) {
@@ -83,8 +83,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
-            hybridUbcFlow.E("callback_on_submit", this.f8338c);
-            c.a.p0.a.v2.e1.b<HybridUbcFlow> bVar = this.f8337b.get(str);
+            hybridUbcFlow.E("callback_on_submit", this.f8346c);
+            c.a.p0.a.v2.e1.b<HybridUbcFlow> bVar = this.f8345b.get(str);
             if (bVar != null) {
                 bVar.onCallback(hybridUbcFlow);
             }
@@ -103,8 +103,8 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            synchronized (this.f8336a) {
-                Map<String, HybridUbcFlow> map = this.f8336a.get(str);
+            synchronized (this.f8344a) {
+                Map<String, HybridUbcFlow> map = this.f8344a.get(str);
                 if (map == null) {
                     return null;
                 }
@@ -118,8 +118,8 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, bVar)) == null) {
-            synchronized (this.f8337b) {
-                this.f8337b.put(str, bVar);
+            synchronized (this.f8345b) {
+                this.f8345b.put(str, bVar);
             }
             return this;
         }
@@ -144,13 +144,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
             synchronized (this) {
-                synchronized (this.f8336a) {
-                    Map<String, HybridUbcFlow> map = this.f8336a.get(str);
+                synchronized (this.f8344a) {
+                    Map<String, HybridUbcFlow> map = this.f8344a.get(str);
                     if (map == null) {
                         HashMap hashMap = new HashMap();
                         HybridUbcFlow a2 = a(str);
                         hashMap.put(str2, a2);
-                        this.f8336a.put(str, hashMap);
+                        this.f8344a.put(str, hashMap);
                         return a2;
                     }
                     HybridUbcFlow hybridUbcFlow = map.get(str2);
@@ -169,8 +169,8 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            synchronized (this.f8336a) {
-                this.f8336a.remove(str);
+            synchronized (this.f8344a) {
+                this.f8344a.remove(str);
             }
             return this;
         }
@@ -181,8 +181,8 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            synchronized (this.f8336a) {
-                Map<String, HybridUbcFlow> map = this.f8336a.get(str);
+            synchronized (this.f8344a) {
+                Map<String, HybridUbcFlow> map = this.f8344a.get(str);
                 if (map != null) {
                     map.remove(str2);
                 }

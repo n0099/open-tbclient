@@ -44,7 +44,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumRulesShowActivity f51122a;
+        public final /* synthetic */ ForumRulesShowActivity f51237a;
 
         public a(ForumRulesShowActivity forumRulesShowActivity) {
             Interceptable interceptable = $ic;
@@ -61,81 +61,81 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
                     return;
                 }
             }
-            this.f51122a = forumRulesShowActivity;
+            this.f51237a = forumRulesShowActivity;
         }
 
         @Override // c.a.r0.w0.q1.b.a
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f51122a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f51237a.mView == null) {
                 return;
             }
-            this.f51122a.mView.k();
-            this.f51122a.mView.v();
-            ForumRulesShowActivity forumRulesShowActivity = this.f51122a;
+            this.f51237a.mView.k();
+            this.f51237a.mView.v();
+            ForumRulesShowActivity forumRulesShowActivity = this.f51237a;
             forumRulesShowActivity.showNetRefreshView(forumRulesShowActivity.mView.i(), "");
         }
 
         @Override // c.a.r0.w0.q1.b.a
         public void b(c.a.r0.w0.q1.c.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || this.f51122a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || this.f51237a.mView == null) {
                 return;
             }
-            this.f51122a.mView.e(aVar);
+            this.f51237a.mView.e(aVar);
         }
 
         @Override // c.a.r0.w0.q1.b.a
         public void c(List<c.a.r0.w0.q1.c.c> list) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || this.f51122a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || this.f51237a.mView == null) {
                 return;
             }
-            this.f51122a.mView.f(list);
+            this.f51237a.mView.f(list);
         }
 
         @Override // c.a.r0.w0.q1.b.a
         public void d(boolean z, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZL(1048579, this, z, str) == null) || this.f51122a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeZL(1048579, this, z, str) == null) || this.f51237a.mView == null) {
                 return;
             }
             if (z) {
-                this.f51122a.mView.x(str);
+                this.f51237a.mView.x(str);
             } else {
-                this.f51122a.mView.n();
+                this.f51237a.mView.n();
             }
         }
 
         @Override // c.a.r0.w0.q1.b.a
         public void e(c.a.r0.w0.q1.c.b bVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || this.f51122a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || this.f51237a.mView == null) {
                 return;
             }
-            this.f51122a.mView.d(bVar);
+            this.f51237a.mView.d(bVar);
         }
 
         @Override // c.a.r0.w0.q1.b.a
         public void f(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f51122a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f51237a.mView == null) {
                 return;
             }
-            this.f51122a.mView.g(str);
+            this.f51237a.mView.g(str);
         }
 
         @Override // c.a.r0.w0.q1.b.a
         public void finish() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f51122a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f51237a.mView == null) {
                 return;
             }
-            ForumRulesShowActivity forumRulesShowActivity = this.f51122a;
+            ForumRulesShowActivity forumRulesShowActivity = this.f51237a;
             forumRulesShowActivity.hideNetRefreshView(forumRulesShowActivity.mView.i());
-            this.f51122a.mView.l();
-            this.f51122a.mView.u();
-            this.f51122a.mView.r();
+            this.f51237a.mView.l();
+            this.f51237a.mView.u();
+            this.f51237a.mView.r();
         }
     }
 
@@ -145,7 +145,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumRulesShowActivity f51123a;
+        public final /* synthetic */ ForumRulesShowActivity f51238a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ForumRulesShowActivity forumRulesShowActivity, int i2) {
@@ -165,7 +165,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
                     return;
                 }
             }
-            this.f51123a = forumRulesShowActivity;
+            this.f51238a = forumRulesShowActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -174,7 +174,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof e.a)) {
                 e.a aVar = (e.a) customResponsedMessage.getData();
-                e.b(this.f51123a.getPageContext(), aVar.f13263a, aVar.f13264b, aVar.f13265c);
+                e.b(this.f51238a.getPageContext(), aVar.f13280a, aVar.f13281b, aVar.f13282c);
             }
         }
     }

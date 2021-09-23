@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.json.JSONArray;
@@ -26,7 +27,7 @@ public class c extends c.a.p0.h.z.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.a.l0.c f11644b;
+    public c.a.p0.a.l0.c f11652b;
 
     /* loaded from: classes3.dex */
     public class a extends ResponseCallback<JSONObject> {
@@ -34,13 +35,13 @@ public class c extends c.a.p0.h.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.h.z.g.c f11645a;
+        public final /* synthetic */ c.a.p0.h.z.g.c f11653a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.y.b.a f11646b;
+        public final /* synthetic */ c.a.p0.a.y.b.a f11654b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f11647c;
+        public final /* synthetic */ c f11655c;
 
         /* renamed from: c.a.p0.h.z.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
@@ -49,10 +50,10 @@ public class c extends c.a.p0.h.z.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f11648e;
+            public final /* synthetic */ JSONObject f11656e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f11649f;
+            public final /* synthetic */ a f11657f;
 
             public RunnableC0607a(a aVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
@@ -69,15 +70,15 @@ public class c extends c.a.p0.h.z.a {
                         return;
                     }
                 }
-                this.f11649f = aVar;
-                this.f11648e = jSONObject;
+                this.f11657f = aVar;
+                this.f11656e = jSONObject;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.p0.h.m0.c.a(this.f11649f.f11646b, true, this.f11648e);
+                    c.a.p0.h.m0.c.a(this.f11657f.f11654b, true, this.f11656e);
                 }
             }
         }
@@ -88,7 +89,7 @@ public class c extends c.a.p0.h.z.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f11650e;
+            public final /* synthetic */ a f11658e;
 
             public b(a aVar) {
                 Interceptable interceptable = $ic;
@@ -105,15 +106,15 @@ public class c extends c.a.p0.h.z.a {
                         return;
                     }
                 }
-                this.f11650e = aVar;
+                this.f11658e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.f11650e;
-                    c.a.p0.h.m0.c.a(aVar.f11646b, false, aVar.f11645a);
+                    a aVar = this.f11658e;
+                    c.a.p0.h.m0.c.a(aVar.f11654b, false, aVar.f11653a);
                 }
             }
         }
@@ -133,9 +134,9 @@ public class c extends c.a.p0.h.z.a {
                     return;
                 }
             }
-            this.f11647c = cVar;
-            this.f11645a = cVar2;
-            this.f11646b = aVar;
+            this.f11655c = cVar;
+            this.f11653a = cVar2;
+            this.f11654b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -144,8 +145,8 @@ public class c extends c.a.p0.h.z.a {
         public void onSuccess(JSONObject jSONObject, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
-                boolean z = c.a.p0.h.z.a.f11636a;
-                this.f11647c.f11644b.post(new RunnableC0607a(this, jSONObject));
+                boolean z = c.a.p0.h.z.a.f11644a;
+                this.f11655c.f11652b.post(new RunnableC0607a(this, jSONObject));
             }
         }
 
@@ -161,23 +162,23 @@ public class c extends c.a.p0.h.z.a {
                     return null;
                 }
                 String string = body.string();
-                if (c.a.p0.h.z.a.f11636a) {
+                if (c.a.p0.h.z.a.f11644a) {
                     String str = "parse response: " + string;
                 }
                 JSONObject jSONObject = new JSONObject(string);
                 String optString = jSONObject.optString("errno");
                 if (!TextUtils.equals(optString, "0")) {
-                    if (c.a.p0.h.z.a.f11636a) {
+                    if (c.a.p0.h.z.a.f11644a) {
                         String str2 = "errno = " + optString;
                     }
-                    c.a.p0.h.z.g.c cVar = this.f11645a;
+                    c.a.p0.h.z.g.c cVar = this.f11653a;
                     cVar.errNo = optString;
                     cVar.errMsg = String.format("%s: fail Error: %s", "getUserInfo", jSONObject.optString("errmsg"));
                     return null;
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("errNo", "0");
-                jSONObject2.put("errMsg", c.a.p0.h.m0.c.c("getUserInfo", "ok"));
+                jSONObject2.put("errMsg", c.a.p0.h.m0.c.c("getUserInfo", NewBindCardEntry.BING_CARD_SUCCESS_MSG));
                 jSONObject2.put("data", jSONObject.optJSONArray("data"));
                 return jSONObject2;
             }
@@ -188,15 +189,15 @@ public class c extends c.a.p0.h.z.a {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                if (c.a.p0.h.z.a.f11636a) {
+                if (c.a.p0.h.z.a.f11644a) {
                     exc.printStackTrace();
                 }
-                if (TextUtils.isEmpty(this.f11645a.errMsg)) {
-                    c.a.p0.h.z.g.c cVar = this.f11645a;
+                if (TextUtils.isEmpty(this.f11653a.errMsg)) {
+                    c.a.p0.h.z.g.c cVar = this.f11653a;
                     cVar.errNo = "100";
                     cVar.errMsg = String.format("%s: fail Error: %s", "getUserInfo", exc.getMessage());
                 }
-                this.f11647c.f11644b.post(new b(this));
+                this.f11655c.f11652b.post(new b(this));
             }
         }
     }
@@ -207,13 +208,13 @@ public class c extends c.a.p0.h.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.h.z.g.c f11651a;
+        public final /* synthetic */ c.a.p0.h.z.g.c f11659a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.y.b.a f11652b;
+        public final /* synthetic */ c.a.p0.a.y.b.a f11660b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f11653c;
+        public final /* synthetic */ c f11661c;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
@@ -221,10 +222,10 @@ public class c extends c.a.p0.h.z.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.p0.h.z.g.c f11654e;
+            public final /* synthetic */ c.a.p0.h.z.g.c f11662e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f11655f;
+            public final /* synthetic */ b f11663f;
 
             public a(b bVar, c.a.p0.h.z.g.c cVar) {
                 Interceptable interceptable = $ic;
@@ -241,15 +242,15 @@ public class c extends c.a.p0.h.z.a {
                         return;
                     }
                 }
-                this.f11655f = bVar;
-                this.f11654e = cVar;
+                this.f11663f = bVar;
+                this.f11662e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.p0.h.m0.c.a(this.f11655f.f11652b, true, this.f11654e);
+                    c.a.p0.h.m0.c.a(this.f11663f.f11660b, true, this.f11662e);
                 }
             }
         }
@@ -261,7 +262,7 @@ public class c extends c.a.p0.h.z.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f11656e;
+            public final /* synthetic */ b f11664e;
 
             public RunnableC0608b(b bVar) {
                 Interceptable interceptable = $ic;
@@ -278,15 +279,15 @@ public class c extends c.a.p0.h.z.a {
                         return;
                     }
                 }
-                this.f11656e = bVar;
+                this.f11664e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.f11656e;
-                    c.a.p0.h.m0.c.a(bVar.f11652b, false, bVar.f11651a);
+                    b bVar = this.f11664e;
+                    c.a.p0.h.m0.c.a(bVar.f11660b, false, bVar.f11659a);
                 }
             }
         }
@@ -306,9 +307,9 @@ public class c extends c.a.p0.h.z.a {
                     return;
                 }
             }
-            this.f11653c = cVar;
-            this.f11651a = cVar2;
-            this.f11652b = aVar;
+            this.f11661c = cVar;
+            this.f11659a = cVar2;
+            this.f11660b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -317,8 +318,8 @@ public class c extends c.a.p0.h.z.a {
         public void onSuccess(c.a.p0.h.z.g.c cVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, cVar, i2) == null) {
-                boolean z = c.a.p0.h.z.a.f11636a;
-                this.f11653c.f11644b.post(new a(this, cVar));
+                boolean z = c.a.p0.h.z.a.f11644a;
+                this.f11661c.f11652b.post(new a(this, cVar));
             }
         }
 
@@ -334,24 +335,24 @@ public class c extends c.a.p0.h.z.a {
                     return null;
                 }
                 String string = body.string();
-                if (c.a.p0.h.z.a.f11636a) {
+                if (c.a.p0.h.z.a.f11644a) {
                     String str = "parse response: " + string;
                 }
                 JSONObject jSONObject = new JSONObject(string);
                 String optString = jSONObject.optString("errno");
                 if (!TextUtils.equals(optString, "0")) {
-                    if (c.a.p0.h.z.a.f11636a) {
+                    if (c.a.p0.h.z.a.f11644a) {
                         String str2 = "errno = " + optString;
                     }
-                    c.a.p0.h.z.g.c cVar = this.f11651a;
+                    c.a.p0.h.z.g.c cVar = this.f11659a;
                     cVar.errNo = optString;
                     cVar.errMsg = String.format("%s: fail Error: %s", "removeUserCloudStorage", jSONObject.optString("errmsg"));
                     return null;
                 }
-                c.a.p0.h.z.g.c cVar2 = this.f11651a;
+                c.a.p0.h.z.g.c cVar2 = this.f11659a;
                 cVar2.errNo = "0";
-                cVar2.errMsg = c.a.p0.h.m0.c.c("removeUserCloudStorage", "ok");
-                return this.f11651a;
+                cVar2.errMsg = c.a.p0.h.m0.c.c("removeUserCloudStorage", NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+                return this.f11659a;
             }
             return (c.a.p0.h.z.g.c) invokeLI.objValue;
         }
@@ -360,15 +361,15 @@ public class c extends c.a.p0.h.z.a {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                if (c.a.p0.h.z.a.f11636a) {
+                if (c.a.p0.h.z.a.f11644a) {
                     exc.printStackTrace();
                 }
-                if (TextUtils.isEmpty(this.f11651a.errMsg)) {
-                    c.a.p0.h.z.g.c cVar = this.f11651a;
+                if (TextUtils.isEmpty(this.f11659a.errMsg)) {
+                    c.a.p0.h.z.g.c cVar = this.f11659a;
                     cVar.errNo = "100";
                     cVar.errMsg = String.format("%s: fail Error: %s", "removeUserCloudStorage", exc.getMessage());
                 }
-                this.f11653c.f11644b.post(new RunnableC0608b(this));
+                this.f11661c.f11652b.post(new RunnableC0608b(this));
             }
         }
     }
@@ -380,13 +381,13 @@ public class c extends c.a.p0.h.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.h.z.g.c f11657a;
+        public final /* synthetic */ c.a.p0.h.z.g.c f11665a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.y.b.a f11658b;
+        public final /* synthetic */ c.a.p0.a.y.b.a f11666b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f11659c;
+        public final /* synthetic */ c f11667c;
 
         /* renamed from: c.a.p0.h.z.c$c$a */
         /* loaded from: classes3.dex */
@@ -395,10 +396,10 @@ public class c extends c.a.p0.h.z.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f11660e;
+            public final /* synthetic */ JSONObject f11668e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ C0609c f11661f;
+            public final /* synthetic */ C0609c f11669f;
 
             public a(C0609c c0609c, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
@@ -415,15 +416,15 @@ public class c extends c.a.p0.h.z.a {
                         return;
                     }
                 }
-                this.f11661f = c0609c;
-                this.f11660e = jSONObject;
+                this.f11669f = c0609c;
+                this.f11668e = jSONObject;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.p0.h.m0.c.a(this.f11661f.f11658b, true, this.f11660e);
+                    c.a.p0.h.m0.c.a(this.f11669f.f11666b, true, this.f11668e);
                 }
             }
         }
@@ -435,7 +436,7 @@ public class c extends c.a.p0.h.z.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0609c f11662e;
+            public final /* synthetic */ C0609c f11670e;
 
             public b(C0609c c0609c) {
                 Interceptable interceptable = $ic;
@@ -452,15 +453,15 @@ public class c extends c.a.p0.h.z.a {
                         return;
                     }
                 }
-                this.f11662e = c0609c;
+                this.f11670e = c0609c;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    C0609c c0609c = this.f11662e;
-                    c.a.p0.h.m0.c.a(c0609c.f11658b, false, c0609c.f11657a);
+                    C0609c c0609c = this.f11670e;
+                    c.a.p0.h.m0.c.a(c0609c.f11666b, false, c0609c.f11665a);
                 }
             }
         }
@@ -480,9 +481,9 @@ public class c extends c.a.p0.h.z.a {
                     return;
                 }
             }
-            this.f11659c = cVar;
-            this.f11657a = cVar2;
-            this.f11658b = aVar;
+            this.f11667c = cVar;
+            this.f11665a = cVar2;
+            this.f11666b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -491,8 +492,8 @@ public class c extends c.a.p0.h.z.a {
         public void onSuccess(JSONObject jSONObject, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
-                boolean z = c.a.p0.h.z.a.f11636a;
-                this.f11659c.f11644b.post(new a(this, jSONObject));
+                boolean z = c.a.p0.h.z.a.f11644a;
+                this.f11667c.f11652b.post(new a(this, jSONObject));
             }
         }
 
@@ -508,23 +509,23 @@ public class c extends c.a.p0.h.z.a {
                     return null;
                 }
                 String string = body.string();
-                if (c.a.p0.h.z.a.f11636a) {
+                if (c.a.p0.h.z.a.f11644a) {
                     String str = "parse response: " + string;
                 }
                 JSONObject jSONObject = new JSONObject(string);
                 String optString = jSONObject.optString("errno");
                 if (!TextUtils.equals(optString, "0")) {
-                    if (c.a.p0.h.z.a.f11636a) {
+                    if (c.a.p0.h.z.a.f11644a) {
                         String str2 = "errno = " + optString;
                     }
-                    c.a.p0.h.z.g.c cVar = this.f11657a;
+                    c.a.p0.h.z.g.c cVar = this.f11665a;
                     cVar.errNo = optString;
                     cVar.errMsg = String.format("%s: fail Error: %s", "getUserCloudStorage", jSONObject.optString("errmsg"));
                     return null;
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("errNo", "0");
-                jSONObject2.put("errMsg", c.a.p0.h.m0.c.c("getUserCloudStorage", "ok"));
+                jSONObject2.put("errMsg", c.a.p0.h.m0.c.c("getUserCloudStorage", NewBindCardEntry.BING_CARD_SUCCESS_MSG));
                 jSONObject2.put("KVDataList", jSONObject.optJSONArray("data"));
                 return jSONObject2;
             }
@@ -535,13 +536,13 @@ public class c extends c.a.p0.h.z.a {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                boolean z = c.a.p0.h.z.a.f11636a;
-                if (TextUtils.isEmpty(this.f11657a.errMsg)) {
-                    c.a.p0.h.z.g.c cVar = this.f11657a;
+                boolean z = c.a.p0.h.z.a.f11644a;
+                if (TextUtils.isEmpty(this.f11665a.errMsg)) {
+                    c.a.p0.h.z.g.c cVar = this.f11665a;
                     cVar.errNo = "100";
                     cVar.errMsg = String.format("%s: fail Error: %s", "getUserCloudStorage", exc.getMessage());
                 }
-                this.f11659c.f11644b.post(new b(this));
+                this.f11667c.f11652b.post(new b(this));
             }
         }
     }
@@ -552,13 +553,13 @@ public class c extends c.a.p0.h.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.h.z.g.c f11663a;
+        public final /* synthetic */ c.a.p0.h.z.g.c f11671a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.y.b.a f11664b;
+        public final /* synthetic */ c.a.p0.a.y.b.a f11672b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f11665c;
+        public final /* synthetic */ c f11673c;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
@@ -566,10 +567,10 @@ public class c extends c.a.p0.h.z.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.p0.h.z.g.c f11666e;
+            public final /* synthetic */ c.a.p0.h.z.g.c f11674e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d f11667f;
+            public final /* synthetic */ d f11675f;
 
             public a(d dVar, c.a.p0.h.z.g.c cVar) {
                 Interceptable interceptable = $ic;
@@ -586,15 +587,15 @@ public class c extends c.a.p0.h.z.a {
                         return;
                     }
                 }
-                this.f11667f = dVar;
-                this.f11666e = cVar;
+                this.f11675f = dVar;
+                this.f11674e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.p0.h.m0.c.a(this.f11667f.f11664b, true, this.f11666e);
+                    c.a.p0.h.m0.c.a(this.f11675f.f11672b, true, this.f11674e);
                 }
             }
         }
@@ -605,7 +606,7 @@ public class c extends c.a.p0.h.z.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f11668e;
+            public final /* synthetic */ d f11676e;
 
             public b(d dVar) {
                 Interceptable interceptable = $ic;
@@ -622,15 +623,15 @@ public class c extends c.a.p0.h.z.a {
                         return;
                     }
                 }
-                this.f11668e = dVar;
+                this.f11676e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    d dVar = this.f11668e;
-                    c.a.p0.h.m0.c.a(dVar.f11664b, false, dVar.f11663a);
+                    d dVar = this.f11676e;
+                    c.a.p0.h.m0.c.a(dVar.f11672b, false, dVar.f11671a);
                 }
             }
         }
@@ -650,9 +651,9 @@ public class c extends c.a.p0.h.z.a {
                     return;
                 }
             }
-            this.f11665c = cVar;
-            this.f11663a = cVar2;
-            this.f11664b = aVar;
+            this.f11673c = cVar;
+            this.f11671a = cVar2;
+            this.f11672b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -661,8 +662,8 @@ public class c extends c.a.p0.h.z.a {
         public void onSuccess(c.a.p0.h.z.g.c cVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, cVar, i2) == null) {
-                boolean z = c.a.p0.h.z.a.f11636a;
-                this.f11665c.f11644b.post(new a(this, cVar));
+                boolean z = c.a.p0.h.z.a.f11644a;
+                this.f11673c.f11652b.post(new a(this, cVar));
             }
         }
 
@@ -678,24 +679,24 @@ public class c extends c.a.p0.h.z.a {
                     return null;
                 }
                 String string = body.string();
-                if (c.a.p0.h.z.a.f11636a) {
+                if (c.a.p0.h.z.a.f11644a) {
                     String str = "parse response: " + string;
                 }
                 JSONObject jSONObject = new JSONObject(string);
                 String optString = jSONObject.optString("errno");
                 if (!TextUtils.equals(optString, "0")) {
-                    if (c.a.p0.h.z.a.f11636a) {
+                    if (c.a.p0.h.z.a.f11644a) {
                         String str2 = "errno = " + optString;
                     }
-                    c.a.p0.h.z.g.c cVar = this.f11663a;
+                    c.a.p0.h.z.g.c cVar = this.f11671a;
                     cVar.errNo = optString;
                     cVar.errMsg = String.format("%s: fail Error: %s", "setUserCloudStorage", jSONObject.optString("errmsg"));
                     return null;
                 }
-                c.a.p0.h.z.g.c cVar2 = this.f11663a;
+                c.a.p0.h.z.g.c cVar2 = this.f11671a;
                 cVar2.errNo = "0";
-                cVar2.errMsg = c.a.p0.h.m0.c.c("setUserCloudStorage", "ok");
-                return this.f11663a;
+                cVar2.errMsg = c.a.p0.h.m0.c.c("setUserCloudStorage", NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+                return this.f11671a;
             }
             return (c.a.p0.h.z.g.c) invokeLI.objValue;
         }
@@ -704,13 +705,13 @@ public class c extends c.a.p0.h.z.a {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                boolean z = c.a.p0.h.z.a.f11636a;
-                if (TextUtils.isEmpty(this.f11663a.errMsg)) {
-                    c.a.p0.h.z.g.c cVar = this.f11663a;
+                boolean z = c.a.p0.h.z.a.f11644a;
+                if (TextUtils.isEmpty(this.f11671a.errMsg)) {
+                    c.a.p0.h.z.g.c cVar = this.f11671a;
                     cVar.errNo = "100";
                     cVar.errMsg = String.format("%s: fail Error: %s", "setUserCloudStorage", exc.getMessage());
                 }
-                this.f11665c.f11644b.post(new b(this));
+                this.f11673c.f11652b.post(new b(this));
             }
         }
     }
@@ -721,16 +722,16 @@ public class c extends c.a.p0.h.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.h.z.g.c f11669a;
+        public final /* synthetic */ c.a.p0.h.z.g.c f11677a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f11670b;
+        public final /* synthetic */ String f11678b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.y.b.a f11671c;
+        public final /* synthetic */ c.a.p0.a.y.b.a f11679c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c f11672d;
+        public final /* synthetic */ c f11680d;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
@@ -738,10 +739,10 @@ public class c extends c.a.p0.h.z.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f11673e;
+            public final /* synthetic */ JSONObject f11681e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ e f11674f;
+            public final /* synthetic */ e f11682f;
 
             public a(e eVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
@@ -758,15 +759,15 @@ public class c extends c.a.p0.h.z.a {
                         return;
                     }
                 }
-                this.f11674f = eVar;
-                this.f11673e = jSONObject;
+                this.f11682f = eVar;
+                this.f11681e = jSONObject;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.p0.h.m0.c.a(this.f11674f.f11671c, true, this.f11673e);
+                    c.a.p0.h.m0.c.a(this.f11682f.f11679c, true, this.f11681e);
                 }
             }
         }
@@ -777,7 +778,7 @@ public class c extends c.a.p0.h.z.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f11675e;
+            public final /* synthetic */ e f11683e;
 
             public b(e eVar) {
                 Interceptable interceptable = $ic;
@@ -794,15 +795,15 @@ public class c extends c.a.p0.h.z.a {
                         return;
                     }
                 }
-                this.f11675e = eVar;
+                this.f11683e = eVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    e eVar = this.f11675e;
-                    c.a.p0.h.m0.c.a(eVar.f11671c, false, eVar.f11669a);
+                    e eVar = this.f11683e;
+                    c.a.p0.h.m0.c.a(eVar.f11679c, false, eVar.f11677a);
                 }
             }
         }
@@ -822,10 +823,10 @@ public class c extends c.a.p0.h.z.a {
                     return;
                 }
             }
-            this.f11672d = cVar;
-            this.f11669a = cVar2;
-            this.f11670b = str;
-            this.f11671c = aVar;
+            this.f11680d = cVar;
+            this.f11677a = cVar2;
+            this.f11678b = str;
+            this.f11679c = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -834,8 +835,8 @@ public class c extends c.a.p0.h.z.a {
         public void onSuccess(JSONObject jSONObject, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
-                boolean z = c.a.p0.h.z.a.f11636a;
-                this.f11672d.f11644b.post(new a(this, jSONObject));
+                boolean z = c.a.p0.h.z.a.f11644a;
+                this.f11680d.f11652b.post(new a(this, jSONObject));
             }
         }
 
@@ -851,23 +852,23 @@ public class c extends c.a.p0.h.z.a {
                     return null;
                 }
                 String string = body.string();
-                if (c.a.p0.h.z.a.f11636a) {
+                if (c.a.p0.h.z.a.f11644a) {
                     String str = "parse response: " + string;
                 }
                 JSONObject jSONObject = new JSONObject(string);
                 String optString = jSONObject.optString("errno");
                 if (!TextUtils.equals(optString, "0")) {
-                    if (c.a.p0.h.z.a.f11636a) {
+                    if (c.a.p0.h.z.a.f11644a) {
                         String str2 = "errno = " + optString;
                     }
-                    c.a.p0.h.z.g.c cVar = this.f11669a;
+                    c.a.p0.h.z.g.c cVar = this.f11677a;
                     cVar.errNo = optString;
-                    cVar.errMsg = String.format("%s: fail Error: %s", this.f11670b, jSONObject.optString("errmsg"));
+                    cVar.errMsg = String.format("%s: fail Error: %s", this.f11678b, jSONObject.optString("errmsg"));
                     return null;
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("errNo", "0");
-                jSONObject2.put("errMsg", c.a.p0.h.m0.c.c(this.f11670b, "ok"));
+                jSONObject2.put("errMsg", c.a.p0.h.m0.c.c(this.f11678b, NewBindCardEntry.BING_CARD_SUCCESS_MSG));
                 jSONObject2.put("data", jSONObject.optJSONArray("data"));
                 return jSONObject2;
             }
@@ -878,15 +879,15 @@ public class c extends c.a.p0.h.z.a {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                if (c.a.p0.h.z.a.f11636a) {
+                if (c.a.p0.h.z.a.f11644a) {
                     exc.printStackTrace();
                 }
-                if (TextUtils.isEmpty(this.f11669a.errMsg)) {
-                    c.a.p0.h.z.g.c cVar = this.f11669a;
+                if (TextUtils.isEmpty(this.f11677a.errMsg)) {
+                    c.a.p0.h.z.g.c cVar = this.f11677a;
                     cVar.errNo = "100";
-                    cVar.errMsg = String.format("%s: fail Error: %s", this.f11670b, exc.getMessage());
+                    cVar.errMsg = String.format("%s: fail Error: %s", this.f11678b, exc.getMessage());
                 }
-                this.f11672d.f11644b.post(new b(this));
+                this.f11680d.f11652b.post(new b(this));
             }
         }
     }
@@ -906,7 +907,7 @@ public class c extends c.a.p0.h.z.a {
                 return;
             }
         }
-        this.f11644b = cVar;
+        this.f11652b = cVar;
     }
 
     public final c.a.p0.h.z.g.b[] c(c.a.p0.a.y.b.a aVar, JsObject[] jsObjectArr, c.a.p0.h.z.g.c cVar) {
@@ -972,7 +973,7 @@ public class c extends c.a.p0.h.z.a {
                 j(i2, h2, new e(this, cVar, "getFriendCloudStorage", G));
                 return;
             } catch (JSTypeMismatchException e2) {
-                if (c.a.p0.h.z.a.f11636a) {
+                if (c.a.p0.h.z.a.f11644a) {
                     e2.printStackTrace();
                 }
                 cVar.errNo = FontParser.sFontWeightDefault;
@@ -1001,7 +1002,7 @@ public class c extends c.a.p0.h.z.a {
                 }
                 jSONObject.put("data", jSONArray);
             } catch (JSONException e2) {
-                if (c.a.p0.h.z.a.f11636a) {
+                if (c.a.p0.h.z.a.f11644a) {
                     e2.printStackTrace();
                 }
             }
@@ -1027,7 +1028,7 @@ public class c extends c.a.p0.h.z.a {
                 o = c.a.p0.h.t.a.b().m();
             }
             if (TextUtils.isEmpty(o)) {
-                boolean z = c.a.p0.h.z.a.f11636a;
+                boolean z = c.a.p0.h.z.a.f11644a;
             }
             return o;
         }
@@ -1075,7 +1076,7 @@ public class c extends c.a.p0.h.z.a {
             h(jsObject);
             j(3, h2, new C0609c(this, cVar, G));
         } catch (JSTypeMismatchException e2) {
-            if (c.a.p0.h.z.a.f11636a) {
+            if (c.a.p0.h.z.a.f11644a) {
                 e2.printStackTrace();
             }
             cVar.errNo = FontParser.sFontWeightDefault;
@@ -1101,7 +1102,7 @@ public class c extends c.a.p0.h.z.a {
                 }
             }
         } catch (JSTypeMismatchException e2) {
-            if (c.a.p0.h.z.a.f11636a) {
+            if (c.a.p0.h.z.a.f11644a) {
                 e2.printStackTrace();
             }
         }
@@ -1111,7 +1112,7 @@ public class c extends c.a.p0.h.z.a {
             jSONObject.put("ma_id", c.a.p0.a.a2.e.V());
             jSONObject.put("swanid_list", jSONArray);
         } catch (JSONException e3) {
-            if (c.a.p0.h.z.a.f11636a) {
+            if (c.a.p0.h.z.a.f11644a) {
                 e3.printStackTrace();
             }
         }
@@ -1150,7 +1151,7 @@ public class c extends c.a.p0.h.z.a {
                 jSONObject.put("ma_id", c.a.p0.a.a2.e.V());
                 jSONObject.put("key_list", jSONArray);
             } catch (JSONException e2) {
-                if (c.a.p0.h.z.a.f11636a) {
+                if (c.a.p0.h.z.a.f11644a) {
                     e2.printStackTrace();
                 }
             }
@@ -1178,7 +1179,7 @@ public class c extends c.a.p0.h.z.a {
             h(jsObject);
             j(2, h2, new b(this, cVar, G));
         } catch (JSTypeMismatchException e2) {
-            if (c.a.p0.h.z.a.f11636a) {
+            if (c.a.p0.h.z.a.f11644a) {
                 e2.printStackTrace();
             }
             cVar.errNo = FontParser.sFontWeightDefault;
@@ -1214,7 +1215,7 @@ public class c extends c.a.p0.h.z.a {
             }
             a(f(4), e(c2).toString(), new d(this, cVar, G));
         } catch (JSTypeMismatchException e3) {
-            if (c.a.p0.h.z.a.f11636a) {
+            if (c.a.p0.h.z.a.f11644a) {
                 e3.printStackTrace();
             }
             cVar.errNo = FontParser.sFontWeightDefault;

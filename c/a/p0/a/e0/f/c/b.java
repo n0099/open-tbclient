@@ -16,7 +16,7 @@ public class b implements c.a.p0.a.e0.f.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5190a = "";
+    public static String f5198a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,14 +51,14 @@ public class b implements c.a.p0.a.e0.f.a {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f5190a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f5198a : (String) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.e0.f.a
     public void a(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            f5190a = v.i(bundle, "adb_debug_path");
+            f5198a = v.i(bundle, "adb_debug_path");
             c.a.p0.a.e0.f.b.i(v.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
             c.a.p0.a.e0.f.b.j(v.i(bundle, "slavePreload"));
         }
@@ -68,7 +68,7 @@ public class b implements c.a.p0.a.e0.f.a {
     public void b(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            bundle.putString("adb_debug_path", f5190a);
+            bundle.putString("adb_debug_path", f5198a);
             bundle.putString("slavePreload", c.a.p0.a.e0.f.b.c());
             bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, c.a.p0.a.e0.f.b.a());
         }

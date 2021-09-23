@@ -16,11 +16,11 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4235b;
+    public static String f4242b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4236a;
+    public String f4243a;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class e {
                 return;
             }
         }
-        this.f4236a = c.a.n0.b.b.f4096a;
+        this.f4243a = c.a.n0.b.b.f4103a;
     }
 
     public static synchronized e a(Context context) {
@@ -57,8 +57,8 @@ public class e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String str3 = c.a.n0.a.f4078b;
-            String str4 = c.a.n0.a.f4079c;
+            String str3 = c.a.n0.a.f4085b;
+            String str4 = c.a.n0.a.f4086c;
             String str5 = "";
             if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
                 return "";
@@ -105,7 +105,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                f4235b = new String(c.a.n0.l.e.e(Base64.decode(this.f4236a, 0), "30212102dicudiab".getBytes("utf-8")));
+                f4242b = new String(c.a.n0.l.e.e(Base64.decode(this.f4243a, 0), "30212102dicudiab".getBytes("utf-8")));
             } catch (Throwable th) {
                 c.a.n0.l.c.d(th);
             }
@@ -132,10 +132,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (TextUtils.isEmpty(f4235b)) {
+            if (TextUtils.isEmpty(f4242b)) {
                 d();
             }
-            return f4235b;
+            return f4242b;
         }
         return (String) invokeV.objValue;
     }

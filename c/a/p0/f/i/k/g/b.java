@@ -35,16 +35,16 @@ public class b implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10604a;
+    public Context f10612a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanAdDownloadButtonView f10605b;
+    public SwanAdDownloadButtonView f10613b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.p0.f.i.k.g.a f10606c;
+    public c.a.p0.f.i.k.g.a f10614c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.f.i.k.f.a f10607d;
+    public c.a.p0.f.i.k.f.a f10615d;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -52,7 +52,7 @@ public class b implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f10608e;
+        public final /* synthetic */ b f10616e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class b implements f {
                     return;
                 }
             }
-            this.f10608e = bVar;
+            this.f10616e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -78,29 +78,29 @@ public class b implements f {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || c.a.p0.f.i.m.a.b() == null) {
                 return;
             }
-            if (this.f10608e.f10606c.f10601a == DownloadState.NOT_START || this.f10608e.f10606c.f10601a == DownloadState.DELETED) {
-                c.a.p0.f.i.m.a.b().b(this.f10608e.f10604a, ((DownloadParams) this.f10608e.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.f10608e.f10607d);
+            if (this.f10616e.f10614c.f10609a == DownloadState.NOT_START || this.f10616e.f10614c.f10609a == DownloadState.DELETED) {
+                c.a.p0.f.i.m.a.b().b(this.f10616e.f10612a, ((DownloadParams) this.f10616e.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.f10616e.f10615d);
             }
-            if (this.f10608e.f10606c.f10601a == DownloadState.DOWNLOADING) {
-                c.a.p0.f.i.m.a.b().b(this.f10608e.f10604a, ((DownloadParams) this.f10608e.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.f10608e.f10607d);
+            if (this.f10616e.f10614c.f10609a == DownloadState.DOWNLOADING) {
+                c.a.p0.f.i.m.a.b().b(this.f10616e.f10612a, ((DownloadParams) this.f10616e.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.f10616e.f10615d);
             }
-            if (this.f10608e.f10606c.f10601a == DownloadState.DOWNLOAD_PAUSED) {
-                c.a.p0.f.i.m.a.b().b(this.f10608e.f10604a, ((DownloadParams) this.f10608e.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.f10608e.f10607d);
+            if (this.f10616e.f10614c.f10609a == DownloadState.DOWNLOAD_PAUSED) {
+                c.a.p0.f.i.m.a.b().b(this.f10616e.f10612a, ((DownloadParams) this.f10616e.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.f10616e.f10615d);
             }
-            if (this.f10608e.f10606c.f10601a == DownloadState.DOWNLOAD_FAILED) {
-                c.a.p0.f.i.m.a.b().b(this.f10608e.f10604a, ((DownloadParams) this.f10608e.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.f10608e.f10607d);
+            if (this.f10616e.f10614c.f10609a == DownloadState.DOWNLOAD_FAILED) {
+                c.a.p0.f.i.m.a.b().b(this.f10616e.f10612a, ((DownloadParams) this.f10616e.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.f10616e.f10615d);
             }
-            if (this.f10608e.f10606c.f10601a == DownloadState.DOWNLOADED) {
-                this.f10608e.f10607d.b();
-                c.a.p0.f.i.m.a.b().b(this.f10608e.f10604a, ((DownloadParams) this.f10608e.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_INSTALL_APP, this.f10608e.f10607d);
+            if (this.f10616e.f10614c.f10609a == DownloadState.DOWNLOADED) {
+                this.f10616e.f10615d.b();
+                c.a.p0.f.i.m.a.b().b(this.f10616e.f10612a, ((DownloadParams) this.f10616e.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_INSTALL_APP, this.f10616e.f10615d);
             }
-            if (this.f10608e.f10606c.f10601a == DownloadState.INSTALLED) {
-                String e2 = this.f10608e.f10607d.e();
-                if (TextUtils.isEmpty(this.f10608e.f10606c.f10602b) && !TextUtils.isEmpty(e2)) {
-                    this.f10608e.a(e2);
+            if (this.f10616e.f10614c.f10609a == DownloadState.INSTALLED) {
+                String e2 = this.f10616e.f10615d.e();
+                if (TextUtils.isEmpty(this.f10616e.f10614c.f10610b) && !TextUtils.isEmpty(e2)) {
+                    this.f10616e.a(e2);
                 }
-                b bVar = this.f10608e;
-                bVar.r(bVar.f10606c.f10602b);
+                b bVar = this.f10616e;
+                bVar.r(bVar.f10614c.f10610b);
             }
         }
     }
@@ -111,7 +111,7 @@ public class b implements f {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f10609a;
+        public static final /* synthetic */ int[] f10617a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -128,29 +128,29 @@ public class b implements f {
                 }
             }
             int[] iArr = new int[DownloadState.values().length];
-            f10609a = iArr;
+            f10617a = iArr;
             try {
                 iArr[DownloadState.NOT_START.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f10609a[DownloadState.DOWNLOADING.ordinal()] = 2;
+                f10617a[DownloadState.DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f10609a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 3;
+                f10617a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f10609a[DownloadState.DOWNLOADED.ordinal()] = 4;
+                f10617a[DownloadState.DOWNLOADED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f10609a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 5;
+                f10617a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f10609a[DownloadState.INSTALLED.ordinal()] = 6;
+                f10617a[DownloadState.INSTALLED.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -184,7 +184,7 @@ public class b implements f {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f10606c.f10602b = str;
+            this.f10614c.f10610b = str;
         }
     }
 
@@ -214,7 +214,7 @@ public class b implements f {
     public void e(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            this.f10605b.setTag(obj);
+            this.f10613b.setTag(obj);
         }
     }
 
@@ -222,7 +222,7 @@ public class b implements f {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            u(this.f10605b);
+            u(this.f10613b);
         }
     }
 
@@ -230,25 +230,25 @@ public class b implements f {
     public View getRealView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f10605b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f10613b : (View) invokeV.objValue;
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f10605b = new SwanAdDownloadButtonView(this.f10604a);
-            String string = this.f10604a.getResources().getString(g.swanapp_ad_download_button);
+            this.f10613b = new SwanAdDownloadButtonView(this.f10612a);
+            String string = this.f10612a.getResources().getString(g.swanapp_ad_download_button);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 81;
-            layoutParams.bottomMargin = (int) (this.f10604a.getResources().getDisplayMetrics().heightPixels * 0.04d);
-            this.f10605b.setLayoutParams(layoutParams);
-            float n = n(this.f10604a, c.swan_ad_round_text_size);
-            int color = this.f10604a.getResources().getColor(c.a.p0.f.i.b.swanapp_ad_download_button_color);
-            u(this.f10605b);
-            this.f10605b.setTextSize(m(n)).isCornerRadius(true).setTextColor(-1).setBgColor(color).isShowProgress(true);
-            this.f10605b.setText(string);
-            this.f10605b.setVisibility(0);
-            this.f10605b.setProgress(this.f10606c.f10603c);
+            layoutParams.bottomMargin = (int) (this.f10612a.getResources().getDisplayMetrics().heightPixels * 0.04d);
+            this.f10613b.setLayoutParams(layoutParams);
+            float n = n(this.f10612a, c.swan_ad_round_text_size);
+            int color = this.f10612a.getResources().getColor(c.a.p0.f.i.b.swanapp_ad_download_button_color);
+            u(this.f10613b);
+            this.f10613b.setTextSize(m(n)).isCornerRadius(true).setTextColor(-1).setBgColor(color).isShowProgress(true);
+            this.f10613b.setText(string);
+            this.f10613b.setVisibility(0);
+            this.f10613b.setProgress(this.f10614c.f10611c);
         }
     }
 
@@ -256,9 +256,9 @@ public class b implements f {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, downloadParams, aVar)) == null) {
-            this.f10604a = context;
-            this.f10606c = c.a.p0.f.i.k.g.a.a(downloadParams.f46894a, downloadParams.f46895b);
-            this.f10607d = aVar;
+            this.f10612a = context;
+            this.f10614c = c.a.p0.f.i.k.g.a.a(downloadParams.f46996a, downloadParams.f46997b);
+            this.f10615d = aVar;
             k();
             q();
             return this;
@@ -299,20 +299,20 @@ public class b implements f {
     public Object p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f10605b.getTag() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f10613b.getTag() : invokeV.objValue;
     }
 
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f10605b.setOnClickListener(new a(this));
+            this.f10613b.setOnClickListener(new a(this));
         }
     }
 
     public final void r(String str) {
         ResolveInfo o;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || TextUtils.isEmpty(str) || (o = o(this.f10604a, str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || TextUtils.isEmpty(str) || (o = o(this.f10612a, str)) == null) {
             return;
         }
         Intent intent = new Intent("android.intent.action.MAIN");
@@ -321,7 +321,7 @@ public class b implements f {
         intent.setComponent(new ComponentName(activityInfo.packageName, activityInfo.name));
         intent.setFlags(268435456);
         try {
-            this.f10604a.startActivity(intent);
+            this.f10612a.startActivity(intent);
         } catch (Exception unused) {
         }
     }
@@ -330,7 +330,7 @@ public class b implements f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, downloadState)) == null) {
-            switch (C0527b.f10609a[downloadState.ordinal()]) {
+            switch (C0527b.f10617a[downloadState.ordinal()]) {
                 case 1:
                     return g.swanapp_ad_download_button;
                 case 2:
@@ -353,9 +353,9 @@ public class b implements f {
     public final void t(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            c.a.p0.f.i.k.g.a aVar = this.f10606c;
-            if (i2 != aVar.f10603c) {
-                aVar.f10603c = i2;
+            c.a.p0.f.i.k.g.a aVar = this.f10614c;
+            if (i2 != aVar.f10611c) {
+                aVar.f10611c = i2;
                 w();
             }
         }
@@ -366,18 +366,18 @@ public class b implements f {
         if (!(interceptable == null || interceptable.invokeL(1048592, this, view) == null) || view == null) {
             return;
         }
-        float n = n(this.f10604a, c.swan_ad_round_width_size);
-        float n2 = n(this.f10604a, c.swan_ad_round_height_size);
+        float n = n(this.f10612a, c.swan_ad_round_width_size);
+        float n2 = n(this.f10612a, c.swan_ad_round_height_size);
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new ViewGroup.LayoutParams(-1, -2);
             view.setLayoutParams(layoutParams);
         }
         if (n >= 0.0f && n <= 1.0f) {
-            n *= this.f10604a.getResources().getDisplayMetrics().widthPixels;
+            n *= this.f10612a.getResources().getDisplayMetrics().widthPixels;
         }
         if (n2 > 0.0f && n2 <= 1.0f) {
-            n2 *= this.f10604a.getResources().getDisplayMetrics().heightPixels;
+            n2 *= this.f10612a.getResources().getDisplayMetrics().heightPixels;
         }
         layoutParams.width = (int) n;
         layoutParams.height = (int) n2;
@@ -386,9 +386,9 @@ public class b implements f {
     public final void v(DownloadState downloadState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, downloadState) == null) {
-            c.a.p0.f.i.k.g.a aVar = this.f10606c;
-            if (downloadState != aVar.f10601a) {
-                aVar.f10601a = downloadState;
+            c.a.p0.f.i.k.g.a aVar = this.f10614c;
+            if (downloadState != aVar.f10609a) {
+                aVar.f10609a = downloadState;
                 w();
             }
         }
@@ -398,34 +398,34 @@ public class b implements f {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            c.a.p0.f.i.k.g.a aVar = this.f10606c;
-            if (aVar.f10601a == DownloadState.DOWNLOADING) {
-                SwanAdDownloadButtonView swanAdDownloadButtonView = this.f10605b;
+            c.a.p0.f.i.k.g.a aVar = this.f10614c;
+            if (aVar.f10609a == DownloadState.DOWNLOADING) {
+                SwanAdDownloadButtonView swanAdDownloadButtonView = this.f10613b;
                 if (swanAdDownloadButtonView != null && swanAdDownloadButtonView.getVisibility() != 8) {
-                    if (this.f10606c.f10603c < this.f10605b.getMax()) {
-                        String string2 = this.f10604a.getResources().getString(g.swanapp_ad_button_downloading);
-                        string = String.format(string2, this.f10606c.f10603c + "%");
+                    if (this.f10614c.f10611c < this.f10613b.getMax()) {
+                        String string2 = this.f10612a.getResources().getString(g.swanapp_ad_button_downloading);
+                        string = String.format(string2, this.f10614c.f10611c + "%");
                     } else {
-                        string = this.f10604a.getResources().getString(g.swanapp_ad_download_button_install);
+                        string = this.f10612a.getResources().getString(g.swanapp_ad_download_button_install);
                     }
-                    this.f10605b.setText(string);
-                    this.f10605b.setProgress(this.f10606c.f10603c);
+                    this.f10613b.setText(string);
+                    this.f10613b.setProgress(this.f10614c.f10611c);
                 }
             } else {
-                if (c.a.p0.f.i.r.g.a(this.f10604a, aVar.f10602b)) {
-                    this.f10606c.f10601a = DownloadState.INSTALLED;
+                if (c.a.p0.f.i.r.g.a(this.f10612a, aVar.f10610b)) {
+                    this.f10614c.f10609a = DownloadState.INSTALLED;
                 }
-                String string3 = this.f10604a.getResources().getString(s(this.f10606c.f10601a));
-                if (this.f10606c.f10601a == DownloadState.DOWNLOADED) {
-                    this.f10605b.setProgress(100);
+                String string3 = this.f10612a.getResources().getString(s(this.f10614c.f10609a));
+                if (this.f10614c.f10609a == DownloadState.DOWNLOADED) {
+                    this.f10613b.setProgress(100);
                 }
-                c.a.p0.f.i.k.g.a aVar2 = this.f10606c;
-                if (aVar2.f10601a == DownloadState.DOWNLOAD_PAUSED) {
-                    this.f10605b.setProgress(aVar2.f10603c);
+                c.a.p0.f.i.k.g.a aVar2 = this.f10614c;
+                if (aVar2.f10609a == DownloadState.DOWNLOAD_PAUSED) {
+                    this.f10613b.setProgress(aVar2.f10611c);
                 }
-                this.f10605b.setText(string3);
+                this.f10613b.setText(string3);
             }
-            SwanAdDownloadButtonView swanAdDownloadButtonView2 = this.f10605b;
+            SwanAdDownloadButtonView swanAdDownloadButtonView2 = this.f10613b;
             if (swanAdDownloadButtonView2 != null) {
                 swanAdDownloadButtonView2.postInvalidate();
             }

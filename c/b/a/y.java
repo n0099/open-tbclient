@@ -87,17 +87,17 @@ public class y extends p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("local_time_ms", this.f31391e);
-            jSONObject.put("tea_event_index", this.f31392f);
-            jSONObject.put("session_id", this.f31393g);
+            jSONObject.put("local_time_ms", this.f31412e);
+            jSONObject.put("tea_event_index", this.f31413f);
+            jSONObject.put("session_id", this.f31414g);
             jSONObject.put("stop_timestamp", this.n);
             jSONObject.put("duration", this.m / 1000);
             jSONObject.put("datetime", this.k);
-            if (!TextUtils.isEmpty(this.f31395i)) {
-                jSONObject.put("ab_version", this.f31395i);
+            if (!TextUtils.isEmpty(this.f31416i)) {
+                jSONObject.put("ab_version", this.f31416i);
             }
-            if (!TextUtils.isEmpty(this.f31396j)) {
-                jSONObject.put("ab_sdk_version", this.f31396j);
+            if (!TextUtils.isEmpty(this.f31417j)) {
+                jSONObject.put("ab_sdk_version", this.f31417j);
             }
             return jSONObject;
         }

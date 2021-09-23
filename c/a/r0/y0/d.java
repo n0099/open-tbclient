@@ -36,18 +36,18 @@ public class d implements c.a.r0.x0.c {
             if (baseFragmentActivity == null) {
                 return null;
             }
-            if (bdUniqueId == AdvertAppInfo.z4) {
+            if (bdUniqueId == AdvertAppInfo.A4) {
                 c.a.r0.y0.e.b bVar = new c.a.r0.y0.e.b(baseFragmentActivity, bdUniqueId);
                 bVar.m0(c.a.r0.x0.d.c.e().d("pb_banner"));
                 bVar.k0("pb");
                 bVar.l0("pb_banner");
                 return bVar;
-            } else if (bdUniqueId == AdvertAppInfo.C4) {
+            } else if (bdUniqueId == AdvertAppInfo.D4) {
                 c.a.r0.y0.e.b bVar2 = new c.a.r0.y0.e.b(baseFragmentActivity, bdUniqueId);
                 bVar2.m0("6051002523-210422477");
                 bVar2.k0("pb");
                 return bVar2;
-            } else if (bdUniqueId == AdvertAppInfo.A4) {
+            } else if (bdUniqueId == AdvertAppInfo.B4) {
                 return new c.a.r0.y0.e.a(baseFragmentActivity, bdUniqueId);
             } else {
                 return null;
@@ -64,13 +64,13 @@ public class d implements c.a.r0.x0.c {
             if (baseFragmentActivity == null) {
                 return null;
             }
-            if (bdUniqueId == AdvertAppInfo.B4) {
+            if (bdUniqueId == AdvertAppInfo.C4) {
                 c.a.r0.y0.e.b bVar = new c.a.r0.y0.e.b(baseFragmentActivity, bdUniqueId);
                 bVar.m0(c.a.r0.x0.d.c.e().d("frs_feed"));
                 bVar.k0("frs");
                 bVar.l0("frs_feed");
                 return bVar;
-            } else if (bdUniqueId == AdvertAppInfo.A4) {
+            } else if (bdUniqueId == AdvertAppInfo.B4) {
                 return new c.a.r0.y0.e.a(baseFragmentActivity, bdUniqueId);
             } else {
                 return null;
@@ -87,12 +87,12 @@ public class d implements c.a.r0.x0.c {
             if (baseFragmentActivity == null) {
                 return null;
             }
-            if (bdUniqueId == AdvertAppInfo.B4) {
+            if (bdUniqueId == AdvertAppInfo.C4) {
                 c.a.r0.y0.e.b bVar = new c.a.r0.y0.e.b(baseFragmentActivity, bdUniqueId);
                 bVar.m0("6051001980-1210572494");
                 bVar.k0("personalize");
                 return bVar;
-            } else if (bdUniqueId == AdvertAppInfo.A4) {
+            } else if (bdUniqueId == AdvertAppInfo.B4) {
                 return new c.a.r0.y0.e.a(baseFragmentActivity, bdUniqueId);
             } else {
                 return null;
@@ -109,13 +109,13 @@ public class d implements c.a.r0.x0.c {
             if (baseFragmentActivity == null) {
                 return null;
             }
-            if (bdUniqueId == AdvertAppInfo.B4) {
+            if (bdUniqueId == AdvertAppInfo.C4) {
                 c.a.r0.y0.e.b bVar = new c.a.r0.y0.e.b(baseFragmentActivity, bdUniqueId);
                 bVar.m0(c.a.r0.x0.d.c.e().d("frs_feed"));
                 bVar.k0("frs");
                 bVar.l0("frs_feed");
                 return bVar;
-            } else if (bdUniqueId == AdvertAppInfo.A4) {
+            } else if (bdUniqueId == AdvertAppInfo.B4) {
                 return new c.a.r0.y0.e.a(baseFragmentActivity, bdUniqueId);
             } else {
                 return null;

@@ -27,10 +27,10 @@ public class c extends c.a.e.l.e.a<c.a.r0.j2.k.g.g.a, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f20468a;
+        public TextView f20483a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f20469b;
+        public int f20484b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(View view) {
@@ -50,17 +50,17 @@ public class c extends c.a.e.l.e.a<c.a.r0.j2.k.g.g.a, a> {
                     return;
                 }
             }
-            this.f20469b = 3;
-            this.f20468a = (TextView) view.findViewById(R.id.no_reply_list_view);
+            this.f20484b = 3;
+            this.f20483a = (TextView) view.findViewById(R.id.no_reply_list_view);
         }
 
         public void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f20469b != TbadkApplication.getInst().getSkinType()) {
-                    SkinManager.setViewTextColor(this.f20468a, R.color.CAM_X0109);
+                if (this.f20484b != TbadkApplication.getInst().getSkinType()) {
+                    SkinManager.setViewTextColor(this.f20483a, R.color.CAM_X0109);
                 }
-                this.f20469b = TbadkApplication.getInst().getSkinType();
+                this.f20484b = TbadkApplication.getInst().getSkinType();
             }
         }
     }
@@ -92,7 +92,7 @@ public class c extends c.a.e.l.e.a<c.a.r0.j2.k.g.g.a, a> {
     public a U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(LayoutInflater.from(this.f2957e).inflate(R.layout.sub_pb_no_reply_layout, viewGroup, false)) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(LayoutInflater.from(this.f2958e).inflate(R.layout.sub_pb_no_reply_layout, viewGroup, false)) : (a) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

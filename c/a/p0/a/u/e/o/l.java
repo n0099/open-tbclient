@@ -16,13 +16,13 @@ public class l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f9114a;
+    public final String f9122a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f9115b;
+    public final String f9123b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f9116c;
+    public final boolean f9124c;
 
     public l(@NonNull String str, @NonNull JSONObject jSONObject, String str2) {
         Interceptable interceptable = $ic;
@@ -39,33 +39,33 @@ public class l {
                 return;
             }
         }
-        this.f9114a = str;
-        this.f9115b = str2;
-        this.f9116c = jSONObject.optBoolean("useEvent");
+        this.f9122a = str;
+        this.f9123b = str2;
+        this.f9124c = jSONObject.optBoolean("useEvent");
     }
 
     public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, unitedSchemeEntity, callbackHandler) == null) && this.f9116c) {
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.f9115b);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, unitedSchemeEntity, callbackHandler) == null) && this.f9124c) {
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.f9123b);
         }
     }
 
     public void b(c.a.p0.a.u.c.d dVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) && this.f9116c) {
-            dVar.d(this.f9115b, new c.a.p0.a.u.h.b(0));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) && this.f9124c) {
+            dVar.d(this.f9123b, new c.a.p0.a.u.h.b(0));
         }
     }
 
     public void c(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, callbackHandler, jSONObject) == null) {
-            if (this.f9116c) {
-                c.a.p0.a.g1.f.V().v(new c.a.p0.a.o0.d.f(this.f9114a, new c.a.p0.a.u.h.b(0, jSONObject)));
+            if (this.f9124c) {
+                c.a.p0.a.g1.f.V().v(new c.a.p0.a.o0.d.f(this.f9122a, new c.a.p0.a.u.h.b(0, jSONObject)));
                 return;
             }
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f9115b);
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f9123b);
         }
     }
 
@@ -73,10 +73,10 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, dVar, jSONObject) == null) {
             c.a.p0.a.u.h.b bVar = new c.a.p0.a.u.h.b(0, jSONObject);
-            if (this.f9116c) {
-                c.a.p0.a.g1.f.V().v(new c.a.p0.a.o0.d.f(this.f9114a, bVar));
+            if (this.f9124c) {
+                c.a.p0.a.g1.f.V().v(new c.a.p0.a.o0.d.f(this.f9122a, bVar));
             } else {
-                dVar.d(this.f9115b, bVar);
+                dVar.d(this.f9123b, bVar);
             }
         }
     }
@@ -84,11 +84,11 @@ public class l {
     public void e(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, unitedSchemeEntity, callbackHandler, str) == null) {
-            if (this.f9116c) {
-                c.a.p0.a.g1.f.V().v(new c.a.p0.a.o0.d.f(this.f9114a, new c.a.p0.a.u.h.b(1001, str)));
+            if (this.f9124c) {
+                c.a.p0.a.g1.f.V().v(new c.a.p0.a.o0.d.f(this.f9122a, new c.a.p0.a.u.h.b(1001, str)));
                 return;
             }
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.f9115b);
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.f9123b);
         }
     }
 
@@ -96,10 +96,10 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, dVar, str) == null) {
             c.a.p0.a.u.h.b bVar = new c.a.p0.a.u.h.b(1001, str);
-            if (this.f9116c) {
-                c.a.p0.a.g1.f.V().v(new c.a.p0.a.o0.d.f(this.f9114a, bVar));
+            if (this.f9124c) {
+                c.a.p0.a.g1.f.V().v(new c.a.p0.a.o0.d.f(this.f9122a, bVar));
             } else {
-                dVar.d(this.f9115b, bVar);
+                dVar.d(this.f9123b, bVar);
             }
         }
     }

@@ -33,7 +33,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYSSOLoginActivity f44843a;
+        public final /* synthetic */ YYSSOLoginActivity f44905a;
 
         public a(YYSSOLoginActivity yYSSOLoginActivity) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            this.f44843a = yYSSOLoginActivity;
+            this.f44905a = yYSSOLoginActivity;
         }
 
         @Override // c.s.b.b
@@ -58,8 +58,8 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Log.d(YYSSOLoginActivity.q, "YY授权登录 已取消");
-                YYSSOLoginActivity yYSSOLoginActivity = this.f44843a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44810g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
+                YYSSOLoginActivity yYSSOLoginActivity = this.f44905a;
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44872g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
             }
         }
 
@@ -70,18 +70,18 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                 Log.d(YYSSOLoginActivity.q, "onComplete " + jSONObject.toString());
                 if (jSONObject != null) {
                     if (jSONObject.has("access_code")) {
-                        this.f44843a.o = jSONObject.optString("access_code");
+                        this.f44905a.o = jSONObject.optString("access_code");
                     } else if (jSONObject.has("token")) {
-                        this.f44843a.o = jSONObject.optString("token");
+                        this.f44905a.o = jSONObject.optString("token");
                     }
                 }
-                if (!TextUtils.isEmpty(this.f44843a.o)) {
-                    Log.d(YYSSOLoginActivity.q, "accessCode=" + this.f44843a.o);
-                    this.f44843a.d();
+                if (!TextUtils.isEmpty(this.f44905a.o)) {
+                    Log.d(YYSSOLoginActivity.q, "accessCode=" + this.f44905a.o);
+                    this.f44905a.d();
                     return;
                 }
-                YYSSOLoginActivity yYSSOLoginActivity = this.f44843a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44810g, -1, "未知错误");
+                YYSSOLoginActivity yYSSOLoginActivity = this.f44905a;
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44872g, -1, "未知错误");
             }
         }
 
@@ -89,9 +89,9 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
         public void onError(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-                Log.d(YYSSOLoginActivity.q, "onError " + dVar.f35574a + " " + dVar.f35575b);
-                YYSSOLoginActivity yYSSOLoginActivity = this.f44843a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44810g, dVar.f35574a, dVar.f35575b);
+                Log.d(YYSSOLoginActivity.q, "onError " + dVar.f35597a + " " + dVar.f35598b);
+                YYSSOLoginActivity yYSSOLoginActivity = this.f44905a;
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f44872g, dVar.f35597a, dVar.f35598b);
             }
         }
     }
@@ -137,12 +137,12 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             setupViews();
             SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
             if (confignation != null && !TextUtils.isEmpty(confignation.yyAppId)) {
-                e b2 = e.b(this, confignation.yyAppId);
+                e b2 = e.b(getApplicationContext(), confignation.yyAppId);
                 this.n = b2;
                 b2.a(this, this.p);
                 return;
             }
-            a(((BaseSSOLoginActivity) this).f44810g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
+            a(((BaseSSOLoginActivity) this).f44872g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
         }
     }
 

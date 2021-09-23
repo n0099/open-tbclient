@@ -71,9 +71,9 @@ public class b extends c.a.r0.a0.b<c> {
             return;
         }
         this.n = cVar;
-        SkinManager.setBackgroundColor(this.m, cVar.f18548f);
+        SkinManager.setBackgroundColor(this.m, cVar.f18557f);
         ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
-        layoutParams.height = l.g(this.f15550g, cVar.f18547e);
+        layoutParams.height = l.g(this.f15559g, cVar.f18556e);
         this.m.setLayoutParams(layoutParams);
     }
 }

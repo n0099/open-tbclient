@@ -13,34 +13,34 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f15029a;
+    public String f15036a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15030b;
+    public String f15037b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f15031c;
+    public String f15038c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f15032d;
+    public int f15039d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f15033e;
+    public boolean f15040e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f15034f;
+    public boolean f15041f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15035g;
+    public String f15042g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<FrsTabItemData> f15036h;
+    public List<FrsTabItemData> f15043h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PostPrefixData f15037i;
+    public PostPrefixData f15044i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f15038j;
+    public boolean f15045j;
 
     public i() {
         Interceptable interceptable = $ic;

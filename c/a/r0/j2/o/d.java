@@ -18,34 +18,34 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.r0.j2.h.e f20565a;
+    public c.a.r0.j2.h.e f20580a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.j2.h.e f20566b;
+    public c.a.r0.j2.h.e f20581b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f20567c;
+    public boolean f20582c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MutableLiveData<d2> f20568d;
+    public MutableLiveData<d2> f20583d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Rect f20569e;
+    public Rect f20584e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20570f;
+    public boolean f20585f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<c.a.r0.j2.h.e> f20571g;
+    public LinkedList<c.a.r0.j2.h.e> f20586g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MutableLiveData<d2> f20572h;
+    public MutableLiveData<d2> f20587h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MutableLiveData<d2> f20573i;
+    public MutableLiveData<d2> f20588i;
 
     /* renamed from: j  reason: collision with root package name */
-    public MutableLiveData<Boolean> f20574j;
+    public MutableLiveData<Boolean> f20589j;
     public MutableLiveData<Boolean> k;
     public MutableLiveData<Boolean> l;
     public MutableLiveData<Integer> m;
@@ -63,11 +63,11 @@ public class d {
                 return;
             }
         }
-        this.f20568d = new MutableLiveData<>();
-        this.f20571g = new LinkedList<>();
-        this.f20572h = new MutableLiveData<>();
-        this.f20573i = new MutableLiveData<>();
-        this.f20574j = new MutableLiveData<>();
+        this.f20583d = new MutableLiveData<>();
+        this.f20586g = new LinkedList<>();
+        this.f20587h = new MutableLiveData<>();
+        this.f20588i = new MutableLiveData<>();
+        this.f20589j = new MutableLiveData<>();
         this.k = new MutableLiveData<>();
         new MutableLiveData();
         this.l = new MutableLiveData<>();
@@ -83,19 +83,19 @@ public class d {
     public c.a.r0.j2.h.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20566b : (c.a.r0.j2.h.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20581b : (c.a.r0.j2.h.e) invokeV.objValue;
     }
 
     public c.a.r0.j2.h.e c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20565a : (c.a.r0.j2.h.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20580a : (c.a.r0.j2.h.e) invokeV.objValue;
     }
 
     public MutableLiveData<Boolean> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20574j : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20589j : (MutableLiveData) invokeV.objValue;
     }
 
     public MutableLiveData<Boolean> e() {
@@ -107,43 +107,43 @@ public class d {
     public MutableLiveData<d2> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20573i : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20588i : (MutableLiveData) invokeV.objValue;
     }
 
     public Rect g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20569e : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20584e : (Rect) invokeV.objValue;
     }
 
     public MutableLiveData<d2> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f20572h : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f20587h : (MutableLiveData) invokeV.objValue;
     }
 
     public MutableLiveData<d2> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f20568d : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f20583d : (MutableLiveData) invokeV.objValue;
     }
 
     public LinkedList<c.a.r0.j2.h.e> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f20571g : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f20586g : (LinkedList) invokeV.objValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f20567c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f20582c : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f20570f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f20585f : invokeV.booleanValue;
     }
 
     public MutableLiveData<Boolean> m() {
@@ -162,9 +162,9 @@ public class d {
     public void o(c.a.r0.j2.h.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, eVar) == null) {
-            this.f20566b = eVar;
+            this.f20581b = eVar;
             if (eVar != null) {
-                this.f20568d.setValue(eVar.O());
+                this.f20583d.setValue(eVar.O());
                 if (ListUtils.isEmpty(eVar.f())) {
                     return;
                 }
@@ -176,24 +176,24 @@ public class d {
     public void p(c.a.r0.j2.h.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, eVar) == null) {
-            this.f20565a = eVar;
+            this.f20580a = eVar;
             o(eVar);
-            this.f20572h.setValue(null);
-            this.f20568d.setValue(eVar.O());
+            this.f20587h.setValue(null);
+            this.f20583d.setValue(eVar.O());
         }
     }
 
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.f20567c = z;
+            this.f20582c = z;
         }
     }
 
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f20574j.setValue(Boolean.valueOf(z));
+            this.f20589j.setValue(Boolean.valueOf(z));
         }
     }
 
@@ -214,28 +214,28 @@ public class d {
     public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f20570f = z;
+            this.f20585f = z;
         }
     }
 
     public void v(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, d2Var) == null) {
-            this.f20573i.setValue(d2Var);
+            this.f20588i.setValue(d2Var);
         }
     }
 
     public void w(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, rect) == null) {
-            this.f20569e = rect;
+            this.f20584e = rect;
         }
     }
 
     public void x(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, d2Var) == null) {
-            this.f20572h.setValue(d2Var);
+            this.f20587h.setValue(d2Var);
         }
     }
 }

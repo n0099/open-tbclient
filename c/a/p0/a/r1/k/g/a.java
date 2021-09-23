@@ -20,20 +20,20 @@ public class a implements c.a.p0.a.f1.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f8386f;
+    public static final int f8394f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8387b;
+    public long f8395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<String, JSONObject> f8388c;
+    public ConcurrentHashMap<String, JSONObject> f8396c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConcurrentHashMap<String, Integer> f8389d;
+    public ConcurrentHashMap<String, Integer> f8397d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.a.r1.r.c.a f8390e;
+    public c.a.p0.a.r1.r.c.a f8398e;
 
     /* renamed from: c.a.p0.a.r1.k.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -42,7 +42,7 @@ public class a implements c.a.p0.a.f1.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f8391b;
+        public final /* synthetic */ a f8399b;
 
         public C0358a(a aVar) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class a implements c.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            this.f8391b = aVar;
+            this.f8399b = aVar;
         }
 
         @Override // c.a.p0.a.r1.r.c.a
@@ -73,7 +73,7 @@ public class a implements c.a.p0.a.f1.f.a {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f8391b.g();
+                this.f8399b.g();
             }
         }
 
@@ -81,7 +81,7 @@ public class a implements c.a.p0.a.f1.f.a {
         public void c(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                this.f8391b.g();
+                this.f8399b.g();
             }
         }
 
@@ -89,7 +89,7 @@ public class a implements c.a.p0.a.f1.f.a {
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.f8391b.f8387b = System.currentTimeMillis();
+                this.f8399b.f8395b = System.currentTimeMillis();
             }
         }
 
@@ -106,7 +106,7 @@ public class a implements c.a.p0.a.f1.f.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f8392a;
+        public static final a f8400a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -122,7 +122,7 @@ public class a implements c.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            f8392a = new a(null);
+            f8400a = new a(null);
         }
     }
 
@@ -139,7 +139,7 @@ public class a implements c.a.p0.a.f1.f.a {
                 return;
             }
         }
-        f8386f = e.c();
+        f8394f = e.c();
     }
 
     public /* synthetic */ a(C0358a c0358a) {
@@ -149,7 +149,7 @@ public class a implements c.a.p0.a.f1.f.a {
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f8392a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f8400a : (a) invokeV.objValue;
     }
 
     public JSONObject d(String str) {
@@ -157,13 +157,13 @@ public class a implements c.a.p0.a.f1.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (!TextUtils.isEmpty(str) && e()) {
-                JSONObject jSONObject = this.f8388c.get(str);
-                if (c.a.p0.a.f1.f.a.f5702a && jSONObject != null) {
-                    Integer num = this.f8389d.get(str);
+                JSONObject jSONObject = this.f8396c.get(str);
+                if (c.a.p0.a.f1.f.a.f5710a && jSONObject != null) {
+                    Integer num = this.f8397d.get(str);
                     if (num == null) {
                         num = 0;
                     }
-                    this.f8389d.put(str, Integer.valueOf(num.intValue() + 1));
+                    this.f8397d.put(str, Integer.valueOf(num.intValue() + 1));
                 }
                 return jSONObject;
             }
@@ -175,31 +175,31 @@ public class a implements c.a.p0.a.f1.f.a {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f8386f > 0 && this.f8387b != -1 && System.currentTimeMillis() - this.f8387b <= ((long) f8386f) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f8394f > 0 && this.f8395b != -1 && System.currentTimeMillis() - this.f8395b <= ((long) f8394f) : invokeV.booleanValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (f8386f <= 0) {
-                if (c.a.p0.a.f1.f.a.f5702a) {
-                    String str = "cache api close, can't register. duration = " + f8386f;
+            if (f8394f <= 0) {
+                if (c.a.p0.a.f1.f.a.f5710a) {
+                    String str = "cache api close, can't register. duration = " + f8394f;
                     return;
                 }
                 return;
             }
-            c.a.p0.a.r1.r.a.f().h(this.f8390e, f8386f);
+            c.a.p0.a.r1.r.a.f().h(this.f8398e, f8394f);
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f8387b = -1L;
-            if (c.a.p0.a.f1.f.a.f5702a) {
+            this.f8395b = -1L;
+            if (c.a.p0.a.f1.f.a.f5710a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("adopt cache api = [ ");
-                for (Map.Entry<String, Integer> entry : this.f8389d.entrySet()) {
+                for (Map.Entry<String, Integer> entry : this.f8397d.entrySet()) {
                     sb.append((Object) entry.getKey());
                     sb.append("=");
                     sb.append(entry.getValue());
@@ -208,15 +208,15 @@ public class a implements c.a.p0.a.f1.f.a {
                 sb.append(PreferencesUtil.RIGHT_MOUNT);
                 sb.toString();
             }
-            this.f8389d.clear();
-            this.f8388c.clear();
+            this.f8397d.clear();
+            this.f8396c.clear();
         }
     }
 
     public void h(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048580, this, str, jSONObject) == null) && !TextUtils.isEmpty(str) && e()) {
-            this.f8388c.put(str, jSONObject);
+            this.f8396c.put(str, jSONObject);
         }
     }
 
@@ -233,9 +233,9 @@ public class a implements c.a.p0.a.f1.f.a {
                 return;
             }
         }
-        this.f8387b = -1L;
-        this.f8388c = new ConcurrentHashMap<>(10);
-        this.f8389d = new ConcurrentHashMap<>(10);
-        this.f8390e = new C0358a(this);
+        this.f8395b = -1L;
+        this.f8396c = new ConcurrentHashMap<>(10);
+        this.f8397d = new ConcurrentHashMap<>(10);
+        this.f8398e = new C0358a(this);
     }
 }

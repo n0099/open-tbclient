@@ -18,17 +18,17 @@ public class c implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static BdUniqueId f27600h;
+    public static BdUniqueId f27620h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27601e;
+    public String f27621e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<PbContent> f27602f;
+    public List<PbContent> f27622f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27603g;
+    public boolean f27623g;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class c implements n {
                 return;
             }
         }
-        f27600h = BdUniqueId.gen();
+        f27620h = BdUniqueId.gen();
     }
 
     public c() {
@@ -63,19 +63,19 @@ public class c implements n {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27603g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27623g : invokeV.booleanValue;
     }
 
     public List<PbContent> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27602f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27622f : (List) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27601e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27621e : (String) invokeV.objValue;
     }
 
     public void g(ForumRule forumRule) {
@@ -83,36 +83,36 @@ public class c implements n {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, forumRule) == null) || forumRule == null) {
             return;
         }
-        this.f27601e = forumRule.title;
-        this.f27602f = forumRule.content;
-        this.f27603g = forumRule.status.intValue() == 1;
+        this.f27621e = forumRule.title;
+        this.f27622f = forumRule.content;
+        this.f27623g = forumRule.status.intValue() == 1;
     }
 
     @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f27600h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f27620h : (BdUniqueId) invokeV.objValue;
     }
 
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f27603g = z;
+            this.f27623g = z;
         }
     }
 
     public void i(List<PbContent> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f27602f = list;
+            this.f27622f = list;
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f27601e = str;
+            this.f27621e = str;
         }
     }
 }

@@ -33,10 +33,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f19969a;
+    public TbPageContext f19984a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f19970b;
+    public b f19985b;
 
     /* loaded from: classes3.dex */
     public class a implements b {
@@ -44,7 +44,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f19971a;
+        public final /* synthetic */ c f19986a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class c {
                     return;
                 }
             }
-            this.f19971a = cVar;
+            this.f19986a = cVar;
         }
 
         @Override // c.a.r0.j2.k.e.c1.c.b
@@ -71,13 +71,13 @@ public class c {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048576, this, eVar, d2Var, postData, aVar) == null) {
-                if ((eVar == null && d2Var == null) || postData == null || this.f19971a.f19969a == null) {
+                if ((eVar == null && d2Var == null) || postData == null || this.f19986a.f19984a == null) {
                     return;
                 }
                 if (eVar == null) {
-                    e2 = this.f19971a.e(d2Var);
+                    e2 = this.f19986a.e(d2Var);
                 } else {
-                    String str2 = eVar.N(this.f19971a.f19969a.getPageActivity(), false)[0];
+                    String str2 = eVar.N(this.f19986a.f19984a.getPageActivity(), false)[0];
                     if (!StringUtils.isNull(str2) && str2.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                         str2 = str2.substring(37);
                     }
@@ -109,7 +109,7 @@ public class c {
                     s1 = d2Var.s1();
                     str = "?share=9105&fr=share";
                 }
-                mVar.j(this.f19971a.d("http://tieba.baidu.com/p/" + s1 + (str + "&post_id=" + postData.E() + "&share_from=comment&post_sort=1")));
+                mVar.j(this.f19986a.d("http://tieba.baidu.com/p/" + s1 + (str + "&post_id=" + postData.E() + "&share_from=comment&post_sort=1")));
                 ShareItem shareItem = new ShareItem();
                 shareItem.Z = 1;
                 shareItem.k = true;
@@ -120,10 +120,10 @@ public class c {
                 bundle.putString("pid", postData.E());
                 bundle.putInt("source", 1);
                 shareItem.k(bundle);
-                PbPostShareDialogConfig pbPostShareDialogConfig = new PbPostShareDialogConfig(this.f19971a.f19969a.getPageActivity(), shareItem, true, mVar);
+                PbPostShareDialogConfig pbPostShareDialogConfig = new PbPostShareDialogConfig(this.f19986a.f19984a.getPageActivity(), shareItem, true, mVar);
                 pbPostShareDialogConfig.setIsCopyLink(false);
                 pbPostShareDialogConfig.setHideMode(pbPostShareDialogConfig.hideMode | 32);
-                this.f19971a.f19969a.sendMessage(new CustomMessage(2001276, pbPostShareDialogConfig));
+                this.f19986a.f19984a.sendMessage(new CustomMessage(2001276, pbPostShareDialogConfig));
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
                 statisticItem.param("tid", s1);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -159,8 +159,8 @@ public class c {
                 return;
             }
         }
-        this.f19970b = new a(this);
-        this.f19969a = tbPageContext;
+        this.f19985b = new a(this);
+        this.f19984a = tbPageContext;
     }
 
     public final Bitmap d(String str) {

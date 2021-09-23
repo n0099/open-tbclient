@@ -30,10 +30,10 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ QuickWebViewBridgeData f56320e;
+        public final /* synthetic */ QuickWebViewBridgeData f56437e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ QuickWebViewBridge f56321f;
+        public final /* synthetic */ QuickWebViewBridge f56438f;
 
         public a(QuickWebViewBridge quickWebViewBridge, QuickWebViewBridgeData quickWebViewBridgeData) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
                     return;
                 }
             }
-            this.f56321f = quickWebViewBridge;
-            this.f56320e = quickWebViewBridgeData;
+            this.f56438f = quickWebViewBridge;
+            this.f56437e = quickWebViewBridgeData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.w2.a aVar = this.f56321f.mProxy;
-                QuickWebViewBridgeData quickWebViewBridgeData = this.f56320e;
+                c.a.r0.w2.a aVar = this.f56438f.mProxy;
+                QuickWebViewBridgeData quickWebViewBridgeData = this.f56437e;
                 aVar.j(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
         }

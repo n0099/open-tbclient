@@ -33,10 +33,10 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Type, com.bytedance.sdk.openadsdk.preload.a.h<?>> f68461a;
+    public final Map<Type, com.bytedance.sdk.openadsdk.preload.a.h<?>> f68772a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.b.b f68462b;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.b.b f68773b;
 
     public c(Map<Type, com.bytedance.sdk.openadsdk.preload.a.h<?>> map) {
         Interceptable interceptable = $ic;
@@ -53,8 +53,8 @@ public final class c {
                 return;
             }
         }
-        this.f68462b = com.bytedance.sdk.openadsdk.preload.a.b.b.b.a();
-        this.f68461a = map;
+        this.f68773b = com.bytedance.sdk.openadsdk.preload.a.b.b.b.a();
+        this.f68772a = map;
     }
 
     private <T> i<T> b(Type type, Class<? super T> cls) {
@@ -65,16 +65,16 @@ public final class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Class f68476a;
+            public final /* synthetic */ Class f68787a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Type f68477b;
+            public final /* synthetic */ Type f68788b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ c f68478c;
+            public final /* synthetic */ c f68789c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final m f68479d;
+            public final m f68790d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -91,10 +91,10 @@ public final class c {
                         return;
                     }
                 }
-                this.f68478c = this;
-                this.f68476a = cls;
-                this.f68477b = type;
-                this.f68479d = m.a();
+                this.f68789c = this;
+                this.f68787a = cls;
+                this.f68788b = type;
+                this.f68790d = m.a();
             }
 
             /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
@@ -105,9 +105,9 @@ public final class c {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     try {
-                        return this.f68479d.a(this.f68476a);
+                        return this.f68790d.a(this.f68787a);
                     } catch (Exception e2) {
-                        throw new RuntimeException("Unable to invoke no-args constructor for " + this.f68477b + ". Registering an InstanceCreator with Gson for this type may fix this problem.", e2);
+                        throw new RuntimeException("Unable to invoke no-args constructor for " + this.f68788b + ". Registering an InstanceCreator with Gson for this type may fix this problem.", e2);
                     }
                 }
                 return invokeV.objValue;
@@ -121,20 +121,20 @@ public final class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             Type b2 = aVar.b();
             Class<? super T> a2 = aVar.a();
-            com.bytedance.sdk.openadsdk.preload.a.h<?> hVar = this.f68461a.get(b2);
+            com.bytedance.sdk.openadsdk.preload.a.h<?> hVar = this.f68772a.get(b2);
             if (hVar != null) {
                 return new i<T>(this, hVar, b2) { // from class: com.bytedance.sdk.openadsdk.preload.a.b.c.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.a.h f68463a;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.a.h f68774a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Type f68464b;
+                    public final /* synthetic */ Type f68775b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ c f68465c;
+                    public final /* synthetic */ c f68776c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -151,9 +151,9 @@ public final class c {
                                 return;
                             }
                         }
-                        this.f68465c = this;
-                        this.f68463a = hVar;
-                        this.f68464b = b2;
+                        this.f68776c = this;
+                        this.f68774a = hVar;
+                        this.f68775b = b2;
                     }
 
                     /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
@@ -162,24 +162,24 @@ public final class c {
                     public T a() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f68463a.a(this.f68464b) : invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f68774a.a(this.f68775b) : invokeV.objValue;
                     }
                 };
             }
-            com.bytedance.sdk.openadsdk.preload.a.h<?> hVar2 = this.f68461a.get(a2);
+            com.bytedance.sdk.openadsdk.preload.a.h<?> hVar2 = this.f68772a.get(a2);
             if (hVar2 != null) {
                 return new i<T>(this, hVar2, b2) { // from class: com.bytedance.sdk.openadsdk.preload.a.b.c.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.a.h f68480a;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.a.h f68791a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Type f68481b;
+                    public final /* synthetic */ Type f68792b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ c f68482c;
+                    public final /* synthetic */ c f68793c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -196,9 +196,9 @@ public final class c {
                                 return;
                             }
                         }
-                        this.f68482c = this;
-                        this.f68480a = hVar2;
-                        this.f68481b = b2;
+                        this.f68793c = this;
+                        this.f68791a = hVar2;
+                        this.f68792b = b2;
                     }
 
                     /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
@@ -207,7 +207,7 @@ public final class c {
                     public T a() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f68480a.a(this.f68481b) : invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f68791a.a(this.f68792b) : invokeV.objValue;
                     }
                 };
             }
@@ -224,7 +224,7 @@ public final class c {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68461a.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68772a.toString() : (String) invokeV.objValue;
     }
 
     private <T> i<T> a(Class<? super T> cls) {
@@ -234,17 +234,17 @@ public final class c {
             try {
                 Constructor<? super T> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
                 if (!declaredConstructor.isAccessible()) {
-                    this.f68462b.a(declaredConstructor);
+                    this.f68773b.a(declaredConstructor);
                 }
                 return new i<T>(this, declaredConstructor) { // from class: com.bytedance.sdk.openadsdk.preload.a.b.c.8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Constructor f68483a;
+                    public final /* synthetic */ Constructor f68794a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ c f68484b;
+                    public final /* synthetic */ c f68795b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -261,8 +261,8 @@ public final class c {
                                 return;
                             }
                         }
-                        this.f68484b = this;
-                        this.f68483a = declaredConstructor;
+                        this.f68795b = this;
+                        this.f68794a = declaredConstructor;
                     }
 
                     /* JADX WARN: Type inference failed for: r0v8, types: [T, java.lang.Object] */
@@ -273,13 +273,13 @@ public final class c {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                             try {
-                                return this.f68483a.newInstance(null);
+                                return this.f68794a.newInstance(null);
                             } catch (IllegalAccessException e2) {
                                 throw new AssertionError(e2);
                             } catch (InstantiationException e3) {
-                                throw new RuntimeException("Failed to invoke " + this.f68483a + " with no args", e3);
+                                throw new RuntimeException("Failed to invoke " + this.f68794a + " with no args", e3);
                             } catch (InvocationTargetException e4) {
-                                throw new RuntimeException("Failed to invoke " + this.f68483a + " with no args", e4.getTargetException());
+                                throw new RuntimeException("Failed to invoke " + this.f68794a + " with no args", e4.getTargetException());
                             }
                         }
                         return invokeV.objValue;
@@ -303,7 +303,7 @@ public final class c {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c f68485a;
+                        public final /* synthetic */ c f68796a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -320,7 +320,7 @@ public final class c {
                                     return;
                                 }
                             }
-                            this.f68485a = this;
+                            this.f68796a = this;
                         }
 
                         /* JADX WARN: Type inference failed for: r0v2, types: [T, java.util.TreeSet] */
@@ -339,10 +339,10 @@ public final class c {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Type f68466a;
+                        public final /* synthetic */ Type f68777a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ c f68467b;
+                        public final /* synthetic */ c f68778b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -359,8 +359,8 @@ public final class c {
                                     return;
                                 }
                             }
-                            this.f68467b = this;
-                            this.f68466a = type;
+                            this.f68778b = this;
+                            this.f68777a = type;
                         }
 
                         /* JADX WARN: Type inference failed for: r0v9, types: [T, java.util.EnumSet] */
@@ -370,15 +370,15 @@ public final class c {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                                Type type2 = this.f68466a;
+                                Type type2 = this.f68777a;
                                 if (type2 instanceof ParameterizedType) {
                                     Type type3 = ((ParameterizedType) type2).getActualTypeArguments()[0];
                                     if (type3 instanceof Class) {
                                         return EnumSet.noneOf((Class) type3);
                                     }
-                                    throw new com.bytedance.sdk.openadsdk.preload.a.m("Invalid EnumSet type: " + this.f68466a.toString());
+                                    throw new com.bytedance.sdk.openadsdk.preload.a.m("Invalid EnumSet type: " + this.f68777a.toString());
                                 }
-                                throw new com.bytedance.sdk.openadsdk.preload.a.m("Invalid EnumSet type: " + this.f68466a.toString());
+                                throw new com.bytedance.sdk.openadsdk.preload.a.m("Invalid EnumSet type: " + this.f68777a.toString());
                             }
                             return invokeV.objValue;
                         }
@@ -390,7 +390,7 @@ public final class c {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c f68468a;
+                        public final /* synthetic */ c f68779a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -407,7 +407,7 @@ public final class c {
                                     return;
                                 }
                             }
-                            this.f68468a = this;
+                            this.f68779a = this;
                         }
 
                         /* JADX WARN: Type inference failed for: r0v2, types: [T, java.util.LinkedHashSet] */
@@ -426,7 +426,7 @@ public final class c {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c f68469a;
+                        public final /* synthetic */ c f68780a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -443,7 +443,7 @@ public final class c {
                                     return;
                                 }
                             }
-                            this.f68469a = this;
+                            this.f68780a = this;
                         }
 
                         /* JADX WARN: Type inference failed for: r0v2, types: [T, java.util.ArrayDeque] */
@@ -461,7 +461,7 @@ public final class c {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ c f68470a;
+                    public final /* synthetic */ c f68781a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -478,7 +478,7 @@ public final class c {
                                 return;
                             }
                         }
-                        this.f68470a = this;
+                        this.f68781a = this;
                     }
 
                     /* JADX WARN: Type inference failed for: r0v2, types: [T, java.util.ArrayList] */
@@ -497,7 +497,7 @@ public final class c {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c f68471a;
+                        public final /* synthetic */ c f68782a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -514,7 +514,7 @@ public final class c {
                                     return;
                                 }
                             }
-                            this.f68471a = this;
+                            this.f68782a = this;
                         }
 
                         /* JADX WARN: Type inference failed for: r0v2, types: [java.util.concurrent.ConcurrentSkipListMap, T] */
@@ -533,7 +533,7 @@ public final class c {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c f68472a;
+                        public final /* synthetic */ c f68783a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -550,7 +550,7 @@ public final class c {
                                     return;
                                 }
                             }
-                            this.f68472a = this;
+                            this.f68783a = this;
                         }
 
                         /* JADX WARN: Type inference failed for: r0v2, types: [T, java.util.concurrent.ConcurrentHashMap] */
@@ -569,7 +569,7 @@ public final class c {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c f68473a;
+                        public final /* synthetic */ c f68784a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -586,7 +586,7 @@ public final class c {
                                     return;
                                 }
                             }
-                            this.f68473a = this;
+                            this.f68784a = this;
                         }
 
                         /* JADX WARN: Type inference failed for: r0v2, types: [java.util.TreeMap, T] */
@@ -605,7 +605,7 @@ public final class c {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c f68474a;
+                        public final /* synthetic */ c f68785a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -622,7 +622,7 @@ public final class c {
                                     return;
                                 }
                             }
-                            this.f68474a = this;
+                            this.f68785a = this;
                         }
 
                         /* JADX WARN: Type inference failed for: r0v2, types: [java.util.LinkedHashMap, T] */
@@ -640,7 +640,7 @@ public final class c {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ c f68475a;
+                    public final /* synthetic */ c f68786a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -657,7 +657,7 @@ public final class c {
                                 return;
                             }
                         }
-                        this.f68475a = this;
+                        this.f68786a = this;
                     }
 
                     /* JADX WARN: Type inference failed for: r0v2, types: [T, com.bytedance.sdk.openadsdk.preload.a.b.h] */

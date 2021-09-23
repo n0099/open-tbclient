@@ -13,13 +13,13 @@ public class j implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f16364e;
+    public Bitmap f16374e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16365f;
+    public String f16375f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f16366g;
+    public String f16376g;
 
     public j(String str, String str2, Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -36,18 +36,18 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f16365f = str;
-        this.f16366g = str2;
-        this.f16364e = bitmap;
+        this.f16375f = str;
+        this.f16376g = str2;
+        this.f16374e = bitmap;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f16365f) || TextUtils.isEmpty(this.f16366g) || (bitmap = this.f16364e) == null || bitmap.isRecycled()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f16375f) || TextUtils.isEmpty(this.f16376g) || (bitmap = this.f16374e) == null || bitmap.isRecycled()) {
             return;
         }
-        FileUtils.saveBitmap2JPG(this.f16365f, a.a(this.f16366g), this.f16364e, 100);
+        FileUtils.saveBitmap2JPG(this.f16375f, a.a(this.f16376g), this.f16374e, 100);
     }
 }

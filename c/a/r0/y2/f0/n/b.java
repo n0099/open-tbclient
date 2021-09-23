@@ -14,34 +14,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29405a;
+    public String f29425a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29406b;
+    public String f29426b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f29407c;
+    public long f29427c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29408d;
+    public int f29428d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f29409e;
+    public long f29429e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f29410f;
+    public String f29430f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f29411g;
+    public String f29431g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29412h;
+    public int f29432h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f29413i;
+    public String f29433i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f29414j;
+    public String f29434j;
     public String k;
 
     public b() {
@@ -67,7 +67,7 @@ public class b {
             }
             if (obj instanceof b) {
                 b bVar = (b) obj;
-                return TextUtils.equals(this.f29405a, bVar.f29405a) && TextUtils.equals(this.f29406b, bVar.f29406b);
+                return TextUtils.equals(this.f29425a, bVar.f29425a) && TextUtils.equals(this.f29426b, bVar.f29426b);
             }
             return false;
         }
@@ -78,7 +78,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (this.f29405a + this.f29406b).hashCode();
+            return (this.f29425a + this.f29426b).hashCode();
         }
         return invokeV.intValue;
     }

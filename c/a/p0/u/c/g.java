@@ -15,7 +15,7 @@ public class g implements b<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f12396a;
+    public Context f12404a;
 
     public g(Context context) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class g implements b<String> {
                 return;
             }
         }
-        this.f12396a = context.getApplicationContext();
+        this.f12404a = context.getApplicationContext();
     }
 
     @Override // c.a.p0.u.c.b
@@ -55,9 +55,9 @@ public class g implements b<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (c.a.p0.u.d.c.a(this.f12396a, "android.permission.WRITE_SETTINGS")) {
+            if (c.a.p0.u.d.c.a(this.f12404a, "android.permission.WRITE_SETTINGS")) {
                 try {
-                    return Settings.System.getString(this.f12396a.getContentResolver(), "com.baidu.uuid");
+                    return Settings.System.getString(this.f12404a.getContentResolver(), "com.baidu.uuid");
                 } catch (Exception unused) {
                     return null;
                 }
@@ -79,9 +79,9 @@ public class g implements b<String> {
 
     public final void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && c.a.p0.u.d.c.a(this.f12396a, "android.permission.WRITE_SETTINGS")) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && c.a.p0.u.d.c.a(this.f12404a, "android.permission.WRITE_SETTINGS")) {
             try {
-                Settings.System.putString(this.f12396a.getContentResolver(), "com.baidu.uuid", str);
+                Settings.System.putString(this.f12404a.getContentResolver(), "com.baidu.uuid", str);
             } catch (Exception unused) {
             }
         }

@@ -30,31 +30,31 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NoNetworkView f28599a;
+    public NoNetworkView f28619a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f28600b;
+    public NavigationBar f28620b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdListView f28601c;
+    public BdListView f28621c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f28602d;
+    public View f28622d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f28603e;
+    public b f28623e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f28604f;
+    public View f28624f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f28605g;
+    public TbImageView f28625g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f28606h;
+    public TextView f28626h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MemberTaskCenterActivity f28607i;
+    public MemberTaskCenterActivity f28627i;
 
     public d(MemberTaskCenterActivity memberTaskCenterActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
@@ -71,27 +71,27 @@ public class d {
                 return;
             }
         }
-        this.f28607i = memberTaskCenterActivity;
+        this.f28627i = memberTaskCenterActivity;
         memberTaskCenterActivity.setContentView(R.layout.member_task_center_activity);
-        this.f28602d = memberTaskCenterActivity.findViewById(R.id.root_view);
-        this.f28599a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.view_no_network);
+        this.f28622d = memberTaskCenterActivity.findViewById(R.id.root_view);
+        this.f28619a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.view_no_network);
         NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.view_navigation_bar);
-        this.f28600b = navigationBar;
+        this.f28620b = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f28600b.setTitleText(R.string.member_task_center);
-        this.f28601c = (BdListView) memberTaskCenterActivity.findViewById(R.id.member_task_list);
-        this.f28604f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.member_task_center_header_view, (ViewGroup) null);
-        BdListViewHelper.d(memberTaskCenterActivity.getActivity(), this.f28601c, BdListViewHelper.HeadType.DEFAULT);
-        TbImageView tbImageView = (TbImageView) this.f28604f.findViewById(R.id.advert_image_view);
-        this.f28605g = tbImageView;
+        this.f28620b.setTitleText(R.string.member_task_center);
+        this.f28621c = (BdListView) memberTaskCenterActivity.findViewById(R.id.member_task_list);
+        this.f28624f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.member_task_center_header_view, (ViewGroup) null);
+        BdListViewHelper.d(memberTaskCenterActivity.getActivity(), this.f28621c, BdListViewHelper.HeadType.DEFAULT);
+        TbImageView tbImageView = (TbImageView) this.f28624f.findViewById(R.id.advert_image_view);
+        this.f28625g = tbImageView;
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.f28606h = (TextView) this.f28604f.findViewById(R.id.current_score_num);
-        this.f28605g.setOnClickListener(onClickListener);
+        this.f28626h = (TextView) this.f28624f.findViewById(R.id.current_score_num);
+        this.f28625g.setOnClickListener(onClickListener);
         b bVar = new b(memberTaskCenterActivity);
-        this.f28603e = bVar;
+        this.f28623e = bVar;
         bVar.d(onClickListener);
-        this.f28601c.addHeaderView(this.f28604f);
-        this.f28601c.setAdapter((ListAdapter) this.f28603e);
+        this.f28621c.addHeaderView(this.f28624f);
+        this.f28621c.setAdapter((ListAdapter) this.f28623e);
     }
 
     public final SpannableString a(String str, String str2) {
@@ -109,31 +109,31 @@ public class d {
     public BdListView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28601c : (BdListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28621c : (BdListView) invokeV.objValue;
     }
 
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28602d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28622d : (View) invokeV.objValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f28600b.onChangeSkinType(this.f28607i.getPageContext(), i2);
-            this.f28599a.onChangeSkinType(this.f28607i.getPageContext(), i2);
-            SkinManager.setBackgroundColor(this.f28606h, R.color.CAM_X0205);
+            this.f28620b.onChangeSkinType(this.f28627i.getPageContext(), i2);
+            this.f28619a.onChangeSkinType(this.f28627i.getPageContext(), i2);
+            SkinManager.setBackgroundColor(this.f28626h, R.color.CAM_X0205);
         }
     }
 
     public void e(String str, List<r> list, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, list, Long.valueOf(j2)}) == null) {
-            this.f28605g.startLoad(str, 10, false);
-            this.f28606h.setText(a(this.f28607i.getResources().getString(R.string.current_score), String.valueOf(j2)));
-            this.f28603e.c(list);
-            this.f28603e.notifyDataSetChanged();
+            this.f28625g.startLoad(str, 10, false);
+            this.f28626h.setText(a(this.f28627i.getResources().getString(R.string.current_score), String.valueOf(j2)));
+            this.f28623e.c(list);
+            this.f28623e.notifyDataSetChanged();
         }
     }
 }

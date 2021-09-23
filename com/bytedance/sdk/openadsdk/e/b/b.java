@@ -12,16 +12,16 @@ public class b implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f67697a;
+    public long f68008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67698b;
+    public long f68009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67699c;
+    public int f68010c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67700d;
+    public int f68011d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -40,28 +40,28 @@ public class b implements c {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f67697a = j2;
+            this.f68008a = j2;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f67698b = j2;
+            this.f68009b = j2;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f67699c = i2;
+            this.f68010c = i2;
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f67700d = i2;
+            this.f68011d = i2;
         }
     }
 
@@ -72,10 +72,10 @@ public class b implements c {
             return;
         }
         try {
-            jSONObject.put("buffers_time", this.f67697a);
-            jSONObject.put("total_duration", this.f67698b);
-            jSONObject.put("vbtt_skip_type", this.f67699c);
-            jSONObject.put("skip_reason", this.f67700d);
+            jSONObject.put("buffers_time", this.f68008a);
+            jSONObject.put("total_duration", this.f68009b);
+            jSONObject.put("vbtt_skip_type", this.f68010c);
+            jSONObject.put("skip_reason", this.f68011d);
         } catch (Throwable th) {
             th.printStackTrace();
         }

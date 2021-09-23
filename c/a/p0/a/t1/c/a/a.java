@@ -25,7 +25,7 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f8657a;
+        public final /* synthetic */ a f8665a;
 
         public C0378a(a aVar) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f8657a = aVar;
+            this.f8665a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -51,7 +51,7 @@ public class a extends d {
         public void a(c.a.p0.a.t1.c.c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-                this.f8657a.w(aVar);
+                this.f8665a.w(aVar);
             }
         }
     }
@@ -62,7 +62,7 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f8658a;
+        public final /* synthetic */ a f8666a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f8658a = aVar;
+            this.f8666a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,7 +88,7 @@ public class a extends d {
         public void a(c.a.p0.a.t1.c.c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-                this.f8658a.w(aVar);
+                this.f8666a.w(aVar);
             }
         }
     }
@@ -99,7 +99,7 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f8659a;
+        public final /* synthetic */ a f8667a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f8659a = aVar;
+            this.f8667a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -125,7 +125,7 @@ public class a extends d {
         public void a(c.a.p0.a.t1.c.c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-                this.f8659a.w(aVar);
+                this.f8667a.w(aVar);
             }
         }
     }
@@ -157,7 +157,7 @@ public class a extends d {
             c.a.p0.a.t1.c.b.b v = v(str);
             if (v.b()) {
                 c.a.p0.a.t1.d.a.a(v.toString());
-                return v.f8674i;
+                return v.f8682i;
             }
             return new c.a.p0.a.t1.c.d.c().l(v, new b(this));
         }
@@ -171,7 +171,7 @@ public class a extends d {
             c.a.p0.a.t1.c.b.b v = v(str);
             if (v.b()) {
                 c.a.p0.a.t1.d.a.a(v.toString());
-                return v.f8674i;
+                return v.f8682i;
             }
             return new e().l(v, new C0378a(this));
         }
@@ -185,7 +185,7 @@ public class a extends d {
             c.a.p0.a.t1.c.b.b v = v(str);
             if (v.b()) {
                 c.a.p0.a.t1.d.a.a(v.toString());
-                return v.f8674i;
+                return v.f8682i;
             }
             return new c.a.p0.a.t1.c.d.d().l(v, new c(this));
         }
@@ -198,14 +198,14 @@ public class a extends d {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             c.a.p0.a.t1.c.b.b bVar = new c.a.p0.a.t1.c.b.b();
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-Base", str);
-            bVar.f8674i = (c.a.p0.a.u.h.b) b2.first;
+            bVar.f8682i = (c.a.p0.a.u.h.b) b2.first;
             JSONObject jSONObject = (JSONObject) b2.second;
             if (jSONObject == null) {
                 return bVar;
             }
             String optString = jSONObject.optString("pluginProvider");
             if (TextUtils.isEmpty(optString)) {
-                bVar.f8674i = new c.a.p0.a.u.h.b(201, "pluginProvider is empty");
+                bVar.f8682i = new c.a.p0.a.u.h.b(201, "pluginProvider is empty");
                 return bVar;
             }
             h g2 = c.a.p0.a.t1.g.b.g(optString);
@@ -214,35 +214,35 @@ public class a extends d {
                 if (!TextUtils.isEmpty(str2)) {
                     String optString2 = jSONObject.optString("providerRootPath");
                     if (TextUtils.isEmpty(optString2)) {
-                        bVar.f8674i = new c.a.p0.a.u.h.b(201, "providerRootPath is empty");
+                        bVar.f8682i = new c.a.p0.a.u.h.b(201, "providerRootPath is empty");
                         return bVar;
                     }
                     String optString3 = jSONObject.optString("slaveId");
                     if (TextUtils.isEmpty(optString3)) {
-                        bVar.f8674i = new c.a.p0.a.u.h.b(201, "slaveId is empty");
+                        bVar.f8682i = new c.a.p0.a.u.h.b(201, "slaveId is empty");
                         return bVar;
                     }
                     String optString4 = jSONObject.optString("componentId");
                     if (TextUtils.isEmpty(optString4)) {
-                        bVar.f8674i = new c.a.p0.a.u.h.b(201, "componentId is empty");
+                        bVar.f8682i = new c.a.p0.a.u.h.b(201, "componentId is empty");
                         return bVar;
                     }
                     String optString5 = jSONObject.optString("pluginVersion", "release");
                     String str3 = TextUtils.isEmpty(optString5) ? "release" : optString5;
                     JSONObject optJSONObject = jSONObject.optJSONObject("args");
                     String optString6 = jSONObject.optString("cb");
-                    bVar.f8666a = str2;
-                    bVar.f8667b = optString;
-                    bVar.f8668c = optString2;
-                    bVar.f8669d = str3;
-                    bVar.f8670e = optString3;
-                    bVar.f8671f = optString4;
-                    bVar.f8672g = optJSONObject;
-                    bVar.f8673h = optString6;
+                    bVar.f8674a = str2;
+                    bVar.f8675b = optString;
+                    bVar.f8676c = optString2;
+                    bVar.f8677d = str3;
+                    bVar.f8678e = optString3;
+                    bVar.f8679f = optString4;
+                    bVar.f8680g = optJSONObject;
+                    bVar.f8681h = optString6;
                     return bVar;
                 }
             }
-            bVar.f8674i = new c.a.p0.a.u.h.b(201, "pluginProvider exchange for truth app key，but empty");
+            bVar.f8682i = new c.a.p0.a.u.h.b(201, "pluginProvider exchange for truth app key，but empty");
             return bVar;
         }
         return (c.a.p0.a.t1.c.b.b) invokeL.objValue;

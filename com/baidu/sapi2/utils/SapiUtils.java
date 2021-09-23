@@ -43,16 +43,14 @@ import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.dto.PassNameValuePair;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
-import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.share.ShareUtils;
 import com.baidu.sapi2.utils.enums.Domain;
-import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -482,7 +480,7 @@ public class SapiUtils implements NoProguard {
     public static String getCookieBduss() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? getCookie(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL), "BDUSS") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? getCookie(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL), HttpRequest.BDUSS) : (String) invokeV.objValue;
     }
 
     public static String getCookiePtoken() {
@@ -659,37 +657,7 @@ public class SapiUtils implements NoProguard {
     public static int getLastLoginType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
-            String string = SapiContext.getInstance().getString(SapiContext.KEY_PRE_LOGIN_TYPE);
-            if (TextUtils.isEmpty(string)) {
-                string = "none";
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("none", 0);
-            hashMap.put("password", 1);
-            hashMap.put("sms", 2);
-            hashMap.put("face", 3);
-            hashMap.put(SocialType.WEIXIN.getName() + "", 4);
-            hashMap.put(SocialType.SINA_WEIBO_SSO.getName() + "", 5);
-            hashMap.put(SocialType.QQ_SSO.getName() + "", 6);
-            hashMap.put(SocialType.HUAWEI.getName() + "", 10);
-            hashMap.put(SocialType.YY.getName() + "", 100);
-            hashMap.put("slient_share", 7);
-            hashMap.put(ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE, 8);
-            hashMap.put(ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE, 9);
-            hashMap.put("oneKeyLogin", 12);
-            hashMap.put("finger_account", 15);
-            hashMap.put(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC, 16);
-            hashMap.put(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC, 17);
-            hashMap.put(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC, 18);
-            hashMap.put(SapiWebView.SWITCH_ACCOUNT_PAGE, 19);
-            hashMap.put("naQrlogin", 20);
-            if (hashMap.containsKey(string)) {
-                return ((Integer) hashMap.get(string)).intValue();
-            }
-            return 11;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? Enums.LastLoginType.getValueByName(SapiContext.getInstance().getString(SapiContext.KEY_PRE_LOGIN_TYPE)) : invokeV.intValue;
     }
 
     public static String getLocalIpAddress() {
@@ -1597,6 +1565,6 @@ public class SapiUtils implements NoProguard {
     public static String buildBDUSSCookie(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? buildBDUSSCookie(str, "BDUSS", str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? buildBDUSSCookie(str, HttpRequest.BDUSS, str2) : (String) invokeLL.objValue;
     }
 }

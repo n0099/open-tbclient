@@ -14,22 +14,22 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76618a;
+    public String f76937a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f76619b;
+    public long f76938b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f76620c;
+    public int f76939c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f76621d;
+    public String f76940d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f76622e;
+    public boolean f76941e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f76623f;
+    public boolean f76942f;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -46,12 +46,12 @@ public final class b {
                 return;
             }
         }
-        this.f76619b = -1L;
-        this.f76620c = -1;
-        this.f76622e = false;
-        this.f76623f = false;
+        this.f76938b = -1L;
+        this.f76939c = -1;
+        this.f76941e = false;
+        this.f76942f = false;
         if (!TextUtils.isEmpty(str)) {
-            this.f76618a = str;
+            this.f76937a = str;
             return;
         }
         throw new IllegalAccessError("PushPackageInfo need a non-null pkgName.");
@@ -60,32 +60,32 @@ public final class b {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76618a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76937a : (String) invokeV.objValue;
     }
 
     public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f76619b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f76938b : invokeV.longValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f76622e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f76941e : invokeV.booleanValue;
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f76623f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f76942f : invokeV.booleanValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "PushPackageInfo{mPackageName=" + this.f76618a + ", mPushVersion=" + this.f76619b + ", mPackageVersion=" + this.f76620c + ", mInBlackList=" + this.f76622e + ", mPushEnable=" + this.f76623f + "}";
+            return "PushPackageInfo{mPackageName=" + this.f76937a + ", mPushVersion=" + this.f76938b + ", mPackageVersion=" + this.f76939c + ", mInBlackList=" + this.f76941e + ", mPushEnable=" + this.f76942f + "}";
         }
         return (String) invokeV.objValue;
     }
@@ -93,35 +93,35 @@ public final class b {
     public final void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f76619b = j2;
+            this.f76938b = j2;
         }
     }
 
     public final void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f76623f = z;
+            this.f76942f = z;
         }
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f76622e = z;
+            this.f76941e = z;
         }
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f76620c = i2;
+            this.f76939c = i2;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f76621d = str;
+            this.f76940d = str;
         }
     }
 }

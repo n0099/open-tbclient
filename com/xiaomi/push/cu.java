@@ -14,13 +14,13 @@ public class cu extends co {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public co f77459a;
+    public co f77778a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ cs f212a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ co f77460b;
+    public final /* synthetic */ co f77779b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cu(cs csVar, String str, co coVar) {
@@ -41,12 +41,12 @@ public class cu extends co {
             }
         }
         this.f212a = csVar;
-        this.f77460b = coVar;
-        co coVar2 = this.f77460b;
-        this.f77459a = coVar2;
+        this.f77779b = coVar;
+        co coVar2 = this.f77779b;
+        this.f77778a = coVar2;
         ((co) this).f198b = ((co) this).f198b;
         if (coVar2 != null) {
-            this.f77447f = coVar2.f77447f;
+            this.f77766f = coVar2.f77766f;
         }
     }
 
@@ -58,11 +58,11 @@ public class cu extends co {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList<>();
-                if (this.f77459a != null) {
-                    arrayList.addAll(this.f77459a.a(true));
+                if (this.f77778a != null) {
+                    arrayList.addAll(this.f77778a.a(true));
                 }
-                synchronized (cs.f77455b) {
-                    co coVar = cs.f77455b.get(((co) this).f198b);
+                synchronized (cs.f77774b) {
+                    co coVar = cs.f77774b.get(((co) this).f198b);
                     if (coVar != null) {
                         Iterator<String> it = coVar.a(true).iterator();
                         while (it.hasNext()) {
@@ -86,8 +86,8 @@ public class cu extends co {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cnVar) == null) {
             synchronized (this) {
-                if (this.f77459a != null) {
-                    this.f77459a.a(str, cnVar);
+                if (this.f77778a != null) {
+                    this.f77778a.a(str, cnVar);
                 }
             }
         }

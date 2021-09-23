@@ -26,16 +26,16 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f56128e;
+    public TbImageView f56245e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f56129f;
+    public View f56246f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f56130g;
+    public ImageView f56247g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f56131h;
+    public EMTextView f56248h;
     public View.OnClickListener mAfterClickListener;
     public Context mContext;
     public View.OnClickListener mJumpToPbListener;
@@ -68,17 +68,17 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.fake_video_container, this);
-            this.f56128e = (TbImageView) findViewById(R.id.video_thumbnail);
-            this.f56129f = findViewById(R.id.black_mask);
-            this.f56130g = (ImageView) findViewById(R.id.video_play);
-            this.f56131h = (EMTextView) findViewById(R.id.fake_video_info);
-            this.f56130g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-            c d2 = c.d(this.f56131h);
+            this.f56245e = (TbImageView) findViewById(R.id.video_thumbnail);
+            this.f56246f = findViewById(R.id.black_mask);
+            this.f56247g = (ImageView) findViewById(R.id.video_play);
+            this.f56248h = (EMTextView) findViewById(R.id.fake_video_info);
+            this.f56247g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+            c d2 = c.d(this.f56248h);
             d2.w(R.color.CAM_X0101);
             d2.B(R.string.F_X01);
-            this.f56128e.clearCornerFlag();
-            this.f56128e.setDrawCorner(false);
-            this.f56128e.setPlaceHolder(3);
+            this.f56245e.clearCornerFlag();
+            this.f56245e.setDrawCorner(false);
+            this.f56245e.setPlaceHolder(3);
             setOnClickListener(this);
         }
     }
@@ -97,11 +97,11 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
             return;
         }
         d2Var.q1().is_vertical.intValue();
-        this.f56128e.setPlaceHolder(3);
+        this.f56245e.setPlaceHolder(3);
         if (!d2Var.q1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !d2Var.q1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
-            this.f56128e.startLoad(d2Var.q1().thumbnail_url, 32, false);
+            this.f56245e.startLoad(d2Var.q1().thumbnail_url, 32, false);
         } else {
-            this.f56128e.startLoad(d2Var.q1().thumbnail_url, 10, false);
+            this.f56245e.startLoad(d2Var.q1().thumbnail_url, 10, false);
         }
     }
 

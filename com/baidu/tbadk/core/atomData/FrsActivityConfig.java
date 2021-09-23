@@ -10,7 +10,7 @@ import c.a.e.e.m.b;
 import c.a.e.e.p.l;
 import c.a.q0.b.d;
 import c.a.q0.b.g.a;
-import c.a.q0.d1.f0;
+import c.a.q0.d1.g0;
 import c.a.q0.s.q.d2;
 import c.a.r0.w0.n2.k;
 import c.a.r0.y2.y;
@@ -195,7 +195,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
                 i2 = 6;
             }
-            if (d.q() && a.f12775c != a.d()) {
+            if (d.q() && a.f12789c != a.d()) {
                 frsRequestData.H(k.d(a.d()));
             }
             frsRequestData.setSortType(k.d(i2));
@@ -223,7 +223,7 @@ public class FrsActivityConfig extends IntentConfig {
             }
             frsRequestData.O(null);
             frsRequestData.a0(stringExtra3);
-            frsRequestData.N(b.g(f0.a(), 0L));
+            frsRequestData.N(b.g(g0.a(), 0L));
             frsRequestData.setStType(stringExtra2);
             frsRequestData.J(1);
             frsRequestData.setNeedCache(true);
@@ -231,7 +231,7 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.I(longExtra);
             k.e(i2, frsRequestData);
             frsRequestData.Q(1);
-            if (d2.M3.get() && y.o().b() != null) {
+            if (d2.N3.get() && y.o().b() != null) {
                 int d2 = y.o().b().d(stringExtra, false);
                 int e2 = y.o().b().e(stringExtra, false);
                 if (frsRequestData.A() == 1) {

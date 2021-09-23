@@ -17,7 +17,7 @@ public class b {
         if (interceptable == null || interceptable.invokeLL(65536, null, aVar, str) == null) {
             c.a.r0.y2.l0.c f2 = g.f(aVar);
             f2.c(str);
-            f2.j(aVar.f3332h);
+            f2.j(aVar.f3333h);
             e.b().d(f2);
         }
     }
@@ -26,8 +26,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65537, null, aVar, i2) == null) {
             c.a.r0.y2.l0.c f2 = g.f(aVar);
-            f2.j(aVar.f3332h);
-            f2.l(aVar.f3330f);
+            f2.j(aVar.f3333h);
+            f2.l(aVar.f3331f);
             f2.m(i2);
             e.b().d(f2);
         }
@@ -51,7 +51,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar) == null) {
             c.a.r0.y2.l0.c f2 = g.f(aVar);
-            f2.j(aVar.f3332h);
+            f2.j(aVar.f3333h);
             e.b().d(f2);
         }
     }

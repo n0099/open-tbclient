@@ -15,34 +15,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f21692a;
+    public int f21706a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f21693b;
+    public int f21707b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f21694c;
+    public byte[] f21708c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f21695d;
+    public int f21709d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21696e;
+    public int f21710e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21697f;
+    public int f21711f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21698g;
+    public int f21712g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21699h;
+    public int f21713h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f21700i;
+    public int f21714i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f21701j;
+    public int f21715j;
     public int[] k;
     public int[] l;
     public int m;
@@ -72,8 +72,8 @@ public class b {
                 return;
             }
         }
-        this.f21699h = 12;
-        this.f21701j = 4096;
+        this.f21713h = 12;
+        this.f21715j = 4096;
         this.k = new int[5003];
         this.l = new int[5003];
         this.m = 5003;
@@ -83,10 +83,10 @@ public class b {
         this.t = 0;
         this.u = new int[]{0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535};
         this.w = new byte[256];
-        this.f21692a = i2;
-        this.f21693b = i3;
-        this.f21694c = bArr;
-        this.f21695d = Math.max(2, i4);
+        this.f21706a = i2;
+        this.f21707b = i3;
+        this.f21708c = bArr;
+        this.f21709d = Math.max(2, i4);
     }
 
     public final int a(int i2) {
@@ -138,8 +138,8 @@ public class b {
         this.p = i2;
         int i3 = 0;
         this.o = false;
-        this.f21698g = i2;
-        this.f21700i = a(i2);
+        this.f21712g = i2;
+        this.f21714i = a(i2);
         int i4 = 1 << (i2 - 1);
         this.q = i4;
         this.r = i4 + 1;
@@ -156,7 +156,7 @@ public class b {
         while (true) {
             int h3 = h();
             if (h3 != -1) {
-                int i8 = (h3 << this.f21699h) + h2;
+                int i8 = (h3 << this.f21713h) + h2;
                 int i9 = (h3 << i6) ^ h2;
                 int[] iArr2 = this.k;
                 if (iArr2[i9] == i8) {
@@ -181,7 +181,7 @@ public class b {
                     }
                     i(h2, outputStream);
                     int i11 = this.n;
-                    if (i11 < this.f21701j) {
+                    if (i11 < this.f21715j) {
                         int[] iArr3 = this.l;
                         this.n = i11 + 1;
                         iArr3[i9] = i11;
@@ -202,10 +202,10 @@ public class b {
     public void f(OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, outputStream) == null) {
-            outputStream.write(this.f21695d);
-            this.f21696e = this.f21692a * this.f21693b;
-            this.f21697f = 0;
-            e(this.f21695d + 1, outputStream);
+            outputStream.write(this.f21709d);
+            this.f21710e = this.f21706a * this.f21707b;
+            this.f21711f = 0;
+            e(this.f21709d + 1, outputStream);
             outputStream.write(0);
         }
     }
@@ -225,14 +225,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i2 = this.f21696e;
+            int i2 = this.f21710e;
             if (i2 == 0) {
                 return -1;
             }
-            this.f21696e = i2 - 1;
-            byte[] bArr = this.f21694c;
-            int i3 = this.f21697f;
-            this.f21697f = i3 + 1;
+            this.f21710e = i2 - 1;
+            byte[] bArr = this.f21708c;
+            int i3 = this.f21711f;
+            this.f21711f = i3 + 1;
             return bArr[i3] & 255;
         }
         return invokeV.intValue;
@@ -251,25 +251,25 @@ public class b {
             } else {
                 this.s = i2;
             }
-            this.t += this.f21698g;
+            this.t += this.f21712g;
             while (this.t >= 8) {
                 b((byte) (this.s & 255), outputStream);
                 this.s >>= 8;
                 this.t -= 8;
             }
-            if (this.n > this.f21700i || this.o) {
+            if (this.n > this.f21714i || this.o) {
                 if (this.o) {
                     int i6 = this.p;
-                    this.f21698g = i6;
-                    this.f21700i = a(i6);
+                    this.f21712g = i6;
+                    this.f21714i = a(i6);
                     this.o = false;
                 } else {
-                    int i7 = this.f21698g + 1;
-                    this.f21698g = i7;
-                    if (i7 == this.f21699h) {
-                        this.f21700i = this.f21701j;
+                    int i7 = this.f21712g + 1;
+                    this.f21712g = i7;
+                    if (i7 == this.f21713h) {
+                        this.f21714i = this.f21715j;
                     } else {
-                        this.f21700i = a(i7);
+                        this.f21714i = a(i7);
                     }
                 }
             }

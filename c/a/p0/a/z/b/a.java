@@ -54,7 +54,7 @@ public abstract class a extends a0 {
                 jSONObject.putOpt(entry.getKey(), entry.getValue());
             }
         } catch (JSONException e2) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 e2.printStackTrace();
             }
         }

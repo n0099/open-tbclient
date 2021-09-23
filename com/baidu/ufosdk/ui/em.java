@@ -10,13 +10,13 @@ public final class em implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59884a;
+    public final /* synthetic */ FeedbackInputActivity f60015a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f59885b;
+    public final /* synthetic */ String f60016b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ ej f59886c;
+    public final /* synthetic */ ej f60017c;
 
     public em(ej ejVar, FeedbackInputActivity feedbackInputActivity, String str) {
         Interceptable interceptable = $ic;
@@ -33,16 +33,16 @@ public final class em implements Runnable {
                 return;
             }
         }
-        this.f59886c = ejVar;
-        this.f59884a = feedbackInputActivity;
-        this.f59885b = str;
+        this.f60017c = ejVar;
+        this.f60015a = feedbackInputActivity;
+        this.f60016b = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.baidu.ufosdk.e.a.c(this.f59884a.getApplicationContext(), this.f59884a.f59676f, this.f59885b);
+            com.baidu.ufosdk.e.a.c(this.f60015a.getApplicationContext(), this.f60015a.f59807f, this.f60016b);
         }
     }
 }

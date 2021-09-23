@@ -47,7 +47,7 @@ public class d extends SwanAppWebViewManager implements c.a.p0.a.p.e.a<NgWebView
                 return;
             }
         }
-        C = k.f7077a;
+        C = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

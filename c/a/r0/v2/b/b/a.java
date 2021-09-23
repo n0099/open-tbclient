@@ -22,7 +22,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<DecodeHintType, Object> f26361a;
+    public static final Map<DecodeHintType, Object> f26384a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,15 +38,15 @@ public class a {
                 return;
             }
         }
-        f26361a = new EnumMap(DecodeHintType.class);
+        f26384a = new EnumMap(DecodeHintType.class);
         ArrayList arrayList = new ArrayList();
         arrayList.add(BarcodeFormat.QR_CODE);
         arrayList.add(BarcodeFormat.AZTEC);
         arrayList.add(BarcodeFormat.DATA_MATRIX);
         arrayList.add(BarcodeFormat.PDF_417);
-        f26361a.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
-        f26361a.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
-        f26361a.put(DecodeHintType.CHARACTER_SET, "utf-8");
+        f26384a.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
+        f26384a.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
+        f26384a.put(DecodeHintType.CHARACTER_SET, "utf-8");
     }
 
     public static Bitmap a(String str) {
@@ -88,13 +88,13 @@ public class a {
                 rGBLuminanceSource = null;
             }
             try {
-                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource)), f26361a).getText();
+                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource)), f26384a).getText();
             } catch (Exception e3) {
                 e = e3;
                 e.printStackTrace();
                 if (rGBLuminanceSource != null) {
                     try {
-                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), f26361a).getText();
+                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), f26384a).getText();
                     } catch (Throwable th) {
                         th.printStackTrace();
                         return null;

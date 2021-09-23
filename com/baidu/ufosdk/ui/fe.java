@@ -11,7 +11,7 @@ public final class fe {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f59940a;
+    public TextView f60071a;
 
     public fe() {
         Interceptable interceptable = $ic;

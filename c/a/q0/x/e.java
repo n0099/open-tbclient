@@ -12,7 +12,7 @@ public abstract class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditorTools f15082e;
+    public EditorTools f15089e;
 
     public e(EditorTools editorTools) {
         Interceptable interceptable = $ic;
@@ -29,12 +29,12 @@ public abstract class e {
                 return;
             }
         }
-        this.f15082e = editorTools;
+        this.f15089e = editorTools;
     }
 
     public EditorTools a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15082e : (EditorTools) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15089e : (EditorTools) invokeV.objValue;
     }
 }

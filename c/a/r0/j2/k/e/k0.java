@@ -29,34 +29,34 @@ public class k0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f20141a;
+    public String f20156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f20142b;
+    public boolean f20157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f20143c;
+    public Rect f20158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20144d;
+    public int f20159d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.j2.h.e f20145e;
+    public c.a.r0.j2.h.e f20160e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20146f;
+    public boolean f20161f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Parcelable f20147g;
+    public Parcelable f20162g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f20148h;
+    public boolean f20163h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f20149i;
+    public boolean f20164i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f20150j;
+    public boolean f20165j;
     public PostData k;
     public PostData l;
     public int m;
@@ -311,7 +311,7 @@ public class k0 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static k0 f20151a;
+        public static k0 f20166a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -327,7 +327,7 @@ public class k0 {
                     return;
                 }
             }
-            f20151a = new k0(null);
+            f20166a = new k0(null);
         }
     }
 
@@ -360,19 +360,19 @@ public class k0 {
     public static k0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? h.f20151a : (k0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? h.f20166a : (k0) invokeV.objValue;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20149i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20164i : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20150j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20165j : invokeV.booleanValue;
     }
 
     public int d() {
@@ -385,13 +385,13 @@ public class k0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f20146f) {
-                this.f20146f = false;
-                Parcelable parcelable = this.f20147g;
-                this.f20147g = null;
+            if (this.f20161f) {
+                this.f20161f = false;
+                Parcelable parcelable = this.f20162g;
+                this.f20162g = null;
                 return parcelable;
             }
-            this.f20147g = null;
+            this.f20162g = null;
             return null;
         }
         return (Parcelable) invokeV.objValue;
@@ -401,19 +401,19 @@ public class k0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.f20142b) {
-                this.f20146f = false;
+            if (!this.f20157b) {
+                this.f20161f = false;
                 return null;
             }
-            c.a.r0.j2.h.e eVar = this.f20145e;
-            if (eVar != null && eVar.F() != null && this.f20145e.F().size() > 0) {
-                this.f20146f = true;
-                c.a.r0.j2.h.e eVar2 = this.f20145e;
-                this.f20145e = null;
+            c.a.r0.j2.h.e eVar = this.f20160e;
+            if (eVar != null && eVar.F() != null && this.f20160e.F().size() > 0) {
+                this.f20161f = true;
+                c.a.r0.j2.h.e eVar2 = this.f20160e;
+                this.f20160e = null;
                 return eVar2;
             }
-            this.f20146f = false;
-            this.f20145e = null;
+            this.f20161f = false;
+            this.f20160e = null;
             return null;
         }
         return (c.a.r0.j2.h.e) invokeV.objValue;
@@ -434,42 +434,42 @@ public class k0 {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f20148h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f20163h : invokeV.booleanValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f20144d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f20159d : invokeV.intValue;
     }
 
     public Rect k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f20143c : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f20158c : (Rect) invokeV.objValue;
     }
 
     public void l(int i2, CustomResponsedMessage<?> customResponsedMessage) {
         c.a.r0.j2.h.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048586, this, i2, customResponsedMessage) == null) || customResponsedMessage == null || (eVar = this.f20145e) == null || eVar.m() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048586, this, i2, customResponsedMessage) == null) || customResponsedMessage == null || (eVar = this.f20160e) == null || eVar.m() == null) {
             return;
         }
         Object data = customResponsedMessage.getData();
-        if ((data instanceof Long) && ((Long) data).longValue() == c.a.e.e.m.b.g(this.f20145e.m().getId(), 0L)) {
-            this.f20145e.m().setLike(i2);
+        if ((data instanceof Long) && ((Long) data).longValue() == c.a.e.e.m.b.g(this.f20160e.m().getId(), 0L)) {
+            this.f20160e.m().setLike(i2);
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f20142b = false;
-            this.f20145e = null;
-            this.f20146f = false;
-            this.f20147g = null;
-            this.f20143c = null;
-            this.f20144d = 0;
+            this.f20157b = false;
+            this.f20160e = null;
+            this.f20161f = false;
+            this.f20162g = null;
+            this.f20158c = null;
+            this.f20159d = 0;
         }
     }
 
@@ -477,8 +477,8 @@ public class k0 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{eVar, parcelable, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            this.f20142b = false;
-            if (this.f20141a == null) {
+            this.f20157b = false;
+            if (this.f20156a == null) {
                 m();
                 return false;
             } else if (eVar == null) {
@@ -491,12 +491,12 @@ public class k0 {
                 m();
                 return false;
             } else {
-                this.f20145e = eVar;
-                this.f20146f = false;
-                this.f20147g = parcelable;
-                this.f20148h = z;
-                this.f20149i = z2;
-                this.f20150j = z3;
+                this.f20160e = eVar;
+                this.f20161f = false;
+                this.f20162g = parcelable;
+                this.f20163h = z;
+                this.f20164i = z2;
+                this.f20165j = z3;
                 return true;
             }
         }
@@ -513,21 +513,21 @@ public class k0 {
     public void p(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048590, this, str, z) == null) {
-            this.f20142b = false;
+            this.f20157b = false;
             if (z) {
                 str = null;
             }
             if (str != null && str.length() >= 1) {
-                if (!str.equals(this.f20141a)) {
+                if (!str.equals(this.f20156a)) {
                     m();
-                    this.f20141a = str;
+                    this.f20156a = str;
                     return;
                 }
-                this.f20142b = true;
+                this.f20157b = true;
                 return;
             }
             m();
-            this.f20141a = null;
+            this.f20156a = null;
         }
     }
 
@@ -548,31 +548,31 @@ public class k0 {
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f20144d = i2;
+            this.f20159d = i2;
         }
     }
 
     public void t(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, rect) == null) {
-            this.f20143c = rect;
+            this.f20158c = rect;
         }
     }
 
     public void u(c.a.r0.j3.i0.e eVar) {
         c.a.r0.j2.h.e eVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, eVar) == null) || (eVar2 = this.f20145e) == null || eVar2.O() == null || this.f20145e.O().B() == null || eVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, eVar) == null) || (eVar2 = this.f20160e) == null || eVar2.O() == null || this.f20160e.O().B() == null || eVar == null) {
             return;
         }
-        AgreeData agreeData = eVar.f20841b;
-        AgreeData B = this.f20145e.O().B();
+        AgreeData agreeData = eVar.f20853b;
+        AgreeData B = this.f20160e.O().B();
         if (agreeData == null || B == null) {
             return;
         }
         String str = agreeData.nid;
         if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
-            BaijiahaoData L = this.f20145e.O().L();
+            BaijiahaoData L = this.f20160e.O().L();
             if (L == null || !TextUtils.equals(str, L.oriUgcNid)) {
                 return;
             }
@@ -597,18 +597,18 @@ public class k0 {
     public void v(UserPendantData userPendantData) {
         c.a.r0.j2.h.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, userPendantData) == null) || userPendantData == null || (eVar = this.f20145e) == null || eVar.F() == null || this.f20145e.F().size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, userPendantData) == null) || userPendantData == null || (eVar = this.f20160e) == null || eVar.F() == null || this.f20160e.F().size() <= 0) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (StringUtils.isNull(currentAccount)) {
             return;
         }
-        int size = this.f20145e.F().size();
+        int size = this.f20160e.F().size();
         for (int i2 = 0; i2 < size; i2++) {
-            if (this.f20145e.F().get(i2) != null && this.f20145e.F().get(i2).t() != null && currentAccount.equals(this.f20145e.F().get(i2).t().getUserId()) && this.f20145e.F().get(i2).t().getPendantData() != null) {
-                this.f20145e.F().get(i2).t().getPendantData().setImgUrl(userPendantData.getImgUrl());
-                this.f20145e.F().get(i2).t().getPendantData().setPropsId(userPendantData.getPropsId());
+            if (this.f20160e.F().get(i2) != null && this.f20160e.F().get(i2).t() != null && currentAccount.equals(this.f20160e.F().get(i2).t().getUserId()) && this.f20160e.F().get(i2).t().getPendantData() != null) {
+                this.f20160e.F().get(i2).t().getPendantData().setImgUrl(userPendantData.getImgUrl());
+                this.f20160e.F().get(i2).t().getPendantData().setPropsId(userPendantData.getPropsId());
             }
         }
     }
@@ -616,14 +616,14 @@ public class k0 {
     public void w(c.a.r0.j3.i0.e eVar) {
         c.a.r0.j2.h.e eVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, eVar) == null) || (eVar2 = this.f20145e) == null || eVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, eVar) == null) || (eVar2 = this.f20160e) == null || eVar == null) {
             return;
         }
         ArrayList<PostData> F = eVar2.F();
         if (ListUtils.isEmpty(F)) {
             return;
         }
-        AgreeData agreeData = eVar.f20841b;
+        AgreeData agreeData = eVar.f20853b;
         for (PostData postData : F) {
             if (postData != null && TextUtils.equals(postData.E(), agreeData.postId)) {
                 AgreeData q = postData.q();
@@ -650,14 +650,14 @@ public class k0 {
                 return;
             }
         }
-        this.f20141a = null;
-        this.f20142b = false;
-        this.f20144d = 0;
-        this.f20145e = null;
-        this.f20146f = false;
-        this.f20147g = null;
-        this.f20148h = true;
-        this.f20149i = false;
-        this.f20150j = false;
+        this.f20156a = null;
+        this.f20157b = false;
+        this.f20159d = 0;
+        this.f20160e = null;
+        this.f20161f = false;
+        this.f20162g = null;
+        this.f20163h = true;
+        this.f20164i = false;
+        this.f20165j = false;
     }
 }

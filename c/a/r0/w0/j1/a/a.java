@@ -27,28 +27,28 @@ public class a implements BottomMenuView.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f26893a;
+    public TbPageContext<?> f26913a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f26894b;
+    public View f26914b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f26895c;
+    public ImageView f26915c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BottomMenuView f26896d;
+    public BottomMenuView f26916d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumData f26897e;
+    public ForumData f26917e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26898f;
+    public int f26918f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f26899g;
+    public int f26919g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f26900h;
+    public int f26920h;
 
     public a(TbPageContext tbPageContext, View view) {
         Interceptable interceptable = $ic;
@@ -65,15 +65,15 @@ public class a implements BottomMenuView.a {
                 return;
             }
         }
-        this.f26893a = tbPageContext;
-        this.f26894b = view;
-        this.f26895c = (ImageView) view.findViewById(R.id.normal_write_icon);
+        this.f26913a = tbPageContext;
+        this.f26914b = view;
+        this.f26915c = (ImageView) view.findViewById(R.id.normal_write_icon);
         BottomMenuView bottomMenuView = (BottomMenuView) view.findViewById(R.id.bottom_menu_view);
-        this.f26896d = bottomMenuView;
+        this.f26916d = bottomMenuView;
         bottomMenuView.setOnMenuItemClickListener(this);
-        this.f26898f = l.g(tbPageContext.getPageActivity(), R.dimen.tbds160);
-        this.f26899g = l.g(tbPageContext.getPageActivity(), R.dimen.tbds44);
-        this.f26900h = l.g(tbPageContext.getPageActivity(), R.dimen.ds4);
+        this.f26918f = l.g(tbPageContext.getPageActivity(), R.dimen.tbds160);
+        this.f26919g = l.g(tbPageContext.getPageActivity(), R.dimen.tbds44);
+        this.f26920h = l.g(tbPageContext.getPageActivity(), R.dimen.ds4);
     }
 
     @Override // com.baidu.tieba.frs.brand.buttommenu.BottomMenuView.a
@@ -82,10 +82,10 @@ public class a implements BottomMenuView.a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, subMenuItemView, subBottomMenu) == null) || subBottomMenu == null) {
             return;
         }
-        UrlManager.getInstance().dealOneLink(this.f26893a, new String[]{subBottomMenu.url});
-        ForumData forumData = this.f26897e;
+        UrlManager.getInstance().dealOneLink(this.f26913a, new String[]{subBottomMenu.url});
+        ForumData forumData = this.f26917e;
         String id = forumData != null ? forumData.getId() : "";
-        ForumData forumData2 = this.f26897e;
+        ForumData forumData2 = this.f26917e;
         TiebaStatic.log(new StatisticItem("c13117").param("fid", id).param("fname", forumData2 != null ? forumData2.getName() : "").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", subBottomMenu.name));
     }
 
@@ -95,10 +95,10 @@ public class a implements BottomMenuView.a {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuItemView, bottomMenu) == null) {
             long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
             if (bottomMenu != null && ListUtils.getCount(bottomMenu.submenu) == 0) {
-                UrlManager.getInstance().dealOneLink(this.f26893a, new String[]{bottomMenu.url});
-                ForumData forumData = this.f26897e;
+                UrlManager.getInstance().dealOneLink(this.f26913a, new String[]{bottomMenu.url});
+                ForumData forumData = this.f26917e;
                 String id = forumData != null ? forumData.getId() : "";
-                ForumData forumData2 = this.f26897e;
+                ForumData forumData2 = this.f26917e;
                 TiebaStatic.log(new StatisticItem("c13117").param("fid", id).param("fname", forumData2 != null ? forumData2.getName() : "").param("uid", currentAccountId).param("obj_param1", bottomMenu.name));
                 return;
             }
@@ -109,49 +109,49 @@ public class a implements BottomMenuView.a {
     public final void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f26895c.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f26915c.getLayoutParams();
             if (z) {
                 layoutParams.addRule(11);
                 layoutParams.addRule(12);
                 layoutParams.addRule(14, 0);
-                layoutParams.bottomMargin = this.f26898f;
-                layoutParams.rightMargin = this.f26899g;
+                layoutParams.bottomMargin = this.f26918f;
+                layoutParams.rightMargin = this.f26919g;
                 return;
             }
             layoutParams.addRule(11, 0);
             layoutParams.addRule(12);
             layoutParams.addRule(14);
-            layoutParams.bottomMargin = this.f26900h;
+            layoutParams.bottomMargin = this.f26920h;
             layoutParams.rightMargin = 0;
         }
     }
 
     public void d(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) && this.f26896d.getVisibility() == 0) {
-            this.f26896d.onChangeSkinType(tbPageContext, i2);
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) && this.f26916d.getVisibility() == 0) {
+            this.f26916d.onChangeSkinType(tbPageContext, i2);
         }
     }
 
     public void e(List<BottomMenu> list, ForumData forumData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, list, forumData) == null) {
-            this.f26897e = forumData;
+            this.f26917e = forumData;
             boolean z = ListUtils.getCount(list) > 0;
             c(z);
             if (z) {
-                this.f26896d.setVisibility(0);
-                this.f26896d.showMenu(list, this.f26893a);
+                this.f26916d.setVisibility(0);
+                this.f26916d.showMenu(list, this.f26913a);
                 return;
             }
-            this.f26896d.setVisibility(8);
+            this.f26916d.setVisibility(8);
         }
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f26896d.setVisibility(z ? 0 : 8);
+            this.f26916d.setVisibility(z ? 0 : 8);
         }
     }
 }

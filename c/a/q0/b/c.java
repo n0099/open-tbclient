@@ -2,6 +2,7 @@ package c.a.q0.b;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.q0.b.f.a0;
 import c.a.q0.b.f.f;
 import c.a.q0.b.f.g;
 import c.a.q0.b.f.h;
@@ -9,7 +10,7 @@ import c.a.q0.b.f.i;
 import c.a.q0.b.f.j;
 import c.a.q0.b.f.k;
 import c.a.q0.b.f.l;
-import c.a.q0.b.f.n;
+import c.a.q0.b.f.m;
 import c.a.q0.b.f.o;
 import c.a.q0.b.f.p;
 import c.a.q0.b.f.q;
@@ -21,6 +22,7 @@ import c.a.q0.b.f.v;
 import c.a.q0.b.f.w;
 import c.a.q0.b.f.x;
 import c.a.q0.b.f.y;
+import c.a.q0.b.f.z;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -40,17 +42,17 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f12699d;
+    public static c f12707d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, e> f12700a;
+    public final HashMap<String, e> f12708a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<BdUniqueId, c.a.q0.b.f.a> f12701b;
+    public final HashMap<BdUniqueId, c.a.q0.b.f.a> f12709b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<BdUniqueId, e> f12702c;
+    public final HashMap<BdUniqueId, e> f12710c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -65,9 +67,9 @@ public class c {
                 return;
             }
         }
-        this.f12700a = new HashMap<>();
-        this.f12701b = new HashMap<>();
-        this.f12702c = new HashMap<>();
+        this.f12708a = new HashMap<>();
+        this.f12709b = new HashMap<>();
+        this.f12710c = new HashMap<>();
         m();
         j(c());
     }
@@ -76,14 +78,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12699d == null) {
+            if (f12707d == null) {
                 synchronized (c.class) {
-                    if (f12699d == null) {
-                        f12699d = new c();
+                    if (f12707d == null) {
+                        f12707d = new c();
                     }
                 }
             }
-            return f12699d;
+            return f12707d;
         }
         return (c) invokeV.objValue;
     }
@@ -97,7 +99,7 @@ public class c {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.q0.s.d0.b.j().v("static_opt_open", d.P() ? 1 : 0);
+            c.a.q0.s.d0.b.j().v("static_opt_open", d.T() ? 1 : 0);
         }
     }
 
@@ -107,7 +109,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             synchronized (this) {
-                eVar = this.f12700a.get(str);
+                eVar = this.f12708a.get(str);
             }
             return eVar;
         }
@@ -141,7 +143,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bdUniqueId)) == null) {
-            c.a.q0.b.f.a aVar = this.f12701b.get(bdUniqueId);
+            c.a.q0.b.f.a aVar = this.f12709b.get(bdUniqueId);
             if (aVar == null) {
                 return null;
             }
@@ -153,7 +155,7 @@ public class c {
     public Map<BdUniqueId, e> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12702c : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12710c : (Map) invokeV.objValue;
     }
 
     public void h(JSONArray jSONArray) {
@@ -162,7 +164,7 @@ public class c {
             try {
                 String e2 = e();
                 if (jSONArray == null) {
-                    this.f12700a.clear();
+                    this.f12708a.clear();
                     c.a.q0.s.d0.b.j().C(e2);
                     return;
                 }
@@ -200,10 +202,10 @@ public class c {
     public final void j(HashMap<String, e> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
-            synchronized (this.f12700a) {
-                this.f12700a.clear();
+            synchronized (this.f12708a) {
+                this.f12708a.clear();
                 if (hashMap != null) {
-                    this.f12700a.putAll(hashMap);
+                    this.f12708a.putAll(hashMap);
                 }
                 k();
             }
@@ -213,7 +215,7 @@ public class c {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            for (Map.Entry<BdUniqueId, c.a.q0.b.f.a> entry : this.f12701b.entrySet()) {
+            for (Map.Entry<BdUniqueId, c.a.q0.b.f.a> entry : this.f12709b.entrySet()) {
                 c.a.q0.b.f.a value = entry.getValue();
                 if (value != null) {
                     o(value);
@@ -226,9 +228,9 @@ public class c {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f12702c.clear();
-            for (BdUniqueId bdUniqueId : this.f12701b.keySet()) {
-                this.f12702c.put(bdUniqueId, f(bdUniqueId));
+            this.f12710c.clear();
+            for (BdUniqueId bdUniqueId : this.f12709b.keySet()) {
+                this.f12710c.put(bdUniqueId, f(bdUniqueId));
             }
         }
     }
@@ -236,29 +238,31 @@ public class c {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            n(new v());
-            n(new k());
-            n(new g());
-            n(new s());
-            n(new c.a.q0.b.f.b());
-            n(new c.a.q0.b.f.c());
-            n(new u());
-            n(new c.a.q0.b.f.e());
-            n(new i());
-            n(new h());
-            n(new o());
-            n(new t());
-            n(new r());
-            n(new l());
-            n(new f());
-            n(new c.a.q0.b.f.d());
-            n(new j());
-            n(new y());
-            n(new p());
-            n(new n());
-            n(new w());
             n(new x());
+            n(new l());
+            n(new h());
+            n(new t());
+            n(new c.a.q0.b.f.c());
+            n(new c.a.q0.b.f.d());
+            n(new w());
+            n(new f());
+            n(new j());
+            n(new i());
+            n(new p());
+            n(new v());
+            n(new s());
+            n(new m());
+            n(new g());
+            n(new c.a.q0.b.f.e());
+            n(new k());
+            n(new a0());
             n(new q());
+            n(new o());
+            n(new y());
+            n(new z());
+            n(new r());
+            n(new u());
+            n(new c.a.q0.b.f.b());
         }
     }
 
@@ -267,7 +271,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) || aVar == null || aVar.c() == null) {
             return;
         }
-        this.f12701b.put(aVar.c(), aVar);
+        this.f12709b.put(aVar.c(), aVar);
     }
 
     public final void o(c.a.q0.b.f.a aVar) {
@@ -283,7 +287,7 @@ public class c {
         }
         Iterator<String> it = a2.iterator();
         while (it.hasNext()) {
-            eVar = this.f12700a.get(it.next());
+            eVar = this.f12708a.get(it.next());
             if (eVar != null) {
                 break;
             }

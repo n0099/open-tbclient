@@ -28,13 +28,13 @@ public class d implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ItemInfo f26496e;
+    public ItemInfo f26519e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<AlbumElement> f26497f;
+    public List<AlbumElement> f26520f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<n> f26498g;
+    public ArrayList<n> f26521g;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class d implements h {
                 return;
             }
         }
-        this.f26498g = new ArrayList<>();
+        this.f26521g = new ArrayList<>();
     }
 
     public void a(DataRes dataRes) {
@@ -58,59 +58,59 @@ public class d implements h {
             return;
         }
         ItemInfo itemInfo = dataRes.item_info;
-        this.f26496e = itemInfo;
+        this.f26519e = itemInfo;
         if (itemInfo == null) {
             return;
         }
-        this.f26497f = dataRes.album_list;
+        this.f26520f = dataRes.album_list;
         ItemGameInfo itemGameInfo = dataRes.item_game_info;
         if (itemGameInfo != null) {
             List<ThreadInfo> list = itemGameInfo.hot_videos;
             if (list != null && ListUtils.getCount(list) >= 3) {
                 c.a.r0.w0.b2.g.c cVar = new c.a.r0.w0.b2.g.c();
                 cVar.i(dataRes.item_game_info.hot_videos);
-                this.f26498g.add(cVar);
+                this.f26521g.add(cVar);
             }
             RecentUpdate recentUpdate = dataRes.item_game_info.recent_update;
             if (recentUpdate != null && !k.isEmpty(recentUpdate.log)) {
                 c.a.r0.w0.b2.g.d dVar = new c.a.r0.w0.b2.g.d();
                 dVar.i(dataRes.item_game_info.recent_update);
-                this.f26498g.add(dVar);
+                this.f26521g.add(dVar);
             }
         }
         if (!ListUtils.isEmpty(dataRes.thread_list)) {
             c.a.r0.w0.b2.g.a aVar = new c.a.r0.w0.b2.g.a();
             aVar.setSupportType(BaseCardInfo.SupportType.TOP);
-            this.f26498g.add(aVar);
+            this.f26521g.add(aVar);
             int i2 = 1;
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 if (threadInfo != null) {
                     d2 d2Var = new d2();
                     d2Var.Y2(threadInfo);
                     d2Var.c3();
-                    d2Var.l4(i2);
+                    d2Var.k4(i2);
                     i2++;
                     d2Var.G1();
-                    this.f26498g.add(d2Var);
+                    this.f26521g.add(d2Var);
                     c.a.r0.w0.b2.g.a aVar2 = new c.a.r0.w0.b2.g.a();
                     aVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    this.f26498g.add(aVar2);
+                    this.f26521g.add(aVar2);
                 }
             }
             c.a.r0.w0.b2.g.a aVar3 = new c.a.r0.w0.b2.g.a();
-            aVar3.k(this.f26496e.id.intValue());
+            aVar3.k(this.f26519e.id.intValue());
             aVar3.o(i2);
             aVar3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-            this.f26498g.add(aVar3);
+            this.f26521g.add(aVar3);
         }
         c.a.r0.w0.b2.g.b bVar = new c.a.r0.w0.b2.g.b();
         bVar.k(dataRes.item_info);
         if (bVar.i()) {
-            this.f26498g.add(bVar);
+            this.f26521g.add(bVar);
         }
         e eVar = new e();
         eVar.i(dataRes.recommend_item);
-        this.f26498g.add(eVar);
+        this.f26521g.add(eVar);
     }
 
     @Override // c.a.q0.k0.b.h

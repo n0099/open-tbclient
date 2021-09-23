@@ -108,24 +108,24 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
     public View.OnLongClickListener c0;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.f1.m.a f48885e;
+    public c.a.q0.f1.m.a f48993e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.j2.a<ImageView> f48886f;
+    public c.a.r0.j2.a<ImageView> f48994f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.e.e.k.b<ImageView> f48887g;
+    public c.a.e.e.k.b<ImageView> f48995g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.e.e.k.b<TextView> f48888h;
+    public c.a.e.e.k.b<TextView> f48996h;
     public boolean hasShadow;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.e.e.k.b<View> f48889i;
+    public c.a.e.e.k.b<View> f48997i;
     public w i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.e.e.k.b<LinearLayout> f48890j;
+    public c.a.e.e.k.b<LinearLayout> f48998j;
     public final View.OnClickListener j0;
     public c.a.e.e.k.b<RelativeLayout> k;
     public final c.a.r0.j2.i.c k0;
@@ -159,7 +159,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48891e;
+        public final /* synthetic */ TbRichTextView f48999e;
 
         public a(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
@@ -176,15 +176,15 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48891e = tbRichTextView;
+            this.f48999e = tbRichTextView;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48891e.Y();
-                this.f48891e.U.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                this.f48999e.Y();
+                this.f48999e.U.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         }
     }
@@ -200,10 +200,10 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextData f48892e;
+        public final /* synthetic */ TbRichTextData f49000e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48893f;
+        public final /* synthetic */ TbRichTextView f49001f;
 
         public b(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData) {
             Interceptable interceptable = $ic;
@@ -220,18 +220,18 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48893f = tbRichTextView;
-            this.f48892e = tbRichTextData;
+            this.f49001f = tbRichTextView;
+            this.f49000e = tbRichTextData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48893f.G == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49001f.G == null) {
                 return;
             }
-            TbRichTextEmotionInfo z = this.f48892e.z();
-            y yVar = this.f48893f.G;
+            TbRichTextEmotionInfo z = this.f49000e.z();
+            y yVar = this.f49001f.G;
             GifInfo gifInfo = z.mGifInfo;
             yVar.a(view, gifInfo.mGid, gifInfo.mPackageName, gifInfo.mIcon, gifInfo.mStaticUrl, gifInfo.mDynamicUrl, gifInfo.mSharpText, gifInfo.mGifWidth, gifInfo.mGifHeight);
         }
@@ -243,7 +243,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f48894e;
+        public int f49002e;
 
         public b0(int i2) {
             Interceptable interceptable = $ic;
@@ -260,15 +260,15 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48894e = 0;
-            this.f48894e = i2;
+            this.f49002e = 0;
+            this.f49002e = i2;
         }
 
         @Override // android.widget.AbsListView.RecyclerListener
         public void onMovedToScrapHeap(View view) {
             View findViewById;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (findViewById = view.findViewById(this.f48894e)) != null && (findViewById instanceof TbRichTextView)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (findViewById = view.findViewById(this.f49002e)) != null && (findViewById instanceof TbRichTextView)) {
                 ((TbRichTextView) findViewById).setText(null);
             }
         }
@@ -280,10 +280,10 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextData f48895e;
+        public final /* synthetic */ TbRichTextData f49003e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48896f;
+        public final /* synthetic */ TbRichTextView f49004f;
 
         public c(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData) {
             Interceptable interceptable = $ic;
@@ -300,8 +300,8 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48896f = tbRichTextView;
-            this.f48895e = tbRichTextData;
+            this.f49004f = tbRichTextView;
+            this.f49003e = tbRichTextData;
         }
 
         @Override // android.view.View.OnClickListener
@@ -309,7 +309,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TiebaStatic.log(new StatisticItem("common_click").param("page_type", "a005").param(TiebaStatic.Params.GUA_TYPE, 2).param("obj_locate", 16));
-                ItemClickJumpUtil.itemClickJump(this.f48895e.A().getItemForumName(), this.f48895e.A().getItemID(), 3, 3);
+                ItemClickJumpUtil.itemClickJump(this.f49003e.A().getItemForumName(), this.f49003e.A().getItemID(), 3, 3);
             }
         }
     }
@@ -320,7 +320,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48897a;
+        public final /* synthetic */ TbRichTextView f49005a;
 
         public d(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
@@ -337,7 +337,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48897a = tbRichTextView;
+            this.f49005a = tbRichTextView;
         }
 
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.x
@@ -345,9 +345,9 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f48897a.Q = true;
+                    this.f49005a.Q = true;
                 } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                    this.f48897a.Q = false;
+                    this.f49005a.Q = false;
                 }
             }
         }
@@ -359,7 +359,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48898a;
+        public final /* synthetic */ TbRichTextView f49006a;
 
         public e(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
@@ -376,7 +376,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48898a = tbRichTextView;
+            this.f49006a = tbRichTextView;
         }
 
         @Override // c.a.e.e.l.c
@@ -400,7 +400,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public void onLoaded(c.a.e.l.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str, i2) == null) {
-                this.f48898a.z(aVar);
+                this.f49006a.z(aVar);
             }
         }
     }
@@ -411,7 +411,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48899a;
+        public final /* synthetic */ TbRichTextView f49007a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(TbRichTextView tbRichTextView, int i2) {
@@ -431,25 +431,30 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48899a = tbRichTextView;
+            this.f49007a = tbRichTextView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            int contentSize;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                int contentSizeOfLzl = this.f48899a.M ? TbConfig.getContentSizeOfLzl() : TbConfig.getContentSize();
-                if (this.f48899a.H != null && !ListUtils.isEmpty(this.f48899a.H.y())) {
-                    Iterator<TbRichTextData> it = this.f48899a.H.y().iterator();
+                if (this.f49007a.M) {
+                    contentSize = TbConfig.getOutterSubpbContentSize();
+                } else {
+                    contentSize = TbConfig.getContentSize();
+                }
+                if (this.f49007a.H != null && !ListUtils.isEmpty(this.f49007a.H.y())) {
+                    Iterator<TbRichTextData> it = this.f49007a.H.y().iterator();
                     while (it.hasNext()) {
                         TbRichTextData next = it.next();
                         if (next != null) {
-                            next.P(contentSizeOfLzl, contentSizeOfLzl);
+                            next.P(contentSize, contentSize);
                         }
                     }
                 }
-                this.f48899a.setTextSize(contentSizeOfLzl);
+                this.f49007a.setTextSize(contentSize);
             }
         }
     }
@@ -460,7 +465,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48900a;
+        public final /* synthetic */ TbRichTextView f49008a;
 
         public g(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
@@ -477,7 +482,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48900a = tbRichTextView;
+            this.f49008a = tbRichTextView;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -544,7 +549,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(c.a.e.a.j.a(this.f48900a.getContext()).getPageActivity());
+                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(c.a.e.a.j.a(this.f49008a.getContext()).getPageActivity());
                 boolean g2 = c.a.q0.s.k.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g2) {
@@ -573,7 +578,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48901e;
+        public final /* synthetic */ TbRichTextView f49009e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(TbRichTextView tbRichTextView, c.a.e.e.k.c cVar, int i2, int i3) {
@@ -594,7 +599,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48901e = tbRichTextView;
+            this.f49009e = tbRichTextView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -671,7 +676,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48902e;
+        public final /* synthetic */ TbRichTextView f49010e;
 
         public j(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
@@ -688,28 +693,28 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48902e = tbRichTextView;
+            this.f49010e = tbRichTextView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             MemeInfo memeInfo;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f48902e.s != null && (view instanceof ImageView)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f49010e.s != null && (view instanceof ImageView)) {
                 String str = null;
                 Object tag = view.getTag();
                 int i2 = 0;
                 int i3 = -1;
                 if (tag != null && (tag instanceof TbRichText)) {
-                    int childCount = this.f48902e.getChildCount();
+                    int childCount = this.f49010e.getChildCount();
                     while (i2 < childCount) {
                         i3++;
-                        if (view.getParent() == this.f48902e.getChildAt(i2)) {
+                        if (view.getParent() == this.f49010e.getChildAt(i2)) {
                             break;
                         }
                         i2++;
                     }
-                    this.f48902e.s.a(view, null, i3, this.f48902e.N, false);
+                    this.f49010e.s.a(view, null, i3, this.f49010e.N, false);
                     return;
                 }
                 if (tag != null && (tag instanceof String)) {
@@ -719,15 +724,15 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     if (z && (view.getTag(R.id.tag_rich_text_meme_info) instanceof TbRichTextMemeInfo)) {
                         TbRichTextMemeInfo tbRichTextMemeInfo = (TbRichTextMemeInfo) view.getTag(R.id.tag_rich_text_meme_info);
                         String str2 = (tbRichTextMemeInfo == null || (memeInfo = tbRichTextMemeInfo.memeInfo) == null) ? "" : memeInfo.pic_url;
-                        int childCount2 = this.f48902e.getChildCount();
+                        int childCount2 = this.f49010e.getChildCount();
                         while (i2 < childCount2) {
                             i3++;
-                            if (view.getParent() == this.f48902e.getChildAt(i2)) {
+                            if (view.getParent() == this.f49010e.getChildAt(i2)) {
                                 break;
                             }
                             i2++;
                         }
-                        this.f48902e.s.a(view, str2, i3, this.f48902e.N, false);
+                        this.f49010e.s.a(view, str2, i3, this.f49010e.N, false);
                         return;
                     } else if (z) {
                         str = ((TbImageView) view).getUrl();
@@ -736,10 +741,10 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     }
                 }
                 String str3 = str;
-                int childCount3 = this.f48902e.getChildCount();
+                int childCount3 = this.f49010e.getChildCount();
                 while (i2 < childCount3) {
-                    View childAt = this.f48902e.getChildAt(i2);
-                    if (this.f48902e.Q(childAt)) {
+                    View childAt = this.f49010e.getChildAt(i2);
+                    if (this.f49010e.Q(childAt)) {
                         i3++;
                     }
                     if (view == childAt) {
@@ -747,7 +752,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     }
                     i2++;
                 }
-                this.f48902e.s.a(view, str3, i3, this.f48902e.N, false);
+                this.f49010e.s.a(view, str3, i3, this.f49010e.N, false);
             }
         }
     }
@@ -758,7 +763,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48903a;
+        public final /* synthetic */ TbRichTextView f49011a;
 
         public k(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
@@ -775,7 +780,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48903a = tbRichTextView;
+            this.f49011a = tbRichTextView;
         }
 
         @Override // c.a.r0.j2.i.c.a
@@ -793,8 +798,8 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-                if (this.f48903a.j0 != null) {
-                    this.f48903a.j0.onClick(view);
+                if (this.f49011a.j0 != null) {
+                    this.f49011a.j0.onClick(view);
                     return true;
                 }
                 return false;
@@ -807,9 +812,9 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
-                if (this.f48903a.t != null) {
-                    this.f48903a.t.a(view);
-                    return this.f48903a.t.onDoubleTap(motionEvent);
+                if (this.f49011a.t != null) {
+                    this.f49011a.t.a(view);
+                    return this.f49011a.t.onDoubleTap(motionEvent);
                 }
                 return false;
             }
@@ -823,7 +828,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48904e;
+        public final /* synthetic */ TbRichTextView f49012e;
 
         public l(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
@@ -840,19 +845,19 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48904e = tbRichTextView;
+            this.f49012e = tbRichTextView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f48904e.u != null && (view instanceof TbImageView)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f49012e.u != null && (view instanceof TbImageView)) {
                 String str = null;
                 Object tag = view.getTag();
                 if (tag != null && (tag instanceof v)) {
-                    str = ((v) tag).f48915a;
+                    str = ((v) tag).f49023a;
                 }
-                this.f48904e.u.a(view, str);
+                this.f49012e.u.a(view, str);
             }
         }
     }
@@ -863,7 +868,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f48905a;
+        public final /* synthetic */ Context f49013a;
 
         public m(Context context) {
             Interceptable interceptable = $ic;
@@ -880,7 +885,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48905a = context;
+            this.f49013a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -935,7 +940,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public TextView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new TbListTextView(this.f48905a) : (TextView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new TbListTextView(this.f49013a) : (TextView) invokeV.objValue;
         }
 
         public TextView h(TextView textView) {
@@ -967,7 +972,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48906e;
+        public final /* synthetic */ TbRichTextView f49014e;
 
         public n(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
@@ -984,7 +989,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48906e = tbRichTextView;
+            this.f49014e = tbRichTextView;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -1000,76 +1005,76 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) {
                 if (view2 instanceof GifView) {
                     Object tag = view2.getTag(R.id.tag_rich_text_view_recycle);
-                    if (!(tag instanceof u) || !((u) tag).f48914a) {
-                        if (this.f48906e.l != null) {
-                            this.f48906e.l.e((GifView) view2);
+                    if (!(tag instanceof u) || !((u) tag).f49022a) {
+                        if (this.f49014e.l != null) {
+                            this.f49014e.l.e((GifView) view2);
                         }
                     } else {
-                        if (this.f48906e.f48886f == null) {
-                            TbRichTextView tbRichTextView = this.f48906e;
-                            tbRichTextView.f48886f = tbRichTextView.getRecycleImageViewPool();
+                        if (this.f49014e.f48994f == null) {
+                            TbRichTextView tbRichTextView = this.f49014e;
+                            tbRichTextView.f48994f = tbRichTextView.getRecycleImageViewPool();
                         }
-                        this.f48906e.f48886f.e((ImageView) view2);
+                        this.f49014e.f48994f.e((ImageView) view2);
                     }
                 } else if (view2 instanceof ImageView) {
                     Object tag2 = view2.getTag(R.id.tag_rich_text_view_recycle);
-                    if (!(tag2 instanceof u) || !((u) tag2).f48914a) {
-                        if (this.f48906e.f48887g != null) {
-                            this.f48906e.f48887g.e((ImageView) view2);
+                    if (!(tag2 instanceof u) || !((u) tag2).f49022a) {
+                        if (this.f49014e.f48995g != null) {
+                            this.f49014e.f48995g.e((ImageView) view2);
                         }
                     } else {
-                        if (this.f48906e.f48886f == null) {
-                            TbRichTextView tbRichTextView2 = this.f48906e;
-                            tbRichTextView2.f48886f = tbRichTextView2.getRecycleImageViewPool();
+                        if (this.f49014e.f48994f == null) {
+                            TbRichTextView tbRichTextView2 = this.f49014e;
+                            tbRichTextView2.f48994f = tbRichTextView2.getRecycleImageViewPool();
                         }
-                        this.f48906e.f48886f.e((ImageView) view2);
+                        this.f49014e.f48994f.e((ImageView) view2);
                     }
-                } else if ((view2 instanceof TextView) && this.f48906e.f48888h != null) {
-                    this.f48906e.f48888h.e((TextView) view2);
-                } else if ((view2 instanceof PlayVoiceBnt) && this.f48906e.f48889i != null) {
-                    this.f48906e.f48889i.e(view2);
-                } else if ((view2 instanceof PlayVoiceBntNew) && this.f48906e.f48889i != null) {
-                    this.f48906e.f48889i.e(view2);
+                } else if ((view2 instanceof TextView) && this.f49014e.f48996h != null) {
+                    this.f49014e.f48996h.e((TextView) view2);
+                } else if ((view2 instanceof PlayVoiceBnt) && this.f49014e.f48997i != null) {
+                    this.f49014e.f48997i.e(view2);
+                } else if ((view2 instanceof PlayVoiceBntNew) && this.f49014e.f48997i != null) {
+                    this.f49014e.f48997i.e(view2);
                 } else if (view2 instanceof GridImageLayout) {
                     GridImageLayout gridImageLayout = (GridImageLayout) view2;
                     int childCount = gridImageLayout.getChildCount();
                     for (int i2 = 0; i2 < childCount; i2++) {
                         View childAt = gridImageLayout.getChildAt(i2);
-                        if ((childAt instanceof GifView) && this.f48906e.l != null) {
-                            this.f48906e.l.e((GifView) childAt);
-                        } else if ((childAt instanceof ImageView) && this.f48906e.f48887g != null) {
-                            this.f48906e.f48887g.e((ImageView) childAt);
+                        if ((childAt instanceof GifView) && this.f49014e.l != null) {
+                            this.f49014e.l.e((GifView) childAt);
+                        } else if ((childAt instanceof ImageView) && this.f49014e.f48995g != null) {
+                            this.f49014e.f48995g.e((ImageView) childAt);
                         }
                     }
                     gridImageLayout.removeAllViews();
                     gridImageLayout.clearData();
-                } else if ((view2 instanceof TiebaPlusRecommendCard) && this.f48906e.m != null) {
-                    this.f48906e.m.e((TiebaPlusRecommendCard) view2);
-                } else if ((view2 instanceof RelativeLayout) && this.f48906e.k != null) {
-                    this.f48906e.k.e((RelativeLayout) view2);
+                } else if ((view2 instanceof TiebaPlusRecommendCard) && this.f49014e.m != null) {
+                    this.f49014e.m.e((TiebaPlusRecommendCard) view2);
+                } else if ((view2 instanceof RelativeLayout) && this.f49014e.k != null) {
+                    this.f49014e.k.e((RelativeLayout) view2);
                 }
                 if (!(view2 instanceof LinearLayout) || (view2 instanceof ItemCardView)) {
                     return;
                 }
                 Object tag3 = view2.getTag();
                 if (tag3 == null || !(tag3 instanceof String) || !"VideoView".equals(tag3)) {
-                    if (this.f48906e.f48890j != null) {
+                    if (this.f49014e.f48998j != null) {
                         LinearLayout linearLayout = (LinearLayout) view2;
                         int childCount2 = linearLayout.getChildCount();
                         for (int i3 = 0; i3 < childCount2; i3++) {
                             View childAt2 = linearLayout.getChildAt(i3);
                             if (childAt2 != null) {
-                                if ((childAt2 instanceof TextView) && this.f48906e.f48888h != null) {
-                                    this.f48906e.f48888h.e((TextView) childAt2);
-                                } else if ((childAt2 instanceof PlayVoiceBnt) && this.f48906e.f48889i != null) {
-                                    this.f48906e.f48889i.e(childAt2);
-                                } else if ((childAt2 instanceof PlayVoiceBntNew) && this.f48906e.f48889i != null) {
-                                    this.f48906e.f48889i.e(childAt2);
+                                if ((childAt2 instanceof TextView) && this.f49014e.f48996h != null) {
+                                    this.f49014e.f48996h.e((TextView) childAt2);
+                                } else if ((childAt2 instanceof PlayVoiceBnt) && this.f49014e.f48997i != null) {
+                                    this.f49014e.f48997i.e(childAt2);
+                                } else if ((childAt2 instanceof PlayVoiceBntNew) && this.f49014e.f48997i != null) {
+                                    this.f49014e.f48997i.e(childAt2);
                                 }
                             }
                         }
                         linearLayout.removeAllViews();
-                        this.f48906e.f48890j.e(linearLayout);
+                        this.f49014e.f48998j.e(linearLayout);
                         return;
                     }
                     return;
@@ -1085,10 +1090,10 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.f1.m.i f48907e;
+        public final /* synthetic */ c.a.q0.f1.m.i f49015e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48908f;
+        public final /* synthetic */ TbRichTextView f49016f;
 
         public o(TbRichTextView tbRichTextView, c.a.q0.f1.m.i iVar) {
             Interceptable interceptable = $ic;
@@ -1105,8 +1110,8 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48908f = tbRichTextView;
-            this.f48907e = iVar;
+            this.f49016f = tbRichTextView;
+            this.f49015e = iVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -1114,7 +1119,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TiebaStatic.log(TbadkCoreStatisticKey.KEY_RICH_TEXT_VIDEO_CLICK);
-                XiaoyingUtil.startPlayXiaoyingVideo(this.f48908f.getContext(), this.f48907e.g(), this.f48907e.h(), this.f48907e.d(), this.f48907e.f());
+                XiaoyingUtil.startPlayXiaoyingVideo(this.f49016f.getContext(), this.f49015e.g(), this.f49015e.h(), this.f49015e.d(), this.f49015e.f());
             }
         }
     }
@@ -1125,10 +1130,10 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextData f48909e;
+        public final /* synthetic */ TbRichTextData f49017e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48910f;
+        public final /* synthetic */ TbRichTextView f49018f;
 
         public p(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData) {
             Interceptable interceptable = $ic;
@@ -1145,25 +1150,25 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48910f = tbRichTextView;
-            this.f48909e = tbRichTextData;
+            this.f49018f = tbRichTextView;
+            this.f49017e = tbRichTextData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48909e.F() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49017e.F() == null) {
                 return;
             }
-            if (this.f48910f.getContext() instanceof c.a.q0.f1.m.g) {
-                ((c.a.q0.f1.m.g) this.f48910f.getContext()).onVideoClicked(this.f48910f.getContext(), this.f48909e.F().toString());
+            if (this.f49018f.getContext() instanceof c.a.q0.f1.m.g) {
+                ((c.a.q0.f1.m.g) this.f49018f.getContext()).onVideoClicked(this.f49018f.getContext(), this.f49017e.F().toString());
                 return;
             }
-            c.a.e.a.f<?> a2 = c.a.e.a.j.a(this.f48910f.getContext());
+            c.a.e.a.f<?> a2 = c.a.e.a.j.a(this.f49018f.getContext());
             if (a2 == null || !(a2.getOrignalPage() instanceof c.a.q0.f1.m.g)) {
                 return;
             }
-            ((c.a.q0.f1.m.g) a2.getOrignalPage()).onVideoClicked(this.f48910f.getContext(), this.f48909e.F().toString());
+            ((c.a.q0.f1.m.g) a2.getOrignalPage()).onVideoClicked(this.f49018f.getContext(), this.f49017e.F().toString());
         }
     }
 
@@ -1173,7 +1178,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48911e;
+        public final /* synthetic */ TbRichTextView f49019e;
 
         public q(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
@@ -1190,15 +1195,15 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48911e = tbRichTextView;
+            this.f49019e = tbRichTextView;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48911e.b0();
-                this.f48911e.U.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                this.f49019e.b0();
+                this.f49019e.U.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         }
     }
@@ -1209,7 +1214,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbRichTextView f48912e;
+        public final /* synthetic */ TbRichTextView f49020e;
 
         public r(TbRichTextView tbRichTextView) {
             Interceptable interceptable = $ic;
@@ -1226,14 +1231,14 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48912e = tbRichTextView;
+            this.f49020e = tbRichTextView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f48912e.Q && this.f48912e.performLongClick()) {
-                this.f48912e.D = true;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f49020e.Q && this.f49020e.performLongClick()) {
+                this.f49020e.D = true;
             }
         }
     }
@@ -1244,7 +1249,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f48913a;
+        public boolean f49021a;
 
         public s() {
             Interceptable interceptable = $ic;
@@ -1276,7 +1281,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f48914a;
+        public boolean f49022a;
 
         public u() {
             Interceptable interceptable = $ic;
@@ -1303,7 +1308,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f48915a;
+        public String f49023a;
 
         public v(String str) {
             Interceptable interceptable = $ic;
@@ -1320,7 +1325,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                     return;
                 }
             }
-            this.f48915a = str;
+            this.f49023a = str;
         }
     }
 
@@ -1378,12 +1383,12 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                 return;
             }
         }
-        this.f48885e = new c.a.q0.f1.m.a();
-        this.f48886f = null;
-        this.f48887g = null;
-        this.f48888h = null;
-        this.f48889i = null;
-        this.f48890j = null;
+        this.f48993e = new c.a.q0.f1.m.a();
+        this.f48994f = null;
+        this.f48995g = null;
+        this.f48996h = null;
+        this.f48997i = null;
+        this.f48998j = null;
         this.k = null;
         this.l = null;
         this.m = null;
@@ -1475,8 +1480,8 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                 this.n = new GridImageLayout(getContext());
                 this.n.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             }
-            this.n.setLayoutStrategy(this.f48885e);
-            this.n.setObjectPool(this.f48887g, this.l);
+            this.n.setLayoutStrategy(this.f48993e);
+            this.n.setObjectPool(this.f48995g, this.l);
             this.n.setOnImageClickListener(this.s);
             View.OnClickListener onClickListener = this.w;
             if (onClickListener != null) {
@@ -1495,18 +1500,18 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            LinearLayout b2 = this.f48890j.b();
+            LinearLayout b2 = this.f48998j.b();
             if (b2 != null) {
                 TextView B = B(getContext());
                 if (B == null) {
-                    this.f48890j.e(b2);
+                    this.f48998j.e(b2);
                     return null;
                 }
                 b2.addView(B);
                 View D = D(null);
                 if (D == null) {
-                    this.f48888h.e(B);
-                    this.f48890j.e(b2);
+                    this.f48996h.e(B);
+                    this.f48998j.e(b2);
                     return null;
                 }
                 b2.addView(D);
@@ -1531,17 +1536,17 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
     private void setFaceSize(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65567, this, f2) == null) {
-            if (this.V && c.a.q0.b.d.K()) {
+            if (this.V && c.a.q0.b.d.O()) {
                 int emotionContentSizeOfLzl = this.M ? TbConfig.getEmotionContentSizeOfLzl() : TbConfig.getEmotionContentSize();
-                c.a.q0.f1.m.a aVar = this.f48885e;
-                aVar.f13230g = emotionContentSizeOfLzl;
-                aVar.f13231h = emotionContentSizeOfLzl;
+                c.a.q0.f1.m.a aVar = this.f48993e;
+                aVar.f13247g = emotionContentSizeOfLzl;
+                aVar.f13248h = emotionContentSizeOfLzl;
                 return;
             }
-            c.a.q0.f1.m.a aVar2 = this.f48885e;
+            c.a.q0.f1.m.a aVar2 = this.f48993e;
             int i2 = (int) f2;
-            aVar2.f13230g = i2;
-            aVar2.f13231h = i2;
+            aVar2.f13247g = i2;
+            aVar2.f13248h = i2;
         }
     }
 
@@ -1549,7 +1554,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            c.a.e.e.k.b<ImageView> bVar = this.f48887g;
+            c.a.e.e.k.b<ImageView> bVar = this.f48995g;
             ImageView imageView = null;
             ImageView b2 = bVar != null ? bVar.b() : null;
             if (b2 != null && b2.getParent() == null) {
@@ -1567,12 +1572,12 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            c.a.e.e.k.b<TextView> bVar = this.f48888h;
+            c.a.e.e.k.b<TextView> bVar = this.f48996h;
             TextView b2 = bVar != null ? bVar.b() : null;
             if (b2 == null || b2.getParent() != null) {
                 b2 = new TbListTextView(context);
             }
-            int i2 = this.f48885e.f13226c;
+            int i2 = this.f48993e.f13243c;
             b2.setPadding(i2, 0, i2, 0);
             return b2;
         }
@@ -1583,15 +1588,15 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbRichTextData)) == null) {
-            if (this.f48885e.m <= 0 || tbRichTextData == null) {
+            if (this.f48993e.m <= 0 || tbRichTextData == null) {
                 return null;
             }
             LinearLayout linearLayout = new LinearLayout(getContext());
             linearLayout.setTag("VideoView");
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.topMargin = this.f48885e.f13227d;
+            layoutParams.topMargin = this.f48993e.f13244d;
             linearLayout.setClickable(true);
-            Bitmap bitmap = SkinManager.getBitmap(this.f48885e.m);
+            Bitmap bitmap = SkinManager.getBitmap(this.f48993e.m);
             if (bitmap != null) {
                 linearLayout.setBackgroundDrawable(new BitmapDrawable(getContext().getResources(), bitmap));
             }
@@ -1608,19 +1613,19 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) {
-            c.a.e.e.k.b<View> bVar = this.f48889i;
+            c.a.e.e.k.b<View> bVar = this.f48997i;
             View b2 = bVar != null ? bVar.b() : null;
             if ((b2 == null || b2.getParent() != null) && this.A != -1) {
                 b2 = LayoutInflater.from(getContext()).inflate(this.A, (ViewGroup) null);
             }
             if (b2 != null) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                if ((view instanceof TbListTextView) && (i2 = this.f48885e.v) >= 0) {
+                if ((view instanceof TbListTextView) && (i2 = this.f48993e.v) >= 0) {
                     layoutParams.topMargin = i2;
                 } else {
-                    layoutParams.topMargin = this.f48885e.f13227d;
+                    layoutParams.topMargin = this.f48993e.f13244d;
                 }
-                layoutParams.bottomMargin = this.f48885e.A;
+                layoutParams.bottomMargin = this.f48993e.A;
                 b2.setLayoutParams(layoutParams);
                 if (b2 instanceof PlayVoiceBntNew) {
                     ((PlayVoiceBntNew) b2).setAfterClickListener(this.B);
@@ -1639,7 +1644,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             if (iVar == null || !iVar.i()) {
                 return null;
             }
-            ImageView b2 = this.f48887g.b();
+            ImageView b2 = this.f48995g.b();
             if (b2 instanceof ForeDrawableImageView) {
                 ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) b2;
                 foreDrawableImageView.setForegroundDrawable(R.drawable.icon_play_video);
@@ -1649,9 +1654,9 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                 foreDrawableImageView.setNoImageBottomText("点击播放视频");
                 foreDrawableImageView.setInterceptOnClick(false);
                 foreDrawableImageView.setTag("VideoView");
-                X(foreDrawableImageView, iVar.h(), iVar.d(), (this.f48885e.f13233j - getPaddingLeft()) - getPaddingRight(), this.f48885e.k, new o(this, iVar));
+                X(foreDrawableImageView, iVar.h(), iVar.d(), (this.f48993e.f13250j - getPaddingLeft()) - getPaddingRight(), this.f48993e.k, new o(this, iVar));
                 foreDrawableImageView.setDefaultResource(0);
-                foreDrawableImageView.setSupportNoImage(this.f48885e.q);
+                foreDrawableImageView.setSupportNoImage(this.f48993e.q);
                 if (c.a.q0.s.k.c().g()) {
                     foreDrawableImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
                 } else {
@@ -1684,10 +1689,10 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                 a2.registerListener(this.r0);
             }
             if (gVar != null) {
-                this.f48887g = gVar.getImageViewPool();
-                this.f48888h = gVar.getTextViewPool();
-                this.f48889i = gVar.getVoiceViewPool();
-                this.f48890j = gVar.getTextVoiceViewPool();
+                this.f48995g = gVar.getImageViewPool();
+                this.f48996h = gVar.getTextViewPool();
+                this.f48997i = gVar.getVoiceViewPool();
+                this.f48998j = gVar.getTextVoiceViewPool();
                 this.l = gVar.getGifViewPool();
                 this.m = gVar.getTiejiaRecommendPool();
                 this.k = gVar.getRelativeLayoutPool();
@@ -1752,10 +1757,10 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                 } else {
                     tbImageView.setPlaceHolder(3);
                 }
-                if (this.f48885e.q) {
+                if (this.f48993e.q) {
                     tbImageView.setSupportNoImage(true);
                 }
-                String w2 = this.f48885e.c() ? tbRichTextData.C().w() : tbRichTextData.C().y();
+                String w2 = this.f48993e.c() ? tbRichTextData.C().w() : tbRichTextData.C().y();
                 if (!z2 || tbImageView.getUrl() == null || !tbImageView.getUrl().equals(w2)) {
                     tbImageView.startLoad(w2, this.z ? 17 : 18, false);
                 }
@@ -1802,7 +1807,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             }
             if (imageView instanceof TbImageView) {
                 TbImageView tbImageView = (TbImageView) imageView;
-                if (this.f48885e.q) {
+                if (this.f48993e.q) {
                     tbImageView.setSupportNoImage(true);
                 }
                 tbImageView.startLoad(D.w(), this.z ? 17 : 18, false);
@@ -1839,7 +1844,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                 } else {
                     tbImageView.setPlaceHolder(3);
                 }
-                if (this.f48885e.q) {
+                if (this.f48993e.q) {
                     tbImageView.setSupportNoImage(true);
                 }
                 tbImageView.startLoad(tbRichTextData.E().memeInfo.pic_url, this.z ? 17 : 18, false);
@@ -1871,12 +1876,12 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             }
             String z3 = tbRichTextData.C().z();
             if (StringUtils.isNull(z3)) {
-                c.a.q0.f1.m.a aVar = this.f48885e;
+                c.a.q0.f1.m.a aVar = this.f48993e;
                 if (aVar.F) {
                     z3 = aVar.r ? tbRichTextData.C().w() : tbRichTextData.C().x();
                 }
                 if (StringUtils.isNull(z3)) {
-                    z3 = this.f48885e.r ? tbRichTextData.C().y() : tbRichTextData.C().B();
+                    z3 = this.f48993e.r ? tbRichTextData.C().y() : tbRichTextData.C().B();
                 }
             }
             gifView.setShowStaticDrawable(false);
@@ -1885,8 +1890,8 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             }
             int width = tbRichTextData.C().getWidth();
             int height = tbRichTextData.C().getHeight();
-            c.a.q0.f1.m.a aVar2 = this.f48885e;
-            return W(gifView, width, height, aVar2.f13233j, aVar2.k, this.j0);
+            c.a.q0.f1.m.a aVar2 = this.f48993e;
+            return W(gifView, width, height, aVar2.f13250j, aVar2.k, this.j0);
         }
         return invokeLLZ.booleanValue;
     }
@@ -1908,18 +1913,18 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                 layoutParams.gravity = 16;
                 textView.setGravity(16);
             } else {
-                layoutParams.topMargin = this.f48885e.f13227d;
+                layoutParams.topMargin = this.f48993e.f13244d;
             }
-            c.a.q0.f1.m.a aVar = this.f48885e;
-            textView.setLineSpacing(aVar.f13225b, aVar.f13224a);
-            textView.setTextSize(0, this.f48885e.f13228e);
-            if (this.f48885e.f13229f) {
+            c.a.q0.f1.m.a aVar = this.f48993e;
+            textView.setLineSpacing(aVar.f13242b, aVar.f13241a);
+            textView.setTextSize(0, this.f48993e.f13245e);
+            if (this.f48993e.f13246f) {
                 c.a.q0.s.u.c.d(textView).B(R.string.F_X02);
             }
-            textView.setTextColor(this.f48885e.f13232i);
+            textView.setTextColor(this.f48993e.f13249i);
             textView.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
             textView.setHighlightColor(getContext().getResources().getColor(R.color.transparent));
-            textView.setSingleLine(this.f48885e.n);
+            textView.setSingleLine(this.f48993e.n);
             if (this.O) {
                 a0();
             }
@@ -1944,9 +1949,9 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             if (tbRichTextData == null || (F = tbRichTextData.F()) == null || F.length() <= 0) {
                 return false;
             }
-            c.a.q0.f1.m.a aVar2 = this.f48885e;
-            int i5 = aVar2.f13231h;
-            if (i5 > 0 && (i2 = aVar2.f13230g) > 0) {
+            c.a.q0.f1.m.a aVar2 = this.f48993e;
+            int i5 = aVar2.f13248h;
+            if (i5 > 0 && (i2 = aVar2.f13247g) > 0) {
                 tbRichTextData.P(i2, i5);
             }
             if (tVar != null) {
@@ -2029,7 +2034,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view)) == null) {
             if (view instanceof ImageView) {
                 if (view instanceof GifView) {
-                    return view.getTag(R.id.tag_rich_text_view_gif_view) != null && (view.getTag(R.id.tag_rich_text_view_gif_view) instanceof s) && ((s) view.getTag(R.id.tag_rich_text_view_gif_view)).f48913a;
+                    return view.getTag(R.id.tag_rich_text_view_gif_view) != null && (view.getTag(R.id.tag_rich_text_view_gif_view) instanceof s) && ((s) view.getTag(R.id.tag_rich_text_view_gif_view)).f49021a;
                 }
                 if ((view instanceof TbImageView) && view.getTag() != null) {
                     if (view.getTag() instanceof v) {
@@ -2075,7 +2080,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         int[] iArr = {l2[0], l2[1]};
         int i6 = iArr[0];
         int i7 = iArr[1];
-        if (this.f48885e.s && i4 > i6) {
+        if (this.f48993e.s && i4 > i6) {
             float f2 = s0;
             if (f2 > 1.0f) {
                 float f3 = i6;
@@ -2109,7 +2114,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         int[] iArr = {l2[0], l2[1]};
         int i8 = iArr[0];
         int i9 = iArr[1];
-        if (this.f48885e.s && i4 > i8) {
+        if (this.f48993e.s && i4 > i8) {
             float f2 = s0;
             if (f2 > 1.0f) {
                 float f3 = i8;
@@ -2149,7 +2154,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             int[] iArr = {l2[0], l2[1]};
             int i6 = iArr[0];
             int i7 = iArr[1];
-            if (this.f48885e.s && i4 > i6) {
+            if (this.f48993e.s && i4 > i6) {
                 float f2 = s0;
                 if (f2 > 1.0f) {
                     float f3 = i6;
@@ -2168,7 +2173,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             boolean z2 = imageView instanceof TbImageView;
             if (z2) {
                 TbImageView tbImageView = (TbImageView) imageView;
-                tbImageView.setDefaultResource(this.f48885e.l);
+                tbImageView.setDefaultResource(this.f48993e.l);
                 if (tbImageView.getGifIconWidth() < i6 && tbImageView.getGifIconHeight() < i7) {
                     tbImageView.setGifIconSupport(true);
                 } else {
@@ -2176,7 +2181,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                 }
             }
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i6, i7);
-            if (this.f48885e.s) {
+            if (this.f48993e.s) {
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             } else {
                 imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
@@ -2207,7 +2212,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{imageView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), onClickListener})) == null) {
-            int[] e2 = this.f48885e.e(i2, i3, i4, i5);
+            int[] e2 = this.f48993e.e(i2, i3, i4, i5);
             if (e2 == null) {
                 return false;
             }
@@ -2223,11 +2228,11 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                 }
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i6, i7);
-            c.a.q0.f1.m.a aVar = this.f48885e;
+            c.a.q0.f1.m.a aVar = this.f48993e;
             if (aVar.s) {
                 imageView.setScaleType(aVar.p);
                 if (z2) {
-                    ((TbImageView) imageView).setOnDrawListener(this.f48885e.I);
+                    ((TbImageView) imageView).setOnDrawListener(this.f48993e.I);
                 }
             } else {
                 imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
@@ -2267,7 +2272,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             int[] iArr = {l2[0], l2[1]};
             int i6 = iArr[0];
             int i7 = iArr[1];
-            if (this.f48885e.s && i4 > i6) {
+            if (this.f48993e.s && i4 > i6) {
                 float f2 = s0;
                 if (f2 > 1.0f) {
                     float f3 = i6;
@@ -2285,7 +2290,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
             boolean z2 = imageView instanceof TbImageView;
             if (z2) {
                 TbImageView tbImageView = (TbImageView) imageView;
-                tbImageView.setDefaultResource(this.f48885e.l);
+                tbImageView.setDefaultResource(this.f48993e.l);
                 if (tbImageView.getGifIconWidth() < i6 && tbImageView.getGifIconHeight() < i7) {
                     tbImageView.setGifIconSupport(true);
                 } else {
@@ -2293,7 +2298,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                 }
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i6, i7);
-            if (this.f48885e.s) {
+            if (this.f48993e.s) {
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             } else {
                 imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
@@ -2429,7 +2434,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
     public c.a.q0.f1.m.a getLayoutStrategy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f48885e : (c.a.q0.f1.m.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f48993e : (c.a.q0.f1.m.a) invokeV.objValue;
     }
 
     public z getOnImageClickListener() {
@@ -2448,10 +2453,10 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            if (this.f48886f == null) {
-                this.f48886f = new h(this, new g(this), 10, 0);
+            if (this.f48994f == null) {
+                this.f48994f = new h(this, new g(this), 10, 0);
             }
-            return this.f48886f;
+            return this.f48994f;
         }
         return (c.a.r0.j2.a) invokeV.objValue;
     }
@@ -2501,7 +2506,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
             super.onDetachedFromWindow();
-            c.a.q0.f1.m.a aVar = this.f48885e;
+            c.a.q0.f1.m.a aVar = this.f48993e;
             if (aVar != null) {
                 aVar.d();
             }
@@ -2608,7 +2613,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         if (z3) {
             requestLayout();
         }
-        if (this.y || (bVar = this.f48887g) == null) {
+        if (this.y || (bVar = this.f48995g) == null) {
             return;
         }
         bVar.c();
@@ -2632,7 +2637,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048627, this, z2) == null) {
             this.z = z2;
-            c.a.q0.f1.m.a aVar = this.f48885e;
+            c.a.q0.f1.m.a aVar = this.f48993e;
             if (aVar != null) {
                 aVar.r = z2;
             }
@@ -2683,19 +2688,19 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         if (!(interceptable == null || interceptable.invokeL(1048633, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.f48885e.d();
-        this.f48885e = aVar;
+        this.f48993e.d();
+        this.f48993e = aVar;
         G();
         GridImageLayout gridImageLayout = this.n;
         if (gridImageLayout != null) {
-            gridImageLayout.setLayoutStrategy(this.f48885e);
+            gridImageLayout.setLayoutStrategy(this.f48993e);
         }
     }
 
     public void setLinkTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048634, this, i2) == null) {
-            c.a.q0.f1.m.a aVar = this.f48885e;
+            c.a.q0.f1.m.a aVar = this.f48993e;
             if (i2 == aVar.o) {
                 return;
             }
@@ -2794,7 +2799,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
     public void setTextBold() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048648, this) == null) {
-            this.f48885e.f13229f = true;
+            this.f48993e.f13246f = true;
         }
     }
 
@@ -2808,11 +2813,11 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048650, this, i2) == null) {
-            c.a.q0.f1.m.a aVar = this.f48885e;
-            if (i2 == aVar.f13232i) {
+            c.a.q0.f1.m.a aVar = this.f48993e;
+            if (i2 == aVar.f13249i) {
                 return;
             }
-            aVar.f13232i = i2;
+            aVar.f13249i = i2;
             int childCount = getChildCount();
             for (int i3 = 0; i3 < childCount; i3++) {
                 View childAt = getChildAt(i3);
@@ -2837,16 +2842,16 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
     public void setTextPadding(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048652, this, i2) == null) {
-            c.a.q0.f1.m.a aVar = this.f48885e;
-            if (aVar.f13226c == i2) {
+            c.a.q0.f1.m.a aVar = this.f48993e;
+            if (aVar.f13243c == i2) {
                 return;
             }
-            aVar.f13226c = i2;
+            aVar.f13243c = i2;
             int childCount = getChildCount();
             for (int i3 = 0; i3 < childCount; i3++) {
                 View childAt = getChildAt(i3);
                 if (childAt != null && (childAt instanceof TextView)) {
-                    int i4 = this.f48885e.f13226c;
+                    int i4 = this.f48993e.f13243c;
                     ((TextView) childAt).setPadding(i4, 0, 0, i4);
                 }
             }
@@ -2857,11 +2862,11 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048653, this, f2) == null) {
             setFaceSize(f2);
-            c.a.q0.f1.m.a aVar = this.f48885e;
-            if (f2 == aVar.f13228e) {
+            c.a.q0.f1.m.a aVar = this.f48993e;
+            if (f2 == aVar.f13245e) {
                 return;
             }
-            aVar.f13228e = f2;
+            aVar.f13245e = f2;
             int childCount = getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = getChildAt(i2);
@@ -3152,15 +3157,15 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                                     if (z4) {
                                         String z11 = next.C().z();
                                         if (StringUtils.isNull(z11)) {
-                                            c.a.q0.f1.m.a aVar2 = this.f48885e;
+                                            c.a.q0.f1.m.a aVar2 = this.f48993e;
                                             if (aVar2.F) {
                                                 z11 = aVar2.r ? next.C().w() : next.C().x();
                                             }
                                             if (StringUtils.isNull(z11)) {
-                                                z11 = this.f48885e.r ? next.C().y() : next.C().B();
+                                                z11 = this.f48993e.r ? next.C().y() : next.C().B();
                                             }
                                         }
-                                        c.a.r0.j2.a<ImageView> aVar3 = this.f48886f;
+                                        c.a.r0.j2.a<ImageView> aVar3 = this.f48994f;
                                         if (aVar3 != null) {
                                             Object obj3 = (ImageView) aVar3.h(z11);
                                             if (obj3 instanceof GifView) {
@@ -3171,13 +3176,13 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                                                     z7 = true;
                                                     gifView2 = obj2;
                                                     s sVar = new s(iVar);
-                                                    sVar.f48913a = z8;
+                                                    sVar.f49021a = z8;
                                                     gifView2.setTag(R.id.tag_rich_text_view_gif_view, sVar);
                                                     N = M(next, gifView2, z7);
                                                     textView = gifView2;
                                                     if (z3) {
                                                         u uVar = new u(iVar);
-                                                        uVar.f48914a = z8;
+                                                        uVar.f49022a = z8;
                                                         gifView2.setTag(R.id.tag_rich_text_view_recycle, uVar);
                                                         textView = gifView2;
                                                     }
@@ -3193,7 +3198,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                                     z7 = false;
                                     gifView2 = gifView3;
                                     s sVar2 = new s(iVar);
-                                    sVar2.f48913a = z8;
+                                    sVar2.f49021a = z8;
                                     gifView2.setTag(R.id.tag_rich_text_view_gif_view, sVar2);
                                     N = M(next, gifView2, z7);
                                     textView = gifView2;
@@ -3201,8 +3206,8 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                                     }
                                 } else {
                                     if (z4) {
-                                        String w2 = this.f48885e.c() ? next.C().w() : next.C().y();
-                                        c.a.r0.j2.a<ImageView> aVar4 = this.f48886f;
+                                        String w2 = this.f48993e.c() ? next.C().w() : next.C().y();
+                                        c.a.r0.j2.a<ImageView> aVar4 = this.f48994f;
                                         Object obj4 = aVar4 != null ? (ImageView) aVar4.h(w2) : iVar;
                                         if (obj4 == null) {
                                             z6 = false;
@@ -3217,13 +3222,13 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                                         A = A(getContext());
                                         z5 = false;
                                     }
-                                    c.a.q0.f1.m.a aVar5 = this.f48885e;
+                                    c.a.q0.f1.m.a aVar5 = this.f48993e;
                                     ?? r10 = A;
                                     i4 = i7;
-                                    N = I(next, A, aVar5.f13233j, aVar5.k, z5);
+                                    N = I(next, A, aVar5.f13250j, aVar5.k, z5);
                                     if (z3) {
                                         u uVar2 = new u(iVar);
-                                        uVar2.f48914a = z8;
+                                        uVar2.f49022a = z8;
                                         r10.setTag(R.id.tag_rich_text_view_recycle, uVar2);
                                     }
                                     gifView = r10;
@@ -3236,7 +3241,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                             if (N && tiebaPlusRecommendCard != null) {
                                 addView(tiebaPlusRecommendCard);
                                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tiebaPlusRecommendCard.getLayoutParams();
-                                if (!z10 && (i3 = this.f48885e.D) >= 0) {
+                                if (!z10 && (i3 = this.f48993e.D) >= 0) {
                                     if (layoutParams != null) {
                                         layoutParams.topMargin = i3;
                                         tiebaPlusRecommendCard.setLayoutParams(layoutParams);
@@ -3244,23 +3249,23 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                                     z10 = false;
                                 } else if (!(tiebaPlusRecommendCard instanceof TbListTextView)) {
                                     if (!(view instanceof ImageView) && !(view instanceof RelativeLayout)) {
-                                        layoutParams.topMargin = this.f48885e.f13227d;
+                                        layoutParams.topMargin = this.f48993e.f13244d;
                                     } else {
-                                        layoutParams.topMargin = this.f48885e.z;
+                                        layoutParams.topMargin = this.f48993e.z;
                                     }
                                     tiebaPlusRecommendCard.setLayoutParams(layoutParams);
                                 } else if ((!(tiebaPlusRecommendCard instanceof ImageView) && !(tiebaPlusRecommendCard instanceof RelativeLayout)) || (tbRichTextData.getType() != 8 && tbRichTextData.getType() != 20 && tbRichTextData.getType() != 17)) {
                                     if ((tiebaPlusRecommendCard instanceof ItemCardView) && !z10) {
-                                        layoutParams.topMargin = this.f48885e.E;
+                                        layoutParams.topMargin = this.f48993e.E;
                                         tiebaPlusRecommendCard.setLayoutParams(layoutParams);
                                     }
                                 } else {
                                     if (view instanceof TbListTextView) {
-                                        layoutParams.topMargin = this.f48885e.u;
+                                        layoutParams.topMargin = this.f48993e.u;
                                     } else if (!(view instanceof ImageView) && !(tiebaPlusRecommendCard instanceof RelativeLayout)) {
-                                        layoutParams.topMargin = this.f48885e.f13227d;
+                                        layoutParams.topMargin = this.f48993e.f13244d;
                                     } else {
-                                        layoutParams.topMargin = this.f48885e.t;
+                                        layoutParams.topMargin = this.f48993e.t;
                                     }
                                     tiebaPlusRecommendCard.setLayoutParams(layoutParams);
                                 }
@@ -3331,21 +3336,21 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                                                 if (DuiSwitch.getInOn() && this.p) {
                                                     int intValue = tbRichTextData.E().memeInfo.width.intValue();
                                                     int intValue2 = tbRichTextData.E().memeInfo.height.intValue();
-                                                    c.a.q0.f1.m.a aVar6 = this.f48885e;
+                                                    c.a.q0.f1.m.a aVar6 = this.f48993e;
                                                     relativeLayout = b2;
-                                                    U(b2, intValue, intValue2, aVar6.f13233j, aVar6.k);
+                                                    U(b2, intValue, intValue2, aVar6.f13250j, aVar6.k);
                                                 } else {
                                                     relativeLayout = b2;
                                                     int intValue3 = tbRichTextData.E().memeInfo.width.intValue();
                                                     int intValue4 = tbRichTextData.E().memeInfo.height.intValue();
-                                                    c.a.q0.f1.m.a aVar7 = this.f48885e;
-                                                    T(relativeLayout, intValue3, intValue4, aVar7.f13233j, aVar7.k);
+                                                    c.a.q0.f1.m.a aVar7 = this.f48993e;
+                                                    T(relativeLayout, intValue3, intValue4, aVar7.f13250j, aVar7.k);
                                                 }
-                                                ImageView b3 = this.f48887g.b();
-                                                c.a.q0.f1.m.a aVar8 = this.f48885e;
-                                                L(tbRichTextData, b3, aVar8.f13233j, aVar8.k);
+                                                ImageView b3 = this.f48995g.b();
+                                                c.a.q0.f1.m.a aVar8 = this.f48993e;
+                                                L(tbRichTextData, b3, aVar8.f13250j, aVar8.k);
                                                 if (DuiSwitch.getInOn() && this.p) {
-                                                    ImageView b4 = this.f48887g.b();
+                                                    ImageView b4 = this.f48995g.b();
                                                     b4.setTag(this.H);
                                                     if (b4 instanceof TbImageView) {
                                                         TbImageView tbImageView = (TbImageView) b4;
@@ -3371,9 +3376,9 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                                                     b3.setId(R.id.meme_image_view);
                                                     int intValue5 = tbRichTextData.E().memeInfo.width.intValue();
                                                     int intValue6 = tbRichTextData.E().memeInfo.height.intValue();
-                                                    c.a.q0.f1.m.a aVar9 = this.f48885e;
+                                                    c.a.q0.f1.m.a aVar9 = this.f48993e;
                                                     i5 = i8;
-                                                    V(b3, intValue5, intValue6, aVar9.f13233j, aVar9.k, this.j0);
+                                                    V(b3, intValue5, intValue6, aVar9.f13250j, aVar9.k, this.j0);
                                                     relativeLayout2 = relativeLayout;
                                                     relativeLayout2.addView(b3);
                                                     if (g3 > tbRichTextData.E().memeInfo.height.intValue()) {
@@ -3396,8 +3401,8 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                                                     relativeLayout2 = relativeLayout;
                                                     int intValue7 = tbRichTextData.E().memeInfo.width.intValue();
                                                     int intValue8 = tbRichTextData.E().memeInfo.height.intValue();
-                                                    c.a.q0.f1.m.a aVar10 = this.f48885e;
-                                                    X(b3, intValue7, intValue8, aVar10.f13233j, aVar10.k, this.j0);
+                                                    c.a.q0.f1.m.a aVar10 = this.f48993e;
+                                                    X(b3, intValue7, intValue8, aVar10.f13250j, aVar10.k, this.j0);
                                                     relativeLayout2.addView(b3);
                                                 }
                                                 tiebaPlusRecommendCard = relativeLayout2;
@@ -3416,7 +3421,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                                             ImageView A2 = A(getContext());
                                             i8 = i11 + 1;
                                             i7 = i4;
-                                            N = K(tbRichTextData, A2, (this.f48885e.f13233j - getPaddingLeft()) - getPaddingRight(), this.f48885e.k);
+                                            N = K(tbRichTextData, A2, (this.f48993e.f13250j - getPaddingLeft()) - getPaddingRight(), this.f48993e.k);
                                             tiebaPlusRecommendCard = A2;
                                         } else if (tbRichTextData.getType() == 1281) {
                                             i7 = i4;
@@ -3432,7 +3437,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                                             TiebaPlusRecommendCard b5 = bVar.b();
                                             b5.updateCardView(tbRichTextData.J());
                                             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) b5.getLayoutParams();
-                                            c.a.q0.f1.m.a aVar11 = this.f48885e;
+                                            c.a.q0.f1.m.a aVar11 = this.f48993e;
                                             int i12 = aVar11.y;
                                             marginLayoutParams.setMargins(i12, aVar11.w, i12, aVar11.x);
                                             b5.setLayoutParams(marginLayoutParams);
@@ -3473,14 +3478,14 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                 }
                 if (view instanceof TbListTextView) {
                     LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) view.getLayoutParams();
-                    layoutParams4.bottomMargin = this.f48885e.C;
+                    layoutParams4.bottomMargin = this.f48993e.C;
                     view.setLayoutParams(layoutParams4);
-                } else if (view != null && this.f48885e.B >= 0) {
+                } else if (view != null && this.f48993e.B >= 0) {
                     LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) view.getLayoutParams();
-                    layoutParams5.bottomMargin = this.f48885e.B;
+                    layoutParams5.bottomMargin = this.f48993e.B;
                     view.setLayoutParams(layoutParams5);
                 }
-                if (z3 || (aVar = this.f48886f) == null) {
+                if (z3 || (aVar = this.f48994f) == null) {
                     return;
                 }
                 aVar.c();
@@ -3507,12 +3512,12 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
                 return;
             }
         }
-        this.f48885e = new c.a.q0.f1.m.a();
-        this.f48886f = null;
-        this.f48887g = null;
-        this.f48888h = null;
-        this.f48889i = null;
-        this.f48890j = null;
+        this.f48993e = new c.a.q0.f1.m.a();
+        this.f48994f = null;
+        this.f48995g = null;
+        this.f48996h = null;
+        this.f48997i = null;
+        this.f48998j = null;
         this.k = null;
         this.l = null;
         this.m = null;
@@ -3555,7 +3560,7 @@ public class TbRichTextView extends LinearLayout implements c.a.e.f.a.h {
         this.r0 = new f(this, 2004018);
         F();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.TbRichTextView);
-        this.f48885e.b(obtainStyledAttributes);
+        this.f48993e.b(obtainStyledAttributes);
         obtainStyledAttributes.recycle();
         G();
     }

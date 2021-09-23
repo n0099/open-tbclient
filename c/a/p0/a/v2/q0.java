@@ -76,13 +76,13 @@ public final class q0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9382a;
+    public static final boolean f9390a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f9383b;
+    public static Handler f9391b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f9384c;
+    public static String f9392c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -91,10 +91,10 @@ public final class q0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f9385e;
+        public final /* synthetic */ ImageView f9393e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f9386f;
+        public final /* synthetic */ int f9394f;
 
         public a(ImageView imageView, int i2) {
             Interceptable interceptable = $ic;
@@ -111,15 +111,15 @@ public final class q0 {
                     return;
                 }
             }
-            this.f9385e = imageView;
-            this.f9386f = i2;
+            this.f9393e = imageView;
+            this.f9394f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9385e.setImageResource(this.f9386f);
+                this.f9393e.setImageResource(this.f9394f);
             }
         }
     }
@@ -130,10 +130,10 @@ public final class q0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageView f9387a;
+        public final /* synthetic */ ImageView f9395a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f9388b;
+        public final /* synthetic */ int f9396b;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -141,10 +141,10 @@ public final class q0 {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f9389e;
+            public final /* synthetic */ Bitmap f9397e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f9390f;
+            public final /* synthetic */ b f9398f;
 
             public a(b bVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
@@ -161,15 +161,15 @@ public final class q0 {
                         return;
                     }
                 }
-                this.f9390f = bVar;
-                this.f9389e = bitmap;
+                this.f9398f = bVar;
+                this.f9397e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f9390f.f9387a.setImageBitmap(this.f9389e);
+                    this.f9398f.f9395a.setImageBitmap(this.f9397e);
                 }
             }
         }
@@ -181,7 +181,7 @@ public final class q0 {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f9391e;
+            public final /* synthetic */ b f9399e;
 
             public RunnableC0439b(b bVar) {
                 Interceptable interceptable = $ic;
@@ -198,15 +198,15 @@ public final class q0 {
                         return;
                     }
                 }
-                this.f9391e = bVar;
+                this.f9399e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.f9391e;
-                    bVar.f9387a.setImageResource(bVar.f9388b);
+                    b bVar = this.f9399e;
+                    bVar.f9395a.setImageResource(bVar.f9396b);
                 }
             }
         }
@@ -226,8 +226,8 @@ public final class q0 {
                     return;
                 }
             }
-            this.f9387a = imageView;
-            this.f9388b = i2;
+            this.f9395a = imageView;
+            this.f9396b = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -238,7 +238,7 @@ public final class q0 {
             if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
                 if (bitmap != null) {
                     if (Looper.getMainLooper() == Looper.myLooper()) {
-                        this.f9387a.setImageBitmap(bitmap);
+                        this.f9395a.setImageBitmap(bitmap);
                         return;
                     } else {
                         q0.b0(new a(this, bitmap));
@@ -256,7 +256,7 @@ public final class q0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.d.i.a f9392a;
+        public final /* synthetic */ c.a.p0.d.i.a f9400a;
 
         public c(c.a.p0.d.i.a aVar) {
             Interceptable interceptable = $ic;
@@ -273,14 +273,14 @@ public final class q0 {
                     return;
                 }
             }
-            this.f9392a = aVar;
+            this.f9400a = aVar;
         }
 
         @Override // c.a.p0.a.v2.t.b
         public void a(String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
-                this.f9392a.run(bitmap);
+                this.f9400a.run(bitmap);
             }
         }
     }
@@ -291,10 +291,10 @@ public final class q0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ t.b f9393a;
+        public final /* synthetic */ t.b f9401a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f9394b;
+        public final /* synthetic */ String f9402b;
 
         public d(t.b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -311,8 +311,8 @@ public final class q0 {
                     return;
                 }
             }
-            this.f9393a = bVar;
-            this.f9394b = str;
+            this.f9401a = bVar;
+            this.f9402b = str;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
@@ -320,7 +320,7 @@ public final class q0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
                 super.onCancellation(dataSource);
-                this.f9393a.a(this.f9394b, null);
+                this.f9401a.a(this.f9402b, null);
             }
         }
 
@@ -328,7 +328,7 @@ public final class q0 {
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                this.f9393a.a(this.f9394b, null);
+                this.f9401a.a(this.f9402b, null);
             }
         }
 
@@ -344,14 +344,14 @@ public final class q0 {
                         } else {
                             copy = bitmap.copy(bitmap.getConfig(), true);
                         }
-                        this.f9393a.a(this.f9394b, copy);
+                        this.f9401a.a(this.f9402b, copy);
                         return;
                     } catch (Exception unused) {
-                        this.f9393a.a(this.f9394b, null);
+                        this.f9401a.a(this.f9402b, null);
                         return;
                     }
                 }
-                this.f9393a.a(this.f9394b, null);
+                this.f9401a.a(this.f9402b, null);
             }
         }
     }
@@ -362,13 +362,13 @@ public final class q0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f9395e;
+        public final /* synthetic */ Context f9403e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Intent f9396f;
+        public final /* synthetic */ Intent f9404f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f9397g;
+        public final /* synthetic */ g f9405g;
 
         public e(Context context, Intent intent, g gVar) {
             Interceptable interceptable = $ic;
@@ -385,17 +385,17 @@ public final class q0 {
                     return;
                 }
             }
-            this.f9395e = context;
-            this.f9396f = intent;
-            this.f9397g = gVar;
+            this.f9403e = context;
+            this.f9404f = intent;
+            this.f9405g = gVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                boolean g2 = c.a.p0.a.v2.f.g(this.f9395e, this.f9396f);
-                g gVar = this.f9397g;
+                boolean g2 = c.a.p0.a.v2.f.g(this.f9403e, this.f9404f);
+                g gVar = this.f9405g;
                 if (gVar != null) {
                     gVar.a(g2);
                 }
@@ -409,7 +409,7 @@ public final class q0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f9398e;
+        public final /* synthetic */ g f9406e;
 
         public f(g gVar) {
             Interceptable interceptable = $ic;
@@ -426,14 +426,14 @@ public final class q0 {
                     return;
                 }
             }
-            this.f9398e = gVar;
+            this.f9406e = gVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             g gVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (gVar = this.f9398e) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (gVar = this.f9406e) == null) {
                 return;
             }
             gVar.onCancel();
@@ -460,8 +460,8 @@ public final class q0 {
                 return;
             }
         }
-        f9382a = c.a.p0.a.k.f7077a;
-        f9383b = new Handler(Looper.getMainLooper());
+        f9390a = c.a.p0.a.k.f7085a;
+        f9391b = new Handler(Looper.getMainLooper());
     }
 
     public static Uri A(String str) {
@@ -546,7 +546,7 @@ public final class q0 {
                         return true;
                     }
                 } catch (PackageManager.NameNotFoundException unused) {
-                    if (f9382a) {
+                    if (f9390a) {
                         String str2 = str + " is not found";
                     }
                 }
@@ -590,7 +590,7 @@ public final class q0 {
                 declaredMethod.setAccessible(true);
                 return ((Boolean) declaredMethod.invoke(obj, new Object[0])).booleanValue();
             } catch (IllegalAccessException | NoSuchFieldException | NoSuchMethodException | InvocationTargetException unused) {
-                boolean z = f9382a;
+                boolean z = f9390a;
                 return false;
             }
         }
@@ -608,7 +608,7 @@ public final class q0 {
                         return locationManager.isProviderEnabled("gps");
                     }
                 } catch (Exception e2) {
-                    if (f9382a) {
+                    if (f9390a) {
                         e2.printStackTrace();
                     }
                 }
@@ -691,7 +691,7 @@ public final class q0 {
                 obtainStyledAttributes.recycle();
                 return z3 || z || z2;
             } catch (ClassNotFoundException | IllegalAccessException | NoSuchFieldException unused) {
-                boolean z4 = f9382a;
+                boolean z4 = f9390a;
                 return false;
             }
         }
@@ -727,7 +727,7 @@ public final class q0 {
                 }
                 return false;
             } catch (URISyntaxException e2) {
-                if (f9382a) {
+                if (f9390a) {
                     Log.getStackTraceString(e2);
                     return false;
                 }
@@ -753,7 +753,7 @@ public final class q0 {
     public static void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65558, null) == null) {
-            boolean z = f9382a;
+            boolean z = f9390a;
             SwanAppActivity activity = c.a.p0.a.g1.f.V().getActivity();
             if (activity != null) {
                 Bundle bundle = new Bundle();
@@ -797,7 +797,7 @@ public final class q0 {
                     }
                     return false;
                 } catch (PackageManager.NameNotFoundException | URISyntaxException e2) {
-                    if (f9382a) {
+                    if (f9390a) {
                         e2.printStackTrace();
                     }
                 }
@@ -817,7 +817,7 @@ public final class q0 {
     public static void Y(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65561, null, runnable, j2) == null) {
-            f9383b.postDelayed(runnable, j2);
+            f9391b.postDelayed(runnable, j2);
         }
     }
 
@@ -827,7 +827,7 @@ public final class q0 {
         if (interceptable != null && (invokeL = interceptable.invokeL(65562, null, activity)) != null) {
             return invokeL.intValue;
         }
-        if (f9382a) {
+        if (f9390a) {
             String str = "releaseFixedOrientation() called with: activity = [" + activity + PreferencesUtil.RIGHT_MOUNT;
         }
         int i2 = -1;
@@ -844,12 +844,12 @@ public final class q0 {
             if (i3 != -1) {
                 try {
                     declaredField2.setInt(obj, -1);
-                    if (f9382a) {
+                    if (f9390a) {
                         String str2 = "set " + activity.getComponentName() + " screenOrientation to UNSPECIFIED";
                     }
                 } catch (IllegalAccessException | NoSuchFieldException unused) {
                     i2 = i3;
-                    boolean z = f9382a;
+                    boolean z = f9390a;
                     return i2;
                 }
             }
@@ -870,7 +870,7 @@ public final class q0 {
                 str = str + File.separator;
             }
             String str4 = str + str2 + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
-            if (f9382a) {
+            if (f9390a) {
                 String str5 = "buildPageUrl pageUrl: " + str4;
             }
             if (TextUtils.isEmpty(str3)) {
@@ -880,7 +880,7 @@ public final class q0 {
             if (v == null) {
                 return o0.w(str4);
             }
-            if (f9382a) {
+            if (f9390a) {
                 String str6 = "buildPageUrl pageUrl: " + str4 + str3;
             }
             return v.buildUpon().query(str3).build().toString();
@@ -891,7 +891,7 @@ public final class q0 {
     public static void a0(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65564, null, runnable) == null) {
-            f9383b.removeCallbacks(runnable);
+            f9391b.removeCallbacks(runnable);
         }
     }
 
@@ -905,12 +905,12 @@ public final class q0 {
             if (c.a.p0.a.t1.b.a.e(bVar.h())) {
                 return true;
             }
-            if (f9382a) {
-                String str = "checkPageParam pageParam : " + bVar.f7236e;
-                String str2 = "checkPageParam pageRouteParam : " + bVar.f7239h;
+            if (f9390a) {
+                String str = "checkPageParam pageParam : " + bVar.f7244e;
+                String str2 = "checkPageParam pageRouteParam : " + bVar.f7247h;
                 String str3 = "checkPageParam allowTab : " + z;
             }
-            return z ? swanAppConfigData.o(bVar.f7239h) || swanAppConfigData.q(bVar.f7239h) : swanAppConfigData.o(bVar.f7239h) && !swanAppConfigData.q(bVar.f7239h);
+            return z ? swanAppConfigData.o(bVar.f7247h) || swanAppConfigData.q(bVar.f7247h) : swanAppConfigData.o(bVar.f7247h) && !swanAppConfigData.q(bVar.f7247h);
         }
         return invokeLLZ.booleanValue;
     }
@@ -925,14 +925,14 @@ public final class q0 {
     public static boolean c(SwanAppConfigData swanAppConfigData, c.a.p0.a.l1.b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65567, null, swanAppConfigData, bVar)) == null) ? swanAppConfigData != null && swanAppConfigData.m() && swanAppConfigData.q(bVar.f7239h) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65567, null, swanAppConfigData, bVar)) == null) ? swanAppConfigData != null && swanAppConfigData.m() && swanAppConfigData.q(bVar.f7247h) : invokeLL.booleanValue;
     }
 
     public static void c0(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65568, null, runnable, j2) == null) {
             if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                f9383b.postDelayed(runnable, j2);
+                f9391b.postDelayed(runnable, j2);
             } else {
                 runnable.run();
             }
@@ -952,7 +952,7 @@ public final class q0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65570, null, runnable) == null) {
             if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                f9383b.postAtFrontOfQueue(runnable);
+                f9391b.postAtFrontOfQueue(runnable);
             } else {
                 runnable.run();
             }
@@ -966,7 +966,7 @@ public final class q0 {
             if (context == null || TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (f9382a) {
+            if (f9390a) {
                 String str2 = "downloadParams is " + str;
             }
             try {
@@ -976,7 +976,7 @@ public final class q0 {
                 }
                 return c.a.p0.a.c1.a.c().d(context, jSONObject);
             } catch (JSONException e2) {
-                if (f9382a) {
+                if (f9390a) {
                     e2.printStackTrace();
                     return false;
                 }
@@ -1012,7 +1012,7 @@ public final class q0 {
     public static void g(Activity activity, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65573, null, activity, i2) == null) {
-            if (f9382a) {
+            if (f9390a) {
                 String str = "fixedOrientation() called with: activity = [" + activity + "], orientation = [" + i2 + PreferencesUtil.RIGHT_MOUNT;
             }
             if (i2 == -1 || Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !R(activity) || J(activity)) {
@@ -1026,12 +1026,12 @@ public final class q0 {
                 declaredField2.setAccessible(true);
                 if (declaredField2.getInt(obj) == -1) {
                     declaredField2.setInt(obj, i2);
-                    if (f9382a) {
+                    if (f9390a) {
                         String str2 = "set " + activity.getComponentName() + " screenOrientation to " + i2;
                     }
                 }
             } catch (IllegalAccessException | NoSuchFieldException unused) {
-                boolean z = f9382a;
+                boolean z = f9390a;
             }
         }
     }
@@ -1041,7 +1041,7 @@ public final class q0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, str, str2)) == null) {
             if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-                boolean z = f9382a;
+                boolean z = f9390a;
                 return null;
             }
             StringBuilder sb = new StringBuilder(SchemeConfig.getSchemeHead());
@@ -1059,7 +1059,7 @@ public final class q0 {
                 sb.append("&params=");
                 sb.append(URLEncoder.encode(jSONObject.toString(), "utf-8"));
             } catch (UnsupportedEncodingException | JSONException e2) {
-                if (f9382a) {
+                if (f9390a) {
                     Log.getStackTraceString(e2);
                 }
             }
@@ -1112,7 +1112,7 @@ public final class q0 {
                 try {
                     string = context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
                 } catch (Exception e2) {
-                    if (f9382a) {
+                    if (f9390a) {
                         e2.toString();
                         return "";
                     }
@@ -1143,8 +1143,8 @@ public final class q0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
             c.a.p0.a.l1.b bVar = new c.a.p0.a.l1.b();
-            bVar.f7237f = "";
-            bVar.f7236e = "";
+            bVar.f7245f = "";
+            bVar.f7244e = "";
             c.a.p0.a.h0.g.g W = c.a.p0.a.g1.f.V().W();
             return (W == null || W.o() == null) ? bVar : W.o().X2();
         }
@@ -1158,7 +1158,7 @@ public final class q0 {
             try {
                 return Integer.parseInt(str);
             } catch (NumberFormatException e2) {
-                if (f9382a) {
+                if (f9390a) {
                     e2.printStackTrace();
                 }
                 return -1;
@@ -1192,7 +1192,7 @@ public final class q0 {
     public static Handler q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) ? f9383b : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) ? f9391b : (Handler) invokeV.objValue;
     }
 
     @SuppressLint({"MissingPermission", "HardwareIds"})
@@ -1202,11 +1202,11 @@ public final class q0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
-                boolean z = f9382a;
+                boolean z = f9390a;
                 return "";
-            } else if (!TextUtils.isEmpty(f9384c)) {
-                boolean z2 = f9382a;
-                return f9384c;
+            } else if (!TextUtils.isEmpty(f9392c)) {
+                boolean z2 = f9390a;
+                return f9392c;
             } else {
                 Application b2 = c.a.p0.a.c1.a.b();
                 if (ContextCompat.checkSelfPermission(b2, "android.permission.READ_PHONE_STATE") != 0) {
@@ -1222,17 +1222,17 @@ public final class q0 {
                 }
                 str = telephonyManager.getDeviceId();
                 if (!TextUtils.isEmpty(str)) {
-                    f9384c = str;
+                    f9392c = str;
                     return str;
                 }
                 if (Build.VERSION.SDK_INT >= 26) {
                     String imei = telephonyManager.getImei();
                     if (!TextUtils.isEmpty(imei)) {
-                        f9384c = imei;
+                        f9392c = imei;
                         return imei;
                     }
                     str = telephonyManager.getMeid();
-                    f9384c = str;
+                    f9392c = str;
                 }
                 return TextUtils.isEmpty(str) ? "" : str;
             }
@@ -1263,7 +1263,7 @@ public final class q0 {
                 try {
                     return context.getPackageManager().getPackageInfo(str, 64);
                 } catch (PackageManager.NameNotFoundException e2) {
-                    if (f9382a) {
+                    if (f9390a) {
                         e2.getMessage();
                         return null;
                     }
@@ -1294,8 +1294,8 @@ public final class q0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65588, null)) == null) {
             c.a.p0.a.l1.b bVar = new c.a.p0.a.l1.b();
-            bVar.f7237f = "";
-            bVar.f7236e = "";
+            bVar.f7245f = "";
+            bVar.f7244e = "";
             c.a.p0.a.h0.g.g W = c.a.p0.a.g1.f.V().W();
             return (W == null || W.o() == null || (c3 = W.o().c3()) == null) ? bVar : c3;
         }
@@ -1324,7 +1324,7 @@ public final class q0 {
             try {
                 return new File(x, new File(parentFile, str).getCanonicalPath()).getPath();
             } catch (IOException e2) {
-                if (f9382a) {
+                if (f9390a) {
                     Log.getStackTraceString(e2);
                 }
                 return null;

@@ -14,7 +14,7 @@ public class x0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9441a;
+    public int f9449a;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -27,7 +27,7 @@ public class x0 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final x0 f9442a;
+        public static final x0 f9450a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +43,7 @@ public class x0 {
                     return;
                 }
             }
-            f9442a = new x0(null);
+            f9450a = new x0(null);
         }
     }
 
@@ -54,7 +54,7 @@ public class x0 {
     public static x0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f9442a : (x0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f9450a : (x0) invokeV.objValue;
     }
 
     public int a() {
@@ -66,20 +66,20 @@ public class x0 {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9441a != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9449a != 0 : invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f9441a = 0;
+            this.f9449a = 0;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f9441a = i2;
+            this.f9449a = i2;
         }
     }
 
@@ -96,6 +96,6 @@ public class x0 {
                 return;
             }
         }
-        this.f9441a = 0;
+        this.f9449a = 0;
     }
 }

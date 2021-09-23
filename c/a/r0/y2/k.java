@@ -14,19 +14,19 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29560a;
+    public String f29580a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29561b;
+    public int f29581b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29562c;
+    public int f29582c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29563d;
+    public int f29583d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29564e;
+    public int f29584e;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -41,10 +41,10 @@ public class k {
                 return;
             }
         }
-        this.f29561b = 0;
-        this.f29562c = 0;
-        this.f29563d = 0;
-        this.f29564e = 0;
+        this.f29581b = 0;
+        this.f29582c = 0;
+        this.f29583d = 0;
+        this.f29584e = 0;
     }
 
     public void a(boolean z, boolean z2) {
@@ -52,14 +52,14 @@ public class k {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z2) {
                 if (z) {
-                    this.f29564e++;
+                    this.f29584e++;
                 } else {
-                    this.f29563d++;
+                    this.f29583d++;
                 }
             } else if (z) {
-                this.f29561b++;
+                this.f29581b++;
             } else {
-                this.f29562c++;
+                this.f29582c++;
             }
         }
     }
@@ -67,7 +67,7 @@ public class k {
     public int b(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? z2 ? z ? this.f29564e : this.f29563d : z ? this.f29561b : this.f29562c : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? z2 ? z ? this.f29584e : this.f29583d : z ? this.f29581b : this.f29582c : invokeCommon.intValue;
     }
 
     public JSONObject c() {
@@ -76,11 +76,11 @@ public class k {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("forum_name", this.f29560a);
-                jSONObject.put("refresh_count", this.f29561b);
-                jSONObject.put("loadmore_count", this.f29562c);
-                jSONObject.put("loadmore_count_pb", this.f29563d);
-                jSONObject.put("refresh_count_pb", this.f29564e);
+                jSONObject.put("forum_name", this.f29580a);
+                jSONObject.put("refresh_count", this.f29581b);
+                jSONObject.put("loadmore_count", this.f29582c);
+                jSONObject.put("loadmore_count_pb", this.f29583d);
+                jSONObject.put("refresh_count_pb", this.f29584e);
                 return jSONObject;
             } catch (JSONException unused) {
                 return null;
@@ -104,16 +104,16 @@ public class k {
                 return;
             }
         }
-        this.f29561b = 0;
-        this.f29562c = 0;
-        this.f29563d = 0;
-        this.f29564e = 0;
+        this.f29581b = 0;
+        this.f29582c = 0;
+        this.f29583d = 0;
+        this.f29584e = 0;
         if (jSONObject != null) {
-            this.f29560a = jSONObject.optString("forum_name");
-            this.f29561b = jSONObject.optInt("refresh_count");
-            this.f29562c = jSONObject.optInt("loadmore_count");
-            this.f29563d = jSONObject.optInt("loadmore_count_pb");
-            this.f29564e = jSONObject.optInt("refresh_count_pb");
+            this.f29580a = jSONObject.optString("forum_name");
+            this.f29581b = jSONObject.optInt("refresh_count");
+            this.f29582c = jSONObject.optInt("loadmore_count");
+            this.f29583d = jSONObject.optInt("loadmore_count_pb");
+            this.f29584e = jSONObject.optInt("refresh_count_pb");
         }
     }
 }

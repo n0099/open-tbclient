@@ -14,14 +14,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f23367c;
+    public static b f23383c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f23368a;
+    public a f23384a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f23369b;
+    public boolean f23385b;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -41,22 +41,22 @@ public class b {
                 return;
             }
         }
-        this.f23369b = false;
-        this.f23368a = c();
+        this.f23385b = false;
+        this.f23384a = c();
     }
 
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f23367c == null) {
+            if (f23383c == null) {
                 synchronized (b.class) {
-                    if (f23367c == null) {
-                        f23367c = new b();
+                    if (f23383c == null) {
+                        f23383c = new b();
                     }
                 }
             }
-            return f23367c;
+            return f23383c;
         }
         return (b) invokeV.objValue;
     }
@@ -83,10 +83,10 @@ public class b {
     public void d(Application application) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) || this.f23369b || (aVar = this.f23368a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) || this.f23385b || (aVar = this.f23384a) == null) {
             return;
         }
         aVar.a(application);
-        this.f23369b = true;
+        this.f23385b = true;
     }
 }

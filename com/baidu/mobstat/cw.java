@@ -12,10 +12,10 @@ public class cw extends cy implements da {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public short f43503a;
+    public short f43565a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43504b;
+    public String f43566b;
 
     public cw() {
         Interceptable interceptable = $ic;
@@ -35,14 +35,14 @@ public class cw extends cy implements da {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43504b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43566b : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.da
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f43504b = str;
+            this.f43566b = str;
         }
     }
 
@@ -50,7 +50,7 @@ public class cw extends cy implements da {
     public void a(short s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Short.valueOf(s)}) == null) {
-            this.f43503a = s;
+            this.f43565a = s;
         }
     }
 }

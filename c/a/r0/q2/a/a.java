@@ -30,14 +30,14 @@ public class a extends c.a.q0.k0.f.a<PluginConfigWrapper, c.a.q0.k0.d.b> {
 
     /* renamed from: c.a.r0.q2.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1128a implements View.OnClickListener {
+    public class View$OnClickListenerC1126a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24195e;
+        public final /* synthetic */ a f24211e;
 
-        public View$OnClickListenerC1128a(a aVar) {
+        public View$OnClickListenerC1126a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,16 +52,16 @@ public class a extends c.a.q0.k0.f.a<PluginConfigWrapper, c.a.q0.k0.d.b> {
                     return;
                 }
             }
-            this.f24195e = aVar;
+            this.f24211e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.q0.k0.c.b bVar = new c.a.q0.k0.c.b(3, this.f24195e.c(), null, null);
-                bVar.i(this.f24195e.j());
-                this.f24195e.d().dispatchMvcEvent(bVar);
+                c.a.q0.k0.c.b bVar = new c.a.q0.k0.c.b(3, this.f24211e.c(), null, null);
+                bVar.i(this.f24211e.j());
+                this.f24211e.d().dispatchMvcEvent(bVar);
             }
         }
     }
@@ -72,7 +72,7 @@ public class a extends c.a.q0.k0.f.a<PluginConfigWrapper, c.a.q0.k0.d.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24196e;
+        public final /* synthetic */ a f24212e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -89,16 +89,16 @@ public class a extends c.a.q0.k0.f.a<PluginConfigWrapper, c.a.q0.k0.d.b> {
                     return;
                 }
             }
-            this.f24196e = aVar;
+            this.f24212e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.q0.k0.c.b bVar = new c.a.q0.k0.c.b(2, this.f24196e.c(), null, null);
-                bVar.i(this.f24196e.j());
-                this.f24196e.d().dispatchMvcEvent(bVar);
+                c.a.q0.k0.c.b bVar = new c.a.q0.k0.c.b(2, this.f24212e.c(), null, null);
+                bVar.i(this.f24212e.j());
+                this.f24212e.d().dispatchMvcEvent(bVar);
             }
         }
     }
@@ -127,14 +127,14 @@ public class a extends c.a.q0.k0.f.a<PluginConfigWrapper, c.a.q0.k0.d.b> {
         this.m = (TextView) view.findViewById(R.id.desc);
         TextView textView = (TextView) view.findViewById(R.id.status);
         this.n = textView;
-        textView.setOnClickListener(new View$OnClickListenerC1128a(this));
+        textView.setOnClickListener(new View$OnClickListenerC1126a(this));
         TextView textView2 = (TextView) view.findViewById(R.id.install);
         this.o = textView2;
         textView2.setOnClickListener(new b(this));
         this.p = (CircleProgressBar) view.findViewById(R.id.install_progress);
     }
 
-    @Override // c.a.r0.j3.t
+    @Override // c.a.r0.j3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

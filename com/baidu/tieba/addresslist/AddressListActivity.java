@@ -22,7 +22,7 @@ public class AddressListActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddressListActivity f49221e;
+        public final /* synthetic */ AddressListActivity f49331e;
 
         public a(AddressListActivity addressListActivity) {
             Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class AddressListActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f49221e = addressListActivity;
+            this.f49331e = addressListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49221e.finish();
+                this.f49331e.finish();
             }
         }
     }

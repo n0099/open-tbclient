@@ -30,7 +30,7 @@ public class a extends c.a.p0.h.o0.g.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11467e;
+        public final /* synthetic */ a f11475e;
 
         public View$OnClickListenerC0589a(a aVar) {
             Interceptable interceptable = $ic;
@@ -47,19 +47,19 @@ public class a extends c.a.p0.h.o0.g.b.a {
                     return;
                 }
             }
-            this.f11467e = aVar;
+            this.f11475e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f11467e.f11460g == null || this.f11467e.n < -1) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f11475e.f11468g == null || this.f11475e.n < -1) {
                 return;
             }
-            if (this.f11467e.n == -1) {
-                this.f11467e.f11460g.o();
+            if (this.f11475e.n == -1) {
+                this.f11475e.f11468g.o();
             } else {
-                this.f11467e.f11460g.u(this.f11467e.n);
+                this.f11475e.f11468g.u(this.f11475e.n);
             }
         }
     }
@@ -70,7 +70,7 @@ public class a extends c.a.p0.h.o0.g.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11468e;
+        public final /* synthetic */ a f11476e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -87,23 +87,23 @@ public class a extends c.a.p0.h.o0.g.b.a {
                     return;
                 }
             }
-            this.f11468e = aVar;
+            this.f11476e = aVar;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                a aVar = this.f11468e;
+                a aVar = this.f11476e;
                 RecommendItemModel y = aVar.y(aVar.n);
-                this.f11468e.o.f11470b.setImageURI(y.iconUrl);
-                this.f11468e.o.f11471c.setText(y.appName);
-                this.f11468e.o.f11469a.setAlpha(1.0f);
-                a aVar2 = this.f11468e;
-                RecommendItemModel y2 = this.f11468e.y(aVar2.x(aVar2.n));
-                this.f11468e.p.f11470b.setImageURI(y2.iconUrl);
-                this.f11468e.p.f11471c.setText(y2.appName);
-                this.f11468e.p.f11469a.setAlpha(0.0f);
+                this.f11476e.o.f11478b.setImageURI(y.iconUrl);
+                this.f11476e.o.f11479c.setText(y.appName);
+                this.f11476e.o.f11477a.setAlpha(1.0f);
+                a aVar2 = this.f11476e;
+                RecommendItemModel y2 = this.f11476e.y(aVar2.x(aVar2.n));
+                this.f11476e.p.f11478b.setImageURI(y2.iconUrl);
+                this.f11476e.p.f11479c.setText(y2.appName);
+                this.f11476e.p.f11477a.setAlpha(0.0f);
                 a.super.k();
             }
         }
@@ -140,8 +140,8 @@ public class a extends c.a.p0.h.o0.g.b.a {
                 return;
             }
             this.n = -2;
-            this.p.f11470b.setImageURI(aVar.f11477a.iconUrl);
-            this.p.f11471c.setText(aVar.f11477a.appName);
+            this.p.f11478b.setImageURI(aVar.f11485a.iconUrl);
+            this.p.f11479c.setText(aVar.f11485a.appName);
         }
     }
 
@@ -150,18 +150,18 @@ public class a extends c.a.p0.h.o0.g.b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f11458e);
-            c.a.p0.h.o0.g.c.b bVar = new c.a.p0.h.o0.g.c.b(this.f11458e);
+            FrameLayout frameLayout = new FrameLayout(this.f11466e);
+            c.a.p0.h.o0.g.c.b bVar = new c.a.p0.h.o0.g.c.b(this.f11466e);
             this.p = bVar;
-            bVar.f11469a.setAlpha(0.0f);
-            frameLayout.addView(this.p.f11469a);
-            c.a.p0.h.o0.g.c.b bVar2 = new c.a.p0.h.o0.g.c.b(this.f11458e);
+            bVar.f11477a.setAlpha(0.0f);
+            frameLayout.addView(this.p.f11477a);
+            c.a.p0.h.o0.g.c.b bVar2 = new c.a.p0.h.o0.g.c.b(this.f11466e);
             this.o = bVar2;
-            bVar2.f11469a.setAlpha(0.0f);
-            this.o.f11470b.setActualImageResource(17170445);
-            this.o.f11471c.setText((CharSequence) null);
-            frameLayout.addView(this.o.f11469a);
-            this.o.f11469a.setOnClickListener(new View$OnClickListenerC0589a(this));
+            bVar2.f11477a.setAlpha(0.0f);
+            this.o.f11478b.setActualImageResource(17170445);
+            this.o.f11479c.setText((CharSequence) null);
+            frameLayout.addView(this.o.f11477a);
+            this.o.f11477a.setOnClickListener(new View$OnClickListenerC0589a(this));
             return frameLayout;
         }
         return (View) invokeV.objValue;
@@ -171,16 +171,16 @@ public class a extends c.a.p0.h.o0.g.b.a {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (z(this.f11459f)) {
-                this.o.f11469a.setAlpha(1.0f);
-                this.o.f11470b.setActualImageResource(c.a.p0.f.d.swangame_recommend_gamecenter);
-                this.o.f11471c.setText(g.swangame_recommend_button_goto_game_center);
+            if (z(this.f11467f)) {
+                this.o.f11477a.setAlpha(1.0f);
+                this.o.f11478b.setActualImageResource(c.a.p0.f.d.swangame_recommend_gamecenter);
+                this.o.f11479c.setText(g.swangame_recommend_button_goto_game_center);
                 super.k();
                 return;
             }
             this.n = x(this.n);
-            this.p.f11469a.animate().setDuration(160L).alpha(1.0f);
-            this.o.f11469a.animate().setDuration(160L).alpha(0.0f).setListener(new b(this));
+            this.p.f11477a.animate().setDuration(160L).alpha(1.0f);
+            this.o.f11477a.animate().setDuration(160L).alpha(0.0f).setListener(new b(this));
         }
     }
 
@@ -189,7 +189,7 @@ public class a extends c.a.p0.h.o0.g.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             int i3 = i2 + 1;
-            if (i3 == this.f11459f.f11478b.size()) {
+            if (i3 == this.f11467f.f11486b.size()) {
                 return -1;
             }
             return i3;
@@ -200,12 +200,12 @@ public class a extends c.a.p0.h.o0.g.b.a {
     public final RecommendItemModel y(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? i2 == -1 ? this.f11459f.f11477a : this.f11459f.f11478b.get(i2) : (RecommendItemModel) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? i2 == -1 ? this.f11467f.f11485a : this.f11467f.f11486b.get(i2) : (RecommendItemModel) invokeI.objValue;
     }
 
     public final boolean z(c.a.p0.h.o0.g.e.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) ? aVar == null || aVar.f11478b == null || aVar.f11477a == null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) ? aVar == null || aVar.f11486b == null || aVar.f11485a == null : invokeL.booleanValue;
     }
 }

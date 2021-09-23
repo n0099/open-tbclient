@@ -18,7 +18,7 @@ public class s extends c.a.p0.a.y0.a<c.a.p0.a.y0.k.g.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AudioManager f9829b;
+    public AudioManager f9837b;
 
     public s() {
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class s extends c.a.p0.a.y0.a<c.a.p0.a.y0.k.g.a> {
                 }
                 f(doubleValue, aVar.getContext());
             } catch (Exception unused) {
-                if (c.a.p0.a.y0.a.f9714a) {
+                if (c.a.p0.a.y0.a.f9722a) {
                     b();
                 }
             }
@@ -78,15 +78,15 @@ public class s extends c.a.p0.a.y0.a<c.a.p0.a.y0.k.g.a> {
         AudioManager audioManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2), context}) == null) {
-            if (this.f9829b == null) {
-                this.f9829b = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            if (this.f9837b == null) {
+                this.f9837b = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             }
-            if (this.f9829b == null) {
+            if (this.f9837b == null) {
                 return;
             }
             int round = (int) Math.round(audioManager.getStreamMaxVolume(3) * d2);
-            if (round == this.f9829b.getStreamVolume(3)) {
-                if (c.a.p0.a.y0.a.f9714a) {
+            if (round == this.f9837b.getStreamVolume(3)) {
+                if (c.a.p0.a.y0.a.f9722a) {
                     String str = "Setting same volume level, ignore : (" + round + SmallTailInfo.EMOTION_SUFFIX;
                     return;
                 }
@@ -95,10 +95,10 @@ public class s extends c.a.p0.a.y0.a<c.a.p0.a.y0.k.g.a> {
             if (d2 > 0.0d && round == 0) {
                 round = 1;
             }
-            if (c.a.p0.a.y0.a.f9714a) {
+            if (c.a.p0.a.y0.a.f9722a) {
                 String str2 = "setVolumeInt" + round;
             }
-            this.f9829b.setStreamVolume(3, round, 0);
+            this.f9837b.setStreamVolume(3, round, 0);
         }
     }
 }

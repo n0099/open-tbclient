@@ -19,10 +19,10 @@ public final class PayPreferenceManager {
     public static final String PWDPAY_DISPLAY_SCORE_TIP = "pwdpay_display_score_tip";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f62771a = "_pay.preferences";
+    public static final String f63069a = "_pay.preferences";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f62772b = "wallet_interface.preferences";
+    public static final String f63070b = "wallet_interface.preferences";
     public transient /* synthetic */ FieldHolder $fh;
 
     public PayPreferenceManager() {
@@ -76,9 +76,6 @@ public final class PayPreferenceManager {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             String newPpKey = getNewPpKey(context);
             if (TextUtils.isEmpty(newPpKey)) {
-                newPpKey = getPpKey(context);
-            }
-            if (TextUtils.isEmpty(newPpKey)) {
                 return "";
             }
             return (String) SharedPreferencesUtils.getParam(context, "_pay.preferences", newPpKey + "time", "");
@@ -86,35 +83,10 @@ public final class PayPreferenceManager {
         return (String) invokeL.objValue;
     }
 
-    @Deprecated
-    public static String getPpKey(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            Map<String, String> loginData = WalletLoginHelper.getInstance().getLoginData();
-            if (loginData == null) {
-                return null;
-            }
-            String str = loginData.get("pass_uid");
-            if (!TextUtils.isEmpty(str)) {
-                return Md5Utils.toMD5(str);
-            }
-            String str2 = loginData.get("pass_bduss");
-            if (!TextUtils.isEmpty(str2)) {
-                return Md5Utils.toMD5(str2);
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            return Md5Utils.toMD5(str2);
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static boolean getPpSwitch(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             return false;
         }
         return invokeL.booleanValue;
@@ -123,19 +95,19 @@ public final class PayPreferenceManager {
     public static String getWalletInterfaceData(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2)) == null) ? (String) SharedPreferencesUtils.getParam(context, f62772b, str, str2) : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2)) == null) ? (String) SharedPreferencesUtils.getParam(context, f63070b, str, str2) : (String) invokeLLL.objValue;
     }
 
     public static void setBoolean(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65543, null, context, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, context, str, z) == null) {
             SharedPreferencesUtils.setParam(context, "_pay.preferences", str, Boolean.valueOf(z));
         }
     }
 
     public static void setPpCheckTime(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
             String newPpKey = getNewPpKey(context);
             if (TextUtils.isEmpty(newPpKey)) {
                 return;
@@ -146,7 +118,7 @@ public final class PayPreferenceManager {
 
     public static void setPpSwitch(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65545, null, context, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65544, null, context, z) == null) {
             String newPpKey = getNewPpKey(context);
             if (TextUtils.isEmpty(newPpKey)) {
                 return;
@@ -157,8 +129,8 @@ public final class PayPreferenceManager {
 
     public static void setWalletInterfaceData(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, str2) == null) {
-            SharedPreferencesUtils.setParam(context, f62772b, str, str2);
+        if (interceptable == null || interceptable.invokeLLL(65545, null, context, str, str2) == null) {
+            SharedPreferencesUtils.setParam(context, f63070b, str, str2);
         }
     }
 }

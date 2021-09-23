@@ -28,10 +28,10 @@ public class a extends n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public l f28029c;
+    public l f28049c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28030d;
+    public String f28050d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(l lVar, String str) {
@@ -51,8 +51,8 @@ public class a extends n {
                 return;
             }
         }
-        this.f28029c = lVar;
-        this.f28030d = str;
+        this.f28049c = lVar;
+        this.f28050d = str;
     }
 
     @o(isAsync = false, value = "downloadGame")
@@ -76,7 +76,7 @@ public class a extends n {
         } else {
             c.a.r0.y2.f0.e.n().E(optString, optString2, optString, 0, c.a.r0.y2.f0.e.o(optString).intValue(), null, true, false, true, optString3, null, null);
         }
-        TiebaStatic.log(new StatisticItem("c12775").param("fid", StringUtils.isNull(this.f28030d) ? "" : this.f28030d));
+        TiebaStatic.log(new StatisticItem("c12775").param("fid", StringUtils.isNull(this.f28050d) ? "" : this.f28050d));
     }
 
     @Override // c.a.q0.s.y.n
@@ -91,10 +91,10 @@ public class a extends n {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
             try {
-                if (!(this.f28029c.f() instanceof Activity)) {
+                if (!(this.f28049c.f() instanceof Activity)) {
                     intent.addFlags(268435456);
                 }
-                this.f28029c.f().startActivity(intent);
+                this.f28049c.f().startActivity(intent);
             } catch (ActivityNotFoundException e2) {
                 BdLog.e(e2.getMessage());
             }

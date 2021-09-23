@@ -10,13 +10,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final float f66717a;
+    public final float f67028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f66718b;
+    public final float f67029b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f66719c;
+    public final long f67030c;
 
     public a(float f2, float f3, long j2) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class a {
                 return;
             }
         }
-        this.f66717a = f2;
-        this.f66718b = f3;
-        this.f66719c = j2;
+        this.f67028a = f2;
+        this.f67029b = f3;
+        this.f67030c = j2;
     }
 }

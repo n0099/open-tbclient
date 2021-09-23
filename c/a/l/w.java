@@ -23,7 +23,7 @@ public class w extends c.a.l.a<c.a.q0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public MultiImgLayout f3882j;
+    public MultiImgLayout f3883j;
     public c.a.q0.s.q.a k;
     public int l;
     public String m;
@@ -34,7 +34,7 @@ public class w extends c.a.l.a<c.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ w f3883a;
+        public final /* synthetic */ w f3884a;
 
         public a(w wVar) {
             Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class w extends c.a.l.a<c.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3883a = wVar;
+            this.f3884a = wVar;
         }
 
         @Override // c.a.l.v0.a.b
@@ -59,10 +59,10 @@ public class w extends c.a.l.a<c.a.q0.s.q.a> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
-                if (this.f3883a.k != null && this.f3883a.k.getThreadData() != null) {
-                    c.a.r0.a0.m.a(this.f3883a.k.getThreadData().f0());
-                    c.a.r0.a0.m.l(this.f3883a.f3882j.mTitle, this.f3883a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.r0.a0.m.l(this.f3883a.f3882j.mAbstract, this.f3883a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                if (this.f3884a.k != null && this.f3884a.k.getThreadData() != null) {
+                    c.a.r0.a0.m.a(this.f3884a.k.getThreadData().f0());
+                    c.a.r0.a0.m.l(this.f3884a.f3883j.mTitle, this.f3884a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.a0.m.l(this.f3884a.f3883j.mAbstract, this.f3884a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -90,9 +90,9 @@ public class w extends c.a.l.a<c.a.q0.s.q.a> {
         }
         this.l = 3;
         if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14236g instanceof MultiImgLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14236g.getParent() == null) {
-            this.f3882j = (MultiImgLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14236g;
+            this.f3883j = (MultiImgLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14236g;
         } else {
-            this.f3882j = new MultiImgLayout(context);
+            this.f3883j = new MultiImgLayout(context);
         }
     }
 
@@ -100,7 +100,7 @@ public class w extends c.a.l.a<c.a.q0.s.q.a> {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3882j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3883j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
@@ -115,7 +115,7 @@ public class w extends c.a.l.a<c.a.q0.s.q.a> {
     public void k(c.a.r0.a0.b0<c.a.q0.s.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
-            this.f3882j.setSubClickListener(b0Var);
+            this.f3883j.setSubClickListener(b0Var);
         }
     }
 
@@ -125,7 +125,7 @@ public class w extends c.a.l.a<c.a.q0.s.q.a> {
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
             if (this.l != i2) {
                 SkinManager.setBackgroundResource(f(), R.drawable.addresslist_item_bg);
-                this.f3882j.mImageGroup.onChangeSkinType();
+                this.f3883j.mImageGroup.onChangeSkinType();
             }
             this.l = i2;
         }
@@ -138,15 +138,15 @@ public class w extends c.a.l.a<c.a.q0.s.q.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.k = aVar;
-            this.f3882j.setFrom(this.m);
-            this.f3882j.onBindDataToView(aVar);
+            this.f3883j.setFrom(this.m);
+            this.f3883j.onBindDataToView(aVar);
         }
     }
 
     public void q(c.a.e.e.k.b<TbImageView> bVar) {
         MultiImgLayout multiImgLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || (multiImgLayout = this.f3882j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || (multiImgLayout = this.f3883j) == null) {
             return;
         }
         multiImgLayout.setConstrainImagePool(bVar);
@@ -155,7 +155,7 @@ public class w extends c.a.l.a<c.a.q0.s.q.a> {
     public void r(c.a.e.e.k.b<ConstrainImageLayout> bVar) {
         MultiImgLayout multiImgLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || (multiImgLayout = this.f3882j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || (multiImgLayout = this.f3883j) == null) {
             return;
         }
         multiImgLayout.setConstrainLayoutPool(bVar);
@@ -171,21 +171,21 @@ public class w extends c.a.l.a<c.a.q0.s.q.a> {
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f3882j.setFromCDN(z);
+            this.f3883j.setFromCDN(z);
         }
     }
 
     public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f3882j.setNeedFrsTabName(z);
+            this.f3883j.setNeedFrsTabName(z);
         }
     }
 
     public void v(c.a.e.l.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            this.f3882j.setPreloadSizeReadyCallback(bVar);
+            this.f3883j.setPreloadSizeReadyCallback(bVar);
         }
     }
 }

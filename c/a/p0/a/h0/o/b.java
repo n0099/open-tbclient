@@ -19,11 +19,11 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6287b;
+    public static final boolean f6295b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f6288a;
+    public c f6296a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public final class b {
                 return;
             }
         }
-        f6287b = k.f7077a;
+        f6295b = k.f7085a;
     }
 
     public b() {
@@ -54,7 +54,7 @@ public final class b {
                 return;
             }
         }
-        this.f6288a = c.f6289a;
+        this.f6296a = c.f6297a;
     }
 
     public final void a(@NonNull c.a.p0.a.v1.c.f.c cVar, @NonNull PrefetchEvent prefetchEvent, @Nullable PMSAppInfo pMSAppInfo) {
@@ -70,10 +70,10 @@ public final class b {
                 return;
             }
             bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
-            if (this.f6288a.a(prefetchEvent, pMSAppInfo, bundle)) {
+            if (this.f6296a.a(prefetchEvent, pMSAppInfo, bundle)) {
                 c.a.p0.a.v1.c.a e2 = c.a.p0.a.v1.c.a.e();
                 c.a.p0.a.v1.c.c cVar2 = new c.a.p0.a.v1.c.c(120, bundle);
-                cVar2.b(cVar.f9264f);
+                cVar2.b(cVar.f9272f);
                 cVar2.p(false);
                 e2.h(cVar2);
             }
@@ -85,9 +85,9 @@ public final class b {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, prefetchEvent, cVar, pMSAppInfo) == null) {
             a(cVar, prefetchEvent, pMSAppInfo);
             cVar.X(prefetchEvent);
-            if (f6287b) {
+            if (f6295b) {
                 String str = "onPrefetchReady event: " + prefetchEvent;
-                String str2 = "onPrefetchReady client id: " + cVar.f9264f.index;
+                String str2 = "onPrefetchReady client id: " + cVar.f9272f.index;
             }
         }
     }

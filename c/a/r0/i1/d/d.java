@@ -31,16 +31,16 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f19331a;
+    public final b f19346a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f19332b;
+    public View f19347b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeRecyclerView f19333c;
+    public BdTypeRecyclerView f19348c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PbListView f19334d;
+    public PbListView f19349d;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -61,39 +61,39 @@ public class d {
                 return;
             }
         }
-        this.f19332b = view;
+        this.f19347b = view;
         BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view.findViewById(R.id.frs_hottopic_lv_thread);
-        this.f19333c = bdTypeRecyclerView;
+        this.f19348c = bdTypeRecyclerView;
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
-        this.f19333c.setFadingEdgeLength(0);
-        this.f19333c.setOverScrollMode(2);
+        this.f19348c.setFadingEdgeLength(0);
+        this.f19348c.setOverScrollMode(2);
         PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
-        this.f19334d = pbListView;
+        this.f19349d = pbListView;
         pbListView.a();
-        this.f19334d.o(R.color.CAM_X0205);
-        this.f19334d.r(l.g(tbPageContext.getPageActivity(), R.dimen.tbds182));
-        this.f19334d.v();
-        this.f19334d.E(R.dimen.tbfontsize33);
-        this.f19334d.y(R.color.CAM_X0110);
-        this.f19333c.setNextPage(this.f19334d);
-        this.f19334d.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.f19334d.f();
-        this.f19334d.A(tbPageContext.getResources().getString(R.string.list_no_more));
+        this.f19349d.o(R.color.CAM_X0205);
+        this.f19349d.r(l.g(tbPageContext.getPageActivity(), R.dimen.tbds182));
+        this.f19349d.v();
+        this.f19349d.E(R.dimen.tbfontsize33);
+        this.f19349d.y(R.color.CAM_X0110);
+        this.f19348c.setNextPage(this.f19349d);
+        this.f19349d.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.f19349d.f();
+        this.f19349d.A(tbPageContext.getResources().getString(R.string.list_no_more));
         c();
-        this.f19331a = new b(tbPageContext, this.f19333c);
+        this.f19346a = new b(tbPageContext, this.f19348c);
     }
 
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19332b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19347b : (View) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.f19333c;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f19348c;
             if (bdTypeRecyclerView == null) {
                 return false;
             }
@@ -106,23 +106,23 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            PbListView pbListView = this.f19334d;
+            PbListView pbListView = this.f19349d;
             if (pbListView != null) {
                 pbListView.C(SkinManager.getColor(R.color.CAM_X0107));
-                this.f19334d.d(skinType);
+                this.f19349d.d(skinType);
             }
-            BdTypeRecyclerView bdTypeRecyclerView = this.f19333c;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f19348c;
             if (bdTypeRecyclerView == null || bdTypeRecyclerView.getAdapter() == null) {
                 return;
             }
-            this.f19333c.getAdapter().notifyDataSetChanged();
+            this.f19348c.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f19333c.scrollToPosition(0);
+            this.f19348c.scrollToPosition(0);
         }
     }
 
@@ -131,13 +131,13 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f19333c.setData(list);
+        this.f19348c.setData(list);
     }
 
     public void f(TbPageTag tbPageTag) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tbPageTag) == null) {
-            this.f19331a.a(tbPageTag);
+            this.f19346a.a(tbPageTag);
         }
     }
 
@@ -145,9 +145,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                this.f19333c.setVisibility(0);
+                this.f19348c.setVisibility(0);
             } else {
-                this.f19333c.setVisibility(8);
+                this.f19348c.setVisibility(8);
             }
         }
     }
@@ -156,8 +156,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             t tVar = new t();
-            tVar.f27822a = 401;
-            tVar.f27823b = z;
+            tVar.f27842a = 401;
+            tVar.f27843b = z;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
         }
     }
@@ -167,7 +167,7 @@ public class d {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new s());
-            this.f19333c.setData(arrayList);
+            this.f19348c.setData(arrayList);
         }
     }
 }

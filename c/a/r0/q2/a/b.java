@@ -50,7 +50,7 @@ public class b extends c.a.q0.k0.f.a<String, c.a.q0.k0.d.b> {
         }
     }
 
-    @Override // c.a.r0.j3.t
+    @Override // c.a.r0.j3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

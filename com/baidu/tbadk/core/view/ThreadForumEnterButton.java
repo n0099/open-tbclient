@@ -45,22 +45,22 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     public final int DEFAULT_FROM;
 
     /* renamed from: e  reason: collision with root package name */
-    public d2 f47807e;
+    public d2 f47914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f47808f;
+    public Context f47915f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f47809g;
+    public View f47916g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47810h;
+    public int f47917h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f47811i;
+    public boolean f47918i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f47812j;
+    public TextView f47919j;
     public Drawable k;
     public View.OnClickListener l;
     public int m;
@@ -102,8 +102,8 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             }
         }
         this.DEFAULT_FROM = 0;
-        this.f47810h = 0;
-        this.f47811i = false;
+        this.f47917h = 0;
+        this.f47918i = false;
         this.m = 3;
         a(context);
     }
@@ -111,27 +111,27 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f47808f = context;
+            this.f47915f = context;
             setOnClickListener(this);
             View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_button, (ViewGroup) this, true);
-            this.f47809g = inflate;
+            this.f47916g = inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.forum_name_text);
-            this.f47812j = textView;
-            textView.setCompoundDrawablePadding(l.g(this.f47808f, R.dimen.M_W_X002));
+            this.f47919j = textView;
+            textView.setCompoundDrawablePadding(l.g(this.f47915f, R.dimen.M_W_X002));
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f47812j.setCompoundDrawables(this.k, null, null, null);
+            this.f47919j.setCompoundDrawables(this.k, null, null, null);
         }
     }
 
     public void bindData(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) {
-            this.f47807e = d2Var;
+            this.f47914e = d2Var;
             if (d2Var != null) {
                 String Z = d2Var.Z();
                 if (StringUtils.isNull(Z)) {
@@ -140,9 +140,9 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 }
                 setVisibility(0);
                 b();
-                TextView textView = this.f47812j;
-                textView.setText(StringHelper.cutForumNameWithSuffix(Z, 14, "...") + this.f47808f.getString(R.string.forum));
-                this.f47812j.setVisibility(0);
+                TextView textView = this.f47919j;
+                textView.setText(StringHelper.cutForumNameWithSuffix(Z, 14, "...") + this.f47915f.getString(R.string.forum));
+                this.f47919j.setVisibility(0);
                 if (YYLiveUtil.isLiveRoom(Z)) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
                     TiebaStaticHelper.addYYParam(statisticItem);
@@ -158,19 +158,19 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     public void isFromVideoTabPbFloat(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f47811i = z;
+            this.f47918i = z;
         }
     }
 
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f47807e == null || this.m == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f47914e == null || this.m == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             return;
         }
         this.m = skinType;
-        if (this.f47811i) {
-            c d2 = c.d(this.f47812j);
+        if (this.f47918i) {
+            c d2 = c.d(this.f47919j);
             d2.B(R.string.F_X01);
             d2.A(R.dimen.T_X09);
             d2.w(R.color.CAM_X0304);
@@ -179,7 +179,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             d2.m(R.dimen.L_X01);
             d2.l(R.color.CAM_X0304);
         } else {
-            c d3 = c.d(this.f47812j);
+            c d3 = c.d(this.f47919j);
             d3.B(R.string.F_X01);
             d3.A(R.dimen.T_X09);
             d3.w(R.color.CAM_X0304);
@@ -191,7 +191,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba12, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
         this.k = pureDrawable;
         if (pureDrawable != null) {
-            int g2 = l.g(this.f47808f, R.dimen.T_X09);
+            int g2 = l.g(this.f47915f, R.dimen.T_X09);
             this.k.setBounds(0, 0, g2, g2);
         }
         b();
@@ -201,18 +201,18 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
-            if (this.f47807e.getType() == d2.P3) {
-                Context context = this.f47808f;
+            if (this.f47914e.getType() == d2.Q3) {
+                Context context = this.f47915f;
                 BdToast.i(context, context.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
-            } else if (StringUtils.isNull(this.f47807e.Z())) {
+            } else if (StringUtils.isNull(this.f47914e.Z())) {
             } else {
-                view.setTag(this.f47807e);
-                if (this.f47810h == 0) {
-                    FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f47808f).createNormalCfg(this.f47807e.Z(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+                view.setTag(this.f47914e);
+                if (this.f47917h == 0) {
+                    FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f47915f).createNormalCfg(this.f47914e.Z(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
                     createNormalCfg.setCallFrom(14);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
                 }
-                d2 d2Var = this.f47807e;
+                d2 d2Var = this.f47914e;
                 if (d2Var != null && YYLiveUtil.isLiveRoom(d2Var.Z())) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_CLICK);
                     TiebaStaticHelper.addYYParam(statisticItem);
@@ -236,7 +236,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     public void setFrom(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f47810h = i2;
+            this.f47917h = i2;
         }
     }
 
@@ -260,8 +260,8 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             }
         }
         this.DEFAULT_FROM = 0;
-        this.f47810h = 0;
-        this.f47811i = false;
+        this.f47917h = 0;
+        this.f47918i = false;
         this.m = 3;
         a(context);
     }
@@ -269,9 +269,9 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     public void bindData(d2 d2Var, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, d2Var, i2) == null) {
-            this.f47807e = d2Var;
+            this.f47914e = d2Var;
             if (d2Var != null && i2 > 0) {
-                int paddingLeft = this.f47812j.getPaddingLeft();
+                int paddingLeft = this.f47919j.getPaddingLeft();
                 String Z = d2Var.Z();
                 if (StringUtils.isNull(Z)) {
                     setVisibility(8);
@@ -279,9 +279,9 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 }
                 setVisibility(0);
                 b();
-                float measureText = (i2 - (paddingLeft * 2)) - this.f47812j.getPaint().measureText(getResources().getString(R.string.forum));
-                this.f47812j.setText(((Object) TextUtils.ellipsize(Z, this.f47812j.getPaint(), measureText, TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
-                this.f47812j.setVisibility(0);
+                float measureText = (i2 - (paddingLeft * 2)) - this.f47919j.getPaint().measureText(getResources().getString(R.string.forum));
+                this.f47919j.setText(((Object) TextUtils.ellipsize(Z, this.f47919j.getPaint(), measureText, TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
+                this.f47919j.setVisibility(0);
                 if (YYLiveUtil.isLiveRoom(d2Var.Z())) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
                     TiebaStaticHelper.addYYParam(statisticItem);

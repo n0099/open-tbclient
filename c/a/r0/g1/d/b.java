@@ -3,7 +3,7 @@ package c.a.r0.g1.d;
 public interface b {
     void b();
 
-    void c(int i2, c.a.q0.d1.c cVar, int i3);
+    void c(int i2, c.a.q0.d1.e eVar, int i3);
 
-    void d(int i2, int i3, c.a.q0.d1.c cVar, int i4);
+    void d(int i2, int i3, c.a.q0.d1.e eVar, int i4);
 }

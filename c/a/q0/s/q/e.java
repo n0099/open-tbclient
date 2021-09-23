@@ -87,7 +87,7 @@ public class e {
     public static void b(AdvertAppInfo advertAppInfo) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, advertAppInfo) == null) || advertAppInfo == null || (eVar = advertAppInfo.f4) == null || eVar.f14151i || a(eVar.f14150h)) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, advertAppInfo) == null) || advertAppInfo == null || (eVar = advertAppInfo.g4) == null || eVar.f14151i || a(eVar.f14150h)) {
             return;
         }
         c.a.r0.y2.l0.c b2 = c.a.r0.y2.l0.g.b(advertAppInfo, 3, eVar.f14144b);
@@ -124,16 +124,16 @@ public class e {
 
     public static void d(c.a.r0.a0.d0.d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, dVar) == null) || dVar == null || dVar.g() == null || dVar.g().f4 == null || dVar.g().f4.f14151i || a(dVar.g().f4.f14150h)) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, dVar) == null) || dVar == null || dVar.g() == null || dVar.g().g4 == null || dVar.g().g4.f14151i || a(dVar.g().g4.f14150h)) {
             return;
         }
-        dVar.g().g4 = dVar.g().f4.f14143a;
-        c.a.r0.y2.l0.c c2 = c.a.r0.y2.l0.g.c(dVar.g(), 3, dVar.g().f4.f14144b);
-        c2.t(dVar.g().f4.f14150h);
+        dVar.g().h4 = dVar.g().g4.f14143a;
+        c.a.r0.y2.l0.c c2 = c.a.r0.y2.l0.g.c(dVar.g(), 3, dVar.g().g4.f14144b);
+        c2.t(dVar.g().g4.f14150h);
         c.a.r0.y2.l0.e.b().d(c2);
         c.a.r0.p1.o.h.c.g(c.a.r0.p1.o.h.c.e(dVar.g()));
-        dVar.g().f4.f14151i = true;
-        f14142j.add(dVar.g().f4.f14150h);
+        dVar.g().g4.f14151i = true;
+        f14142j.add(dVar.g().g4.f14150h);
     }
 
     public static void e(e eVar, int i2, boolean z) {
@@ -154,13 +154,13 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65543, null, pVar) == null) || pVar == null || pVar.getAdvertAppInfo() == null) {
             return;
         }
-        e eVar = pVar.getAdvertAppInfo().f4;
+        e eVar = pVar.getAdvertAppInfo().g4;
         if (pVar.M0 || !(eVar == null || eVar.f14151i || a(eVar.f14150h))) {
             pVar.G0 = eVar.f14147e;
             pVar.H0 = eVar.f14148f;
             pVar.F0 = eVar.f14146d;
             int i2 = 3;
-            if (pVar != null && pVar.F0() != null && pVar.F0().forFree()) {
+            if (pVar != null && pVar.H0() != null && pVar.H0().forFree()) {
                 i2 = 103;
             }
             c.a.r0.y2.l0.c e2 = c.a.r0.y2.l0.g.e(pVar, i2);
@@ -202,12 +202,12 @@ public class e {
 
     public static void h(c.a.f.d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, dVar) == null) || dVar == null || dVar.i() == null || dVar.f3279i || TextUtils.isEmpty(dVar.i().f3282b) || a(dVar.i().f3282b)) {
+        if (!(interceptable == null || interceptable.invokeL(65545, null, dVar) == null) || dVar == null || dVar.i() == null || dVar.f3280i || TextUtils.isEmpty(dVar.i().f3283b) || a(dVar.i().f3283b)) {
             return;
         }
         c.a.r0.y2.l0.e.b().d(c.a.r0.y2.l0.g.a(dVar, 3, dVar.k()));
         c.a.r0.p1.o.h.c.g(dVar);
-        dVar.f3279i = true;
-        f14142j.add(dVar.i().f3282b);
+        dVar.f3280i = true;
+        f14142j.add(dVar.i().f3283b);
     }
 }

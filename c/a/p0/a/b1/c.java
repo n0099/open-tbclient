@@ -23,7 +23,7 @@ public class c extends DataInputStream {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c.a.p0.a.b1.b<String, byte[]> f4617e;
+    public static final c.a.p0.a.b1.b<String, byte[]> f4625e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -68,7 +68,7 @@ public class c extends DataInputStream {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f4618a;
+        public final /* synthetic */ c f4626a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class c extends DataInputStream {
                     return;
                 }
             }
-            this.f4618a = cVar;
+            this.f4626a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -115,7 +115,7 @@ public class c extends DataInputStream {
                 return;
             }
         }
-        f4617e = new a();
+        f4625e = new a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -219,7 +219,7 @@ public class c extends DataInputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                return f4617e.call(n());
+                return f4625e.call(n());
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
@@ -231,7 +231,7 @@ public class c extends DataInputStream {
     public List<String> s() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? p(f4617e) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? p(f4625e) : (List) invokeV.objValue;
     }
 
     public List<String> t(List<String> list) throws IOException {
@@ -247,6 +247,6 @@ public class c extends DataInputStream {
     public Map<String, String> v() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? q(f4617e) : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? q(f4625e) : (Map) invokeV.objValue;
     }
 }

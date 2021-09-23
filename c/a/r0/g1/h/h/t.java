@@ -36,7 +36,7 @@ public class t extends c.a.e.l.e.a<c.a.r0.g1.k.b.c.a, ThreadCardViewHolder<c.a.r
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ t f18310e;
+        public final /* synthetic */ t f18319e;
 
         public a(t tVar) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class t extends c.a.e.l.e.a<c.a.r0.g1.k.b.c.a, ThreadCardViewHolder<c.a.r
                     return;
                 }
             }
-            this.f18310e = tVar;
+            this.f18319e = tVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -67,7 +67,7 @@ public class t extends c.a.e.l.e.a<c.a.r0.g1.k.b.c.a, ThreadCardViewHolder<c.a.r
                 if (aVar != null && aVar.c0 == 1) {
                     TiebaStatic.log(new StatisticItem("c13449").param("topic_id", aVar.V));
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(this.f18310e.f2957e, aVar.V)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(this.f18319e.f2958e, aVar.V)));
             }
         }
     }
@@ -110,8 +110,8 @@ public class t extends c.a.e.l.e.a<c.a.r0.g1.k.b.c.a, ThreadCardViewHolder<c.a.r
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             l0.b bVar = new l0.b(this.n.getPageActivity(), false);
-            c.a.r0.g1.h.n.d dVar = new c.a.r0.g1.h.n.d(this.f2957e, this.n);
-            dVar.o(this.f2961i);
+            c.a.r0.g1.h.n.d dVar = new c.a.r0.g1.h.n.d(this.f2958e, this.n);
+            dVar.o(this.f2962i);
             bVar.n(dVar);
             bVar.l().c(0);
             bVar.l().e(0);

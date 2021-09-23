@@ -13,13 +13,13 @@ public class c<V> implements c.a.r0.f2.f.a<V> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterestSelectionStyleAModel f17621a;
+    public InterestSelectionStyleAModel f17631a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.f2.a.a f17622b;
+    public c.a.r0.f2.a.a f17632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaseInterestSelectionFragment f17623c;
+    public BaseInterestSelectionFragment f17633c;
 
     public c(BaseInterestSelectionFragment baseInterestSelectionFragment, c.a.r0.f2.a.a aVar) {
         Interceptable interceptable = $ic;
@@ -36,16 +36,16 @@ public class c<V> implements c.a.r0.f2.f.a<V> {
                 return;
             }
         }
-        this.f17623c = baseInterestSelectionFragment;
-        this.f17622b = aVar;
-        this.f17621a = new InterestSelectionStyleAModel(aVar, this);
+        this.f17633c = baseInterestSelectionFragment;
+        this.f17632b = aVar;
+        this.f17631a = new InterestSelectionStyleAModel(aVar, this);
     }
 
     @Override // c.a.r0.f2.f.a
     public void a(V v) {
         BaseInterestSelectionFragment baseInterestSelectionFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, v) == null) || (baseInterestSelectionFragment = this.f17623c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, v) == null) || (baseInterestSelectionFragment = this.f17633c) == null) {
             return;
         }
         baseInterestSelectionFragment.onDataRes();
@@ -54,7 +54,7 @@ public class c<V> implements c.a.r0.f2.f.a<V> {
     public void b() {
         InterestSelectionStyleAModel interestSelectionStyleAModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (interestSelectionStyleAModel = this.f17621a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (interestSelectionStyleAModel = this.f17631a) == null) {
             return;
         }
         interestSelectionStyleAModel.onDestroy();
@@ -63,7 +63,7 @@ public class c<V> implements c.a.r0.f2.f.a<V> {
     public void c() {
         InterestSelectionStyleAModel interestSelectionStyleAModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interestSelectionStyleAModel = this.f17621a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interestSelectionStyleAModel = this.f17631a) == null) {
             return;
         }
         interestSelectionStyleAModel.B();
@@ -73,7 +73,7 @@ public class c<V> implements c.a.r0.f2.f.a<V> {
     public void onError(int i2, String str) {
         BaseInterestSelectionFragment baseInterestSelectionFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || (baseInterestSelectionFragment = this.f17623c) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || (baseInterestSelectionFragment = this.f17633c) == null) {
             return;
         }
         baseInterestSelectionFragment.onError(str);

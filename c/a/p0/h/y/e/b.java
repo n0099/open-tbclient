@@ -19,14 +19,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11616b;
+    public static final boolean f11624b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f11617c;
+    public static volatile b f11625c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, c.a.p0.h.y.a> f11618a;
+    public HashMap<String, c.a.p0.h.y.a> f11626a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class b {
                 return;
             }
         }
-        f11616b = k.f7077a;
+        f11624b = k.f7085a;
     }
 
     public b() {
@@ -57,7 +57,7 @@ public class b {
                 return;
             }
         }
-        this.f11618a = new HashMap<>();
+        this.f11626a = new HashMap<>();
     }
 
     public static void a(c cVar, String str) {
@@ -72,14 +72,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f11617c == null) {
+            if (f11625c == null) {
                 synchronized (b.class) {
-                    if (f11617c == null) {
-                        f11617c = new b();
+                    if (f11625c == null) {
+                        f11625c = new b();
                     }
                 }
             }
-            return f11617c;
+            return f11625c;
         }
         return (b) invokeV.objValue;
     }
@@ -110,11 +110,11 @@ public class b {
                 if (TextUtils.isEmpty(c2)) {
                     return null;
                 }
-                c.a.p0.h.y.a remove = this.f11618a.remove(c2);
+                c.a.p0.h.y.a remove = this.f11626a.remove(c2);
                 if (remove != null) {
                     a(cVar, "preload used, url = " + C);
                 }
-                if (f11616b) {
+                if (f11624b) {
                     String str = "obtainRequestTask requestType:" + i2 + ";url:" + C + ";task:" + remove;
                 }
                 return remove;
@@ -127,7 +127,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f11618a.clear();
+                this.f11626a.clear();
             }
         }
     }
@@ -135,7 +135,7 @@ public class b {
     public void f(c cVar, a.c cVar2) {
         c.a.p0.h.c0.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, cVar, cVar2) == null) || cVar == null || cVar2 == null || (aVar = cVar2.f11542c) == null || aVar.f11123g == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, cVar, cVar2) == null) || cVar == null || cVar2 == null || (aVar = cVar2.f11550c) == null || aVar.f11131g == null) {
             return;
         }
         e();

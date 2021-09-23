@@ -29,34 +29,34 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final PersonalTalkSettingActivity f21813a;
+    public final PersonalTalkSettingActivity f21827a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final NavigationBar f21814b;
+    public final NavigationBar f21828b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final View f21815c;
+    public final View f21829c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HeadImageView f21816d;
+    public final HeadImageView f21830d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TextView f21817e;
+    public final TextView f21831e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final UserIconBox f21818f;
+    public final UserIconBox f21832f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TextView f21819g;
+    public final TextView f21833g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbSettingTextTipView f21820h;
+    public TbSettingTextTipView f21834h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbSettingTextTipView f21821i;
+    public TbSettingTextTipView f21835i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbSettingTextTipView f21822j;
+    public TbSettingTextTipView f21836j;
     public RelativeLayout k;
     public LinearLayout l;
     public PersonaltalkSettingViewBlackManView m;
@@ -77,32 +77,32 @@ public class g {
                 return;
             }
         }
-        this.f21813a = personalTalkSettingActivity;
+        this.f21827a = personalTalkSettingActivity;
         personalTalkSettingActivity.setContentView(R.layout.p2ptalk_setting_activity);
-        View findViewById = this.f21813a.findViewById(R.id.person_talk_setting_parent);
-        this.f21815c = findViewById;
+        View findViewById = this.f21827a.findViewById(R.id.person_talk_setting_parent);
+        this.f21829c = findViewById;
         NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
-        this.f21814b = navigationBar;
-        navigationBar.setTitleText(this.f21813a.getPageContext().getString(R.string.talk_detail));
-        this.f21814b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.m = (PersonaltalkSettingViewBlackManView) this.f21813a.findViewById(R.id.black_status_view);
-        this.n = (PersonalTalkSettingViewSettingView) this.f21813a.findViewById(R.id.setting_detail_view);
-        this.l = (LinearLayout) this.f21813a.findViewById(R.id.user_info_lin);
-        this.f21820h = (TbSettingTextTipView) this.f21813a.findViewById(R.id.st_delete_talk_history);
-        this.f21821i = (TbSettingTextTipView) this.f21813a.findViewById(R.id.st_report);
-        this.f21822j = (TbSettingTextTipView) this.f21813a.findViewById(R.id.add_to_black);
-        this.k = (RelativeLayout) this.f21813a.findViewById(R.id.remove_from_black_man);
-        this.f21820h.setOnClickListener(this.f21813a);
-        this.f21821i.setOnClickListener(this.f21813a);
-        this.f21822j.setOnClickListener(this.f21813a);
-        this.k.setOnClickListener(this.f21813a);
-        this.l.setOnClickListener(this.f21813a);
-        HeadImageView headImageView = (HeadImageView) this.f21813a.findViewById(R.id.photo);
-        this.f21816d = headImageView;
+        this.f21828b = navigationBar;
+        navigationBar.setTitleText(this.f21827a.getPageContext().getString(R.string.talk_detail));
+        this.f21828b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.m = (PersonaltalkSettingViewBlackManView) this.f21827a.findViewById(R.id.black_status_view);
+        this.n = (PersonalTalkSettingViewSettingView) this.f21827a.findViewById(R.id.setting_detail_view);
+        this.l = (LinearLayout) this.f21827a.findViewById(R.id.user_info_lin);
+        this.f21834h = (TbSettingTextTipView) this.f21827a.findViewById(R.id.st_delete_talk_history);
+        this.f21835i = (TbSettingTextTipView) this.f21827a.findViewById(R.id.st_report);
+        this.f21836j = (TbSettingTextTipView) this.f21827a.findViewById(R.id.add_to_black);
+        this.k = (RelativeLayout) this.f21827a.findViewById(R.id.remove_from_black_man);
+        this.f21834h.setOnClickListener(this.f21827a);
+        this.f21835i.setOnClickListener(this.f21827a);
+        this.f21836j.setOnClickListener(this.f21827a);
+        this.k.setOnClickListener(this.f21827a);
+        this.l.setOnClickListener(this.f21827a);
+        HeadImageView headImageView = (HeadImageView) this.f21827a.findViewById(R.id.photo);
+        this.f21830d = headImageView;
         headImageView.setIsRound(true);
-        this.f21817e = (TextView) this.f21813a.findViewById(R.id.name);
-        this.f21818f = (UserIconBox) this.f21813a.findViewById(R.id.user_icon_box);
-        this.f21819g = (TextView) this.f21813a.findViewById(R.id.user_desc);
+        this.f21831e = (TextView) this.f21827a.findViewById(R.id.name);
+        this.f21832f = (UserIconBox) this.f21827a.findViewById(R.id.user_icon_box);
+        this.f21833g = (TextView) this.f21827a.findViewById(R.id.user_desc);
     }
 
     public void a(boolean z, int i2) {
@@ -132,15 +132,15 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) || fVar == null || fVar.j() == null || (str = fVar.j().portrait) == null || str.length() <= 0) {
             return;
         }
-        this.f21816d.setImageResource(0);
-        this.f21816d.startLoad(str, 12, false);
+        this.f21830d.setImageResource(0);
+        this.f21830d.startLoad(str, 12, false);
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f21813a.getLayoutMode().j(this.f21815c);
-            this.f21814b.onChangeSkinType(this.f21813a.getPageContext(), i2);
+            this.f21827a.getLayoutMode().j(this.f21829c);
+            this.f21828b.onChangeSkinType(this.f21827a.getPageContext(), i2);
         }
     }
 
@@ -164,19 +164,19 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f21817e.setText(StringUtils.isNull(dataRes.nameShow) ? dataRes.name + "" : dataRes.nameShow);
+        this.f21831e.setText(StringUtils.isNull(dataRes.nameShow) ? dataRes.name + "" : dataRes.nameShow);
         if (dataRes.sex.intValue() == 1) {
-            this.f21817e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_boy, 0);
+            this.f21831e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_boy, 0);
         } else if (dataRes.sex.intValue() == 2) {
             if (dataRes.iconInfo.size() > 0 && dataRes.iconInfo.get(0).name.equals(IconData.meizhi_icon_name)) {
-                this.f21817e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                this.f21831e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
             } else {
-                this.f21817e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_girl, 0);
+                this.f21831e.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_girl, 0);
             }
         } else {
             i2 = 9;
-            this.f21819g.setText(dataRes.intro);
-            if (this.f21818f == null) {
+            this.f21833g.setText(dataRes.intro);
+            if (this.f21832f == null) {
                 LinkedList linkedList = new LinkedList();
                 for (IconInfo iconInfo : dataRes.iconInfo) {
                     IconData iconData = new IconData();
@@ -184,14 +184,14 @@ public class g {
                     iconData.setIcon(iconInfo.iconUrl);
                     linkedList.add(iconData);
                 }
-                this.f21818f.loadIcon(linkedList, i2, this.f21813a.getResources().getDimensionPixelSize(R.dimen.ds28), this.f21813a.getResources().getDimensionPixelSize(R.dimen.ds28), this.f21813a.getResources().getDimensionPixelSize(R.dimen.ds4));
+                this.f21832f.loadIcon(linkedList, i2, this.f21827a.getResources().getDimensionPixelSize(R.dimen.ds28), this.f21827a.getResources().getDimensionPixelSize(R.dimen.ds28), this.f21827a.getResources().getDimensionPixelSize(R.dimen.ds4));
                 return;
             }
             return;
         }
         i2 = 8;
-        this.f21819g.setText(dataRes.intro);
-        if (this.f21818f == null) {
+        this.f21833g.setText(dataRes.intro);
+        if (this.f21832f == null) {
         }
     }
 

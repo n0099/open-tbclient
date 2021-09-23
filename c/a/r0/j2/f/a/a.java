@@ -21,46 +21,46 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f19500a;
+    public static final String f19515a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.j2.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0940a extends BdAsyncTask<String, Object, ForbidResultData> {
+    public static class C0938a extends BdAsyncTask<String, Object, ForbidResultData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f19501a;
+        public String f19516a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f19502b;
+        public String f19517b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f19503c;
+        public String f19518c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f19504d;
+        public String f19519d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f19505e;
+        public String f19520e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f19506f;
+        public String f19521f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f19507g;
+        public String f19522g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f19508h;
+        public String f19523h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f19509i;
+        public String f19524i;
 
         /* renamed from: j  reason: collision with root package name */
-        public WeakReference<b> f19510j;
+        public WeakReference<b> f19525j;
 
-        public C0940a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+        public C0938a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,16 +75,16 @@ public class a {
                     return;
                 }
             }
-            this.f19501a = str;
-            this.f19502b = str2;
-            this.f19503c = str3;
-            this.f19504d = str4;
-            this.f19507g = str6;
-            this.f19505e = str8;
-            this.f19506f = str9;
-            this.f19508h = str7;
-            this.f19509i = str5;
-            this.f19510j = new WeakReference<>(bVar);
+            this.f19516a = str;
+            this.f19517b = str2;
+            this.f19518c = str3;
+            this.f19519d = str4;
+            this.f19522g = str6;
+            this.f19520e = str8;
+            this.f19521f = str9;
+            this.f19523h = str7;
+            this.f19524i = str5;
+            this.f19525j = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -95,17 +95,17 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                NetWork netWork = new NetWork(a.f19500a);
-                netWork.addPostData("day", this.f19507g);
-                netWork.addPostData("un", this.f19504d);
-                netWork.addPostData("fid", this.f19501a);
-                netWork.addPostData("word", this.f19502b);
-                netWork.addPostData("z", this.f19503c);
-                netWork.addPostData("reason", this.f19508h);
+                NetWork netWork = new NetWork(a.f19515a);
+                netWork.addPostData("day", this.f19522g);
+                netWork.addPostData("un", this.f19519d);
+                netWork.addPostData("fid", this.f19516a);
+                netWork.addPostData("word", this.f19517b);
+                netWork.addPostData("z", this.f19518c);
+                netWork.addPostData("reason", this.f19523h);
                 netWork.addPostData("ntn", "banid");
-                netWork.addPostData("post_id", this.f19509i);
-                netWork.addPostData("nick_name", this.f19505e);
-                netWork.addPostData("portrait", this.f19506f);
+                netWork.addPostData("post_id", this.f19524i);
+                netWork.addPostData("nick_name", this.f19520e);
+                netWork.addPostData("portrait", this.f19521f);
                 netWork.getNetContext().getRequest().mIsNeedTbs = true;
                 String postNetData = netWork.postNetData();
                 if (netWork.getNetContext().getResponse().isRequestSuccess()) {
@@ -133,7 +133,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidResultData) == null) {
                 super.onPostExecute(forbidResultData);
-                b bVar = this.f19510j.get();
+                b bVar = this.f19525j.get();
                 if (bVar != null) {
                     if (forbidResultData.error_code == 0 && k.isEmpty(forbidResultData.error_msg)) {
                         bVar.a(forbidResultData);
@@ -165,13 +165,13 @@ public class a {
                 return;
             }
         }
-        f19500a = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+        f19515a = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
     }
 
     public static void b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, bVar}) == null) {
-            new C0940a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+            new C0938a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
         }
     }
 }

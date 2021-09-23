@@ -32,16 +32,16 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7665a;
+        public final /* synthetic */ UnitedSchemeEntity f7673a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7666b;
+        public final /* synthetic */ CallbackHandler f7674b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ l f7667c;
+        public final /* synthetic */ l f7675c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f7668d;
+        public final /* synthetic */ a f7676d;
 
         public C0321a(a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l lVar) {
             Interceptable interceptable = $ic;
@@ -58,10 +58,10 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f7668d = aVar;
-            this.f7665a = unitedSchemeEntity;
-            this.f7666b = callbackHandler;
-            this.f7667c = lVar;
+            this.f7676d = aVar;
+            this.f7673a = unitedSchemeEntity;
+            this.f7674b = callbackHandler;
+            this.f7675c = lVar;
         }
 
         @Override // c.a.p0.a.n2.a.a.InterfaceC0320a
@@ -70,7 +70,7 @@ public class a extends a0 {
             if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
                 if (dArr != null && dArr.length == 3) {
                     d.g("accelerometer", "handle accelerometer change, x : " + dArr[0] + " y: " + dArr[1] + " z: " + dArr[2]);
-                    this.f7668d.k(this.f7665a, this.f7666b, this.f7667c, dArr);
+                    this.f7676d.k(this.f7673a, this.f7674b, this.f7675c, dArr);
                     return;
                 }
                 d.b("accelerometer", "illegal accelerometers");
@@ -107,24 +107,24 @@ public class a extends a0 {
             if (eVar == null) {
                 d.b("accelerometer", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 return false;
             } else if (context == null) {
                 d.b("accelerometer", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                boolean z2 = a0.f4766b;
+                boolean z2 = a0.f4774b;
                 return false;
             } else {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
                 if (optParamsAsJo == null) {
-                    boolean z3 = a0.f4766b;
+                    boolean z3 = a0.f4774b;
                     d.b("accelerometer", "none params");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
                 String optString = optParamsAsJo.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    boolean z4 = a0.f4766b;
+                    boolean z4 = a0.f4774b;
                     d.b("accelerometer", "cb is empty");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;

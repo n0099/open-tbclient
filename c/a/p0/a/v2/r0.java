@@ -20,7 +20,7 @@ public abstract class r0 {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f9403a;
+    public static Context f9411a;
     public transient /* synthetic */ FieldHolder $fh;
 
     @TargetApi(11)
@@ -29,10 +29,10 @@ public abstract class r0 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static ClipboardManager f9404b;
+        public static ClipboardManager f9412b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static ClipData f9405c;
+        public static ClipData f9413c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -64,7 +64,7 @@ public abstract class r0 {
                     return;
                 }
             }
-            f9404b = (ClipboardManager) r0.f9403a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+            f9412b = (ClipboardManager) r0.f9411a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
         }
 
         @Override // c.a.p0.a.v2.r0
@@ -73,14 +73,14 @@ public abstract class r0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    f9405c = f9404b.getPrimaryClip();
+                    f9413c = f9412b.getPrimaryClip();
                 } catch (Exception e2) {
-                    if (c.a.p0.a.k.f7077a) {
+                    if (c.a.p0.a.k.f7085a) {
                         throw e2;
                     }
                 }
-                ClipData clipData = f9405c;
-                return (clipData == null || clipData.getItemCount() <= 0) ? "" : f9405c.getItemAt(0).getText();
+                ClipData clipData = f9413c;
+                return (clipData == null || clipData.getItemCount() <= 0) ? "" : f9413c.getItemAt(0).getText();
             }
             return (CharSequence) invokeV.objValue;
         }
@@ -90,11 +90,11 @@ public abstract class r0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
                 ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
-                f9405c = newPlainText;
+                f9413c = newPlainText;
                 try {
-                    f9404b.setPrimaryClip(newPlainText);
+                    f9412b.setPrimaryClip(newPlainText);
                 } catch (RuntimeException e2) {
-                    if (c.a.p0.a.k.f7077a) {
+                    if (c.a.p0.a.k.f7085a) {
                         e2.printStackTrace();
                     }
                 }
@@ -107,7 +107,7 @@ public abstract class r0 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static android.text.ClipboardManager f9406b;
+        public static android.text.ClipboardManager f9414b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -138,21 +138,21 @@ public abstract class r0 {
                     return;
                 }
             }
-            f9406b = (android.text.ClipboardManager) r0.f9403a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+            f9414b = (android.text.ClipboardManager) r0.f9411a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
         }
 
         @Override // c.a.p0.a.v2.r0
         public CharSequence a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f9406b.getText() : (CharSequence) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f9414b.getText() : (CharSequence) invokeV.objValue;
         }
 
         @Override // c.a.p0.a.v2.r0
         public void c(CharSequence charSequence) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-                f9406b.setText(charSequence);
+                f9414b.setText(charSequence);
             }
         }
     }
@@ -175,7 +175,7 @@ public abstract class r0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            f9403a = context.getApplicationContext();
+            f9411a = context.getApplicationContext();
             if (d.c()) {
                 return new a();
             }

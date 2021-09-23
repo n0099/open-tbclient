@@ -16,11 +16,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3389b;
+    public static String f3390b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final h f3390a;
+    public final h f3391a;
 
     public b(h hVar) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class b {
                 return;
             }
         }
-        this.f3390a = hVar;
+        this.f3391a = hVar;
     }
 
     public static void f(int i2) {
@@ -68,14 +68,14 @@ public class b {
     public static void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f3389b = "";
+            f3390b = "";
         }
     }
 
     public static void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            f3389b = str;
+            f3390b = str;
         }
     }
 
@@ -100,7 +100,7 @@ public class b {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, area, str) == null) {
             Als.c cVar = new Als.c(Als.Type.CLICK);
             cVar.l(Als.Page.NA_SPLASH);
-            cVar.m(this.f3390a.f3416d);
+            cVar.m(this.f3391a.f3417d);
             cVar.e(area);
             if (!TextUtils.isEmpty(str)) {
                 cVar.h(str);
@@ -114,9 +114,9 @@ public class b {
         if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j2) == null) {
             Als.c cVar = new Als.c(Als.Type.CLOSE);
             cVar.l(Als.Page.NA_SPLASH);
-            cVar.m(this.f3390a.f3416d);
+            cVar.m(this.f3391a.f3417d);
             cVar.g(String.valueOf(j2));
-            if (c.a.f0.a.b.a.f3337a.get().A()) {
+            if (c.a.f0.a.b.a.f3338a.get().A()) {
                 cVar.f("1");
             } else {
                 cVar.f("0");
@@ -131,7 +131,7 @@ public class b {
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
             Als.c cVar = new Als.c(Als.Type.DISCARD);
             cVar.l(Als.Page.NA_SPLASH);
-            cVar.m(this.f3390a.f3416d);
+            cVar.m(this.f3391a.f3417d);
             cVar.f("10");
             cVar.g(str);
             cVar.h(str2);
@@ -144,7 +144,7 @@ public class b {
         if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
             Als.c cVar = new Als.c(Als.Type.SHOW);
             cVar.l(Als.Page.NA_SPLASH);
-            cVar.m(this.f3390a.f3416d);
+            cVar.m(this.f3391a.f3417d);
             if (jSONObject != null) {
                 if (jSONObject.has("adRenderCostTime")) {
                     cVar.g(jSONObject.optString("adRenderCostTime"));
@@ -166,7 +166,7 @@ public class b {
     public void i() {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (strArr = this.f3390a.q) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (strArr = this.f3391a.q) == null) {
             return;
         }
         for (String str : strArr) {
@@ -174,7 +174,7 @@ public class b {
                 return;
             }
             try {
-                c.a.f0.d.a.h.a(new JSONObject(str).optString("url").replace("__GESTURE__", String.valueOf(f3389b)));
+                c.a.f0.d.a.h.a(new JSONObject(str).optString("url").replace("__GESTURE__", String.valueOf(f3390b)));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -184,7 +184,7 @@ public class b {
     public void j() {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (strArr = this.f3390a.p) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (strArr = this.f3391a.p) == null) {
             return;
         }
         for (String str : strArr) {

@@ -24,7 +24,7 @@ public class a extends v1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f17898j;
+    public boolean f17907j;
     public List<MetaData> k;
 
     static {
@@ -119,13 +119,13 @@ public class a extends v1 {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17898j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17907j : invokeV.booleanValue;
     }
 
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f17898j = z;
+            this.f17907j = z;
         }
     }
 }

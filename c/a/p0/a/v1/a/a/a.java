@@ -17,20 +17,20 @@ public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f9199e;
+    public static final boolean f9207e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f9200a;
+    public Bundle f9208a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9201b;
+    public int f9209b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9202c;
+    public String f9210c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Bundle f9203d;
+    public Bundle f9211d;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public abstract class a {
                 return;
             }
         }
-        f9199e = k.f7077a;
+        f9207e = k.f7085a;
     }
 
     public a() {
@@ -61,9 +61,9 @@ public abstract class a {
                 return;
             }
         }
-        this.f9200a = new Bundle();
-        this.f9202c = "";
-        this.f9203d = new Bundle();
+        this.f9208a = new Bundle();
+        this.f9210c = "";
+        this.f9211d = new Bundle();
     }
 
     public abstract void b(@NonNull Bundle bundle);
@@ -71,21 +71,21 @@ public abstract class a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d(this.f9203d);
+            d(this.f9211d);
         }
     }
 
     public void d(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            boolean z = f9199e;
-            if (c.a.p0.a.v1.a.b.d.a.a(this.f9202c)) {
+            boolean z = f9207e;
+            if (c.a.p0.a.v1.a.b.d.a.a(this.f9210c)) {
                 return;
             }
-            if (f9199e) {
-                String str = "messenger delegation finish with send result to client: " + this.f9201b + " observer: " + this.f9202c;
+            if (f9207e) {
+                String str = "messenger delegation finish with send result to client: " + this.f9209b + " observer: " + this.f9210c;
             }
-            b.c(this.f9201b, this.f9202c, bundle);
+            b.c(this.f9209b, this.f9210c, bundle);
         }
     }
 }

@@ -26,19 +26,19 @@ public class e extends c.a.q0.c.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile NetWork f23528a;
+        public volatile NetWork f23544a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f23529b;
+        public String f23545b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f23530c;
+        public String f23546c;
 
         /* renamed from: d  reason: collision with root package name */
-        public HashMap<String, String> f23531d;
+        public HashMap<String, String> f23547d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.e.a.e f23532e;
+        public c.a.e.a.e f23548e;
 
         public a(e eVar, String str, String str2, HashMap<String, String> hashMap, c.a.e.a.e eVar2) {
             Interceptable interceptable = $ic;
@@ -55,11 +55,11 @@ public class e extends c.a.q0.c.a {
                     return;
                 }
             }
-            this.f23528a = null;
-            this.f23529b = str;
-            this.f23530c = str2;
-            this.f23531d = hashMap;
-            this.f23532e = eVar2;
+            this.f23544a = null;
+            this.f23545b = str;
+            this.f23546c = str2;
+            this.f23547d = hashMap;
+            this.f23548e = eVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,38 +71,38 @@ public class e extends c.a.q0.c.a {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 f fVar = new f();
                 try {
-                    this.f23528a = new NetWork(TbConfig.SERVER_ADDRESS + this.f23530c);
-                    Set<String> keySet = this.f23531d.keySet();
+                    this.f23544a = new NetWork(TbConfig.SERVER_ADDRESS + this.f23546c);
+                    Set<String> keySet = this.f23547d.keySet();
                     if (keySet.size() > 0) {
                         for (String str : keySet) {
                             if (!"url".equalsIgnoreCase(str)) {
-                                this.f23528a.addPostData(str, this.f23531d.get(str));
+                                this.f23544a.addPostData(str, this.f23547d.get(str));
                             }
                         }
                     }
-                    this.f23528a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
-                    this.f23528a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                    this.f23544a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
+                    this.f23544a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
                     boolean z = true;
-                    this.f23528a.getNetContext().getRequest().mIsNeedTbs = true;
-                    String postNetData = this.f23528a.postNetData();
-                    if (!this.f23528a.getNetContext().getResponse().isNetSuccess()) {
-                        fVar.f12786b = this.f23528a.getNetErrorCode();
-                        fVar.f12787c = this.f23528a.getNetString();
+                    this.f23544a.getNetContext().getRequest().mIsNeedTbs = true;
+                    String postNetData = this.f23544a.postNetData();
+                    if (!this.f23544a.getNetContext().getResponse().isNetSuccess()) {
+                        fVar.f12800b = this.f23544a.getNetErrorCode();
+                        fVar.f12801c = this.f23544a.getNetString();
                     } else {
-                        fVar.f12786b = this.f23528a.getServerErrorCode();
-                        fVar.f12787c = this.f23528a.getErrorString();
+                        fVar.f12800b = this.f23544a.getServerErrorCode();
+                        fVar.f12801c = this.f23544a.getErrorString();
                     }
-                    if (this.f23528a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        if (fVar.f12786b != 0) {
+                    if (this.f23544a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
+                        if (fVar.f12800b != 0) {
                             z = false;
                         }
-                        fVar.f12785a = z;
+                        fVar.f12799a = z;
                         return fVar;
                     }
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
-                fVar.f12785a = false;
+                fVar.f12799a = false;
                 return fVar;
             }
             return (f) invokeL.objValue;
@@ -114,11 +114,11 @@ public class e extends c.a.q0.c.a {
         public void onPostExecute(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                c.a.e.a.e eVar = this.f23532e;
+                c.a.e.a.e eVar = this.f23548e;
                 if (eVar != null) {
                     eVar.c(fVar);
                 }
-                c.a.r0.p1.m.a.a().d(this.f23530c, this.f23531d, fVar);
+                c.a.r0.p1.m.a.a().d(this.f23546c, this.f23547d, fVar);
             }
         }
 
@@ -126,12 +126,12 @@ public class e extends c.a.q0.c.a {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.f23528a != null) {
-                    this.f23528a.cancelNetConnect();
-                    this.f23528a = null;
+                if (this.f23544a != null) {
+                    this.f23544a.cancelNetConnect();
+                    this.f23544a = null;
                 }
                 super.cancel(true);
-                c.a.e.a.e eVar = this.f23532e;
+                c.a.e.a.e eVar = this.f23548e;
                 if (eVar != null) {
                     eVar.c(null);
                 }

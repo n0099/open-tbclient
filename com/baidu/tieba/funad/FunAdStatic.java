@@ -64,7 +64,7 @@ public class FunAdStatic {
                 return;
             }
         }
-        b.f28313a.set(new d());
+        b.f28333a.set(new d());
         CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

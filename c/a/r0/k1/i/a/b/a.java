@@ -18,16 +18,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<b> f21381a;
+    public List<b> f21395a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Page f21382b;
+    public Page f21396b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f21383c;
+    public boolean f21397c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f21384d;
+    public boolean f21398d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,25 +42,25 @@ public class a {
                 return;
             }
         }
-        this.f21381a = new ArrayList();
+        this.f21395a = new ArrayList();
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21383c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21397c : invokeV.booleanValue;
     }
 
     public List<b> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21381a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21395a : (List) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21384d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21398d : invokeV.booleanValue;
     }
 
     public void d(DataRes dataRes) {
@@ -69,16 +69,16 @@ public class a {
             return;
         }
         Page page = dataRes.page;
-        this.f21382b = page;
+        this.f21396b = page;
         if (page != null) {
-            this.f21383c = page.has_more.intValue() == 1;
+            this.f21397c = page.has_more.intValue() == 1;
         }
         List<BroadcastInfo> list = dataRes.bcast_infos;
         if (list != null) {
             for (int i2 = 0; i2 < list.size(); i2++) {
                 b bVar = new b();
                 bVar.l(list.get(i2));
-                this.f21381a.add(bVar);
+                this.f21395a.add(bVar);
             }
         }
     }
@@ -86,17 +86,17 @@ public class a {
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f21384d = z;
+            this.f21398d = z;
         }
     }
 
     public void f() {
         List<b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (list = this.f21381a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (list = this.f21395a) == null || list.size() <= 0) {
             return;
         }
-        for (b bVar : this.f21381a) {
+        for (b bVar : this.f21395a) {
             if (bVar != null) {
                 l.t().x(bVar.e().forum_id.longValue(), bVar.b() * 100, bVar.i());
             }

@@ -40,7 +40,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5800a;
+    public static final boolean f5808a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,7 +56,7 @@ public class a {
                 return;
             }
         }
-        f5800a = k.f7077a;
+        f5808a = k.f7085a;
     }
 
     public static void a(File file, File file2) throws IOException {
@@ -274,10 +274,10 @@ public class a {
             }
             String jSONObject2 = jSONObject.toString();
             if (TextUtils.isEmpty(jSONObject2)) {
-                boolean z2 = f5800a;
+                boolean z2 = f5808a;
                 return;
             }
-            if (f5800a) {
+            if (f5808a) {
                 String str3 = "reportFatalInfo: " + jSONObject2;
             }
             c.b bVar = new c.b(10006);
@@ -299,10 +299,10 @@ public class a {
                 jSONObject.put("errMessage", str3);
                 jSONObject.put("isMainThread", q0.N());
                 String jSONObject2 = jSONObject.toString();
-                if (f5800a && TextUtils.isEmpty(jSONObject2)) {
+                if (f5808a && TextUtils.isEmpty(jSONObject2)) {
                     return;
                 }
-                if (f5800a) {
+                if (f5808a) {
                     String str4 = "reportInsertHistoryCrash: " + jSONObject2;
                 }
                 c.b bVar = new c.b(10008);
@@ -310,7 +310,7 @@ public class a {
                 bVar.h(e.V());
                 bVar.m();
             } catch (Exception e2) {
-                if (f5800a) {
+                if (f5808a) {
                     e2.printStackTrace();
                 }
             }

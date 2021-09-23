@@ -19,34 +19,34 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f22488a;
+    public g f22504a;
 
     /* renamed from: b  reason: collision with root package name */
-    public r1 f22489b;
+    public r1 f22505b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ForumCreateInfoData f22490c;
+    public ForumCreateInfoData f22506c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PrivateForumPopInfoData f22491d;
+    public PrivateForumPopInfoData f22507d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j f22492e;
+    public j f22508e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.n0.f.a.a f22493f;
+    public c.a.r0.n0.f.a.a f22509f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f22494g;
+    public boolean f22510g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22495h;
+    public int f22511h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HotSearchInfoData f22496i;
+    public HotSearchInfoData f22512i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f22497j;
+    public int f22513j;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -61,69 +61,69 @@ public class d {
                 return;
             }
         }
-        this.f22494g = true;
-        this.f22495h = 0;
-        this.f22488a = new g();
-        this.f22489b = new r1();
-        this.f22490c = new ForumCreateInfoData();
-        this.f22491d = new PrivateForumPopInfoData();
-        this.f22492e = new j();
-        this.f22493f = new c.a.r0.n0.f.a.a();
-        this.f22494g = false;
+        this.f22510g = true;
+        this.f22511h = 0;
+        this.f22504a = new g();
+        this.f22505b = new r1();
+        this.f22506c = new ForumCreateInfoData();
+        this.f22507d = new PrivateForumPopInfoData();
+        this.f22508e = new j();
+        this.f22509f = new c.a.r0.n0.f.a.a();
+        this.f22510g = false;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() / c.a.q0.u.d.f15019a.longValue() == (((long) this.f22495h) * 1000) / c.a.q0.u.d.f15019a.longValue() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() / c.a.q0.u.c.f15021a.longValue() == (((long) this.f22511h) * 1000) / c.a.q0.u.c.f15021a.longValue() : invokeV.booleanValue;
     }
 
     public ForumCreateInfoData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22490c : (ForumCreateInfoData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22506c : (ForumCreateInfoData) invokeV.objValue;
     }
 
     public c.a.r0.n0.f.a.a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22493f : (c.a.r0.n0.f.a.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22509f : (c.a.r0.n0.f.a.a) invokeV.objValue;
     }
 
     public HotSearchInfoData d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22496i : (HotSearchInfoData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22512i : (HotSearchInfoData) invokeV.objValue;
     }
 
     public g e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22488a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22504a : (g) invokeV.objValue;
     }
 
     public PrivateForumPopInfoData f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22491d : (PrivateForumPopInfoData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22507d : (PrivateForumPopInfoData) invokeV.objValue;
     }
 
     public r1 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22489b : (r1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22505b : (r1) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22497j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22513j : invokeV.intValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22494g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22510g : invokeV.booleanValue;
     }
 
     public void j(DataRes dataRes) {
@@ -133,29 +133,29 @@ public class d {
         }
         try {
             if (dataRes.forum_popup_info != null) {
-                this.f22493f.f(dataRes.forum_popup_info);
+                this.f22509f.f(dataRes.forum_popup_info);
             }
             s(dataRes.time.intValue());
-            this.f22497j = dataRes.sort_type.intValue() == 0 ? 1 : dataRes.sort_type.intValue();
+            this.f22513j = dataRes.sort_type.intValue() == 0 ? 1 : dataRes.sort_type.intValue();
             if (dataRes.like_forum != null) {
-                this.f22488a.c(dataRes.like_forum);
+                this.f22504a.c(dataRes.like_forum);
             }
             if (dataRes.recommend_forum_info != null) {
-                this.f22489b.o(dataRes.recommend_forum_info);
+                this.f22505b.o(dataRes.recommend_forum_info);
             }
             if (dataRes.forum_create_info != null) {
-                this.f22490c.A(dataRes.forum_create_info);
+                this.f22506c.A(dataRes.forum_create_info);
             }
             if (dataRes.private_forum_popinfo != null) {
-                this.f22491d.A(dataRes.private_forum_popinfo);
+                this.f22507d.A(dataRes.private_forum_popinfo);
             }
             if (dataRes.hot_search != null) {
                 HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
-                this.f22496i = hotSearchInfoData;
+                this.f22512i = hotSearchInfoData;
                 hotSearchInfoData.x(dataRes.hot_search);
             }
             if (dataRes.nav_tab_info != null) {
-                this.f22492e.a(dataRes.nav_tab_info);
+                this.f22508e.a(dataRes.nav_tab_info);
             }
         } catch (Exception e2) {
             BdLog.detailException(e2);
@@ -165,70 +165,70 @@ public class d {
     public void k(ForumCreateInfoData forumCreateInfoData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, forumCreateInfoData) == null) {
-            this.f22490c = forumCreateInfoData;
+            this.f22506c = forumCreateInfoData;
         }
     }
 
     public void l(HotSearchInfoData hotSearchInfoData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, hotSearchInfoData) == null) {
-            this.f22496i = hotSearchInfoData;
+            this.f22512i = hotSearchInfoData;
         }
     }
 
     public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f22494g = z;
+            this.f22510g = z;
         }
     }
 
     public void n(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, gVar) == null) {
-            this.f22488a = gVar;
+            this.f22504a = gVar;
         }
     }
 
     public void o(PrivateForumPopInfoData privateForumPopInfoData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, privateForumPopInfoData) == null) {
-            this.f22491d = privateForumPopInfoData;
+            this.f22507d = privateForumPopInfoData;
         }
     }
 
     public void p(r1 r1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, r1Var) == null) {
-            this.f22489b = r1Var;
+            this.f22505b = r1Var;
         }
     }
 
     public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f22497j = i2;
+            this.f22513j = i2;
         }
     }
 
     public void r(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, jVar) == null) {
-            this.f22492e = jVar;
+            this.f22508e = jVar;
         }
     }
 
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f22495h = i2;
+            this.f22511h = i2;
         }
     }
 
     public void t(c.a.r0.n0.f.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, aVar) == null) {
-            this.f22493f = aVar;
+            this.f22509f = aVar;
         }
     }
 }

@@ -33,7 +33,7 @@ public class n extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f3845e;
+        public final /* synthetic */ n f3846e;
 
         public a(n nVar) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public class n extends h {
                     return;
                 }
             }
-            this.f3845e = nVar;
+            this.f3846e = nVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3845e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3846e.c() == null) {
                 return;
             }
-            this.f3845e.c().a(view, this.f3845e.m);
+            this.f3846e.c().a(view, this.f3846e.m);
         }
     }
 
@@ -69,10 +69,10 @@ public class n extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f3846e;
+        public final /* synthetic */ View.OnClickListener f3847e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ n f3847f;
+        public final /* synthetic */ n f3848f;
 
         public b(n nVar, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -89,21 +89,21 @@ public class n extends h {
                     return;
                 }
             }
-            this.f3847f = nVar;
-            this.f3846e = onClickListener;
+            this.f3848f = nVar;
+            this.f3847e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f3847f.f3782f);
-                String s1 = this.f3847f.m.getThreadData().s1();
-                PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(s1, this.f3847f.m.getThreadData().v1().E() + "", 1, "other");
-                createNormalCfg.setStartFrom(this.f3847f.f3781e.i());
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f3848f.f3783f);
+                String s1 = this.f3848f.m.getThreadData().s1();
+                PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(s1, this.f3848f.m.getThreadData().v1().E() + "", 1, "other");
+                createNormalCfg.setStartFrom(this.f3848f.f3782e.i());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-                this.f3847f.f3781e.o(new a.C0095a(1));
-                this.f3846e.onClick(view);
+                this.f3848f.f3782e.o(new a.C0095a(1));
+                this.f3847e.onClick(view);
             }
         }
     }
@@ -114,7 +114,7 @@ public class n extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n f3848a;
+        public final /* synthetic */ n f3849a;
 
         public c(n nVar) {
             Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class n extends h {
                     return;
                 }
             }
-            this.f3848a = nVar;
+            this.f3849a = nVar;
         }
 
         @Override // c.a.l.v0.a.b
@@ -139,7 +139,7 @@ public class n extends h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
-                c.a.r0.a0.m.l(this.f3848a.l.getGodReplyContent(), this.f3848a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                c.a.r0.a0.m.l(this.f3849a.l.getGodReplyContent(), this.f3849a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -217,7 +217,7 @@ public class n extends h {
             this.m = aVar;
             PostData v1 = aVar.getThreadData().v1();
             if (this.n != null && v1 != null && v1.t() != null && v1.t().getUserId() != null) {
-                this.n.param("tid", aVar.getThreadData().D).param("post_id", v1.E()).param("uid", v1.t().getUserId());
+                this.n.param("tid", aVar.getThreadData().E).param("post_id", v1.E()).param("uid", v1.t().getUserId());
                 c.a.r0.a0.t.b().a(this.n);
             }
             this.l.setData(aVar.getThreadData());

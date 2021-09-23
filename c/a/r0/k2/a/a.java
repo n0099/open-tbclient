@@ -50,11 +50,11 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
 
     /* renamed from: c.a.r0.k2.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1018a implements View.OnClickListener {
+    public class View$OnClickListenerC1016a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public View$OnClickListenerC1018a(a aVar) {
+        public View$OnClickListenerC1016a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,7 +161,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
             super.i0(bVar);
             if (bVar != null) {
                 this.B = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds30);
-                this.C = l.k(this.f2957e) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds60);
+                this.C = l.k(this.f2958e) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds60);
             }
         }
     }
@@ -175,7 +175,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
                 pbInterviewLiveNormalItemViewHolder.richText.setOnClickListener(null);
             }
             pbInterviewLiveNormalItemViewHolder.richText.setTextViewCheckSelection(false);
-            pbInterviewLiveNormalItemViewHolder.richText.setTextViewOnClickListener(new View$OnClickListenerC1018a(this));
+            pbInterviewLiveNormalItemViewHolder.richText.setTextViewOnClickListener(new View$OnClickListenerC1016a(this));
         }
     }
 
@@ -199,14 +199,14 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
         if (!(interceptable == null || interceptable.invokeLL(1048585, this, pbInterviewLiveNormalItemViewHolder, postData) == null) || pbInterviewLiveNormalItemViewHolder == null || postData == null) {
             return;
         }
-        k0(pbInterviewLiveNormalItemViewHolder.richText, (int) this.f2957e.getResources().getDimension(R.dimen.ds30));
+        k0(pbInterviewLiveNormalItemViewHolder.richText, (int) this.f2958e.getResources().getDimension(R.dimen.ds30));
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.richText.getLayoutParams();
         layoutParams.bottomMargin = 0;
         layoutParams.topMargin = 0;
         pbInterviewLiveNormalItemViewHolder.richText.setLayoutParams(layoutParams);
         pbInterviewLiveNormalItemViewHolder.richText.setPadding(0, 0, 0, 0);
         pbInterviewLiveNormalItemViewHolder.richText.startLoad(null);
-        postData.B0();
+        postData.D0();
         if (postData.A() == 1) {
             pbInterviewLiveNormalItemViewHolder.giftListView.setVisibility(0);
             if (postData.t() != null) {
@@ -244,7 +244,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
             pbInterviewLiveNormalItemViewHolder.praiseView.setVisibility(0);
             pbInterviewLiveNormalItemViewHolder.praiseToLine.setVisibility(0);
             pbInterviewLiveNormalItemViewHolder.praiseBottomLine.setVisibility(0);
-            k0(pbInterviewLiveNormalItemViewHolder.richText, (int) this.f2957e.getResources().getDimension(R.dimen.ds30));
+            k0(pbInterviewLiveNormalItemViewHolder.richText, (int) this.f2958e.getResources().getDimension(R.dimen.ds30));
         } else {
             pbInterviewLiveNormalItemViewHolder.giftListView.setVisibility(8);
         }
@@ -266,7 +266,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
         }
         if (this.v.O().j1() != null) {
             pbInterviewLiveNormalItemViewHolder.mPostImage.startLoad(this.v.O().j1().i(), this.q ? 17 : 18, false);
-            int k = l.k(this.f2957e);
+            int k = l.k(this.f2958e);
             float h2 = j1.h() / j1.j();
             int i2 = (int) (h2 > 1.0f ? k * 1.0f : h2 < 0.2f ? k * 0.2f : k * h2);
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.mPostImage.getLayoutParams();
@@ -292,7 +292,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
     public PbInterviewLiveNormalItemViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) ? new PbInterviewLiveNormalItemViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.pb_interview_normal_item, viewGroup, false), this.u, this.t, this.s, false) : (PbInterviewLiveNormalItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) ? new PbInterviewLiveNormalItemViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.pb_interview_normal_item, viewGroup, false), this.u, this.t, this.s, false) : (PbInterviewLiveNormalItemViewHolder) invokeL.objValue;
     }
 
     @Override // c.a.r0.j2.k.c.a
@@ -326,7 +326,7 @@ public class a extends n<PostData, PbInterviewLiveNormalItemViewHolder> implemen
             if (bVar == null || bVar.getPbActivity() == null) {
                 return;
             }
-            pbInterviewLiveNormalItemViewHolder.richText.setOnEmotionClickListener(this.m.getPbActivity().mEvent.f19948e);
+            pbInterviewLiveNormalItemViewHolder.richText.setOnEmotionClickListener(this.m.getPbActivity().mEvent.f19963e);
         }
     }
 

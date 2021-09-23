@@ -20,13 +20,13 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f12597a;
+    public boolean f12605a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f12598b;
+    public b f12606b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.e.c.g.a f12599c;
+    public c.a.e.c.g.a f12607c;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.c.g.a {
@@ -34,7 +34,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f12600a;
+        public final /* synthetic */ f f12608a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(f fVar, int i2, int i3) {
@@ -55,20 +55,20 @@ public class f {
                     return;
                 }
             }
-            this.f12600a = fVar;
+            this.f12608a = fVar;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f12600a.f12597a = false;
+                this.f12608a.f12605a = false;
                 if (responsedMessage == null || responsedMessage.getError() != 0) {
-                    this.f12600a.d(false, null);
+                    this.f12608a.d(false, null);
                 } else if (responsedMessage instanceof GetTokenSocketResponsedMessage) {
-                    this.f12600a.d(true, ((GetTokenSocketResponsedMessage) responsedMessage).getData());
+                    this.f12608a.d(true, ((GetTokenSocketResponsedMessage) responsedMessage).getData());
                 } else if (responsedMessage instanceof GetTokenHttpResponsedMessage) {
-                    this.f12600a.d(true, ((GetTokenHttpResponsedMessage) responsedMessage).getData());
+                    this.f12608a.d(true, ((GetTokenHttpResponsedMessage) responsedMessage).getData());
                 }
             }
         }
@@ -92,18 +92,18 @@ public class f {
                 return;
             }
         }
-        this.f12597a = false;
-        this.f12599c = new a(this, CmdConfigHttp.CMD_GET_TOKEN, 309608);
+        this.f12605a = false;
+        this.f12607c = new a(this, CmdConfigHttp.CMD_GET_TOKEN, 309608);
         f();
         e();
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f12597a) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f12605a) {
             return;
         }
-        this.f12597a = true;
+        this.f12605a = true;
         GetTokenRequestMessage getTokenRequestMessage = new GetTokenRequestMessage();
         getTokenRequestMessage.setToken(Base64.encodeToString(str.getBytes(), 2));
         getTokenRequestMessage.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
@@ -113,7 +113,7 @@ public class f {
     public final void d(boolean z, a0 a0Var) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, a0Var) == null) || (bVar = this.f12598b) == null) {
+        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, a0Var) == null) || (bVar = this.f12606b) == null) {
             return;
         }
         bVar.a(z, a0Var);
@@ -122,22 +122,22 @@ public class f {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.f12599c);
+            MessageManager.getInstance().registerListener(this.f12607c);
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.r0.j3.d0.a.h(309608, GetTokenSocketResponsedMessage.class, false, false);
-            c.a.r0.j3.d0.a.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
+            c.a.r0.j3.e0.a.h(309608, GetTokenSocketResponsedMessage.class, false, false);
+            c.a.r0.j3.e0.a.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
         }
     }
 
     public void g(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f12598b = bVar;
+            this.f12606b = bVar;
         }
     }
 }

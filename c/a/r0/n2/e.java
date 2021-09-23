@@ -28,22 +28,22 @@ public class e extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<UserData> f22968e;
+    public ArrayList<UserData> f22984e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PersonFriendActivity f22969f;
+    public PersonFriendActivity f22985f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f22970g;
+    public boolean f22986g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<ProgressBar> f22971h;
+    public ArrayList<ProgressBar> f22987h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f22972i;
+    public boolean f22988i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f22973j;
+    public boolean f22989j;
     public int k;
     public View.OnClickListener l;
     public View.OnClickListener m;
@@ -60,28 +60,28 @@ public class e extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HeadImageView f22974a;
+        public HeadImageView f22990a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f22975b;
+        public TextView f22991b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f22976c;
+        public TextView f22992c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ImageView f22977d;
+        public ImageView f22993d;
 
         /* renamed from: e  reason: collision with root package name */
-        public LinearLayout f22978e;
+        public LinearLayout f22994e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ProgressBar f22979f;
+        public ProgressBar f22995f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f22980g;
+        public TextView f22996g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView f22981h;
+        public ImageView f22997h;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -119,17 +119,17 @@ public class e extends BaseAdapter {
                 return;
             }
         }
-        this.f22968e = null;
-        this.f22969f = null;
-        this.f22970g = false;
-        this.f22972i = false;
-        this.f22973j = true;
+        this.f22984e = null;
+        this.f22985f = null;
+        this.f22986g = false;
+        this.f22988i = false;
+        this.f22989j = true;
         this.k = 0;
         this.l = null;
         this.m = null;
-        this.f22969f = personFriendActivity;
-        this.f22971h = new ArrayList<>();
-        this.f22973j = z;
+        this.f22985f = personFriendActivity;
+        this.f22987h = new ArrayList<>();
+        this.f22989j = z;
         this.k = i2;
         this.l = onClickListener;
         this.m = onClickListener2;
@@ -138,49 +138,49 @@ public class e extends BaseAdapter {
     public final void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f22969f.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f22969f.getLayoutMode().j(view);
+            this.f22985f.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.f22985f.getLayoutMode().j(view);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f22972i = false;
-            ArrayList<UserData> arrayList = this.f22968e;
+            this.f22988i = false;
+            ArrayList<UserData> arrayList = this.f22984e;
             if (arrayList == null || arrayList.size() != 0) {
                 return;
             }
-            this.f22972i = true;
+            this.f22988i = true;
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f22971h == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f22987h == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.f22971h.size(); i2++) {
+        for (int i2 = 0; i2 < this.f22987h.size(); i2++) {
             try {
-                this.f22971h.get(i2).setVisibility(8);
+                this.f22987h.get(i2).setVisibility(8);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        this.f22971h.clear();
+        this.f22987h.clear();
     }
 
     public void d(ArrayList<UserData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.f22968e = arrayList;
+            this.f22984e = arrayList;
         }
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f22970g = z;
+            this.f22986g = z;
         }
     }
 
@@ -195,12 +195,12 @@ public class e extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f22972i) {
+            if (this.f22988i) {
                 return 1;
             }
-            ArrayList<UserData> arrayList = this.f22968e;
+            ArrayList<UserData> arrayList = this.f22984e;
             int size = arrayList != null ? arrayList.size() : 0;
-            return this.f22970g ? size + 1 : size;
+            return this.f22986g ? size + 1 : size;
         }
         return invokeV.intValue;
     }
@@ -210,11 +210,11 @@ public class e extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            ArrayList<UserData> arrayList = this.f22968e;
+            ArrayList<UserData> arrayList = this.f22984e;
             if (arrayList == null || i2 >= arrayList.size()) {
                 return null;
             }
-            return this.f22968e.get(i2);
+            return this.f22984e.get(i2);
         }
         return invokeI.objValue;
     }
@@ -224,7 +224,7 @@ public class e extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            ArrayList<UserData> arrayList = this.f22968e;
+            ArrayList<UserData> arrayList = this.f22984e;
             if (arrayList == null || i2 >= arrayList.size()) {
                 return -1L;
             }
@@ -238,10 +238,10 @@ public class e extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            if (this.f22972i) {
+            if (this.f22988i) {
                 return 0;
             }
-            ArrayList<UserData> arrayList = this.f22968e;
+            ArrayList<UserData> arrayList = this.f22984e;
             return (arrayList == null || i2 >= arrayList.size()) ? 1 : 0;
         }
         return invokeI.intValue;
@@ -254,31 +254,31 @@ public class e extends BaseAdapter {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i2, view, viewGroup)) == null) {
-            if (this.f22968e == null) {
+            if (this.f22984e == null) {
                 return view;
             }
             if (view == null) {
                 bVar = new b(this, null);
                 if (getItemViewType(i2) == 0) {
-                    view2 = LayoutInflater.from(this.f22969f.getPageContext().getPageActivity()).inflate(R.layout.person_list_item_friend, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.f22985f.getPageContext().getPageActivity()).inflate(R.layout.person_list_item_friend, (ViewGroup) null);
                     HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.photo);
-                    bVar.f22974a = headImageView;
+                    bVar.f22990a = headImageView;
                     headImageView.setIsRound(false);
-                    bVar.f22974a.setAutoChangeStyle(true);
-                    bVar.f22978e = (LinearLayout) view2.findViewById(R.id.info);
-                    bVar.f22975b = (TextView) view2.findViewById(R.id.name);
-                    bVar.f22980g = (TextView) view2.findViewById(R.id.at_list_nodata);
-                    bVar.f22976c = (TextView) view2.findViewById(R.id.intro);
-                    bVar.f22977d = (ImageView) view2.findViewById(R.id.chat);
-                    bVar.f22981h = (ImageView) view2.findViewById(R.id.diver_buttom_px);
-                    bVar.f22977d.setOnClickListener(this.l);
+                    bVar.f22990a.setAutoChangeStyle(true);
+                    bVar.f22994e = (LinearLayout) view2.findViewById(R.id.info);
+                    bVar.f22991b = (TextView) view2.findViewById(R.id.name);
+                    bVar.f22996g = (TextView) view2.findViewById(R.id.at_list_nodata);
+                    bVar.f22992c = (TextView) view2.findViewById(R.id.intro);
+                    bVar.f22993d = (ImageView) view2.findViewById(R.id.chat);
+                    bVar.f22997h = (ImageView) view2.findViewById(R.id.diver_buttom_px);
+                    bVar.f22993d.setOnClickListener(this.l);
                 } else {
-                    view2 = LayoutInflater.from(this.f22969f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
-                    bVar.f22975b = (TextView) view2.findViewById(R.id.pb_more_text);
+                    view2 = LayoutInflater.from(this.f22985f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+                    bVar.f22991b = (TextView) view2.findViewById(R.id.pb_more_text);
                     view2.setOnClickListener(this.m);
                     ProgressBar progressBar = (ProgressBar) view2.findViewById(R.id.progress);
-                    bVar.f22979f = progressBar;
-                    this.f22971h.add(progressBar);
+                    bVar.f22995f = progressBar;
+                    this.f22987h.add(progressBar);
                 }
                 view2.setTag(bVar);
             } else {
@@ -286,31 +286,31 @@ public class e extends BaseAdapter {
                 bVar = (b) view.getTag();
             }
             if (getItemViewType(i2) == 0) {
-                if (this.f22972i) {
-                    bVar.f22978e.setVisibility(8);
-                    bVar.f22977d.setVisibility(8);
-                    bVar.f22980g.setVisibility(8);
-                    bVar.f22981h.setVisibility(8);
+                if (this.f22988i) {
+                    bVar.f22994e.setVisibility(8);
+                    bVar.f22993d.setVisibility(8);
+                    bVar.f22996g.setVisibility(8);
+                    bVar.f22997h.setVisibility(8);
                 } else {
-                    if (!this.f22973j && this.k == 0) {
-                        bVar.f22977d.setVisibility(8);
+                    if (!this.f22989j && this.k == 0) {
+                        bVar.f22993d.setVisibility(8);
                     } else {
-                        bVar.f22977d.setVisibility(0);
+                        bVar.f22993d.setVisibility(0);
                     }
-                    bVar.f22978e.setVisibility(0);
-                    bVar.f22978e.setTag(Integer.valueOf(i2));
-                    bVar.f22981h.setVisibility(0);
-                    bVar.f22980g.setVisibility(8);
-                    String portrait = this.f22968e.get(i2).getPortrait();
-                    bVar.f22974a.setImageDrawable(null);
-                    bVar.f22974a.startLoad(portrait, 12, false);
-                    bVar.f22975b.setText(this.f22968e.get(i2).getName_show());
-                    bVar.f22976c.setText(this.f22968e.get(i2).getIntro());
-                    bVar.f22977d.setTag(Integer.valueOf(i2));
+                    bVar.f22994e.setVisibility(0);
+                    bVar.f22994e.setTag(Integer.valueOf(i2));
+                    bVar.f22997h.setVisibility(0);
+                    bVar.f22996g.setVisibility(8);
+                    String portrait = this.f22984e.get(i2).getPortrait();
+                    bVar.f22990a.setImageDrawable(null);
+                    bVar.f22990a.startLoad(portrait, 12, false);
+                    bVar.f22991b.setText(this.f22984e.get(i2).getName_show());
+                    bVar.f22992c.setText(this.f22984e.get(i2).getIntro());
+                    bVar.f22993d.setTag(Integer.valueOf(i2));
                 }
             } else {
-                bVar.f22975b.setText(this.f22969f.getPageContext().getString(R.string.loading));
-                bVar.f22979f.setVisibility(0);
+                bVar.f22991b.setText(this.f22985f.getPageContext().getString(R.string.loading));
+                bVar.f22995f.setVisibility(0);
             }
             a(view2);
             return view2;
@@ -333,7 +333,7 @@ public class e extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            if (this.f22972i) {
+            if (this.f22988i) {
                 return false;
             }
             return super.isEnabled(i2);

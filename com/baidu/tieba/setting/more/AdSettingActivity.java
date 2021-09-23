@@ -50,7 +50,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdSettingActivity f56689e;
+        public final /* synthetic */ AdSettingActivity f56806e;
 
         public a(AdSettingActivity adSettingActivity) {
             Interceptable interceptable = $ic;
@@ -67,14 +67,14 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
                     return;
                 }
             }
-            this.f56689e = adSettingActivity;
+            this.f56806e = adSettingActivity;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f56689e.getPageContext().getPageActivity(), 2, "", 20);
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f56806e.getPageContext().getPageActivity(), 2, "", 20);
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_SITE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
                 aVar.dismiss();
@@ -88,7 +88,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdSettingActivity f56690e;
+        public final /* synthetic */ AdSettingActivity f56807e;
 
         public b(AdSettingActivity adSettingActivity) {
             Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
                     return;
                 }
             }
-            this.f56690e = adSettingActivity;
+            this.f56807e = adSettingActivity;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -123,7 +123,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdSettingActivity f56691a;
+        public final /* synthetic */ AdSettingActivity f56808a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(AdSettingActivity adSettingActivity, int i2, int i3) {
@@ -144,7 +144,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
                     return;
                 }
             }
-            this.f56691a = adSettingActivity;
+            this.f56808a = adSettingActivity;
         }
 
         @Override // c.a.e.c.g.a
@@ -153,19 +153,19 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage != null && responsedMessage.getError() != 0) {
                     if (responsedMessage.getError() == 1990043) {
-                        this.f56691a.showMemberDialog();
+                        this.f56808a.showMemberDialog();
                     } else if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        this.f56691a.setMemberCloseAdFail();
+                        this.f56808a.setMemberCloseAdFail();
                         return;
                     } else {
-                        this.f56691a.showToast(responsedMessage.getErrorString());
+                        this.f56808a.showToast(responsedMessage.getErrorString());
                     }
-                    this.f56691a.setMemberCloseAdFail(false);
+                    this.f56808a.setMemberCloseAdFail(false);
                     return;
                 }
                 boolean z = responsedMessage instanceof MemberCloseAdHttpResponseMessage;
                 if (!z && !(responsedMessage instanceof MemberCloseAdSocketResponseMessage)) {
-                    this.f56691a.setMemberCloseAdFail();
+                    this.f56808a.setMemberCloseAdFail();
                     return;
                 }
                 CloseAdData closeAdData = null;
@@ -175,10 +175,10 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
                     closeAdData = ((MemberCloseAdSocketResponseMessage) responsedMessage).getData();
                 }
                 if (closeAdData == null) {
-                    this.f56691a.setMemberCloseAdFail();
+                    this.f56808a.setMemberCloseAdFail();
                     return;
                 }
-                this.f56691a.setMemberCloseAdSuccess(closeAdData.x());
+                this.f56808a.setMemberCloseAdSuccess(closeAdData.x());
             }
         }
     }
@@ -310,8 +310,8 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.r0.j3.d0.a.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
-            c.a.r0.j3.d0.a.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
+            c.a.r0.j3.e0.a.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
+            c.a.r0.j3.e0.a.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
         }
     }
 

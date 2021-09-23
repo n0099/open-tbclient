@@ -308,10 +308,12 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onDestroyView();
-            if (isFlutterFragmentLazySwitchClosed()) {
-                this.delegate.onDestroyView();
-            } else if (this.isAttach && this.isAddFlutterView) {
-                this.delegate.onDestroyView();
+            if (this.delegate != null) {
+                if (isFlutterFragmentLazySwitchClosed()) {
+                    this.delegate.onDestroyView();
+                } else if (this.isAttach && this.isAddFlutterView) {
+                    this.delegate.onDestroyView();
+                }
             }
         }
     }
@@ -327,6 +329,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
                 this.delegate.onDetach();
             }
             this.delegate.release();
+            this.linearLayout = null;
             this.delegate = null;
         }
     }
@@ -349,10 +352,12 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.onLowMemory();
-            if (isFlutterFragmentLazySwitchClosed()) {
-                this.delegate.onLowMemory();
-            } else if (this.isAttach && this.isAddFlutterView) {
-                this.delegate.onLowMemory();
+            if (this.delegate != null) {
+                if (isFlutterFragmentLazySwitchClosed()) {
+                    this.delegate.onLowMemory();
+                } else if (this.isAttach && this.isAddFlutterView) {
+                    this.delegate.onLowMemory();
+                }
             }
         }
     }
@@ -433,12 +438,13 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
 
     public void onTrimMemory(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            if (isFlutterFragmentLazySwitchClosed()) {
-                this.delegate.onTrimMemory(i2);
-            } else if (this.isAttach && this.isAddFlutterView) {
-                this.delegate.onTrimMemory(i2);
-            }
+        if (!(interceptable == null || interceptable.invokeI(1048604, this, i2) == null) || this.delegate == null) {
+            return;
+        }
+        if (isFlutterFragmentLazySwitchClosed()) {
+            this.delegate.onTrimMemory(i2);
+        } else if (this.isAttach && this.isAddFlutterView) {
+            this.delegate.onTrimMemory(i2);
         }
     }
 

@@ -5,18 +5,24 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.common.SharedPreferencesUtil;
 import com.baidu.sapi2.SapiOptions;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDataEncryptor;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.TPRunnable;
+import com.baidu.sapi2.utils.ThreadPoolService;
+import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.core.beans.BeanConstants;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -51,6 +57,7 @@ public final class SapiContext implements NoProguard {
     public static final String KEY_LAST_LOGIN_UID = "last_login_uid";
     public static final String KEY_LAST_LOGIN_USER_PORTRAIT = "last_login_user_portrait";
     public static final String KEY_LOGIN_ACCOUNTS = "login_accounts";
+    public static final String KEY_LOGIN_HISTORY_USER_INFO = "key_login_history_user_info";
     public static final String KEY_MODIFIED_DIR_EXEC_PER = "modified_dir_exec_per";
     public static final String KEY_ONE_KEY_LOGIN_JS_CODE = "one_key_login_js_code";
     public static final String KEY_ONE_KEY_LOGIN_JS_MD5 = "one_key_login_js_md5";
@@ -75,6 +82,7 @@ public final class SapiContext implements NoProguard {
     public static SapiContext instance;
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
+    public Enums.LastLoginType mLastLoginType;
     public SharedPreferences storage;
 
     public SapiContext(Context context) {
@@ -93,13 +101,13 @@ public final class SapiContext implements NoProguard {
             }
         }
         this.context = context;
-        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f44197c, 0);
+        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f44259c, 0);
     }
 
     private String getCancelNuomiAddrCountKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(KEY_CANCEL_NUOMI_ADDR_COUNT);
             SapiAccount currentAccount = getCurrentAccount();
@@ -115,7 +123,7 @@ public final class SapiContext implements NoProguard {
     public static SapiContext getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (SapiContext.class) {
                 if (instance == null) {
                     instance = new SapiContext(ServiceManager.getInstance().getIsAccountManager().getConfignation().context);
@@ -129,7 +137,7 @@ public final class SapiContext implements NoProguard {
     private SapiOptions.PkgSigns getPkgSigns() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             String string = getString(KEY_SAPI_OPTIONS_PKG_SING);
             if (!TextUtils.isEmpty(string)) {
                 try {
@@ -145,7 +153,7 @@ public final class SapiContext implements NoProguard {
     private void setLoginAccounts(List<SapiAccount> list) {
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, list) == null) || (jSONArray = SapiAccount.toJSONArray(list)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, list) == null) || (jSONArray = SapiAccount.toJSONArray(list)) == null) {
             return;
         }
         put(KEY_ENCRYPTED_LOGIN_ACCOUNTS, SapiDataEncryptor.encryptAccountInfo(jSONArray.toString(), getAccountEncryptKey()));
@@ -473,76 +481,82 @@ public final class SapiContext implements NoProguard {
         return (List) invokeV.objValue;
     }
 
+    public String getLoginHistoryUserInfoJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? getString(KEY_LOGIN_HISTORY_USER_INFO) : (String) invokeV.objValue;
+    }
+
     public int getLoginStatExtraLimitLen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? getSapiOptions().loginStatExtraLimitLen : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? getSapiOptions().loginStatExtraLimitLen : invokeV.intValue;
     }
 
     public long getLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048604, this, str, j2)) == null) ? this.storage.getLong(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048605, this, str, j2)) == null) ? this.storage.getLong(str, j2) : invokeLJ.longValue;
     }
 
     public boolean getModifiedDirExecPer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? getBoolean(KEY_MODIFIED_DIR_EXEC_PER, false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? getBoolean(KEY_MODIFIED_DIR_EXEC_PER, false) : invokeV.booleanValue;
     }
 
     public String getOneKeyLoginJsCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? getString(KEY_ONE_KEY_LOGIN_JS_CODE) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? getString(KEY_ONE_KEY_LOGIN_JS_CODE) : (String) invokeV.objValue;
     }
 
     public String getOnekeyLoginJsMd5() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? getString(KEY_ONE_KEY_LOGIN_JS_MD5) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? getString(KEY_ONE_KEY_LOGIN_JS_MD5) : (String) invokeV.objValue;
     }
 
     public List<String> getOpenBdussDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? getSapiOptions().getOpenBdussDomains() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? getSapiOptions().getOpenBdussDomains() : (List) invokeV.objValue;
     }
 
     public Map<String, Integer> getOrderAuthorizedPackages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? getSapiOptions().getOrderAuthorizedPackages() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? getSapiOptions().getOrderAuthorizedPackages() : (Map) invokeV.objValue;
     }
 
     public String getPackageDirExecutePer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? getString(KEY_PACKAGE_DIR_EXECUTE_PER) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? getString(KEY_PACKAGE_DIR_EXECUTE_PER) : (String) invokeV.objValue;
     }
 
     public boolean getResetFileExecPer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? getSapiOptions().resetFileExecPer : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? getSapiOptions().resetFileExecPer : invokeV.booleanValue;
     }
 
     public String getRootStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? getString(KEY_ROOT_STATUS) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? getString(KEY_ROOT_STATUS) : (String) invokeV.objValue;
     }
 
     public Map<String, String> getSCAuthorizedPackages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? getPkgSigns().getSCAuthorizedPackages() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? getPkgSigns().getSCAuthorizedPackages() : (Map) invokeV.objValue;
     }
 
     public SapiOptions getSapiOptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
             String string = getString(KEY_SAPI_OPTIONS);
             if (!TextUtils.isEmpty(string)) {
                 try {
@@ -558,37 +572,37 @@ public final class SapiContext implements NoProguard {
     public String getSearchBoxSid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? getString("sid") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? getString("sid") : (String) invokeV.objValue;
     }
 
     public boolean getShareCommonStorageEnabel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? getSapiOptions().shareCommonStorageEnable : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? getSapiOptions().shareCommonStorageEnable : invokeV.booleanValue;
     }
 
     public int getShareInternalGray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? getSapiOptions().shareInterGray : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? getSapiOptions().shareInterGray : invokeV.intValue;
     }
 
     public String getString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, str)) == null) ? this.storage.getString(str, "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, str)) == null) ? this.storage.getString(str, "") : (String) invokeL.objValue;
     }
 
     public String getTid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? getSapiOptions().tid : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? getSapiOptions().tid : (String) invokeV.objValue;
     }
 
     public List<SapiAccount> getTouchidAccounts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
             String decryptAccountInfo = !TextUtils.isEmpty(getString(KEY_TOUCHID_ACCOUNTS)) ? SapiDataEncryptor.decryptAccountInfo(getString(KEY_TOUCHID_ACCOUNTS), getAccountEncryptKey()) : null;
             if (!TextUtils.isEmpty(decryptAccountInfo)) {
                 try {
@@ -605,7 +619,7 @@ public final class SapiContext implements NoProguard {
     public List<String> getTouchidLoginRecord() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
             String string = getString(KEY_TOUCHID_LOGIN_RECORD);
             if (TextUtils.isEmpty(string)) {
                 return new ArrayList(0);
@@ -618,13 +632,13 @@ public final class SapiContext implements NoProguard {
     public String getV2FaceLivingUnames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? getString(KEY_V2_FACE_LIVINGUNAMES) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? getString(KEY_V2_FACE_LIVINGUNAMES) : (String) invokeV.objValue;
     }
 
     public JSONObject getV2FaceLoginCheckResults() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
             String decryptStr = getDecryptStr(KEY_V2_FACE_LOGIN_CHECK_RESULTS);
             if (TextUtils.isEmpty(decryptStr)) {
                 return new JSONObject();
@@ -653,7 +667,7 @@ public final class SapiContext implements NoProguard {
     public boolean isFirstLaunch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
             if (getBoolean(KEY_FIRST_INSTALL, true)) {
                 put(KEY_FIRST_INSTALL, false);
                 return true;
@@ -666,13 +680,13 @@ public final class SapiContext implements NoProguard {
     public boolean isHostsHijacked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? getBoolean(KEY_HOSTS_HIJACKED, false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? getBoolean(KEY_HOSTS_HIJACKED, false) : invokeV.booleanValue;
     }
 
     public boolean isMeetOneKeyLoginGray(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048626, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048627, this, i2)) == null) {
             return getSapiOptions().gray.getGrayModuleByFunName(i2 != 1 ? i2 != 2 ? i2 != 3 ? "unkown" : SapiOptions.Gray.FUN_NAME_CHINA_TELECOM_OAUTH : SapiOptions.Gray.FUN_NAME_CHINA_UNICOM_OAUTH : SapiOptions.Gray.FUN_NAME_CHINA_MOBILE_OAUTH).meetGray;
         }
         return invokeI.booleanValue;
@@ -680,7 +694,7 @@ public final class SapiContext implements NoProguard {
 
     public void markAsDeleteFaceLogin(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, jSONArray) == null) {
+        if (interceptable == null || interceptable.invokeL(1048628, this, jSONArray) == null) {
             String[] deleteFaceLoginList = getDeleteFaceLoginList();
             StringBuilder sb = new StringBuilder();
             for (int length = deleteFaceLoginList.length + jSONArray.length() > 10 ? (deleteFaceLoginList.length + jSONArray.length()) - 10 : 0; length < deleteFaceLoginList.length; length++) {
@@ -696,23 +710,69 @@ public final class SapiContext implements NoProguard {
         }
     }
 
+    public void openBdussLogout() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
+            ThreadPoolService.getInstance().run(new TPRunnable(new Runnable(this) { // from class: com.baidu.sapi2.SapiContext.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SapiContext this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.putEncryptStr(SapiContext.KEY_OPEN_BDUSS_INFO, "");
+                        try {
+                            ArrayList arrayList = new ArrayList();
+                            for (String str : this.this$0.getOpenBdussDomains()) {
+                                arrayList.add(new PassNameValuePair(SapiUtils.COOKIE_URL_PREFIX + str, SapiUtils.buildBDUSSCookie(str, BeanConstants.COOKIE_OPENBDUSS, "")));
+                            }
+                            SapiUtils.syncCookies(this.this$0.context, arrayList);
+                        } catch (Throwable th) {
+                            Log.e(th);
+                        }
+                    }
+                }
+            }));
+        }
+    }
+
     public void put(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048630, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048632, this, str, str2) == null) {
             this.storage.edit().putString(str, str2).apply();
         }
     }
 
     public void putEncryptStr(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048632, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048634, this, str, str2) == null) {
             put(str, SapiDataEncryptor.encryptAccountInfo(str2, getAccountEncryptKey()));
         }
     }
 
     public void refershPortraitByUid(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048633, this, str, str2) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048635, this, str, str2) == null) || str == null) {
             return;
         }
         SapiAccount currentAccount = getCurrentAccount();
@@ -732,7 +792,7 @@ public final class SapiContext implements NoProguard {
 
     public void removeLoginAccount(SapiAccount sapiAccount) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048634, this, sapiAccount) == null) || sapiAccount == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048636, this, sapiAccount) == null) || sapiAccount == null) {
             return;
         }
         SapiAccount currentAccount = getCurrentAccount();
@@ -748,7 +808,7 @@ public final class SapiContext implements NoProguard {
 
     public void removeTouchidAccountByPortrait(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048635, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048637, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         List<SapiAccount> touchidAccounts = getTouchidAccounts();
@@ -763,21 +823,26 @@ public final class SapiContext implements NoProguard {
 
     public void setAccountActionType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048638, this, str) == null) {
             put("account_type", str);
         }
     }
 
     public void setCancelNuomiAddrCount(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048639, this, i2) == null) {
             put(getCancelNuomiAddrCountKey(), i2);
         }
     }
 
     public void setCurrentAccount(SapiAccount sapiAccount) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048638, this, sapiAccount) == null) {
+        if (interceptable == null || interceptable.invokeL(1048640, this, sapiAccount) == null) {
+            try {
+                openBdussLogout();
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
             if (sapiAccount == null) {
                 put(KEY_ENCRYPTED_CURRENT_ACCOUNT, "");
                 SapiUtils.webLogout(this.context);
@@ -788,69 +853,86 @@ public final class SapiContext implements NoProguard {
                 put(KEY_ENCRYPTED_CURRENT_ACCOUNT, SapiDataEncryptor.encryptAccountInfo(jSONObject.toString(), getAccountEncryptKey()));
                 SapiUtils.webLogin(this.context, sapiAccount.bduss, sapiAccount.ptoken);
             }
+            LoginHistoryLoginModel.updateLoginHistoryInfo(sapiAccount);
         }
     }
 
     public void setHostsHijacked(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048639, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048641, this, z) == null) {
             put(KEY_HOSTS_HIJACKED, z);
         }
     }
 
     public void setIsAlreadyShowExplainCamera(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048640, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
             put(KEY_IS_ALREADY_SHOW_EXPLAIN_CAMERA, z);
+        }
+    }
+
+    public void setLoginHistoryUserInfo(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048643, this, str) == null) {
+            put(KEY_LOGIN_HISTORY_USER_INFO, str);
         }
     }
 
     public void setModifiedDirExecPer(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048641, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048644, this, z) == null) {
             put(KEY_MODIFIED_DIR_EXEC_PER, z);
         }
     }
 
     public void setOneKeyLoginJSCode(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048645, this, str) == null) {
             put(KEY_ONE_KEY_LOGIN_JS_CODE, str);
         }
     }
 
     public void setOnekeyLoginJsMd5(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048643, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048646, this, str) == null) {
             put(KEY_ONE_KEY_LOGIN_JS_MD5, str);
         }
     }
 
     public void setPackageDirExecutePer(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048644, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048647, this, str) == null) {
             put(KEY_PACKAGE_DIR_EXECUTE_PER, str);
         }
     }
 
     public void setPkgSigns(SapiOptions.PkgSigns pkgSigns) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048645, this, pkgSigns) == null) || pkgSigns == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048648, this, pkgSigns) == null) || pkgSigns == null) {
             return;
         }
         put(KEY_SAPI_OPTIONS_PKG_SING, pkgSigns.toJSON());
     }
 
+    public void setPreLoginType(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048649, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        put(KEY_PRE_LOGIN_TYPE, str);
+        this.mLastLoginType = null;
+    }
+
     public void setRootStatus(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048646, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048650, this, str) == null) {
             put(KEY_ROOT_STATUS, str);
         }
     }
 
     public void setSapiOptions(SapiOptions sapiOptions) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048647, this, sapiOptions) == null) || sapiOptions == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048651, this, sapiOptions) == null) || sapiOptions == null) {
             return;
         }
         put(KEY_SAPI_OPTIONS, sapiOptions.toJSON());
@@ -858,14 +940,14 @@ public final class SapiContext implements NoProguard {
 
     public void setSearchBoxSid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048648, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048652, this, str) == null) {
             put("sid", str);
         }
     }
 
     public void setShareStorage(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048649, this, jSONArray) == null) {
+        if (interceptable == null || interceptable.invokeL(1048653, this, jSONArray) == null) {
             if (jSONArray == null) {
                 put(KEY_SHARE_STORAGE, "");
             } else {
@@ -876,14 +958,14 @@ public final class SapiContext implements NoProguard {
 
     public void setV2FaceLivingunames(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048650, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048654, this, str) == null) {
             put(KEY_V2_FACE_LIVINGUNAMES, str);
         }
     }
 
     public void setV2FaceLoginCheckResults(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048651, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048655, this, str) == null) {
             putEncryptStr(KEY_V2_FACE_LOGIN_CHECK_RESULTS, str);
         }
     }
@@ -891,12 +973,12 @@ public final class SapiContext implements NoProguard {
     public boolean shareLivingunameEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) ? getSapiOptions().shareLivingunameEnabled : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) ? getSapiOptions().shareLivingunameEnabled : invokeV.booleanValue;
     }
 
     public void updateContactsVersionWithUid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048653, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048657, this, str) == null) {
             String decryptAccountInfo = SapiDataEncryptor.decryptAccountInfo(getString(KEY_CONTACTS_UID_VERSION), getAccountEncryptKey());
             String str2 = getCurrentAccount().uid;
             JSONObject jSONObject = new JSONObject();
@@ -914,21 +996,21 @@ public final class SapiContext implements NoProguard {
 
     public void put(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048628, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048630, this, str, i2) == null) {
             this.storage.edit().putInt(str, i2).apply();
         }
     }
 
     public void put(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048629, this, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048631, this, str, j2) == null) {
             this.storage.edit().putLong(str, j2).apply();
         }
     }
 
     public void put(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048631, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048633, this, str, z) == null) {
             this.storage.edit().putBoolean(str, z).apply();
         }
     }

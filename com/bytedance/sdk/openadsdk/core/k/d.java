@@ -45,7 +45,7 @@ public class d {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f66738a;
+                    public final /* synthetic */ Context f67049a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -65,14 +65,14 @@ public class d {
                                 return;
                             }
                         }
-                        this.f66738a = context;
+                        this.f67049a = context;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            d.d(this.f66738a);
+                            d.d(this.f67049a);
                         }
                     }
                 }, 1);

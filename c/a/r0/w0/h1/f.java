@@ -25,22 +25,22 @@ public class f implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f26797e;
+    public e f26817e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f26798f;
+    public TbPageContext f26818f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdTypeListView f26799g;
+    public BdTypeListView f26819g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<n> f26800h;
+    public List<n> f26820h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final List<c.a.e.l.e.a> f26801i;
+    public final List<c.a.e.l.e.a> f26821i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f26802j;
+    public boolean f26822j;
     public int k;
 
     public f(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
@@ -58,13 +58,13 @@ public class f implements a {
                 return;
             }
         }
-        this.f26800h = new ArrayList();
-        this.f26801i = new ArrayList();
-        this.f26802j = false;
+        this.f26820h = new ArrayList();
+        this.f26821i = new ArrayList();
+        this.f26822j = false;
         this.k = -1;
-        this.f26798f = tbPageContext;
-        this.f26799g = bdTypeListView;
-        this.f26802j = z;
+        this.f26818f = tbPageContext;
+        this.f26819g = bdTypeListView;
+        this.f26822j = z;
         d();
     }
 
@@ -73,27 +73,27 @@ public class f implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             this.k = i2;
-            if (ListUtils.isEmpty(this.f26800h) || this.f26799g == null) {
+            if (ListUtils.isEmpty(this.f26820h) || this.f26819g == null) {
                 return;
             }
-            for (n nVar : this.f26800h) {
+            for (n nVar : this.f26820h) {
                 if (nVar instanceof g) {
                     ((g) nVar).F = false;
                 }
             }
             if (j.H()) {
-                if (this.k < this.f26800h.size() - 1) {
-                    List<n> list = this.f26800h;
+                if (this.k < this.f26820h.size() - 1) {
+                    List<n> list = this.f26820h;
                     int i3 = this.k + 1;
                     this.k = i3;
                     if (list.get(i3) instanceof g) {
-                        ((g) this.f26800h.get(this.k)).F = true;
-                        BdTypeListView bdTypeListView = this.f26799g;
+                        ((g) this.f26820h.get(this.k)).F = true;
+                        BdTypeListView bdTypeListView = this.f26819g;
                         bdTypeListView.smoothScrollToPositionFromTop(i2 + bdTypeListView.getHeaderViewsCount() + 1, 0);
                         g();
                     }
-                } else if (this.k == this.f26800h.size() - 1 && (this.f26800h.get(this.k) instanceof g)) {
-                    ((g) this.f26800h.get(this.k)).F = false;
+                } else if (this.k == this.f26820h.size() - 1 && (this.f26820h.get(this.k) instanceof g)) {
+                    ((g) this.f26820h.get(this.k)).F = false;
                 }
             }
         }
@@ -101,10 +101,10 @@ public class f implements a {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || ListUtils.isEmpty(this.f26800h)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || ListUtils.isEmpty(this.f26820h)) {
             return;
         }
-        Iterator<n> it = this.f26800h.iterator();
+        Iterator<n> it = this.f26820h.iterator();
         while (it.hasNext()) {
             ((g) it.next()).F = false;
         }
@@ -127,17 +127,17 @@ public class f implements a {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            e eVar = new e(this.f26798f, this, this.f26802j);
-            this.f26797e = eVar;
-            this.f26801i.add(eVar);
-            this.f26799g.addAdapters(this.f26801i);
+            e eVar = new e(this.f26818f, this, this.f26822j);
+            this.f26817e = eVar;
+            this.f26821i.add(eVar);
+            this.f26819g.addAdapters(this.f26821i);
         }
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26797e.l0() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26817e.l0() : invokeV.booleanValue;
     }
 
     public void f(String str, boolean z) {
@@ -148,9 +148,9 @@ public class f implements a {
             return;
         }
         boolean z2 = false;
-        for (n nVar : this.f26800h) {
-            if (nVar != null && (nVar instanceof g) && (bVar = (gVar = (g) nVar).y) != null && str.equals(bVar.f26815a)) {
-                gVar.y.f26819e = z;
+        for (n nVar : this.f26820h) {
+            if (nVar != null && (nVar instanceof g) && (bVar = (gVar = (g) nVar).y) != null && str.equals(bVar.f26835a)) {
+                gVar.y.f26839e = z;
                 z2 = true;
             }
         }
@@ -162,36 +162,36 @@ public class f implements a {
     public void g() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bdTypeListView = this.f26799g) == null || bdTypeListView.getAdapter2() == null || !(this.f26799g.getAdapter2() instanceof BaseAdapter)) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bdTypeListView = this.f26819g) == null || bdTypeListView.getAdapter2() == null || !(this.f26819g.getAdapter2() instanceof BaseAdapter)) {
             return;
         }
-        this.f26799g.getAdapter2().notifyDataSetChanged();
+        this.f26819g.getAdapter2().notifyDataSetChanged();
     }
 
     public void h(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, configuration) == null) {
-            this.f26797e.m0(configuration);
+            this.f26817e.m0(configuration);
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f26797e.onDestroy();
+            this.f26817e.onDestroy();
         }
     }
 
     public boolean j(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? this.f26797e.p0(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? this.f26817e.p0(i2) : invokeI.booleanValue;
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f26797e.q0();
+            this.f26817e.q0();
         }
     }
 
@@ -210,11 +210,11 @@ public class f implements a {
             return;
         }
         if (z) {
-            this.f26800h.clear();
+            this.f26820h.clear();
         }
-        this.f26800h.addAll(list);
-        this.f26799g.setData(this.f26800h);
-        if (z && list.size() > 0 && this.f26802j && j.H()) {
+        this.f26820h.addAll(list);
+        this.f26819g.setData(this.f26820h);
+        if (z && list.size() > 0 && this.f26822j && j.H()) {
             l();
             list.get(0).F = true;
         }
@@ -223,7 +223,7 @@ public class f implements a {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f26797e.r0();
+            this.f26817e.r0();
         }
     }
 }

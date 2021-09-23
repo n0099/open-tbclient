@@ -39,7 +39,7 @@ public class b extends c.a.e.l.e.a<c.a.r0.a0.d0.j, CardViewHolder<c.a.r0.a0.k>> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f17825b;
+        public final /* synthetic */ b f17834b;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class b extends c.a.e.l.e.a<c.a.r0.a0.d0.j, CardViewHolder<c.a.r0.a0.k>> 
                     return;
                 }
             }
-            this.f17825b = bVar;
+            this.f17834b = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,12 +64,12 @@ public class b extends c.a.e.l.e.a<c.a.r0.a0.d0.j, CardViewHolder<c.a.r0.a0.k>> 
         /* renamed from: d */
         public void a(View view, c.a.r0.a0.d0.j jVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) || view == null || this.f17825b.o == null || this.f17825b.o.j() == null || jVar == null || jVar.getThreadData() == null || StringUtils.isNull(jVar.getThreadData().s1())) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) || view == null || this.f17834b.o == null || this.f17834b.o.j() == null || jVar == null || jVar.getThreadData() == null || StringUtils.isNull(jVar.getThreadData().s1())) {
                 return;
             }
-            c.a.r0.g1.c.c.b(view, jVar, view == this.f17825b.o.N() ? 1 : 2);
-            if (view != this.f17825b.o.p.getCommentContainer() && view != this.f17825b.o.q.getCommentContainer()) {
-                if (this.f17825b.o.N() == null || view.getId() != this.f17825b.o.N().getId() || jVar.getThreadData() == null || jVar.getThreadData().l1() == null || !jVar.getThreadData().l1().isLegalYYLiveData()) {
+            c.a.r0.g1.c.c.b(view, jVar, view == this.f17834b.o.Q() ? 1 : 2);
+            if (view != this.f17834b.o.p.getCommentContainer() && view != this.f17834b.o.q.getCommentContainer()) {
+                if (this.f17834b.o.Q() == null || view.getId() != this.f17834b.o.Q().getId() || jVar.getThreadData() == null || jVar.getThreadData().l1() == null || !jVar.getThreadData().l1().isLegalYYLiveData()) {
                     return;
                 }
                 d2 threadData = jVar.getThreadData();
@@ -147,10 +147,10 @@ public class b extends c.a.e.l.e.a<c.a.r0.a0.d0.j, CardViewHolder<c.a.r0.a0.k>> 
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             c.a.r0.a0.k kVar = new c.a.r0.a0.k(this.n, this.m);
             this.o = kVar;
-            kVar.X(true);
+            kVar.d0(true);
             BdUniqueId bdUniqueId = this.m;
             if (bdUniqueId != null) {
-                this.o.W(bdUniqueId);
+                this.o.c0(bdUniqueId);
             }
             return new CardViewHolder<>(this.o);
         }

@@ -21,7 +21,7 @@ public class c extends UnitedSchemeBaseInterceptor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5135a;
+    public static final boolean f5143a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class c extends UnitedSchemeBaseInterceptor {
                 return;
             }
         }
-        f5135a = k.f7077a;
+        f5143a = k.f7085a;
     }
 
     public c() {
@@ -86,7 +86,7 @@ public class c extends UnitedSchemeBaseInterceptor {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler)) == null) {
             String a2 = a(unitedSchemeEntity);
             boolean b2 = c.a.p0.a.u.i.a.b(a2, callbackHandler);
-            if (f5135a) {
+            if (f5143a) {
                 String str = "intercept: result=" + b2 + ", path=" + a2;
             }
             if (b2) {

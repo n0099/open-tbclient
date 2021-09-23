@@ -15,19 +15,19 @@ public class g implements Printer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f32397a;
+    public long f32420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32398b;
+    public long f32421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f32399c;
+    public long f32422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f32400d;
+    public b f32423d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f32401e;
+    public final boolean f32424e;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -35,19 +35,19 @@ public class g implements Printer {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f32402e;
+        public final /* synthetic */ long f32425e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f32403f;
+        public final /* synthetic */ long f32426f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f32404g;
+        public final /* synthetic */ long f32427g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f32405h;
+        public final /* synthetic */ long f32428h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ g f32406i;
+        public final /* synthetic */ g f32429i;
 
         public a(g gVar, long j2, long j3, long j4, long j5) {
             Interceptable interceptable = $ic;
@@ -64,18 +64,18 @@ public class g implements Printer {
                     return;
                 }
             }
-            this.f32406i = gVar;
-            this.f32402e = j2;
-            this.f32403f = j3;
-            this.f32404g = j4;
-            this.f32405h = j5;
+            this.f32429i = gVar;
+            this.f32425e = j2;
+            this.f32426f = j3;
+            this.f32427g = j4;
+            this.f32428h = j5;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f32406i.f32400d.a(this.f32402e, this.f32403f, this.f32404g, this.f32405h);
+                this.f32429i.f32423d.a(this.f32425e, this.f32426f, this.f32427g, this.f32428h);
             }
         }
     }
@@ -100,14 +100,14 @@ public class g implements Printer {
                 return;
             }
         }
-        this.f32397a = 3000L;
-        this.f32398b = 0L;
-        this.f32399c = 0L;
-        this.f32400d = null;
+        this.f32420a = 3000L;
+        this.f32421b = 0L;
+        this.f32422c = 0L;
+        this.f32423d = null;
         if (bVar != null) {
-            this.f32400d = bVar;
-            this.f32397a = j2;
-            this.f32401e = z;
+            this.f32423d = bVar;
+            this.f32420a = j2;
+            this.f32424e = z;
             return;
         }
         throw new IllegalArgumentException("blockListener should not be null.");
@@ -116,24 +116,24 @@ public class g implements Printer {
     public final boolean b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 - this.f32398b > this.f32397a : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 - this.f32421b > this.f32420a : invokeJ.booleanValue;
     }
 
     public final void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            e.b().post(new a(this, this.f32398b, j2, this.f32399c, SystemClock.currentThreadTimeMillis()));
+            e.b().post(new a(this, this.f32421b, j2, this.f32422c, SystemClock.currentThreadTimeMillis()));
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (c.f().f32386b != null) {
-                c.f().f32386b.c();
+            if (c.f().f32409b != null) {
+                c.f().f32409b.c();
             }
-            if (c.f().f32387c != null) {
-                c.f().f32387c.c();
+            if (c.f().f32410c != null) {
+                c.f().f32410c.c();
             }
         }
     }
@@ -141,11 +141,11 @@ public class g implements Printer {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c.f().f32386b != null) {
-                c.f().f32386b.d();
+            if (c.f().f32409b != null) {
+                c.f().f32409b.d();
             }
-            if (c.f().f32387c != null) {
-                c.f().f32387c.d();
+            if (c.f().f32410c != null) {
+                c.f().f32410c.d();
             }
         }
     }
@@ -154,12 +154,12 @@ public class g implements Printer {
     public void println(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.f32401e && Debug.isDebuggerConnected()) {
+            if (this.f32424e && Debug.isDebuggerConnected()) {
                 return;
             }
             if (str.charAt(0) == '>') {
-                this.f32398b = System.currentTimeMillis();
-                this.f32399c = SystemClock.currentThreadTimeMillis();
+                this.f32421b = System.currentTimeMillis();
+                this.f32422c = SystemClock.currentThreadTimeMillis();
                 d();
                 return;
             }

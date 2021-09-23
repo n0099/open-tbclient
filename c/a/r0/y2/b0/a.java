@@ -23,30 +23,30 @@ public class a extends c.a.q0.c.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29287a;
+    public String f29307a;
 
     /* renamed from: c.a.r0.y2.b0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1370a extends BdAsyncTask<Object, Integer, f> {
+    public class C1368a extends BdAsyncTask<Object, Integer, f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile NetWork f29288a;
+        public volatile NetWork f29308a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f29289b;
+        public String f29309b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f29290c;
+        public String f29310c;
 
         /* renamed from: d  reason: collision with root package name */
-        public HashMap<String, String> f29291d;
+        public HashMap<String, String> f29311d;
 
         /* renamed from: e  reason: collision with root package name */
-        public e f29292e;
+        public e f29312e;
 
-        public C1370a(a aVar, String str, String str2, HashMap<String, String> hashMap, e eVar) {
+        public C1368a(a aVar, String str, String str2, HashMap<String, String> hashMap, e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,11 +61,11 @@ public class a extends c.a.q0.c.a {
                     return;
                 }
             }
-            this.f29288a = null;
-            this.f29289b = str;
-            this.f29290c = str2;
-            this.f29291d = hashMap;
-            this.f29292e = eVar;
+            this.f29308a = null;
+            this.f29309b = str;
+            this.f29310c = str2;
+            this.f29311d = hashMap;
+            this.f29312e = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,43 +77,43 @@ public class a extends c.a.q0.c.a {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 f fVar = new f();
                 try {
-                    this.f29288a = new NetWork(this.f29290c);
-                    Set<String> keySet = this.f29291d.keySet();
+                    this.f29308a = new NetWork(this.f29310c);
+                    Set<String> keySet = this.f29311d.keySet();
                     if (keySet.size() > 0) {
                         for (String str : keySet) {
                             if (!"url".equalsIgnoreCase(str)) {
-                                this.f29288a.addPostData(str, this.f29291d.get(str));
+                                this.f29308a.addPostData(str, this.f29311d.get(str));
                             }
                         }
                     }
-                    this.f29288a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
-                    this.f29288a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                    this.f29288a.getNetContext().getRequest().mIsNeedTbs = true;
-                    String postNetData = this.f29288a.postNetData();
-                    if (!this.f29288a.getNetContext().getResponse().isNetSuccess()) {
-                        fVar.f12786b = this.f29288a.getNetErrorCode();
-                        fVar.f12787c = this.f29288a.getNetString();
+                    this.f29308a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
+                    this.f29308a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                    this.f29308a.getNetContext().getRequest().mIsNeedTbs = true;
+                    String postNetData = this.f29308a.postNetData();
+                    if (!this.f29308a.getNetContext().getResponse().isNetSuccess()) {
+                        fVar.f12800b = this.f29308a.getNetErrorCode();
+                        fVar.f12801c = this.f29308a.getNetString();
                     } else {
-                        fVar.f12786b = this.f29288a.getServerErrorCode();
-                        fVar.f12787c = this.f29288a.getErrorString();
+                        fVar.f12800b = this.f29308a.getServerErrorCode();
+                        fVar.f12801c = this.f29308a.getErrorString();
                     }
-                    if (this.f29288a.getNetContext().getResponse().isRequestSuccess() && !TextUtils.isEmpty(postNetData)) {
+                    if (this.f29308a.getNetContext().getResponse().isRequestSuccess() && !TextUtils.isEmpty(postNetData)) {
                         JSONObject jSONObject = new JSONObject(postNetData);
                         if (jSONObject.has("code")) {
                             if (jSONObject.optInt("code", -1) == 0) {
-                                fVar.f12785a = true;
+                                fVar.f12799a = true;
                                 return fVar;
                             }
                             String optString = jSONObject.has("msg") ? jSONObject.optString("msg", "") : "";
-                            fVar.f12785a = false;
-                            fVar.f12787c = optString;
+                            fVar.f12799a = false;
+                            fVar.f12801c = optString;
                             return fVar;
                         }
                     }
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
-                fVar.f12785a = false;
+                fVar.f12799a = false;
                 return fVar;
             }
             return (f) invokeL.objValue;
@@ -125,7 +125,7 @@ public class a extends c.a.q0.c.a {
         public void onPostExecute(f fVar) {
             e eVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) || (eVar = this.f29292e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) || (eVar = this.f29312e) == null) {
                 return;
             }
             eVar.c(fVar);
@@ -135,12 +135,12 @@ public class a extends c.a.q0.c.a {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.f29288a != null) {
-                    this.f29288a.cancelNetConnect();
-                    this.f29288a = null;
+                if (this.f29308a != null) {
+                    this.f29308a.cancelNetConnect();
+                    this.f29308a = null;
                 }
                 super.cancel(true);
-                e eVar = this.f29292e;
+                e eVar = this.f29312e;
                 if (eVar != null) {
                     eVar.c(null);
                 }
@@ -152,7 +152,7 @@ public class a extends c.a.q0.c.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 super.onCancelled();
-                e eVar = this.f29292e;
+                e eVar = this.f29312e;
                 if (eVar != null) {
                     eVar.c(null);
                 }
@@ -175,7 +175,7 @@ public class a extends c.a.q0.c.a {
                 return;
             }
         }
-        this.f29287a = str;
+        this.f29307a = str;
     }
 
     @Override // c.a.q0.c.a, c.a.q0.c.d
@@ -188,9 +188,9 @@ public class a extends c.a.q0.c.a {
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        C1370a c1370a = new C1370a(this, str, str2, hashMap, eVar);
-        c1370a.setPriority(2);
-        c1370a.execute(new Object[0]);
+        C1368a c1368a = new C1368a(this, str, str2, hashMap, eVar);
+        c1368a.setPriority(2);
+        c1368a.execute(new Object[0]);
     }
 
     @Override // c.a.q0.c.a
@@ -198,7 +198,7 @@ public class a extends c.a.q0.c.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Uri parse = Uri.parse(this.f29287a);
+            Uri parse = Uri.parse(this.f29307a);
             if (parse != null) {
                 return parse.getAuthority() + parse.getPath();
             }

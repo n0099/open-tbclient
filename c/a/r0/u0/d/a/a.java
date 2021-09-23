@@ -22,28 +22,28 @@ public class a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f25279a;
+    public c f25300a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity<T> f25280b;
+    public BaseActivity<T> f25301b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.e.c.g.a f25281c;
+    public c.a.e.c.g.a f25302c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f25282d;
+    public CustomMessageListener f25303d;
 
     /* renamed from: c.a.r0.u0.d.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1180a extends c.a.e.c.g.a {
+    public class C1178a extends c.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f25283a;
+        public final /* synthetic */ a f25304a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1180a(a aVar, int i2, int i3) {
+        public C1178a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -61,7 +61,7 @@ public class a<T> {
                     return;
                 }
             }
-            this.f25283a = aVar;
+            this.f25304a = aVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -70,10 +70,10 @@ public class a<T> {
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage instanceof GetLevelInfoHttpResponsedMessage) {
                     GetLevelInfoHttpResponsedMessage getLevelInfoHttpResponsedMessage = (GetLevelInfoHttpResponsedMessage) responsedMessage;
-                    this.f25283a.f25279a.a(getLevelInfoHttpResponsedMessage.getResult(), true, getLevelInfoHttpResponsedMessage.getError(), getLevelInfoHttpResponsedMessage.getErrorString());
+                    this.f25304a.f25300a.a(getLevelInfoHttpResponsedMessage.getResult(), true, getLevelInfoHttpResponsedMessage.getError(), getLevelInfoHttpResponsedMessage.getErrorString());
                 } else if (responsedMessage instanceof GetLevelInfoSocketResponsedMessage) {
                     GetLevelInfoSocketResponsedMessage getLevelInfoSocketResponsedMessage = (GetLevelInfoSocketResponsedMessage) responsedMessage;
-                    this.f25283a.f25279a.a(getLevelInfoSocketResponsedMessage.getmResult(), true, getLevelInfoSocketResponsedMessage.getError(), getLevelInfoSocketResponsedMessage.getErrorString());
+                    this.f25304a.f25300a.a(getLevelInfoSocketResponsedMessage.getmResult(), true, getLevelInfoSocketResponsedMessage.getError(), getLevelInfoSocketResponsedMessage.getErrorString());
                 }
             }
         }
@@ -85,7 +85,7 @@ public class a<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f25284a;
+        public final /* synthetic */ a f25305a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, int i2) {
@@ -105,7 +105,7 @@ public class a<T> {
                     return;
                 }
             }
-            this.f25284a = aVar;
+            this.f25305a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -114,7 +114,7 @@ public class a<T> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof GetLevelInfoReadCacheResponsedMessage)) {
                 GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = (GetLevelInfoReadCacheResponsedMessage) customResponsedMessage;
-                this.f25284a.f25279a.a(getLevelInfoReadCacheResponsedMessage.getResult(), false, getLevelInfoReadCacheResponsedMessage.getError(), getLevelInfoReadCacheResponsedMessage.getErrorString());
+                this.f25305a.f25300a.a(getLevelInfoReadCacheResponsedMessage.getResult(), false, getLevelInfoReadCacheResponsedMessage.getError(), getLevelInfoReadCacheResponsedMessage.getErrorString());
             }
         }
     }
@@ -139,18 +139,18 @@ public class a<T> {
                 return;
             }
         }
-        this.f25281c = new C1180a(this, CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005);
-        this.f25282d = new b(this, 2003007);
-        this.f25279a = cVar;
-        this.f25280b = baseActivity;
+        this.f25302c = new C1178a(this, CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005);
+        this.f25303d = new b(this, 2003007);
+        this.f25300a = cVar;
+        this.f25301b = baseActivity;
         b();
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f25280b.registerListener(this.f25282d);
-            this.f25280b.registerListener(this.f25281c);
+            this.f25301b.registerListener(this.f25303d);
+            this.f25301b.registerListener(this.f25302c);
         }
     }
 
@@ -159,7 +159,7 @@ public class a<T> {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             GetLevelInfoReadCacheRequestMessage getLevelInfoReadCacheRequestMessage = new GetLevelInfoReadCacheRequestMessage();
             getLevelInfoReadCacheRequestMessage.setCacheKey("" + i2);
-            this.f25280b.sendMessage(getLevelInfoReadCacheRequestMessage);
+            this.f25301b.sendMessage(getLevelInfoReadCacheRequestMessage);
         }
     }
 
@@ -168,7 +168,7 @@ public class a<T> {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             GetLevelInfoRequestMessage getLevelInfoRequestMessage = new GetLevelInfoRequestMessage();
             getLevelInfoRequestMessage.setForumId(i2);
-            this.f25280b.sendMessage(getLevelInfoRequestMessage);
+            this.f25301b.sendMessage(getLevelInfoRequestMessage);
         }
     }
 }

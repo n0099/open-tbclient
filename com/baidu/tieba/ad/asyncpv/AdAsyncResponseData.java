@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AdAsyncResponseData extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class AdAsyncResponseData extends JsonHttpResponsedMessage {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2).optJSONObject("adInfo");
                 if (optJSONObject2 != null) {
-                    arrayList.add(AdvertAppInfo.W4(optJSONObject2));
+                    arrayList.add(AdvertAppInfo.V4(optJSONObject2));
                 }
             }
             return arrayList;

@@ -34,7 +34,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final KeyEvent f24165a;
+    public static final KeyEvent f24181a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -43,13 +43,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditText f24166a;
+        public final /* synthetic */ EditText f24182a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f24167b;
+        public final /* synthetic */ Context f24183b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ v f24168c;
+        public final /* synthetic */ v f24184c;
 
         public a(EditText editText, Context context, v vVar) {
             Interceptable interceptable = $ic;
@@ -66,9 +66,9 @@ public class b {
                     return;
                 }
             }
-            this.f24166a = editText;
-            this.f24167b = context;
-            this.f24168c = vVar;
+            this.f24182a = editText;
+            this.f24183b = context;
+            this.f24184c = vVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,30 +78,30 @@ public class b {
             if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null) {
                 return;
             }
-            int selectionStart = this.f24166a.getSelectionStart();
-            b.e(this.f24167b, this.f24166a, new SpannableStringBuilder(this.f24168c.c()), selectionStart < 0 ? 0 : selectionStart, aVar, this.f24168c.f());
+            int selectionStart = this.f24182a.getSelectionStart();
+            b.e(this.f24183b, this.f24182a, new SpannableStringBuilder(this.f24184c.c()), selectionStart < 0 ? 0 : selectionStart, aVar, this.f24184c.f());
         }
     }
 
     /* renamed from: c.a.r0.q0.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1127b extends c.a.e.e.l.c<c.a.e.l.d.a> {
+    public static class C1125b extends c.a.e.e.l.c<c.a.e.l.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditText f24169a;
+        public final /* synthetic */ EditText f24185a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f24170b;
+        public final /* synthetic */ Context f24186b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f24171c;
+        public final /* synthetic */ SpannableStringBuilder f24187c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ EmotionGroupType f24172d;
+        public final /* synthetic */ EmotionGroupType f24188d;
 
-        public C1127b(EditText editText, Context context, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
+        public C1125b(EditText editText, Context context, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,10 +116,10 @@ public class b {
                     return;
                 }
             }
-            this.f24169a = editText;
-            this.f24170b = context;
-            this.f24171c = spannableStringBuilder;
-            this.f24172d = emotionGroupType;
+            this.f24185a = editText;
+            this.f24186b = context;
+            this.f24187c = spannableStringBuilder;
+            this.f24188d = emotionGroupType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -127,10 +127,10 @@ public class b {
         public void onLoaded(c.a.e.l.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
-                super.onLoaded((C1127b) aVar, str, i2);
+                super.onLoaded((C1125b) aVar, str, i2);
                 if (aVar != null) {
-                    int selectionStart = this.f24169a.getSelectionStart();
-                    b.e(this.f24170b, this.f24169a, this.f24171c, selectionStart < 0 ? 0 : selectionStart, aVar, this.f24172d);
+                    int selectionStart = this.f24185a.getSelectionStart();
+                    b.e(this.f24186b, this.f24185a, this.f24187c, selectionStart < 0 ? 0 : selectionStart, aVar, this.f24188d);
                 }
             }
         }
@@ -142,19 +142,19 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f24173a;
+        public final /* synthetic */ SpannableStringBuilder f24189a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f24174b;
+        public final /* synthetic */ int f24190b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f24175c;
+        public final /* synthetic */ int f24191c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int[] f24176d;
+        public final /* synthetic */ int[] f24192d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f24177e;
+        public final /* synthetic */ f f24193e;
 
         public c(SpannableStringBuilder spannableStringBuilder, int i2, int i3, int[] iArr, f fVar) {
             Interceptable interceptable = $ic;
@@ -171,11 +171,11 @@ public class b {
                     return;
                 }
             }
-            this.f24173a = spannableStringBuilder;
-            this.f24174b = i2;
-            this.f24175c = i3;
-            this.f24176d = iArr;
-            this.f24177e = fVar;
+            this.f24189a = spannableStringBuilder;
+            this.f24190b = i2;
+            this.f24191c = i3;
+            this.f24192d = iArr;
+            this.f24193e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -189,27 +189,27 @@ public class b {
                 if (aVar != null) {
                     Bitmap p = aVar.p();
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
-                    int width = (int) (p.getWidth() * (c.a.q0.b.d.K() ? 0.4d : 0.5d));
+                    int width = (int) (p.getWidth() * (c.a.q0.b.d.O() ? 0.4d : 0.5d));
                     bitmapDrawable.setBounds(0, 0, width, width);
                     bitmapDrawable.setGravity(119);
-                    this.f24173a.setSpan(new c.a.e.l.b(bitmapDrawable, 1), this.f24174b, this.f24175c, 33);
-                    int[] iArr = this.f24176d;
+                    this.f24189a.setSpan(new c.a.e.l.b(bitmapDrawable, 1), this.f24190b, this.f24191c, 33);
+                    int[] iArr = this.f24192d;
                     int i3 = iArr[0] - 1;
                     iArr[0] = i3;
-                    if (i3 != 0 || (fVar2 = this.f24177e) == null) {
+                    if (i3 != 0 || (fVar2 = this.f24193e) == null) {
                         return;
                     }
-                    fVar2.a(this.f24173a);
+                    fVar2.a(this.f24189a);
                     return;
                 }
-                this.f24173a.setSpan("", this.f24174b, this.f24175c, 33);
-                int[] iArr2 = this.f24176d;
+                this.f24189a.setSpan("", this.f24190b, this.f24191c, 33);
+                int[] iArr2 = this.f24192d;
                 int i4 = iArr2[0] - 1;
                 iArr2[0] = i4;
-                if (i4 != 0 || (fVar = this.f24177e) == null) {
+                if (i4 != 0 || (fVar = this.f24193e) == null) {
                     return;
                 }
-                fVar.a(this.f24173a);
+                fVar.a(this.f24189a);
             }
         }
     }
@@ -220,22 +220,22 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f24178a;
+        public final /* synthetic */ Context f24194a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f24179b;
+        public final /* synthetic */ SpannableStringBuilder f24195b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f24180c;
+        public final /* synthetic */ int f24196c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f24181d;
+        public final /* synthetic */ int f24197d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int[] f24182e;
+        public final /* synthetic */ int[] f24198e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f24183f;
+        public final /* synthetic */ f f24199f;
 
         public d(Context context, SpannableStringBuilder spannableStringBuilder, int i2, int i3, int[] iArr, f fVar) {
             Interceptable interceptable = $ic;
@@ -252,12 +252,12 @@ public class b {
                     return;
                 }
             }
-            this.f24178a = context;
-            this.f24179b = spannableStringBuilder;
-            this.f24180c = i2;
-            this.f24181d = i3;
-            this.f24182e = iArr;
-            this.f24183f = fVar;
+            this.f24194a = context;
+            this.f24195b = spannableStringBuilder;
+            this.f24196c = i2;
+            this.f24197d = i3;
+            this.f24198e = iArr;
+            this.f24199f = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -271,31 +271,31 @@ public class b {
                 super.onLoaded((d) aVar, str, i2);
                 if (aVar != null) {
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.p());
-                    int dimensionPixelSize = this.f24178a.getResources().getDimensionPixelSize(R.dimen.ds80);
+                    int dimensionPixelSize = this.f24194a.getResources().getDimensionPixelSize(R.dimen.ds80);
                     int width = (int) (p.getWidth() * ((dimensionPixelSize * 1.0d) / p.getHeight()));
-                    if (width > l.k(this.f24178a) * 0.6d) {
+                    if (width > l.k(this.f24194a) * 0.6d) {
                         width = (int) (p.getWidth() * 0.5d);
                     }
                     bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                     bitmapDrawable.setGravity(119);
-                    this.f24179b.setSpan(new ImageSpan(bitmapDrawable, 0), this.f24180c, this.f24181d, 33);
-                    int[] iArr = this.f24182e;
+                    this.f24195b.setSpan(new ImageSpan(bitmapDrawable, 0), this.f24196c, this.f24197d, 33);
+                    int[] iArr = this.f24198e;
                     int i3 = iArr[0] - 1;
                     iArr[0] = i3;
-                    if (i3 != 0 || (fVar2 = this.f24183f) == null) {
+                    if (i3 != 0 || (fVar2 = this.f24199f) == null) {
                         return;
                     }
-                    fVar2.a(this.f24179b);
+                    fVar2.a(this.f24195b);
                     return;
                 }
-                this.f24179b.setSpan("", this.f24180c, this.f24181d, 33);
-                int[] iArr2 = this.f24182e;
+                this.f24195b.setSpan("", this.f24196c, this.f24197d, 33);
+                int[] iArr2 = this.f24198e;
                 int i4 = iArr2[0] - 1;
                 iArr2[0] = i4;
-                if (i4 != 0 || (fVar = this.f24183f) == null) {
+                if (i4 != 0 || (fVar = this.f24199f) == null) {
                     return;
                 }
-                fVar.a(this.f24179b);
+                fVar.a(this.f24195b);
             }
         }
     }
@@ -306,22 +306,22 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f24184a;
+        public final /* synthetic */ Context f24200a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f24185b;
+        public final /* synthetic */ SpannableStringBuilder f24201b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f24186c;
+        public final /* synthetic */ int f24202c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f24187d;
+        public final /* synthetic */ int f24203d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int[] f24188e;
+        public final /* synthetic */ int[] f24204e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f24189f;
+        public final /* synthetic */ f f24205f;
 
         public e(Context context, SpannableStringBuilder spannableStringBuilder, int i2, int i3, int[] iArr, f fVar) {
             Interceptable interceptable = $ic;
@@ -338,12 +338,12 @@ public class b {
                     return;
                 }
             }
-            this.f24184a = context;
-            this.f24185b = spannableStringBuilder;
-            this.f24186c = i2;
-            this.f24187d = i3;
-            this.f24188e = iArr;
-            this.f24189f = fVar;
+            this.f24200a = context;
+            this.f24201b = spannableStringBuilder;
+            this.f24202c = i2;
+            this.f24203d = i3;
+            this.f24204e = iArr;
+            this.f24205f = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -357,31 +357,31 @@ public class b {
                 super.onLoaded((e) aVar, str, i2);
                 if (aVar != null) {
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.p());
-                    int dimensionPixelSize = this.f24184a.getResources().getDimensionPixelSize(R.dimen.ds80);
+                    int dimensionPixelSize = this.f24200a.getResources().getDimensionPixelSize(R.dimen.ds80);
                     int width = (int) (p.getWidth() * ((dimensionPixelSize * 1.0d) / p.getHeight()));
-                    if (width > l.k(this.f24184a) * 0.6d) {
+                    if (width > l.k(this.f24200a) * 0.6d) {
                         width = (int) (p.getWidth() * 0.5d);
                     }
                     bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                     bitmapDrawable.setGravity(119);
-                    this.f24185b.setSpan(new ImageSpan(bitmapDrawable, 0), this.f24186c, this.f24187d, 33);
-                    int[] iArr = this.f24188e;
+                    this.f24201b.setSpan(new ImageSpan(bitmapDrawable, 0), this.f24202c, this.f24203d, 33);
+                    int[] iArr = this.f24204e;
                     int i3 = iArr[0] - 1;
                     iArr[0] = i3;
-                    if (i3 != 0 || (fVar2 = this.f24189f) == null) {
+                    if (i3 != 0 || (fVar2 = this.f24205f) == null) {
                         return;
                     }
-                    fVar2.a(this.f24185b);
+                    fVar2.a(this.f24201b);
                     return;
                 }
-                this.f24185b.setSpan("", this.f24186c, this.f24187d, 33);
-                int[] iArr2 = this.f24188e;
+                this.f24201b.setSpan("", this.f24202c, this.f24203d, 33);
+                int[] iArr2 = this.f24204e;
                 int i4 = iArr2[0] - 1;
                 iArr2[0] = i4;
-                if (i4 != 0 || (fVar = this.f24189f) == null) {
+                if (i4 != 0 || (fVar = this.f24205f) == null) {
                     return;
                 }
-                fVar.a(this.f24185b);
+                fVar.a(this.f24201b);
             }
         }
     }
@@ -404,7 +404,7 @@ public class b {
                 return;
             }
         }
-        f24165a = new KeyEvent(0, 67);
+        f24181a = new KeyEvent(0, 67);
     }
 
     public static void a(EditText editText) {
@@ -415,9 +415,9 @@ public class b {
         }
         int selectionStart = editText.getSelectionStart() - 1;
         if (selectionStart > 0 && selectionStart < text.length() && text.charAt(selectionStart) == 0) {
-            editText.onKeyDown(67, f24165a);
+            editText.onKeyDown(67, f24181a);
         }
-        editText.onKeyDown(67, f24165a);
+        editText.onKeyDown(67, f24181a);
         int selectionStart2 = editText.getSelectionStart();
         if (text != null) {
             editText.setSelection(selectionStart2);
@@ -434,7 +434,7 @@ public class b {
         if (f2 != EmotionGroupType.LOCAL && f2 != EmotionGroupType.USER_COLLECT && !c2.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
             editText.getText().insert(editText.getSelectionStart(), c2);
         } else if (c2 != null) {
-            c.a.e.e.l.d.h().k(c2, 20, new C1127b(editText, context, new SpannableStringBuilder(c2), f2), 0, 0, BdUniqueId.gen(), null, c2, Boolean.FALSE, null);
+            c.a.e.e.l.d.h().k(c2, 20, new C1125b(editText, context, new SpannableStringBuilder(c2), f2), 0, 0, BdUniqueId.gen(), null, c2, Boolean.FALSE, null);
         }
     }
 
@@ -463,7 +463,7 @@ public class b {
             }
             return;
         }
-        Matcher matcher = c.a.r0.q0.a.f24163a.matcher(spannableStringBuilder);
+        Matcher matcher = c.a.r0.q0.a.f24179a.matcher(spannableStringBuilder);
         while (matcher.find()) {
             String group = matcher.group();
             int start = matcher.start();
@@ -507,7 +507,7 @@ public class b {
         BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
         int width = p.getWidth();
         if (emotionGroupType == EmotionGroupType.LOCAL) {
-            int i3 = c.a.q0.b.d.K() ? (int) (width * 0.4d) : (int) (width * 0.5d);
+            int i3 = c.a.q0.b.d.O() ? (int) (width * 0.4d) : (int) (width * 0.5d);
             bitmapDrawable.setBounds(0, 0, i3, i3);
         } else if (emotionGroupType == EmotionGroupType.USER_COLLECT || spannableStringBuilder.toString().startsWith(SmallTailInfo.EMOTION_PREFIX)) {
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.ds80);

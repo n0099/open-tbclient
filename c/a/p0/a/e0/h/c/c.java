@@ -30,23 +30,23 @@ public class c implements a.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f5379f;
+    public static final boolean f5387f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f5380a;
+    public a.b f5388a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LocalServerSocket f5381b;
+    public LocalServerSocket f5389b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.p0.a.e0.h.c.a f5382c;
+    public c.a.p0.a.e0.h.c.a f5390c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5383d;
+    public String f5391d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f5384e;
+    public boolean f5392e;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -54,19 +54,19 @@ public class c implements a.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, String> f5385a;
+        public Map<String, String> f5393a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5386b;
+        public String f5394b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f5387c;
+        public String f5395c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f5388d;
+        public String f5396d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f5389e;
+        public boolean f5397e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class c implements a.c {
                     return;
                 }
             }
-            this.f5385a = new HashMap();
+            this.f5393a = new HashMap();
         }
     }
 
@@ -91,7 +91,7 @@ public class c implements a.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f5390a;
+        public a f5398a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class c implements a.c {
                     return;
                 }
             }
-            this.f5390a = aVar;
+            this.f5398a = aVar;
         }
 
         public String a() {
@@ -164,7 +164,7 @@ public class c implements a.c {
                 return;
             }
         }
-        f5379f = k.f7077a;
+        f5387f = k.f7085a;
     }
 
     public c(String str, a.b bVar) {
@@ -182,28 +182,28 @@ public class c implements a.c {
                 return;
             }
         }
-        this.f5383d = str;
-        this.f5380a = bVar;
+        this.f5391d = str;
+        this.f5388a = bVar;
     }
 
     @Override // c.a.p0.a.e0.h.a.c
     public void start() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5384e) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5392e) {
             return;
         }
         try {
-            this.f5381b = new LocalServerSocket(this.f5383d);
-            this.f5384e = true;
+            this.f5389b = new LocalServerSocket(this.f5391d);
+            this.f5392e = true;
             int i2 = 0;
-            while (this.f5384e) {
-                LocalSocket accept = this.f5381b.accept();
+            while (this.f5392e) {
+                LocalSocket accept = this.f5389b.accept();
                 c.a.p0.a.e0.h.c.a aVar = new c.a.p0.a.e0.h.c.a(accept.getInputStream(), accept.getOutputStream());
-                this.f5382c = aVar;
-                aVar.o(this.f5380a);
-                ExecutorUtilsExt.postOnSerial(this.f5382c, "V8InspectorServer");
+                this.f5390c = aVar;
+                aVar.o(this.f5388a);
+                ExecutorUtilsExt.postOnSerial(this.f5390c, "V8InspectorServer");
                 if (c.a.p0.a.u1.a.a.G() && (i2 = i2 + 1) > 10) {
-                    boolean z = f5379f;
+                    boolean z = f5387f;
                     return;
                 }
             }
@@ -216,22 +216,22 @@ public class c implements a.c {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f5384e = false;
-            LocalServerSocket localServerSocket = this.f5381b;
+            this.f5392e = false;
+            LocalServerSocket localServerSocket = this.f5389b;
             if (localServerSocket != null) {
                 try {
                     localServerSocket.close();
                 } catch (IOException e2) {
                     c.a.p0.a.e0.d.c("V8InspectorServer", "stop local server fail", e2);
                 }
-                this.f5381b = null;
+                this.f5389b = null;
             }
-            c.a.p0.a.e0.h.c.a aVar = this.f5382c;
+            c.a.p0.a.e0.h.c.a aVar = this.f5390c;
             if (aVar != null) {
                 aVar.l();
-                this.f5382c = null;
+                this.f5390c = null;
             }
-            this.f5380a = null;
+            this.f5388a = null;
         }
     }
 }

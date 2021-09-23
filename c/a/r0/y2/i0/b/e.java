@@ -12,16 +12,16 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29501a;
+    public int f29521a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29502b;
+    public int f29522b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29503c;
+    public int f29523c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f29504d;
+    public long f29524d;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class e {
                 return null;
             }
             e eVar = new e();
-            eVar.f29501a = jSONObject.optInt("agree_num", -1);
-            eVar.f29502b = jSONObject.optInt("share_num", -1);
-            eVar.f29503c = jSONObject.optInt("reply_num", -1);
-            eVar.f29504d = jSONObject.optLong("time", System.currentTimeMillis());
+            eVar.f29521a = jSONObject.optInt("agree_num", -1);
+            eVar.f29522b = jSONObject.optInt("share_num", -1);
+            eVar.f29523c = jSONObject.optInt("reply_num", -1);
+            eVar.f29524d = jSONObject.optLong("time", System.currentTimeMillis());
             return eVar;
         }
         return (e) invokeL.objValue;

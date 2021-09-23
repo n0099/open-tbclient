@@ -13,6 +13,7 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.share.ShareStatKey;
 import com.baidu.sapi2.share.ShareStorage;
+import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -216,7 +217,7 @@ public class SapiStatUtil {
     public static void statShareV1Login(SapiAccount sapiAccount, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65548, null, sapiAccount, list) == null) && ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE.equals(SapiContext.getInstance().getAccountActionType())) {
-            SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE);
+            SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.CHOICE_SHARE.getName());
             HashMap hashMap = new HashMap();
             buildStatExtraMap(hashMap, list);
             hashMap.put(ShareCallPacking.StatModel.KEY_ACCOUNT_TPL, sapiAccount.getShareAccountTpl());

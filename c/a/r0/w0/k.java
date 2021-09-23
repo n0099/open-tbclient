@@ -92,7 +92,7 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends c.a.e.l.e.a
             this.r = TbadkCoreApplication.getInst().getSkinType();
             this.q = (c.a.e.l.e.s) viewGroup;
             if (t instanceof c2) {
-                ((c2) t).w.o4(2);
+                ((c2) t).w.n4(2);
                 return null;
             }
             return null;
@@ -137,11 +137,11 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends c.a.e.l.e.a
     public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f2957e = null;
+            this.f2958e = null;
             this.o = null;
             this.p = null;
-            this.f2958f = null;
-            this.f2959g = null;
+            this.f2959f = null;
+            this.f2960g = null;
             i iVar = this.s;
             if (iVar != null) {
                 iVar.a();
@@ -176,9 +176,9 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends c.a.e.l.e.a
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, bdUniqueId) == null) || tbPageContext == null) {
             return;
         }
-        this.f2957e = tbPageContext.getPageActivity();
+        this.f2958e = tbPageContext.getPageActivity();
         this.o = tbPageContext;
-        this.f2961i = bdUniqueId;
+        this.f2962i = bdUniqueId;
     }
 
     public void o0(boolean z) {

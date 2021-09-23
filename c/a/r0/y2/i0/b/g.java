@@ -20,34 +20,34 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29508a;
+    public String f29528a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29509b;
+    public String f29529b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29510c;
+    public String f29530c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29511d;
+    public String f29531d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29512e;
+    public String f29532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f29513f;
+    public String f29533f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f29514g;
+    public String f29534g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29515h;
+    public int f29535h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f29516i;
+    public String f29536i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f29517j;
+    public boolean f29537j;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class g {
                 return;
             }
         }
-        this.f29517j = false;
+        this.f29537j = false;
     }
 
     public void a(AdvertAppInfo advertAppInfo, @NonNull AdCard adCard) {
@@ -70,19 +70,19 @@ public class g {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, advertAppInfo, adCard) == null) || advertAppInfo == null) {
             return;
         }
-        int i2 = advertAppInfo.l4;
+        int i2 = advertAppInfo.m4;
         if (i2 == 3) {
-            this.f29508a = "apk_download";
-            this.f29513f = advertAppInfo.o4;
-            this.f29514g = advertAppInfo.n4;
+            this.f29528a = "apk_download";
+            this.f29533f = advertAppInfo.p4;
+            this.f29534g = advertAppInfo.o4;
         } else if (i2 == 1) {
-            this.f29508a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
+            this.f29528a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
         }
-        this.f29512e = adCard.getButtonText();
-        this.f29509b = adCard.userName;
-        this.f29510c = adCard.userImage;
-        this.f29511d = adCard.scheme;
-        this.f29516i = adCard.threadTitle;
+        this.f29532e = adCard.getButtonText();
+        this.f29529b = adCard.userName;
+        this.f29530c = adCard.userImage;
+        this.f29531d = adCard.scheme;
+        this.f29536i = adCard.threadTitle;
     }
 
     public void b(JSONObject jSONObject) {
@@ -90,19 +90,19 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f29508a = jSONObject.optString("style");
-        this.f29509b = jSONObject.optString("user_name");
-        this.f29510c = jSONObject.optString("user_portrait");
-        this.f29511d = jSONObject.optString("scheme");
-        this.f29512e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-        this.f29515h = jSONObject.optInt("close_time");
+        this.f29528a = jSONObject.optString("style");
+        this.f29529b = jSONObject.optString("user_name");
+        this.f29530c = jSONObject.optString("user_portrait");
+        this.f29531d = jSONObject.optString("scheme");
+        this.f29532e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+        this.f29535h = jSONObject.optInt("close_time");
         JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
         if (optJSONObject != null) {
-            this.f29513f = optJSONObject.optString("pkgname");
-            this.f29514g = optJSONObject.optString("download_url");
+            this.f29533f = optJSONObject.optString("pkgname");
+            this.f29534g = optJSONObject.optString("download_url");
         }
         jSONObject.optString("content");
-        this.f29517j = true;
+        this.f29537j = true;
     }
 
     public void c(String str) {
@@ -123,16 +123,16 @@ public class g {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("style", this.f29508a);
-                jSONObject.put("user_name", this.f29509b);
-                jSONObject.put("user_portrait", this.f29510c);
-                jSONObject.put("scheme", this.f29511d);
-                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f29512e);
+                jSONObject.put("style", this.f29528a);
+                jSONObject.put("user_name", this.f29529b);
+                jSONObject.put("user_portrait", this.f29530c);
+                jSONObject.put("scheme", this.f29531d);
+                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f29532e);
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pkgname", this.f29513f);
-                jSONObject2.put("download_url", this.f29514g);
+                jSONObject2.put("pkgname", this.f29533f);
+                jSONObject2.put("download_url", this.f29534g);
                 jSONObject.put("ext_data", jSONObject2);
-                jSONObject.put("content", this.f29515h);
+                jSONObject.put("content", this.f29535h);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -147,16 +147,16 @@ public class g {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("style", this.f29508a);
-                jSONObject.put("user_name", this.f29509b);
-                jSONObject.put("user_portrait", this.f29510c);
-                jSONObject.put("scheme", this.f29511d);
-                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f29512e);
+                jSONObject.put("style", this.f29528a);
+                jSONObject.put("user_name", this.f29529b);
+                jSONObject.put("user_portrait", this.f29530c);
+                jSONObject.put("scheme", this.f29531d);
+                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f29532e);
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pkgname", this.f29513f);
-                jSONObject2.put("download_url", this.f29514g);
+                jSONObject2.put("pkgname", this.f29533f);
+                jSONObject2.put("download_url", this.f29534g);
                 jSONObject.put("ext_data", jSONObject2);
-                jSONObject.put("content", this.f29515h);
+                jSONObject.put("content", this.f29535h);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

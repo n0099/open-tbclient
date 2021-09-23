@@ -1,14 +1,13 @@
 package c.a.r0.j2.o.f;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.q0.d1.r0;
 import c.a.r0.j2.k.e.p0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -34,6 +33,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.core.view.HeadImageView;
@@ -76,7 +76,7 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f20627e;
+        public final /* synthetic */ j f20642e;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
                     return;
                 }
             }
-            this.f20627e = jVar;
+            this.f20642e = jVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -104,9 +104,9 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
                     if (ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                         r4 = view.getTag() != null ? (String) view.getTag() : null;
                         if (r4 != null) {
-                            UrlManager.getInstance().dealOneLink(this.f20627e.m.getPageContext(), new String[]{r4});
+                            UrlManager.getInstance().dealOneLink(this.f20642e.m.getPageContext(), new String[]{r4});
                         }
-                        TiebaStatic.eventStat(this.f20627e.m.getPageContext().getPageActivity(), "consume_2", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                        TiebaStatic.eventStat(this.f20642e.m.getPageContext().getPageActivity(), "consume_2", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
                     }
                 } else if (view.getId() == R.id.video_tab_user_yinji_video_info_item) {
                     if (view.getTag(R.id.tag_user_id) instanceof String) {
@@ -125,7 +125,7 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
                     int liveStatus = headView.getLiveStatus();
                     if (alaInfo != null && (liveStatus == 1 || alaInfo.live_status == 1)) {
                         if (alaInfo.isLegalYYLiveData()) {
-                            YYLiveUtil.jumpYYLiveRoom(this.f20627e.m.getPageContext(), alaInfo, YYLiveUtil.SOURCE_PB_LIVE_HEAD);
+                            YYLiveUtil.jumpYYLiveRoom(this.f20642e.m.getPageContext(), alaInfo, YYLiveUtil.SOURCE_PB_LIVE_HEAD);
                         }
                         StatisticItem statisticItem = new StatisticItem("c13715");
                         statisticItem.param("fid", fid);
@@ -151,36 +151,36 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
                     statisticItem2.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
                     TiebaStatic.log(statisticItem2);
                     if (userId != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f20627e.f2957e, userId, userName, fName, AddFriendActivityConfig.TYPE_PB_HEAD)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f20642e.f2958e, userId, userName, fName, AddFriendActivityConfig.TYPE_PB_HEAD)));
                     }
                 } else if (view.getId() == R.id.video_tab_user_name_video_info_item) {
                     TiebaStatic.log(new StatisticItem("c11923").param("obj_id", 2));
                     String str = view.getTag(R.id.tag_user_id) instanceof String ? (String) view.getTag(R.id.tag_user_id) : null;
                     String str2 = view.getTag(R.id.tag_user_name) instanceof String ? (String) view.getTag(R.id.tag_user_name) : null;
-                    if (this.f20627e.n != null && this.f20627e.n.m() != null) {
-                        r4 = this.f20627e.n.m().getName();
+                    if (this.f20642e.n != null && this.f20642e.n.m() != null) {
+                        r4 = this.f20642e.n.m().getName();
                     }
                     String str3 = r4;
                     StatisticItem statisticItem3 = new StatisticItem("c13267");
                     statisticItem3.param("uid", str);
-                    if (this.f20627e.n != null) {
-                        statisticItem3.param("fid", this.f20627e.n.n());
-                        statisticItem3.param("tid", this.f20627e.n.Q());
+                    if (this.f20642e.n != null) {
+                        statisticItem3.param("fid", this.f20642e.n.n());
+                        statisticItem3.param("tid", this.f20642e.n.Q());
                     }
                     statisticItem3.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
                     TiebaStatic.log(statisticItem3);
                     if (str != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f20627e.f2957e, str, str2, str3, AddFriendActivityConfig.TYPE_PB_HEAD)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f20642e.f2958e, str, str2, str3, AddFriendActivityConfig.TYPE_PB_HEAD)));
                     }
-                } else if (view.getId() == R.id.video_tab_concern_video_info_item && (this.f20627e.m instanceof VideoPbCommentFloatFragment)) {
+                } else if (view.getId() == R.id.video_tab_concern_video_info_item && (this.f20642e.m instanceof VideoPbCommentFloatFragment)) {
                     StatisticItem statisticItem4 = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                    statisticItem4.param("fid", this.f20627e.n.n());
-                    statisticItem4.param("tid", this.f20627e.n.Q());
+                    statisticItem4.param("fid", this.f20642e.n.n());
+                    statisticItem4.param("tid", this.f20642e.n.Q());
                     statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    statisticItem4.param("post_id", this.f20627e.n.j().E());
+                    statisticItem4.param("post_id", this.f20642e.n.j().E());
                     statisticItem4.param("obj_source", 1);
                     statisticItem4.param("obj_type", 15);
-                    statisticItem4.param("obj_locate", ((VideoPbCommentFloatFragment) this.f20627e.m).getFromVideoPageType());
+                    statisticItem4.param("obj_locate", ((VideoPbCommentFloatFragment) this.f20642e.m).getFromVideoPageType());
                     TiebaStatic.log(statisticItem4);
                 }
             }
@@ -193,7 +193,7 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ j f20628a;
+        public final /* synthetic */ j f20643a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(j jVar, int i2) {
@@ -213,18 +213,18 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
                     return;
                 }
             }
-            this.f20628a = jVar;
+            this.f20643a = jVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f20628a.k == null || ((VideoTabPbFloatUserInfoViewHolder) this.f20628a.k).mVideoTitle == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f20643a.k == null || ((VideoTabPbFloatUserInfoViewHolder) this.f20643a.k).mVideoTitle == null) {
                 return;
             }
-            ((VideoTabPbFloatUserInfoViewHolder) this.f20628a.k).mVideoTitle.setTextSize(TbConfig.getContentSize());
-            this.f20628a.P();
+            ((VideoTabPbFloatUserInfoViewHolder) this.f20643a.k).mVideoTitle.setTextSize(TbConfig.getContentSize());
+            this.f20643a.P();
         }
     }
 
@@ -261,7 +261,7 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
         if (!(interceptable == null || interceptable.invokeL(1048576, this, videoTabPbFloatUserInfoViewHolder) == null) || (eVar = this.n) == null) {
             return;
         }
-        this.p = eVar.f19620j;
+        this.p = eVar.f19635j;
         if (eVar.O() != null) {
             this.r = this.n.O().q0() == 1;
             this.q = this.n.O().r0() == 1;
@@ -349,7 +349,7 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
             videoTabPbFloatUserInfoViewHolder.mConcernBtn.setVisibility(8);
             videoTabPbFloatUserInfoViewHolder.mConcernBtn.setText("");
         }
-        if (this.n.f19619i) {
+        if (this.n.f19634i) {
             videoTabPbFloatUserInfoViewHolder.mConcernBtn.setVisibility(8);
             videoTabPbFloatUserInfoViewHolder.mConcernBtn.setText("");
         }
@@ -429,8 +429,8 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
         if (!(interceptable == null || interceptable.invokeLL(1048586, this, videoTabPbFloatUserInfoViewHolder, postData) == null) || (eVar = this.n) == null || eVar.O() == null || postData == null) {
             return;
         }
-        videoTabPbFloatUserInfoViewHolder.setVideoTitle(this.f2957e, this.n.O().W0(), this.n.O().getTitle(), this.n.O(), s0(postData), this.n.q0());
-        videoTabPbFloatUserInfoViewHolder.setVideoAbstract(this.f2957e, postData);
+        videoTabPbFloatUserInfoViewHolder.setVideoTitle(this.f2958e, this.n.O().W0(), this.n.O().getTitle(), this.n.O(), s0(postData), this.n.q0());
+        videoTabPbFloatUserInfoViewHolder.setVideoAbstract(this.f2958e, postData);
     }
 
     public void q(String str) {
@@ -497,8 +497,8 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f2957e).inflate(R.layout.pb_new_video_tab_user_info_item, viewGroup, false);
-            Context context = this.f2957e;
+            View inflate = LayoutInflater.from(this.f2958e).inflate(R.layout.pb_new_video_tab_user_info_item, viewGroup, false);
+            Context context = this.f2958e;
             BaseFragment baseFragment = this.m;
             VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder = new VideoTabPbFloatUserInfoViewHolder(context, inflate, baseFragment instanceof AbsVideoPbFragment ? (AbsVideoPbFragment) baseFragment : null);
             videoTabPbFloatUserInfoViewHolder.setOnClickListener(this.x);
@@ -521,7 +521,7 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
                 p0(videoTabPbFloatUserInfoViewHolder, postData);
                 q0(videoTabPbFloatUserInfoViewHolder, postData);
                 t0(videoTabPbFloatUserInfoViewHolder);
-                videoTabPbFloatUserInfoViewHolder.mYoungsterTip.setVisibility(c.a.q0.g1.b.e.d() ? 0 : 8);
+                videoTabPbFloatUserInfoViewHolder.mYoungsterTip.setVisibility(c.a.q0.g1.b.c.d() ? 0 : 8);
             }
             return view;
         }
@@ -573,24 +573,17 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
                 TextView textView = videoTabPbFloatUserInfoViewHolder.mFansCount;
                 textView.setText(numberUniformFormatExtra + TbadkCoreApplication.getInst().getString(R.string.fans_default_name));
             }
-            if (metaData != null && metaData.isNewGod()) {
+            String authInfo = UtilHelper.getAuthInfo(metaData, false, 24);
+            if (!TextUtils.isEmpty(authInfo)) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) videoTabPbFloatUserInfoViewHolder.mFansCount.getLayoutParams();
                 layoutParams.setMargins(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds32), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
-                videoTabPbFloatUserInfoViewHolder.mBjhAuthorAuth.setText(metaData.getNewGodData().getFieldName() + r0.d(metaData.getNewGodData().isVideoGod()));
+                videoTabPbFloatUserInfoViewHolder.mBjhAuthorAuth.setText(authInfo);
                 videoTabPbFloatUserInfoViewHolder.mBjhAuthorAuth.setVisibility(0);
-            } else if (metaData != null && metaData.showBazhuGrade()) {
-                videoTabPbFloatUserInfoViewHolder.mBjhAuthorAuth.setText(StringHelper.cutChineseAndEnglishWithSuffix(metaData.getBazhuGradeData().getDesc(), 24, "..."));
-                videoTabPbFloatUserInfoViewHolder.mBjhAuthorAuth.setVisibility(0);
-            } else if (metaData != null && metaData.getBaijiahaoInfo() != null && !k.isEmpty(metaData.getBaijiahaoInfo().auth_desc)) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) videoTabPbFloatUserInfoViewHolder.mFansCount.getLayoutParams();
-                layoutParams2.setMargins(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds32), layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
-                videoTabPbFloatUserInfoViewHolder.mBjhAuthorAuth.setText(metaData.getBaijiahaoInfo().auth_desc);
-                videoTabPbFloatUserInfoViewHolder.mBjhAuthorAuth.setVisibility(0);
-            } else {
-                RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) videoTabPbFloatUserInfoViewHolder.mFansCount.getLayoutParams();
-                layoutParams3.setMargins(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20), layoutParams3.topMargin, layoutParams3.rightMargin, layoutParams3.bottomMargin);
-                videoTabPbFloatUserInfoViewHolder.mBjhAuthorAuth.setVisibility(8);
+                return;
             }
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) videoTabPbFloatUserInfoViewHolder.mFansCount.getLayoutParams();
+            layoutParams2.setMargins(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20), layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
+            videoTabPbFloatUserInfoViewHolder.mBjhAuthorAuth.setVisibility(8);
         }
     }
 
@@ -617,7 +610,7 @@ public class j extends c.a.e.l.e.a<PostData, VideoTabPbFloatUserInfoViewHolder> 
                     d2.o(R.string.J_X04);
                     d2.m(R.dimen.L_X01);
                     d2.l(R.color.CAM_X0302);
-                } else if (t.getIs_bawu() == 1 && postData.X()) {
+                } else if (t.getIs_bawu() == 1 && postData.Z()) {
                     c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(textView);
                     d3.w(R.color.CAM_X0101);
                     d3.o(R.string.J_X04);

@@ -38,23 +38,23 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f31480f = true;
+    public static volatile boolean f31501f = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f31481a;
+    public a f31502a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f31482b;
+    public final Context f31503b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile long f31483c;
+    public volatile long f31504c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f31484d;
+    public volatile boolean f31505d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SharedPreferences f31485e;
+    public final SharedPreferences f31506e;
 
     static {
         InterceptResult invokeClinit;
@@ -86,12 +86,12 @@ public class c {
                 return;
             }
         }
-        this.f31484d = false;
+        this.f31505d = false;
         if (context != null && (context instanceof Application)) {
-            this.f31482b = context;
+            this.f31503b = context;
             SharedPreferences sharedPreferences = context.getSharedPreferences("anr_monitor_table", 0);
-            this.f31485e = sharedPreferences;
-            this.f31483c = sharedPreferences.getLong("trace_anr_happen_time", 0L);
+            this.f31506e = sharedPreferences;
+            this.f31504c = sharedPreferences.getLong("trace_anr_happen_time", 0L);
             g.i(100, 100);
             return;
         }
@@ -102,7 +102,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
             for (i iVar : m.c().f()) {
-                iVar.a(com.bytedance.tea.crash.c.f68910d, str, null);
+                iVar.a(com.bytedance.tea.crash.c.f69221d, str, null);
             }
         }
     }
@@ -168,13 +168,13 @@ public class c {
                     }
                     String str3 = f3[1].toString().split("\\s")[2];
                     if (parseLong == i2 && str3.equalsIgnoreCase(str2)) {
-                        if (this.f31483c != 0 && Math.abs(this.f31483c - time) < 20000) {
+                        if (this.f31504c != 0 && Math.abs(this.f31504c - time) < 20000) {
                             l.g.a(bufferedReader);
                             return null;
                         }
-                        this.f31483c = time;
-                        if (this.f31485e != null) {
-                            this.f31485e.edit().putLong("trace_anr_happen_time", this.f31483c).apply();
+                        this.f31504c = time;
+                        if (this.f31506e != null) {
+                            this.f31506e.edit().putLong("trace_anr_happen_time", this.f31504c).apply();
                         }
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("anrTime", time);
@@ -233,17 +233,17 @@ public class c {
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f31484d) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f31505d) {
             return;
         }
         if (Build.VERSION.SDK_INT < 21) {
             a aVar = new a(this, "/data/anr/", 8);
-            this.f31481a = aVar;
+            this.f31502a = aVar;
             aVar.startWatching();
         } else {
             new d(this);
         }
-        this.f31484d = true;
+        this.f31505d = true;
     }
 
     public boolean e(int i2, String str, int i3) {
@@ -257,22 +257,22 @@ public class c {
             JSONObject f2 = g.f(uptimeMillis);
             JSONArray e2 = g.e(100, uptimeMillis);
             try {
-                jSONObject = e.b(f31480f);
+                jSONObject = e.b(f31501f);
             } catch (JSONException e3) {
                 e3.printStackTrace();
                 jSONObject = null;
             }
-            String a2 = e.a(this.f31482b, i3);
+            String a2 = e.a(this.f31503b, i3);
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
-            if (i2 == 200 && (b2 = b(str, Process.myPid(), this.f31482b.getPackageName())) != null && b2.length() > 0) {
+            if (i2 == 200 && (b2 = b(str, Process.myPid(), this.f31503b.getPackageName())) != null && b2.length() > 0) {
                 jSONObject = b2;
             }
             if (jSONObject != null && jSONObject.length() > 0) {
                 try {
                     jSONObject.put("pid", Process.myPid());
-                    jSONObject.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.f31482b.getPackageName());
+                    jSONObject.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.f31503b.getPackageName());
                     jSONObject.put("is_remote_process", 0);
                     c.b.c.b.e.a aVar = new c.b.c.b.e.a(new JSONObject());
                     aVar.k("data", jSONObject.toString());
@@ -286,8 +286,8 @@ public class c {
                     aVar.k("crash_time", Long.valueOf(System.currentTimeMillis()));
                     aVar.k("anr_info", a2);
                     aVar.k("all_thread_stacks", l.n.d(null));
-                    c.b.c.b.e.a a3 = c.b.c.b.h.a.e.c().a(com.bytedance.tea.crash.c.f68910d, aVar);
-                    l.e.d(this.f31482b, com.bytedance.tea.crash.c.f68910d.a(), null);
+                    c.b.c.b.e.a a3 = c.b.c.b.h.a.e.c().a(com.bytedance.tea.crash.c.f69221d, aVar);
+                    l.e.d(this.f31503b, com.bytedance.tea.crash.c.f69221d.a(), null);
                     c.b.c.b.n.a.a().c(a3.j());
                     d(a2);
                 } catch (Throwable th) {

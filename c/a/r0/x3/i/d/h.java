@@ -26,22 +26,22 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SurfaceTexture f28976e;
+    public SurfaceTexture f28996e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Surface f28977f;
+    public Surface f28997f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Object f28978g;
+    public Object f28998g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f28979h;
+    public boolean f28999h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f28980i;
+    public Context f29000i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f28981j;
+    public String f29001j;
     public int k;
     public int l;
     public FullFrameRect m;
@@ -80,11 +80,11 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
                 return;
             }
         }
-        this.f28978g = new Object();
-        this.f28981j = "normal";
+        this.f28998g = new Object();
+        this.f29001j = "normal";
         this.p = new float[16];
-        this.f28980i = context;
-        this.f28981j = str;
+        this.f29000i = context;
+        this.f29001j = str;
         this.k = i2;
         this.l = i3;
         f();
@@ -93,21 +93,21 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.f28978g) {
-                while (!this.f28979h) {
+            synchronized (this.f28998g) {
+                while (!this.f28999h) {
                     try {
-                        this.f28978g.wait(500L);
-                        if (!this.f28979h) {
+                        this.f28998g.wait(500L);
+                        if (!this.f28999h) {
                             throw new RuntimeException("Surface frame wait timed out");
                         }
                     } catch (InterruptedException e2) {
                         throw new RuntimeException(e2);
                     }
                 }
-                this.f28979h = false;
+                this.f28999h = false;
             }
             b("before updateTexImage");
-            this.f28976e.updateTexImage();
+            this.f28996e.updateTexImage();
         }
     }
 
@@ -124,9 +124,9 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f28976e.updateTexImage();
-            this.f28976e.getTransformMatrix(this.p);
-            faceunity.fuItemSetParam(q, TbFileVideoActivityConfig.FILTER_NAME, this.f28981j);
+            this.f28996e.updateTexImage();
+            this.f28996e.getTransformMatrix(this.p);
+            faceunity.fuItemSetParam(q, TbFileVideoActivityConfig.FILTER_NAME, this.f29001j);
             faceunity.fuItemSetParam(q, "eye_bright", 0.0d);
             faceunity.fuItemSetParam(q, "tooth_whiten", 0.0d);
             this.m.drawFrame(faceunity.fuBeautifyImage(this.o, 1, this.k, this.l, 0, s), this.p);
@@ -136,15 +136,15 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     public Surface d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28977f : (Surface) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28997f : (Surface) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f28977f.release();
-            this.f28977f = null;
-            this.f28976e = null;
+            this.f28997f.release();
+            this.f28997f = null;
+            this.f28996e = null;
             FullFrameRect fullFrameRect = this.m;
             if (fullFrameRect != null) {
                 fullFrameRect.release(false);
@@ -169,12 +169,12 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
             FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
             this.n = fullFrameRect;
             this.o = fullFrameRect.createTextureObject();
-            this.f28976e = new SurfaceTexture(this.o);
-            this.f28977f = new Surface(this.f28976e);
-            int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.f28980i);
+            this.f28996e = new SurfaceTexture(this.o);
+            this.f28997f = new Surface(this.f28996e);
+            int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.f29000i);
             q = upFaceUnity;
             s[0] = upFaceUnity;
-            this.f28976e.setOnFrameAvailableListener(this);
+            this.f28996e.setOnFrameAvailableListener(this);
         }
     }
 
@@ -182,10 +182,10 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
-            synchronized (this.f28978g) {
-                if (!this.f28979h) {
-                    this.f28979h = true;
-                    this.f28978g.notifyAll();
+            synchronized (this.f28998g) {
+                if (!this.f28999h) {
+                    this.f28999h = true;
+                    this.f28998g.notifyAll();
                 } else {
                     throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
                 }

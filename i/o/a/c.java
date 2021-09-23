@@ -11,30 +11,30 @@ public final class c<T> extends i.j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.j<? super T> f78601e;
+    public final i.j<? super T> f78920e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final OnSubscribeAmb$Selection<T> f78602f;
+    public final OnSubscribeAmb$Selection<T> f78921f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f78603g;
+    public boolean f78922g;
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f78603g) {
+            if (this.f78922g) {
                 return true;
             }
-            if (this.f78602f.get() == this) {
-                this.f78603g = true;
+            if (this.f78921f.get() == this) {
+                this.f78922g = true;
                 return true;
-            } else if (this.f78602f.compareAndSet(null, this)) {
-                this.f78602f.unsubscribeOthers(this);
-                this.f78603g = true;
+            } else if (this.f78921f.compareAndSet(null, this)) {
+                this.f78921f.unsubscribeOthers(this);
+                this.f78922g = true;
                 return true;
             } else {
-                this.f78602f.unsubscribeLosers();
+                this.f78921f.unsubscribeLosers();
                 return false;
             }
         }
@@ -45,7 +45,7 @@ public final class c<T> extends i.j<T> {
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && b()) {
-            this.f78601e.onCompleted();
+            this.f78920e.onCompleted();
         }
     }
 
@@ -53,7 +53,7 @@ public final class c<T> extends i.j<T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && b()) {
-            this.f78601e.onError(th);
+            this.f78920e.onError(th);
         }
     }
 
@@ -61,7 +61,7 @@ public final class c<T> extends i.j<T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && b()) {
-            this.f78601e.onNext(t);
+            this.f78920e.onNext(t);
         }
     }
 }

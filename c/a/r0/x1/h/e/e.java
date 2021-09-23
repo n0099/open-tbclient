@@ -23,22 +23,22 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f28832a;
+    public View f28852a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f28833b;
+    public Context f28853b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f28834c;
+    public TextView f28854c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f28835d;
+    public ImageView f28855d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TailData f28836e;
+    public TailData f28856e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f28837f;
+    public View f28857f;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -59,15 +59,15 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.tail_tool_item, (ViewGroup) null);
-            this.f28832a = inflate;
-            this.f28833b = context;
+            this.f28852a = inflate;
+            this.f28853b = context;
             inflate.setTag(this);
-            this.f28834c = (TextView) this.f28832a.findViewById(R.id.tail_tool_item_text);
-            this.f28835d = (ImageView) this.f28832a.findViewById(R.id.tail_tool_item_selected);
-            View findViewById = this.f28832a.findViewById(R.id.tail_tool_item_scope);
-            this.f28837f = findViewById;
+            this.f28854c = (TextView) this.f28852a.findViewById(R.id.tail_tool_item_text);
+            this.f28855d = (ImageView) this.f28852a.findViewById(R.id.tail_tool_item_selected);
+            View findViewById = this.f28852a.findViewById(R.id.tail_tool_item_scope);
+            this.f28857f = findViewById;
             findViewById.setTag(this);
-            return this.f28832a;
+            return this.f28852a;
         }
         return (View) invokeL.objValue;
     }
@@ -75,45 +75,45 @@ public class e {
     public TailData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28836e : (TailData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28856e : (TailData) invokeV.objValue;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.f28837f, R.drawable.tail_item_bg);
-            SkinManager.setViewTextColor(this.f28834c, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundResource(this.f28835d, R.drawable.tail_tool_list_item_checkbox_bg);
-            SkinManager.setImageResource(this.f28835d, R.drawable.tail_tool_list_item_checkbox_selector);
+            SkinManager.setBackgroundResource(this.f28857f, R.drawable.tail_item_bg);
+            SkinManager.setViewTextColor(this.f28854c, R.color.CAM_X0106, 1);
+            SkinManager.setBackgroundResource(this.f28855d, R.drawable.tail_tool_list_item_checkbox_bg);
+            SkinManager.setImageResource(this.f28855d, R.drawable.tail_tool_list_item_checkbox_selector);
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f28834c.setTextColor(c.a.r0.x1.h.f.c.a(str));
+            this.f28854c.setTextColor(c.a.r0.x1.h.f.c.a(str));
         }
     }
 
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f28837f.setOnClickListener(onClickListener);
+            this.f28857f.setOnClickListener(onClickListener);
         }
     }
 
     public void f(TailData tailData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tailData) == null) {
-            this.f28836e = tailData;
+            this.f28856e = tailData;
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f28834c.setText(TbFaceManager.e().l(this.f28833b, c.a.r0.x1.h.f.d.a(str), null));
+            this.f28854c.setText(TbFaceManager.e().l(this.f28853b, c.a.r0.x1.h.f.d.a(str), null));
         }
     }
 
@@ -124,6 +124,6 @@ public class e {
         }
         g(tailData.getContent());
         d(tailData.getFontColor());
-        this.f28835d.setSelected(tailData.isSelected());
+        this.f28855d.setSelected(tailData.isSelected());
     }
 }

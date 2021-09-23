@@ -19,7 +19,7 @@ public class b extends h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10152a;
+    public static final boolean f10160a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class b extends h {
                 return;
             }
         }
-        f10152a = k.f7077a;
+        f10160a = k.f7085a;
         try {
             CookieSyncManager.createInstance(AppRuntime.getAppContext());
         } catch (Exception unused) {
@@ -76,7 +76,7 @@ public class b extends h {
             String str2 = "";
             try {
                 str2 = CookieManager.getInstance().getCookie(str);
-                if (f10152a) {
+                if (f10160a) {
                     String str3 = "RealCookieManager:" + str2;
                 }
             } catch (Exception unused) {
@@ -110,7 +110,7 @@ public class b extends h {
     public void storeCookie(String str, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            if (f10152a) {
+            if (f10160a) {
                 String str2 = "storeCookie httpUrl: " + str;
                 String str3 = "storeCookie cookies: " + list;
             }

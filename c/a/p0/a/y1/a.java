@@ -17,10 +17,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<C0473a> f9844a;
+    public List<C0473a> f9852a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9845b;
+    public String f9853b;
 
     /* renamed from: c.a.p0.a.y1.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -29,13 +29,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f9846a;
+        public String f9854a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9847b;
+        public String f9855b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9848c;
+        public String f9856c;
 
         public C0473a() {
             Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class a {
                 return null;
             }
             a aVar = new a();
-            aVar.f9845b = jSONObject.optString(SwanAppRelatedSwanListAdapter.PAGE_ABOUT_MORE_RELATED_SWAN);
+            aVar.f9853b = jSONObject.optString(SwanAppRelatedSwanListAdapter.PAGE_ABOUT_MORE_RELATED_SWAN);
             JSONArray optJSONArray = jSONObject.optJSONArray("bind_app_list");
             if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
                 ArrayList arrayList = new ArrayList();
@@ -85,13 +85,13 @@ public class a {
                     if (optJSONObject != null) {
                         C0473a c0473a = new C0473a();
                         optJSONObject.optString("app_key");
-                        c0473a.f9847b = optJSONObject.optString("app_name");
-                        c0473a.f9846a = optJSONObject.optString("photo_addr");
-                        c0473a.f9848c = optJSONObject.optString("scheme");
+                        c0473a.f9855b = optJSONObject.optString("app_name");
+                        c0473a.f9854a = optJSONObject.optString("photo_addr");
+                        c0473a.f9856c = optJSONObject.optString("scheme");
                         arrayList.add(c0473a);
                     }
                 }
-                aVar.f9844a = arrayList;
+                aVar.f9852a = arrayList;
                 return aVar;
             }
             return null;

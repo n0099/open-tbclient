@@ -30,10 +30,10 @@ public class e extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f28443e;
+    public Context f28463e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<j> f28444f;
+    public List<j> f28464f;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -41,13 +41,13 @@ public class e extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f28445e;
+        public final /* synthetic */ int f28465e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f28446f;
+        public final /* synthetic */ j f28466f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f28447g;
+        public final /* synthetic */ e f28467g;
 
         public a(e eVar, int i2, j jVar) {
             Interceptable interceptable = $ic;
@@ -64,30 +64,30 @@ public class e extends BaseAdapter {
                     return;
                 }
             }
-            this.f28447g = eVar;
-            this.f28445e = i2;
-            this.f28446f = jVar;
+            this.f28467g = eVar;
+            this.f28465e = i2;
+            this.f28466f = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem("c11219").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f28445e + 1));
-                TbPageContext tbPageContext = (TbPageContext) c.a.e.a.j.a(this.f28447g.f28443e);
+                TiebaStatic.log(new StatisticItem("c11219").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f28465e + 1));
+                TbPageContext tbPageContext = (TbPageContext) c.a.e.a.j.a(this.f28467g.f28463e);
                 if (tbPageContext == null) {
                     return;
                 }
-                if (!StringUtils.isNull(this.f28446f.d())) {
-                    TiebaStatic.log(new StatisticItem("c10445").param("obj_id", this.f28446f.a()));
-                    MemberCenterStatic.a(tbPageContext, new String[]{this.f28446f.d(), this.f28446f.b(), this.f28446f.e()});
+                if (!StringUtils.isNull(this.f28466f.d())) {
+                    TiebaStatic.log(new StatisticItem("c10445").param("obj_id", this.f28466f.a()));
+                    MemberCenterStatic.a(tbPageContext, new String[]{this.f28466f.d(), this.f28466f.b(), this.f28466f.e()});
                 }
-                if (this.f28446f.c() > 0) {
+                if (this.f28466f.c() > 0) {
                     String currentAccount = !TbadkCoreApplication.isLogin() ? SevenZipUtils.FILE_NAME_TEMP : TbadkCoreApplication.getCurrentAccount();
-                    c.a.q0.s.d0.b.j().x("member_center_item_red_tip_" + this.f28446f.c() + currentAccount, this.f28446f.i());
+                    c.a.q0.s.d0.b.j().x("member_center_item_red_tip_" + this.f28466f.c() + currentAccount, this.f28466f.i());
                     b bVar = (b) view.getTag();
                     if (bVar != null) {
-                        bVar.f28453f.setVisibility(8);
+                        bVar.f28473f.setVisibility(8);
                     }
                 }
             }
@@ -100,22 +100,22 @@ public class e extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f28448a;
+        public View f28468a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f28449b;
+        public TbImageView f28469b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbImageView f28450c;
+        public TbImageView f28470c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f28451d;
+        public TextView f28471d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f28452e;
+        public TextView f28472e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbImageView f28453f;
+        public TbImageView f28473f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -147,7 +147,7 @@ public class e extends BaseAdapter {
                 return;
             }
         }
-        this.f28443e = context;
+        this.f28463e = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -157,11 +157,11 @@ public class e extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<j> list = this.f28444f;
+            List<j> list = this.f28464f;
             if (list == null || i2 < 0 || i2 >= list.size()) {
                 return null;
             }
-            return this.f28444f.get(i2);
+            return this.f28464f.get(i2);
         }
         return (j) invokeI.objValue;
     }
@@ -171,37 +171,37 @@ public class e extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, jVar) == null) || jVar == null || bVar == null) {
             return;
         }
-        bVar.f28449b.startLoad(jVar.b(), 10, false);
-        bVar.f28450c.startLoad(jVar.e(), 10, false);
-        bVar.f28452e.setText(jVar.f());
-        bVar.f28451d.setText(jVar.h());
+        bVar.f28469b.startLoad(jVar.b(), 10, false);
+        bVar.f28470c.startLoad(jVar.e(), 10, false);
+        bVar.f28472e.setText(jVar.f());
+        bVar.f28471d.setText(jVar.h());
         if (TbadkCoreApplication.isLogin() && jVar.c() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             String p = c.a.q0.s.d0.b.j().p("member_center_item_red_tip_" + jVar.c() + currentAccount, "0");
             if (Long.parseLong(StringUtils.isNull(jVar.i()) ? "0" : jVar.i()) > Long.parseLong(StringUtils.isNull(p) ? "0" : p)) {
                 if (jVar.j() == 1) {
-                    bVar.f28453f.setVisibility(8);
+                    bVar.f28473f.setVisibility(8);
                 } else {
-                    bVar.f28453f.setVisibility(0);
+                    bVar.f28473f.setVisibility(0);
                 }
             } else {
-                bVar.f28453f.setVisibility(8);
+                bVar.f28473f.setVisibility(8);
             }
         } else {
-            bVar.f28453f.setVisibility(8);
+            bVar.f28473f.setVisibility(8);
         }
-        TbPageContext tbPageContext = (TbPageContext) c.a.e.a.j.a(this.f28443e);
+        TbPageContext tbPageContext = (TbPageContext) c.a.e.a.j.a(this.f28463e);
         if (tbPageContext == null) {
             return;
         }
         tbPageContext.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().j(bVar.f28448a);
+        tbPageContext.getLayoutMode().j(bVar.f28468a);
     }
 
     public void d(List<j> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f28444f = list;
+            this.f28464f = list;
         }
     }
 
@@ -210,7 +210,7 @@ public class e extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<j> list = this.f28444f;
+            List<j> list = this.f28464f;
             if (list != null) {
                 return list.size();
             }
@@ -242,17 +242,17 @@ public class e extends BaseAdapter {
             if (view != null && (view.getTag() instanceof b)) {
                 bVar = (b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f28443e).inflate(R.layout.index_dressup_card_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f28463e).inflate(R.layout.index_dressup_card_item, (ViewGroup) null);
                 bVar = new b();
-                bVar.f28448a = view.findViewById(R.id.root_card_item_view);
-                bVar.f28449b = (TbImageView) view.findViewById(R.id.bg_image);
+                bVar.f28468a = view.findViewById(R.id.root_card_item_view);
+                bVar.f28469b = (TbImageView) view.findViewById(R.id.bg_image);
                 TbImageView tbImageView = (TbImageView) view.findViewById(R.id.permission_icon);
-                bVar.f28450c = tbImageView;
+                bVar.f28470c = tbImageView;
                 tbImageView.setDefaultResource(R.drawable.transparent_bg);
-                bVar.f28450c.setDefaultBgResource(R.drawable.transparent_bg);
-                bVar.f28451d = (TextView) view.findViewById(R.id.txt_type);
-                bVar.f28452e = (TextView) view.findViewById(R.id.txt_name);
-                bVar.f28453f = (TbImageView) view.findViewById(R.id.privilege_new_icon);
+                bVar.f28470c.setDefaultBgResource(R.drawable.transparent_bg);
+                bVar.f28471d = (TextView) view.findViewById(R.id.txt_type);
+                bVar.f28472e = (TextView) view.findViewById(R.id.txt_name);
+                bVar.f28473f = (TbImageView) view.findViewById(R.id.privilege_new_icon);
             }
             c(bVar, item);
             view.setTag(bVar);

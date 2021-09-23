@@ -21,29 +21,29 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f29429d;
+    public static String f29449d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f29430e;
+    public static String f29450e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f29431f;
+    public static String f29451f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f29432g;
+    public static boolean f29452g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f29433h;
+    public static String f29453h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f29434a;
+    public g f29454a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f29435b;
+    public c f29455b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f29436c;
+    public long f29456c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -64,21 +64,21 @@ public class d {
     public static void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            f29429d = str;
+            f29449d = str;
         }
     }
 
     public static void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            f29431f = str;
+            f29451f = str;
         }
     }
 
     public static void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            f29430e = str;
+            f29450e = str;
         }
     }
 
@@ -94,38 +94,38 @@ public class d {
         if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, z) == null) || gVar == null) {
             return;
         }
-        if (!TextUtils.isEmpty(f29429d)) {
-            gVar.a().a("Cookie", f29429d);
+        if (!TextUtils.isEmpty(f29449d)) {
+            gVar.a().a("Cookie", f29449d);
         } else {
             gVar.a().a("Cookie", "");
         }
-        if (!TextUtils.isEmpty(f29431f)) {
-            gVar.a().a("client_user_token", f29431f);
+        if (!TextUtils.isEmpty(f29451f)) {
+            gVar.a().a("client_user_token", f29451f);
         }
-        if (!TextUtils.isEmpty(f29430e)) {
-            gVar.a().a("User-Agent", f29430e);
+        if (!TextUtils.isEmpty(f29450e)) {
+            gVar.a().a("User-Agent", f29450e);
         }
         if (z) {
             gVar.a().a("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
         } else {
             gVar.a().a("Accept-Encoding", "");
         }
-        if (f29432g) {
+        if (f29452g) {
             gVar.a().a(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
         } else {
             gVar.a().a(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
         }
-        gVar.a().a("client_logid", String.valueOf(this.f29436c));
-        if (TextUtils.isEmpty(f29433h)) {
+        gVar.a().a("client_logid", String.valueOf(this.f29456c));
+        if (TextUtils.isEmpty(f29453h)) {
             return;
         }
-        gVar.a().a("cuid", f29433h);
+        gVar.a().a("cuid", f29453h);
     }
 
     public void c() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f29435b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f29455b) == null) {
             return;
         }
         cVar.a();
@@ -142,11 +142,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), linkedList, jVar, Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
             g gVar = new g();
-            this.f29434a = gVar;
+            this.f29454a = gVar;
             a(gVar);
-            this.f29434a.a().i(str);
-            c cVar = new c(this.f29434a);
-            this.f29435b = cVar;
+            this.f29454a.a().i(str);
+            c cVar = new c(this.f29454a);
+            this.f29455b = cVar;
             return cVar.b(str2, jVar, i2, i3, i4, i5, z2, z3);
         }
         return invokeCommon.booleanValue;
@@ -155,7 +155,7 @@ public class d {
     public g f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29434a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29454a : (g) invokeV.objValue;
     }
 
     public i g(String str, boolean z, int i2, int i3, int i4, int i5, LinkedList<BasicNameValuePair> linkedList) throws Exception {
@@ -163,13 +163,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), linkedList})) == null) {
             g gVar = new g();
-            this.f29434a = gVar;
+            this.f29454a = gVar;
             b(gVar, z);
-            this.f29434a.a().i(str);
-            c cVar = new c(this.f29434a);
-            this.f29435b = cVar;
+            this.f29454a.a().i(str);
+            c cVar = new c(this.f29454a);
+            this.f29455b = cVar;
             cVar.c(i2, i4, i5);
-            return this.f29434a.b();
+            return this.f29454a.b();
         }
         return (i) invokeCommon.objValue;
     }
@@ -178,7 +178,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             System.setProperty("http.keepAlive", "false");
-            this.f29436c = BdStatisticsManager.getInstance().getClientLogId();
+            this.f29456c = BdStatisticsManager.getInstance().getClientLogId();
         }
     }
 
@@ -186,7 +186,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            c cVar = this.f29435b;
+            c cVar = this.f29455b;
             if (cVar != null) {
                 return cVar.d();
             }
@@ -200,25 +200,25 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, list, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), linkedList})) == null) {
             g gVar = new g();
-            this.f29434a = gVar;
+            this.f29454a = gVar;
             b(gVar, z);
-            this.f29434a.a().i(str);
+            this.f29454a.a().i(str);
             if (list != null) {
                 for (BasicNameValuePair basicNameValuePair : list) {
-                    this.f29434a.a().b(basicNameValuePair);
+                    this.f29454a.a().b(basicNameValuePair);
                 }
             }
             if (linkedList != null) {
                 Iterator<BasicNameValuePair> it = linkedList.iterator();
                 while (it.hasNext()) {
                     BasicNameValuePair next = it.next();
-                    this.f29434a.a().a(next.getName(), next.getValue());
+                    this.f29454a.a().a(next.getName(), next.getValue());
                 }
             }
-            c cVar = new c(this.f29434a);
-            this.f29435b = cVar;
+            c cVar = new c(this.f29454a);
+            this.f29455b = cVar;
             cVar.f(i2, i3, -1);
-            return this.f29434a.b();
+            return this.f29454a.b();
         }
         return (i) invokeCommon.objValue;
     }
@@ -226,7 +226,7 @@ public class d {
     public void k() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (cVar = this.f29435b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (cVar = this.f29455b) == null) {
             return;
         }
         cVar.i();

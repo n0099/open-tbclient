@@ -1,6 +1,6 @@
 package com.baidu.tieba.square.message;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -51,7 +51,7 @@ public class ForumSquareRequestMessage extends NetMessage {
                 builder.rn = 20;
                 builder.user_id = Long.valueOf(TbadkCoreApplication.getCurrentAccountId());
                 if (z) {
-                    x.a(builder, true);
+                    a0.a(builder, true);
                 }
                 GetForumSquareReqIdl.Builder builder2 = new GetForumSquareReqIdl.Builder();
                 builder2.data = builder.build(false);

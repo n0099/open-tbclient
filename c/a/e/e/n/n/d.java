@@ -197,7 +197,7 @@ public class d {
             }
             a(hashMap, "uid", dVar.l);
             a(hashMap, "un", dVar.m);
-            a(hashMap, "BDUSS", dVar.n);
+            a(hashMap, HttpRequest.BDUSS, dVar.n);
             if (z) {
                 a(hashMap, "find_bug", "2");
             } else {
@@ -212,7 +212,7 @@ public class d {
             a(hashMap, IAdRequestParam.ANDROID_ID, dVar.v);
             a(hashMap, "utbrand", dVar.w);
             a(hashMap, "baiduapppb_ut", dVar.x);
-            a(hashMap, com.alipay.sdk.cons.b.f35934b, dVar.y);
+            a(hashMap, com.alipay.sdk.cons.b.f35968b, dVar.y);
             a(hashMap, "active_timestamp", dVar.A);
             a(hashMap, "first_install_time", dVar.B);
             a(hashMap, TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, dVar.C);

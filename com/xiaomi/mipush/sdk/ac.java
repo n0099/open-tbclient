@@ -13,7 +13,7 @@ public class ac extends BroadcastReceiver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ NotificationClickedActivity f77267a;
+    public final /* synthetic */ NotificationClickedActivity f77586a;
 
     public ac(NotificationClickedActivity notificationClickedActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class ac extends BroadcastReceiver {
                 return;
             }
         }
-        this.f77267a = notificationClickedActivity;
+        this.f77586a = notificationClickedActivity;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -38,7 +38,7 @@ public class ac extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             com.xiaomi.channel.commonutils.logger.b.b("clicked activity finish by normal.");
-            this.f77267a.finish();
+            this.f77586a.finish();
         }
     }
 }

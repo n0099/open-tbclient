@@ -37,15 +37,15 @@ public class t implements com.kwad.sdk.core.d<n.b> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        bVar.f72580a = jSONObject.optString("appName");
-        bVar.f72581b = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
-        bVar.f72582c = jSONObject.optString("version");
-        bVar.f72583d = jSONObject.optInt(PushManager.APP_VERSION_CODE);
-        bVar.f72584e = jSONObject.optLong("appSize");
-        bVar.f72585f = jSONObject.optString(PackageTable.MD5);
-        bVar.f72586g = jSONObject.optString("url");
-        bVar.f72587h = jSONObject.optString("icon");
-        bVar.f72588i = jSONObject.optString("desc");
+        bVar.f72899a = jSONObject.optString("appName");
+        bVar.f72900b = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
+        bVar.f72901c = jSONObject.optString("version");
+        bVar.f72902d = jSONObject.optInt(PushManager.APP_VERSION_CODE);
+        bVar.f72903e = jSONObject.optLong("appSize");
+        bVar.f72904f = jSONObject.optString(PackageTable.MD5);
+        bVar.f72905g = jSONObject.optString("url");
+        bVar.f72906h = jSONObject.optString("icon");
+        bVar.f72907i = jSONObject.optString("desc");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,15 +57,15 @@ public class t implements com.kwad.sdk.core.d<n.b> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "appName", bVar.f72580a);
-            com.kwad.sdk.utils.q.a(jSONObject, PushClientConstants.TAG_PKG_NAME, bVar.f72581b);
-            com.kwad.sdk.utils.q.a(jSONObject, "version", bVar.f72582c);
-            com.kwad.sdk.utils.q.a(jSONObject, PushManager.APP_VERSION_CODE, bVar.f72583d);
-            com.kwad.sdk.utils.q.a(jSONObject, "appSize", bVar.f72584e);
-            com.kwad.sdk.utils.q.a(jSONObject, PackageTable.MD5, bVar.f72585f);
-            com.kwad.sdk.utils.q.a(jSONObject, "url", bVar.f72586g);
-            com.kwad.sdk.utils.q.a(jSONObject, "icon", bVar.f72587h);
-            com.kwad.sdk.utils.q.a(jSONObject, "desc", bVar.f72588i);
+            com.kwad.sdk.utils.q.a(jSONObject, "appName", bVar.f72899a);
+            com.kwad.sdk.utils.q.a(jSONObject, PushClientConstants.TAG_PKG_NAME, bVar.f72900b);
+            com.kwad.sdk.utils.q.a(jSONObject, "version", bVar.f72901c);
+            com.kwad.sdk.utils.q.a(jSONObject, PushManager.APP_VERSION_CODE, bVar.f72902d);
+            com.kwad.sdk.utils.q.a(jSONObject, "appSize", bVar.f72903e);
+            com.kwad.sdk.utils.q.a(jSONObject, PackageTable.MD5, bVar.f72904f);
+            com.kwad.sdk.utils.q.a(jSONObject, "url", bVar.f72905g);
+            com.kwad.sdk.utils.q.a(jSONObject, "icon", bVar.f72906h);
+            com.kwad.sdk.utils.q.a(jSONObject, "desc", bVar.f72907i);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

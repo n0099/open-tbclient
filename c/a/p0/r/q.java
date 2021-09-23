@@ -22,23 +22,23 @@ public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, String> f12344f;
+    public static final ConcurrentHashMap<String, String> f12352f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f12345a;
+    public int f12353a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12346b;
+    public int f12354b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12347c;
+    public String f12355c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f12348d;
+    public JSONObject f12356d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<g> f12349e;
+    public List<g> f12357e;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public class q {
             }
         }
         ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
-        f12344f = concurrentHashMap;
+        f12352f = concurrentHashMap;
         concurrentHashMap.put("1415", "66");
     }
 
@@ -73,33 +73,33 @@ public class q {
                 return;
             }
         }
-        this.f12349e = new ArrayList();
-        this.f12347c = str;
-        this.f12348d = jSONObject;
+        this.f12357e = new ArrayList();
+        this.f12355c = str;
+        this.f12356d = jSONObject;
     }
 
     public List<g> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12349e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12357e : (List) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12347c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12355c : (String) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12345a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12353a : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12346b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12354b : invokeV.intValue;
     }
 
     public boolean e() {
@@ -108,19 +108,19 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                JSONObject jSONObject = this.f12348d;
-                this.f12345a = jSONObject.getInt("threshold");
-                this.f12346b = jSONObject.getInt("timeup");
+                JSONObject jSONObject = this.f12356d;
+                this.f12353a = jSONObject.getInt("threshold");
+                this.f12354b = jSONObject.getInt("timeup");
                 JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
                 int length = jSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                     String string = jSONObject2.getString("ubcid");
-                    if (TextUtils.isEmpty(string) || !f12344f.containsKey(string)) {
+                    if (TextUtils.isEmpty(string) || !f12352f.containsKey(string)) {
                         str = string;
                     } else {
                         String optString = jSONObject2.optString("bizid");
-                        f12344f.get(string);
+                        f12352f.get(string);
                         str = optString;
                     }
                     String string2 = jSONObject2.getString(SetImageWatermarkTypeReqMsg.SWITCH);
@@ -131,19 +131,19 @@ public class q {
                     if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
                         g gVar = new g(str, string2, string3, parseInt, string5, string4);
                         if (jSONObject2.has("rate")) {
-                            gVar.f12275g = Integer.parseInt(jSONObject2.getString("rate"));
+                            gVar.f12283g = Integer.parseInt(jSONObject2.getString("rate"));
                         }
                         if (jSONObject2.has("bizid")) {
                             jSONObject2.getString("bizid");
                         }
                         if (jSONObject2.has("c")) {
-                            gVar.f12276h = jSONObject2.getString("c");
+                            gVar.f12284h = jSONObject2.getString("c");
                         }
                         if (jSONObject2.has("limitUnit")) {
-                            gVar.f12277i = Integer.parseInt(jSONObject2.getString("limitUnit"));
+                            gVar.f12285i = Integer.parseInt(jSONObject2.getString("limitUnit"));
                         }
                         if (jSONObject2.has("limitCnt")) {
-                            gVar.f12278j = Integer.parseInt(jSONObject2.getString("limitCnt"));
+                            gVar.f12286j = Integer.parseInt(jSONObject2.getString("limitCnt"));
                         }
                         if (jSONObject2.has(Constant.ID_TYPE)) {
                             gVar.k = jSONObject2.getString(Constant.ID_TYPE);
@@ -151,7 +151,7 @@ public class q {
                         if (jSONObject2.has("appblacklist")) {
                             jSONObject2.getString("appblacklist");
                         }
-                        this.f12349e.add(gVar);
+                        this.f12357e.add(gVar);
                     }
                 }
                 return true;

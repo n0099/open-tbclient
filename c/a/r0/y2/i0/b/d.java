@@ -15,19 +15,19 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f29496a;
+    public boolean f29516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f29497b;
+    public double f29517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f29498c;
+    public List<String> f29518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29499d;
+    public int f29519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29500e;
+    public int f29520e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -51,8 +51,8 @@ public class d {
                 return null;
             }
             d dVar = new d();
-            dVar.f29496a = jSONObject.optInt("label_measure") == 2;
-            dVar.f29497b = jSONObject.optDouble("show_width_scale", 1.0d);
+            dVar.f29516a = jSONObject.optInt("label_measure") == 2;
+            dVar.f29517b = jSONObject.optDouble("show_width_scale", 1.0d);
             ArrayList arrayList = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
             if (optJSONArray != null) {
@@ -64,9 +64,9 @@ public class d {
                     }
                 }
             }
-            dVar.f29498c = arrayList;
-            dVar.f29499d = jSONObject.optInt("width");
-            dVar.f29500e = jSONObject.optInt("height");
+            dVar.f29518c = arrayList;
+            dVar.f29519d = jSONObject.optInt("width");
+            dVar.f29520e = jSONObject.optInt("height");
             return dVar;
         }
         return (d) invokeL.objValue;

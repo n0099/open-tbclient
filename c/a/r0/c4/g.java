@@ -14,25 +14,25 @@ public abstract class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f16654a;
+    public Context f16664a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f16655b;
+    public View f16665b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f16656c;
+    public View f16666c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f16657d;
+    public a f16667d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16658e;
+    public int f16668e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f16659f;
+    public Rect f16669f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f16660g;
+    public Rect f16670g;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -54,19 +54,19 @@ public abstract class g {
                 return;
             }
         }
-        this.f16658e = 4;
-        this.f16659f = new Rect();
-        this.f16660g = new Rect();
-        this.f16654a = context;
+        this.f16668e = 4;
+        this.f16669f = new Rect();
+        this.f16670g = new Rect();
+        this.f16664a = context;
     }
 
     public void a(View view, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, view2) == null) {
-            this.f16655b = view;
-            this.f16656c = view2;
+            this.f16665b = view;
+            this.f16666c = view2;
             if (view2 != null) {
-                view2.getGlobalVisibleRect(this.f16659f);
+                view2.getGlobalVisibleRect(this.f16669f);
             }
         }
     }
@@ -89,7 +89,7 @@ public abstract class g {
     public void e(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f16657d = aVar;
+            this.f16667d = aVar;
         }
     }
 

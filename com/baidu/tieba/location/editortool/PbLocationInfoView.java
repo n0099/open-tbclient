@@ -26,10 +26,10 @@ public class PbLocationInfoView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54035e;
+    public int f54150e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f54036f;
+    public Rect f54151f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbLocationInfoView(Context context) {
@@ -55,7 +55,7 @@ public class PbLocationInfoView extends TextView {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f54036f = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
+            this.f54151f = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
             setState(0, null);
             onChangeSkinType();
         }
@@ -64,10 +64,10 @@ public class PbLocationInfoView extends TextView {
     public void changeIcon() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f54035e == 1) {
+            if (this.f54150e == 1) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_posts_pin_loading_anim);
                 if (drawable != null) {
-                    drawable.setBounds(this.f54036f);
+                    drawable.setBounds(this.f54151f);
                 }
                 setCompoundDrawables(drawable, null, null, null);
                 a.a((TbPageContextSupport) j.b(getContext()), (Animatable) drawable);
@@ -75,7 +75,7 @@ public class PbLocationInfoView extends TextView {
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_tips_site);
             if (drawable2 != null) {
-                drawable2.setBounds(this.f54036f);
+                drawable2.setBounds(this.f54151f);
             }
             setCompoundDrawables(drawable2, null, null, null);
         }
@@ -84,7 +84,7 @@ public class PbLocationInfoView extends TextView {
     public int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54035e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54150e : invokeV.intValue;
     }
 
     public void onChangeSkinType() {
@@ -98,7 +98,7 @@ public class PbLocationInfoView extends TextView {
     public void setState(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
-            this.f54035e = i2;
+            this.f54150e = i2;
             if (i2 == 1) {
                 if (str == null) {
                     str = getResources().getString(R.string.location_loading);

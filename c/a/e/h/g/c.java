@@ -131,10 +131,10 @@ public class c {
             return;
          */
         /* JADX WARN: Code restructure failed: missing block: B:59:0x0150, code lost:
-            if (android.text.TextUtils.equals(r1, r6.this$0.k.f36319f) != false) goto L58;
+            if (android.text.TextUtils.equals(r1, r6.this$0.k.f36362f) != false) goto L58;
          */
         /* JADX WARN: Code restructure failed: missing block: B:76:0x0197, code lost:
-            if (android.text.TextUtils.equals(r1, r6.this$0.k.f36319f) != false) goto L58;
+            if (android.text.TextUtils.equals(r1, r6.this$0.k.f36362f) != false) goto L58;
          */
         /* JADX WARN: Code restructure failed: missing block: B:77:0x0199, code lost:
             r6.this$0.O();
@@ -153,8 +153,8 @@ public class c {
             }
             try {
                 if (intent == null) {
-                    if (this.this$0.f2779i == null || !TextUtils.equals(null, this.this$0.f2779i.f36319f)) {
-                        if (this.this$0.k == null || !TextUtils.equals(null, this.this$0.k.f36319f)) {
+                    if (this.this$0.f2779i == null || !TextUtils.equals(null, this.this$0.f2779i.f36362f)) {
+                        if (this.this$0.k == null || !TextUtils.equals(null, this.this$0.k.f36362f)) {
                             this.this$0.w(null);
                             return;
                         }
@@ -174,7 +174,7 @@ public class c {
                     } catch (Exception e2) {
                         e = e2;
                         BdLog.detailException(e);
-                        if (this.this$0.f2779i == null || !TextUtils.equals(str, this.this$0.f2779i.f36319f)) {
+                        if (this.this$0.f2779i == null || !TextUtils.equals(str, this.this$0.f2779i.f36362f)) {
                             if (this.this$0.k != null) {
                             }
                             this.this$0.w(null);
@@ -189,8 +189,8 @@ public class c {
                     str = null;
                 } catch (Throwable th) {
                     th = th;
-                    if (this.this$0.f2779i == null || !TextUtils.equals(null, this.this$0.f2779i.f36319f)) {
-                        if (this.this$0.k == null || !TextUtils.equals(null, this.this$0.k.f36319f)) {
+                    if (this.this$0.f2779i == null || !TextUtils.equals(null, this.this$0.f2779i.f36362f)) {
+                        if (this.this$0.k == null || !TextUtils.equals(null, this.this$0.k.f36362f)) {
                             this.this$0.w(null);
                         } else {
                             this.this$0.O();
@@ -205,8 +205,8 @@ public class c {
                     throw th;
                 }
                 if (TextUtils.isEmpty(str)) {
-                    if (this.this$0.f2779i == null || !TextUtils.equals(str, this.this$0.f2779i.f36319f)) {
-                        if (this.this$0.k == null || !TextUtils.equals(str, this.this$0.k.f36319f)) {
+                    if (this.this$0.f2779i == null || !TextUtils.equals(str, this.this$0.f2779i.f36362f)) {
+                        if (this.this$0.k == null || !TextUtils.equals(str, this.this$0.k.f36362f)) {
                             this.this$0.w(null);
                             return;
                         }
@@ -237,7 +237,7 @@ public class c {
                 } else {
                     "com.baidu.adp.plugin.installrepeat".equals(action);
                 }
-                if (this.this$0.f2779i == null || !TextUtils.equals(str, this.this$0.f2779i.f36319f)) {
+                if (this.this$0.f2779i == null || !TextUtils.equals(str, this.this$0.f2779i.f36362f)) {
                     if (this.this$0.k != null) {
                     }
                     this.this$0.w(null);
@@ -292,7 +292,7 @@ public class c {
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 this.f2783g.m = new Messenger(iBinder);
                 String stringExtra = this.f2781e.getStringExtra("package_name");
-                if (this.f2783g.f2779i == null || !TextUtils.equals(stringExtra, this.f2783g.f2779i.f36319f)) {
+                if (this.f2783g.f2779i == null || !TextUtils.equals(stringExtra, this.f2783g.f2779i.f36362f)) {
                     return;
                 }
                 try {
@@ -348,7 +348,7 @@ public class c {
                 return;
             }
             try {
-                if (TextUtils.equals(((PluginInstallTask) OrmObject.objectWithBundle(message.getData(), PluginInstallTask.class)).f36319f, this.f2784a.f2779i.f36319f)) {
+                if (TextUtils.equals(((PluginInstallTask) OrmObject.objectWithBundle(message.getData(), PluginInstallTask.class)).f36362f, this.f2784a.f2779i.f36362f)) {
                     c.u.removeCallbacks(this.f2784a.r);
                 }
             } catch (Throwable th) {
@@ -944,11 +944,11 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             PluginInstallTask pluginInstallTask = this.f2779i;
             if (pluginInstallTask != null) {
-                return TextUtils.equals(str, pluginInstallTask.f36319f);
+                return TextUtils.equals(str, pluginInstallTask.f36362f);
             }
             PluginInstallTask pluginInstallTask2 = this.k;
             if (pluginInstallTask2 != null) {
-                return TextUtils.equals(str, pluginInstallTask2.f36319f);
+                return TextUtils.equals(str, pluginInstallTask2.f36362f);
             }
             return false;
         }
@@ -985,7 +985,7 @@ public class c {
             c.a.e.h.h.a.b().g("plugin_installprocess_noresponse");
             c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
             PluginInstallTask pluginInstallTask = this.f2779i;
-            String str = pluginInstallTask == null ? "" : pluginInstallTask.f36319f;
+            String str = pluginInstallTask == null ? "" : pluginInstallTask.f36362f;
             b2.o("plugin_install", "installprocess_noresponse", str, this.f2780j.size() + "-" + this.l.size());
             L();
             I();
@@ -1009,7 +1009,7 @@ public class c {
             this.m = null;
             c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
             PluginInstallTask pluginInstallTask = this.f2779i;
-            String str = pluginInstallTask == null ? "" : pluginInstallTask.f36319f;
+            String str = pluginInstallTask == null ? "" : pluginInstallTask.f36362f;
             b2.o("plugin_install", "system_kill_installprocess", str, this.f2780j.size() + "-" + this.l.size());
             L();
             S();
@@ -1020,13 +1020,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             if (this.f2779i != null) {
-                c.a.e.h.j.h.a.b().d(this.f2779i.f36319f, "plugin_install_timeout", null);
+                c.a.e.h.j.h.a.b().d(this.f2779i.f36362f, "plugin_install_timeout", null);
             }
             PluginInstallTask pluginInstallTask = this.f2779i;
             if (!G()) {
                 c.a.e.h.h.a.b().g("plugin_install_timeout_installprocess_notlive");
                 c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
-                String str = pluginInstallTask == null ? "" : pluginInstallTask.f36319f;
+                String str = pluginInstallTask == null ? "" : pluginInstallTask.f36362f;
                 StringBuilder sb = new StringBuilder();
                 sb.append("timeout-");
                 sb.append(pluginInstallTask != null ? Long.valueOf(pluginInstallTask.w()) : "");
@@ -1038,7 +1038,7 @@ public class c {
             } else {
                 c.a.e.h.h.a.b().g("plugin_install_timeout");
                 c.a.e.h.h.a b3 = c.a.e.h.h.a.b();
-                String str2 = pluginInstallTask == null ? "" : pluginInstallTask.f36319f;
+                String str2 = pluginInstallTask == null ? "" : pluginInstallTask.f36362f;
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("timeout-");
                 sb2.append(pluginInstallTask != null ? Long.valueOf(pluginInstallTask.w()) : "");
@@ -1066,11 +1066,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             if (this.k != null) {
-                c.a.e.h.j.h.a.b().d(this.k.f36319f, "plugin_install_retry_timeout", null);
+                c.a.e.h.j.h.a.b().d(this.k.f36362f, "plugin_install_retry_timeout", null);
             }
             c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
             PluginInstallTask pluginInstallTask = this.k;
-            String str = pluginInstallTask == null ? "" : pluginInstallTask.f36319f;
+            String str = pluginInstallTask == null ? "" : pluginInstallTask.f36362f;
             StringBuilder sb = new StringBuilder();
             sb.append("timeout-");
             PluginInstallTask pluginInstallTask2 = this.k;
@@ -1118,9 +1118,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             if (this.f2779i != null) {
-                c.a.e.h.h.a.b().i("plugin_retry_install", this.f2779i.f36319f);
+                c.a.e.h.h.a.b().i("plugin_retry_install", this.f2779i.f36362f);
                 c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
-                String str = this.f2779i.f36319f;
+                String str = this.f2779i.f36362f;
                 b2.o("plugin_install", "plugin_retry_install", str, this.f2779i.w() + "");
                 y(this.f2779i);
                 this.f2779i = null;
@@ -1137,12 +1137,12 @@ public class c {
         }
         Q();
         PluginInstallTask pluginInstallTask = new PluginInstallTask();
-        pluginInstallTask.f36318e = str;
+        pluginInstallTask.f36361e = str;
         boolean z2 = true;
         if (str.startsWith("assets://")) {
             r8 = str.substring(str.lastIndexOf("/") + 1, str.lastIndexOf(".apk"));
             try {
-                pluginInstallTask.f36321h = context.getAssets().open(str.substring(9)).available();
+                pluginInstallTask.f36364h = context.getAssets().open(str.substring(9)).available();
             } catch (IOException e2) {
                 BdLog.detailException(e2);
             }
@@ -1152,19 +1152,19 @@ public class c {
                 String substring = str.substring(7);
                 PackageInfo packageArchiveInfo = packageManager.getPackageArchiveInfo(substring, 0);
                 r8 = packageArchiveInfo != null ? packageArchiveInfo.packageName : null;
-                pluginInstallTask.f36321h = new File(substring).length();
+                pluginInstallTask.f36364h = new File(substring).length();
             }
             z2 = false;
         }
         if (r8 != null) {
-            pluginInstallTask.f36319f = r8;
+            pluginInstallTask.f36362f = r8;
             if (w(pluginInstallTask) && z2) {
                 this.f2772b.add(r8);
                 return;
             }
             return;
         }
-        pluginInstallTask.f36319f = str;
+        pluginInstallTask.f36362f = str;
         w(pluginInstallTask);
     }
 
@@ -1175,35 +1175,35 @@ public class c {
             if (pluginInstallTask == null) {
                 return false;
             }
-            PluginSetting h2 = c.a.e.h.j.g.d.k().h(pluginInstallTask.f36319f);
-            String str = pluginInstallTask.f36318e;
+            PluginSetting h2 = c.a.e.h.j.g.d.k().h(pluginInstallTask.f36362f);
+            String str = pluginInstallTask.f36361e;
             boolean z = str != null && str.startsWith("assets://");
-            String str2 = pluginInstallTask.f36318e;
+            String str2 = pluginInstallTask.f36361e;
             if (str2 != null && str2.startsWith("file://")) {
                 if (h2 != null && h2.installStatus == 0 && h2.tempVersionCode == 0) {
-                    c.a.e.h.h.a.b().o("plugin_install", "start_service_install_status_error", pluginInstallTask.f36319f, "apkFilePath_" + pluginInstallTask.f36318e);
+                    c.a.e.h.h.a.b().o("plugin_install", "start_service_install_status_error", pluginInstallTask.f36362f, "apkFilePath_" + pluginInstallTask.f36361e);
                     return false;
                 }
-                String substring = pluginInstallTask.f36318e.substring(7);
+                String substring = pluginInstallTask.f36361e.substring(7);
                 try {
                     if (!new File(substring).exists()) {
-                        c.a.e.h.h.a.b().o("plugin_install", "start_service_file_not_find", pluginInstallTask.f36319f, "apkFilePath_" + substring);
+                        c.a.e.h.h.a.b().o("plugin_install", "start_service_file_not_find", pluginInstallTask.f36362f, "apkFilePath_" + substring);
                         return false;
                     }
                 } catch (Exception unused) {
                 }
             }
             String str3 = "f" + System.currentTimeMillis();
-            c.a.e.h.h.a.b().o("plugin_install", "start_install_service", pluginInstallTask.f36319f, "flag=" + str3 + "_" + pluginInstallTask.f36318e);
+            c.a.e.h.h.a.b().o("plugin_install", "start_install_service", pluginInstallTask.f36362f, "flag=" + str3 + "_" + pluginInstallTask.f36361e);
             Intent intent = new Intent(PluginInstallerService.ACTION_INSTALL);
-            intent.putExtra("install_src_file", pluginInstallTask.f36318e);
-            intent.putExtra("package_name", pluginInstallTask.f36319f);
+            intent.putExtra("install_src_file", pluginInstallTask.f36361e);
+            intent.putExtra("package_name", pluginInstallTask.f36362f);
             intent.putExtra("install_flag", str3);
             if (h2 != null) {
                 intent.putExtra("plugin_setting", h2);
             }
             intent.putExtra("is_debug_plugin", PluginPackageManager.O().e0());
-            if (pluginInstallTask.f36320g) {
+            if (pluginInstallTask.f36363g) {
                 intent.setClass(context, PluginInstallerRetryService.class);
                 try {
                     context.startService(intent);
@@ -1297,7 +1297,7 @@ public class c {
                             break;
                         }
                         PluginInstallTask next = it.next();
-                        if (next != null && TextUtils.equals(pluginInstallTask.f36319f, next.f36319f)) {
+                        if (next != null && TextUtils.equals(pluginInstallTask.f36362f, next.f36362f)) {
                             z = true;
                             break;
                         }
@@ -1344,7 +1344,7 @@ public class c {
                             break;
                         }
                         PluginInstallTask next = it.next();
-                        if (next != null && TextUtils.equals(pluginInstallTask.f36319f, next.f36319f)) {
+                        if (next != null && TextUtils.equals(pluginInstallTask.f36362f, next.f36362f)) {
                             z = true;
                             break;
                         }
@@ -1355,7 +1355,7 @@ public class c {
                     return true;
                 }
                 this.k = pluginInstallTask;
-                pluginInstallTask.f36320g = true;
+                pluginInstallTask.f36363g = true;
                 if (U(BdBaseApplication.getInst().getApplicationContext(), pluginInstallTask)) {
                     u.removeCallbacks(this.t);
                     u.postDelayed(this.t, this.k.w());

@@ -339,7 +339,7 @@ public class GameGuideConfigInfo implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
-                boolean z = k.f7077a;
+                boolean z = k.f7085a;
                 return null;
             }
             GameGuideConfigInfo gameGuideConfigInfo = new GameGuideConfigInfo();
@@ -359,7 +359,7 @@ public class GameGuideConfigInfo implements Serializable {
             }
             gameGuideConfigInfo.popupSelection = jSONObject.optInt(KEY_POPUP_SELECTION, 0);
             if (optInt == 0) {
-                boolean z2 = k.f7077a;
+                boolean z2 = k.f7085a;
                 return gameGuideConfigInfo;
             }
             gameGuideConfigInfo.perCoinNum = jSONObject.optInt(KEY_PER_COIN_NUM, 0);

@@ -15,16 +15,16 @@ public class PayMemberInfoData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48239e;
+    public int f48347e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48240f;
+    public int f48348f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48241g;
+    public String f48349g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f48242h;
+    public String f48350h;
 
     public PayMemberInfoData() {
         Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public class PayMemberInfoData extends OrmObject {
     public void A(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f48242h = str;
+            this.f48350h = str;
         }
     }
 
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48241g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48349g : (String) invokeV.objValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -58,28 +58,28 @@ public class PayMemberInfoData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f48239e = jSONObject.optInt("props_id");
-        this.f48240f = jSONObject.optInt("end_time", 0);
-        this.f48241g = jSONObject.optString(this.f48241g, "");
-        this.f48242h = jSONObject.optString("expire_remind");
+        this.f48347e = jSONObject.optInt("props_id");
+        this.f48348f = jSONObject.optInt("end_time", 0);
+        this.f48349g = jSONObject.optString(this.f48349g, "");
+        this.f48350h = jSONObject.optString("expire_remind");
     }
 
     public int w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48240f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48348f : invokeV.intValue;
     }
 
     public String x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48242h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48350h : (String) invokeV.objValue;
     }
 
     public int y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f48239e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f48347e : invokeV.intValue;
     }
 
     public void z(PayMemberInfo payMemberInfo) {
@@ -89,13 +89,13 @@ public class PayMemberInfoData extends OrmObject {
         }
         Integer num = payMemberInfo.props_id;
         if (num != null) {
-            this.f48239e = num.intValue();
+            this.f48347e = num.intValue();
         }
         Integer num2 = payMemberInfo.end_time;
         if (num2 != null) {
-            this.f48240f = num2.intValue();
+            this.f48348f = num2.intValue();
         }
-        this.f48241g = payMemberInfo.url;
-        this.f48242h = payMemberInfo.expire_remind;
+        this.f48349g = payMemberInfo.url;
+        this.f48350h = payMemberInfo.expire_remind;
     }
 }

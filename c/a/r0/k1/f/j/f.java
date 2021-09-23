@@ -29,22 +29,22 @@ public class f extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<OfficialBarFeedActivity> f21292e;
+    public TbPageContext<OfficialBarFeedActivity> f21306e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<c.a.r0.k1.l.c.b> f21293f;
+    public List<c.a.r0.k1.l.c.b> f21307f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LongSparseArray<c.a.r0.k1.i.a.b.b> f21294g;
+    public LongSparseArray<c.a.r0.k1.i.a.b.b> f21308g;
 
     /* renamed from: h  reason: collision with root package name */
-    public OfficialBarFeedMsglistAdapter.c f21295h;
+    public OfficialBarFeedMsglistAdapter.c f21309h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdTypeListView f21296i;
+    public BdTypeListView f21310i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f21297j;
+    public boolean f21311j;
 
     /* loaded from: classes3.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<b> {
@@ -88,11 +88,11 @@ public class f extends BaseAdapter {
                 return;
             }
         }
-        this.f21293f = null;
-        this.f21294g = null;
-        this.f21292e = tbPageContext;
-        this.f21295h = cVar;
-        this.f21296i = bdTypeListView;
+        this.f21307f = null;
+        this.f21308g = null;
+        this.f21306e = tbPageContext;
+        this.f21309h = cVar;
+        this.f21310i = bdTypeListView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -102,11 +102,11 @@ public class f extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<c.a.r0.k1.l.c.b> list = this.f21293f;
+            List<c.a.r0.k1.l.c.b> list = this.f21307f;
             if (list == null || list.size() == 0 || i2 < 0 || i2 >= getCount()) {
                 return null;
             }
-            return this.f21293f.get(i2);
+            return this.f21307f.get(i2);
         }
         return (c.a.r0.k1.l.c.b) invokeI.objValue;
     }
@@ -116,18 +116,18 @@ public class f extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, msgViewHolder})) == null) {
             b msgItemView = msgViewHolder.getMsgItemView();
-            a.C1003a e2 = bVar.e();
+            a.C1001a e2 = bVar.e();
             e2.m = bVar.b();
-            LongSparseArray<c.a.r0.k1.i.a.b.b> longSparseArray = this.f21294g;
-            msgItemView.i(this.f21292e.getPageActivity().getBaseContext(), e2, bVar.d(), longSparseArray == null ? null : longSparseArray.get(e2.f21485h), bVar.f(), bVar.g(), i2);
-            StatisticItem statisticItem = new StatisticItem(this.f21297j ? "c13865" : "c13863");
+            LongSparseArray<c.a.r0.k1.i.a.b.b> longSparseArray = this.f21308g;
+            msgItemView.i(this.f21306e.getPageActivity().getBaseContext(), e2, bVar.d(), longSparseArray == null ? null : longSparseArray.get(e2.f21499h), bVar.f(), bVar.g(), i2);
+            StatisticItem statisticItem = new StatisticItem(this.f21311j ? "c13865" : "c13863");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             String str = e2.n;
             if (str == null) {
                 str = "";
             }
             statisticItem.param("tid", str);
-            statisticItem.param("fid", e2.f21482e);
+            statisticItem.param("fid", e2.f21496e);
             TiebaStatic.log(statisticItem);
             return view;
         }
@@ -137,11 +137,11 @@ public class f extends BaseAdapter {
     public void c(List<c.a.r0.k1.l.c.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            if (this.f21293f == null) {
-                this.f21293f = new LinkedList();
+            if (this.f21307f == null) {
+                this.f21307f = new LinkedList();
             }
-            this.f21293f.clear();
-            this.f21293f.addAll(list);
+            this.f21307f.clear();
+            this.f21307f.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -149,7 +149,7 @@ public class f extends BaseAdapter {
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f21297j = z;
+            this.f21311j = z;
         }
     }
 
@@ -157,12 +157,12 @@ public class f extends BaseAdapter {
     public void e(LongSparseArray<c.a.r0.k1.i.a.b.b> longSparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, longSparseArray) == null) {
-            if (this.f21294g == null) {
-                this.f21294g = new LongSparseArray<>();
+            if (this.f21308g == null) {
+                this.f21308g = new LongSparseArray<>();
             }
-            this.f21294g.clear();
+            this.f21308g.clear();
             for (int i2 = 0; i2 < longSparseArray.size(); i2++) {
-                this.f21294g.put(longSparseArray.keyAt(i2), longSparseArray.valueAt(i2));
+                this.f21308g.put(longSparseArray.keyAt(i2), longSparseArray.valueAt(i2));
             }
             notifyDataSetChanged();
         }
@@ -173,7 +173,7 @@ public class f extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<c.a.r0.k1.l.c.b> list = this.f21293f;
+            List<c.a.r0.k1.l.c.b> list = this.f21307f;
             if (list == null) {
                 return 0;
             }
@@ -197,8 +197,8 @@ public class f extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, view, viewGroup)) == null) {
             a aVar2 = view != null ? (a) view.getTag() : null;
             if (aVar2 == null) {
-                b bVar = new b(this.f21292e, this.f21297j);
-                bVar.j(this.f21295h);
+                b bVar = new b(this.f21306e, this.f21311j);
+                bVar.j(this.f21309h);
                 View d2 = bVar.d();
                 a aVar3 = new a(this, bVar.d(), bVar);
                 d2.setTag(aVar3);

@@ -40,9 +40,9 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, dVar, imageView) == null) {
             DrawerArgs drawerArgs = this.k;
-            if (drawerArgs.f36300c) {
-                float f2 = drawerArgs.f36301d / 2.0f;
-                if (!drawerArgs.f36304g) {
+            if (drawerArgs.f36343c) {
+                float f2 = drawerArgs.f36344d / 2.0f;
+                if (!drawerArgs.f36347g) {
                     this.f2710g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
                     return;
                 }
@@ -60,7 +60,7 @@ public class c extends a {
     @Override // c.a.e.f.a.a
     public void f(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) && this.k.f36300c) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) && this.k.f36343c) {
             canvas.drawRect(this.f2710g, this.f2706c);
         }
     }

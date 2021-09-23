@@ -50,14 +50,14 @@ public class a extends d {
 
     /* renamed from: c.a.r0.z3.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1389a implements Runnable {
+    public class RunnableC1387a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f29811e;
+        public final /* synthetic */ a f29832e;
 
-        public RunnableC1389a(a aVar) {
+        public RunnableC1387a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,14 +72,14 @@ public class a extends d {
                     return;
                 }
             }
-            this.f29811e = aVar;
+            this.f29832e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29811e.L.setVisibility(8);
+                this.f29832e.L.setVisibility(8);
             }
         }
     }
@@ -90,7 +90,7 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f29812e;
+        public final /* synthetic */ a f29833e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -107,14 +107,14 @@ public class a extends d {
                     return;
                 }
             }
-            this.f29812e = aVar;
+            this.f29833e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f29812e.R0 && (this.f29812e.P instanceof Activity)) {
-                this.f29812e.D0();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f29833e.R0 && (this.f29833e.P instanceof Activity)) {
+                this.f29833e.D0();
             }
         }
     }
@@ -147,7 +147,7 @@ public class a extends d {
         long currentTimeMillis = System.currentTimeMillis();
         try {
             this.L0 = 0;
-            this.V0 = new RunnableC1389a(this);
+            this.V0 = new RunnableC1387a(this);
             this.W0 = new b(this);
             S();
             if (!TbSingleton.getInstance().isNotchScreen((Activity) context) && !TbSingleton.getInstance().isCutoutScreen((Activity) context)) {
@@ -236,16 +236,16 @@ public class a extends d {
     public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int i2 = this.f23832f & (-33);
-            this.f23832f = i2;
-            int i3 = this.f23833g & (-33);
-            this.f23833g = i3;
-            int i4 = this.f23834h & (-33);
-            this.f23834h = i4;
-            int i5 = this.f23835i & (-33);
-            this.f23835i = i5;
-            int i6 = this.f23836j & (-33);
-            this.f23836j = i6;
+            int i2 = this.f23848f & (-33);
+            this.f23848f = i2;
+            int i3 = this.f23849g & (-33);
+            this.f23849g = i3;
+            int i4 = this.f23850h & (-33);
+            this.f23850h = i4;
+            int i5 = this.f23851i & (-33);
+            this.f23851i = i5;
+            int i6 = this.f23852j & (-33);
+            this.f23852j = i6;
             int i7 = this.k & (-33);
             this.k = i7;
             int i8 = this.l & (-33);
@@ -254,19 +254,19 @@ public class a extends d {
             this.m = i9;
             int i10 = this.n & (-33);
             this.n = i10;
-            this.f23832f = i2 | 1024;
+            this.f23848f = i2 | 1024;
             int i11 = i3 | 1024;
-            this.f23833g = i11;
-            this.f23834h = i4 & (-1025);
-            this.f23835i = i5 | 1024;
-            this.f23836j = i6 | 1024;
+            this.f23849g = i11;
+            this.f23850h = i4 & (-1025);
+            this.f23851i = i5 | 1024;
+            this.f23852j = i6 | 1024;
             int i12 = i7 | 1024;
             this.k = i12;
             int i13 = i8 | 1024;
             this.l = i13;
             this.m = i9 | 1024;
             this.n = i10 & (-1025);
-            this.f23833g = i11 | 16384;
+            this.f23849g = i11 | 16384;
             this.k = i12 | 16384;
             this.l = i13 & (-2);
         }
@@ -426,10 +426,10 @@ public class a extends d {
         }
         d2Var.L();
         o oVar = new o();
-        oVar.f23806a = "6";
-        oVar.f23808c = d2Var.s1();
-        oVar.f23809d = Long.toString(d2Var.T());
-        oVar.f23810e = TbadkCoreApplication.getCurrentAccount();
+        oVar.f23822a = "6";
+        oVar.f23824c = d2Var.s1();
+        oVar.f23825d = Long.toString(d2Var.T());
+        oVar.f23826e = TbadkCoreApplication.getCurrentAccount();
         Context context = this.P;
         if (context instanceof BaseFragmentActivity) {
             Intent intent = ((BaseFragmentActivity) context).getIntent();
@@ -444,11 +444,11 @@ public class a extends d {
                 if (!StringUtils.isNull(stringExtra)) {
                     oVar.k = this.M0;
                 }
-                oVar.f23814i = Integer.toString(this.L0);
+                oVar.f23830i = Integer.toString(this.L0);
             } else {
                 String stringExtra2 = intent.getStringExtra(PbActivityConfig.KEY_VIDEO_SOURCE);
                 this.N0 = stringExtra2;
-                oVar.f23814i = stringExtra2;
+                oVar.f23830i = stringExtra2;
             }
         }
         if (d2Var.q1() != null) {
@@ -483,7 +483,7 @@ public class a extends d {
             return;
         }
         o b2 = oVar.b();
-        b2.f23806a = "pb";
+        b2.f23822a = "pb";
         h.e(b2.m, "", "2", b2, this.u.getPcdnState());
     }
 }

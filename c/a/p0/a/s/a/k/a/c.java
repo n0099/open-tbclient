@@ -28,7 +28,7 @@ public class c extends k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f8507c;
+        public final /* synthetic */ c f8515c;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class c extends k {
                     return;
                 }
             }
-            this.f8507c = cVar;
+            this.f8515c = cVar;
         }
 
         @Override // c.a.p0.a.h0.j.a, c.a.p0.a.h0.j.d

@@ -28,22 +28,22 @@ public class e extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ArrayMap f9129e;
+        public final /* synthetic */ ArrayMap f9137e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f9130f;
+        public final /* synthetic */ JSONArray f9138f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f9131g;
+        public final /* synthetic */ JSONArray f9139g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f9132h;
+        public final /* synthetic */ JSONArray f9140h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9133i;
+        public final /* synthetic */ JSONObject f9141i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ e f9134j;
+        public final /* synthetic */ e f9142j;
 
         public a(e eVar, ArrayMap arrayMap, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -60,12 +60,12 @@ public class e extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9134j = eVar;
-            this.f9129e = arrayMap;
-            this.f9130f = jSONArray;
-            this.f9131g = jSONArray2;
-            this.f9132h = jSONArray3;
-            this.f9133i = jSONObject;
+            this.f9142j = eVar;
+            this.f9137e = arrayMap;
+            this.f9138f = jSONArray;
+            this.f9139g = jSONArray2;
+            this.f9140h = jSONArray3;
+            this.f9141i = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,7 +80,7 @@ public class e extends c.a.p0.a.u.c.d {
             try {
                 jSONArray = new JSONArray(str);
             } catch (JSONException e2) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     e2.printStackTrace();
                 }
             }
@@ -92,22 +92,22 @@ public class e extends c.a.p0.a.u.c.d {
                 String optString = optJSONObject.optString("fileID");
                 String optString2 = optJSONObject.optString("tempFileURL");
                 if (optJSONObject.optString("status").equals("0") && !TextUtils.isEmpty(optString2)) {
-                    this.f9129e.put(optString, optString2);
+                    this.f9137e.put(optString, optString2);
                 }
             }
-            this.f9134j.A(this.f9129e, this.f9130f, "images");
-            this.f9134j.A(this.f9129e, this.f9131g, "urls");
-            this.f9134j.A(this.f9129e, this.f9132h, "url");
+            this.f9142j.A(this.f9137e, this.f9138f, "images");
+            this.f9142j.A(this.f9137e, this.f9139g, "urls");
+            this.f9142j.A(this.f9137e, this.f9140h, "url");
             try {
-                this.f9133i.put("images", this.f9130f);
-                this.f9133i.put("urls", this.f9131g);
-                this.f9133i.put("url", this.f9132h);
+                this.f9141i.put("images", this.f9138f);
+                this.f9141i.put("urls", this.f9139g);
+                this.f9141i.put("url", this.f9140h);
             } catch (JSONException e3) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     e3.printStackTrace();
                 }
             }
-            c.a.p0.a.c1.a.y().b(this.f9134j.i(), this.f9133i);
+            c.a.p0.a.c1.a.y().b(this.f9142j.i(), this.f9141i);
         }
     }
 
@@ -146,7 +146,7 @@ public class e extends c.a.p0.a.u.c.d {
                         jSONArray.put(i2, str2);
                     }
                 } catch (JSONException e2) {
-                    if (c.a.p0.a.u.c.d.f8727c) {
+                    if (c.a.p0.a.u.c.d.f8735c) {
                         e2.printStackTrace();
                     }
                 }
@@ -193,7 +193,7 @@ public class e extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str2 = "params = " + str;
             }
             if (l()) {
@@ -227,11 +227,11 @@ public class e extends c.a.p0.a.u.c.d {
                                     jSONObject2.put("referer", b2);
                                 }
                                 String Y = c.a.p0.a.h0.u.g.N().Y();
-                                if (c.a.p0.a.u.c.d.f8727c) {
+                                if (c.a.p0.a.u.c.d.f8735c) {
                                     String str3 = "userAgent: " + Y;
                                 }
                                 if (!TextUtils.isEmpty(Y)) {
-                                    jSONObject2.put(com.alipay.sdk.cons.b.f35934b, Y);
+                                    jSONObject2.put(com.alipay.sdk.cons.b.f35968b, Y);
                                 }
                                 jSONArray.put(jSONObject2);
                             }
@@ -263,7 +263,7 @@ public class e extends c.a.p0.a.u.c.d {
                     }
                     return new c.a.p0.a.u.h.b(202);
                 } catch (JSONException e2) {
-                    if (c.a.p0.a.u.c.d.f8727c) {
+                    if (c.a.p0.a.u.c.d.f8735c) {
                         e2.printStackTrace();
                     }
                     return new c.a.p0.a.u.h.b(202);
@@ -279,24 +279,24 @@ public class e extends c.a.p0.a.u.c.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONArray)) == null) {
             int length = jSONArray.length();
-            if (jSONArray != null && length > 0 && (i2 = c.a.p0.a.a2.e.i()) != null && !TextUtils.isEmpty(i2.f4558f) && !TextUtils.isEmpty(i2.Z())) {
+            if (jSONArray != null && length > 0 && (i2 = c.a.p0.a.a2.e.i()) != null && !TextUtils.isEmpty(i2.f4566f) && !TextUtils.isEmpty(i2.Z())) {
                 for (int i3 = 0; i3 < length; i3++) {
                     try {
                         String optString = jSONArray.optString(i3);
                         PathType s = c.a.p0.a.k2.b.s(optString);
                         if (s == PathType.BD_FILE) {
-                            optString = c.a.p0.a.k2.b.M(optString, i2.f4558f);
+                            optString = c.a.p0.a.k2.b.M(optString, i2.f4566f);
                         } else if (s == PathType.RELATIVE) {
                             optString = c.a.p0.a.k2.b.L(optString, i2, i2.Z());
                         }
                         if (!TextUtils.isEmpty(optString)) {
                             jSONArray.put(i3, optString);
-                            if (c.a.p0.a.u.c.d.f8727c) {
+                            if (c.a.p0.a.u.c.d.f8735c) {
                                 String str = "convert swan path success：" + optString;
                             }
                         }
                     } catch (JSONException e2) {
-                        if (c.a.p0.a.u.c.d.f8727c) {
+                        if (c.a.p0.a.u.c.d.f8735c) {
                             e2.printStackTrace();
                         }
                     }
@@ -350,15 +350,15 @@ public class e extends c.a.p0.a.u.c.d {
                             optJSONObject.put("referer", b2);
                         }
                         String Y = c.a.p0.a.h0.u.g.N().Y();
-                        if (c.a.p0.a.u.c.d.f8727c) {
+                        if (c.a.p0.a.u.c.d.f8735c) {
                             String str = "userAgent: " + Y;
                         }
                         if (!TextUtils.isEmpty(Y)) {
-                            optJSONObject.put(com.alipay.sdk.cons.b.f35934b, Y);
+                            optJSONObject.put(com.alipay.sdk.cons.b.f35968b, Y);
                         }
                     }
                 } catch (JSONException e2) {
-                    if (c.a.p0.a.u.c.d.f8727c) {
+                    if (c.a.p0.a.u.c.d.f8735c) {
                         e2.printStackTrace();
                         return;
                     }

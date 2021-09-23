@@ -42,7 +42,7 @@ public class a extends c.a.p0.h.o0.g.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11472e;
+        public final /* synthetic */ a f11480e;
 
         public View$OnClickListenerC0590a(a aVar) {
             Interceptable interceptable = $ic;
@@ -59,17 +59,17 @@ public class a extends c.a.p0.h.o0.g.b.a {
                     return;
                 }
             }
-            this.f11472e = aVar;
+            this.f11480e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f11472e.f11460g != null) {
-                    this.f11472e.f11460g.c();
+                if (this.f11480e.f11468g != null) {
+                    this.f11480e.f11468g.c();
                 }
-                this.f11472e.B();
+                this.f11480e.B();
             }
         }
     }
@@ -80,7 +80,7 @@ public class a extends c.a.p0.h.o0.g.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11473a;
+        public final /* synthetic */ a f11481a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -97,17 +97,17 @@ public class a extends c.a.p0.h.o0.g.b.a {
                     return;
                 }
             }
-            this.f11473a = aVar;
+            this.f11481a = aVar;
         }
 
         @Override // com.baidu.swan.games.view.recommend.listmode.ListRecommendAdapter.a
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (this.f11473a.f11460g != null) {
-                    this.f11473a.f11460g.u(i2);
+                if (this.f11481a.f11468g != null) {
+                    this.f11481a.f11468g.u(i2);
                 }
-                this.f11473a.y();
+                this.f11481a.y();
             }
         }
     }
@@ -118,7 +118,7 @@ public class a extends c.a.p0.h.o0.g.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11474e;
+        public final /* synthetic */ a f11482e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -135,17 +135,17 @@ public class a extends c.a.p0.h.o0.g.b.a {
                     return;
                 }
             }
-            this.f11474e = aVar;
+            this.f11482e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f11474e.f11459f != null && this.f11474e.f11460g != null) {
-                    this.f11474e.f11460g.o();
+                if (this.f11482e.f11467f != null && this.f11482e.f11468g != null) {
+                    this.f11482e.f11468g.o();
                 }
-                this.f11474e.y();
+                this.f11482e.y();
             }
         }
     }
@@ -156,7 +156,7 @@ public class a extends c.a.p0.h.o0.g.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11475e;
+        public final /* synthetic */ a f11483e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -173,14 +173,14 @@ public class a extends c.a.p0.h.o0.g.b.a {
                     return;
                 }
             }
-            this.f11475e = aVar;
+            this.f11483e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f11475e.y();
+                this.f11483e.y();
             }
         }
     }
@@ -191,7 +191,7 @@ public class a extends c.a.p0.h.o0.g.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11476e;
+        public final /* synthetic */ a f11484e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -208,19 +208,19 @@ public class a extends c.a.p0.h.o0.g.b.a {
                     return;
                 }
             }
-            this.f11476e = aVar;
+            this.f11484e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f11476e.r.getLayoutParams();
-                layoutParams.width = this.f11476e.p.getWidth();
-                int height = this.f11476e.p.getHeight();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f11484e.r.getLayoutParams();
+                layoutParams.width = this.f11484e.p.getWidth();
+                int height = this.f11484e.p.getHeight();
                 layoutParams.height = height;
                 layoutParams.topMargin = -height;
-                this.f11476e.r.setVisibility(0);
+                this.f11484e.r.setVisibility(0);
             }
         }
     }
@@ -284,7 +284,7 @@ public class a extends c.a.p0.h.o0.g.b.a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SwanAppActivity activity = f.V().getActivity();
             float min = Math.min(activity != null && activity.isLandScape() ? 2.5f : 5.0f, this.s.getAdapter().getItemCount());
-            Resources resources = this.f11458e.getResources();
+            Resources resources = this.f11466e.getResources();
             float dimension = resources.getDimension(c.a.p0.f.c.swangame_recommend_dialog_list_divider_height);
             float dimension2 = resources.getDimension(c.a.p0.f.c.swangame_recommend_dialog_list_default_padding);
             float dimension3 = resources.getDimension(c.a.p0.f.c.swangame_recommend_dialog_width);
@@ -312,7 +312,7 @@ public class a extends c.a.p0.h.o0.g.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             View i2 = super.i();
-            View inflate = LayoutInflater.from(this.f11458e).inflate(c.a.p0.f.f.swangame_recommend_dialog, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f11466e).inflate(c.a.p0.f.f.swangame_recommend_dialog, (ViewGroup) null);
             this.o = inflate;
             this.p = inflate.findViewById(c.a.p0.f.e.swangame_recommend_dialog_content);
             this.r = this.o.findViewById(c.a.p0.f.e.swangame_recommend_dialog_night_mask);
@@ -321,9 +321,9 @@ public class a extends c.a.p0.h.o0.g.b.a {
             RecyclerView recyclerView = (RecyclerView) this.o.findViewById(c.a.p0.f.e.swangame_recommend_dialog_list);
             this.s = recyclerView;
             recyclerView.setItemAnimator(null);
-            this.s.setLayoutManager(new LinearLayoutManager(this.f11458e));
-            this.s.addItemDecoration(new ListRecommendDivider(this.f11458e));
-            ListRecommendAdapter listRecommendAdapter = new ListRecommendAdapter(this.f11458e);
+            this.s.setLayoutManager(new LinearLayoutManager(this.f11466e));
+            this.s.addItemDecoration(new ListRecommendDivider(this.f11466e));
+            ListRecommendAdapter listRecommendAdapter = new ListRecommendAdapter(this.f11466e);
             this.t = listRecommendAdapter;
             this.s.setAdapter(listRecommendAdapter);
             A(i2);
@@ -344,7 +344,7 @@ public class a extends c.a.p0.h.o0.g.b.a {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f11458e);
+            SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f11466e);
             aVar.m(true);
             aVar.f(true);
             aVar.k(false);

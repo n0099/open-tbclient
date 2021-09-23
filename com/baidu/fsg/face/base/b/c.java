@@ -16,34 +16,34 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39781a = "SdkConfigOptions";
+    public static final String f39835a = "SdkConfigOptions";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39782b = "global-config";
+    public static final String f39836b = "global-config";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39783c = "host_version";
+    public static final String f39837c = "host_version";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39784d = "zip_version";
+    public static final String f39838d = "zip_version";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39785e = "updateFail";
+    public static final String f39839e = "updateFail";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39786f = "distributedSdk";
+    public static final String f39840f = "distributedSdk";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39787g = "files";
+    public static final String f39841g = "files";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39788h = "list";
+    public static final String f39842h = "list";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39789i = "cpu";
+    public static final String f39843i = "cpu";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f39790j = "extra_params";
+    public static final String f39844j = "extra_params";
     public static final String k = "extra_global_enable";
     public static final String l = "enable";
     public static final String m = "gray";
@@ -83,7 +83,7 @@ public class c {
             c cVar = new c();
             cVar.q = jSONObject.optBoolean(k, true);
             try {
-                cVar.n = jSONObject.optString(f39784d);
+                cVar.n = jSONObject.optString(f39838d);
                 cVar.r = jSONObject.optBoolean(l, true);
                 cVar.s = jSONObject.optInt("gray");
                 jSONArray = jSONObject.getJSONArray("list");
@@ -119,23 +119,23 @@ public class c {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f39791d = "name";
+        public static final String f39845d = "name";
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f39792e = "url";
+        public static final String f39846e = "url";
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f39793f = "hash";
+        public static final String f39847f = "hash";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39794a;
+        public String f39848a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39795b;
+        public String f39849b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f39796c;
+        public String f39850c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -150,9 +150,9 @@ public class c {
                     return;
                 }
             }
-            this.f39794a = null;
-            this.f39795b = null;
-            this.f39796c = null;
+            this.f39848a = null;
+            this.f39849b = null;
+            this.f39850c = null;
         }
 
         public static a a(JSONObject jSONObject) {
@@ -163,9 +163,9 @@ public class c {
                 if (jSONObject == null) {
                     return aVar;
                 }
-                aVar.f39794a = jSONObject.optString("name");
-                aVar.f39795b = jSONObject.optString("url");
-                aVar.f39796c = jSONObject.optString("hash");
+                aVar.f39848a = jSONObject.optString("name");
+                aVar.f39849b = jSONObject.optString("url");
+                aVar.f39850c = jSONObject.optString("hash");
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -177,9 +177,9 @@ public class c {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("name", this.f39794a);
-                    jSONObject.put("url", this.f39795b);
-                    jSONObject.put("hash", this.f39796c);
+                    jSONObject.put("name", this.f39848a);
+                    jSONObject.put("url", this.f39849b);
+                    jSONObject.put("hash", this.f39850c);
                     return jSONObject;
                 } catch (JSONException e2) {
                     com.baidu.fsg.face.base.d.d.a(e2);
@@ -195,12 +195,12 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             c cVar = new c();
-            cVar.n = jSONObject.optString(f39784d);
-            cVar.p = jSONObject.optBoolean(f39785e);
+            cVar.n = jSONObject.optString(f39838d);
+            cVar.p = jSONObject.optBoolean(f39839e);
             cVar.q = jSONObject.optBoolean(k);
             cVar.r = jSONObject.optBoolean(l);
             cVar.s = jSONObject.optInt("gray");
-            cVar.o = a.a(jSONObject.optJSONObject(f39786f));
+            cVar.o = a.a(jSONObject.optJSONObject(f39840f));
             return cVar;
         }
         return (c) invokeL.objValue;
@@ -212,12 +212,12 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f39784d, this.n);
-                jSONObject.put(f39785e, this.p);
+                jSONObject.put(f39838d, this.n);
+                jSONObject.put(f39839e, this.p);
                 jSONObject.put(k, this.q);
                 jSONObject.put(l, this.r);
                 jSONObject.put("gray", this.s);
-                jSONObject.put(f39786f, this.o == null ? "" : this.o.a());
+                jSONObject.put(f39840f, this.o == null ? "" : this.o.a());
                 return jSONObject;
             } catch (JSONException unused) {
                 return null;

@@ -14,7 +14,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10241a;
+    public static final boolean f10249a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,22 +30,22 @@ public class d {
                 return;
             }
         }
-        f10241a = k.f7077a;
+        f10249a = k.f7085a;
     }
 
     public static void a(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
             f fVar = new f();
-            fVar.f7063a = "swan";
-            fVar.f7064b = str;
-            fVar.f7069g = str2;
+            fVar.f7071a = "swan";
+            fVar.f7072b = str;
+            fVar.f7077g = str2;
             if (TextUtils.equals(str, PrefetchEvent.STATE_CLICK)) {
-                fVar.f7067e = str3;
+                fVar.f7075e = str3;
             }
-            fVar.f7068f = str5;
+            fVar.f7076f = str5;
             fVar.a("source", str4);
-            if (f10241a) {
+            if (f10249a) {
                 String str6 = "staticLoginResult: event = " + fVar.f();
             }
             c.a.p0.a.j2.k.u("1372", fVar);

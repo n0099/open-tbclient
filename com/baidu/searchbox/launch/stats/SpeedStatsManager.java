@@ -177,29 +177,35 @@ public class SpeedStatsManager extends AbstractSpeedStats {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mActivityCreateSpeedStats.getSplashActivityConstTimeStamp() : invokeV.longValue;
     }
 
+    public long getSplashActivityStartTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mActivityCreateSpeedStats.getStatsStartTimeStamp() : invokeV.longValue;
+    }
+
     public int getStageStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mStageStatus : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mStageStatus : invokeV.intValue;
     }
 
     public boolean getStatsFlag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mIsInStatsPeriod : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mIsInStatsPeriod : invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public boolean packData(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, jSONObject)) == null) ? this.mZygoteSpeedStats.packData(jSONObject) && this.mAppBeforeCreateSpeedStats.packData(jSONObject) && this.mAppCreateSpeedStats.packData(jSONObject) && this.mActivityCreateSpeedStats.packData(jSONObject) && this.mAttachWindowSpeedStats.packData(jSONObject) && this.mFirstFrameSpeedStats.packData(jSONObject) && this.mAsyncTaskSpeedStats.packData(jSONObject) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, jSONObject)) == null) ? this.mZygoteSpeedStats.packData(jSONObject) && this.mAppBeforeCreateSpeedStats.packData(jSONObject) && this.mAppCreateSpeedStats.packData(jSONObject) && this.mActivityCreateSpeedStats.packData(jSONObject) && this.mAttachWindowSpeedStats.packData(jSONObject) && this.mFirstFrameSpeedStats.packData(jSONObject) && this.mAsyncTaskSpeedStats.packData(jSONObject) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.reset();
             this.mIsInStatsPeriod = false;
             this.mAppBeforeCreateSpeedStats.reset();
@@ -214,28 +220,28 @@ public class SpeedStatsManager extends AbstractSpeedStats {
 
     public void setMainProcessFlag(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             this.mIsMainProcess = z;
         }
     }
 
     public void setStageStatus(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
             this.mStageStatus = i2;
         }
     }
 
     public void setStatsFlag(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
             this.mIsInStatsPeriod = z;
         }
     }
 
     public void setTaskRunTime(String str, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048598, this, str, j2) == null) && this.mIsMainProcess) {
+        if ((interceptable == null || interceptable.invokeLJ(1048599, this, str, j2) == null) && this.mIsMainProcess) {
             if (SpeedStatsMainTable.MAIN_THREAD_TASK_LIST.contains(str)) {
                 this.mAppCreateSpeedStats.addStatsDuration(str, j2);
             } else {

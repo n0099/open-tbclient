@@ -38,24 +38,24 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f42122a = "";
+    public static String f42184a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f42123b = "";
+    public static String f42185b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f42124c = "";
+    public static String f42186c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f42125d;
+    public Context f42187d;
 
     /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f42126a;
+        public static final c f42188a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -71,7 +71,7 @@ public class c {
                     return;
                 }
             }
-            f42126a = new c();
+            f42188a = new c();
         }
     }
 
@@ -107,7 +107,7 @@ public class c {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f42126a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f42188a : (c) invokeV.objValue;
     }
 
     private void a(InputStream inputStream, OutputStream outputStream) throws Exception {
@@ -381,7 +381,7 @@ public class c {
             sb.append(Part.CRLF);
             sb.append("Content-Disposition: form-data; name=\"phoneinfo\"\r\n");
             sb.append(Part.CRLF);
-            sb.append(URLDecoder.decode(SyncSysInfo.getPhoneInfo() + "&abi=" + f42124c));
+            sb.append(URLDecoder.decode(SyncSysInfo.getPhoneInfo() + "&abi=" + f42186c));
             sb.append(Part.CRLF);
             sb.append("--bd_map_sdk_cc");
             sb.append(Part.CRLF);
@@ -432,9 +432,9 @@ public class c {
         String str = b2 + File.separator + "crash";
         File file = new File(str);
         if (file.exists() || file.mkdir()) {
-            f42122a = str;
+            f42184a = str;
         } else {
-            f42122a = b2;
+            f42184a = b2;
         }
     }
 
@@ -442,17 +442,17 @@ public class c {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (str = f42122a) == null || str.isEmpty() || (str2 = f42123b) == null || str2.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (str = f42184a) == null || str.isEmpty() || (str2 = f42185b) == null || str2.isEmpty()) {
             return;
         }
-        String str3 = f42122a + File.separator + f42123b;
+        String str3 = f42184a + File.separator + f42185b;
         com.baidu.mapsdkplatform.comapi.b.a.a.a().a(str3);
         JNIHandler.registerNativeHandler(str3);
     }
 
     private void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && NetworkUtil.isNetworkAvailable(this.f42125d)) {
+        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && NetworkUtil.isNetworkAvailable(this.f42187d)) {
             new Thread(new d(this)).start();
         }
     }
@@ -486,9 +486,9 @@ public class c {
         }
         String[] strArr = Build.SUPPORTED_ABIS;
         if (strArr.length > 0) {
-            f42124c = strArr[0];
+            f42186c = strArr[0];
         }
-        this.f42125d = context;
+        this.f42187d = context;
         String n = i.n();
         if (n.isEmpty()) {
             return;
@@ -496,7 +496,7 @@ public class c {
         if (n.contains("_")) {
             n = n.replaceAll("_", "");
         }
-        f42123b = n + "_" + i.i() + "_";
+        f42185b = n + "_" + i.i() + "_";
         d();
         e();
         f();

@@ -17,10 +17,10 @@ public class b extends ReplacementSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13892e;
+    public int f13888e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f13893f;
+    public final Paint f13889f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b(int i2) {
@@ -47,7 +47,7 @@ public class b extends ReplacementSpan {
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i2, int i3, float f2, int i4, int i5, int i6, @NonNull Paint paint) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) {
-            canvas.drawRect(f2, i4, f2 + this.f13892e, i6, this.f13893f);
+            canvas.drawRect(f2, i4, f2 + this.f13888e, i6, this.f13889f);
         }
     }
 
@@ -55,7 +55,7 @@ public class b extends ReplacementSpan {
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i2, int i3, @Nullable Paint.FontMetricsInt fontMetricsInt) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) ? this.f13892e : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) ? this.f13888e : invokeCommon.intValue;
     }
 
     public b(int i2, int i3) {
@@ -74,8 +74,8 @@ public class b extends ReplacementSpan {
             }
         }
         Paint paint = new Paint();
-        this.f13893f = paint;
-        this.f13892e = i2;
+        this.f13889f = paint;
+        this.f13888e = i2;
         paint.setColor(i3);
     }
 }

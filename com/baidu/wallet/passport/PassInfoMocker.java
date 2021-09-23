@@ -30,7 +30,7 @@ public class PassInfoMocker implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static PassInfoMocker f62240a;
+        public static PassInfoMocker f62505a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,7 +46,7 @@ public class PassInfoMocker implements NoProguard {
                     return;
                 }
             }
-            f62240a = new PassInfoMocker(null);
+            f62505a = new PassInfoMocker(null);
         }
 
         public a() {
@@ -71,7 +71,7 @@ public class PassInfoMocker implements NoProguard {
     public static PassInfoMocker getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62240a : (PassInfoMocker) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62505a : (PassInfoMocker) invokeV.objValue;
     }
 
     public String getMockedBduss() {

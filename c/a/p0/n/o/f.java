@@ -20,7 +20,7 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<a> f12061a;
+    public Set<a> f12069a;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -28,10 +28,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.p0.n.h.e f12062a;
+        public c.a.p0.n.h.e f12070a;
 
         /* renamed from: b  reason: collision with root package name */
-        public PMSPkgStatus f12063b;
+        public PMSPkgStatus f12071b;
 
         public a(c.a.p0.n.h.e eVar, PMSPkgStatus pMSPkgStatus) {
             Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class f {
                     return;
                 }
             }
-            this.f12062a = eVar;
-            this.f12063b = pMSPkgStatus;
+            this.f12070a = eVar;
+            this.f12071b = pMSPkgStatus;
         }
 
         public boolean equals(Object obj) {
@@ -60,7 +60,7 @@ public class f {
                     return true;
                 }
                 if (obj != null && (obj instanceof a)) {
-                    return this.f12062a.equals(((a) obj).f12062a);
+                    return this.f12070a.equals(((a) obj).f12070a);
                 }
                 return false;
             }
@@ -70,7 +70,7 @@ public class f {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.f12062a) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.f12070a) : invokeV.intValue;
         }
     }
 
@@ -87,13 +87,13 @@ public class f {
                 return;
             }
         }
-        this.f12061a = Collections.synchronizedSet(new HashSet());
+        this.f12069a = Collections.synchronizedSet(new HashSet());
     }
 
     public void a(c.a.p0.n.h.e eVar, PMSPkgStatus pMSPkgStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, eVar, pMSPkgStatus) == null) {
-            this.f12061a.add(new a(eVar, pMSPkgStatus));
+            this.f12069a.add(new a(eVar, pMSPkgStatus));
         }
     }
 
@@ -101,8 +101,8 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            for (a aVar : this.f12061a) {
-                if (aVar != null && (aVar.f12062a instanceof c.a.p0.n.h.b)) {
+            for (a aVar : this.f12069a) {
+                if (aVar != null && (aVar.f12070a instanceof c.a.p0.n.h.b)) {
                     return true;
                 }
             }
@@ -115,8 +115,8 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            for (a aVar : this.f12061a) {
-                if (aVar != null && (aVar.f12062a instanceof c.a.p0.n.h.d)) {
+            for (a aVar : this.f12069a) {
+                if (aVar != null && (aVar.f12070a instanceof c.a.p0.n.h.d)) {
                     return true;
                 }
             }
@@ -129,8 +129,8 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            for (a aVar : this.f12061a) {
-                if (aVar != null && (aVar.f12062a instanceof c.a.p0.n.h.f)) {
+            for (a aVar : this.f12069a) {
+                if (aVar != null && (aVar.f12070a instanceof c.a.p0.n.h.f)) {
                     return true;
                 }
             }
@@ -143,8 +143,8 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            for (a aVar : this.f12061a) {
-                if (aVar != null && (aVar.f12062a instanceof i)) {
+            for (a aVar : this.f12069a) {
+                if (aVar != null && (aVar.f12070a instanceof i)) {
                     return true;
                 }
             }
@@ -157,8 +157,8 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            for (a aVar : this.f12061a) {
-                if (aVar != null && (aVar.f12062a instanceof c.a.p0.n.h.g)) {
+            for (a aVar : this.f12069a) {
+                if (aVar != null && (aVar.f12070a instanceof c.a.p0.n.h.g)) {
                     return true;
                 }
             }
@@ -172,8 +172,8 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                for (a aVar : this.f12061a) {
-                    if (aVar != null && (aVar.f12062a instanceof c.a.p0.n.h.g) && aVar.f12063b == PMSPkgStatus.WAIT) {
+                for (a aVar : this.f12069a) {
+                    if (aVar != null && (aVar.f12070a instanceof c.a.p0.n.h.g) && aVar.f12071b == PMSPkgStatus.WAIT) {
                         return true;
                     }
                 }
@@ -191,9 +191,9 @@ public class f {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
                 hashSet = new HashSet();
-                for (a aVar : (a[]) this.f12061a.toArray(new a[0])) {
-                    if (aVar != null && aVar.f12062a != null) {
-                        hashSet.add(aVar.f12062a);
+                for (a aVar : (a[]) this.f12069a.toArray(new a[0])) {
+                    if (aVar != null && aVar.f12070a != null) {
+                        hashSet.add(aVar.f12070a);
                     }
                 }
             }
@@ -205,11 +205,11 @@ public class f {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f12061a.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f12069a.isEmpty() : invokeV.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0025, code lost:
-        r1.f12063b = com.baidu.swan.pms.model.PMSPkgStatus.ERROR;
+        r1.f12071b = com.baidu.swan.pms.model.PMSPkgStatus.ERROR;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -221,13 +221,13 @@ public class f {
                 if (eVar == null) {
                     return;
                 }
-                Iterator<a> it = this.f12061a.iterator();
+                Iterator<a> it = this.f12069a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     a next = it.next();
-                    if (next != null && next.f12062a.equals(eVar)) {
+                    if (next != null && next.f12070a.equals(eVar)) {
                         break;
                     }
                 }
@@ -236,7 +236,7 @@ public class f {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0025, code lost:
-        r1.f12063b = com.baidu.swan.pms.model.PMSPkgStatus.FINISH;
+        r1.f12071b = com.baidu.swan.pms.model.PMSPkgStatus.FINISH;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -248,13 +248,13 @@ public class f {
                 if (eVar == null) {
                     return;
                 }
-                Iterator<a> it = this.f12061a.iterator();
+                Iterator<a> it = this.f12069a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     a next = it.next();
-                    if (next != null && next.f12062a.equals(eVar)) {
+                    if (next != null && next.f12070a.equals(eVar)) {
                         break;
                     }
                 }
@@ -265,6 +265,6 @@ public class f {
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f12061a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f12069a.size() : invokeV.intValue;
     }
 }

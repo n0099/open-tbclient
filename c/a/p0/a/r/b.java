@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import java.io.File;
 import java.io.InputStream;
 import okhttp3.Request;
@@ -27,7 +28,7 @@ public class b extends c.a.p0.a.n1.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f8140e;
+    public static final boolean f8148e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -36,13 +37,13 @@ public class b extends c.a.p0.a.n1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f8141a;
+        public final /* synthetic */ String f8149a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8142b;
+        public final /* synthetic */ CallbackHandler f8150b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f8143c;
+        public final /* synthetic */ b f8151c;
 
         public a(b bVar, String str, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -59,17 +60,17 @@ public class b extends c.a.p0.a.n1.a {
                     return;
                 }
             }
-            this.f8143c = bVar;
-            this.f8141a = str;
-            this.f8142b = callbackHandler;
+            this.f8151c = bVar;
+            this.f8149a = str;
+            this.f8150b = callbackHandler;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f8142b.handleSchemeDispatchCallback(this.f8141a, UnitedSchemeUtility.wrapCallbackParams(1001, "request IOException").toString());
-                if (b.f8140e) {
+                this.f8150b.handleSchemeDispatchCallback(this.f8149a, UnitedSchemeUtility.wrapCallbackParams(1001, "request IOException").toString());
+                if (b.f8148e) {
                     String str = "response fail : " + UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString();
                 }
             }
@@ -87,7 +88,7 @@ public class b extends c.a.p0.a.n1.a {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f8143c.w(response, this.f8141a, this.f8142b);
+                this.f8151c.w(response, this.f8149a, this.f8150b);
                 return response;
             }
             return invokeLI.objValue;
@@ -107,7 +108,7 @@ public class b extends c.a.p0.a.n1.a {
                 return;
             }
         }
-        f8140e = k.f7077a;
+        f8148e = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -150,7 +151,7 @@ public class b extends c.a.p0.a.n1.a {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal callback");
                 return false;
             }
-            if (f8140e) {
+            if (f8148e) {
                 String str = "schema params : " + a2.toString();
                 String str2 = "schema cb : " + param;
             }
@@ -158,7 +159,7 @@ public class b extends c.a.p0.a.n1.a {
             if (c2 == null) {
                 return false;
             }
-            if (f8140e) {
+            if (f8148e) {
                 String str3 = "build request : " + c2.url().toString();
             }
             c.a.p0.a.r.a.p(c2.url().toString(), c2.body(), new a(this, param, callbackHandler));
@@ -175,11 +176,11 @@ public class b extends c.a.p0.a.n1.a {
                 if (header != null && header.contains("application/json")) {
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("statusCode", response.code());
+                        jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, response.code());
                         jSONObject.put("header", c.a.p0.a.n1.a.s(response.headers()));
                         jSONObject.put("body", response.body().string());
                         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                        if (f8140e) {
+                        if (f8148e) {
                             String str2 = "response json : " + UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString();
                             return;
                         }
@@ -207,11 +208,11 @@ public class b extends c.a.p0.a.n1.a {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("filePath", J);
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("statusCode", response.code());
+                    jSONObject3.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, response.code());
                     jSONObject3.put("header", c.a.p0.a.n1.a.s(response.headers()));
                     jSONObject3.put("body", jSONObject2.toString());
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject3, 0).toString());
-                    if (f8140e) {
+                    if (f8148e) {
                         String str3 = "response file : " + UnitedSchemeUtility.wrapCallbackParams(jSONObject3, 0).toString();
                         return;
                     }
@@ -219,7 +220,7 @@ public class b extends c.a.p0.a.n1.a {
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "bdfile error").toString());
             } catch (Exception e2) {
-                if (f8140e) {
+                if (f8148e) {
                     e2.printStackTrace();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());

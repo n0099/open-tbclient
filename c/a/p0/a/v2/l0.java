@@ -16,7 +16,7 @@ public class l0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9359a;
+    public static final boolean f9367a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class l0 {
                 return;
             }
         }
-        f9359a = c.a.p0.a.k.f7077a;
+        f9367a = c.a.p0.a.k.f7085a;
     }
 
     public static boolean a(String str, String str2) {
@@ -80,13 +80,13 @@ public class l0 {
                     j2 = (j2 << 16) | (i2 < g2.length ? Integer.parseInt(g2[i2]) : 0L);
                     i2++;
                 } catch (NumberFormatException e2) {
-                    if (f9359a) {
+                    if (f9367a) {
                         throw e2;
                     }
                     return 0L;
                 }
             }
-            if (f9359a) {
+            if (f9367a) {
                 String str2 = "getVersion version: " + str + " ,versionCode: " + j2;
             }
             return j2;

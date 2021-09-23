@@ -30,30 +30,30 @@ public class f extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-            b b2 = h.b(cVar.f7148a);
+            b b2 = h.b(cVar.f7156a);
             if (b2 == null) {
-                if (!d.f7152a) {
+                if (!d.f7160a) {
                     return Bundle.EMPTY;
                 }
                 throw new IllegalArgumentException("illegal sp.");
             }
-            int i2 = cVar.f7149b;
+            int i2 = cVar.f7157b;
             if (i2 == 1) {
-                b2.putInt(cVar.f7150c, Integer.parseInt(cVar.f7151d));
+                b2.putInt(cVar.f7158c, Integer.parseInt(cVar.f7159d));
             } else if (i2 == 2) {
-                b2.putLong(cVar.f7150c, Long.parseLong(cVar.f7151d));
+                b2.putLong(cVar.f7158c, Long.parseLong(cVar.f7159d));
             } else if (i2 == 3) {
-                b2.putBoolean(cVar.f7150c, Boolean.parseBoolean(cVar.f7151d));
+                b2.putBoolean(cVar.f7158c, Boolean.parseBoolean(cVar.f7159d));
             } else if (i2 == 4) {
-                b2.putString(cVar.f7150c, cVar.f7151d);
+                b2.putString(cVar.f7158c, cVar.f7159d);
             } else if (i2 != 5) {
-                if (d.f7152a) {
+                if (d.f7160a) {
                     throw new IllegalArgumentException("wrong info params.");
                 }
             } else {
-                b2.putFloat(cVar.f7150c, Float.parseFloat(cVar.f7151d));
+                b2.putFloat(cVar.f7158c, Float.parseFloat(cVar.f7159d));
             }
-            if (d.f7152a) {
+            if (d.f7160a) {
                 String str = "Put: " + cVar;
             }
             return Bundle.EMPTY;

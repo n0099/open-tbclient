@@ -39,8 +39,8 @@ public class a extends ProviderDelegation {
             bundle.putInt("size", i2);
             c.a.p0.a.v1.b.f b2 = c.a.p0.a.v1.b.d.b(a.class, bundle);
             if (b2.a()) {
-                b2.f9229a.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-                return (AshmemFileDescriptor) b2.f9229a.getParcelable("result");
+                b2.f9237a.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+                return (AshmemFileDescriptor) b2.f9237a.getParcelable("result");
             }
             return null;
         }

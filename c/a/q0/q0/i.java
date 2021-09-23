@@ -13,10 +13,10 @@ public class i extends j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f13697b = 100;
+    public static int f13693b = 100;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f13698c = 10;
+    public static int f13694c = 10;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -24,13 +24,13 @@ public class i extends j {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f13699a;
+        public static int f13695a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f13700b;
+        public static int f13696b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f13701c;
+        public static int f13697c;
         public transient /* synthetic */ FieldHolder $fh;
 
         public static void a() {
@@ -38,9 +38,9 @@ public class i extends j {
             if (interceptable == null || interceptable.invokeV(65536, null) == null) {
                 c.a.e.e.n.a a2 = j.a();
                 a2.b("action", "imbusy");
-                a2.b("totalNum", String.valueOf(f13699a));
-                a2.b("tfailNum", String.valueOf(f13700b));
-                a2.b("qfailNum", String.valueOf(f13701c));
+                a2.b("totalNum", String.valueOf(f13695a));
+                a2.b("tfailNum", String.valueOf(f13696b));
+                a2.b("qfailNum", String.valueOf(f13697c));
                 BdStatisticsManager.getInstance().performance("im", a2);
                 b();
             }
@@ -49,9 +49,9 @@ public class i extends j {
         public static void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-                f13699a = 0;
-                f13700b = 0;
-                f13701c = 0;
+                f13695a = 0;
+                f13696b = 0;
+                f13697c = 0;
             }
         }
     }
@@ -61,25 +61,25 @@ public class i extends j {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f13702a;
+        public static int f13698a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static long f13703b;
+        public static long f13699b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static long f13704c;
+        public static long f13700c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static long f13705d;
+        public static long f13701d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static int f13706e;
+        public static int f13702e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static int f13707f;
+        public static int f13703f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static long f13708g;
+        public static long f13704g;
         public transient /* synthetic */ FieldHolder $fh;
 
         public static void a() {
@@ -87,13 +87,13 @@ public class i extends j {
             if (interceptable == null || interceptable.invokeV(65536, null) == null) {
                 c.a.e.e.n.a a2 = j.a();
                 a2.b("action", "imcost");
-                a2.b("dect", String.valueOf(f13703b));
-                a2.b("dlsize", String.valueOf(f13704c));
-                a2.b("dbt", String.valueOf(f13705d));
-                a2.b("pnum", String.valueOf(f13706e));
-                a2.b("reqcost", String.valueOf(f13708g));
-                a2.b("cpu", String.valueOf(f13707f));
-                a2.b("totalNum", String.valueOf(f13702a));
+                a2.b("dect", String.valueOf(f13699b));
+                a2.b("dlsize", String.valueOf(f13700c));
+                a2.b("dbt", String.valueOf(f13701d));
+                a2.b("pnum", String.valueOf(f13702e));
+                a2.b("reqcost", String.valueOf(f13704g));
+                a2.b("cpu", String.valueOf(f13703f));
+                a2.b("totalNum", String.valueOf(f13698a));
                 BdStatisticsManager.getInstance().performance("im", a2);
                 b();
             }
@@ -102,12 +102,12 @@ public class i extends j {
         public static void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-                f13702a = 0;
-                f13703b = 0L;
-                f13704c = 0L;
-                f13705d = 0L;
-                f13706e = 0;
-                f13707f = 0;
+                f13698a = 0;
+                f13699b = 0L;
+                f13700c = 0L;
+                f13701d = 0L;
+                f13702e = 0;
+                f13703f = 0;
             }
         }
     }
@@ -144,13 +144,13 @@ public class i extends j {
     public static void b(boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            a.f13699a++;
+            a.f13695a++;
             if (z2) {
-                a.f13700b++;
+                a.f13696b++;
             } else if (z3) {
-                a.f13701c++;
+                a.f13697c++;
             }
-            if (a.f13699a > f13697b) {
+            if (a.f13695a > f13693b) {
                 a.a();
             }
         }
@@ -159,10 +159,10 @@ public class i extends j {
     public static void d() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, null) == null) && k.d().g()) {
-            if (b.f13702a > f13698c) {
+            if (b.f13698a > f13694c) {
                 b.a();
             }
-            if (a.f13699a > f13698c) {
+            if (a.f13695a > f13694c) {
                 a.a();
             }
         }
@@ -171,14 +171,14 @@ public class i extends j {
     public void c(f fVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) && k.d().g()) {
-            if (b.f13702a < f13697b) {
-                b.f13703b += fVar.f13677b;
-                b.f13704c += fVar.f13678c;
-                b.f13705d += fVar.f13679d;
-                b.f13706e += fVar.f13680e;
-                b.f13708g += fVar.f13681f;
-                b.f13707f += fVar.f13682g;
-                b.f13702a++;
+            if (b.f13698a < f13693b) {
+                b.f13699b += fVar.f13673b;
+                b.f13700c += fVar.f13674c;
+                b.f13701d += fVar.f13675d;
+                b.f13702e += fVar.f13676e;
+                b.f13704g += fVar.f13677f;
+                b.f13703f += fVar.f13678g;
+                b.f13698a++;
                 return;
             }
             b.a();

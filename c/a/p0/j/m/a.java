@@ -81,7 +81,7 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11739e;
+        public final /* synthetic */ a f11747e;
 
         public View$OnClickListenerC0613a(a aVar) {
             Interceptable interceptable = $ic;
@@ -98,14 +98,14 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
                     return;
                 }
             }
-            this.f11739e = aVar;
+            this.f11747e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f11739e.e3();
+                this.f11747e.e3();
             }
         }
     }
@@ -116,7 +116,7 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11740e;
+        public final /* synthetic */ a f11748e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
                     return;
                 }
             }
-            this.f11740e = aVar;
+            this.f11748e = aVar;
         }
 
         @Override // com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener
@@ -148,28 +148,28 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reverseGeoCodeResult) == null) {
                 if (reverseGeoCodeResult == null || reverseGeoCodeResult.error != SearchResult.ERRORNO.NO_ERROR) {
-                    this.f11740e.J0.setText(g.unknown_location_info);
+                    this.f11748e.J0.setText(g.unknown_location_info);
                     return;
                 }
-                if (this.f11740e.K0 != null && TextUtils.isEmpty(this.f11740e.H0)) {
+                if (this.f11748e.K0 != null && TextUtils.isEmpty(this.f11748e.H0)) {
                     String address = reverseGeoCodeResult.getAddress();
-                    a aVar = this.f11740e;
+                    a aVar = this.f11748e;
                     if (address == null) {
                         address = aVar.z().getString(g.unknown_location_info);
                     }
                     aVar.H0 = address;
-                    this.f11740e.K0.setText(this.f11740e.H0);
+                    this.f11748e.K0.setText(this.f11748e.H0);
                 }
-                if (this.f11740e.J0 != null && TextUtils.isEmpty(this.f11740e.G0)) {
+                if (this.f11748e.J0 != null && TextUtils.isEmpty(this.f11748e.G0)) {
                     String sematicDescription = reverseGeoCodeResult.getSematicDescription();
-                    a aVar2 = this.f11740e;
+                    a aVar2 = this.f11748e;
                     if (sematicDescription == null) {
                         sematicDescription = aVar2.z().getString(g.unknown_location_info);
                     }
                     aVar2.G0 = sematicDescription;
-                    this.f11740e.J0.setText(this.f11740e.G0);
+                    this.f11748e.J0.setText(this.f11748e.G0);
                 }
-                c.a.p0.a.e0.d.g("map", "mAddress +" + this.f11740e.H0 + " mName" + this.f11740e.G0);
+                c.a.p0.a.e0.d.g("map", "mAddress +" + this.f11748e.H0 + " mName" + this.f11748e.G0);
             }
         }
     }
@@ -180,7 +180,7 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11741e;
+        public final /* synthetic */ a f11749e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -197,14 +197,14 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
                     return;
                 }
             }
-            this.f11741e = aVar;
+            this.f11749e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f11741e.Q2();
+                this.f11749e.Q2();
             }
         }
     }
@@ -215,7 +215,7 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11742a;
+        public final /* synthetic */ a f11750a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -232,14 +232,14 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
                     return;
                 }
             }
-            this.f11742a = aVar;
+            this.f11750a = aVar;
         }
 
         @Override // com.baidu.swan.menu.PopupWindow.b
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11742a.d3(1.0f);
+                this.f11750a.d3(1.0f);
             }
         }
     }
@@ -250,7 +250,7 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11743e;
+        public final /* synthetic */ a f11751e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -267,17 +267,17 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
                     return;
                 }
             }
-            this.f11743e = aVar;
+            this.f11751e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f11743e.Q0 == null || this.f11743e.Q0.i() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f11751e.Q0 == null || this.f11751e.Q0.i() == null) {
                 return;
             }
-            BDLocation i2 = this.f11743e.Q0.i();
-            this.f11743e.D0.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(i2.getLatitude(), i2.getLongitude())));
+            BDLocation i2 = this.f11751e.Q0.i();
+            this.f11751e.D0.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(i2.getLatitude(), i2.getLongitude())));
         }
     }
 
@@ -287,7 +287,7 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11744a;
+        public final /* synthetic */ a f11752a;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -304,14 +304,14 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
                     return;
                 }
             }
-            this.f11744a = aVar;
+            this.f11752a = aVar;
         }
 
         @Override // c.a.p0.j.r.c.b
         public void a(BDLocation bDLocation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
-                this.f11744a.R0 = bDLocation;
+                this.f11752a.R0 = bDLocation;
             }
         }
     }
@@ -329,7 +329,7 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public a() {
@@ -577,7 +577,7 @@ public class a extends c.a.p0.a.h0.g.d implements BaiduMap.OnMapLoadedCallback, 
             return;
         }
         g.b i2 = W.i("navigateTo");
-        i2.n(c.a.p0.a.h0.g.g.f5928g, c.a.p0.a.h0.g.g.f5930i);
+        i2.n(c.a.p0.a.h0.g.g.f5936g, c.a.p0.a.h0.g.g.f5938i);
         i2.j(this);
         i2.b();
     }

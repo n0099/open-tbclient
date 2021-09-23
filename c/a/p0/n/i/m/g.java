@@ -12,13 +12,13 @@ public abstract class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11998a;
+    public int f12006a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11999b;
+    public String f12007b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12000c;
+    public String f12008c;
 
     public g(int i2) {
         Interceptable interceptable = $ic;
@@ -35,34 +35,34 @@ public abstract class g {
                 return;
             }
         }
-        this.f11999b = "-1";
-        this.f12000c = "-1";
-        this.f11998a = i2;
+        this.f12007b = "-1";
+        this.f12008c = "-1";
+        this.f12006a = i2;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11998a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12006a : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11999b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12007b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12000c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12008c : (String) invokeV.objValue;
     }
 
     public g d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f11999b = str;
+            this.f12007b = str;
             return this;
         }
         return (g) invokeL.objValue;
@@ -72,7 +72,7 @@ public abstract class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f12000c = str;
+            this.f12008c = str;
             return this;
         }
         return (g) invokeL.objValue;

@@ -45,22 +45,22 @@ public class PbFirstFloorEnterForumAdapter extends c.a.e.l.e.a<g, PbFirstFloorEn
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public CardForumHeadLayout f55229e;
+        public CardForumHeadLayout f55344e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f55230f;
+        public View f55345f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f55231g;
+        public View f55346g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView f55232h;
+        public ImageView f55347h;
 
         /* renamed from: i  reason: collision with root package name */
-        public g f55233i;
+        public g f55348i;
 
         /* renamed from: j  reason: collision with root package name */
-        public TBSpecificationBtn f55234j;
+        public TBSpecificationBtn f55349j;
         public String k;
         public String l;
         public final /* synthetic */ PbFirstFloorEnterForumAdapter m;
@@ -86,47 +86,47 @@ public class PbFirstFloorEnterForumAdapter extends c.a.e.l.e.a<g, PbFirstFloorEn
             this.m = pbFirstFloorEnterForumAdapter;
             ViewGroup viewGroup = (ViewGroup) view;
             CardForumHeadLayout cardForumHeadLayout = (CardForumHeadLayout) viewGroup.getChildAt(0);
-            this.f55229e = cardForumHeadLayout;
+            this.f55344e = cardForumHeadLayout;
             if (cardForumHeadLayout != null) {
                 cardForumHeadLayout.setOnClickListener(cardForumHeadLayout);
-                this.f55229e.setAfterClickListener(this);
+                this.f55344e.setAfterClickListener(this);
             }
-            this.f55230f = viewGroup.getChildAt(1);
-            this.f55232h = (ImageView) viewGroup.getChildAt(2);
-            this.f55231g = viewGroup.getChildAt(3);
+            this.f55345f = viewGroup.getChildAt(1);
+            this.f55347h = (ImageView) viewGroup.getChildAt(2);
+            this.f55346g = viewGroup.getChildAt(3);
         }
 
         public final void b(String str) {
             TbPageTag l;
             g gVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (l = c.l(this.m.m.getContext())) == null || (gVar = this.f55233i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (l = c.l(this.m.m.getContext())) == null || (gVar = this.f55348i) == null) {
                 return;
             }
-            c.a.r0.j2.k.e.f1.c.a(str, gVar.f19626j, gVar.k, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
+            c.a.r0.j2.k.e.f1.c.a(str, gVar.f19641j, gVar.k, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
         }
 
         public final void c() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f55234j == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f55349j == null) {
                 return;
             }
             if (this.m.o) {
-                this.f55234j.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.followed));
-                this.f55234j.setClickable(false);
-                ((b) this.f55234j.getStyleConfig()).r(R.color.CAM_X0109);
+                this.f55349j.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.followed));
+                this.f55349j.setClickable(false);
+                ((b) this.f55349j.getStyleConfig()).r(R.color.CAM_X0109);
                 return;
             }
-            this.f55234j.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.attention));
+            this.f55349j.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.attention));
         }
 
         public void changeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                WebPManager.setPureDrawable(this.f55232h, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
-                SkinManager.setBackgroundColor(this.f55230f, R.color.CAM_X0203);
-                SkinManager.setBackgroundColor(this.f55231g, R.color.CAM_X0203);
-                this.f55229e.onChangeSkinType();
+                WebPManager.setPureDrawable(this.f55347h, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
+                SkinManager.setBackgroundColor(this.f55345f, R.color.CAM_X0203);
+                SkinManager.setBackgroundColor(this.f55346g, R.color.CAM_X0203);
+                this.f55344e.onChangeSkinType();
             }
         }
 
@@ -134,7 +134,7 @@ public class PbFirstFloorEnterForumAdapter extends c.a.e.l.e.a<g, PbFirstFloorEn
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-                TiebaStatic.log(new StatisticItem("c13698").param("tid", this.f55233i.k).param("fid", this.f55233i.f19626j).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+                TiebaStatic.log(new StatisticItem("c13698").param("tid", this.f55348i.k).param("fid", this.f55348i.f19641j).param("uid", TbadkCoreApplication.getCurrentAccountId()));
             }
         }
 
@@ -142,23 +142,23 @@ public class PbFirstFloorEnterForumAdapter extends c.a.e.l.e.a<g, PbFirstFloorEn
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) {
                 if (gVar != null) {
-                    this.f55233i = gVar;
-                    this.k = gVar.f19626j;
-                    this.l = gVar.f19621e;
+                    this.f55348i = gVar;
+                    this.k = gVar.f19641j;
+                    this.l = gVar.f19636e;
                     if (!this.m.o) {
                         this.m.o = gVar.l;
                     }
-                    this.f55231g.setVisibility(gVar.f19625i ? 0 : 8);
+                    this.f55346g.setVisibility(gVar.f19640i ? 0 : 8);
                     if (getView() != null) {
-                        getView().setPadding(0, 0, 0, gVar.f19625i ? l.g(this.m.f2957e, R.dimen.tbds42) : 0);
+                        getView().setPadding(0, 0, 0, gVar.f19640i ? l.g(this.m.f2958e, R.dimen.tbds42) : 0);
                     }
-                    this.f55229e.setData(gVar.f19621e, gVar.f19622f, gVar.f19623g, gVar.f19624h);
+                    this.f55344e.setData(gVar.f19636e, gVar.f19637f, gVar.f19638g, gVar.f19639h);
                 }
-                if (this.f55234j == null || this.m.o) {
+                if (this.f55349j == null || this.m.o) {
                     return;
                 }
-                this.f55232h.setVisibility(4);
-                this.f55234j.setVisibility(0);
+                this.f55347h.setVisibility(4);
+                this.f55349j.setVisibility(0);
                 c();
                 b("c14274");
             }
@@ -171,7 +171,7 @@ public class PbFirstFloorEnterForumAdapter extends c.a.e.l.e.a<g, PbFirstFloorEn
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFirstFloorEnterForumAdapter f55235a;
+        public final /* synthetic */ PbFirstFloorEnterForumAdapter f55350a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PbFirstFloorEnterForumAdapter pbFirstFloorEnterForumAdapter, int i2) {
@@ -191,16 +191,16 @@ public class PbFirstFloorEnterForumAdapter extends c.a.e.l.e.a<g, PbFirstFloorEn
                     return;
                 }
             }
-            this.f55235a = pbFirstFloorEnterForumAdapter;
+            this.f55350a = pbFirstFloorEnterForumAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k) && ((k) customResponsedMessage.getData()).f21118b) {
-                this.f55235a.o = true;
-                this.f55235a.n.c();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k) && ((k) customResponsedMessage.getData()).f21130b) {
+                this.f55350a.o = true;
+                this.f55350a.n.c();
             }
         }
     }
@@ -244,26 +244,26 @@ public class PbFirstFloorEnterForumAdapter extends c.a.e.l.e.a<g, PbFirstFloorEn
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f2957e);
-            int g2 = l.g(this.f2957e, R.dimen.M_W_X007);
-            CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.f2957e);
-            cardForumHeadLayout.setPadding(0, l.g(this.f2957e, R.dimen.tbds32), 0, l.g(this.f2957e, R.dimen.tbds13));
+            FrameLayout frameLayout = new FrameLayout(this.f2958e);
+            int g2 = l.g(this.f2958e, R.dimen.M_W_X007);
+            CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.f2958e);
+            cardForumHeadLayout.setPadding(0, l.g(this.f2958e, R.dimen.tbds32), 0, l.g(this.f2958e, R.dimen.tbds13));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.leftMargin = g2;
             layoutParams.rightMargin = g2;
             frameLayout.addView(cardForumHeadLayout, layoutParams);
-            View view = new View(this.f2957e);
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, l.g(this.f2957e, R.dimen.tbds1));
+            View view = new View(this.f2958e);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, l.g(this.f2958e, R.dimen.tbds1));
             layoutParams2.leftMargin = g2;
             layoutParams2.rightMargin = g2;
             frameLayout.addView(view, layoutParams2);
-            ImageView imageView = new ImageView(this.f2957e);
-            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(l.g(this.f2957e, R.dimen.tbds42), l.g(this.f2957e, R.dimen.tbds42));
+            ImageView imageView = new ImageView(this.f2958e);
+            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(l.g(this.f2958e, R.dimen.tbds42), l.g(this.f2958e, R.dimen.tbds42));
             layoutParams3.gravity = 21;
             layoutParams3.rightMargin = g2;
             frameLayout.addView(imageView, layoutParams3);
-            View view2 = new View(this.f2957e);
-            FrameLayout.LayoutParams layoutParams4 = new FrameLayout.LayoutParams(-1, l.g(this.f2957e, R.dimen.tbds1));
+            View view2 = new View(this.f2958e);
+            FrameLayout.LayoutParams layoutParams4 = new FrameLayout.LayoutParams(-1, l.g(this.f2958e, R.dimen.tbds1));
             layoutParams4.leftMargin = g2;
             layoutParams4.rightMargin = g2;
             layoutParams4.gravity = 80;

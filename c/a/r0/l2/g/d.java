@@ -57,7 +57,7 @@ public class d extends c.a.r0.r.a<f, PersonInfoUserPicsHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.n);
+            PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.n);
             personInfoUserPicsHolder.adapterManager.d(this.m);
             return personInfoUserPicsHolder;
         }

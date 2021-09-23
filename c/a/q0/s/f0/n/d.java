@@ -33,9 +33,9 @@ public class d extends TBSpecificationButtonConfig {
                 return;
             }
         }
-        this.f47947i = true;
-        this.f47940b = R.color.CAM_X0101;
-        this.f47942d = R.color.CAM_X0302;
+        this.f48054i = true;
+        this.f48047b = R.color.CAM_X0101;
+        this.f48049d = R.color.CAM_X0302;
         this.t = false;
         this.n = this.o;
         this.m = this.l;
@@ -60,8 +60,8 @@ public class d extends TBSpecificationButtonConfig {
     public void o(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f47940b = i2;
-            this.f47942d = R.color.CAM_X0904;
+            this.f48047b = i2;
+            this.f48049d = R.color.CAM_X0904;
             this.t = false;
             TBSpecificationButtonConfig.a aVar = this.s;
             if (aVar != null) {
@@ -87,7 +87,7 @@ public class d extends TBSpecificationButtonConfig {
         GradientDrawable gradientDrawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f2)) == null) {
-            int color = SkinManager.getColor(this.q, this.f47942d);
+            int color = SkinManager.getColor(this.q, this.f48049d);
             int[] iArr = {c.a.r0.j3.c.b(color), color};
             if (Build.VERSION.SDK_INT >= 16) {
                 gradientDrawable = new GradientDrawable();
@@ -109,7 +109,7 @@ public class d extends TBSpecificationButtonConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f2)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(SkinManager.getColor(this.q, this.f47942d));
+            gradientDrawable.setColor(SkinManager.getColor(this.q, this.f48049d));
             gradientDrawable.setShape(0);
             gradientDrawable.setCornerRadius(f2);
             return gradientDrawable;
@@ -120,8 +120,8 @@ public class d extends TBSpecificationButtonConfig {
     public void s(@DrawableRes int i2, TBSpecificationButtonConfig.IconType iconType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, iconType) == null) {
-            this.f47943e[0] = i2;
-            this.f47944f = iconType;
+            this.f48050e[0] = i2;
+            this.f48051f = iconType;
         }
     }
 }

@@ -30,7 +30,7 @@ public class g extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f13845a;
+        public final /* synthetic */ g f13841a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(g gVar, int i2) {
@@ -50,7 +50,7 @@ public class g extends f {
                     return;
                 }
             }
-            this.f13845a = gVar;
+            this.f13841a = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +58,7 @@ public class g extends f {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                g gVar = this.f13845a;
+                g gVar = this.f13841a;
                 if (gVar.F) {
                     gVar.D(TbadkCoreApplication.getInst().getSkinType());
                 }
@@ -72,7 +72,7 @@ public class g extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f13846a;
+        public final /* synthetic */ g f13842a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(g gVar, int i2) {
@@ -92,7 +92,7 @@ public class g extends f {
                     return;
                 }
             }
-            this.f13846a = gVar;
+            this.f13842a = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -100,7 +100,7 @@ public class g extends f {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f13846a.l.setBackgroundColor(PullViewHelper.getInstance().getPullViewBackgroundColor(TbadkCoreApplication.getInst().getSkinType()));
+                this.f13842a.l.setBackgroundColor(PullViewHelper.getInstance().getPullViewBackgroundColor(TbadkCoreApplication.getInst().getSkinType()));
             }
         }
     }

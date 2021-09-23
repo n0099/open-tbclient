@@ -27,7 +27,7 @@ public class j {
             if (adAdSense != null && !adAdSense.f()) {
                 z.a(advertAppInfo);
             } else {
-                k.l().g(advertAppInfo.n4, advertAppInfo.getDownloadId(), true);
+                k.l().g(advertAppInfo.o4, advertAppInfo.getDownloadId(), true);
             }
         }
     }
@@ -41,7 +41,7 @@ public class j {
                 if (context == null || advertAppInfo == null) {
                     return false;
                 }
-                String str = advertAppInfo.j4;
+                String str = advertAppInfo.k4;
                 if (StringUtils.isNull(str)) {
                     str = "";
                 }
@@ -60,8 +60,8 @@ public class j {
                 return false;
             }
             c.a.q0.v.a.k().h(advertAppInfo);
-            String str2 = advertAppInfo.j4;
-            k.l().x(advertAppInfo.getDownloadId(), advertAppInfo.n4, StringUtils.isNull(str2) ? str : str2, i2, k.m(advertAppInfo.o4).intValue(), null, true, false, true, advertAppInfo.k4, downloadStaticsData, advertAppInfo.j4);
+            String str2 = advertAppInfo.k4;
+            k.l().x(advertAppInfo.getDownloadId(), advertAppInfo.o4, StringUtils.isNull(str2) ? str : str2, i2, k.m(advertAppInfo.p4).intValue(), null, true, false, true, advertAppInfo.l4, downloadStaticsData, advertAppInfo.k4);
             return true;
         }
         return invokeCommon.booleanValue;

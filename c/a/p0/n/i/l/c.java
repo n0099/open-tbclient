@@ -11,7 +11,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f11968a;
+    public h f11976a;
 
     public c() {
         Interceptable interceptable = $ic;

@@ -14,7 +14,7 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f5799a;
+    public FrameLayout f5807a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class b {
                 return;
             }
         }
-        this.f5799a = null;
+        this.f5807a = null;
     }
 
     public void a(ViewGroup viewGroup) {
@@ -37,29 +37,29 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        if (this.f5799a == null) {
+        if (this.f5807a == null) {
             FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-            this.f5799a = frameLayout;
+            this.f5807a = frameLayout;
             frameLayout.setBackgroundResource(c.aiapps_night_mode_cover_layer);
         }
-        viewGroup.removeView(this.f5799a);
-        viewGroup.addView(this.f5799a, new FrameLayout.LayoutParams(-1, -1));
+        viewGroup.removeView(this.f5807a);
+        viewGroup.addView(this.f5807a, new FrameLayout.LayoutParams(-1, -1));
     }
 
     public void b(ViewGroup viewGroup) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.f5799a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.f5807a) == null) {
             return;
         }
         viewGroup.removeView(frameLayout);
-        this.f5799a = null;
+        this.f5807a = null;
     }
 
     public void c(int i2) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (frameLayout = this.f5799a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (frameLayout = this.f5807a) == null) {
             return;
         }
         frameLayout.setVisibility(i2);

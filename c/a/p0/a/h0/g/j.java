@@ -63,7 +63,7 @@ public class j extends d implements View.OnClickListener {
                 return;
             }
             g.b i2 = H1.i("navigateTo");
-            i2.n(g.f5928g, g.f5930i);
+            i2.n(g.f5936g, g.f5938i);
             i2.k("authority", null).a();
             c.a.p0.a.j1.a.o("permission");
         }

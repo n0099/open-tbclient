@@ -308,9 +308,9 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             String valueOf = String.valueOf(d2Var.T());
             String Z = d2Var.Z();
-            if (d2Var.I1 != null) {
+            if (d2Var.J1 != null) {
                 setFromForumId(valueOf);
-                OriginalForumInfo originalForumInfo = d2Var.I1;
+                OriginalForumInfo originalForumInfo = d2Var.J1;
                 String str3 = originalForumInfo.id;
                 Z = originalForumInfo.ori_fname;
                 valueOf = str3;
@@ -820,10 +820,10 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
                     intent.putExtra("key_ori_ugc_type", L.oriUgcType);
                     intent.putExtra("key_ori_ugc_vid", L.oriUgcVid);
                 }
-                intent.putExtra("key_rec_weight", d2Var.X0);
-                intent.putExtra("key_rec_source", d2Var.W0);
-                intent.putExtra("key_rec_ab_tag", d2Var.Y0);
-                intent.putExtra("key_rec_extra", d2Var.Z0);
+                intent.putExtra("key_rec_weight", d2Var.Y0);
+                intent.putExtra("key_rec_source", d2Var.X0);
+                intent.putExtra("key_rec_ab_tag", d2Var.Z0);
+                intent.putExtra("key_rec_extra", d2Var.a1);
             }
             return this;
         }

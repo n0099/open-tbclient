@@ -33,8 +33,8 @@ public class i extends ProviderDelegation {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             Bundle bundle2 = new Bundle();
             a0 A = a.A(getAgent().getContext());
-            bundle2.putString("NICK_NAME", A.f10108a);
-            bundle2.putString("AVATAR_URL", A.f10109b);
+            bundle2.putString("NICK_NAME", A.f10116a);
+            bundle2.putString("AVATAR_URL", A.f10117b);
             return bundle2;
         }
         return (Bundle) invokeL.objValue;

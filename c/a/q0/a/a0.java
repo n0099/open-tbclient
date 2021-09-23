@@ -14,13 +14,13 @@ public class a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12494a;
+    public String f12502a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12495b;
+    public String f12503b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f12496c;
+    public a f12504c;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -28,7 +28,7 @@ public class a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12497a;
+        public String f12505a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -62,19 +62,19 @@ public class a0 {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12494a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12502a : (String) invokeV.objValue;
     }
 
     public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12496c : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12504c : (a) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12495b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12503b : (String) invokeV.objValue;
     }
 
     public void d(DataRes dataRes) {
@@ -82,18 +82,18 @@ public class a0 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f12494a = dataRes.title;
+        this.f12502a = dataRes.title;
         String str = dataRes.img;
         String str2 = dataRes.tips;
-        this.f12495b = dataRes.url;
+        this.f12503b = dataRes.url;
         String str3 = dataRes.btn_sure;
         String str4 = dataRes.btn_cancel;
         if (dataRes.activity_done != null) {
             a aVar = new a();
-            this.f12496c = aVar;
+            this.f12504c = aVar;
             ToastInfo toastInfo = dataRes.activity_done;
             String str5 = toastInfo.url;
-            aVar.f12497a = toastInfo.btntext;
+            aVar.f12505a = toastInfo.btntext;
             String str6 = toastInfo.message;
             String str7 = toastInfo.sharetoken;
         }

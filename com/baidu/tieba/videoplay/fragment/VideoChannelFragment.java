@@ -19,7 +19,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelFragment f58002a;
+        public final /* synthetic */ VideoChannelFragment f58124a;
 
         public a(VideoChannelFragment videoChannelFragment) {
             Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                     return;
                 }
             }
-            this.f58002a = videoChannelFragment;
+            this.f58124a = videoChannelFragment;
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.k
         public void a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.f58002a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
+                this.f58124a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
             }
         }
     }
@@ -54,7 +54,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelFragment f58003a;
+        public final /* synthetic */ VideoChannelFragment f58125a;
 
         public b(VideoChannelFragment videoChannelFragment) {
             Interceptable interceptable = $ic;
@@ -71,14 +71,14 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                     return;
                 }
             }
-            this.f58003a = videoChannelFragment;
+            this.f58125a = videoChannelFragment;
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.k
         public void a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.f58003a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
+                this.f58125a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
             }
         }
     }

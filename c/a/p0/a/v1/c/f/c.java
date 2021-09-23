@@ -44,19 +44,19 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SwanAppProcessInfo f9264f;
+    public final SwanAppProcessInfo f9272f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9265g;
+    public String f9273g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Messenger f9266h;
+    public Messenger f9274h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SwanAppCores f9267i;
+    public SwanAppCores f9275i;
 
     /* renamed from: j  reason: collision with root package name */
-    public PrefetchEvent f9268j;
+    public PrefetchEvent f9276j;
     public boolean k;
     public long l;
     public boolean m;
@@ -83,7 +83,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f9269e;
+        public final /* synthetic */ c f9277e;
 
         public ServiceConnectionC0434c(c cVar) {
             Interceptable interceptable = $ic;
@@ -100,21 +100,21 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
                     return;
                 }
             }
-            this.f9269e = cVar;
+            this.f9277e = cVar;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                synchronized (this.f9269e.f9264f) {
-                    this.f9269e.f9266h = new Messenger(iBinder);
+                synchronized (this.f9277e.f9272f) {
+                    this.f9277e.f9274h = new Messenger(iBinder);
                     e k = e.k();
-                    k.m().a("event_puppet_online", this.f9269e);
+                    k.m().a("event_puppet_online", this.f9277e);
                     if (c.r) {
-                        k.u("on main bind to swan: " + this.f9269e.f9264f);
+                        k.u("on main bind to swan: " + this.f9277e.f9272f);
                     }
-                    this.f9269e.h();
+                    this.f9277e.h();
                 }
             }
         }
@@ -123,7 +123,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f9269e.O();
+                this.f9277e.O();
             }
         }
 
@@ -145,7 +145,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
                 return;
             }
         }
-        r = c.a.p0.a.v1.c.a.f9230b;
+        r = c.a.p0.a.v1.c.a.f9238b;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -166,14 +166,14 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
                 return;
             }
         }
-        this.f9265g = "";
-        this.f9266h = null;
+        this.f9273g = "";
+        this.f9274h = null;
         this.k = true;
         this.l = 0L;
         this.m = false;
         this.o = new ArrayDeque();
         this.q = c.a.p0.a.v2.z0.a.a(new String[0]);
-        this.f9264f = swanAppProcessInfo;
+        this.f9272f = swanAppProcessInfo;
         c.a.p0.a.a2.b bVar = new c.a.p0.a.a2.b();
         bVar.e(this, "event_messenger_call");
         v(bVar);
@@ -183,7 +183,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f9265g) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f9273g) : invokeV.booleanValue;
     }
 
     public boolean D() {
@@ -191,8 +191,8 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this.f9264f) {
-                z = this.f9266h != null;
+            synchronized (this.f9272f) {
+                z = this.f9274h != null;
             }
             return z;
         }
@@ -202,7 +202,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
     public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9268j != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9276j != null : invokeV.booleanValue;
     }
 
     public boolean F() {
@@ -227,11 +227,11 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (!TextUtils.equals(str, this.f9265g)) {
+            if (!TextUtils.equals(str, this.f9273g)) {
                 if (TextUtils.isEmpty(str)) {
                     str = "swan_id_unknown";
                 }
-                this.f9265g = str;
+                this.f9273g = str;
                 e.k().m().a("event_puppet_load_app", this);
                 this.k = true;
             } else {
@@ -287,7 +287,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
     public void onCallback(i.a aVar) {
         String[] p;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) && c.a.p0.a.v1.b.c.f(aVar.C(), "swan_multi_preload_on_server") && aVar.i("swan_multi_preload_app_process_index") == this.f9264f.index && (p = aVar.p("swan_multi_preload_app_ids")) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) && c.a.p0.a.v1.b.c.f(aVar.C(), "swan_multi_preload_on_server") && aVar.i("swan_multi_preload_app_process_index") == this.f9272f.index && (p = aVar.p("swan_multi_preload_app_ids")) != null) {
             synchronized (this.q) {
                 this.q.clear();
                 for (String str : p) {
@@ -305,8 +305,8 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
     public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            synchronized (this.f9264f) {
-                this.f9266h = null;
+            synchronized (this.f9272f) {
+                this.f9274h = null;
                 this.n = null;
                 Q();
                 e k = e.k();
@@ -338,10 +338,10 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            synchronized (this.f9264f) {
+            synchronized (this.f9272f) {
                 R();
-                this.f9266h = null;
-                this.f9267i = null;
+                this.f9274h = null;
+                this.f9275i = null;
                 X(null);
                 g();
                 S();
@@ -355,7 +355,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            this.f9265g = "";
+            this.f9273g = "";
             X(null);
             g();
             return this;
@@ -381,7 +381,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         if (interceptable == null || interceptable.invokeL(1048593, this, message) == null) {
             try {
                 Application b2 = c.a.p0.a.c1.a.b();
-                Intent intent = new Intent(b2, this.f9264f.service);
+                Intent intent = new Intent(b2, this.f9272f.service);
                 intent.setAction(SwanAppLocalService.ACTION_RECEIVER_MSG);
                 intent.putExtra("data", message);
                 b2.startService(intent);
@@ -410,11 +410,11 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, message)) == null) {
-            synchronized (this.f9264f) {
+            synchronized (this.f9272f) {
                 if (message != null) {
                     if (H()) {
                         try {
-                            this.f9266h.send(message);
+                            this.f9274h.send(message);
                             return true;
                         } catch (RemoteException e2) {
                             e = e2;
@@ -454,7 +454,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
     public void X(PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, prefetchEvent) == null) {
-            this.f9268j = prefetchEvent;
+            this.f9276j = prefetchEvent;
         }
     }
 
@@ -481,12 +481,12 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Boolean.valueOf(z), context, bundle})) == null) {
             if (r) {
                 e k = e.k();
-                k.u("b4 tryPreBind: " + this.f9264f);
+                k.u("b4 tryPreBind: " + this.f9272f);
             }
             if (context == null) {
                 context = c.a.p0.a.c1.a.b();
             }
-            Intent intent = new Intent(context, this.f9264f.service);
+            Intent intent = new Intent(context, this.f9272f.service);
             if (bundle != null) {
                 intent.putExtras(bundle);
             }
@@ -495,7 +495,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
             intent.putExtra("bundle_key_main_pid", Process.myPid());
             intent.setAction(SwanAppLocalService.ACTION_PERLOAD);
             intent.addCategory("android.intent.category.DEFAULT");
-            synchronized (this.f9264f) {
+            synchronized (this.f9272f) {
                 try {
                     if (this.n == null) {
                         ServiceConnectionC0434c serviceConnectionC0434c = new ServiceConnectionC0434c(this, null);
@@ -509,7 +509,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
                         e2.printStackTrace();
                     }
                 }
-                if (this.f9266h != null) {
+                if (this.f9274h != null) {
                     h();
                 }
             }
@@ -524,7 +524,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048601, this, context, bundle)) == null) {
             if (r) {
                 e k = e.k();
-                k.u("b4 preload: " + this.f9264f);
+                k.u("b4 preload: " + this.f9272f);
             }
             a0(true, context, bundle);
             return this;
@@ -568,7 +568,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, swanAppCores)) == null) {
             if (swanAppCores != null) {
-                this.f9267i = swanAppCores;
+                this.f9275i = swanAppCores;
             }
             return this;
         }
@@ -589,7 +589,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
     public String getAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f9265g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f9273g : (String) invokeV.objValue;
     }
 
     public c h() {
@@ -597,11 +597,11 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             J("flushCachedMsgs");
-            synchronized (this.f9264f) {
-                while (this.f9266h != null && !this.o.isEmpty()) {
+            synchronized (this.f9272f) {
+                while (this.f9274h != null && !this.o.isEmpty()) {
                     Message peek = this.o.peek();
                     if (peek.replyTo == null) {
-                        peek.replyTo = e.k().f9276d;
+                        peek.replyTo = e.k().f9284d;
                     }
                     if (!V(peek)) {
                         break;
@@ -621,8 +621,8 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             synchronized (this.q) {
                 hashSet = new HashSet(this.q);
-                if (this.f9268j != null && !TextUtils.isEmpty(this.f9268j.appId)) {
-                    hashSet.add(this.f9268j.appId);
+                if (this.f9276j != null && !TextUtils.isEmpty(this.f9276j.appId)) {
+                    hashSet.add(this.f9276j.appId);
                 }
             }
             return hashSet;
@@ -634,7 +634,7 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            PrefetchEvent prefetchEvent = this.f9268j;
+            PrefetchEvent prefetchEvent = this.f9276j;
             return prefetchEvent != null ? prefetchEvent.appId : "";
         }
         return (String) invokeV.objValue;
@@ -643,21 +643,21 @@ public final class c extends c.a.p0.a.v1.c.b implements Object {
     public SwanAppProcessInfo k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f9264f : (SwanAppProcessInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f9272f : (SwanAppProcessInfo) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.a2.m, c.a.p0.a.a2.h
     public SwanAppCores n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f9267i : (SwanAppCores) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f9275i : (SwanAppCores) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            return String.format(Locale.getDefault(), "%s: Connected=%d Preloaded=%d TryPreload=%s Loaded=%s", this.f9264f.toString(), Integer.valueOf(H() ? 1 : 0), Integer.valueOf(this.m ? 1 : 0), SimpleDateFormat.getTimeInstance(2).format(new Date(this.l)), this.f9265g);
+            return String.format(Locale.getDefault(), "%s: Connected=%d Preloaded=%d TryPreload=%s Loaded=%s", this.f9272f.toString(), Integer.valueOf(H() ? 1 : 0), Integer.valueOf(this.m ? 1 : 0), SimpleDateFormat.getTimeInstance(2).format(new Date(this.l)), this.f9273g);
         }
         return (String) invokeV.objValue;
     }

@@ -33,19 +33,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Handler f3354a;
+    public final Handler f3355a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.f0.b.c f3355b;
+    public c.a.f0.b.c f3356b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Runnable f3356c;
+    public final Runnable f3357c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3357d;
+    public int f3358d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f3358e;
+    public volatile boolean f3359e;
 
     /* renamed from: c.a.f0.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -54,7 +54,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f3359e;
+        public final /* synthetic */ a f3360e;
 
         public RunnableC0071a(a aVar) {
             Interceptable interceptable = $ic;
@@ -71,25 +71,25 @@ public class a {
                     return;
                 }
             }
-            this.f3359e = aVar;
+            this.f3360e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3359e.f3358e = true;
-                g.f3351a.e("Afd", "执行超时回调");
+                this.f3360e.f3359e = true;
+                g.f3352a.e("Afd", "执行超时回调");
                 h l = c.a.f0.b.g.f.l();
-                if (this.f3359e.f3355b == null) {
+                if (this.f3360e.f3356b == null) {
                     return;
                 }
                 if (l == null) {
-                    this.f3359e.f3355b.a(new Throwable("no ad"));
+                    this.f3360e.f3356b.a(new Throwable("no ad"));
                     return;
                 }
                 l.C = 2;
-                this.f3359e.f3355b.b(l);
+                this.f3360e.f3356b.b(l);
             }
         }
     }
@@ -100,16 +100,16 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.f0.a.b.a f3360a;
+        public final /* synthetic */ c.a.f0.a.b.a f3361a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f3361b;
+        public final /* synthetic */ long f3362b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ long f3362c;
+        public final /* synthetic */ long f3363c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f3363d;
+        public final /* synthetic */ a f3364d;
 
         public b(a aVar, c.a.f0.a.b.a aVar2, long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -126,19 +126,19 @@ public class a {
                     return;
                 }
             }
-            this.f3363d = aVar;
-            this.f3360a = aVar2;
-            this.f3361b = j2;
-            this.f3362c = j3;
+            this.f3364d = aVar;
+            this.f3361a = aVar2;
+            this.f3362b = j2;
+            this.f3363c = j3;
         }
 
         @Override // c.a.f0.d.a.i
         public void a(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                g gVar = g.f3351a;
+                g gVar = g.f3352a;
                 gVar.e("Afd", "update接口 " + th.getMessage());
-                this.f3363d.k(this.f3360a, this.f3361b, this.f3362c, th.getMessage(), "update");
+                this.f3364d.k(this.f3361a, this.f3362b, this.f3363c, th.getMessage(), "update");
             }
         }
 
@@ -148,9 +148,9 @@ public class a {
         public void onResponse(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f3363d.k(this.f3360a, this.f3361b, this.f3362c, "200", "update");
+                this.f3364d.k(this.f3361a, this.f3362b, this.f3363c, "200", "update");
                 try {
-                    c.a.f0.b.g.a.b(str, this.f3360a.m());
+                    c.a.f0.b.g.a.b(str, this.f3361a.m());
                 } catch (ParseError e2) {
                     e2.printStackTrace();
                 }
@@ -164,22 +164,22 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.f0.a.b.a f3364a;
+        public final /* synthetic */ c.a.f0.a.b.a f3365a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f3365b;
+        public final /* synthetic */ long f3366b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ long f3366c;
+        public final /* synthetic */ long f3367c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f3367d;
+        public final /* synthetic */ String f3368d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.f0.b.c f3368e;
+        public final /* synthetic */ c.a.f0.b.c f3369e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f3369f;
+        public final /* synthetic */ a f3370f;
 
         public c(a aVar, c.a.f0.a.b.a aVar2, long j2, long j3, String str, c.a.f0.b.c cVar) {
             Interceptable interceptable = $ic;
@@ -196,33 +196,33 @@ public class a {
                     return;
                 }
             }
-            this.f3369f = aVar;
-            this.f3364a = aVar2;
-            this.f3365b = j2;
-            this.f3366c = j3;
-            this.f3367d = str;
-            this.f3368e = cVar;
+            this.f3370f = aVar;
+            this.f3365a = aVar2;
+            this.f3366b = j2;
+            this.f3367c = j3;
+            this.f3368d = str;
+            this.f3369e = cVar;
         }
 
         @Override // c.a.f0.d.a.i
         public void a(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                g gVar = g.f3351a;
+                g gVar = g.f3352a;
                 gVar.e("Afd", "query接口 " + th.getMessage());
-                this.f3369f.k(this.f3364a, this.f3365b, this.f3366c, th.getMessage(), "query");
-                if (!this.f3369f.f3358e) {
-                    if (this.f3369f.f3354a != null) {
-                        this.f3369f.f3354a.removeCallbacksAndMessages(null);
-                        this.f3369f.f3354a.post(this.f3369f.f3356c);
+                this.f3370f.k(this.f3365a, this.f3366b, this.f3367c, th.getMessage(), "query");
+                if (!this.f3370f.f3359e) {
+                    if (this.f3370f.f3355a != null) {
+                        this.f3370f.f3355a.removeCallbacksAndMessages(null);
+                        this.f3370f.f3355a.post(this.f3370f.f3357c);
                         return;
                     }
                     return;
                 }
-                g gVar2 = g.f3351a;
+                g gVar2 = g.f3352a;
                 StringBuilder sb = new StringBuilder();
                 sb.append("query接口 error 超时：");
-                sb.append(System.currentTimeMillis() - this.f3365b);
+                sb.append(System.currentTimeMillis() - this.f3366b);
                 sb.append(" cause : ");
                 sb.append(th);
                 gVar2.e("Afd", sb.toString() == null ? "unknow" : th.getMessage());
@@ -235,25 +235,25 @@ public class a {
         public void onResponse(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f3369f.k(this.f3364a, this.f3365b, this.f3366c, "200", "query");
-                if (!this.f3369f.f3358e) {
-                    this.f3369f.f3354a.removeCallbacksAndMessages(null);
+                this.f3370f.k(this.f3365a, this.f3366b, this.f3367c, "200", "query");
+                if (!this.f3370f.f3359e) {
+                    this.f3370f.f3355a.removeCallbacksAndMessages(null);
                     try {
-                        List<h> b2 = c.a.f0.b.g.a.b(str, this.f3367d);
+                        List<h> b2 = c.a.f0.b.g.a.b(str, this.f3368d);
                         if (b2 != null && b2.size() > 0 && b2.get(0) != null) {
-                            this.f3368e.b(b2.get(0));
+                            this.f3369e.b(b2.get(0));
                         } else {
-                            this.f3368e.a(new Throwable("no ad"));
+                            this.f3369e.a(new Throwable("no ad"));
                         }
                         return;
                     } catch (ParseError e2) {
                         e2.printStackTrace();
-                        this.f3368e.a(e2);
+                        this.f3369e.a(e2);
                         return;
                     }
                 }
-                g gVar = g.f3351a;
-                gVar.e("Afd", "query接口 response 超时：" + (System.currentTimeMillis() - this.f3365b));
+                g gVar = g.f3352a;
+                gVar.e("Afd", "query接口 response 超时：" + (System.currentTimeMillis() - this.f3366b));
             }
         }
     }
@@ -271,17 +271,17 @@ public class a {
                 return;
             }
         }
-        this.f3354a = new Handler(Looper.getMainLooper());
-        this.f3356c = new RunnableC0071a(this);
-        this.f3357d = 5000;
-        this.f3358e = false;
+        this.f3355a = new Handler(Looper.getMainLooper());
+        this.f3357c = new RunnableC0071a(this);
+        this.f3358d = 5000;
+        this.f3359e = false;
     }
 
     public final void g(Request.c cVar, c.a.f0.a.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, aVar) == null) {
             cVar.j("ver", aVar.D());
-            cVar.j("sv", "1.0");
+            cVar.j("sv", "2.1.1");
             cVar.j("uid", aVar.x());
             cVar.j(TiebaStatic.Params.BDID, aVar.l());
             cVar.j("cuid", aVar.f());
@@ -330,20 +330,20 @@ public class a {
                 if (p != null && p.size() > 0) {
                     for (h hVar : p) {
                         JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("k", hVar.f3415c);
-                        if (!TextUtils.isEmpty(hVar.f3415c)) {
+                        jSONObject3.put("k", hVar.f3416c);
+                        if (!TextUtils.isEmpty(hVar.f3416c)) {
                             int e2 = c.a.f0.b.g.f.e(hVar);
                             String str3 = "onAdSuccess: " + e2;
                             if (e2 == 0) {
                                 if (equals && hVar.h()) {
-                                    arrayList.add(hVar.f3415c);
+                                    arrayList.add(hVar.f3416c);
                                 }
                                 if (!equals && hVar.f()) {
-                                    arrayList.add(hVar.f3415c);
+                                    arrayList.add(hVar.f3416c);
                                 }
                             }
                         }
-                        jSONObject3.put(r.f42280a, String.valueOf(hVar.w));
+                        jSONObject3.put(r.f42342a, String.valueOf(hVar.w));
                         jSONArray2.put(jSONObject3);
                     }
                 }
@@ -403,13 +403,13 @@ public class a {
             long currentTimeMillis2 = System.currentTimeMillis();
             i2.m();
             i2.l().e(new c(this, aVar, currentTimeMillis, currentTimeMillis2, str, cVar));
-            this.f3355b = cVar;
-            this.f3358e = false;
+            this.f3356b = cVar;
+            this.f3359e = false;
             int u = aVar.u() - c.a.f0.b.g.g.f();
-            this.f3357d = u;
-            Handler handler = this.f3354a;
+            this.f3358d = u;
+            Handler handler = this.f3355a;
             if (handler != null) {
-                handler.postDelayed(this.f3356c, u);
+                handler.postDelayed(this.f3357c, u);
             }
         }
     }

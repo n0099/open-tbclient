@@ -33,11 +33,11 @@ public class MassTransitRoutePlanOption {
         public static final TacticsIncity ETRANS_SUGGEST;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TacticsIncity[] f41900b;
+        public static final /* synthetic */ TacticsIncity[] f41962b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41901a;
+        public int f41963a;
 
         static {
             InterceptResult invokeClinit;
@@ -59,7 +59,7 @@ public class MassTransitRoutePlanOption {
             ETRANS_LEAST_TIME = new TacticsIncity("ETRANS_LEAST_TIME", 4, 4);
             TacticsIncity tacticsIncity = new TacticsIncity("ETRANS_SUBWAY_FIRST", 5, 5);
             ETRANS_SUBWAY_FIRST = tacticsIncity;
-            f41900b = new TacticsIncity[]{ETRANS_SUGGEST, ETRANS_LEAST_TRANSFER, ETRANS_LEAST_WALK, ETRANS_NO_SUBWAY, ETRANS_LEAST_TIME, tacticsIncity};
+            f41962b = new TacticsIncity[]{ETRANS_SUGGEST, ETRANS_LEAST_TRANSFER, ETRANS_LEAST_WALK, ETRANS_NO_SUBWAY, ETRANS_LEAST_TIME, tacticsIncity};
         }
 
         public TacticsIncity(String str, int i2, int i3) {
@@ -80,8 +80,8 @@ public class MassTransitRoutePlanOption {
                     return;
                 }
             }
-            this.f41901a = 0;
-            this.f41901a = i3;
+            this.f41963a = 0;
+            this.f41963a = i3;
         }
 
         public static TacticsIncity valueOf(String str) {
@@ -93,13 +93,13 @@ public class MassTransitRoutePlanOption {
         public static TacticsIncity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIncity[]) f41900b.clone() : (TacticsIncity[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIncity[]) f41962b.clone() : (TacticsIncity[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41901a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41963a : invokeV.intValue;
         }
     }
 
@@ -112,11 +112,11 @@ public class MassTransitRoutePlanOption {
         public static final TacticsIntercity ETRANS_START_EARLY;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TacticsIntercity[] f41902b;
+        public static final /* synthetic */ TacticsIntercity[] f41964b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41903a;
+        public int f41965a;
 
         static {
             InterceptResult invokeClinit;
@@ -135,7 +135,7 @@ public class MassTransitRoutePlanOption {
             ETRANS_START_EARLY = new TacticsIntercity("ETRANS_START_EARLY", 1, 1);
             TacticsIntercity tacticsIntercity = new TacticsIntercity("ETRANS_LEAST_PRICE", 2, 2);
             ETRANS_LEAST_PRICE = tacticsIntercity;
-            f41902b = new TacticsIntercity[]{ETRANS_LEAST_TIME, ETRANS_START_EARLY, tacticsIntercity};
+            f41964b = new TacticsIntercity[]{ETRANS_LEAST_TIME, ETRANS_START_EARLY, tacticsIntercity};
         }
 
         public TacticsIntercity(String str, int i2, int i3) {
@@ -156,8 +156,8 @@ public class MassTransitRoutePlanOption {
                     return;
                 }
             }
-            this.f41903a = 0;
-            this.f41903a = i3;
+            this.f41965a = 0;
+            this.f41965a = i3;
         }
 
         public static TacticsIntercity valueOf(String str) {
@@ -169,13 +169,13 @@ public class MassTransitRoutePlanOption {
         public static TacticsIntercity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIntercity[]) f41902b.clone() : (TacticsIntercity[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIntercity[]) f41964b.clone() : (TacticsIntercity[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41903a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41965a : invokeV.intValue;
         }
     }
 
@@ -188,11 +188,11 @@ public class MassTransitRoutePlanOption {
         public static final TransTypeIntercity ETRANS_TRAIN_FIRST;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TransTypeIntercity[] f41904b;
+        public static final /* synthetic */ TransTypeIntercity[] f41966b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41905a;
+        public int f41967a;
 
         static {
             InterceptResult invokeClinit;
@@ -211,7 +211,7 @@ public class MassTransitRoutePlanOption {
             ETRANS_PLANE_FIRST = new TransTypeIntercity("ETRANS_PLANE_FIRST", 1, 1);
             TransTypeIntercity transTypeIntercity = new TransTypeIntercity("ETRANS_COACH_FIRST", 2, 2);
             ETRANS_COACH_FIRST = transTypeIntercity;
-            f41904b = new TransTypeIntercity[]{ETRANS_TRAIN_FIRST, ETRANS_PLANE_FIRST, transTypeIntercity};
+            f41966b = new TransTypeIntercity[]{ETRANS_TRAIN_FIRST, ETRANS_PLANE_FIRST, transTypeIntercity};
         }
 
         public TransTypeIntercity(String str, int i2, int i3) {
@@ -232,8 +232,8 @@ public class MassTransitRoutePlanOption {
                     return;
                 }
             }
-            this.f41905a = 0;
-            this.f41905a = i3;
+            this.f41967a = 0;
+            this.f41967a = i3;
         }
 
         public static TransTypeIntercity valueOf(String str) {
@@ -245,13 +245,13 @@ public class MassTransitRoutePlanOption {
         public static TransTypeIntercity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransTypeIntercity[]) f41904b.clone() : (TransTypeIntercity[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransTypeIntercity[]) f41966b.clone() : (TransTypeIntercity[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41905a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41967a : invokeV.intValue;
         }
     }
 

@@ -22,7 +22,7 @@ public class a {
                 jSONObject.put("slaveId", str);
                 jSONObject.put("type", str2);
             } catch (JSONException e2) {
-                if (k.f7077a) {
+                if (k.f7085a) {
                     e2.printStackTrace();
                 }
             }
@@ -48,7 +48,7 @@ public class a {
                 jSONObject2.put("type", "abilityMessage");
                 jSONObject2.put("value", jSONObject4);
             } catch (JSONException e2) {
-                if (k.f7077a) {
+                if (k.f7085a) {
                     e2.printStackTrace();
                 }
             }
@@ -62,7 +62,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject) == null) {
             g gVar = new g();
-            gVar.f7814c = b(str, str2, str3, str4, jSONObject);
+            gVar.f7822c = b(str, str2, str3, str4, jSONObject);
             f.V().v(gVar);
         }
     }
@@ -72,7 +72,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, jSONObject) == null) {
             g gVar = new g();
-            gVar.f7814c = b(str, str2, str3, str4, jSONObject);
+            gVar.f7822c = b(str, str2, str3, str4, jSONObject);
             f.V().m(str, gVar);
         }
     }

@@ -26,34 +26,34 @@ public abstract class a implements k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.n.a.a f68136a;
+    public volatile com.bytedance.sdk.openadsdk.n.a.a f68447a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.n.b.c f68137b;
+    public final com.bytedance.sdk.openadsdk.n.b.c f68448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f68138c;
+    public final AtomicInteger f68449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicLong f68139d;
+    public final AtomicLong f68450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.n.d.a f68140e;
+    public com.bytedance.sdk.openadsdk.n.d.a f68451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile List<i.b> f68141f;
+    public volatile List<i.b> f68452f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile String f68142g;
+    public volatile String f68453g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile String f68143h;
+    public volatile String f68454h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile i f68144i;
+    public volatile i f68455i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile l f68145j;
+    public volatile l f68456j;
     public volatile boolean k;
     public final long l;
     public final AtomicInteger n;
@@ -90,14 +90,14 @@ public abstract class a implements k {
                 return;
             }
         }
-        this.f68138c = new AtomicInteger();
-        this.f68139d = new AtomicLong();
+        this.f68449c = new AtomicInteger();
+        this.f68450d = new AtomicLong();
         this.k = false;
         this.l = m.incrementAndGet();
         this.n = new AtomicInteger(0);
         this.o = -1;
-        this.f68136a = aVar;
-        this.f68137b = cVar;
+        this.f68447a = aVar;
+        this.f68448b = cVar;
     }
 
     public void a(Boolean bool, String str, @NonNull Throwable th) {
@@ -136,10 +136,10 @@ public abstract class a implements k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f68144i != null) {
-                return this.f68144i.f68308c.f68309a;
+            if (this.f68455i != null) {
+                return this.f68455i.f68619c.f68620a;
             }
-            return this.f68136a instanceof com.bytedance.sdk.openadsdk.n.a.b ? 1 : 0;
+            return this.f68447a instanceof com.bytedance.sdk.openadsdk.n.a.b ? 1 : 0;
         }
         return invokeV.intValue;
     }
@@ -164,16 +164,16 @@ public abstract class a implements k {
             com.bytedance.sdk.openadsdk.n.e.b b2 = com.bytedance.sdk.openadsdk.n.e.c.a().b();
             com.bytedance.sdk.openadsdk.n.e.f fVar = new com.bytedance.sdk.openadsdk.n.e.f();
             HashMap hashMap = new HashMap();
-            fVar.f68235b = aVar.f68332a;
-            fVar.f68234a = 0;
+            fVar.f68546b = aVar.f68643a;
+            fVar.f68545a = 0;
             if ("HEAD".equalsIgnoreCase(str)) {
-                fVar.f68234a = 4;
+                fVar.f68545a = 4;
             }
-            List<i.b> list = this.f68141f;
+            List<i.b> list = this.f68452f;
             if (list != null && !list.isEmpty()) {
                 for (i.b bVar : list) {
-                    if (!"Range".equalsIgnoreCase(bVar.f68316a) && !HTTP.CONN_DIRECTIVE.equalsIgnoreCase(bVar.f68316a) && !"Proxy-Connection".equalsIgnoreCase(bVar.f68316a) && !"Host".equalsIgnoreCase(bVar.f68316a)) {
-                        hashMap.put(bVar.f68316a, bVar.f68317b);
+                    if (!"Range".equalsIgnoreCase(bVar.f68627a) && !HTTP.CONN_DIRECTIVE.equalsIgnoreCase(bVar.f68627a) && !"Proxy-Connection".equalsIgnoreCase(bVar.f68627a) && !"Host".equalsIgnoreCase(bVar.f68627a)) {
+                        hashMap.put(bVar.f68627a, bVar.f68628b);
                     }
                 }
             }
@@ -181,23 +181,23 @@ public abstract class a implements k {
             if (a2 != null) {
                 hashMap.put("Range", a2);
             }
-            if (e.f68225f) {
+            if (e.f68536f) {
                 hashMap.put("Cache-Control", "no-cache");
             }
             d c2 = d.c();
             f a3 = f.a();
-            boolean z = this.f68144i == null;
+            boolean z = this.f68455i == null;
             c a4 = z ? c2.a() : a3.b();
             c b3 = z ? c2.b() : a3.c();
             if (a4 != null || b3 != null) {
                 if (a4 != null) {
-                    fVar.f68236c = a4.a(aVar.f68333b);
+                    fVar.f68547c = a4.a(aVar.f68644b);
                 }
                 if (b3 != null) {
-                    fVar.f68237d = b3.a(aVar.f68333b);
+                    fVar.f68548d = b3.a(aVar.f68644b);
                 }
             }
-            fVar.f68238e = hashMap;
+            fVar.f68549e = hashMap;
             if (this.k) {
                 this.k = false;
                 return null;
@@ -212,7 +212,7 @@ public abstract class a implements k {
         if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || i2 <= 0 || i3 < 0) {
             return;
         }
-        int i4 = e.f68226g;
+        int i4 = e.f68537g;
         int f2 = f();
         if (i4 == 1 || (i4 == 2 && f2 == 1)) {
             int i5 = (int) ((i3 / i2) * 100.0f);
@@ -229,7 +229,7 @@ public abstract class a implements k {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f68146a;
+                    public final /* synthetic */ a f68457a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -246,7 +246,7 @@ public abstract class a implements k {
                                 return;
                             }
                         }
-                        this.f68146a = this;
+                        this.f68457a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -254,10 +254,10 @@ public abstract class a implements k {
                         a aVar;
                         com.bytedance.sdk.openadsdk.n.d.a aVar2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar2 = (aVar = this.f68146a).f68140e) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar2 = (aVar = this.f68457a).f68451e) == null) {
                             return;
                         }
-                        aVar2.a(aVar.f68145j, this.f68146a.o);
+                        aVar2.a(aVar.f68456j, this.f68457a.o);
                     }
                 });
             }

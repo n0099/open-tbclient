@@ -24,24 +24,24 @@ public class a extends BaseAdapter implements BdSwitchView.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f16113e;
+    public TbPageContext f16123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<OfficialAccountPushInfo> f16114f;
+    public ArrayList<OfficialAccountPushInfo> f16124f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdSwitchView.b f16115g;
+    public BdSwitchView.b f16125g;
 
     /* renamed from: c.a.r0.b3.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0768a {
+    public class C0766a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public MsgSettingItemView f16116a;
+        public MsgSettingItemView f16126a;
 
-        public C0768a(a aVar) {
+        public C0766a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,14 +73,14 @@ public class a extends BaseAdapter implements BdSwitchView.b {
                 return;
             }
         }
-        this.f16113e = tbPageContext;
+        this.f16123e = tbPageContext;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
         BdSwitchView.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, switchState) == null) || (bVar = this.f16115g) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, switchState) == null) || (bVar = this.f16125g) == null) {
             return;
         }
         bVar.OnSwitchStateChange(view, switchState);
@@ -89,14 +89,14 @@ public class a extends BaseAdapter implements BdSwitchView.b {
     public void a(ArrayList<OfficialAccountPushInfo> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.f16114f = arrayList;
+            this.f16124f = arrayList;
         }
     }
 
     public void b(BdSwitchView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f16115g = bVar;
+            this.f16125g = bVar;
         }
     }
 
@@ -105,7 +105,7 @@ public class a extends BaseAdapter implements BdSwitchView.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<OfficialAccountPushInfo> arrayList = this.f16114f;
+            ArrayList<OfficialAccountPushInfo> arrayList = this.f16124f;
             if (arrayList != null) {
                 return arrayList.size();
             }
@@ -119,11 +119,11 @@ public class a extends BaseAdapter implements BdSwitchView.b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            ArrayList<OfficialAccountPushInfo> arrayList = this.f16114f;
+            ArrayList<OfficialAccountPushInfo> arrayList = this.f16124f;
             if (arrayList == null || i2 < 0 || i2 >= arrayList.size()) {
                 return null;
             }
-            return this.f16114f.get(i2);
+            return this.f16124f.get(i2);
         }
         return invokeI.objValue;
     }
@@ -144,32 +144,32 @@ public class a extends BaseAdapter implements BdSwitchView.b {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C0768a c0768a;
+        C0766a c0766a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f16113e.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
-                c0768a = new C0768a(this);
-                c0768a.f16116a = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
-                view.setTag(c0768a);
+                view = LayoutInflater.from(this.f16123e.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
+                c0766a = new C0766a(this);
+                c0766a.f16126a = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
+                view.setTag(c0766a);
             } else {
-                c0768a = (C0768a) view.getTag();
+                c0766a = (C0766a) view.getTag();
             }
             OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) getItem(i2);
             if (k.isEmpty(officialAccountPushInfo.name)) {
-                c0768a.f16116a.setVisibility(8);
+                c0766a.f16126a.setVisibility(8);
             } else {
-                c0768a.f16116a.setVisibility(0);
-                c0768a.f16116a.setText(officialAccountPushInfo.name);
+                c0766a.f16126a.setVisibility(0);
+                c0766a.f16126a.setText(officialAccountPushInfo.name);
                 if (officialAccountPushInfo.is_on == 1) {
-                    c0768a.f16116a.getSwitchView().turnOnNoCallback();
+                    c0766a.f16126a.getSwitchView().turnOnNoCallback();
                 } else {
-                    c0768a.f16116a.getSwitchView().turnOffNoCallback();
+                    c0766a.f16126a.getSwitchView().turnOffNoCallback();
                 }
-                c0768a.f16116a.setLineVisibility(true);
-                c0768a.f16116a.onChangeSkinType(this.f16113e, TbadkCoreApplication.getInst().getSkinType());
-                c0768a.f16116a.getSwitchView().setOnSwitchStateChangeListener(this);
-                c0768a.f16116a.getSwitchView().setTag(officialAccountPushInfo);
+                c0766a.f16126a.setLineVisibility(true);
+                c0766a.f16126a.onChangeSkinType(this.f16123e, TbadkCoreApplication.getInst().getSkinType());
+                c0766a.f16126a.getSwitchView().setOnSwitchStateChangeListener(this);
+                c0766a.f16126a.getSwitchView().setTag(officialAccountPushInfo);
             }
             return view;
         }

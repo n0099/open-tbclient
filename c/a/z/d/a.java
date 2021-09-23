@@ -13,45 +13,45 @@ public class a implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f31269e;
+    public String[] f31290e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f31270f;
+    public String f31291f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f31271g;
+    public boolean f31292g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f31272h;
+    public String f31293h;
 
     /* renamed from: i  reason: collision with root package name */
-    public C1441a f31273i;
+    public C1439a f31294i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f31274j;
+    public b f31295j;
 
     /* renamed from: c.a.z.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1441a implements Cloneable {
+    public static class C1439a implements Cloneable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31275e;
+        public int f31296e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f31276f;
+        public float f31297f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f31277g;
+        public float f31298g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f31278h;
+        public int f31299h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f31279i;
+        public String f31300i;
 
-        public C1441a() {
+        public C1439a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,43 +64,43 @@ public class a implements Cloneable {
                     return;
                 }
             }
-            this.f31275e = 0;
-            this.f31276f = 0.0f;
-            this.f31277g = 0.0f;
-            this.f31278h = 0;
-            this.f31279i = null;
+            this.f31296e = 0;
+            this.f31297f = 0.0f;
+            this.f31298g = 0.0f;
+            this.f31299h = 0;
+            this.f31300i = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* renamed from: d */
-        public C1441a clone() {
+        public C1439a clone() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                C1441a c1441a = (C1441a) super.clone();
-                c1441a.f31275e = this.f31275e;
-                c1441a.f31276f = this.f31276f;
-                c1441a.f31277g = this.f31277g;
-                c1441a.f31278h = this.f31278h;
-                c1441a.f31279i = new String(this.f31279i);
-                return c1441a;
+                C1439a c1439a = (C1439a) super.clone();
+                c1439a.f31296e = this.f31296e;
+                c1439a.f31297f = this.f31297f;
+                c1439a.f31298g = this.f31298g;
+                c1439a.f31299h = this.f31299h;
+                c1439a.f31300i = new String(this.f31300i);
+                return c1439a;
             }
-            return (C1441a) invokeV.objValue;
+            return (C1439a) invokeV.objValue;
         }
 
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i2 = this.f31275e;
+                int i2 = this.f31296e;
                 if (i2 < 0 || i2 > 1) {
                     return false;
                 }
-                float f2 = this.f31276f;
+                float f2 = this.f31297f;
                 if (f2 < 0.0f || f2 > 16.0f) {
                     return false;
                 }
-                float f3 = this.f31277g;
+                float f3 = this.f31298g;
                 return f3 >= 0.0f && f3 <= 24.0f;
             }
             return invokeV.booleanValue;
@@ -113,22 +113,22 @@ public class a implements Cloneable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31280e;
+        public int f31301e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f31281f;
+        public int f31302f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f31282g;
+        public int f31303g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f31283h;
+        public int f31304h;
 
         /* renamed from: i  reason: collision with root package name */
-        public float f31284i;
+        public float f31305i;
 
         /* renamed from: j  reason: collision with root package name */
-        public float f31285j;
+        public float f31306j;
         public int k;
         public String l;
 
@@ -145,9 +145,9 @@ public class a implements Cloneable {
                     return;
                 }
             }
-            this.f31283h = 0;
-            this.f31284i = 0.0f;
-            this.f31285j = 0.0f;
+            this.f31304h = 0;
+            this.f31305i = 0.0f;
+            this.f31306j = 0.0f;
             this.k = 0;
             this.l = null;
         }
@@ -159,12 +159,12 @@ public class a implements Cloneable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 b bVar = (b) super.clone();
-                bVar.f31280e = this.f31280e;
-                bVar.f31281f = this.f31281f;
-                bVar.f31282g = this.f31282g;
-                bVar.f31283h = this.f31283h;
-                bVar.f31284i = this.f31284i;
-                bVar.f31285j = this.f31285j;
+                bVar.f31301e = this.f31301e;
+                bVar.f31302f = this.f31302f;
+                bVar.f31303g = this.f31303g;
+                bVar.f31304h = this.f31304h;
+                bVar.f31305i = this.f31305i;
+                bVar.f31306j = this.f31306j;
                 bVar.k = this.k;
                 bVar.l = new String(this.l);
                 return bVar;
@@ -188,12 +188,12 @@ public class a implements Cloneable {
                 return;
             }
         }
-        this.f31270f = null;
-        this.f31271g = false;
-        this.f31272h = null;
-        this.f31273i = new C1441a();
-        this.f31274j = new b();
-        this.f31272h = str;
+        this.f31291f = null;
+        this.f31292g = false;
+        this.f31293h = null;
+        this.f31294i = new C1439a();
+        this.f31295j = new b();
+        this.f31293h = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -203,12 +203,12 @@ public class a implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             a aVar = (a) super.clone();
-            String[] strArr = this.f31269e;
-            aVar.f31269e = strArr != null ? (String[]) strArr.clone() : null;
-            aVar.f31270f = new String(this.f31270f);
-            aVar.f31271g = this.f31271g;
-            aVar.f31273i = this.f31273i.clone();
-            aVar.f31274j = this.f31274j.clone();
+            String[] strArr = this.f31290e;
+            aVar.f31290e = strArr != null ? (String[]) strArr.clone() : null;
+            aVar.f31291f = new String(this.f31291f);
+            aVar.f31292g = this.f31292g;
+            aVar.f31294i = this.f31294i.clone();
+            aVar.f31295j = this.f31295j.clone();
             return aVar;
         }
         return (a) invokeV.objValue;
@@ -218,8 +218,8 @@ public class a implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            C1441a c1441a = this.f31273i;
-            return (c1441a != null ? Boolean.valueOf(c1441a.e()) : null).booleanValue();
+            C1439a c1439a = this.f31294i;
+            return (c1439a != null ? Boolean.valueOf(c1439a.e()) : null).booleanValue();
         }
         return invokeV.booleanValue;
     }
@@ -230,24 +230,24 @@ public class a implements Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("\n======================");
-            sb.append(this.f31272h);
+            sb.append(this.f31293h);
             sb.append(" Player Server config information====================== \n");
             sb.append("host : \n");
             int i2 = 0;
             while (true) {
-                String[] strArr = this.f31269e;
+                String[] strArr = this.f31290e;
                 if (strArr == null || i2 >= strArr.length) {
                     break;
                 }
-                sb.append("    " + this.f31269e[i2] + StringUtils.LF);
+                sb.append("    " + this.f31290e[i2] + StringUtils.LF);
                 i2++;
             }
-            sb.append("cntlId : \n    " + this.f31270f + ";\n");
-            sb.append("pcdnSwitch : \n    " + this.f31271g + ";\n");
+            sb.append("cntlId : \n    " + this.f31291f + ";\n");
+            sb.append("pcdnSwitch : \n    " + this.f31292g + ";\n");
             sb.append("CdnConfig : \n    ");
-            sb.append("key : " + this.f31273i.f31279i + ", level : " + this.f31273i.f31278h + ", sle : " + this.f31273i.f31275e + ", sl_rate : " + this.f31273i.f31276f + ", split_rate : " + this.f31273i.f31277g + ";\n");
+            sb.append("key : " + this.f31294i.f31300i + ", level : " + this.f31294i.f31299h + ", sle : " + this.f31294i.f31296e + ", sl_rate : " + this.f31294i.f31297f + ", split_rate : " + this.f31294i.f31298g + ";\n");
             sb.append("PrefetchConfig : \n    ");
-            sb.append("duration : " + this.f31274j.f31280e + " pcdnEnable : " + this.f31274j.f31281f + " p2pEnable : " + this.f31274j.f31282g + " key : " + this.f31274j.l + " level : " + this.f31274j.k + " sl : " + this.f31274j.f31283h + " sle : " + this.f31274j.f31284i + " split_rate : " + this.f31274j.f31285j + ";\n");
+            sb.append("duration : " + this.f31295j.f31301e + " pcdnEnable : " + this.f31295j.f31302f + " p2pEnable : " + this.f31295j.f31303g + " key : " + this.f31295j.l + " level : " + this.f31295j.k + " sl : " + this.f31295j.f31304h + " sle : " + this.f31295j.f31305i + " split_rate : " + this.f31295j.f31306j + ";\n");
             return sb.toString();
         }
         return (String) invokeV.objValue;

@@ -59,7 +59,7 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends c.a.e.l.e.a
     public void f0(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
-            this.f2961i = bdUniqueId;
+            this.f2962i = bdUniqueId;
         }
     }
 
@@ -107,9 +107,9 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends c.a.e.l.e.a
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, tbPageContext, bdUniqueId) == null) || tbPageContext == null) {
             return;
         }
-        this.f2957e = tbPageContext.getPageActivity();
+        this.f2958e = tbPageContext.getPageActivity();
         this.n = tbPageContext;
-        this.f2961i = bdUniqueId;
+        this.f2962i = bdUniqueId;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

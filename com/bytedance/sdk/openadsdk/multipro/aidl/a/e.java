@@ -20,10 +20,10 @@ public class e extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, RemoteCallbackList<IFullScreenVideoAdInteractionListener>> f68051a;
+    public static Map<String, RemoteCallbackList<IFullScreenVideoAdInteractionListener>> f68362a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile e f68052b;
+    public static volatile e f68363b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class e extends a {
                 return;
             }
         }
-        f68051a = Collections.synchronizedMap(new HashMap());
+        f68362a = Collections.synchronizedMap(new HashMap());
     }
 
     public e() {
@@ -60,14 +60,14 @@ public class e extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f68052b == null) {
+            if (f68363b == null) {
                 synchronized (e.class) {
-                    if (f68052b == null) {
-                        f68052b = new e();
+                    if (f68363b == null) {
+                        f68363b = new e();
                     }
                 }
             }
-            return f68052b;
+            return f68363b;
         }
         return (e) invokeV.objValue;
     }
@@ -87,7 +87,7 @@ public class e extends a {
             synchronized (this) {
                 RemoteCallbackList<IFullScreenVideoAdInteractionListener> remoteCallbackList = new RemoteCallbackList<>();
                 remoteCallbackList.register(iFullScreenVideoAdInteractionListener);
-                f68051a.put(str, remoteCallbackList);
+                f68362a.put(str, remoteCallbackList);
             }
         }
     }
@@ -98,11 +98,11 @@ public class e extends a {
         if (interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) {
             synchronized (this) {
                 try {
-                    if (f68051a != null) {
+                    if (f68362a != null) {
                         if ("recycleRes".equals(str2)) {
-                            remoteCallbackList = f68051a.remove(str);
+                            remoteCallbackList = f68362a.remove(str);
                         } else {
-                            remoteCallbackList = f68051a.get(str);
+                            remoteCallbackList = f68362a.get(str);
                         }
                         if (remoteCallbackList != null) {
                             int beginBroadcast = remoteCallbackList.beginBroadcast();

@@ -13,25 +13,25 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10629a;
+    public String f10637a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10630b;
+    public String f10638b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10631c;
+    public String f10639c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f10632d;
+    public int f10640d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f10633e;
+    public int f10641e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10634f;
+    public String f10642f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10635g;
+    public String f10643g;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -45,25 +45,25 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f10636a;
+        public String f10644a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f10637b;
+        public String f10645b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f10638c;
+        public String f10646c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f10639d;
+        public int f10647d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f10640e;
+        public int f10648e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f10641f;
+        public String f10649f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f10642g;
+        public String f10650g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class c {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.f10640e = h.a(i2);
+                this.f10648e = h.a(i2);
                 return this;
             }
             return (b) invokeI.objValue;
@@ -99,7 +99,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f10636a = str;
+                this.f10644a = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -109,7 +109,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f10641f = str;
+                this.f10649f = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -119,7 +119,7 @@ public class c {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.f10639d = h.a(i2);
+                this.f10647d = h.a(i2);
                 return this;
             }
             return (b) invokeI.objValue;
@@ -129,7 +129,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f10637b = str;
+                this.f10645b = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -139,7 +139,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f10642g = str;
+                this.f10650g = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -149,7 +149,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.f10638c = str;
+                this.f10646c = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -163,43 +163,43 @@ public class c {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10633e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10641e : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10629a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10637a : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10634f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10642f : (String) invokeV.objValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10632d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10640d : invokeV.intValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f10630b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f10638b : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f10635g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f10643g : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f10631c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f10639c : (String) invokeV.objValue;
     }
 
     public c(b bVar) {
@@ -217,12 +217,12 @@ public class c {
                 return;
             }
         }
-        this.f10630b = bVar.f10637b;
-        this.f10629a = bVar.f10636a;
-        this.f10632d = bVar.f10639d;
-        this.f10633e = bVar.f10640e;
-        this.f10631c = bVar.f10638c;
-        this.f10634f = bVar.f10641f;
-        this.f10635g = bVar.f10642g;
+        this.f10638b = bVar.f10645b;
+        this.f10637a = bVar.f10644a;
+        this.f10640d = bVar.f10647d;
+        this.f10641e = bVar.f10648e;
+        this.f10639c = bVar.f10646c;
+        this.f10642f = bVar.f10649f;
+        this.f10643g = bVar.f10650g;
     }
 }

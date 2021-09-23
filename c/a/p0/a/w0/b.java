@@ -12,34 +12,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9448a;
+    public String f9456a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9449b;
+    public String f9457b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9450c;
+    public String f9458c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9451d;
+    public String f9459d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f9452e;
+    public long f9460e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9453f;
+    public int f9461f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9454g;
+    public String f9462g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f9455h;
+    public int f9463h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f9456i;
+    public String f9464i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f9457j;
+    public String f9465j;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -61,16 +61,16 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
             b bVar2 = new b();
-            bVar2.f9448a = bVar.H();
-            bVar2.f9450c = bVar.K();
-            bVar2.f9451d = bVar.Q();
-            bVar2.f9453f = bVar.G();
-            bVar2.f9456i = bVar.T();
-            bVar2.f9455h = bVar.n1();
-            bVar2.f9452e = System.currentTimeMillis();
-            bVar2.f9454g = String.valueOf(bVar.t1());
-            bVar2.f9449b = bVar.I();
-            bVar2.f9457j = bVar.u1();
+            bVar2.f9456a = bVar.H();
+            bVar2.f9458c = bVar.K();
+            bVar2.f9459d = bVar.Q();
+            bVar2.f9461f = bVar.G();
+            bVar2.f9464i = bVar.T();
+            bVar2.f9463h = bVar.n1();
+            bVar2.f9460e = System.currentTimeMillis();
+            bVar2.f9462g = String.valueOf(bVar.t1());
+            bVar2.f9457b = bVar.I();
+            bVar2.f9465j = bVar.u1();
             return bVar2;
         }
         return (b) invokeL.objValue;

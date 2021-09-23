@@ -27,34 +27,34 @@ public final class ResUtils {
     public static final String ANIM = "anim";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39603a = "id";
+    public static final String f39660a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39604b = "string";
+    public static final String f39661b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39605c = "layout";
+    public static final String f39662c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39606d = "style";
+    public static final String f39663d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39607e = "drawable";
+    public static final String f39664e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39608f = "color";
+    public static final String f39665f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39609g = "array";
+    public static final String f39666g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39610h = "attr";
+    public static final String f39667h = "attr";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39611i = "dimen";
+    public static final String f39668i = "dimen";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f39612j = "xml";
+    public static final String f39669j = "xml";
     public static final String k = "integer";
     public static final String l = "raw";
     public static Context m;
@@ -181,12 +181,18 @@ public final class ResUtils {
                 InputStream open = context.getAssets().open(str);
                 if (open != null) {
                     int available = open.available();
-                    String str4 = "concreteGetSign 读取的文件的长度是=" + available;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("concreteGetSign 读取的文件的长度是=");
+                    sb.append(available);
+                    sb.toString();
                     if (available > 0) {
                         byte[] bArr = new byte[available];
                         open.read(bArr);
                         open.close();
-                        String str5 = "concreteGetSign 读取文件的16进制: " + a(bArr, true);
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append("concreteGetSign 读取文件的16进制: ");
+                        sb2.append(a(bArr, true));
+                        sb2.toString();
                         return bArr;
                     }
                 }

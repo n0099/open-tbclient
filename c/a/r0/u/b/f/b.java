@@ -39,7 +39,7 @@ public class b implements f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static BroadcastReceiver f25143a;
+    public static BroadcastReceiver f25164a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -48,7 +48,7 @@ public class b implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.d0.e.a f25144a;
+        public final /* synthetic */ c.a.d0.e.a f25165a;
 
         public a(b bVar, c.a.d0.e.a aVar) {
             Interceptable interceptable = $ic;
@@ -65,28 +65,28 @@ public class b implements f {
                     return;
                 }
             }
-            this.f25144a = aVar;
+            this.f25165a = aVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(DelegateResult delegateResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                this.f25144a.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
+                this.f25165a.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
             }
         }
     }
 
     /* renamed from: c.a.r0.u.b.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1173b implements c.a.r0.u.b.f.d.a {
+    public class C1171b implements c.a.r0.u.b.f.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.d0.e.a f25145a;
+        public final /* synthetic */ c.a.d0.e.a f25166a;
 
-        public C1173b(b bVar, c.a.d0.e.a aVar) {
+        public C1171b(b bVar, c.a.d0.e.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,14 +101,14 @@ public class b implements f {
                     return;
                 }
             }
-            this.f25145a = aVar;
+            this.f25166a = aVar;
         }
 
         @Override // c.a.r0.u.b.f.d.a
         public void a(Bundle bundle) {
             c.a.d0.e.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || (aVar = this.f25145a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || (aVar = this.f25166a) == null) {
                 return;
             }
             aVar.onPayResult(bundle.getInt("result_code"), bundle.getString(AbstractThirdPartyService.EXTRA_RESULT_MSG));
@@ -210,7 +210,7 @@ public class b implements f {
             aVar2.mParams.putInt("type", 2);
             aVar2.mParams.putString("orderInfo", str);
             aVar2.b(i2.k());
-            aVar2.c(new C1173b(this, aVar));
+            aVar2.c(new C1171b(this, aVar));
             aVar2.onExec();
         }
     }
@@ -230,13 +230,13 @@ public class b implements f {
                 if (!createWXAPI.sendReq(e2)) {
                     aVar.onPayResult(6, "wx_start_failed");
                 }
-                if (f25143a != null) {
-                    TbadkCoreApplication.getInst().unregisterReceiver(f25143a);
+                if (f25164a != null) {
+                    TbadkCoreApplication.getInst().unregisterReceiver(f25164a);
                 }
-                f25143a = new c(this, aVar);
+                f25164a = new c(this, aVar);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("WXPayResult");
-                TbadkCoreApplication.getInst().registerReceiver(f25143a, intentFilter);
+                TbadkCoreApplication.getInst().registerReceiver(f25164a, intentFilter);
             }
         }
     }

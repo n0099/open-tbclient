@@ -38,19 +38,19 @@ public class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f31374a;
+    public static final String[] f31395a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f31375b;
+    public static JSONObject f31396b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f31376c;
+    public static final String[] f31397c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f31377d;
+    public static final String[] f31398d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String[] f31378e;
+    public static final String[] f31399e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -66,10 +66,10 @@ public class n {
                 return;
             }
         }
-        f31374a = new String[]{"GET", "POST"};
-        f31376c = new String[]{"aid", "app_version", "tt_data"};
-        f31377d = new String[]{"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", "iid", "device_platform"};
-        f31378e = new String[]{"tt_data", "device_platform"};
+        f31395a = new String[]{"GET", "POST"};
+        f31397c = new String[]{"aid", "app_version", "tt_data"};
+        f31398d = new String[]{"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", "iid", "device_platform"};
+        f31399e = new String[]{"tt_data", "device_platform"};
     }
 
     /* JADX WARN: Removed duplicated region for block: B:73:0x008d A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -132,7 +132,7 @@ public class n {
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("server_time", optLong);
                         jSONObject2.put("local_time", System.currentTimeMillis() / 1000);
-                        f31375b = jSONObject2;
+                        f31396b = jSONObject2;
                     }
                 } catch (Exception e4) {
                     h0.b(e4);
@@ -183,7 +183,7 @@ public class n {
         String str4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), str, hashMap, bArr})) == null) {
-            if (h0.f31347b) {
+            if (h0.f31368b) {
                 h0.a("http: " + str, null);
                 if (hashMap != null) {
                     for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -205,7 +205,7 @@ public class n {
                 } else {
                     h0.b(null);
                 }
-                httpURLConnection.setRequestMethod(f31374a[i2]);
+                httpURLConnection.setRequestMethod(f31395a[i2]);
                 if (hashMap != null && !hashMap.isEmpty()) {
                     for (Map.Entry<String, String> entry2 : hashMap.entrySet()) {
                         if (!TextUtils.isEmpty(entry2.getKey()) && !TextUtils.isEmpty(entry2.getValue())) {
@@ -232,7 +232,7 @@ public class n {
                         try {
                             h0.b(th);
                             str3 = str2;
-                            if (h0.f31347b) {
+                            if (h0.f31368b) {
                             }
                             return str3;
                         } finally {
@@ -282,7 +282,7 @@ public class n {
                                 bufferedReader = bufferedReader3;
                                 h0.b(th);
                                 str3 = str2;
-                                if (h0.f31347b) {
+                                if (h0.f31368b) {
                                 }
                                 return str3;
                             }
@@ -316,7 +316,7 @@ public class n {
                             }
                         }
                         str3 = str2;
-                        if (h0.f31347b) {
+                        if (h0.f31368b) {
                         }
                         return str3;
                     }
@@ -339,7 +339,7 @@ public class n {
                 bufferedReader = null;
                 str2 = null;
             }
-            if (h0.f31347b) {
+            if (h0.f31368b) {
                 h0.a("http response: " + str3, null);
             }
             return str3;
@@ -356,7 +356,7 @@ public class n {
                 Uri parse = Uri.parse(str);
                 String query = parse.getQuery();
                 ArrayList<Pair> arrayList = new ArrayList();
-                for (String str2 : f31376c) {
+                for (String str2 : f31397c) {
                     String queryParameter = parse.getQueryParameter(str2);
                     if (!TextUtils.isEmpty(queryParameter)) {
                         arrayList.add(new Pair(str2, queryParameter));

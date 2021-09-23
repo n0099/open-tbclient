@@ -22,7 +22,7 @@ public class b implements LiveRealAuthService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveRealAuthCallback f28058a;
+        public final /* synthetic */ LiveRealAuthCallback f28078a;
 
         public a(b bVar, LiveRealAuthCallback liveRealAuthCallback) {
             Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class b implements LiveRealAuthService {
                     return;
                 }
             }
-            this.f28058a = liveRealAuthCallback;
+            this.f28078a = liveRealAuthCallback;
         }
 
         @Override // com.baidu.tieba.wallet.ICertification.CertificationCallback
         public void onResult(int i2, Map<String, Object> map) {
             LiveRealAuthCallback liveRealAuthCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, map) == null) || (liveRealAuthCallback = this.f28058a) == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, map) == null) || (liveRealAuthCallback = this.f28078a) == null) {
                 return;
             }
             liveRealAuthCallback.onRealAuthResult(i2, map);

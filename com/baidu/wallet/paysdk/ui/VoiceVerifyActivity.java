@@ -53,7 +53,8 @@ public class VoiceVerifyActivity extends WalletSmsActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            String voiceMsg = ((ErrorContentResponse.Verify) getIntent().getSerializableExtra(BeanConstants.EXTRA_VERIFY_VOICE_DATA)).getVoiceMsg();
+            ErrorContentResponse.Verify verify = (ErrorContentResponse.Verify) getIntent().getSerializableExtra(BeanConstants.EXTRA_VERIFY_VOICE_DATA);
+            String voiceMsg = verify != null ? verify.getVoiceMsg() : "";
             if (TextUtils.isEmpty(voiceMsg)) {
                 voiceMsg = String.format(ResUtils.getString(this, "ebpay_sms_title_tip_voice_verify"), BdWalletUtils.getKefuPhoneNum(this));
             }
@@ -79,7 +80,7 @@ public class VoiceVerifyActivity extends WalletSmsActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ VoiceVerifyActivity f63145a;
+                public final /* synthetic */ VoiceVerifyActivity f63447a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -100,17 +101,17 @@ public class VoiceVerifyActivity extends WalletSmsActivity {
                             return;
                         }
                     }
-                    this.f63145a = this;
+                    this.f63447a = this;
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        VoiceVerifyActivity voiceVerifyActivity = this.f63145a;
+                        VoiceVerifyActivity voiceVerifyActivity = this.f63447a;
                         voiceVerifyActivity.mSendSms.setText(ResUtils.getString(voiceVerifyActivity.getActivity(), "ebpay_recall"));
-                        this.f63145a.mSendSms.setTextSize(1, 16.0f);
-                        this.f63145a.mSendSms.setEnabled(true);
+                        this.f63447a.mSendSms.setTextSize(1, 16.0f);
+                        this.f63447a.mSendSms.setEnabled(true);
                     }
                 }
 
@@ -118,9 +119,9 @@ public class VoiceVerifyActivity extends WalletSmsActivity {
                 public void onTick(long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                        this.f63145a.mSendSms.setEnabled(false);
-                        this.f63145a.mSendSms.setTextSize(1, 12.0f);
-                        VoiceVerifyActivity voiceVerifyActivity = this.f63145a;
+                        this.f63447a.mSendSms.setEnabled(false);
+                        this.f63447a.mSendSms.setTextSize(1, 12.0f);
+                        VoiceVerifyActivity voiceVerifyActivity = this.f63447a;
                         voiceVerifyActivity.mSendSms.setText(String.format(ResUtils.getString(voiceVerifyActivity.getActivity(), "ebpay_recall_timer"), Integer.valueOf((int) (j2 / 1000))));
                     }
                 }

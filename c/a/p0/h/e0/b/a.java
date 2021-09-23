@@ -32,14 +32,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11178b;
+    public static final boolean f11186b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f11179c;
+    public static String f11187c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.y.b.a f11180a;
+    public c.a.p0.a.y.b.a f11188a;
 
     /* renamed from: c.a.p0.h.e0.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -48,10 +48,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.h.e0.b.c f11181e;
+        public final /* synthetic */ c.a.p0.h.e0.b.c f11189e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11182f;
+        public final /* synthetic */ a f11190f;
 
         public C0567a(a aVar, c.a.p0.h.e0.b.c cVar) {
             Interceptable interceptable = $ic;
@@ -68,8 +68,8 @@ public class a {
                     return;
                 }
             }
-            this.f11182f = aVar;
-            this.f11181e = cVar;
+            this.f11190f = aVar;
+            this.f11189e = cVar;
         }
 
         @Override // c.a.p0.a.m.a
@@ -77,12 +77,12 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 != 0) {
-                    boolean unused = a.f11178b;
-                    this.f11182f.j("shareVideo: fail, no login in");
+                    boolean unused = a.f11186b;
+                    this.f11190f.j("shareVideo: fail, no login in");
                     return;
                 }
-                boolean unused2 = a.f11178b;
-                this.f11182f.h(this.f11181e);
+                boolean unused2 = a.f11186b;
+                this.f11190f.h(this.f11189e);
             }
         }
     }
@@ -93,7 +93,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11183a;
+        public final /* synthetic */ a f11191a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -110,17 +110,17 @@ public class a {
                     return;
                 }
             }
-            this.f11183a = aVar;
+            this.f11191a = aVar;
         }
 
         @Override // c.a.p0.h.e0.b.b
         public void a(c.a.p0.h.e0.b.c cVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, str) == null) {
-                if (a.f11178b) {
+                if (a.f11186b) {
                     String.format("onFail params = %s;errMsg = %s", cVar, str);
                 }
-                this.f11183a.j(str);
+                this.f11191a.j(str);
             }
         }
     }
@@ -148,7 +148,7 @@ public class a {
         public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (a.f11178b) {
+                if (a.f11186b) {
                     iOException.printStackTrace();
                 }
                 a.g();
@@ -162,13 +162,13 @@ public class a {
                 try {
                     JSONObject jSONObject = (JSONObject) new JSONObject(response.body().string()).opt("data");
                     if (jSONObject != null) {
-                        String unused = a.f11179c = jSONObject.optString("community_id");
+                        String unused = a.f11187c = jSONObject.optString("community_id");
                         a.f(jSONObject.optString("url"));
                         return;
                     }
                     a.g();
                 } catch (JSONException e2) {
-                    if (a.f11178b) {
+                    if (a.f11186b) {
                         e2.printStackTrace();
                     }
                     a.g();
@@ -190,9 +190,9 @@ public class a {
                 return;
             }
         }
-        f11178b = k.f7077a;
+        f11186b = k.f7085a;
         String str = c.a.p0.a.d0.a.c() + "/webpage";
-        f11179c = "";
+        f11187c = "";
     }
 
     public a(JsObject jsObject) {
@@ -210,7 +210,7 @@ public class a {
                 return;
             }
         }
-        this.f11180a = c.a.p0.a.y.b.a.G(jsObject);
+        this.f11188a = c.a.p0.a.y.b.a.G(jsObject);
     }
 
     public static /* synthetic */ String f(String str) {
@@ -220,7 +220,7 @@ public class a {
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            f11179c = "";
+            f11187c = "";
         }
     }
 
@@ -233,7 +233,7 @@ public class a {
                 jSONObject.put("app_type", 0);
                 jSONObject.put("app_key", e.V());
             } catch (JSONException e2) {
-                if (f11178b) {
+                if (f11186b) {
                     e2.printStackTrace();
                 }
             }
@@ -254,20 +254,20 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             c.a.p0.a.j2.p.e eVar = new c.a.p0.a.j2.p.e();
-            eVar.f7064b = "shareVideo";
-            eVar.f7067e = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+            eVar.f7072b = "shareVideo";
+            eVar.f7075e = com.baidu.pass.biometrics.face.liveness.b.a.g0;
             c.a.p0.a.j2.k.h(eVar);
         }
     }
 
     public final void j(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f11180a == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f11188a == null) {
             return;
         }
         c.a.p0.h.d.c.b bVar = new c.a.p0.h.d.c.b();
         bVar.errMsg = String.format(Locale.CHINA, "shareVideo: fail, %s", str);
-        c.a.p0.h.m0.c.a(this.f11180a, false, bVar);
+        c.a.p0.h.m0.c.a(this.f11188a, false, bVar);
         i();
     }
 
@@ -275,14 +275,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f11180a == null) {
+            if (this.f11188a == null) {
                 i();
                 return null;
             } else if (e.i() == null) {
                 j("shareVideo: fail, swanApp is null");
                 return null;
             } else {
-                String C = this.f11180a.C(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
+                String C = this.f11188a.C(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
                 if (TextUtils.isEmpty(C)) {
                     j("shareVideo: videoPath is invalid");
                     return null;
@@ -293,46 +293,46 @@ public class a {
                     return null;
                 }
                 c.a.p0.h.e0.b.c cVar = new c.a.p0.h.e0.b.c();
-                cVar.f11184a = y;
-                cVar.f11186c = this.f11180a.C("title");
-                cVar.f11185b = this.f11180a.C("query");
+                cVar.f11192a = y;
+                cVar.f11194c = this.f11188a.C("title");
+                cVar.f11193b = this.f11188a.C("query");
                 d dVar = new d();
-                dVar.f11189a = this.f11180a.z("clipMaxDuration", 30L);
-                dVar.f11190b = this.f11180a.z("clipMinDuration", 3L);
-                dVar.f11191c = this.f11180a.C("topicSource");
-                dVar.f11192d = this.f11180a.D("publishTitle", c.a.p0.a.c1.a.b().getResources().getString(g.swangame_publish_video));
-                dVar.f11193e = this.f11180a.D("publishURL", "/searchbox?action=ugc&cmd=177");
-                dVar.f11197i = this.f11180a.s("sourceType", 1);
-                dVar.f11198j = this.f11180a.D("sourceFrom", "tiny");
-                dVar.f11195g = this.f11180a.D("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
-                dVar.f11194f = this.f11180a.D("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
-                dVar.f11196h = this.f11180a.D("topicURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fsv.baidu.com%2Ffeedvideoui%2Fview%2Ftopiclist");
-                dVar.k = this.f11180a.D("publishType", "9");
+                dVar.f11197a = this.f11188a.z("clipMaxDuration", 30L);
+                dVar.f11198b = this.f11188a.z("clipMinDuration", 3L);
+                dVar.f11199c = this.f11188a.C("topicSource");
+                dVar.f11200d = this.f11188a.D("publishTitle", c.a.p0.a.c1.a.b().getResources().getString(g.swangame_publish_video));
+                dVar.f11201e = this.f11188a.D("publishURL", "/searchbox?action=ugc&cmd=177");
+                dVar.f11205i = this.f11188a.s("sourceType", 1);
+                dVar.f11206j = this.f11188a.D("sourceFrom", "tiny");
+                dVar.f11203g = this.f11188a.D("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
+                dVar.f11202f = this.f11188a.D("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
+                dVar.f11204h = this.f11188a.D("topicURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fsv.baidu.com%2Ffeedvideoui%2Fview%2Ftopiclist");
+                dVar.k = this.f11188a.D("publishType", "9");
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("app_key", e.V());
                     jSONObject.put("frame_type", c.a.p0.a.a2.d.g().l());
-                    jSONObject.put("query", cVar.f11185b);
+                    jSONObject.put("query", cVar.f11193b);
                     if (e.i() != null && e.i().N() != null) {
                         jSONObject.put("title", e.i().N().K());
                     }
                 } catch (JSONException e2) {
-                    if (f11178b) {
+                    if (f11186b) {
                         e2.toString();
                     }
                 }
                 jSONObject.toString();
-                if (!TextUtils.isEmpty(f11179c)) {
+                if (!TextUtils.isEmpty(f11187c)) {
                     JSONObject jSONObject2 = new JSONObject();
                     try {
-                        jSONObject2.put("id", f11179c);
+                        jSONObject2.put("id", f11187c);
                         if (e.i() != null && e.i().N() != null) {
                             jSONObject2.put("name", e.i().N().K());
                         }
                         jSONObject2.put("type", "interest");
                         jSONObject2.put("post_id", "");
                     } catch (JSONException e3) {
-                        if (f11178b) {
+                        if (f11186b) {
                             e3.toString();
                         }
                     }
@@ -342,7 +342,7 @@ public class a {
                     try {
                         jSONObject3.put("tag", jSONArray);
                     } catch (JSONException e4) {
-                        if (f11178b) {
+                        if (f11186b) {
                             e4.toString();
                         }
                     }
@@ -351,7 +351,7 @@ public class a {
                 } else {
                     dVar.m = 0;
                 }
-                cVar.f11188e = dVar;
+                cVar.f11196e = dVar;
                 return cVar;
             }
         }
@@ -362,7 +362,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             c.a.p0.a.j2.p.e eVar = new c.a.p0.a.j2.p.e();
-            eVar.f7064b = "shareVideo";
+            eVar.f7072b = "shareVideo";
             c.a.p0.a.j2.k.h(eVar);
             c.a.p0.h.e0.b.c k = k();
             if (k == null) {

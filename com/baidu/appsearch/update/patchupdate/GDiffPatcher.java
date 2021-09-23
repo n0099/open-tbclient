@@ -48,25 +48,25 @@ public class GDiffPatcher {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ByteBuffer f38374a;
+    public ByteBuffer f38425a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f38375b;
+    public byte[] f38426b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38376c;
+    public boolean f38427c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f38377d;
+    public long f38428d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38378e;
+    public int f38429e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f38379f;
+    public byte[] f38430f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38380g;
+    public int f38431g;
     public long totalLength;
 
     public GDiffPatcher() {
@@ -83,33 +83,33 @@ public class GDiffPatcher {
             }
         }
         ByteBuffer allocate = ByteBuffer.allocate(5120);
-        this.f38374a = allocate;
-        this.f38375b = allocate.array();
-        this.f38376c = false;
-        this.f38377d = 0L;
-        this.f38378e = 246;
+        this.f38425a = allocate;
+        this.f38426b = allocate.array();
+        this.f38427c = false;
+        this.f38428d = 0L;
+        this.f38429e = 246;
         this.totalLength = 0L;
-        this.f38379f = new byte[1048576];
-        this.f38380g = 0;
+        this.f38430f = new byte[1048576];
+        this.f38431g = 0;
     }
 
     private void a(byte[] bArr, int i2, int i3, OutputStream outputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), outputStream}) == null) {
             try {
-                if (this.f38380g + i3 >= this.f38379f.length) {
-                    outputStream.write(this.f38379f, 0, this.f38380g);
-                    this.f38380g = 0;
-                    System.arraycopy(bArr, 0, this.f38379f, 0, i3);
-                    this.f38380g = i3;
+                if (this.f38431g + i3 >= this.f38430f.length) {
+                    outputStream.write(this.f38430f, 0, this.f38431g);
+                    this.f38431g = 0;
+                    System.arraycopy(bArr, 0, this.f38430f, 0, i3);
+                    this.f38431g = i3;
                     return;
                 }
-                if (this.f38380g == 0) {
-                    System.arraycopy(bArr, 0, this.f38379f, 0, i3);
+                if (this.f38431g == 0) {
+                    System.arraycopy(bArr, 0, this.f38430f, 0, i3);
                 } else {
-                    System.arraycopy(bArr, 0, this.f38379f, this.f38380g, i3);
+                    System.arraycopy(bArr, 0, this.f38430f, this.f38431g, i3);
                 }
-                this.f38380g += i3;
+                this.f38431g += i3;
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
@@ -155,11 +155,11 @@ public class GDiffPatcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i2, inputStream, outputStream) == null) {
             while (i2 > 0) {
-                int read = inputStream.read(this.f38375b, 0, Math.min(this.f38375b.length, i2));
+                int read = inputStream.read(this.f38426b, 0, Math.min(this.f38426b.length, i2));
                 if (read == -1) {
                     throw new EOFException("cannot read " + i2);
                 }
-                a(this.f38375b, 0, read, outputStream);
+                a(this.f38426b, 0, read, outputStream);
                 i2 -= read;
             }
         }
@@ -170,12 +170,12 @@ public class GDiffPatcher {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), dVar, outputStream}) == null) {
             dVar.a(j2);
             while (i2 > 0) {
-                this.f38374a.clear().limit(Math.min(this.f38374a.capacity(), i2));
-                int a2 = dVar.a(this.f38374a);
+                this.f38425a.clear().limit(Math.min(this.f38425a.capacity(), i2));
+                int a2 = dVar.a(this.f38425a);
                 if (a2 == -1) {
                     throw new EOFException("in copy " + j2 + " " + i2);
                 }
-                a(this.f38374a.array(), 0, a2, outputStream);
+                a(this.f38425a.array(), 0, a2, outputStream);
                 i2 -= a2;
             }
         }
@@ -184,10 +184,10 @@ public class GDiffPatcher {
     public void a(OutputStream outputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, outputStream) == null) {
-            int i2 = this.f38380g;
+            int i2 = this.f38431g;
             if (i2 > 0) {
-                outputStream.write(this.f38379f, 0, i2);
-                this.f38380g = 0;
+                outputStream.write(this.f38430f, 0, i2);
+                this.f38431g = 0;
             }
             outputStream.flush();
         }
@@ -209,8 +209,8 @@ public class GDiffPatcher {
         }
         int readUnsignedByte4 = dataInputStream.readUnsignedByte();
         if (readUnsignedByte4 == 5) {
-            this.f38376c = true;
-            this.f38378e = LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK;
+            this.f38427c = true;
+            this.f38429e = LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK;
         } else if (readUnsignedByte4 != 4) {
             throw new b("magic string not found, aborting!");
         }
@@ -222,12 +222,12 @@ public class GDiffPatcher {
                 a(dataOutputStream);
                 return;
             }
-            if (readUnsignedByte5 > this.f38378e) {
+            if (readUnsignedByte5 > this.f38429e) {
                 switch (readUnsignedByte5) {
                     case 244:
-                        if (this.f38376c) {
-                            readUnsignedByte = dataInputStream.readByte() + this.f38377d;
-                            this.f38377d = readUnsignedByte;
+                        if (this.f38427c) {
+                            readUnsignedByte = dataInputStream.readByte() + this.f38428d;
+                            this.f38428d = readUnsignedByte;
                         } else {
                             readUnsignedByte = dataInputStream.readUnsignedByte();
                         }
@@ -236,9 +236,9 @@ public class GDiffPatcher {
                         a(j2, readUnsignedByte5, dVar, dataOutputStream);
                         j3 = this.totalLength + readUnsignedByte5;
                     case 245:
-                        if (this.f38376c) {
-                            readUnsignedByte2 = dataInputStream.readByte() + this.f38377d;
-                            this.f38377d = readUnsignedByte2;
+                        if (this.f38427c) {
+                            readUnsignedByte2 = dataInputStream.readByte() + this.f38428d;
+                            this.f38428d = readUnsignedByte2;
                         } else {
                             readUnsignedByte2 = dataInputStream.readUnsignedByte();
                         }
@@ -247,9 +247,9 @@ public class GDiffPatcher {
                         a(j2, readUnsignedByte5, dVar, dataOutputStream);
                         j3 = this.totalLength + readUnsignedByte5;
                     case 246:
-                        if (this.f38376c) {
-                            readUnsignedByte3 = dataInputStream.readByte() + this.f38377d;
-                            this.f38377d = readUnsignedByte3;
+                        if (this.f38427c) {
+                            readUnsignedByte3 = dataInputStream.readByte() + this.f38428d;
+                            this.f38428d = readUnsignedByte3;
                         } else {
                             readUnsignedByte3 = dataInputStream.readUnsignedByte();
                         }
@@ -264,9 +264,9 @@ public class GDiffPatcher {
                         readUnsignedByte5 = dataInputStream.readInt();
                         break;
                     case 249:
-                        if (this.f38376c) {
-                            readUnsignedByte = dataInputStream.readShort() + this.f38377d;
-                            this.f38377d = readUnsignedByte;
+                        if (this.f38427c) {
+                            readUnsignedByte = dataInputStream.readShort() + this.f38428d;
+                            this.f38428d = readUnsignedByte;
                         } else {
                             readUnsignedByte = dataInputStream.readUnsignedShort();
                         }
@@ -275,9 +275,9 @@ public class GDiffPatcher {
                         a(j2, readUnsignedByte5, dVar, dataOutputStream);
                         j3 = this.totalLength + readUnsignedByte5;
                     case 250:
-                        if (this.f38376c) {
-                            readUnsignedByte2 = dataInputStream.readShort() + this.f38377d;
-                            this.f38377d = readUnsignedByte2;
+                        if (this.f38427c) {
+                            readUnsignedByte2 = dataInputStream.readShort() + this.f38428d;
+                            this.f38428d = readUnsignedByte2;
                         } else {
                             readUnsignedByte2 = dataInputStream.readUnsignedShort();
                         }
@@ -286,9 +286,9 @@ public class GDiffPatcher {
                         a(j2, readUnsignedByte5, dVar, dataOutputStream);
                         j3 = this.totalLength + readUnsignedByte5;
                     case COPY_USHORT_INT /* 251 */:
-                        if (this.f38376c) {
-                            readUnsignedByte3 = dataInputStream.readShort() + this.f38377d;
-                            this.f38377d = readUnsignedByte3;
+                        if (this.f38427c) {
+                            readUnsignedByte3 = dataInputStream.readShort() + this.f38428d;
+                            this.f38428d = readUnsignedByte3;
                         } else {
                             readUnsignedByte3 = dataInputStream.readUnsignedShort();
                         }
@@ -298,9 +298,9 @@ public class GDiffPatcher {
                         j3 = this.totalLength + readUnsignedByte5;
                     case COPY_INT_UBYTE /* 252 */:
                         readUnsignedByte = dataInputStream.readInt();
-                        if (this.f38376c) {
-                            readUnsignedByte += this.f38377d;
-                            this.f38377d = readUnsignedByte;
+                        if (this.f38427c) {
+                            readUnsignedByte += this.f38428d;
+                            this.f38428d = readUnsignedByte;
                         }
                         j2 = readUnsignedByte;
                         readUnsignedByte5 = dataInputStream.readUnsignedByte();
@@ -308,9 +308,9 @@ public class GDiffPatcher {
                         j3 = this.totalLength + readUnsignedByte5;
                     case COPY_INT_USHORT /* 253 */:
                         readUnsignedByte2 = dataInputStream.readInt();
-                        if (this.f38376c) {
-                            readUnsignedByte2 += this.f38377d;
-                            this.f38377d = readUnsignedByte2;
+                        if (this.f38427c) {
+                            readUnsignedByte2 += this.f38428d;
+                            this.f38428d = readUnsignedByte2;
                         }
                         j2 = readUnsignedByte2;
                         readUnsignedByte5 = dataInputStream.readUnsignedShort();
@@ -318,9 +318,9 @@ public class GDiffPatcher {
                         j3 = this.totalLength + readUnsignedByte5;
                     case 254:
                         readUnsignedByte3 = dataInputStream.readInt();
-                        if (this.f38376c) {
-                            readUnsignedByte3 += this.f38377d;
-                            this.f38377d = readUnsignedByte3;
+                        if (this.f38427c) {
+                            readUnsignedByte3 += this.f38428d;
+                            this.f38428d = readUnsignedByte3;
                         }
                         j2 = readUnsignedByte3;
                         readUnsignedByte5 = dataInputStream.readInt();
@@ -328,9 +328,9 @@ public class GDiffPatcher {
                         j3 = this.totalLength + readUnsignedByte5;
                     case 255:
                         readUnsignedByte3 = dataInputStream.readLong();
-                        if (this.f38376c) {
-                            readUnsignedByte3 += this.f38377d;
-                            this.f38377d = readUnsignedByte3;
+                        if (this.f38427c) {
+                            readUnsignedByte3 += this.f38428d;
+                            this.f38428d = readUnsignedByte3;
                         }
                         j2 = readUnsignedByte3;
                         readUnsignedByte5 = dataInputStream.readInt();
@@ -348,7 +348,7 @@ public class GDiffPatcher {
     public void patch(File file, File file2, File file3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, file, file2, file3) == null) {
-            c cVar = new c(new RandomAccessFile(file, r.f42280a));
+            c cVar = new c(new RandomAccessFile(file, r.f42342a));
             FileInputStream fileInputStream = new FileInputStream(file2);
             FileOutputStream fileOutputStream = new FileOutputStream(file3);
             try {

@@ -12,10 +12,10 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f20840a;
+    public BdUniqueId f20852a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AgreeData f20841b;
+    public AgreeData f20853b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class e {
                 return;
             }
         }
-        this.f20840a = null;
-        this.f20841b = null;
+        this.f20852a = null;
+        this.f20853b = null;
     }
 }

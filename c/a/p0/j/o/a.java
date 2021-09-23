@@ -94,10 +94,10 @@ public class a extends c.a.p0.a.h0.g.d implements OnGetGeoCoderResultListener, B
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ReverseGeoCodeResult f11761e;
+        public final /* synthetic */ ReverseGeoCodeResult f11769e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11762f;
+        public final /* synthetic */ a f11770f;
 
         public RunnableC0615a(a aVar, ReverseGeoCodeResult reverseGeoCodeResult) {
             Interceptable interceptable = $ic;
@@ -114,15 +114,15 @@ public class a extends c.a.p0.a.h0.g.d implements OnGetGeoCoderResultListener, B
                     return;
                 }
             }
-            this.f11762f = aVar;
-            this.f11761e = reverseGeoCodeResult;
+            this.f11770f = aVar;
+            this.f11769e = reverseGeoCodeResult;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11762f.W2(this.f11761e);
+                this.f11770f.W2(this.f11769e);
             }
         }
     }
@@ -348,7 +348,7 @@ public class a extends c.a.p0.a.h0.g.d implements OnGetGeoCoderResultListener, B
             case 16:
                 c cVar = this.R0;
                 if (cVar != null) {
-                    PoiInfo poiInfo = cVar.f11763a;
+                    PoiInfo poiInfo = cVar.f11771a;
                     if (TextUtils.equals(poiInfo.name, "[位置]")) {
                         poiInfo.name = "";
                     }
@@ -400,7 +400,7 @@ public class a extends c.a.p0.a.h0.g.d implements OnGetGeoCoderResultListener, B
             return;
         }
         g.b i2 = W.i("navigateTo");
-        i2.n(c.a.p0.a.h0.g.g.f5928g, c.a.p0.a.h0.g.g.f5930i);
+        i2.n(c.a.p0.a.h0.g.g.f5936g, c.a.p0.a.h0.g.g.f5938i);
         i2.j(this);
         i2.b();
     }
@@ -428,11 +428,11 @@ public class a extends c.a.p0.a.h0.g.d implements OnGetGeoCoderResultListener, B
 
     public final void V2(c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, cVar) == null) || cVar == null || cVar.f11763a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, cVar) == null) || cVar == null || cVar.f11771a == null) {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putString("city", cVar.f11763a.city);
+        bundle.putString("city", cVar.f11771a.city);
         c.a.p0.j.o.g.a N2 = c.a.p0.j.o.g.a.N2(bundle);
         N2.j1(this, 1);
         N2.T2();
@@ -501,7 +501,7 @@ public class a extends c.a.p0.a.h0.g.d implements OnGetGeoCoderResultListener, B
         PoiInfo poiInfo;
         LatLng latLng;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, cVar) == null) || cVar == null || (poiInfo = cVar.f11763a) == null || (latLng = poiInfo.location) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, cVar) == null) || cVar == null || (poiInfo = cVar.f11771a) == null || (latLng = poiInfo.location) == null) {
             return;
         }
         this.R0 = cVar;
@@ -510,10 +510,10 @@ public class a extends c.a.p0.a.h0.g.d implements OnGetGeoCoderResultListener, B
         if (this.Q0 == null) {
             this.Q0 = BitmapDescriptorFactory.fromResource(c.a.p0.j.d.aiapps_location_selected);
         }
-        if (!cVar.f11765c) {
-            this.P0 = (Marker) this.N0.addOverlay(new MarkerOptions().position(cVar.f11763a.location).zIndex(88).icon(this.Q0));
+        if (!cVar.f11773c) {
+            this.P0 = (Marker) this.N0.addOverlay(new MarkerOptions().position(cVar.f11771a.location).zIndex(88).icon(this.Q0));
         }
-        if (cVar.f11765c) {
+        if (cVar.f11773c) {
             return;
         }
         Q2(false);

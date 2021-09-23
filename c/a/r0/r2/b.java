@@ -17,10 +17,10 @@ public interface b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f24473a;
+        public final int f24489a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f24474b;
+        public final long f24490b;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public interface b {
                     return;
                 }
             }
-            this.f24473a = i2;
-            this.f24474b = System.currentTimeMillis();
+            this.f24489a = i2;
+            this.f24490b = System.currentTimeMillis();
         }
 
         @Override // c.a.r0.r2.b
@@ -48,8 +48,8 @@ public interface b {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("type", this.f24473a);
-                    jSONObject.put("timestamp", this.f24474b);
+                    jSONObject.put("type", this.f24489a);
+                    jSONObject.put("timestamp", this.f24490b);
                     jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, VideoPlatformStatic.d());
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -62,20 +62,20 @@ public interface b {
 
     /* renamed from: c.a.r0.r2.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractC1136b implements b {
+    public static abstract class AbstractC1134b implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f24475a;
+        public final int f24491a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f24476b;
+        public final String f24492b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f24477c;
+        public final long f24493c;
 
-        public AbstractC1136b(int i2, String str) {
+        public AbstractC1134b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,9 +90,9 @@ public interface b {
                     return;
                 }
             }
-            this.f24475a = i2;
-            this.f24476b = str;
-            this.f24477c = System.currentTimeMillis();
+            this.f24491a = i2;
+            this.f24492b = str;
+            this.f24493c = System.currentTimeMillis();
         }
 
         @Override // c.a.r0.r2.b
@@ -102,9 +102,9 @@ public interface b {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("type", this.f24475a);
-                    jSONObject.put("source", this.f24476b);
-                    jSONObject.put("timestamp", this.f24477c);
+                    jSONObject.put("type", this.f24491a);
+                    jSONObject.put("source", this.f24492b);
+                    jSONObject.put("timestamp", this.f24493c);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

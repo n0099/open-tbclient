@@ -20,19 +20,19 @@ public abstract class a<T extends c.a.q0.s.q.a> implements q, p<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public l0 f3781e;
+    public l0 f3782e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f3782f;
+    public Context f3783f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Boolean f3783g;
+    public Boolean f3784g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.a0.b0<T> f3784h;
+    public c.a.r0.a0.b0<T> f3785h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC0093a f3785i;
+    public InterfaceC0093a f3786i;
 
     /* renamed from: c.a.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -55,8 +55,8 @@ public abstract class a<T extends c.a.q0.s.q.a> implements q, p<T> {
                 return;
             }
         }
-        this.f3783g = Boolean.FALSE;
-        this.f3782f = context;
+        this.f3784g = Boolean.FALSE;
+        this.f3783f = context;
     }
 
     public void a(int i2) {
@@ -74,7 +74,7 @@ public abstract class a<T extends c.a.q0.s.q.a> implements q, p<T> {
     public c.a.r0.a0.b0<T> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3784h : (c.a.r0.a0.b0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3785h : (c.a.r0.a0.b0) invokeV.objValue;
     }
 
     public final ThreadCardView d(View view, int i2) {
@@ -95,7 +95,7 @@ public abstract class a<T extends c.a.q0.s.q.a> implements q, p<T> {
     public Boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3783g : (Boolean) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3784g : (Boolean) invokeV.objValue;
     }
 
     public abstract View f();
@@ -109,14 +109,14 @@ public abstract class a<T extends c.a.q0.s.q.a> implements q, p<T> {
     public void h(int i2, a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i2, bVar) == null) {
-            this.f3781e.m(i2, bVar);
+            this.f3782e.m(i2, bVar);
         }
     }
 
     public void i(l0 l0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, l0Var) == null) {
-            this.f3781e = l0Var;
+            this.f3782e = l0Var;
         }
     }
 
@@ -134,7 +134,7 @@ public abstract class a<T extends c.a.q0.s.q.a> implements q, p<T> {
     public void k(c.a.r0.a0.b0<T> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, b0Var) == null) {
-            this.f3784h = b0Var;
+            this.f3785h = b0Var;
         }
     }
 
@@ -152,7 +152,7 @@ public abstract class a<T extends c.a.q0.s.q.a> implements q, p<T> {
     public void m(Boolean bool) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bool) == null) {
-            this.f3783g = bool;
+            this.f3784g = bool;
         }
     }
 }

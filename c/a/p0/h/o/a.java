@@ -125,7 +125,7 @@ public class a implements g {
             if (TextUtils.isEmpty(str) || (a2 = c.a.p0.h.c0.a.a.a(c.a.p0.t.d.D(new File(a.d.h(str, String.valueOf(j2)), "game.json")))) == null) {
                 return 0;
             }
-            return a2.f11118b;
+            return a2.f11126b;
         }
         return invokeLJ.intValue;
     }

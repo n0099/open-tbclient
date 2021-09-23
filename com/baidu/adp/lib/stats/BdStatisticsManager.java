@@ -115,7 +115,7 @@ public class BdStatisticsManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdStatisticsManager f36282a;
+        public final /* synthetic */ BdStatisticsManager f36325a;
 
         public b(BdStatisticsManager bdStatisticsManager) {
             Interceptable interceptable = $ic;
@@ -132,15 +132,15 @@ public class BdStatisticsManager {
                     return;
                 }
             }
-            this.f36282a = bdStatisticsManager;
+            this.f36325a = bdStatisticsManager;
         }
 
         @Override // c.a.e.e.n.m.a.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f36282a.isSwitchReady = true;
-                if (this.f36282a.mIsMainProcess) {
+                this.f36325a.isSwitchReady = true;
+                if (this.f36325a.mIsMainProcess) {
                     g.h().f();
                 }
                 BdStatisticsManager.mHandler.removeMessages(2);

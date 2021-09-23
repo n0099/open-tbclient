@@ -55,7 +55,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonGroupChatActiviy f52862a;
+        public final /* synthetic */ CommonGroupChatActiviy f52975a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CommonGroupChatActiviy commonGroupChatActiviy, int i2) {
@@ -75,7 +75,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                     return;
                 }
             }
-            this.f52862a = commonGroupChatActiviy;
+            this.f52975a = commonGroupChatActiviy;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,7 +90,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                 case 103101:
                 case 103110:
                 case 103112:
-                    this.f52862a.mListView.refresh();
+                    this.f52975a.mListView.refresh();
                     return;
                 case 103104:
                     if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
@@ -98,9 +98,9 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                         if (responseDismissGroupMessage.getError() != 0) {
                             return;
                         }
-                        MsglistModel msglistModel = this.f52862a.mListModel;
+                        MsglistModel msglistModel = this.f52975a.mListModel;
                         if ((msglistModel instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) msglistModel).getGroup()) != null && group.getGroupId() == responseDismissGroupMessage.getGroupId()) {
-                            this.f52862a.finish();
+                            this.f52975a.finish();
                             return;
                         }
                         return;
@@ -118,7 +118,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonGroupChatActiviy f52863a;
+        public final /* synthetic */ CommonGroupChatActiviy f52976a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(CommonGroupChatActiviy commonGroupChatActiviy, int i2) {
@@ -138,7 +138,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                     return;
                 }
             }
-            this.f52863a = commonGroupChatActiviy;
+            this.f52976a = commonGroupChatActiviy;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -151,7 +151,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             }
             switch (customResponsedMessage.getCmd()) {
                 case 2001109:
-                    this.f52863a.mListView.refresh();
+                    this.f52976a.mListView.refresh();
                     return;
                 case 2001126:
                 case 2001128:
@@ -167,18 +167,18 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                     if (TextUtils.isEmpty(cmd)) {
                         return;
                     }
-                    this.f52863a.mListView.refresh();
+                    this.f52976a.mListView.refresh();
                     if (cmd.equals("apply_join_success")) {
                         return;
                     }
                     if (cmd.equals("kick_out")) {
-                        this.f52863a.processKick(p);
+                        this.f52976a.processKick(p);
                         return;
                     } else if (cmd.equals("group_name_change")) {
-                        this.f52863a.processTitleChange(p);
+                        this.f52976a.processTitleChange(p);
                         return;
                     } else if (cmd.equals("dismiss_group")) {
-                        this.f52863a.processDismissGroup(p);
+                        this.f52976a.processDismissGroup(p);
                         return;
                     } else {
                         return;

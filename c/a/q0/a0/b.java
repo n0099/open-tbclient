@@ -28,11 +28,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f12693b;
+    public static b f12701b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UserData f12694a;
+    public UserData f12702a;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -40,7 +40,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f12695e;
+        public final /* synthetic */ AccountData f12703e;
 
         public a(b bVar, AccountData accountData) {
             Interceptable interceptable = $ic;
@@ -57,14 +57,14 @@ public class b {
                     return;
                 }
             }
-            this.f12695e = accountData;
+            this.f12703e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.g(this.f12695e);
+                c.g(this.f12703e);
             }
         }
     }
@@ -87,14 +87,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12693b == null) {
+            if (f12701b == null) {
                 synchronized (b.class) {
-                    if (f12693b == null) {
-                        f12693b = new b();
+                    if (f12701b == null) {
+                        f12701b = new b();
                     }
                 }
             }
-            return f12693b;
+            return f12701b;
         }
         return (b) invokeV.objValue;
     }
@@ -102,14 +102,14 @@ public class b {
     public UserData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12694a : (UserData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12702a : (UserData) invokeV.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.r0.j3.d0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
-            c.a.r0.j3.d0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
+            c.a.r0.j3.e0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
+            c.a.r0.j3.e0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -129,7 +129,7 @@ public class b {
     public void e(UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, userData) == null) {
-            this.f12694a = userData;
+            this.f12702a = userData;
             if (userData == null) {
                 return;
             }
@@ -142,9 +142,6 @@ public class b {
             }
             if (!StringUtils.isNull(userData.getPortrait())) {
                 currentAccountObj.setPortrait(userData.getPortrait());
-            }
-            if (userData.getBaijiahaoInfo() != null && !StringUtils.isNull(userData.getBaijiahaoInfo().avatar)) {
-                currentAccountObj.setBjhAvatar(userData.getBaijiahaoInfo().avatar);
             }
             currentAccountObj.setSex(userData.getSex());
             currentAccountObj.setMemberType(userData.getIsMem());

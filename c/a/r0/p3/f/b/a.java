@@ -22,33 +22,33 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<Object> f23970e;
+    public List<Object> f23986e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f23971f;
+    public TbPageContext<?> f23987f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.p3.f.a.a f23972g;
+    public c.a.r0.p3.f.a.a f23988g;
 
     /* renamed from: c.a.r0.p3.f.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1114a {
+    public static class C1112a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f23973a;
+        public TextView f23989a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BubbleItemView f23974b;
+        public BubbleItemView f23990b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BubbleItemView f23975c;
+        public BubbleItemView f23991c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f23976d;
+        public View f23992d;
 
-        public C1114a() {
+        public C1112a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,14 +78,14 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f23971f = tbPageContext;
-        this.f23972g = aVar;
+        this.f23987f = tbPageContext;
+        this.f23988g = aVar;
     }
 
     public void a(List<Object> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f23970e = list;
+            this.f23986e = list;
         }
     }
 
@@ -94,7 +94,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<Object> list = this.f23970e;
+            List<Object> list = this.f23986e;
             if (list != null) {
                 return list.size();
             }
@@ -108,11 +108,11 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            List<Object> list = this.f23970e;
-            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f23970e.size()) {
+            List<Object> list = this.f23986e;
+            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f23986e.size()) {
                 return null;
             }
-            return this.f23970e.get(i2);
+            return this.f23986e.get(i2);
         }
         return invokeI.objValue;
     }
@@ -140,48 +140,48 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C1114a c1114a;
+        C1112a c1112a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
             Object item = getItem(i2);
             if (view != null) {
-                c1114a = (C1114a) view.getTag();
+                c1112a = (C1112a) view.getTag();
             } else if (getItemViewType(i2) == 0) {
-                view = LayoutInflater.from(this.f23971f.getPageActivity()).inflate(R.layout.background_group_header, viewGroup, false);
-                c1114a = new C1114a();
-                c1114a.f23973a = (TextView) view.findViewById(R.id.group_name);
-                view.setTag(c1114a);
+                view = LayoutInflater.from(this.f23987f.getPageActivity()).inflate(R.layout.background_group_header, viewGroup, false);
+                c1112a = new C1112a();
+                c1112a.f23989a = (TextView) view.findViewById(R.id.group_name);
+                view.setTag(c1112a);
             } else {
-                view = LayoutInflater.from(this.f23971f.getPageActivity()).inflate(R.layout.bubble_row, viewGroup, false);
-                c1114a = new C1114a();
-                c1114a.f23974b = (BubbleItemView) view.findViewById(R.id.bg_view1);
-                c1114a.f23975c = (BubbleItemView) view.findViewById(R.id.bg_view2);
-                c1114a.f23976d = view.findViewById(R.id.divider_line);
-                view.setTag(c1114a);
+                view = LayoutInflater.from(this.f23987f.getPageActivity()).inflate(R.layout.bubble_row, viewGroup, false);
+                c1112a = new C1112a();
+                c1112a.f23990b = (BubbleItemView) view.findViewById(R.id.bg_view1);
+                c1112a.f23991c = (BubbleItemView) view.findViewById(R.id.bg_view2);
+                c1112a.f23992d = view.findViewById(R.id.divider_line);
+                view.setTag(c1112a);
             }
             if (item != null) {
                 if (getItemViewType(i2) == 0) {
-                    c1114a.f23973a.setText(item.toString());
+                    c1112a.f23989a.setText(item.toString());
                 } else {
                     List list = (List) item;
-                    c1114a.f23974b.fillView((DressItemData) list.get(0));
-                    c1114a.f23974b.setController(this.f23972g);
-                    c1114a.f23974b.setFromBubbleGroup(true);
+                    c1112a.f23990b.fillView((DressItemData) list.get(0));
+                    c1112a.f23990b.setController(this.f23988g);
+                    c1112a.f23990b.setFromBubbleGroup(true);
                     if (list.size() > 1) {
-                        c1114a.f23975c.fillView((DressItemData) list.get(1));
-                        c1114a.f23975c.setController(this.f23972g);
-                        c1114a.f23975c.setFromBubbleGroup(true);
+                        c1112a.f23991c.fillView((DressItemData) list.get(1));
+                        c1112a.f23991c.setController(this.f23988g);
+                        c1112a.f23991c.setFromBubbleGroup(true);
                     } else {
-                        c1114a.f23975c.hide();
+                        c1112a.f23991c.hide();
                     }
                     if (getItem(i2 + 1) instanceof List) {
-                        c1114a.f23976d.setVisibility(8);
+                        c1112a.f23992d.setVisibility(8);
                     } else {
-                        c1114a.f23976d.setVisibility(0);
+                        c1112a.f23992d.setVisibility(0);
                     }
                 }
             }
-            this.f23971f.getLayoutMode().j(view);
+            this.f23987f.getLayoutMode().j(view);
             return view;
         }
         return (View) invokeILL.objValue;

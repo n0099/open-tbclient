@@ -16,7 +16,7 @@ public class c implements b<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f12392a;
+    public Context f12400a;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class c implements b<String> {
                 return;
             }
         }
-        this.f12392a = context.getApplicationContext();
+        this.f12400a = context.getApplicationContext();
     }
 
     @Override // c.a.p0.u.c.b
@@ -49,7 +49,7 @@ public class c implements b<String> {
     public String get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PreferenceManager.getDefaultSharedPreferences(this.f12392a).getString("uuid_identity", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PreferenceManager.getDefaultSharedPreferences(this.f12400a).getString("uuid_identity", null) : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +58,7 @@ public class c implements b<String> {
     public void put(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f12392a).edit();
+            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f12400a).edit();
             edit.putString("uuid_identity", str);
             edit.apply();
         }

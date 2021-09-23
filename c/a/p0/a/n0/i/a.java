@@ -12,7 +12,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7495a;
+    public static final boolean f7503a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class a {
                 return;
             }
         }
-        f7495a = k.f7077a;
+        f7503a = k.f7085a;
     }
 
     public static String a(int i2, String str) {
@@ -45,7 +45,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             long j2 = h.a().getLong(a(i2, "launch_time"), 0L);
-            if (f7495a) {
+            if (f7503a) {
                 String str = "frame_type : " + i2 + " , launch time : " + j2;
             }
             return j2;
@@ -59,7 +59,7 @@ public class a {
             String a2 = a(i2, "launch_time");
             long currentTimeMillis = System.currentTimeMillis();
             h.a().putLong(a2, currentTimeMillis);
-            if (f7495a) {
+            if (f7503a) {
                 String str = "frame_type : " + i2 + " , launch time : " + currentTimeMillis;
             }
         }

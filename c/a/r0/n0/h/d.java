@@ -24,16 +24,16 @@ public class d implements c.a.r0.e0.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public EnterForumModel f22577a;
+    public EnterForumModel f22593a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a f22578b;
+    public c.a f22594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final EnterForumModel.f f22579c;
+    public final EnterForumModel.f f22595c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.e.c.g.a f22580d;
+    public c.a.e.c.g.a f22596d;
 
     /* loaded from: classes3.dex */
     public class a implements EnterForumModel.f {
@@ -41,7 +41,7 @@ public class d implements c.a.r0.e0.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f22581a;
+        public final /* synthetic */ d f22597a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -58,22 +58,22 @@ public class d implements c.a.r0.e0.c {
                     return;
                 }
             }
-            this.f22581a = dVar;
+            this.f22597a = dVar;
         }
 
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.f
         public void a(EnterForumModel.e eVar) {
             c.a.r0.n0.d.d dVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || this.f22581a.f22578b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || this.f22597a.f22594b == null) {
                 return;
             }
-            if (eVar == null || !eVar.f50268b || (dVar = eVar.f50270d) == null || dVar.e() == null) {
-                this.f22581a.f22578b.a(null, false, 1, 0);
+            if (eVar == null || !eVar.f50381b || (dVar = eVar.f50383d) == null || dVar.e() == null) {
+                this.f22597a.f22594b.a(null, false, 1, 0);
                 return;
             }
             ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-            ArrayList<f> b2 = eVar.f50270d.e().b();
+            ArrayList<f> b2 = eVar.f50383d.e().b();
             if (ListUtils.getCount(b2) > 0) {
                 Iterator<f> it = b2.iterator();
                 while (it.hasNext()) {
@@ -85,7 +85,7 @@ public class d implements c.a.r0.e0.c {
                     }
                 }
             }
-            this.f22581a.f22578b.a(arrayList, true, 1, 0);
+            this.f22597a.f22594b.a(arrayList, true, 1, 0);
         }
     }
 
@@ -95,7 +95,7 @@ public class d implements c.a.r0.e0.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f22582a;
+        public final /* synthetic */ d f22598a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(d dVar, int i2, int i3) {
@@ -116,7 +116,7 @@ public class d implements c.a.r0.e0.c {
                     return;
                 }
             }
-            this.f22582a = dVar;
+            this.f22598a = dVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -124,12 +124,12 @@ public class d implements c.a.r0.e0.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z = responsedMessage instanceof forumRecommendSocketResponseMessage;
-                if ((z || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && this.f22582a.f22577a.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+                if ((z || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && this.f22598a.f22593a.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                     if (z) {
-                        this.f22582a.f22577a.N((forumRecommendSocketResponseMessage) responsedMessage);
+                        this.f22598a.f22593a.N((forumRecommendSocketResponseMessage) responsedMessage);
                     }
                     if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                        this.f22582a.f22577a.M((forumRecommendHttpResponseMessage) responsedMessage);
+                        this.f22598a.f22593a.M((forumRecommendHttpResponseMessage) responsedMessage);
                     }
                 }
             }
@@ -149,20 +149,20 @@ public class d implements c.a.r0.e0.c {
                 return;
             }
         }
-        this.f22577a = null;
-        this.f22579c = new a(this);
-        this.f22580d = new b(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
+        this.f22593a = null;
+        this.f22595c = new a(this);
+        this.f22596d = new b(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
         EnterForumModel enterForumModel = new EnterForumModel(null);
-        this.f22577a = enterForumModel;
-        enterForumModel.T(this.f22579c);
-        MessageManager.getInstance().registerListener(this.f22580d);
+        this.f22593a = enterForumModel;
+        enterForumModel.T(this.f22595c);
+        MessageManager.getInstance().registerListener(this.f22596d);
     }
 
     @Override // c.a.r0.e0.c
     public void a(c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f22578b = aVar;
+            this.f22594b = aVar;
         }
     }
 
@@ -170,7 +170,7 @@ public class d implements c.a.r0.e0.c {
     public void b() {
         EnterForumModel enterForumModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f22578b == null || (enterForumModel = this.f22577a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f22594b == null || (enterForumModel = this.f22593a) == null) {
             return;
         }
         enterForumModel.H(true);

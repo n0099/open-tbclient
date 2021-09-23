@@ -30,16 +30,16 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.z1.b.c.a f8831e;
+        public final /* synthetic */ c.a.p0.a.z1.b.c.a f8839e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f8832f;
+        public final /* synthetic */ Context f8840f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8833g;
+        public final /* synthetic */ String f8841g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f8834h;
+        public final /* synthetic */ boolean f8842h;
 
         public RunnableC0392a(a aVar, c.a.p0.a.z1.b.c.a aVar2, Context context, String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -56,10 +56,10 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8831e = aVar2;
-            this.f8832f = context;
-            this.f8833g = str;
-            this.f8834h = z;
+            this.f8839e = aVar2;
+            this.f8840f = context;
+            this.f8841g = str;
+            this.f8842h = z;
         }
 
         @Override // java.lang.Runnable
@@ -67,22 +67,22 @@ public class a extends c.a.p0.a.u.c.d {
             LoadingView loadingView;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                View e2 = this.f8831e.e();
+                View e2 = this.f8839e.e();
                 if (e2 instanceof LoadingView) {
                     loadingView = (LoadingView) e2;
                 } else {
-                    loadingView = new LoadingView(this.f8832f);
-                    FrameLayout frameLayout = new FrameLayout(this.f8832f);
+                    loadingView = new LoadingView(this.f8840f);
+                    FrameLayout frameLayout = new FrameLayout(this.f8840f);
                     frameLayout.setPadding(0, 0, 0, n0.g(160.0f));
                     frameLayout.addView(loadingView);
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                     layoutParams.gravity = 17;
-                    this.f8831e.l(frameLayout, layoutParams);
+                    this.f8839e.l(frameLayout, layoutParams);
                 }
-                if (!TextUtils.isEmpty(this.f8833g)) {
-                    loadingView.setMsg(this.f8833g);
+                if (!TextUtils.isEmpty(this.f8841g)) {
+                    loadingView.setMsg(this.f8841g);
                 }
-                this.f8831e.i(this.f8834h);
+                this.f8839e.i(this.f8842h);
             }
         }
     }
@@ -93,7 +93,7 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.g.d f8835e;
+        public final /* synthetic */ c.a.p0.a.h0.g.d f8843e;
 
         public b(a aVar, c.a.p0.a.h0.g.d dVar) {
             Interceptable interceptable = $ic;
@@ -110,14 +110,14 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8835e = dVar;
+            this.f8843e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             c.a.p0.a.z1.b.c.a floatLayer;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (floatLayer = ((a.InterfaceC0483a) this.f8835e).getFloatLayer()) != null && (floatLayer.e() instanceof FrameLayout) && (((FrameLayout) floatLayer.e()).getChildAt(0) instanceof LoadingView)) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (floatLayer = ((a.InterfaceC0483a) this.f8843e).getFloatLayer()) != null && (floatLayer.e() instanceof FrameLayout) && (((FrameLayout) floatLayer.e()).getChildAt(0) instanceof LoadingView)) {
                 floatLayer.g();
             }
         }
@@ -156,26 +156,26 @@ public class a extends c.a.p0.a.u.c.d {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Context i2 = i();
             if (!(i2 instanceof SwanAppActivity)) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-LoadingView", "context not support");
                 }
                 return new c.a.p0.a.u.h.b(1001, "context not support");
             }
             c.a.p0.a.h0.g.g swanAppFragmentManager = ((SwanAppActivity) i2).getSwanAppFragmentManager();
             if (swanAppFragmentManager == null) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-LoadingView", "none fragmentManger");
                 }
                 return new c.a.p0.a.u.h.b(1001, "none fragmentManger");
             }
             c.a.p0.a.h0.g.d m = swanAppFragmentManager.m();
             if (!(m instanceof a.InterfaceC0483a)) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-LoadingView", "fragment not support");
                 }
                 return new c.a.p0.a.u.h.b(1001, "fragment not support");
             } else if (m.q() == null) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-LoadingView", "fragment has detached");
                 }
                 return new c.a.p0.a.u.h.b(1001, "fragment has detached");
@@ -192,7 +192,7 @@ public class a extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             if (l()) {
                 c.a.p0.a.e0.d.b("Api-LoadingView", "Api-LoadingView does not supported when app is invisible.");
                 return new c.a.p0.a.u.h.b(1001, "Api-LoadingView does not supported when app is invisible.");
@@ -200,7 +200,7 @@ public class a extends c.a.p0.a.u.c.d {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-LoadingView", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-LoadingView", "parse fail");
                 }
                 return bVar;
@@ -209,7 +209,7 @@ public class a extends c.a.p0.a.u.c.d {
             c.a.p0.a.e0.d.g("Api-LoadingView", "handleShowLoading : joParams = \n" + jSONObject);
             String optString = jSONObject.optString("title");
             if (TextUtils.isEmpty(optString)) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-LoadingView", "none title");
                 }
                 return new c.a.p0.a.u.h.b(202, "none title");
@@ -217,28 +217,28 @@ public class a extends c.a.p0.a.u.c.d {
             boolean optBoolean = jSONObject.optBoolean("mask", false);
             Context i2 = i();
             if (!(i2 instanceof SwanAppActivity)) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-LoadingView", "context not support");
                 }
                 return new c.a.p0.a.u.h.b(1001, "context not support");
             }
             c.a.p0.a.h0.g.g swanAppFragmentManager = ((SwanAppActivity) i2).getSwanAppFragmentManager();
             if (swanAppFragmentManager == null) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-LoadingView", "none fragment");
                 }
                 return new c.a.p0.a.u.h.b(1001, "none fragment");
             }
             c.a.p0.a.h0.g.d m = swanAppFragmentManager.m();
             if (!(m instanceof a.InterfaceC0483a)) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-LoadingView", "fragment not support");
                 }
                 return new c.a.p0.a.u.h.b(1001, "fragment not support");
             }
             c.a.p0.a.z1.b.c.a floatLayer = ((a.InterfaceC0483a) m).getFloatLayer();
             if (floatLayer == null) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-LoadingView", "can't get floatLayer");
                 }
                 return new c.a.p0.a.u.h.b(1001, "can't get floatLayer");

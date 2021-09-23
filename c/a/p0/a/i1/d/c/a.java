@@ -16,11 +16,11 @@ public class a extends Scroller {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Interpolator f6724b;
+    public static final Interpolator f6732b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f6725a;
+    public boolean f6733a;
 
     /* renamed from: c.a.p0.a.i1.d.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -67,12 +67,12 @@ public class a extends Scroller {
                 return;
             }
         }
-        f6724b = new animation.InterpolatorC0263a();
+        f6732b = new animation.InterpolatorC0263a();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
-        this(context, f6724b);
+        this(context, f6732b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +94,7 @@ public class a extends Scroller {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f6725a = z;
+            this.f6733a = z;
         }
     }
 
@@ -102,7 +102,7 @@ public class a extends Scroller {
     public void startScroll(int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            if (this.f6725a) {
+            if (this.f6733a) {
                 super.startScroll(i2, i3, i4, i5, 0);
             } else {
                 super.startScroll(i2, i3, i4, i5, i6);

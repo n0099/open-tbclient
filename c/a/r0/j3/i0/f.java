@@ -14,23 +14,23 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f20842c;
+    public static final int[] f20854c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f20843d;
+    public static final int[] f20855d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int[] f20844e;
+    public static final int[] f20856e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int[] f20845f;
+    public static final int[] f20857f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseIntArray f20846a;
+    public SparseIntArray f20858a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f20847b;
+    public final int[] f20859b;
 
     static {
         InterceptResult invokeClinit;
@@ -45,10 +45,10 @@ public class f {
                 return;
             }
         }
-        f20842c = new int[]{3, 8, 13};
-        f20843d = new int[]{2, 12};
-        f20844e = new int[]{20};
-        f20845f = new int[]{3, 13, 23};
+        f20854c = new int[]{3, 8, 13};
+        f20855d = new int[]{2, 12};
+        f20856e = new int[]{20};
+        f20857f = new int[]{3, 13, 23};
     }
 
     public f(String str, int[] iArr) {
@@ -66,14 +66,14 @@ public class f {
                 return;
             }
         }
-        this.f20847b = iArr;
-        this.f20846a = new SparseIntArray();
+        this.f20859b = iArr;
+        this.f20858a = new SparseIntArray();
     }
 
     public void a(int i2, int i3) {
         SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || i2 < 0 || i3 < 0 || (sparseIntArray = this.f20846a) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || i2 < 0 || i3 < 0 || (sparseIntArray = this.f20858a) == null) {
             return;
         }
         sparseIntArray.append(i3, i2);
@@ -84,7 +84,7 @@ public class f {
         SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 >= 0 && (sparseIntArray = this.f20846a) != null) {
+            if (i2 >= 0 && (sparseIntArray = this.f20858a) != null) {
                 return sparseIntArray.get(i2, -1);
             }
             return -1;
@@ -95,7 +95,7 @@ public class f {
     public void c(int i2) {
         SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (sparseIntArray = this.f20846a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (sparseIntArray = this.f20858a) == null) {
             return;
         }
         sparseIntArray.delete(i2);
@@ -114,14 +114,14 @@ public class f {
             if (i2 < 0) {
                 i2 = 0;
             }
-            SparseIntArray sparseIntArray = this.f20846a;
+            SparseIntArray sparseIntArray = this.f20858a;
             if (sparseIntArray != null) {
                 sparseIntArray.clear();
-                int[] iArr = this.f20847b;
+                int[] iArr = this.f20859b;
                 if (iArr != null) {
                     for (int i3 : iArr) {
                         if (i3 >= 0) {
-                            this.f20846a.append(i3 + i2, i3);
+                            this.f20858a.append(i3 + i2, i3);
                         }
                     }
                 }

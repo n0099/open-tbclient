@@ -121,8 +121,8 @@ public class c extends a {
             try {
                 jSONObject.put("ext_from", "aiapp");
                 jSONObject.put("appid", c.a.p0.a.a2.e.V());
-                jSONObject.put("url", this.f12407b);
-                jSONObject.put(TiebaStatic.Params.VID, this.f12407b);
+                jSONObject.put("url", this.f12415b);
+                jSONObject.put(TiebaStatic.Params.VID, this.f12415b);
                 jSONObject.put("isInline", true);
                 String str = "";
                 c.a.p0.a.a2.e i2 = c.a.p0.a.a2.e.i();

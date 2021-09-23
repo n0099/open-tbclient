@@ -19,7 +19,7 @@ public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ContentDialogModel f60757a;
+    public ContentDialogModel f60874a;
 
     /* loaded from: classes8.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
@@ -27,7 +27,7 @@ public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NoTitleContentDialogAdapter f60758a;
+        public final /* synthetic */ NoTitleContentDialogAdapter f60875a;
         public final NoTitleContentDialogBinding binding;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,7 +48,7 @@ public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder
                     return;
                 }
             }
-            this.f60758a = noTitleContentDialogAdapter;
+            this.f60875a = noTitleContentDialogAdapter;
             this.binding = noTitleContentDialogBinding;
         }
     }
@@ -68,7 +68,7 @@ public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder
                 return;
             }
         }
-        this.f60757a = contentDialogModel;
+        this.f60874a = contentDialogModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder
     public void onBindViewHolder(BaseHolder baseHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseHolder) == null) {
-            baseHolder.binding.setViewModel(this.f60757a);
+            baseHolder.binding.setViewModel(this.f60874a);
         }
     }
 

@@ -65,7 +65,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.a0.d0.d, CardAdvertAppEmptyHolder> imp
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, dVar, cardAdvertAppEmptyHolder})) == null) {
             AdvertAppInfo g2 = dVar.g();
             if (g2 != null) {
-                c.a.q0.s.q.e.e(g2.f4, dVar.position, g2.Y3 == -1001);
+                c.a.q0.s.q.e.e(g2.g4, dVar.position, g2.Z3 == -1001);
             }
             return cardAdvertAppEmptyHolder.getView();
         }

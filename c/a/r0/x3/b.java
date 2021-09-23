@@ -18,28 +18,28 @@ public abstract class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity f28872a;
+    public BaseActivity f28892a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28873b;
+    public String f28893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28874c;
+    public String f28894c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28875d;
+    public String f28895d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28876e;
+    public boolean f28896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f28877f;
+    public String f28897f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28878g;
+    public String f28898g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f28879h;
+    public boolean f28899h;
 
     public b(BaseActivity baseActivity, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -56,23 +56,23 @@ public abstract class b {
                 return;
             }
         }
-        this.f28873b = str;
-        this.f28874c = str2;
-        this.f28872a = baseActivity;
+        this.f28893b = str;
+        this.f28894c = str2;
+        this.f28892a = baseActivity;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || k.isEmpty(this.f28878g)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || k.isEmpty(this.f28898g)) {
             return;
         }
-        FileHelper.deleteFile(new File(this.f28878g));
+        FileHelper.deleteFile(new File(this.f28898g));
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28879h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28899h : invokeV.booleanValue;
     }
 
     public void c() {
@@ -110,7 +110,7 @@ public abstract class b {
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f28879h = z;
+            this.f28899h = z;
         }
     }
 }

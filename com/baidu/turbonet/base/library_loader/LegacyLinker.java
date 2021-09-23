@@ -22,7 +22,7 @@ public class LegacyLinker extends Linker {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f59291e;
+        public final /* synthetic */ long f59422e;
 
         public a(long j2) {
             Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class LegacyLinker extends Linker {
                     return;
                 }
             }
-            this.f59291e = j2;
+            this.f59422e = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LegacyLinker.nativeRunCallbackOnUiThread(this.f59291e);
+                LegacyLinker.nativeRunCallbackOnUiThread(this.f59422e);
             }
         }
     }

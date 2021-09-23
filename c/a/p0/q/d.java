@@ -22,10 +22,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<String> f12206a;
+    public Set<String> f12214a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.q.e.a<List<c.a.p0.q.a>> f12207b;
+    public c.a.p0.q.e.a<List<c.a.p0.q.a>> f12215b;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -38,7 +38,7 @@ public class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f12208a;
+        public static final d f12216a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,7 +54,7 @@ public class d {
                     return;
                 }
             }
-            f12208a = new d(null);
+            f12216a = new d(null);
         }
     }
 
@@ -82,7 +82,7 @@ public class d {
     public static d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f12208a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f12216a : (d) invokeV.objValue;
     }
 
     public void a(View view) {
@@ -94,22 +94,22 @@ public class d {
     public c.a.p0.q.e.a<List<c.a.p0.q.a>> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12207b : (c.a.p0.q.e.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12215b : (c.a.p0.q.e.a) invokeV.objValue;
     }
 
     public Set<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Set<String> set = this.f12206a;
+            Set<String> set = this.f12214a;
             if (set != null) {
                 return set;
             }
             HashSet hashSet = new HashSet();
-            this.f12206a = hashSet;
+            this.f12214a = hashSet;
             hashSet.add("V8JavaScriptContext");
-            this.f12206a.add(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT);
-            return this.f12206a;
+            this.f12214a.add(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT);
+            return this.f12214a;
         }
         return (Set) invokeV.objValue;
     }

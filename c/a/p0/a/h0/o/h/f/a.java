@@ -32,7 +32,7 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.a.h0.o.h.f.b f6323b;
+    public c.a.p0.a.h0.o.h.f.b f6331b;
 
     /* renamed from: c.a.p0.a.h0.o.h.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -41,7 +41,7 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.o.h.c.b f6324a;
+        public final /* synthetic */ c.a.p0.a.h0.o.h.c.b f6332a;
 
         public C0242a(a aVar, c.a.p0.a.h0.o.h.c.b bVar) {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
                     return;
                 }
             }
-            this.f6324a = bVar;
+            this.f6332a = bVar;
         }
 
         @Override // c.a.p0.a.h0.o.h.f.d
@@ -72,7 +72,7 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
         public void b(ImageRequest imageRequest) {
             c.a.p0.a.h0.o.h.c.b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageRequest) == null) || (bVar = this.f6324a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageRequest) == null) || (bVar = this.f6332a) == null) {
                 return;
             }
             bVar.a();
@@ -82,7 +82,7 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
         public void c(ImageRequest imageRequest, Throwable th) {
             c.a.p0.a.h0.o.h.c.b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, th) == null) || (bVar = this.f6324a) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, th) == null) || (bVar = this.f6332a) == null) {
                 return;
             }
             bVar.a();
@@ -92,7 +92,7 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
         public void onCancel(String str) {
             c.a.p0.a.h0.o.h.c.b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (bVar = this.f6324a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (bVar = this.f6332a) == null) {
                 return;
             }
             bVar.a();
@@ -139,7 +139,7 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f6325a;
+        public static a f6333a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -155,7 +155,7 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
                     return;
                 }
             }
-            f6325a = new a(null);
+            f6333a = new a(null);
         }
     }
 
@@ -166,7 +166,7 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
     public static a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f6325a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f6333a : (a) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.h0.o.h.c.a
@@ -191,7 +191,7 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            CacheKey a2 = this.f6323b.a(str);
+            CacheKey a2 = this.f6331b.a(str);
             boolean z = false;
             FileInputStream fileInputStream2 = null;
             try {
@@ -215,7 +215,7 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
             } catch (IOException e3) {
                 e = e3;
                 fileInputStream2 = fileInputStream;
-                if (c.a.p0.a.h0.o.h.e.a.f6322a) {
+                if (c.a.p0.a.h0.o.h.e.a.f6330a) {
                     Log.getStackTraceString(e);
                 }
                 c.a.p0.t.d.d(fileInputStream2);
@@ -235,7 +235,7 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
         BinaryResource resource;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            CacheKey a2 = this.f6323b.a(str);
+            CacheKey a2 = this.f6331b.a(str);
             if (a2 == null) {
                 return null;
             }
@@ -286,7 +286,7 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
             try {
                 return new FileInputStream(c2);
             } catch (IOException e2) {
-                if (c.a.p0.a.h0.o.h.e.a.f6322a) {
+                if (c.a.p0.a.h0.o.h.e.a.f6330a) {
                     Log.getStackTraceString(e2);
                     return null;
                 }
@@ -319,6 +319,6 @@ public class a implements c.a.p0.a.h0.o.h.c.a, c.a.p0.a.h0.o.h.e.a {
                 return;
             }
         }
-        this.f6323b = new b(this);
+        this.f6331b = new b(this);
     }
 }

@@ -15,10 +15,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17673a;
+    public int f17683a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17674b;
+    public String f17684b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,20 +33,20 @@ public class a {
                 return;
             }
         }
-        this.f17673a = -1;
-        this.f17674b = null;
+        this.f17683a = -1;
+        this.f17684b = null;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17673a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17683a : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17674b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17684b : (String) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -55,9 +55,9 @@ public class a {
             return;
         }
         try {
-            this.f17673a = jSONObject.optInt("errno");
+            this.f17683a = jSONObject.optInt("errno");
             jSONObject.optString("errmsg");
-            this.f17674b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+            this.f17684b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

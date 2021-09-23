@@ -23,13 +23,13 @@ public class f extends x implements c.a.q0.k0.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f22500h;
+    public String f22516h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f22501i;
+    public String f22517i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f22502j;
+    public int f22518j;
     public int k;
     public String l;
     public int m;
@@ -123,10 +123,10 @@ public class f extends x implements c.a.q0.k0.b.a {
             return;
         }
         try {
-            this.f22500h = String.valueOf(likeForum.forum_id);
-            this.f22501i = likeForum.forum_name;
+            this.f22516h = String.valueOf(likeForum.forum_id);
+            this.f22517i = likeForum.forum_name;
             this.k = likeForum.is_sign.intValue();
-            this.f22502j = likeForum.level_id.intValue();
+            this.f22518j = likeForum.level_id.intValue();
             this.l = likeForum.avatar;
             this.n = likeForum.is_manager.intValue();
             this.o = likeForum.is_private_forum.intValue();
@@ -166,7 +166,7 @@ public class f extends x implements c.a.q0.k0.b.a {
     public void M(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f22502j = i2;
+            this.f22518j = i2;
         }
     }
 
@@ -185,7 +185,7 @@ public class f extends x implements c.a.q0.k0.b.a {
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f22500h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f22516h : (String) invokeV.objValue;
     }
 
     public int q() {
@@ -197,13 +197,13 @@ public class f extends x implements c.a.q0.k0.b.a {
     public int t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f22502j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f22518j : invokeV.intValue;
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f22501i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f22517i : (String) invokeV.objValue;
     }
 
     public boolean x() {

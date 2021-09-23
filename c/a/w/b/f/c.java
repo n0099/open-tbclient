@@ -31,7 +31,7 @@ public class c {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static final b f30459a;
+            public static final b f30480a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -47,7 +47,7 @@ public class c {
                         return;
                     }
                 }
-                f30459a = new b(LiveFeedPageSdk.e().a(), "live_feed_page_sp", null);
+                f30480a = new b(LiveFeedPageSdk.e().a(), "live_feed_page_sp", null);
             }
         }
 
@@ -58,7 +58,7 @@ public class c {
         public static b h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f30459a : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f30480a : (b) invokeV.objValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

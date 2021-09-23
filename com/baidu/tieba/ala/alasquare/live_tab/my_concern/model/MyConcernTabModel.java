@@ -28,19 +28,19 @@ public class MyConcernTabModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49469e;
+    public int f49580e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f49470f;
+    public TbPageContext f49581f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f49471g;
+    public b f49582g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.v.d.c.f.c.b f49472h;
+    public c.a.r0.v.f.c.f.c.b f49583h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HttpMessageListener f49473i;
+    public HttpMessageListener f49584i;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -48,7 +48,7 @@ public class MyConcernTabModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MyConcernTabModel f49474a;
+        public final /* synthetic */ MyConcernTabModel f49585a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MyConcernTabModel myConcernTabModel, int i2) {
@@ -68,7 +68,7 @@ public class MyConcernTabModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f49474a = myConcernTabModel;
+            this.f49585a = myConcernTabModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -79,17 +79,17 @@ public class MyConcernTabModel extends BdBaseModel {
                 AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse = (AlaLiveTabMyConcernResponse) httpResponsedMessage;
                 boolean z = ListUtils.isEmpty(alaLiveTabMyConcernResponse.followList) && ListUtils.isEmpty(alaLiveTabMyConcernResponse.recommendList) && ListUtils.isEmpty(alaLiveTabMyConcernResponse.followCloseList) && alaLiveTabMyConcernResponse.followStatus == 0;
                 if (alaLiveTabMyConcernResponse.getError() != 0 || !alaLiveTabMyConcernResponse.isSuccess() || z) {
-                    if (this.f49474a.f49471g != null) {
-                        this.f49474a.f49471g.b(this.f49474a.f49469e == 1);
+                    if (this.f49585a.f49582g != null) {
+                        this.f49585a.f49582g.b(this.f49585a.f49580e == 1);
                         return;
                     }
                     return;
                 }
-                this.f49474a.f49472h.e(alaLiveTabMyConcernResponse, this.f49474a.f49469e == 1);
-                if (this.f49474a.f49471g != null) {
-                    this.f49474a.f49471g.a(this.f49474a.f49472h.h(), alaLiveTabMyConcernResponse.hasMore, this.f49474a.f49469e == 1);
+                this.f49585a.f49583h.e(alaLiveTabMyConcernResponse, this.f49585a.f49580e == 1);
+                if (this.f49585a.f49582g != null) {
+                    this.f49585a.f49582g.a(this.f49585a.f49583h.h(), alaLiveTabMyConcernResponse.hasMore, this.f49585a.f49580e == 1);
                 }
-                this.f49474a.f49469e = alaLiveTabMyConcernResponse.pn + 1;
+                this.f49585a.f49580e = alaLiveTabMyConcernResponse.pn + 1;
             }
         }
     }
@@ -116,12 +116,12 @@ public class MyConcernTabModel extends BdBaseModel {
                 return;
             }
         }
-        this.f49469e = 1;
-        this.f49473i = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
-        this.f49470f = tbPageContext;
-        this.f49472h = new c.a.r0.v.d.c.f.c.b(this.f49470f);
+        this.f49580e = 1;
+        this.f49584i = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
+        this.f49581f = tbPageContext;
+        this.f49583h = new c.a.r0.v.f.c.f.c.b(this.f49581f);
         D();
-        MessageManager.getInstance().registerListener(this.f49473i);
+        MessageManager.getInstance().registerListener(this.f49584i);
     }
 
     public final void A(int i2) {
@@ -136,15 +136,15 @@ public class MyConcernTabModel extends BdBaseModel {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            A(this.f49469e);
+            A(this.f49580e);
         }
     }
 
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f49469e = 1;
-            this.f49472h.a();
+            this.f49580e = 1;
+            this.f49583h.a();
             A(1);
         }
     }
@@ -164,14 +164,14 @@ public class MyConcernTabModel extends BdBaseModel {
     public void E(Class<? extends BaseCardInfo> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
-            this.f49472h.j(cls);
+            this.f49583h.j(cls);
         }
     }
 
     public void F(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f49471g = bVar;
+            this.f49582g = bVar;
         }
     }
 
@@ -198,9 +198,9 @@ public class MyConcernTabModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f49472h.a();
-            if (this.f49473i != null) {
-                MessageManager.getInstance().unRegisterListener(this.f49473i);
+            this.f49583h.a();
+            if (this.f49584i != null) {
+                MessageManager.getInstance().unRegisterListener(this.f49584i);
             }
         }
     }

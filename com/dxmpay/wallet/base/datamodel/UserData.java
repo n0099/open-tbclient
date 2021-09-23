@@ -189,6 +189,7 @@ public class UserData implements NoProguard {
         public int is_repaired;
         public String last3_paytype;
         public String login_name;
+        public String mobile;
         public String mobile_ec;
         public String mobile_number;
         public String need_pay_password;
@@ -324,9 +325,13 @@ public class UserData implements NoProguard {
         /* loaded from: classes9.dex */
         public static class DisplayFlag implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
+            public static final String NOT_SHOW = "1";
+            public static final String SHOW_AND_WRITE = "3";
+            public static final String SHOW_NOT_WRITE = "2";
             public static final long serialVersionUID = -6111380299465016961L;
             public transient /* synthetic */ FieldHolder $fh;
             public String certificate_code;
+            public String certificate_type;
             public String mobile;
             public String true_name;
 
@@ -346,6 +351,7 @@ public class UserData implements NoProguard {
                 this.true_name = "";
                 this.mobile = "";
                 this.certificate_code = "";
+                this.certificate_type = "";
             }
 
             public String getCodeFlag() {

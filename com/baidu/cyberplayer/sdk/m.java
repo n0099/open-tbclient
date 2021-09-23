@@ -14,7 +14,7 @@ public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static m f39149a;
+    public static m f39208a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,10 +52,10 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (m.class) {
-                if (f39149a == null) {
-                    f39149a = new m();
+                if (f39208a == null) {
+                    f39208a = new m();
                 }
-                mVar = f39149a;
+                mVar = f39208a;
             }
             return mVar;
         }

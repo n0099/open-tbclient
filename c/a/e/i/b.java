@@ -81,7 +81,7 @@ public class b implements IPmsContext {
             if ("0".equals(str)) {
                 requestParams.addChannel(c.a.e.g.c.d().c());
                 requestParams.addChannel(new g());
-                requestParams.addChannel(new c.a.e.j.c(null));
+                requestParams.addChannel(new c.a.e.j.c());
             }
             return requestParams;
         }

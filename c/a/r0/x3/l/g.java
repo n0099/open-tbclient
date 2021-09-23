@@ -51,34 +51,34 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RecordVideoActivity f29126a;
+    public RecordVideoActivity f29146a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f29127b;
+    public Bitmap f29147b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f29128c;
+    public j f29148c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Camera f29129d;
+    public Camera f29149d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29130e;
+    public int f29150e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29131f;
+    public int f29151f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f29132g;
+    public FrameLayout f29152g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29133h;
+    public int f29153h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29134i;
+    public int f29154i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<String> f29135j;
+    public List<String> f29155j;
     public boolean k;
     public int l;
     public int m;
@@ -101,7 +101,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f29136a;
+        public final /* synthetic */ g f29156a;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class g {
                     return;
                 }
             }
-            this.f29136a = gVar;
+            this.f29156a = gVar;
         }
 
         @Override // android.os.Handler
@@ -128,32 +128,32 @@ public class g {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == 1) {
-                    this.f29136a.K();
+                    this.f29156a.K();
                 } else if (i2 != 2) {
-                    if (i2 == 3 && this.f29136a.f29126a != null) {
-                        c.a.e.e.p.l.L(this.f29136a.f29126a, R.string.disallow_audio_record_permission);
-                        if (this.f29136a.u != null) {
-                            this.f29136a.u.b(2, this.f29136a.f29126a.getResources().getString(R.string.disallow_audio_record_permission));
+                    if (i2 == 3 && this.f29156a.f29146a != null) {
+                        c.a.e.e.p.l.L(this.f29156a.f29146a, R.string.disallow_audio_record_permission);
+                        if (this.f29156a.u != null) {
+                            this.f29156a.u.b(2, this.f29156a.f29146a.getResources().getString(R.string.disallow_audio_record_permission));
                         }
-                        this.f29136a.f29126a.finish();
+                        this.f29156a.f29146a.finish();
                     }
-                } else if (this.f29136a.f29126a != null) {
+                } else if (this.f29156a.f29146a != null) {
                     if (!"OD103".equals(Build.MODEL)) {
-                        c.a.e.e.p.l.L(this.f29136a.f29126a, R.string.disallow_camera_permission);
-                        if (this.f29136a.u != null) {
+                        c.a.e.e.p.l.L(this.f29156a.f29146a, R.string.disallow_camera_permission);
+                        if (this.f29156a.u != null) {
                             Object obj = message.obj;
                             if (!(obj instanceof String)) {
-                                string = this.f29136a.f29126a.getResources().getString(R.string.disallow_camera_permission);
+                                string = this.f29156a.f29146a.getResources().getString(R.string.disallow_camera_permission);
                             } else {
                                 string = (String) obj;
                             }
-                            this.f29136a.u.b(1, string);
+                            this.f29156a.u.b(1, string);
                         }
-                        this.f29136a.f29126a.finish();
+                        this.f29156a.f29146a.finish();
                         return;
                     }
-                    g gVar = this.f29136a;
-                    gVar.x(gVar.f29126a);
+                    g gVar = this.f29156a;
+                    gVar.x(gVar.f29146a);
                 }
             }
         }
@@ -165,7 +165,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f29137e;
+        public final /* synthetic */ Activity f29157e;
 
         public b(g gVar, Activity activity) {
             Interceptable interceptable = $ic;
@@ -182,7 +182,7 @@ public class g {
                     return;
                 }
             }
-            this.f29137e = activity;
+            this.f29157e = activity;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -190,7 +190,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f29137e.finish();
+                this.f29157e.finish();
             }
         }
     }
@@ -201,7 +201,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f29138e;
+        public final /* synthetic */ Activity f29158e;
 
         public c(g gVar, Activity activity) {
             Interceptable interceptable = $ic;
@@ -218,7 +218,7 @@ public class g {
                     return;
                 }
             }
-            this.f29138e = activity;
+            this.f29158e = activity;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -229,9 +229,9 @@ public class g {
                 Intent intent = new Intent();
                 intent.addFlags(268435456);
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, this.f29138e.getPackageName(), null));
-                this.f29138e.startActivity(intent);
-                this.f29138e.finish();
+                intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, this.f29158e.getPackageName(), null));
+                this.f29158e.startActivity(intent);
+                this.f29158e.finish();
             }
         }
     }
@@ -242,7 +242,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f29139e;
+        public final /* synthetic */ g f29159e;
 
         /* loaded from: classes4.dex */
         public class a implements Runnable {
@@ -250,10 +250,10 @@ public class g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f29140e;
+            public final /* synthetic */ boolean f29160e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d f29141f;
+            public final /* synthetic */ d f29161f;
 
             public a(d dVar, boolean z) {
                 Interceptable interceptable = $ic;
@@ -270,15 +270,15 @@ public class g {
                         return;
                     }
                 }
-                this.f29141f = dVar;
-                this.f29140e = z;
+                this.f29161f = dVar;
+                this.f29160e = z;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f29141f.f29139e.w.onFaceIdentifyState(this.f29140e);
+                    this.f29161f.f29159e.w.onFaceIdentifyState(this.f29160e);
                 }
             }
         }
@@ -298,13 +298,13 @@ public class g {
                     return;
                 }
             }
-            this.f29139e = gVar;
+            this.f29159e = gVar;
         }
 
         @Override // com.baidu.tieba.video.record.GLVideoPreviewView.b
         public void onFaceIdentifyState(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f29139e.w == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f29159e.w == null) {
                 return;
             }
             c.a.e.e.m.e.a().post(new a(this, z));
@@ -317,7 +317,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f29142e;
+        public final /* synthetic */ g f29162e;
 
         public e(g gVar) {
             Interceptable interceptable = $ic;
@@ -334,14 +334,14 @@ public class g {
                     return;
                 }
             }
-            this.f29142e = gVar;
+            this.f29162e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29142e.A();
+                this.f29162e.A();
             }
         }
     }
@@ -352,7 +352,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f29143e;
+        public final /* synthetic */ g f29163e;
 
         public f(g gVar) {
             Interceptable interceptable = $ic;
@@ -369,28 +369,28 @@ public class g {
                     return;
                 }
             }
-            this.f29143e = gVar;
+            this.f29163e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29143e.A();
+                this.f29163e.A();
             }
         }
     }
 
     /* renamed from: c.a.r0.x3.l.g$g  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1362g implements a.e {
+    public class C1360g implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f29144e;
+        public final /* synthetic */ g f29164e;
 
-        public C1362g(g gVar) {
+        public C1360g(g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -405,7 +405,7 @@ public class g {
                     return;
                 }
             }
-            this.f29144e = gVar;
+            this.f29164e = gVar;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -413,8 +413,8 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                if (this.f29144e.f29126a != null) {
-                    this.f29144e.f29126a.finish();
+                if (this.f29164e.f29146a != null) {
+                    this.f29164e.f29146a.finish();
                 }
             }
         }
@@ -456,10 +456,10 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f.a f29145e;
+        public final /* synthetic */ f.a f29165e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ g f29146f;
+        public final /* synthetic */ g f29166f;
 
         public i(g gVar, f.a aVar) {
             Interceptable interceptable = $ic;
@@ -476,17 +476,17 @@ public class g {
                     return;
                 }
             }
-            this.f29146f = gVar;
-            this.f29145e = aVar;
+            this.f29166f = gVar;
+            this.f29165e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29146f.o == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29166f.o == null) {
                 return;
             }
-            this.f29146f.o.takePicture(this.f29145e);
+            this.f29166f.o.takePicture(this.f29165e);
         }
     }
 
@@ -496,13 +496,13 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f29147e;
+        public int f29167e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f29148f;
+        public int f29168f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Bitmap f29149g;
+        public Bitmap f29169g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(g gVar, Context context, int i2, int i3, Bitmap bitmap) {
@@ -522,16 +522,16 @@ public class g {
                     return;
                 }
             }
-            this.f29147e = i2;
-            this.f29148f = i3;
-            this.f29149g = bitmap;
+            this.f29167e = i2;
+            this.f29168f = i3;
+            this.f29169g = bitmap;
         }
 
         @Override // android.view.View
         public void onDraw(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-                canvas.drawBitmap(this.f29149g, this.f29147e, this.f29148f, (Paint) null);
+                canvas.drawBitmap(this.f29169g, this.f29167e, this.f29168f, (Paint) null);
                 super.onDraw(canvas);
             }
         }
@@ -572,14 +572,14 @@ public class g {
         }
         this.v = new a(this);
         this.x = new d(this);
-        this.f29126a = recordVideoActivity;
+        this.f29146a = recordVideoActivity;
         s();
-        this.f29127b = BitmapFactory.decodeResource(recordVideoActivity.getResources(), R.drawable.box_recorder_focus);
+        this.f29147b = BitmapFactory.decodeResource(recordVideoActivity.getResources(), R.drawable.box_recorder_focus);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         recordVideoActivity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        this.f29130e = displayMetrics.widthPixels;
-        this.f29131f = displayMetrics.heightPixels;
-        this.f29132g = this.f29126a.getSurfaceContainer();
+        this.f29150e = displayMetrics.widthPixels;
+        this.f29151f = displayMetrics.heightPixels;
+        this.f29152g = this.f29146a.getSurfaceContainer();
         if (Build.VERSION.SDK_INT >= 18) {
             GLVideoPreviewView gLVideoPreviewView = new GLVideoPreviewView(recordVideoActivity, this);
             this.p = gLVideoPreviewView;
@@ -599,10 +599,10 @@ public class g {
     public final void A() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29132g == null || (jVar = this.f29128c) == null || jVar.getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29152g == null || (jVar = this.f29148c) == null || jVar.getParent() == null) {
             return;
         }
-        this.f29132g.removeView(this.f29128c);
+        this.f29152g.removeView(this.f29148c);
     }
 
     public void B(c.a.r0.x3.a aVar) {
@@ -630,7 +630,7 @@ public class g {
                 this.l = c2;
                 if (-1 != c2) {
                     t();
-                    this.t = new c.a.r0.x3.l.b(this.f29129d);
+                    this.t = new c.a.r0.x3.l.b(this.f29149d);
                     this.k = z;
                     return;
                 }
@@ -709,36 +709,36 @@ public class g {
     public final void J() {
         RecordVideoActivity recordVideoActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (recordVideoActivity = this.f29126a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (recordVideoActivity = this.f29146a) == null) {
             return;
         }
         c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(recordVideoActivity.getPageContext().getPageActivity());
         aVar.setMessageId(R.string.video_quit_confirm);
-        aVar.setPositiveButton(R.string.dialog_ok, new C1362g(this));
+        aVar.setPositiveButton(R.string.dialog_ok, new C1360g(this));
         aVar.setNegativeButton(R.string.dialog_cancel, new h(this));
         aVar.setCancelable(true);
-        aVar.create(this.f29126a.getPageContext());
+        aVar.create(this.f29146a.getPageContext());
         aVar.show();
     }
 
     public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.o.startPreview(this.f29129d);
+            this.o.startPreview(this.f29149d);
         }
     }
 
     public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.o.startRecord(this.f29129d);
+            this.o.startRecord(this.f29149d);
         }
     }
 
     public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.o.stopRecord(this.f29129d);
+            this.o.stopRecord(this.f29149d);
         }
     }
 
@@ -758,14 +758,14 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048590, this, i2, i3) == null) {
             try {
-                this.f29129d.cancelAutoFocus();
-                if (this.f29135j.contains(DebugKt.DEBUG_PROPERTY_VALUE_AUTO)) {
-                    Camera.Parameters parameters = this.f29129d.getParameters();
+                this.f29149d.cancelAutoFocus();
+                if (this.f29155j.contains(DebugKt.DEBUG_PROPERTY_VALUE_AUTO)) {
+                    Camera.Parameters parameters = this.f29149d.getParameters();
                     this.n = parameters;
                     parameters.setFocusMode(DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
                 }
-                this.f29129d.setParameters(this.n);
-                this.f29129d.autoFocus(null);
+                this.f29149d.setParameters(this.n);
+                this.f29149d.autoFocus(null);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 c.a.r0.z1.g gVar = this.u;
@@ -796,7 +796,7 @@ public class g {
             if (surfaceView2 == null || !(surfaceView2 instanceof VideoPreviewView)) {
                 return;
             }
-            ((VideoPreviewView) surfaceView2).stopPreview(this.f29129d);
+            ((VideoPreviewView) surfaceView2).stopPreview(this.f29149d);
             z();
             int i3 = this.m == 0 ? 1 : 0;
             this.m = i3;
@@ -809,11 +809,11 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            File file = new File(c.a.r0.x3.c.f28885f);
+            File file = new File(c.a.r0.x3.c.f28905f);
             if (!file.exists()) {
                 file.mkdirs();
             }
-            String str = c.a.r0.x3.c.f28885f + "f_" + System.currentTimeMillis() + ".mp4";
+            String str = c.a.r0.x3.c.f28905f + "f_" + System.currentTimeMillis() + ".mp4";
             this.r = str;
             return str;
         }
@@ -841,18 +841,18 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             try {
-                if (this.f29129d == null) {
+                if (this.f29149d == null) {
                     return;
                 }
                 if (this.n == null) {
-                    this.n = this.f29129d.getParameters();
+                    this.n = this.f29149d.getParameters();
                 }
                 if (DebugKt.DEBUG_PROPERTY_VALUE_OFF.equals(this.n.getFlashMode())) {
                     this.n.setFlashMode("torch");
                 } else {
                     this.n.setFlashMode(DebugKt.DEBUG_PROPERTY_VALUE_OFF);
                 }
-                this.f29129d.setParameters(this.n);
+                this.f29149d.setParameters(this.n);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 c.a.r0.z1.g gVar = this.u;
@@ -880,11 +880,11 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             try {
-                if (this.f29129d == null) {
+                if (this.f29149d == null) {
                     return false;
                 }
                 if (this.n == null) {
-                    this.n = this.f29129d.getParameters();
+                    this.n = this.f29149d.getParameters();
                 }
                 return !DebugKt.DEBUG_PROPERTY_VALUE_OFF.equals(this.n.getFlashMode());
             } catch (Exception e2) {
@@ -918,11 +918,11 @@ public class g {
             if (this.q == null) {
                 this.q = new ArrayList();
             }
-            File file = new File(c.a.r0.x3.c.f28885f);
+            File file = new File(c.a.r0.x3.c.f28905f);
             if (!file.exists()) {
                 file.mkdirs();
             }
-            String str = c.a.r0.x3.c.f28885f + "rec_tmp_" + System.currentTimeMillis() + ".mp4";
+            String str = c.a.r0.x3.c.f28905f + "rec_tmp_" + System.currentTimeMillis() + ".mp4";
             this.q.add(str);
             return str;
         }
@@ -964,33 +964,33 @@ public class g {
             if (action == 0) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (y > this.f29131f || x < c.a.e.e.p.l.g(this.f29126a, R.dimen.ds60)) {
+                if (y > this.f29151f || x < c.a.e.e.p.l.g(this.f29146a, R.dimen.ds60)) {
                     return true;
                 }
-                int width = this.f29127b.getWidth();
-                int height = this.f29127b.getHeight();
+                int width = this.f29147b.getWidth();
+                int height = this.f29147b.getHeight();
                 int i2 = width / 2;
-                int a2 = c.a.r0.x3.l.a.a(x, i2, this.f29130e - i2);
+                int a2 = c.a.r0.x3.l.a.a(x, i2, this.f29150e - i2);
                 int i3 = height / 2;
-                int a3 = c.a.r0.x3.l.a.a(y, i3, this.f29131f - i3);
+                int a3 = c.a.r0.x3.l.a.a(y, i3, this.f29151f - i3);
                 if (viewParent != null && (viewParent instanceof FrameLayout)) {
-                    if (this.f29132g == null) {
-                        this.f29132g = (FrameLayout) viewParent;
+                    if (this.f29152g == null) {
+                        this.f29152g = (FrameLayout) viewParent;
                     }
                     int i4 = 0;
                     while (true) {
-                        if (i4 >= this.f29132g.getChildCount()) {
+                        if (i4 >= this.f29152g.getChildCount()) {
                             break;
-                        } else if (this.f29128c == this.f29132g.getChildAt(i4)) {
-                            this.f29132g.removeViewAt(i4);
+                        } else if (this.f29148c == this.f29152g.getChildAt(i4)) {
+                            this.f29152g.removeViewAt(i4);
                             break;
                         } else {
                             i4++;
                         }
                     }
-                    j jVar = new j(this, this.f29126a, a2 - i2, a3 - i3, this.f29127b);
-                    this.f29128c = jVar;
-                    this.f29132g.addView(jVar, new ViewGroup.LayoutParams(-2, -2));
+                    j jVar = new j(this, this.f29146a, a2 - i2, a3 - i3, this.f29147b);
+                    this.f29148c = jVar;
+                    this.f29152g.addView(jVar, new ViewGroup.LayoutParams(-2, -2));
                     O(a2, a3);
                 }
             } else if (action == 1) {
@@ -1004,8 +1004,8 @@ public class g {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            this.f29133h = 720;
-            this.f29134i = 960;
+            this.f29153h = 720;
+            this.f29154i = 960;
         }
     }
 
@@ -1014,7 +1014,7 @@ public class g {
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             try {
                 Camera open = Camera.open(this.l);
-                this.f29129d = open;
+                this.f29149d = open;
                 this.n = open.getParameters();
                 y();
             } catch (RuntimeException e2) {
@@ -1031,7 +1031,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
             z();
-            this.o.stopPreview(this.f29129d);
+            this.o.stopPreview(this.f29149d);
             SurfaceView surfaceView = this.p;
             if (surfaceView == null || !(surfaceView instanceof GLVideoPreviewView)) {
                 return;
@@ -1091,47 +1091,47 @@ public class g {
         RecordVideoActivity recordVideoActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            if (this.f29129d == null && (recordVideoActivity = this.f29126a) != null) {
+            if (this.f29149d == null && (recordVideoActivity = this.f29146a) != null) {
                 recordVideoActivity.finish();
                 return;
             }
-            int k2 = c.a.e.e.p.l.k(this.f29126a.getPageContext().getPageActivity());
-            int p = p(this.f29126a.getPageContext().getPageActivity());
+            int k2 = c.a.e.e.p.l.k(this.f29146a.getPageContext().getPageActivity());
+            int p = p(this.f29146a.getPageContext().getPageActivity());
             if (DeviceInfoUtil.isHuaWeiP40()) {
-                p = this.f29131f;
+                p = this.f29151f;
             }
             float f2 = p;
             float f3 = k2;
-            Camera.Size d2 = c.a.r0.x3.l.a.d(this.f29129d, 720, (int) (720 * ((f2 * 1.0f) / f3)));
+            Camera.Size d2 = c.a.r0.x3.l.a.d(this.f29149d, 720, (int) (720 * ((f2 * 1.0f) / f3)));
             if (d2 != null) {
                 int i2 = d2.width;
-                this.f29133h = i2;
+                this.f29153h = i2;
                 int i3 = d2.height;
-                this.f29134i = i3;
+                this.f29154i = i3;
                 this.n.setPreviewSize(i2, i3);
                 c.a.r0.x3.l.f fVar = this.o;
                 if (fVar != null) {
-                    fVar.setPreviewSize(this.f29133h, this.f29134i);
+                    fVar.setPreviewSize(this.f29153h, this.f29154i);
                 }
             }
             this.n.setPreviewFormat(17);
             G();
-            this.f29129d.setDisplayOrientation(c.a.r0.x3.l.a.b(this.f29126a, this.l));
+            this.f29149d.setDisplayOrientation(c.a.r0.x3.l.a.b(this.f29146a, this.l));
             List<String> supportedFocusModes = this.n.getSupportedFocusModes();
-            this.f29135j = supportedFocusModes;
+            this.f29155j = supportedFocusModes;
             if (supportedFocusModes != null) {
-                if ((Build.MODEL.startsWith("GT-I950") || Build.MODEL.endsWith("SCH-I959") || Build.MODEL.endsWith("MEIZU MX3")) && this.f29135j.contains("continuous-picture")) {
+                if ((Build.MODEL.startsWith("GT-I950") || Build.MODEL.endsWith("SCH-I959") || Build.MODEL.endsWith("MEIZU MX3")) && this.f29155j.contains("continuous-picture")) {
                     this.n.setFocusMode("continuous-picture");
-                } else if (this.f29135j.contains("continuous-video")) {
+                } else if (this.f29155j.contains("continuous-video")) {
                     this.n.setFocusMode("continuous-video");
                 }
             }
-            this.f29129d.setParameters(this.n);
-            RecordVideoActivity recordVideoActivity2 = this.f29126a;
+            this.f29149d.setParameters(this.n);
+            RecordVideoActivity recordVideoActivity2 = this.f29146a;
             if (recordVideoActivity2 == null || recordVideoActivity2.getSurfaceContainer() == null) {
                 return;
             }
-            float f4 = (this.f29134i * 1.0f) / this.f29133h;
+            float f4 = (this.f29154i * 1.0f) / this.f29153h;
             if ((f3 * 1.0f) / f2 > f4) {
                 p = (int) (f3 / f4);
             } else {
@@ -1152,14 +1152,14 @@ public class g {
     public final void z() {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048611, this) == null) || (camera = this.f29129d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048611, this) == null) || (camera = this.f29149d) == null) {
             return;
         }
         try {
             camera.stopPreview();
-            this.f29129d.setPreviewCallback(null);
-            this.f29129d.setPreviewTexture(null);
-            this.f29129d.release();
+            this.f29149d.setPreviewCallback(null);
+            this.f29149d.setPreviewTexture(null);
+            this.f29149d.release();
         } catch (Exception e2) {
             e2.printStackTrace();
             c.a.r0.z1.g gVar = this.u;
@@ -1167,6 +1167,6 @@ public class g {
                 gVar.b(6, c.a.r0.z1.a.a(e2));
             }
         }
-        this.f29129d = null;
+        this.f29149d = null;
     }
 }

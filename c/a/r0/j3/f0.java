@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class f0 extends d2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId Z3;
+    public static final BdUniqueId a4;
     public transient /* synthetic */ FieldHolder $fh;
-    public f2 W3;
-    public i2 X3;
-    public boolean Y3;
+    public f2 X3;
+    public i2 Y3;
+    public boolean Z3;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class f0 extends d2 {
                 return;
             }
         }
-        Z3 = BdUniqueId.gen();
+        a4 = BdUniqueId.gen();
     }
 
     public f0() {
@@ -50,45 +50,45 @@ public class f0 extends d2 {
                 return;
             }
         }
-        this.Y3 = false;
+        this.Z3 = false;
     }
 
-    public f2 O4() {
+    public f2 N4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.W3 : (f2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.X3 : (f2) invokeV.objValue;
     }
 
-    public i2 P4() {
+    public i2 O4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.X3 : (i2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.Y3 : (i2) invokeV.objValue;
     }
 
-    public boolean Q4() {
+    public boolean P4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.Y3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.Z3 : invokeV.booleanValue;
     }
 
-    public void R4(boolean z) {
+    public void Q4(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.Y3 = z;
+            this.Z3 = z;
         }
     }
 
-    public void S4(f2 f2Var) {
+    public void R4(f2 f2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, f2Var) == null) {
-            this.W3 = f2Var;
+            this.X3 = f2Var;
         }
     }
 
-    public void T4(i2 i2Var) {
+    public void S4(i2 i2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, i2Var) == null) {
-            this.X3 = i2Var;
+            this.Y3 = i2Var;
         }
     }
 
@@ -96,6 +96,6 @@ public class f0 extends d2 {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Z3 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? a4 : (BdUniqueId) invokeV.objValue;
     }
 }

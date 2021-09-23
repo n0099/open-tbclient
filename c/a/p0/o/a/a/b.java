@@ -61,7 +61,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f12068a;
+        public a f12076a;
 
         public SharedElementCallbackC0625b(a aVar) {
             Interceptable interceptable = $ic;
@@ -78,28 +78,28 @@ public class b {
                     return;
                 }
             }
-            this.f12068a = aVar;
+            this.f12076a = aVar;
         }
 
         @Override // android.app.SharedElementCallback
         public Parcelable onCaptureSharedElementSnapshot(View view, Matrix matrix, RectF rectF) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, view, matrix, rectF)) == null) ? this.f12068a.a(view, matrix, rectF) : (Parcelable) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, view, matrix, rectF)) == null) ? this.f12076a.a(view, matrix, rectF) : (Parcelable) invokeLLL.objValue;
         }
 
         @Override // android.app.SharedElementCallback
         public View onCreateSnapshotView(Context context, Parcelable parcelable) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, parcelable)) == null) ? this.f12068a.b(context, parcelable) : (View) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, parcelable)) == null) ? this.f12076a.b(context, parcelable) : (View) invokeLL.objValue;
         }
 
         @Override // android.app.SharedElementCallback
         public void onMapSharedElements(List<String> list, Map<String, View> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, map) == null) {
-                this.f12068a.c(list, map);
+                this.f12076a.c(list, map);
             }
         }
 
@@ -107,7 +107,7 @@ public class b {
         public void onRejectSharedElements(List<View> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-                this.f12068a.d(list);
+                this.f12076a.d(list);
             }
         }
 
@@ -115,7 +115,7 @@ public class b {
         public void onSharedElementEnd(List<String> list, List<View> list2, List<View> list3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048580, this, list, list2, list3) == null) {
-                this.f12068a.e(list, list2, list3);
+                this.f12076a.e(list, list2, list3);
             }
         }
 
@@ -123,7 +123,7 @@ public class b {
         public void onSharedElementStart(List<String> list, List<View> list2, List<View> list3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048581, this, list, list2, list3) == null) {
-                this.f12068a.f(list, list2, list3);
+                this.f12076a.f(list, list2, list3);
             }
         }
     }

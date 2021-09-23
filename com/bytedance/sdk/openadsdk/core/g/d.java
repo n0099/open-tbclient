@@ -35,23 +35,23 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f66598a = "d";
+    public static final String f66909a = "d";
 
     /* renamed from: e  reason: collision with root package name */
-    public static d f66599e;
+    public static d f66910e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Map<String, Integer> f66600f;
+    public static final Map<String, Integer> f66911f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final CopyOnWriteArraySet<String> f66601b;
+    public final CopyOnWriteArraySet<String> f66912b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<WeakReference<e>> f66602c;
+    public final List<WeakReference<e>> f66913c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<e> f66603d;
+    public final List<e> f66914d;
 
     static {
         InterceptResult invokeClinit;
@@ -67,13 +67,13 @@ public class d {
             }
         }
         HashMap hashMap = new HashMap();
-        f66600f = hashMap;
+        f66911f = hashMap;
         hashMap.put("android.permission.ACCESS_COARSE_LOCATION", Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_location")));
-        f66600f.put("android.permission.ACCESS_FINE_LOCATION", Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_location")));
-        f66600f.put("android.permission.READ_PHONE_STATE", Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_read_phone_state")));
-        f66600f.put("android.permission.WRITE_EXTERNAL_STORAGE", Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_external_storage")));
+        f66911f.put("android.permission.ACCESS_FINE_LOCATION", Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_location")));
+        f66911f.put("android.permission.READ_PHONE_STATE", Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_read_phone_state")));
+        f66911f.put("android.permission.WRITE_EXTERNAL_STORAGE", Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_external_storage")));
         if (Build.VERSION.SDK_INT >= 16) {
-            f66600f.put("android.permission.READ_EXTERNAL_STORAGE", Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_external_storage")));
+            f66911f.put("android.permission.READ_EXTERNAL_STORAGE", Integer.valueOf(t.b(o.a(), "tt_request_permission_descript_external_storage")));
         }
     }
 
@@ -90,9 +90,9 @@ public class d {
                 return;
             }
         }
-        this.f66601b = new CopyOnWriteArraySet<>();
-        this.f66602c = new ArrayList(1);
-        this.f66603d = new ArrayList(1);
+        this.f66912b = new CopyOnWriteArraySet<>();
+        this.f66913c = new ArrayList(1);
+        this.f66914d = new ArrayList(1);
         b();
     }
 
@@ -100,10 +100,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f66599e == null) {
-                f66599e = new d();
+            if (f66910e == null) {
+                f66910e = new d();
             }
-            return f66599e;
+            return f66910e;
         }
         return (d) invokeV.objValue;
     }
@@ -122,7 +122,7 @@ public class d {
                         str = (String) field.get("");
                     } catch (IllegalAccessException unused) {
                     }
-                    this.f66601b.add(str);
+                    this.f66912b.add(str);
                 }
             }
         }
@@ -142,7 +142,7 @@ public class d {
             if (packageManager != null && (packageInfo = packageManager.getPackageInfo(packageName, 4096)) != null && (strArr = packageInfo.requestedPermissions) != null && strArr.length != 0) {
                 for (int i2 = 0; i2 < strArr.length; i2++) {
                     if (!TextUtils.isEmpty(strArr[i2])) {
-                        this.f66601b.add(strArr[i2]);
+                        this.f66912b.add(strArr[i2]);
                     }
                 }
             }
@@ -158,8 +158,8 @@ public class d {
                     return;
                 }
                 eVar.a(strArr);
-                this.f66603d.add(eVar);
-                this.f66602c.add(new WeakReference<>(eVar));
+                this.f66914d.add(eVar);
+                this.f66913c.add(new WeakReference<>(eVar));
             }
         }
     }
@@ -168,14 +168,14 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, eVar) == null) {
             synchronized (this) {
-                Iterator<WeakReference<e>> it = this.f66602c.iterator();
+                Iterator<WeakReference<e>> it = this.f66913c.iterator();
                 while (it.hasNext()) {
                     WeakReference<e> next = it.next();
                     if (next.get() == eVar || next.get() == null) {
                         it.remove();
                     }
                 }
-                Iterator<e> it2 = this.f66603d.iterator();
+                Iterator<e> it2 = this.f66914d.iterator();
                 while (it2.hasNext()) {
                     if (it2.next() == eVar) {
                         it2.remove();
@@ -192,12 +192,12 @@ public class d {
             for (String str : strArr) {
                 if (eVar != null) {
                     try {
-                        if (!this.f66601b.contains(str)) {
-                            a2 = eVar.a(str, c.f66596c);
+                        if (!this.f66912b.contains(str)) {
+                            a2 = eVar.a(str, c.f66907c);
                         } else if (b.a(activity, str) != 0) {
-                            a2 = eVar.a(str, c.f66595b);
+                            a2 = eVar.a(str, c.f66906b);
                         } else {
-                            a2 = eVar.a(str, c.f66594a);
+                            a2 = eVar.a(str, c.f66905a);
                         }
                         if (a2) {
                             break;
@@ -218,14 +218,14 @@ public class d {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, this, activity, strArr, eVar)) == null) {
             ArrayList arrayList = new ArrayList(strArr.length);
             for (String str : strArr) {
-                if (this.f66601b.contains(str)) {
+                if (this.f66912b.contains(str)) {
                     if (!a(activity, str)) {
                         arrayList.add(str);
                     } else if (eVar != null) {
-                        eVar.a(str, c.f66594a);
+                        eVar.a(str, c.f66905a);
                     }
                 } else if (eVar != null) {
-                    eVar.a(str, c.f66596c);
+                    eVar.a(str, c.f66907c);
                 }
             }
             return arrayList;
@@ -243,12 +243,12 @@ public class d {
                     return false;
                 }
                 if (l.e()) {
-                    if (a.a(context, str) && (b.a(context, str) == 0 || !this.f66601b.contains(str))) {
+                    if (a.a(context, str) && (b.a(context, str) == 0 || !this.f66912b.contains(str))) {
                         z = true;
                     }
                     return z;
                 }
-                return (b.a(context, str) == 0 || !this.f66601b.contains(str)) ? true : true;
+                return (b.a(context, str) == 0 || !this.f66912b.contains(str)) ? true : true;
             }
         }
         return invokeLL.booleanValue;
@@ -309,7 +309,7 @@ public class d {
                 if (iArr.length < length) {
                     length = iArr.length;
                 }
-                Iterator<WeakReference<e>> it = this.f66602c.iterator();
+                Iterator<WeakReference<e>> it = this.f66913c.iterator();
                 while (it.hasNext()) {
                     e eVar = it.next().get();
                     while (i2 < length) {
@@ -318,7 +318,7 @@ public class d {
                         break;
                     }
                 }
-                Iterator<e> it2 = this.f66603d.iterator();
+                Iterator<e> it2 = this.f66914d.iterator();
                 while (it2.hasNext()) {
                     it2.next();
                     it2.remove();

@@ -22,7 +22,7 @@ public class a {
 
     /* renamed from: c.a.r0.j3.k0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C0987a {
+    public static /* synthetic */ class C0985a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -33,27 +33,27 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f20911a;
+        public final String f20923a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f20912b;
+        public final String f20924b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f20913c;
+        public final String f20925c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f20914d;
+        public final String f20926d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f20915e;
+        public final String f20927e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f20916f;
+        public final boolean f20928f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final StatisticItem f20917g;
+        public final StatisticItem f20929g;
 
-        public /* synthetic */ b(String str, String str2, String str3, String str4, String str5, C0987a c0987a) {
+        public /* synthetic */ b(String str, String str2, String str3, String str4, String str5, C0985a c0985a) {
             this(str, str2, str3, str4, str5);
         }
 
@@ -61,17 +61,17 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                StatisticItem statisticItem = new StatisticItem(this.f20911a);
-                if (!StringUtils.isNull(this.f20912b)) {
-                    statisticItem = statisticItem.param("line", this.f20912b);
+                StatisticItem statisticItem = new StatisticItem(this.f20923a);
+                if (!StringUtils.isNull(this.f20924b)) {
+                    statisticItem = statisticItem.param("line", this.f20924b);
                 }
-                if (!StringUtils.isNull(this.f20913c)) {
-                    statisticItem = statisticItem.param("page", this.f20913c);
+                if (!StringUtils.isNull(this.f20925c)) {
+                    statisticItem = statisticItem.param("page", this.f20925c);
                 }
-                if (!StringUtils.isNull(this.f20914d)) {
-                    statisticItem = statisticItem.param("locate", this.f20914d);
+                if (!StringUtils.isNull(this.f20926d)) {
+                    statisticItem = statisticItem.param("locate", this.f20926d);
                 }
-                return !StringUtils.isNull(this.f20915e) ? statisticItem.param("task", this.f20915e) : statisticItem;
+                return !StringUtils.isNull(this.f20927e) ? statisticItem.param("task", this.f20927e) : statisticItem;
             }
             return (StatisticItem) invokeV.objValue;
         }
@@ -79,7 +79,7 @@ public class a {
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f20917g.delete(str);
+                this.f20929g.delete(str);
             }
         }
 
@@ -88,22 +88,22 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4, str5)) == null) {
                 if (!StringUtils.isNull(str)) {
-                    this.f20917g.param(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
+                    this.f20929g.param(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
                 }
                 if (!StringUtils.isNull(str2)) {
-                    this.f20917g.param("obj_id", str2);
+                    this.f20929g.param("obj_id", str2);
                 }
                 if (!StringUtils.isNull(str3)) {
-                    this.f20917g.param("fid", str3);
+                    this.f20929g.param("fid", str3);
                 }
                 if (!StringUtils.isNull(str4)) {
-                    this.f20917g.param("fname", str4);
+                    this.f20929g.param("fname", str4);
                 }
                 if (!StringUtils.isNull(str5)) {
-                    this.f20917g.param("tid", str5);
+                    this.f20929g.param("tid", str5);
                 }
-                this.f20917g.param("obj_cpid", 0).param("obj_good_id", 0).param("obj_throw_type", "BY_POST").param("client_type", "MOBILE_APP").param("user_timestamp", String.valueOf(System.currentTimeMillis())).param("os", "android").param(HttpConstants.OS_VERSION, Build.VERSION.RELEASE).param("log_ver", "1.1");
-                return this.f20917g;
+                this.f20929g.param("obj_cpid", 0).param("obj_good_id", 0).param("obj_throw_type", "BY_POST").param("client_type", "MOBILE_APP").param("user_timestamp", String.valueOf(System.currentTimeMillis())).param("os", "android").param(HttpConstants.OS_VERSION, Build.VERSION.RELEASE).param("log_ver", "1.1");
+                return this.f20929g;
             }
             return (StatisticItem) invokeLLLLL.objValue;
         }
@@ -113,7 +113,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
                 if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                    this.f20917g.param(str, str2);
+                    this.f20929g.param(str, str2);
                 }
                 return this;
             }
@@ -123,8 +123,8 @@ public class a {
         public void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                TiebaStatic.log(this.f20917g);
-                if (this.f20916f) {
+                TiebaStatic.log(this.f20929g);
+                if (this.f20928f) {
                     return;
                 }
                 if (!TbadkCoreApplication.getInst().isDebugMode()) {
@@ -150,13 +150,13 @@ public class a {
                     return;
                 }
             }
-            this.f20911a = str;
-            this.f20912b = str2;
-            this.f20913c = str3;
-            this.f20914d = str4;
-            this.f20915e = str5;
-            this.f20916f = !(StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5));
-            this.f20917g = b();
+            this.f20923a = str;
+            this.f20924b = str2;
+            this.f20925c = str3;
+            this.f20926d = str4;
+            this.f20927e = str5;
+            this.f20928f = !(StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5));
+            this.f20929g = b();
         }
     }
 
@@ -166,13 +166,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f20918a;
+        public String f20930a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f20919b;
+        public String f20931b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f20920c;
+        public int f20932c;
 
         public c() {
             Interceptable interceptable = $ic;

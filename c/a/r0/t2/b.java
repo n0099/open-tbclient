@@ -19,10 +19,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f25008a;
+    public List<a> f25029a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b1 f25009b;
+    public b1 f25030b;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -30,31 +30,31 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f25010a;
+        public long f25031a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f25011b;
+        public String f25032b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f25012c;
+        public long f25033c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f25013d;
+        public String f25034d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f25014e;
+        public String f25035e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f25015f;
+        public long f25036f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f25016g;
+        public int f25037g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f25017h;
+        public int f25038h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f25018i;
+        public String f25039i;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -84,15 +84,15 @@ public class b {
                 return;
             }
         }
-        this.f25008a = new ArrayList();
-        this.f25009b = new b1();
+        this.f25029a = new ArrayList();
+        this.f25030b = new b1();
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<a> list = this.f25008a;
+            List<a> list = this.f25029a;
             return (list == null || list.size() == 0) ? false : true;
         }
         return invokeV.booleanValue;
@@ -102,7 +102,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b1 b1Var = this.f25009b;
+            b1 b1Var = this.f25030b;
             return b1Var != null && b1Var.b() == 1;
         }
         return invokeV.booleanValue;
@@ -119,12 +119,12 @@ public class b {
                 return;
             }
             try {
-                this.f25009b.i(jSONObject.getJSONObject("page"));
+                this.f25030b.i(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray == null || optJSONArray.length() == 0) {
                     return;
                 }
-                this.f25008a.clear();
+                this.f25029a.clear();
                 int i3 = 0;
                 while (i3 < optJSONArray.length()) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
@@ -149,16 +149,16 @@ public class b {
                         i2 = i3;
                         if (jSONObject2.optInt("thread_type", 0) != 33) {
                             a aVar = new a();
-                            aVar.f25010a = optLong;
-                            aVar.f25011b = optString2;
-                            aVar.f25012c = optLong2;
-                            aVar.f25013d = optString3;
-                            aVar.f25014e = optString4;
-                            aVar.f25015f = optLong3;
-                            aVar.f25016g = optInt;
-                            aVar.f25017h = optInt2;
-                            aVar.f25018i = optString;
-                            this.f25008a.add(aVar);
+                            aVar.f25031a = optLong;
+                            aVar.f25032b = optString2;
+                            aVar.f25033c = optLong2;
+                            aVar.f25034d = optString3;
+                            aVar.f25035e = optString4;
+                            aVar.f25036f = optLong3;
+                            aVar.f25037g = optInt;
+                            aVar.f25038h = optInt2;
+                            aVar.f25039i = optString;
+                            this.f25029a.add(aVar);
                         }
                     }
                     i3 = i2 + 1;

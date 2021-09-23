@@ -23,27 +23,27 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f21777a;
+    public Context f21791a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f21778b;
+    public FrameLayout f21792b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f21779c;
+    public ImageView f21793c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f21780d;
+    public d f21794d;
 
     /* renamed from: c.a.r0.k3.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1023a implements View.OnClickListener {
+    public class View$OnClickListenerC1021a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21781e;
+        public final /* synthetic */ a f21795e;
 
-        public View$OnClickListenerC1023a(a aVar) {
+        public View$OnClickListenerC1021a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,16 +58,16 @@ public class a {
                     return;
                 }
             }
-            this.f21781e = aVar;
+            this.f21795e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21781e.f21780d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21795e.f21794d == null) {
                 return;
             }
-            this.f21781e.f21780d.a();
+            this.f21795e.f21794d.a();
         }
     }
 
@@ -77,7 +77,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21782e;
+        public final /* synthetic */ a f21796e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -94,16 +94,16 @@ public class a {
                     return;
                 }
             }
-            this.f21782e = aVar;
+            this.f21796e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21782e.f21780d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21796e.f21794d == null) {
                 return;
             }
-            this.f21782e.f21780d.b();
+            this.f21796e.f21794d.b();
         }
     }
 
@@ -113,7 +113,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f21783a;
+        public final /* synthetic */ a f21797a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -130,16 +130,16 @@ public class a {
                     return;
                 }
             }
-            this.f21783a = aVar;
+            this.f21797a = aVar;
         }
 
         @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.c
         public void onTimeout(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21783a.f21780d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21797a.f21794d == null) {
                 return;
             }
-            this.f21783a.f21780d.b();
+            this.f21797a.f21794d.b();
         }
     }
 
@@ -165,15 +165,15 @@ public class a {
                 return;
             }
         }
-        this.f21780d = dVar;
-        this.f21777a = context;
-        this.f21778b = new FrameLayout(context);
+        this.f21794d = dVar;
+        this.f21791a = context;
+        this.f21792b = new FrameLayout(context);
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21778b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21792b : (View) invokeV.objValue;
     }
 
     public void c() {
@@ -185,50 +185,50 @@ public class a {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TextView textView = new TextView(this.f21777a);
+            TextView textView = new TextView(this.f21791a);
             textView.setText(R.string.tb_ad_label);
-            int dimension = (int) this.f21777a.getResources().getDimension(R.dimen.ds28);
-            textView.setTextSize(0, (int) this.f21777a.getResources().getDimension(R.dimen.ds22));
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) this.f21777a.getResources().getDimension(R.dimen.ds68), (int) this.f21777a.getResources().getDimension(R.dimen.ds40));
+            int dimension = (int) this.f21791a.getResources().getDimension(R.dimen.ds28);
+            textView.setTextSize(0, (int) this.f21791a.getResources().getDimension(R.dimen.ds22));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) this.f21791a.getResources().getDimension(R.dimen.ds68), (int) this.f21791a.getResources().getDimension(R.dimen.ds40));
             textView.setTextColor(-1);
             textView.setGravity(17);
             textView.setAlpha(0.5f);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setColor(-16777216);
-            gradientDrawable.setCornerRadius(this.f21777a.getResources().getDimension(R.dimen.ds4));
+            gradientDrawable.setCornerRadius(this.f21791a.getResources().getDimension(R.dimen.ds4));
             gradientDrawable.setStroke(1, -16777216);
             textView.setBackgroundDrawable(gradientDrawable);
             layoutParams.gravity = 83;
-            layoutParams.setMargins(dimension, 0, 0, (int) this.f21777a.getResources().getDimension(R.dimen.ds28));
-            this.f21778b.addView(textView, layoutParams);
+            layoutParams.setMargins(dimension, 0, 0, (int) this.f21791a.getResources().getDimension(R.dimen.ds28));
+            this.f21792b.addView(textView, layoutParams);
         }
     }
 
     public final void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            CountDownTextView countDownTextView = new CountDownTextView(this.f21777a);
-            int dimension = (int) this.f21777a.getResources().getDimension(R.dimen.ds22);
-            int dimension2 = (int) this.f21777a.getResources().getDimension(R.dimen.ds36);
-            Context context = this.f21777a;
-            if ((context instanceof Activity) && (UtilHelper.isNotchScreen((Activity) context) || UtilHelper.isCutoutScreen((Activity) this.f21777a))) {
-                dimension2 += l.r((Activity) this.f21777a);
+            CountDownTextView countDownTextView = new CountDownTextView(this.f21791a);
+            int dimension = (int) this.f21791a.getResources().getDimension(R.dimen.ds22);
+            int dimension2 = (int) this.f21791a.getResources().getDimension(R.dimen.ds36);
+            Context context = this.f21791a;
+            if ((context instanceof Activity) && (UtilHelper.isNotchScreen((Activity) context) || UtilHelper.isCutoutScreen((Activity) this.f21791a))) {
+                dimension2 += l.r((Activity) this.f21791a);
             }
-            String string = this.f21777a.getResources().getString(R.string.skip);
+            String string = this.f21791a.getResources().getString(R.string.skip);
             countDownTextView.setTextSize(0, dimension);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) this.f21777a.getResources().getDimension(R.dimen.ds106), (int) this.f21777a.getResources().getDimension(R.dimen.ds52));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) this.f21791a.getResources().getDimension(R.dimen.ds106), (int) this.f21791a.getResources().getDimension(R.dimen.ds52));
             countDownTextView.setTextColor(-1);
             countDownTextView.setGravity(17);
             countDownTextView.setAlpha(0.5f);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setColor(-16777216);
-            gradientDrawable.setCornerRadius(this.f21777a.getResources().getDimension(R.dimen.ds4));
+            gradientDrawable.setCornerRadius(this.f21791a.getResources().getDimension(R.dimen.ds4));
             gradientDrawable.setStroke(1, -16777216);
             countDownTextView.setBackgroundDrawable(gradientDrawable);
             countDownTextView.init(string, i2);
             layoutParams.gravity = 53;
-            layoutParams.setMargins(0, dimension2, (int) this.f21777a.getResources().getDimension(R.dimen.ds32), 0);
-            this.f21778b.addView(countDownTextView, layoutParams);
+            layoutParams.setMargins(0, dimension2, (int) this.f21791a.getResources().getDimension(R.dimen.ds32), 0);
+            this.f21792b.addView(countDownTextView, layoutParams);
             countDownTextView.setOnClickListener(new b(this));
             countDownTextView.setTimeoutListener(new c(this));
         }
@@ -237,14 +237,14 @@ public class a {
     public final void f(c.a.e.l.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            ImageView imageView = new ImageView(this.f21777a);
-            this.f21779c = imageView;
+            ImageView imageView = new ImageView(this.f21791a);
+            this.f21793c = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             if (aVar != null) {
-                this.f21779c.setImageBitmap(aVar.p());
+                this.f21793c.setImageBitmap(aVar.p());
             }
-            this.f21779c.setOnClickListener(new View$OnClickListenerC1023a(this));
-            this.f21778b.addView(this.f21779c);
+            this.f21793c.setOnClickListener(new View$OnClickListenerC1021a(this));
+            this.f21792b.addView(this.f21793c);
         }
     }
 

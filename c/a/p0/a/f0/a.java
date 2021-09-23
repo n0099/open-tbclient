@@ -23,34 +23,34 @@ public class a {
     public String E;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5637a;
+    public String f5645a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5638b;
+    public String f5646b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5639c;
+    public String f5647c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5640d;
+    public String f5648d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5641e;
+    public String f5649e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f5642f;
+    public String f5650f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f5643g;
+    public String f5651g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f5644h;
+    public String f5652h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f5645i;
+    public String f5653i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f5646j;
+    public String f5654j;
     public String k;
     public String l;
     public String m;
@@ -89,16 +89,16 @@ public class a {
             a aVar = new a();
             if (jSONObject != null) {
                 jSONObject.optString("photoFilePath");
-                aVar.f5637a = jSONObject.optString("nickName");
-                aVar.f5638b = jSONObject.optString("lastName");
-                aVar.f5639c = jSONObject.optString("middleName");
-                aVar.f5640d = jSONObject.optString("firstName");
-                aVar.f5641e = jSONObject.optString("remark");
-                aVar.f5642f = jSONObject.optString("mobilePhoneNumber");
-                aVar.f5643g = jSONObject.optString("weChatNumber");
-                aVar.f5644h = jSONObject.optString("addressCountry");
-                aVar.f5645i = jSONObject.optString("addressState");
-                aVar.f5646j = jSONObject.optString("addressCity");
+                aVar.f5645a = jSONObject.optString("nickName");
+                aVar.f5646b = jSONObject.optString("lastName");
+                aVar.f5647c = jSONObject.optString("middleName");
+                aVar.f5648d = jSONObject.optString("firstName");
+                aVar.f5649e = jSONObject.optString("remark");
+                aVar.f5650f = jSONObject.optString("mobilePhoneNumber");
+                aVar.f5651g = jSONObject.optString("weChatNumber");
+                aVar.f5652h = jSONObject.optString("addressCountry");
+                aVar.f5653i = jSONObject.optString("addressState");
+                aVar.f5654j = jSONObject.optString("addressCity");
                 aVar.k = jSONObject.optString("addressStreet");
                 aVar.l = jSONObject.optString("addressPostalCode");
                 aVar.m = jSONObject.optString("organization");
@@ -145,14 +145,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(this.f5644h)) {
-                sb.append(this.f5644h);
+            if (!TextUtils.isEmpty(this.f5652h)) {
+                sb.append(this.f5652h);
             }
-            if (!TextUtils.isEmpty(this.f5645i)) {
-                sb.append(this.f5645i);
+            if (!TextUtils.isEmpty(this.f5653i)) {
+                sb.append(this.f5653i);
             }
-            if (!TextUtils.isEmpty(this.f5646j)) {
-                sb.append(this.f5646j);
+            if (!TextUtils.isEmpty(this.f5654j)) {
+                sb.append(this.f5654j);
             }
             if (!TextUtils.isEmpty(this.k)) {
                 sb.append(this.k);
@@ -171,14 +171,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(this.f5638b)) {
-                sb.append(this.f5638b);
+            if (!TextUtils.isEmpty(this.f5646b)) {
+                sb.append(this.f5646b);
             }
-            if (!TextUtils.isEmpty(this.f5639c)) {
-                sb.append(this.f5639c);
+            if (!TextUtils.isEmpty(this.f5647c)) {
+                sb.append(this.f5647c);
             }
-            if (!TextUtils.isEmpty(this.f5640d)) {
-                sb.append(this.f5640d);
+            if (!TextUtils.isEmpty(this.f5648d)) {
+                sb.append(this.f5648d);
             }
             return sb.toString();
         }
@@ -271,7 +271,7 @@ public class a {
             ContentValues contentValues = new ContentValues();
             contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
             contentValues.put("data2", (Integer) 2);
-            contentValues.put("data1", this.f5642f);
+            contentValues.put("data1", this.f5650f);
             return contentValues;
         }
         return (ContentValues) invokeV.objValue;
@@ -284,7 +284,7 @@ public class a {
             ContentValues contentValues = new ContentValues();
             contentValues.put("mimetype", "vnd.android.cursor.item/nickname");
             contentValues.put("data2", (Integer) 1);
-            contentValues.put("data1", this.f5637a);
+            contentValues.put("data1", this.f5645a);
             return contentValues;
         }
         return (ContentValues) invokeV.objValue;
@@ -310,7 +310,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("mimetype", "vnd.android.cursor.item/note");
-            contentValues.put("data1", this.f5641e);
+            contentValues.put("data1", this.f5649e);
             return contentValues;
         }
         return (ContentValues) invokeV.objValue;
@@ -337,7 +337,7 @@ public class a {
             contentValues.put("mimetype", "vnd.android.cursor.item/im");
             contentValues.put("data5", (Integer) (-1));
             contentValues.put("data6", AppRuntime.getAppContext().getString(h.aiapps_cantact_wechat_lable));
-            contentValues.put("data1", this.f5643g);
+            contentValues.put("data1", this.f5651g);
             return contentValues;
         }
         return (ContentValues) invokeV.objValue;
@@ -412,6 +412,6 @@ public class a {
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? !TextUtils.isEmpty(this.f5640d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? !TextUtils.isEmpty(this.f5648d) : invokeV.booleanValue;
     }
 }

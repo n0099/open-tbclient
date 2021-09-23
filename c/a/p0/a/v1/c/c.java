@@ -21,22 +21,22 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Message f9235a;
+    public final Message f9243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<SwanAppProcessInfo> f9236b;
+    public final Set<SwanAppProcessInfo> f9244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<String> f9237c;
+    public final Set<String> f9245c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9238d;
+    public boolean f9246d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f9239e;
+    public boolean f9247e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f9240f;
+    public long f9248f;
 
     public c(Message message) {
         Interceptable interceptable = $ic;
@@ -53,12 +53,12 @@ public final class c {
                 return;
             }
         }
-        this.f9236b = new HashSet();
-        this.f9237c = new HashSet();
-        this.f9238d = false;
-        this.f9239e = false;
-        this.f9240f = 0L;
-        this.f9235a = message == null ? Message.obtain() : message;
+        this.f9244b = new HashSet();
+        this.f9245c = new HashSet();
+        this.f9246d = false;
+        this.f9247e = false;
+        this.f9248f = 0L;
+        this.f9243a = message == null ? Message.obtain() : message;
     }
 
     public c a(int... iArr) {
@@ -82,7 +82,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppProcessInfoArr)) == null) {
             if (swanAppProcessInfoArr != null) {
-                this.f9236b.addAll(Arrays.asList(swanAppProcessInfoArr));
+                this.f9244b.addAll(Arrays.asList(swanAppProcessInfoArr));
             }
             return this;
         }
@@ -94,7 +94,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
             if (strArr != null) {
-                this.f9237c.addAll(Arrays.asList(strArr));
+                this.f9245c.addAll(Arrays.asList(strArr));
             }
             return this;
         }
@@ -135,7 +135,7 @@ public final class c {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            this.f9238d = z;
+            this.f9246d = z;
             return this;
         }
         return (c) invokeZ.objValue;
@@ -162,10 +162,10 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f9235a.obj == null) {
+            if (this.f9243a.obj == null) {
                 o(new Bundle());
             }
-            return this.f9235a;
+            return this.f9243a;
         }
         return (Message) invokeV.objValue;
     }
@@ -174,7 +174,7 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            long j2 = this.f9240f;
+            long j2 = this.f9248f;
             if (j2 < 0) {
                 return 0L;
             }
@@ -190,7 +190,7 @@ public final class c {
             if (j2 < 0) {
                 j2 = 0;
             }
-            this.f9240f = j2;
+            this.f9248f = j2;
             return this;
         }
         return (c) invokeJ.objValue;
@@ -199,32 +199,32 @@ public final class c {
     public Set<String> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new HashSet(this.f9237c) : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new HashSet(this.f9245c) : (Set) invokeV.objValue;
     }
 
     public Set<SwanAppProcessInfo> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new HashSet(this.f9236b) : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new HashSet(this.f9244b) : (Set) invokeV.objValue;
     }
 
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f9238d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f9246d : invokeV.booleanValue;
     }
 
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f9239e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f9247e : invokeV.booleanValue;
     }
 
     public c o(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
-            this.f9235a.obj = obj;
+            this.f9243a.obj = obj;
             return this;
         }
         return (c) invokeL.objValue;
@@ -234,7 +234,7 @@ public final class c {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-            this.f9239e = z;
+            this.f9247e = z;
             return this;
         }
         return (c) invokeZ.objValue;

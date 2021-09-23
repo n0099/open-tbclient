@@ -22,22 +22,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.h0.o.h.d.c.a f6309a;
+    public c.a.p0.a.h0.o.h.d.c.a f6317a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.a.h0.o.h.d.b.a f6310b;
+    public c.a.p0.a.h0.o.h.d.b.a f6318b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f6311c;
+    public File f6319c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f6312d;
+    public long f6320d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6313e;
+    public int f6321e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6314f;
+    public int f6322f;
 
     /* renamed from: c.a.p0.a.h0.o.h.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -52,22 +52,22 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.p0.a.h0.o.h.d.c.a f6315a;
+        public c.a.p0.a.h0.o.h.d.c.a f6323a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.p0.a.h0.o.h.d.b.a f6316b;
+        public c.a.p0.a.h0.o.h.d.b.a f6324b;
 
         /* renamed from: c  reason: collision with root package name */
-        public File f6317c;
+        public File f6325c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f6318d;
+        public long f6326d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6319e;
+        public int f6327e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f6320f;
+        public int f6328f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -82,15 +82,15 @@ public class a {
                     return;
                 }
             }
-            this.f6319e = 0;
-            this.f6320f = 0;
+            this.f6327e = 0;
+            this.f6328f = 0;
         }
 
         public b g(c.a.p0.a.h0.o.h.d.c.a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                this.f6315a = aVar;
+                this.f6323a = aVar;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -100,7 +100,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-                this.f6316b = aVar;
+                this.f6324b = aVar;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -110,7 +110,7 @@ public class a {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-                this.f6318d = j2;
+                this.f6326d = j2;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -122,7 +122,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f6321a;
+        public static final a f6329a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -138,7 +138,7 @@ public class a {
                     return;
                 }
             }
-            f6321a = new a(null);
+            f6329a = new a(null);
         }
     }
 
@@ -149,7 +149,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f6321a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f6329a : (a) invokeV.objValue;
     }
 
     public static String c() {
@@ -165,14 +165,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f6311c == null) {
+            if (this.f6319c == null) {
                 String m = d.m();
                 if (TextUtils.isEmpty(m)) {
                     return null;
                 }
-                this.f6311c = new File(m, "swan_hybrid");
+                this.f6319c = new File(m, "swan_hybrid");
             }
-            return this.f6311c;
+            return this.f6319c;
         }
         return (File) invokeV.objValue;
     }
@@ -181,10 +181,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f6309a == null) {
-                this.f6309a = new c.a.p0.a.h0.o.h.d.c.b();
+            if (this.f6317a == null) {
+                this.f6317a = new c.a.p0.a.h0.o.h.d.c.b();
             }
-            return this.f6309a;
+            return this.f6317a;
         }
         return (c.a.p0.a.h0.o.h.d.c.a) invokeV.objValue;
     }
@@ -193,10 +193,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f6313e <= 0) {
-                this.f6313e = 60000;
+            if (this.f6321e <= 0) {
+                this.f6321e = 60000;
             }
-            return this.f6313e;
+            return this.f6321e;
         }
         return invokeV.intValue;
     }
@@ -205,10 +205,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f6310b == null) {
-                this.f6310b = new SystemStrategyImpl();
+            if (this.f6318b == null) {
+                this.f6318b = new SystemStrategyImpl();
             }
-            return this.f6310b;
+            return this.f6318b;
         }
         return (c.a.p0.a.h0.o.h.d.b.a) invokeV.objValue;
     }
@@ -217,10 +217,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f6312d <= 0) {
-                this.f6312d = DownloadManager.MIN_LEFT_SIZE;
+            if (this.f6320d <= 0) {
+                this.f6320d = DownloadManager.MIN_LEFT_SIZE;
             }
-            return this.f6312d;
+            return this.f6320d;
         }
         return invokeV.longValue;
     }
@@ -229,10 +229,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f6314f <= 0) {
-                this.f6314f = 60000;
+            if (this.f6322f <= 0) {
+                this.f6322f = 60000;
             }
-            return this.f6314f;
+            return this.f6322f;
         }
         return invokeV.intValue;
     }
@@ -242,13 +242,13 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.f6309a = bVar.f6315a;
-        this.f6310b = bVar.f6316b;
-        this.f6311c = bVar.f6317c;
-        this.f6312d = bVar.f6318d;
-        this.f6313e = bVar.f6319e;
-        this.f6314f = bVar.f6320f;
-        if (c.a.p0.a.h0.o.h.e.a.f6322a) {
+        this.f6317a = bVar.f6323a;
+        this.f6318b = bVar.f6324b;
+        this.f6319c = bVar.f6325c;
+        this.f6320d = bVar.f6326d;
+        this.f6321e = bVar.f6327e;
+        this.f6322f = bVar.f6328f;
+        if (c.a.p0.a.h0.o.h.e.a.f6330a) {
             toString();
         }
     }
@@ -258,7 +258,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "SwanHybridInterceptConfig{CacheKeyProvider=" + this.f6309a + ", InterceptStrategy=" + this.f6310b + ", CacheFolder=" + this.f6311c + ", MaxCacheSize=" + (this.f6312d / 1048576) + "MB, ConnectTimeout=" + this.f6313e + ", ReadTimeout=" + this.f6314f + ExtendedMessageFormat.END_FE;
+            return "SwanHybridInterceptConfig{CacheKeyProvider=" + this.f6317a + ", InterceptStrategy=" + this.f6318b + ", CacheFolder=" + this.f6319c + ", MaxCacheSize=" + (this.f6320d / 1048576) + "MB, ConnectTimeout=" + this.f6321e + ", ReadTimeout=" + this.f6322f + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

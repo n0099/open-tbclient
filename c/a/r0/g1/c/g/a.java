@@ -31,7 +31,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f17917a;
+    public final c f17926a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class a {
                 return;
             }
         }
-        this.f17917a = new c();
+        this.f17926a = new c();
     }
 
     public static void a(DataRes.Builder builder) {
@@ -93,7 +93,7 @@ public class a {
                             }
                         } else {
                             d2 d2Var = new d2();
-                            d2Var.J3(true);
+                            d2Var.I3(true);
                             c.a.q0.b.f.a.e(d2Var);
                             d2Var.Y2(concernData.thread_list);
                             JSONObject b2 = c.a.r0.y2.l0.b.b(concernData.thread_list);
@@ -107,8 +107,8 @@ public class a {
                 }
                 c.a.q0.b.f.a.d(linkedList);
                 c.a.r0.y2.l0.b.f().h("CONCERN", arrayList);
-                c cVar2 = this.f17917a;
-                cVar2.f18371a = linkedList;
+                c cVar2 = this.f17926a;
+                cVar2.f18380a = linkedList;
                 return cVar2;
             }
             return null;
@@ -133,7 +133,7 @@ public class a {
                 }
             }
         } else {
-            if (!d.J()) {
+            if (!d.H()) {
                 list.clear();
             }
             for (int count2 = ListUtils.getCount(list2) - 1; count2 >= 0; count2--) {
@@ -145,7 +145,7 @@ public class a {
                 }
             }
         }
-        this.f17917a.f18372b = ListUtils.getCount(list) - count;
+        this.f17926a.f18381b = ListUtils.getCount(list) - count;
     }
 
     public final void d(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i2) {
@@ -166,7 +166,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, d2Var, i2, concernData)) == null) {
             ArrayList arrayList = new ArrayList();
-            if ((k.Y(d2Var) || l.T(d2Var)) && d2Var.getType() != d2.B3) {
+            if ((k.Y(d2Var) || l.T(d2Var)) && d2Var.getType() != d2.C3) {
                 if (l.T(d2Var)) {
                     kVar = new l(d2Var);
                 } else {
@@ -176,7 +176,7 @@ public class a {
                     if (!d2Var.e2() && !d2Var.w2()) {
                         d2Var.Z1();
                     }
-                    kVar.f15562e = d2Var;
+                    kVar.f15571e = d2Var;
                 }
                 kVar.l = d2Var.s1();
                 if (k.Y(d2Var)) {
@@ -195,7 +195,7 @@ public class a {
                 } else {
                     c.a.r0.g1.h.k.d.t(kVar);
                 }
-                kVar.f15562e.G1();
+                kVar.f15571e.G1();
                 if (kVar instanceof k) {
                     if (d2Var.N1()) {
                         c.a.r0.g1.h.k.d.u(kVar);
@@ -244,9 +244,9 @@ public class a {
                         }
                     }
                 }
-                if (d2Var.y1) {
+                if (d2Var.z1) {
                     k kVar2 = new k();
-                    kVar2.f15562e = d2Var;
+                    kVar2.f15571e = d2Var;
                     kVar2.position = i2;
                     arrayList.add(kVar2);
                 } else if (l.T(d2Var)) {
@@ -271,13 +271,13 @@ public class a {
                     arrayList.add(eVar);
                 } else {
                     k kVar3 = new k();
-                    kVar3.f15562e = d2Var;
+                    kVar3.f15571e = d2Var;
                     kVar3.N(d2Var.e2() ? "4" : "1");
                     kVar3.position = i2;
                     if (concernData != null) {
                         kVar3.M(concernData.source.intValue());
                     }
-                    if (kVar3.f15562e != null && kVar3.isValid() && !StringUtils.isNull(kVar3.f15562e.f0()) && !"0".equals(kVar3.f15562e.s1())) {
+                    if (kVar3.f15571e != null && kVar3.isValid() && !StringUtils.isNull(kVar3.f15571e.f0()) && !"0".equals(kVar3.f15571e.s1())) {
                         arrayList.add(kVar3);
                     }
                 }

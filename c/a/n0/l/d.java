@@ -29,16 +29,16 @@ public final class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4307a = "";
+    public static String f4314a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4308b = "";
+    public static String f4315b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4309c = "";
+    public static String f4316c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4310d = "";
+    public static String f4317d = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(Context context) {
@@ -50,18 +50,18 @@ public final class d {
                 c.d(th);
             }
             if (!c.a.n0.b.a.h(context).e()) {
-                return f4309c;
+                return f4316c;
             }
-            if (!TextUtils.isEmpty(f4309c)) {
-                return f4309c;
+            if (!TextUtils.isEmpty(f4316c)) {
+                return f4316c;
             }
             if (c.o(context)) {
                 String string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
-                f4309c = string;
+                f4316c = string;
                 if (TextUtils.isEmpty(string)) {
-                    f4309c = "";
+                    f4316c = "";
                 }
-                return f4309c;
+                return f4316c;
             }
             return "";
         }
@@ -77,8 +77,8 @@ public final class d {
                 if (!c.a.n0.b.a.h(context).e()) {
                     return k.c(String.valueOf(-1000), z2);
                 }
-                if (z && !TextUtils.isEmpty(f4310d)) {
-                    return f4310d;
+                if (z && !TextUtils.isEmpty(f4317d)) {
+                    return f4317d;
                 }
                 if (context.checkPermission("android.permission.READ_PHONE_STATE", Process.myPid(), Process.myUid()) == -1) {
                     return k.c(String.valueOf(-1001), z2);
@@ -98,7 +98,7 @@ public final class d {
                 if (TextUtils.isEmpty(str)) {
                     return k.c(String.valueOf(-1003), z2);
                 }
-                f4310d = str;
+                f4317d = str;
                 return str;
             } catch (Throwable th) {
                 c.d(th);
@@ -217,11 +217,11 @@ public final class d {
             } catch (Throwable th) {
                 c.d(th);
             }
-            if (!TextUtils.isEmpty(f4307a)) {
-                return f4307a;
+            if (!TextUtils.isEmpty(f4314a)) {
+                return f4314a;
             }
-            f4307a = c.a.n0.b.a.h(context).J();
-            return f4307a;
+            f4314a = c.a.n0.b.a.h(context).J();
+            return f4314a;
         }
         return (String) invokeL.objValue;
     }
@@ -275,33 +275,33 @@ public final class d {
                 c.d(th);
             }
             if (c.a.n0.b.a.h(context).e()) {
-                if (!TextUtils.isEmpty(f4308b)) {
-                    return f4308b;
+                if (!TextUtils.isEmpty(f4315b)) {
+                    return f4315b;
                 }
                 if (context.checkPermission("android.permission.ACCESS_WIFI_STATE", Process.myPid(), Process.myUid()) == -1) {
-                    return f4308b;
+                    return f4315b;
                 }
                 if (c.o(context)) {
                     WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
                     if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
-                        f4308b = connectionInfo.getMacAddress();
+                        f4315b = connectionInfo.getMacAddress();
                     }
-                    if (!TextUtils.isEmpty(f4308b) && !f4308b.equals("02:00:00:00:00:00")) {
-                        return f4308b;
+                    if (!TextUtils.isEmpty(f4315b) && !f4315b.equals("02:00:00:00:00:00")) {
+                        return f4315b;
                     }
                     if (l()) {
-                        f4308b = e();
+                        f4315b = e();
                     }
-                    if (TextUtils.isEmpty(f4308b)) {
-                        f4308b = i();
+                    if (TextUtils.isEmpty(f4315b)) {
+                        f4315b = i();
                     }
-                    if (TextUtils.isEmpty(f4308b)) {
-                        f4308b = g().toUpperCase().substring(0, 17);
+                    if (TextUtils.isEmpty(f4315b)) {
+                        f4315b = g().toUpperCase().substring(0, 17);
                     }
-                    if (TextUtils.isEmpty(f4308b)) {
-                        f4308b = e();
+                    if (TextUtils.isEmpty(f4315b)) {
+                        f4315b = e();
                     }
-                    return f4308b;
+                    return f4315b;
                 }
                 return "";
             }

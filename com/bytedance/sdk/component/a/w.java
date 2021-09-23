@@ -17,16 +17,16 @@ public class w {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Collection<String> f64188a;
+    public final Collection<String> f64499a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, v> f64189b;
+    public final Map<String, v> f64500b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k f64190c;
+    public final k f64501c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Set<a> f64191d;
+    public final Set<a> f64502d;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -36,7 +36,7 @@ public class w {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!this.f64188a.contains(str) && !TextUtils.equals(str, "host")) {
+            if (!this.f64499a.contains(str) && !TextUtils.equals(str, "host")) {
                 throw new IllegalArgumentException("Namespace: " + str + " not registered.");
             }
             return a(str, null);
@@ -47,14 +47,14 @@ public class w {
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f64191d.remove(aVar);
+            this.f64502d.remove(aVar);
         }
     }
 
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f64191d.add(aVar);
+            this.f64502d.add(aVar);
         }
     }
 
@@ -62,10 +62,10 @@ public class w {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, this, str, jSONObject)) == null) {
-            v vVar = this.f64189b.get(str);
+            v vVar = this.f64500b.get(str);
             if (vVar == null) {
-                v vVar2 = new v(str, this.f64190c.c(), this.f64190c.a(), this.f64190c.b(), jSONObject);
-                this.f64189b.put(str, vVar2);
+                v vVar2 = new v(str, this.f64501c.c(), this.f64501c.a(), this.f64501c.b(), jSONObject);
+                this.f64500b.put(str, vVar2);
                 return vVar2;
             } else if (jSONObject != null) {
                 vVar.a(jSONObject);

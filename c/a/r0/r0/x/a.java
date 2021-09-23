@@ -30,33 +30,33 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Pattern f24394a;
+    public Pattern f24410a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext<?> f24395b;
+    public TbPageContext<?> f24411b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f24396c;
+    public View f24412c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CoverFlowView<c.a.q0.s.w.b.a> f24397d;
+    public CoverFlowView<c.a.q0.s.w.b.a> f24413d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f24398e;
+    public c f24414e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d<c.a.q0.s.w.b.a> f24399f;
+    public d<c.a.q0.s.w.b.a> f24415f;
 
     /* renamed from: c.a.r0.r0.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1131a extends c.a.q0.s.w.b.b {
+    public class C1129a extends c.a.q0.s.w.b.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f24400a;
+        public final /* synthetic */ a f24416a;
 
-        public C1131a(a aVar) {
+        public C1129a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,7 +71,7 @@ public class a {
                     return;
                 }
             }
-            this.f24400a = aVar;
+            this.f24416a = aVar;
         }
 
         @Override // c.a.q0.s.w.b.b, c.a.q0.s.w.a
@@ -95,7 +95,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 e eVar = new e();
-                eVar.a((int) (l.k(this.f24400a.f24395b.getPageActivity()) / 2.5714285f));
+                eVar.a((int) (l.k(this.f24416a.f24411b.getPageActivity()) / 2.5714285f));
                 return eVar;
             }
             return (e) invokeV.objValue;
@@ -121,7 +121,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f24401a;
+        public final /* synthetic */ a f24417a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class a {
                     return;
                 }
             }
-            this.f24401a = aVar;
+            this.f24417a = aVar;
         }
 
         @Override // c.a.q0.s.w.b.d
@@ -154,12 +154,12 @@ public class a {
         public void b(int i2, String str) {
             c.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (aVar = (c.a) this.f24401a.f24397d.getItem(i2)) == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (aVar = (c.a) this.f24417a.f24413d.getItem(i2)) == null) {
                 return;
             }
-            Matcher matcher = this.f24401a.f24394a.matcher(aVar.b());
+            Matcher matcher = this.f24417a.f24410a.matcher(aVar.b());
             if (matcher.find()) {
-                this.f24401a.f24395b.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f24401a.f24395b.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
+                this.f24417a.f24411b.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f24417a.f24411b.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
             }
         }
     }
@@ -179,46 +179,46 @@ public class a {
                 return;
             }
         }
-        this.f24394a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
-        this.f24395b = null;
-        this.f24397d = null;
-        this.f24398e = null;
-        this.f24399f = new b(this);
-        this.f24395b = tbPageContext;
+        this.f24410a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+        this.f24411b = null;
+        this.f24413d = null;
+        this.f24414e = null;
+        this.f24415f = new b(this);
+        this.f24411b = tbPageContext;
         d();
     }
 
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24396c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24412c : (View) invokeV.objValue;
     }
 
     public final void d() {
         TbPageContext<?> tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.f24395b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.f24411b) == null) {
             return;
         }
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.square_banner_layout, (ViewGroup) null);
-        this.f24396c = inflate;
+        this.f24412c = inflate;
         if (inflate == null) {
             return;
         }
-        this.f24397d = (CoverFlowView) inflate.findViewById(R.id.square_banner_cover_flow_view);
-        C1131a c1131a = new C1131a(this);
-        this.f24397d.setDisableParentEvent(false);
-        this.f24397d.setCoverFlowFactory(c1131a);
-        this.f24397d.setCallback(this.f24399f);
+        this.f24413d = (CoverFlowView) inflate.findViewById(R.id.square_banner_cover_flow_view);
+        C1129a c1129a = new C1129a(this);
+        this.f24413d.setDisableParentEvent(false);
+        this.f24413d.setCoverFlowFactory(c1129a);
+        this.f24413d.setCallback(this.f24415f);
     }
 
     public void e(c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || cVar == null || cVar == this.f24398e) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || cVar == null || cVar == this.f24414e) {
             return;
         }
-        this.f24397d.setData(cVar.a());
-        this.f24398e = cVar;
+        this.f24413d.setData(cVar.a());
+        this.f24414e = cVar;
     }
 
     public void f(BdUniqueId bdUniqueId) {
@@ -230,7 +230,7 @@ public class a {
     public void g() {
         CoverFlowView<c.a.q0.s.w.b.a> coverFlowView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (coverFlowView = this.f24397d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (coverFlowView = this.f24413d) == null) {
             return;
         }
         coverFlowView.startMarqueen();

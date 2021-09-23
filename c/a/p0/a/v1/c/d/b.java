@@ -20,7 +20,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9242a;
+    public static final boolean f9250a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class b {
                 return;
             }
         }
-        f9242a = k.f7077a;
+        f9250a = k.f7085a;
     }
 
     public static void a(@Nullable Bundle bundle, @NonNull Class<? extends c.a.p0.a.v1.a.a.a> cls) {
@@ -46,7 +46,7 @@ public class b {
             while (it.hasNext()) {
                 c next = it.next();
                 if (next != null && next.H()) {
-                    b(next.f9264f, bundle, cls, null);
+                    b(next.f9272f, bundle, cls, null);
                 }
             }
         }
@@ -55,11 +55,11 @@ public class b {
     public static void b(SwanAppProcessInfo swanAppProcessInfo, @Nullable Bundle bundle, @NonNull Class<? extends c.a.p0.a.v1.a.a.a> cls, @Nullable c.a.p0.a.v1.a.b.c.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65538, null, swanAppProcessInfo, bundle, cls, cVar) == null) {
-            if (f9242a) {
+            if (f9250a) {
                 String str = "sendMessageToClient: delegation: " + cls.getName();
             }
             Message obtain = Message.obtain((Handler) null, 125);
-            obtain.replyTo = e.k().f9276d;
+            obtain.replyTo = e.k().f9284d;
             Bundle bundle2 = new Bundle();
             bundle2.putString("ai_apps_delegation_name", cls.getName());
             if (cVar != null) {

@@ -37,7 +37,7 @@ public final class b extends a0 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f8506e;
+        public static final a f8514e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public final class b extends a0 {
                     return;
                 }
             }
-            f8506e = new a();
+            f8514e = new a();
         }
 
         public a() {
@@ -107,53 +107,53 @@ public final class b extends a0 {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, eVar)) == null) {
             Intrinsics.checkNotNullParameter(entity, "entity");
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(entity);
-            f.f8492d.l(true);
+            f.f8500d.l(true);
             if (optParamsAsJo == null) {
-                c.a.p0.a.m.a d2 = f.f8492d.d();
+                c.a.p0.a.m.a d2 = f.f8500d.d();
                 if (d2 != null) {
                     d2.onResult(-1);
                 }
                 entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                f.f8492d.a(g.d(), g.a());
+                f.f8500d.a(g.d(), g.a());
                 return false;
             }
             int optInt = optParamsAsJo.optInt("errno");
             JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
-            q0.X(a.f8506e);
+            q0.X(a.f8514e);
             if (optInt != 0) {
-                c.a.p0.a.m.a d3 = f.f8492d.d();
+                c.a.p0.a.m.a d3 = f.f8500d.d();
                 if (d3 != null) {
                     d3.onResult(-1);
                 }
                 entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
-                f.f8492d.a(g.d(), g.a());
+                f.f8500d.a(g.d(), g.a());
                 return false;
             } else if (optJSONObject != null) {
                 Map<String, String> c2 = i.c(CookieManager.getInstance().getCookie(Domains.BAIDU));
                 Intrinsics.checkNotNullExpressionValue(c2, "SwanAppUrlUtils.parseCookie(cookieString)");
                 String str = c2.get(BeanConstants.COOKIE_OPENBDUSS);
                 if (!(str == null || StringsKt__StringsJVMKt.isBlank(str))) {
-                    h.f8503b.c(optInt, optJSONObject);
+                    h.f8511b.c(optInt, optJSONObject);
                     c.a.p0.a.s.a.a.b(context, str);
-                    f.f8492d.j(true);
-                    c.a.p0.a.m.a d4 = f.f8492d.d();
+                    f.f8500d.j(true);
+                    c.a.p0.a.m.a d4 = f.f8500d.d();
                     if (d4 != null) {
                         d4.onResult(0);
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, entity, 0);
-                    f.f8492d.a(g.f(), g.c());
+                    f.f8500d.a(g.f(), g.c());
                     return true;
                 }
-                c.a.p0.a.m.a d5 = f.f8492d.d();
+                c.a.p0.a.m.a d5 = f.f8500d.d();
                 if (d5 != null) {
                     d5.onResult(-1);
                 }
                 entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "bduss is null");
-                f.f8492d.a(g.d(), g.a());
+                f.f8500d.a(g.d(), g.a());
                 return false;
             } else {
                 entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "json data is null");
-                f.f8492d.a(g.d(), g.a());
+                f.f8500d.a(g.d(), g.a());
                 return false;
             }
         }

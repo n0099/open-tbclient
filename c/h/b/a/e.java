@@ -14,10 +14,10 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f32391a;
+    public static a f32414a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f32392b;
+    public static a f32415b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -26,7 +26,7 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Handler f32393a;
+        public Handler f32416a;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -43,16 +43,16 @@ public final class e {
                     return;
                 }
             }
-            this.f32393a = null;
+            this.f32416a = null;
             HandlerThread handlerThread = new HandlerThread("BlockCanary-" + str);
             handlerThread.start();
-            this.f32393a = new Handler(handlerThread.getLooper());
+            this.f32416a = new Handler(handlerThread.getLooper());
         }
 
         public Handler a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32393a : (Handler) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32416a : (Handler) invokeV.objValue;
         }
     }
 
@@ -69,19 +69,19 @@ public final class e {
                 return;
             }
         }
-        f32391a = new a("loop");
-        f32392b = new a("writer");
+        f32414a = new a("loop");
+        f32415b = new a("writer");
     }
 
     public static Handler a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f32391a.a() : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f32414a.a() : (Handler) invokeV.objValue;
     }
 
     public static Handler b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f32392b.a() : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f32415b.a() : (Handler) invokeV.objValue;
     }
 }

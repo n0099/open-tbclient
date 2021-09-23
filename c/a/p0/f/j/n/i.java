@@ -11,7 +11,7 @@ public class i implements c.a.p0.f.j.p.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f10788a;
+    public f f10796a;
 
     public i(f fVar) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class i implements c.a.p0.f.j.p.a {
                 return;
             }
         }
-        this.f10788a = fVar;
+        this.f10796a = fVar;
     }
 
     @Override // c.a.p0.f.j.p.a
@@ -42,13 +42,13 @@ public class i implements c.a.p0.f.j.p.a {
     public final void b(c.a.p0.f.j.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f10788a.f9203d.clear();
+            this.f10796a.f9211d.clear();
             if (aVar != null) {
-                this.f10788a.f9203d.putString("functionType", aVar.a());
-                this.f10788a.f9203d.putString("resultData", aVar.b());
-                this.f10788a.f9203d.putInt(com.alipay.sdk.util.i.f36094a, aVar.c());
+                this.f10796a.f9211d.putString("functionType", aVar.a());
+                this.f10796a.f9211d.putString("resultData", aVar.b());
+                this.f10796a.f9211d.putInt("resultStatus", aVar.c());
             }
-            this.f10788a.c();
+            this.f10796a.c();
         }
     }
 }

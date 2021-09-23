@@ -70,7 +70,7 @@ public class a implements h0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f10411a;
+        public final /* synthetic */ Context f10419a;
 
         public C0513a(a aVar, Context context) {
             Interceptable interceptable = $ic;
@@ -87,14 +87,14 @@ public class a implements h0 {
                     return;
                 }
             }
-            this.f10411a = context;
+            this.f10419a = context;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                e.f(this.f10411a, h.swan_app_img_menu_save_failed).u();
+                e.f(this.f10419a, h.swan_app_img_menu_save_failed).u();
             }
         }
 
@@ -102,7 +102,7 @@ public class a implements h0 {
         public void onNewResultImpl(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                a.i(this.f10411a, bitmap);
+                a.i(this.f10419a, bitmap);
             }
         }
     }
@@ -113,10 +113,10 @@ public class a implements h0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f10412a;
+        public final /* synthetic */ Context f10420a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f10413b;
+        public final /* synthetic */ Bitmap f10421b;
 
         public b(Context context, Bitmap bitmap) {
             Interceptable interceptable = $ic;
@@ -133,15 +133,15 @@ public class a implements h0 {
                     return;
                 }
             }
-            this.f10412a = context;
-            this.f10413b = bitmap;
+            this.f10420a = context;
+            this.f10421b = bitmap;
         }
 
         @Override // c.a.p0.a.s1.f
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                a.l(this.f10412a, this.f10413b);
+                a.l(this.f10420a, this.f10421b);
             }
         }
 
@@ -149,7 +149,7 @@ public class a implements h0 {
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                e.f(this.f10412a, h.swan_app_img_menu_save_failed).u();
+                e.f(this.f10420a, h.swan_app_img_menu_save_failed).u();
             }
         }
     }

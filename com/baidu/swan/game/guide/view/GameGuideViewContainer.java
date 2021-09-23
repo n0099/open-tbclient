@@ -24,22 +24,22 @@ public class GameGuideViewContainer extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46993e;
+    public int f47095e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46994f;
+    public int f47096f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46995g;
+    public int f47097g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46996h;
+    public int f47098h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46997i;
+    public int f47099i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f46998j;
+    public int f47100j;
     public int k;
 
     /* loaded from: classes6.dex */
@@ -48,10 +48,10 @@ public class GameGuideViewContainer extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.MarginLayoutParams f46999e;
+        public final /* synthetic */ ViewGroup.MarginLayoutParams f47101e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GameGuideViewContainer f47000f;
+        public final /* synthetic */ GameGuideViewContainer f47102f;
 
         public a(GameGuideViewContainer gameGuideViewContainer, ViewGroup.MarginLayoutParams marginLayoutParams) {
             Interceptable interceptable = $ic;
@@ -68,16 +68,16 @@ public class GameGuideViewContainer extends FrameLayout {
                     return;
                 }
             }
-            this.f47000f = gameGuideViewContainer;
-            this.f46999e = marginLayoutParams;
+            this.f47102f = gameGuideViewContainer;
+            this.f47101e = marginLayoutParams;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f46999e.rightMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                this.f47000f.requestLayout();
+                this.f47101e.rightMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                this.f47102f.requestLayout();
             }
         }
     }
@@ -108,14 +108,14 @@ public class GameGuideViewContainer extends FrameLayout {
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            int i5 = this.f46996h;
+            int i5 = this.f47098h;
             int i6 = i5 / 2;
             if (i2 >= i6) {
                 i3 = (int) (((i5 - i2) / i6) * 400.0f);
                 i4 = n0.g(10.0f);
             } else {
                 i3 = (int) ((i2 / i6) * 400.0f);
-                i4 = i5 - this.f46993e;
+                i4 = i5 - this.f47095e;
             }
             if (i3 <= 0) {
                 i3 = 400;
@@ -132,12 +132,12 @@ public class GameGuideViewContainer extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f46996h = getContext().getResources().getDisplayMetrics().widthPixels;
-            this.f46995g = getContext().getResources().getDisplayMetrics().heightPixels;
+            this.f47098h = getContext().getResources().getDisplayMetrics().widthPixels;
+            this.f47097g = getContext().getResources().getDisplayMetrics().heightPixels;
             if (2 == getContext().getResources().getConfiguration().orientation) {
-                this.f46996h += n0.s();
+                this.f47098h += n0.s();
             } else {
-                this.f46995g += n0.s();
+                this.f47097g += n0.s();
             }
             this.k = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         }
@@ -154,8 +154,8 @@ public class GameGuideViewContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             int g2 = i2 < n0.g(10.0f) ? n0.g(10.0f) : i2;
-            int i3 = this.f46996h;
-            int i4 = this.f46993e;
+            int i3 = this.f47098h;
+            int i4 = this.f47095e;
             return i2 > i3 - i4 ? i3 - i4 : g2;
         }
         return invokeI.intValue;
@@ -166,8 +166,8 @@ public class GameGuideViewContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             int i3 = i2 < 0 ? 0 : i2;
-            int i4 = this.f46995g;
-            int i5 = this.f46994f;
+            int i4 = this.f47097g;
+            int i5 = this.f47096f;
             return i2 > i4 - i5 ? i4 - i5 : i3;
         }
         return invokeI.intValue;
@@ -180,12 +180,12 @@ public class GameGuideViewContainer extends FrameLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action != 0) {
-                if (action == 2 && c(((int) motionEvent.getRawX()) - this.f46997i, ((int) motionEvent.getRawY()) - this.f46998j)) {
+                if (action == 2 && c(((int) motionEvent.getRawX()) - this.f47099i, ((int) motionEvent.getRawY()) - this.f47100j)) {
                     return true;
                 }
             } else {
-                this.f46997i = (int) motionEvent.getRawX();
-                this.f46998j = (int) motionEvent.getRawY();
+                this.f47099i = (int) motionEvent.getRawX();
+                this.f47100j = (int) motionEvent.getRawY();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -197,8 +197,8 @@ public class GameGuideViewContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f46993e = i2;
-            this.f46994f = i3;
+            this.f47095e = i2;
+            this.f47096f = i3;
         }
     }
 
@@ -210,8 +210,8 @@ public class GameGuideViewContainer extends FrameLayout {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f46997i = (int) motionEvent.getRawX();
-                this.f46998j = (int) motionEvent.getRawY();
+                this.f47099i = (int) motionEvent.getRawX();
+                this.f47100j = (int) motionEvent.getRawY();
                 return true;
             }
             if (action == 1) {
@@ -220,14 +220,14 @@ public class GameGuideViewContainer extends FrameLayout {
             } else if (action == 2) {
                 int rawX = (int) motionEvent.getRawX();
                 int rawY = (int) motionEvent.getRawY();
-                int i2 = rawX - this.f46997i;
-                int i3 = rawY - this.f46998j;
+                int i2 = rawX - this.f47099i;
+                int i3 = rawY - this.f47100j;
                 if (c(i2, i3)) {
                     marginLayoutParams.rightMargin = d(marginLayoutParams.rightMargin - i2);
                     marginLayoutParams.topMargin = e(marginLayoutParams.topMargin + i3);
                     setLayoutParams(marginLayoutParams);
-                    this.f46997i = rawX;
-                    this.f46998j = rawY;
+                    this.f47099i = rawX;
+                    this.f47100j = rawY;
                     return true;
                 }
             } else if (action == 3) {

@@ -13,10 +13,10 @@ public class q0 extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4474a;
+    public int f4482a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4475b;
+    public int f4483b;
 
     public q0() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class q0 extends a {
             if (bVar.d() == 0) {
                 bVar.e(canvas.save());
             }
-            canvas.translate(this.f4474a, this.f4475b);
+            canvas.translate(this.f4482a, this.f4483b);
         }
     }
 
@@ -49,7 +49,7 @@ public class q0 extends a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
             return;
         }
-        this.f4474a = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
-        this.f4475b = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
+        this.f4482a = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
+        this.f4483b = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
     }
 }

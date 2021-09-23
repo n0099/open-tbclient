@@ -26,34 +26,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17001a;
+    public int f17011a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f17002b;
+    public BdUniqueId f17012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f17003c;
+    public final String f17013c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f17004d;
+    public b f17014d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f17005e;
+    public List<String> f17015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f17006f;
+    public HttpMessageListener f17016f;
 
     /* renamed from: c.a.r0.c4.u.m.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0817a extends HttpMessageListener {
+    public class C0815a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f17007a;
+        public final /* synthetic */ a f17017a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0817a(a aVar, int i2) {
+        public C0815a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -70,49 +70,49 @@ public class a {
                     return;
                 }
             }
-            this.f17007a = aVar;
+            this.f17017a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || this.f17007a.f17004d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || this.f17017a.f17014d == null) {
                 return;
             }
-            if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == this.f17007a.f17002b) {
+            if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == this.f17017a.f17012b) {
                 RelevanceItemSearchData responseData = httpResponsedMessage instanceof RelevanceItemSearchResponse ? ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData() : null;
                 if (responseData != null && responseData.getData() != null) {
-                    if (!ListUtils.equalList(this.f17007a.f17005e, responseData.getData().getTab_option())) {
-                        this.f17007a.f17005e = responseData.getData().getTab_option();
-                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(this.f17007a.f17005e));
+                    if (!ListUtils.equalList(this.f17017a.f17015e, responseData.getData().getTab_option())) {
+                        this.f17017a.f17015e = responseData.getData().getTab_option();
+                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(this.f17017a.f17015e));
                     }
                     if (httpResponsedMessage.getError() != 0) {
-                        this.f17007a.f17004d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
-                        this.f17007a.l();
+                        this.f17017a.f17014d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        this.f17017a.l();
                         return;
                     } else if (ListUtils.isEmpty(responseData.getData().getItem_list())) {
-                        if (this.f17007a.f17001a == 1) {
-                            this.f17007a.f17004d.a();
+                        if (this.f17017a.f17011a == 1) {
+                            this.f17017a.f17014d.a();
                             return;
                         } else {
-                            this.f17007a.f17004d.d();
+                            this.f17017a.f17014d.d();
                             return;
                         }
                     } else if (responseData != null) {
-                        this.f17007a.f17004d.c(responseData);
-                        if (this.f17007a.f17001a == 1 && responseData.getData().getItem_list().size() < 20) {
-                            this.f17007a.f17004d.d();
+                        this.f17017a.f17014d.c(responseData);
+                        if (this.f17017a.f17011a == 1 && responseData.getData().getItem_list().size() < 20) {
+                            this.f17017a.f17014d.d();
                         }
-                        a.f(this.f17007a);
+                        a.f(this.f17017a);
                         return;
                     } else {
                         return;
                     }
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
-                this.f17007a.f17004d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
-                this.f17007a.l();
+                this.f17017a.f17014d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                this.f17017a.l();
             }
         }
     }
@@ -143,19 +143,19 @@ public class a {
                 return;
             }
         }
-        this.f17001a = 1;
-        C0817a c0817a = new C0817a(this, CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-        this.f17006f = c0817a;
-        this.f17002b = bdUniqueId;
-        this.f17003c = str;
-        c0817a.setTag(bdUniqueId);
+        this.f17011a = 1;
+        C0815a c0815a = new C0815a(this, CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+        this.f17016f = c0815a;
+        this.f17012b = bdUniqueId;
+        this.f17013c = str;
+        c0815a.setTag(bdUniqueId);
         k();
-        MessageManager.getInstance().registerListener(this.f17006f);
+        MessageManager.getInstance().registerListener(this.f17016f);
     }
 
     public static /* synthetic */ int f(a aVar) {
-        int i2 = aVar.f17001a;
-        aVar.f17001a = i2 + 1;
+        int i2 = aVar.f17011a;
+        aVar.f17011a = i2 + 1;
         return i2;
     }
 
@@ -171,10 +171,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-            httpMessage.addParam("tab_name", this.f17003c);
-            httpMessage.addParam("pn", this.f17001a);
+            httpMessage.addParam("tab_name", this.f17013c);
+            httpMessage.addParam("pn", this.f17011a);
             httpMessage.addParam("rn", 20);
-            httpMessage.setTag(this.f17002b);
+            httpMessage.setTag(this.f17012b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -183,11 +183,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-            httpMessage.addParam("tab_name", this.f17003c);
+            httpMessage.addParam("tab_name", this.f17013c);
             httpMessage.addParam("keyword", str);
-            httpMessage.addParam("pn", this.f17001a);
+            httpMessage.addParam("pn", this.f17011a);
             httpMessage.addParam("rn", 20);
-            httpMessage.setTag(this.f17002b);
+            httpMessage.setTag(this.f17012b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -195,8 +195,8 @@ public class a {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().removeMessage(this.f17002b);
-            MessageManager.getInstance().unRegisterListener(this.f17002b);
+            MessageManager.getInstance().removeMessage(this.f17012b);
+            MessageManager.getInstance().unRegisterListener(this.f17012b);
         }
     }
 
@@ -214,14 +214,14 @@ public class a {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f17001a = 1;
+            this.f17011a = 1;
         }
     }
 
     public void m(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f17004d = bVar;
+            this.f17014d = bVar;
         }
     }
 }

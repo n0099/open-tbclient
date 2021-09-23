@@ -3,5 +3,5 @@ package com.baidu.fsg.base.restnet.rest;
 public interface b {
     e a(d dVar) throws Exception;
 
-    void a();
+    void close();
 }

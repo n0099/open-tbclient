@@ -25,22 +25,22 @@ public class ItemTableView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ItemTableRowView f51801e;
+    public ItemTableRowView f51915e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ItemTableRowView f51802f;
+    public ItemTableRowView f51916f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ItemTableRowView f51803g;
+    public ItemTableRowView f51917g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ItemTableRowView f51804h;
+    public ItemTableRowView f51918h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ItemTableRowView f51805i;
+    public ItemTableRowView f51919i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SparseArray<ItemTableRowView> f51806j;
+    public SparseArray<ItemTableRowView> f51920j;
 
     static {
         InterceptResult invokeClinit;
@@ -83,18 +83,18 @@ public class ItemTableView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            this.f51805i = b(context, 0, 0);
-            this.f51804h = b(context, 1, k);
-            this.f51803g = b(context, 2, k);
-            this.f51802f = b(context, 3, k);
-            this.f51801e = b(context, 4, k);
+            this.f51919i = b(context, 0, 0);
+            this.f51918h = b(context, 1, k);
+            this.f51917g = b(context, 2, k);
+            this.f51916f = b(context, 3, k);
+            this.f51915e = b(context, 4, k);
             SparseArray<ItemTableRowView> sparseArray = new SparseArray<>();
-            this.f51806j = sparseArray;
-            sparseArray.put(5, this.f51805i);
-            this.f51806j.put(4, this.f51804h);
-            this.f51806j.put(3, this.f51803g);
-            this.f51806j.put(2, this.f51802f);
-            this.f51806j.put(1, this.f51801e);
+            this.f51920j = sparseArray;
+            sparseArray.put(5, this.f51919i);
+            this.f51920j.put(4, this.f51918h);
+            this.f51920j.put(3, this.f51917g);
+            this.f51920j.put(2, this.f51916f);
+            this.f51920j.put(1, this.f51915e);
         }
     }
 
@@ -115,22 +115,22 @@ public class ItemTableView extends LinearLayout {
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f51801e.clear();
-            this.f51802f.clear();
-            this.f51803g.clear();
-            this.f51804h.clear();
-            this.f51805i.clear();
+            this.f51915e.clear();
+            this.f51916f.clear();
+            this.f51917g.clear();
+            this.f51918h.clear();
+            this.f51919i.clear();
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f51801e.onChangeSkinType();
-            this.f51802f.onChangeSkinType();
-            this.f51803g.onChangeSkinType();
-            this.f51804h.onChangeSkinType();
-            this.f51805i.onChangeSkinType();
+            this.f51915e.onChangeSkinType();
+            this.f51916f.onChangeSkinType();
+            this.f51917g.onChangeSkinType();
+            this.f51918h.onChangeSkinType();
+            this.f51919i.onChangeSkinType();
         }
     }
 
@@ -145,7 +145,7 @@ public class ItemTableView extends LinearLayout {
                 if (itemPlot != null) {
                     int intValue = itemPlot.level.intValue();
                     float intValue2 = (itemPlot.num.intValue() * 1.0f) / i2;
-                    ItemTableRowView itemTableRowView = this.f51806j.get(intValue);
+                    ItemTableRowView itemTableRowView = this.f51920j.get(intValue);
                     if (itemTableRowView != null) {
                         itemTableRowView.setData(intValue2);
                     }

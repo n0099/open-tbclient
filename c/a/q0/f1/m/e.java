@@ -26,22 +26,22 @@ public class e extends ClickableSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13257e;
+    public int f13274e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13258f;
+    public int f13275f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13259g;
+    public int f13276g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13260h;
+    public String f13277h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f13261i;
+    public String f13278i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f13262j;
+    public int f13279j;
     public int k;
 
     /* loaded from: classes3.dex */
@@ -50,13 +50,13 @@ public class e extends ClickableSpan {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f13263a;
+        public int f13280a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13264b;
+        public String f13281b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13265c;
+        public String f13282c;
 
         public a(int i2, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -73,9 +73,9 @@ public class e extends ClickableSpan {
                     return;
                 }
             }
-            this.f13263a = i2;
-            this.f13264b = str;
-            this.f13265c = str2;
+            this.f13280a = i2;
+            this.f13281b = str;
+            this.f13282c = str2;
         }
     }
 
@@ -94,11 +94,11 @@ public class e extends ClickableSpan {
                 return;
             }
         }
-        this.f13257e = -1;
-        this.f13258f = -1;
+        this.f13274e = -1;
+        this.f13275f = -1;
         this.k = 0;
-        this.f13260h = str;
-        this.f13259g = i2;
+        this.f13277h = str;
+        this.f13276g = i2;
     }
 
     public static void a(Context context, g gVar, int i2, String str, String str2) {
@@ -146,14 +146,14 @@ public class e extends ClickableSpan {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13260h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13277h : (String) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.f13259g;
+            int i2 = this.f13276g;
             return i2 == 2 || i2 == 16 || i2 == 18 || i2 == 39 || i2 == 30 || i2 == 31;
         }
         return invokeV.booleanValue;
@@ -163,7 +163,7 @@ public class e extends ClickableSpan {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.f13259g;
+            int i2 = this.f13276g;
             return i2 == 2 || i2 == 16 || i2 == 18 || i2 == 39 || i2 == 1282 || i2 == 30 || i2 == 31;
         }
         return invokeV.booleanValue;
@@ -172,28 +172,28 @@ public class e extends ClickableSpan {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f13257e = i2;
+            this.f13274e = i2;
         }
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f13262j = i2;
+            this.f13279j = i2;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f13261i = str;
+            this.f13278i = str;
         }
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f13258f = i2;
+            this.f13275f = i2;
         }
     }
 
@@ -208,9 +208,9 @@ public class e extends ClickableSpan {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.f13259g, this.f13260h, this.f13261i));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.f13276g, this.f13277h, this.f13278i));
             int i2 = 2;
-            if (this.f13259g == 2) {
+            if (this.f13276g == 2) {
                 int i3 = this.k;
                 int i4 = 1;
                 if (i3 == 1) {
@@ -229,7 +229,7 @@ public class e extends ClickableSpan {
     public void updateDrawState(TextPaint textPaint) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, textPaint) == null) {
-            int i2 = this.f13258f;
+            int i2 = this.f13275f;
             if (i2 != -1) {
                 textPaint.setColor(SkinManager.getColor(i2));
             } else if (f()) {
@@ -238,16 +238,16 @@ public class e extends ClickableSpan {
                 textPaint.setColor(textPaint.linkColor);
             }
             textPaint.setUnderlineText(false);
-            int i3 = this.f13257e;
+            int i3 = this.f13274e;
             if (i3 != -1) {
                 textPaint.bgColor = i3;
-            } else if (this.f13262j == 1 && e()) {
+            } else if (this.f13279j == 1 && e()) {
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                     textPaint.bgColor = SkinManager.getColor(R.color.CAM_X0204);
                 } else {
                     textPaint.bgColor = SkinManager.getColor(R.color.cp_bg_line_z);
                 }
-            } else if (this.f13262j == 2) {
+            } else if (this.f13279j == 2) {
                 textPaint.bgColor = SkinManager.getColor(R.color.transparent);
             }
         }

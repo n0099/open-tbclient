@@ -1,6 +1,6 @@
 package com.baidu.tieba.chosen.unlike;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -45,7 +45,7 @@ public class UnlikeRequest extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.thread_id = Long.valueOf(this.threadId);
             builder.type = Integer.valueOf(this.type);
-            x.a(builder, true);
+            a0.a(builder, true);
             UnlikeReqIdl.Builder builder2 = new UnlikeReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

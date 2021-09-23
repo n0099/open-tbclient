@@ -20,20 +20,20 @@ public class b extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final long f7230i;
+    public static final long f7238i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile Handler f7231e;
+    public volatile Handler f7239e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Runnable f7232f;
+    public final Runnable f7240f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Runnable f7233g;
+    public final Runnable f7241g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final AtomicBoolean f7234h;
+    public final AtomicBoolean f7242h;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -41,7 +41,7 @@ public class b extends HandlerThread {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f7235e;
+        public final /* synthetic */ b f7243e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -58,15 +58,15 @@ public class b extends HandlerThread {
                     return;
                 }
             }
-            this.f7235e = bVar;
+            this.f7243e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7235e.f7232f.run();
-                this.f7235e.f();
+                this.f7243e.f7240f.run();
+                this.f7243e.f();
             }
         }
     }
@@ -84,7 +84,7 @@ public class b extends HandlerThread {
                 return;
             }
         }
-        f7230i = TimeUnit.SECONDS.toMillis(c.a.p0.a.r1.l.b.b());
+        f7238i = TimeUnit.SECONDS.toMillis(c.a.p0.a.r1.l.b.b());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -105,10 +105,10 @@ public class b extends HandlerThread {
                 return;
             }
         }
-        this.f7234h = new AtomicBoolean(false);
+        this.f7242h = new AtomicBoolean(false);
         setDaemon(true);
-        this.f7232f = runnable;
-        this.f7233g = new a(this);
+        this.f7240f = runnable;
+        this.f7241g = new a(this);
     }
 
     public final boolean c() {
@@ -125,8 +125,8 @@ public class b extends HandlerThread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                if (!this.f7234h.get() && this.f7231e != null) {
-                    this.f7231e.removeCallbacks(this.f7233g);
+                if (!this.f7242h.get() && this.f7239e != null) {
+                    this.f7239e.removeCallbacks(this.f7241g);
                 }
             }
         }
@@ -136,8 +136,8 @@ public class b extends HandlerThread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
             synchronized (this) {
-                if (!this.f7234h.get() && this.f7231e != null) {
-                    this.f7231e.postDelayed(runnable, f7230i);
+                if (!this.f7242h.get() && this.f7239e != null) {
+                    this.f7239e.postDelayed(runnable, f7238i);
                 }
             }
         }
@@ -147,9 +147,9 @@ public class b extends HandlerThread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                if (!this.f7234h.get() && this.f7231e != null) {
-                    this.f7231e.removeCallbacks(this.f7233g);
-                    this.f7231e.postDelayed(this.f7233g, f7230i);
+                if (!this.f7242h.get() && this.f7239e != null) {
+                    this.f7239e.removeCallbacks(this.f7241g);
+                    this.f7239e.postDelayed(this.f7241g, f7238i);
                 }
             }
         }
@@ -160,9 +160,9 @@ public class b extends HandlerThread {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
                 i();
-                if (this.f7231e != null) {
-                    this.f7231e.removeCallbacksAndMessages(null);
-                    this.f7231e = null;
+                if (this.f7239e != null) {
+                    this.f7239e.removeCallbacksAndMessages(null);
+                    this.f7239e = null;
                     quitSafely();
                 }
             }
@@ -180,7 +180,7 @@ public class b extends HandlerThread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             d();
-            this.f7234h.set(true);
+            this.f7242h.set(true);
         }
     }
 
@@ -188,7 +188,7 @@ public class b extends HandlerThread {
     public void onLooperPrepared() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f7231e = new Handler(getLooper());
+            this.f7239e = new Handler(getLooper());
             if (c()) {
                 f();
             }

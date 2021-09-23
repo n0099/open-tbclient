@@ -57,7 +57,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardBoxMemberPayActivity f54313a;
+        public final /* synthetic */ CardBoxMemberPayActivity f54428a;
 
         public a(CardBoxMemberPayActivity cardBoxMemberPayActivity) {
             Interceptable interceptable = $ic;
@@ -74,15 +74,15 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
                     return;
                 }
             }
-            this.f54313a = cardBoxMemberPayActivity;
+            this.f54428a = cardBoxMemberPayActivity;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f54313a.mAnimateRunning = false;
-                this.f54313a.finish();
+                this.f54428a.mAnimateRunning = false;
+                this.f54428a.finish();
             }
         }
 
@@ -107,7 +107,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardBoxMemberPayActivity f54314a;
+        public final /* synthetic */ CardBoxMemberPayActivity f54429a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(CardBoxMemberPayActivity cardBoxMemberPayActivity, int i2) {
@@ -127,7 +127,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
                     return;
                 }
             }
-            this.f54314a = cardBoxMemberPayActivity;
+            this.f54429a = cardBoxMemberPayActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,22 +135,22 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f54314a.closeLoadingDialog();
+                this.f54429a.closeLoadingDialog();
                 if (httpResponsedMessage instanceof ResponseCardBoxMemberPayMessage) {
                     ResponseCardBoxMemberPayMessage responseCardBoxMemberPayMessage = (ResponseCardBoxMemberPayMessage) httpResponsedMessage;
                     if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                         if (responseCardBoxMemberPayMessage.getMemberPayResult() != null) {
-                            this.f54314a.mView.m(responseCardBoxMemberPayMessage.getMemberPayResult());
+                            this.f54429a.mView.m(responseCardBoxMemberPayMessage.getMemberPayResult());
                             return;
                         }
-                        this.f54314a.showToast(R.string.neterror);
+                        this.f54429a.showToast(R.string.neterror);
                         return;
                     }
                     String errorString = responseCardBoxMemberPayMessage.getErrorString();
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.f54314a.getResources().getString(R.string.neterror);
+                        errorString = this.f54429a.getResources().getString(R.string.neterror);
                     }
-                    this.f54314a.showToast(errorString);
+                    this.f54429a.showToast(errorString);
                 }
             }
         }
@@ -162,7 +162,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardBoxMemberPayActivity f54315a;
+        public final /* synthetic */ CardBoxMemberPayActivity f54430a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(CardBoxMemberPayActivity cardBoxMemberPayActivity, int i2) {
@@ -182,7 +182,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
                     return;
                 }
             }
-            this.f54315a = cardBoxMemberPayActivity;
+            this.f54430a = cardBoxMemberPayActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -192,7 +192,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.hasError()) {
                 return;
             }
-            this.f54315a.finish();
+            this.f54430a.finish();
         }
     }
 
@@ -379,7 +379,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         }
         if (view == aVar.h() && this.mView.d() != null) {
             f.d d2 = this.mView.d();
-            startDealIntentService(d2.f28672i, d2.f28673j / 100, d2.l, d2.n);
+            startDealIntentService(d2.f28692i, d2.f28693j / 100, d2.l, d2.n);
         } else if (view == this.mView.f()) {
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{MEMBER_AGREEMENT_JUMP_URL});
         } else if (view == this.mView.e()) {

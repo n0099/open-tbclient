@@ -5,6 +5,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.fsg.base.statistics.k;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,34 +27,34 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f4206a;
+    public Context f4213a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4207b;
+    public String f4214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4208c;
+    public int f4215c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4209d;
+    public int f4216d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f4210e;
+    public String f4217e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f4211f;
+    public long f4218f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f4212g;
+    public String f4219g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f4213h;
+    public String f4220h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f4214i;
+    public long f4221i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f4215j;
+    public long f4222j;
 
     public i(Context context) {
         Interceptable interceptable = $ic;
@@ -70,8 +71,8 @@ public class i {
                 return;
             }
         }
-        this.f4215j = 8000L;
-        this.f4206a = context;
+        this.f4222j = 8000L;
+        this.f4213a = context;
     }
 
     public static void j(String str, String str2, String str3) {
@@ -83,7 +84,7 @@ public class i {
             } else if (TextUtils.equals(str, "ct")) {
                 m = str2;
                 n = str3;
-            } else if (TextUtils.equals(str, com.baidu.fsg.base.statistics.h.f39518a)) {
+            } else if (TextUtils.equals(str, k.f39576b)) {
                 o = str2;
                 p = str3;
             }
@@ -96,7 +97,7 @@ public class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
                 if (!TextUtils.isEmpty(str) && str.length() == 11 && str.contains("*") && str.charAt(3) == '*') {
-                    int g0 = c.a.n0.b.a.h(this.f4206a).g0();
+                    int g0 = c.a.n0.b.a.h(this.f4213a).g0();
                     if (g0 <= 11 - str.replace("*", "").trim().length()) {
                         return str;
                     }
@@ -129,37 +130,37 @@ public class i {
             try {
                 if (c.a.n0.c.a.c().h(i2)) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", this.f4208c);
-                    jSONObject.put("1", this.f4210e);
-                    jSONObject.put("3", this.f4207b);
-                    jSONObject.put("4", c.a.n0.l.d.j(this.f4206a));
-                    if (!TextUtils.isEmpty(this.f4212g)) {
-                        jSONObject.put("5", c.a.n0.l.e.c(this.f4212g.getBytes(), c.a.n0.b.a.h(this.f4206a).k0()));
+                    jSONObject.put("0", this.f4215c);
+                    jSONObject.put("1", this.f4217e);
+                    jSONObject.put("3", this.f4214b);
+                    jSONObject.put("4", c.a.n0.l.d.j(this.f4213a));
+                    if (!TextUtils.isEmpty(this.f4219g)) {
+                        jSONObject.put("5", c.a.n0.l.e.c(this.f4219g.getBytes(), c.a.n0.b.a.h(this.f4213a).k0()));
                     }
                     jSONObject.put("6", q);
-                    String c2 = c.a.n0.b.c.b(this.f4206a).c(jSONObject, this.f4215j);
+                    String c2 = c.a.n0.b.c.b(this.f4213a).c(jSONObject, this.f4222j);
                     if (c.a.n0.c.a.c().h(i2)) {
                         if (!TextUtils.isEmpty(c2)) {
                             s();
                             JSONObject jSONObject2 = new JSONObject(c2);
                             int optInt = jSONObject2.optInt("0", -1);
-                            c.a.n0.b.a.h(this.f4206a).A(System.currentTimeMillis());
+                            c.a.n0.b.a.h(this.f4213a).A(System.currentTimeMillis());
                             if (optInt == 0) {
-                                c.a.n0.b.a.h(this.f4206a).k(0);
+                                c.a.n0.b.a.h(this.f4213a).k(0);
                                 JSONObject optJSONObject = new JSONObject(jSONObject2.optString("1")).optJSONObject("data");
-                                f(i2, 0, 0, this.f4208c, jSONObject2.optString("1"), optInt, optJSONObject != null ? optJSONObject.optString("uk") : "");
+                                f(i2, 0, 0, this.f4215c, jSONObject2.optString("1"), optInt, optJSONObject != null ? optJSONObject.optString("uk") : "");
                                 return;
                             }
-                            c.a.n0.b.a.h(this.f4206a).k(4);
-                            f(i2, 4, a.a(optInt), this.f4208c, jSONObject2.optString("1"), optInt, "");
+                            c.a.n0.b.a.h(this.f4213a).k(4);
+                            f(i2, 4, a.a(optInt), this.f4215c, jSONObject2.optString("1"), optInt, "");
                             return;
                         }
-                        f(i2, 4, 2005, this.f4208c, "server req empty.", -1, "");
+                        f(i2, 4, 2005, this.f4215c, "server req empty.", -1, "");
                     }
                 }
             } catch (Throwable th) {
                 c.a.n0.l.c.d(th);
-                d(i2, 3, 2009, this.f4208c, "post token unknown error.");
+                d(i2, 3, 2009, this.f4215c, "post token unknown error.");
             }
         }
     }
@@ -169,9 +170,9 @@ public class i {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             Message message = new Message();
             message.what = i2;
-            message.arg1 = this.f4208c;
+            message.arg1 = this.f4215c;
             message.arg2 = i3;
-            d.a().c(message, this.f4215j);
+            d.a().c(message, this.f4222j);
         }
     }
 
@@ -187,7 +188,7 @@ public class i {
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str, Integer.valueOf(i6)}) == null) {
             synchronized (this) {
                 b bVar = new b();
-                bVar.f4127a = i6;
+                bVar.f4134a = i6;
                 c.j().c(i2, i3, i4, i5, str, bVar, true);
             }
         }
@@ -198,9 +199,9 @@ public class i {
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str, Integer.valueOf(i6), str2}) == null) {
             synchronized (this) {
                 b bVar = new b();
-                bVar.f4127a = 2;
-                bVar.f4129c = i6;
-                bVar.f4130d = str2;
+                bVar.f4134a = 2;
+                bVar.f4136c = i6;
+                bVar.f4137d = str2;
                 c.j().c(i2, i3, i4, i5, str, bVar, true);
             }
         }
@@ -213,29 +214,29 @@ public class i {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("0", i3);
                 jSONObject.put("1", str);
-                String e2 = c.a.n0.b.c.b(this.f4206a).e(jSONObject, this.f4215j);
+                String e2 = c.a.n0.b.c.b(this.f4213a).e(jSONObject, this.f4222j);
                 if (c.a.n0.c.a.c().h(i2)) {
                     if (TextUtils.isEmpty(e2)) {
-                        m(i2, 4, 2005, this.f4208c, "server req empty.");
+                        m(i2, 4, 2005, this.f4215c, "server req empty.");
                     } else {
                         t();
                         JSONObject jSONObject2 = new JSONObject(e2);
                         int optInt = jSONObject2.optInt("0", -1);
                         String optString = jSONObject2.optString("1");
-                        c.a.n0.b.a.h(this.f4206a).K(System.currentTimeMillis());
+                        c.a.n0.b.a.h(this.f4213a).K(System.currentTimeMillis());
                         if (optInt == 0) {
-                            c.a.n0.b.a.h(this.f4206a).q(0);
-                            n(i2, 0, 0, this.f4208c, optString, optInt, "");
+                            c.a.n0.b.a.h(this.f4213a).q(0);
+                            n(i2, 0, 0, this.f4215c, optString, optInt, "");
                         } else {
                             int a2 = a.a(optInt);
-                            c.a.n0.b.a.h(this.f4206a).q(4);
-                            n(i2, 4, a2, this.f4208c, optString, optInt, "");
+                            c.a.n0.b.a.h(this.f4213a).q(4);
+                            n(i2, 4, a2, this.f4215c, optString, optInt, "");
                         }
                     }
                 }
             } catch (Throwable th) {
                 c.a.n0.l.c.d(th);
-                m(i2, 3, 2009, this.f4208c, "post token unknown error.");
+                m(i2, 3, 2009, this.f4215c, "post token unknown error.");
             }
         }
     }
@@ -252,7 +253,7 @@ public class i {
     public void i(Context context, int i2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.f4215j = j2;
+            this.f4222j = j2;
         }
     }
 
@@ -268,7 +269,7 @@ public class i {
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f4209d = i2;
+            this.f4216d = i2;
         }
     }
 
@@ -283,9 +284,9 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str, Integer.valueOf(i6), str2}) == null) {
             b bVar = new b();
-            bVar.f4127a = 4;
-            bVar.f4129c = i6;
-            bVar.f4130d = str2;
+            bVar.f4134a = 4;
+            bVar.f4136c = i6;
+            bVar.f4137d = str2;
             c.j().c(i2, i3, i4, i5, str, bVar, true);
         }
     }
@@ -319,7 +320,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            int i2 = this.f4208c;
+            int i2 = this.f4215c;
             return i2 == 1 ? (TextUtils.isEmpty(k) || TextUtils.isEmpty(l)) ? false : true : i2 == 3 ? (TextUtils.isEmpty(m) || TextUtils.isEmpty(n)) ? false : true : (i2 != 2 || TextUtils.isEmpty(o) || TextUtils.isEmpty(p)) ? false : true;
         }
         return invokeV.booleanValue;
@@ -328,17 +329,17 @@ public class i {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f4210e = null;
-            this.f4211f = 0L;
-            this.f4212g = null;
+            this.f4217e = null;
+            this.f4218f = 0L;
+            this.f4219g = null;
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f4213h = null;
-            this.f4214i = 0L;
+            this.f4220h = null;
+            this.f4221i = 0L;
         }
     }
 

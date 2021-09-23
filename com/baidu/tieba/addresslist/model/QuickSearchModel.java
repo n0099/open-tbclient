@@ -20,10 +20,10 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f49310e;
+    public a f49420e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f49311f;
+    public byte[] f49421f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
@@ -43,8 +43,8 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                 return;
             }
         }
-        this.f49311f = new byte[0];
-        this.f49310e = a.d();
+        this.f49421f = new byte[0];
+        this.f49420e = a.d();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -72,12 +72,12 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this.f49311f) {
+            synchronized (this.f49421f) {
                 ArrayList arrayList = new ArrayList();
                 if (TextUtils.isEmpty(str)) {
                     return arrayList;
                 }
-                List<c.a.q0.t.f.a> c2 = this.f49310e.c();
+                List<c.a.q0.t.f.a> c2 = this.f49420e.c();
                 if (c2 == null) {
                     return arrayList;
                 }

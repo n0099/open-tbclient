@@ -15,25 +15,25 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f23757a;
+    public int f23773a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23758b;
+    public int f23774b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MediaController.MediaPlayerControl f23759c;
+    public MediaController.MediaPlayerControl f23775c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f23760d;
+    public b f23776d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f23761e;
+    public d f23777e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f23762f;
+    public c f23778f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f23763g;
+    public Handler f23779g;
 
     /* loaded from: classes3.dex */
     public class a extends Handler {
@@ -41,7 +41,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f23764a;
+        public final /* synthetic */ f f23780a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(f fVar, Looper looper) {
@@ -61,27 +61,27 @@ public class f {
                     return;
                 }
             }
-            this.f23764a = fVar;
+            this.f23780a = fVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1 && this.f23764a.f23759c != null && this.f23764a.f23759c.isPlaying()) {
-                int currentPosition = this.f23764a.f23759c.getCurrentPosition();
-                int duration = this.f23764a.f23759c.getDuration();
-                if (currentPosition < this.f23764a.f23758b) {
-                    if (this.f23764a.f23760d != null) {
-                        this.f23764a.f23760d.a();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1 && this.f23780a.f23775c != null && this.f23780a.f23775c.isPlaying()) {
+                int currentPosition = this.f23780a.f23775c.getCurrentPosition();
+                int duration = this.f23780a.f23775c.getDuration();
+                if (currentPosition < this.f23780a.f23774b) {
+                    if (this.f23780a.f23776d != null) {
+                        this.f23780a.f23776d.a();
                     }
-                } else if (currentPosition == this.f23764a.f23758b && this.f23764a.f23761e != null) {
-                    this.f23764a.f23761e.a();
+                } else if (currentPosition == this.f23780a.f23774b && this.f23780a.f23777e != null) {
+                    this.f23780a.f23777e.a();
                 }
-                if (this.f23764a.f23762f != null) {
-                    this.f23764a.f23762f.onProgressUpdated(duration, currentPosition);
+                if (this.f23780a.f23778f != null) {
+                    this.f23780a.f23778f.onProgressUpdated(duration, currentPosition);
                 }
-                this.f23764a.f23758b = currentPosition;
-                this.f23764a.h();
+                this.f23780a.f23774b = currentPosition;
+                this.f23780a.h();
             }
         }
     }
@@ -114,52 +114,52 @@ public class f {
                 return;
             }
         }
-        this.f23757a = 1000;
-        this.f23758b = 0;
-        this.f23763g = new a(this, Looper.getMainLooper());
+        this.f23773a = 1000;
+        this.f23774b = 0;
+        this.f23779g = new a(this, Looper.getMainLooper());
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f23763g.removeMessages(1);
-            Handler handler = this.f23763g;
-            handler.sendMessageDelayed(handler.obtainMessage(1), this.f23757a);
+            this.f23779g.removeMessages(1);
+            Handler handler = this.f23779g;
+            handler.sendMessageDelayed(handler.obtainMessage(1), this.f23773a);
         }
     }
 
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f23760d = bVar;
+            this.f23776d = bVar;
         }
     }
 
     public void j(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f23762f = cVar;
+            this.f23778f = cVar;
         }
     }
 
     public void k(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            this.f23761e = dVar;
+            this.f23777e = dVar;
         }
     }
 
     public void l(MediaController.MediaPlayerControl mediaPlayerControl) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayerControl) == null) {
-            this.f23759c = mediaPlayerControl;
+            this.f23775c = mediaPlayerControl;
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f23758b = 0;
+            this.f23774b = 0;
             h();
         }
     }
@@ -167,7 +167,7 @@ public class f {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f23763g.removeMessages(1);
+            this.f23779g.removeMessages(1);
         }
     }
 }

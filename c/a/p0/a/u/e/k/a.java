@@ -29,16 +29,16 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f8998e;
+        public final /* synthetic */ int f9006e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ g f8999f;
+        public final /* synthetic */ g f9007f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g.b f9000g;
+        public final /* synthetic */ g.b f9008g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f9001h;
+        public final /* synthetic */ a f9009h;
 
         public RunnableC0407a(a aVar, int i2, g gVar, g.b bVar) {
             Interceptable interceptable = $ic;
@@ -55,20 +55,20 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9001h = aVar;
-            this.f8998e = i2;
-            this.f8999f = gVar;
-            this.f9000g = bVar;
+            this.f9009h = aVar;
+            this.f9006e = i2;
+            this.f9007f = gVar;
+            this.f9008g = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f8998e > 1) {
-                    c.a.p0.a.v2.g.b(this.f8999f, this.f9001h.i(), 1);
+                if (this.f9006e > 1) {
+                    c.a.p0.a.v2.g.b(this.f9007f, this.f9009h.i(), 1);
                 }
-                this.f9000g.a();
+                this.f9008g.a();
             }
         }
     }
@@ -97,7 +97,7 @@ public class a extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str2 = "handle: " + str;
             }
             e Q = e.Q();
@@ -109,7 +109,7 @@ public class a extends c.a.p0.a.u.c.d {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-NavigateBack", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-NavigateBack", "parse fail");
                 }
                 return bVar;
@@ -120,11 +120,11 @@ public class a extends c.a.p0.a.u.c.d {
                 c.a.p0.a.e0.d.b("Api-NavigateBack", "manager is null");
                 return new c.a.p0.a.u.h.b(1001, "manager is null");
             }
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str3 = "back delta: " + optInt;
             }
             int k = W.k();
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str4 = "fragment count " + k;
             }
             if (k == 1) {
@@ -134,14 +134,14 @@ public class a extends c.a.p0.a.u.c.d {
             if (optInt >= k) {
                 optInt = k - 1;
             }
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str5 = "real back delta: " + optInt;
             }
             c.a.p0.a.h0.g.d j2 = W.j((k - optInt) - 1);
             h.f((j2 == null || j2.I1() == null) ? "" : j2.I1().g(), "1");
             i.c(1, uuid);
             g.b i2 = W.i("navigateBack");
-            i2.n(g.f5930i, g.f5929h);
+            i2.n(g.f5938i, g.f5937h);
             i2.h(optInt);
             q0.X(new RunnableC0407a(this, k, W, i2));
             c.a.p0.a.h0.g.f o = W.o();

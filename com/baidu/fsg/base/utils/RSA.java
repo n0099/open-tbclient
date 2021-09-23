@@ -17,7 +17,7 @@ public class RSA {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39597a = "RSA";
+    public static final String f39654a = "RSA";
     public transient /* synthetic */ FieldHolder $fh;
 
     public RSA() {
@@ -34,18 +34,18 @@ public class RSA {
         }
     }
 
-    public static PublicKey a(byte[] bArr) {
+    public static PrivateKey a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
             try {
-                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr));
+                return KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(bArr));
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (PublicKey) invokeL.objValue;
+        return (PrivateKey) invokeL.objValue;
     }
 
     public static byte[] a(PrivateKey privateKey, byte[] bArr) {
@@ -80,17 +80,17 @@ public class RSA {
         return (byte[]) invokeLL.objValue;
     }
 
-    public static PrivateKey b(byte[] bArr) {
+    public static PublicKey b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             try {
-                return KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(bArr));
+                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr));
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (PrivateKey) invokeL.objValue;
+        return (PublicKey) invokeL.objValue;
     }
 }

@@ -16,31 +16,31 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f21074a;
+    public long f21086a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f21075b;
+    public long f21087b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f21076c;
+    public int f21088c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21077d;
+    public String f21089d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21078e;
+    public String f21090e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21079f;
+    public int f21091f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21080g;
+    public String f21092g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21081h;
+    public String f21093h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f21082i;
+    public long f21094i;
 
     public e(@NonNull VideoInfo videoInfo) {
         Interceptable interceptable = $ic;
@@ -57,9 +57,9 @@ public class e {
                 return;
             }
         }
-        this.f21074a = System.currentTimeMillis();
-        this.f21078e = videoInfo.getVideoPath();
-        this.f21079f = videoInfo.getVideoDuration();
+        this.f21086a = System.currentTimeMillis();
+        this.f21090e = videoInfo.getVideoPath();
+        this.f21091f = videoInfo.getVideoDuration();
     }
 
     public JSONObject a() throws JSONException {
@@ -67,15 +67,15 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("startTime", this.f21074a);
-            jSONObject.put("endTime", this.f21075b);
-            jSONObject.put("errorCode", this.f21076c);
-            jSONObject.put("errorMessage", this.f21077d);
-            jSONObject.put(PackageTable.MD5, this.f21080g);
-            jSONObject.put("url", this.f21081h);
-            jSONObject.put("path", this.f21078e);
-            jSONObject.put("duration", this.f21079f);
-            jSONObject.put("size", this.f21082i);
+            jSONObject.put("startTime", this.f21086a);
+            jSONObject.put("endTime", this.f21087b);
+            jSONObject.put("errorCode", this.f21088c);
+            jSONObject.put("errorMessage", this.f21089d);
+            jSONObject.put(PackageTable.MD5, this.f21092g);
+            jSONObject.put("url", this.f21093h);
+            jSONObject.put("path", this.f21090e);
+            jSONObject.put("duration", this.f21091f);
+            jSONObject.put("size", this.f21094i);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

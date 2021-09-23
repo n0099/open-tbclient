@@ -24,16 +24,16 @@ public class b implements CustomMessageTask.CustomRunnable<d2>, z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.w0.k2.b f26560e;
+    public c.a.r0.w0.k2.b f26583e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageTag f26561f;
+    public TbPageTag f26584f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f26562g;
+    public BdUniqueId f26585g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f26563h;
+    public int f26586h;
 
     public b(c.a.r0.w0.k2.b bVar, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
@@ -50,11 +50,11 @@ public class b implements CustomMessageTask.CustomRunnable<d2>, z {
                 return;
             }
         }
-        this.f26560e = null;
-        this.f26561f = null;
-        this.f26560e = bVar;
-        this.f26561f = tbPageTag;
-        this.f26562g = bdUniqueId;
+        this.f26583e = null;
+        this.f26584f = null;
+        this.f26583e = bVar;
+        this.f26584f = tbPageTag;
+        this.f26585g = bdUniqueId;
     }
 
     @Override // c.a.r0.a0.z
@@ -74,14 +74,14 @@ public class b implements CustomMessageTask.CustomRunnable<d2>, z {
         StatisticItem statisticItem = new StatisticItem("c13615");
         statisticItem.param("uid", d2Var.J().getUserId());
         statisticItem.param("fid", d2Var.T());
-        statisticItem.param("ab_tag", d2Var.Y0);
+        statisticItem.param("ab_tag", d2Var.Z0);
         statisticItem.param("obj_type", d2Var.l1().isChushou ? 2 : 1);
         statisticItem.param("tid", d2Var.s1());
         statisticItem.param("liveid", d2Var.l1().live_id);
         statisticItem.param(TiebaStatic.Params.STAR_ID, j2);
-        statisticItem.param("extra", d2Var.Z0);
-        statisticItem.param("source_from", d2Var.W0);
-        int i2 = this.f26563h;
+        statisticItem.param("extra", d2Var.a1);
+        statisticItem.param("source_from", d2Var.X0);
+        int i2 = this.f26586h;
         if (i2 == 14) {
             statisticItem.param("obj_locate", 1);
         } else if (i2 == 13) {
@@ -110,14 +110,14 @@ public class b implements CustomMessageTask.CustomRunnable<d2>, z {
         StatisticItem statisticItem = new StatisticItem("c13614");
         statisticItem.param("uid", d2Var.J().getUserId());
         statisticItem.param("fid", d2Var.T());
-        statisticItem.param("ab_tag", d2Var.Y0);
+        statisticItem.param("ab_tag", d2Var.Z0);
         statisticItem.param("obj_type", d2Var.l1().isChushou ? 2 : 1);
         statisticItem.param("tid", d2Var.s1());
         statisticItem.param("liveid", d2Var.l1().live_id);
         statisticItem.param(TiebaStatic.Params.STAR_ID, j2);
-        statisticItem.param("extra", d2Var.Z0);
-        statisticItem.param("source_from", d2Var.W0);
-        int i2 = this.f26563h;
+        statisticItem.param("extra", d2Var.a1);
+        statisticItem.param("source_from", d2Var.X0);
+        int i2 = this.f26586h;
         if (i2 == 14) {
             statisticItem.param("obj_locate", 1);
         } else if (i2 == 13) {
@@ -139,7 +139,7 @@ public class b implements CustomMessageTask.CustomRunnable<d2>, z {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f26563h = i2;
+            this.f26586h = i2;
         }
     }
 
@@ -160,20 +160,20 @@ public class b implements CustomMessageTask.CustomRunnable<d2>, z {
                 d2 data = customMessage.getData();
                 if (customMessage.getCmd() == 2921018) {
                     b(data);
-                    c.a.r0.w0.k2.c.j().g(this.f26560e, data, 1);
-                    c.a.r0.w0.k2.a.e(data, 1, this.f26562g, this.f26560e, this.f26561f);
+                    c.a.r0.w0.k2.c.j().g(this.f26583e, data, 1);
+                    c.a.r0.w0.k2.a.e(data, 1, this.f26585g, this.f26583e, this.f26584f);
                 } else if (customMessage.getCmd() == 2921016) {
                     b(data);
-                    c.a.r0.w0.k2.c.j().g(this.f26560e, data, 2);
-                    c.a.r0.w0.k2.a.e(data, 2, this.f26562g, this.f26560e, this.f26561f);
+                    c.a.r0.w0.k2.c.j().g(this.f26583e, data, 2);
+                    c.a.r0.w0.k2.a.e(data, 2, this.f26585g, this.f26583e, this.f26584f);
                 } else if (customMessage.getCmd() == 2921019) {
                     b(data);
-                    c.a.r0.w0.k2.c.j().g(this.f26560e, data, 4);
-                    c.a.r0.w0.k2.a.e(data, 1, this.f26562g, this.f26560e, this.f26561f);
+                    c.a.r0.w0.k2.c.j().g(this.f26583e, data, 4);
+                    c.a.r0.w0.k2.a.e(data, 1, this.f26585g, this.f26583e, this.f26584f);
                 } else if (customMessage.getCmd() == 2921017) {
                     c(data);
-                    c.a.r0.w0.k2.c.j().c(this.f26560e, data);
-                    c.a.r0.w0.k2.a.m(data, this.f26562g, this.f26560e, this.f26561f);
+                    c.a.r0.w0.k2.c.j().c(this.f26583e, data);
+                    c.a.r0.w0.k2.a.m(data, this.f26585g, this.f26583e, this.f26584f);
                 }
             }
             return null;

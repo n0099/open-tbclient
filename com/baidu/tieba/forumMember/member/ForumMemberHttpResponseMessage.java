@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumMember.member;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.j3.w;
+import c.a.r0.j3.x;
 import c.a.r0.u0.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -30,7 +30,7 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
     public MemberGodInfo mMemberGodInfo;
     public List<MemberGroupInfo> mMemberGroupInfoList;
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
-    public w mUserInfo;
+    public x mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumMemberHttpResponseMessage(int i2) {
@@ -77,10 +77,10 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPrivateMgrApplyInfo : (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public w getUserInfo() {
+    public x getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mUserInfo : (w) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mUserInfo : (x) invokeV.objValue;
     }
 
     public boolean isBawuShow() {
@@ -136,9 +136,9 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
                 DataRes dataRes = getMemberInfoResIdl.data;
                 if (dataRes != null) {
                     if (dataRes.forum_member_info != null) {
-                        w wVar = new w();
-                        this.mUserInfo = wVar;
-                        wVar.v(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        x xVar = new x();
+                        this.mUserInfo = xVar;
+                        xVar.v(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.r(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.u(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
                         this.mUserInfo.w(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());

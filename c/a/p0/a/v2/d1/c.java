@@ -14,10 +14,10 @@ public class c implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Queue<a> f9329a;
+    public final Queue<a> f9337a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f9330b;
+    public a f9338b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -32,15 +32,15 @@ public class c implements b {
                 return;
             }
         }
-        this.f9329a = new ArrayDeque();
+        this.f9337a = new ArrayDeque();
     }
 
     @Override // c.a.p0.a.v2.d1.b
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            synchronized (this.f9329a) {
-                if (aVar == this.f9330b) {
+            synchronized (this.f9337a) {
+                if (aVar == this.f9338b) {
                     e();
                 }
             }
@@ -50,8 +50,8 @@ public class c implements b {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.f9329a) {
-                if (this.f9330b != null) {
+            synchronized (this.f9337a) {
+                if (this.f9338b != null) {
                     return;
                 }
                 e();
@@ -63,11 +63,11 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f9330b != null) {
-                    this.f9330b.a();
-                    this.f9330b = null;
+                if (this.f9338b != null) {
+                    this.f9338b.a();
+                    this.f9338b = null;
                 }
-                this.f9329a.clear();
+                this.f9337a.clear();
             }
         }
     }
@@ -76,8 +76,8 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             if (aVar != null) {
-                synchronized (this.f9329a) {
-                    Queue<a> queue = this.f9329a;
+                synchronized (this.f9337a) {
+                    Queue<a> queue = this.f9337a;
                     aVar.b(this);
                     queue.offer(aVar);
                 }
@@ -89,13 +89,13 @@ public class c implements b {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.f9329a) {
-                this.f9330b = null;
-                if (this.f9329a.isEmpty()) {
+            synchronized (this.f9337a) {
+                this.f9338b = null;
+                if (this.f9337a.isEmpty()) {
                     return;
                 }
-                a poll = this.f9329a.poll();
-                this.f9330b = poll;
+                a poll = this.f9337a.poll();
+                this.f9338b = poll;
                 if (poll == null) {
                     e();
                 } else {

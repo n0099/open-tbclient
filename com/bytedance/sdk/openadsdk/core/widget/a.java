@@ -17,10 +17,10 @@ public class a extends AlertDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f67294a;
+    public Context f67605a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67295b;
+    public String f67606b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context, String str) {
@@ -41,23 +41,23 @@ public class a extends AlertDialog {
                 return;
             }
         }
-        this.f67294a = context;
+        this.f67605a = context;
         if (context == null) {
-            this.f67294a = o.a();
+            this.f67605a = o.a();
         }
-        this.f67295b = str;
+        this.f67606b = str;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            ((TextView) findViewById(t.e(this.f67294a, "tt_dialog_content"))).setText(this.f67295b);
-            findViewById(t.e(this.f67294a, "tt_button_ok")).setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.a.1
+            ((TextView) findViewById(t.e(this.f67605a, "tt_dialog_content"))).setText(this.f67606b);
+            findViewById(t.e(this.f67605a, "tt_button_ok")).setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f67296a;
+                public final /* synthetic */ a f67607a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -74,14 +74,14 @@ public class a extends AlertDialog {
                             return;
                         }
                     }
-                    this.f67296a = this;
+                    this.f67607a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f67296a.dismiss();
+                        this.f67607a.dismiss();
                     }
                 }
             });
@@ -93,7 +93,7 @@ public class a extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(t.f(this.f67294a, "tt_adinfo_dialog_layout"));
+            setContentView(t.f(this.f67605a, "tt_adinfo_dialog_layout"));
             a();
         }
     }

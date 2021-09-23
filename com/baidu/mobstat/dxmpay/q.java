@@ -17,10 +17,10 @@ public class q extends n {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f43839a = "__Baidu_Stat_SDK_SendRem";
+    public static final String f43901a = "__Baidu_Stat_SDK_SendRem";
 
     /* renamed from: b  reason: collision with root package name */
-    public static q f43840b;
+    public static q f43902b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class q extends n {
                 return;
             }
         }
-        f43840b = new q();
+        f43902b = new q();
     }
 
     public q() {
@@ -56,7 +56,7 @@ public class q extends n {
     public static q a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43840b : (q) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43902b : (q) invokeV.objValue;
     }
 
     public int b(Context context) {
@@ -147,7 +147,7 @@ public class q extends n {
     public SharedPreferences a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? context.getSharedPreferences(f43839a, 0) : (SharedPreferences) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? context.getSharedPreferences(f43901a, 0) : (SharedPreferences) invokeL.objValue;
     }
 
     public void b(Context context, int i2) {

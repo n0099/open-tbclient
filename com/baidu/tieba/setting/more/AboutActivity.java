@@ -42,7 +42,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AboutActivity f56687a;
+        public final /* synthetic */ AboutActivity f56804a;
 
         public a(AboutActivity aboutActivity) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                     return;
                 }
             }
-            this.f56687a = aboutActivity;
+            this.f56804a = aboutActivity;
         }
 
         @Override // c.a.r0.b3.c.d
@@ -69,28 +69,28 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    this.f56687a.finish();
+                    this.f56804a.finish();
                 } else if (i2 == 1) {
-                    this.f56687a.checkUpdata();
+                    this.f56804a.checkUpdata();
                 } else if (i2 == 2) {
-                    this.f56687a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.f56687a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
+                    this.f56804a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.f56804a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i2 == 3) {
                     c.a.q0.s.d0.b.j().t(SettingTextFunctionIntroView.HAS_SHOWN_FUNCTION_INTRO, true);
-                    c.a.q0.m.a.o(this.f56687a.getPageContext().getPageActivity(), this.f56687a.getPageContext().getString(R.string.function_intro), this.f56687a.functionIntroUrl, true, false, false);
+                    c.a.q0.m.a.o(this.f56804a.getPageContext().getPageActivity(), this.f56804a.getPageContext().getString(R.string.function_intro), this.f56804a.functionIntroUrl, true, false, false);
                 } else if (i2 != 4) {
                     if (i2 == 5) {
-                        if (this.f56687a.mVisitPreviewServerDialog == null) {
-                            AboutActivity aboutActivity = this.f56687a;
+                        if (this.f56804a.mVisitPreviewServerDialog == null) {
+                            AboutActivity aboutActivity = this.f56804a;
                             aboutActivity.mVisitPreviewServerDialog = new i(aboutActivity.getActivity());
-                            this.f56687a.mVisitPreviewServerDialog.create(this.f56687a.getPageContext());
+                            this.f56804a.mVisitPreviewServerDialog.create(this.f56804a.getPageContext());
                         }
-                        this.f56687a.mVisitPreviewServerDialog.show();
+                        this.f56804a.mVisitPreviewServerDialog.show();
                     } else if (i2 == 6) {
-                        if (PermissionUtil.checkWriteExternalStorage(this.f56687a)) {
-                            this.f56687a.startCollectLog();
+                        if (PermissionUtil.checkWriteExternalStorage(this.f56804a)) {
+                            this.f56804a.startCollectLog();
                             return;
                         }
-                        AboutActivity aboutActivity2 = this.f56687a;
+                        AboutActivity aboutActivity2 = this.f56804a;
                         PermissionUtil.requestWriteExternalStorgePermission(aboutActivity2, aboutActivity2.REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON);
                     }
                 } else {
@@ -117,7 +117,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AboutActivity f56688a;
+        public final /* synthetic */ AboutActivity f56805a;
 
         public b(AboutActivity aboutActivity) {
             Interceptable interceptable = $ic;
@@ -134,14 +134,14 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                     return;
                 }
             }
-            this.f56688a = aboutActivity;
+            this.f56805a = aboutActivity;
         }
 
         @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.f56688a.handlCallBack(obj);
+                this.f56805a.handlCallBack(obj);
             }
         }
     }

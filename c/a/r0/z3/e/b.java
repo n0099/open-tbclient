@@ -28,10 +28,10 @@ public class b extends c.a.q0.x.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.z3.e.a f29799e;
+        public final /* synthetic */ c.a.r0.z3.e.a f29820e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f29800f;
+        public final /* synthetic */ b f29821f;
 
         public a(b bVar, c.a.r0.z3.e.a aVar) {
             Interceptable interceptable = $ic;
@@ -48,27 +48,27 @@ public class b extends c.a.q0.x.c {
                     return;
                 }
             }
-            this.f29800f = bVar;
-            this.f29799e = aVar;
+            this.f29821f = bVar;
+            this.f29820e = aVar;
         }
 
         @Override // c.a.q0.x.b
         public void onAction(c.a.q0.x.a aVar) {
             c.a.r0.z3.e.a aVar2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (aVar2 = this.f29799e) == null || aVar2.a() == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (aVar2 = this.f29820e) == null || aVar2.a() == null || aVar == null) {
                 return;
             }
-            int i2 = aVar.f15079a;
+            int i2 = aVar.f15086a;
             if (i2 == 4) {
-                this.f29799e.v((String) aVar.f15081c);
+                this.f29820e.v((String) aVar.f15088c);
             } else if (i2 == 7) {
-                this.f29799e.m().showToast(R.string.over_limit_tip);
+                this.f29820e.m().showToast(R.string.over_limit_tip);
             } else if (i2 != 8) {
             } else {
-                this.f29799e.z();
-                if (this.f29800f.f(this.f29799e.m(), CyberPlayerManager.MEDIA_INFO_DISABLE_FILECACHE)) {
-                    this.f29799e.p();
+                this.f29820e.z();
+                if (this.f29821f.f(this.f29820e.m(), CyberPlayerManager.MEDIA_INFO_DISABLE_FILECACHE)) {
+                    this.f29820e.p();
                 }
             }
         }
@@ -126,7 +126,7 @@ public class b extends c.a.q0.x.c {
         m findToolById = a2.findToolById(5);
         if (findToolById != null) {
             findToolById.f(false);
-            findToolById.f15088d = 0;
+            findToolById.f15095d = 0;
         }
         a2.addTool(new c(a2.getContext()));
         a2.build();

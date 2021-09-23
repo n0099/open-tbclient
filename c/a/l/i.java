@@ -35,7 +35,7 @@ public class i extends c.a.l.a<c.a.q0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f3806j;
+    public View f3807j;
     public TextView k;
     public c.a.q0.s.q.a l;
     public RoundCornerFrameLayout m;
@@ -50,10 +50,10 @@ public class i extends c.a.l.a<c.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f3807e;
+        public final /* synthetic */ ViewGroup.LayoutParams f3808e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f3808f;
+        public final /* synthetic */ i f3809f;
 
         public a(i iVar, ViewGroup.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
@@ -70,17 +70,17 @@ public class i extends c.a.l.a<c.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3808f = iVar;
-            this.f3807e = layoutParams;
+            this.f3809f = iVar;
+            this.f3808e = layoutParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3807e.width = this.f3808f.f3806j.getWidth();
-                this.f3807e.height = (this.f3808f.f3806j.getWidth() / 16) * 9;
-                this.f3808f.m.setLayoutParams(this.f3807e);
+                this.f3808e.width = this.f3809f.f3807j.getWidth();
+                this.f3808e.height = (this.f3809f.f3807j.getWidth() / 16) * 9;
+                this.f3809f.m.setLayoutParams(this.f3808e);
             }
         }
     }
@@ -91,7 +91,7 @@ public class i extends c.a.l.a<c.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f3809a;
+        public final /* synthetic */ i f3810a;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class i extends c.a.l.a<c.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3809a = iVar;
+            this.f3810a = iVar;
         }
 
         @Override // c.a.l.v0.a.b
@@ -117,7 +117,7 @@ public class i extends c.a.l.a<c.a.q0.s.q.a> {
             RoundCornerFrameLayout roundCornerFrameLayout;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
-                if (c0095a.b() != 7 || (roundCornerFrameLayout = this.f3809a.m) == null) {
+                if (c0095a.b() != 7 || (roundCornerFrameLayout = this.f3810a.m) == null) {
                     return false;
                 }
                 roundCornerFrameLayout.onRootPressed(((Boolean) c0095a.c()).booleanValue());
@@ -177,17 +177,17 @@ public class i extends c.a.l.a<c.a.q0.s.q.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f3806j == null) {
-                View inflate = LayoutInflater.from(this.f3782f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
-                this.f3806j = inflate;
+            if (this.f3807j == null) {
+                View inflate = LayoutInflater.from(this.f3783f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
+                this.f3807j = inflate;
                 this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
-                this.m = (RoundCornerFrameLayout) this.f3806j.findViewById(R.id.frame_video);
-                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f3782f);
+                this.m = (RoundCornerFrameLayout) this.f3807j.findViewById(R.id.frame_video);
+                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f3783f);
                 this.n = fakeVideoContainer;
                 fakeVideoContainer.setBackgroundResource(R.color.transparent);
                 this.m.addView(this.n);
             }
-            return this.f3806j;
+            return this.f3807j;
         }
         return (View) invokeV.objValue;
     }
@@ -274,7 +274,7 @@ public class i extends c.a.l.a<c.a.q0.s.q.a> {
                     this.m.post(new a(this, layoutParams));
                 }
             }
-            if (!this.l.getThreadData().O1() && this.l.getThreadData().getType() != d2.P3) {
+            if (!this.l.getThreadData().O1() && this.l.getThreadData().getType() != d2.Q3) {
                 this.k.setMaxLines(2);
                 ThreadCardUtils.setTitle(this.k, this.l.getThreadData(), 0, this.p);
             } else {

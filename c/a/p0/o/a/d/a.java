@@ -14,7 +14,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final InterfaceC0629a f12194a;
+    public static final InterfaceC0629a f12202a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.o.a.d.a$a  reason: collision with other inner class name */
@@ -122,18 +122,18 @@ public class a {
         }
         int i2 = Build.VERSION.SDK_INT;
         if (i2 >= 21) {
-            f12194a = new d();
+            f12202a = new d();
         } else if (i2 >= 11) {
-            f12194a = new c();
+            f12202a = new c();
         } else {
-            f12194a = new b();
+            f12202a = new b();
         }
     }
 
     public static void a(LayoutInflater layoutInflater, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, layoutInflater, eVar) == null) {
-            f12194a.a(layoutInflater, eVar);
+            f12202a.a(layoutInflater, eVar);
         }
     }
 }

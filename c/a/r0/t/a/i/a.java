@@ -23,14 +23,14 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f24901b;
+    public static final String f24922b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f24902c;
+    public static final String f24923c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdInfo f24903a;
+    public AdInfo f24924a;
 
     static {
         InterceptResult invokeClinit;
@@ -45,8 +45,8 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
                 return;
             }
         }
-        f24901b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
-        f24902c = File.separator;
+        f24922b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+        f24923c = File.separator;
     }
 
     public a() {
@@ -67,32 +67,32 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, file) == null) {
             if (z && file != null) {
-                File file2 = new File(f24901b + f24902c + (q.c(this.f24903a.adVideoUrl) + ".mp4"));
+                File file2 = new File(f24922b + f24923c + (q.c(this.f24924a.adVideoUrl) + ".mp4"));
                 if (file2.exists()) {
                     file2.delete();
                 }
                 if (file.renameTo(file2)) {
-                    this.f24903a.videoLocalPath = file2.getAbsolutePath();
+                    this.f24924a.videoLocalPath = file2.getAbsolutePath();
                 } else {
-                    this.f24903a.videoLocalPath = "";
+                    this.f24924a.videoLocalPath = "";
                 }
             } else {
-                this.f24903a.videoLocalPath = "";
+                this.f24924a.videoLocalPath = "";
             }
-            c.a.r0.t.a.j.a.g(this.f24903a);
+            c.a.r0.t.a.j.a.g(this.f24924a);
         }
     }
 
     public void c(AdInfo adInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adInfo) == null) {
-            this.f24903a = adInfo;
+            this.f24924a = adInfo;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0093, code lost:
-        if (r12.equalsIgnoreCase(r11.f24903a.videoMd5) == false) goto L26;
+        if (r12.equalsIgnoreCase(r11.f24924a.videoMd5) == false) goto L26;
      */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /*
@@ -107,14 +107,14 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
         if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) != null) {
             return (Boolean) invokeL.objValue;
         }
-        String str = f24901b + f24902c + "advideo.temp";
+        String str = f24922b + f24923c + "advideo.temp";
         file = new File(str);
         if (file.exists()) {
             file.delete();
         }
         z = false;
         try {
-            new File(f24901b).mkdirs();
+            new File(f24922b).mkdirs();
             if (!file.createNewFile()) {
                 b(false, null);
                 return Boolean.FALSE;
@@ -123,10 +123,10 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
             e2.printStackTrace();
         }
         e eVar = new e();
-        eVar.b().s(this.f24903a.adVideoUrl);
+        eVar.b().s(this.f24924a.adVideoUrl);
         c2 = new c.a.e.e.j.a.c(eVar).c(str, null, 3, 3000, -1, -1, true, true);
         try {
-            if (TextUtils.isEmpty(this.f24903a.videoMd5)) {
+            if (TextUtils.isEmpty(this.f24924a.videoMd5)) {
                 b(c2, file);
                 return Boolean.valueOf(c2);
             }

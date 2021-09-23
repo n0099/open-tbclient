@@ -95,7 +95,7 @@ public abstract class b implements a {
         }
         HashMap hashMap = new HashMap();
         hashMap.put("errCode", str2);
-        hashMap.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, str3);
+        hashMap.put("des", str3);
         iLightappInvokerCallback.onResult(1, a((Map<String, Object>) hashMap, false));
     }
 

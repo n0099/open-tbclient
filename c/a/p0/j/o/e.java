@@ -26,28 +26,28 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f11775a;
+    public Context f11783a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaiduMap f11776b;
+    public BaiduMap f11784b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Marker f11777c;
+    public Marker f11785c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BitmapDescriptor f11778d;
+    public BitmapDescriptor f11786d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f11779e;
+    public b f11787e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LocationClient f11780f;
+    public LocationClient f11788f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BDLocation f11781g;
+    public BDLocation f11789g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11782h;
+    public boolean f11790h;
 
     /* loaded from: classes3.dex */
     public class a extends BDAbstractLocationListener {
@@ -55,7 +55,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f11783a;
+        public final /* synthetic */ e f11791a;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class e {
                     return;
                 }
             }
-            this.f11783a = eVar;
+            this.f11791a = eVar;
         }
 
         @Override // com.baidu.location.BDAbstractLocationListener
@@ -80,24 +80,24 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
                 if (bDLocation == null) {
-                    this.f11783a.m();
+                    this.f11791a.m();
                     return;
                 }
-                this.f11783a.f11776b.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
-                if (this.f11783a.f11777c != null) {
-                    this.f11783a.f11777c.remove();
-                    this.f11783a.f11777c = null;
+                this.f11791a.f11784b.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
+                if (this.f11791a.f11785c != null) {
+                    this.f11791a.f11785c.remove();
+                    this.f11791a.f11785c = null;
                 }
-                MarkerOptions icon = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(this.f11783a.f11778d);
-                e eVar = this.f11783a;
-                eVar.f11777c = (Marker) eVar.f11776b.addOverlay(icon);
-                if (this.f11783a.f11781g == null) {
-                    this.f11783a.f11776b.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())));
-                    if (this.f11783a.f11779e != null) {
-                        this.f11783a.f11779e.a(bDLocation);
+                MarkerOptions icon = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(this.f11791a.f11786d);
+                e eVar = this.f11791a;
+                eVar.f11785c = (Marker) eVar.f11784b.addOverlay(icon);
+                if (this.f11791a.f11789g == null) {
+                    this.f11791a.f11784b.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())));
+                    if (this.f11791a.f11787e != null) {
+                        this.f11791a.f11787e.a(bDLocation);
                     }
                 }
-                this.f11783a.f11781g = bDLocation;
+                this.f11791a.f11789g = bDLocation;
             }
         }
     }
@@ -122,59 +122,59 @@ public class e {
                 return;
             }
         }
-        this.f11782h = false;
-        this.f11775a = context;
-        this.f11776b = baiduMap;
+        this.f11790h = false;
+        this.f11783a = context;
+        this.f11784b = baiduMap;
     }
 
     public BDLocation i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11781g : (BDLocation) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11789g : (BDLocation) invokeV.objValue;
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f11780f == null) {
-            LocationClient locationClient = new LocationClient(this.f11775a.getApplicationContext());
-            this.f11780f = locationClient;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f11788f == null) {
+            LocationClient locationClient = new LocationClient(this.f11783a.getApplicationContext());
+            this.f11788f = locationClient;
             locationClient.registerLocationListener(new a(this));
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setOpenGps(true);
             locationClientOption.setCoorType(CoordType.GCJ02.name());
             locationClientOption.setScanSpan(1000);
-            this.f11780f.setLocOption(locationClientOption);
-            this.f11778d = BitmapDescriptorFactory.fromResource(c.a.p0.j.d.aiapps_location_my_point);
+            this.f11788f.setLocOption(locationClientOption);
+            this.f11786d = BitmapDescriptorFactory.fromResource(c.a.p0.j.d.aiapps_location_my_point);
         }
     }
 
     public void k(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f11779e = bVar;
+            this.f11787e = bVar;
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f11782h) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f11790h) {
             return;
         }
         j();
-        LocationClient locationClient = this.f11780f;
+        LocationClient locationClient = this.f11788f;
         if (locationClient == null || locationClient.isStarted()) {
             return;
         }
-        this.f11780f.start();
-        this.f11782h = true;
+        this.f11788f.start();
+        this.f11790h = true;
     }
 
     public final void m() {
         LocationClient locationClient;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f11782h && (locationClient = this.f11780f) != null && locationClient.isStarted()) {
-            this.f11780f.stop();
-            this.f11782h = false;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f11790h && (locationClient = this.f11788f) != null && locationClient.isStarted()) {
+            this.f11788f.stop();
+            this.f11790h = false;
         }
     }
 

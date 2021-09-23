@@ -12,27 +12,27 @@ public class e implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18103e;
+    public int f18113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18104f;
+    public String f18114f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18105g;
+    public int f18115g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f18106h;
+    public String f18116h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f18107i;
+    public int f18117i;
 
     /* renamed from: j  reason: collision with root package name */
-    public d2 f18108j;
+    public d2 f18118j;
 
     @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f18094b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f18104b : (BdUniqueId) invokeV.objValue;
     }
 }

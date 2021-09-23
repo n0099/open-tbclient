@@ -29,20 +29,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f3192e;
+    public static volatile a f3193e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f3193a;
+    public long f3194a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.poly.a.l.c f3194b;
+    public com.baidu.poly.a.l.c f3195b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.e0.p.c f3195c;
+    public c.a.e0.p.c f3196c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.e0.p.c f3196d;
+    public c.a.e0.p.c f3197d;
 
     /* renamed from: c.a.e0.k.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -51,19 +51,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f3197a;
+        public final /* synthetic */ m f3198a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f3198b;
+        public final /* synthetic */ boolean f3199b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Context f3199c;
+        public final /* synthetic */ Context f3200c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Bundle f3200d;
+        public final /* synthetic */ Bundle f3201d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f3201e;
+        public final /* synthetic */ a f3202e;
 
         public C0059a(a aVar, m mVar, boolean z, Context context, Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -80,19 +80,19 @@ public class a {
                     return;
                 }
             }
-            this.f3201e = aVar;
-            this.f3197a = mVar;
-            this.f3198b = z;
-            this.f3199c = context;
-            this.f3200d = bundle;
+            this.f3202e = aVar;
+            this.f3198a = mVar;
+            this.f3199b = z;
+            this.f3200c = context;
+            this.f3201d = bundle;
         }
 
         @Override // c.a.e0.k.a.a
         public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) {
-                this.f3201e.j("2", str);
-                m mVar = this.f3197a;
+                this.f3202e.j("2", str);
+                m mVar = this.f3198a;
                 mVar.a("get trade state failed : " + str, (String) null);
             }
         }
@@ -104,13 +104,13 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
                 int optInt = jSONObject.optInt("payStatus", 3);
-                this.f3201e.j("1", String.valueOf(optInt));
+                this.f3202e.j("1", String.valueOf(optInt));
                 if (optInt == 2) {
-                    this.f3197a.a(0, c.a.e0.n.b.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")));
-                } else if (this.f3198b) {
-                    this.f3201e.c(this.f3199c, this.f3200d, this.f3197a);
+                    this.f3198a.a(0, c.a.e0.n.b.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")));
+                } else if (this.f3199b) {
+                    this.f3202e.c(this.f3200c, this.f3201d, this.f3198a);
                 } else {
-                    this.f3201e.e(this.f3199c, this.f3197a);
+                    this.f3202e.e(this.f3200c, this.f3198a);
                 }
             }
         }
@@ -122,10 +122,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f3202e;
+        public final /* synthetic */ m f3203e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f3203f;
+        public final /* synthetic */ a f3204f;
 
         public b(a aVar, m mVar) {
             Interceptable interceptable = $ic;
@@ -142,19 +142,19 @@ public class a {
                     return;
                 }
             }
-            this.f3203f = aVar;
-            this.f3202e = mVar;
+            this.f3204f = aVar;
+            this.f3203e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f3203f.f3195c.q();
+                this.f3204f.f3196c.q();
                 c.a.e0.k.h.b bVar = new c.a.e0.k.h.b("103");
                 bVar.c("1");
                 c.a.e0.k.h.d.b(bVar);
-                this.f3202e.a(3, "pay failed , click choose window");
+                this.f3203e.a(3, "pay failed , click choose window");
             }
         }
     }
@@ -165,16 +165,16 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f3204e;
+        public final /* synthetic */ Context f3205e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bundle f3205f;
+        public final /* synthetic */ Bundle f3206f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ m f3206g;
+        public final /* synthetic */ m f3207g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f3207h;
+        public final /* synthetic */ a f3208h;
 
         public c(a aVar, Context context, Bundle bundle, m mVar) {
             Interceptable interceptable = $ic;
@@ -191,21 +191,21 @@ public class a {
                     return;
                 }
             }
-            this.f3207h = aVar;
-            this.f3204e = context;
-            this.f3205f = bundle;
-            this.f3206g = mVar;
+            this.f3208h = aVar;
+            this.f3205e = context;
+            this.f3206f = bundle;
+            this.f3207g = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f3207h.f3195c.q();
+                this.f3208h.f3196c.q();
                 c.a.e0.k.h.b bVar = new c.a.e0.k.h.b("103");
                 bVar.c("2");
                 c.a.e0.k.h.d.b(bVar);
-                this.f3207h.d(this.f3204e, this.f3205f, this.f3206g, false);
+                this.f3208h.d(this.f3205e, this.f3206f, this.f3207g, false);
             }
         }
     }
@@ -216,7 +216,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f3208e;
+        public final /* synthetic */ a f3209e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -233,14 +233,14 @@ public class a {
                     return;
                 }
             }
-            this.f3208e = aVar;
+            this.f3209e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f3208e.f3196d != null && this.f3208e.f3196d.u()) {
-                this.f3208e.f3196d.q();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f3209e.f3197d != null && this.f3209e.f3197d.u()) {
+                this.f3209e.f3197d.q();
             }
         }
     }
@@ -251,7 +251,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f3209a;
+        public final /* synthetic */ m f3210a;
 
         public e(a aVar, m mVar) {
             Interceptable interceptable = $ic;
@@ -268,14 +268,14 @@ public class a {
                     return;
                 }
             }
-            this.f3209a = mVar;
+            this.f3210a = mVar;
         }
 
         @Override // c.a.e0.p.c.b
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3209a.a(3, "pay failed , click error window");
+                this.f3210a.a(3, "pay failed , click error window");
             }
         }
     }
@@ -298,14 +298,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f3192e == null) {
+            if (f3193e == null) {
                 synchronized (a.class) {
-                    if (f3192e == null) {
-                        f3192e = new a();
+                    if (f3193e == null) {
+                        f3193e = new a();
                     }
                 }
             }
-            return f3192e;
+            return f3193e;
         }
         return (a) invokeV.objValue;
     }
@@ -327,12 +327,12 @@ public class a {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bundle, mVar) == null) {
             View inflate = View.inflate(mVar.getContext(), g.pay_confirm, null);
             c.a.e0.p.c cVar = new c.a.e0.p.c(inflate, -1, -1, true);
-            this.f3195c = cVar;
+            this.f3196c = cVar;
             cVar.y(false);
-            this.f3195c.C(false);
+            this.f3196c.C(false);
             ((TextView) inflate.findViewById(f.bt_pay_meet_problems)).setOnClickListener(new b(this, mVar));
             ((TextView) inflate.findViewById(f.bt_pay_already_finish)).setOnClickListener(new c(this, context, bundle, mVar));
-            this.f3195c.E(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+            this.f3196c.E(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
             c.a.e0.k.h.d.b(new c.a.e0.k.h.b("102"));
         }
     }
@@ -344,8 +344,8 @@ public class a {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        this.f3194b = c.a.e0.k.k.a.a((ViewGroup) a((Activity) context), layoutParams, null, -1L);
-        this.f3193a = System.currentTimeMillis();
+        this.f3195b = c.a.e0.k.k.a.a((ViewGroup) a((Activity) context), layoutParams, null, -1L);
+        this.f3194a = System.currentTimeMillis();
         c.a.e0.k.b.b.j().g(bundle, new C0059a(this, mVar, z, context, bundle));
     }
 
@@ -356,22 +356,22 @@ public class a {
             ((TextView) inflate.findViewById(f.pop_title)).setText(h.pay_failed);
             ((TextView) inflate.findViewById(f.pop_tips)).setText(h.pay_failed_sub_text);
             c.a.e0.p.c cVar = new c.a.e0.p.c(inflate, -1, -1, true);
-            this.f3196d = cVar;
+            this.f3197d = cVar;
             cVar.y(false);
-            this.f3196d.C(false);
-            this.f3196d.x(new ColorDrawable(0));
+            this.f3197d.C(false);
+            this.f3197d.x(new ColorDrawable(0));
             ((TextView) inflate.findViewById(f.pop_button)).setOnClickListener(new d(this));
-            this.f3196d.h(new e(this, mVar));
-            this.f3196d.E(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+            this.f3197d.h(new e(this, mVar));
+            this.f3197d.E(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
         }
     }
 
     public final void j(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            c.a.e0.k.k.a.c(this.f3194b);
+            c.a.e0.k.k.a.c(this.f3195b);
             try {
-                if (this.f3193a == 0) {
+                if (this.f3194a == 0) {
                     return;
                 }
                 JSONObject jSONObject = new JSONObject();
@@ -381,7 +381,7 @@ public class a {
                 if (!TextUtils.isEmpty(str2)) {
                     jSONObject.put("msg", str2);
                 }
-                Long valueOf = Long.valueOf(System.currentTimeMillis() - this.f3193a);
+                Long valueOf = Long.valueOf(System.currentTimeMillis() - this.f3194a);
                 if (valueOf.longValue() >= 0) {
                     jSONObject.put("du", String.valueOf(valueOf));
                 }
@@ -389,11 +389,11 @@ public class a {
                 bVar.b(jSONObject);
                 c.a.e0.k.h.d.b(bVar);
             } catch (JSONException e2) {
-                if (c.a.e0.n.d.f3238d) {
+                if (c.a.e0.n.d.f3239d) {
                     e2.printStackTrace();
                 }
             } finally {
-                this.f3193a = 0L;
+                this.f3194a = 0L;
             }
         }
     }

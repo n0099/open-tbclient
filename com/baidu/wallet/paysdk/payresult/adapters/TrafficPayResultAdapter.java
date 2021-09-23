@@ -41,8 +41,8 @@ public class TrafficPayResultAdapter extends PayResultAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PayResultContent payResultContent = this.f62586c;
-            return (payResultContent == null || TextUtils.isEmpty(payResultContent.stream_recharge_msg)) ? "" : this.f62586c.stream_recharge_msg;
+            PayResultContent payResultContent = this.f62884c;
+            return (payResultContent == null || TextUtils.isEmpty(payResultContent.stream_recharge_msg)) ? "" : this.f62884c.stream_recharge_msg;
         }
         return (String) invokeV.objValue;
     }
@@ -65,7 +65,7 @@ public class TrafficPayResultAdapter extends PayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
             super.onCreateCheckInvalide(bundle);
-            return this.f62586c != null;
+            return this.f62884c != null;
         }
         return invokeL.booleanValue;
     }

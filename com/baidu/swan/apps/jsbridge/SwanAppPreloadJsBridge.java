@@ -35,7 +35,7 @@ public class SwanAppPreloadJsBridge {
                 return;
             }
         }
-        DEBUG = k.f7077a;
+        DEBUG = k.f7085a;
     }
 
     public SwanAppPreloadJsBridge(a aVar) {

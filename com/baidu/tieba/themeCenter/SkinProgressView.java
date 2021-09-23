@@ -25,22 +25,22 @@ public class SkinProgressView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f57387e;
+    public Context f57504e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f57388f;
+    public Paint f57505f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f57389g;
+    public Paint f57506g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f57390h;
+    public Paint f57507h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57391i;
+    public int f57508i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f57392j;
+    public int f57509j;
     public int k;
     public int l;
     public float m;
@@ -71,28 +71,28 @@ public class SkinProgressView extends View {
             }
         }
         this.s = false;
-        this.f57387e = context;
+        this.f57504e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.o = l.g(this.f57387e, R.dimen.ds6);
-            this.k = l.g(this.f57387e, R.dimen.fontsize24);
-            this.f57391i = R.color.CAM_X0302;
+            this.o = l.g(this.f57504e, R.dimen.ds6);
+            this.k = l.g(this.f57504e, R.dimen.fontsize24);
+            this.f57508i = R.color.CAM_X0302;
             this.l = R.color.CAM_X0108;
             Paint paint = new Paint();
-            this.f57388f = paint;
+            this.f57505f = paint;
             paint.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f57390h = paint2;
+            this.f57507h = paint2;
             paint2.setAntiAlias(true);
             Paint paint3 = new Paint();
-            this.f57389g = paint3;
+            this.f57506g = paint3;
             paint3.setAntiAlias(true);
-            this.f57389g.setTextSize(this.k);
-            this.f57389g.setTextAlign(Paint.Align.CENTER);
+            this.f57506g.setTextSize(this.k);
+            this.f57506g.setTextAlign(Paint.Align.CENTER);
         }
     }
 
@@ -103,23 +103,23 @@ public class SkinProgressView extends View {
             super.onDraw(canvas);
             if (this.s) {
                 RectF rectF = new RectF(0.0f, 0.0f, this.m, this.n);
-                this.f57390h.setColor(SkinManager.getColor(this.f57392j));
+                this.f57507h.setColor(SkinManager.getColor(this.f57509j));
                 int i2 = this.o;
-                canvas.drawRoundRect(rectF, i2, i2, this.f57390h);
+                canvas.drawRoundRect(rectF, i2, i2, this.f57507h);
             }
             RectF rectF2 = new RectF(0.0f, 0.0f, this.m * this.q, this.n);
-            this.f57388f.setColor(SkinManager.getColor(this.f57391i));
+            this.f57505f.setColor(SkinManager.getColor(this.f57508i));
             int i3 = this.o;
-            canvas.drawRoundRect(rectF2, i3, i3, this.f57388f);
+            canvas.drawRoundRect(rectF2, i3, i3, this.f57505f);
             if (StringUtils.isNull(this.p)) {
                 return;
             }
-            this.f57389g.setColor(SkinManager.getColor(this.l));
-            this.f57389g.setTextSize(this.k);
-            float f2 = this.f57389g.getFontMetrics().bottom - this.f57389g.getFontMetrics().top;
+            this.f57506g.setColor(SkinManager.getColor(this.l));
+            this.f57506g.setTextSize(this.k);
+            float f2 = this.f57506g.getFontMetrics().bottom - this.f57506g.getFontMetrics().top;
             this.r = f2;
             float f3 = this.n;
-            canvas.drawText(this.p, this.m / 2.0f, (f3 - ((f3 - f2) / 2.0f)) - this.f57389g.getFontMetrics().bottom, this.f57389g);
+            canvas.drawText(this.p, this.m / 2.0f, (f3 - ((f3 - f2) / 2.0f)) - this.f57506g.getFontMetrics().bottom, this.f57506g);
         }
     }
 
@@ -136,7 +136,7 @@ public class SkinProgressView extends View {
     public void setBgColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f57392j = i2;
+            this.f57509j = i2;
         }
     }
 
@@ -164,7 +164,7 @@ public class SkinProgressView extends View {
     public void setText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.p = this.f57387e.getResources().getString(i2);
+            this.p = this.f57504e.getResources().getString(i2);
         }
     }
 
@@ -209,7 +209,7 @@ public class SkinProgressView extends View {
                                         setText(R.string.become_member_download_free);
                                         break;
                                     } else {
-                                        setText(String.format(this.f57387e.getString(R.string.btn_vip_can_download_free), Integer.valueOf(i3)));
+                                        setText(String.format(this.f57504e.getString(R.string.btn_vip_can_download_free), Integer.valueOf(i3)));
                                         break;
                                     }
                                 } else {
@@ -284,7 +284,7 @@ public class SkinProgressView extends View {
                     } else if (i3 == 101) {
                         setText(R.string.become_annual_free_use);
                     } else if (i3 > 1) {
-                        setText(String.format(this.f57387e.getString(R.string.become_vip_free_use), Integer.valueOf(i3)));
+                        setText(String.format(this.f57504e.getString(R.string.become_vip_free_use), Integer.valueOf(i3)));
                     } else {
                         setText(R.string.become_member_free_use);
                     }
@@ -369,7 +369,7 @@ public class SkinProgressView extends View {
             }
         }
         this.s = false;
-        this.f57387e = context;
+        this.f57504e = context;
         a();
     }
 
@@ -393,7 +393,7 @@ public class SkinProgressView extends View {
             }
         }
         this.s = false;
-        this.f57387e = context;
+        this.f57504e = context;
         a();
     }
 }

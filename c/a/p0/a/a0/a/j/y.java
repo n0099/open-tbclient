@@ -13,7 +13,7 @@ public class y extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4486a;
+    public int f4494a;
 
     public y() {
         Interceptable interceptable = $ic;
@@ -33,10 +33,10 @@ public class y extends a {
     public void a(b bVar, Canvas canvas) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (i2 = this.f4486a) <= 0) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (i2 = this.f4494a) <= 0) {
             return;
         }
-        bVar.f4395i.setTextSize(i2);
+        bVar.f4403i.setTextSize(i2);
     }
 
     @Override // c.a.p0.a.a0.a.j.a
@@ -45,10 +45,10 @@ public class y extends a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
                 if (jSONArray.length() > 0) {
-                    this.f4486a = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
+                    this.f4494a = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
                 }
             } catch (Exception e2) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e2.printStackTrace();
                 }
             }

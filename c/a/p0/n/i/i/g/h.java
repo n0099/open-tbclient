@@ -48,7 +48,7 @@ public class h {
                 c.a.p0.n.h.e eVar = (c.a.p0.n.h.e) t;
                 return a(cVar, t, eVar.l, eVar.n);
             } else if (t instanceof a.C0623a) {
-                c.a.p0.n.h.f fVar = ((a.C0623a) t).f11959d;
+                c.a.p0.n.h.f fVar = ((a.C0623a) t).f11967d;
                 return a(cVar, t, fVar.l, fVar.n);
             } else {
                 return false;
@@ -88,7 +88,7 @@ public class h {
             ArrayList arrayList = new ArrayList();
             if (gVar != null && list != null && list.size() > 0) {
                 for (a.C0623a c0623a : list) {
-                    c.a.p0.n.h.f fVar = c0623a.f11959d;
+                    c.a.p0.n.h.f fVar = c0623a.f11967d;
                     if (fVar != null && b(c0623a, gVar.u())) {
                         arrayList.add(new f(new e(fVar), c0623a, new c(gVar.u())));
                     }

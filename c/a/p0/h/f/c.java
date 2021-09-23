@@ -14,13 +14,13 @@ public class c extends c.a.p0.a.o0.d.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11199d;
+    public String f11207d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11200e;
+    public String f11208e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11201f;
+    public String f11209f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(@NonNull String str, String str2, String str3, String str4) {
@@ -40,9 +40,9 @@ public class c extends c.a.p0.a.o0.d.b {
                 return;
             }
         }
-        this.f11199d = str2;
-        this.f11200e = str3;
-        this.f11201f = str4;
+        this.f11207d = str2;
+        this.f11208e = str3;
+        this.f11209f = str4;
     }
 
     public static c.a.p0.a.o0.d.b h(String str, String str2) {
@@ -72,7 +72,7 @@ public class c extends c.a.p0.a.o0.d.b {
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.f11199d;
+            String str2 = this.f11207d;
             int hashCode = str2.hashCode();
             if (hashCode == -2011830027) {
                 if (str2.equals("%s.message = { type:'act',act:'%s' };")) {
@@ -91,9 +91,9 @@ public class c extends c.a.p0.a.o0.d.b {
                 c2 = 65535;
             }
             if (c2 != 0) {
-                return c2 != 1 ? c2 != 2 ? "" : String.format("%s.message = { type:'act',act:'%s' };", str, this.f11201f) : String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.f11200e, JSONObject.quote(this.f11201f));
+                return c2 != 1 ? c2 != 2 ? "" : String.format("%s.message = { type:'act',act:'%s' };", str, this.f11209f) : String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.f11208e, JSONObject.quote(this.f11209f));
             }
-            return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.f11200e, JSONObject.quote(k.b(k.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f11201f));
+            return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.f11208e, JSONObject.quote(k.b(k.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f11209f));
         }
         return (String) invokeL.objValue;
     }

@@ -27,17 +27,17 @@ public class b extends f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f7309d;
+    public static final String f7317d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c.a.p0.a.v2.d1.c f7310a;
+    public final c.a.p0.a.v2.d1.c f7318a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7311b;
+    public String f7319b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7312c;
+    public boolean f7320c;
 
     /* loaded from: classes.dex */
     public class a extends c {
@@ -45,10 +45,10 @@ public class b extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Activity f7313g;
+        public final /* synthetic */ Activity f7321g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Bundle f7314h;
+        public final /* synthetic */ Bundle f7322h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, c.a.p0.a.m.a aVar, Activity activity, Bundle bundle) {
@@ -69,15 +69,15 @@ public class b extends f {
                     return;
                 }
             }
-            this.f7313g = activity;
-            this.f7314h = bundle;
+            this.f7321g = activity;
+            this.f7322h = bundle;
         }
 
         @Override // c.a.p0.a.m.b.c
         public void c(c.a.p0.a.m.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                c.a.p0.a.c1.a.a0().b(this.f7313g, this.f7314h, aVar);
+                c.a.p0.a.c1.a.a0().b(this.f7321g, this.f7322h, aVar);
             }
         }
     }
@@ -89,7 +89,7 @@ public class b extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n.b f7315a;
+        public final /* synthetic */ n.b f7323a;
 
         public C0289b(n.b bVar) {
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class b extends f {
                     return;
                 }
             }
-            this.f7315a = bVar;
+            this.f7323a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,14 +117,14 @@ public class b extends f {
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
                 if (jSONObject == null) {
                     d.b("SwanAppAccount", "Response is null");
-                    this.f7315a.a(false);
+                    this.f7323a.a(false);
                     return;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null && optJSONObject.optBoolean("relate")) {
-                    this.f7315a.a(true);
+                    this.f7323a.a(true);
                 } else {
-                    this.f7315a.a(false);
+                    this.f7323a.a(false);
                 }
             }
         }
@@ -148,7 +148,7 @@ public class b extends f {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                this.f7315a.b(exc);
+                this.f7323a.b(exc);
             }
         }
     }
@@ -159,7 +159,7 @@ public class b extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final c.a.p0.a.m.a f7316f;
+        public final c.a.p0.a.m.a f7324f;
 
         public /* synthetic */ c(b bVar, c.a.p0.a.m.a aVar, a aVar2) {
             this(bVar, aVar);
@@ -171,7 +171,7 @@ public class b extends f {
         public void onResult(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                c.a.p0.a.m.a aVar = this.f7316f;
+                c.a.p0.a.m.a aVar = this.f7324f;
                 if (aVar != null) {
                     aVar.onResult(i2);
                 }
@@ -202,7 +202,7 @@ public class b extends f {
                     return;
                 }
             }
-            this.f7316f = aVar;
+            this.f7324f = aVar;
         }
     }
 
@@ -219,7 +219,7 @@ public class b extends f {
                 return;
             }
         }
-        f7309d = c.a.p0.a.d0.a.b() + "/ma/relate2user";
+        f7317d = c.a.p0.a.d0.a.b() + "/ma/relate2user";
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -240,14 +240,14 @@ public class b extends f {
                 return;
             }
         }
-        this.f7310a = new c.a.p0.a.v2.d1.c();
-        this.f7312c = false;
+        this.f7318a = new c.a.p0.a.v2.d1.c();
+        this.f7320c = false;
     }
 
     public static void b(String str, n.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, bVar) == null) {
-            c.a.p0.m.e.a.g().getRequest().url(f7309d).cookieManager(c.a.p0.a.c1.a.p().a()).addUrlParam("app_key", str).addUrlParam("launchid", c.a.p0.a.r1.l.d.a()).build().executeAsyncOnUIBack(new C0289b(bVar));
+            c.a.p0.m.e.a.g().getRequest().url(f7317d).cookieManager(c.a.p0.a.c1.a.p().a()).addUrlParam("app_key", str).addUrlParam("launchid", c.a.p0.a.r1.l.d.a()).build().executeAsyncOnUIBack(new C0289b(bVar));
         }
     }
 
@@ -255,7 +255,7 @@ public class b extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                this.f7310a.c();
+                this.f7318a.c();
             }
         }
     }
@@ -276,8 +276,8 @@ public class b extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f7312c) {
-                return TextUtils.isEmpty(this.f7311b) ? "" : this.f7311b;
+            if (this.f7320c) {
+                return TextUtils.isEmpty(this.f7319b) ? "" : this.f7319b;
             }
             return c(AppRuntime.getAppContext());
         }
@@ -300,15 +300,15 @@ public class b extends f {
     public final void g(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f7310a.d(cVar);
+            this.f7318a.d(cVar);
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f7311b = str;
-            this.f7312c = true;
+            this.f7319b = str;
+            this.f7320c = true;
         }
     }
 }

@@ -29,34 +29,34 @@ public class b implements ImagePagerAdapter.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f22169a;
+    public int f22183a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f22170b;
+    public boolean f22184b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext f22171c;
+    public TbPageContext f22185c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageViewerActivity f22172d;
+    public ImageViewerActivity f22186d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f22173e;
+    public RelativeLayout f22187e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f22174f;
+    public ViewGroup f22188f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f22175g;
+    public boolean f22189g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f22176h;
+    public boolean f22190h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f22177i;
+    public boolean f22191i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f22178j;
+    public String f22192j;
     public String k;
     public final a.k l;
 
@@ -66,10 +66,10 @@ public class b implements ImagePagerAdapter.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f22179a;
+        public final /* synthetic */ int f22193a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f22180b;
+        public final /* synthetic */ b f22194b;
 
         public a(b bVar, int i2) {
             Interceptable interceptable = $ic;
@@ -86,24 +86,24 @@ public class b implements ImagePagerAdapter.a {
                     return;
                 }
             }
-            this.f22180b = bVar;
-            this.f22179a = i2;
+            this.f22194b = bVar;
+            this.f22193a = i2;
         }
 
         @Override // c.a.r0.x0.a.h
         public void a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                this.f22180b.f22177i = false;
-                this.f22180b.f22176h = true;
+                this.f22194b.f22191i = false;
+                this.f22194b.f22190h = true;
                 if (c.a.r0.x0.a.i().m(str)) {
-                    this.f22180b.u(1);
-                    this.f22180b.w(this.f22179a);
-                    this.f22180b.k(0);
+                    this.f22194b.u(1);
+                    this.f22194b.w(this.f22193a);
+                    this.f22194b.k(0);
                     return;
                 }
-                this.f22180b.u(0);
-                this.f22180b.k(1);
+                this.f22194b.u(0);
+                this.f22194b.k(1);
             }
         }
 
@@ -111,23 +111,23 @@ public class b implements ImagePagerAdapter.a {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f22180b.f22177i = false;
-                this.f22180b.u(0);
-                this.f22180b.k(1);
+                this.f22194b.f22191i = false;
+                this.f22194b.u(0);
+                this.f22194b.k(1);
             }
         }
     }
 
     /* renamed from: c.a.r0.m1.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1039b extends a.k {
+    public class C1037b extends a.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f22181a;
+        public final /* synthetic */ b f22195a;
 
-        public C1039b(b bVar) {
+        public C1037b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,32 +142,32 @@ public class b implements ImagePagerAdapter.a {
                     return;
                 }
             }
-            this.f22181a = bVar;
+            this.f22195a = bVar;
         }
 
         @Override // c.a.r0.x0.a.i
         public void onAdClicked(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-                this.f22181a.j(str2, str3);
+                this.f22195a.j(str2, str3);
             }
         }
 
         @Override // c.a.r0.x0.a.i
         public void onAdClose(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f22181a.f22172d == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f22195a.f22186d == null) {
                 return;
             }
-            this.f22181a.f22172d.finish();
+            this.f22195a.f22186d.finish();
         }
 
         @Override // c.a.r0.x0.a.i
         public void onAdError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f22181a.u(0);
-                this.f22181a.l(1, null, null);
+                this.f22195a.u(0);
+                this.f22195a.l(1, null, null);
             }
         }
 
@@ -175,8 +175,8 @@ public class b implements ImagePagerAdapter.a {
         public void onAdShow(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-                this.f22181a.f22175g = true;
-                this.f22181a.l(0, str2, str3);
+                this.f22195a.f22189g = true;
+                this.f22195a.l(0, str2, str3);
             }
         }
     }
@@ -196,22 +196,22 @@ public class b implements ImagePagerAdapter.a {
                 return;
             }
         }
-        this.f22169a = 0;
-        this.f22175g = false;
-        this.f22176h = false;
-        this.f22177i = false;
-        this.l = new C1039b(this);
-        this.f22172d = imageViewerActivity;
-        this.f22171c = imageViewerActivity.getPageContext();
-        this.f22170b = z;
-        this.f22173e = new RelativeLayout(this.f22172d);
+        this.f22183a = 0;
+        this.f22189g = false;
+        this.f22190h = false;
+        this.f22191i = false;
+        this.l = new C1037b(this);
+        this.f22186d = imageViewerActivity;
+        this.f22185c = imageViewerActivity.getPageContext();
+        this.f22184b = z;
+        this.f22187e = new RelativeLayout(this.f22186d);
         ViewGroup h2 = c.a.r0.x0.a.i().h(imageViewerActivity, "6051001643-679358748");
-        this.f22174f = h2;
+        this.f22188f = h2;
         if (h2 != null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.k(this.f22172d), -2);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.k(this.f22186d), -2);
             layoutParams.addRule(14, -1);
             layoutParams.addRule(15, -1);
-            this.f22173e.addView(this.f22174f, layoutParams);
+            this.f22187e.addView(this.f22188f, layoutParams);
         }
     }
 
@@ -220,12 +220,12 @@ public class b implements ImagePagerAdapter.a {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i2)) == null) {
-            if (this.f22171c != null && this.f22174f != null && this.f22170b && m(i2) && o()) {
-                if (this.f22173e.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.f22173e.getParent()).removeView(this.f22173e);
+            if (this.f22185c != null && this.f22188f != null && this.f22184b && m(i2) && o()) {
+                if (this.f22187e.getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.f22187e.getParent()).removeView(this.f22187e);
                 }
-                viewGroup.addView(this.f22173e);
-                return this.f22173e;
+                viewGroup.addView(this.f22187e);
+                return this.f22187e;
             }
             return null;
         }
@@ -243,7 +243,7 @@ public class b implements ImagePagerAdapter.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param("obj_type", "a008").param(TiebaStatic.Params.OBJ_TO, str).param(TiebaStatic.Params.OBJ_PARAM2, str2).eventStat();
-            FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.CLICK_AD_RECORD, "a008", "0", this.f22178j, this.k, null, null, null, null, null);
+            FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.CLICK_AD_RECORD, "a008", "0", this.f22192j, this.k, null, null, null, null, null);
         }
     }
 
@@ -253,9 +253,9 @@ public class b implements ImagePagerAdapter.a {
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a008").param("obj_locate", i2);
             if (i2 == 1) {
                 param.param(TiebaStatic.Params.RESOURCE_ID, 0);
-                FunAdRecordHttpMessage.uploadRequestRecord("a008", String.valueOf(i2), this.f22178j, this.k, "0");
+                FunAdRecordHttpMessage.uploadRequestRecord("a008", String.valueOf(i2), this.f22192j, this.k, "0");
             } else {
-                FunAdRecordHttpMessage.uploadRequestRecord("a008", String.valueOf(i2), this.f22178j, this.k, null);
+                FunAdRecordHttpMessage.uploadRequestRecord("a008", String.valueOf(i2), this.f22192j, this.k, null);
             }
             TiebaStatic.log(param);
         }
@@ -265,7 +265,7 @@ public class b implements ImagePagerAdapter.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i2, str, str2) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW);
-            statisticItem.param("obj_source", 6).param("obj_type", "a008").param("tid", this.f22178j).param("fid", this.k).param("obj_locate", i2);
+            statisticItem.param("obj_source", 6).param("obj_type", "a008").param("tid", this.f22192j).param("fid", this.k).param("obj_locate", i2);
             if (str != null) {
                 statisticItem.param(TiebaStatic.Params.OBJ_TO, str);
             }
@@ -273,7 +273,7 @@ public class b implements ImagePagerAdapter.a {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
             }
             TiebaStatic.log(statisticItem);
-            FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.SHOW_AD_RECORD, "a008", String.valueOf(i2), this.f22178j, this.k, null, null, null, null, null);
+            FunAdRecordHttpMessage.uploadShowOrClickRecord(FunAdRecordHttpMessage.SHOW_AD_RECORD, "a008", String.valueOf(i2), this.f22192j, this.k, null, null, null, null, null);
         }
     }
 
@@ -281,7 +281,7 @@ public class b implements ImagePagerAdapter.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            int i3 = this.f22169a;
+            int i3 = this.f22183a;
             return i3 != 0 && i2 == i3;
         }
         return invokeI.booleanValue;
@@ -290,19 +290,19 @@ public class b implements ImagePagerAdapter.a {
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22170b && this.f22174f != null && this.f22176h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22184b && this.f22188f != null && this.f22190h : invokeV.booleanValue;
     }
 
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22176h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22190h : invokeV.booleanValue;
     }
 
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22175g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22189g : invokeV.booleanValue;
     }
 
     public boolean q(int i2, int i3, int i4) {
@@ -326,21 +326,21 @@ public class b implements ImagePagerAdapter.a {
 
     public void t(int i2, int i3, int i4, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, str2}) == null) || !this.f22170b || this.f22174f == null || this.f22177i || this.f22176h || !q(i2, i3, i4)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, str2}) == null) || !this.f22184b || this.f22188f == null || this.f22191i || this.f22190h || !q(i2, i3, i4)) {
             return;
         }
-        this.f22177i = true;
-        this.f22178j = str;
+        this.f22191i = true;
+        this.f22192j = str;
         this.k = str2;
         FunAdRecordHttpMessage.uploadRequestRecord("a008", null, str, str2, null);
         StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("tid", str).param("fid", str2).param("obj_type", "a008").eventStat();
-        c.a.r0.x0.a.i().n(this.f22172d, "6051001643-679358748", new a(this, i4), c.a.r0.x0.a.b("pic", c.a.q0.b.d.H() ? "1" : "0"));
+        c.a.r0.x0.a.i().n(this.f22186d, "6051001643-679358748", new a(this, i4), c.a.r0.x0.a.b("pic", c.a.q0.b.d.J() ? "1" : "0"));
     }
 
     public void u(int i2) {
         ImageViewerActivity imageViewerActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || (imageViewerActivity = this.f22172d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || (imageViewerActivity = this.f22186d) == null) {
             return;
         }
         imageViewerActivity.setAddSize(i2);
@@ -356,11 +356,11 @@ public class b implements ImagePagerAdapter.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            if (this.f22171c == null || this.f22174f == null || !this.f22170b || this.f22175g || !m(i2) || !o()) {
+            if (this.f22185c == null || this.f22188f == null || !this.f22184b || this.f22189g || !m(i2) || !o()) {
                 return false;
             }
-            c.a.r0.x0.a.i().v(this.f22171c.getPageActivity(), "6051001643-679358748", this.f22174f, this.l, c.a.r0.x0.a.b("pic", c.a.q0.b.d.H() ? "1" : "0"));
-            SkinManager.setBackgroundColor(this.f22174f, R.color.CAM_X0101, 0);
+            c.a.r0.x0.a.i().v(this.f22185c.getPageActivity(), "6051001643-679358748", this.f22188f, this.l, c.a.r0.x0.a.b("pic", c.a.q0.b.d.J() ? "1" : "0"));
+            SkinManager.setBackgroundColor(this.f22188f, R.color.CAM_X0101, 0);
             return true;
         }
         return invokeI.booleanValue;
@@ -369,7 +369,7 @@ public class b implements ImagePagerAdapter.a {
     public void x(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) {
-            this.f22169a = i2;
+            this.f22183a = i2;
         }
     }
 }

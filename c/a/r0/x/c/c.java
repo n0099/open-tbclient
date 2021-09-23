@@ -16,13 +16,13 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Timer f28289a;
+    public static Timer f28309a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f28290b;
+    public static int f28310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ExecutorService f28291c;
+    public static ExecutorService f28311c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -31,7 +31,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f28292e;
+        public final /* synthetic */ Runnable f28312e;
 
         public a(Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -48,14 +48,14 @@ public class c {
                     return;
                 }
             }
-            this.f28292e = runnable;
+            this.f28312e = runnable;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28292e.run();
+                this.f28312e.run();
             }
         }
     }
@@ -74,31 +74,31 @@ public class c {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f28290b = availableProcessors;
-        f28291c = Executors.newFixedThreadPool(availableProcessors);
+        f28310b = availableProcessors;
+        f28311c = Executors.newFixedThreadPool(availableProcessors);
     }
 
     public static void a() {
         Timer timer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (timer = f28289a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (timer = f28309a) == null) {
             return;
         }
         timer.cancel();
-        f28289a = null;
+        f28309a = null;
     }
 
     public static Timer b(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, runnable)) == null) {
-            Timer timer = f28289a;
+            Timer timer = f28309a;
             if (timer != null) {
                 return timer;
             }
-            f28289a = new Timer();
-            f28289a.scheduleAtFixedRate(new a(runnable), 0L, 2000L);
-            return f28289a;
+            f28309a = new Timer();
+            f28309a.scheduleAtFixedRate(new a(runnable), 0L, 2000L);
+            return f28309a;
         }
         return (Timer) invokeL.objValue;
     }
@@ -106,7 +106,7 @@ public class c {
     public static void c(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            f28291c.execute(runnable);
+            f28311c.execute(runnable);
         }
     }
 }

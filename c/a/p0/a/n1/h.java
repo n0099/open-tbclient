@@ -20,13 +20,13 @@ public class h extends ResponseBody {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ResponseBody f7582e;
+    public final ResponseBody f7590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e f7583f;
+    public final e f7591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BufferedSource f7584g;
+    public BufferedSource f7592g;
 
     /* loaded from: classes.dex */
     public class a extends ForwardingSource {
@@ -34,10 +34,10 @@ public class h extends ResponseBody {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f7585e;
+        public long f7593e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f7586f;
+        public final /* synthetic */ h f7594f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(h hVar, Source source) {
@@ -57,8 +57,8 @@ public class h extends ResponseBody {
                     return;
                 }
             }
-            this.f7586f = hVar;
-            this.f7585e = 0L;
+            this.f7594f = hVar;
+            this.f7593e = 0L;
         }
 
         @Override // okio.ForwardingSource, okio.Source
@@ -68,8 +68,8 @@ public class h extends ResponseBody {
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, buffer, j2)) == null) {
                 long read = super.read(buffer, j2);
                 int i2 = (read > (-1L) ? 1 : (read == (-1L) ? 0 : -1));
-                this.f7585e += i2 != 0 ? read : 0L;
-                this.f7586f.f7583f.a(this.f7585e, this.f7586f.f7582e.contentLength(), i2 == 0);
+                this.f7593e += i2 != 0 ? read : 0L;
+                this.f7594f.f7591f.a(this.f7593e, this.f7594f.f7590e.contentLength(), i2 == 0);
                 return read;
             }
             return invokeLJ.longValue;
@@ -91,8 +91,8 @@ public class h extends ResponseBody {
                 return;
             }
         }
-        this.f7582e = responseBody;
-        this.f7583f = eVar;
+        this.f7590e = responseBody;
+        this.f7591f = eVar;
     }
 
     public final Source c(Source source) {
@@ -105,14 +105,14 @@ public class h extends ResponseBody {
     public long contentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7582e.contentLength() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7590e.contentLength() : invokeV.longValue;
     }
 
     @Override // okhttp3.ResponseBody
     public MediaType contentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7582e.contentType() : (MediaType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7590e.contentType() : (MediaType) invokeV.objValue;
     }
 
     @Override // okhttp3.ResponseBody
@@ -120,10 +120,10 @@ public class h extends ResponseBody {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f7584g == null) {
-                this.f7584g = Okio.buffer(c(this.f7582e.source()));
+            if (this.f7592g == null) {
+                this.f7592g = Okio.buffer(c(this.f7590e.source()));
             }
-            return this.f7584g;
+            return this.f7592g;
         }
         return (BufferedSource) invokeV.objValue;
     }

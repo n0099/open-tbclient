@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +29,7 @@ public final class b extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f63761a;
+    public final String[] f64072a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -43,7 +44,7 @@ public final class b extends g {
                 return;
             }
         }
-        this.f63761a = new String[]{"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
+        this.f64072a = new String[]{"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
     }
 
     private boolean a(String str) {
@@ -57,7 +58,7 @@ public final class b extends g {
         }
         int i2 = 0;
         while (true) {
-            String[] strArr = this.f63761a;
+            String[] strArr = this.f64072a;
             if (i2 >= strArr.length) {
                 return false;
             }
@@ -68,7 +69,7 @@ public final class b extends g {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0152  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0154  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -99,7 +100,7 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f63763a;
+                            public final /* synthetic */ b f64074a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -116,7 +117,7 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f63763a = this;
+                                this.f64074a = this;
                             }
 
                             @Override // android.content.DialogInterface.OnClickListener
@@ -130,7 +131,7 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f63762a;
+                            public final /* synthetic */ b f64073a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -147,7 +148,7 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f63762a = this;
+                                this.f64073a = this;
                             }
 
                             @Override // android.content.DialogInterface.OnCancelListener
@@ -163,10 +164,10 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AlertDialog f63764a;
+                            public final /* synthetic */ AlertDialog f64075a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ b f63765b;
+                            public final /* synthetic */ b f64076b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -183,8 +184,8 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f63765b = this;
-                                this.f63764a = show;
+                                this.f64076b = this;
+                                this.f64075a = show;
                             }
 
                             @Override // java.lang.Runnable
@@ -192,13 +193,13 @@ public final class b extends g {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     try {
-                                        this.f63764a.dismiss();
+                                        this.f64075a.dismiss();
                                     } catch (Exception e2) {
                                         e2.printStackTrace();
                                     }
                                 }
                             }
-                        }, 4000L);
+                        }, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
                         return true;
                     }
                     parseUri.addCategory("android.intent.category.BROWSABLE");

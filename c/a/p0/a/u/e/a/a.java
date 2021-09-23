@@ -42,7 +42,7 @@ public class a extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            boolean h2 = f.f8492d.h();
+            boolean h2 = f.f8500d.h();
             if (h2) {
                 return h2;
             }
@@ -56,7 +56,7 @@ public class a extends c.a.p0.a.u.c.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             if (e.Q() == null) {
                 return new c.a.p0.a.u.h.b(1001, "SwanApp is null");
             }

@@ -12,10 +12,10 @@ public final class a implements g.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f8578a;
+    public final int f8586a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final f f8579b;
+    public final f f8587b;
 
     public a(int i2, @NonNull f fVar) {
         Interceptable interceptable = $ic;
@@ -32,25 +32,25 @@ public final class a implements g.a {
                 return;
             }
         }
-        this.f8578a = i2;
-        this.f8579b = fVar;
+        this.f8586a = i2;
+        this.f8587b = fVar;
     }
 
     @Override // c.a.p0.a.s1.g.a
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i2, strArr, iArr) == null) {
-            if (i2 != this.f8578a) {
-                this.f8579b.b(2, "request permission fail");
+            if (i2 != this.f8586a) {
+                this.f8587b.b(2, "request permission fail");
                 return;
             }
             for (int i3 : iArr) {
                 if (i3 == -1) {
-                    this.f8579b.b(1, "user denied");
+                    this.f8587b.b(1, "user denied");
                     return;
                 }
             }
-            this.f8579b.a("permission granted successful");
+            this.f8587b.a("permission granted successful");
         }
     }
 }

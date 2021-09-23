@@ -14,7 +14,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LruCache<String, Bitmap> f3145a;
+    public LruCache<String, Bitmap> f3146a;
 
     /* loaded from: classes.dex */
     public class a extends LruCache<String, Bitmap> {
@@ -64,7 +64,7 @@ public class b {
                 return;
             }
         }
-        this.f3145a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
+        this.f3146a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
     }
 
     public void a(String str, Bitmap bitmap) {
@@ -72,7 +72,7 @@ public class b {
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
             String b2 = c.a.e0.k.g.b.b(str);
             if (c(b2) == null) {
-                this.f3145a.put(b2, bitmap);
+                this.f3146a.put(b2, bitmap);
             }
         }
     }
@@ -86,6 +86,6 @@ public class b {
     public final Bitmap c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f3145a.get(str) : (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f3146a.get(str) : (Bitmap) invokeL.objValue;
     }
 }

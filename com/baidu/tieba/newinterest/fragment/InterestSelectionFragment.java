@@ -21,24 +21,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class InterestSelectionFragment extends BaseInterestSelectionFragment implements a.InterfaceC0861a {
+public class InterestSelectionFragment extends BaseInterestSelectionFragment implements a.InterfaceC0859a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f54767e;
+    public FrameLayout f54882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f54768f;
+    public TextView f54883f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f54769g;
+    public TextView f54884g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.f2.g.a f54770h;
+    public c.a.r0.f2.g.a f54885h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoScrollGridView f54771i;
+    public NoScrollGridView f54886i;
 
     public InterestSelectionFragment() {
         Interceptable interceptable = $ic;
@@ -70,20 +70,20 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f54771i = (NoScrollGridView) this.mRootView.findViewById(R.id.interest_selection_grid_view);
+            this.f54886i = (NoScrollGridView) this.mRootView.findViewById(R.id.interest_selection_grid_view);
             this.mInterestSelectedButton = (TBSpecificationBtn) this.mRootView.findViewById(R.id.interest_selected_btn);
             TextView textView = (TextView) this.mRootView.findViewById(R.id.interest_selection_title);
-            this.f54768f = textView;
+            this.f54883f = textView;
             textView.setTypeface(Typeface.DEFAULT_BOLD);
-            this.f54769g = (TextView) this.mRootView.findViewById(R.id.interest_selection_desc);
-            this.f54767e = (FrameLayout) this.mRootView.findViewById(R.id.bottom_select_layout);
+            this.f54884g = (TextView) this.mRootView.findViewById(R.id.interest_selection_desc);
+            this.f54882e = (FrameLayout) this.mRootView.findViewById(R.id.bottom_select_layout);
             c.a.q0.s.f0.n.a aVar = new c.a.q0.s.f0.n.a();
             this.mInterestSelectedButton.setTextSize(R.dimen.tbds42);
             this.mInterestSelectedButton.setConfig(aVar);
             this.mInterestSelectedButton.setText(getResources().getString(R.string.select_interest_introduce));
             this.mInterestSelectedButton.setEnabled(false);
             this.mInterestSelectedButton.setOnClickListener(this);
-            this.f54771i.setAdapter((ListAdapter) this.mInterestSelectionAdapter);
+            this.f54886i.setAdapter((ListAdapter) this.mInterestSelectionAdapter);
         }
     }
 
@@ -93,9 +93,9 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f54768f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f54769g, R.color.CAM_X0107);
-            SkinManager.setBackgroundColor(this.f54767e, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f54883f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f54884g, R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.f54882e, R.color.CAM_X0201);
             this.mInterestSelectionAdapter.notifyDataSetChanged();
         }
     }
@@ -105,8 +105,8 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f54770h = new c.a.r0.f2.g.a(getContext());
-            this.mInterestSelectionAdapter = new b(this.f54770h.c(), getContext());
+            this.f54885h = new c.a.r0.f2.g.a(getContext());
+            this.mInterestSelectionAdapter = new b(this.f54885h.c(), getContext());
         }
     }
 

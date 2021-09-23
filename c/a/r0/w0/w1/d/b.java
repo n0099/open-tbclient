@@ -15,11 +15,11 @@ public class b implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f27939f;
+    public static final BdUniqueId f27959f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27940e;
+    public String f27960e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class b implements n {
                 return;
             }
         }
-        f27939f = BdUniqueId.gen();
+        f27959f = BdUniqueId.gen();
     }
 
     public b(JSONObject jSONObject) {
@@ -56,7 +56,7 @@ public class b implements n {
             return;
         }
         jSONObject.optString("id");
-        this.f27940e = jSONObject.optString("user_id");
+        this.f27960e = jSONObject.optString("user_id");
         jSONObject.optString("forum_id");
         jSONObject.optString("score");
         jSONObject.optString("create_time");
@@ -72,6 +72,6 @@ public class b implements n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f27939f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f27959f : (BdUniqueId) invokeV.objValue;
     }
 }

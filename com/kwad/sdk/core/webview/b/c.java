@@ -15,7 +15,7 @@ public class c implements com.kwad.sdk.core.webview.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f72457a;
+    public a f72776a;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -53,7 +53,7 @@ public class c implements com.kwad.sdk.core.webview.a.a {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f72457a = aVar;
+            this.f72776a = aVar;
         }
     }
 
@@ -64,8 +64,8 @@ public class c implements com.kwad.sdk.core.webview.a.a {
             com.kwad.sdk.core.webview.b.a.c cVar2 = new com.kwad.sdk.core.webview.b.a.c();
             try {
                 cVar2.parseJson(new JSONObject(str));
-                if (this.f72457a != null) {
-                    this.f72457a.a(cVar2);
+                if (this.f72776a != null) {
+                    this.f72776a.a(cVar2);
                 }
                 a(cVar2);
             } catch (JSONException e2) {
@@ -78,7 +78,7 @@ public class c implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f72457a = null;
+            this.f72776a = null;
         }
     }
 }

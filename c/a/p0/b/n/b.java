@@ -31,13 +31,13 @@ public class b extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10136e;
+        public final /* synthetic */ String f10144e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f10137f;
+        public final /* synthetic */ JSONObject f10145f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f10138g;
+        public final /* synthetic */ b f10146g;
 
         public a(b bVar, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -54,9 +54,9 @@ public class b extends d {
                     return;
                 }
             }
-            this.f10138g = bVar;
-            this.f10136e = str;
-            this.f10137f = jSONObject;
+            this.f10146g = bVar;
+            this.f10144e = str;
+            this.f10145f = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,19 +68,19 @@ public class b extends d {
                 if (!c.a.p0.a.e2.c.d.h(iVar)) {
                     int b2 = iVar.b();
                     String f2 = c.a.p0.a.e2.c.d.f(b2);
-                    if (d.f8727c) {
+                    if (d.f8735c) {
                         String str = "getOpenBduss failed: auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX;
                     }
-                    this.f10138g.d(this.f10136e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
+                    this.f10146g.d(this.f10144e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
                     return;
                 }
-                JSONArray optJSONArray = this.f10137f.optJSONArray("tpls");
+                JSONArray optJSONArray = this.f10145f.optJSONArray("tpls");
                 ArrayList arrayList = new ArrayList();
                 int length = optJSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
                     arrayList.add(optJSONArray.optString(i2));
                 }
-                this.f10138g.t(this.f10137f.optString("clientId"), arrayList, this.f10136e);
+                this.f10146g.t(this.f10145f.optString("clientId"), arrayList, this.f10144e);
             }
         }
     }
@@ -92,10 +92,10 @@ public class b extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f10139a;
+        public final /* synthetic */ String f10147a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f10140b;
+        public final /* synthetic */ b f10148b;
 
         public C0493b(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -112,8 +112,8 @@ public class b extends d {
                     return;
                 }
             }
-            this.f10140b = bVar;
-            this.f10139a = str;
+            this.f10148b = bVar;
+            this.f10147a = str;
         }
 
         @Override // c.a.p0.b.n.b.c
@@ -121,10 +121,10 @@ public class b extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 try {
-                    this.f10140b.d(this.f10139a, new c.a.p0.a.u.h.b(0, new JSONObject(str)));
+                    this.f10148b.d(this.f10147a, new c.a.p0.a.u.h.b(0, new JSONObject(str)));
                 } catch (JSONException e2) {
-                    this.f10140b.d(this.f10139a, new c.a.p0.a.u.h.b(10001, "internal error"));
-                    if (d.f8727c) {
+                    this.f10148b.d(this.f10147a, new c.a.p0.a.u.h.b(10001, "internal error"));
+                    if (d.f8735c) {
                         e2.printStackTrace();
                     }
                 }
@@ -164,13 +164,13 @@ public class b extends d {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             e Q = e.Q();
             if (Q == null) {
-                boolean z = d.f8727c;
+                boolean z = d.f8735c;
                 return new c.a.p0.a.u.h.b(1001, "null swan runtime");
             }
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-Base", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (d.f8727c) {
+                if (d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-Base", "parse fail");
                 }
                 return bVar;

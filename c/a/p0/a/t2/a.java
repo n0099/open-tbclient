@@ -18,10 +18,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8713a;
+    public static final boolean f8721a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8714b;
+    public static int f8722b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.t2.a$a  reason: collision with other inner class name */
@@ -31,10 +31,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f8715e;
+        public final /* synthetic */ int f8723e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f8716f;
+        public final /* synthetic */ int f8724f;
 
         public RunnableC0382a(int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -51,15 +51,15 @@ public class a {
                     return;
                 }
             }
-            this.f8715e = i2;
-            this.f8716f = i3;
+            this.f8723e = i2;
+            this.f8724f = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.b(this.f8715e, this.f8716f);
+                a.b(this.f8723e, this.f8724f);
             }
         }
     }
@@ -77,8 +77,8 @@ public class a {
                 return;
             }
         }
-        f8713a = k.f7077a;
-        f8714b = 0;
+        f8721a = k.f7085a;
+        f8722b = 0;
     }
 
     public static void b(int i2, int i3) {
@@ -87,14 +87,14 @@ public class a {
             c.a.p0.a.p0.e.a.d().e(i2, i3);
             j.f();
             if (i2 == 0) {
-                f8714b = 2;
+                f8722b = 2;
             } else if (i3 > i2) {
-                f8714b = 1;
+                f8722b = 1;
                 b.m().i();
                 e.a.a();
                 c.a.p0.a.h0.s.a.d();
             }
-            if (f8713a) {
+            if (f8721a) {
                 String str = "App onUpgrade on thread: " + Thread.currentThread();
             }
         }
@@ -103,7 +103,7 @@ public class a {
     public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f8714b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f8722b : invokeV.intValue;
     }
 
     public static void d(int i2, int i3) {

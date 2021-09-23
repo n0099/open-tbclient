@@ -24,11 +24,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f8947b;
+    public static volatile b f8955b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f8948a;
+    public c f8956a;
 
     /* loaded from: classes.dex */
     public class a implements f {
@@ -36,10 +36,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.c f8949a;
+        public final /* synthetic */ a.c f8957a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f8950b;
+        public final /* synthetic */ b f8958b;
 
         public a(b bVar, a.c cVar) {
             Interceptable interceptable = $ic;
@@ -56,15 +56,15 @@ public class b {
                     return;
                 }
             }
-            this.f8950b = bVar;
-            this.f8949a = cVar;
+            this.f8958b = bVar;
+            this.f8957a = cVar;
         }
 
         @Override // c.a.p0.a.s1.f
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f8950b.c(this.f8949a);
+                this.f8958b.c(this.f8957a);
             }
         }
 
@@ -73,7 +73,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 d.b("GetLocationHelper", str);
-                this.f8950b.f8948a.f(this.f8949a, str);
+                this.f8958b.f8956a.f(this.f8957a, str);
             }
         }
     }
@@ -85,10 +85,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.c f8951a;
+        public final /* synthetic */ a.c f8959a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f8952b;
+        public final /* synthetic */ b f8960b;
 
         public C0405b(b bVar, a.c cVar) {
             Interceptable interceptable = $ic;
@@ -105,15 +105,15 @@ public class b {
                     return;
                 }
             }
-            this.f8952b = bVar;
-            this.f8951a = cVar;
+            this.f8960b = bVar;
+            this.f8959a = cVar;
         }
 
         @Override // c.a.p0.a.c1.d.d.a
         public void a(c.a.p0.a.c2.f.k0.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                this.f8952b.f8948a.g(this.f8951a, bVar);
+                this.f8960b.f8956a.g(this.f8959a, bVar);
             }
         }
 
@@ -121,7 +121,7 @@ public class b {
         public void onFailed(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f8952b.f8948a.b(this.f8951a, i2);
+                this.f8960b.f8956a.b(this.f8959a, i2);
             }
         }
     }
@@ -148,7 +148,7 @@ public class b {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public b() {
@@ -169,14 +169,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f8947b == null) {
+            if (f8955b == null) {
                 synchronized (b.class) {
-                    if (f8947b == null) {
-                        f8947b = new b();
+                    if (f8955b == null) {
+                        f8955b = new b();
                     }
                 }
             }
-            return f8947b;
+            return f8955b;
         }
         return (b) invokeV.objValue;
     }
@@ -185,21 +185,21 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             String str = "gcj02";
-            if (!TextUtils.equals(cVar.f8944a, "gcj02")) {
-                str = TextUtils.equals(cVar.f8944a, "bd09ll") ? "bd09ll" : CoordinateType.WGS84;
+            if (!TextUtils.equals(cVar.f8952a, "gcj02")) {
+                str = TextUtils.equals(cVar.f8952a, "bd09ll") ? "bd09ll" : CoordinateType.WGS84;
             }
-            c.a.p0.a.c1.a.E().b(str, false, cVar.f8945b, new C0405b(this, cVar));
+            c.a.p0.a.c1.a.E().b(str, false, cVar.f8953b, new C0405b(this, cVar));
         }
     }
 
     public void e(@NonNull a.c cVar, @NonNull c cVar2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, z) == null) {
-            this.f8948a = cVar2;
+            this.f8956a = cVar2;
             if (q0.L()) {
                 c(cVar);
             } else if (z) {
-                this.f8948a.f(cVar, "GetLocation does not supported when app is invisible");
+                this.f8956a.f(cVar, "GetLocation does not supported when app is invisible");
             } else {
                 a aVar = new a(this, cVar);
                 e.f(c.a.p0.a.a2.d.g().x(), new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, 0, aVar);

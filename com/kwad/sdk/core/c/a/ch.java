@@ -33,7 +33,7 @@ public class ch implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.k> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, kVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        kVar.f71807b = jSONObject.optInt("personalRecommend");
+        kVar.f72126b = jSONObject.optInt("personalRecommend");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,7 +45,7 @@ public class ch implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.k> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "personalRecommend", kVar.f71807b);
+            com.kwad.sdk.utils.q.a(jSONObject, "personalRecommend", kVar.f72126b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

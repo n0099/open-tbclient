@@ -27,7 +27,7 @@ public class q0 extends c.a.l.a<c.a.q0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f3855j;
+    public View f3856j;
     public TextView k;
     public TextView l;
     public OriginalThreadCardView m;
@@ -41,7 +41,7 @@ public class q0 extends c.a.l.a<c.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ q0 f3856a;
+        public final /* synthetic */ q0 f3857a;
 
         public a(q0 q0Var) {
             Interceptable interceptable = $ic;
@@ -58,22 +58,22 @@ public class q0 extends c.a.l.a<c.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3856a = q0Var;
+            this.f3857a = q0Var;
         }
 
         @Override // com.baidu.tieba.card.OriginalThreadCardView.b
         public void a(OriginalThreadInfo originalThreadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || this.f3856a.n == null || this.f3856a.n.getThreadData() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || this.f3857a.n == null || this.f3857a.n.getThreadData() == null) {
                 return;
             }
-            if (this.f3856a.c() != null) {
-                this.f3856a.c().a(this.f3856a.m, this.f3856a.n);
+            if (this.f3857a.c() != null) {
+                this.f3857a.c().a(this.f3857a.m, this.f3857a.n);
             }
-            String f0 = this.f3856a.n.getThreadData().f0();
+            String f0 = this.f3857a.n.getThreadData().f0();
             c.a.r0.a0.m.a(f0);
-            this.f3856a.r(f0);
-            this.f3856a.f3781e.o(new a.C0095a(1));
+            this.f3857a.r(f0);
+            this.f3857a.f3782e.o(new a.C0095a(1));
         }
     }
 
@@ -114,13 +114,13 @@ public class q0 extends c.a.l.a<c.a.q0.s.q.a> {
         this.o = false;
         this.p = new a(this);
         if (TbadkCoreApplication.getInst().getPersonalizeViewData().q != null && TbadkCoreApplication.getInst().getPersonalizeViewData().q.getParent() == null) {
-            this.f3855j = TbadkCoreApplication.getInst().getPersonalizeViewData().q;
+            this.f3856j = TbadkCoreApplication.getInst().getPersonalizeViewData().q;
         } else {
-            this.f3855j = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
+            this.f3856j = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
         }
-        this.k = (TextView) this.f3855j.findViewById(R.id.thread_card_title);
-        this.l = (TextView) this.f3855j.findViewById(R.id.thread_card_abstract);
-        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f3855j.findViewById(R.id.original_thread_view);
+        this.k = (TextView) this.f3856j.findViewById(R.id.thread_card_title);
+        this.l = (TextView) this.f3856j.findViewById(R.id.thread_card_abstract);
+        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f3856j.findViewById(R.id.original_thread_view);
         this.m = originalThreadCardView;
         originalThreadCardView.setSubClickListener(this.p);
     }
@@ -129,7 +129,7 @@ public class q0 extends c.a.l.a<c.a.q0.s.q.a> {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3855j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3856j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
@@ -159,7 +159,7 @@ public class q0 extends c.a.l.a<c.a.q0.s.q.a> {
         this.n = aVar;
         ThreadCardUtils.setTitle(this.k, aVar.getThreadData(), this.o);
         ThreadCardUtils.setAbstract(this.l, this.k, aVar.getThreadData(), q, this.o);
-        this.m.fillData(aVar.getThreadData().x1);
+        this.m.fillData(aVar.getThreadData().y1);
     }
 
     public final void r(String str) {

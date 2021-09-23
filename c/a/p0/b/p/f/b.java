@@ -26,10 +26,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10242a;
+    public static final boolean f10250a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f10243b;
+    public static final String[] f10251b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -38,7 +38,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0503b f10244e;
+        public final /* synthetic */ InterfaceC0503b f10252e;
 
         public a(InterfaceC0503b interfaceC0503b) {
             Interceptable interceptable = $ic;
@@ -55,14 +55,14 @@ public class b {
                     return;
                 }
             }
-            this.f10244e = interfaceC0503b;
+            this.f10252e = interfaceC0503b;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             InterfaceC0503b interfaceC0503b;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC0503b = this.f10244e) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC0503b = this.f10252e) == null) {
                 return;
             }
             interfaceC0503b.onResult(i2 == -1);
@@ -88,8 +88,8 @@ public class b {
                 return;
             }
         }
-        f10242a = k.f7077a;
-        f10243b = new String[]{"BLA-AL00", "R7Plus"};
+        f10250a = k.f7085a;
+        f10251b = new String[]{"BLA-AL00", "R7Plus"};
     }
 
     public static DialogInterface.OnClickListener a(InterfaceC0503b interfaceC0503b) {
@@ -124,7 +124,7 @@ public class b {
     public static void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            if (!Arrays.asList(f10243b).contains(Build.MODEL)) {
+            if (!Arrays.asList(f10251b).contains(Build.MODEL)) {
                 Intent intent = new Intent();
                 intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
                 int i2 = Build.VERSION.SDK_INT;
@@ -139,7 +139,7 @@ public class b {
                     context.startActivity(intent);
                     return;
                 } catch (Exception e2) {
-                    if (f10242a) {
+                    if (f10250a) {
                         String str = "openNotificationSettingPages() Exception:" + e2;
                     }
                     c(context);
@@ -154,7 +154,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, interfaceC0503b) == null) {
             if (!(context instanceof Activity)) {
-                if (f10242a) {
+                if (f10250a) {
                     throw new IllegalArgumentException("context must be activity.");
                 }
             } else if (interfaceC0503b == null) {

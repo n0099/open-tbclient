@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class CaseFormat {
     public static final /* synthetic */ CaseFormat[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +30,7 @@ public abstract class CaseFormat {
     public final b wordBoundary;
     public final String wordSeparator;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class StringConverter extends Converter<String, String> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;

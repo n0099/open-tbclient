@@ -32,13 +32,13 @@ public class f extends Service {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LLSInterface f41302a;
+    public LLSInterface f41364a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LLSInterface f41303b;
+    public LLSInterface f41365b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LLSInterface f41304c;
+    public LLSInterface f41366c;
 
     static {
         InterceptResult invokeClinit;
@@ -68,9 +68,9 @@ public class f extends Service {
                 return;
             }
         }
-        this.f41302a = null;
-        this.f41303b = null;
-        this.f41304c = null;
+        this.f41364a = null;
+        this.f41365b = null;
+        this.f41366c = null;
     }
 
     private boolean a(File file) {
@@ -128,7 +128,7 @@ public class f extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            LLSInterface lLSInterface = this.f41304c;
+            LLSInterface lLSInterface = this.f41366c;
             if (lLSInterface != null) {
                 return lLSInterface.onBind(intent);
             }
@@ -148,7 +148,7 @@ public class f extends Service {
             }
             mC = getApplicationContext();
             System.currentTimeMillis();
-            this.f41303b = new com.baidu.location.d.a();
+            this.f41365b = new com.baidu.location.d.a();
             try {
                 File file = new File(k.j() + File.separator + replaceFileName);
                 File file2 = new File(k.j() + File.separator + "app.jar");
@@ -160,22 +160,22 @@ public class f extends Service {
                 }
                 if (file2.exists()) {
                     if (a(new File(k.j() + File.separator + "app.jar"))) {
-                        this.f41302a = (LLSInterface) new DexClassLoader(k.j() + File.separator + "app.jar", k.j(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+                        this.f41364a = (LLSInterface) new DexClassLoader(k.j() + File.separator + "app.jar", k.j(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
                     }
                 }
             } catch (Exception unused) {
-                this.f41302a = null;
+                this.f41364a = null;
             }
-            LLSInterface lLSInterface = this.f41302a;
-            if (lLSInterface == null || lLSInterface.getVersion() < this.f41303b.getVersion()) {
-                this.f41304c = this.f41303b;
-                this.f41302a = null;
+            LLSInterface lLSInterface = this.f41364a;
+            if (lLSInterface == null || lLSInterface.getVersion() < this.f41365b.getVersion()) {
+                this.f41366c = this.f41365b;
+                this.f41364a = null;
             } else {
-                this.f41304c = this.f41302a;
-                this.f41303b = null;
+                this.f41366c = this.f41364a;
+                this.f41365b = null;
             }
             isServing = true;
-            this.f41304c.onCreate(this);
+            this.f41366c.onCreate(this);
         }
     }
 
@@ -184,7 +184,7 @@ public class f extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             isServing = false;
-            LLSInterface lLSInterface = this.f41304c;
+            LLSInterface lLSInterface = this.f41366c;
             if (lLSInterface != null) {
                 lLSInterface.onDestroy();
             }
@@ -213,7 +213,7 @@ public class f extends Service {
                     e2.printStackTrace();
                 }
             }
-            return this.f41304c.onStartCommand(intent, i2, i3);
+            return this.f41366c.onStartCommand(intent, i2, i3);
         }
         return invokeLII.intValue;
     }
@@ -222,7 +222,7 @@ public class f extends Service {
     public void onTaskRemoved(Intent intent) {
         LLSInterface lLSInterface;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || (lLSInterface = this.f41304c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || (lLSInterface = this.f41366c) == null) {
             return;
         }
         lLSInterface.onTaskRemoved(intent);

@@ -42,7 +42,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserPhotoLayout f47895e;
+        public final /* synthetic */ UserPhotoLayout f48002e;
 
         public a(UserPhotoLayout userPhotoLayout) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                     return;
                 }
             }
-            this.f47895e = userPhotoLayout;
+            this.f48002e = userPhotoLayout;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -72,8 +72,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof HeadImageView) && this.f47895e.mUserPhotoPool != null) {
-                this.f47895e.mUserPhotoPool.e((HeadImageView) view2);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof HeadImageView) && this.f48002e.mUserPhotoPool != null) {
+                this.f48002e.mUserPhotoPool.e((HeadImageView) view2);
             }
         }
     }
@@ -84,7 +84,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f47896a;
+        public final /* synthetic */ Context f48003a;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                     return;
                 }
             }
-            this.f47896a = context;
+            this.f48003a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -147,7 +147,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         public HeadImageView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new HeadImageView(this.f47896a) : (HeadImageView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new HeadImageView(this.f48003a) : (HeadImageView) invokeV.objValue;
         }
 
         public HeadImageView h(HeadImageView headImageView) {
@@ -170,10 +170,10 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f47897e;
+        public final int f48004e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UserPhotoLayout f47898f;
+        public final /* synthetic */ UserPhotoLayout f48005f;
 
         public /* synthetic */ c(UserPhotoLayout userPhotoLayout, int i2, a aVar) {
             this(userPhotoLayout, i2);
@@ -182,10 +182,10 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47898f.mChildClickListener == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48005f.mChildClickListener == null) {
                 return;
             }
-            this.f47898f.mChildClickListener.a(this.f47897e);
+            this.f48005f.mChildClickListener.a(this.f48004e);
         }
 
         public c(UserPhotoLayout userPhotoLayout, int i2) {
@@ -203,8 +203,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                     return;
                 }
             }
-            this.f47898f = userPhotoLayout;
-            this.f47897e = i2;
+            this.f48005f = userPhotoLayout;
+            this.f48004e = i2;
         }
     }
 
@@ -219,7 +219,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f47899e;
+        public int f48006e;
 
         public e(int i2) {
             Interceptable interceptable = $ic;
@@ -236,15 +236,15 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                     return;
                 }
             }
-            this.f47899e = 0;
-            this.f47899e = i2;
+            this.f48006e = 0;
+            this.f48006e = i2;
         }
 
         @Override // android.widget.AbsListView.RecyclerListener
         public void onMovedToScrapHeap(View view) {
             View findViewById;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (findViewById = view.findViewById(this.f47899e)) != null && (findViewById instanceof UserPhotoLayout)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (findViewById = view.findViewById(this.f48006e)) != null && (findViewById instanceof UserPhotoLayout)) {
                 ((UserPhotoLayout) findViewById).reset();
             }
         }

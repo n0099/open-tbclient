@@ -27,6 +27,7 @@ public abstract class StatusCode {
     public static final int ERROR_NOT_IMPLEMENTED = 10004;
     public static final int ERROR_NOT_LOGIN = 5003;
     public static final int ERROR_NOT_PASS_LOGIN = 5099;
+    public static final int ERROR_NOT_SUPPORT = 10009;
     public static final int ERROR_NO_NETWORK = -8;
     public static final int ERROR_PASSWORD = -7;
     public static final int ERROR_PAY_NEED_VERIFY_CODE = 51010;
@@ -42,6 +43,7 @@ public abstract class StatusCode {
     public static final int ERROR_TURIST_LOGIN_NEED_AUTH = 5093;
     public static final int ERROR_TURIST_LOGIN_NEED_BIND = 5094;
     public static final int ERROR_UNKOWN = -11;
+    public static final int ERROR_USER_EXIT = -203;
     public static final int ERROR_WITHDRAW_OFFLINE = 6000;
     public static final int FINGERPRINT_AUTH_ERROR = 65312;
     public static final int PUBLIC_SECURITY_AGE_ERROR = 5133;

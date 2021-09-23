@@ -14,13 +14,13 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f19097a;
+    public int f19106a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ForumManageModel f19098b;
+    public ForumManageModel f19107b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d2 f19099c;
+    public d2 f19108c;
 
     public h(int i2, ForumManageModel forumManageModel, d2 d2Var) {
         Interceptable interceptable = $ic;
@@ -37,26 +37,26 @@ public class h {
                 return;
             }
         }
-        this.f19097a = i2;
-        this.f19098b = forumManageModel;
-        this.f19099c = d2Var;
+        this.f19106a = i2;
+        this.f19107b = forumManageModel;
+        this.f19108c = d2Var;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19097a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19106a : invokeV.intValue;
     }
 
     public ForumManageModel b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19098b : (ForumManageModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19107b : (ForumManageModel) invokeV.objValue;
     }
 
     public d2 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19099c : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19108c : (d2) invokeV.objValue;
     }
 }

@@ -15,28 +15,28 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f19635a;
+    public boolean f19650a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f19636b;
+    public int f19651b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f19637c;
+    public List<String> f19652c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f19638d;
+    public List<String> f19653d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19639e;
+    public String f19654e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19640f;
+    public boolean f19655f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19641g;
+    public int f19656g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19642h;
+    public int f19657h;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -61,15 +61,15 @@ public class k {
             }
             k kVar = new k();
             managerElection.begin_vote_time.intValue();
-            kVar.f19635a = managerElection.can_vote.intValue() == 1;
-            kVar.f19636b = managerElection.vote_num.intValue();
-            kVar.f19640f = managerElection.is_show_distribute.intValue() == 1;
-            kVar.f19641g = managerElection.remainder_time.intValue();
-            kVar.f19642h = managerElection.status.intValue();
-            kVar.f19639e = managerElection.tail_text;
+            kVar.f19650a = managerElection.can_vote.intValue() == 1;
+            kVar.f19651b = managerElection.vote_num.intValue();
+            kVar.f19655f = managerElection.is_show_distribute.intValue() == 1;
+            kVar.f19656g = managerElection.remainder_time.intValue();
+            kVar.f19657h = managerElection.status.intValue();
+            kVar.f19654e = managerElection.tail_text;
             List<String> list = managerElection.vote_condition_pic;
-            kVar.f19637c = managerElection.vote_condition_title;
-            kVar.f19638d = managerElection.vote_condition;
+            kVar.f19652c = managerElection.vote_condition_title;
+            kVar.f19653d = managerElection.vote_condition;
             return kVar;
         }
         return (k) invokeL.objValue;
@@ -78,69 +78,69 @@ public class k {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19635a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19650a : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19640f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19655f : invokeV.booleanValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19641g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19656g : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19642h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19657h : invokeV.intValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19639e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19654e : (String) invokeV.objValue;
     }
 
     public List<String> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19638d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19653d : (List) invokeV.objValue;
     }
 
     public List<String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19637c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19652c : (List) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f19636b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f19651b : invokeV.intValue;
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f19635a = z;
+            this.f19650a = z;
         }
     }
 
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f19642h = i2;
+            this.f19657h = i2;
         }
     }
 
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f19636b = i2;
+            this.f19651b = i2;
         }
     }
 }

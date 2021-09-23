@@ -17,7 +17,7 @@ public class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static o f65252a;
+    public static o f65563a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class n {
     public static void a(o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, oVar) == null) {
-            f65252a = oVar;
+            f65563a = oVar;
         }
     }
 
@@ -98,7 +98,7 @@ public class n {
                         case 13:
                         case 18:
                         case 19:
-                            return (f65252a == null || !f65252a.a(context, telephonyManager)) ? 5 : 6;
+                            return (f65563a == null || !f65563a.a(context, telephonyManager)) ? 5 : 6;
                         case 20:
                             return 6;
                         default:

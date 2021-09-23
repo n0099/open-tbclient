@@ -116,7 +116,7 @@ public class PassNormalizeActivity extends BeanActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PassNormalizeActivity f62986a;
+        public final /* synthetic */ PassNormalizeActivity f63288a;
 
         public /* synthetic */ a(PassNormalizeActivity passNormalizeActivity, AnonymousClass1 anonymousClass1) {
             this(passNormalizeActivity);
@@ -134,12 +134,12 @@ public class PassNormalizeActivity extends BeanActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
                 LogUtil.logd("onPageFinished url=" + str);
-                if (this.f62986a.mContent != null) {
-                    WalletGlobalUtils.safeDismissDialog(this.f62986a, -1);
+                if (this.f63288a.mContent != null) {
+                    WalletGlobalUtils.safeDismissDialog(this.f63288a, -1);
                 }
-                String property = DebugConfig.getInstance(this.f62986a.mContent).getProperty("pass_complete_verify", "http://wappass.baidu.com/v2/?bindingret");
+                String property = DebugConfig.getInstance(this.f63288a.mContent).getProperty("pass_complete_verify", "http://wappass.baidu.com/v2/?bindingret");
                 if (str != null && str.startsWith(property)) {
-                    this.f62986a.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
+                    this.f63288a.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
                 }
                 super.onPageFinished(webView, str);
             }
@@ -151,16 +151,16 @@ public class PassNormalizeActivity extends BeanActivity {
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
                 LogUtil.logd("url=" + str);
                 if (str == null || !str.equals(TbDomainConfig.DOMAIN_HTTPS_BAIDU)) {
-                    if (this.f62986a.mContent != null) {
-                        PassNormalizeActivity passNormalizeActivity = this.f62986a;
+                    if (this.f63288a.mContent != null) {
+                        PassNormalizeActivity passNormalizeActivity = this.f63288a;
                         WalletGlobalUtils.safeShowDialog(passNormalizeActivity, -1, ResUtils.getString(passNormalizeActivity.mContent, "ebpay_loading"));
                     }
                     super.onPageStarted(webView, str, bitmap);
                     return;
                 }
-                PassUtil.backNormalized(this.f62986a.mContent, this.f62986a.type, null);
+                PassUtil.backNormalized(this.f63288a.mContent, this.f63288a.type, null);
                 DXMSdkSAUtils.onEventWithValues("normalizeVerify", Arrays.asList(QueryResponse.Options.CANCEL));
-                this.f62986a.finish();
+                this.f63288a.finish();
             }
         }
 
@@ -179,7 +179,7 @@ public class PassNormalizeActivity extends BeanActivity {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
                 if (str != null && (str.startsWith("sms") || str.startsWith("tel") || str.startsWith("bdscenter"))) {
                     try {
-                        this.f62986a.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                        this.f63288a.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                         return true;
                     } catch (Throwable th) {
                         LogUtil.logd(th.getMessage());
@@ -207,7 +207,7 @@ public class PassNormalizeActivity extends BeanActivity {
                     return;
                 }
             }
-            this.f62986a = passNormalizeActivity;
+            this.f63288a = passNormalizeActivity;
         }
     }
 

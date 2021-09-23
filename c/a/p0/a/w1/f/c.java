@@ -31,7 +31,7 @@ public final class c extends a0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f9501c;
+    public static final boolean f9509c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -40,16 +40,16 @@ public final class c extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f9502a;
+        public final /* synthetic */ String f9510a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f9503b;
+        public final /* synthetic */ UnitedSchemeEntity f9511b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9504c;
+        public final /* synthetic */ CallbackHandler f9512c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Context f9505d;
+        public final /* synthetic */ Context f9513d;
 
         public a(String str, c cVar, e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, Context context) {
             Interceptable interceptable = $ic;
@@ -66,10 +66,10 @@ public final class c extends a0 {
                     return;
                 }
             }
-            this.f9502a = str;
-            this.f9503b = unitedSchemeEntity;
-            this.f9504c = callbackHandler;
-            this.f9505d = context;
+            this.f9510a = str;
+            this.f9511b = unitedSchemeEntity;
+            this.f9512c = callbackHandler;
+            this.f9513d = context;
         }
 
         @Override // c.a.p0.a.w1.a
@@ -77,9 +77,9 @@ public final class c extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 if (jSONObject != null) {
-                    UnitedSchemeUtility.safeCallback(this.f9504c, this.f9503b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f9502a);
+                    UnitedSchemeUtility.safeCallback(this.f9512c, this.f9511b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f9510a);
                 } else {
-                    UnitedSchemeUtility.safeCallback(this.f9504c, this.f9503b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.f9502a);
+                    UnitedSchemeUtility.safeCallback(this.f9512c, this.f9511b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.f9510a);
                 }
             }
         }
@@ -88,7 +88,7 @@ public final class c extends a0 {
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                UnitedSchemeUtility.safeCallback(this.f9504c, this.f9503b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.f9502a);
+                UnitedSchemeUtility.safeCallback(this.f9512c, this.f9511b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.f9510a);
             }
         }
     }
@@ -98,7 +98,7 @@ public final class c extends a0 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f9506e;
+        public static final b f9514e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -114,7 +114,7 @@ public final class c extends a0 {
                     return;
                 }
             }
-            f9506e = new b();
+            f9514e = new b();
         }
 
         public b() {
@@ -152,7 +152,7 @@ public final class c extends a0 {
                 return;
             }
         }
-        f9501c = k.f7077a;
+        f9509c = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -186,7 +186,7 @@ public final class c extends a0 {
             Intrinsics.checkNotNullParameter(entity, "entity");
             if (eVar != null) {
                 if (eVar.d0()) {
-                    boolean z = f9501c;
+                    boolean z = f9509c;
                     entity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                     return false;
                 }
@@ -204,7 +204,7 @@ public final class c extends a0 {
                     entity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                if (f9501c) {
+                if (f9509c) {
                     String str = "调起参数:" + d2;
                 }
                 a aVar = new a(optString, this, eVar, entity, callbackHandler, context);
@@ -220,7 +220,7 @@ public final class c extends a0 {
                     g W2 = controller.W();
                     if (W2 != null) {
                         g.b i2 = W2.i("navigateTo");
-                        i2.n(g.f5928g, g.f5930i);
+                        i2.n(g.f5936g, g.f5938i);
                         i2.j(cVar);
                         i2.a();
                         UnitedSchemeUtility.callCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -229,7 +229,7 @@ public final class c extends a0 {
                     UnitedSchemeUtility.safeCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(1, "can get fragment manager").toString(), optString);
                     return false;
                 }
-                boolean z2 = f9501c;
+                boolean z2 = f9509c;
                 j(context);
                 return false;
             }
@@ -246,7 +246,7 @@ public final class c extends a0 {
             aVar.m(false);
             aVar.U(h.swanapp_publisher_error_title);
             aVar.v(h.swanapp_publisher_params_error);
-            aVar.O(h.aiapps_confirm, b.f9506e);
+            aVar.O(h.aiapps_confirm, b.f9514e);
             aVar.X();
         }
     }

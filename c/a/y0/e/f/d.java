@@ -14,25 +14,25 @@ public abstract class d implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f31230a;
+    public Context f31251a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f31231b;
+    public boolean f31252b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f31232c;
+    public boolean f31253c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f31233d;
+    public String f31254d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31234e;
+    public String f31255e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f31235f;
+    public String f31256f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f31236g;
+    public int f31257g;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public abstract class d implements c {
                 return;
             }
         }
-        this.f31236g = -200;
+        this.f31257g = -200;
         if (context != null) {
-            this.f31230a = context.getApplicationContext();
+            this.f31251a = context.getApplicationContext();
         }
     }
 
@@ -59,7 +59,7 @@ public abstract class d implements c {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f31236g = i2;
+            this.f31257g = i2;
         }
     }
 
@@ -67,7 +67,7 @@ public abstract class d implements c {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f31235f = str;
+            this.f31256f = str;
         }
     }
 
@@ -75,14 +75,14 @@ public abstract class d implements c {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31231b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31252b : invokeV.booleanValue;
     }
 
     @Override // c.a.y0.e.f.c
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f31232c = z;
+            this.f31253c = z;
         }
     }
 
@@ -90,7 +90,7 @@ public abstract class d implements c {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f31234e = str;
+            this.f31255e = str;
         }
     }
 
@@ -98,7 +98,7 @@ public abstract class d implements c {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f31233d = str;
+            this.f31254d = str;
         }
     }
 
@@ -106,42 +106,42 @@ public abstract class d implements c {
     public String getAAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31234e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31255e : (String) invokeV.objValue;
     }
 
     @Override // c.a.y0.e.f.c
     public String getOAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31233d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31254d : (String) invokeV.objValue;
     }
 
     @Override // c.a.y0.e.f.c
     public int getStatusCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31236g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31257g : invokeV.intValue;
     }
 
     @Override // c.a.y0.e.f.c
     public String getVAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31235f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31256f : (String) invokeV.objValue;
     }
 
     @Override // c.a.y0.e.f.c
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f31232c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f31253c : invokeV.booleanValue;
     }
 
     @Override // c.a.y0.e.f.c
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f31231b = z;
+            this.f31252b = z;
         }
     }
 }

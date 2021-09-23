@@ -27,48 +27,48 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsGameSubPbActivity f27926a;
+    public FrsGameSubPbActivity f27946a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f27927b;
+    public d f27947b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<n> f27928c;
+    public List<n> f27948c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27929d;
+    public String f27949d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27930e;
+    public String f27950e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27931f;
+    public int f27951f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27932g;
+    public int f27952g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27933h;
+    public boolean f27953h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f27934i;
+    public boolean f27954i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HttpMessageListener f27935j;
+    public HttpMessageListener f27955j;
     public HttpMessageListener k;
     public HttpMessageListener l;
 
     /* renamed from: c.a.r0.w0.w1.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1316a extends HttpMessageListener {
+    public class C1314a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27936a;
+        public final /* synthetic */ a f27956a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1316a(a aVar, int i2) {
+        public C1314a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -85,36 +85,36 @@ public class a {
                     return;
                 }
             }
-            this.f27936a = aVar;
+            this.f27956a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || this.f27936a.f27927b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || this.f27956a.f27947b == null) {
                 return;
             }
             if (httpResponsedMessage != null && !httpResponsedMessage.hasError() && (httpResponsedMessage instanceof FrsSelectSubCommentReponseMessage)) {
                 FrsSelectSubCommentReponseMessage frsSelectSubCommentReponseMessage = (FrsSelectSubCommentReponseMessage) httpResponsedMessage;
                 if (frsSelectSubCommentReponseMessage.getSelectSubCommentData() != null) {
                     if (1003379 == httpResponsedMessage.getCmd()) {
-                        this.f27936a.f27933h = frsSelectSubCommentReponseMessage.getSelectSubCommentData().f27942b;
-                        if (!this.f27936a.f27934i || 1 == frsSelectSubCommentReponseMessage.getSelectSubCommentData().f27941a) {
-                            this.f27936a.f27928c.clear();
+                        this.f27956a.f27953h = frsSelectSubCommentReponseMessage.getSelectSubCommentData().f27962b;
+                        if (!this.f27956a.f27954i || 1 == frsSelectSubCommentReponseMessage.getSelectSubCommentData().f27961a) {
+                            this.f27956a.f27948c.clear();
                         } else {
-                            a.f(this.f27936a);
+                            a.f(this.f27956a);
                         }
-                        if (!ListUtils.isEmpty(frsSelectSubCommentReponseMessage.getSelectSubCommentData().f27944d)) {
-                            this.f27936a.f27928c.addAll(frsSelectSubCommentReponseMessage.getSelectSubCommentData().f27944d);
+                        if (!ListUtils.isEmpty(frsSelectSubCommentReponseMessage.getSelectSubCommentData().f27964d)) {
+                            this.f27956a.f27948c.addAll(frsSelectSubCommentReponseMessage.getSelectSubCommentData().f27964d);
                         }
-                        this.f27936a.f27927b.a(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f27936a.f27933h, this.f27936a.f27934i, frsSelectSubCommentReponseMessage.getSelectSubCommentData().f27943c, this.f27936a.f27928c);
+                        this.f27956a.f27947b.a(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f27956a.f27953h, this.f27956a.f27954i, frsSelectSubCommentReponseMessage.getSelectSubCommentData().f27963c, this.f27956a.f27948c);
                     }
-                    this.f27936a.f27934i = false;
+                    this.f27956a.f27954i = false;
                 }
             }
-            this.f27936a.f27927b.a(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), false, this.f27936a.f27934i, null, null);
-            this.f27936a.f27934i = false;
+            this.f27956a.f27947b.a(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), false, this.f27956a.f27954i, null, null);
+            this.f27956a.f27954i = false;
         }
     }
 
@@ -124,7 +124,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27937a;
+        public final /* synthetic */ a f27957a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, int i2) {
@@ -144,27 +144,27 @@ public class a {
                     return;
                 }
             }
-            this.f27937a = aVar;
+            this.f27957a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || this.f27937a.f27927b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || this.f27957a.f27947b == null) {
                 return;
             }
             if (httpResponsedMessage != null && !httpResponsedMessage.hasError() && (httpResponsedMessage instanceof FrsAddSubCommentResponseMessage)) {
                 FrsAddSubCommentResponseMessage frsAddSubCommentResponseMessage = (FrsAddSubCommentResponseMessage) httpResponsedMessage;
                 if (frsAddSubCommentResponseMessage.getSubCommentData() != null) {
                     if (1003380 == httpResponsedMessage.getCmd()) {
-                        this.f27937a.f27927b.b(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), frsAddSubCommentResponseMessage.getSubCommentData());
+                        this.f27957a.f27947b.b(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), frsAddSubCommentResponseMessage.getSubCommentData());
                         return;
                     }
                     return;
                 }
             }
-            this.f27937a.f27927b.b(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), null);
+            this.f27957a.f27947b.b(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), null);
         }
     }
 
@@ -174,7 +174,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27938a;
+        public final /* synthetic */ a f27958a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(a aVar, int i2) {
@@ -194,27 +194,27 @@ public class a {
                     return;
                 }
             }
-            this.f27938a = aVar;
+            this.f27958a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || this.f27938a.f27927b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || this.f27958a.f27947b == null) {
                 return;
             }
             if (httpResponsedMessage != null && !httpResponsedMessage.hasError() && (httpResponsedMessage instanceof FrsDeleteSubCommentResponseMessage)) {
                 FrsDeleteSubCommentResponseMessage frsDeleteSubCommentResponseMessage = (FrsDeleteSubCommentResponseMessage) httpResponsedMessage;
                 if (frsDeleteSubCommentResponseMessage.getSubCommentData() != null) {
                     if (1003381 == httpResponsedMessage.getCmd()) {
-                        this.f27938a.f27927b.c(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), frsDeleteSubCommentResponseMessage.getSubCommentData());
+                        this.f27958a.f27947b.c(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), frsDeleteSubCommentResponseMessage.getSubCommentData());
                         return;
                     }
                     return;
                 }
             }
-            this.f27938a.f27927b.c(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), null);
+            this.f27958a.f27947b.c(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), null);
         }
     }
 
@@ -242,37 +242,37 @@ public class a {
                 return;
             }
         }
-        this.f27929d = "0";
-        this.f27932g = 1;
-        this.f27935j = new C1316a(this, 0);
+        this.f27949d = "0";
+        this.f27952g = 1;
+        this.f27955j = new C1314a(this, 0);
         this.k = new b(this, 0);
         this.l = new c(this, 0);
-        this.f27926a = frsGameSubPbActivity;
-        this.f27931f = i2;
-        this.f27930e = str;
-        this.f27928c = new ArrayList();
+        this.f27946a = frsGameSubPbActivity;
+        this.f27951f = i2;
+        this.f27950e = str;
+        this.f27948c = new ArrayList();
         k();
         i();
         j();
     }
 
     public static /* synthetic */ int f(a aVar) {
-        int i2 = aVar.f27932g;
-        aVar.f27932g = i2 + 1;
+        int i2 = aVar.f27952g;
+        aVar.f27952g = i2 + 1;
         return i2;
     }
 
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (!z || this.f27933h) {
-                this.f27934i = z;
+            if (!z || this.f27953h) {
+                this.f27954i = z;
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SELECT_SUB_COMMENT);
-                httpMessage.addParam("pn", z ? 1 + this.f27932g : 1);
+                httpMessage.addParam("pn", z ? 1 + this.f27952g : 1);
                 httpMessage.addParam("ps", 20);
-                httpMessage.addParam("forum_id", this.f27931f);
-                httpMessage.addParam("main_tower_id", this.f27930e);
-                httpMessage.addParam(ImageViewerConfig.LAST_ID, this.f27929d);
+                httpMessage.addParam("forum_id", this.f27951f);
+                httpMessage.addParam("main_tower_id", this.f27950e);
+                httpMessage.addParam(ImageViewerConfig.LAST_ID, this.f27949d);
                 MessageManager.getInstance().sendMessage(httpMessage);
             }
         }
@@ -284,7 +284,7 @@ public class a {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_SUB_COMMENT, TbConfig.SERVER_ADDRESS + "game/client/addSubComment");
             tbHttpMessageTask.setResponsedClass(FrsAddSubCommentResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            this.f27926a.registerListener(CmdConfigHttp.CMD_ADD_SUB_COMMENT, this.k);
+            this.f27946a.registerListener(CmdConfigHttp.CMD_ADD_SUB_COMMENT, this.k);
         }
     }
 
@@ -294,7 +294,7 @@ public class a {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_DELETE_SUB_COMMENT, TbConfig.SERVER_ADDRESS + "game/client/deleteSubComment");
             tbHttpMessageTask.setResponsedClass(FrsDeleteSubCommentResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            this.f27926a.registerListener(CmdConfigHttp.CMD_DELETE_SUB_COMMENT, this.l);
+            this.f27946a.registerListener(CmdConfigHttp.CMD_DELETE_SUB_COMMENT, this.l);
         }
     }
 
@@ -304,21 +304,21 @@ public class a {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SELECT_SUB_COMMENT, TbConfig.SERVER_ADDRESS + "game/client/selectSubComment");
             tbHttpMessageTask.setResponsedClass(FrsSelectSubCommentReponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            this.f27926a.registerListener(CmdConfigHttp.CMD_SELECT_SUB_COMMENT, this.f27935j);
+            this.f27946a.registerListener(CmdConfigHttp.CMD_SELECT_SUB_COMMENT, this.f27955j);
         }
     }
 
     public void l(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f27927b = dVar;
+            this.f27947b = dVar;
         }
     }
 
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f27929d = str;
+            this.f27949d = str;
         }
     }
 }

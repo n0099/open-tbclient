@@ -15,7 +15,7 @@ public class i0 extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4421a;
+    public int f4429a;
 
     public i0() {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public class i0 extends a {
                 return;
             }
         }
-        this.f4421a = 0;
+        this.f4429a = 0;
     }
 
     @Override // c.a.p0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) {
-            bVar.o = this.f4421a;
+            bVar.o = this.f4429a;
         }
     }
 
@@ -49,17 +49,17 @@ public class i0 extends a {
                 if (jSONArray.length() > 0) {
                     String optString = jSONArray.optString(0);
                     if (TextUtils.equals(optString, VerticalTranslateLayout.TOP)) {
-                        this.f4421a = 1;
+                        this.f4429a = 1;
                     } else if (TextUtils.equals(optString, "middle")) {
-                        this.f4421a = 2;
+                        this.f4429a = 2;
                     } else if (TextUtils.equals(optString, "bottom")) {
-                        this.f4421a = 3;
+                        this.f4429a = 3;
                     } else {
-                        this.f4421a = 0;
+                        this.f4429a = 0;
                     }
                 }
             } catch (Exception e2) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e2.printStackTrace();
                 }
             }

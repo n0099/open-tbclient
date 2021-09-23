@@ -21,34 +21,34 @@ public class BioAlertDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewSwitcher f40288a;
+    public ViewSwitcher f40350a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f40289b;
+    public TextView f40351b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f40290c;
+    public TextView f40352c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f40291d;
+    public TextView f40353d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f40292e;
+    public Button f40354e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f40293f;
+    public Button f40355f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f40294g;
+    public TextView f40356g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f40295h;
+    public LinearLayout f40357h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f40296i;
+    public TextView f40358i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f40297j;
+    public LinearLayout f40359j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BioAlertDialog(Context context) {
@@ -77,16 +77,16 @@ public class BioAlertDialog extends Dialog {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             setContentView(R.layout.layout_sapi_liveness_alert_dialog);
             setCanceledOnTouchOutside(false);
-            this.f40288a = (ViewSwitcher) findViewById(R.id.view_switcher);
-            this.f40289b = (TextView) findViewById(R.id.dialog_title);
-            this.f40290c = (TextView) findViewById(R.id.dialog_msg);
-            this.f40291d = (TextView) findViewById(R.id.msg_text);
-            this.f40292e = (Button) findViewById(R.id.positive_btn);
-            this.f40293f = (Button) findViewById(R.id.negative_btn);
-            this.f40294g = (TextView) findViewById(R.id.neutral_btn);
-            this.f40295h = (LinearLayout) findViewById(R.id.unrecognized_dialog);
-            this.f40296i = (TextView) findViewById(R.id.tv_recog_msg1);
-            this.f40297j = (LinearLayout) findViewById(R.id.time_out_dialog_msg);
+            this.f40350a = (ViewSwitcher) findViewById(R.id.view_switcher);
+            this.f40351b = (TextView) findViewById(R.id.dialog_title);
+            this.f40352c = (TextView) findViewById(R.id.dialog_msg);
+            this.f40353d = (TextView) findViewById(R.id.msg_text);
+            this.f40354e = (Button) findViewById(R.id.positive_btn);
+            this.f40355f = (Button) findViewById(R.id.negative_btn);
+            this.f40356g = (TextView) findViewById(R.id.neutral_btn);
+            this.f40357h = (LinearLayout) findViewById(R.id.unrecognized_dialog);
+            this.f40358i = (TextView) findViewById(R.id.tv_recog_msg1);
+            this.f40359j = (LinearLayout) findViewById(R.id.time_out_dialog_msg);
         }
     }
 
@@ -99,9 +99,9 @@ public class BioAlertDialog extends Dialog {
                 i2 = 2;
             }
             if (i2 == 2) {
-                this.f40288a.setDisplayedChild(0);
+                this.f40350a.setDisplayedChild(0);
             } else {
-                this.f40288a.setDisplayedChild(1);
+                this.f40350a.setDisplayedChild(1);
             }
         }
     }
@@ -109,82 +109,82 @@ public class BioAlertDialog extends Dialog {
     public void setDialogMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f40290c.setVisibility(0);
-            this.f40290c.setText(str);
+            this.f40352c.setVisibility(0);
+            this.f40352c.setText(str);
         }
     }
 
     public void setDialogMsgColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f40290c.setTextColor(i2);
+            this.f40352c.setTextColor(i2);
         }
     }
 
     public void setMessageIcon(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f40291d.setText(i2);
+            this.f40353d.setText(i2);
         }
     }
 
     public void setMessageText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f40291d.setVisibility(0);
-            this.f40291d.setText(str);
+            this.f40353d.setVisibility(0);
+            this.f40353d.setText(str);
         }
     }
 
     public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, onClickListener) == null) {
-            this.f40293f.setText(str);
-            this.f40293f.setOnClickListener(onClickListener);
+            this.f40355f.setText(str);
+            this.f40355f.setOnClickListener(onClickListener);
         }
     }
 
     public void setNeutralBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, onClickListener) == null) {
-            this.f40294g.setText(str);
-            this.f40294g.setOnClickListener(onClickListener);
+            this.f40356g.setText(str);
+            this.f40356g.setOnClickListener(onClickListener);
         }
     }
 
     public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, onClickListener) == null) {
-            this.f40292e.setText(str);
-            this.f40292e.setOnClickListener(onClickListener);
+            this.f40354e.setText(str);
+            this.f40354e.setOnClickListener(onClickListener);
         }
     }
 
     public void setRecognizedFailMsg1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f40296i.setText(str);
+            this.f40358i.setText(str);
         }
     }
 
     public void setRecognizedFailVisible(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f40295h.setVisibility(i2);
+            this.f40357h.setVisibility(i2);
         }
     }
 
     public void setTimeOutVisible(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f40297j.setVisibility(0);
+            this.f40359j.setVisibility(0);
         }
     }
 
     public void setTitleMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f40289b.setText(str);
+            this.f40351b.setText(str);
         }
     }
 
@@ -192,9 +192,9 @@ public class BioAlertDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             if (z) {
-                this.f40289b.setVisibility(0);
+                this.f40351b.setVisibility(0);
             } else {
-                this.f40289b.setVisibility(8);
+                this.f40351b.setVisibility(8);
             }
         }
     }
@@ -224,9 +224,9 @@ public class BioAlertDialog extends Dialog {
     public void setNegativeBtn(String str, int i2, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048581, this, str, i2, onClickListener) == null) {
-            this.f40293f.setText(str);
-            this.f40293f.setTextColor(i2);
-            this.f40293f.setOnClickListener(onClickListener);
+            this.f40355f.setText(str);
+            this.f40355f.setTextColor(i2);
+            this.f40355f.setOnClickListener(onClickListener);
         }
     }
 

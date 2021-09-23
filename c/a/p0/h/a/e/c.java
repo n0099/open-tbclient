@@ -16,7 +16,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f10963a;
+    public a f10971a;
     @V8JavascriptField
     public int height;
     @V8JavascriptField
@@ -66,7 +66,7 @@ public class c {
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f10963a = aVar;
+            this.f10971a = aVar;
         }
     }
 
@@ -74,10 +74,10 @@ public class c {
     public void onFieldChangedCallback(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (k.f7077a) {
+            if (k.f7085a) {
                 String str2 = "onFieldChangedCallback fieldName=" + str;
             }
-            a aVar = this.f10963a;
+            a aVar = this.f10971a;
             if (aVar != null) {
                 aVar.i(str);
             }

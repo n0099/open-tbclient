@@ -24,7 +24,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f12243a;
+    public Context f12251a;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class b {
                 return;
             }
         }
-        this.f12243a = context;
+        this.f12251a = context;
     }
 
     public final boolean a(u uVar) {
@@ -49,7 +49,7 @@ public class b {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uVar)) == null) {
-            File file = new File(this.f12243a.getFilesDir() + File.separator + "ubcdir", "proc");
+            File file = new File(this.f12251a.getFilesDir() + File.separator + "ubcdir", "proc");
             if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
                 return false;
             }
@@ -69,7 +69,7 @@ public class b {
                                 }
                                 JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                                 if (jSONObject.has("abtest")) {
-                                    uVar.f12375f = "1";
+                                    uVar.f12383f = "1";
                                 }
                                 long j4 = jSONObject.getLong("timestamp");
                                 if (j4 > 0) {
@@ -115,7 +115,7 @@ public class b {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            File file = new File(this.f12243a.getFilesDir(), "ubcdir");
+            File file = new File(this.f12251a.getFilesDir(), "ubcdir");
             if (file.exists()) {
                 File file2 = new File(file, z ? "filereal" : "filedata");
                 if (file2.exists()) {
@@ -138,7 +138,7 @@ public class b {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, uVar, z)) == null) {
-            File file = new File(this.f12243a.getFilesDir(), "ubcdir");
+            File file = new File(this.f12251a.getFilesDir(), "ubcdir");
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -158,7 +158,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                uVar.f12375f = "1";
+                                uVar.f12383f = "1";
                             }
                             long j4 = jSONObject.getLong("timestamp");
                             if (j4 > 0) {
@@ -199,7 +199,7 @@ public class b {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, iVar, z) == null) {
-            File file2 = new File(this.f12243a.getFilesDir(), "ubcdir");
+            File file2 = new File(this.f12251a.getFilesDir(), "ubcdir");
             if (!file2.exists()) {
                 file2.mkdirs();
             }
@@ -214,8 +214,8 @@ public class b {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                if (iVar.f12288e != null) {
-                    JSONObject jSONObject2 = iVar.f12288e;
+                if (iVar.f12296e != null) {
+                    JSONObject jSONObject2 = iVar.f12296e;
                     if (jSONObject2.has("bizId")) {
                         try {
                             JSONObject jSONObject3 = jSONObject2.getJSONObject("content");
@@ -231,22 +231,22 @@ public class b {
                     } else {
                         jSONObject.put("content", jSONObject2);
                     }
-                } else if (!TextUtils.isEmpty(iVar.f12287d)) {
-                    jSONObject.put("content", iVar.f12287d);
+                } else if (!TextUtils.isEmpty(iVar.f12295d)) {
+                    jSONObject.put("content", iVar.f12295d);
                 }
-                jSONObject.put("bizId", iVar.f12284a);
-                jSONObject.put("timestamp", iVar.f12289f);
+                jSONObject.put("bizId", iVar.f12292a);
+                jSONObject.put("timestamp", iVar.f12297f);
                 jSONObject.put("eventType", "0");
-                if (!TextUtils.isEmpty(iVar.f12291h)) {
-                    jSONObject.put("abtest", iVar.f12291h);
+                if (!TextUtils.isEmpty(iVar.f12299h)) {
+                    jSONObject.put("abtest", iVar.f12299h);
                 }
-                if (!TextUtils.isEmpty(iVar.f12292i)) {
-                    jSONObject.put("c", iVar.f12292i);
+                if (!TextUtils.isEmpty(iVar.f12300i)) {
+                    jSONObject.put("c", iVar.f12300i);
                 }
-                if (iVar.f12293j) {
+                if (iVar.f12301j) {
                     jSONObject.put("of", "1");
                 }
-                jSONObject.put(Constant.ID_TYPE, d.g().j(iVar.f12284a));
+                jSONObject.put(Constant.ID_TYPE, d.g().j(iVar.f12292a));
             } catch (JSONException unused2) {
             }
             byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);

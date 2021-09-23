@@ -6,9 +6,9 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.d.l;
 import c.a.e.e.p.j;
 import c.a.e.l.e.n;
-import c.a.q0.d1.i0;
-import c.a.q0.d1.l0;
-import c.a.q0.d1.o;
+import c.a.q0.d1.j0;
+import c.a.q0.d1.m0;
+import c.a.q0.d1.r;
 import c.a.q0.s.q.d2;
 import c.a.r0.a0.d0.k;
 import com.baidu.adp.framework.MessageManager;
@@ -49,31 +49,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f18585a;
+    public TbPageContext f18594a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f18586b;
+    public f f18595b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<n> f18587c;
+    public List<n> f18596c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<ThreadInfo> f18588d;
+    public List<ThreadInfo> f18597d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<ThreadPersonalized> f18589e;
+    public List<ThreadPersonalized> f18598e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DataRes.Builder f18590f;
+    public DataRes.Builder f18599f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f18591g;
+    public boolean f18600g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18592h;
+    public boolean f18601h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.e.c.g.a f18593i;
+    public c.a.e.c.g.a f18602i;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.c.g.a {
@@ -81,7 +81,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f18594a;
+        public final /* synthetic */ b f18603a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2, int i3) {
@@ -102,19 +102,19 @@ public class b {
                     return;
                 }
             }
-            this.f18594a = bVar;
+            this.f18603a = bVar;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f18594a.f18591g = false;
-                this.f18594a.f18592h = false;
+                this.f18603a.f18600g = false;
+                this.f18603a.f18601h = false;
                 if (responsedMessage != null) {
-                    this.f18594a.g(responsedMessage);
-                } else if (this.f18594a.f18586b != null) {
-                    this.f18594a.f18586b.b(-1, "", false);
+                    this.f18603a.g(responsedMessage);
+                } else if (this.f18603a.f18595b != null) {
+                    this.f18603a.f18595b.b(-1, "", false);
                 }
             }
         }
@@ -122,11 +122,11 @@ public class b {
 
     /* renamed from: c.a.r0.g1.l.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0899b extends i0<DataRes> {
+    public class C0897b extends j0<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0899b(b bVar) {
+        public C0897b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,7 +143,7 @@ public class b {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.i0
+        @Override // c.a.q0.d1.j0
         /* renamed from: a */
         public DataRes doInBackground() {
             InterceptResult invokeV;
@@ -166,12 +166,12 @@ public class b {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements o<DataRes> {
+    public class c implements r<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f18595a;
+        public final /* synthetic */ b f18604a;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -188,23 +188,23 @@ public class b {
                     return;
                 }
             }
-            this.f18595a = bVar;
+            this.f18604a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.o
+        @Override // c.a.q0.d1.r
         /* renamed from: a */
         public void onReturnDataInUI(DataRes dataRes) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
                 return;
             }
-            this.f18595a.f18590f = new DataRes.Builder(dataRes);
+            this.f18604a.f18599f = new DataRes.Builder(dataRes);
             int count = ListUtils.getCount(dataRes.thread_list);
             if (count > 0) {
-                this.f18595a.i(dataRes, false);
-                if (this.f18595a.f18586b != null) {
-                    this.f18595a.f18586b.a(count, false, true);
+                this.f18604a.i(dataRes, false);
+                if (this.f18604a.f18595b != null) {
+                    this.f18604a.f18595b.a(count, false, true);
                 }
             }
         }
@@ -254,12 +254,12 @@ public class b {
     }
 
     /* loaded from: classes3.dex */
-    public class e extends i0<Object> {
+    public class e extends j0<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DataRes.Builder f18596a;
+        public final /* synthetic */ DataRes.Builder f18605a;
 
         public e(b bVar, DataRes.Builder builder) {
             Interceptable interceptable = $ic;
@@ -276,15 +276,15 @@ public class b {
                     return;
                 }
             }
-            this.f18596a = builder;
+            this.f18605a = builder;
         }
 
-        @Override // c.a.q0.d1.i0
+        @Override // c.a.q0.d1.j0
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                DataRes.Builder builder = new DataRes.Builder(this.f18596a.build(true));
+                DataRes.Builder builder = new DataRes.Builder(this.f18605a.build(true));
                 c.a.q0.s.r.a.f();
                 try {
                     c.a.q0.s.r.a.e("tb.video_tab", TbadkCoreApplication.getCurrentAccount()).g(TbadkCoreApplication.getCurrentAccount(), builder.build(true).toByteArray());
@@ -320,18 +320,18 @@ public class b {
                 return;
             }
         }
-        this.f18592h = true;
-        this.f18593i = new a(this, CmdConfigHttp.CMD_VIDEO_TAB, 309648);
-        this.f18585a = tbPageContext;
-        this.f18586b = fVar;
-        this.f18587c = new LinkedList();
-        this.f18588d = new LinkedList();
-        this.f18589e = new LinkedList();
+        this.f18601h = true;
+        this.f18602i = new a(this, CmdConfigHttp.CMD_VIDEO_TAB, 309648);
+        this.f18594a = tbPageContext;
+        this.f18595b = fVar;
+        this.f18596c = new LinkedList();
+        this.f18597d = new LinkedList();
+        this.f18598e = new LinkedList();
         c.a.q0.z0.b bVar = new c.a.q0.z0.b(309648);
         bVar.setResponsedClass(VideoTabSocketResMessage.class);
         bVar.g(true);
         MessageManager.getInstance().registerTask(bVar);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_TAB, c.a.r0.j3.d0.a.a(TbConfig.URL_VIDEO_TAB, 309648));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_TAB, c.a.r0.j3.e0.a.a(TbConfig.URL_VIDEO_TAB, 309648));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(VideoTabHttpResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -357,11 +357,11 @@ public class b {
                     t(z);
                 }
             }
-            if (this.f18586b != null) {
+            if (this.f18595b != null) {
                 if (responsedMessage.getError() != 0) {
-                    this.f18586b.b(responsedMessage.getError(), responsedMessage.getErrorString(), z);
+                    this.f18595b.b(responsedMessage.getError(), responsedMessage.getErrorString(), z);
                 } else {
-                    this.f18586b.a(i2, z, false);
+                    this.f18595b.a(i2, z, false);
                 }
             }
         }
@@ -370,7 +370,7 @@ public class b {
     public List<n> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18587c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18596c : (List) invokeV.objValue;
     }
 
     public final void i(DataRes dataRes, boolean z) {
@@ -379,48 +379,48 @@ public class b {
             m(dataRes.thread_list, !z);
             n(dataRes.thread_personalized, !z);
             List<n> s = s();
-            this.f18587c = s;
-            c.a.r0.g1.l.c.a.b(this.f18589e, s);
+            this.f18596c = s;
+            c.a.r0.g1.l.c.a.b(this.f18598e, s);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f18591g) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f18600g) {
             return;
         }
-        this.f18591g = true;
-        if (this.f18592h) {
+        this.f18600g = true;
+        if (this.f18601h) {
             k();
-            this.f18592h = false;
+            this.f18601h = false;
         }
         VideoTabRequestMessage videoTabRequestMessage = new VideoTabRequestMessage();
         videoTabRequestMessage.new_net_type = j.I();
         videoTabRequestMessage.load_type = 1;
         videoTabRequestMessage.page_thread_count = 12;
         videoTabRequestMessage.setNetType(NetMessage.NetType.HTTP);
-        this.f18585a.sendMessage(videoTabRequestMessage);
+        this.f18594a.sendMessage(videoTabRequestMessage);
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            l0.b(new C0899b(this), new c(this));
+            m0.b(new C0897b(this), new c(this));
         }
     }
 
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f18591g) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f18600g) {
             return;
         }
-        this.f18591g = true;
+        this.f18600g = true;
         VideoTabRequestMessage videoTabRequestMessage = new VideoTabRequestMessage();
         videoTabRequestMessage.new_net_type = j.I();
         videoTabRequestMessage.load_type = 2;
         videoTabRequestMessage.page_thread_count = 12;
         videoTabRequestMessage.setNetType(NetMessage.NetType.HTTP);
-        this.f18585a.sendMessage(videoTabRequestMessage);
+        this.f18594a.sendMessage(videoTabRequestMessage);
     }
 
     public final void m(List<ThreadInfo> list, boolean z) {
@@ -431,12 +431,12 @@ public class b {
         if (z) {
             LinkedList linkedList = new LinkedList();
             linkedList.addAll(list);
-            linkedList.addAll(this.f18588d);
-            this.f18588d.clear();
-            this.f18588d.addAll(linkedList);
+            linkedList.addAll(this.f18597d);
+            this.f18597d.clear();
+            this.f18597d.addAll(linkedList);
             return;
         }
-        this.f18588d.addAll(list);
+        this.f18597d.addAll(list);
     }
 
     public final void n(List<ThreadPersonalized> list, boolean z) {
@@ -447,25 +447,25 @@ public class b {
         if (z) {
             LinkedList linkedList = new LinkedList();
             linkedList.addAll(list);
-            linkedList.addAll(this.f18589e);
-            this.f18589e.clear();
-            this.f18589e.addAll(linkedList);
+            linkedList.addAll(this.f18598e);
+            this.f18598e.clear();
+            this.f18598e.addAll(linkedList);
             return;
         }
-        this.f18589e.addAll(list);
+        this.f18598e.addAll(list);
     }
 
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f18593i);
+            MessageManager.getInstance().unRegisterListener(this.f18602i);
         }
     }
 
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            MessageManager.getInstance().registerListener(this.f18593i);
+            MessageManager.getInstance().registerListener(this.f18602i);
         }
     }
 
@@ -473,15 +473,15 @@ public class b {
         DataRes.Builder builder;
         Long l;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || (builder = this.f18590f) == null || ListUtils.isEmpty(builder.thread_list)) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || (builder = this.f18599f) == null || ListUtils.isEmpty(builder.thread_list)) {
             return;
         }
         long g2 = c.a.e.e.m.b.g(str, 0L);
-        for (int i2 = 0; i2 < this.f18590f.thread_list.size(); i2++) {
-            ThreadInfo threadInfo = this.f18590f.thread_list.get(i2);
+        for (int i2 = 0; i2 < this.f18599f.thread_list.size(); i2++) {
+            ThreadInfo threadInfo = this.f18599f.thread_list.get(i2);
             if (threadInfo != null && (l = threadInfo.tid) != null && l.longValue() == g2) {
-                this.f18590f.thread_list.remove(i2);
-                v(this.f18590f);
+                this.f18599f.thread_list.remove(i2);
+                v(this.f18599f);
                 return;
             }
         }
@@ -489,10 +489,10 @@ public class b {
 
     public void r(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || ListUtils.isEmpty(this.f18587c)) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || ListUtils.isEmpty(this.f18596c)) {
             return;
         }
-        Iterator<n> it = this.f18587c.iterator();
+        Iterator<n> it = this.f18596c.iterator();
         while (it.hasNext()) {
             n next = it.next();
             if (next instanceof c.a.r0.a0.d0.b) {
@@ -511,18 +511,18 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            if (ListUtils.isEmpty(this.f18588d)) {
+            if (ListUtils.isEmpty(this.f18597d)) {
                 return linkedList;
             }
             char c2 = 0;
             int i2 = 0;
-            for (ThreadInfo threadInfo : this.f18588d) {
+            for (ThreadInfo threadInfo : this.f18597d) {
                 d2 d2Var2 = new d2();
                 d2Var2.Y2(threadInfo);
-                d2Var2.b2 = true;
+                d2Var2.c2 = true;
                 if (c.a.r0.a0.d0.l.T(d2Var2)) {
                     k g3 = c.a.r0.g1.h.k.d.g(d2Var2);
-                    if (g3 != null && (d2Var = g3.f15562e) != null && d2Var.Y() != null && !StringUtils.isNull(g3.f15562e.Y().f14374b) && !g3.f15562e.I2()) {
+                    if (g3 != null && (d2Var = g3.f15571e) != null && d2Var.Y() != null && !StringUtils.isNull(g3.f15571e.Y().f14374b) && !g3.f15571e.I2()) {
                         g3.l = d2Var2.s1();
                         g3.position = i2;
                         c.a.r0.g1.h.k.d.r(g3);
@@ -567,7 +567,7 @@ public class b {
                             String format = String.format(string, objArr);
                             SpannableString spannableString = new SpannableString(format);
                             spannableString.setSpan(new d(this, 16, d2Var2.J().getUserId(), e2, d2Var2), 0, format.length() - 1, 33);
-                            e2.f15562e.H1(spannableString);
+                            e2.f15571e.H1(spannableString);
                         }
                         linkedList.add(e2);
                     }
@@ -620,20 +620,20 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             DataRes.Builder builder = new DataRes.Builder();
-            if (ListUtils.getCount(this.f18588d) < 12) {
+            if (ListUtils.getCount(this.f18597d) < 12) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.addAll(this.f18588d);
+                arrayList.addAll(this.f18597d);
                 builder.thread_list = arrayList;
                 u(builder, false);
             } else if (z) {
-                List<ThreadInfo> list = this.f18588d;
-                builder.thread_list = list.subList(list.size() - 12, this.f18588d.size());
+                List<ThreadInfo> list = this.f18597d;
+                builder.thread_list = list.subList(list.size() - 12, this.f18597d.size());
                 u(builder, true);
             } else {
-                builder.thread_list = this.f18588d.subList(0, 12);
+                builder.thread_list = this.f18597d.subList(0, 12);
                 u(builder, false);
             }
-            this.f18590f = builder;
+            this.f18599f = builder;
             v(builder);
         }
     }
@@ -643,22 +643,22 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLZ(1048590, this, builder, z) == null) || builder == null) {
             return;
         }
-        if (ListUtils.getCount(this.f18589e) < 12) {
+        if (ListUtils.getCount(this.f18598e) < 12) {
             LinkedList linkedList = new LinkedList();
-            linkedList.addAll(this.f18589e);
+            linkedList.addAll(this.f18598e);
             builder.thread_personalized = linkedList;
         } else if (z) {
-            List<ThreadPersonalized> list = this.f18589e;
-            builder.thread_personalized = list.subList(list.size() - 12, this.f18589e.size());
+            List<ThreadPersonalized> list = this.f18598e;
+            builder.thread_personalized = list.subList(list.size() - 12, this.f18598e.size());
         } else {
-            builder.thread_personalized = this.f18589e.subList(0, 12);
+            builder.thread_personalized = this.f18598e.subList(0, 12);
         }
     }
 
     public final void v(DataRes.Builder builder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, builder) == null) {
-            l0.b(new e(this, builder), null);
+            m0.b(new e(this, builder), null);
         }
     }
 }

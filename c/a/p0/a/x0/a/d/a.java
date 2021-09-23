@@ -15,34 +15,34 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f9690a;
+    public static File f9698a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f9691b;
+    public static String f9699b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f9692c;
+    public static String f9700c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f9693d;
+    public static String f9701d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f9694e;
+    public static String f9702e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f9695f;
+    public static String f9703f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f9696g;
+    public static String f9704g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f9697h;
+    public static String f9705h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f9698i;
+    public static String f9706i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f9699j;
+    public static String f9707j;
     public static String k;
     public static String l;
     public static String m;
@@ -61,16 +61,16 @@ public class a {
                 return;
             }
         }
-        f9690a = e.g();
-        f9691b = "swan_core";
-        f9692c = "extension_core";
-        f9693d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
-        f9694e = "cloneFolder_";
-        f9695f = f9693d + File.separator + f9694e;
-        f9696g = "clone_pkg_folder";
-        f9697h = "clone_core_folder";
-        f9698i = "clone_dynamic_lib_folder";
-        f9699j = "clone_sp_folder";
+        f9698a = e.g();
+        f9699b = "swan_core";
+        f9700c = "extension_core";
+        f9701d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
+        f9702e = "cloneFolder_";
+        f9703f = f9701d + File.separator + f9702e;
+        f9704g = "clone_pkg_folder";
+        f9705h = "clone_core_folder";
+        f9706i = "clone_dynamic_lib_folder";
+        f9707j = "clone_sp_folder";
         k = "clone_db_folder";
         l = "cloneZip.zip";
         m = "clone_zipFiles";

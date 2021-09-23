@@ -18,13 +18,13 @@ public class ThreadUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f59288a;
+    public static final Object f59419a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f59289b;
+    public static boolean f59420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f59290c;
+    public static Handler f59421c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class ThreadUtils {
                 return;
             }
         }
-        f59288a = new Object();
+        f59419a = new Object();
     }
 
     public ThreadUtils() {
@@ -62,15 +62,15 @@ public class ThreadUtils {
         Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (f59288a) {
-                if (f59290c == null) {
-                    if (!f59289b) {
-                        f59290c = new Handler(Looper.getMainLooper());
+            synchronized (f59419a) {
+                if (f59421c == null) {
+                    if (!f59420b) {
+                        f59421c = new Handler(Looper.getMainLooper());
                     } else {
                         throw new RuntimeException("Did not yet override the UI thread");
                     }
                 }
-                handler = f59290c;
+                handler = f59421c;
             }
             return handler;
         }

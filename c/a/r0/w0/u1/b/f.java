@@ -34,7 +34,7 @@ public class f extends c.a.e.l.e.a<g, CardViewHolder<h>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f27849b;
+        public final /* synthetic */ f f27869b;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class f extends c.a.e.l.e.a<g, CardViewHolder<h>> {
                     return;
                 }
             }
-            this.f27849b = fVar;
+            this.f27869b = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,7 +60,7 @@ public class f extends c.a.e.l.e.a<g, CardViewHolder<h>> {
         public void a(View view, g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, gVar) == null) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 1).param("fid", this.f27849b.o));
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 1).param("fid", this.f27869b.o));
                 UrlManager.getInstance().dealOneLink((TbPageContext) j.a(view.getContext()), new String[]{gVar.g().score_url}, true);
             }
         }
@@ -68,7 +68,7 @@ public class f extends c.a.e.l.e.a<g, CardViewHolder<h>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), g.f17757f);
+        super(tbPageContext.getPageActivity(), g.f17767f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

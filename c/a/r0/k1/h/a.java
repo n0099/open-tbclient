@@ -32,13 +32,13 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f21334a;
+    public String f21348a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<? extends ChatMessage> f21335b;
+    public Class<? extends ChatMessage> f21349b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f21336c;
+    public List<String> f21350c;
 
     public a(String str, Class<? extends ChatMessage> cls) {
         Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public abstract class a {
                 return;
             }
         }
-        this.f21336c = null;
-        this.f21334a = str;
-        this.f21335b = cls;
+        this.f21350c = null;
+        this.f21348a = str;
+        this.f21349b = cls;
     }
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0071: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:38:0x0071 */
@@ -131,7 +131,7 @@ public abstract class a {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                h.e().d("CREATE TABLE IF NOT EXISTS " + (this.f21334a + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1, read_count LONG default -1);");
+                h.e().d("CREATE TABLE IF NOT EXISTS " + (this.f21348a + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1, read_count LONG default -1);");
             }
         }
     }
@@ -144,7 +144,7 @@ public abstract class a {
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
-                h.e().b(this.f21334a + str, "mid=?", new String[]{str2});
+                h.e().b(this.f21348a + str, "mid=?", new String[]{str2});
                 return true;
             } catch (Exception e2) {
                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.deleteMsgByMid", new Object[0]);
@@ -161,24 +161,24 @@ public abstract class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (this.f21336c == null) {
-                this.f21336c = h();
+            if (this.f21350c == null) {
+                this.f21350c = h();
             }
-            List<String> list = this.f21336c;
+            List<String> list = this.f21350c;
             if (list != null && list.contains(str)) {
-                Iterator<String> it = this.f21336c.iterator();
+                Iterator<String> it = this.f21350c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String next = it.next();
                     if (next.equals(str)) {
-                        this.f21336c.remove(next);
+                        this.f21350c.remove(next);
                         break;
                     }
                 }
             }
-            String str2 = this.f21334a + str;
+            String str2 = this.f21348a + str;
             return h.e().d("delete from " + str2);
         }
         return invokeL.booleanValue;
@@ -191,24 +191,24 @@ public abstract class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (this.f21336c == null) {
-                this.f21336c = h();
+            if (this.f21350c == null) {
+                this.f21350c = h();
             }
-            List<String> list = this.f21336c;
+            List<String> list = this.f21350c;
             if (list != null && list.contains(str)) {
-                Iterator<String> it = this.f21336c.iterator();
+                Iterator<String> it = this.f21350c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String next = it.next();
                     if (next.equals(str)) {
-                        this.f21336c.remove(next);
+                        this.f21350c.remove(next);
                         break;
                     }
                 }
             }
-            String str2 = this.f21334a + str;
+            String str2 = this.f21348a + str;
             return h.e().d("DROP TABLE IF EXISTS " + str2);
         }
         return invokeL.booleanValue;
@@ -226,7 +226,7 @@ public abstract class a {
             }
             int i4 = i3 <= 0 ? 20 : i3;
             LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
-            String str3 = this.f21334a + str;
+            String str3 = this.f21348a + str;
             try {
                 try {
                     if (TextUtils.isEmpty(str2)) {
@@ -295,7 +295,7 @@ public abstract class a {
             String valueOf = String.valueOf(j2);
             int i3 = i2 <= 0 ? 20 : i2;
             LinkedList<ChatMessage> linkedList = new LinkedList<>();
-            String str3 = this.f21334a + valueOf;
+            String str3 = this.f21348a + valueOf;
             try {
                 try {
                 } catch (Throwable th) {
@@ -321,8 +321,8 @@ public abstract class a {
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
-                            ChatMessage newInstance = this.f21335b.newInstance();
-                            newInstance.setGroupId(String.valueOf(c.a.r0.k1.s.a.f21571i));
+                            ChatMessage newInstance = this.f21349b.newInstance();
+                            newInstance.setGroupId(String.valueOf(c.a.r0.k1.s.a.f21585i));
                             newInstance.setContent(cursor.getString(cursor.getColumnIndex("content")));
                             newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
                             newInstance.setExtra(cursor.getString(cursor.getColumnIndex("ext")));
@@ -389,8 +389,8 @@ public abstract class a {
                         cursor.moveToFirst();
                         while (cursor.moveToNext()) {
                             String string = cursor.getString(cursor.getColumnIndex("name"));
-                            if (string.startsWith(this.f21334a)) {
-                                linkedList.add(string.subSequence(this.f21334a.length(), string.length()).toString());
+                            if (string.startsWith(this.f21348a)) {
+                                linkedList.add(string.subSequence(this.f21348a.length(), string.length()).toString());
                             }
                         }
                     }
@@ -416,7 +416,7 @@ public abstract class a {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = h.e().h("select max(mid) from " + (this.f21334a + str), null);
+                    cursor = h.e().h("select max(mid) from " + (this.f21348a + str), null);
                     if (cursor != null && cursor.moveToNext()) {
                         return cursor.getLong(0);
                     }
@@ -445,7 +445,7 @@ public abstract class a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String str2 = this.f21334a + str;
+            String str2 = this.f21348a + str;
             try {
                 try {
                     cursor = h.e().h("select * from " + str2 + " WHERE is_delete=? ORDER BY rid DESC LIMIT 1", new String[]{String.valueOf(0)});
@@ -522,7 +522,7 @@ public abstract class a {
             int i3 = 0;
             while (it.hasNext()) {
                 sb.append("SELECT * FROM ");
-                sb.append(this.f21334a + it.next());
+                sb.append(this.f21348a + it.next());
                 sb.append(" WHERE ");
                 sb.append("msg_type");
                 sb.append(" = 7");
@@ -545,7 +545,7 @@ public abstract class a {
                     cursor = h.e().h(sb.toString(), new String[]{String.valueOf(i2)});
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
-                            ChatMessage newInstance = this.f21335b.newInstance();
+                            ChatMessage newInstance = this.f21349b.newInstance();
                             newInstance.setObjContent(map.get(cursor.getString(cursor.getColumnIndex("uid"))));
                             newInstance.setContent(cursor.getString(cursor.getColumnIndex("content")));
                             newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
@@ -594,7 +594,7 @@ public abstract class a {
             try {
                 try {
                     try {
-                        cursor = h.e().h("select count(*) from " + (this.f21334a + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
+                        cursor = h.e().h("select count(*) from " + (this.f21348a + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
                         if (cursor != null && cursor.moveToNext()) {
                             return cursor.getInt(0);
                         }
@@ -639,13 +639,13 @@ public abstract class a {
             return false;
         }
         String valueOf = String.valueOf(j2);
-        String str6 = this.f21334a + valueOf;
-        if (this.f21336c == null) {
-            this.f21336c = h();
+        String str6 = this.f21348a + valueOf;
+        if (this.f21350c == null) {
+            this.f21350c = h();
         }
-        if (!this.f21336c.contains(valueOf)) {
+        if (!this.f21350c.contains(valueOf)) {
             b(valueOf);
-            this.f21336c.add(valueOf);
+            this.f21350c.add(valueOf);
         }
         try {
             StringBuilder sb = new StringBuilder();
@@ -865,7 +865,7 @@ public abstract class a {
                 }
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("is_delete", (Integer) 1);
-                h.e().j(this.f21334a + str, contentValues, "mid=?", new String[]{str2});
+                h.e().j(this.f21348a + str, contentValues, "mid=?", new String[]{str2});
                 return true;
             } catch (Exception e2) {
                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.markDeleteMsgByMid", new Object[0]);
@@ -893,7 +893,7 @@ public abstract class a {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f21336c = null;
+            this.f21350c = null;
         }
     }
 
@@ -907,7 +907,7 @@ public abstract class a {
             cursor = null;
             try {
                 try {
-                    str2 = this.f21334a + str;
+                    str2 = this.f21348a + str;
                     if (i2 < 1000) {
                         i2 = 1000;
                     }
@@ -946,7 +946,7 @@ public abstract class a {
     public void r(long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            String str = this.f21334a + j2;
+            String str = this.f21348a + j2;
             try {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("is_delete", Integer.valueOf(z ? 1 : 0));
@@ -971,7 +971,7 @@ public abstract class a {
             if (TbadkCoreApplication.getCurrentAccount().equals(valueOf)) {
                 valueOf = String.valueOf(j3);
             }
-            String str3 = this.f21334a + valueOf;
+            String str3 = this.f21348a + valueOf;
             try {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("mid", str2);

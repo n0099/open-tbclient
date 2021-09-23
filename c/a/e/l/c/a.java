@@ -13,7 +13,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<c> f2932a;
+    public SparseArray<c> f2933a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -28,13 +28,13 @@ public class a {
                 return;
             }
         }
-        this.f2932a = new SparseArray<>();
+        this.f2933a = new SparseArray<>();
     }
 
     public c a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f2932a.get(i2) : (c) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f2933a.get(i2) : (c) invokeI.objValue;
     }
 
     public boolean b(int i2) {
@@ -54,7 +54,7 @@ public class a {
             if (i3 <= 0 || i4 <= 0) {
                 return false;
             }
-            this.f2932a.put(i2, new c(i3, i4));
+            this.f2933a.put(i2, new c(i3, i4));
             return true;
         }
         return invokeIII.booleanValue;

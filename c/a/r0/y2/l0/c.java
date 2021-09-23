@@ -17,34 +17,34 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f29586a;
+    public JSONObject f29606a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29587b;
+    public String f29607b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29588c;
+    public int f29608c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29589d;
+    public int f29609d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29590e;
+    public int f29610e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f29591f;
+    public String f29611f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f29592g;
+    public long f29612g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f29593h;
+    public String f29613h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29594i;
+    public int f29614i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f29595j;
+    public String f29615j;
     public int k;
     public String l;
     public String m;
@@ -73,20 +73,20 @@ public class c {
                 return;
             }
         }
-        this.f29588c = -1;
-        this.f29589d = -1;
-        this.f29590e = -1;
-        this.f29592g = System.currentTimeMillis() / 1000;
+        this.f29608c = -1;
+        this.f29609d = -1;
+        this.f29610e = -1;
+        this.f29612g = System.currentTimeMillis() / 1000;
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            if (this.f29586a == null) {
-                this.f29586a = new JSONObject();
+            if (this.f29606a == null) {
+                this.f29606a = new JSONObject();
             }
             try {
-                this.f29586a.put(str, str2);
+                this.f29606a.put(str, str2);
             } catch (Exception unused) {
             }
         }
@@ -98,22 +98,22 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.f29589d != -1) {
-                    jSONObject.put("da_locate", this.f29589d);
+                if (this.f29609d != -1) {
+                    jSONObject.put("da_locate", this.f29609d);
                 }
-                if (this.f29588c != -1) {
-                    jSONObject.put("da_type", this.f29588c);
+                if (this.f29608c != -1) {
+                    jSONObject.put("da_type", this.f29608c);
                 }
-                jSONObject.put("extra_param", this.f29587b);
-                jSONObject.put("origin_time", this.f29592g);
-                if (this.f29590e != -1) {
-                    jSONObject.put("da_page_num", this.f29590e);
+                jSONObject.put("extra_param", this.f29607b);
+                jSONObject.put("origin_time", this.f29612g);
+                if (this.f29610e != -1) {
+                    jSONObject.put("da_page_num", this.f29610e);
                 }
-                jSONObject.put("da_price", this.f29593h);
+                jSONObject.put("da_price", this.f29613h);
                 jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
-                jSONObject.put("ext1", this.f29594i);
+                jSONObject.put("ext1", this.f29614i);
                 jSONObject.put("ext3", this.k);
-                jSONObject.put("ext2", this.f29595j);
+                jSONObject.put("ext2", this.f29615j);
                 jSONObject.put("da_ext1", this.l);
                 jSONObject.put("da_ext2", this.m);
                 jSONObject.put("da_ext3", this.n);
@@ -123,7 +123,7 @@ public class c {
                 jSONObject.put("da_menu2", this.t);
                 jSONObject.put("da_menu3", this.u);
                 jSONObject.put("da_page", this.v);
-                jSONObject.put("place_id", this.f29591f);
+                jSONObject.put("place_id", this.f29611f);
                 jSONObject.put("lego_extra", this.r);
                 if (this.q != null) {
                     jSONObject.put("da_range", this.q.getDa_range());
@@ -136,7 +136,7 @@ public class c {
                 jSONObject.put("video_pos", this.x);
             } catch (JSONException unused) {
             }
-            JSONObject jSONObject2 = this.f29586a;
+            JSONObject jSONObject2 = this.f29606a;
             if (jSONObject2 != null) {
                 try {
                     jSONObject.put("ext", jSONObject2);
@@ -158,7 +158,7 @@ public class c {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f29589d = i2;
+            this.f29609d = i2;
         }
     }
 
@@ -193,7 +193,7 @@ public class c {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f29588c = i2;
+            this.f29608c = i2;
         }
     }
 
@@ -258,8 +258,8 @@ public class c {
         if (interceptable == null || interceptable.invokeL(1048593, this, downloadStaticsData) == null) {
             this.q = downloadStaticsData;
             if (downloadStaticsData != null) {
-                this.f29589d = c.a.e.e.m.b.e(downloadStaticsData.getAdPosition(), 0);
-                this.f29587b = downloadStaticsData.getExtensionInfo();
+                this.f29609d = c.a.e.e.m.b.e(downloadStaticsData.getAdPosition(), 0);
+                this.f29607b = downloadStaticsData.getExtensionInfo();
             }
         }
     }
@@ -273,7 +273,7 @@ public class c {
     public void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f29587b = str;
+            this.f29607b = str;
         }
     }
 
@@ -287,14 +287,14 @@ public class c {
     public void v(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.f29590e = i2;
+            this.f29610e = i2;
         }
     }
 
     public void w(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.f29591f = str;
+            this.f29611f = str;
         }
     }
 

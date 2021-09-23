@@ -31,26 +31,26 @@ public class b implements a.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f5368g;
+    public static final boolean f5376g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final a.b f5369a;
+    public final a.b f5377a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h.b.e.a f5370b;
+    public h.b.e.a f5378b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InspectorNativeClient f5371c;
+    public InspectorNativeClient f5379c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.a.l0.a f5372d;
+    public c.a.p0.a.l0.a f5380d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedBlockingQueue<String> f5373e;
+    public LinkedBlockingQueue<String> f5381e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f5374f;
+    public String f5382f;
 
     /* loaded from: classes.dex */
     public class a extends InspectorNativeChannel {
@@ -58,7 +58,7 @@ public class b implements a.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f5375a;
+        public final /* synthetic */ b f5383a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class b implements a.c {
                     return;
                 }
             }
-            this.f5375a = bVar;
+            this.f5383a = bVar;
         }
 
         @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
@@ -83,11 +83,11 @@ public class b implements a.c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                boolean unused = b.f5368g;
+                boolean unused = b.f5376g;
                 try {
-                    return (String) this.f5375a.f5373e.take();
+                    return (String) this.f5383a.f5381e.take();
                 } catch (InterruptedException unused2) {
-                    boolean unused3 = b.f5368g;
+                    boolean unused3 = b.f5376g;
                     return "";
                 }
             }
@@ -99,11 +99,11 @@ public class b implements a.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 try {
-                    if (this.f5375a.f5370b != null) {
-                        this.f5375a.f5370b.send(str);
+                    if (this.f5383a.f5378b != null) {
+                        this.f5383a.f5378b.send(str);
                     }
                 } catch (Exception unused) {
-                    boolean unused2 = b.f5368g;
+                    boolean unused2 = b.f5376g;
                 }
             }
         }
@@ -116,7 +116,7 @@ public class b implements a.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f5376e;
+        public final /* synthetic */ b f5384e;
 
         /* renamed from: c.a.p0.a.e0.h.c.b$b$a */
         /* loaded from: classes.dex */
@@ -125,7 +125,7 @@ public class b implements a.c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0160b f5377e;
+            public final /* synthetic */ C0160b f5385e;
 
             public a(C0160b c0160b) {
                 Interceptable interceptable = $ic;
@@ -142,19 +142,19 @@ public class b implements a.c {
                         return;
                     }
                 }
-                this.f5377e = c0160b;
+                this.f5385e = c0160b;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    String str = (String) this.f5377e.f5376e.f5373e.poll();
+                    String str = (String) this.f5385e.f5384e.f5381e.poll();
                     while (str != null) {
-                        this.f5377e.f5376e.f5371c.dispatchProtocolMessage(str);
-                        this.f5377e.c(str);
-                        this.f5377e.d(str);
-                        str = (String) this.f5377e.f5376e.f5373e.poll();
+                        this.f5385e.f5384e.f5379c.dispatchProtocolMessage(str);
+                        this.f5385e.c(str);
+                        this.f5385e.d(str);
+                        str = (String) this.f5385e.f5384e.f5381e.poll();
                     }
                 }
             }
@@ -167,7 +167,7 @@ public class b implements a.c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0160b f5378e;
+            public final /* synthetic */ C0160b f5386e;
 
             public RunnableC0161b(C0160b c0160b) {
                 Interceptable interceptable = $ic;
@@ -184,14 +184,14 @@ public class b implements a.c {
                         return;
                     }
                 }
-                this.f5378e = c0160b;
+                this.f5386e = c0160b;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f5378e.f5376e.f5369a.onConnected();
+                    this.f5386e.f5384e.f5377a.onConnected();
                 }
             }
         }
@@ -214,12 +214,12 @@ public class b implements a.c {
                     return;
                 }
             }
-            this.f5376e = bVar;
+            this.f5384e = bVar;
         }
 
         public final void c(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str) || this.f5376e.f5369a == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str) || this.f5384e.f5377a == null) {
                 return;
             }
             try {
@@ -231,7 +231,7 @@ public class b implements a.c {
                     }
                 }
             } catch (JSONException unused) {
-                boolean unused2 = b.f5368g;
+                boolean unused2 = b.f5376g;
             }
         }
 
@@ -270,7 +270,7 @@ public class b implements a.c {
                     SchemeRouter.invoke(AppRuntime.getAppContext(), optString2);
                 }
             } catch (JSONException unused) {
-                boolean unused2 = b.f5368g;
+                boolean unused2 = b.f5376g;
             }
         }
 
@@ -294,8 +294,8 @@ public class b implements a.c {
         public void onMessage(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f5376e.f5373e.offer(str);
-                this.f5376e.f5372d.postOnJSThread(new a(this));
+                this.f5384e.f5381e.offer(str);
+                this.f5384e.f5380d.postOnJSThread(new a(this));
             }
         }
 
@@ -306,15 +306,15 @@ public class b implements a.c {
                 c.a.p0.a.e0.d.g("V8InspectorClient", "V8 inspector opened");
                 c.a.p0.a.h0.l.a P = g.N().P();
                 if (P instanceof e) {
-                    this.f5376e.f5372d = (c.a.p0.a.l0.a) P.g();
+                    this.f5384e.f5380d = (c.a.p0.a.l0.a) P.g();
                 }
-                if (this.f5376e.f5372d == null) {
+                if (this.f5384e.f5380d == null) {
                     c.a.p0.a.e0.d.g("V8InspectorClient", "inner error, V8 mEngine is null");
                     close();
                     return;
                 }
-                b bVar = this.f5376e;
-                bVar.f5371c = bVar.f5372d.r0(new a(this.f5376e));
+                b bVar = this.f5384e;
+                bVar.f5379c = bVar.f5380d.r0(new a(this.f5384e));
             }
         }
     }
@@ -332,7 +332,7 @@ public class b implements a.c {
                 return;
             }
         }
-        f5368g = k.f7077a;
+        f5376g = k.f7085a;
     }
 
     public b(String str, a.b bVar) {
@@ -350,9 +350,9 @@ public class b implements a.c {
                 return;
             }
         }
-        this.f5373e = new LinkedBlockingQueue<>();
-        this.f5374f = str;
-        this.f5369a = bVar;
+        this.f5381e = new LinkedBlockingQueue<>();
+        this.f5382f = str;
+        this.f5377a = bVar;
     }
 
     @Override // c.a.p0.a.e0.h.a.c
@@ -360,8 +360,8 @@ public class b implements a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                C0160b c0160b = new C0160b(this, new URI(this.f5374f));
-                this.f5370b = c0160b;
+                C0160b c0160b = new C0160b(this, new URI(this.f5382f));
+                this.f5378b = c0160b;
                 c0160b.connect();
             } catch (URISyntaxException e2) {
                 e2.printStackTrace();
@@ -373,10 +373,10 @@ public class b implements a.c {
     public void stop() {
         h.b.e.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f5370b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f5378b) == null) {
             return;
         }
         aVar.close();
-        this.f5370b = null;
+        this.f5378b = null;
     }
 }

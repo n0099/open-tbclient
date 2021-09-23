@@ -32,20 +32,19 @@ import com.baidu.pass.face.platform.model.ImageInfo;
 import com.baidu.pass.face.platform.utils.APIUtils;
 import com.baidu.pass.main.facesdk.FaceInfo;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.sofire.ac.F;
 import com.baidu.sofire.ac.FH;
 import com.baidu.sofire.ac.FaceEnum;
 import com.baidu.sofire.ac.FaceProcessCallback;
 import com.baidu.sofire.ac.IFaceProcessInfo;
 import com.baidu.sofire.ac.RequestInfo;
-import com.baidu.sofire.core.h;
 import com.baidu.sofire.utility.WbEncryptUtil;
-import com.baidu.sofire.utility.i;
-import com.baidu.sofire.utility.l;
-import com.baidu.sofire.utility.o;
-import com.baidu.sofire.utility.v;
-import com.baidu.sofire.utility.w;
+import com.baidu.sofire.utility.f;
+import com.baidu.sofire.utility.j;
+import com.baidu.sofire.utility.n;
+import com.baidu.sofire.utility.q;
 import com.baidu.sofire.utility.x;
+import com.baidu.sofire.utility.y;
+import com.baidu.sofire.utility.z;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +59,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
-import java.util.UUID;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -70,7 +68,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IFaceProcessInfo A;
-    public w B;
+    public y B;
     public int C;
     public boolean D;
     public boolean E;
@@ -97,36 +95,36 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     public long Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f45192a;
+    public boolean f45254a;
     public long aa;
     public RequestInfo ab;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f45193b;
+    public volatile boolean f45255b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f45194c;
+    public boolean f45256c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f45195d;
+    public boolean f45257d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f45196e;
+    public String f45258e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f45197f;
+    public boolean f45259f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f45198g;
+    public boolean f45260g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f45199h;
+    public boolean f45261h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Rect f45200i;
+    public Rect f45262i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f45201j;
+    public int f45263j;
     public int k;
     public int l;
     public int m;
@@ -146,14 +144,14 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
 
     /* renamed from: com.baidu.sofire.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C1713a implements Camera.ErrorCallback, Camera.PreviewCallback {
+    public class C1715a implements Camera.ErrorCallback, Camera.PreviewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f45215a;
+        public final /* synthetic */ a f45277a;
 
-        public C1713a(a aVar) {
+        public C1715a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,16 +166,16 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     return;
                 }
             }
-            this.f45215a = aVar;
+            this.f45277a = aVar;
         }
 
         @Override // android.hardware.Camera.ErrorCallback
         public final void onError(int i2, Camera camera) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, camera) == null) {
-                this.f45215a.T = true;
-                this.f45215a.c();
-                this.f45215a.j();
+                this.f45277a.T = true;
+                this.f45277a.b();
+                this.f45277a.g();
             }
         }
 
@@ -186,23 +184,23 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, camera) == null) {
                 try {
-                    int i2 = this.f45215a.n;
+                    int i2 = this.f45277a.n;
                     if (i2 == 1) {
-                        this.f45215a.R = bArr;
+                        this.f45277a.R = bArr;
                     } else if (i2 == 2) {
-                        this.f45215a.S = bArr;
+                        this.f45277a.S = bArr;
                     }
-                    this.f45215a.c();
-                    this.f45215a.j();
+                    this.f45277a.b();
+                    this.f45277a.g();
                 } catch (Throwable unused) {
                     com.baidu.sofire.utility.c.a();
-                    this.f45215a.c();
-                    this.f45215a.j();
+                    this.f45277a.b();
+                    this.f45277a.g();
                 }
             }
         }
 
-        public /* synthetic */ C1713a(a aVar, byte b2) {
+        public /* synthetic */ C1715a(a aVar, byte b2) {
             this(aVar);
         }
     }
@@ -213,7 +211,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f45216a;
+        public final /* synthetic */ a f45278a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -230,7 +228,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     return;
                 }
             }
-            this.f45216a = aVar;
+            this.f45278a = aVar;
         }
 
         @Override // com.baidu.pass.face.platform.b
@@ -238,35 +236,36 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048576, this, faceStatusNewEnum, str, hashMap, hashMap2) == null) {
                 try {
-                    if (!this.f45216a.f45195d && !this.f45216a.f45197f) {
-                        if (faceStatusNewEnum != FaceStatusNewEnum.OK) {
-                            if (this.f45216a.u != null) {
-                                this.f45216a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, -1);
-                                return;
+                    if (!this.f45278a.f45257d && !this.f45278a.f45259f) {
+                        if (faceStatusNewEnum == FaceStatusNewEnum.OK) {
+                            this.f45278a.f45257d = true;
+                            Pair b2 = this.f45278a.b(hashMap, hashMap2);
+                            if (b2 != null) {
+                                this.f45278a.U = ((Long) b2.first).longValue();
+                                this.f45278a.V = (String) b2.second;
+                            } else {
+                                this.f45278a.a(-8);
                             }
-                            return;
-                        }
-                        this.f45216a.f45195d = true;
-                        Pair b2 = this.f45216a.b(hashMap, hashMap2);
-                        if (b2 != null) {
-                            this.f45216a.U = ((Long) b2.first).longValue();
-                            this.f45216a.V = (String) b2.second;
-                        } else {
-                            this.f45216a.a(-8);
-                        }
-                        if (this.f45216a.u != null) {
-                            a.a(hashMap, hashMap2);
-                            this.f45216a.u.onCollectCompletion(faceStatusNewEnum, str, hashMap, hashMap2, -1);
-                        }
-                        this.f45216a.b();
-                        if (x.a(this.f45216a.r).b(new e(this.f45216a, (byte) 0)) != 1) {
-                            this.f45216a.a(-7);
+                            if (this.f45278a.u != null) {
+                                a.a(hashMap, hashMap2);
+                                this.f45278a.u.onCollectCompletion(faceStatusNewEnum, str, hashMap, hashMap2, -1);
+                            }
+                            if (z.a(this.f45278a.r).b(new e(this.f45278a, (byte) 0)) != 1) {
+                                this.f45278a.a(-7);
+                            }
+                        } else if (faceStatusNewEnum == FaceStatusNewEnum.DetectRemindCodeTimeout) {
+                            if (this.f45278a.u != null) {
+                                this.f45278a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, -1);
+                            }
+                            this.f45278a.a(-18);
+                        } else if (this.f45278a.u != null) {
+                            this.f45278a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, -1);
                         }
                     }
                 } catch (Throwable th) {
                     com.baidu.sofire.utility.c.a();
-                    v.a(this.f45216a.r, this.f45216a.f45196e, 4, th);
-                    this.f45216a.a(-10);
+                    x.a(this.f45278a.r, this.f45278a.f45258e, 4, th);
+                    this.f45278a.a(-10);
                 }
             }
         }
@@ -282,7 +281,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f45217a;
+        public final /* synthetic */ a f45279a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -299,7 +298,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     return;
                 }
             }
-            this.f45217a = aVar;
+            this.f45279a = aVar;
         }
 
         @Override // com.baidu.pass.face.platform.d
@@ -307,35 +306,36 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{faceStatusNewEnum, str, hashMap, hashMap2, Integer.valueOf(i2)}) == null) {
                 try {
-                    if (!this.f45217a.f45195d && !this.f45217a.f45197f) {
-                        if (faceStatusNewEnum != FaceStatusNewEnum.OK) {
-                            if (this.f45217a.u != null) {
-                                this.f45217a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, i2);
-                                return;
+                    if (!this.f45279a.f45257d && !this.f45279a.f45259f) {
+                        if (faceStatusNewEnum == FaceStatusNewEnum.OK) {
+                            this.f45279a.f45257d = true;
+                            Pair b2 = this.f45279a.b(hashMap, hashMap2);
+                            if (b2 != null) {
+                                this.f45279a.U = ((Long) b2.first).longValue();
+                                this.f45279a.V = (String) b2.second;
+                            } else {
+                                this.f45279a.a(-8);
                             }
-                            return;
-                        }
-                        this.f45217a.f45195d = true;
-                        Pair b2 = this.f45217a.b(hashMap, hashMap2);
-                        if (b2 != null) {
-                            this.f45217a.U = ((Long) b2.first).longValue();
-                            this.f45217a.V = (String) b2.second;
-                        } else {
-                            this.f45217a.a(-8);
-                        }
-                        if (this.f45217a.u != null) {
-                            a.a(hashMap, hashMap2);
-                            this.f45217a.u.onCollectCompletion(faceStatusNewEnum, str, hashMap, hashMap2, i2);
-                        }
-                        this.f45217a.b();
-                        if (x.a(this.f45217a.r).b(new e(this.f45217a, (byte) 0)) != 1) {
-                            this.f45217a.a(-7);
+                            if (this.f45279a.u != null) {
+                                a.a(hashMap, hashMap2);
+                                this.f45279a.u.onCollectCompletion(faceStatusNewEnum, str, hashMap, hashMap2, i2);
+                            }
+                            if (z.a(this.f45279a.r).b(new e(this.f45279a, (byte) 0)) != 1) {
+                                this.f45279a.a(-7);
+                            }
+                        } else if (faceStatusNewEnum == FaceStatusNewEnum.DetectRemindCodeTimeout) {
+                            if (this.f45279a.u != null) {
+                                this.f45279a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, i2);
+                            }
+                            this.f45279a.a(-18);
+                        } else if (this.f45279a.u != null) {
+                            this.f45279a.u.onCollectCompletion(faceStatusNewEnum, str, null, null, i2);
                         }
                     }
                 } catch (Throwable th) {
                     com.baidu.sofire.utility.c.a();
-                    v.a(this.f45217a.r, this.f45217a.f45196e, 4, th);
-                    this.f45217a.a(-10);
+                    x.a(this.f45279a.r, this.f45279a.f45258e, 4, th);
+                    this.f45279a.a(-10);
                 }
             }
         }
@@ -351,7 +351,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f45218a;
+        public final /* synthetic */ a f45280a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -368,7 +368,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     return;
                 }
             }
-            this.f45218a = aVar;
+            this.f45280a = aVar;
         }
 
         @Override // com.baidu.pass.face.platform.e
@@ -376,22 +376,8 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, livenessTypeEnum) == null) {
                 try {
-                    if (this.f45218a.u != null) {
-                        this.f45218a.u.setCurrentLiveType(livenessTypeEnum);
-                    }
-                } catch (Throwable unused) {
-                    com.baidu.sofire.utility.c.a();
-                }
-            }
-        }
-
-        @Override // com.baidu.pass.face.platform.e
-        public final void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                try {
-                    if (this.f45218a.u != null) {
-                        this.f45218a.u.animStop();
+                    if (this.f45280a.u != null) {
+                        this.f45280a.u.setCurrentLiveType(livenessTypeEnum);
                     }
                 } catch (Throwable unused) {
                     com.baidu.sofire.utility.c.a();
@@ -408,8 +394,8 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f45218a.u != null) {
-                        this.f45218a.u.viewReset();
+                    if (this.f45280a.u != null) {
+                        this.f45280a.u.viewReset();
                     }
                 } catch (Throwable unused) {
                     com.baidu.sofire.utility.c.a();
@@ -422,8 +408,8 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, faceExtInfo) == null) {
                 try {
-                    if (this.f45218a.u != null) {
-                        this.f45218a.u.setFaceInfo(faceExtInfo);
+                    if (this.f45280a.u != null) {
+                        this.f45280a.u.setFaceInfo(faceExtInfo);
                     }
                 } catch (Throwable unused) {
                     com.baidu.sofire.utility.c.a();
@@ -438,7 +424,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f45219a;
+        public final /* synthetic */ a f45281a;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -455,7 +441,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     return;
                 }
             }
-            this.f45219a = aVar;
+            this.f45281a = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -464,22 +450,22 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f45219a.f45197f) {
+                    if (this.f45281a.f45259f) {
                         return;
                     }
-                    if (this.f45219a.D && !this.f45219a.T) {
-                        this.f45219a.i();
+                    if (this.f45281a.D && !this.f45281a.T) {
+                        this.f45281a.f();
                     }
-                    if (this.f45219a.f45197f) {
+                    if (this.f45281a.f45259f) {
                         return;
                     }
-                    if (this.f45219a.u != null && this.f45219a.s != null) {
-                        this.f45219a.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.e.1
+                    if (this.f45281a.u != null && this.f45281a.s != null) {
+                        this.f45281a.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.e.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ e f45220a;
+                            public final /* synthetic */ e f45282a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -496,43 +482,43 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                         return;
                                     }
                                 }
-                                this.f45220a = this;
+                                this.f45282a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public final void run() {
                                 Interceptable interceptable2 = $ic;
-                                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f45220a.f45219a.u == null) {
+                                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f45282a.f45281a.u == null) {
                                     return;
                                 }
-                                this.f45220a.f45219a.u.onBeginBuildData();
+                                this.f45282a.f45281a.u.onBeginBuildData();
                             }
                         });
                     }
                     JSONObject jSONObject = null;
-                    if (this.f45219a.f45199h) {
-                        pair = FH.callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, this.f45219a.f45196e, Boolean.FALSE, this.f45219a.h());
-                        this.f45219a.f45199h = false;
+                    if (this.f45281a.f45261h) {
+                        pair = FH.callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, this.f45281a.f45258e, Boolean.FALSE, this.f45281a.e());
+                        this.f45281a.f45261h = false;
                     } else {
                         pair = null;
                     }
-                    if (this.f45219a.f45197f) {
+                    if (this.f45281a.f45259f) {
                         return;
                     }
                     if (pair != null && ((Integer) pair.first).intValue() == 0) {
                         String str = (String) pair.second;
-                        if (!TextUtils.isEmpty(str) && (jSONObject = new JSONObject(str).optJSONObject("s")) != null && this.f45219a.U > 0 && this.f45219a.B.f45474a.getBoolean("lt_sssf", true)) {
-                            jSONObject = this.f45219a.b(jSONObject);
+                        if (!TextUtils.isEmpty(str) && (jSONObject = new JSONObject(str).optJSONObject("s")) != null && this.f45281a.U > 0 && this.f45281a.B.c()) {
+                            jSONObject = this.f45281a.b(jSONObject);
                         }
                     }
-                    if (this.f45219a.f45197f) {
+                    if (this.f45281a.f45259f) {
                         return;
                     }
-                    this.f45219a.a(this.f45219a.a(jSONObject));
+                    this.f45281a.a(this.f45281a.a(jSONObject));
                 } catch (Throwable th) {
                     com.baidu.sofire.utility.c.a();
-                    v.a(this.f45219a.r, this.f45219a.f45196e, 6, th);
-                    this.f45219a.a(-12);
+                    x.a(this.f45281a.r, this.f45281a.f45258e, 6, th);
+                    this.f45281a.a(-12);
                 }
             }
         }
@@ -557,17 +543,17 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                 return;
             }
         }
-        this.f45193b = true;
-        this.f45194c = false;
-        this.f45195d = false;
+        this.f45255b = true;
+        this.f45256c = false;
+        this.f45257d = false;
         this.C = 5;
         this.D = false;
         this.E = false;
-        this.f45198g = false;
-        this.f45199h = false;
+        this.f45260g = false;
+        this.f45261h = false;
         this.F = new Rect();
-        this.f45200i = new Rect();
-        this.f45201j = 0;
+        this.f45262i = new Rect();
+        this.f45263j = 0;
         this.k = 0;
         this.l = 0;
         this.m = 0;
@@ -585,32 +571,36 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         this.t = surfaceHolder;
         this.u = faceProcessCallback;
         this.C = i2;
-        w a2 = w.a(applicationContext);
+        y a2 = y.a(applicationContext);
         this.B = a2;
-        this.Z = a2.f45474a.getLong("lt_sfii", 1000L);
+        this.Z = a2.f45577a.getLong("lt_sfii", 1000L);
         this.A = iFaceProcessInfo;
         this.z = i3;
-        this.f45192a = z;
+        this.f45254a = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65586, this) == null) {
-            synchronized (this) {
-                try {
-                    notifyAll();
-                } catch (Throwable unused) {
-                    com.baidu.sofire.utility.c.a();
-                }
+    public static /* synthetic */ void j(a aVar) {
+        aVar.o = FaceSDKManager.getInstance().getFaceConfig();
+        aVar.f45255b = ((AudioManager) aVar.r.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamVolume(3) > 0 ? aVar.o.isSound() : false;
+        if (aVar.f45254a) {
+            if (aVar.v == null) {
+                aVar.v = new c(aVar, (byte) 0);
             }
+        } else if (aVar.w == null) {
+            aVar.w = new b(aVar, (byte) 0);
         }
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        aVar.s.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        aVar.l = displayMetrics.widthPixels;
+        aVar.m = displayMetrics.heightPixels;
+        aVar.E = aVar.B.f45577a.getBoolean("lt_sfff", false);
+        aVar.D = aVar.B.f45577a.getBoolean("lt_sbff", false);
     }
 
     @Override // com.baidu.pass.face.platform.listener.ISecurityCallback
     public final void getFaceInfoForSecurity(FaceInfo[] faceInfoArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, faceInfoArr) == null) || faceInfoArr == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, faceInfoArr) == null) || faceInfoArr == null) {
             return;
         }
         try {
@@ -630,7 +620,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     @Override // android.hardware.Camera.ErrorCallback
     public final void onError(int i2, Camera camera) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, camera) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, camera) == null) {
             a(-5);
         }
     }
@@ -638,14 +628,14 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     @Override // android.hardware.Camera.PreviewCallback
     public final void onPreviewFrame(byte[] bArr, Camera camera) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, bArr, camera) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, bArr, camera) == null) {
             try {
-                if (!this.f45195d && !this.f45197f) {
+                if (!this.f45257d && !this.f45259f) {
                     if (this.E && this.Q == null) {
                         this.Q = bArr;
                     }
-                    if (this.f45192a) {
-                        if (this.p == null) {
+                    if (this.f45254a) {
+                        if (this.p == null && !this.f45257d && !this.f45259f) {
                             if (this.x == null) {
                                 this.x = new d(this, (byte) 0);
                             }
@@ -653,30 +643,31 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                             this.p = livenessStrategyModule;
                             livenessStrategyModule.setISecurityCallback(this);
                             this.p.setPreviewDegree(this.L);
-                            this.p.setLivenessStrategySoundEnable(this.f45193b);
-                            this.p.setLivenessStrategyConfig(this.o.getLivenessTypeList(), this.F, this.f45200i, this.v);
+                            this.p.setLivenessStrategySoundEnable(this.f45255b);
+                            this.p.setLivenessStrategyConfig(this.o.getLivenessTypeList(), this.F, this.f45262i, this.v);
                         }
-                        if (this.p != null) {
-                            this.p.livenessStrategy(bArr);
+                        if (this.p == null || this.f45257d || this.f45259f) {
                             return;
                         }
+                        this.p.livenessStrategy(bArr);
                         return;
                     }
-                    if (this.q == null) {
+                    if (this.q == null && !this.f45257d && !this.f45259f) {
                         com.baidu.pass.face.platform.a detectStrategyModule = FaceSDKManager.getInstance().getDetectStrategyModule();
                         this.q = detectStrategyModule;
                         detectStrategyModule.setISecurityCallback(this);
                         this.q.setPreviewDegree(this.L);
-                        this.q.setDetectStrategySoundEnable(this.f45193b);
-                        this.q.setDetectStrategyConfig(this.F, this.f45200i, this.w);
+                        this.q.setDetectStrategySoundEnable(this.f45255b);
+                        this.q.setDetectStrategyConfig(this.F, this.f45262i, this.w);
                     }
-                    if (this.q != null) {
-                        this.q.detectStrategy(bArr);
+                    if (this.q == null || this.f45257d || this.f45259f) {
+                        return;
                     }
+                    this.q.detectStrategy(bArr);
                 }
             } catch (Throwable th) {
                 com.baidu.sofire.utility.c.a();
-                v.a(this.r, this.f45196e, 3, th);
+                x.a(this.r, this.f45258e, 3, th);
                 a(-11);
             }
         }
@@ -685,16 +676,16 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     @Override // android.view.SurfaceHolder.Callback
     public final void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder, i2, i3, i4) == null) {
-            this.f45201j = i3;
+        if (interceptable == null || interceptable.invokeLIII(1048583, this, surfaceHolder, i2, i3, i4) == null) {
+            this.f45263j = i3;
             this.k = i4;
-            if (this.f45197f || surfaceHolder.getSurface() == null) {
+            if (this.f45259f || surfaceHolder.getSurface() == null) {
                 return;
             }
             if (this.M) {
-                f();
+                c();
             } else if (this.P) {
-                k();
+                h();
             }
         }
     }
@@ -702,30 +693,65 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     @Override // android.view.SurfaceHolder.Callback
     public final void surfaceCreated(SurfaceHolder surfaceHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, surfaceHolder) == null) {
-            this.f45194c = true;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) {
+            this.f45256c = true;
         }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public final void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, surfaceHolder) == null) {
-            this.f45194c = false;
+        if (interceptable == null || interceptable.invokeL(1048585, this, surfaceHolder) == null) {
+            this.f45256c = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
+    public synchronized void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65580, this) == null) {
+            synchronized (this) {
+                if (!this.T && !this.f45259f) {
+                    this.n++;
+                    this.P = true;
+                    h();
+                    if (!this.T) {
+                        try {
+                            wait(2000L);
+                        } catch (InterruptedException unused) {
+                            com.baidu.sofire.utility.c.a();
+                        }
+                    }
+                    this.P = false;
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65582, this) == null) {
+            synchronized (this) {
+                try {
+                    notifyAll();
+                } catch (Throwable unused) {
+                    com.baidu.sofire.utility.c.a();
+                }
+            }
+        }
+    }
+
+    private void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65584, this) == null) {
             try {
-                this.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.3
+                this.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f45208a;
+                    public final /* synthetic */ a f45275a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -742,7 +768,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                 return;
                             }
                         }
-                        this.f45208a = this;
+                        this.f45275a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -750,80 +776,59 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                if (this.f45208a.f45197f) {
+                                if (this.f45275a.f45259f) {
                                     return;
                                 }
-                                this.f45208a.M = true;
-                                if (this.f45208a.t != null) {
-                                    this.f45208a.t.addCallback(this.f45208a);
+                                this.f45275a.T = false;
+                                if (this.f45275a.t != null) {
+                                    this.f45275a.t.addCallback(this.f45275a);
                                 }
-                                if (this.f45208a.G == null && !this.f45208a.f45197f) {
-                                    this.f45208a.G = a.b(this.f45208a, true);
+                                if (this.f45275a.N == null) {
+                                    this.f45275a.N = a.b(this.f45275a, false);
                                 }
-                                if (this.f45208a.G == null) {
-                                    return;
-                                }
-                                if (this.f45208a.H == null) {
-                                    this.f45208a.H = this.f45208a.G.getParameters();
-                                }
-                                this.f45208a.G.stopPreview();
-                                this.f45208a.H.setPictureFormat(256);
-                                int g2 = this.f45208a.g();
-                                this.f45208a.G.setDisplayOrientation(g2);
-                                this.f45208a.H.set("rotation", g2);
-                                this.f45208a.L = g2;
-                                Point a2 = com.baidu.sofire.i.a.a(this.f45208a.H, new Point(this.f45208a.l, this.f45208a.m));
-                                this.f45208a.J = a2.x;
-                                this.f45208a.K = a2.y;
-                                if (this.f45208a.f45192a) {
-                                    if (this.f45208a.p != null) {
-                                        this.f45208a.p.setPreviewDegree(g2);
+                                if (this.f45275a.N != null) {
+                                    if (this.f45275a.O == null) {
+                                        this.f45275a.O = this.f45275a.N.getParameters();
                                     }
-                                } else if (this.f45208a.q != null) {
-                                    this.f45208a.q.setPreviewDegree(g2);
-                                }
-                                this.f45208a.F.set(0, 0, this.f45208a.K, this.f45208a.J);
-                                a aVar = this.f45208a;
-                                int i2 = this.f45208a.l;
-                                int i3 = this.f45208a.K;
-                                int i4 = this.f45208a.J;
-                                float f2 = (i2 / 2) - ((i2 / 2) * 0.33f);
-                                float f3 = i3 / 2;
-                                float f4 = (i4 / 2) - ((i4 / 2) * 0.1f);
-                                if (i3 / 2 <= f2) {
-                                    f2 = i3 / 2;
-                                }
-                                float f5 = (0.2f * f2) + f2;
-                                aVar.f45200i.set((int) (f3 - f2), (int) (f4 - f5), (int) (f3 + f2), (int) (f4 + f5));
-                                this.f45208a.H.setPreviewSize(this.f45208a.J, this.f45208a.K);
-                                this.f45208a.G.setParameters(this.f45208a.H);
-                                if (this.f45208a.u != null) {
-                                    this.f45208a.u.onConfigCamera(this.f45208a.G, this.f45208a.F, this.f45208a.f45200i);
-                                }
-                                this.f45208a.G.setPreviewDisplay(this.f45208a.t);
-                                this.f45208a.G.setErrorCallback(this.f45208a);
-                                this.f45208a.G.setPreviewCallback(this.f45208a);
-                                if (this.f45208a.f45197f) {
+                                    this.f45275a.N.stopPreview();
+                                    this.f45275a.O.setPictureFormat(256);
+                                    int d2 = this.f45275a.d();
+                                    this.f45275a.N.setDisplayOrientation(d2);
+                                    this.f45275a.O.set("rotation", d2);
+                                    this.f45275a.L = d2;
+                                    Point a2 = com.baidu.sofire.i.a.a(this.f45275a.O, new Point(this.f45275a.l, this.f45275a.m));
+                                    this.f45275a.J = a2.x;
+                                    this.f45275a.K = a2.y;
+                                    this.f45275a.O.setPreviewSize(this.f45275a.J, this.f45275a.K);
+                                    this.f45275a.N.setParameters(this.f45275a.O);
+                                    this.f45275a.N.setPreviewDisplay(this.f45275a.t);
+                                    C1715a c1715a = new C1715a(this.f45275a, (byte) 0);
+                                    this.f45275a.N.setErrorCallback(c1715a);
+                                    this.f45275a.N.setPreviewCallback(c1715a);
+                                    if (this.f45275a.f45259f) {
+                                        return;
+                                    }
+                                    this.f45275a.N.startPreview();
                                     return;
                                 }
-                                this.f45208a.G.startPreview();
-                                Pair<Integer, Object> callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.f45208a.f45196e);
-                                if (callSync == null || ((Integer) callSync.first).intValue() != 0) {
-                                    return;
-                                }
-                                this.f45208a.f45199h = true;
+                                this.f45275a.T = true;
+                                this.f45275a.g();
                             } catch (Throwable th) {
                                 com.baidu.sofire.utility.c.a();
-                                v.a(this.f45208a.r, this.f45208a.f45196e, 2, th);
-                                this.f45208a.a(-5);
+                                this.f45275a.T = true;
+                                this.f45275a.g();
+                                this.f45275a.b();
+                                x.a(this.f45275a.r, this.f45275a.f45258e, 5, th);
                             }
                         }
                     }
                 });
             } catch (Throwable th) {
                 com.baidu.sofire.utility.c.a();
-                v.a(this.r, this.f45196e, 2, th);
-                a(-5);
+                this.T = true;
+                g();
+                b();
+                x.a(this.r, this.f45258e, 5, th);
             }
         }
     }
@@ -834,11 +839,11 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int g() {
+    public int d() {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65580, this)) != null) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(65573, this)) != null) {
             return invokeV.intValue;
         }
         try {
@@ -873,11 +878,11 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String h() {
+    public String e() {
         JSONObject a2;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65578, this)) == null) {
             try {
                 if (this.Y == null || this.Y.size() <= 0) {
                     return "";
@@ -900,37 +905,16 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void i() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65585, this) == null) {
-            synchronized (this) {
-                if (!this.T && !this.f45197f) {
-                    this.n++;
-                    this.P = true;
-                    k();
-                    if (!this.T) {
-                        try {
-                            wait(2000L);
-                        } catch (InterruptedException unused) {
-                            com.baidu.sofire.utility.c.a();
-                        }
-                    }
-                    this.P = false;
-                }
-            }
-        }
-    }
-
-    private void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65571, this) == null) {
             try {
-                this.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.7
+                this.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f45213a;
+                    public final /* synthetic */ a f45270a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -947,7 +931,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                 return;
                             }
                         }
-                        this.f45213a = this;
+                        this.f45270a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -955,214 +939,80 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                if (this.f45213a.f45197f) {
+                                if (this.f45270a.f45259f) {
                                     return;
                                 }
-                                this.f45213a.T = false;
-                                if (this.f45213a.t != null) {
-                                    this.f45213a.t.addCallback(this.f45213a);
+                                this.f45270a.M = true;
+                                if (this.f45270a.t != null) {
+                                    this.f45270a.t.addCallback(this.f45270a);
                                 }
-                                if (this.f45213a.N == null) {
-                                    this.f45213a.N = a.b(this.f45213a, false);
+                                if (this.f45270a.G == null && !this.f45270a.f45259f) {
+                                    this.f45270a.G = a.b(this.f45270a, true);
                                 }
-                                if (this.f45213a.N != null) {
-                                    if (this.f45213a.O == null) {
-                                        this.f45213a.O = this.f45213a.N.getParameters();
-                                    }
-                                    this.f45213a.N.stopPreview();
-                                    this.f45213a.O.setPictureFormat(256);
-                                    int g2 = this.f45213a.g();
-                                    this.f45213a.N.setDisplayOrientation(g2);
-                                    this.f45213a.O.set("rotation", g2);
-                                    this.f45213a.L = g2;
-                                    Point a2 = com.baidu.sofire.i.a.a(this.f45213a.O, new Point(this.f45213a.l, this.f45213a.m));
-                                    this.f45213a.J = a2.x;
-                                    this.f45213a.K = a2.y;
-                                    this.f45213a.O.setPreviewSize(this.f45213a.J, this.f45213a.K);
-                                    this.f45213a.N.setParameters(this.f45213a.O);
-                                    this.f45213a.N.setPreviewDisplay(this.f45213a.t);
-                                    C1713a c1713a = new C1713a(this.f45213a, (byte) 0);
-                                    this.f45213a.N.setErrorCallback(c1713a);
-                                    this.f45213a.N.setPreviewCallback(c1713a);
-                                    if (this.f45213a.f45197f) {
-                                        return;
-                                    }
-                                    this.f45213a.N.startPreview();
+                                if (this.f45270a.G == null) {
                                     return;
                                 }
-                                this.f45213a.T = true;
-                                this.f45213a.j();
+                                if (this.f45270a.H == null) {
+                                    this.f45270a.H = this.f45270a.G.getParameters();
+                                }
+                                this.f45270a.G.stopPreview();
+                                this.f45270a.H.setPictureFormat(256);
+                                int d2 = this.f45270a.d();
+                                this.f45270a.G.setDisplayOrientation(d2);
+                                this.f45270a.H.set("rotation", d2);
+                                this.f45270a.L = d2;
+                                Point a2 = com.baidu.sofire.i.a.a(this.f45270a.H, new Point(this.f45270a.l, this.f45270a.m));
+                                this.f45270a.J = a2.x;
+                                this.f45270a.K = a2.y;
+                                if (this.f45270a.f45254a) {
+                                    if (this.f45270a.p != null) {
+                                        this.f45270a.p.setPreviewDegree(d2);
+                                    }
+                                } else if (this.f45270a.q != null) {
+                                    this.f45270a.q.setPreviewDegree(d2);
+                                }
+                                this.f45270a.F.set(0, 0, this.f45270a.K, this.f45270a.J);
+                                a aVar = this.f45270a;
+                                int i2 = this.f45270a.l;
+                                int i3 = this.f45270a.K;
+                                int i4 = this.f45270a.J;
+                                float f2 = (i2 / 2) - ((i2 / 2) * 0.33f);
+                                float f3 = i3 / 2;
+                                float f4 = (i4 / 2) - ((i4 / 2) * 0.1f);
+                                if (i3 / 2 <= f2) {
+                                    f2 = i3 / 2;
+                                }
+                                float f5 = (0.2f * f2) + f2;
+                                aVar.f45262i.set((int) (f3 - f2), (int) (f4 - f5), (int) (f3 + f2), (int) (f4 + f5));
+                                this.f45270a.H.setPreviewSize(this.f45270a.J, this.f45270a.K);
+                                this.f45270a.G.setParameters(this.f45270a.H);
+                                if (this.f45270a.u != null) {
+                                    this.f45270a.u.onConfigCamera(this.f45270a.G, this.f45270a.F, this.f45270a.f45262i);
+                                }
+                                this.f45270a.G.setPreviewDisplay(this.f45270a.t);
+                                this.f45270a.G.setErrorCallback(this.f45270a);
+                                this.f45270a.G.setPreviewCallback(this.f45270a);
+                                if (this.f45270a.f45259f) {
+                                    return;
+                                }
+                                this.f45270a.G.startPreview();
+                                Pair<Integer, Object> callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.f45270a.f45258e);
+                                if (callSync == null || ((Integer) callSync.first).intValue() != 0) {
+                                    return;
+                                }
+                                this.f45270a.f45261h = true;
                             } catch (Throwable th) {
                                 com.baidu.sofire.utility.c.a();
-                                this.f45213a.T = true;
-                                this.f45213a.j();
-                                this.f45213a.c();
-                                v.a(this.f45213a.r, this.f45213a.f45196e, 5, th);
+                                x.a(this.f45270a.r, this.f45270a.f45258e, 2, th);
+                                this.f45270a.a(-5);
                             }
                         }
                     }
                 });
             } catch (Throwable th) {
                 com.baidu.sofire.utility.c.a();
-                this.T = true;
-                j();
-                c();
-                v.a(this.r, this.f45196e, 5, th);
-            }
-        }
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) {
-            try {
-                return Base64.encodeToString((UUID.randomUUID() + "_" + System.currentTimeMillis()).getBytes(), 0).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, "");
-            } catch (Throwable unused) {
-                com.baidu.sofire.utility.c.a();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            try {
-                this.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f45214a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f45214a = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            try {
-                                this.f45214a.P = false;
-                                if (this.f45214a.N != null) {
-                                    this.f45214a.N.setErrorCallback(null);
-                                    this.f45214a.N.setPreviewCallback(null);
-                                    this.f45214a.N.stopPreview();
-                                    com.baidu.sofire.i.b.a(this.f45214a.N);
-                                    this.f45214a.N = null;
-                                }
-                                if (this.f45214a.t != null) {
-                                    this.f45214a.t.removeCallback(this.f45214a);
-                                }
-                            } catch (Throwable unused) {
-                                com.baidu.sofire.utility.c.a();
-                            }
-                        }
-                    }
-                });
-            } catch (Throwable unused) {
-                com.baidu.sofire.utility.c.a();
-            }
-        }
-    }
-
-    public static /* synthetic */ void j(a aVar) {
-        aVar.o = FaceSDKManager.getInstance().getFaceConfig();
-        aVar.f45193b = ((AudioManager) aVar.r.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamVolume(3) > 0 ? aVar.o.isSound() : false;
-        if (aVar.f45192a) {
-            if (aVar.v == null) {
-                aVar.v = new c(aVar, (byte) 0);
-            }
-        } else if (aVar.w == null) {
-            aVar.w = new b(aVar, (byte) 0);
-        }
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        aVar.s.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        aVar.l = displayMetrics.widthPixels;
-        aVar.m = displayMetrics.heightPixels;
-        aVar.E = aVar.B.f45474a.getBoolean("lt_sfff", false);
-        aVar.D = aVar.B.f45474a.getBoolean("lt_sbff", false);
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                this.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.5
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f45211a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f45211a = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            try {
-                                this.f45211a.M = false;
-                                if (this.f45211a.G != null) {
-                                    this.f45211a.G.setErrorCallback(null);
-                                    this.f45211a.G.setPreviewCallback(null);
-                                    this.f45211a.G.stopPreview();
-                                    com.baidu.sofire.i.b.a(this.f45211a.G);
-                                    this.f45211a.G = null;
-                                }
-                                if (this.f45211a.t != null) {
-                                    this.f45211a.t.removeCallback(this.f45211a);
-                                }
-                                if (this.f45211a.f45192a) {
-                                    if (this.f45211a.p != null) {
-                                        this.f45211a.p.reset();
-                                        this.f45211a.p = null;
-                                    }
-                                } else if (this.f45211a.q != null) {
-                                    this.f45211a.q.reset();
-                                    this.f45211a.q = null;
-                                }
-                            } catch (Throwable unused) {
-                                com.baidu.sofire.utility.c.a();
-                            }
-                        }
-                    }
-                });
-            } catch (Throwable unused) {
-                com.baidu.sofire.utility.c.a();
+                x.a(this.r, this.f45258e, 2, th);
+                a(-5);
             }
         }
     }
@@ -1186,7 +1036,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f45212a;
+                    public final /* synthetic */ a f45274a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1203,7 +1053,7 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                 return;
                             }
                         }
-                        this.f45212a = this;
+                        this.f45274a = this;
                     }
 
                     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
@@ -1237,131 +1087,243 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x.a(this.r).b(new Runnable(this) { // from class: com.baidu.sofire.b.a.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+            try {
+                if (z.a(this.r).b(new Runnable(this) { // from class: com.baidu.sofire.b.a.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f45202a;
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ a f45264a;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f45202a = this;
-                }
-
-                /* JADX WARN: Removed duplicated region for block: B:61:0x0188 A[RETURN] */
-                /* JADX WARN: Removed duplicated region for block: B:62:0x0189  */
-                /* JADX WARN: Removed duplicated region for block: B:76:0x01c2 A[Catch: all -> 0x0232, TryCatch #0 {all -> 0x0232, blocks: (B:5:0x0007, B:8:0x0010, B:10:0x005d, B:12:0x0067, B:14:0x0071, B:16:0x0076, B:19:0x007f, B:21:0x0087, B:25:0x00ae, B:27:0x00b6, B:29:0x00be, B:30:0x00cc, B:32:0x00d2, B:34:0x00e2, B:36:0x00ea, B:39:0x00f3, B:42:0x0103, B:44:0x010b, B:59:0x0180, B:64:0x018d, B:69:0x01a1, B:71:0x01a9, B:73:0x01b1, B:76:0x01c2, B:79:0x01ca, B:81:0x01d0, B:84:0x01d9, B:87:0x01e7, B:89:0x01ef, B:91:0x01f7, B:92:0x01fc, B:95:0x0205, B:97:0x020d, B:99:0x0215, B:100:0x0223, B:103:0x022c, B:45:0x012d, B:47:0x0139, B:49:0x0141, B:51:0x0165, B:53:0x016f, B:22:0x0097, B:24:0x009f), top: B:111:0x0007 }] */
-                /* JADX WARN: Removed duplicated region for block: B:78:0x01c8  */
-                @Override // java.lang.Runnable
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
-                public final void run() {
-                    Pair<Integer, Object> callSync;
-                    char c2;
-                    int i2;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
-                        return;
-                    }
-                    try {
-                        if (this.f45202a.f45197f) {
-                            return;
-                        }
-                        this.f45202a.f45196e = a.e();
-                        Pair<Integer, Object> callSync2 = FH.callSync(1, "sfv", new Class[]{Activity.class, SurfaceHolder.class, Object.class, Integer.TYPE}, this.f45202a.s, this.f45202a.t, this.f45202a.u, Integer.valueOf(this.f45202a.C));
-                        if (callSync2 == null || ((Integer) callSync2.first).intValue() != 0 || ((Integer) callSync2.second).intValue() != 1) {
-                            if (this.f45202a.f45197f) {
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
-                            if (this.f45202a.z == 2) {
-                                v.a(this.f45202a.r, this.f45202a.f45196e, 0, 0);
-                            } else if (this.f45202a.z == 1) {
-                                v.a(this.f45202a.r, this.f45202a.f45196e, 1, 0);
+                        }
+                        this.f45264a = this;
+                    }
+
+                    /* JADX WARN: Removed duplicated region for block: B:69:0x01ac A[RETURN] */
+                    /* JADX WARN: Removed duplicated region for block: B:70:0x01ad  */
+                    /* JADX WARN: Removed duplicated region for block: B:84:0x01e2 A[Catch: all -> 0x0252, TryCatch #0 {all -> 0x0252, blocks: (B:5:0x0007, B:8:0x0010, B:11:0x001b, B:16:0x0042, B:18:0x0085, B:20:0x008f, B:22:0x0099, B:24:0x009e, B:27:0x00a7, B:29:0x00af, B:33:0x00d6, B:35:0x00de, B:37:0x00e6, B:38:0x00f4, B:40:0x00fa, B:42:0x0106, B:44:0x010e, B:47:0x0117, B:50:0x0127, B:52:0x012f, B:67:0x01a4, B:72:0x01b1, B:77:0x01c1, B:79:0x01c9, B:81:0x01d1, B:84:0x01e2, B:87:0x01ea, B:89:0x01f0, B:92:0x01f9, B:95:0x0207, B:97:0x020f, B:99:0x0217, B:100:0x021c, B:103:0x0225, B:105:0x022d, B:107:0x0235, B:108:0x0243, B:111:0x024c, B:53:0x0151, B:55:0x015d, B:57:0x0165, B:59:0x0189, B:61:0x0193, B:30:0x00bf, B:32:0x00c7, B:12:0x0025, B:14:0x002d, B:15:0x0039), top: B:119:0x0007 }] */
+                    /* JADX WARN: Removed duplicated region for block: B:86:0x01e8  */
+                    @Override // java.lang.Runnable
+                    /*
+                        Code decompiled incorrectly, please refer to instructions dump.
+                    */
+                    public final void run() {
+                        Pair<Integer, Object> callSync;
+                        char c2;
+                        int i2;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                            return;
+                        }
+                        try {
+                            if (this.f45264a.f45259f) {
+                                return;
                             }
-                            if (this.f45202a.u != null && this.f45202a.s != null) {
-                                this.f45202a.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.1.1
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
+                            if (this.f45264a.z != 1) {
+                                if (this.f45264a.z == 2) {
+                                    this.f45264a.f45258e = j.a("2");
+                                } else {
+                                    this.f45264a.f45258e = j.a("1");
+                                }
+                            } else {
+                                this.f45264a.f45258e = j.a("1");
+                            }
+                            Pair<Integer, Object> callSync2 = FH.callSync(1, "sfv", new Class[]{Activity.class, SurfaceHolder.class, Object.class, Integer.TYPE}, this.f45264a.s, this.f45264a.t, this.f45264a.u, Integer.valueOf(this.f45264a.C));
+                            if (callSync2 == null || ((Integer) callSync2.first).intValue() != 0 || ((Integer) callSync2.second).intValue() != 1) {
+                                if (this.f45264a.f45259f) {
+                                    return;
+                                }
+                                if (this.f45264a.z == 2) {
+                                    x.a(this.f45264a.r, this.f45264a.f45258e, 0, 0);
+                                } else if (this.f45264a.z == 1) {
+                                    x.a(this.f45264a.r, this.f45264a.f45258e, 1, 0);
+                                }
+                                if (this.f45264a.u != null && this.f45264a.s != null) {
+                                    this.f45264a.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.1.1
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
 
-                                    /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass1 f45203a;
+                                        /* renamed from: a  reason: collision with root package name */
+                                        public final /* synthetic */ AnonymousClass1 f45265a;
 
-                                    {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 != null) {
-                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                            newInitContext.initArgs = r2;
-                                            Object[] objArr = {this};
-                                            interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i3 = newInitContext.flag;
-                                            if ((i3 & 1) != 0) {
-                                                int i4 = i3 & 2;
-                                                newInitContext.thisArg = this;
-                                                interceptable3.invokeInitBody(65536, newInitContext);
+                                        {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 != null) {
+                                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                                newInitContext.initArgs = r2;
+                                                Object[] objArr = {this};
+                                                interceptable3.invokeUnInit(65536, newInitContext);
+                                                int i3 = newInitContext.flag;
+                                                if ((i3 & 1) != 0) {
+                                                    int i4 = i3 & 2;
+                                                    newInitContext.thisArg = this;
+                                                    interceptable3.invokeInitBody(65536, newInitContext);
+                                                    return;
+                                                }
+                                            }
+                                            this.f45265a = this;
+                                        }
+
+                                        @Override // java.lang.Runnable
+                                        public final void run() {
+                                            Interceptable interceptable3 = $ic;
+                                            if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f45265a.f45264a.u == null) {
                                                 return;
                                             }
+                                            this.f45265a.f45264a.u.onBegin();
                                         }
-                                        this.f45203a = this;
-                                    }
+                                    });
+                                }
+                                if (!FH.isInitSuc(1) && this.f45264a.B.d()) {
+                                    this.f45264a.a(-15);
+                                } else if (this.f45264a.f45259f) {
+                                } else {
+                                    if (!this.f45264a.B.a() || this.f45264a.C != 0) {
+                                        if (this.f45264a.B.a() && this.f45264a.C > 0 && (callSync = FH.callSync(1, "fdrv", new Class[]{String.class, Integer.TYPE}, this.f45264a.f45258e, Integer.valueOf(this.f45264a.C))) != null && ((Integer) callSync.first).intValue() == 0) {
+                                            int intValue = ((Integer) callSync.second).intValue();
+                                            if (intValue == 1) {
+                                                c2 = 1;
+                                            } else if (intValue == 2) {
+                                                c2 = 65534;
+                                            }
+                                            if (!this.f45264a.f45259f) {
+                                                return;
+                                            }
+                                            if (c2 != 65534 && (c2 == 1 || !this.f45264a.B.b())) {
+                                                i2 = 1;
+                                                if (this.f45264a.u != null && this.f45264a.s != null) {
+                                                    this.f45264a.s.runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.sofire.b.a.1.2
+                                                        public static /* synthetic */ Interceptable $ic;
+                                                        public transient /* synthetic */ FieldHolder $fh;
 
-                                    @Override // java.lang.Runnable
-                                    public final void run() {
-                                        Interceptable interceptable3 = $ic;
-                                        if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f45203a.f45202a.u == null) {
-                                            return;
-                                        }
-                                        this.f45203a.f45202a.u.onBegin();
-                                    }
-                                });
-                            }
-                            if (!FH.isInitSuc(1) && this.f45202a.B.f45474a.getBoolean("lt_sbwnp", true)) {
-                                this.f45202a.a(-15);
-                            } else if (this.f45202a.f45197f) {
-                            } else {
-                                if (!this.f45202a.B.a() || this.f45202a.C != 0) {
-                                    if (this.f45202a.B.a() && this.f45202a.C > 0 && (callSync = FH.callSync(1, "fdrv", new Class[]{String.class, Integer.TYPE}, this.f45202a.f45196e, Integer.valueOf(this.f45202a.C))) != null && ((Integer) callSync.first).intValue() == 0) {
-                                        int intValue = ((Integer) callSync.second).intValue();
-                                        if (intValue == 1) {
-                                            c2 = 1;
-                                        } else if (intValue == 2) {
-                                            c2 = 65534;
-                                        }
-                                        if (!this.f45202a.f45197f) {
-                                            return;
-                                        }
-                                        if (c2 != 65534 && (c2 == 1 || !this.f45202a.B.f45474a.getBoolean("lt_sucf", false))) {
-                                            i2 = 1;
-                                            if (this.f45202a.u != null && this.f45202a.s != null) {
-                                                this.f45202a.s.runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.sofire.b.a.1.2
+                                                        /* renamed from: a  reason: collision with root package name */
+                                                        public final /* synthetic */ int f45266a;
+
+                                                        /* renamed from: b  reason: collision with root package name */
+                                                        public final /* synthetic */ AnonymousClass1 f45267b;
+
+                                                        {
+                                                            Interceptable interceptable3 = $ic;
+                                                            if (interceptable3 != null) {
+                                                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                                                newInitContext.initArgs = r2;
+                                                                Object[] objArr = {this, Integer.valueOf(i2)};
+                                                                interceptable3.invokeUnInit(65536, newInitContext);
+                                                                int i3 = newInitContext.flag;
+                                                                if ((i3 & 1) != 0) {
+                                                                    int i4 = i3 & 2;
+                                                                    newInitContext.thisArg = this;
+                                                                    interceptable3.invokeInitBody(65536, newInitContext);
+                                                                    return;
+                                                                }
+                                                            }
+                                                            this.f45267b = this;
+                                                            this.f45266a = i2;
+                                                        }
+
+                                                        @Override // java.lang.Runnable
+                                                        public final void run() {
+                                                            Interceptable interceptable3 = $ic;
+                                                            if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f45267b.f45264a.u == null) {
+                                                                return;
+                                                            }
+                                                            this.f45267b.f45264a.u.onDeviceCheckResult(this.f45266a);
+                                                        }
+                                                    });
+                                                }
+                                                if (c2 != 65534) {
+                                                    this.f45264a.a(-3);
+                                                    return;
+                                                } else if (i2 == -1) {
+                                                    this.f45264a.a(-3);
+                                                    return;
+                                                } else if (this.f45264a.f45259f) {
+                                                    return;
+                                                } else {
+                                                    a.j(this.f45264a);
+                                                    if (this.f45264a.f45259f) {
+                                                        return;
+                                                    }
+                                                    if (this.f45264a.D && !this.f45264a.T) {
+                                                        this.f45264a.f();
+                                                    }
+                                                    if (this.f45264a.f45259f) {
+                                                        return;
+                                                    }
+                                                    if (this.f45264a.u != null && this.f45264a.s != null) {
+                                                        this.f45264a.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.1.3
+                                                            public static /* synthetic */ Interceptable $ic;
+                                                            public transient /* synthetic */ FieldHolder $fh;
+
+                                                            /* renamed from: a  reason: collision with root package name */
+                                                            public final /* synthetic */ AnonymousClass1 f45268a;
+
+                                                            {
+                                                                Interceptable interceptable3 = $ic;
+                                                                if (interceptable3 != null) {
+                                                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                                                    newInitContext.initArgs = r2;
+                                                                    Object[] objArr = {this};
+                                                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                                                    int i3 = newInitContext.flag;
+                                                                    if ((i3 & 1) != 0) {
+                                                                        int i4 = i3 & 2;
+                                                                        newInitContext.thisArg = this;
+                                                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                                                        return;
+                                                                    }
+                                                                }
+                                                                this.f45268a = this;
+                                                            }
+
+                                                            @Override // java.lang.Runnable
+                                                            public final void run() {
+                                                                Interceptable interceptable3 = $ic;
+                                                                if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f45268a.f45264a.u == null) {
+                                                                    return;
+                                                                }
+                                                                this.f45268a.f45264a.u.onBeginCollectFaceInfo();
+                                                            }
+                                                        });
+                                                    }
+                                                    if (this.f45264a.f45259f) {
+                                                        return;
+                                                    }
+                                                    this.f45264a.c();
+                                                    return;
+                                                }
+                                            }
+                                            i2 = -1;
+                                            if (this.f45264a.u != null) {
+                                                this.f45264a.s.runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.sofire.b.a.1.2
                                                     public static /* synthetic */ Interceptable $ic;
                                                     public transient /* synthetic */ FieldHolder $fh;
 
                                                     /* renamed from: a  reason: collision with root package name */
-                                                    public final /* synthetic */ int f45204a;
+                                                    public final /* synthetic */ int f45266a;
 
                                                     /* renamed from: b  reason: collision with root package name */
-                                                    public final /* synthetic */ AnonymousClass1 f45205b;
+                                                    public final /* synthetic */ AnonymousClass1 f45267b;
 
                                                     {
                                                         Interceptable interceptable3 = $ic;
                                                         if (interceptable3 != null) {
                                                             InitContext newInitContext = TitanRuntime.newInitContext();
-                                                            newInitContext.initArgs = r2;
+                                                            newInitContext.initArgs = objArr;
                                                             Object[] objArr = {this, Integer.valueOf(i2)};
                                                             interceptable3.invokeUnInit(65536, newInitContext);
                                                             int i3 = newInitContext.flag;
@@ -1372,179 +1334,81 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                                                 return;
                                                             }
                                                         }
-                                                        this.f45205b = this;
-                                                        this.f45204a = i2;
+                                                        this.f45267b = this;
+                                                        this.f45266a = i2;
                                                     }
 
                                                     @Override // java.lang.Runnable
                                                     public final void run() {
                                                         Interceptable interceptable3 = $ic;
-                                                        if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f45205b.f45202a.u == null) {
+                                                        if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f45267b.f45264a.u == null) {
                                                             return;
                                                         }
-                                                        this.f45205b.f45202a.u.onDeviceCheckResult(this.f45204a);
+                                                        this.f45267b.f45264a.u.onDeviceCheckResult(this.f45266a);
                                                     }
                                                 });
                                             }
                                             if (c2 != 65534) {
-                                                this.f45202a.a(-3);
-                                                return;
-                                            } else if (i2 == -1) {
-                                                this.f45202a.a(-3);
-                                                return;
-                                            } else if (this.f45202a.f45197f) {
-                                                return;
-                                            } else {
-                                                a.j(this.f45202a);
-                                                if (this.f45202a.f45197f) {
-                                                    return;
-                                                }
-                                                if (this.f45202a.D && !this.f45202a.T) {
-                                                    this.f45202a.i();
-                                                }
-                                                if (this.f45202a.f45197f) {
-                                                    return;
-                                                }
-                                                if (this.f45202a.u != null && this.f45202a.s != null) {
-                                                    this.f45202a.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.1.3
-                                                        public static /* synthetic */ Interceptable $ic;
-                                                        public transient /* synthetic */ FieldHolder $fh;
-
-                                                        /* renamed from: a  reason: collision with root package name */
-                                                        public final /* synthetic */ AnonymousClass1 f45206a;
-
-                                                        {
-                                                            Interceptable interceptable3 = $ic;
-                                                            if (interceptable3 != null) {
-                                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                                newInitContext.initArgs = r2;
-                                                                Object[] objArr = {this};
-                                                                interceptable3.invokeUnInit(65536, newInitContext);
-                                                                int i3 = newInitContext.flag;
-                                                                if ((i3 & 1) != 0) {
-                                                                    int i4 = i3 & 2;
-                                                                    newInitContext.thisArg = this;
-                                                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                                                    return;
-                                                                }
-                                                            }
-                                                            this.f45206a = this;
-                                                        }
-
-                                                        @Override // java.lang.Runnable
-                                                        public final void run() {
-                                                            Interceptable interceptable3 = $ic;
-                                                            if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f45206a.f45202a.u == null) {
-                                                                return;
-                                                            }
-                                                            this.f45206a.f45202a.u.onBeginCollectFaceInfo();
-                                                        }
-                                                    });
-                                                }
-                                                if (this.f45202a.f45197f) {
-                                                    return;
-                                                }
-                                                this.f45202a.f();
-                                                return;
                                             }
                                         }
-                                        i2 = -1;
-                                        if (this.f45202a.u != null) {
-                                            this.f45202a.s.runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.sofire.b.a.1.2
-                                                public static /* synthetic */ Interceptable $ic;
-                                                public transient /* synthetic */ FieldHolder $fh;
-
-                                                /* renamed from: a  reason: collision with root package name */
-                                                public final /* synthetic */ int f45204a;
-
-                                                /* renamed from: b  reason: collision with root package name */
-                                                public final /* synthetic */ AnonymousClass1 f45205b;
-
-                                                {
-                                                    Interceptable interceptable3 = $ic;
-                                                    if (interceptable3 != null) {
-                                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                                        newInitContext.initArgs = objArr;
-                                                        Object[] objArr = {this, Integer.valueOf(i2)};
-                                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                                        int i3 = newInitContext.flag;
-                                                        if ((i3 & 1) != 0) {
-                                                            int i4 = i3 & 2;
-                                                            newInitContext.thisArg = this;
-                                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                                            return;
-                                                        }
-                                                    }
-                                                    this.f45205b = this;
-                                                    this.f45204a = i2;
-                                                }
-
-                                                @Override // java.lang.Runnable
-                                                public final void run() {
-                                                    Interceptable interceptable3 = $ic;
-                                                    if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f45205b.f45202a.u == null) {
-                                                        return;
-                                                    }
-                                                    this.f45205b.f45202a.u.onDeviceCheckResult(this.f45204a);
-                                                }
-                                            });
-                                        }
-                                        if (c2 != 65534) {
-                                        }
+                                    } else {
+                                        FH.call(1, "fdrv", new Class[]{String.class, Integer.TYPE}, this.f45264a.f45258e, Integer.valueOf(this.f45264a.C));
                                     }
-                                } else {
-                                    FH.call(1, "fdrv", new Class[]{String.class, Integer.TYPE}, this.f45202a.f45196e, Integer.valueOf(this.f45202a.C));
+                                    c2 = 65535;
+                                    if (!this.f45264a.f45259f) {
+                                    }
                                 }
-                                c2 = 65535;
-                                if (!this.f45202a.f45197f) {
-                                }
+                            } else {
+                                this.f45264a.f45260g = true;
                             }
-                        } else {
-                            this.f45202a.f45198g = true;
-                        }
-                    } catch (Throwable th) {
-                        com.baidu.sofire.utility.c.a();
-                        v.a(this.f45202a.r, this.f45202a.f45196e, 1, th);
-                        this.f45202a.a(-9);
-                    }
-                }
-            });
-            x.a(this.r).a(new Runnable(this) { // from class: com.baidu.sofire.b.a.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f45207a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
+                        } catch (Throwable th) {
+                            com.baidu.sofire.utility.c.a();
+                            x.a(this.f45264a.r, this.f45264a.f45258e, 1, th);
+                            this.f45264a.a(-9);
                         }
                     }
-                    this.f45207a = this;
+                }) != 1) {
+                    a(-7);
                 }
+                z.a(this.r).a(new Runnable(this) { // from class: com.baidu.sofire.b.a.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        a aVar = this.f45207a;
-                        aVar.X = l.b(aVar.r);
-                        a aVar2 = this.f45207a;
-                        aVar2.W = l.a(aVar2.r);
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ a f45269a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f45269a = this;
                     }
-                }
-            });
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            a aVar = this.f45269a;
+                            aVar.X = n.b(aVar.r);
+                            a aVar2 = this.f45269a;
+                            aVar2.W = n.a(aVar2.r);
+                        }
+                    }
+                });
+            } catch (Throwable unused) {
+                com.baidu.sofire.utility.c.a();
+            }
         }
     }
 
@@ -1552,16 +1416,16 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             try {
-                this.f45195d = false;
+                this.f45257d = true;
                 this.s.runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.sofire.b.a.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ int f45209a;
+                    public final /* synthetic */ int f45271a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f45210b;
+                    public final /* synthetic */ a f45272b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1578,40 +1442,95 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                                 return;
                             }
                         }
-                        this.f45210b = this;
-                        this.f45209a = i2;
+                        this.f45272b = this;
+                        this.f45271a = i2;
                     }
 
                     @Override // java.lang.Runnable
                     public final void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f45210b.u == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f45272b.u == null) {
                             return;
                         }
-                        if (this.f45209a == 1) {
-                            this.f45210b.u.onEnd(this.f45209a, this.f45210b.ab);
+                        if (this.f45271a == 1) {
+                            this.f45272b.u.onEnd(this.f45271a, this.f45272b.ab);
                         } else {
-                            this.f45210b.u.onEnd(this.f45209a, null);
+                            this.f45272b.u.onEnd(this.f45271a, null);
                         }
-                        this.f45210b.u = null;
+                        this.f45272b.u = null;
+                    }
+                });
+                this.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.5
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ a f45273a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f45273a = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            try {
+                                this.f45273a.M = false;
+                                if (this.f45273a.G != null) {
+                                    this.f45273a.G.setErrorCallback(null);
+                                    this.f45273a.G.setPreviewCallback(null);
+                                    this.f45273a.G.stopPreview();
+                                    com.baidu.sofire.i.b.a(this.f45273a.G);
+                                    this.f45273a.G = null;
+                                }
+                                if (this.f45273a.t != null) {
+                                    this.f45273a.t.removeCallback(this.f45273a);
+                                }
+                                if (this.f45273a.f45254a) {
+                                    if (this.f45273a.p != null) {
+                                        this.f45273a.p.reset();
+                                        this.f45273a.p = null;
+                                    }
+                                } else if (this.f45273a.q != null) {
+                                    this.f45273a.q.reset();
+                                    this.f45273a.q = null;
+                                }
+                            } catch (Throwable unused) {
+                                com.baidu.sofire.utility.c.a();
+                            }
+                        }
                     }
                 });
                 b();
-                c();
-                if (this.f45199h) {
-                    FH.callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, this.f45196e, Boolean.TRUE, h());
-                    this.f45199h = false;
+                if (this.f45261h) {
+                    FH.callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, this.f45258e, Boolean.TRUE, e());
+                    this.f45261h = false;
                 }
                 this.s = null;
                 this.t = null;
                 if (this.y != null) {
                     com.baidu.sofire.b.b bVar = this.y;
-                    if (bVar.f45224b != null && this == bVar.f45224b) {
-                        bVar.f45224b = null;
+                    if (bVar.f45286b != null && this == bVar.f45286b) {
+                        bVar.f45286b = null;
                     }
                     this.y = null;
                 }
-                v.a(this.r, this.f45196e, 2, i2);
+                x.a(this.r, this.f45258e, 2, i2);
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
@@ -1636,9 +1555,66 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
         return (JSONObject) invokeL.objValue;
     }
 
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                this.s.runOnUiThread(new Runnable(this) { // from class: com.baidu.sofire.b.a.8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ a f45276a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f45276a = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            try {
+                                this.f45276a.P = false;
+                                if (this.f45276a.N != null) {
+                                    this.f45276a.N.setErrorCallback(null);
+                                    this.f45276a.N.setPreviewCallback(null);
+                                    this.f45276a.N.stopPreview();
+                                    com.baidu.sofire.i.b.a(this.f45276a.N);
+                                    this.f45276a.N = null;
+                                }
+                                if (this.f45276a.t != null) {
+                                    this.f45276a.t.removeCallback(this.f45276a);
+                                }
+                            } catch (Throwable unused) {
+                                com.baidu.sofire.utility.c.a();
+                            }
+                        }
+                    }
+                });
+            } catch (Throwable unused) {
+                com.baidu.sofire.utility.c.a();
+            }
+        }
+    }
+
     public static /* synthetic */ Camera b(a aVar, boolean z) {
         int numberOfCameras;
-        if (aVar.f45197f || (numberOfCameras = Camera.getNumberOfCameras()) == 0) {
+        if (aVar.f45259f || (numberOfCameras = Camera.getNumberOfCameras()) == 0) {
             return null;
         }
         int i2 = 0;
@@ -1766,13 +1742,12 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
 
     public final int a(JSONObject jSONObject) {
         InterceptResult invokeL;
-        byte[] bytes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("f_i", this.f45196e);
+                jSONObject3.put("f_i", this.f45258e);
                 jSONObject3.put("t_c", this.U);
                 if (this.E && this.Q != null && this.Q.length > 0) {
                     jSONObject3.put("d_f", Base64.encodeToString(a(this.Q), 8).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, ""));
@@ -1787,67 +1762,56 @@ public final class a implements Camera.ErrorCallback, Camera.PreviewCallback, Su
                     jSONObject3.put("s", jSONObject);
                 }
                 JSONObject jSONObject4 = new JSONObject();
-                JSONObject buildJson = this.A.buildJson();
-                if (buildJson != null) {
-                    buildJson.put("image", this.V);
-                    buildJson.put("image_type", FaceEnum.ImageType.BASE64.name());
-                    buildJson.put("image_sec", true);
-                    buildJson.put("risk_identify", true);
-                    buildJson.put("app", "android");
-                    jSONObject4.put("face", buildJson);
-                    JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("zid", FH.gzfi(this.r, "", 5002));
-                    jSONObject5.put("ev", "face");
-                    jSONObject5.put(NotificationStyle.NOTIFICATION_STYLE, this.X);
-                    jSONObject5.put("ts", System.currentTimeMillis());
-                    TimeZone timeZone = TimeZone.getDefault();
-                    if (timeZone != null) {
-                        jSONObject5.put("tz", timeZone.getID());
-                    }
-                    if (this.W != null) {
-                        jSONObject5.put("ce", this.W);
-                    }
-                    jSONObject4.put("risk", jSONObject5);
-                    jSONObject3.put("e", jSONObject4);
-                    String str = com.baidu.sofire.b.b.f45221c;
-                    if (!TextUtils.isEmpty(str)) {
-                        String[] split = str.split("-");
-                        if (split.length >= 3) {
-                            StringBuilder sb = new StringBuilder();
-                            for (int i2 = 0; i2 < split.length - 3; i2++) {
-                                sb.append(split[i2]);
-                                sb.append("-");
-                            }
-                            sb.append(split[split.length - 3]);
-                            str = sb.toString();
-                        }
-                    }
-                    jSONObject2.put("licenseId", str);
-                    jSONObject2.put("data", Base64.encodeToString(WbEncryptUtil.wbEncrypt(this.r, jSONObject3.toString().getBytes()), 8).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, ""));
-                    jSONObject2.put("app", "android");
-                    String packageName = this.r.getPackageName();
-                    if (packageName != null) {
-                        jSONObject2.put("pkg", packageName);
-                        Signature[] signatureArr = this.r.getPackageManager().getPackageInfo(packageName, 64).signatures;
-                        if (signatureArr != null && signatureArr.length > 0) {
-                            jSONObject2.put("sign", o.a(signatureArr[0].toByteArray()));
-                        }
-                    }
-                    Context context = this.r;
-                    String jSONObject6 = jSONObject2.toString();
-                    byte[] a2 = h.a();
-                    if (!TextUtils.isEmpty(jSONObject6)) {
-                        bytes = F.getInstance().ae(i.a(jSONObject6.getBytes()), a2);
-                    } else {
-                        bytes = "".getBytes();
-                    }
-                    JSONObject jSONObject7 = new JSONObject();
-                    jSONObject7.put("data", Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, ""));
-                    jSONObject7.put("app", "android");
-                    this.ab = new RequestInfo(Base64.encodeToString(F.getInstance().re(a2, o.a(com.baidu.sofire.utility.e.b(context)).getBytes()), 0), o.a(com.baidu.sofire.utility.e.b(context)), jSONObject7);
-                    return 1;
+                JSONObject buildJson = this.A != null ? this.A.buildJson() : null;
+                if (buildJson == null) {
+                    buildJson = new JSONObject();
                 }
-                throw new RuntimeException("FaceJsonObj build error.");
+                buildJson.put("image", this.V);
+                buildJson.put("image_type", FaceEnum.ImageType.BASE64.name());
+                buildJson.put("image_sec", true);
+                buildJson.put("risk_identify", true);
+                buildJson.put("app", "android");
+                jSONObject4.put("face", buildJson);
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("zid", FH.gzfi(this.r, "", 5002));
+                jSONObject5.put("ev", "face");
+                jSONObject5.put(NotificationStyle.NOTIFICATION_STYLE, this.X);
+                jSONObject5.put("ts", System.currentTimeMillis());
+                TimeZone timeZone = TimeZone.getDefault();
+                if (timeZone != null) {
+                    jSONObject5.put("tz", timeZone.getID());
+                }
+                if (this.W != null) {
+                    jSONObject5.put("ce", this.W);
+                }
+                jSONObject4.put("risk", jSONObject5);
+                jSONObject3.put("e", jSONObject4);
+                String str = com.baidu.sofire.b.b.f45283d;
+                if (!TextUtils.isEmpty(str)) {
+                    String[] split = str.split("-");
+                    if (split.length >= 3) {
+                        StringBuilder sb = new StringBuilder();
+                        for (int i2 = 0; i2 < split.length - 3; i2++) {
+                            sb.append(split[i2]);
+                            sb.append("-");
+                        }
+                        sb.append(split[split.length - 3]);
+                        str = sb.toString();
+                    }
+                }
+                jSONObject2.put("licenseId", str);
+                jSONObject2.put("data", Base64.encodeToString(WbEncryptUtil.wbEncrypt(this.r, jSONObject3.toString().getBytes()), 8).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, ""));
+                jSONObject2.put("app", "android");
+                String packageName = this.r.getPackageName();
+                if (packageName != null) {
+                    jSONObject2.put("pkg", packageName);
+                    Signature[] signatureArr = this.r.getPackageManager().getPackageInfo(packageName, 64).signatures;
+                    if (signatureArr != null && signatureArr.length > 0) {
+                        jSONObject2.put("sign", q.a(signatureArr[0].toByteArray()));
+                    }
+                }
+                this.ab = f.a(this.r, jSONObject2.toString(), null, null);
+                return 1;
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
                 return -2;

@@ -9,19 +9,19 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static INetWork f30519a;
+    public static INetWork f30540a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static INetWork a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f30519a : (INetWork) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f30540a : (INetWork) invokeV.objValue;
     }
 
     public static void b(INetWork iNetWork) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, iNetWork) == null) {
-            f30519a = iNetWork;
+            f30540a = iNetWork;
         }
     }
 }

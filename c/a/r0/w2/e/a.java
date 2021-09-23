@@ -13,16 +13,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28173a;
+    public String f28193a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28174b;
+    public String f28194b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28175c;
+    public String f28195c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f28176d;
+    public boolean f28196d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,31 +37,31 @@ public class a {
                 return;
             }
         }
-        this.f28176d = true;
+        this.f28196d = true;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28173a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28193a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28174b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28194b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28175c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28195c : (String) invokeV.objValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28176d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28196d : invokeV.booleanValue;
     }
 
     public void e(Offpack offpack) {
@@ -69,9 +69,9 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, offpack) == null) || offpack == null) {
             return;
         }
-        this.f28173a = offpack.src;
-        this.f28174b = offpack.md5;
-        this.f28175c = offpack.webview_version;
-        this.f28176d = offpack.is_use.intValue() == 1;
+        this.f28193a = offpack.src;
+        this.f28194b = offpack.md5;
+        this.f28195c = offpack.webview_version;
+        this.f28196d = offpack.is_use.intValue() == 1;
     }
 }

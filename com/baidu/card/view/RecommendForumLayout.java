@@ -44,22 +44,22 @@ public class RecommendForumLayout extends LinearLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f38776e;
+    public TbPageContext<?> f38827e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PullLeftRefreshLayout f38777f;
+    public PullLeftRefreshLayout f38828f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RecyclerView f38778g;
+    public RecyclerView f38829g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HorizontalRecommendForumAdapter f38779h;
+    public HorizontalRecommendForumAdapter f38830h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f38780i;
+    public FrameLayout f38831i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f38781j;
+    public TextView f38832j;
     public ImageView k;
     public boolean l;
     public boolean m;
@@ -98,30 +98,30 @@ public class RecommendForumLayout extends LinearLayout implements q {
             LayoutInflater.from(getContext()).inflate(R.layout.recommend_forum_horizontal_view, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f38780i = (FrameLayout) findViewById(R.id.title_view);
+            this.f38831i = (FrameLayout) findViewById(R.id.title_view);
             TextView textView = (TextView) findViewById(R.id.tv_title);
-            this.f38781j = textView;
+            this.f38832j = textView;
             c.d(textView).A(R.dimen.T_X07);
             this.k = (ImageView) findViewById(R.id.img_arrow);
-            this.f38777f = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
-            this.f38778g = (RecyclerView) findViewById(R.id.recycler_view);
-            HorizontalRecommendForumAdapter horizontalRecommendForumAdapter = new HorizontalRecommendForumAdapter(this.f38776e, this.mFrom);
-            this.f38779h = horizontalRecommendForumAdapter;
+            this.f38828f = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
+            this.f38829g = (RecyclerView) findViewById(R.id.recycler_view);
+            HorizontalRecommendForumAdapter horizontalRecommendForumAdapter = new HorizontalRecommendForumAdapter(this.f38827e, this.mFrom);
+            this.f38830h = horizontalRecommendForumAdapter;
             int i2 = this.mFrom;
             if (i2 == 0) {
                 horizontalRecommendForumAdapter.setHasLikeForum(this.mHasLikeForum);
             } else if (i2 == 1) {
                 horizontalRecommendForumAdapter.setTabName(this.p);
             }
-            this.f38778g.setLayoutManager(new LinearLayoutManager(this.f38776e.getPageActivity(), 0, false));
-            this.f38778g.setAdapter(this.f38779h);
-            this.f38778g.setClipChildren(false);
-            this.f38779h.notifyDataSetChanged();
-            this.f38781j.setText(this.f38776e.getPageActivity().getString(R.string.recommend_forum_title_horizontal));
+            this.f38829g.setLayoutManager(new LinearLayoutManager(this.f38827e.getPageActivity(), 0, false));
+            this.f38829g.setAdapter(this.f38830h);
+            this.f38829g.setClipChildren(false);
+            this.f38830h.notifyDataSetChanged();
+            this.f38832j.setText(this.f38827e.getPageActivity().getString(R.string.recommend_forum_title_horizontal));
             RefreshView refreshView = new RefreshView(getContext());
             this.o = refreshView;
-            this.f38777f.setRefreshViewAndListener(refreshView);
-            this.f38777f.setCallback(this.r);
+            this.f38828f.setRefreshViewAndListener(refreshView);
+            this.f38828f.setCallback(this.r);
         }
     }
 
@@ -130,12 +130,12 @@ public class RecommendForumLayout extends LinearLayout implements q {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r1Var) == null) {
             this.k.setOnClickListener(this.q);
             if (!TextUtils.isEmpty(r1Var.f14298h) && r1Var.f14299i != 0) {
-                this.f38781j.setText(r1Var.f14298h);
+                this.f38832j.setText(r1Var.f14298h);
             } else {
-                this.f38781j.setText(R.string.recommend_forum_title_horizontal);
-                if (this.f38780i.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) this.f38780i.getLayoutParams()).topMargin = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
-                    this.f38780i.requestLayout();
+                this.f38832j.setText(R.string.recommend_forum_title_horizontal);
+                if (this.f38831i.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ((ViewGroup.MarginLayoutParams) this.f38831i.getLayoutParams()).topMargin = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+                    this.f38831i.requestLayout();
                 }
             }
             if (!this.n) {
@@ -159,7 +159,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
                         arrayList.add(new o());
                     }
                 }
-                this.f38779h.setData(arrayList);
+                this.f38830h.setData(arrayList);
             }
             onChangeSkinType();
         }
@@ -171,10 +171,10 @@ public class RecommendForumLayout extends LinearLayout implements q {
             c d2 = c.d(this);
             d2.o(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
-            c.d(this.f38781j).w(R.color.CAM_X0105);
+            c.d(this.f38832j).w(R.color.CAM_X0105);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             this.o.onChangeSkinType();
-            this.f38779h.notifyDataSetChanged();
+            this.f38830h.notifyDataSetChanged();
         }
     }
 
@@ -216,7 +216,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
     public void setOnItemCoverListener(f<q1> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, fVar) == null) {
-            this.f38779h.setOnItemCoverListener(fVar);
+            this.f38830h.setOnItemCoverListener(fVar);
         }
     }
 
@@ -224,7 +224,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
             this.r = fVar;
-            this.f38777f.setCallback(fVar);
+            this.f38828f.setCallback(fVar);
         }
     }
 
@@ -237,7 +237,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
     public void setShowMore(boolean z) {
         PullLeftRefreshLayout pullLeftRefreshLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (pullLeftRefreshLayout = this.f38777f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (pullLeftRefreshLayout = this.f38828f) == null) {
             return;
         }
         pullLeftRefreshLayout.setEnablePull(z);
@@ -287,7 +287,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
         this.m = true;
         this.n = true;
         this.mFrom = 0;
-        this.f38776e = tbPageContext;
+        this.f38827e = tbPageContext;
         a();
     }
 

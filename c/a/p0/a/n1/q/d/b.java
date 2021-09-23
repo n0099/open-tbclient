@@ -22,23 +22,23 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f7645e;
+    public static final boolean f7653e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final b f7646f;
+    public static final b f7654f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<d> f7647a;
+    public final List<d> f7655a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, d> f7648b;
+    public final Map<String, d> f7656b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7649c;
+    public boolean f7657c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f7650d;
+    public a f7658d;
 
     static {
         InterceptResult invokeClinit;
@@ -53,8 +53,8 @@ public class b {
                 return;
             }
         }
-        f7645e = k.f7077a;
-        f7646f = new b();
+        f7653e = k.f7085a;
+        f7654f = new b();
     }
 
     public b() {
@@ -70,15 +70,15 @@ public class b {
                 return;
             }
         }
-        this.f7647a = new ArrayList();
-        this.f7648b = new HashMap();
-        this.f7649c = false;
+        this.f7655a = new ArrayList();
+        this.f7656b = new HashMap();
+        this.f7657c = false;
     }
 
     public static b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f7646f : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f7654f : (b) invokeV.objValue;
     }
 
     public void a(HybridUbcFlow hybridUbcFlow) {
@@ -97,10 +97,10 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.f7649c) {
+            if (this.f7657c) {
                 return null;
             }
-            if (f7645e) {
+            if (f7653e) {
                 String str2 = "begin update scope id - " + str;
             }
             if (TextUtils.isEmpty(str)) {
@@ -110,10 +110,10 @@ public class b {
             String str3 = Thread.currentThread().getName() + "-" + UUID.randomUUID().toString();
             d dVar = new d(str);
             dVar.a(currentTimeMillis);
-            synchronized (this.f7647a) {
-                this.f7648b.put(str3, dVar);
+            synchronized (this.f7655a) {
+                this.f7656b.put(str3, dVar);
             }
-            if (f7645e) {
+            if (f7653e) {
                 String str4 = "begin update uni tag - " + str3;
                 String str5 = "begin update ts - " + currentTimeMillis;
             }
@@ -125,36 +125,36 @@ public class b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f7649c = true;
-            synchronized (this.f7647a) {
-                this.f7647a.clear();
-                this.f7648b.clear();
+            this.f7657c = true;
+            synchronized (this.f7655a) {
+                this.f7655a.clear();
+                this.f7656b.clear();
             }
-            boolean z = f7645e;
+            boolean z = f7653e;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f7649c) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f7657c) {
             return;
         }
-        if (f7645e) {
+        if (f7653e) {
             String str2 = "end update uni tag - " + str;
         }
         if (TextUtils.isEmpty(str)) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        synchronized (this.f7647a) {
-            d dVar = this.f7648b.get(str);
+        synchronized (this.f7655a) {
+            d dVar = this.f7656b.get(str);
             if (dVar != null) {
                 dVar.c(currentTimeMillis);
-                this.f7647a.add(dVar);
-                this.f7648b.remove(str);
+                this.f7655a.add(dVar);
+                this.f7656b.remove(str);
             }
         }
-        if (f7645e) {
+        if (f7653e) {
             String str3 = "end update ts - " + currentTimeMillis;
         }
     }
@@ -164,20 +164,20 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            synchronized (this.f7647a) {
+            synchronized (this.f7655a) {
                 try {
-                    for (d dVar : this.f7647a) {
-                        if (dVar != null && (this.f7650d == null || this.f7650d.a(dVar))) {
+                    for (d dVar : this.f7655a) {
+                        if (dVar != null && (this.f7658d == null || this.f7658d.a(dVar))) {
                             jSONArray.put(dVar.d());
                         }
                     }
                 } catch (Exception e2) {
-                    if (f7645e) {
+                    if (f7653e) {
                         e2.printStackTrace();
                     }
                 }
             }
-            if (f7645e) {
+            if (f7653e) {
                 jSONArray.toString();
             }
             return jSONArray;
@@ -188,19 +188,19 @@ public class b {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f7649c = false;
-            synchronized (this.f7647a) {
-                this.f7647a.clear();
-                this.f7648b.clear();
+            this.f7657c = false;
+            synchronized (this.f7655a) {
+                this.f7655a.clear();
+                this.f7656b.clear();
             }
-            boolean z = f7645e;
+            boolean z = f7653e;
         }
     }
 
     public void h(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f7650d = aVar;
+            this.f7658d = aVar;
         }
     }
 }

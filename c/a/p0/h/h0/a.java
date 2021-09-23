@@ -37,17 +37,17 @@ public class a extends e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f7070h == null) {
-                this.f7070h = new JSONObject();
+            if (this.f7078h == null) {
+                this.f7078h = new JSONObject();
             }
             try {
-                this.f7070h.put("stage", this.k);
-                this.f7070h.put("errMsg", this.l);
-                this.f7070h.put("netStatus", this.m);
-                this.f7070h.put("touch", this.n);
-                this.f7070h.put("stuck_interval", this.o);
+                this.f7078h.put("stage", this.k);
+                this.f7078h.put("errMsg", this.l);
+                this.f7078h.put("netStatus", this.m);
+                this.f7078h.put("touch", this.n);
+                this.f7078h.put("stuck_interval", this.o);
             } catch (JSONException e2) {
-                if (e.f7062j) {
+                if (e.f7070j) {
                     e2.printStackTrace();
                 }
             }

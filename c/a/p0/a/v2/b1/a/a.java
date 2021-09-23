@@ -20,7 +20,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9293a;
+    public static final boolean f9301a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class a {
                 return;
             }
         }
-        f9293a = k.f7077a;
+        f9301a = k.f7085a;
     }
 
     public static List<JSONObject> a(String str) {
@@ -54,7 +54,7 @@ public class a {
                 }
                 return arrayList;
             } catch (JSONException unused) {
-                boolean z = f9293a;
+                boolean z = f9301a;
                 return null;
             }
         }

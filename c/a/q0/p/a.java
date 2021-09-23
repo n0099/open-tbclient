@@ -21,27 +21,27 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f13643a = 604800000;
+    public static long f13639a = 604800000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.q0.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0675a extends CustomMessageListener {
+    public static class C0673a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c.a.q0.p.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0676a extends Thread {
+        public class C0674a extends Thread {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0676a(C0675a c0675a) {
+            public C0674a(C0673a c0673a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0675a};
+                    Object[] objArr = {c0673a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -67,7 +67,7 @@ public class a {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0675a(int i2) {
+        public C0673a(int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -97,8 +97,8 @@ public class a {
                     b.j().w("key_clear_resource", currentTimeMillis);
                     l = currentTimeMillis;
                 }
-                if (currentTimeMillis - l > a.f13643a) {
-                    new C0676a(this).start();
+                if (currentTimeMillis - l > a.f13639a) {
+                    new C0674a(this).start();
                     b.j().w("key_clear_resource", currentTimeMillis);
                 }
             }
@@ -149,7 +149,7 @@ public class a {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            MessageManager.getInstance().registerListener(new C0675a(2005016));
+            MessageManager.getInstance().registerListener(new C0673a(2005016));
         }
     }
 }

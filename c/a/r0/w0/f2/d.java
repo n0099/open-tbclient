@@ -47,13 +47,13 @@ public class d extends j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final CustomMessageListener f26629h;
+    public final CustomMessageListener f26652h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final CustomMessageListener f26630i;
+    public final CustomMessageListener f26653i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c.a.e.c.g.a f26631j;
+    public final c.a.e.c.g.a f26654j;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -61,7 +61,7 @@ public class d extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f26632a;
+        public final /* synthetic */ d f26655a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2) {
@@ -81,7 +81,7 @@ public class d extends j {
                     return;
                 }
             }
-            this.f26632a = dVar;
+            this.f26655a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,20 +90,20 @@ public class d extends j {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (StringUtils.isNull(str) || this.f26632a.f26698b.getFrsViewData() == null) {
+                if (StringUtils.isNull(str) || this.f26655a.f26721b.getFrsViewData() == null) {
                     return;
                 }
-                FrsViewData frsViewData = this.f26632a.f26698b.getFrsViewData();
+                FrsViewData frsViewData = this.f26655a.f26721b.getFrsViewData();
                 frsViewData.removeThread(str);
-                this.f26632a.f26697a.B1(frsViewData.getThreadList(), frsViewData);
+                this.f26655a.f26720a.B1(frsViewData.getThreadList(), frsViewData);
                 if (c.a.r0.j3.e.i() != null) {
-                    c.a.r0.j3.e.i().n(this.f26632a.f26698b.getForumName(), false);
+                    c.a.r0.j3.e.i().n(this.f26655a.f26721b.getForumName(), false);
                 }
-                if (this.f26632a.f26698b != null) {
+                if (this.f26655a.f26721b != null) {
                     if (c.a.r0.w0.j.g()) {
-                        new BdTopToast(this.f26632a.f26698b.getContext()).setIcon(true).setContent(this.f26632a.f26698b.getContext().getString(R.string.shield_success)).show((ViewGroup) this.f26632a.f26698b.getRootView());
+                        new BdTopToast(this.f26655a.f26721b.getContext()).setIcon(true).setContent(this.f26655a.f26721b.getContext().getString(R.string.shield_success)).show((ViewGroup) this.f26655a.f26721b.getRootView());
                     } else {
-                        new BdTopToast(this.f26632a.f26698b.getContext()).setIcon(true).setContent(this.f26632a.f26698b.getContext().getString(R.string.delete_success)).show((ViewGroup) this.f26632a.f26698b.getRootView());
+                        new BdTopToast(this.f26655a.f26721b.getContext()).setIcon(true).setContent(this.f26655a.f26721b.getContext().getString(R.string.delete_success)).show((ViewGroup) this.f26655a.f26721b.getRootView());
                     }
                 }
             }
@@ -116,7 +116,7 @@ public class d extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f26633a;
+        public final /* synthetic */ d f26656a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(d dVar, int i2) {
@@ -136,7 +136,7 @@ public class d extends j {
                     return;
                 }
             }
-            this.f26633a = dVar;
+            this.f26656a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -147,15 +147,15 @@ public class d extends j {
             ForumManageModel.e eVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e)) {
-                d dVar = this.f26633a;
-                if (dVar.f26698b == null || dVar.f26697a == null || dVar.f26700d == null || (eVar = (ForumManageModel.e) customResponsedMessage.getData()) == null || TextUtils.isEmpty(eVar.f57135a) || this.f26633a.f26698b.getFrsViewData() == null) {
+                d dVar = this.f26656a;
+                if (dVar.f26721b == null || dVar.f26720a == null || dVar.f26723d == null || (eVar = (ForumManageModel.e) customResponsedMessage.getData()) == null || TextUtils.isEmpty(eVar.f57252a) || this.f26656a.f26721b.getFrsViewData() == null) {
                     return;
                 }
-                String str = eVar.f57135a;
-                String str2 = eVar.f57136b;
-                String str3 = eVar.f57137c;
-                if (eVar.f57138d == 4) {
-                    FrsViewData frsViewData = this.f26633a.f26698b.getFrsViewData();
+                String str = eVar.f57252a;
+                String str2 = eVar.f57253b;
+                String str3 = eVar.f57254c;
+                if (eVar.f57255d == 4) {
+                    FrsViewData frsViewData = this.f26656a.f26721b.getFrsViewData();
                     d2 threadDataById = frsViewData.getThreadDataById(str);
                     frsViewData.removeThreadData(threadDataById);
                     List<c.a.e.l.e.n> topThreadList = frsViewData.getTopThreadList();
@@ -163,11 +163,11 @@ public class d extends j {
                         topThreadList = new ArrayList<>();
                     }
                     topThreadList.add(0, threadDataById);
-                    this.f26633a.f26697a.B1(frsViewData.getThreadList(), frsViewData);
-                    this.f26633a.f26700d.S(frsViewData);
+                    this.f26656a.f26720a.B1(frsViewData.getThreadList(), frsViewData);
+                    this.f26656a.f26723d.S(frsViewData);
                 }
-                if (TextUtils.equals(this.f26633a.f26698b.getForumName(), str3)) {
-                    c.a.r0.j3.e.i().n(this.f26633a.f26698b.getForumName(), false);
+                if (TextUtils.equals(this.f26656a.f26721b.getForumName(), str3)) {
+                    c.a.r0.j3.e.i().n(this.f26656a.f26721b.getForumName(), false);
                 }
             }
         }
@@ -179,7 +179,7 @@ public class d extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f26634a;
+        public final /* synthetic */ d f26657a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(d dVar, int i2, int i3) {
@@ -200,7 +200,7 @@ public class d extends j {
                     return;
                 }
             }
-            this.f26634a = dVar;
+            this.f26657a = dVar;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:13:0x0025  */
@@ -225,26 +225,26 @@ public class d extends j {
                     if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                         GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                            errorString2 = this.f26634a.f26698b.getResources().getString(R.string.neterror);
+                            errorString2 = this.f26657a.f26721b.getResources().getString(R.string.neterror);
                         } else {
                             errorString2 = getMyPostHttpResponseMessage.getErrorString();
                         }
                         proZone = responsedMessage.getOrginalMessage().getExtra() instanceof RequestGetMyPostNetMessage ? ((RequestGetMyPostNetMessage) responsedMessage.getOrginalMessage().getExtra()).getProZone() : 0;
                         if (z || getMyPostHttpResponseMessage.getError() == 0) {
-                            this.f26634a.d(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData(), proZone);
+                            this.f26657a.d(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData(), proZone);
                             return;
                         }
                         return;
                     } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                         GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                            errorString = this.f26634a.f26698b.getResources().getString(R.string.neterror);
+                            errorString = this.f26657a.f26721b.getResources().getString(R.string.neterror);
                         } else {
                             errorString = getMyPostSocketResponseMessage.getErrorString();
                         }
                         proZone = responsedMessage.getOrginalMessage().getExtra() instanceof RequestGetMyPostNetMessage ? ((RequestGetMyPostNetMessage) responsedMessage.getOrginalMessage().getExtra()).getProZone() : 0;
                         if (z || getMyPostSocketResponseMessage.getError() == 0) {
-                            this.f26634a.d(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData(), proZone);
+                            this.f26657a.d(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData(), proZone);
                             return;
                         }
                         return;
@@ -261,26 +261,26 @@ public class d extends j {
 
     /* renamed from: c.a.r0.w0.f2.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1253d implements Runnable {
+    public class RunnableC1251d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostWriteCallBackData f26635e;
+        public final /* synthetic */ PostWriteCallBackData f26658e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f26636f;
+        public final /* synthetic */ long f26659f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f26637g;
+        public final /* synthetic */ long f26660g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f26638h;
+        public final /* synthetic */ long f26661h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ d f26639i;
+        public final /* synthetic */ d f26662i;
 
-        public RunnableC1253d(d dVar, PostWriteCallBackData postWriteCallBackData, long j2, long j3, long j4) {
+        public RunnableC1251d(d dVar, PostWriteCallBackData postWriteCallBackData, long j2, long j3, long j4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -295,11 +295,11 @@ public class d extends j {
                     return;
                 }
             }
-            this.f26639i = dVar;
-            this.f26635e = postWriteCallBackData;
-            this.f26636f = j2;
-            this.f26637g = j3;
-            this.f26638h = j4;
+            this.f26662i = dVar;
+            this.f26658e = postWriteCallBackData;
+            this.f26659f = j2;
+            this.f26660g = j3;
+            this.f26661h = j4;
         }
 
         @Override // java.lang.Runnable
@@ -311,9 +311,9 @@ public class d extends j {
                 float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                 int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                requestGetMyPostNetMessage.setProZone(this.f26635e.getProZone());
-                requestGetMyPostNetMessage.setParams(this.f26636f, this.f26637g, this.f26638h, k, i2, f2, i3);
-                this.f26639i.f26698b.sendMessage(requestGetMyPostNetMessage);
+                requestGetMyPostNetMessage.setProZone(this.f26658e.getProZone());
+                requestGetMyPostNetMessage.setParams(this.f26659f, this.f26660g, this.f26661h, k, i2, f2, i3);
+                this.f26662i.f26721b.sendMessage(requestGetMyPostNetMessage);
             }
         }
     }
@@ -336,16 +336,16 @@ public class d extends j {
                 return;
             }
         }
-        this.f26629h = new a(this, 2921031);
-        this.f26630i = new b(this, 2921316);
+        this.f26652h = new a(this, 2921031);
+        this.f26653i = new b(this, 2921316);
         c cVar = new c(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
-        this.f26631j = cVar;
+        this.f26654j = cVar;
         cVar.getSocketMessageListener().setSelfListener(true);
-        this.f26631j.getHttpMessageListener().setSelfListener(true);
-        this.f26629h.setSelfListener(false);
-        this.f26698b.registerListener(this.f26629h);
-        this.f26698b.registerListener(this.f26631j);
-        this.f26698b.registerListener(this.f26630i);
+        this.f26654j.getHttpMessageListener().setSelfListener(true);
+        this.f26652h.setSelfListener(false);
+        this.f26721b.registerListener(this.f26652h);
+        this.f26721b.registerListener(this.f26654j);
+        this.f26721b.registerListener(this.f26653i);
     }
 
     public final void b(d2 d2Var, FrsNewAreaFragment frsNewAreaFragment) {
@@ -359,21 +359,21 @@ public class d extends j {
         FrsViewData frsViewData;
         ArrayList<c.a.e.l.e.n> threadList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y0Var) == null) || (frsViewData = this.f26698b.getFrsViewData()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y0Var) == null) || (frsViewData = this.f26721b.getFrsViewData()) == null) {
             return;
         }
-        this.f26701e.G(y0Var);
-        if (this.f26701e.u0()) {
+        this.f26724e.G(y0Var);
+        if (this.f26724e.u0()) {
             ArrayList<c.a.e.l.e.n> arrayList = new ArrayList<>();
             arrayList.add(y0Var);
-            threadList = this.f26703g.c(false, true, arrayList, null, true);
+            threadList = this.f26726g.c(false, true, arrayList, null, true);
         } else {
             threadList = frsViewData.getThreadList();
         }
         if (threadList != null) {
             frsViewData.setThreadList(threadList);
             frsViewData.checkLiveStageInThreadList();
-            this.f26697a.B1(threadList, frsViewData);
+            this.f26720a.B1(threadList, frsViewData);
         }
     }
 
@@ -383,11 +383,11 @@ public class d extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), str, getMyPostResIdl, Integer.valueOf(i3)}) == null) {
             if (i2 != 0) {
-                this.f26698b.showToast(str);
+                this.f26721b.showToast(str);
                 return;
             }
-            FrsViewData frsViewData = this.f26698b.getFrsViewData();
-            if (frsViewData == null || frsViewData.getForum() == null || getMyPostResIdl == null || this.f26697a == null || this.f26701e == null || (dataRes = getMyPostResIdl.data) == null || dataRes.thread_info == null) {
+            FrsViewData frsViewData = this.f26721b.getFrsViewData();
+            if (frsViewData == null || frsViewData.getForum() == null || getMyPostResIdl == null || this.f26720a == null || this.f26724e == null || (dataRes = getMyPostResIdl.data) == null || dataRes.thread_info == null) {
                 return;
             }
             y0 y0Var = new y0();
@@ -439,24 +439,24 @@ public class d extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, y0Var, i2) == null) {
             if (i2 == 1) {
-                FrsTabViewController.o z = this.f26698b.getTabController().z();
+                FrsTabViewController.o z = this.f26721b.getTabController().z();
                 if (z != null) {
-                    Fragment fragment = z.f51641b;
+                    Fragment fragment = z.f51755b;
                     if (fragment instanceof FrsCommonTabFragment) {
                         ((FrsCommonTabFragment) fragment).addThreadData(y0Var);
                     }
                 }
             } else if (i2 == 2) {
-                FrsTabViewController.o G = this.f26698b.getTabController().G(301);
-                if (G == null || !(G.f51641b instanceof FrsGoodFragment)) {
+                FrsTabViewController.o G = this.f26721b.getTabController().G(301);
+                if (G == null || !(G.f51755b instanceof FrsGoodFragment)) {
                     return;
                 }
-                this.f26699c.b(301);
-                ((FrsGoodFragment) G.f51641b).addThreadData(y0Var);
+                this.f26722c.b(301);
+                ((FrsGoodFragment) G.f51755b).addThreadData(y0Var);
             } else if (y0Var.h1() > 0) {
-                FrsTabViewController.o G2 = this.f26698b.getTabController().G(y0Var.h1());
+                FrsTabViewController.o G2 = this.f26721b.getTabController().G(y0Var.h1());
                 if (G2 != null) {
-                    Fragment fragment2 = G2.f51641b;
+                    Fragment fragment2 = G2.f51755b;
                     if (fragment2 instanceof FrsCommonTabFragment) {
                         ((FrsCommonTabFragment) fragment2).addThreadData(y0Var);
                     }
@@ -465,9 +465,9 @@ public class d extends j {
                 if (!ListUtils.isEmpty(y0Var.t0())) {
                     y0Var.G1();
                 }
-                FrsTabViewController.o G3 = this.f26698b.getTabController().G(this.f26698b.getTabController().C());
+                FrsTabViewController.o G3 = this.f26721b.getTabController().G(this.f26721b.getTabController().C());
                 if (G3 != null) {
-                    Fragment fragment3 = G3.f51641b;
+                    Fragment fragment3 = G3.f51755b;
                     if (fragment3 instanceof FrsNewAreaFragment) {
                         b(y0Var, (FrsNewAreaFragment) fragment3);
                     } else {
@@ -481,20 +481,20 @@ public class d extends j {
     public void g(PostWriteCallBackData postWriteCallBackData) {
         FrsModelController frsModelController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, postWriteCallBackData) == null) || (frsModelController = this.f26701e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, postWriteCallBackData) == null) || (frsModelController = this.f26724e) == null) {
             return;
         }
-        boolean z = frsModelController.d0() != null && this.f26701e.d0().getIsBrandForum();
-        int R = this.f26701e.R();
+        boolean z = frsModelController.d0() != null && this.f26724e.d0().getIsBrandForum();
+        int R = this.f26724e.R();
         if (R == 2 || R == 3 || R == 7 || R == 8 || z) {
-            if ((c0.a().b(1) != null ? this.f26701e.V() : 0) != 0 || postWriteCallBackData == null) {
+            if ((c0.a().b(1) != null ? this.f26724e.V() : 0) != 0 || postWriteCallBackData == null) {
                 return;
             }
             long g2 = c.a.e.e.m.b.g(postWriteCallBackData.getPostId(), 0L);
             long g3 = c.a.e.e.m.b.g(postWriteCallBackData.getThreadId(), 0L);
-            long g4 = c.a.e.e.m.b.g(this.f26698b.getForumId(), 0L);
+            long g4 = c.a.e.e.m.b.g(this.f26721b.getForumId(), 0L);
             if (g2 != 0 && g3 != 0 && g4 != 0) {
-                c.a.e.e.m.e.a().postDelayed(new RunnableC1253d(this, postWriteCallBackData, g3, g2, g4), 1000L);
+                c.a.e.e.m.e.a().postDelayed(new RunnableC1251d(this, postWriteCallBackData, g3, g2, g4), 1000L);
                 return;
             }
             WriteData writeData = postWriteCallBackData.writeDataForVideo;

@@ -6,8 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
+import c.a.e.e.p.l;
 import c.a.e.l.e.n;
-import c.a.q0.d1.l;
+import c.a.q0.d1.o;
 import c.a.r0.o2.e.i;
 import c.a.r0.o2.e.j;
 import com.baidu.adp.BdUniqueId;
@@ -753,7 +754,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonPostModel f56018a;
+        public final /* synthetic */ PersonPostModel f56135a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PersonPostModel personPostModel, int i2) {
@@ -773,7 +774,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                     return;
                 }
             }
-            this.f56018a = personPostModel;
+            this.f56135a = personPostModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -783,7 +784,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage)) {
                 UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
                 if (userPostPageSocketResponsedMessage.getOrginalMessage() == null || userPostPageSocketResponsedMessage.hasError()) {
-                    this.f56018a.mOnResult.on(null, this.f56018a.mIsReset);
+                    this.f56135a.mOnResult.on(null, this.f56135a.mIsReset);
                     return;
                 }
                 if (userPostPageSocketResponsedMessage.getPersonPostModel() != null) {
@@ -804,7 +805,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonPostModel f56019a;
+        public final /* synthetic */ PersonPostModel f56136a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PersonPostModel personPostModel, int i2) {
@@ -824,7 +825,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                     return;
                 }
             }
-            this.f56019a = personPostModel;
+            this.f56136a = personPostModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -834,7 +835,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof UserPostPageHttpResponseMessage)) {
                 UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
                 if (userPostPageHttpResponseMessage.getOrginalMessage() == null || userPostPageHttpResponseMessage.hasError()) {
-                    this.f56019a.mOnResult.on(null, this.f56019a.mIsReset);
+                    this.f56136a.mOnResult.on(null, this.f56136a.mIsReset);
                     return;
                 }
                 if (userPostPageHttpResponseMessage.getPersonPostModel() != null) {
@@ -971,7 +972,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         if (!(interceptable == null || interceptable.invokeLILL(65544, this, dataRes, i2, user, metaData) == null) || dataRes == null) {
             return;
         }
-        this.dataResMap = l.d(dataRes);
+        this.dataResMap = o.d(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i2 == 1)) {
             this.postList.add(new j());
@@ -1077,8 +1078,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(false);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int k = c.a.e.e.p.l.k(TbadkCoreApplication.getInst().getApp());
-            int i2 = c.a.e.e.p.l.i(TbadkCoreApplication.getInst().getApp());
+            int k = l.k(TbadkCoreApplication.getInst().getApp());
+            int i2 = l.i(TbadkCoreApplication.getInst().getApp());
             float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             userPostPageRequestMessage.set_scr_w(k);
@@ -1204,8 +1205,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(z);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int k = c.a.e.e.p.l.k(TbadkCoreApplication.getInst().getApp());
-            int i3 = c.a.e.e.p.l.i(TbadkCoreApplication.getInst().getApp());
+            int k = l.k(TbadkCoreApplication.getInst().getApp());
+            int i3 = l.i(TbadkCoreApplication.getInst().getApp());
             float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i4 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             userPostPageRequestMessage.set_scr_w(k);

@@ -13,25 +13,25 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f66647a;
+    public final Context f66958a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.core.e.m f66648b;
+    public final com.bytedance.sdk.openadsdk.core.e.m f66959b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.downloadnew.core.a f66649c;
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a f66960c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.nativeexpress.e f66650d;
+    public com.bytedance.sdk.openadsdk.core.nativeexpress.e f66961d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.nativeexpress.d f66651e;
+    public com.bytedance.sdk.openadsdk.core.nativeexpress.d f66962e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f66652f;
+    public View f66963f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66653g;
+    public String f66964g;
 
     public i(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, View view, String str) {
         Interceptable interceptable = $ic;
@@ -48,28 +48,28 @@ public class i {
                 return;
             }
         }
-        this.f66653g = "rewarded_video";
-        this.f66648b = mVar;
-        this.f66647a = context;
-        this.f66652f = view;
+        this.f66964g = "rewarded_video";
+        this.f66959b = mVar;
+        this.f66958a = context;
+        this.f66963f = view;
         if (TextUtils.isEmpty(str)) {
-            this.f66653g = com.bytedance.sdk.openadsdk.q.q.b(com.bytedance.sdk.openadsdk.q.q.c(mVar.ao()));
+            this.f66964g = com.bytedance.sdk.openadsdk.q.q.b(com.bytedance.sdk.openadsdk.q.q.c(mVar.ao()));
         } else {
-            this.f66653g = str;
+            this.f66964g = str;
         }
-        if (this.f66648b.X() == 4) {
-            this.f66649c = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f66647a, this.f66648b, this.f66653g);
+        if (this.f66959b.X() == 4) {
+            this.f66960c = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f66958a, this.f66959b, this.f66964g);
         }
-        String str2 = this.f66653g;
+        String str2 = this.f66964g;
         com.bytedance.sdk.openadsdk.core.nativeexpress.e eVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.e(context, mVar, str2, com.bytedance.sdk.openadsdk.q.q.a(str2));
-        this.f66650d = eVar;
-        eVar.a(this.f66652f);
-        this.f66650d.a(this.f66649c);
-        String str3 = this.f66653g;
+        this.f66961d = eVar;
+        eVar.a(this.f66963f);
+        this.f66961d.a(this.f66960c);
+        String str3 = this.f66964g;
         com.bytedance.sdk.openadsdk.core.nativeexpress.d dVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.d(context, mVar, str3, com.bytedance.sdk.openadsdk.q.q.a(str3));
-        this.f66651e = dVar;
-        dVar.a(this.f66652f);
-        this.f66651e.a(this.f66649c);
+        this.f66962e = dVar;
+        dVar.a(this.f66963f);
+        this.f66962e.a(this.f66960c);
     }
 
     public void a(int i2, com.bytedance.sdk.openadsdk.core.e.k kVar) {
@@ -78,22 +78,22 @@ public class i {
         if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, kVar) == null) || i2 == -1 || kVar == null) {
             return;
         }
-        int i3 = kVar.f66446a;
-        int i4 = kVar.f66447b;
-        int i5 = kVar.f66448c;
-        int i6 = kVar.f66449d;
+        int i3 = kVar.f66757a;
+        int i4 = kVar.f66758b;
+        int i5 = kVar.f66759c;
+        int i6 = kVar.f66760d;
         if (i2 != 1) {
-            if (i2 == 2 && (dVar = this.f66651e) != null) {
+            if (i2 == 2 && (dVar = this.f66962e) != null) {
                 dVar.a(kVar);
-                this.f66651e.a(this.f66652f, i3, i4, i5, i6);
+                this.f66962e.a(this.f66963f, i3, i4, i5, i6);
                 return;
             }
             return;
         }
-        com.bytedance.sdk.openadsdk.core.nativeexpress.e eVar = this.f66650d;
+        com.bytedance.sdk.openadsdk.core.nativeexpress.e eVar = this.f66961d;
         if (eVar != null) {
             eVar.a(kVar);
-            this.f66650d.a(this.f66652f, i3, i4, i5, i6);
+            this.f66961d.a(this.f66963f, i3, i4, i5, i6);
         }
     }
 }

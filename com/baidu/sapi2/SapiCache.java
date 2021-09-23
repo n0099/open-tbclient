@@ -3,6 +3,7 @@ package com.baidu.sapi2;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
@@ -383,7 +384,7 @@ public final class SapiCache {
                                         if (new File(this.this$0.context.getFilesDir(), internalFile).exists()) {
                                             try {
                                                 String loadDataFromInternal = this.this$0.loadDataFromInternal(this.this$0.context, internalFile);
-                                                if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.this$0.context)) {
+                                                if (Build.VERSION.SDK_INT >= 30 || SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.this$0.context)) {
                                                     this.this$0.writeExternal(externalFile, loadDataFromInternal.getBytes());
                                                 }
                                             } catch (Throwable th) {
@@ -491,10 +492,10 @@ public final class SapiCache {
         }
     }
 
-    public String loadDataFromExternal(String str) throws IOException {
+    public String loadDataFromExternal(File file) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? FileUtil.read(new File(Environment.getExternalStorageDirectory(), str).getAbsolutePath()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, file)) == null) ? FileUtil.read(file.getAbsolutePath()) : (String) invokeL.objValue;
     }
 
     @TargetApi(4)
@@ -502,26 +503,36 @@ public final class SapiCache {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, str)) == null) {
-            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + c.f39787g + File.separator + str);
+            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + c.f39841g + File.separator + str);
         }
         return (String) invokeLL.objValue;
     }
 
     public void loadModuleFromExternal(SapiOptions.Cache.Module module, LoadModuleEventListener loadModuleEventListener) {
+        File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, module, loadModuleEventListener) == null) {
             if (loadModuleEventListener != null) {
                 String externalFile = SapiOptions.Cache.Module.getExternalFile(module.id);
                 try {
-                    if ("mounted".equals(Environment.getExternalStorageState()) && new File(Environment.getExternalStorageDirectory(), externalFile).exists()) {
-                        String loadDataFromExternal = loadDataFromExternal(externalFile);
-                        if (SecurityUtil.md5(loadDataFromExternal.getBytes(), false).equals(module.hash)) {
-                            loadModuleEventListener.onSuccess(module, loadDataFromExternal);
+                    if ("mounted".equals(Environment.getExternalStorageState())) {
+                        if (Build.VERSION.SDK_INT >= 30) {
+                            file = new File(this.context.getExternalCacheDir(), externalFile);
                         } else {
-                            loadModuleEventListener.onFailure(module);
+                            file = new File(Environment.getExternalStorageDirectory(), externalFile);
                         }
-                    } else {
+                        if (file.exists()) {
+                            String loadDataFromExternal = loadDataFromExternal(file);
+                            if (SecurityUtil.md5(loadDataFromExternal.getBytes(), false).equals(module.hash)) {
+                                loadModuleEventListener.onSuccess(module, loadDataFromExternal);
+                                return;
+                            } else {
+                                loadModuleEventListener.onFailure(module);
+                                return;
+                            }
+                        }
                         loadModuleEventListener.onFailure(module);
+                        return;
                     }
                     return;
                 } catch (Throwable unused) {
@@ -684,11 +695,17 @@ public final class SapiCache {
     }
 
     public void writeExternal(String str, byte[] bArr) {
+        File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, str, bArr) == null) {
             try {
                 if ("mounted".equals(Environment.getExternalStorageState())) {
-                    FileUtil.write(new File(Environment.getExternalStorageDirectory(), str), bArr, false);
+                    if (Build.VERSION.SDK_INT >= 30) {
+                        file = new File(this.context.getExternalCacheDir(), str);
+                    } else {
+                        file = new File(Environment.getExternalStorageDirectory(), str);
+                    }
+                    FileUtil.write(file, bArr, false);
                 }
             } catch (Throwable th) {
                 Log.e(th);

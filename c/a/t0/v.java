@@ -6,7 +6,7 @@ import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 public interface v {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ServiceReference f30092a = new ServiceReference(UBCCloudControlProcessor.UBC_KEY, "yalog");
+    public static final ServiceReference f30113a = new ServiceReference(UBCCloudControlProcessor.UBC_KEY, "yalog");
 
     void a(String str, String str2);
 

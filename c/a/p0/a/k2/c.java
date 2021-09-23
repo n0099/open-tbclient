@@ -30,29 +30,29 @@ public class c extends f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f7104e;
+    public static final boolean f7112e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f7105f;
+    public static int f7113f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f7106g;
+    public static int f7114g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f7107h;
+    public static int f7115h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f7108a;
+    public g f7116a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f7109b;
+    public final String f7117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f7110c;
+    public final String f7118c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a<Long> f7111d;
+    public final c.a<Long> f7119d;
 
     /* loaded from: classes.dex */
     public class a implements c.a<Long> {
@@ -60,7 +60,7 @@ public class c extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f7112a;
+        public final /* synthetic */ c f7120a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class c extends f {
                     return;
                 }
             }
-            this.f7112a = cVar;
+            this.f7120a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,7 +86,7 @@ public class c extends f {
         public Long update() throws IllegalStateException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Long.valueOf(this.f7112a.e()) : (Long) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Long.valueOf(this.f7120a.e()) : (Long) invokeV.objValue;
         }
     }
 
@@ -103,10 +103,10 @@ public class c extends f {
                 return;
             }
         }
-        f7104e = k.f7077a;
-        f7105f = 1024;
-        f7106g = -1;
-        f7107h = 1;
+        f7112e = k.f7085a;
+        f7113f = 1024;
+        f7114g = -1;
+        f7115h = 1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -127,10 +127,10 @@ public class c extends f {
                 return;
             }
         }
-        this.f7111d = new a(this);
-        this.f7109b = b.t(eVar);
-        this.f7110c = "aiapp_" + this.f7109b;
-        c.a.p0.a.q2.d.f8131h.e(this.f7111d);
+        this.f7119d = new a(this);
+        this.f7117b = b.t(eVar);
+        this.f7118c = "aiapp_" + this.f7117b;
+        c.a.p0.a.q2.d.f8139h.e(this.f7119d);
     }
 
     public static boolean b(@NonNull String str) {
@@ -168,7 +168,7 @@ public class c extends f {
             }
             c.a.p0.t.d.j(b.x(e.V()));
             c.a.p0.t.d.j(b.v(e.V()));
-            c.a.p0.a.q2.d.f8131h.b();
+            c.a.p0.a.q2.d.f8139h.b();
         }
     }
 
@@ -176,9 +176,9 @@ public class c extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (f7104e) {
+            if (f7112e) {
                 File c2 = g().c();
-                String str = this.f7109b + " exists = " + c2.exists() + " isFile = " + c2.isFile() + " path = " + c2.getPath() + " size = " + c2.length();
+                String str = this.f7117b + " exists = " + c2.exists() + " isFile = " + c2.isFile() + " path = " + c2.getPath() + " size = " + c2.length();
             }
             return g().d();
         }
@@ -192,8 +192,8 @@ public class c extends f {
             if (!TextUtils.isEmpty(str) && !str.endsWith(File.separator)) {
                 int lastIndexOf = str.lastIndexOf(File.separator);
                 int length = str.length();
-                if (lastIndexOf != f7106g && length > lastIndexOf) {
-                    return str.substring(lastIndexOf + f7107h, length);
+                if (lastIndexOf != f7114g && length > lastIndexOf) {
+                    return str.substring(lastIndexOf + f7115h, length);
                 }
             }
             return null;
@@ -205,10 +205,10 @@ public class c extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f7108a == null) {
-                this.f7108a = new g(this.f7110c, false);
+            if (this.f7116a == null) {
+                this.f7116a = new g(this.f7118c, false);
             }
-            return this.f7108a;
+            return this.f7116a;
         }
         return (g) invokeV.objValue;
     }
@@ -249,7 +249,7 @@ public class c extends f {
             if (file == null || !file.exists()) {
                 return null;
             }
-            if (f7104e) {
+            if (f7112e) {
                 String str = "——> getSavedFileList: " + file.getAbsolutePath();
             }
             c.a.p0.a.k2.a aVar = new c.a.p0.a.k2.a();
@@ -280,7 +280,7 @@ public class c extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (f7104e) {
+            if (f7112e) {
                 String str2 = "——> getSavedFileList:  dir " + str;
             }
             File file = new File(str);
@@ -362,7 +362,7 @@ public class c extends f {
                     try {
                         str = new FileOutputStream(l);
                         try {
-                            byte[] bArr = new byte[f7105f];
+                            byte[] bArr = new byte[f7113f];
                             while (true) {
                                 int read = fileInputStream2.read(bArr);
                                 if (read == -1) {
@@ -379,7 +379,7 @@ public class c extends f {
                             fileInputStream = fileInputStream2;
                             obj2 = str;
                             str = obj2;
-                            if (f7104e) {
+                            if (f7112e) {
                                 e.printStackTrace();
                                 str = obj2;
                             }
@@ -392,7 +392,7 @@ public class c extends f {
                             fileInputStream = fileInputStream2;
                             obj = str;
                             str = obj;
-                            if (f7104e) {
+                            if (f7112e) {
                                 e.printStackTrace();
                                 str = obj;
                             }

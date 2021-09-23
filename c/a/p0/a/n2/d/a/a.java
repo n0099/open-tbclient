@@ -14,7 +14,7 @@ public class a {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f7680a;
+    public static volatile a f7688a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,16 +30,16 @@ public class a {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     @RequiresApi(api = 21)
     public static void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || f7680a == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || f7688a == null) {
             return;
         }
-        f7680a.a();
+        f7688a.a();
     }
 
     @RequiresApi(api = 21)

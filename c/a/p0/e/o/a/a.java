@@ -18,7 +18,7 @@ public class a implements m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10424a;
+    public static final boolean f10432a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class a implements m {
                 return;
             }
         }
-        f10424a = k.f7077a;
+        f10432a = k.f7085a;
     }
 
     public a() {
@@ -56,7 +56,7 @@ public class a implements m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
-            if (f10424a) {
+            if (f10432a) {
                 String str = "upload stat data -> " + jSONArray.toString();
             }
             c.a.p0.e.o.a.d.c cVar = new c.a.p0.e.o.a.d.c();
@@ -64,11 +64,11 @@ public class a implements m {
             hashMap.put("cuid", e.h().getDeviceId(AppRuntime.getApplication()));
             hashMap.put("uuid", e.h().p(AppRuntime.getApplication()));
             c.a.p0.e.o.a.d.b.d().g(hashMap, jSONArray.toString().getBytes(), null, cVar);
-            if (f10424a) {
-                String str2 = "errorCode : " + cVar.f10429a;
-                String str3 = "errorMsg : " + cVar.f10430b;
+            if (f10432a) {
+                String str2 = "errorCode : " + cVar.f10437a;
+                String str3 = "errorMsg : " + cVar.f10438b;
             }
-            int i2 = cVar.f10429a;
+            int i2 = cVar.f10437a;
             if (i2 == 1 || i2 == 2 || i2 == 4) {
                 c.a.p0.s.c.a();
                 return false;

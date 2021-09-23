@@ -23,7 +23,7 @@ public class c extends c.a.e.l.e.a<c.a.r0.g1.k.b.c.c, CardViewHolder<c.a.r0.g1.k
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.r0.g1.k.b.c.c.f18546g);
+        super(tbPageContext.getPageActivity(), c.a.r0.g1.k.b.c.c.f18555g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,7 +51,7 @@ public class c extends c.a.e.l.e.a<c.a.r0.g1.k.b.c.c, CardViewHolder<c.a.r0.g1.k
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             c.a.r0.g1.k.b.d.b bVar = new c.a.r0.g1.k.b.d.b(this.m);
-            bVar.n(this.f2961i);
+            bVar.n(this.f2962i);
             CardViewHolder<c.a.r0.g1.k.b.d.b> cardViewHolder = new CardViewHolder<>(bVar);
             int g2 = l.g(this.m.getPageActivity(), R.dimen.tbds44);
             cardViewHolder.getView().setPadding(g2, 0, g2, 0);

@@ -12,16 +12,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7364a;
+    public int f7372a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7365b;
+    public String f7373b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f7366c;
+    public long f7374c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f7367d;
+    public boolean f7375d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(int i2) {
@@ -47,25 +47,25 @@ public class c {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7367d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7375d : invokeV.booleanValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7364a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7372a : invokeV.intValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7366c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7374c : invokeV.longValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7365b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7373b : (String) invokeV.objValue;
     }
 
     public c(int i2, String str) {
@@ -83,9 +83,9 @@ public class c {
                 return;
             }
         }
-        this.f7367d = false;
-        this.f7364a = i2;
-        this.f7365b = str;
+        this.f7375d = false;
+        this.f7372a = i2;
+        this.f7373b = str;
     }
 
     public c(int i2, String str, long j2) {
@@ -103,10 +103,10 @@ public class c {
                 return;
             }
         }
-        this.f7367d = false;
-        this.f7364a = i2;
-        this.f7365b = str;
-        this.f7366c = j2;
+        this.f7375d = false;
+        this.f7372a = i2;
+        this.f7373b = str;
+        this.f7374c = j2;
     }
 
     public c(int i2, String str, long j2, boolean z) {
@@ -124,10 +124,10 @@ public class c {
                 return;
             }
         }
-        this.f7367d = false;
-        this.f7364a = i2;
-        this.f7365b = str;
-        this.f7366c = j2;
-        this.f7367d = z;
+        this.f7375d = false;
+        this.f7372a = i2;
+        this.f7373b = str;
+        this.f7374c = j2;
+        this.f7375d = z;
     }
 }

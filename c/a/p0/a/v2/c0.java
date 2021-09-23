@@ -14,7 +14,7 @@ public final class c0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SharedPreferences f9307a;
+    public static SharedPreferences f9315a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,10 +48,10 @@ public final class c0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f9307a == null) {
-                f9307a = PreferenceManager.getDefaultSharedPreferences(a());
+            if (f9315a == null) {
+                f9315a = PreferenceManager.getDefaultSharedPreferences(a());
             }
-            return f9307a;
+            return f9315a;
         }
         return (SharedPreferences) invokeV.objValue;
     }

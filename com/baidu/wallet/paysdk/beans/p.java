@@ -1,27 +1,28 @@
 package com.baidu.wallet.paysdk.beans;
 
 import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.lbspay.channelpay.alipay.LBSPayAli;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.datamodel.CardData;
-import com.baidu.wallet.base.datamodel.PayData;
-import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
-import com.baidu.wallet.paysdk.datamodel.PayRequest;
-import com.baidu.wallet.paysdk.storage.PayDataCache;
+import com.baidu.wallet.paysdk.datamodel.UnBindSmSResponse;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.base.datamodel.AccountManager;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
+import com.dxmpay.wallet.paysdk.PayUtils;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class p extends q {
+public class p extends BaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public com.baidu.wallet.paysdk.datamodel.b f62698a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> p(Context context) {
@@ -41,53 +42,49 @@ public class p extends q {
                 return;
             }
         }
+        this.f62698a = (com.baidu.wallet.paysdk.datamodel.b) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_GET_SMS);
     }
 
-    private boolean a(DirectPayContentResponse directPayContentResponse) {
-        InterceptResult invokeL;
-        PayData.DirectPayPay directPayPay;
-        PayData.EasyPay easyPay;
+    @Override // com.dxmpay.apollon.beans.ApollonBean
+    public void execBean() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, directPayContentResponse)) == null) ? (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (easyPay = directPayPay.easypay) == null || TextUtils.isEmpty(easyPay.getService())) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.execBean(UnBindSmSResponse.class);
+        }
     }
 
-    @Override // com.baidu.wallet.paysdk.beans.q, com.dxmpay.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("request_type", "15"));
-            if (com.baidu.wallet.paysdk.a.b.a()) {
-                DirectPayContentResponse payResponse = PayDataCache.getInstance().getPayResponse();
-                if (a(payResponse)) {
-                    arrayList.add(new RestNameValuePair("service", payResponse.pay.easypay.getService()));
-                } else {
-                    if (com.baidu.wallet.paysdk.a.b.c()) {
-                        arrayList.add(new RestNameValuePair("service", LBSPayAli.ALI_AUTH_PAY));
-                    }
-                    if (com.baidu.wallet.paysdk.a.b.b()) {
-                        arrayList.add(new RestNameValuePair("service", "authorize_pure"));
-                    }
-                }
-            }
-            CardData.BondCard bondCard = ((PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)).mBondCard;
-            if (bondCard != null) {
-                arrayList.add(new RestNameValuePair("card_no_bind", bondCard.account_no));
-                arrayList.add(new RestNameValuePair("sub_bank_code", bondCard.bank_code));
-            }
+            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f62698a.f62758a)));
+            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62698a.f62759b)));
+            arrayList.add(new RestNameValuePair("request_type", "1"));
+            arrayList.add(new RestNameValuePair("token", AccountManager.getInstance(this.mContext).getBfbToken()));
             return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.beans.q, com.dxmpay.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 15;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 514;
         }
         return invokeV.intValue;
+    }
+
+    @Override // com.dxmpay.apollon.beans.ApollonBean
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return DomainConfig.getInstance().getAppPayHost() + "/_u/wireless/send_sms/";
+        }
+        return (String) invokeV.objValue;
     }
 }

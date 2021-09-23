@@ -34,7 +34,7 @@ public class b extends a {
                 return;
             }
         }
-        this.f23414d = z;
+        this.f23430d = z;
     }
 
     public static int h(BitmapFactory.Options options, int i2, int i3) {
@@ -84,12 +84,12 @@ public class b extends a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.r0.p0.a.g.c cVar = this.f23411a;
-            if (cVar.f23430e) {
-                this.f23412b.onError(cVar.f23431f, "is cartoon style !!");
+            c.a.r0.p0.a.g.c cVar = this.f23427a;
+            if (cVar.f23446e) {
+                this.f23428b.onError(cVar.f23447f, "is cartoon style !!");
                 return;
             }
-            MultiMediaData multiMediaData = cVar.f23428c;
+            MultiMediaData multiMediaData = cVar.f23444c;
             if (multiMediaData != null && !TextUtils.isEmpty(multiMediaData.path)) {
                 String str = multiMediaData.path;
                 if (multiMediaData.type == 1) {
@@ -98,8 +98,8 @@ public class b extends a {
                         try {
                             mediaMetadataRetriever.setDataSource(str);
                             Bitmap frameAtTime = mediaMetadataRetriever.getFrameAtTime(multiMediaData.start * 1000);
-                            if (this.f23411a.f23429d != 0.0f) {
-                                g(new c.a.r0.p0.a.g.b(), c(frameAtTime, this.f23411a.f23429d, multiMediaData));
+                            if (this.f23427a.f23445d != 0.0f) {
+                                g(new c.a.r0.p0.a.g.b(), c(frameAtTime, this.f23427a.f23445d, multiMediaData));
                             } else {
                                 g(new c.a.r0.p0.a.g.b(), frameAtTime);
                             }
@@ -119,7 +119,7 @@ public class b extends a {
                 }
                 return;
             }
-            this.f23412b.onError(this.f23411a.f23431f, "multiMediaData is null !!");
+            this.f23428b.onError(this.f23427a.f23447f, "multiMediaData is null !!");
         }
     }
 
@@ -157,8 +157,8 @@ public class b extends a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            c.a.r0.p0.a.g.c cVar = this.f23411a;
-            Bitmap i2 = i(str, cVar.f23426a, cVar.f23427b);
+            c.a.r0.p0.a.g.c cVar = this.f23427a;
+            Bitmap i2 = i(str, cVar.f23442a, cVar.f23443b);
             if (i2 == null) {
                 return null;
             }

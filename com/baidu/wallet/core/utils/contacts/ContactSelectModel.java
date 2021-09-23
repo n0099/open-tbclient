@@ -80,7 +80,6 @@ public class ContactSelectModel implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
         public String abc;
         public List<AllContact> all;
-        public String allCount;
         public String des;
         public String errCode;
         public SelectedContact selected;

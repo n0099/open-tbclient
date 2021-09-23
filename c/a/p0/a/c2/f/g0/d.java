@@ -34,17 +34,17 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f4851d;
+    public static boolean f4859d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f4852a;
+    public boolean f4860a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<JSONObject> f4853b;
+    public List<JSONObject> f4861b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4854c;
+    public String f4862c;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -52,13 +52,13 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f4855e;
+        public final /* synthetic */ g f4863e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4856f;
+        public final /* synthetic */ String f4864f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f4857g;
+        public final /* synthetic */ e f4865g;
 
         public a(d dVar, g gVar, String str, e eVar) {
             Interceptable interceptable = $ic;
@@ -75,18 +75,18 @@ public class d {
                     return;
                 }
             }
-            this.f4855e = gVar;
-            this.f4856f = str;
-            this.f4857g = eVar;
+            this.f4863e = gVar;
+            this.f4864f = str;
+            this.f4865g = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g.b i2 = this.f4855e.i(this.f4856f);
-                i2.n(g.f5928g, g.f5930i);
-                i2.j(this.f4857g);
+                g.b i2 = this.f4863e.i(this.f4864f);
+                i2.n(g.f5936g, g.f5938i);
+                i2.j(this.f4865g);
                 i2.b();
             }
         }
@@ -97,7 +97,7 @@ public class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f4858a;
+        public static final d f4866a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -113,7 +113,7 @@ public class d {
                     return;
                 }
             }
-            f4858a = new d(null);
+            f4866a = new d(null);
         }
     }
 
@@ -130,7 +130,7 @@ public class d {
                 return;
             }
         }
-        f4851d = k.f7077a;
+        f4859d = k.f7085a;
     }
 
     public /* synthetic */ d(a aVar) {
@@ -140,7 +140,7 @@ public class d {
     public static d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f4858a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f4866a : (d) invokeV.objValue;
     }
 
     public boolean a(c.a.p0.a.l1.b bVar) {
@@ -148,14 +148,14 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
             if (bVar != null && c.a.p0.a.v.a.e(c.a.p0.a.a2.d.g().r().N())) {
-                if (!this.f4852a) {
+                if (!this.f4860a) {
                     j();
                 }
-                List<JSONObject> list = this.f4853b;
+                List<JSONObject> list = this.f4861b;
                 if (list == null || list.isEmpty()) {
                     return false;
                 }
-                boolean z = f4851d;
+                boolean z = f4859d;
                 return g(bVar);
             }
             return false;
@@ -175,7 +175,7 @@ public class d {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4854c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4862c : (String) invokeV.objValue;
     }
 
     public final String e(String str) {
@@ -215,8 +215,8 @@ public class d {
             if (bVar == null) {
                 return false;
             }
-            String str = bVar.f7236e;
-            String str2 = bVar.f7239h;
+            String str = bVar.f7244e;
+            String str2 = bVar.f7247h;
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 if (str.startsWith("/")) {
                     str = str.substring(1);
@@ -224,7 +224,7 @@ public class d {
                 if (str2.startsWith("/")) {
                     str2 = str2.substring(1);
                 }
-                List<JSONObject> list = this.f4853b;
+                List<JSONObject> list = this.f4861b;
                 if (list == null) {
                     return false;
                 }
@@ -239,11 +239,11 @@ public class d {
                             if (optInt != 2) {
                                 if (optInt == 3 && !jSONObject.isNull("query")) {
                                     String optString2 = jSONObject.optString("query");
-                                    if (TextUtils.isEmpty(bVar.f7237f)) {
+                                    if (TextUtils.isEmpty(bVar.f7245f)) {
                                         return false;
                                     }
                                     List<String> c2 = o0.c(optString2);
-                                    String[] split = bVar.f7237f.split("&");
+                                    String[] split = bVar.f7245f.split("&");
                                     if (split == null || split.length == 0 || c2 == null || c2.isEmpty()) {
                                         return false;
                                     }
@@ -255,11 +255,11 @@ public class d {
                                 continue;
                             } else {
                                 String optString3 = jSONObject.optString("query");
-                                if (TextUtils.isEmpty(bVar.f7237f)) {
+                                if (TextUtils.isEmpty(bVar.f7245f)) {
                                     return false;
                                 }
                                 List<String> c3 = o0.c(optString3);
-                                String[] split2 = bVar.f7237f.split("&");
+                                String[] split2 = bVar.f7245f.split("&");
                                 if (split2 == null || split2.length == 0 || c3 == null || c3.isEmpty() || split2.length != c3.size()) {
                                     return false;
                                 }
@@ -284,8 +284,8 @@ public class d {
             if (bVar == null) {
                 return false;
             }
-            String str = bVar.f7239h;
-            if (TextUtils.isEmpty(str) || (list = this.f4853b) == null) {
+            String str = bVar.f7247h;
+            if (TextUtils.isEmpty(str) || (list = this.f4861b) == null) {
                 return false;
             }
             for (JSONObject jSONObject : list) {
@@ -310,7 +310,7 @@ public class d {
         } else {
             e2 = c.a.p0.a.l1.b.e(bVar);
         }
-        if (f4851d) {
+        if (f4859d) {
             String str2 = "jump from " + str + " ; path = " + e2;
         }
         c.a.p0.a.a2.e r = c.a.p0.a.a2.d.g().r();
@@ -320,7 +320,7 @@ public class d {
         forbiddenInfo.appKey = r.D();
         forbiddenInfo.appTitle = L.K();
         forbiddenInfo.forbiddenReason = d();
-        forbiddenInfo.forbiddenInformation = this.f4854c;
+        forbiddenInfo.forbiddenInformation = this.f4862c;
         forbiddenInfo.launchSource = L.T();
         forbiddenInfo.launchPath = e2;
         forbiddenInfo.enableSlidingFlag = 0;
@@ -337,40 +337,40 @@ public class d {
                 return;
             }
             String string = a2.getString(c(D), null);
-            if (f4851d) {
-                String str = "readData, appKey = " + D + " ; tips = " + this.f4854c + " ; page = " + string;
+            if (f4859d) {
+                String str = "readData, appKey = " + D + " ; tips = " + this.f4862c + " ; page = " + string;
             }
             if (TextUtils.isEmpty(string)) {
-                this.f4853b = null;
+                this.f4861b = null;
             } else {
                 JSONArray e2 = w.e(string);
                 if (e2 == null) {
                     return;
                 }
                 int length = e2.length();
-                this.f4853b = new ArrayList();
+                this.f4861b = new ArrayList();
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = e2.optJSONObject(i2);
                     if (optJSONObject != null) {
-                        this.f4853b.add(optJSONObject);
+                        this.f4861b.add(optJSONObject);
                     }
                 }
-                this.f4854c = a2.getString(e(D), null);
+                this.f4862c = a2.getString(e(D), null);
             }
-            this.f4852a = true;
+            this.f4860a = true;
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            boolean z = f4851d;
-            this.f4852a = false;
-            this.f4854c = null;
-            List<JSONObject> list = this.f4853b;
+            boolean z = f4859d;
+            this.f4860a = false;
+            this.f4862c = null;
+            List<JSONObject> list = this.f4861b;
             if (list != null) {
                 list.clear();
-                this.f4853b = null;
+                this.f4861b = null;
             }
         }
     }
@@ -418,7 +418,7 @@ public class d {
             String jSONArray2 = jSONArray.toString();
             if (optJSONObject != null) {
                 h.a().edit().putString(c2, jSONArray2).putString(e2, str).apply();
-                if (f4851d) {
+                if (f4859d) {
                     String str3 = "writeDataSwanKv, appKey = " + str2 + " ; tips = " + str;
                 }
                 m(str2);
@@ -427,7 +427,7 @@ public class d {
             return;
         }
         h.a().edit().remove(c2).remove(e2).apply();
-        if (f4851d) {
+        if (f4859d) {
             String str4 = "writeDataSwanKv, but list is null, appKey = " + str2 + " ; tips = " + str;
         }
     }
@@ -445,6 +445,6 @@ public class d {
                 return;
             }
         }
-        this.f4852a = false;
+        this.f4860a = false;
     }
 }

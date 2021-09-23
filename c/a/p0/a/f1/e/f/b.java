@@ -13,7 +13,7 @@ public abstract class b<ValueT> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ValueT f5700a;
+    public final ValueT f5708a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b() {
@@ -36,7 +36,7 @@ public abstract class b<ValueT> {
     public ValueT a(c cVar, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, str)) == null) ? b(cVar, str, this.f5700a) : (ValueT) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, str)) == null) ? b(cVar, str, this.f5708a) : (ValueT) invokeLL.objValue;
     }
 
     public ValueT b(c cVar, String str, ValueT valuet) {
@@ -71,6 +71,6 @@ public abstract class b<ValueT> {
                 return;
             }
         }
-        this.f5700a = valuet;
+        this.f5708a = valuet;
     }
 }

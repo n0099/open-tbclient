@@ -13,7 +13,7 @@ public class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9440a;
+    public static final boolean f9448a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class x {
                 return;
             }
         }
-        f9440a = c.a.p0.a.k.f7077a;
+        f9448a = c.a.p0.a.k.f7085a;
     }
 
     public static void a(Context context, IBinder iBinder) {
@@ -41,7 +41,7 @@ public class x {
         try {
             inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
         } catch (Exception e2) {
-            if (f9440a) {
+            if (f9448a) {
                 e2.printStackTrace();
             }
         }

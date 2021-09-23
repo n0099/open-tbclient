@@ -18,22 +18,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11525a;
+    public String f11533a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11526b;
+    public String f11534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f11527c;
+    public boolean f11535c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f11528d;
+    public boolean f11536d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11529e;
+    public boolean f11537e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f11530f;
+    public boolean f11538f;
 
     /* renamed from: c.a.p0.h.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -42,10 +42,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f11531a;
+        public boolean f11539a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11532b;
+        public String f11540b;
 
         public C0594a(boolean z, String str) {
             Interceptable interceptable = $ic;
@@ -62,9 +62,9 @@ public class a {
                     return;
                 }
             }
-            this.f11531a = false;
-            this.f11531a = z;
-            this.f11532b = str;
+            this.f11539a = false;
+            this.f11539a = z;
+            this.f11540b = str;
         }
 
         public static C0594a c() {
@@ -76,13 +76,13 @@ public class a {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11532b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11540b : (String) invokeV.objValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11531a : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11539a : invokeV.booleanValue;
         }
     }
 
@@ -102,31 +102,31 @@ public class a {
                 return;
             }
         }
-        this.f11525a = null;
-        this.f11526b = null;
-        this.f11527c = false;
-        this.f11528d = false;
-        this.f11529e = false;
-        this.f11530f = false;
+        this.f11533a = null;
+        this.f11534b = null;
+        this.f11535c = false;
+        this.f11536d = false;
+        this.f11537e = false;
+        this.f11538f = false;
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("inspector")) != null) {
-            this.f11525a = optJSONObject.optString("hostname", null);
-            this.f11526b = optJSONObject.optString(ClientCookie.PORT_ATTR, null);
-            this.f11527c = optJSONObject.optBoolean("breakOnStart", false);
+            this.f11533a = optJSONObject.optString("hostname", null);
+            this.f11534b = optJSONObject.optString(ClientCookie.PORT_ATTR, null);
+            this.f11535c = optJSONObject.optBoolean("breakOnStart", false);
         }
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
         boolean z = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_ENABLED", false);
-        this.f11530f = z;
+        this.f11538f = z;
         if (z) {
-            this.f11525a = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_HOSTNAME", this.f11525a);
-            this.f11526b = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_PORT", this.f11526b);
-            this.f11527c = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_BREAK_FIRST_ENABLED", this.f11527c);
-            this.f11528d = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_DEBUGGER_DISABLED", this.f11528d);
+            this.f11533a = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_HOSTNAME", this.f11533a);
+            this.f11534b = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_PORT", this.f11534b);
+            this.f11535c = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_BREAK_FIRST_ENABLED", this.f11535c);
+            this.f11536d = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_DEBUGGER_DISABLED", this.f11536d);
         }
-        String str = this.f11525a;
+        String str = this.f11533a;
         if (str == null || str.trim().equals("")) {
             return;
         }
-        this.f11529e = true;
+        this.f11537e = true;
     }
 
     public static C0594a f(a aVar) {
@@ -141,9 +141,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f11525a);
-            if (this.f11526b != null) {
-                str = ":" + this.f11526b;
+            sb.append(this.f11533a);
+            if (this.f11534b != null) {
+                str = ":" + this.f11534b;
             } else {
                 str = "";
             }
@@ -156,7 +156,7 @@ public class a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11528d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11536d : invokeV.booleanValue;
     }
 
     public final boolean c() {
@@ -168,18 +168,18 @@ public class a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11527c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11535c : invokeV.booleanValue;
     }
 
     public C0594a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.f11530f && c()) {
+            if (!this.f11538f && c()) {
                 return new C0594a(false, "线上包禁用真机调试");
             }
-            boolean z = this.f11529e;
-            return new C0594a(z, !z ? "未启用真机调试" : this.f11530f ? "使用了 debug 面板配置" : "启用了真机调试");
+            boolean z = this.f11537e;
+            return new C0594a(z, !z ? "未启用真机调试" : this.f11538f ? "使用了 debug 面板配置" : "启用了真机调试");
         }
         return (C0594a) invokeV.objValue;
     }

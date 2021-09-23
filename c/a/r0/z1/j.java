@@ -16,16 +16,16 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f29727a;
+    public long f29747a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f29728b;
+    public long f29748b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f29729c;
+    public long f29749c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f29730d;
+    public boolean f29750d;
 
     static {
         InterceptResult invokeClinit;
@@ -59,33 +59,33 @@ public class j {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f29727a = 0L;
-            this.f29728b = 0L;
-            this.f29729c = 0L;
+            this.f29747a = 0L;
+            this.f29748b = 0L;
+            this.f29749c = 0L;
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f29729c = SystemClock.elapsedRealtime();
+            this.f29749c = SystemClock.elapsedRealtime();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f29728b = SystemClock.elapsedRealtime();
+            this.f29748b = SystemClock.elapsedRealtime();
         }
     }
 
     public void d(TbCyberVideoView tbCyberVideoView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, tbCyberVideoView) == null) && this.f29730d) {
-            this.f29730d = false;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, tbCyberVideoView) == null) && this.f29750d) {
+            this.f29750d = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j2 = this.f29728b - this.f29727a;
-            long j3 = elapsedRealtime - this.f29729c;
+            long j2 = this.f29748b - this.f29747a;
+            long j3 = elapsedRealtime - this.f29749c;
             long j4 = j3 + j2;
             if ((c.a.e.e.p.j.I() == 2 || j2 <= 17500) && tbCyberVideoView != null) {
                 tbCyberVideoView.recordPlayTimeInfo(j2, j3, j4);
@@ -96,8 +96,8 @@ public class j {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f29730d = true;
-            this.f29727a = SystemClock.elapsedRealtime();
+            this.f29750d = true;
+            this.f29747a = SystemClock.elapsedRealtime();
         }
     }
 }

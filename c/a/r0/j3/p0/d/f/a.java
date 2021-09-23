@@ -25,22 +25,22 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f21024a;
+    public e f21037a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f21025b;
+    public final String f21038b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f21026c;
+    public final int f21039c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f21027d;
+    public final long f21040d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f21028e;
+    public final String f21041e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f21029f;
+    public final int f21042f;
 
     public a(String str, int i2, int i3, long j2, String str2) {
         Interceptable interceptable = $ic;
@@ -57,11 +57,11 @@ public abstract class a {
                 return;
             }
         }
-        this.f21025b = str;
-        this.f21026c = i3;
-        this.f21027d = j2;
-        this.f21028e = str2;
-        this.f21029f = i2;
+        this.f21038b = str;
+        this.f21039c = i3;
+        this.f21040d = j2;
+        this.f21041e = str2;
+        this.f21042f = i2;
     }
 
     public abstract void a();
@@ -72,15 +72,15 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, randomAccessFile, i2)) == null) {
             if (randomAccessFile != null && i2 >= 0) {
-                if (i2 == this.f21026c) {
-                    i3 = (int) (this.f21027d - ((i2 - 1) * this.f21029f));
+                if (i2 == this.f21039c) {
+                    i3 = (int) (this.f21040d - ((i2 - 1) * this.f21042f));
                 } else {
-                    i3 = this.f21029f;
+                    i3 = this.f21042f;
                 }
                 byte[] bArr = new byte[i3];
                 try {
                     synchronized (randomAccessFile) {
-                        randomAccessFile.seek((i2 - 1) * this.f21029f);
+                        randomAccessFile.seek((i2 - 1) * this.f21042f);
                         r3 = randomAccessFile.read(bArr, 0, i3) != -1;
                     }
                 } catch (IOException e2) {
@@ -100,7 +100,7 @@ public abstract class a {
     public void d(int i2) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (eVar = this.f21024a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (eVar = this.f21037a) == null) {
             return;
         }
         eVar.onProgressUpdate(i2 / 100.0f);
@@ -129,7 +129,7 @@ public abstract class a {
     public void f(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
-            this.f21024a = eVar;
+            this.f21037a = eVar;
         }
     }
 
@@ -142,18 +142,18 @@ public abstract class a {
             byte[] b2 = b(randomAccessFile, i2);
             if (b2 == null) {
                 d dVar = new d();
-                dVar.f21042b = -1;
-                dVar.f21043c = "上传文件不存在";
+                dVar.f21055b = -1;
+                dVar.f21056c = "上传文件不存在";
                 return dVar;
             } else if (c()) {
                 return null;
             } else {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
                 netWork.addPostData("chunk_no", String.valueOf(i2));
-                netWork.addPostData("chunk_sum", String.valueOf(this.f21026c));
+                netWork.addPostData("chunk_sum", String.valueOf(this.f21039c));
                 netWork.addPostData("chunk_size", String.valueOf(b2.length));
-                netWork.addPostData("video_size", String.valueOf(this.f21027d));
-                netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.f21028e);
+                netWork.addPostData("video_size", String.valueOf(this.f21040d));
+                netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.f21041e);
                 netWork.addPostData("video_len", String.valueOf(j2));
                 netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
                 netWork.addPostData("video_chunk", b2);
@@ -167,14 +167,14 @@ public abstract class a {
                 }
                 d dVar2 = new d();
                 if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                    dVar2.f21041a = e(postMultiNetData);
+                    dVar2.f21054a = e(postMultiNetData);
                 } else {
                     if (netWork.getNetContext().getResponse().isNetSuccess()) {
-                        dVar2.f21042b = netWork.getNetContext().getResponse().mServerErrorCode;
+                        dVar2.f21055b = netWork.getNetContext().getResponse().mServerErrorCode;
                     } else {
-                        dVar2.f21042b = netWork.getNetContext().getResponse().mNetErrorCode;
+                        dVar2.f21055b = netWork.getNetContext().getResponse().mNetErrorCode;
                     }
-                    dVar2.f21043c = netWork.getNetContext().getResponse().mErrorString;
+                    dVar2.f21056c = netWork.getNetContext().getResponse().mErrorString;
                 }
                 return dVar2;
             }

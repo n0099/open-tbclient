@@ -16,7 +16,7 @@ public final class Actions {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f79371a;
+    public static final a f79690a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -140,13 +140,13 @@ public final class Actions {
                 return;
             }
         }
-        f79371a = new a();
+        f79690a = new a();
     }
 
     public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> a<T0, T1, T2, T3, T4, T5, T6, T7, T8> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f79371a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f79690a : (a) invokeV.objValue;
     }
 
     public static b<Throwable> b() {

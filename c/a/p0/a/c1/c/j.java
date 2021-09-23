@@ -59,12 +59,12 @@ public class j implements c.a.p0.m.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
             if (Q == null) {
-                boolean z = c.a.p0.a.k.f7077a;
+                boolean z = c.a.p0.a.k.f7085a;
                 return null;
             }
             SwanAppConfigData F = Q.F();
-            if (F == null || (aVar = F.f46560h) == null) {
-                boolean z2 = c.a.p0.a.k.f7077a;
+            if (F == null || (aVar = F.f46662h) == null) {
+                boolean z2 = c.a.p0.a.k.f7085a;
                 return null;
             }
             return aVar;
@@ -115,7 +115,7 @@ public class j implements c.a.p0.m.a {
     public boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? c.a.p0.a.k.f7077a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? c.a.p0.a.k.f7085a : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.m.a

@@ -18,11 +18,11 @@ public class a extends c.a.e.l.e.a<d, GameSubCommentView.GameSubCommentViewHolde
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
-    public InterfaceC1314a n;
+    public InterfaceC1312a n;
 
     /* renamed from: c.a.r0.w0.w1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1314a {
+    public interface InterfaceC1312a {
         void a(d dVar);
 
         void b(d dVar);
@@ -81,10 +81,10 @@ public class a extends c.a.e.l.e.a<d, GameSubCommentView.GameSubCommentViewHolde
         return (View) invokeCommon.objValue;
     }
 
-    public void j0(InterfaceC1314a interfaceC1314a) {
+    public void j0(InterfaceC1312a interfaceC1312a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1314a) == null) {
-            this.n = interfaceC1314a;
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1312a) == null) {
+            this.n = interfaceC1312a;
         }
     }
 }

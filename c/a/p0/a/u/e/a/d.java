@@ -19,7 +19,7 @@ public class d extends c.a.p0.a.u.c.d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f8753d;
+    public static final boolean f8761d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -28,10 +28,10 @@ public class d extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8754e;
+        public final /* synthetic */ String f8762e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f8755f;
+        public final /* synthetic */ d f8763f;
 
         public a(d dVar, String str) {
             Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class d extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8755f = dVar;
-            this.f8754e = str;
+            this.f8763f = dVar;
+            this.f8762e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,16 +59,16 @@ public class d extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 c.a.p0.a.u.h.b bVar = new c.a.p0.a.u.h.b();
-                String t = this.f8755f.t(iVar);
+                String t = this.f8763f.t(iVar);
                 if (TextUtils.isEmpty(t)) {
-                    bVar.f9169b = 1001;
-                    bVar.f9170c = "openid is empty";
-                    this.f8755f.d(this.f8754e, bVar);
+                    bVar.f9177b = 1001;
+                    bVar.f9178c = "openid is empty";
+                    this.f8763f.d(this.f8762e, bVar);
                     return;
                 }
                 bVar.c("openid", t);
-                bVar.f9169b = 0;
-                this.f8755f.d(this.f8754e, bVar);
+                bVar.f9177b = 0;
+                this.f8763f.d(this.f8762e, bVar);
             }
         }
     }
@@ -86,7 +86,7 @@ public class d extends c.a.p0.a.u.c.d {
                 return;
             }
         }
-        f8753d = k.f7077a;
+        f8761d = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -113,7 +113,7 @@ public class d extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (f8753d) {
+            if (f8761d) {
                 String str2 = "start getOpenId action, params = " + str;
             }
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-GetOpenId", str);
@@ -122,7 +122,7 @@ public class d extends c.a.p0.a.u.c.d {
                 return (c.a.p0.a.u.h.b) b2.first;
             }
             String optString = ((JSONObject) b2.second).optString("cb");
-            if (f8753d) {
+            if (f8761d) {
                 String str3 = "cb: " + optString;
             }
             if (TextUtils.isEmpty(optString)) {
@@ -141,6 +141,6 @@ public class d extends c.a.p0.a.u.c.d {
         JSONObject jSONObject;
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar)) == null) ? (!iVar.c() || (jSONObject = iVar.f5582a) == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) ? "" : optJSONObject.optString("openid") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar)) == null) ? (!iVar.c() || (jSONObject = iVar.f5590a) == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) ? "" : optJSONObject.optString("openid") : (String) invokeL.objValue;
     }
 }

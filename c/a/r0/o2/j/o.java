@@ -63,10 +63,10 @@ public class o extends c.a.r0.a0.b<c.a.r0.o2.e.l> {
     @Override // c.a.r0.a0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f15548e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f15557e == i2) {
             return;
         }
-        this.f15548e = i2;
+        this.f15557e = i2;
         SkinManager.setBackgroundColor(this.m, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
         SkinManager.setImageResource(this.p, R.drawable.icon_play_video, i2);
@@ -77,9 +77,9 @@ public class o extends c.a.r0.a0.b<c.a.r0.o2.e.l> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && this.m == view) {
             MessageManager messageManager = MessageManager.getInstance();
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f15550g);
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f15559g);
             c.a.r0.o2.e.l lVar = this.q;
-            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(lVar.f23230g, lVar.f23231h, "person_page")));
+            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(lVar.f23246g, lVar.f23247h, "person_page")));
         }
     }
 
@@ -92,8 +92,8 @@ public class o extends c.a.r0.a0.b<c.a.r0.o2.e.l> {
             return;
         }
         this.q = lVar;
-        this.n.startLoad(lVar.f23228e, 10, false);
-        this.o.setText(lVar.f23229f);
-        l(this.f15549f, TbadkCoreApplication.getInst().getSkinType());
+        this.n.startLoad(lVar.f23244e, 10, false);
+        this.o.setText(lVar.f23245f);
+        l(this.f15558f, TbadkCoreApplication.getInst().getSkinType());
     }
 }

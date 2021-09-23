@@ -34,13 +34,13 @@ public class a implements u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10389a;
+    public static final boolean f10397a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.p0.e.s.c<JSONObject> f10390b;
+    public static final c.a.p0.e.s.c<JSONObject> f10398b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f10391c;
+    public static final long f10399c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,9 +56,9 @@ public class a implements u {
                 return;
             }
         }
-        f10389a = k.f7077a;
-        f10390b = new c.a.p0.e.s.c<>();
-        f10391c = TimeUnit.MINUTES.toMillis(2L);
+        f10397a = k.f7085a;
+        f10398b = new c.a.p0.e.s.c<>();
+        f10399c = TimeUnit.MINUTES.toMillis(2L);
     }
 
     public a() {
@@ -97,16 +97,16 @@ public class a implements u {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            if (f10389a) {
+            if (f10397a) {
                 String str2 = "getIMUnReadMessageList params=" + str;
             }
             String str3 = c.a.p0.a.a2.d.g().getAppId() + c.a.p0.a.a2.d.g().r().j().c(context);
-            JSONObject c2 = f10390b.c(str3);
-            if (f10389a) {
+            JSONObject c2 = f10398b.c(str3);
+            if (f10397a) {
                 String str4 = "getIMUnReadMessageList k=" + str3;
             }
             if (c2 != null) {
-                if (f10389a) {
+                if (f10397a) {
                     String str5 = "getIMUnReadMessageList ret with cache=" + c2;
                 }
                 return c2;
@@ -114,10 +114,10 @@ public class a implements u {
                 return null;
             } else {
                 JSONObject f2 = f(context, str);
-                if (f10389a) {
+                if (f10397a) {
                     String str6 = "getIMUnReadMessageList ret with request=" + f2;
                 }
-                return f10390b.a(str3, f2, f10391c);
+                return f10398b.a(str3, f2, f10399c);
             }
         }
         return (JSONObject) invokeLL.objValue;
@@ -127,7 +127,7 @@ public class a implements u {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            f10390b.b();
+            f10398b.b();
         }
     }
 
@@ -187,10 +187,10 @@ public class a implements u {
             }
             String n = c.a.p0.a.c1.a.n().n();
             c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(n, new Request.Builder().url(n).post(new FormBody.Builder().add("appkey", Q.D()).add(com.alipay.sdk.cons.b.k, str2).build()).build().body(), null);
-            aVar.f11845f = true;
-            aVar.f11846g = true;
-            aVar.f11847h = true;
-            aVar.f11841b = "POST";
+            aVar.f11853f = true;
+            aVar.f11854g = true;
+            aVar.f11855h = true;
+            aVar.f11849b = "POST";
             HttpRequestBuilder a2 = c.a.p0.m.e.b.a(aVar);
             c.a.p0.m.e.a.g().t(a2, aVar);
             try {

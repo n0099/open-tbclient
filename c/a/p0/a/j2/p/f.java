@@ -66,7 +66,7 @@ public class f extends e {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 c.a.p0.a.a2.e F = c.a.p0.a.g1.f.V().F();
-                String i2 = c.a.p0.a.m2.b.i(this.k, TextUtils.equals(this.f7063a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
+                String i2 = c.a.p0.a.m2.b.i(this.k, TextUtils.equals(this.f7071a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
                 if (F != null && F.N() != null) {
                     b.a N = F.N();
                     if (TextUtils.isEmpty(this.l)) {
@@ -83,7 +83,7 @@ public class f extends e {
                         this.p = N.W();
                     }
                     this.p = j.a(this.p);
-                    if (TextUtils.isEmpty(this.f7069g) && !TextUtils.isEmpty(N.e0())) {
+                    if (TextUtils.isEmpty(this.f7077g) && !TextUtils.isEmpty(N.e0())) {
                         this.s = N.e0();
                     }
                     String a2 = j.a(this.s);
@@ -96,31 +96,31 @@ public class f extends e {
                     }
                 }
                 this.n = SwanAppNetworkUtils.f().type;
-                if (this.f7070h == null) {
-                    this.f7070h = new JSONObject();
+                if (this.f7078h == null) {
+                    this.f7078h = new JSONObject();
                 }
-                this.f7070h.put("swan", i2);
-                this.f7070h.put("appversion", this.l);
-                this.f7070h.put("thirdversion", this.m);
-                this.f7070h.put("net", this.n);
-                this.f7070h.put("needdown", this.o);
-                this.f7070h.put("scheme", this.p);
-                this.f7070h.put("page", this.s);
-                this.f7070h.put("launchid", this.u);
+                this.f7078h.put("swan", i2);
+                this.f7078h.put("appversion", this.l);
+                this.f7078h.put("thirdversion", this.m);
+                this.f7078h.put("net", this.n);
+                this.f7078h.put("needdown", this.o);
+                this.f7078h.put("scheme", this.p);
+                this.f7078h.put("page", this.s);
+                this.f7078h.put("launchid", this.u);
                 if (!TextUtils.isEmpty(this.t)) {
-                    this.f7070h.put("error_code", this.t);
+                    this.f7078h.put("error_code", this.t);
                 }
                 if (!TextUtils.isEmpty(this.q)) {
-                    this.f7070h.put("canceltime", this.q);
+                    this.f7078h.put("canceltime", this.q);
                 }
                 if (!TextUtils.isEmpty(this.r)) {
-                    this.f7070h.put("successtime", this.r);
+                    this.f7078h.put("successtime", this.r);
                 }
-                if (e.f7062j) {
-                    String str = "SwanAppUBCEvent: mExt=" + this.f7070h + "\t " + Thread.currentThread().getId();
+                if (e.f7070j) {
+                    String str = "SwanAppUBCEvent: mExt=" + this.f7078h + "\t " + Thread.currentThread().getId();
                 }
             } catch (JSONException e2) {
-                if (e.f7062j) {
+                if (e.f7070j) {
                     e2.printStackTrace();
                 }
             }
@@ -139,11 +139,11 @@ public class f extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
             if (eVar == null) {
-                boolean z = e.f7062j;
+                boolean z = e.f7070j;
                 return;
             }
-            this.f7068f = eVar.H();
-            this.f7065c = eVar.T();
+            this.f7076f = eVar.H();
+            this.f7073c = eVar.T();
             this.o = eVar.r0().getString("aiapp_extra_need_download", "");
             this.p = eVar.W();
             this.s = eVar.e0();

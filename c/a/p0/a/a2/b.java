@@ -19,14 +19,14 @@ public final class b implements c.a.p0.a.v2.e1.b<i.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f4538g;
+    public static final boolean f4546g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, c.a.p0.a.v2.e1.b<i.a>> f4539e;
+    public final Map<String, c.a.p0.a.v2.e1.b<i.a>> f4547e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<c.a.p0.a.v2.e1.c<i.a, Boolean>> f4540f;
+    public final List<c.a.p0.a.v2.e1.c<i.a, Boolean>> f4548f;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.v2.e1.b<String> {
@@ -34,10 +34,10 @@ public final class b implements c.a.p0.a.v2.e1.b<i.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f4541e;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f4549e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f4542f;
+        public final /* synthetic */ b f4550f;
 
         public a(b bVar, c.a.p0.a.v2.e1.b bVar2) {
             Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public final class b implements c.a.p0.a.v2.e1.b<i.a> {
                     return;
                 }
             }
-            this.f4542f = bVar;
-            this.f4541e = bVar2;
+            this.f4550f = bVar;
+            this.f4549e = bVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public final class b implements c.a.p0.a.v2.e1.b<i.a> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f4542f.f4539e.put(str, this.f4541e);
+            this.f4550f.f4547e.put(str, this.f4549e);
         }
     }
 
@@ -77,7 +77,7 @@ public final class b implements c.a.p0.a.v2.e1.b<i.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f4543e;
+        public final /* synthetic */ b f4551e;
 
         public C0117b(b bVar) {
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public final class b implements c.a.p0.a.v2.e1.b<i.a> {
                     return;
                 }
             }
-            this.f4543e = bVar;
+            this.f4551e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -103,7 +103,7 @@ public final class b implements c.a.p0.a.v2.e1.b<i.a> {
         public void onCallback(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f4543e.f4539e.remove(str);
+                this.f4551e.f4547e.remove(str);
             }
         }
     }
@@ -121,7 +121,7 @@ public final class b implements c.a.p0.a.v2.e1.b<i.a> {
                 return;
             }
         }
-        f4538g = c.a.p0.a.k.f7077a;
+        f4546g = c.a.p0.a.k.f7085a;
     }
 
     public b() {
@@ -137,8 +137,8 @@ public final class b implements c.a.p0.a.v2.e1.b<i.a> {
                 return;
             }
         }
-        this.f4539e = new HashMap();
-        this.f4540f = new ArrayList();
+        this.f4547e = new HashMap();
+        this.f4548f = new ArrayList();
     }
 
     public b b(c.a.p0.a.v2.e1.c<i.a, Boolean> cVar) {
@@ -146,7 +146,7 @@ public final class b implements c.a.p0.a.v2.e1.b<i.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
             if (cVar != null) {
-                this.f4540f.add(cVar);
+                this.f4548f.add(cVar);
             }
             return this;
         }
@@ -160,7 +160,7 @@ public final class b implements c.a.p0.a.v2.e1.b<i.a> {
             if (aVar == null) {
                 return false;
             }
-            for (c.a.p0.a.v2.e1.c<i.a, Boolean> cVar : this.f4540f) {
+            for (c.a.p0.a.v2.e1.c<i.a, Boolean> cVar : this.f4548f) {
                 if (cVar != null && !cVar.a(aVar).booleanValue()) {
                     return false;
                 }
@@ -177,10 +177,10 @@ public final class b implements c.a.p0.a.v2.e1.b<i.a> {
         c.a.p0.a.v2.e1.b<i.a> bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            if (f4538g) {
+            if (f4546g) {
                 String str = "handle: " + aVar;
             }
-            if (!c(aVar) || (bVar = this.f4539e.get(aVar.f4565f)) == null) {
+            if (!c(aVar) || (bVar = this.f4547e.get(aVar.f4573f)) == null) {
                 return;
             }
             bVar.onCallback(aVar);

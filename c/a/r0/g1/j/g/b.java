@@ -35,7 +35,7 @@ public class b extends c.a.e.l.e.a<v1, ThreadCardViewHolder<v1>> implements c.a.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f18416e;
+        public final /* synthetic */ b f18425e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class b extends c.a.e.l.e.a<v1, ThreadCardViewHolder<v1>> implements c.a.
                     return;
                 }
             }
-            this.f18416e = bVar;
+            this.f18425e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +63,7 @@ public class b extends c.a.e.l.e.a<v1, ThreadCardViewHolder<v1>> implements c.a.
             if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, metaData, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || metaData == null) {
                 return;
             }
-            c.a.r0.g1.j.c.b("c13758", metaData, i2 + 1, this.f18416e.q);
+            c.a.r0.g1.j.c.b("c13758", metaData, i2 + 1, this.f18425e.q);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,7 +74,7 @@ public class b extends c.a.e.l.e.a<v1, ThreadCardViewHolder<v1>> implements c.a.
             if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, metaData, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || metaData == null) {
                 return;
             }
-            c.a.r0.g1.j.c.a("c13758", metaData, i2 + 1, this.f18416e.q);
+            c.a.r0.g1.j.c.a("c13758", metaData, i2 + 1, this.f18425e.q);
         }
     }
 

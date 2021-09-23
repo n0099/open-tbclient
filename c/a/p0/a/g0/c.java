@@ -21,7 +21,7 @@ public class c extends h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5739a;
+    public static final boolean f5747a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,11 +37,11 @@ public class c extends h {
                 return;
             }
         }
-        f5739a = k.f7077a;
+        f5747a = k.f7085a;
         try {
             CookieSyncManager.createInstance(AppRuntime.getAppContext());
         } catch (Exception e2) {
-            if (f5739a) {
+            if (f5747a) {
                 String str = "static createInstance err=" + e2 + " trace=" + Log.getStackTraceString(e2);
             }
         }
@@ -65,12 +65,12 @@ public class c extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (d.f()) {
-                boolean z = f5739a;
+                boolean z = f5747a;
                 CookieManager.getInstance().flush();
                 android.webkit.CookieManager.getInstance().flush();
                 return;
             }
-            boolean z2 = f5739a;
+            boolean z2 = f5747a;
             CookieSyncManager.getInstance().sync();
         }
     }
@@ -80,21 +80,21 @@ public class c extends h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (f5739a) {
+            if (f5747a) {
                 String str2 = "getCookie: httpUrl=" + str;
             }
             String str3 = "";
             try {
                 str3 = CookieManager.getInstance().getCookie(str);
-                if (f5739a) {
+                if (f5747a) {
                     String str4 = "RealCookieManager:" + str3;
                 }
             } catch (Exception e2) {
-                if (f5739a) {
+                if (f5747a) {
                     String str5 = "getCookie: err=" + e2 + " trace=" + Log.getStackTraceString(e2);
                 }
             }
-            if (f5739a) {
+            if (f5747a) {
                 String str6 = "getCookie: ret cookie=" + str3 + " for httpUrl=" + str;
             }
             return str3;
@@ -126,7 +126,7 @@ public class c extends h {
     public void storeCookie(String str, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            if (f5739a) {
+            if (f5747a) {
                 String str2 = "storeCookie: httpUrl= " + str;
                 StringBuilder sb = new StringBuilder();
                 sb.append("storeCookie: cookies=");
@@ -138,7 +138,7 @@ public class c extends h {
             }
             try {
                 for (String str3 : list) {
-                    if (f5739a) {
+                    if (f5747a) {
                         String str4 = "storeCookie: cookies item=" + str3;
                     }
                     CookieManager.getInstance().setCookie(str, str3);
@@ -146,7 +146,7 @@ public class c extends h {
                 }
                 a();
             } catch (Exception e2) {
-                if (f5739a) {
+                if (f5747a) {
                     String str5 = "storeCookie: err=" + e2 + " trace=" + Log.getStackTraceString(e2);
                 }
             }

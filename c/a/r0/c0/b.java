@@ -29,14 +29,14 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.C0787a f16419a;
+        public final /* synthetic */ a.C0785a f16429a;
 
-        public a(a.C0787a c0787a) {
+        public a(a.C0785a c0785a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c0787a};
+                Object[] objArr = {c0785a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -46,33 +46,33 @@ public class b {
                     return;
                 }
             }
-            this.f16419a = c0787a;
+            this.f16429a = c0785a;
         }
 
         @Override // c.a.r0.c0.c
         public void onFailed(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f16419a.a(2, i2);
+                this.f16429a.a(2, i2);
             }
         }
     }
 
     /* renamed from: c.a.r0.c0.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0788b implements c {
+    public static class C0786b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.C0787a f16420a;
+        public final /* synthetic */ a.C0785a f16430a;
 
-        public C0788b(a.C0787a c0787a) {
+        public C0786b(a.C0785a c0785a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c0787a};
+                Object[] objArr = {c0785a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -82,14 +82,14 @@ public class b {
                     return;
                 }
             }
-            this.f16420a = c0787a;
+            this.f16430a = c0785a;
         }
 
         @Override // c.a.r0.c0.c
         public void onFailed(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f16420a.a(2, i2);
+                this.f16430a.a(2, i2);
             }
         }
     }
@@ -104,15 +104,15 @@ public class b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, uri, aVar, bundle, Boolean.valueOf(z)})) == null) {
-            a.C0787a c0787a = new a.C0787a();
+            a.C0785a c0785a = new a.C0785a();
             if (uri == null) {
                 if (aVar != null) {
-                    aVar.b(1, "Uri is empty.", c0787a);
+                    aVar.b(1, "Uri is empty.", c0785a);
                 }
                 return false;
             } else if (!"deeplink".equals(uri.getHost())) {
                 if (aVar != null) {
-                    aVar.b(2, "Uri host is not deeplink.", c0787a);
+                    aVar.b(2, "Uri host is not deeplink.", c0785a);
                 }
                 return false;
             } else {
@@ -122,10 +122,10 @@ public class b {
                 String queryParameter4 = uri.getQueryParameter(PushClientConstants.TAG_PKG_NAME);
                 String queryParameter5 = uri.getQueryParameter("marketPkgName");
                 boolean booleanQueryParameter = uri.getBooleanQueryParameter("isDesignatePkg", true);
-                if (e(context, queryParameter, queryParameter4, aVar, booleanQueryParameter, c0787a) || f(context, queryParameter2, queryParameter5, aVar, booleanQueryParameter, c0787a)) {
+                if (e(context, queryParameter, queryParameter4, aVar, booleanQueryParameter, c0785a) || f(context, queryParameter2, queryParameter5, aVar, booleanQueryParameter, c0785a)) {
                     return true;
                 }
-                return g(context, queryParameter3, bundle, aVar, c0787a, z);
+                return g(context, queryParameter3, bundle, aVar, c0785a, z);
             }
         }
         return invokeCommon.booleanValue;
@@ -171,17 +171,17 @@ public class b {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean e(Context context, String str, String str2, c.a.r0.c0.a aVar, boolean z, a.C0787a c0787a) {
+    public static boolean e(Context context, String str, String str2, c.a.r0.c0.a aVar, boolean z, a.C0785a c0785a) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, aVar, Boolean.valueOf(z), c0787a})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, aVar, Boolean.valueOf(z), c0785a})) == null) {
             if (TextUtils.isEmpty(str)) {
-                c0787a.a(1, -4);
+                c0785a.a(1, -4);
                 return false;
-            } else if (c(context, str, str2, z, new a(c0787a))) {
-                c0787a.b(1);
+            } else if (c(context, str, str2, z, new a(c0785a))) {
+                c0785a.b(1);
                 if (aVar != null) {
-                    aVar.a(1, c0787a);
+                    aVar.a(1, c0785a);
                 }
                 return true;
             } else {
@@ -191,17 +191,17 @@ public class b {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean f(Context context, String str, String str2, c.a.r0.c0.a aVar, boolean z, a.C0787a c0787a) {
+    public static boolean f(Context context, String str, String str2, c.a.r0.c0.a aVar, boolean z, a.C0785a c0785a) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, str2, aVar, Boolean.valueOf(z), c0787a})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, str2, aVar, Boolean.valueOf(z), c0785a})) == null) {
             if (TextUtils.isEmpty(str)) {
-                c0787a.a(2, -5);
+                c0785a.a(2, -5);
                 return false;
-            } else if (c(context, str, str2, z, new C0788b(c0787a))) {
-                c0787a.b(2);
+            } else if (c(context, str, str2, z, new C0786b(c0785a))) {
+                c0785a.b(2);
                 if (aVar != null) {
-                    aVar.a(2, c0787a);
+                    aVar.a(2, c0785a);
                     return true;
                 }
                 return true;
@@ -212,27 +212,27 @@ public class b {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean g(Context context, String str, Bundle bundle, c.a.r0.c0.a aVar, a.C0787a c0787a, boolean z) {
+    public static boolean g(Context context, String str, Bundle bundle, c.a.r0.c0.a aVar, a.C0785a c0785a, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, str, bundle, aVar, c0787a, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, str, bundle, aVar, c0785a, Boolean.valueOf(z)})) == null) {
             if (TextUtils.isEmpty(str)) {
-                c0787a.a(3, -6);
+                c0785a.a(3, -6);
                 if (aVar != null) {
-                    aVar.b(-6, "Uri web url is empty", c0787a);
+                    aVar.b(-6, "Uri web url is empty", c0785a);
                 }
                 return false;
             } else if (d(context, str, bundle, z)) {
-                c0787a.b(3);
+                c0785a.b(3);
                 if (aVar != null) {
-                    aVar.a(3, c0787a);
+                    aVar.a(3, c0785a);
                     return true;
                 }
                 return true;
             } else {
-                c0787a.a(3, -7);
+                c0785a.a(3, -7);
                 if (aVar != null) {
-                    aVar.b(-7, "Uri web url open failed", c0787a);
+                    aVar.b(-7, "Uri web url open failed", c0785a);
                 }
                 return false;
             }

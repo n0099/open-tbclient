@@ -18,31 +18,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f28580a;
+    public b f28600a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28581b;
+    public int f28601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28582c;
+    public int f28602c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f28583d;
+    public long f28603d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.e.c.g.a f28584e;
+    public c.a.e.c.g.a f28604e;
 
     /* renamed from: c.a.r0.x1.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1339a extends c.a.e.c.g.a {
+    public class C1337a extends c.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28585a;
+        public final /* synthetic */ a f28605a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1339a(a aVar, int i2, int i3) {
+        public C1337a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -60,7 +60,7 @@ public class a {
                     return;
                 }
             }
-            this.f28585a = aVar;
+            this.f28605a = aVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -72,12 +72,12 @@ public class a {
             boolean z = responsedMessage instanceof FinishMemberTaskHttpResMessage;
             if (z || (responsedMessage instanceof FinishMemberTaskSocketMessage)) {
                 if (z) {
-                    this.f28585a.f28581b = ((FinishMemberTaskHttpResMessage) responsedMessage).getStatus();
+                    this.f28605a.f28601b = ((FinishMemberTaskHttpResMessage) responsedMessage).getStatus();
                 } else if (responsedMessage instanceof FinishMemberTaskSocketMessage) {
-                    this.f28585a.f28581b = ((FinishMemberTaskSocketMessage) responsedMessage).getStatus();
+                    this.f28605a.f28601b = ((FinishMemberTaskSocketMessage) responsedMessage).getStatus();
                 }
-                if (this.f28585a.f28580a != null) {
-                    this.f28585a.f28580a.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f28585a.f28581b, this.f28585a.f28582c, this.f28585a.f28583d);
+                if (this.f28605a.f28600a != null) {
+                    this.f28605a.f28600a.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f28605a.f28601b, this.f28605a.f28602c, this.f28605a.f28603d);
                 }
             }
         }
@@ -101,18 +101,18 @@ public class a {
                 return;
             }
         }
-        this.f28580a = null;
-        this.f28584e = new C1339a(this, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, 309429);
-        c.a.r0.j3.d0.a.h(309429, FinishMemberTaskSocketMessage.class, false, false);
-        c.a.r0.j3.d0.a.c(309429, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, TbConfig.FINISH_MEMBER_TASK, FinishMemberTaskHttpResMessage.class, false, false, false, false);
-        MessageManager.getInstance().registerListener(this.f28584e);
+        this.f28600a = null;
+        this.f28604e = new C1337a(this, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, 309429);
+        c.a.r0.j3.e0.a.h(309429, FinishMemberTaskSocketMessage.class, false, false);
+        c.a.r0.j3.e0.a.c(309429, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, TbConfig.FINISH_MEMBER_TASK, FinishMemberTaskHttpResMessage.class, false, false, false, false);
+        MessageManager.getInstance().registerListener(this.f28604e);
     }
 
     public void f(long j2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            this.f28583d = j2;
-            this.f28582c = i2;
+            this.f28603d = j2;
+            this.f28602c = i2;
             FinishMemberTaskReqMessage finishMemberTaskReqMessage = new FinishMemberTaskReqMessage();
             finishMemberTaskReqMessage.setTaskId(j2);
             MessageManager.getInstance().sendMessage(finishMemberTaskReqMessage);
@@ -122,14 +122,14 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f28584e);
+            MessageManager.getInstance().unRegisterListener(this.f28604e);
         }
     }
 
     public void h(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f28580a = bVar;
+            this.f28600a = bVar;
         }
     }
 }

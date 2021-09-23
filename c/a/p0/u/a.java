@@ -15,7 +15,7 @@ public class a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<c.a.p0.u.c.b<T>> f12387a;
+    public List<c.a.p0.u.c.b<T>> f12395a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -30,15 +30,15 @@ public class a<T> {
                 return;
             }
         }
-        this.f12387a = new ArrayList(6);
+        this.f12395a = new ArrayList(6);
     }
 
     public void a(c.a.p0.u.c.b<T> bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || this.f12387a.contains(bVar)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || this.f12395a.contains(bVar)) {
             return;
         }
-        this.f12387a.add(bVar);
+        this.f12395a.add(bVar);
     }
 
     public T b() {
@@ -46,7 +46,7 @@ public class a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList<c.a.p0.u.c.b> arrayList = new ArrayList();
-            Iterator<c.a.p0.u.c.b<T>> it = this.f12387a.iterator();
+            Iterator<c.a.p0.u.c.b<T>> it = this.f12395a.iterator();
             T t = null;
             while (true) {
                 if (!it.hasNext()) {
@@ -98,7 +98,7 @@ public class a<T> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || c(t)) {
             return;
         }
-        for (c.a.p0.u.c.b<T> bVar : this.f12387a) {
+        for (c.a.p0.u.c.b<T> bVar : this.f12395a) {
             if (bVar.a()) {
                 bVar.put(t);
             }

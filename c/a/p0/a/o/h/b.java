@@ -18,10 +18,10 @@ public class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.p0.f.i.k.f.a f7788c;
+    public c.a.p0.f.i.k.f.a f7796c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DownloadParams.SwanAppDownloadType f7789d;
+    public DownloadParams.SwanAppDownloadType f7797d;
 
     public b(c.a.p0.f.i.k.f.a aVar, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class b extends c {
                 return;
             }
         }
-        this.f7788c = aVar;
-        this.f7789d = swanAppDownloadType;
+        this.f7796c = aVar;
+        this.f7797d = swanAppDownloadType;
     }
 
     @Override // c.a.p0.a.v1.a.b.c.a
@@ -67,19 +67,19 @@ public class b extends c {
     public void onEvent(@NonNull c.a.p0.a.v1.a.b.a.b bVar) {
         Bundle a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (a2 = bVar.a()) == null || this.f7788c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (a2 = bVar.a()) == null || this.f7796c == null) {
             return;
         }
         int i2 = a2.getInt("state", DownloadState.NOT_START.value());
         int i3 = a2.getInt("progress", 0);
-        this.f7788c.c(DownloadState.convert(i2), i3);
-        this.f7788c.a(i3);
+        this.f7796c.c(DownloadState.convert(i2), i3);
+        this.f7796c.a(i3);
         String string = a2.getString("packageName", "");
         if (!TextUtils.isEmpty(string)) {
-            this.f7788c.d(string);
+            this.f7796c.d(string);
         }
-        if (this.f7789d == DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
-            this.f7788c.f(true);
+        if (this.f7797d == DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
+            this.f7796c.f(true);
         }
     }
 }

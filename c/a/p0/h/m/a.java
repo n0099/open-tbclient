@@ -22,10 +22,10 @@ public class a extends b<c.a.p0.h.m.d.a, c.a.p0.h.m.e.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f11317d;
+    public static final boolean f11325d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f11318e;
+    public static volatile a f11326e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.h.m.a$a  reason: collision with other inner class name */
@@ -72,7 +72,7 @@ public class a extends b<c.a.p0.h.m.d.a, c.a.p0.h.m.e.a> {
                 return;
             }
         }
-        f11317d = k.f7077a;
+        f11325d = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -98,14 +98,14 @@ public class a extends b<c.a.p0.h.m.d.a, c.a.p0.h.m.e.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f11318e == null) {
+            if (f11326e == null) {
                 synchronized (a.class) {
-                    if (f11318e == null) {
-                        f11318e = new a();
+                    if (f11326e == null) {
+                        f11326e = new a();
                     }
                 }
             }
-            return f11318e;
+            return f11326e;
         }
         return (a) invokeV.objValue;
     }
@@ -135,7 +135,7 @@ public class a extends b<c.a.p0.h.m.d.a, c.a.p0.h.m.e.a> {
             Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0576a.class, null).mResult;
             bundle.setClassLoader(ExtensionCore.class.getClassLoader());
             ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-            if (f11317d) {
+            if (f11325d) {
                 String str = "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore;
                 return extensionCore;
             }

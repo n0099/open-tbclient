@@ -99,7 +99,7 @@ public class OpenFlutter {
                 statsItem.b("staticversion", BdStatisticsManager.getInstance().getAppVersion());
                 statsItem.b("version", TbConfig.getVersion());
                 statsItem.b("sub_version", TbConfig.getSubVersion());
-                statsItem.b(com.alipay.sdk.sys.a.f36039j, PluginPackageManager.O().M());
+                statsItem.b(com.alipay.sdk.sys.a.s, PluginPackageManager.O().M());
                 statsItem.b(SpeedStatsMainTable.PLUGIN_TASK, PluginPackageManager.O().M());
                 BdStatisticsManager.getInstance().debug("pluginproxy", statsItem);
                 return false;

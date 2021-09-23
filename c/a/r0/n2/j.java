@@ -32,31 +32,31 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f22993a;
+    public TbPageContext f23009a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f22994b;
+    public Context f23010b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PopupDialog f22995c;
+    public PopupDialog f23011c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.q0.s.s.i f22996d;
+    public c.a.q0.s.s.i f23012d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.q0.s.s.f> f22997e;
+    public List<c.a.q0.s.s.f> f23013e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.q0.s.s.f f22998f;
+    public c.a.q0.s.s.f f23014f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f22999g;
+    public b f23015g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SmartApp f23000h;
+    public SmartApp f23016h;
 
     /* renamed from: i  reason: collision with root package name */
-    public i.d f23001i;
+    public i.d f23017i;
 
     /* loaded from: classes3.dex */
     public class a implements i.d {
@@ -64,7 +64,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ j f23002a;
+        public final /* synthetic */ j f23018a;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -81,28 +81,28 @@ public class j {
                     return;
                 }
             }
-            this.f23002a = jVar;
+            this.f23018a = jVar;
         }
 
         @Override // c.a.q0.s.s.i.d
         public void onClick() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f23002a.f23000h == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f23018a.f23016h == null) {
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
-            httpMessage.addParam("swan_app_key", this.f23002a.f23000h.id);
+            httpMessage.addParam("swan_app_key", this.f23018a.f23016h.id);
             MessageManager.getInstance().sendMessage(httpMessage);
-            if (this.f23002a.f22999g != null) {
-                this.f23002a.f22999g.a(this.f23002a.f23000h.id);
+            if (this.f23018a.f23015g != null) {
+                this.f23018a.f23015g.a(this.f23018a.f23016h.id);
             }
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SMART_APP_HISTORY_DELETE_CLICK);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_id", this.f23002a.f23000h.swan_app_id.longValue());
-            statisticItem.param("obj_name", this.f23002a.f23000h.name);
+            statisticItem.param("obj_id", this.f23018a.f23016h.swan_app_id.longValue());
+            statisticItem.param("obj_name", this.f23018a.f23016h.name);
             TiebaStatic.log(statisticItem);
-            if (this.f23002a.f22995c != null) {
-                this.f23002a.f22995c.dismiss();
+            if (this.f23018a.f23011c != null) {
+                this.f23018a.f23011c.dismiss();
             }
         }
     }
@@ -143,44 +143,44 @@ public class j {
                 return;
             }
         }
-        this.f23001i = new a(this);
-        this.f22993a = tbPageContext;
+        this.f23017i = new a(this);
+        this.f23009a = tbPageContext;
         Activity pageActivity = tbPageContext.getPageActivity();
-        this.f22994b = pageActivity;
-        this.f22996d = new c.a.q0.s.s.i(pageActivity);
-        this.f22997e = new ArrayList();
+        this.f23010b = pageActivity;
+        this.f23012d = new c.a.q0.s.s.i(pageActivity);
+        this.f23013e = new ArrayList();
     }
 
     public void d(SmartApp smartApp) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
-            this.f23000h = smartApp;
+            this.f23016h = smartApp;
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f22995c == null) {
-            c.a.q0.s.s.f fVar = new c.a.q0.s.s.f(this.f22994b.getString(R.string.delete), this.f22996d);
-            this.f22998f = fVar;
-            fVar.l(this.f23001i);
-            this.f22997e.add(this.f22998f);
-            this.f22996d.k(this.f22997e);
-            this.f22995c = new PopupDialog(this.f22993a, this.f22996d);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f23011c == null) {
+            c.a.q0.s.s.f fVar = new c.a.q0.s.s.f(this.f23010b.getString(R.string.delete), this.f23012d);
+            this.f23014f = fVar;
+            fVar.l(this.f23017i);
+            this.f23013e.add(this.f23014f);
+            this.f23012d.k(this.f23013e);
+            this.f23011c = new PopupDialog(this.f23009a, this.f23012d);
         }
     }
 
     public void f(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f22999g = bVar;
+            this.f23015g = bVar;
         }
     }
 
     public void g() {
         PopupDialog popupDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (popupDialog = this.f22995c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (popupDialog = this.f23011c) == null) {
             return;
         }
         popupDialog.showDialog();

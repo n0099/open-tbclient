@@ -87,7 +87,7 @@ public class b extends Drawable implements Cloneable {
 
         /* renamed from: c.a.q0.s.u.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0698a implements Runnable {
+        public class RunnableC0696a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -100,7 +100,7 @@ public class b extends Drawable implements Cloneable {
             /* renamed from: g  reason: collision with root package name */
             public final /* synthetic */ a f14497g;
 
-            public RunnableC0698a(a aVar, View view, ViewGroup.MarginLayoutParams marginLayoutParams) {
+            public RunnableC0696a(a aVar, View view, ViewGroup.MarginLayoutParams marginLayoutParams) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,7 +174,7 @@ public class b extends Drawable implements Cloneable {
                     marginLayoutParams.bottomMargin -= (int) v[3];
                     marginLayoutParams.width = (i4 - i2) + ((int) v[0]) + ((int) v[2]);
                     marginLayoutParams.height = (i5 - i3) + ((int) v[1]) + ((int) v[3]);
-                    view.post(new RunnableC0698a(this, view, marginLayoutParams));
+                    view.post(new RunnableC0696a(this, view, marginLayoutParams));
                 }
                 view.removeOnLayoutChangeListener(this);
             }
@@ -183,7 +183,7 @@ public class b extends Drawable implements Cloneable {
 
     /* renamed from: c.a.q0.s.u.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C0699b {
+    public static /* synthetic */ class C0697b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
@@ -648,7 +648,7 @@ public class b extends Drawable implements Cloneable {
     public final void n(float[] fArr, float[] fArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048600, this, fArr, fArr2) == null) {
-            int i2 = C0699b.f14498a[this.y.ordinal()];
+            int i2 = C0697b.f14498a[this.y.ordinal()];
             if (i2 == 1) {
                 RectF rectF = this.z;
                 float f2 = rectF.top;
@@ -844,7 +844,7 @@ public class b extends Drawable implements Cloneable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, rectF, direction)) == null) {
-            int i2 = C0699b.f14498a[direction.ordinal()];
+            int i2 = C0697b.f14498a[direction.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
@@ -866,7 +866,7 @@ public class b extends Drawable implements Cloneable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048613, this, rectF, direction)) == null) {
-            int i2 = C0699b.f14498a[direction.ordinal()];
+            int i2 = C0697b.f14498a[direction.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

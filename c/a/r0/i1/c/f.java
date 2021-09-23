@@ -19,22 +19,22 @@ public class f implements c.a.e.l.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19279e;
+    public String f19294e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f19280f;
+    public String f19295f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19281g;
+    public String f19296g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f19282h;
+    public long f19297h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f19283i;
+    public String f19298i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f19284j;
+    public String f19299j;
     public String k;
     public long l;
     public String m;
@@ -80,12 +80,12 @@ public class f implements c.a.e.l.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, topicInfo) == null) || topicInfo == null) {
             return;
         }
-        this.f19279e = String.valueOf(topicInfo.topic_id);
-        this.f19280f = topicInfo.topic_name;
-        this.f19281g = topicInfo.desc;
-        this.f19282h = topicInfo.total_post_num.longValue();
-        this.f19283i = topicInfo.head_photo_url;
-        this.f19284j = StringUtils.isNull(topicInfo.share_title) ? "" : topicInfo.share_title;
+        this.f19294e = String.valueOf(topicInfo.topic_id);
+        this.f19295f = topicInfo.topic_name;
+        this.f19296g = topicInfo.desc;
+        this.f19297h = topicInfo.total_post_num.longValue();
+        this.f19298i = topicInfo.head_photo_url;
+        this.f19299j = StringUtils.isNull(topicInfo.share_title) ? "" : topicInfo.share_title;
         this.k = topicInfo.share_pic;
         this.l = topicInfo.idx_num.longValue();
         this.o = topicInfo.pmy_topic_id;

@@ -30,13 +30,13 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f8024e;
+        public final /* synthetic */ UnitedSchemeEntity f8032e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.l1.b f8025f;
+        public final /* synthetic */ c.a.p0.a.l1.b f8033f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f8026g;
+        public final /* synthetic */ a f8034g;
 
         public RunnableC0352a(a aVar, UnitedSchemeEntity unitedSchemeEntity, c.a.p0.a.l1.b bVar) {
             Interceptable interceptable = $ic;
@@ -53,16 +53,16 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f8026g = aVar;
-            this.f8024e = unitedSchemeEntity;
-            this.f8025f = bVar;
+            this.f8034g = aVar;
+            this.f8032e = unitedSchemeEntity;
+            this.f8033f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8026g.k(this.f8024e, this.f8025f);
+                this.f8034g.k(this.f8032e, this.f8033f);
             }
         }
     }
@@ -93,7 +93,7 @@ public class a extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             String o = c.a.p0.a.c2.f.p0.a.o(unitedSchemeEntity, "params");
@@ -108,7 +108,7 @@ public class a extends a0 {
                 return false;
             } else {
                 c.a.p0.a.l1.b g2 = c.a.p0.a.l1.b.g(o, o);
-                g2.f7237f = n;
+                g2.f7245f = n;
                 if (k.e().g()) {
                     l(unitedSchemeEntity, g2);
                 } else {

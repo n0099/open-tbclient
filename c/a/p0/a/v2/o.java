@@ -27,7 +27,7 @@ public class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9371a;
+    public static final boolean f9379a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +43,7 @@ public class o {
                 return;
             }
         }
-        f9371a = c.a.p0.a.k.f7077a;
+        f9379a = c.a.p0.a.k.f7085a;
     }
 
     @NonNull
@@ -57,7 +57,7 @@ public class o {
                 cipher.init(1, new SecretKeySpec(str.getBytes("utf-8"), "AES"), new IvParameterSpec(str4.getBytes("utf-8")));
                 return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
             } catch (Exception unused) {
-                boolean z = f9371a;
+                boolean z = f9379a;
                 return "";
             }
         }
@@ -96,21 +96,21 @@ public class o {
                     }
                 } catch (FileNotFoundException e3) {
                     e = e3;
-                    if (f9371a) {
+                    if (f9379a) {
                         e.printStackTrace();
                     }
                     c.a.p0.t.d.d(fileInputStream);
                     return null;
                 } catch (IOException e4) {
                     e = e4;
-                    if (f9371a) {
+                    if (f9379a) {
                         e.printStackTrace();
                     }
                     c.a.p0.t.d.d(fileInputStream);
                     return null;
                 } catch (NoSuchAlgorithmException e5) {
                     e = e5;
-                    if (f9371a) {
+                    if (f9379a) {
                         e.printStackTrace();
                     }
                     c.a.p0.t.d.d(fileInputStream);
@@ -162,7 +162,7 @@ public class o {
                 cipher.init(1, generatePublic);
                 return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
             } catch (Exception unused) {
-                boolean z = f9371a;
+                boolean z = f9379a;
                 return "";
             }
         }

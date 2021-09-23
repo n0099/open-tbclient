@@ -36,9 +36,9 @@ public class a {
                 bVar.L(threadPersonalized.source);
                 bVar.O(threadPersonalized.weight);
                 bVar.H(threadPersonalized.abtest_tag);
-                threadData.Y0 = threadPersonalized.abtest_tag;
-                threadData.W0 = threadPersonalized.source;
-                threadData.X0 = threadPersonalized.weight;
+                threadData.Z0 = threadPersonalized.abtest_tag;
+                threadData.X0 = threadPersonalized.source;
+                threadData.Y0 = threadPersonalized.weight;
                 if (threadData.q1() != null) {
                     bVar.J(threadData.q1().is_vertical);
                 }

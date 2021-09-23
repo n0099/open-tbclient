@@ -87,7 +87,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra(IS_SHOW_PB_COMMENT_FLOAT, z);
+        getIntent().putExtra("is_show_pb_comment_float", z);
     }
 
     public void setNid(String str) {
@@ -250,6 +250,6 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("from", str4);
         getIntent().putExtra("source_from", str5);
         getIntent().putExtra(VIDEO_VIEW_RECT, rect);
-        getIntent().putExtra(IS_SHOW_PB_COMMENT_FLOAT, z);
+        getIntent().putExtra("is_show_pb_comment_float", z);
     }
 }

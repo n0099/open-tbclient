@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicLong;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7789753024099756196L;
@@ -19,7 +19,7 @@ public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
     public final String prefix;
     public final int priority;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class RxCustomThread extends Thread implements NonBlockingThread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

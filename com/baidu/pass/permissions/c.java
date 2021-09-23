@@ -11,7 +11,7 @@ public class c implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PermissionsHelperActivity f44264a;
+    public final /* synthetic */ PermissionsHelperActivity f44326a;
 
     public c(PermissionsHelperActivity permissionsHelperActivity) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class c implements View.OnClickListener {
                 return;
             }
         }
-        this.f44264a = permissionsHelperActivity;
+        this.f44326a = permissionsHelperActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -36,9 +36,9 @@ public class c implements View.OnClickListener {
         PermissionsCallback permissionsCallback;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            permissionsCallback = this.f44264a.f44259d;
+            permissionsCallback = this.f44326a.f44321d;
             permissionsCallback.onFailure(-1);
-            this.f44264a.finish();
+            this.f44326a.finish();
         }
     }
 }

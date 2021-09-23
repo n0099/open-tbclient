@@ -22,16 +22,16 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29450a;
+    public String f29470a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f29451b;
+    public Map<String, String> f29471b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<BasicNameValuePair> f29452c;
+    public LinkedList<BasicNameValuePair> f29472c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, byte[]> f29453d;
+    public HashMap<String, byte[]> f29473d;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -46,16 +46,16 @@ public class h {
                 return;
             }
         }
-        this.f29450a = "";
-        this.f29451b = new HashMap();
-        this.f29452c = new LinkedList<>();
-        this.f29453d = new HashMap<>();
+        this.f29470a = "";
+        this.f29471b = new HashMap();
+        this.f29472c = new LinkedList<>();
+        this.f29473d = new HashMap<>();
     }
 
     public void a(String str, String str2) {
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (map = this.f29451b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (map = this.f29471b) == null) {
             return;
         }
         map.put(str, str2);
@@ -64,7 +64,7 @@ public class h {
     public void b(BasicNameValuePair basicNameValuePair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, basicNameValuePair) == null) {
-            this.f29452c.add(basicNameValuePair);
+            this.f29472c.add(basicNameValuePair);
         }
     }
 
@@ -72,29 +72,29 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
-            if (this.f29452c.size() == 0) {
+            if (this.f29472c.size() == 0) {
                 if (eVar != null) {
-                    eVar.f29437a = this.f29450a.length();
+                    eVar.f29457a = this.f29470a.length();
                 }
-                return this.f29450a;
+                return this.f29470a;
             }
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.f29450a);
-            if (this.f29450a.indexOf("?") < 0) {
+            sb.append(this.f29470a);
+            if (this.f29470a.indexOf("?") < 0) {
                 sb.append("?");
-            } else if (!this.f29450a.endsWith("?") && !this.f29450a.endsWith("&")) {
+            } else if (!this.f29470a.endsWith("?") && !this.f29470a.endsWith("&")) {
                 sb.append("&");
             }
-            for (int i2 = 0; i2 < this.f29452c.size(); i2++) {
+            for (int i2 = 0; i2 < this.f29472c.size(); i2++) {
                 if (i2 != 0) {
                     sb.append("&");
                 }
-                sb.append(this.f29452c.get(i2).getName());
+                sb.append(this.f29472c.get(i2).getName());
                 sb.append("=");
-                sb.append(k.getUrlEncode(this.f29452c.get(i2).getValue()));
+                sb.append(k.getUrlEncode(this.f29472c.get(i2).getValue()));
             }
             if (eVar != null) {
-                eVar.f29437a = sb.length();
+                eVar.f29457a = sb.length();
             }
             return sb.toString();
         }
@@ -105,7 +105,7 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            Map<String, String> map = this.f29451b;
+            Map<String, String> map = this.f29471b;
             if (map != null) {
                 return map.get(str);
             }
@@ -117,14 +117,14 @@ public class h {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29450a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29470a : (String) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            HashMap<String, byte[]> hashMap = this.f29453d;
+            HashMap<String, byte[]> hashMap = this.f29473d;
             return hashMap != null && hashMap.size() > 0;
         }
         return invokeV.booleanValue;
@@ -135,7 +135,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             StringBuilder sb = new StringBuilder(1024);
-            LinkedList<BasicNameValuePair> linkedList = this.f29452c;
+            LinkedList<BasicNameValuePair> linkedList = this.f29472c;
             if (linkedList != null) {
                 int i2 = 0;
                 Iterator<BasicNameValuePair> it = linkedList.iterator();
@@ -168,9 +168,9 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             if (str == null) {
-                this.f29450a = "";
+                this.f29470a = "";
             } else {
-                this.f29450a = str;
+                this.f29470a = str;
             }
         }
     }
@@ -178,7 +178,7 @@ public class h {
     public void j(HttpURLConnection httpURLConnection) {
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, httpURLConnection) == null) || httpURLConnection == null || (map = this.f29451b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, httpURLConnection) == null) || httpURLConnection == null || (map = this.f29471b) == null) {
             return;
         }
         for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -206,7 +206,7 @@ public class h {
                 i2 = 0;
             }
             if (eVar != null) {
-                eVar.f29437a = i2;
+                eVar.f29457a = i2;
             }
         }
     }
@@ -219,8 +219,8 @@ public class h {
             if (httpURLConnection != null) {
                 DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                 try {
-                    if (this.f29452c != null) {
-                        Iterator<BasicNameValuePair> it = this.f29452c.iterator();
+                    if (this.f29472c != null) {
+                        Iterator<BasicNameValuePair> it = this.f29472c.iterator();
                         while (it.hasNext()) {
                             BasicNameValuePair next = it.next();
                             if (next != null) {
@@ -237,8 +237,8 @@ public class h {
                             }
                         }
                     }
-                    if (this.f29453d != null) {
-                        for (Map.Entry<String, byte[]> entry : this.f29453d.entrySet()) {
+                    if (this.f29473d != null) {
+                        for (Map.Entry<String, byte[]> entry : this.f29473d.entrySet()) {
                             String key = entry.getKey();
                             byte[] value2 = entry.getValue();
                             if (value2 != null) {
@@ -260,7 +260,7 @@ public class h {
                 i2 = 0;
             }
             if (eVar != null) {
-                eVar.f29437a = i2;
+                eVar.f29457a = i2;
             }
         }
     }

@@ -30,7 +30,7 @@ public class a extends ActivityDelegation {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f10306e;
+        public final /* synthetic */ a f10314e;
 
         public C0509a(a aVar) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f10306e = aVar;
+            this.f10314e = aVar;
         }
 
         @Override // c.a.p0.a.m.a
@@ -55,11 +55,11 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    this.f10306e.l();
+                    this.f10314e.l();
                     return;
                 }
-                this.f10306e.mResult.putString("errorMsg", "login failed");
-                this.f10306e.finish();
+                this.f10314e.mResult.putString("errorMsg", "login failed");
+                this.f10314e.finish();
             }
         }
     }
@@ -70,7 +70,7 @@ public class a extends ActivityDelegation {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f10307a;
+        public final /* synthetic */ a f10315a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f10307a = aVar;
+            this.f10315a = aVar;
         }
 
         @Override // c.a.p0.b.q.a.d
@@ -95,10 +95,10 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    this.f10307a.mResult.putString("errorMsg", "invoiceId == null or invoiceType == null");
-                    this.f10307a.finish();
+                    this.f10315a.mResult.putString("errorMsg", "invoiceId == null or invoiceType == null");
+                    this.f10315a.finish();
                 }
-                this.f10307a.j(str, str2);
+                this.f10315a.j(str, str2);
             }
         }
 
@@ -106,8 +106,8 @@ public class a extends ActivityDelegation {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f10307a.mResult.putString("errorMsg", "choose invoiceId failed");
-                this.f10307a.finish();
+                this.f10315a.mResult.putString("errorMsg", "choose invoiceId failed");
+                this.f10315a.finish();
             }
         }
     }
@@ -118,7 +118,7 @@ public class a extends ActivityDelegation {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f10308a;
+        public final /* synthetic */ a f10316a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f10308a = aVar;
+            this.f10316a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -145,18 +145,18 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
                 if (jSONObject == null) {
-                    this.f10308a.mResult.putString("errorMsg", "exchange plaintext from server, but no response");
-                    this.f10308a.finish();
+                    this.f10316a.mResult.putString("errorMsg", "exchange plaintext from server, but no response");
+                    this.f10316a.finish();
                     return;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.f10308a.mResult.putString("invoiceInfo", optJSONObject.toString());
-                    this.f10308a.finish();
+                    this.f10316a.mResult.putString("invoiceInfo", optJSONObject.toString());
+                    this.f10316a.finish();
                     return;
                 }
-                this.f10308a.mResult.putString("errorMsg", "exchange plaintext from server, but response exception");
-                this.f10308a.finish();
+                this.f10316a.mResult.putString("errorMsg", "exchange plaintext from server, but response exception");
+                this.f10316a.finish();
             }
         }
 
@@ -179,8 +179,8 @@ public class a extends ActivityDelegation {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                this.f10308a.mResult.putString("errorMsg", exc.getMessage());
-                this.f10308a.finish();
+                this.f10316a.mResult.putString("errorMsg", exc.getMessage());
+                this.f10316a.finish();
             }
         }
     }

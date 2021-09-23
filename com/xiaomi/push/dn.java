@@ -7,7 +7,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.task.item.StrictModeTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,7 @@ public class dn {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile dn f77487a;
+    public static volatile dn f77806a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -53,24 +52,24 @@ public class dn {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f77487a == null) {
+            if (f77806a == null) {
                 synchronized (dn.class) {
-                    if (f77487a == null) {
-                        f77487a = new dn(context);
+                    if (f77806a == null) {
+                        f77806a = new dn(context);
                     }
                 }
             }
-            return f77487a;
+            return f77806a;
         }
         return (dn) invokeL.objValue;
     }
 
     private void a(com.xiaomi.push.service.aq aqVar, ai aiVar, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, aqVar, aiVar, z) == null) && aqVar.a(hk.f77795a.a(), true)) {
+        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, aqVar, aiVar, z) == null) && aqVar.a(hk.f78114a.a(), true)) {
             ds dsVar = new ds(this.f244a);
             if (z) {
-                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f77796b.a(), 86400)));
+                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f78115b.a(), 86400)));
             } else {
                 aiVar.m145a((ai.a) dsVar);
             }
@@ -106,7 +105,7 @@ public class dn {
             if (j2 == currentTimeMillis) {
                 sharedPreferences.edit().putLong("first_try_ts", currentTimeMillis).commit();
             }
-            if (Math.abs(currentTimeMillis - j2) < StrictModeTask.CLEAN_FILE_INTERVAL) {
+            if (Math.abs(currentTimeMillis - j2) < 172800000) {
                 return;
             }
             a(a3, a2, false);

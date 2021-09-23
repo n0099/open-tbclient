@@ -51,7 +51,7 @@ public class d extends c.a.r0.b4.j.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16253e;
+        public final /* synthetic */ d f16263e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -68,16 +68,16 @@ public class d extends c.a.r0.b4.j.a.a {
                     return;
                 }
             }
-            this.f16253e = dVar;
+            this.f16263e = dVar;
         }
 
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) || this.f16253e.u == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) || this.f16263e.u == null) {
                 return;
             }
-            this.f16253e.u.a(bArr, 1);
+            this.f16263e.u.a(bArr, 1);
         }
     }
 
@@ -112,7 +112,7 @@ public class d extends c.a.r0.b4.j.a.a {
             }
         }
         this.t = 0;
-        this.f16233a = tbPageContext;
+        this.f16243a = tbPageContext;
         D();
         ArrayList arrayList = new ArrayList();
         this.w = arrayList;
@@ -131,7 +131,7 @@ public class d extends c.a.r0.b4.j.a.a {
                     if (F == null) {
                         F = new d(tbPageContext);
                     } else if (tbPageContext != null) {
-                        F.f16233a = tbPageContext;
+                        F.f16243a = tbPageContext;
                     }
                 }
             }
@@ -243,10 +243,10 @@ public class d extends c.a.r0.b4.j.a.a {
                 for (int i2 = 0; i2 < numberOfCameras; i2++) {
                     Camera.CameraInfo cameraInfo2 = new Camera.CameraInfo();
                     Camera.getCameraInfo(i2, cameraInfo2);
-                    if (this.f16234b && cameraInfo2.facing == 1) {
+                    if (this.f16244b && cameraInfo2.facing == 1) {
                         this.B = cameraInfo2;
                         return i2;
-                    } else if (!this.f16234b && cameraInfo2.facing == 0) {
+                    } else if (!this.f16244b && cameraInfo2.facing == 0) {
                         this.B = cameraInfo2;
                         return i2;
                     }
@@ -306,13 +306,13 @@ public class d extends c.a.r0.b4.j.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             List<Camera.Size> supportedPreviewSizes = this.r.getParameters().getSupportedPreviewSizes();
-            Camera.Size C = C(supportedPreviewSizes, this.f16238f, this.f16239g);
+            Camera.Size C = C(supportedPreviewSizes, this.f16248f, this.f16249g);
             if (C != null) {
-                this.f16236d = C.width;
-                this.f16237e = C.height;
+                this.f16246d = C.width;
+                this.f16247e = C.height;
             }
             if (c.a.r0.b4.j.a.a.q == null) {
-                if (C != null && this.f16238f == C.width && this.f16239g == C.height) {
+                if (C != null && this.f16248f == C.width && this.f16249g == C.height) {
                     return;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -321,7 +321,7 @@ public class d extends c.a.r0.b4.j.a.a {
                         sb.append(size.width);
                         sb.append(',');
                         sb.append(size.height);
-                        sb.append(com.alipay.sdk.encrypt.a.f35988h);
+                        sb.append(com.alipay.sdk.encrypt.a.f36022h);
                         sb.append(size.height / size.width);
                         sb.append('\n');
                     }
@@ -334,23 +334,23 @@ public class d extends c.a.r0.b4.j.a.a {
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if ((this.f16235c && this.f16236d < this.f16237e) || (!this.f16235c && this.f16236d > this.f16237e)) {
-                this.f16240h = this.f16237e;
-                this.f16241i = this.f16236d;
+            if ((this.f16245c && this.f16246d < this.f16247e) || (!this.f16245c && this.f16246d > this.f16247e)) {
+                this.f16250h = this.f16247e;
+                this.f16251i = this.f16246d;
                 return;
             }
-            this.f16240h = this.f16236d;
-            this.f16241i = this.f16237e;
+            this.f16250h = this.f16246d;
+            this.f16251i = this.f16247e;
         }
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Camera camera = this.r;
-            if (camera == null || this.f16233a == null) {
+            if (camera == null || this.f16243a == null) {
                 return -1;
             }
             return camera.getParameters().getPreviewFormat();
@@ -358,10 +358,10 @@ public class d extends c.a.r0.b4.j.a.a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void c(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) || this.r == null || this.f16233a == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) || this.r == null || this.f16243a == null) {
             return;
         }
         try {
@@ -381,7 +381,7 @@ public class d extends c.a.r0.b4.j.a.a {
         }
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void d(byte[] bArr) {
         Camera camera;
         Interceptable interceptable = $ic;
@@ -391,48 +391,48 @@ public class d extends c.a.r0.b4.j.a.a {
         camera.addCallbackBuffer(bArr);
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? c.a.r0.b4.j.a.a.q : (String) invokeV.objValue;
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.r != null : invokeV.booleanValue;
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void g(int i2, int i3, int i4, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)}) == null) {
-            this.f16238f = Math.max(i2, i3);
-            this.f16239g = Math.min(i2, i3);
-            this.f16235c = i2 > i3;
+            this.f16248f = Math.max(i2, i3);
+            this.f16249g = Math.min(i2, i3);
+            this.f16245c = i2 > i3;
             this.k = i4;
             i(z);
         }
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
         }
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f16234b = (z && x()) || !(z || w());
+            this.f16244b = (z && x()) || !(z || w());
         }
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public boolean k(SurfaceTexture surfaceTexture, b.f fVar) {
         InterceptResult invokeLL;
         float f2;
@@ -444,18 +444,18 @@ public class d extends c.a.r0.b4.j.a.a {
             try {
                 q();
                 int A = A();
-                this.f16242j = A;
+                this.f16252j = A;
                 if (A >= 0) {
                     Camera open = Camera.open(A);
                     this.r = open;
                     if (open != null) {
                         F();
                         int[] E = E();
-                        if (this.f16236d > 0 && this.f16237e > 0 && this.t != 0 && E != null && E.length == 2) {
+                        if (this.f16246d > 0 && this.f16247e > 0 && this.t != 0 && E != null && E.length == 2) {
                             Camera.Parameters parameters = this.r.getParameters();
                             this.s = parameters;
-                            parameters.setPreviewSize(this.f16236d, this.f16237e);
-                            if (c.f16252c && (supportedAntibanding = this.s.getSupportedAntibanding()) != null && supportedAntibanding.contains("50hz")) {
+                            parameters.setPreviewSize(this.f16246d, this.f16247e);
+                            if (c.f16262c && (supportedAntibanding = this.s.getSupportedAntibanding()) != null && supportedAntibanding.contains("50hz")) {
                                 this.s.setAntibanding("50hz");
                             }
                             List<String> supportedFocusModes = this.s.getSupportedFocusModes();
@@ -463,7 +463,7 @@ public class d extends c.a.r0.b4.j.a.a {
                                 this.s.setFocusMode("continuous-video");
                             }
                             this.s.setPreviewFpsRange(E[0], E[1]);
-                            c.a.r0.b4.j.a.h.a.g(this.v, this.f16242j, this.r);
+                            c.a.r0.b4.j.a.h.a.g(this.v, this.f16252j, this.r);
                             if (this.s.isVideoStabilizationSupported() && !this.s.getVideoStabilization()) {
                                 this.s.setVideoStabilization(true);
                             }
@@ -475,7 +475,7 @@ public class d extends c.a.r0.b4.j.a.a {
                             this.z = c.a.r0.b4.j.a.h.a.c(this.s);
                             this.r.setParameters(this.s);
                             if (this.E == null) {
-                                this.E = (byte[][]) Array.newInstance(byte.class, 3, ((this.f16236d * this.f16237e) * 3) / 2);
+                                this.E = (byte[][]) Array.newInstance(byte.class, 3, ((this.f16246d * this.f16247e) * 3) / 2);
                             }
                             a aVar = new a(this);
                             this.r.setPreviewCallbackWithBuffer(aVar);
@@ -486,7 +486,7 @@ public class d extends c.a.r0.b4.j.a.a {
                             this.r.setPreviewTexture(this.l);
                             this.r.startPreview();
                             G();
-                            c.f16251b.k(1);
+                            c.f16261b.k(1);
                             return true;
                         }
                     }
@@ -501,7 +501,7 @@ public class d extends c.a.r0.b4.j.a.a {
         return invokeLL.booleanValue;
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || this.r == null) {
@@ -529,29 +529,29 @@ public class d extends c.a.r0.b4.j.a.a {
         }
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void n() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || this.r == null || (tbPageContext = this.f16233a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || this.r == null || (tbPageContext = this.f16243a) == null) {
             return;
         }
         c.a.r0.b4.j.a.h.a.h(tbPageContext, A(), this.r);
         G();
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             Camera.CameraInfo cameraInfo = this.B;
-            return (cameraInfo != null && cameraInfo.facing == 1) || this.f16234b;
+            return (cameraInfo != null && cameraInfo.facing == 1) || this.f16244b;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void q() {
         Camera camera;
         Interceptable interceptable = $ic;
@@ -592,32 +592,32 @@ public class d extends c.a.r0.b4.j.a.a {
         }
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             F = null;
-            this.f16233a = null;
+            this.f16243a = null;
             this.u = null;
             this.l = null;
         }
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void s(b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) {
         }
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void t(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIII(1048595, this, i2, i3, i4, i5) != null) || this.r == null || this.f16233a == null) {
+        if ((interceptable != null && interceptable.invokeIIII(1048595, this, i2, i3, i4, i5) != null) || this.r == null || this.f16243a == null) {
         }
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void u(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
@@ -636,9 +636,9 @@ public class d extends c.a.r0.b4.j.a.a {
             if (this.y == null) {
                 this.y = new Matrix();
                 Matrix matrix = new Matrix();
-                TbPageContext tbPageContext = this.f16233a;
+                TbPageContext tbPageContext = this.f16243a;
                 if (tbPageContext != null) {
-                    c.a.r0.b4.j.a.h.a.e(tbPageContext, this.f16242j, matrix);
+                    c.a.r0.b4.j.a.h.a.e(tbPageContext, this.f16252j, matrix);
                 }
                 matrix.invert(this.y);
             }

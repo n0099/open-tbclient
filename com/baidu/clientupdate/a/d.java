@@ -34,20 +34,20 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static d f38858e;
+    public static d f38917e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List f38859a;
+    public List f38918a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List f38860b;
+    public List f38919b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.clientupdate.download.a f38861c;
+    public com.baidu.clientupdate.download.a f38920c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f38862d;
+    public b f38921d;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -64,12 +64,12 @@ public final class d {
                 return;
             }
         }
-        this.f38861c = com.baidu.clientupdate.download.a.a(context);
-        this.f38862d = b.a(context);
-        this.f38859a = new ArrayList();
-        this.f38860b = new ArrayList();
+        this.f38920c = com.baidu.clientupdate.download.a.a(context);
+        this.f38921d = b.a(context);
+        this.f38918a = new ArrayList();
+        this.f38919b = new ArrayList();
         try {
-            if (this.f38861c.h()) {
+            if (this.f38920c.h()) {
                 String a2 = com.baidu.util.a.a(context).a("lcsdk_xml", "apkMD5", "");
                 String a3 = j.a(context, context.getPackageName());
                 String a4 = com.baidu.util.a.a(context).a("lcsdk_xml", "sessionId", "-1");
@@ -86,13 +86,13 @@ public final class d {
         }
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting() && this.f38861c.g()) {
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting() && this.f38920c.g()) {
                 LogUtil.logE(LogUtils.TAG, "符合wifi下、有a6动作的上报时机");
                 b();
-                if (this.f38859a == null || this.f38859a.size() == 0) {
+                if (this.f38918a == null || this.f38918a.size() == 0) {
                     return;
                 }
-                String a6 = a(this.f38859a);
+                String a6 = a(this.f38918a);
                 if (TextUtils.isEmpty(a6)) {
                     return;
                 }
@@ -104,7 +104,7 @@ public final class d {
                     return;
                 }
                 LogUtil.logE(LogUtils.TAG, "日志超过20k或者日志超过7天 ，将日志舍弃");
-                this.f38861c.b();
+                this.f38920c.b();
             }
         } catch (Exception e3) {
             e3.printStackTrace();
@@ -117,15 +117,15 @@ public final class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cursor)) == null) {
             a aVar = new a();
             try {
-                aVar.f38844b = cursor.getString(cursor.getColumnIndex("ug"));
-                aVar.f38845c = cursor.getString(cursor.getColumnIndex(SearchView.IME_OPTION_NO_MICROPHONE));
-                aVar.f38843a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
-                aVar.f38846d = cursor.getString(cursor.getColumnIndex("flag"));
-                aVar.f38847e = new JSONArray(cursor.getString(cursor.getColumnIndex(ConstantHelper.LOG_STM)));
-                aVar.f38848f = new JSONArray(cursor.getString(cursor.getColumnIndex("sc")));
-                aVar.f38849g = new JSONArray(cursor.getString(cursor.getColumnIndex(ConstantHelper.LOG_ETM)));
-                aVar.f38850h = new JSONArray(cursor.getString(cursor.getColumnIndex("mg")));
-                aVar.f38851i = new JSONArray(cursor.getString(cursor.getColumnIndex("ex")));
+                aVar.f38903b = cursor.getString(cursor.getColumnIndex("ug"));
+                aVar.f38904c = cursor.getString(cursor.getColumnIndex(SearchView.IME_OPTION_NO_MICROPHONE));
+                aVar.f38902a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
+                aVar.f38905d = cursor.getString(cursor.getColumnIndex("flag"));
+                aVar.f38906e = new JSONArray(cursor.getString(cursor.getColumnIndex(ConstantHelper.LOG_STM)));
+                aVar.f38907f = new JSONArray(cursor.getString(cursor.getColumnIndex("sc")));
+                aVar.f38908g = new JSONArray(cursor.getString(cursor.getColumnIndex(ConstantHelper.LOG_ETM)));
+                aVar.f38909h = new JSONArray(cursor.getString(cursor.getColumnIndex("mg")));
+                aVar.f38910i = new JSONArray(cursor.getString(cursor.getColumnIndex("ex")));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -140,10 +140,10 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (d.class) {
-                if (f38858e == null) {
-                    f38858e = new d(context);
+                if (f38917e == null) {
+                    f38917e = new d(context);
                 }
-                dVar = f38858e;
+                dVar = f38917e;
             }
             return dVar;
         }
@@ -189,7 +189,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             LogUtil.logE(LogUtils.TAG, "把db数据的flag变为1");
-            this.f38861c.d();
+            this.f38920c.d();
         }
     }
 
@@ -212,22 +212,22 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             LogUtil.logE(LogUtils.TAG, "queryAllLog");
-            List list = this.f38860b;
+            List list = this.f38919b;
             Cursor cursor2 = null;
             if (list == null || list.size() == 0) {
                 try {
-                    cursor = this.f38861c.f();
+                    cursor = this.f38920c.f();
                     if (cursor != null) {
                         try {
                             try {
                                 cursor.moveToFirst();
                                 while (!cursor.isAfterLast()) {
-                                    this.f38860b.add(a(cursor));
+                                    this.f38919b.add(a(cursor));
                                     cursor.moveToNext();
                                 }
-                                this.f38859a.addAll(this.f38860b);
-                                this.f38860b = null;
-                                List list2 = this.f38859a;
+                                this.f38918a.addAll(this.f38919b);
+                                this.f38919b = null;
+                                List list2 = this.f38918a;
                                 if (cursor != null) {
                                     cursor.close();
                                 }
@@ -313,7 +313,7 @@ public final class d {
                 currentTimeMillis = System.currentTimeMillis();
                 LogUtil.logE(LogUtils.TAG, "打log");
                 str10 = TextUtils.isEmpty(str3) ? StringUtil.ARRAY_START : str3;
-                a2 = this.f38861c.a(str4);
+                a2 = this.f38920c.a(str4);
             } catch (Exception e2) {
                 e = e2;
             }
@@ -325,15 +325,15 @@ public final class d {
                 try {
                     if (a2.moveToNext()) {
                         a a3 = a(a2);
-                        if (a3.f38845c.equals(str4) && a3.f38846d.equals(str2)) {
+                        if (a3.f38904c.equals(str4) && a3.f38905d.equals(str2)) {
                             LogUtil.logE(LogUtils.TAG, "update");
                             a3.a(str10);
-                            a3.f38848f.put(str5);
-                            a3.f38847e.put(str6);
-                            a3.f38849g.put(System.currentTimeMillis() / 1000);
-                            a3.f38850h.put(str8);
-                            a3.f38851i.put(str9);
-                            this.f38861c.b(a3);
+                            a3.f38907f.put(str5);
+                            a3.f38906e.put(str6);
+                            a3.f38908g.put(System.currentTimeMillis() / 1000);
+                            a3.f38909h.put(str8);
+                            a3.f38910i.put(str9);
+                            this.f38920c.b(a3);
                         }
                         cursor = a2;
                         LogUtil.logE(LogUtils.TAG, "log time:" + (System.currentTimeMillis() - currentTimeMillis));
@@ -357,7 +357,7 @@ public final class d {
                     throw th;
                 }
             }
-            this.f38861c.a(new a(str, str2, str10, str4, jSONArray, jSONArray2, jSONArray3, jSONArray4, jSONArray5));
+            this.f38920c.a(new a(str, str2, str10, str4, jSONArray, jSONArray2, jSONArray3, jSONArray4, jSONArray5));
             LogUtil.logE(LogUtils.TAG, "log time:" + (System.currentTimeMillis() - currentTimeMillis));
             if (cursor == null) {
             }

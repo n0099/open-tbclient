@@ -17,19 +17,19 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f7522a;
+    public static final Set<String> f7530a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f7523b;
+    public static final Set<String> f7531b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f7524c;
+    public static final Set<String> f7532c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<String, a> f7525d;
+    public static final Map<String, a> f7533d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f7526e;
+    public static boolean f7534e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,11 +45,11 @@ public class b {
                 return;
             }
         }
-        f7522a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-        f7523b = new HashSet(f7522a);
-        f7524c = new HashSet(f7523b);
-        f7525d = new HashMap();
-        f7526e = false;
+        f7530a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+        f7531b = new HashSet(f7530a);
+        f7532c = new HashSet(f7531b);
+        f7533d = new HashMap();
+        f7534e = false;
     }
 
     public static a a(String str) {
@@ -57,7 +57,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             c();
-            return f7525d.get(str);
+            return f7533d.get(str);
         }
         return (a) invokeL.objValue;
     }
@@ -78,14 +78,14 @@ public class b {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (!f7526e) {
-                for (String str : f7524c) {
+            if (!f7534e) {
+                for (String str : f7532c) {
                     if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
-                        f7525d.put(str, b());
+                        f7533d.put(str, b());
                     }
                 }
             }
-            f7526e = true;
+            f7534e = true;
         }
     }
 }

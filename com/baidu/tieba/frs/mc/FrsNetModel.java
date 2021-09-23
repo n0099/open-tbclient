@@ -120,7 +120,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     public FrsRequestData c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (FrsRequestData) this.f48432g : (FrsRequestData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (FrsRequestData) this.f48540g : (FrsRequestData) invokeV.objValue;
     }
 
     public boolean d0() {
@@ -132,7 +132,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     public void e0(FrsRequestData frsRequestData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, frsRequestData) == null) {
-            this.f48432g = frsRequestData;
+            this.f48540g = frsRequestData;
         }
     }
 

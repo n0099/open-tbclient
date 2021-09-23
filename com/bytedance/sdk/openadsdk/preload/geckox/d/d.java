@@ -17,10 +17,10 @@ public class d extends com.bytedance.sdk.openadsdk.preload.b.d<List<String>, Lis
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f68738d;
+    public File f69049d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68739e;
+    public String f69050e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class d extends com.bytedance.sdk.openadsdk.preload.b.d<List<String>, Lis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) {
             super.a(objArr);
-            this.f68738d = (File) objArr[0];
-            this.f68739e = (String) objArr[1];
+            this.f69049d = (File) objArr[0];
+            this.f69050e = (String) objArr[1];
         }
     }
 
@@ -54,7 +54,7 @@ public class d extends com.bytedance.sdk.openadsdk.preload.b.d<List<String>, Lis
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, list)) == null) {
             com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "get local channel version:", list);
-            File file = new File(this.f68738d, this.f68739e);
+            File file = new File(this.f69049d, this.f69050e);
             ArrayList arrayList = new ArrayList();
             for (String str : list) {
                 Long a2 = k.a(new File(file, str));

@@ -36,47 +36,47 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static a f13761i;
+    public static a f13757i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static CustomMessageListener f13762j;
+    public static CustomMessageListener f13758j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13763a;
+    public int f13759a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13764b;
+    public int f13760b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13765c;
+    public int f13761c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13766d;
+    public int f13762d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13767e;
+    public int f13763e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewUserRedPackageData f13768f;
+    public NewUserRedPackageData f13764f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f13769g;
+    public CustomMessageListener f13765g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.e.e.l.c<c.a.e.l.d.a> f13770h;
+    public final c.a.e.e.l.c<c.a.e.l.d.a> f13766h;
 
     /* renamed from: c.a.q0.s.c0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0678a extends CustomMessageListener {
+    public class C0676a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f13771a;
+        public final /* synthetic */ a f13767a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0678a(a aVar, int i2) {
+        public C0676a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -93,7 +93,7 @@ public class a {
                     return;
                 }
             }
-            this.f13771a = aVar;
+            this.f13767a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,7 +102,7 @@ public class a {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ShareEvent) && ((ShareEvent) customResponsedMessage.getData()).status == 1) {
                 f.c(((ShareEvent) customResponsedMessage.getData()).channel);
-                this.f13771a.k();
+                this.f13767a.k();
             }
         }
     }
@@ -148,7 +148,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f13772a;
+        public final /* synthetic */ a f13768a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -165,7 +165,7 @@ public class a {
                     return;
                 }
             }
-            this.f13772a = aVar;
+            this.f13768a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -173,10 +173,10 @@ public class a {
         public void onLoaded(c.a.e.l.d.a aVar, String str, int i2) {
             Activity currentActivity;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null || this.f13772a.f13768f == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || this.f13772a.d(currentActivity) == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null || this.f13768a.f13764f == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || this.f13768a.d(currentActivity) == null) {
                 return;
             }
-            TbSingleton.getInstance().setNewUserRedPackageData(this.f13772a.f13768f);
+            TbSingleton.getInstance().setNewUserRedPackageData(this.f13768a.f13764f);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921532));
         }
     }
@@ -194,7 +194,7 @@ public class a {
                 return;
             }
         }
-        f13762j = new b(2921440);
+        f13758j = new b(2921440);
     }
 
     public a() {
@@ -210,22 +210,22 @@ public class a {
                 return;
             }
         }
-        this.f13769g = new C0678a(this, 2921406);
-        this.f13770h = new c(this);
+        this.f13765g = new C0676a(this, 2921406);
+        this.f13766h = new c(this);
     }
 
     public static a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f13761i == null) {
+            if (f13757i == null) {
                 synchronized (a.class) {
-                    if (f13761i == null) {
-                        f13761i = new a();
+                    if (f13757i == null) {
+                        f13757i = new a();
                     }
                 }
             }
-            return f13761i;
+            return f13757i;
         }
         return (a) invokeV.objValue;
     }
@@ -258,8 +258,8 @@ public class a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.f13769g);
-            MessageManager.getInstance().registerListener(f13762j);
+            MessageManager.getInstance().registerListener(this.f13765g);
+            MessageManager.getInstance().registerListener(f13758j);
         }
     }
 
@@ -268,17 +268,17 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, missionInfo) == null) || missionInfo == null || missionInfo.activityid.intValue() == 0 || missionInfo.missionid.intValue() == 0) {
             return;
         }
-        this.f13765c = missionInfo.activityid.intValue();
-        this.f13763a = missionInfo.missionid.intValue();
-        this.f13764b = missionInfo.total_limit.intValue();
-        this.f13767e = missionInfo.cleartype.intValue();
-        this.f13766d = missionInfo.cleartime.intValue();
+        this.f13761c = missionInfo.activityid.intValue();
+        this.f13759a = missionInfo.missionid.intValue();
+        this.f13760b = missionInfo.total_limit.intValue();
+        this.f13763e = missionInfo.cleartype.intValue();
+        this.f13762d = missionInfo.cleartime.intValue();
         c.a.q0.a.c cVar = new c.a.q0.a.c();
-        cVar.X(this.f13766d);
-        cVar.Y(this.f13767e);
-        c.a.q0.s.d0.b.j().v("task_share_thread_success_data_total_limit", this.f13764b);
-        c.a.q0.s.d0.b.j().v("task_share_thread_success_data_mission_id", this.f13763a);
-        c.a.q0.s.d0.b.j().v("task_share_thread_success_data_action_id", this.f13765c);
+        cVar.X(this.f13762d);
+        cVar.Y(this.f13763e);
+        c.a.q0.s.d0.b.j().v("task_share_thread_success_data_total_limit", this.f13760b);
+        c.a.q0.s.d0.b.j().v("task_share_thread_success_data_mission_id", this.f13759a);
+        c.a.q0.s.d0.b.j().v("task_share_thread_success_data_action_id", this.f13761c);
         c.a.q0.s.d0.b.j().w("task_share_thread_success_data_specific_clear_time", cVar.c());
     }
 
@@ -297,7 +297,7 @@ public class a {
         Activity currentActivity;
         TbPageContext d2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (d2 = d(currentActivity)) == null || !c.a.e.a.b.f().i("MainTabActivity")) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (d2 = d(currentActivity)) == null || !c.a.e.a.b.f().h("MainTabActivity")) {
             return;
         }
         d2.sendMessage(new CustomMessage(2002001, new UserTropicGiftBagActivityConfig(d2.getPageActivity())));
@@ -310,12 +310,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || bVar == null) {
             return;
         }
-        ActiveCenterData activeCenterData = bVar.f12504g;
-        if ((activeCenterData != null && activeCenterData.is_new_window) || !bVar.f12499b || StringUtils.isNull(bVar.f12500c) || TbSingleton.getInstance().isNewUserRedPackageShowed() || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (d2 = d(currentActivity)) == null) {
+        ActiveCenterData activeCenterData = bVar.f12512g;
+        if ((activeCenterData != null && activeCenterData.is_new_window) || !bVar.f12507b || StringUtils.isNull(bVar.f12508c) || TbSingleton.getInstance().isNewUserRedPackageShowed() || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (d2 = d(currentActivity)) == null) {
             return;
         }
-        this.f13768f = bVar.f12503f;
-        c.a.e.e.l.d.h().k(this.f13768f.topPicUrl, 10, this.f13770h, 0, 0, d2.getUniqueId(), new Object[0]);
+        this.f13764f = bVar.f12511f;
+        c.a.e.e.l.d.h().k(this.f13764f.topPicUrl, 10, this.f13766h, 0, 0, d2.getUniqueId(), new Object[0]);
     }
 
     public void k() {

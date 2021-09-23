@@ -57,10 +57,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f28007e;
+        public final /* synthetic */ TbPageContext f28027e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f28008f;
+        public final /* synthetic */ BlockPopInfoData f28028f;
 
         public b(TbPageContext tbPageContext, BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
@@ -77,15 +77,15 @@ public class d {
                     return;
                 }
             }
-            this.f28007e = tbPageContext;
-            this.f28008f = blockPopInfoData;
+            this.f28027e = tbPageContext;
+            this.f28028f = blockPopInfoData;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                UrlManager.getInstance().dealOneLink(this.f28007e, new String[]{this.f28008f.ahead_url});
+                UrlManager.getInstance().dealOneLink(this.f28027e, new String[]{this.f28028f.ahead_url});
                 if (aVar == null) {
                     return;
                 }

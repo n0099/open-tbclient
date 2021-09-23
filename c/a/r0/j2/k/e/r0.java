@@ -47,7 +47,7 @@ public final class r0 extends n<c.a.r0.j2.h.q, PbVideoDetailBrowseModeEmotionHol
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View view = LayoutInflater.from(this.f2957e).inflate(R.layout.video_detail_pb_browse_mode_emotion, viewGroup, false);
+            View view = LayoutInflater.from(this.f2958e).inflate(R.layout.video_detail_pb_browse_mode_emotion, viewGroup, false);
             Intrinsics.checkExpressionValueIsNotNull(view, "view");
             return new PbVideoDetailBrowseModeEmotionHolder(view);
         }

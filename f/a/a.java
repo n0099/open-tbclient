@@ -42,50 +42,50 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<Context, a> f78364d;
+    public static final Map<Context, a> f78683d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final C2108a f78365a;
+    public final C2112a f78684a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f78366b;
+    public final Context f78685b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final DbAdapter f78367c;
+    public final DbAdapter f78686c;
 
     /* renamed from: f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class C2108a {
+    public class C2112a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Object f78368a;
+        public final Object f78687a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f78369b;
+        public Handler f78688b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f78370c;
+        public final /* synthetic */ a f78689c;
 
         /* renamed from: f.a.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public class HandlerC2109a extends Handler {
+        public class HandlerC2113a extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ C2108a f78371a;
+            public final /* synthetic */ C2112a f78690a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public HandlerC2109a(C2108a c2108a, Looper looper) {
+            public HandlerC2113a(C2112a c2112a, Looper looper) {
                 super(looper);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c2108a, looper};
+                    Object[] objArr = {c2112a, looper};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -96,7 +96,7 @@ public class a {
                         return;
                     }
                 }
-                this.f78371a = c2108a;
+                this.f78690a = c2112a;
             }
 
             @Override // android.os.Handler
@@ -105,7 +105,7 @@ public class a {
                 if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                     try {
                         if (message.what == 3) {
-                            this.f78371a.f78370c.e();
+                            this.f78690a.f78689c.e();
                         } else {
                             k.b("SA.AnalyticsMessages", "Unexpected message received by SensorsData worker: " + message);
                         }
@@ -116,7 +116,7 @@ public class a {
             }
         }
 
-        public C2108a(a aVar) {
+        public C2112a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,21 +131,21 @@ public class a {
                     return;
                 }
             }
-            this.f78370c = aVar;
-            this.f78368a = new Object();
+            this.f78689c = aVar;
+            this.f78687a = new Object();
             HandlerThread handlerThread = new HandlerThread("com.sensorsdata.analytics.android.sdk.AnalyticsMessages.Worker", 1);
             handlerThread.start();
-            this.f78369b = new HandlerC2109a(this, handlerThread.getLooper());
+            this.f78688b = new HandlerC2113a(this, handlerThread.getLooper());
         }
 
         public void a(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                synchronized (this.f78368a) {
-                    if (this.f78369b == null) {
+                synchronized (this.f78687a) {
+                    if (this.f78688b == null) {
                         k.b("SA.AnalyticsMessages", "Dead worker dropping a message: " + message.what);
                     } else {
-                        this.f78369b.sendMessage(message);
+                        this.f78688b.sendMessage(message);
                     }
                 }
             }
@@ -154,11 +154,11 @@ public class a {
         public void b(Message message, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j2) == null) {
-                synchronized (this.f78368a) {
-                    if (this.f78369b == null) {
+                synchronized (this.f78687a) {
+                    if (this.f78688b == null) {
                         k.b("SA.AnalyticsMessages", "Dead worker dropping a message: " + message.what);
-                    } else if (!this.f78369b.hasMessages(message.what)) {
-                        this.f78369b.sendMessageDelayed(message, j2);
+                    } else if (!this.f78688b.hasMessages(message.what)) {
+                        this.f78688b.sendMessageDelayed(message, j2);
                     }
                 }
             }
@@ -178,7 +178,7 @@ public class a {
                 return;
             }
         }
-        f78364d = new HashMap();
+        f78683d = new HashMap();
     }
 
     public a(Context context, String str) {
@@ -196,9 +196,9 @@ public class a {
                 return;
             }
         }
-        this.f78366b = context;
-        this.f78367c = new DbAdapter(this.f78366b, str);
-        this.f78365a = new C2108a(this);
+        this.f78685b = context;
+        this.f78686c = new DbAdapter(this.f78685b, str);
+        this.f78684a = new C2112a(this);
     }
 
     public static a d(Context context, String str) {
@@ -206,13 +206,13 @@ public class a {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            synchronized (f78364d) {
+            synchronized (f78683d) {
                 Context applicationContext = context.getApplicationContext();
-                if (!f78364d.containsKey(applicationContext)) {
+                if (!f78683d.containsKey(applicationContext)) {
                     aVar = new a(applicationContext, str);
-                    f78364d.put(applicationContext, aVar);
+                    f78683d.put(applicationContext, aVar);
                 } else {
-                    aVar = f78364d.get(applicationContext);
+                    aVar = f78683d.get(applicationContext);
                 }
             }
             return aVar;
@@ -258,11 +258,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
             try {
-                synchronized (this.f78367c) {
-                    int c2 = this.f78367c.c(jSONObject, DbAdapter.Table.EVENTS);
+                synchronized (this.f78686c) {
+                    int c2 = this.f78686c.c(jSONObject, DbAdapter.Table.EVENTS);
                     if (c2 < 0) {
                         String str2 = "Failed to enqueue the event: " + jSONObject;
-                        if (!DxmSdkSensorsDataAPI.I(this.f78366b).y()) {
+                        if (!DxmSdkSensorsDataAPI.I(this.f78685b).y()) {
                             k.b("SA.AnalyticsMessages", str2);
                         } else {
                             throw new DebugModeException(str2);
@@ -270,13 +270,13 @@ public class a {
                     }
                     Message obtain = Message.obtain();
                     obtain.what = 3;
-                    if (!DxmSdkSensorsDataAPI.I(this.f78366b).y() && c2 != -2) {
-                        if (!str.equals("track_signup") && c2 <= DxmSdkSensorsDataAPI.I(this.f78366b).s()) {
-                            this.f78365a.b(obtain, DxmSdkSensorsDataAPI.I(this.f78366b).t());
+                    if (!DxmSdkSensorsDataAPI.I(this.f78685b).y() && c2 != -2) {
+                        if (!str.equals("track_signup") && c2 <= DxmSdkSensorsDataAPI.I(this.f78685b).s()) {
+                            this.f78684a.b(obtain, DxmSdkSensorsDataAPI.I(this.f78685b).t());
                         }
-                        this.f78365a.a(obtain);
+                        this.f78684a.a(obtain);
                     }
-                    this.f78365a.a(obtain);
+                    this.f78684a.a(obtain);
                 }
             } catch (Exception e2) {
                 k.b("SA.AnalyticsMessages", "enqueueEventMessage error:" + e2);
@@ -289,7 +289,7 @@ public class a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Message obtain = Message.obtain();
             obtain.what = 3;
-            this.f78365a.a(obtain);
+            this.f78684a.a(obtain);
         }
     }
 
@@ -399,17 +399,17 @@ public class a {
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
-            if (!TextUtils.isEmpty(DxmSdkSensorsDataAPI.I(this.f78366b).w()) && SensorsDataUtils.f(this.f78366b)) {
-                if (!DxmSdkSensorsDataAPI.I(this.f78366b).B(SensorsDataUtils.i(this.f78366b))) {
+            if (!TextUtils.isEmpty(DxmSdkSensorsDataAPI.I(this.f78685b).w()) && SensorsDataUtils.f(this.f78685b)) {
+                if (!DxmSdkSensorsDataAPI.I(this.f78685b).B(SensorsDataUtils.i(this.f78685b))) {
                     return;
                 }
                 int i2 = 100;
                 while (i2 > 0) {
-                    synchronized (this.f78367c) {
-                        if (DxmSdkSensorsDataAPI.I(this.f78366b).y()) {
-                            e2 = this.f78367c.e(DbAdapter.Table.EVENTS, 1);
+                    synchronized (this.f78686c) {
+                        if (DxmSdkSensorsDataAPI.I(this.f78685b).y()) {
+                            e2 = this.f78686c.e(DbAdapter.Table.EVENTS, 1);
                         } else {
-                            e2 = this.f78367c.e(DbAdapter.Table.EVENTS, 50);
+                            e2 = this.f78686c.e(DbAdapter.Table.EVENTS, 50);
                         }
                     }
                     if (e2 == null) {
@@ -422,10 +422,10 @@ public class a {
                         try {
                             String a2 = a(str6);
                             try {
-                                httpURLConnection = (HttpURLConnection) new URL(DxmSdkSensorsDataAPI.I(this.f78366b).w()).openConnection();
+                                httpURLConnection = (HttpURLConnection) new URL(DxmSdkSensorsDataAPI.I(this.f78685b).w()).openConnection();
                                 try {
                                     try {
-                                        String e4 = SensorsDataUtils.e(this.f78366b);
+                                        String e4 = SensorsDataUtils.e(this.f78685b);
                                         if (TextUtils.isEmpty(e4)) {
                                             e4 = "SensorsAnalytics Android SDK";
                                         }
@@ -433,9 +433,9 @@ public class a {
                                     } catch (Exception e5) {
                                         e5.printStackTrace();
                                     }
-                                    if (DxmSdkSensorsDataAPI.I(this.f78366b).y()) {
+                                    if (DxmSdkSensorsDataAPI.I(this.f78685b).y()) {
                                         try {
-                                            if (!DxmSdkSensorsDataAPI.I(this.f78366b).z()) {
+                                            if (!DxmSdkSensorsDataAPI.I(this.f78685b).z()) {
                                                 httpURLConnection.addRequestProperty("Dry-Run", "true");
                                             }
                                         } catch (ConnectErrorException e6) {
@@ -444,7 +444,7 @@ public class a {
                                             outputStream = null;
                                             bufferedOutputStream5 = outputStream;
                                             str4 = "Connection error: " + e.getMessage();
-                                            boolean y = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                            boolean y = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                             if (!TextUtils.isEmpty(str4)) {
                                             }
                                             if (bufferedOutputStream5 != 0) {
@@ -461,10 +461,10 @@ public class a {
                                             outputStream = null;
                                             bufferedOutputStream4 = outputStream;
                                             str3 = "Invalid data: " + e.getMessage();
-                                            boolean y2 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                            boolean y2 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                             if (!TextUtils.isEmpty(str3)) {
                                             }
-                                            d2 = this.f78367c.d(str5, DbAdapter.Table.EVENTS);
+                                            d2 = this.f78686c.d(str5, DbAdapter.Table.EVENTS);
                                             k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
                                             if (bufferedOutputStream4 != 0) {
                                             }
@@ -479,10 +479,10 @@ public class a {
                                             bufferedOutputStream = outputStream;
                                             try {
                                                 str2 = "ResponseErrorException: " + e.getMessage();
-                                                boolean y3 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                boolean y3 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                 if (!TextUtils.isEmpty(str2)) {
                                                 }
-                                                d2 = this.f78367c.d(str5, DbAdapter.Table.EVENTS);
+                                                d2 = this.f78686c.d(str5, DbAdapter.Table.EVENTS);
                                                 k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
                                                 if (bufferedOutputStream != 0) {
                                                 }
@@ -494,12 +494,12 @@ public class a {
                                                 th = th;
                                                 z = true;
                                                 bufferedOutputStream3 = bufferedOutputStream;
-                                                boolean y4 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                boolean y4 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                 if (!TextUtils.isEmpty(null) && (y4 || DxmSdkSensorsDataAPI.r.booleanValue())) {
                                                     k.b("SA.AnalyticsMessages", null);
                                                 }
                                                 if (z) {
-                                                    k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(this.f78367c.d(str5, DbAdapter.Table.EVENTS))));
+                                                    k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(this.f78686c.d(str5, DbAdapter.Table.EVENTS))));
                                                 }
                                                 if (bufferedOutputStream3 != 0) {
                                                     try {
@@ -539,7 +539,7 @@ public class a {
                                                 inputStream3 = inputStream6;
                                                 bufferedOutputStream5 = inputStream5;
                                                 str4 = "Connection error: " + e.getMessage();
-                                                boolean y5 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                boolean y5 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                 if (!TextUtils.isEmpty(str4) && (y5 || DxmSdkSensorsDataAPI.r.booleanValue())) {
                                                     k.b("SA.AnalyticsMessages", str4);
                                                 }
@@ -571,11 +571,11 @@ public class a {
                                                 inputStream2 = inputStream7;
                                                 bufferedOutputStream4 = inputStream5;
                                                 str3 = "Invalid data: " + e.getMessage();
-                                                boolean y22 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                boolean y22 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                 if (!TextUtils.isEmpty(str3) && (y22 || DxmSdkSensorsDataAPI.r.booleanValue())) {
                                                     k.b("SA.AnalyticsMessages", str3);
                                                 }
-                                                d2 = this.f78367c.d(str5, DbAdapter.Table.EVENTS);
+                                                d2 = this.f78686c.d(str5, DbAdapter.Table.EVENTS);
                                                 k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
                                                 if (bufferedOutputStream4 != 0) {
                                                     try {
@@ -602,11 +602,11 @@ public class a {
                                                 inputStream = inputStream8;
                                                 bufferedOutputStream = inputStream5;
                                                 str2 = "ResponseErrorException: " + e.getMessage();
-                                                boolean y32 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                boolean y32 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                 if (!TextUtils.isEmpty(str2) && (y32 || DxmSdkSensorsDataAPI.r.booleanValue())) {
                                                     k.b("SA.AnalyticsMessages", str2);
                                                 }
-                                                d2 = this.f78367c.d(str5, DbAdapter.Table.EVENTS);
+                                                d2 = this.f78686c.d(str5, DbAdapter.Table.EVENTS);
                                                 k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
                                                 if (bufferedOutputStream != 0) {
                                                     try {
@@ -634,7 +634,7 @@ public class a {
                                                 bufferedOutputStream2 = inputStream5;
                                                 try {
                                                     str = "Exception: " + e.getMessage();
-                                                    boolean y6 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                    boolean y6 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                     if (!TextUtils.isEmpty(str) && (y6 || DxmSdkSensorsDataAPI.r.booleanValue())) {
                                                         k.b("SA.AnalyticsMessages", str);
                                                     }
@@ -663,7 +663,7 @@ public class a {
                                                     th = th2;
                                                     z = false;
                                                     bufferedOutputStream3 = bufferedOutputStream2;
-                                                    boolean y42 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                    boolean y42 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                     if (!TextUtils.isEmpty(null)) {
                                                         k.b("SA.AnalyticsMessages", null);
                                                     }
@@ -686,7 +686,7 @@ public class a {
                                                 outputStream = outputStream2;
                                                 inputStream = inputStream10;
                                                 bufferedOutputStream3 = inputStream5;
-                                                boolean y422 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                boolean y422 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                 if (!TextUtils.isEmpty(null)) {
                                                 }
                                                 if (z) {
@@ -707,7 +707,7 @@ public class a {
                                             outputStream = null;
                                             bufferedOutputStream2 = outputStream;
                                             str = "Exception: " + e.getMessage();
-                                            boolean y62 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                            boolean y62 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                             if (!TextUtils.isEmpty(str)) {
                                             }
                                             if (bufferedOutputStream2 != 0) {
@@ -756,11 +756,11 @@ public class a {
                                                     k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "ret_content: %s", str7));
                                                 }
                                                 if (responseCode >= 200 && responseCode < 300) {
-                                                    boolean y7 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                    boolean y7 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                     if (!TextUtils.isEmpty(null) && (y7 || DxmSdkSensorsDataAPI.r.booleanValue())) {
                                                         k.b("SA.AnalyticsMessages", null);
                                                     }
-                                                    d2 = this.f78367c.d(str5, DbAdapter.Table.EVENTS);
+                                                    d2 = this.f78686c.d(str5, DbAdapter.Table.EVENTS);
                                                     k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
                                                 } else {
                                                     throw new ResponseErrorException(String.format("flush failure with response '%s'", str7));
@@ -772,7 +772,7 @@ public class a {
                                                 inputStream3 = inputStream4;
                                                 outputStream = null;
                                                 str4 = "Connection error: " + e.getMessage();
-                                                boolean y52 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                boolean y52 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                 if (!TextUtils.isEmpty(str4)) {
                                                     k.b("SA.AnalyticsMessages", str4);
                                                 }
@@ -790,11 +790,11 @@ public class a {
                                                 inputStream2 = inputStream4;
                                                 outputStream = null;
                                                 str3 = "Invalid data: " + e.getMessage();
-                                                boolean y222 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                boolean y222 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                 if (!TextUtils.isEmpty(str3)) {
                                                     k.b("SA.AnalyticsMessages", str3);
                                                 }
-                                                d2 = this.f78367c.d(str5, DbAdapter.Table.EVENTS);
+                                                d2 = this.f78686c.d(str5, DbAdapter.Table.EVENTS);
                                                 k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
                                                 if (bufferedOutputStream4 != 0) {
                                                 }
@@ -808,11 +808,11 @@ public class a {
                                                 inputStream = inputStream4;
                                                 outputStream = null;
                                                 str2 = "ResponseErrorException: " + e.getMessage();
-                                                boolean y322 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                boolean y322 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                 if (!TextUtils.isEmpty(str2)) {
                                                     k.b("SA.AnalyticsMessages", str2);
                                                 }
-                                                d2 = this.f78367c.d(str5, DbAdapter.Table.EVENTS);
+                                                d2 = this.f78686c.d(str5, DbAdapter.Table.EVENTS);
                                                 k.b("SA.AnalyticsMessages", String.format(Locale.CHINA, "Events flushed. [left = %d]", Integer.valueOf(d2)));
                                                 if (bufferedOutputStream != 0) {
                                                 }
@@ -833,7 +833,7 @@ public class a {
                                                 inputStream = inputStream4;
                                                 outputStream = null;
                                                 str = "Exception: " + e.getMessage();
-                                                boolean y622 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                boolean y622 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                 if (!TextUtils.isEmpty(str)) {
                                                     k.b("SA.AnalyticsMessages", str);
                                                 }
@@ -851,7 +851,7 @@ public class a {
                                                 inputStream = inputStream4;
                                                 z = true;
                                                 outputStream = null;
-                                                boolean y4222 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                                boolean y4222 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                                 if (!TextUtils.isEmpty(null)) {
                                                 }
                                                 if (z) {
@@ -892,7 +892,7 @@ public class a {
                                             inputStream = null;
                                             z = true;
                                             bufferedOutputStream3 = bufferedOutputStream;
-                                            boolean y42222 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                            boolean y42222 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                             if (!TextUtils.isEmpty(null)) {
                                             }
                                             if (z) {
@@ -940,7 +940,7 @@ public class a {
                                     bufferedOutputStream = outputStream;
                                     z = true;
                                     bufferedOutputStream3 = bufferedOutputStream;
-                                    boolean y422222 = DxmSdkSensorsDataAPI.I(this.f78366b).y();
+                                    boolean y422222 = DxmSdkSensorsDataAPI.I(this.f78685b).y();
                                     if (!TextUtils.isEmpty(null)) {
                                     }
                                     if (z) {

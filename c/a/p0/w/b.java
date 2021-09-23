@@ -31,34 +31,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f12475a;
+    public Context f12483a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12476b;
+    public int f12484b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12477c;
+    public int f12485c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12478d;
+    public String f12486d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f12479e;
+    public int[] f12487e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int[] f12480f;
+    public int[] f12488f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int[] f12481g;
+    public int[] f12489g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONObject f12482h;
+    public JSONObject f12490h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONObject f12483i;
+    public JSONObject f12491i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f12484j;
+    public int f12492j;
     public int k;
     public int l;
     public int m;
@@ -100,19 +100,19 @@ public class b {
                 return;
             }
         }
-        this.f12476b = 0;
-        this.f12477c = 0;
-        this.f12478d = null;
-        this.f12479e = null;
-        this.f12480f = null;
-        this.f12481g = null;
+        this.f12484b = 0;
+        this.f12485c = 0;
+        this.f12486d = null;
+        this.f12487e = null;
+        this.f12488f = null;
+        this.f12489g = null;
         this.l = 0;
         this.m = 0;
         this.n = 0;
         this.o = false;
         this.p = null;
         this.q = false;
-        this.f12475a = context;
+        this.f12483a = context;
         m();
     }
 
@@ -149,21 +149,21 @@ public class b {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i3 = this.f12476b;
-            if (i3 <= 0 || (i2 = this.f12477c) <= 0) {
+            int i3 = this.f12484b;
+            if (i3 <= 0 || (i2 = this.f12485c) <= 0) {
                 return true;
             }
-            String str = this.f12478d;
-            int[] iArr = this.f12479e;
-            int[] iArr2 = this.f12480f;
-            int[] iArr3 = this.f12481g;
+            String str = this.f12486d;
+            int[] iArr = this.f12487e;
+            int[] iArr2 = this.f12488f;
+            int[] iArr3 = this.f12489g;
             if (!this.o) {
-                this.f12484j = 0;
+                this.f12492j = 0;
                 this.k = i2;
             }
             String str2 = j() + "libzeuswebviewchromium.so";
             String str3 = j() + "libzeuswebviewchromium.so.tmp";
-            int g2 = g(this.p, str3, this.f12477c, this.f12484j, this.k, this.o ? 1 : 0);
+            int g2 = g(this.p, str3, this.f12485c, this.f12492j, this.k, this.o ? 1 : 0);
             if (g2 != 0) {
                 return false;
             }
@@ -302,9 +302,9 @@ public class b {
                     int indexOf2 = str.indexOf(SevenZipUtils.FILE_SEP, indexOf) + 2;
                     this.m = indexOf2;
                     this.n = str.indexOf(SevenZipUtils.FILE_SEP, indexOf2) + 2;
-                    this.f12482h = new JSONObject(str.substring(this.l, this.m - 2));
+                    this.f12490h = new JSONObject(str.substring(this.l, this.m - 2));
                     JSONObject jSONObject = new JSONObject(str.substring(this.m, this.n - 2));
-                    this.f12483i = jSONObject;
+                    this.f12491i = jSONObject;
                     int i2 = Integer.MAX_VALUE;
                     JSONArray jSONArray = jSONObject.getJSONArray(SevenZipUtils.LZMA_META_KEY_LOADABLE);
                     int i3 = 0;
@@ -320,26 +320,26 @@ public class b {
                             i3 = i7;
                         }
                     }
-                    this.f12484j = i2;
+                    this.f12492j = i2;
                     this.k = i3;
-                    int i8 = this.f12482h.getInt("count");
-                    this.f12476b = i8;
-                    this.f12479e = new int[i8];
-                    this.f12480f = new int[i8];
-                    this.f12481g = new int[i8];
-                    this.f12478d = k();
-                    JSONArray jSONArray2 = this.f12482h.getJSONArray(SevenZipUtils.LZMA_META_KEY_OFFSET);
-                    JSONArray jSONArray3 = this.f12482h.getJSONArray(SevenZipUtils.LZMA_META_KEY_SZ_OFFSET);
-                    this.f12480f[0] = 0;
-                    for (int i9 = 0; i9 < this.f12476b; i9++) {
-                        this.f12479e[i9] = jSONArray2.getInt(i9);
+                    int i8 = this.f12490h.getInt("count");
+                    this.f12484b = i8;
+                    this.f12487e = new int[i8];
+                    this.f12488f = new int[i8];
+                    this.f12489g = new int[i8];
+                    this.f12486d = k();
+                    JSONArray jSONArray2 = this.f12490h.getJSONArray(SevenZipUtils.LZMA_META_KEY_OFFSET);
+                    JSONArray jSONArray3 = this.f12490h.getJSONArray(SevenZipUtils.LZMA_META_KEY_SZ_OFFSET);
+                    this.f12488f[0] = 0;
+                    for (int i9 = 0; i9 < this.f12484b; i9++) {
+                        this.f12487e[i9] = jSONArray2.getInt(i9);
                         if (i9 > 0) {
                             int i10 = i9 - 1;
-                            this.f12480f[i9] = this.f12480f[i10] + this.f12479e[i10];
+                            this.f12488f[i9] = this.f12488f[i10] + this.f12487e[i10];
                         }
-                        this.f12481g[i9] = jSONArray3.getInt(i9) + this.n;
+                        this.f12489g[i9] = jSONArray3.getInt(i9) + this.n;
                     }
-                    this.f12477c = this.f12482h.getInt("total");
+                    this.f12485c = this.f12490h.getInt("total");
                     try {
                         fileInputStream.close();
                         return true;
@@ -376,7 +376,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.f12475a.getFilesDir() + s + t;
+            return this.f12483a.getFilesDir() + s + t;
         }
         return (String) invokeV.objValue;
     }
@@ -393,7 +393,7 @@ public class b {
     public final void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            if (!z || (this.f12484j == 0 && !n())) {
+            if (!z || (this.f12492j == 0 && !n())) {
                 try {
                     if (f(Build.VERSION.SDK_INT, z) > 0) {
                         this.o = true;
@@ -481,7 +481,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             if (p()) {
-                if (this.q && i() && o(this.f12477c)) {
+                if (this.q && i() && o(this.f12485c)) {
                     l(false);
                     return a() && b() && c();
                 }

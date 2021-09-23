@@ -27,7 +27,7 @@ public class k extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f3813e;
+        public final /* synthetic */ k f3814e;
 
         public a(k kVar) {
             Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class k extends h {
                     return;
                 }
             }
-            this.f3813e = kVar;
+            this.f3814e = kVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3813e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3814e.c() == null) {
                 return;
             }
-            this.f3813e.c().a(view, this.f3813e.l);
+            this.f3814e.c().a(view, this.f3814e.l);
         }
     }
 
@@ -106,14 +106,14 @@ public class k extends h {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c.a.q0.b.d.a0()) {
-                int g2 = c.a.e.e.p.l.g(this.f3782f, R.dimen.M_H_X003);
-                int g3 = c.a.e.e.p.l.g(this.f3782f, c.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+            if (c.a.q0.b.d.h0()) {
+                int g2 = c.a.e.e.p.l.g(this.f3783f, R.dimen.M_H_X003);
+                int g3 = c.a.e.e.p.l.g(this.f3783f, c.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
                 q(g2);
                 p(g3);
                 return;
             }
-            int g4 = c.a.e.e.p.l.g(this.f3782f, R.dimen.tbds10);
+            int g4 = c.a.e.e.p.l.g(this.f3783f, R.dimen.tbds10);
             q(g4);
             p(0);
             u(this.m, g4, 0);
@@ -127,7 +127,7 @@ public class k extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.l = aVar;
-            this.m.setSourceForPb(this.f3781e.i());
+            this.m.setSourceForPb(this.f3782e.i());
             this.m.setData(aVar);
         }
     }

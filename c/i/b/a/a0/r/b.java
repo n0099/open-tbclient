@@ -28,19 +28,19 @@ public final class b extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long[] f32688a;
+        public long[] f32711a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long[] f32689b;
+        public long[] f32712b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f32690c;
+        public long f32713c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f32691d;
+        public long f32714d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f32692e;
+        public final /* synthetic */ b f32715e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -57,9 +57,9 @@ public final class b extends h {
                     return;
                 }
             }
-            this.f32692e = bVar;
-            this.f32690c = -1L;
-            this.f32691d = -1L;
+            this.f32715e = bVar;
+            this.f32713c = -1L;
+            this.f32714d = -1L;
         }
 
         @Override // c.i.b.a.a0.r.f
@@ -67,10 +67,10 @@ public final class b extends h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
-                long j2 = this.f32691d;
+                long j2 = this.f32714d;
                 if (j2 >= 0) {
                     long j3 = -(j2 + 2);
-                    this.f32691d = -1L;
+                    this.f32714d = -1L;
                     return j3;
                 }
                 return -1L;
@@ -92,7 +92,7 @@ public final class b extends h {
         public long c(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f32690c + this.f32689b[v.e(this.f32688a, this.f32692e.b(j2), true, true)] : invokeJ.longValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f32713c + this.f32712b[v.e(this.f32711a, this.f32715e.b(j2), true, true)] : invokeJ.longValue;
         }
 
         @Override // c.i.b.a.a0.r.f
@@ -107,8 +107,8 @@ public final class b extends h {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-                long b2 = this.f32692e.b(j2);
-                this.f32691d = this.f32688a[v.e(this.f32688a, b2, true, true)];
+                long b2 = this.f32715e.b(j2);
+                this.f32714d = this.f32711a[v.e(this.f32711a, b2, true, true)];
                 return b2;
             }
             return invokeJ.longValue;
@@ -119,11 +119,11 @@ public final class b extends h {
             if (interceptable == null || interceptable.invokeL(1048581, this, lVar) == null) {
                 lVar.K(1);
                 int A = lVar.A() / 18;
-                this.f32688a = new long[A];
-                this.f32689b = new long[A];
+                this.f32711a = new long[A];
+                this.f32712b = new long[A];
                 for (int i2 = 0; i2 < A; i2++) {
-                    this.f32688a[i2] = lVar.q();
-                    this.f32689b[i2] = lVar.q();
+                    this.f32711a[i2] = lVar.q();
+                    this.f32712b[i2] = lVar.q();
                     lVar.K(2);
                 }
             }
@@ -133,13 +133,13 @@ public final class b extends h {
         public long h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32692e.n.b() : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32715e.n.b() : invokeV.longValue;
         }
 
         public void i(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-                this.f32690c = j2;
+                this.f32713c = j2;
             }
         }
     }
@@ -175,7 +175,7 @@ public final class b extends h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lVar)) == null) {
-            if (n(lVar.f33812a)) {
+            if (n(lVar.f33835a)) {
                 return m(lVar);
             }
             return -1L;
@@ -188,7 +188,7 @@ public final class b extends h {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{lVar, Long.valueOf(j2), bVar})) == null) {
-            byte[] bArr = lVar.f33812a;
+            byte[] bArr = lVar.f33835a;
             if (this.n == null) {
                 this.n = new c.i.b.a.i0.f(bArr, 17);
                 byte[] copyOfRange = Arrays.copyOfRange(bArr, 9, lVar.d());
@@ -196,7 +196,7 @@ public final class b extends h {
                 List singletonList = Collections.singletonList(copyOfRange);
                 int a2 = this.n.a();
                 c.i.b.a.i0.f fVar = this.n;
-                bVar.f32720a = Format.createAudioSampleFormat(null, "audio/flac", null, -1, a2, fVar.f33786b, fVar.f33785a, singletonList, null, 0, null);
+                bVar.f32743a = Format.createAudioSampleFormat(null, "audio/flac", null, -1, a2, fVar.f33809b, fVar.f33808a, singletonList, null, 0, null);
                 return true;
             } else if ((bArr[0] & ByteCompanionObject.MAX_VALUE) == 3) {
                 a aVar = new a(this);
@@ -207,7 +207,7 @@ public final class b extends h {
                 a aVar2 = this.o;
                 if (aVar2 != null) {
                     aVar2.i(j2);
-                    bVar.f32721b = this.o;
+                    bVar.f32744b = this.o;
                 }
                 return false;
             } else {
@@ -235,7 +235,7 @@ public final class b extends h {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lVar)) == null) {
-            int i4 = (lVar.f33812a[2] & 255) >> 4;
+            int i4 = (lVar.f33835a[2] & 255) >> 4;
             switch (i4) {
                 case 1:
                     return 192;

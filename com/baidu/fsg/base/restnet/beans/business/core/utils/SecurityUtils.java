@@ -37,7 +37,10 @@ public class SecurityUtils {
             try {
                 try {
                     Runtime runtime = Runtime.getRuntime();
-                    process = runtime.exec("ls -l " + str);
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("ls -l ");
+                    sb.append(str);
+                    process = runtime.exec(sb.toString());
                     String readLine = new BufferedReader(new InputStreamReader(process.getInputStream())).readLine();
                     if (readLine != null && readLine.length() >= 4) {
                         char charAt = readLine.charAt(3);

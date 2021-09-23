@@ -26,20 +26,20 @@ public class a implements c.a.p0.a.y0.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f12466e;
+    public static final boolean f12474e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12467a;
+    public String f12475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.InterfaceC0463a f12468b;
+    public a.InterfaceC0463a f12476b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CyberExtractor f12469c;
+    public CyberExtractor f12477c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f12470d;
+    public volatile boolean f12478d;
 
     /* renamed from: c.a.p0.v.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -48,13 +48,13 @@ public class a implements c.a.p0.a.y0.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12471e;
+        public final /* synthetic */ String f12479e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Map f12472f;
+        public final /* synthetic */ Map f12480f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f12473g;
+        public final /* synthetic */ a f12481g;
 
         public RunnableC0638a(a aVar, String str, Map map) {
             Interceptable interceptable = $ic;
@@ -71,23 +71,23 @@ public class a implements c.a.p0.a.y0.f.a {
                     return;
                 }
             }
-            this.f12473g = aVar;
-            this.f12471e = str;
-            this.f12472f = map;
+            this.f12481g = aVar;
+            this.f12479e = str;
+            this.f12480f = map;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f12473g.f12470d) {
-                    boolean unused = a.f12466e;
+                if (this.f12481g.f12478d) {
+                    boolean unused = a.f12474e;
                     return;
                 }
-                this.f12473g.f12469c.setDataSource(this.f12473g.getContext(), Uri.parse(c.a.p0.a.y0.j.a.a(this.f12471e)), this.f12472f);
-                Bundle metaData = this.f12473g.f12469c.getMetaData();
-                if (this.f12473g.f12468b != null) {
-                    this.f12473g.f12468b.a(metaData);
+                this.f12481g.f12477c.setDataSource(this.f12481g.getContext(), Uri.parse(c.a.p0.a.y0.j.a.a(this.f12479e)), this.f12480f);
+                Bundle metaData = this.f12481g.f12477c.getMetaData();
+                if (this.f12481g.f12476b != null) {
+                    this.f12481g.f12476b.a(metaData);
                 }
             }
         }
@@ -106,7 +106,7 @@ public class a implements c.a.p0.a.y0.f.a {
                 return;
             }
         }
-        f12466e = k.f7077a;
+        f12474e = k.f7085a;
     }
 
     public a(ZeusPluginFactory.Invoker invoker, String str) {
@@ -124,15 +124,15 @@ public class a implements c.a.p0.a.y0.f.a {
                 return;
             }
         }
-        this.f12467a = str;
-        this.f12470d = false;
+        this.f12475a = str;
+        this.f12478d = false;
     }
 
     @Override // c.a.p0.a.y0.d
     public void A(@NonNull d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f12469c = new CyberExtractor(true);
+            this.f12477c = new CyberExtractor(true);
             aVar.a(true);
         }
     }
@@ -142,7 +142,7 @@ public class a implements c.a.p0.a.y0.f.a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12467a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12475a : (String) invokeV.objValue;
     }
 
     public Context getContext() {
@@ -175,17 +175,17 @@ public class a implements c.a.p0.a.y0.f.a {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f12470d = true;
-            CyberExtractor cyberExtractor = this.f12469c;
+            this.f12478d = true;
+            CyberExtractor cyberExtractor = this.f12477c;
             if (cyberExtractor != null) {
                 cyberExtractor.release();
             }
-            this.f12469c = null;
-            a.InterfaceC0463a interfaceC0463a = this.f12468b;
+            this.f12477c = null;
+            a.InterfaceC0463a interfaceC0463a = this.f12476b;
             if (interfaceC0463a != null) {
                 interfaceC0463a.onRelease();
             }
-            this.f12468b = null;
+            this.f12476b = null;
         }
     }
 
@@ -193,7 +193,7 @@ public class a implements c.a.p0.a.y0.f.a {
     public void w(a.InterfaceC0463a interfaceC0463a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0463a) == null) {
-            this.f12468b = interfaceC0463a;
+            this.f12476b = interfaceC0463a;
         }
     }
 }

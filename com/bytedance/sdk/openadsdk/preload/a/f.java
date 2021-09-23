@@ -36,34 +36,34 @@ public final class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<w> f68576a;
+    public final List<w> f68887a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.d f68577b;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.d f68888b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f68578c;
+    public final e f68889c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<Type, h<?>> f68579d;
+    public final Map<Type, h<?>> f68890d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f68580e;
+    public final boolean f68891e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f68581f;
+    public final boolean f68892f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f68582g;
+    public final boolean f68893g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f68583h;
+    public final boolean f68894h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f68584i;
+    public final boolean f68895i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final boolean f68585j;
+    public final boolean f68896j;
     public final boolean k;
     public final String l;
     public final int m;
@@ -94,7 +94,7 @@ public final class f {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public f() {
-        this(com.bytedance.sdk.openadsdk.preload.a.b.d.f68486a, d.f68539a, Collections.emptyMap(), false, false, false, true, false, false, false, u.f68605a, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
+        this(com.bytedance.sdk.openadsdk.preload.a.b.d.f68797a, d.f68850a, Collections.emptyMap(), false, false, false, true, false, false, false, u.f68916a, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public final class f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ f f68586a;
+                public final /* synthetic */ f f68897a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -140,7 +140,7 @@ public final class f {
                             return;
                         }
                     }
-                    this.f68586a = this;
+                    this.f68897a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -150,7 +150,7 @@ public final class f {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
-                        if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68564i) {
+                        if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68875i) {
                             aVar.j();
                             return null;
                         }
@@ -189,7 +189,7 @@ public final class f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ f f68587a;
+                public final /* synthetic */ f f68898a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -206,7 +206,7 @@ public final class f {
                             return;
                         }
                     }
-                    this.f68587a = this;
+                    this.f68898a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -216,7 +216,7 @@ public final class f {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) {
-                        if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68564i) {
+                        if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68875i) {
                             aVar.j();
                             return null;
                         }
@@ -247,7 +247,7 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return "{serializeNulls:" + this.f68580e + ",factories:" + this.f68576a + ",instanceCreators:" + this.u + "}";
+            return "{serializeNulls:" + this.f68891e + ",factories:" + this.f68887a + ",instanceCreators:" + this.u + "}";
         }
         return (String) invokeV.objValue;
     }
@@ -258,7 +258,7 @@ public final class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public v<T> f68590a;
+        public v<T> f68901a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -277,8 +277,8 @@ public final class f {
         public void a(v<T> vVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vVar) == null) {
-                if (this.f68590a == null) {
-                    this.f68590a = vVar;
+                if (this.f68901a == null) {
+                    this.f68901a = vVar;
                     return;
                 }
                 throw new AssertionError();
@@ -290,7 +290,7 @@ public final class f {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-                v<T> vVar = this.f68590a;
+                v<T> vVar = this.f68901a;
                 if (vVar != null) {
                     return vVar.b(aVar);
                 }
@@ -303,7 +303,7 @@ public final class f {
         public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, t) == null) {
-                v<T> vVar = this.f68590a;
+                v<T> vVar = this.f68901a;
                 if (vVar != null) {
                     vVar.a(cVar, t);
                     return;
@@ -330,7 +330,7 @@ public final class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ v f68589a;
+            public final /* synthetic */ v f68900a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -347,7 +347,7 @@ public final class f {
                         return;
                     }
                 }
-                this.f68589a = vVar;
+                this.f68900a = vVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -358,7 +358,7 @@ public final class f {
                     cVar.b();
                     int length = atomicLongArray.length();
                     for (int i2 = 0; i2 < length; i2++) {
-                        this.f68589a.a(cVar, Long.valueOf(atomicLongArray.get(i2)));
+                        this.f68900a.a(cVar, Long.valueOf(atomicLongArray.get(i2)));
                     }
                     cVar.c();
                 }
@@ -374,7 +374,7 @@ public final class f {
                     ArrayList arrayList = new ArrayList();
                     aVar.a();
                     while (aVar.e()) {
-                        arrayList.add(Long.valueOf(((Number) this.f68589a.b(aVar)).longValue()));
+                        arrayList.add(Long.valueOf(((Number) this.f68900a.b(aVar)).longValue()));
                     }
                     aVar.b();
                     int size = arrayList.size();
@@ -393,7 +393,7 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uVar)) == null) {
-            if (uVar == u.f68605a) {
+            if (uVar == u.f68916a) {
                 return com.bytedance.sdk.openadsdk.preload.a.b.a.n.t;
             }
             return new v<Number>() { // from class: com.bytedance.sdk.openadsdk.preload.a.f.3
@@ -421,7 +421,7 @@ public final class f {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, aVar)) == null) {
-                        if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68564i) {
+                        if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68875i) {
                             aVar.j();
                             return null;
                         }
@@ -464,16 +464,16 @@ public final class f {
         }
         this.s = new ThreadLocal<>();
         this.t = new ConcurrentHashMap();
-        this.f68577b = dVar;
-        this.f68578c = eVar;
-        this.f68579d = map;
+        this.f68888b = dVar;
+        this.f68889c = eVar;
+        this.f68890d = map;
         this.u = new com.bytedance.sdk.openadsdk.preload.a.b.c(map);
-        this.f68580e = z;
-        this.f68581f = z2;
-        this.f68582g = z3;
-        this.f68583h = z4;
-        this.f68584i = z5;
-        this.f68585j = z6;
+        this.f68891e = z;
+        this.f68892f = z2;
+        this.f68893g = z3;
+        this.f68894h = z4;
+        this.f68895i = z5;
+        this.f68896j = z6;
         this.k = z7;
         this.o = uVar;
         this.l = str;
@@ -483,13 +483,13 @@ public final class f {
         this.q = list2;
         ArrayList arrayList = new ArrayList();
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.Y);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.h.f68381a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.h.f68692a);
         arrayList.add(dVar);
         arrayList.addAll(list3);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.D);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.m);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f68427g);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f68429i);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f68738g);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f68740i);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.k);
         v<Number> a2 = a(uVar);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(Long.TYPE, Long.class, a2));
@@ -512,14 +512,14 @@ public final class f {
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.R);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.W);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.N);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f68424d);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.c.f68361a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f68735d);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.c.f68672a);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.U);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.k.f68403a);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.j.f68401a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.k.f68714a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.j.f68712a);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.S);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.a.f68354a);
-        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f68422b);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.a.f68665a);
+        arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.f68733b);
         arrayList.add(new com.bytedance.sdk.openadsdk.preload.a.b.a.b(this.u));
         arrayList.add(new com.bytedance.sdk.openadsdk.preload.a.b.a.g(this.u, z2));
         com.bytedance.sdk.openadsdk.preload.a.b.a.d dVar2 = new com.bytedance.sdk.openadsdk.preload.a.b.a.d(this.u);
@@ -527,7 +527,7 @@ public final class f {
         arrayList.add(dVar2);
         arrayList.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.Z);
         arrayList.add(new com.bytedance.sdk.openadsdk.preload.a.b.a.i(this.u, eVar, dVar, this.v));
-        this.f68576a = Collections.unmodifiableList(arrayList);
+        this.f68887a = Collections.unmodifiableList(arrayList);
     }
 
     public static v<AtomicLong> a(v<Number> vVar) {
@@ -538,7 +538,7 @@ public final class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ v f68588a;
+            public final /* synthetic */ v f68899a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -555,7 +555,7 @@ public final class f {
                         return;
                     }
                 }
-                this.f68588a = vVar;
+                this.f68899a = vVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -563,7 +563,7 @@ public final class f {
             public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, AtomicLong atomicLong) throws IOException {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, atomicLong) == null) {
-                    this.f68588a.a(cVar, Long.valueOf(atomicLong.get()));
+                    this.f68899a.a(cVar, Long.valueOf(atomicLong.get()));
                 }
             }
 
@@ -573,7 +573,7 @@ public final class f {
             public AtomicLong b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, aVar)) == null) ? new AtomicLong(((Number) this.f68588a.b(aVar)).longValue()) : (AtomicLong) invokeL2.objValue;
+                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, aVar)) == null) ? new AtomicLong(((Number) this.f68899a.b(aVar)).longValue()) : (AtomicLong) invokeL2.objValue;
             }
         }.a() : (v) invokeL.objValue;
     }
@@ -603,7 +603,7 @@ public final class f {
             try {
                 a<?> aVar3 = new a<>();
                 map.put(aVar, aVar3);
-                for (w wVar : this.f68576a) {
+                for (w wVar : this.f68887a) {
                     v vVar2 = (v<T>) wVar.a(this, aVar);
                     if (vVar2 != null) {
                         aVar3.a((v<?>) vVar2);
@@ -626,11 +626,11 @@ public final class f {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, wVar, aVar)) == null) {
-            if (!this.f68576a.contains(wVar)) {
+            if (!this.f68887a.contains(wVar)) {
                 wVar = this.v;
             }
             boolean z = false;
-            for (w wVar2 : this.f68576a) {
+            for (w wVar2 : this.f68887a) {
                 if (z) {
                     v<T> a2 = wVar2.a(this, aVar);
                     if (a2 != null) {
@@ -656,7 +656,7 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
             if (obj == null) {
-                return a((l) n.f68602a);
+                return a((l) n.f68913a);
             }
             return a(obj, obj.getClass());
         }
@@ -692,9 +692,9 @@ public final class f {
             boolean g2 = cVar.g();
             cVar.b(true);
             boolean h2 = cVar.h();
-            cVar.c(this.f68583h);
+            cVar.c(this.f68894h);
             boolean i2 = cVar.i();
-            cVar.d(this.f68580e);
+            cVar.d(this.f68891e);
             try {
                 try {
                     try {
@@ -741,14 +741,14 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writer)) == null) {
-            if (this.f68582g) {
+            if (this.f68893g) {
                 writer.write(Gson.JSON_NON_EXECUTABLE_PREFIX);
             }
             com.bytedance.sdk.openadsdk.preload.a.d.c cVar = new com.bytedance.sdk.openadsdk.preload.a.d.c(writer);
-            if (this.f68584i) {
+            if (this.f68895i) {
                 cVar.c(GlideException.IndentedAppendable.INDENT);
             }
-            cVar.d(this.f68580e);
+            cVar.d(this.f68891e);
             return cVar;
         }
         return (com.bytedance.sdk.openadsdk.preload.a.d.c) invokeL.objValue;
@@ -759,7 +759,7 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reader)) == null) {
             com.bytedance.sdk.openadsdk.preload.a.d.a aVar = new com.bytedance.sdk.openadsdk.preload.a.d.a(reader);
-            aVar.a(this.f68585j);
+            aVar.a(this.f68896j);
             return aVar;
         }
         return (com.bytedance.sdk.openadsdk.preload.a.d.a) invokeL.objValue;
@@ -771,9 +771,9 @@ public final class f {
             boolean g2 = cVar.g();
             cVar.b(true);
             boolean h2 = cVar.h();
-            cVar.c(this.f68583h);
+            cVar.c(this.f68894h);
             boolean i2 = cVar.i();
-            cVar.d(this.f68580e);
+            cVar.d(this.f68891e);
             try {
                 try {
                     com.bytedance.sdk.openadsdk.preload.a.b.l.a(lVar, cVar);
@@ -822,7 +822,7 @@ public final class f {
             return;
         }
         try {
-            if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68565j) {
+            if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68876j) {
                 return;
             }
             throw new m("JSON document was not fully consumed.");

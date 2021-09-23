@@ -36,22 +36,22 @@ public class c extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f9018e;
+        public final /* synthetic */ f f9026e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9019f;
+        public final /* synthetic */ String f9027f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.l1.b f9020g;
+        public final /* synthetic */ c.a.p0.a.l1.b f9028g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f9021h;
+        public final /* synthetic */ String f9029h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ g f9022i;
+        public final /* synthetic */ g f9030i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c f9023j;
+        public final /* synthetic */ c f9031j;
 
         /* renamed from: c.a.p0.a.u.e.k.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -60,16 +60,16 @@ public class c extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ e f9024a;
+            public final /* synthetic */ e f9032a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f9025b;
+            public final /* synthetic */ String f9033b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ a.d f9026c;
+            public final /* synthetic */ a.d f9034c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ a f9027d;
+            public final /* synthetic */ a f9035d;
 
             public C0410a(a aVar, e eVar, String str, a.d dVar) {
                 Interceptable interceptable = $ic;
@@ -86,23 +86,23 @@ public class c extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f9027d = aVar;
-                this.f9024a = eVar;
-                this.f9025b = str;
-                this.f9026c = dVar;
+                this.f9035d = aVar;
+                this.f9032a = eVar;
+                this.f9033b = str;
+                this.f9034c = dVar;
             }
 
             @Override // c.a.p0.a.c2.f.p0.g.d
             public void a(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    i.d(this.f9027d.f9021h);
+                    i.d(this.f9035d.f9029h);
                     c.a.p0.a.e0.d.g("Api-RedirectTo", "check pages success");
-                    this.f9027d.f9018e.o();
-                    a aVar = this.f9027d;
-                    c.a.p0.a.c2.f.p0.a.m(aVar.f9023j, this.f9024a, this.f9025b, aVar.f9020g.f7236e, null, aVar.f9019f);
-                    a aVar2 = this.f9027d;
-                    aVar2.f9023j.v(this.f9026c, aVar2.f9020g, aVar2.f9022i, aVar2.f9021h);
+                    this.f9035d.f9026e.o();
+                    a aVar = this.f9035d;
+                    c.a.p0.a.c2.f.p0.a.m(aVar.f9031j, this.f9032a, this.f9033b, aVar.f9028g.f7244e, null, aVar.f9027f);
+                    a aVar2 = this.f9035d;
+                    aVar2.f9031j.v(this.f9034c, aVar2.f9028g, aVar2.f9030i, aVar2.f9029h);
                 }
             }
 
@@ -111,13 +111,13 @@ public class c extends c.a.p0.a.u.c.d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                     c.a.p0.a.e0.d.b("Api-RedirectTo", "check pages failed");
-                    this.f9027d.f9018e.o();
-                    if (c.a.p0.a.u.c.d.f8727c) {
-                        Context i3 = this.f9027d.f9023j.i();
+                    this.f9035d.f9026e.o();
+                    if (c.a.p0.a.u.c.d.f8735c) {
+                        Context i3 = this.f9035d.f9031j.i();
                         c.a.p0.a.z1.b.f.e.g(i3, i3.getString(h.aiapps_open_pages_failed) + i2).F();
                     }
-                    a aVar = this.f9027d;
-                    c.a.p0.a.c2.f.p0.a.k(aVar.f9023j, aVar.f9019f);
+                    a aVar = this.f9035d;
+                    c.a.p0.a.c2.f.p0.a.k(aVar.f9031j, aVar.f9027f);
                 }
             }
         }
@@ -137,38 +137,38 @@ public class c extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9023j = cVar;
-            this.f9018e = fVar;
-            this.f9019f = str;
-            this.f9020g = bVar;
-            this.f9021h = str2;
-            this.f9022i = gVar;
+            this.f9031j = cVar;
+            this.f9026e = fVar;
+            this.f9027f = str;
+            this.f9028g = bVar;
+            this.f9029h = str2;
+            this.f9030i = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean z = c.a.p0.a.u.c.d.f8727c;
-                SwanAppActivity activity = this.f9018e.getActivity();
+                boolean z = c.a.p0.a.u.c.d.f8735c;
+                SwanAppActivity activity = this.f9026e.getActivity();
                 if (activity != null && !activity.isFinishing()) {
                     a.d f2 = c.a.p0.a.h0.t.a.f(activity);
-                    String c2 = f2.f6437a.c();
-                    if (c.a.p0.a.u.c.d.f8727c) {
+                    String c2 = f2.f6445a.c();
+                    if (c.a.p0.a.u.c.d.f8735c) {
                         String str = "webview id: " + c2;
                     }
                     e i2 = e.i();
                     if (i2 == null) {
-                        if (!c.a.p0.a.u.c.d.f8727c) {
-                            this.f9023j.d(this.f9019f, new c.a.p0.a.u.h.b(1001, "swan app is null"));
+                        if (!c.a.p0.a.u.c.d.f8735c) {
+                            this.f9031j.d(this.f9027f, new c.a.p0.a.u.h.b(1001, "swan app is null"));
                             return;
                         }
                         throw new RuntimeException("swan app is null");
                     }
-                    this.f9018e.u();
-                    c.a.p0.a.c2.f.p0.g.g(i2, this.f9020g, c2, new C0410a(this, i2, c2, f2), this.f9021h);
-                } else if (!c.a.p0.a.u.c.d.f8727c) {
-                    this.f9023j.d(this.f9019f, new c.a.p0.a.u.h.b(1001, "swan activity is null"));
+                    this.f9026e.u();
+                    c.a.p0.a.c2.f.p0.g.g(i2, this.f9028g, c2, new C0410a(this, i2, c2, f2), this.f9029h);
+                } else if (!c.a.p0.a.u.c.d.f8735c) {
+                    this.f9031j.d(this.f9027f, new c.a.p0.a.u.h.b(1001, "swan activity is null"));
                 } else {
                     throw new RuntimeException("swan activity is null");
                 }
@@ -182,16 +182,16 @@ public class c extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.d f9028a;
+        public final /* synthetic */ a.d f9036a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f9029b;
+        public final /* synthetic */ String f9037b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.l1.b f9030c;
+        public final /* synthetic */ c.a.p0.a.l1.b f9038c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.g.g f9031d;
+        public final /* synthetic */ c.a.p0.a.h0.g.g f9039d;
 
         public b(c cVar, a.d dVar, String str, c.a.p0.a.l1.b bVar, c.a.p0.a.h0.g.g gVar) {
             Interceptable interceptable = $ic;
@@ -208,21 +208,21 @@ public class c extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9028a = dVar;
-            this.f9029b = str;
-            this.f9030c = bVar;
-            this.f9031d = gVar;
+            this.f9036a = dVar;
+            this.f9037b = str;
+            this.f9038c = bVar;
+            this.f9039d = gVar;
         }
 
         @Override // c.a.p0.a.h0.t.a.e
         public void onReady() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean z = c.a.p0.a.u.c.d.f8727c;
-                i.e(this.f9028a, this.f9029b);
-                c.a.p0.a.c2.f.p0.a.e(this.f9028a.f6437a, this.f9030c, this.f9029b);
-                c.u(this.f9031d, this.f9030c, this.f9029b, false);
-                boolean z2 = c.a.p0.a.u.c.d.f8727c;
+                boolean z = c.a.p0.a.u.c.d.f8735c;
+                i.e(this.f9036a, this.f9037b);
+                c.a.p0.a.c2.f.p0.a.e(this.f9036a.f6445a, this.f9038c, this.f9037b);
+                c.u(this.f9039d, this.f9038c, this.f9037b, false);
+                boolean z2 = c.a.p0.a.u.c.d.f8735c;
             }
         }
     }
@@ -278,15 +278,15 @@ public class c extends c.a.p0.a.u.c.d {
     public final void v(a.d dVar, c.a.p0.a.l1.b bVar, c.a.p0.a.h0.g.g gVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, dVar, bVar, gVar, str) == null) {
-            boolean z = dVar != null && dVar.f6438b;
+            boolean z = dVar != null && dVar.f6446b;
             HybridUbcFlow q = c.a.p0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
             q.C(new UbcFlowEvent("na_pre_load_slave_check"));
             q.A("preload", z ? "1" : "0");
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str2 = "tryToExecutePageRoute start. isReady : " + z;
             }
             c.a.p0.a.h0.t.a.n(dVar, new b(this, dVar, str, bVar, gVar));
-            boolean z2 = c.a.p0.a.u.c.d.f8727c;
+            boolean z2 = c.a.p0.a.u.c.d.f8735c;
         }
     }
 
@@ -294,7 +294,7 @@ public class c extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str2 = "handle: " + str;
             }
             String uuid = UUID.randomUUID().toString();
@@ -302,7 +302,7 @@ public class c extends c.a.p0.a.u.c.d {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-RedirectTo", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-RedirectTo", "parse fail");
                 }
                 return bVar;
@@ -320,15 +320,15 @@ public class c extends c.a.p0.a.u.c.d {
                 return new c.a.p0.a.u.h.b(1001, "manager is null");
             }
             c.a.p0.a.l1.b g2 = c.a.p0.a.l1.b.g(p, V.A());
-            c.a.p0.a.j2.h.f(g2.f7236e, "2");
+            c.a.p0.a.j2.h.f(g2.f7244e, "2");
             if (!q0.b(V.s(), g2, false)) {
-                String str3 = "page params error : path=" + g2.f7236e + " ; routePath=" + g2.f7239h;
+                String str3 = "page params error : path=" + g2.f7244e + " ; routePath=" + g2.f7247h;
                 c.a.p0.a.e0.d.b("Api-RedirectTo", str3);
                 return new c.a.p0.a.u.h.b(202, str3);
             }
             String optString = jSONObject.optString("initData");
-            if (!TextUtils.isEmpty(optString) && g2 != null && !TextUtils.isEmpty(g2.f7239h) && e.i() != null) {
-                e.i().x0(optString, g2.f7239h);
+            if (!TextUtils.isEmpty(optString) && g2 != null && !TextUtils.isEmpty(g2.f7247h) && e.i() != null) {
+                e.i().x0(optString, g2.f7247h);
             }
             String optString2 = jSONObject.optString("startTime");
             if (!TextUtils.isEmpty(optString2)) {

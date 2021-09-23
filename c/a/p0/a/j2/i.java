@@ -13,7 +13,7 @@ public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7005a;
+    public static final boolean f7013a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -22,7 +22,7 @@ public final class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.j2.p.d f7006e;
+        public final /* synthetic */ c.a.p0.a.j2.p.d f7014e;
 
         public a(c.a.p0.a.j2.p.d dVar) {
             Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public final class i {
                     return;
                 }
             }
-            this.f7006e = dVar;
+            this.f7014e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.k("671", this.f7006e.f());
+                b.k("671", this.f7014e.f());
             }
         }
     }
@@ -64,14 +64,14 @@ public final class i {
                 return;
             }
         }
-        f7005a = c.a.p0.a.k.f7077a;
+        f7013a = c.a.p0.a.k.f7085a;
     }
 
     public static void a(c.a.p0.n.f.d dVar, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{dVar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (dVar == null) {
-                boolean z2 = f7005a;
+                boolean z2 = f7013a;
                 return;
             }
             c.a.p0.a.q2.a aVar = new c.a.p0.a.q2.a();
@@ -85,7 +85,7 @@ public final class i {
                 dVar2.r(((c.a.p0.a.h0.m.g) dVar).G0());
             }
             b(dVar2);
-            if (f7005a) {
+            if (f7013a) {
                 String str = "Statis: Retry=" + z + ", Scene=" + dVar.getClass().getSimpleName();
             }
         }
@@ -95,7 +95,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, dVar) == null) {
             if (dVar == null) {
-                boolean z = f7005a;
+                boolean z = f7013a;
             } else {
                 q.j(new a(dVar), "SwanStabilityUBC");
             }

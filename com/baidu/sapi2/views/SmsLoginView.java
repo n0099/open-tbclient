@@ -32,6 +32,7 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
 import com.baidu.sapi2.callback.GetDynamicPwdCallback;
 import com.baidu.sapi2.callback.SmsViewLoginCallback;
+import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.DynamicPwdLoginResult;
 import com.baidu.sapi2.result.GetDynamicPwdResult;
 import com.baidu.sapi2.shell.result.WebAuthResult;
@@ -39,8 +40,7 @@ import com.baidu.sapi2.utils.PtokenStat;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,46 +55,46 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     public static final String q = "extrajson";
     public static final String r = "sdk_situation";
     public static final String s = "pop_login";
-    public static int smgLoginViewIndexStat = 0;
     public static final String t = "skipreg";
     public static final int u = 6;
+    public static String v;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f44956a;
+    public Context f45018a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f44957b;
+    public View f45019b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f44958c;
+    public View f45020c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EditText f44959d;
+    public EditText f45021d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f44960e;
+    public EditText f45022e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44961f;
+    public TextView f45023f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44962g;
+    public TextView f45024g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f44963h;
+    public View f45025h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f44964i;
+    public View f45026i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Dialog f44965j;
+    public Dialog f45027j;
     public CountDownTimer k;
     public String l;
     public boolean m;
     public boolean n;
     public PrivacyAgreementIntercept o;
-    public int p;
+    public SmsViewLoginCallback p;
 
     /* loaded from: classes5.dex */
     public class GetCheckCodeListener implements View.OnClickListener {
@@ -102,7 +102,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SmsLoginView f44966a;
+        public final /* synthetic */ SmsLoginView f45028a;
 
         /* loaded from: classes5.dex */
         public class a extends CountDownTimer {
@@ -110,7 +110,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ GetCheckCodeListener f44968a;
+            public final /* synthetic */ GetCheckCodeListener f45030a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(GetCheckCodeListener getCheckCodeListener, long j2, long j3) {
@@ -131,21 +131,21 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                         return;
                     }
                 }
-                this.f44968a = getCheckCodeListener;
+                this.f45030a = getCheckCodeListener;
             }
 
             @Override // android.os.CountDownTimer
             public void onFinish() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f44968a.f44966a.f44959d.getText().toString().length() == 11) {
-                        this.f44968a.f44966a.f44961f.setEnabled(true);
-                        this.f44968a.f44966a.f44961f.setText(g.sapi_sdk_sms_re_get_check_code);
-                        this.f44968a.f44966a.a(true);
+                    if (this.f45030a.f45028a.f45021d.getText().toString().length() == 11) {
+                        this.f45030a.f45028a.f45023f.setEnabled(true);
+                        this.f45030a.f45028a.f45023f.setText(g.sapi_sdk_sms_re_get_check_code);
+                        this.f45030a.f45028a.a(true);
                         return;
                     }
-                    this.f44968a.f44966a.f44961f.setText(g.sapi_sdk_sms_get_check_code);
-                    this.f44968a.f44966a.a(false);
+                    this.f45030a.f45028a.f45023f.setText(g.sapi_sdk_sms_get_check_code);
+                    this.f45030a.f45028a.a(false);
                 }
             }
 
@@ -153,10 +153,10 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
             public void onTick(long j2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                    TextView textView = this.f44968a.f44966a.f44961f;
-                    textView.setText((j2 / 1000) + this.f44968a.f44966a.f44956a.getString(g.sapi_sdk_sms_second));
-                    this.f44968a.f44966a.f44961f.setEnabled(false);
-                    this.f44968a.f44966a.a(false);
+                    TextView textView = this.f45030a.f45028a.f45023f;
+                    textView.setText((j2 / 1000) + this.f45030a.f45028a.f45018a.getString(g.sapi_sdk_sms_second));
+                    this.f45030a.f45028a.f45023f.setEnabled(false);
+                    this.f45030a.f45028a.a(false);
                 }
             }
         }
@@ -176,24 +176,24 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                     return;
                 }
             }
-            this.f44966a = smsLoginView;
+            this.f45028a = smsLoginView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if ((this.f44966a.o == null || this.f44966a.o.across(1)) && this.f44966a.f44959d.getText().toString().length() == 11) {
-                    SmsLoginView smsLoginView = this.f44966a;
-                    smsLoginView.m = smsLoginView.f44961f.getText().toString().equals(this.f44966a.f44956a.getString(g.sapi_sdk_sms_get_check_code));
-                    this.f44966a.f44962g.setVisibility(8);
-                    this.f44966a.f44962g.setText("");
-                    this.f44966a.f44960e.requestFocus();
-                    this.f44966a.k = new a(this, 60000L, 1000L);
-                    this.f44966a.k.start();
-                    SmsLoginView smsLoginView2 = this.f44966a;
-                    smsLoginView2.l = smsLoginView2.f44959d.getText().toString();
-                    String smsLoginStatExtra = CoreViewRouter.getInstance().getSmsLoginStatExtra();
+                if ((this.f45028a.o == null || this.f45028a.o.across(1)) && this.f45028a.f45021d.getText().toString().length() == 11) {
+                    SmsLoginView smsLoginView = this.f45028a;
+                    smsLoginView.m = smsLoginView.f45023f.getText().toString().equals(this.f45028a.f45018a.getString(g.sapi_sdk_sms_get_check_code));
+                    this.f45028a.f45024g.setVisibility(8);
+                    this.f45028a.f45024g.setText("");
+                    this.f45028a.f45022e.requestFocus();
+                    this.f45028a.k = new a(this, 60000L, 1000L);
+                    this.f45028a.k.start();
+                    SmsLoginView smsLoginView2 = this.f45028a;
+                    smsLoginView2.l = smsLoginView2.f45021d.getText().toString();
+                    String smsLoginStatExtra = SmsLoginView.getSmsLoginStatExtra();
                     HashMap hashMap = new HashMap();
                     if (SapiUtils.statExtraValid(smsLoginStatExtra)) {
                         hashMap.put("extrajson", smsLoginStatExtra);
@@ -205,7 +205,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ GetCheckCodeListener f44967a;
+                        public final /* synthetic */ GetCheckCodeListener f45029a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -222,7 +222,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                                     return;
                                 }
                             }
-                            this.f44967a = this;
+                            this.f45029a = this;
                         }
 
                         public void onFinish() {
@@ -241,21 +241,21 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                         public void onCaptchaRequired(GetDynamicPwdResult getDynamicPwdResult) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, getDynamicPwdResult) == null) {
-                                if (this.f44967a.f44966a.m) {
-                                    SmsLoginView.b(f.f44979f, getDynamicPwdResult.getResultCode() + "");
+                                if (this.f45029a.f45028a.m) {
+                                    SmsLoginView.b(f.f45041f, getDynamicPwdResult.getResultCode() + "");
                                 } else {
-                                    SmsLoginView.b(f.f44982i, getDynamicPwdResult.getResultCode() + "");
+                                    SmsLoginView.b(f.f45044i, getDynamicPwdResult.getResultCode() + "");
                                 }
-                                if (this.f44967a.f44966a.k != null) {
-                                    this.f44967a.f44966a.k.cancel();
+                                if (this.f45029a.f45028a.k != null) {
+                                    this.f45029a.f45028a.k.cancel();
                                 }
                                 WebAuthResult webAuthResult = new WebAuthResult();
                                 webAuthResult.setResultCode(getDynamicPwdResult.getResultCode());
                                 webAuthResult.setResultMsg(getDynamicPwdResult.getResultMsg());
-                                SapiAccountManager.getInstance().getConfignation().presetPhoneNumber = this.f44967a.f44966a.l;
-                                SmsViewLoginCallback smsViewLoginCallback = this.f44967a.f44966a.getSmsViewLoginCallback();
+                                SapiAccountManager.getInstance().getConfignation().presetPhoneNumber = this.f45029a.f45028a.l;
+                                SmsViewLoginCallback smsViewLoginCallback = this.f45029a.f45028a.getSmsViewLoginCallback();
                                 if (smsViewLoginCallback != null) {
-                                    this.f44967a.f44966a.l = "";
+                                    this.f45029a.f45028a.l = "";
                                     smsViewLoginCallback.onNeedBack(webAuthResult);
                                 }
                             }
@@ -265,30 +265,30 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                         public void onFailure(GetDynamicPwdResult getDynamicPwdResult) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, getDynamicPwdResult) == null) {
-                                if (this.f44967a.f44966a.m) {
-                                    SmsLoginView.b(f.f44979f, getDynamicPwdResult.getResultCode() + "");
-                                    this.f44967a.f44966a.f44961f.setText(g.sapi_sdk_sms_get_check_code);
+                                if (this.f45029a.f45028a.m) {
+                                    SmsLoginView.b(f.f45041f, getDynamicPwdResult.getResultCode() + "");
+                                    this.f45029a.f45028a.f45023f.setText(g.sapi_sdk_sms_get_check_code);
                                 } else {
-                                    SmsLoginView.b(f.f44982i, getDynamicPwdResult.getResultCode() + "");
-                                    this.f44967a.f44966a.f44961f.setText(g.sapi_sdk_sms_re_get_check_code);
+                                    SmsLoginView.b(f.f45044i, getDynamicPwdResult.getResultCode() + "");
+                                    this.f45029a.f45028a.f45023f.setText(g.sapi_sdk_sms_re_get_check_code);
                                 }
-                                if (this.f44967a.f44966a.k != null) {
-                                    this.f44967a.f44966a.k.cancel();
+                                if (this.f45029a.f45028a.k != null) {
+                                    this.f45029a.f45028a.k.cancel();
                                 }
-                                this.f44967a.f44966a.f44961f.setEnabled(true);
-                                this.f44967a.f44966a.a(true);
+                                this.f45029a.f45028a.f45023f.setEnabled(true);
+                                this.f45029a.f45028a.a(true);
                                 if (getDynamicPwdResult.noNeedBack) {
-                                    this.f44967a.f44966a.f44962g.setText(getDynamicPwdResult.getResultMsg());
-                                    this.f44967a.f44966a.f44962g.setVisibility(0);
+                                    this.f45029a.f45028a.f45024g.setText(getDynamicPwdResult.getResultMsg());
+                                    this.f45029a.f45028a.f45024g.setVisibility(0);
                                     return;
                                 }
                                 WebAuthResult webAuthResult = new WebAuthResult();
                                 webAuthResult.setResultCode(getDynamicPwdResult.getResultCode());
                                 webAuthResult.setResultMsg(getDynamicPwdResult.getResultMsg());
-                                SapiAccountManager.getInstance().getConfignation().presetPhoneNumber = this.f44967a.f44966a.l;
-                                SmsViewLoginCallback smsViewLoginCallback = this.f44967a.f44966a.getSmsViewLoginCallback();
+                                SapiAccountManager.getInstance().getConfignation().presetPhoneNumber = this.f45029a.f45028a.l;
+                                SmsViewLoginCallback smsViewLoginCallback = this.f45029a.f45028a.getSmsViewLoginCallback();
                                 if (smsViewLoginCallback != null) {
-                                    this.f44967a.f44966a.l = "";
+                                    this.f45029a.f45028a.l = "";
                                     smsViewLoginCallback.onNeedBack(webAuthResult);
                                 }
                             }
@@ -298,18 +298,18 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                         public void onSuccess(GetDynamicPwdResult getDynamicPwdResult) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048582, this, getDynamicPwdResult) == null) {
-                                if (this.f44967a.f44966a.m) {
-                                    SmsLoginView.b(f.f44978e, (String) null);
+                                if (this.f45029a.f45028a.m) {
+                                    SmsLoginView.b(f.f45040e, (String) null);
                                 } else {
-                                    SmsLoginView.b(f.f44981h, (String) null);
+                                    SmsLoginView.b(f.f45043h, (String) null);
                                 }
                             }
                         }
-                    }, this.f44966a.l, null, hashMap);
-                    if (this.f44966a.m) {
-                        SmsLoginView.b(f.f44977d, (String) null);
+                    }, this.f45028a.l, null, hashMap);
+                    if (this.f45028a.m) {
+                        SmsLoginView.b(f.f45039d, (String) null);
                     } else {
-                        SmsLoginView.b(f.f44980g, (String) null);
+                        SmsLoginView.b(f.f45042g, (String) null);
                     }
                 }
             }
@@ -334,7 +334,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SmsLoginView f44969a;
+        public final /* synthetic */ SmsLoginView f45031a;
 
         public a(SmsLoginView smsLoginView) {
             Interceptable interceptable = $ic;
@@ -351,17 +351,17 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                     return;
                 }
             }
-            this.f44969a = smsLoginView;
+            this.f45031a = smsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44969a.f44960e.requestFocus();
-                InputMethodManager inputMethodManager = (InputMethodManager) this.f44969a.f44956a.getSystemService("input_method");
+                this.f45031a.f45022e.requestFocus();
+                InputMethodManager inputMethodManager = (InputMethodManager) this.f45031a.f45018a.getSystemService("input_method");
                 if (inputMethodManager != null) {
-                    inputMethodManager.showSoftInput(this.f44969a.f44959d, 0);
+                    inputMethodManager.showSoftInput(this.f45031a.f45021d, 0);
                 }
             }
         }
@@ -373,7 +373,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SmsLoginView f44970a;
+        public final /* synthetic */ SmsLoginView f45032a;
 
         public b(SmsLoginView smsLoginView) {
             Interceptable interceptable = $ic;
@@ -390,7 +390,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                     return;
                 }
             }
-            this.f44970a = smsLoginView;
+            this.f45032a = smsLoginView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -404,20 +404,20 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                 webAuthResult.setResultCode(dynamicPwdLoginResult.getResultCode());
                 webAuthResult.setResultMsg(dynamicPwdLoginResult.getResultMsg());
                 if (dynamicPwdLoginResult.noNeedBack) {
-                    this.f44970a.f44962g.setText(dynamicPwdLoginResult.getResultMsg());
-                    this.f44970a.f44962g.setVisibility(0);
-                    this.f44970a.f44960e.setText("");
-                    SmsViewLoginCallback smsViewLoginCallback = this.f44970a.getSmsViewLoginCallback();
+                    this.f45032a.f45024g.setText(dynamicPwdLoginResult.getResultMsg());
+                    this.f45032a.f45024g.setVisibility(0);
+                    this.f45032a.f45022e.setText("");
+                    SmsViewLoginCallback smsViewLoginCallback = this.f45032a.getSmsViewLoginCallback();
                     if (smsViewLoginCallback != null) {
                         smsViewLoginCallback.onFailure(webAuthResult);
                         return;
                     }
                     return;
                 }
-                SapiAccountManager.getInstance().getConfignation().presetPhoneNumber = this.f44970a.l;
-                SmsViewLoginCallback smsViewLoginCallback2 = this.f44970a.getSmsViewLoginCallback();
+                SapiAccountManager.getInstance().getConfignation().presetPhoneNumber = this.f45032a.l;
+                SmsViewLoginCallback smsViewLoginCallback2 = this.f45032a.getSmsViewLoginCallback();
                 if (smsViewLoginCallback2 != null) {
-                    this.f44970a.l = "";
+                    this.f45032a.l = "";
                     smsViewLoginCallback2.onNeedBack(webAuthResult);
                 }
             }
@@ -434,10 +434,10 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                 webAuthResult.setResultCode(dynamicPwdLoginResult.getResultCode());
                 webAuthResult.setResultMsg(dynamicPwdLoginResult.getResultMsg());
                 webAuthResult.accountType = AccountType.NORMAL;
-                SmsViewLoginCallback smsViewLoginCallback = this.f44970a.getSmsViewLoginCallback();
+                SmsViewLoginCallback smsViewLoginCallback = this.f45032a.getSmsViewLoginCallback();
                 if (smsViewLoginCallback != null) {
-                    SapiContext.getInstance().putEncryptStr(SapiContext.KEY_LAST_LOGIN_PHONE, this.f44970a.l);
-                    SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, "sms");
+                    SapiContext.getInstance().putEncryptStr(SapiContext.KEY_LAST_LOGIN_PHONE, this.f45032a.l);
+                    SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.SMS.getName());
                     smsViewLoginCallback.onSuccess(webAuthResult);
                 }
                 new PtokenStat().onEvent(PtokenStat.LOGIN_POP);
@@ -448,7 +448,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f44970a.a();
+                this.f45032a.b();
             }
         }
 
@@ -456,7 +456,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f44970a.b();
+                this.f45032a.c();
             }
         }
     }
@@ -467,7 +467,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SmsLoginView f44971a;
+        public final /* synthetic */ SmsLoginView f45033a;
 
         public c(SmsLoginView smsLoginView) {
             Interceptable interceptable = $ic;
@@ -484,7 +484,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                     return;
                 }
             }
-            this.f44971a = smsLoginView;
+            this.f45033a = smsLoginView;
         }
 
         @Override // android.text.TextWatcher
@@ -507,15 +507,14 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
                 int length = charSequence.toString().length();
                 if (length == 0) {
-                    this.f44971a.f44960e.setGravity(19);
-                } else if (length != 1) {
-                    if (length == 6 && !TextUtils.isEmpty(this.f44971a.l)) {
-                        this.f44971a.c();
-                    }
+                    this.f45033a.f45022e.setGravity(19);
+                } else if (1 == length) {
+                    this.f45033a.f45024g.setText("");
+                    this.f45033a.f45024g.setVisibility(8);
+                    this.f45033a.f45022e.setGravity(17);
+                } else if (length != SapiAccountManager.getInstance().getSmsCodeLength() || TextUtils.isEmpty(this.f45033a.l)) {
                 } else {
-                    this.f44971a.f44962g.setText("");
-                    this.f44971a.f44962g.setVisibility(8);
-                    this.f44971a.f44960e.setGravity(17);
+                    this.f45033a.d();
                 }
             }
         }
@@ -531,7 +530,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SmsLoginView f44972a;
+        public final /* synthetic */ SmsLoginView f45034a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(SmsLoginView smsLoginView, Context context) {
@@ -552,7 +551,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                     return;
                 }
             }
-            this.f44972a = smsLoginView;
+            this.f45034a = smsLoginView;
             setCancelable(false);
             setCanceledOnTouchOutside(false);
             setContentView(new TextView(context));
@@ -566,7 +565,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SmsLoginView f44973a;
+        public final /* synthetic */ SmsLoginView f45035a;
 
         public e(SmsLoginView smsLoginView) {
             Interceptable interceptable = $ic;
@@ -583,7 +582,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                     return;
                 }
             }
-            this.f44973a = smsLoginView;
+            this.f45035a = smsLoginView;
         }
 
         @Override // android.text.TextWatcher
@@ -606,45 +605,45 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
                 int length = charSequence.toString().length();
                 if (length == 0) {
-                    SmsViewLoginCallback smsViewLoginCallback = this.f44973a.getSmsViewLoginCallback();
+                    SmsViewLoginCallback smsViewLoginCallback = this.f45035a.getSmsViewLoginCallback();
                     if (smsViewLoginCallback != null) {
                         smsViewLoginCallback.onCheckCodeViewHide();
                     }
-                    this.f44973a.f44958c.setVisibility(8);
-                    this.f44973a.f44962g.setVisibility(8);
-                    this.f44973a.f44962g.setText("");
-                    this.f44973a.f44959d.setGravity(19);
-                } else if (this.f44973a.f44958c.getVisibility() != 0) {
-                    SmsViewLoginCallback smsViewLoginCallback2 = this.f44973a.getSmsViewLoginCallback();
+                    this.f45035a.f45020c.setVisibility(8);
+                    this.f45035a.f45024g.setVisibility(8);
+                    this.f45035a.f45024g.setText("");
+                    this.f45035a.f45021d.setGravity(19);
+                } else if (this.f45035a.f45020c.getVisibility() != 0) {
+                    SmsViewLoginCallback smsViewLoginCallback2 = this.f45035a.getSmsViewLoginCallback();
                     if (smsViewLoginCallback2 != null) {
                         smsViewLoginCallback2.onCheckCodeViewShow();
                     }
-                    this.f44973a.f44958c.setVisibility(0);
-                    this.f44973a.f44959d.setGravity(17);
+                    this.f45035a.f45020c.setVisibility(0);
+                    this.f45035a.f45021d.setGravity(17);
                 }
                 if (length == 10) {
-                    if (TextUtils.isEmpty(this.f44973a.l)) {
-                        this.f44973a.f44961f.setText(g.sapi_sdk_sms_get_check_code);
-                        this.f44973a.a(false);
-                        this.f44973a.f44962g.setVisibility(8);
-                        this.f44973a.f44962g.setText("");
-                        this.f44973a.f44961f.setEnabled(false);
+                    if (TextUtils.isEmpty(this.f45035a.l)) {
+                        this.f45035a.f45023f.setText(g.sapi_sdk_sms_get_check_code);
+                        this.f45035a.a(false);
+                        this.f45035a.f45024g.setVisibility(8);
+                        this.f45035a.f45024g.setText("");
+                        this.f45035a.f45023f.setEnabled(false);
                     }
                 } else if (length == 11) {
-                    if (!this.f44973a.f44959d.getText().toString().equals(this.f44973a.l)) {
-                        if (this.f44973a.k != null) {
-                            this.f44973a.k.cancel();
+                    if (!this.f45035a.f45021d.getText().toString().equals(this.f45035a.l)) {
+                        if (this.f45035a.k != null) {
+                            this.f45035a.k.cancel();
                         }
-                        this.f44973a.f44961f.setText(g.sapi_sdk_sms_get_check_code);
-                        this.f44973a.a(true);
+                        this.f45035a.f45023f.setText(g.sapi_sdk_sms_get_check_code);
+                        this.f45035a.a(true);
                         if (SapiUtils.validateMobile(charSequence.toString())) {
-                            this.f44973a.f44961f.setEnabled(true);
+                            this.f45035a.f45023f.setEnabled(true);
                         } else {
-                            this.f44973a.f44962g.setVisibility(0);
-                            this.f44973a.f44962g.setText(g.sapi_sdk_sms_prompt_phone_number_error);
+                            this.f45035a.f45024g.setVisibility(0);
+                            this.f45035a.f45024g.setText(g.sapi_sdk_sms_prompt_phone_number_error);
                         }
                     }
-                    SmsLoginView.b(f.f44976c, (String) null);
+                    SmsLoginView.b(f.f45038c, (String) null);
                 }
             }
         }
@@ -658,51 +657,36 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     public interface f {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f44974a = "pop_login";
+        public static final String f45036a = "pop_login";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f44975b = "show";
+        public static final String f45037b = "show";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f44976c = "input_phone";
+        public static final String f45038c = "input_phone";
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f44977d = "first_get_dpass";
+        public static final String f45039d = "first_get_dpass";
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f44978e = "first_get_dpass_success";
+        public static final String f45040e = "first_get_dpass_success";
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f44979f = "first_get_dpass_failure";
+        public static final String f45041f = "first_get_dpass_failure";
 
         /* renamed from: g  reason: collision with root package name */
-        public static final String f44980g = "get_dpass_again";
+        public static final String f45042g = "get_dpass_again";
 
         /* renamed from: h  reason: collision with root package name */
-        public static final String f44981h = "get_dpass_again_success";
+        public static final String f45043h = "get_dpass_again_success";
 
         /* renamed from: i  reason: collision with root package name */
-        public static final String f44982i = "get_dpass_again_failure";
+        public static final String f45044i = "get_dpass_again_failure";
 
         /* renamed from: j  reason: collision with root package name */
-        public static final String f44983j = "verify";
+        public static final String f45045j = "verify";
         public static final String k = "success";
         public static final String l = "failure";
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(652276083, "Lcom/baidu/sapi2/views/SmsLoginView;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(652276083, "Lcom/baidu/sapi2/views/SmsLoginView;");
-        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -713,29 +697,48 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+    }
+
+    public static String getSmsLoginStatExtra() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+            if (v == null) {
+                v = CoreViewRouter.getInstance().getSmsLoginStatExtra();
+            }
+            return WebLoginDTO.getStatExtraDecode(v);
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public SmsViewLoginCallback getSmsViewLoginCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) ? CoreViewRouter.getInstance().getSmsViewLoginCallback(getSmsLoginViewIndex()) : (SmsViewLoginCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, this)) == null) {
+            if (this.p == null) {
+                this.p = CoreViewRouter.getInstance().getSmsViewLoginCallback();
+                CoreViewRouter.getInstance().releaseSmsViewLoginCallback();
+            }
+            return this.p;
+        }
+        return (SmsViewLoginCallback) invokeV.objValue;
     }
 
     public static void notifyStartLogin() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65567, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65568, null) == null) {
             b("show", (String) null);
         }
     }
@@ -743,13 +746,13 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     public void clean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f44960e.setText("");
-            this.f44959d.setText("");
+            this.f45022e.setText("");
+            this.f45021d.setText("");
             CountDownTimer countDownTimer = this.k;
             if (countDownTimer != null) {
                 countDownTimer.cancel();
             }
-            this.f44961f.setText(g.sapi_sdk_sms_get_check_code);
+            this.f45023f.setText(g.sapi_sdk_sms_get_check_code);
             a(false);
         }
     }
@@ -765,32 +768,33 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         }
     }
 
-    public int getSmsLoginViewIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.p : invokeV.intValue;
-    }
-
     public void setDarkMode(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && this.n == (!z)) {
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.n == (!z)) {
             this.n = z;
-            d();
+            e();
             a(false);
         }
     }
 
     public void setSendVerificationCodeIntercept(PrivacyAgreementIntercept privacyAgreementIntercept) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, privacyAgreementIntercept) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, privacyAgreementIntercept) == null) {
             this.o = privacyAgreementIntercept;
         }
     }
 
-    public void setSmsLoginViewIndex(int i2) {
+    public void setSmsLoginStatExtra(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.p = i2;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            v = str;
+        }
+    }
+
+    public void setSmsViewLoginCallback(SmsViewLoginCallback smsViewLoginCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, smsViewLoginCallback) == null) {
+            this.p = smsViewLoginCallback;
         }
     }
 
@@ -798,12 +802,12 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         EditText editText;
         Editable text;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (editText = this.f44960e) == null || (text = editText.getText()) == null || text.toString().length() < 6) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (editText = this.f45022e) == null || (text = editText.getText()) == null || text.toString().length() < 6) {
             return;
         }
         PrivacyAgreementIntercept privacyAgreementIntercept = this.o;
         if (privacyAgreementIntercept == null || privacyAgreementIntercept.across(2)) {
-            c();
+            d();
         }
     }
 
@@ -815,14 +819,14 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -831,48 +835,59 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
+            this.f45026i.setVisibility(0);
+            d dVar = new d(this, this.f45018a);
+            this.f45027j = dVar;
+            dVar.show();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
             PrivacyAgreementIntercept privacyAgreementIntercept = this.o;
             if (privacyAgreementIntercept == null || privacyAgreementIntercept.across(2)) {
-                String obj = this.f44960e.getText().toString();
-                String smsLoginStatExtra = CoreViewRouter.getInstance().getSmsLoginStatExtra();
+                String obj = this.f45022e.getText().toString();
+                String smsLoginStatExtra = getSmsLoginStatExtra();
                 HashMap hashMap = new HashMap();
                 if (SapiUtils.statExtraValid(smsLoginStatExtra)) {
                     hashMap.put("extrajson", smsLoginStatExtra);
                 }
                 hashMap.put(r, "pop_login");
                 SapiAccountManager.getInstance().getAccountService().dynamicPwdLogin(new b(this), this.l, obj, hashMap);
-                b(f.f44983j, (String) null);
+                b(f.f45045j, (String) null);
             }
         }
     }
 
-    private void d() {
+    private void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
             try {
                 if (this.n) {
-                    this.f44957b.setBackgroundColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_bg_night_mode));
-                    this.f44959d.setTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_phone_text_color_night_mode));
-                    this.f44959d.setHintTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_hint_color_night_mode));
-                    this.f44960e.setTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_check_code_text_color_night_mode));
-                    this.f44960e.setHintTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_check_code_hint_text_color_night_mode));
-                    this.f44962g.setTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_prompt_phone_number_error_color_night_mode));
-                    this.f44963h.setBackgroundColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_separate_line_color_night_mode));
+                    this.f45019b.setBackgroundColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_bg_night_mode));
+                    this.f45021d.setTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_phone_text_color_night_mode));
+                    this.f45021d.setHintTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_hint_color_night_mode));
+                    this.f45022e.setTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_check_code_text_color_night_mode));
+                    this.f45022e.setHintTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_check_code_hint_text_color_night_mode));
+                    this.f45024g.setTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_prompt_phone_number_error_color_night_mode));
+                    this.f45025h.setBackgroundColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_separate_line_color_night_mode));
                     Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
                     declaredField.setAccessible(true);
-                    declaredField.set(this.f44960e, Integer.valueOf(c.a.c0.a.d.sapi_sdk_input_edit_text_cursor_bg_night));
+                    declaredField.set(this.f45022e, Integer.valueOf(c.a.c0.a.d.sapi_sdk_input_edit_text_cursor_bg_night));
                 } else {
-                    this.f44957b.setBackgroundColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_bg_light_mode));
-                    this.f44959d.setTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_phone_text_color));
-                    this.f44959d.setHintTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_hint_color));
-                    this.f44960e.setTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_check_code_text_color));
-                    this.f44960e.setHintTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_check_code_hint_text_color));
-                    this.f44962g.setTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_prompt_phone_number_error_color));
-                    this.f44963h.setBackgroundColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_separate_line_color));
+                    this.f45019b.setBackgroundColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_bg_light_mode));
+                    this.f45021d.setTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_phone_text_color));
+                    this.f45021d.setHintTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_hint_color));
+                    this.f45022e.setTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_check_code_text_color));
+                    this.f45022e.setHintTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_edit_check_code_hint_text_color));
+                    this.f45024g.setTextColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_prompt_phone_number_error_color));
+                    this.f45025h.setBackgroundColor(getResources().getColor(c.a.c0.a.b.sapi_sdk_separate_line_color));
                     Field declaredField2 = TextView.class.getDeclaredField("mCursorDrawableRes");
                     declaredField2.setAccessible(true);
-                    declaredField2.set(this.f44960e, Integer.valueOf(c.a.c0.a.d.sapi_sdk_input_edit_text_cursor_bg));
+                    declaredField2.set(this.f45022e, Integer.valueOf(c.a.c0.a.d.sapi_sdk_input_edit_text_cursor_bg));
                 }
             } catch (Exception unused) {
             }
@@ -888,38 +903,37 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65539, newInitContext);
+            interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         boolean z = true;
         this.m = true;
-        this.p = -1;
-        this.f44956a = context;
-        this.f44957b = LayoutInflater.from(context).inflate(c.a.c0.a.f.layout_sapi_sdk_sms_login_view, (ViewGroup) this, true);
+        this.f45018a = context;
+        this.f45019b = LayoutInflater.from(context).inflate(c.a.c0.a.f.layout_sapi_sdk_sms_login_view, (ViewGroup) this, true);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.sapi_sdk_sms_login_view, i2, 0);
         boolean z2 = obtainStyledAttributes.getBoolean(i.sapi_sdk_sms_login_view_sapi_sdk_show_keyboard, false);
         obtainStyledAttributes.recycle();
-        this.f44958c = this.f44957b.findViewById(c.a.c0.a.e.code_container);
-        this.f44959d = (EditText) this.f44957b.findViewById(c.a.c0.a.e.phone);
-        this.f44964i = this.f44957b.findViewById(c.a.c0.a.e.loading_container);
-        this.f44960e = (EditText) this.f44957b.findViewById(c.a.c0.a.e.check_code);
-        this.f44961f = (TextView) this.f44957b.findViewById(c.a.c0.a.e.get_code);
-        this.f44962g = (TextView) this.f44957b.findViewById(c.a.c0.a.e.prompt);
-        this.f44963h = this.f44957b.findViewById(c.a.c0.a.e.separate_line);
-        a(this.f44959d, context.getString(g.sapi_sdk_sms_hint_input_phone));
-        a(this.f44960e, context.getString(g.sapi_sdk_sms_hint_input_check_code));
-        this.f44959d.addTextChangedListener(new e(this, null));
-        this.f44960e.addTextChangedListener(new c(this, null));
-        this.f44961f.setEnabled(false);
-        this.f44961f.setOnClickListener(new GetCheckCodeListener(this, null));
+        this.f45020c = this.f45019b.findViewById(c.a.c0.a.e.code_container);
+        this.f45021d = (EditText) this.f45019b.findViewById(c.a.c0.a.e.phone);
+        this.f45026i = this.f45019b.findViewById(c.a.c0.a.e.loading_container);
+        this.f45022e = (EditText) this.f45019b.findViewById(c.a.c0.a.e.check_code);
+        this.f45023f = (TextView) this.f45019b.findViewById(c.a.c0.a.e.get_code);
+        this.f45024g = (TextView) this.f45019b.findViewById(c.a.c0.a.e.prompt);
+        this.f45025h = this.f45019b.findViewById(c.a.c0.a.e.separate_line);
+        a(this.f45021d, context.getString(g.sapi_sdk_sms_hint_input_phone));
+        a(this.f45022e, context.getString(g.sapi_sdk_sms_hint_input_check_code));
+        this.f45021d.addTextChangedListener(new e(this, null));
+        this.f45022e.addTextChangedListener(new c(this, null));
+        this.f45023f.setEnabled(false);
+        this.f45023f.setOnClickListener(new GetCheckCodeListener(this, null));
         if (SapiAccountManager.getInstance().getSapiConfiguration() != null) {
             if (!SapiAccountManager.getInstance().getSapiConfiguration().isNightMode && !SapiAccountManager.getInstance().getSapiConfiguration().isDarkMode) {
                 z = false;
@@ -928,37 +942,50 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         } else {
             this.n = false;
         }
-        d();
+        e();
         if (z2) {
             new Handler().postDelayed(new a(this), 100L);
         }
         SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
         if (sapiConfiguration != null) {
-            ViewUtility.enlargedViews(this.f44959d, sapiConfiguration.textZoom);
-            ViewUtility.enlargedViews(this.f44960e, sapiConfiguration.textZoom);
-            ViewUtility.enlargedViews(this.f44961f, (sapiConfiguration.textZoom * 100) / 120);
-            ViewUtility.enlargedOtherView(this.f44961f, (sapiConfiguration.textZoom * 100) / 120);
-            ViewUtility.enlargedViews(this.f44962g, sapiConfiguration.textZoom);
+            ViewUtility.enlargedViews(this.f45021d, sapiConfiguration.textZoom);
+            ViewUtility.enlargedViews(this.f45022e, sapiConfiguration.textZoom);
+            ViewUtility.enlargedViews(this.f45023f, (sapiConfiguration.textZoom * 100) / 120);
+            ViewUtility.enlargedOtherView(this.f45023f, (sapiConfiguration.textZoom * 100) / 120);
+            ViewUtility.enlargedViews(this.f45024g, sapiConfiguration.textZoom);
         }
-        if (SapiUtils.getLastLoginType() != 2) {
+        if (SapiUtils.getLastLoginType() != Enums.LastLoginType.SMS.getValue()) {
             return;
         }
         String decryptStr = SapiContext.getInstance().getDecryptStr(SapiContext.KEY_LAST_LOGIN_PHONE);
         if (TextUtils.isEmpty(decryptStr) || decryptStr.length() != 11) {
             return;
         }
-        this.f44959d.setText(decryptStr);
-        this.f44959d.setSelection(decryptStr.length());
+        this.f45021d.setText(decryptStr);
+        this.f45021d.setSelection(decryptStr.length());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            this.f44964i.setVisibility(0);
-            d dVar = new d(this, this.f44956a);
-            this.f44965j = dVar;
-            dVar.show();
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            this.f45026i.setVisibility(8);
+            try {
+                this.f45027j.dismiss();
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap(2);
+            linkedHashMap.put("pop_login", str);
+            HashMap hashMap = new HashMap(1);
+            hashMap.put("extrajson", getSmsLoginStatExtra());
+            hashMap.put("errno", str2);
+            StatService.onEventAutoStatistic(linkedHashMap, hashMap);
         }
     }
 
@@ -966,7 +993,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     public void a(boolean z) {
         int color;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65546, this, z) == null) {
             getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_get_code_text_color);
             int i2 = -1;
             if (this.n) {
@@ -981,43 +1008,19 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
             } else {
                 color = getResources().getColor(c.a.c0.a.b.sapi_sdk_sms_get_code_disable_color);
             }
-            GradientDrawable gradientDrawable = (GradientDrawable) this.f44961f.getBackground();
+            GradientDrawable gradientDrawable = (GradientDrawable) this.f45023f.getBackground();
             gradientDrawable.setStroke(SapiUtils.dip2px(getContext(), 0.5f), color);
             gradientDrawable.setColor(i2);
-            this.f44961f.setTextColor(color);
-        }
-    }
-
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap(2);
-            linkedHashMap.put("pop_login", str);
-            HashMap hashMap = new HashMap(1);
-            hashMap.put("extrajson", CoreViewRouter.getInstance().getSmsLoginStatExtra());
-            hashMap.put("errno", str2);
-            StatService.onEventAutoStatistic(linkedHashMap, hashMap);
+            this.f45023f.setTextColor(color);
         }
     }
 
     private void a(EditText editText, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, this, editText, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65543, this, editText, str) == null) {
             SpannableString spannableString = new SpannableString(str);
             spannableString.setSpan(new AbsoluteSizeSpan(18, true), 0, spannableString.length(), 33);
             editText.setHint(new SpannedString(spannableString));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.f44964i.setVisibility(8);
-            try {
-                this.f44965j.dismiss();
-            } catch (Throwable unused) {
-            }
         }
     }
 }

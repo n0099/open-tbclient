@@ -1,6 +1,6 @@
 package com.baidu.tieba.personExtra;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public class RecommendGodReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                x.a(builder, true);
+                a0.a(builder, true);
             }
             builder.portrait = this.portrait;
             builder.pn = Integer.valueOf(this.pageNum);

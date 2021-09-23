@@ -21,22 +21,22 @@ public class d implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f32301a;
+    public InputStream f32322a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32302b;
+    public int f32323b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32303c;
+    public String f32324c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<String>> f32304d;
+    public Map<String, List<String>> f32325d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.f.a.g.c.a f32305e;
+    public c.f.a.g.c.a f32326e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f32306f;
+    public InputStream f32327f;
 
     public d(InputStream inputStream, int i2, String str, Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
@@ -53,17 +53,17 @@ public class d implements e {
                 return;
             }
         }
-        this.f32301a = inputStream;
-        this.f32302b = i2;
-        this.f32303c = str;
-        this.f32304d = map;
+        this.f32322a = inputStream;
+        this.f32323b = i2;
+        this.f32324c = str;
+        this.f32325d = map;
     }
 
     @Override // c.f.a.g.d.e
     public String a() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32303c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32324c : (String) invokeV.objValue;
     }
 
     @Override // c.f.a.g.d.e
@@ -72,9 +72,9 @@ public class d implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (g()) {
-                return a(this.f32301a);
+                return a(this.f32322a);
             }
-            return this.f32301a;
+            return this.f32322a;
         }
         return (InputStream) invokeV.objValue;
     }
@@ -84,10 +84,10 @@ public class d implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f32305e == null) {
-                this.f32305e = new c.f.a.g.c.a(this.f32304d, false);
+            if (this.f32326e == null) {
+                this.f32326e = new c.f.a.g.c.a(this.f32325d, false);
             }
-            return this.f32305e;
+            return this.f32326e;
         }
         return (c.f.a.g.c.a) invokeV.objValue;
     }
@@ -103,7 +103,7 @@ public class d implements e {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            InputStream inputStream = this.f32306f;
+            InputStream inputStream = this.f32327f;
             if (inputStream != null) {
                 try {
                     inputStream.close();
@@ -111,7 +111,7 @@ public class d implements e {
                     e2.printStackTrace();
                 }
             }
-            InputStream inputStream2 = this.f32301a;
+            InputStream inputStream2 = this.f32322a;
             if (inputStream2 != null) {
                 try {
                     inputStream2.close();
@@ -125,7 +125,7 @@ public class d implements e {
     public int f() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32302b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32323b : invokeV.intValue;
     }
 
     public final boolean g() {
@@ -142,10 +142,10 @@ public class d implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            if (this.f32306f == null) {
-                this.f32306f = new GZIPInputStream(inputStream);
+            if (this.f32327f == null) {
+                this.f32327f = new GZIPInputStream(inputStream);
             }
-            return this.f32306f;
+            return this.f32327f;
         }
         return (InputStream) invokeL.objValue;
     }

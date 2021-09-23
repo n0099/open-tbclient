@@ -18,7 +18,7 @@ public class a extends c.a.p0.g.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f10948c;
+    public static final boolean f10956c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class a extends c.a.p0.g.f.a {
                 return;
             }
         }
-        f10948c = k.f7077a;
+        f10956c = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,7 +65,7 @@ public class a extends c.a.p0.g.f.a {
                 try {
                     Q.x().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
                 } catch (Exception e2) {
-                    if (f10948c) {
+                    if (f10956c) {
                         e2.printStackTrace();
                     }
                     a0.f(Q.x());
@@ -73,7 +73,7 @@ public class a extends c.a.p0.g.f.a {
                 bVar.a(null);
             } else {
                 bVar.onFail(100, "swan or activity is null");
-                boolean z = f10948c;
+                boolean z = f10956c;
             }
             return null;
         }

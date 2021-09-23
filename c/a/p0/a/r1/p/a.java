@@ -12,10 +12,10 @@ public class a implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f8464a;
+    public long f8472a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8465b;
+    public long f8473b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -30,8 +30,8 @@ public class a implements e {
                 return;
             }
         }
-        this.f8464a = -1L;
-        this.f8465b = -1L;
+        this.f8472a = -1L;
+        this.f8473b = -1L;
     }
 
     @Override // c.a.p0.a.r1.p.e
@@ -39,9 +39,9 @@ public class a implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j2 = this.f8464a;
+            long j2 = this.f8472a;
             if (j2 >= 0) {
-                long j3 = this.f8465b;
+                long j3 = this.f8473b;
                 if (j3 < 0) {
                     return -1L;
                 }
@@ -56,7 +56,7 @@ public class a implements e {
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f8465b = j2;
+            this.f8473b = j2;
         }
     }
 
@@ -64,7 +64,7 @@ public class a implements e {
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f8464a = j2;
+            this.f8472a = j2;
         }
     }
 

@@ -17,10 +17,10 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f14980a;
+    public boolean f14982a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14981b;
+    public int f14983b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class f {
                 return;
             }
         }
-        this.f14980a = false;
-        this.f14981b = 0;
+        this.f14982a = false;
+        this.f14983b = 0;
     }
 
     public void a(String str) {
@@ -44,8 +44,8 @@ public class f {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f14980a = false;
-            this.f14981b = 0;
+            this.f14982a = false;
+            this.f14983b = 0;
             if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
                 String str3 = null;
                 try {
@@ -78,7 +78,7 @@ public class f {
                             if (socket.isConnected()) {
                                 i2++;
                                 i3 = (int) (i3 + (System.currentTimeMillis() - currentTimeMillis));
-                                this.f14980a = true;
+                                this.f14982a = true;
                             }
                             try {
                                 socket.close();
@@ -98,10 +98,10 @@ public class f {
                         socket.close();
                     }
                 }
-                if (!this.f14980a || i2 <= 0) {
+                if (!this.f14982a || i2 <= 0) {
                     return;
                 }
-                this.f14981b = i3 / i2;
+                this.f14983b = i3 / i2;
             }
         }
     }
@@ -109,7 +109,7 @@ public class f {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14981b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14983b : invokeV.intValue;
     }
 
     public final int c() {
@@ -128,6 +128,6 @@ public class f {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14980a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14982a : invokeV.booleanValue;
     }
 }

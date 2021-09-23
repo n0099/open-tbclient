@@ -706,7 +706,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
                 this.canAddPhotoLivePost = anchorPower.can_add_live_post.intValue() == 1;
             }
             this.top_code.j(forumInfo.top_code);
-            this.news_info.F0(forumInfo.news_info);
+            this.news_info.H0(forumInfo.news_info);
             this.mAcrossForumIcon = forumInfo.across_forum_show;
             this.mIsLiveGameForum = forumInfo.is_live_game_forum.intValue();
             this.forumGameLabel = forumInfo.forum_game_label;
@@ -1097,7 +1097,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
                 BdLog.e(e7.getMessage());
             }
             try {
-                this.news_info.E0(jSONObject.optJSONObject("news_info"));
+                this.news_info.G0(jSONObject.optJSONObject("news_info"));
             } catch (Exception e8) {
                 BdLog.e(e8.getMessage());
             }

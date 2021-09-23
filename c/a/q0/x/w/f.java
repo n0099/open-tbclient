@@ -21,17 +21,17 @@ public class f extends m {
     public EditText r;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(Context context, boolean z, boolean z2) {
+    public f(Context context, boolean z, boolean z2, int i2) {
         super(context, (String) null, 27);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -44,6 +44,7 @@ public class f extends m {
         PbNewInputContainer pbNewInputContainer = new PbNewInputContainer(context);
         this.k = pbNewInputContainer;
         pbNewInputContainer.setTransLink(!z);
+        ((PbNewInputContainer) this.k).setmAtListRequestResponseCode(i2);
         this.r = ((PbNewInputContainer) this.k).getInputView();
         ((PbNewInputContainer) this.k).setHint(context.getString(R.string.say_your_point));
         ((PbNewInputContainer) this.k).updateLocationVisibility(z2);

@@ -75,7 +75,7 @@ public class d extends c.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements c.a.r0
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f23084e;
+        public final /* synthetic */ d f23100e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class d extends c.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements c.a.r0
                     return;
                 }
             }
-            this.f23084e = dVar;
+            this.f23100e = dVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -102,8 +102,8 @@ public class d extends c.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements c.a.r0
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 k kVar = (k) nVar;
                 kVar.k = 1;
-                if (this.f23084e.s != null) {
-                    this.f23084e.s.a(threadCardViewHolder.getView(), kVar);
+                if (this.f23100e.s != null) {
+                    this.f23100e.s.a(threadCardViewHolder.getView(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) kVar, view.getContext(), 4, false);
                 threadCardViewHolder.getCardView().o(new a.C0095a(1));

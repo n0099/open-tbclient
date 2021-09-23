@@ -15,10 +15,10 @@ public final class b extends ConnectivityManager.NetworkCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ URL f75437a;
+    public /* synthetic */ URL f75756a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f75438b;
+    public /* synthetic */ a f75757b;
 
     public b(a aVar, URL url) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public final class b extends ConnectivityManager.NetworkCallback {
                 return;
             }
         }
-        this.f75438b = aVar;
-        this.f75437a = url;
+        this.f75757b = aVar;
+        this.f75756a = url;
     }
 
     @Override // android.net.ConnectivityManager.NetworkCallback
@@ -45,7 +45,7 @@ public final class b extends ConnectivityManager.NetworkCallback {
         if (interceptable == null || interceptable.invokeL(1048576, this, network) == null) {
             super.onAvailable(network);
             try {
-                this.f75438b.f75430c = (HttpURLConnection) network.openConnection(this.f75437a);
+                this.f75757b.f75749c = (HttpURLConnection) network.openConnection(this.f75756a);
             } catch (IOException unused) {
             }
         }

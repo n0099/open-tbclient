@@ -17,13 +17,13 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f6008a;
+    public static final String f6016a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f6009b;
+    public static final String f6017b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f6010c;
+    public static final String f6018c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,9 +39,9 @@ public class c {
                 return;
             }
         }
-        f6008a = String.format("框架加载后%s秒无内容绘制；", 3);
-        f6009b = "检测到白屏区域超过" + a(0.7d) + "；";
-        f6010c = "检测到白屏区域超过" + a(0.5d) + "且正在loading；";
+        f6016a = String.format("框架加载后%s秒无内容绘制；", 3);
+        f6017b = "检测到白屏区域超过" + a(0.7d) + "；";
+        f6018c = "检测到白屏区域超过" + a(0.5d) + "且正在loading；";
     }
 
     public static String a(double d2) {
@@ -71,9 +71,9 @@ public class c {
             } else {
                 sb.append("业务请求：响应缓慢；");
             }
-            int i2 = gVar.f6018b;
+            int i2 = gVar.f6026b;
             if (i2 > 0) {
-                sb.append(String.format("共发起请求%s个，失败%s个，缓慢%s个；", Integer.valueOf(i2), Integer.valueOf(gVar.f6019c.size()), Integer.valueOf(gVar.f6020d.size())));
+                sb.append(String.format("共发起请求%s个，失败%s个，缓慢%s个；", Integer.valueOf(i2), Integer.valueOf(gVar.f6027c.size()), Integer.valueOf(gVar.f6028d.size())));
             }
             int d2 = gVar.d();
             if (d2 == 0) {
@@ -86,20 +86,20 @@ public class c {
                 sb.append("网络：离线；");
             }
             String g2 = k.g(System.currentTimeMillis(), "【HH:mm:ss】");
-            for (Map.Entry<String, Integer> entry : gVar.f6020d.entrySet()) {
+            for (Map.Entry<String, Integer> entry : gVar.f6028d.entrySet()) {
                 try {
                     sb.append(String.format("\n%s请求%s耗时较长：%s ms", g2, new URL(entry.getKey()).getPath(), entry.getValue()));
                 } catch (MalformedURLException e2) {
-                    if (c.a.p0.a.k.f7077a) {
+                    if (c.a.p0.a.k.f7085a) {
                         e2.printStackTrace();
                     }
                 }
             }
-            for (String str2 : gVar.f6019c) {
+            for (String str2 : gVar.f6027c) {
                 try {
                     sb.append(String.format("\n%s请求%s请求失败；", g2, new URL(str2).getPath()));
                 } catch (MalformedURLException e3) {
-                    if (c.a.p0.a.k.f7077a) {
+                    if (c.a.p0.a.k.f7085a) {
                         e3.printStackTrace();
                     }
                 }

@@ -41,34 +41,34 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f19943f;
+    public static final String f19958f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c.a.r0.j2.k.a f19944a;
+    public final c.a.r0.j2.k.a f19959a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View.OnClickListener f19945b;
+    public final View.OnClickListener f19960b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final View.OnClickListener f19946c;
+    public final View.OnClickListener f19961c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final View.OnClickListener f19947d;
+    public final View.OnClickListener f19962d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TbRichTextView.y f19948e;
+    public final TbRichTextView.y f19963e;
 
     /* renamed from: c.a.r0.j2.k.e.c1.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0955a implements View.OnClickListener {
+    public class View$OnClickListenerC0953a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19949e;
+        public final /* synthetic */ a f19964e;
 
-        public View$OnClickListenerC0955a(a aVar) {
+        public View$OnClickListenerC0953a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,7 +83,7 @@ public class a {
                     return;
                 }
             }
-            this.f19949e = aVar;
+            this.f19964e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -156,7 +156,7 @@ public class a {
                 if (view.getTag(R.id.tag_nick_name_activity) != null && (view.getTag(R.id.tag_nick_name_activity) instanceof String)) {
                     String str6 = (String) view.getTag(R.id.tag_nick_name_activity);
                     if (!TextUtils.isEmpty(str6) && ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f19949e.f19944a.getPageContext().getPageActivity(), null, str6, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f19964e.f19959a.getPageContext().getPageActivity(), null, str6, true)));
                         return;
                     }
                 }
@@ -165,12 +165,12 @@ public class a {
                     if (!ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(this.f19949e.f19944a.getPageContext(), new String[]{str7});
+                    UrlManager.getInstance().dealOneLink(this.f19964e.f19959a.getPageContext(), new String[]{str7});
                 } else if (str2 != null) {
                     if (alaInfoData != null && (i2 == 1 || alaInfoData.live_status == 1)) {
                         if (alaInfoData.isLegalYYLiveData()) {
-                            YYLiveUtil.jumpYYLiveRoom(this.f19949e.f19944a.getPageContext(), alaInfoData);
-                            TbPageContext pageContext = this.f19949e.f19944a.getPageContext();
+                            YYLiveUtil.jumpYYLiveRoom(this.f19964e.f19959a.getPageContext(), alaInfoData);
+                            TbPageContext pageContext = this.f19964e.f19959a.getPageContext();
                             YyExtData yyExtData = alaInfoData.mYyExtData;
                             String str8 = yyExtData.mSid;
                             String str9 = yyExtData.mSsid;
@@ -178,18 +178,18 @@ public class a {
                             YYLiveUtil.jumpToYYLiveRoom(pageContext, str8, str9, str10, "" + alaInfoData.roomId, YYLiveUtil.SOURCE_PB_LIVE_HEAD);
                         }
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f19949e.f19944a.getPageContext().getPageActivity(), str2, str3, this.f19949e.f19944a.getFromForumName(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f19964e.f19959a.getPageContext().getPageActivity(), str2, str3, this.f19964e.f19959a.getFromForumName(), AddFriendActivityConfig.TYPE_PB_HEAD)));
                     }
                 }
-                if (this.f19949e.f19944a instanceof PbCommentFloatActivity) {
+                if (this.f19964e.f19959a instanceof PbCommentFloatActivity) {
                     StatisticItem statisticItem3 = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                    statisticItem3.param("fid", ((PbCommentFloatActivity) this.f19949e.f19944a).getPbModel().getForumId());
-                    statisticItem3.param("tid", ((PbCommentFloatActivity) this.f19949e.f19944a).getPbModel().e1());
+                    statisticItem3.param("fid", ((PbCommentFloatActivity) this.f19964e.f19959a).getPbModel().getForumId());
+                    statisticItem3.param("tid", ((PbCommentFloatActivity) this.f19964e.f19959a).getPbModel().f1());
                     statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    statisticItem3.param("post_id", ((PbCommentFloatActivity) this.f19949e.f19944a).getPbModel().o0());
+                    statisticItem3.param("post_id", ((PbCommentFloatActivity) this.f19964e.f19959a).getPbModel().p0());
                     statisticItem3.param("obj_source", 1);
                     statisticItem3.param("obj_type", 6);
-                    statisticItem3.param("obj_locate", ((PbCommentFloatActivity) this.f19949e.f19944a).getFromVideoPageType());
+                    statisticItem3.param("obj_locate", ((PbCommentFloatActivity) this.f19964e.f19959a).getFromVideoPageType());
                     TiebaStatic.log(statisticItem3);
                 }
             }
@@ -221,7 +221,7 @@ public class a {
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag(R.id.tag_user_id) instanceof String)) {
-                c.a.q0.m.a.o(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), a.f19943f + "?user_id=" + ((String) view.getTag(R.id.tag_user_id)), true, true, true);
+                c.a.q0.m.a.o(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), a.f19958f + "?user_id=" + ((String) view.getTag(R.id.tag_user_id)), true, true, true);
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 2));
             }
         }
@@ -233,7 +233,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19950e;
+        public final /* synthetic */ a f19965e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -250,7 +250,7 @@ public class a {
                     return;
                 }
             }
-            this.f19950e = aVar;
+            this.f19965e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -259,9 +259,9 @@ public class a {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                 String str = view.getTag() != null ? (String) view.getTag() : null;
                 if (str != null) {
-                    UrlManager.getInstance().dealOneLink(this.f19950e.f19944a.getPageContext(), new String[]{str});
+                    UrlManager.getInstance().dealOneLink(this.f19965e.f19959a.getPageContext(), new String[]{str});
                 }
-                TiebaStatic.eventStat(this.f19950e.f19944a.getPageContext().getPageActivity(), "consume_2", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                TiebaStatic.eventStat(this.f19965e.f19959a.getPageContext().getPageActivity(), "consume_2", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
             }
         }
     }
@@ -272,7 +272,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f19951a;
+        public final /* synthetic */ a f19966a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -289,14 +289,14 @@ public class a {
                     return;
                 }
             }
-            this.f19951a = aVar;
+            this.f19966a = aVar;
         }
 
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.y
         public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, str, str2, str3, str4, str5, str6, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(this.f19951a.f19944a.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i2, i3)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(this.f19966a.f19959a.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i2, i3)));
             }
         }
     }
@@ -314,7 +314,7 @@ public class a {
                 return;
             }
         }
-        f19943f = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon";
+        f19958f = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon";
     }
 
     public a(c.a.r0.j2.k.a aVar) {
@@ -332,10 +332,10 @@ public class a {
                 return;
             }
         }
-        this.f19945b = new View$OnClickListenerC0955a(this);
-        this.f19946c = new b(this);
-        this.f19947d = new c(this);
-        this.f19948e = new d(this);
-        this.f19944a = aVar;
+        this.f19960b = new View$OnClickListenerC0953a(this);
+        this.f19961c = new b(this);
+        this.f19962d = new c(this);
+        this.f19963e = new d(this);
+        this.f19959a = aVar;
     }
 }

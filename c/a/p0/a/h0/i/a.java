@@ -17,7 +17,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<C0218a> f6001a;
+    public List<C0218a> f6009a;
 
     /* renamed from: c.a.p0.a.h0.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -26,13 +26,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f6002a;
+        public String f6010a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6003b;
+        public String f6011b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f6004c;
+        public String f6012c;
 
         public C0218a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public class a {
                     return;
                 }
             }
-            this.f6002a = str;
-            this.f6003b = str2;
-            this.f6004c = str3;
+            this.f6010a = str;
+            this.f6011b = str2;
+            this.f6012c = str3;
         }
 
         public static C0218a a(String str, String str2, String str3) {
@@ -63,20 +63,20 @@ public class a {
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1".equals(this.f6002a) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1".equals(this.f6010a) : invokeV.booleanValue;
         }
 
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.f6004c) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.f6012c) : invokeV.booleanValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "JSErrorModel{mType='" + this.f6002a + ExtendedMessageFormat.QUOTE + ", mContent='" + this.f6003b + ExtendedMessageFormat.QUOTE + ", mSource='" + this.f6004c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "JSErrorModel{mType='" + this.f6010a + ExtendedMessageFormat.QUOTE + ", mContent='" + this.f6011b + ExtendedMessageFormat.QUOTE + ", mSource='" + this.f6012c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -95,7 +95,7 @@ public class a {
                 return;
             }
         }
-        this.f6001a = new ArrayList();
+        this.f6009a = new ArrayList();
     }
 
     public synchronized boolean a(C0218a c0218a) {
@@ -104,7 +104,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0218a)) == null) {
             synchronized (this) {
                 if (c0218a != null) {
-                    return this.f6001a.add(c0218a);
+                    return this.f6009a.add(c0218a);
                 }
                 return false;
             }
@@ -124,7 +124,7 @@ public class a {
                 int i2 = 0;
                 int i3 = 0;
                 int i4 = 0;
-                for (C0218a c0218a : this.f6001a) {
+                for (C0218a c0218a : this.f6009a) {
                     if (c0218a.b()) {
                         i2++;
                         if (c0218a.c()) {
@@ -147,7 +147,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 z = false;
-                Iterator<C0218a> it = this.f6001a.iterator();
+                Iterator<C0218a> it = this.f6009a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -168,7 +168,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                isEmpty = this.f6001a.isEmpty();
+                isEmpty = this.f6009a.isEmpty();
             }
             return isEmpty;
         }
@@ -181,7 +181,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                size = this.f6001a.size();
+                size = this.f6009a.size();
             }
             return size;
         }

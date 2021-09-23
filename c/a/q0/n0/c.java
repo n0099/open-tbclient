@@ -147,7 +147,7 @@ public class c {
             if (d2Var.L() != null && !k.isEmpty(d2Var.L().oriUgcVid)) {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, d2Var.L().oriUgcVid);
             }
-            statisticItem.param("weight", d2Var.X0).param("ab_tag", d2Var.Y0).param("extra", d2Var.Z0).param("obj_type", d2Var.G2 ? "2" : "1").param("source", d2Var.W0);
+            statisticItem.param("weight", d2Var.Y0).param("ab_tag", d2Var.Z0).param("extra", d2Var.a1).param("obj_type", d2Var.H2 ? "2" : "1").param("source", d2Var.X0);
             h(context, statisticItem);
             return statisticItem;
         }

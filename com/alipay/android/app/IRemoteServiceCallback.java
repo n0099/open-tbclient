@@ -33,7 +33,7 @@ public interface IRemoteServiceCallback extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f35693a;
+            public IBinder f35716a;
 
             public a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public interface IRemoteServiceCallback extends IInterface {
                         return;
                     }
                 }
-                this.f35693a = iBinder;
+                this.f35716a = iBinder;
             }
 
             public String a() {
@@ -63,7 +63,7 @@ public interface IRemoteServiceCallback extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35693a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35716a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.alipay.android.app.IRemoteServiceCallback
@@ -75,7 +75,7 @@ public interface IRemoteServiceCallback extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        this.f35693a.transact(4, obtain, obtain2, 0);
+                        this.f35716a.transact(4, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt();
                     } finally {
@@ -95,7 +95,7 @@ public interface IRemoteServiceCallback extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        this.f35693a.transact(3, obtain, obtain2, 0);
+                        this.f35716a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -116,7 +116,7 @@ public interface IRemoteServiceCallback extends IInterface {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeInt(z ? 1 : 0);
                         obtain.writeString(str);
-                        this.f35693a.transact(2, obtain, obtain2, 0);
+                        this.f35716a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -135,7 +135,7 @@ public interface IRemoteServiceCallback extends IInterface {
                         obtain.writeString(str);
                         obtain.writeString(str2);
                         obtain.writeMap(map);
-                        this.f35693a.transact(5, obtain, null, 1);
+                        this.f35716a.transact(5, obtain, null, 1);
                     } finally {
                         obtain.recycle();
                     }
@@ -159,7 +159,7 @@ public interface IRemoteServiceCallback extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.f35693a.transact(1, obtain, obtain2, 0);
+                        this.f35716a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -213,7 +213,10 @@ public interface IRemoteServiceCallback extends IInterface {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 == 1) {
+                if (i2 == 1598968902) {
+                    parcel2.writeString(DESCRIPTOR);
+                    return true;
+                } else if (i2 == 1) {
                     parcel.enforceInterface(DESCRIPTOR);
                     startActivity(parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                     parcel2.writeNoException();
@@ -229,20 +232,18 @@ public interface IRemoteServiceCallback extends IInterface {
                     parcel2.writeNoException();
                     parcel2.writeInt(isHideLoadingScreen ? 1 : 0);
                     return true;
-                } else if (i2 == 4) {
+                } else if (i2 != 4) {
+                    if (i2 != 5) {
+                        return super.onTransact(i2, parcel, parcel2, i3);
+                    }
+                    parcel.enforceInterface(DESCRIPTOR);
+                    r03(parcel.readString(), parcel.readString(), parcel.readHashMap(getClass().getClassLoader()));
+                    return true;
+                } else {
                     parcel.enforceInterface(DESCRIPTOR);
                     int version = getVersion();
                     parcel2.writeNoException();
                     parcel2.writeInt(version);
-                    return true;
-                } else if (i2 == 5) {
-                    parcel.enforceInterface(DESCRIPTOR);
-                    r03(parcel.readString(), parcel.readString(), parcel.readHashMap(getClass().getClassLoader()));
-                    return true;
-                } else if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
-                } else {
-                    parcel2.writeString(DESCRIPTOR);
                     return true;
                 }
             }

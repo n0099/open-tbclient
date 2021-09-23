@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.functions.BiFunction;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ListAddBiConsumer implements BiFunction<List, Object, List> {
     public static final /* synthetic */ ListAddBiConsumer[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

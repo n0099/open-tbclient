@@ -22,13 +22,13 @@ public abstract class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.t1.c.b.b f8689a;
+        public final /* synthetic */ c.a.p0.a.t1.c.b.b f8697a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.j.b f8690b;
+        public final /* synthetic */ c.a.p0.a.h0.j.b f8698b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f8691c;
+        public final /* synthetic */ b f8699c;
 
         public a(b bVar, c.a.p0.a.t1.c.b.b bVar2, c.a.p0.a.h0.j.b bVar3) {
             Interceptable interceptable = $ic;
@@ -45,9 +45,9 @@ public abstract class b {
                     return;
                 }
             }
-            this.f8691c = bVar;
-            this.f8689a = bVar2;
-            this.f8690b = bVar3;
+            this.f8699c = bVar;
+            this.f8697a = bVar2;
+            this.f8698b = bVar3;
         }
 
         @Override // c.a.p0.a.h0.m.o.a.b
@@ -62,7 +62,7 @@ public abstract class b {
         public void b(c.a.p0.a.q2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-                this.f8691c.d(this.f8689a, false, this.f8690b);
+                this.f8699c.d(this.f8697a, false, this.f8698b);
             }
         }
 
@@ -70,7 +70,7 @@ public abstract class b {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f8691c.d(this.f8689a, true, this.f8690b);
+                this.f8699c.d(this.f8697a, true, this.f8698b);
             }
         }
     }
@@ -82,13 +82,13 @@ public abstract class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.t1.c.b.b f8692a;
+        public final /* synthetic */ c.a.p0.a.t1.c.b.b f8700a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.j.b f8693b;
+        public final /* synthetic */ c.a.p0.a.h0.j.b f8701b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f8694c;
+        public final /* synthetic */ b f8702c;
 
         public C0380b(b bVar, c.a.p0.a.t1.c.b.b bVar2, c.a.p0.a.h0.j.b bVar3) {
             Interceptable interceptable = $ic;
@@ -105,16 +105,16 @@ public abstract class b {
                     return;
                 }
             }
-            this.f8694c = bVar;
-            this.f8692a = bVar2;
-            this.f8693b = bVar3;
+            this.f8702c = bVar;
+            this.f8700a = bVar2;
+            this.f8701b = bVar3;
         }
 
         @Override // c.a.p0.a.h0.m.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8694c.d(this.f8692a, true, this.f8693b);
+                this.f8702c.d(this.f8700a, true, this.f8701b);
             }
         }
 
@@ -122,7 +122,7 @@ public abstract class b {
         public void b(int i2, c.a.p0.a.q2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, aVar) == null) {
-                this.f8694c.d(this.f8692a, false, this.f8693b);
+                this.f8702c.d(this.f8700a, false, this.f8701b);
             }
         }
     }
@@ -149,7 +149,7 @@ public abstract class b {
             c.a.p0.a.t1.d.a.a("local has not main pkg, download fun page main pkg");
             c.a.p0.n.i.m.c cVar = new c.a.p0.n.i.m.c(str, c.a.p0.a.a2.d.g().l());
             cVar.o(0L);
-            cVar.r(bVar.f8668c);
+            cVar.r(bVar.f8676c);
             cVar.d("3");
             c.a.p0.n.b.b(cVar, new c.a.p0.a.h0.m.o.a(str, new a(this, bVar, bVar2)));
         }
@@ -160,20 +160,20 @@ public abstract class b {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bVar, Boolean.valueOf(z), bVar2}) == null) {
             if (z) {
                 c.a.p0.a.t1.c.b.a f2 = f(bVar);
-                if (f2 != null && f2.f8665f) {
+                if (f2 != null && f2.f8673f) {
                     c.a.p0.a.t1.d.a.a("payment fun page, download success, ready to jump");
-                    j(f2.f8662c, bVar);
+                    j(f2.f8670c, bVar);
                     return;
                 }
                 c.a.p0.a.t1.d.a.a("payment fun page, download success, but not exist");
-                c.a.p0.a.t1.c.c.a aVar = new c.a.p0.a.t1.c.c.a(bVar.f8671f);
-                aVar.f8675a = bVar.f8670e;
+                c.a.p0.a.t1.c.c.a aVar = new c.a.p0.a.t1.c.c.a(bVar.f8679f);
+                aVar.f8683a = bVar.f8678e;
                 bVar2.a(aVar);
                 return;
             }
             c.a.p0.a.t1.d.a.a("payment fun page, download failed");
-            c.a.p0.a.t1.c.c.a aVar2 = new c.a.p0.a.t1.c.c.a(bVar.f8671f);
-            aVar2.f8675a = bVar.f8670e;
+            c.a.p0.a.t1.c.c.a aVar2 = new c.a.p0.a.t1.c.c.a(bVar.f8679f);
+            aVar2.f8683a = bVar.f8678e;
             bVar2.a(aVar2);
         }
     }
@@ -182,9 +182,9 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, bVar, aVar, bVar2) == null) {
             c.a.p0.a.t1.d.a.a("main pkg is exist, download fun page sub pkg");
-            String str = aVar.f8660a;
-            int i2 = aVar.f8663d;
-            c.a.p0.n.b.f(new f(str, i2, c.a.p0.a.t1.g.b.e(aVar.f8662c, aVar.f8661b), 0), new c.a.p0.a.h0.m.q.a(str, String.valueOf(i2), new C0380b(this, bVar, bVar2)));
+            String str = aVar.f8668a;
+            int i2 = aVar.f8671d;
+            c.a.p0.n.b.f(new f(str, i2, c.a.p0.a.t1.g.b.e(aVar.f8670c, aVar.f8669b), 0), new c.a.p0.a.h0.m.q.a(str, String.valueOf(i2), new C0380b(this, bVar, bVar2)));
         }
     }
 
@@ -210,7 +210,7 @@ public abstract class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bVar, bVar2)) == null) {
             c.a.p0.a.t1.d.a.a("open fun page start");
             if (bVar != null && bVar.a()) {
-                c.a.p0.a.u.h.b b2 = b(bVar.f8672g);
+                c.a.p0.a.u.h.b b2 = b(bVar.f8680g);
                 if (b2 != null) {
                     c.a.p0.a.t1.d.a.a("fun page args params invalid");
                     return b2;
@@ -220,23 +220,23 @@ public abstract class b {
                     if (f2 == null) {
                         return new c.a.p0.a.u.h.b(1001, "fun page not exists");
                     }
-                    if (!f2.f8665f) {
-                        c.a.p0.a.t1.d.a.a("payment fun page, " + bVar.f8669d + " mode");
-                        if (i(bVar.f8669d)) {
-                            if (f2.f8664e) {
+                    if (!f2.f8673f) {
+                        c.a.p0.a.t1.d.a.a("payment fun page, " + bVar.f8677d + " mode");
+                        if (i(bVar.f8677d)) {
+                            if (f2.f8672e) {
                                 e(bVar, f2, bVar2);
                             } else {
                                 return new c.a.p0.a.u.h.b(1001, "fun page not exists");
                             }
-                        } else if (f2.f8664e) {
+                        } else if (f2.f8672e) {
                             e(bVar, f2, bVar2);
                         } else {
-                            c(bVar, f2.f8660a, bVar2);
+                            c(bVar, f2.f8668a, bVar2);
                         }
                         c.a.p0.a.t1.d.a.a("open fun page end");
                         return new c.a.p0.a.u.h.b(0);
                     }
-                    return j(f2.f8662c, bVar);
+                    return j(f2.f8670c, bVar);
                 } else {
                     c.a.p0.a.t1.d.a.a("open user info or choose address fun page");
                     return m(bVar, bVar2);

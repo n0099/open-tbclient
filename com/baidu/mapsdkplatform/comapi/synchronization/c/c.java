@@ -29,32 +29,32 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f42359b = true;
+    public static boolean f42421b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f42360c = "c";
+    public static final String f42422c = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HttpURLConnection f42361a;
+    public HttpURLConnection f42423a;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42362d;
+    public String f42424d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42363e;
+    public String f42425e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42364f;
+    public int f42426f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42365g;
+    public int f42427g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42366h;
+    public String f42428h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f42367i;
+    public e f42429i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -62,22 +62,22 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f42368a;
+        public static final a f42430a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f42369b;
+        public static final a f42431b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f42370c;
+        public static final a f42432c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f42371d;
+        public static final a f42433d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f42372e;
+        public static final a f42434e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ a[] f42373f;
+        public static final /* synthetic */ a[] f42435f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -93,13 +93,13 @@ public class c {
                     return;
                 }
             }
-            f42368a = new a(com.alipay.security.mobile.module.http.model.c.f36199g, 0);
-            f42369b = new a("NETWORK_ERROR", 1);
-            f42370c = new a("INNER_ERROR", 2);
-            f42371d = new a("REQUEST_ERROR", 3);
+            f42430a = new a(com.alipay.security.mobile.module.http.model.c.p, 0);
+            f42431b = new a("NETWORK_ERROR", 1);
+            f42432c = new a("INNER_ERROR", 2);
+            f42433d = new a("REQUEST_ERROR", 3);
             a aVar = new a("SERVER_ERROR", 4);
-            f42372e = aVar;
-            f42373f = new a[]{f42368a, f42369b, f42370c, f42371d, aVar};
+            f42434e = aVar;
+            f42435f = new a[]{f42430a, f42431b, f42432c, f42433d, aVar};
         }
 
         public a(String str, int i2) {
@@ -130,7 +130,7 @@ public class c {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f42373f.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f42435f.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -164,10 +164,10 @@ public class c {
                 return;
             }
         }
-        this.f42362d = null;
-        this.f42363e = null;
-        this.f42366h = str;
-        this.f42367i = eVar;
+        this.f42424d = null;
+        this.f42425e = null;
+        this.f42428h = str;
+        this.f42429i = eVar;
     }
 
     private void a(InputStream inputStream, BufferedReader bufferedReader, HttpURLConnection httpURLConnection) {
@@ -177,7 +177,7 @@ public class c {
                 try {
                     inputStream.close();
                 } catch (IOException e2) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42360c, "IOException happened when release res", e2);
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42422c, "IOException happened when release res", e2);
                 }
             }
             if (bufferedReader != null) {
@@ -195,7 +195,7 @@ public class c {
             try {
                 httpURLConnection.connect();
                 int responseCode = httpURLConnection.getResponseCode();
-                String str = f42360c;
+                String str = f42422c;
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "responseCode is: " + responseCode);
                 if (200 != responseCode) {
                     a(httpURLConnection, responseCode);
@@ -204,8 +204,8 @@ public class c {
                 }
             } catch (IOException unused) {
                 httpURLConnection.disconnect();
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42360c, "Catch connection exception, INNER_ERROR");
-                this.f42367i.a(a.f42370c);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42422c, "Catch connection exception, INNER_ERROR");
+                this.f42429i.a(a.f42432c);
             }
         }
     }
@@ -213,23 +213,23 @@ public class c {
     private void a(HttpURLConnection httpURLConnection, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, httpURLConnection, i2) == null) {
-            a aVar = a.f42368a;
-            a aVar2 = i2 >= 500 ? a.f42372e : i2 >= 400 ? a.f42371d : a.f42370c;
+            a aVar = a.f42430a;
+            a aVar2 = i2 >= 500 ? a.f42434e : i2 >= 400 ? a.f42433d : a.f42432c;
             InputStream errorStream = httpURLConnection.getErrorStream();
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42360c, errorStream.toString());
-            String str = f42360c;
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42422c, errorStream.toString());
+            String str = f42422c;
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(str, "Response error, response code = " + i2 + ", error = " + aVar2);
             if (errorStream != null) {
                 try {
                     errorStream.close();
                 } catch (IOException e2) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42360c, "IOException caught", e2);
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42422c, "IOException caught", e2);
                 }
             }
             if (httpURLConnection != null) {
                 httpURLConnection.disconnect();
             }
-            this.f42367i.a(aVar2);
+            this.f42429i.a(aVar2);
         }
     }
 
@@ -245,7 +245,7 @@ public class c {
                 }
                 return activeNetworkInfo.isAvailable();
             } catch (Exception e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42360c, "Exception happened when check network", e2);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42422c, "Exception happened when check network", e2);
                 e2.printStackTrace();
                 return false;
             }
@@ -259,22 +259,22 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
             try {
-                URL url = new URL(this.f42362d);
-                if (f42359b) {
+                URL url = new URL(this.f42424d);
+                if (f42421b) {
                     HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
                     httpsURLConnection2.setHostnameVerifier(new d(this));
                     httpsURLConnection = httpsURLConnection2;
                 } else {
                     httpsURLConnection = (HttpURLConnection) url.openConnection();
                 }
-                httpsURLConnection.setRequestMethod(this.f42366h);
+                httpsURLConnection.setRequestMethod(this.f42428h);
                 httpsURLConnection.setDoOutput(false);
                 httpsURLConnection.setDoInput(true);
-                httpsURLConnection.setConnectTimeout(this.f42364f);
-                httpsURLConnection.setReadTimeout(this.f42365g);
+                httpsURLConnection.setConnectTimeout(this.f42426f);
+                httpsURLConnection.setReadTimeout(this.f42427g);
                 return httpsURLConnection;
             } catch (Exception e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42360c, "url connect failed", e2);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42422c, "url connect failed", e2);
                 return null;
             }
         }
@@ -314,18 +314,18 @@ public class c {
                     int read = bufferedReader2.read();
                     if (read == -1) {
                         String stringBuffer2 = stringBuffer.toString();
-                        this.f42363e = stringBuffer2;
+                        this.f42425e = stringBuffer2;
                         c(stringBuffer2);
                         a(inputStream, bufferedReader2, httpURLConnection);
-                        this.f42367i.a(this.f42363e);
+                        this.f42429i.a(this.f42425e);
                         return;
                     }
                     stringBuffer.append((char) read);
                 }
             } catch (IOException e4) {
                 e2 = e4;
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42360c, "Catch exception. INNER_ERROR", e2);
-                this.f42367i.a(a.f42370c);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42422c, "Catch exception. INNER_ERROR", e2);
+                this.f42429i.a(a.f42432c);
                 a(inputStream, bufferedReader2, httpURLConnection);
             }
         } catch (IOException e5) {
@@ -343,10 +343,10 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || this.f42367i == null) {
-                String str2 = f42360c;
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str2, "RequestUrl or ResultCallback is null. RequestUrl = " + str + "; ResultCallback is: " + this.f42367i);
-                this.f42367i.a(a.f42371d);
+            if (TextUtils.isEmpty(str) || this.f42429i == null) {
+                String str2 = f42422c;
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str2, "RequestUrl or ResultCallback is null. RequestUrl = " + str + "; ResultCallback is: " + this.f42429i);
+                this.f42429i.a(a.f42433d);
                 return false;
             }
             return true;
@@ -357,10 +357,10 @@ public class c {
     private void c(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65545, this, str) == null) && d(str)) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42360c, "Permission check failed, try again");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42422c, "Permission check failed, try again");
             int permissionCheck = PermissionCheck.permissionCheck();
             if (permissionCheck != 0) {
-                String str2 = f42360c;
+                String str2 = f42422c;
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str2, "The authorized result is: " + permissionCheck);
             }
         }
@@ -381,14 +381,14 @@ public class c {
                 if (jSONObject.has("status") || jSONObject.has("status_sp")) {
                     int i2 = jSONObject.has("status") ? jSONObject.getInt("status") : jSONObject.getInt("status_sp");
                     if (106 == i2 || 105 == i2) {
-                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42360c, "Permission check failed due token");
+                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42422c, "Permission check failed due token");
                         return true;
                     }
                     return false;
                 }
                 return false;
             } catch (JSONException e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42360c, "Parse json happened exception", e2);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42422c, "Parse json happened exception", e2);
                 return false;
             }
         }
@@ -402,12 +402,12 @@ public class c {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.has("SDK_InnerError") && jSONObject.optJSONObject("SDK_InnerError").has("PermissionCheckError")) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42360c, "Permission check error due other");
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42422c, "Permission check error due other");
                     return true;
                 }
                 return false;
             } catch (JSONException e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42360c, "Parse json happened exception", e2);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42422c, "Parse json happened exception", e2);
                 return false;
             }
         }
@@ -417,7 +417,7 @@ public class c {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f42365g = i2;
+            this.f42427g = i2;
         }
     }
 
@@ -426,22 +426,22 @@ public class c {
         a aVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && b(str)) {
-            this.f42362d = str;
-            String str2 = f42360c;
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str2, "mRequestUrl is: " + this.f42362d);
+            this.f42424d = str;
+            String str2 = f42422c;
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str2, "mRequestUrl is: " + this.f42424d);
             if (a()) {
                 HttpURLConnection b2 = b();
-                this.f42361a = b2;
+                this.f42423a = b2;
                 if (b2 != null) {
                     a(b2);
                     return;
                 }
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42360c, "url connection failed");
-                eVar = this.f42367i;
-                aVar = a.f42370c;
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42422c, "url connection failed");
+                eVar = this.f42429i;
+                aVar = a.f42432c;
             } else {
-                eVar = this.f42367i;
-                aVar = a.f42369b;
+                eVar = this.f42429i;
+                aVar = a.f42431b;
             }
             eVar.a(aVar);
         }
@@ -450,7 +450,7 @@ public class c {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f42364f = i2;
+            this.f42426f = i2;
         }
     }
 }

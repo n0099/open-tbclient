@@ -119,13 +119,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
     public WorkPublishViewModel viewModel;
     public ViewGroup workPublishBg;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59153e;
+        public final /* synthetic */ WorkPublishActivity f59284e;
 
         public a(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -142,24 +142,24 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59153e = workPublishActivity;
+            this.f59284e = workPublishActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f59153e.popupSaveDraftDialog();
+                this.f59284e.popupSaveDraftDialog();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a0 implements a.e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a0 f59154e;
+        public static final a0 f59285e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -175,7 +175,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            f59154e = new a0();
+            f59285e = new a0();
         }
 
         public a0() {
@@ -201,13 +201,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59155e;
+        public final /* synthetic */ WorkPublishActivity f59286e;
 
         public b(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -224,25 +224,25 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59155e = workPublishActivity;
+            this.f59286e = workPublishActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f59155e.doPost();
+                this.f59286e.doPost();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class c<T> implements Observer<ArrayList<String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59156e;
+        public final /* synthetic */ WorkPublishActivity f59287e;
 
         public c(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -259,7 +259,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59156e = workPublishActivity;
+            this.f59287e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -268,21 +268,21 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public final void onChanged(ArrayList<String> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
-                SelectTagView selectTagView = this.f59156e.getSelectTagView();
+                SelectTagView selectTagView = this.f59287e.getSelectTagView();
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
                 selectTagView.bindData(it);
-                this.f59156e.getSelectClassView().setMIsSelectedTags(!it.isEmpty());
+                this.f59287e.getSelectClassView().setMIsSelectedTags(!it.isEmpty());
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class d<T> implements Observer<ArrayList<String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59157e;
+        public final /* synthetic */ WorkPublishActivity f59288e;
 
         public d(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -299,7 +299,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59157e = workPublishActivity;
+            this.f59288e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -308,20 +308,20 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public final void onChanged(ArrayList<String> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
-                SelectTopicView selectTopicView = this.f59157e.getSelectTopicView();
+                SelectTopicView selectTopicView = this.f59288e.getSelectTopicView();
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
                 selectTopicView.bindData(it);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class e<T> implements Observer<ResponsedSelectLocation> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59158e;
+        public final /* synthetic */ WorkPublishActivity f59289e;
 
         public e(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -338,7 +338,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59158e = workPublishActivity;
+            this.f59289e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -347,18 +347,18 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public final void onChanged(ResponsedSelectLocation responsedSelectLocation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedSelectLocation) == null) {
-                this.f59158e.getSelectPosView().bindData(responsedSelectLocation);
+                this.f59289e.getSelectPosView().bindData(responsedSelectLocation);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class f<T> implements Observer<VideoInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59159e;
+        public final /* synthetic */ WorkPublishActivity f59290e;
 
         public f(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -375,7 +375,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59159e = workPublishActivity;
+            this.f59290e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -386,17 +386,17 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if (!(interceptable == null || interceptable.invokeL(1048576, this, videoInfo) == null) || videoInfo == null) {
                 return;
             }
-            this.f59159e.getMixVideoView().setVideoInfo(videoInfo, false);
+            this.f59290e.getMixVideoView().setVideoInfo(videoInfo, false);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59160e;
+        public final /* synthetic */ WorkPublishActivity f59291e;
 
         public g(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -413,25 +413,25 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59160e = workPublishActivity;
+            this.f59291e = workPublishActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f59160e.onLocViewClickedInInitState();
+                this.f59291e.onLocViewClickedInInitState();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class h implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59161e;
+        public final /* synthetic */ WorkPublishActivity f59292e;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public h(WorkPublishActivity workPublishActivity) {
@@ -449,7 +449,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59161e = workPublishActivity;
+            this.f59292e = workPublishActivity;
         }
 
         @Override // android.text.TextWatcher
@@ -471,25 +471,25 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
                 String obj = charSequence.toString();
-                TextView counterTitle = this.f59161e.getCounterTitle();
+                TextView counterTitle = this.f59292e.getCounterTitle();
                 counterTitle.setText("(" + String.valueOf(obj.length()) + "/80)");
                 if (obj.length() == 80) {
-                    this.f59161e.getCounterTitle().setTextColor(SkinManager.getColor(R.color.CAM_X0301));
+                    this.f59292e.getCounterTitle().setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 } else {
-                    this.f59161e.getCounterTitle().setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+                    this.f59292e.getCounterTitle().setTextColor(SkinManager.getColor(R.color.CAM_X0105));
                 }
-                this.f59161e.getViewModel().updateTitle(obj);
+                this.f59292e.getViewModel().updateTitle(obj);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class i implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59162e;
+        public final /* synthetic */ WorkPublishActivity f59293e;
 
         public i(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -506,7 +506,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59162e = workPublishActivity;
+            this.f59293e = workPublishActivity;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -514,22 +514,22 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                 if (z) {
-                    this.f59162e.setHasClickedTitle(true);
-                } else if (!this.f59162e.getHasClickedTitle() || this.f59162e.getViewModel().checkIsTitleLegal()) {
+                    this.f59293e.setHasClickedTitle(true);
+                } else if (!this.f59293e.getHasClickedTitle() || this.f59293e.getViewModel().checkIsTitleLegal()) {
                 } else {
-                    new BdTopToast(this.f59162e).setIcon(false).setContent(this.f59162e.getString(R.string.work_publish_title_too_short)).show(this.f59162e.getRootView());
+                    new BdTopToast(this.f59293e).setIcon(false).setContent(this.f59293e.getString(R.string.work_publish_title_too_short)).show(this.f59293e.getRootView());
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class j implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59163e;
+        public final /* synthetic */ WorkPublishActivity f59294e;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public j(WorkPublishActivity workPublishActivity) {
@@ -547,7 +547,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59163e = workPublishActivity;
+            this.f59294e = workPublishActivity;
         }
 
         @Override // android.text.TextWatcher
@@ -569,25 +569,25 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
                 String obj = charSequence.toString();
-                TextView counterContent = this.f59163e.getCounterContent();
+                TextView counterContent = this.f59294e.getCounterContent();
                 counterContent.setText("(" + String.valueOf(obj.length()) + "/300)");
                 if (obj.length() == 300) {
-                    this.f59163e.getCounterContent().setTextColor(SkinManager.getColor(R.color.CAM_X0301));
+                    this.f59294e.getCounterContent().setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 } else {
-                    this.f59163e.getCounterContent().setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+                    this.f59294e.getCounterContent().setTextColor(SkinManager.getColor(R.color.CAM_X0105));
                 }
-                this.f59163e.getViewModel().getDesc().setValue(obj);
+                this.f59294e.getViewModel().getDesc().setValue(obj);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class k<T> implements Observer<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59164e;
+        public final /* synthetic */ WorkPublishActivity f59295e;
 
         public k(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -604,7 +604,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59164e = workPublishActivity;
+            this.f59295e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -613,24 +613,24 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public final void onChanged(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                if (Intrinsics.areEqual(this.f59164e.getViewModel().isLegal().getValue(), Boolean.FALSE)) {
-                    this.f59164e.getNavPost().setAlpha(0.33f);
-                    this.f59164e.getNavPost().setEnabled(false);
+                if (Intrinsics.areEqual(this.f59295e.getViewModel().isLegal().getValue(), Boolean.FALSE)) {
+                    this.f59295e.getNavPost().setAlpha(0.33f);
+                    this.f59295e.getNavPost().setEnabled(false);
                     return;
                 }
-                this.f59164e.getNavPost().setAlpha(1.0f);
-                this.f59164e.getNavPost().setEnabled(true);
+                this.f59295e.getNavPost().setAlpha(1.0f);
+                this.f59295e.getNavPost().setEnabled(true);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class l<T> implements Observer<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59165e;
+        public final /* synthetic */ WorkPublishActivity f59296e;
 
         public l(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -647,7 +647,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59165e = workPublishActivity;
+            this.f59296e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -655,20 +655,20 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         /* renamed from: a */
         public final void onChanged(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null || str.equals(this.f59165e.getEdtTitle().getText().toString())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null || str.equals(this.f59296e.getEdtTitle().getText().toString())) {
                 return;
             }
-            this.f59165e.getEdtTitle().setText(str);
+            this.f59296e.getEdtTitle().setText(str);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class m<T> implements Observer<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59166e;
+        public final /* synthetic */ WorkPublishActivity f59297e;
 
         public m(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -685,7 +685,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59166e = workPublishActivity;
+            this.f59297e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -693,20 +693,20 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         /* renamed from: a */
         public final void onChanged(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null || str.equals(this.f59166e.getEdtContent().getText().toString())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null || str.equals(this.f59297e.getEdtContent().getText().toString())) {
                 return;
             }
-            this.f59166e.getEdtContent().setText(str);
+            this.f59297e.getEdtContent().setText(str);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class n<T> implements Observer<c.a.q0.u.i> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59167e;
+        public final /* synthetic */ WorkPublishActivity f59298e;
 
         public n(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -723,7 +723,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59167e = workPublishActivity;
+            this.f59298e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -732,18 +732,18 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public final void onChanged(c.a.q0.u.i iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f59167e.getSelectBarView().bindData(iVar);
+                this.f59298e.getSelectBarView().bindData(iVar);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class o<T> implements Observer<VideoCategoryClassData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59168e;
+        public final /* synthetic */ WorkPublishActivity f59299e;
 
         public o(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -760,7 +760,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59168e = workPublishActivity;
+            this.f59299e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -769,31 +769,31 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public final void onChanged(VideoCategoryClassData it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
-                this.f59168e.getSelectClassView().bindData(it);
-                String firstClass = this.f59168e.getSelectTagView().getFirstClass();
+                this.f59299e.getSelectClassView().bindData(it);
+                String firstClass = this.f59299e.getSelectTagView().getFirstClass();
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                if ((!Intrinsics.areEqual(firstClass, it.getFirstClass())) || (!Intrinsics.areEqual(this.f59168e.getSelectTagView().getSecondClass(), it.getSecondClass()))) {
-                    SelectTagView selectTagView = this.f59168e.getSelectTagView();
+                if ((!Intrinsics.areEqual(firstClass, it.getFirstClass())) || (!Intrinsics.areEqual(this.f59299e.getSelectTagView().getSecondClass(), it.getSecondClass()))) {
+                    SelectTagView selectTagView = this.f59299e.getSelectTagView();
                     String firstClass2 = it.getFirstClass();
                     Intrinsics.checkExpressionValueIsNotNull(firstClass2, "it.firstClass");
                     String secondClass = it.getSecondClass();
                     Intrinsics.checkExpressionValueIsNotNull(secondClass, "it.secondClass");
                     selectTagView.setClassData(firstClass2, secondClass);
-                    if (this.f59168e.isNeedCleanTag) {
-                        this.f59168e.getViewModel().getTagInfo().setValue(new ArrayList<>());
+                    if (this.f59299e.isNeedCleanTag) {
+                        this.f59299e.getViewModel().getTagInfo().setValue(new ArrayList<>());
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class p extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59169a;
+        public final /* synthetic */ WorkPublishActivity f59300a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public p(WorkPublishActivity workPublishActivity, int i2) {
@@ -813,7 +813,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59169a = workPublishActivity;
+            this.f59300a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -826,19 +826,19 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.Boolean");
                 }
                 if (((Boolean) data).booleanValue()) {
-                    new BdTopToast(this.f59169a.getBaseContext()).setIcon(false).setContent(this.f59169a.getResources().getString(R.string.can_not_change_bar_name)).show(this.f59169a.getNavigationBar());
+                    new BdTopToast(this.f59300a.getBaseContext()).setIcon(false).setContent(this.f59300a.getResources().getString(R.string.can_not_change_bar_name)).show(this.f59300a.getNavigationBar());
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class q implements LocationModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59170a;
+        public final /* synthetic */ WorkPublishActivity f59301a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public q(WorkPublishActivity workPublishActivity) {
@@ -856,14 +856,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59170a = workPublishActivity;
+            this.f59301a = workPublishActivity;
         }
 
         @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f59170a.showToast(R.string.no_network_guide);
+                this.f59301a.showToast(R.string.no_network_guide);
             }
         }
 
@@ -872,10 +872,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locationData) == null) {
                 if (!StringUtils.isNull(locationData.getFormatted_address())) {
-                    this.f59170a.goToSelectLocationActivity();
+                    this.f59301a.goToSelectLocationActivity();
                     return;
                 }
-                WorkPublishActivity workPublishActivity = this.f59170a;
+                WorkPublishActivity workPublishActivity = this.f59301a;
                 workPublishActivity.showToast(workPublishActivity.getString(R.string.location_fail));
             }
         }
@@ -884,22 +884,22 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                WorkPublishActivity workPublishActivity = this.f59170a;
+                WorkPublishActivity workPublishActivity = this.f59301a;
                 if (StringUtils.isNull(str)) {
-                    str = this.f59170a.getString(R.string.location_fail);
+                    str = this.f59301a.getString(R.string.location_fail);
                 }
                 workPublishActivity.showToast(str);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class r extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59171a;
+        public final /* synthetic */ WorkPublishActivity f59302a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public r(WorkPublishActivity workPublishActivity, int i2) {
@@ -919,7 +919,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59171a = workPublishActivity;
+            this.f59302a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -929,9 +929,9 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof VideoCategoryClassData)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    this.f59171a.isNeedCleanTag = true;
-                    this.f59171a.getViewModel().getClassInfo().setValue((VideoCategoryClassData) data);
-                    this.f59171a.getViewModel().checkIsAllLegal();
+                    this.f59302a.isNeedCleanTag = true;
+                    this.f59302a.getViewModel().getClassInfo().setValue((VideoCategoryClassData) data);
+                    this.f59302a.getViewModel().checkIsAllLegal();
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type com.baidu.tbadk.data.VideoCategoryClassData");
@@ -939,13 +939,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class s extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59172a;
+        public final /* synthetic */ WorkPublishActivity f59303a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public s(WorkPublishActivity workPublishActivity, int i2) {
@@ -965,7 +965,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59172a = workPublishActivity;
+            this.f59303a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -975,23 +975,23 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponsedSelectLocation)) {
                 ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                 if (responsedSelectLocation.isShowLocation()) {
-                    WorkPublishActivity.access$getMLocationModel$p(this.f59172a).M(false);
-                    WorkPublishActivity.access$getMLocationModel$p(this.f59172a).L(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                    WorkPublishActivity.access$getMLocationModel$p(this.f59303a).M(false);
+                    WorkPublishActivity.access$getMLocationModel$p(this.f59303a).L(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                 } else {
-                    WorkPublishActivity.access$getMLocationModel$p(this.f59172a).M(true);
+                    WorkPublishActivity.access$getMLocationModel$p(this.f59303a).M(true);
                 }
-                this.f59172a.getViewModel().getPosInfo().setValue(customResponsedMessage);
+                this.f59303a.getViewModel().getPosInfo().setValue(customResponsedMessage);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class t extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59173a;
+        public final /* synthetic */ WorkPublishActivity f59304a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public t(WorkPublishActivity workPublishActivity, int i2) {
@@ -1011,7 +1011,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59173a = workPublishActivity;
+            this.f59304a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1021,8 +1021,8 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof ArrayList)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    this.f59173a.getViewModel().getTagInfo().setValue((ArrayList) data);
-                    this.f59173a.getViewModel().checkIsAllLegal();
+                    this.f59304a.getViewModel().getTagInfo().setValue((ArrayList) data);
+                    this.f59304a.getViewModel().checkIsAllLegal();
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.ArrayList<kotlin.String> /* = java.util.ArrayList<kotlin.String> */");
@@ -1030,13 +1030,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class u extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59174a;
+        public final /* synthetic */ WorkPublishActivity f59305a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public u(WorkPublishActivity workPublishActivity, int i2) {
@@ -1056,7 +1056,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59174a = workPublishActivity;
+            this.f59305a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1066,7 +1066,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof ArrayList)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    this.f59174a.getViewModel().getTopicInfo().setValue((ArrayList) data);
+                    this.f59305a.getViewModel().getTopicInfo().setValue((ArrayList) data);
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.ArrayList<kotlin.String> /* = java.util.ArrayList<kotlin.String> */");
@@ -1074,13 +1074,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class v extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59175a;
+        public final /* synthetic */ WorkPublishActivity f59306a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public v(WorkPublishActivity workPublishActivity, int i2) {
@@ -1100,7 +1100,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59175a = workPublishActivity;
+            this.f59306a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1110,7 +1110,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof c.a.q0.u.i)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    this.f59175a.getViewModel().getBarInfo().setValue((c.a.q0.u.i) data);
+                    this.f59306a.getViewModel().getBarInfo().setValue((c.a.q0.u.i) data);
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type com.baidu.tbadk.data.SelectForumData");
@@ -1118,13 +1118,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class w extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59176a;
+        public final /* synthetic */ WorkPublishActivity f59307a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public w(WorkPublishActivity workPublishActivity, int i2) {
@@ -1144,7 +1144,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59176a = workPublishActivity;
+            this.f59307a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1157,19 +1157,19 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.Boolean");
                 }
                 if (((Boolean) data).booleanValue()) {
-                    new BdTopToast(this.f59176a.getBaseContext()).setIcon(false).setContent(this.f59176a.getResources().getString(R.string.can_not_select_tag)).show(this.f59176a.getNavigationBar());
+                    new BdTopToast(this.f59307a.getBaseContext()).setIcon(false).setContent(this.f59307a.getResources().getString(R.string.can_not_select_tag)).show(this.f59307a.getNavigationBar());
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class x extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59177a;
+        public final /* synthetic */ WorkPublishActivity f59308a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public x(WorkPublishActivity workPublishActivity, int i2) {
@@ -1189,7 +1189,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59177a = workPublishActivity;
+            this.f59308a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1199,7 +1199,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof VideoInfo)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    this.f59177a.getViewModel().updateVideo((VideoInfo) data);
+                    this.f59308a.getViewModel().updateVideo((VideoInfo) data);
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type com.baidu.tbadk.coreExtra.data.VideoInfo");
@@ -1213,7 +1213,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59178e;
+        public final /* synthetic */ WorkPublishActivity f59309e;
 
         public y(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -1230,14 +1230,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59178e = workPublishActivity;
+            this.f59309e = workPublishActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View v) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, v) == null) {
-                PopupDialog popupDialog = this.f59178e.saveDraftDialog;
+                PopupDialog popupDialog = this.f59309e.saveDraftDialog;
                 if (popupDialog == null) {
                     Intrinsics.throwNpe();
                 }
@@ -1251,10 +1251,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                         if (id == R.id.save_draft_dialog_not_save) {
                             if (booleanValue) {
                                 TiebaStatic.log(new StatisticItem("c14260").param("obj_locate", 2));
-                                this.f59178e.clearDraft();
+                                this.f59309e.clearDraft();
                             }
-                            this.f59178e.setResult(100);
-                            this.f59178e.finish();
+                            this.f59309e.setResult(100);
+                            this.f59309e.finish();
                             return;
                         } else if (id != R.id.save_draft_dialog_save) {
                             if (id == R.id.save_draft_dialog_cancle && booleanValue) {
@@ -1264,9 +1264,9 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                             return;
                         } else if (booleanValue) {
                             TiebaStatic.log(new StatisticItem("c14260").param("obj_locate", 1));
-                            this.f59178e.processSaveDraft();
-                            this.f59178e.setResult(100);
-                            this.f59178e.finish();
+                            this.f59309e.processSaveDraft();
+                            this.f59309e.setResult(100);
+                            this.f59309e.finish();
                             return;
                         } else {
                             return;
@@ -1284,7 +1284,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f59179e;
+        public final /* synthetic */ WorkPublishActivity f59310e;
 
         public z(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -1301,7 +1301,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f59179e = workPublishActivity;
+            this.f59310e = workPublishActivity;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -1309,9 +1309,9 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (!c.a.e.e.p.j.z()) {
-                    this.f59179e.mOnLocationCallBack.a();
+                    this.f59310e.mOnLocationCallBack.a();
                 } else {
-                    WorkPublishActivity.access$getMLocationModel$p(this.f59179e).K();
+                    WorkPublishActivity.access$getMLocationModel$p(this.f59310e).K();
                 }
                 aVar.dismiss();
             }
@@ -1372,8 +1372,8 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                 Intrinsics.throwUninitializedPropertyAccessException("selectBarView");
             }
             selectBarView.setMCanChangeBarName(getIntent().getBooleanExtra(WorkPublishActivityConfig.CAN_CHANGE_SELECT_BAR, true));
-            iVar.f15029a = getIntent().getStringExtra("bar_id");
-            iVar.f15031c = getIntent().getStringExtra("bar_name");
+            iVar.f15036a = getIntent().getStringExtra("bar_id");
+            iVar.f15038c = getIntent().getStringExtra("bar_name");
             WorkPublishViewModel workPublishViewModel = this.viewModel;
             if (workPublishViewModel == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewModel");
@@ -1406,8 +1406,8 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                 Intrinsics.throwUninitializedPropertyAccessException("selectBarView");
             }
             selectBarView.setMCanChangeBarName(getIntent().getBooleanExtra(AlbumFloatActivityConfig.CAN_CHANGE_BAR_NAME, true));
-            iVar.f15029a = getIntent().getStringExtra("bar_id");
-            iVar.f15031c = getIntent().getStringExtra("bar_name");
+            iVar.f15036a = getIntent().getStringExtra("bar_id");
+            iVar.f15038c = getIntent().getStringExtra("bar_name");
             WorkPublishViewModel workPublishViewModel3 = this.viewModel;
             if (workPublishViewModel3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewModel");
@@ -1514,7 +1514,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             int intExtra = getIntent().getIntExtra(WorkPublishActivityConfig.PARAM_SHOW_DRAFT, 0);
             this.draftType = intExtra;
-            if (intExtra == c.a.q0.s.m.c.f14024f.a()) {
+            if (intExtra == c.a.q0.s.m.c.f14021f.a()) {
                 this.isDraftData = true;
                 WorkPublishViewModel workPublishViewModel = this.viewModel;
                 if (workPublishViewModel == null) {
@@ -1522,7 +1522,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                 }
                 workPublishViewModel.loadDraft();
                 getFormData();
-            } else if (this.draftType == c.a.q0.s.m.c.f14024f.b()) {
+            } else if (this.draftType == c.a.q0.s.m.c.f14021f.b()) {
                 Serializable serializableExtra = getIntent().getSerializableExtra(WorkPublishActivityConfig.PARAM_WRITE_DATA);
                 if (serializableExtra instanceof WriteData) {
                     WorkPublishViewModel workPublishViewModel2 = this.viewModel;
@@ -1570,7 +1570,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkExpressionValueIsNotNull(pageContext, "pageContext");
             c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(pageContext.getPageActivity());
-            aVar.setMessageId(R.string.location_app_permission_prompt).setPositiveButton(R.string.isopen, new z(this)).setNegativeButton(R.string.cancel, a0.f59154e).create(getPageContext());
+            aVar.setMessageId(R.string.location_app_permission_prompt).setPositiveButton(R.string.isopen, new z(this)).setNegativeButton(R.string.cancel, a0.f59285e).create(getPageContext());
             aVar.show();
         }
     }
@@ -1642,13 +1642,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                 Intrinsics.throwUninitializedPropertyAccessException("viewModel");
             }
             c.a.q0.u.i value3 = workPublishViewModel9.getBarInfo().getValue();
-            writeData.setForumId(value3 != null ? value3.f15029a : null);
+            writeData.setForumId(value3 != null ? value3.f15036a : null);
             WorkPublishViewModel workPublishViewModel10 = this.viewModel;
             if (workPublishViewModel10 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewModel");
             }
             c.a.q0.u.i value4 = workPublishViewModel10.getBarInfo().getValue();
-            writeData.setForumName(value4 != null ? value4.f15031c : null);
+            writeData.setForumName(value4 != null ? value4.f15038c : null);
             WorkPublishViewModel workPublishViewModel11 = this.viewModel;
             if (workPublishViewModel11 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewModel");

@@ -17,7 +17,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<String> f25149a;
+    public static List<String> f25170a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,15 +39,15 @@ public class a {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            List<String> list = f25149a;
+            List<String> list = f25170a;
             if (list == null) {
-                f25149a = new ArrayList();
+                f25170a = new ArrayList();
             } else {
                 list.clear();
             }
             if (context.checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") != 0) {
-                f25149a.add("android.permission.WRITE_EXTERNAL_STORAGE");
-                f25149a.add("android.permission.READ_EXTERNAL_STORAGE");
+                f25170a.add("android.permission.WRITE_EXTERNAL_STORAGE");
+                f25170a.add("android.permission.READ_EXTERNAL_STORAGE");
             }
         }
     }
@@ -86,7 +86,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             if (!c(context)) {
                 a(context);
-                List<String> list = f25149a;
+                List<String> list = f25170a;
                 ((Activity) context).requestPermissions((String[]) list.toArray(new String[list.size()]), 102);
             } else if (context instanceof PermissionActivity) {
                 ((Activity) context).finish();

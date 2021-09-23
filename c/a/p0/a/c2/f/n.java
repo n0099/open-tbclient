@@ -32,22 +32,22 @@ public class n extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4959e;
+        public final /* synthetic */ CallbackHandler f4967e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4960f;
+        public final /* synthetic */ String f4968f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f4961g;
+        public final /* synthetic */ String f4969g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f4962h;
+        public final /* synthetic */ Context f4970h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f4963i;
+        public final /* synthetic */ JSONObject f4971i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f4964j;
+        public final /* synthetic */ String f4972j;
         public final /* synthetic */ n k;
 
         public a(n nVar, CallbackHandler callbackHandler, String str, String str2, Context context, JSONObject jSONObject, String str3) {
@@ -66,12 +66,12 @@ public class n extends a0 {
                 }
             }
             this.k = nVar;
-            this.f4959e = callbackHandler;
-            this.f4960f = str;
-            this.f4961g = str2;
-            this.f4962h = context;
-            this.f4963i = jSONObject;
-            this.f4964j = str3;
+            this.f4967e = callbackHandler;
+            this.f4968f = str;
+            this.f4969g = str2;
+            this.f4970h = context;
+            this.f4971i = jSONObject;
+            this.f4972j = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,17 +80,17 @@ public class n extends a0 {
         public void onCallback(c.a.p0.a.e2.c.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                if (fVar != null && !fVar.f5541d) {
-                    if (this.k.m(fVar, this.f4961g)) {
-                        this.k.l(this.f4962h, this.f4963i, this.f4959e, this.f4960f, this.f4964j);
+                if (fVar != null && !fVar.f5549d) {
+                    if (this.k.m(fVar, this.f4969g)) {
+                        this.k.l(this.f4970h, this.f4971i, this.f4967e, this.f4968f, this.f4972j);
                         return;
                     } else {
-                        this.f4959e.handleSchemeDispatchCallback(this.f4960f, UnitedSchemeUtility.wrapCallbackParams(1003, "打开APP失败，打开App条件未满足").toString());
+                        this.f4967e.handleSchemeDispatchCallback(this.f4968f, UnitedSchemeUtility.wrapCallbackParams(1003, "打开APP失败，打开App条件未满足").toString());
                         return;
                     }
                 }
-                boolean z = a0.f4766b;
-                c.a.p0.a.e2.c.d.n(10005, this.f4959e, this.f4960f);
+                boolean z = a0.f4774b;
+                c.a.p0.a.e2.c.d.n(10005, this.f4967e, this.f4968f);
                 c.a.p0.a.j2.k.p(10005, fVar);
             }
         }
@@ -102,16 +102,16 @@ public class n extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4965a;
+        public final /* synthetic */ CallbackHandler f4973a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f4966b;
+        public final /* synthetic */ String f4974b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f4967c;
+        public final /* synthetic */ String f4975c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f4968d;
+        public final /* synthetic */ String f4976d;
 
         public b(n nVar, CallbackHandler callbackHandler, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -128,18 +128,18 @@ public class n extends a0 {
                     return;
                 }
             }
-            this.f4965a = callbackHandler;
-            this.f4966b = str;
-            this.f4967c = str2;
-            this.f4968d = str3;
+            this.f4973a = callbackHandler;
+            this.f4974b = str;
+            this.f4975c = str2;
+            this.f4976d = str3;
         }
 
         @Override // c.a.p0.a.v2.q0.g
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f4965a.handleSchemeDispatchCallback(this.f4966b, UnitedSchemeUtility.wrapCallbackParams(z ? 0 : 1001, z ? "打开APP成功" : "打开APP失败，本地没有安装").toString());
-                c.a("open", this.f4967c, "confirm", this.f4968d);
+                this.f4973a.handleSchemeDispatchCallback(this.f4974b, UnitedSchemeUtility.wrapCallbackParams(z ? 0 : 1001, z ? "打开APP成功" : "打开APP失败，本地没有安装").toString());
+                c.a("open", this.f4975c, "confirm", this.f4976d);
             }
         }
 
@@ -147,8 +147,8 @@ public class n extends a0 {
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f4965a.handleSchemeDispatchCallback(this.f4966b, UnitedSchemeUtility.wrapCallbackParams(1004, "取消打开APP").toString());
-                c.a("open", this.f4967c, QueryResponse.Options.CANCEL, this.f4968d);
+                this.f4973a.handleSchemeDispatchCallback(this.f4974b, UnitedSchemeUtility.wrapCallbackParams(1004, "取消打开APP").toString());
+                c.a("open", this.f4975c, QueryResponse.Options.CANCEL, this.f4976d);
             }
         }
     }
@@ -178,11 +178,11 @@ public class n extends a0 {
                     str7 = str6;
                 }
                 String a2 = c.a.p0.a.c1.a.m().a();
-                eVar.f7063a = str8;
-                eVar.f7064b = str;
-                eVar.f7067e = str2;
-                eVar.f7068f = str6;
-                eVar.f7065c = str5;
+                eVar.f7071a = str8;
+                eVar.f7072b = str;
+                eVar.f7075e = str2;
+                eVar.f7076f = str6;
+                eVar.f7073c = str5;
                 eVar.a("appName", str7);
                 eVar.a("hostName", a2);
                 eVar.a("hostVersion", q0.D());
@@ -193,7 +193,7 @@ public class n extends a0 {
                 }
                 eVar.a("scheme", str4);
                 c.a.p0.a.j2.b.i("2572", "90", eVar.f());
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String.format("ubcId=%s && ceresId=%s , content:%s ", "2572", "90", eVar.f());
                 }
             }
@@ -236,7 +236,7 @@ public class n extends a0 {
                 return false;
             }
             String optString = a2.optString("cb");
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "params is " + a2.toString();
             }
             String optString2 = a2.optString("open", "");
@@ -259,13 +259,13 @@ public class n extends a0 {
             } else {
                 optString = Uri.decode(optString);
                 c.a.p0.a.c1.a.K().a(optString, jSONObject.optJSONObject("extraParams"));
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str3 = "openUrl:" + optString;
                 }
                 z = o(context, optString, callbackHandler, str, str2);
             }
             boolean optBoolean = jSONObject.optBoolean("isNeedDownload", true);
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str4 = "open app result=" + z + "\nisNeedDownload=" + optBoolean;
             }
             if (!optBoolean) {
@@ -293,7 +293,7 @@ public class n extends a0 {
                 }
                 JSONObject jSONObject = fVar.o;
                 if (jSONObject != null && jSONObject.keys() != null) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         String str2 = "source: " + T + " openUrl:" + str + " 配置数据:" + jSONObject;
                     }
                     JSONArray optJSONArray = jSONObject.optJSONArray("scene");

@@ -31,19 +31,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f28301b;
+    public static a f28321b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f28302a;
+    public f f28322a;
 
     /* renamed from: c.a.r0.x0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1333a implements h {
+    public class C1331a implements h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1333a(a aVar) {
+        public C1331a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f28303a;
+        public final /* synthetic */ String f28323a;
 
         public b(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -101,14 +101,14 @@ public class a {
                     return;
                 }
             }
-            this.f28303a = str;
+            this.f28323a = str;
         }
 
         @Override // c.a.r0.x0.a.h
         public void a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                FunAdRecordHttpMessage.uploadRequestRecord("a006", "0", null, this.f28303a, null);
+                FunAdRecordHttpMessage.uploadRequestRecord("a006", "0", null, this.f28323a, null);
                 StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a006").param("obj_locate", 0).eventStat();
             }
         }
@@ -117,7 +117,7 @@ public class a {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                FunAdRecordHttpMessage.uploadRequestRecord("a006", "1", null, this.f28303a, "0");
+                FunAdRecordHttpMessage.uploadRequestRecord("a006", "1", null, this.f28323a, "0");
                 StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a006").param("obj_locate", 1).param(TiebaStatic.Params.RESOURCE_ID, 0).eventStat();
             }
         }
@@ -129,10 +129,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f28304a;
+        public final /* synthetic */ h f28324a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f28305b;
+        public final /* synthetic */ String f28325b;
 
         public c(a aVar, h hVar, String str) {
             Interceptable interceptable = $ic;
@@ -149,19 +149,19 @@ public class a {
                     return;
                 }
             }
-            this.f28304a = hVar;
-            this.f28305b = str;
+            this.f28324a = hVar;
+            this.f28325b = str;
         }
 
         @Override // c.a.r0.x0.a.h
         public void a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                h hVar = this.f28304a;
+                h hVar = this.f28324a;
                 if (hVar != null) {
                     hVar.a(str, i2);
                 }
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", this.f28305b).param("obj_locate", 0).param(TiebaStatic.Params.RESOURCE_ID, i2));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", this.f28325b).param("obj_locate", 0).param(TiebaStatic.Params.RESOURCE_ID, i2));
             }
         }
 
@@ -169,11 +169,11 @@ public class a {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                h hVar = this.f28304a;
+                h hVar = this.f28324a;
                 if (hVar != null) {
                     hVar.onError(str);
                 }
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", this.f28305b).param("obj_locate", 1).param(TiebaStatic.Params.RESOURCE_ID, 0));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", this.f28325b).param("obj_locate", 1).param(TiebaStatic.Params.RESOURCE_ID, 0));
             }
         }
     }
@@ -184,13 +184,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f28306a;
+        public final /* synthetic */ h f28326a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f28307b;
+        public final /* synthetic */ String f28327b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f28308c;
+        public final /* synthetic */ a f28328c;
 
         public d(a aVar, h hVar, String str) {
             Interceptable interceptable = $ic;
@@ -207,20 +207,20 @@ public class a {
                     return;
                 }
             }
-            this.f28308c = aVar;
-            this.f28306a = hVar;
-            this.f28307b = str;
+            this.f28328c = aVar;
+            this.f28326a = hVar;
+            this.f28327b = str;
         }
 
         @Override // c.a.r0.x0.a.h
         public void a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                h hVar = this.f28306a;
+                h hVar = this.f28326a;
                 if (hVar != null) {
                     hVar.a(str, i2);
                 }
-                this.f28308c.z(0, this.f28307b, String.valueOf(1));
+                this.f28328c.z(0, this.f28327b, String.valueOf(1));
             }
         }
 
@@ -228,11 +228,11 @@ public class a {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                h hVar = this.f28306a;
+                h hVar = this.f28326a;
                 if (hVar != null) {
                     hVar.onError(str);
                 }
-                this.f28308c.z(1, this.f28307b, String.valueOf(0));
+                this.f28328c.z(1, this.f28327b, String.valueOf(0));
             }
         }
     }
@@ -243,10 +243,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f28309a;
+        public final /* synthetic */ String f28329a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f28310b;
+        public final /* synthetic */ String f28330b;
 
         public e(a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -263,15 +263,15 @@ public class a {
                     return;
                 }
             }
-            this.f28309a = str;
-            this.f28310b = str2;
+            this.f28329a = str;
+            this.f28330b = str2;
         }
 
         @Override // c.a.r0.x0.a.h
         public void a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                FunAdRecordHttpMessage.uploadRequestRecord("a005", "0", this.f28309a, this.f28310b, null);
+                FunAdRecordHttpMessage.uploadRequestRecord("a005", "0", this.f28329a, this.f28330b, null);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a005").param("obj_locate", 0));
             }
         }
@@ -280,7 +280,7 @@ public class a {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                FunAdRecordHttpMessage.uploadRequestRecord("a005", "1", this.f28309a, this.f28310b, "0");
+                FunAdRecordHttpMessage.uploadRequestRecord("a005", "1", this.f28329a, this.f28330b, "0");
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a005").param("obj_locate", 1).param(TiebaStatic.Params.RESOURCE_ID, 0));
             }
         }
@@ -331,10 +331,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f28311a;
+        public String f28331a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f28312b;
+        public String f28332b;
 
         public g() {
             Interceptable interceptable = $ic;
@@ -421,7 +421,7 @@ public class a {
                 return;
             }
         }
-        this.f28302a = g();
+        this.f28322a = g();
     }
 
     public static g b(String str, String str2) {
@@ -429,8 +429,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             g gVar = new g();
-            gVar.f28311a = str;
-            gVar.f28312b = str2;
+            gVar.f28331a = str;
+            gVar.f28332b = str2;
             return gVar;
         }
         return (g) invokeLL.objValue;
@@ -440,17 +440,17 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f28301b == null) {
+            if (f28321b == null) {
                 synchronized (a.class) {
-                    if (f28301b == null) {
-                        f28301b = new a();
+                    if (f28321b == null) {
+                        f28321b = new a();
                     }
                 }
             }
-            if (f28301b.f28302a == null && PermissionUtil.isAgreePrivacyPolicy()) {
-                f28301b = new a();
+            if (f28321b.f28322a == null && PermissionUtil.isAgreePrivacyPolicy()) {
+                f28321b = new a();
             }
-            return f28301b;
+            return f28321b;
         }
         return (a) invokeV.objValue;
     }
@@ -458,21 +458,21 @@ public class a {
     public c.a.r0.x3.g A(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f28302a.o(obj) : (c.a.r0.x3.g) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f28322a.o(obj) : (c.a.r0.x3.g) invokeL.objValue;
     }
 
     public boolean B(Activity activity, String str, g gVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, gVar)) == null) {
-            if (this.f28302a == null || TextUtils.isEmpty(str) || gVar == null) {
+            if (this.f28322a == null || TextUtils.isEmpty(str) || gVar == null) {
                 return false;
             }
-            boolean isAdReady = this.f28302a.isAdReady(str);
+            boolean isAdReady = this.f28322a.isAdReady(str);
             StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a002").eventStat();
             System.currentTimeMillis();
             FunAdRecordHttpMessage.uploadRequestRecord("a002", null, null, null, null);
-            this.f28302a.m(activity, str, new C1333a(this), gVar);
+            this.f28322a.m(activity, str, new C1331a(this), gVar);
             return isAdReady;
         }
         return invokeLLL.booleanValue;
@@ -482,13 +482,13 @@ public class a {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, str, gVar, str2)) == null) {
-            if (this.f28302a == null || TextUtils.isEmpty(str) || gVar == null) {
+            if (this.f28322a == null || TextUtils.isEmpty(str) || gVar == null) {
                 return false;
             }
-            boolean isAdReady = this.f28302a.isAdReady(str);
+            boolean isAdReady = this.f28322a.isAdReady(str);
             StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("fid", str2).param("obj_type", "a006").eventStat();
             FunAdRecordHttpMessage.uploadRequestRecord("a006", null, null, str2, null);
-            this.f28302a.m(activity, str, new b(this, str2), gVar);
+            this.f28322a.m(activity, str, new b(this, str2), gVar);
             return isAdReady;
         }
         return invokeLLLL.booleanValue;
@@ -498,13 +498,13 @@ public class a {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, activity, str, gVar, str2, str3)) == null) {
-            if (this.f28302a == null || TextUtils.isEmpty(str) || gVar == null) {
+            if (this.f28322a == null || TextUtils.isEmpty(str) || gVar == null) {
                 return false;
             }
-            boolean isAdReady = this.f28302a.isAdReady(str);
+            boolean isAdReady = this.f28322a.isAdReady(str);
             FunAdRecordHttpMessage.uploadRequestRecord("a005", null, str2, str3, null);
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("tid", str2).param("fid", str3).param("obj_type", "a005").param("obj_param1", "2"));
-            this.f28302a.m(activity, str, new e(this, str2, str3), gVar);
+            this.f28322a.m(activity, str, new e(this, str2, str3), gVar);
             return isAdReady;
         }
         return invokeLLLLL.booleanValue;
@@ -513,7 +513,7 @@ public class a {
     public void c(String str) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (fVar = this.f28302a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (fVar = this.f28322a) == null) {
             return;
         }
         fVar.a(str);
@@ -522,7 +522,7 @@ public class a {
     public void d(String str) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (fVar = this.f28302a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (fVar = this.f28322a) == null) {
             return;
         }
         fVar.destroyAd(str);
@@ -557,7 +557,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, activity, str)) == null) {
-            f fVar = this.f28302a;
+            f fVar = this.f28322a;
             if (fVar != null) {
                 return fVar.f(activity, str);
             }
@@ -570,7 +570,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, activity, str)) == null) {
-            f fVar = this.f28302a;
+            f fVar = this.f28322a;
             if (fVar != null) {
                 return fVar.i(activity, str);
             }
@@ -582,13 +582,13 @@ public class a {
     public View k(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) ? this.f28302a.d(obj) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) ? this.f28322a.d(obj) : (View) invokeL.objValue;
     }
 
     public void l() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (fVar = this.f28302a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (fVar = this.f28322a) == null) {
             return;
         }
         fVar.l(TbadkCoreApplication.getInst(), null);
@@ -598,7 +598,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            f fVar = this.f28302a;
+            f fVar = this.f28322a;
             return fVar != null && fVar.isAdReady(str);
         }
         return invokeL.booleanValue;
@@ -607,7 +607,7 @@ public class a {
     public void n(Context context, String str, h hVar, g gVar) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048590, this, context, str, hVar, gVar) == null) || (fVar = this.f28302a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048590, this, context, str, hVar, gVar) == null) || (fVar = this.f28322a) == null) {
             return;
         }
         fVar.j(context, str, hVar, gVar);
@@ -616,7 +616,7 @@ public class a {
     public void o(Activity activity, String str, h hVar, g gVar) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048591, this, activity, str, hVar, gVar) == null) || (fVar = this.f28302a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048591, this, activity, str, hVar, gVar) == null) || (fVar = this.f28322a) == null) {
             return;
         }
         fVar.m(activity, str, hVar, gVar);
@@ -624,26 +624,26 @@ public class a {
 
     public void p(Activity activity, h hVar, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048592, this, activity, hVar, str) == null) || this.f28302a == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048592, this, activity, hVar, str) == null) || this.f28322a == null) {
             return;
         }
         z(2, str, "");
-        this.f28302a.m(activity, "6061002410-390177882", new d(this, hVar, str), b(str, (VideoMiddleAdSwitch.isOn() && c.a.q0.b.d.S()) ? "1" : "0"));
+        this.f28322a.m(activity, "6061002410-390177882", new d(this, hVar, str), b(str, (VideoMiddleAdSwitch.isOn() && c.a.q0.b.d.W()) ? "1" : "0"));
     }
 
     public void q(Activity activity, h hVar, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048593, this, activity, hVar, str) == null) || this.f28302a == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048593, this, activity, hVar, str) == null) || this.f28322a == null) {
             return;
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_locate", 2).param("tid", "").param("fid", "").param("obj_type", str));
-        this.f28302a.m(activity, "6061002332-203360688", new c(this, hVar, str), b(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_VIDEO_MIDDLE, VideoMiddleAdSwitch.isOn() ? "1" : "0"));
+        this.f28322a.m(activity, "6061002332-203360688", new c(this, hVar, str), b(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_VIDEO_MIDDLE, VideoMiddleAdSwitch.isOn() ? "1" : "0"));
     }
 
     public void r() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (fVar = this.f28302a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (fVar = this.f28322a) == null) {
             return;
         }
         fVar.removeMiniWindow();
@@ -652,27 +652,27 @@ public class a {
     public void s(ImageView imageView, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, imageView, obj) == null) {
-            this.f28302a.b(imageView, obj);
+            this.f28322a.b(imageView, obj);
         }
     }
 
     public void t(Object obj, j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, obj, jVar) == null) {
-            this.f28302a.k(obj, jVar);
+            this.f28322a.k(obj, jVar);
         }
     }
 
     public boolean u(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, obj)) == null) ? this.f28302a.h(obj) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, obj)) == null) ? this.f28322a.h(obj) : invokeL.booleanValue;
     }
 
     public void v(Activity activity, String str, ViewGroup viewGroup, i iVar, g gVar) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(1048598, this, activity, str, viewGroup, iVar, gVar) == null) || (fVar = this.f28302a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(1048598, this, activity, str, viewGroup, iVar, gVar) == null) || (fVar = this.f28322a) == null) {
             return;
         }
         fVar.n(activity, str, viewGroup, iVar, gVar);
@@ -682,7 +682,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, activity)) == null) {
-            f fVar = this.f28302a;
+            f fVar = this.f28322a;
             return fVar != null && fVar.e(activity);
         }
         return invokeL.booleanValue;
@@ -691,7 +691,7 @@ public class a {
     public void x(Activity activity, @NonNull Object obj, i iVar, ViewGroup viewGroup, List<View> list, List<View> list2, g gVar) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{activity, obj, iVar, viewGroup, list, list2, gVar}) == null) || (fVar = this.f28302a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{activity, obj, iVar, viewGroup, list, list2, gVar}) == null) || (fVar = this.f28322a) == null) {
             return;
         }
         fVar.c(activity, obj, iVar, viewGroup, list, list2, gVar);
@@ -700,7 +700,7 @@ public class a {
     public void y(Activity activity, String str, ViewGroup viewGroup, i iVar, g gVar) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(1048601, this, activity, str, viewGroup, iVar, gVar) == null) || (fVar = this.f28302a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(1048601, this, activity, str, viewGroup, iVar, gVar) == null) || (fVar = this.f28322a) == null) {
             return;
         }
         fVar.g(activity, str, viewGroup, iVar, gVar);

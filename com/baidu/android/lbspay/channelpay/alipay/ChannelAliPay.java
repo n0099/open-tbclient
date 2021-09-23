@@ -18,13 +18,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.base.statistics.PayStatServiceEvent;
+import com.dxmpay.apollon.utils.LogUtil;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.statistics.StatServiceEvent;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.StatHelper;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
+import java.util.HashMap;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ChannelAliPay extends AbstractChannelPay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_AILI_PAY = 100;
+    public static final int MSG_AILI_PAYV2 = 101;
+    public static final int PAY_VERSION = 2;
     public transient /* synthetic */ FieldHolder $fh;
     @SuppressLint({"HandlerLeak"})
     public Handler mAliPayChannelHandler;
@@ -50,7 +60,7 @@ public class ChannelAliPay extends AbstractChannelPay {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ChannelAliPay f36781a;
+            public final /* synthetic */ ChannelAliPay f36831a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -67,29 +77,137 @@ public class ChannelAliPay extends AbstractChannelPay {
                         return;
                     }
                 }
-                this.f36781a = this;
+                this.f36831a = this;
             }
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
+                String str;
+                String str2;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 100) {
-                    Object obj = message.obj;
-                    Result result = new Result((obj == null || !(obj instanceof String)) ? "" : (String) obj);
-                    if (Result.RESULT_SUCCESS.equals(result.resultStatus)) {
-                        this.f36781a.paySuccess(result.result);
-                    } else if (Result.RESULT_CANCLE.equals(result.resultStatus)) {
-                        this.f36781a.payCancel();
-                    } else if ("8000".equals(result.resultStatus)) {
-                        this.f36781a.paying();
-                    } else if (Result.RESULT_NETWROK_ERROR.equals(result.resultStatus)) {
-                        this.f36781a.payError(Result.RESULT_NETWROK_ERROR, "网络连接出错");
-                    } else {
-                        this.f36781a.payError(Result.RESULT_FAILED, result.memo);
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
+                    int i4 = message.what;
+                    if (i4 == 100 || i4 == 101) {
+                        List<String> collectData = StatHelper.collectData(StatHelper.getOrderId(), StatHelper.getAlipayVersion());
+                        HashMap hashMap = new HashMap();
+                        hashMap.put("pay_amount", StatHelper.getPayAmount());
+                        Object obj = message.obj;
+                        String str3 = "";
+                        String str4 = (obj == null || !(obj instanceof String)) ? "" : (String) obj;
+                        if (message.what == 100) {
+                            Result result = new Result(str4);
+                            str2 = result.resultStatus;
+                            str = result.result;
+                            str3 = result.memo;
+                        } else {
+                            try {
+                                JSONObject jSONObject = new JSONObject(str4);
+                                str2 = jSONObject.optString("resultStatus");
+                                str = jSONObject.optString("result");
+                                str3 = jSONObject.optString("memo");
+                            } catch (JSONException e2) {
+                                e2.printStackTrace();
+                                str = EventAlias.PayEventAlias.PAY_FAIL;
+                                this.f36831a.payError(Result.RESULT_FAILED, EventAlias.PayEventAlias.PAY_FAIL);
+                                str2 = Result.RESULT_FAILED;
+                            }
+                        }
+                        if (Result.RESULT_SUCCESS.equals(str2)) {
+                            this.f36831a.paySuccess(str);
+                        } else if (Result.RESULT_CANCLE.equals(str2)) {
+                            this.f36831a.payCancel();
+                        } else if ("8000".equals(str2)) {
+                            this.f36831a.paying();
+                        } else if (Result.RESULT_NETWROK_ERROR.equals(str2)) {
+                            this.f36831a.payError(Result.RESULT_NETWROK_ERROR, "网络连接出错");
+                        } else {
+                            this.f36831a.payError(Result.RESULT_FAILED, str3);
+                        }
+                        collectData.add(str2);
+                        if (TextUtils.isEmpty(str)) {
+                            collectData.add(str3);
+                        } else {
+                            collectData.add(str);
+                        }
+                        StatisticManager.onEventWithValues(PayStatServiceEvent.ALIPAY_RESULT, collectData, hashMap);
                     }
                 }
             }
         };
+    }
+
+    private void startAlipay(Activity activity, String str, PayDataBean payDataBean) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, this, activity, str, payDataBean) == null) {
+            this.mHandler = new Handler();
+            new Thread(this, activity, payDataBean, str) { // from class: com.baidu.android.lbspay.channelpay.alipay.ChannelAliPay.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ Activity f36832a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ PayDataBean f36833b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ String f36834c;
+
+                /* renamed from: d  reason: collision with root package name */
+                public final /* synthetic */ ChannelAliPay f36835d;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, activity, payDataBean, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f36835d = this;
+                    this.f36832a = activity;
+                    this.f36833b = payDataBean;
+                    this.f36834c = str;
+                }
+
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        StatisticManager.onEventStart(StatServiceEvent.LBS_ALIPAY);
+                        PayTask payTask = new PayTask(this.f36832a);
+                        Message message = new Message();
+                        List<String> collectData = StatHelper.collectData(StatHelper.getOrderId(), new String[0]);
+                        HashMap hashMap = new HashMap();
+                        hashMap.put("pay_amount", StatHelper.getPayAmount());
+                        PayDataBean payDataBean2 = this.f36833b;
+                        int i2 = 1;
+                        if (payDataBean2 != null && 2 == payDataBean2.alipayVersion) {
+                            LogUtil.d("alipay:", "alipayV2");
+                            int i3 = this.f36833b.alipayVersion;
+                            message.obj = new JSONObject(payTask.payV2(this.f36834c, true)).toString();
+                            message.what = 101;
+                            i2 = i3;
+                        } else {
+                            LogUtil.d("alipay:", "alipayV1");
+                            message.obj = payTask.pay(this.f36834c, true);
+                            message.what = 100;
+                        }
+                        collectData.add(i2 + "");
+                        StatHelper.cacheAlipayVersion(i2 + "");
+                        StatisticManager.onEventWithValues(PayStatServiceEvent.ALIPAY_ENTER, collectData, hashMap);
+                        this.f36835d.mAliPayChannelHandler.sendMessage(message);
+                    }
+                }
+            }.start();
+        }
     }
 
     @Override // com.baidu.android.lbspay.channelpay.IChannelPay
@@ -125,54 +243,7 @@ public class ChannelAliPay extends AbstractChannelPay {
                 LBSPayResult.payResult(activity, 2, ResUtils.getString(activity, "lbspay_pay_guide_install_ali_pay_pkg_msg"));
                 return;
             }
-            String str = (payData == null || TextUtils.isEmpty(payData.appurl)) ? "" : payData.appurl;
-            this.mHandler = new Handler();
-            new Thread(this, activity, str) { // from class: com.baidu.android.lbspay.channelpay.alipay.ChannelAliPay.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f36782a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f36783b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ChannelAliPay f36784c;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, activity, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f36784c = this;
-                    this.f36782a = activity;
-                    this.f36783b = str;
-                }
-
-                @Override // java.lang.Thread, java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        StatisticManager.onEventStart(StatServiceEvent.LBS_ALIPAY);
-                        String pay = new PayTask(this.f36782a).pay(this.f36783b, true);
-                        Message message = new Message();
-                        message.what = 100;
-                        message.obj = pay;
-                        this.f36784c.mAliPayChannelHandler.sendMessage(message);
-                    }
-                }
-            }.start();
+            startAlipay(activity, (payData == null || TextUtils.isEmpty(payData.appurl)) ? "" : payData.appurl, payData);
         }
     }
 
@@ -198,54 +269,7 @@ public class ChannelAliPay extends AbstractChannelPay {
                 LBSPayResult.payResult(activity, 2, ResUtils.getString(activity, "lbspay_pay_guide_install_ali_pay_pkg_msg"));
                 return;
             }
-            String str = (payData == null || TextUtils.isEmpty(payData.appurl)) ? "" : payData.appurl;
-            this.mHandler = new Handler();
-            new Thread(this, activity2, str) { // from class: com.baidu.android.lbspay.channelpay.alipay.ChannelAliPay.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f36785a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f36786b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ChannelAliPay f36787c;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, activity2, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f36787c = this;
-                    this.f36785a = activity2;
-                    this.f36786b = str;
-                }
-
-                @Override // java.lang.Thread, java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        StatisticManager.onEventStart(LbsStatistics.LBS_ALIPAY);
-                        String pay = new PayTask(this.f36785a).pay(this.f36786b, true);
-                        Message message = new Message();
-                        message.what = 100;
-                        message.obj = pay;
-                        this.f36787c.mAliPayChannelHandler.sendMessage(message);
-                    }
-                }
-            }.start();
+            startAlipay(activity2, (payData == null || TextUtils.isEmpty(payData.appurl)) ? "" : payData.appurl, payData);
         }
     }
 }

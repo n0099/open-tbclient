@@ -21,11 +21,11 @@ public class d extends CookieHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f38097a;
+    public static final d f38148a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final CookieHandler f38098b;
+    public final CookieHandler f38149b;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class d extends CookieHandler {
                 return;
             }
         }
-        f38097a = new d();
+        f38148a = new d();
     }
 
     public d() {
@@ -57,30 +57,30 @@ public class d extends CookieHandler {
             }
         }
         if (Build.VERSION.SDK_INT >= 19) {
-            this.f38098b = e.a();
+            this.f38149b = e.a();
         } else {
-            this.f38098b = new CookieManager(null, CookiePolicy.ACCEPT_ALL);
+            this.f38149b = new CookieManager(null, CookiePolicy.ACCEPT_ALL);
         }
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f38097a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f38148a : (d) invokeV.objValue;
     }
 
     @Override // java.net.CookieHandler
     public Map<String, List<String>> get(URI uri, Map<String, List<String>> map) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, uri, map)) == null) ? this.f38098b.get(uri, map) : (Map) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, uri, map)) == null) ? this.f38149b.get(uri, map) : (Map) invokeLL.objValue;
     }
 
     @Override // java.net.CookieHandler
     public void put(URI uri, Map<String, List<String>> map) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, map) == null) {
-            this.f38098b.put(uri, map);
+            this.f38149b.put(uri, map);
         }
     }
 }

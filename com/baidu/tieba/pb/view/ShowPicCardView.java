@@ -28,22 +28,22 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f55719e;
+    public Context f55838e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f55720f;
+    public a f55839f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f55721g;
+    public TbImageView f55840g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f55722h;
+    public LinearLayout f55841h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f55723i;
+    public ImageView f55842i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f55724j;
+    public TextView f55843j;
     public TextView k;
     public View l;
     public boolean m;
@@ -72,25 +72,25 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.l = LayoutInflater.from(this.f55719e).inflate(R.layout.pic_show_cardview_layout, (ViewGroup) this, true);
-            this.f55721g = (TbImageView) findViewById(R.id.pic_img);
-            this.f55722h = (LinearLayout) findViewById(R.id.bottom_ll);
-            this.f55724j = (TextView) findViewById(R.id.title_ll);
+            this.l = LayoutInflater.from(this.f55838e).inflate(R.layout.pic_show_cardview_layout, (ViewGroup) this, true);
+            this.f55840g = (TbImageView) findViewById(R.id.pic_img);
+            this.f55841h = (LinearLayout) findViewById(R.id.bottom_ll);
+            this.f55843j = (TextView) findViewById(R.id.title_ll);
             this.k = (TextView) findViewById(R.id.desc_ll);
-            this.f55723i = (ImageView) findViewById(R.id.show_pic_icon);
+            this.f55842i = (ImageView) findViewById(R.id.show_pic_icon);
         }
     }
 
     public a getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55720f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55839f : (a) invokeV.objValue;
     }
 
     public ImageView getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55723i : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55842i : (ImageView) invokeV.objValue;
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
@@ -105,23 +105,23 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public void onClick(View view) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (aVar = this.f55720f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (aVar = this.f55839f) == null) {
             return;
         }
-        c.a.q0.m.a.l(this.f55719e, aVar.e());
+        c.a.q0.m.a.l(this.f55838e, aVar.e());
     }
 
     public void setData(a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null || this.f55720f == aVar) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null || this.f55839f == aVar) {
             return;
         }
-        this.f55720f = aVar;
+        this.f55839f = aVar;
         if (!StringUtils.isNULL(aVar.f())) {
-            this.f55724j.setVisibility(0);
-            this.f55724j.setText(aVar.f());
+            this.f55843j.setVisibility(0);
+            this.f55843j.setText(aVar.f());
         } else {
-            this.f55724j.setVisibility(8);
+            this.f55843j.setVisibility(8);
         }
         if (!StringUtils.isNULL(aVar.a())) {
             this.k.setVisibility(0);
@@ -130,34 +130,34 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
             this.k.setVisibility(8);
         }
         if (this.m) {
-            this.f55721g.setSupportNoImage(true);
+            this.f55840g.setSupportNoImage(true);
         }
         int d2 = aVar.d();
         int b2 = aVar.b();
         if (d2 <= 0 || b2 <= 0) {
             return;
         }
-        this.f55721g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f55721g.setOnClickListener(this);
-        this.f55721g.setInterceptOnClick(true);
-        this.f55721g.setDefaultResource(R.drawable.icon_click);
-        this.f55721g.startLoad(aVar.c(), 18, false);
-        int k = l.k(this.f55719e) - (l.g(this.f55719e, R.dimen.ds30) * 2);
+        this.f55840g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f55840g.setOnClickListener(this);
+        this.f55840g.setInterceptOnClick(true);
+        this.f55840g.setDefaultResource(R.drawable.icon_click);
+        this.f55840g.startLoad(aVar.c(), 18, false);
+        int k = l.k(this.f55838e) - (l.g(this.f55838e, R.dimen.ds30) * 2);
         float f2 = b2 / d2;
-        this.f55721g.setLayoutParams(new FrameLayout.LayoutParams(k, (int) (f2 > 1.7777778f ? k * 1.7777778f : f2 < 0.75f ? k * 0.75f : k * f2)));
-        removeView(this.f55721g);
-        addView(this.f55721g);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f55722h.getLayoutParams();
+        this.f55840g.setLayoutParams(new FrameLayout.LayoutParams(k, (int) (f2 > 1.7777778f ? k * 1.7777778f : f2 < 0.75f ? k * 0.75f : k * f2)));
+        removeView(this.f55840g);
+        addView(this.f55840g);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f55841h.getLayoutParams();
         layoutParams.width = k;
-        layoutParams.height = l.g(this.f55719e, R.dimen.ds110);
-        removeView(this.f55722h);
-        addView(this.f55722h, layoutParams);
+        layoutParams.height = l.g(this.f55838e, R.dimen.ds110);
+        removeView(this.f55841h);
+        addView(this.f55841h, layoutParams);
     }
 
     public void setIconResId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            SkinManager.setImageResource(this.f55723i, i2);
+            SkinManager.setImageResource(this.f55842i, i2);
         }
     }
 
@@ -209,7 +209,7 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
             }
         }
         this.m = false;
-        this.f55719e = context;
+        this.f55838e = context;
         a();
     }
 }

@@ -13,10 +13,10 @@ public class b implements c.a.x0.k.e.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.x0.k.e.d f30878a;
+    public c.a.x0.k.e.d f30899a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.x0.k.e.c f30879b;
+    public c.a.x0.k.e.c f30900b;
 
     public b(c.a.x0.k.e.d dVar, c.a.x0.k.e.a aVar) {
         Interceptable interceptable = $ic;
@@ -33,9 +33,9 @@ public class b implements c.a.x0.k.e.b {
                 return;
             }
         }
-        this.f30878a = dVar;
+        this.f30899a = dVar;
         c.a.x0.k.e.c cVar = new c.a.x0.k.e.c();
-        this.f30879b = cVar;
+        this.f30900b = cVar;
         cVar.k(aVar);
     }
 
@@ -43,9 +43,9 @@ public class b implements c.a.x0.k.e.b {
     public void a(DownloadException downloadException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
-            this.f30879b.m(downloadException);
-            this.f30879b.r(108);
-            this.f30878a.a(this.f30879b);
+            this.f30900b.m(downloadException);
+            this.f30900b.r(108);
+            this.f30899a.a(this.f30900b);
         }
     }
 
@@ -53,9 +53,9 @@ public class b implements c.a.x0.k.e.b {
     public void b(DownloadException downloadException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
-            this.f30879b.m(downloadException);
-            this.f30879b.r(108);
-            this.f30878a.a(this.f30879b);
+            this.f30900b.m(downloadException);
+            this.f30900b.r(108);
+            this.f30899a.a(this.f30900b);
         }
     }
 
@@ -63,8 +63,8 @@ public class b implements c.a.x0.k.e.b {
     public void onConnectCanceled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f30879b.r(107);
-            this.f30878a.a(this.f30879b);
+            this.f30900b.r(107);
+            this.f30899a.a(this.f30900b);
         }
     }
 
@@ -72,10 +72,10 @@ public class b implements c.a.x0.k.e.b {
     public void onConnected(long j2, long j3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
-            this.f30879b.s(j2);
-            this.f30879b.j(z);
-            this.f30879b.r(103);
-            this.f30878a.a(this.f30879b);
+            this.f30900b.s(j2);
+            this.f30900b.j(z);
+            this.f30900b.r(103);
+            this.f30899a.a(this.f30900b);
         }
     }
 
@@ -83,8 +83,8 @@ public class b implements c.a.x0.k.e.b {
     public void onConnecting() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f30879b.r(102);
-            this.f30878a.a(this.f30879b);
+            this.f30900b.r(102);
+            this.f30899a.a(this.f30900b);
         }
     }
 
@@ -92,8 +92,8 @@ public class b implements c.a.x0.k.e.b {
     public void onDownloadCanceled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f30879b.r(107);
-            this.f30878a.a(this.f30879b);
+            this.f30900b.r(107);
+            this.f30899a.a(this.f30900b);
         }
     }
 
@@ -101,9 +101,9 @@ public class b implements c.a.x0.k.e.b {
     public void onDownloadCompleted(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f30879b.r(105);
-            this.f30879b.q(str);
-            this.f30878a.a(this.f30879b);
+            this.f30900b.r(105);
+            this.f30900b.q(str);
+            this.f30899a.a(this.f30900b);
         }
     }
 
@@ -111,8 +111,8 @@ public class b implements c.a.x0.k.e.b {
     public void onDownloadPaused() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f30879b.r(106);
-            this.f30878a.a(this.f30879b);
+            this.f30900b.r(106);
+            this.f30899a.a(this.f30900b);
         }
     }
 
@@ -120,11 +120,11 @@ public class b implements c.a.x0.k.e.b {
     public void onDownloadProgress(long j2, long j3, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
-            this.f30879b.n(j2);
-            this.f30879b.o(j3);
-            this.f30879b.p(i2);
-            this.f30879b.r(104);
-            this.f30878a.a(this.f30879b);
+            this.f30900b.n(j2);
+            this.f30900b.o(j3);
+            this.f30900b.p(i2);
+            this.f30900b.r(104);
+            this.f30899a.a(this.f30900b);
         }
     }
 
@@ -132,8 +132,8 @@ public class b implements c.a.x0.k.e.b {
     public void onStarted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f30879b.r(101);
-            this.f30879b.a().h();
+            this.f30900b.r(101);
+            this.f30900b.a().h();
         }
     }
 }

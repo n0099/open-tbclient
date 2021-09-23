@@ -29,30 +29,32 @@ public class ProgressButton extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48560e;
+    public int f48668e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48561f;
+    public int f48669f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48562g;
+    public int f48670g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48563h;
+    public float f48671h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f48564i;
+    public int f48672i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f48565j;
+    public int f48673j;
     public int k;
-    public Paint l;
-    public TextPaint m;
-    public float n;
-    public String o;
-    public int p;
-    public float q;
-    public boolean r;
+    public int l;
+    public Paint m;
+    public TextPaint n;
+    public float o;
+    public String p;
+    public int q;
+    public float r;
+    public boolean s;
+    public boolean t;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ProgressButton(Context context) {
@@ -78,30 +80,30 @@ public class ProgressButton extends View {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f48561f = SkinManager.getColor(this.f48562g);
-            this.f48563h = SkinManager.getColor(this.f48564i);
-            this.f48565j = SkinManager.getColor(this.k);
+            this.f48669f = SkinManager.getColor(this.f48670g);
+            this.f48672i = SkinManager.getColor(this.f48673j);
+            this.k = SkinManager.getColor(this.l);
         }
     }
 
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.l.setColor(this.f48561f);
-            this.l.setAlpha((int) (this.r ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f));
-            this.l.setStyle(this.f48560e == 0 ? Paint.Style.STROKE : Paint.Style.FILL_AND_STROKE);
-            this.l.setStrokeWidth(this.q);
-            float f2 = this.q;
-            canvas.drawRoundRect(f2 / 2.0f, f2 / 2.0f, getWidth() - (this.q / 2.0f), getHeight() - (this.q / 2.0f), getHeight(), getHeight(), this.l);
-            this.m.setColor(this.f48563h);
-            this.m.setAlpha(this.r ? (int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f) : 255);
-            this.m.setStyle(Paint.Style.FILL);
-            this.m.setTextAlign(Paint.Align.CENTER);
-            Paint.FontMetrics fontMetrics = this.m.getFontMetrics();
+            this.m.setColor(this.f48669f);
+            this.m.setAlpha((int) (this.s ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f));
+            this.m.setStyle(this.f48668e == 0 ? Paint.Style.STROKE : Paint.Style.FILL_AND_STROKE);
+            this.m.setStrokeWidth(this.r);
+            float f2 = this.r;
+            canvas.drawRoundRect(f2 / 2.0f, f2 / 2.0f, getWidth() - (this.r / 2.0f), getHeight() - (this.r / 2.0f), getHeight(), getHeight(), this.m);
+            this.n.setColor(this.f48672i);
+            this.n.setAlpha(this.s ? (int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f) : 255);
+            this.n.setStyle(Paint.Style.FILL);
+            this.n.setTextAlign(Paint.Align.CENTER);
+            Paint.FontMetrics fontMetrics = this.n.getFontMetrics();
             int height = ((int) ((getHeight() - fontMetrics.top) - fontMetrics.bottom)) >> 1;
-            String str = this.o;
+            String str = this.p;
             if (str != null) {
-                canvas.drawText(str, getWidth() >> 1, height, this.m);
+                canvas.drawText(str, getWidth() >> 1, height, this.n);
             }
         }
     }
@@ -109,38 +111,38 @@ public class ProgressButton extends View {
     public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            int width = (int) (getWidth() * (this.p / 100.0f));
+            int width = (int) (getWidth() * (this.q / 100.0f));
             canvas.save();
             canvas.clipRect(width, 0, getWidth(), getHeight());
-            this.l.setColor(this.f48561f);
-            this.l.setAlpha((int) ((this.r ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f) * 0.2f));
-            this.l.setStyle(Paint.Style.FILL_AND_STROKE);
-            canvas.drawRoundRect(0.0f, 0.0f, getWidth(), getHeight(), getHeight(), getHeight(), this.l);
-            this.m.setColor(this.f48561f);
-            this.m.setAlpha(this.r ? (int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f) : 255);
-            this.m.setStyle(Paint.Style.FILL);
-            this.m.setTextAlign(Paint.Align.CENTER);
-            Paint.FontMetrics fontMetrics = this.m.getFontMetrics();
+            this.m.setColor(this.f48669f);
+            this.m.setAlpha((int) (this.f48671h * (this.s ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f)));
+            this.m.setStyle(Paint.Style.FILL_AND_STROKE);
+            canvas.drawRoundRect(0.0f, 0.0f, getWidth(), getHeight(), getHeight(), getHeight(), this.m);
+            this.n.setColor(this.f48669f);
+            this.n.setAlpha(this.s ? (int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f) : 255);
+            this.n.setStyle(Paint.Style.FILL);
+            this.n.setTextAlign(Paint.Align.CENTER);
+            Paint.FontMetrics fontMetrics = this.n.getFontMetrics();
             int height = ((int) ((getHeight() - fontMetrics.top) - fontMetrics.bottom)) >> 1;
-            String str = this.o;
+            String str = this.p;
             if (str != null) {
-                canvas.drawText(str, getWidth() >> 1, height, this.m);
+                canvas.drawText(str, getWidth() >> 1, height, this.n);
             }
             canvas.restore();
             canvas.save();
             canvas.clipRect(0, 0, width, getHeight());
-            this.l.setColor(this.f48561f);
-            this.l.setAlpha((int) (this.r ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f));
-            this.l.setStyle(Paint.Style.FILL_AND_STROKE);
-            float f2 = this.q;
-            canvas.drawRoundRect(f2 / 2.0f, f2 / 2.0f, getWidth() - (this.q / 2.0f), getHeight() - (this.q / 2.0f), getHeight(), getHeight(), this.l);
-            this.m.setColor(this.f48565j);
-            this.m.setAlpha(this.r ? (int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f) : 255);
-            this.m.setStyle(Paint.Style.FILL);
-            this.m.setTextAlign(Paint.Align.CENTER);
-            String str2 = this.o;
+            this.m.setColor(this.f48669f);
+            this.m.setAlpha((int) (this.s ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f));
+            this.m.setStyle(Paint.Style.FILL_AND_STROKE);
+            float f2 = this.r;
+            canvas.drawRoundRect(f2 / 2.0f, f2 / 2.0f, getWidth() - (this.r / 2.0f), getHeight() - (this.r / 2.0f), getHeight(), getHeight(), this.m);
+            this.n.setColor(this.k);
+            this.n.setAlpha(this.s ? (int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f) : 255);
+            this.n.setStyle(Paint.Style.FILL);
+            this.n.setTextAlign(Paint.Align.CENTER);
+            String str2 = this.p;
             if (str2 != null) {
-                canvas.drawText(str2, getWidth() >> 1, height, this.m);
+                canvas.drawText(str2, getWidth() >> 1, height, this.n);
             }
             canvas.restore();
         }
@@ -149,7 +151,7 @@ public class ProgressButton extends View {
     public int getColorStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48560e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48668e : invokeV.intValue;
     }
 
     @SuppressLint({"CustomViewStyleable"})
@@ -157,38 +159,45 @@ public class ProgressButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.TBProgressButton);
-            this.n = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TBProgressButton_btnTextSize, R.dimen.T_X08);
-            this.o = obtainStyledAttributes.getString(R$styleable.TBProgressButton_btnText);
+            this.o = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TBProgressButton_btnTextSize, R.dimen.T_X08);
+            this.p = obtainStyledAttributes.getString(R$styleable.TBProgressButton_btnText);
             int i2 = obtainStyledAttributes.getInt(R$styleable.TBProgressButton_btnColorStyle, 0);
-            this.f48560e = i2;
-            this.f48562g = R.color.CAM_X0304;
+            this.f48668e = i2;
+            this.f48670g = R.color.CAM_X0304;
             int i3 = R.color.CAM_X0101;
-            this.k = i3;
+            this.l = i3;
             if (i2 == 0) {
                 i3 = R.color.CAM_X0304;
             }
-            this.f48564i = i3;
-            this.f48561f = obtainStyledAttributes.getColor(R$styleable.TBProgressButton_btnBackgroundColor, SkinManager.getColor(this.f48562g));
-            this.f48563h = obtainStyledAttributes.getColor(R$styleable.TBProgressButton_textColorInit, SkinManager.getColor(this.f48564i));
-            this.f48565j = obtainStyledAttributes.getColor(R$styleable.TBProgressButton_textColorProgress, SkinManager.getColor(this.k));
+            this.f48673j = i3;
+            this.f48669f = obtainStyledAttributes.getColor(R$styleable.TBProgressButton_btnBackgroundColor, SkinManager.getColor(this.f48670g));
+            this.f48672i = obtainStyledAttributes.getColor(R$styleable.TBProgressButton_textColorInit, SkinManager.getColor(this.f48673j));
+            this.k = obtainStyledAttributes.getColor(R$styleable.TBProgressButton_textColorProgress, SkinManager.getColor(this.l));
+            this.f48671h = obtainStyledAttributes.getFloat(R$styleable.TBProgressButton_btnBackgroundAlpha, 0.2f);
             obtainStyledAttributes.recycle();
-            this.q = l.g(getContext(), R.dimen.L_X02);
+            this.r = l.g(getContext(), R.dimen.L_X02);
             Paint paint = new Paint(1);
-            this.l = paint;
-            paint.setColor(this.f48561f);
-            this.l.setStrokeWidth(this.q);
+            this.m = paint;
+            paint.setColor(this.f48669f);
+            this.m.setStrokeWidth(this.r);
             TextPaint textPaint = new TextPaint();
-            this.m = textPaint;
+            this.n = textPaint;
             textPaint.setAntiAlias(true);
-            this.m.setTextSize(this.n);
+            this.n.setTextSize(this.o);
         }
+    }
+
+    public boolean isUseLongText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.t : invokeV.booleanValue;
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            if (this.p < 0) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
+            if (this.q < 0) {
                 b(canvas);
             } else {
                 c(canvas);
@@ -198,7 +207,7 @@ public class ProgressButton extends View {
 
     public void onSkinChanged() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             a();
             postInvalidate();
         }
@@ -208,13 +217,13 @@ public class ProgressButton extends View {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.r = true;
+                this.s = true;
                 postInvalidate();
             } else if (action == 1 || action == 3) {
-                this.r = false;
+                this.s = false;
                 postInvalidate();
             }
             return super.onTouchEvent(motionEvent);
@@ -224,35 +233,42 @@ public class ProgressButton extends View {
 
     public void setCurProgress(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             if (i2 < 0) {
-                this.p = -1;
+                this.q = -1;
             } else {
-                this.p = Math.min(i2, 100);
+                this.q = Math.min(i2, 100);
             }
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             if (str == null) {
                 str = "";
             }
-            this.o = str;
+            this.p = str;
             postInvalidate();
+        }
+    }
+
+    public void setUseLongText(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.t = z;
         }
     }
 
     public void updateProgress(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             if (i2 < 0) {
-                this.p = -1;
+                this.q = -1;
             } else {
-                this.p = Math.min(i2, 100);
+                this.q = Math.min(i2, 100);
             }
-            this.o = String.format(Locale.CHINA, "%d%%", Integer.valueOf(Math.max(this.p, 0)));
+            this.p = String.format(Locale.CHINA, "%d%%", Integer.valueOf(Math.max(this.q, 0)));
             postInvalidate();
         }
     }
@@ -297,8 +313,8 @@ public class ProgressButton extends View {
                 return;
             }
         }
-        this.p = -1;
-        this.q = 0.0f;
+        this.q = -1;
+        this.r = 0.0f;
         initView(context, attributeSet);
     }
 }

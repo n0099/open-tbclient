@@ -359,7 +359,7 @@ public class g0 extends Handler {
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), bArr, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             byte b3 = ByteCompanionObject.MIN_VALUE;
             if (z) {
-                b2 = (byte) com.alipay.sdk.encrypt.a.f35987g;
+                b2 = (byte) com.alipay.sdk.encrypt.a.f36021g;
                 i5 = i2;
             } else {
                 i5 = i2;

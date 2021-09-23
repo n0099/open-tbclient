@@ -26,7 +26,7 @@ public class b extends c.a.p0.e.n.a.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f10415a;
+    public static final String[] f10423a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -61,7 +61,7 @@ public class b extends c.a.p0.e.n.a.a {
         public int compare(c cVar, c cVar2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, cVar2)) == null) ? Long.compare(cVar2.f10417b, cVar.f10417b) : invokeLL.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, cVar2)) == null) ? Long.compare(cVar2.f10425b, cVar.f10425b) : invokeLL.intValue;
         }
 
         public /* synthetic */ C0514b(a aVar) {
@@ -75,10 +75,10 @@ public class b extends c.a.p0.e.n.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f10416a;
+        public String f10424a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f10417b;
+        public long f10425b;
 
         public c(b bVar, String str, long j2) {
             Interceptable interceptable = $ic;
@@ -95,8 +95,8 @@ public class b extends c.a.p0.e.n.a.a {
                     return;
                 }
             }
-            this.f10416a = str;
-            this.f10417b = j2;
+            this.f10424a = str;
+            this.f10425b = j2;
         }
     }
 
@@ -113,7 +113,7 @@ public class b extends c.a.p0.e.n.a.a {
                 return;
             }
         }
-        f10415a = new String[]{"_id", "app_id", "app_key", "app_sign", "version_code", "version_name", "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
+        f10423a = new String[]{"_id", "app_id", "app_key", "app_sign", "version_code", "version_name", "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
     }
 
     public b() {
@@ -145,10 +145,10 @@ public class b extends c.a.p0.e.n.a.a {
                 return null;
             }
             Collections.sort(f2, new C0514b(null));
-            MatrixCursor matrixCursor = new MatrixCursor(f10415a, f2.size());
+            MatrixCursor matrixCursor = new MatrixCursor(f10423a, f2.size());
             int i2 = 0;
             for (c cVar : f2) {
-                PMSAppInfo pMSAppInfo = a2.get(cVar.f10416a);
+                PMSAppInfo pMSAppInfo = a2.get(cVar.f10424a);
                 if (pMSAppInfo != null) {
                     e(matrixCursor, i2, cVar, pMSAppInfo);
                     i2++;
@@ -164,7 +164,7 @@ public class b extends c.a.p0.e.n.a.a {
         if (!(interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, matrixCursor, i2, cVar, pMSAppInfo) == null) || matrixCursor == null || i2 < 0 || cVar == null || pMSAppInfo == null) {
             return;
         }
-        matrixCursor.newRow().add("_id", Integer.valueOf(i2)).add("app_id", pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.getOrientation())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(cVar.f10417b));
+        matrixCursor.newRow().add("_id", Integer.valueOf(i2)).add("app_id", pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.getOrientation())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(cVar.f10425b));
     }
 
     public final List<c> f() {

@@ -29,7 +29,7 @@ public class c extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f44341b = "c";
+    public static final String f44403b = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

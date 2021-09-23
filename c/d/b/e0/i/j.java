@@ -35,16 +35,16 @@ public final class j implements t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final w f31848a;
+    public final w f31869a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile c.d.b.e0.h.f f31849b;
+    public volatile c.d.b.e0.h.f f31870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f31850c;
+    public Object f31871c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f31851d;
+    public volatile boolean f31872d;
 
     public j(w wVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public final class j implements t {
                 return;
             }
         }
-        this.f31848a = wVar;
+        this.f31869a = wVar;
     }
 
     @Override // c.d.b.t
@@ -75,11 +75,11 @@ public final class j implements t {
             g gVar = (g) aVar;
             c.d.b.e b2 = gVar.b();
             p c2 = gVar.c();
-            c.d.b.e0.h.f fVar = new c.d.b.e0.h.f(this.f31848a.h(), c(request.h()), b2, c2, this.f31850c);
-            this.f31849b = fVar;
+            c.d.b.e0.h.f fVar = new c.d.b.e0.h.f(this.f31869a.h(), c(request.h()), b2, c2, this.f31871c);
+            this.f31870b = fVar;
             b0 b0Var = null;
             int i2 = 0;
-            while (!this.f31851d) {
+            while (!this.f31872d) {
                 try {
                     try {
                         e2 = gVar.e(request, fVar, null, null);
@@ -115,8 +115,8 @@ public final class j implements t {
                         if (!(d2.a() instanceof l)) {
                             if (!j(e2, d2.h())) {
                                 fVar.p();
-                                fVar = new c.d.b.e0.h.f(this.f31848a.h(), c(d2.h()), b2, c2, this.f31850c);
-                                this.f31849b = fVar;
+                                fVar = new c.d.b.e0.h.f(this.f31869a.h(), c(d2.h()), b2, c2, this.f31871c);
+                                this.f31870b = fVar;
                             } else if (fVar.c() != null) {
                                 throw new IllegalStateException("Closing the body of " + e2 + " didn't close its backing stream. Bad interceptor?");
                             }
@@ -146,8 +146,8 @@ public final class j implements t {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f31851d = true;
-            c.d.b.e0.h.f fVar = this.f31849b;
+            this.f31872d = true;
+            c.d.b.e0.h.f fVar = this.f31870b;
             if (fVar != null) {
                 fVar.b();
             }
@@ -162,16 +162,16 @@ public final class j implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sVar)) == null) {
             if (sVar.m()) {
-                SSLSocketFactory G = this.f31848a.G();
-                hostnameVerifier = this.f31848a.q();
+                SSLSocketFactory G = this.f31869a.G();
+                hostnameVerifier = this.f31869a.q();
                 sSLSocketFactory = G;
-                gVar = this.f31848a.f();
+                gVar = this.f31869a.f();
             } else {
                 sSLSocketFactory = null;
                 hostnameVerifier = null;
                 gVar = null;
             }
-            return new c.d.b.a(sVar.l(), sVar.w(), this.f31848a.l(), this.f31848a.F(), sSLSocketFactory, hostnameVerifier, gVar, this.f31848a.B(), this.f31848a.A(), this.f31848a.z(), this.f31848a.i(), this.f31848a.C());
+            return new c.d.b.a(sVar.l(), sVar.w(), this.f31869a.l(), this.f31869a.F(), sSLSocketFactory, hostnameVerifier, gVar, this.f31869a.B(), this.f31869a.A(), this.f31869a.z(), this.f31869a.i(), this.f31869a.C());
         }
         return (c.d.b.a) invokeL.objValue;
     }
@@ -197,11 +197,11 @@ public final class j implements t {
                         return null;
                     } else if (code == 407) {
                         if (d0Var.b().type() == Proxy.Type.HTTP) {
-                            return this.f31848a.B().a(d0Var, b0Var);
+                            return this.f31869a.B().a(d0Var, b0Var);
                         }
                         throw new ProtocolException("Received HTTP_PROXY_AUTH (407) code while not using proxy");
                     } else if (code == 408) {
-                        if (this.f31848a.E() && !(b0Var.D().a() instanceof l)) {
+                        if (this.f31869a.E() && !(b0Var.D().a() instanceof l)) {
                             if ((b0Var.A() == null || b0Var.A().code() != 408) && i(b0Var, 0) <= 0) {
                                 return b0Var.D();
                             }
@@ -220,12 +220,12 @@ public final class j implements t {
                         }
                     }
                 } else {
-                    return this.f31848a.d().a(d0Var, b0Var);
+                    return this.f31869a.d().a(d0Var, b0Var);
                 }
-                if (!this.f31848a.n() || (s = b0Var.s("Location")) == null || (A = b0Var.D().h().A(s)) == null) {
+                if (!this.f31869a.n() || (s = b0Var.s("Location")) == null || (A = b0Var.D().h().A(s)) == null) {
                     return null;
                 }
-                if (A.B().equals(b0Var.D().h().B()) || this.f31848a.o()) {
+                if (A.B().equals(b0Var.D().h().B()) || this.f31869a.o()) {
                     z.a g2 = b0Var.D().g();
                     if (f.b(f2)) {
                         boolean d2 = f.d(f2);
@@ -256,7 +256,7 @@ public final class j implements t {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31851d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31872d : invokeV.booleanValue;
     }
 
     public final boolean f(IOException iOException, boolean z) {
@@ -276,7 +276,7 @@ public final class j implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{iOException, fVar, Boolean.valueOf(z), zVar})) == null) {
             fVar.v(iOException);
-            if (this.f31848a.E()) {
+            if (this.f31869a.E()) {
                 return !(z && h(iOException, zVar)) && f(iOException, z) && fVar.j();
             }
             return false;
@@ -319,7 +319,7 @@ public final class j implements t {
     public void k(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, obj) == null) {
-            this.f31850c = obj;
+            this.f31871c = obj;
         }
     }
 }

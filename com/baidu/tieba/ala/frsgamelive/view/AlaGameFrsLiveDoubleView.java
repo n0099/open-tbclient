@@ -4,8 +4,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import c.a.r0.a0.b;
-import c.a.r0.v.c;
-import c.a.r0.v.h.b.a;
+import c.a.r0.v.e;
+import c.a.r0.v.j.b.a;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaGameFrsLiveDoubleView extends b<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.v.e.d.b m;
-    public c.a.r0.v.e.d.b n;
+    public c.a.r0.v.g.d.b m;
+    public c.a.r0.v.g.d.b n;
 
     /* loaded from: classes7.dex */
     public static class AlaGameFrsLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
@@ -97,8 +97,8 @@ public class AlaGameFrsLiveDoubleView extends b<a> {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.m = new c.a.r0.v.e.d.b(i());
-            this.n = new c.a.r0.v.e.d.b(i());
+            this.m = new c.a.r0.v.g.d.b(i());
+            this.n = new c.a.r0.v.g.d.b(i());
             ViewGroup viewGroup = (ViewGroup) j();
             View view = new View(d());
             viewGroup.addView(this.m.c());
@@ -115,8 +115,8 @@ public class AlaGameFrsLiveDoubleView extends b<a> {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.m.d(aVar.f26052e);
-        this.n.d(aVar.f26053f);
+        this.m.d(aVar.f26075e);
+        this.n.d(aVar.f26076f);
     }
 
     public void s(String str) {
@@ -127,11 +127,11 @@ public class AlaGameFrsLiveDoubleView extends b<a> {
         }
     }
 
-    public void t(c cVar) {
+    public void t(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-            this.m.g(cVar);
-            this.n.g(cVar);
+        if (interceptable == null || interceptable.invokeL(1048583, this, eVar) == null) {
+            this.m.g(eVar);
+            this.n.g(eVar);
         }
     }
 }

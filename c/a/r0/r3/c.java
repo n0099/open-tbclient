@@ -19,10 +19,10 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24489a;
+    public String f24505a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f24490b;
+    public a f24506b;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -50,19 +50,18 @@ public class c extends BdAsyncTask<String, String, Integer> {
                 return;
             }
         }
-        this.f24489a = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
-        this.f24490b = aVar;
+        this.f24505a = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.f24506b = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
     public Integer doInBackground(String... strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
             try {
-                NetWork netWork = new NetWork(this.f24489a);
+                NetWork netWork = new NetWork(this.f24505a);
                 netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
                 netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
                 JSONArray optJSONArray = new JSONObject(new String(netWork.getNetData())).optJSONArray("result");
@@ -88,17 +87,17 @@ public class c extends BdAsyncTask<String, String, Integer> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) || this.f24490b == null || num == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) || this.f24506b == null || num == null) {
             return;
         }
         if (num.intValue() == -1) {
-            this.f24490b.onError(null);
+            this.f24506b.onError(null);
         } else if (num.intValue() == 1) {
-            this.f24490b.c();
+            this.f24506b.c();
         } else if (num.intValue() != 2 && num.intValue() != 0) {
-            this.f24490b.a();
+            this.f24506b.a();
         } else {
-            this.f24490b.b();
+            this.f24506b.b();
         }
     }
 }

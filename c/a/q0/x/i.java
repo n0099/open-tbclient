@@ -23,12 +23,12 @@ public class i extends c.a.q0.x.z.a {
     public LinkedList<h> q;
 
     /* loaded from: classes3.dex */
-    public class a implements a.InterfaceC0720a {
+    public class a implements a.InterfaceC0718a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f15083a;
+        public final /* synthetic */ i f15090a;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -45,15 +45,15 @@ public class i extends c.a.q0.x.z.a {
                     return;
                 }
             }
-            this.f15083a = iVar;
+            this.f15090a = iVar;
         }
 
-        @Override // c.a.q0.x.z.a.InterfaceC0720a
+        @Override // c.a.q0.x.z.a.InterfaceC0718a
         public View getView(int i2, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, view, viewGroup)) == null) {
-                DLauncher C = this.f15083a.C(i2);
+                DLauncher C = this.f15090a.C(i2);
                 if (C.getLayoutParams() == null) {
                     C.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                 }
@@ -69,7 +69,7 @@ public class i extends c.a.q0.x.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f15084a;
+        public final /* synthetic */ i f15091a;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -86,14 +86,14 @@ public class i extends c.a.q0.x.z.a {
                     return;
                 }
             }
-            this.f15084a = iVar;
+            this.f15091a = iVar;
         }
 
         @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.c
         public void a(View view, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && view.isEnabled() && (view instanceof DLauncher) && this.f15084a.n != null) {
-                this.f15084a.n.performLauncherClick(view);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && view.isEnabled() && (view instanceof DLauncher) && this.f15091a.n != null) {
+                this.f15091a.n.performLauncherClick(view);
             }
         }
     }

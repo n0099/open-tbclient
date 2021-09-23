@@ -26,10 +26,10 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f51209e;
+    public LinearLayout f51324e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f51210f;
+    public b f51325f;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -37,13 +37,13 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.z0.a f51211e;
+        public final /* synthetic */ c.a.r0.z0.a f51326e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f51212f;
+        public final /* synthetic */ int f51327f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ GameRankHorizontalLayout f51213g;
+        public final /* synthetic */ GameRankHorizontalLayout f51328g;
 
         public a(GameRankHorizontalLayout gameRankHorizontalLayout, c.a.r0.z0.a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -60,18 +60,18 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f51213g = gameRankHorizontalLayout;
-            this.f51211e = aVar;
-            this.f51212f = i2;
+            this.f51328g = gameRankHorizontalLayout;
+            this.f51326e = aVar;
+            this.f51327f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51213g.f51210f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51328g.f51325f == null) {
                 return;
             }
-            this.f51213g.f51210f.a(this.f51211e, this.f51212f);
+            this.f51328g.f51325f.a(this.f51326e, this.f51327f);
             if (c.a.q0.s.d0.b.j().k("game_rank_list_show_times", 0) != 0) {
                 c.a.q0.s.d0.b.j().v("game_rank_list_show_times", 0);
             }
@@ -110,7 +110,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
             setFillViewport(true);
             setHorizontalScrollBarEnabled(false);
             LinearLayout linearLayout = new LinearLayout(context);
-            this.f51209e = linearLayout;
+            this.f51324e = linearLayout;
             addView(linearLayout, -1, -1);
         }
     }
@@ -153,7 +153,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
     public void setData(c.a.r0.z0.b bVar) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (linearLayout = this.f51209e) == null || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (linearLayout = this.f51324e) == null || bVar == null) {
             return;
         }
         linearLayout.removeAllViews();
@@ -174,14 +174,14 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 layoutParams.rightMargin = 0;
             }
             c2.setLayoutParams(layoutParams);
-            this.f51209e.addView(c2);
+            this.f51324e.addView(c2);
         }
     }
 
     public void setOnCardClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f51210f = bVar;
+            this.f51325f = bVar;
         }
     }
 

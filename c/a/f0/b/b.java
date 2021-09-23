@@ -13,26 +13,26 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final b f3370g;
+    public static final b f3371g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c.a.f0.a.b.a f3371a;
+    public final c.a.f0.a.b.a f3372a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f3372b;
+    public final int f3373b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f3373c;
+    public final int f3374c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3374d;
+    public int f3375d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3375e;
+    public int f3376e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f3376f;
+    public final int f3377f;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class b {
                 return;
             }
         }
-        f3370g = new b();
+        f3371g = new b();
     }
 
     public b() {
@@ -63,27 +63,27 @@ public class b {
                 return;
             }
         }
-        c.a.f0.a.b.a aVar = c.a.f0.a.b.a.f3337a.get();
-        this.f3371a = aVar;
+        c.a.f0.a.b.a aVar = c.a.f0.a.b.a.f3338a.get();
+        this.f3372a = aVar;
         aVar.t();
-        DisplayMetrics displayMetrics = this.f3371a.p().getResources().getDisplayMetrics();
-        this.f3373c = displayMetrics.heightPixels;
-        this.f3372b = displayMetrics.widthPixels;
-        this.f3376f = displayMetrics.densityDpi;
+        DisplayMetrics displayMetrics = this.f3372a.p().getResources().getDisplayMetrics();
+        this.f3374c = displayMetrics.heightPixels;
+        this.f3373b = displayMetrics.widthPixels;
+        this.f3377f = displayMetrics.densityDpi;
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3370g : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3371g : (b) invokeV.objValue;
     }
 
     public int[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f3374d;
-            return i2 != 0 ? new int[]{i2, this.f3375e, this.f3376f} : new int[]{this.f3372b, this.f3373c, this.f3376f};
+            int i2 = this.f3375d;
+            return i2 != 0 ? new int[]{i2, this.f3376e, this.f3377f} : new int[]{this.f3373b, this.f3374c, this.f3377f};
         }
         return (int[]) invokeV.objValue;
     }

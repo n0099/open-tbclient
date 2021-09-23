@@ -25,22 +25,22 @@ public class PluginRoundProgressBar extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f58295e;
+    public Paint f58425e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58296f;
+    public int f58426f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f58297g;
+    public int f58427g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58298h;
+    public int f58428h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f58299i;
+    public float f58429i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f58300j;
+    public float f58430j;
     public int k;
     public int l;
     public boolean m;
@@ -108,38 +108,38 @@ public class PluginRoundProgressBar extends View {
             super.onDraw(canvas);
             int width = getWidth() / 2;
             float f2 = width;
-            int i3 = (int) ((f2 - (this.f58300j / 2.0f)) - 5.0f);
-            this.f58295e.setColor(this.f58296f);
-            this.f58295e.setStyle(Paint.Style.STROKE);
-            this.f58295e.setStrokeWidth(this.f58300j);
-            this.f58295e.setAntiAlias(true);
-            canvas.drawCircle(f2, f2, i3, this.f58295e);
-            this.f58295e.setStyle(Paint.Style.FILL);
-            this.f58295e.setStrokeWidth(0.0f);
-            this.f58295e.setColor(this.f58298h);
-            this.f58295e.setTextSize(this.f58299i);
+            int i3 = (int) ((f2 - (this.f58430j / 2.0f)) - 5.0f);
+            this.f58425e.setColor(this.f58426f);
+            this.f58425e.setStyle(Paint.Style.STROKE);
+            this.f58425e.setStrokeWidth(this.f58430j);
+            this.f58425e.setAntiAlias(true);
+            canvas.drawCircle(f2, f2, i3, this.f58425e);
+            this.f58425e.setStyle(Paint.Style.FILL);
+            this.f58425e.setStrokeWidth(0.0f);
+            this.f58425e.setColor(this.f58428h);
+            this.f58425e.setTextSize(this.f58429i);
             int i4 = (int) ((this.l / this.k) * 100.0f);
-            float measureText = this.f58295e.measureText(i4 + "%");
+            float measureText = this.f58425e.measureText(i4 + "%");
             if (this.m && this.n == 0) {
                 if (i4 == 0) {
                     i4 = 1;
                 }
-                canvas.drawText(i4 + "%", f2 - (measureText / 2.0f), f2 + (this.f58299i / 2.0f), this.f58295e);
+                canvas.drawText(i4 + "%", f2 - (measureText / 2.0f), f2 + (this.f58429i / 2.0f), this.f58425e);
             }
-            this.f58295e.setStrokeWidth(this.f58300j);
-            this.f58295e.setColor(this.f58297g);
+            this.f58425e.setStrokeWidth(this.f58430j);
+            this.f58425e.setColor(this.f58427g);
             float f3 = width - i3;
             float f4 = width + i3;
             this.o.set(f3, f3, f4, f4);
             int i5 = this.n;
             if (i5 == 0) {
-                this.f58295e.setStyle(Paint.Style.STROKE);
-                canvas.drawArc(this.o, -90.0f, (this.l * 360) / this.k, false, this.f58295e);
+                this.f58425e.setStyle(Paint.Style.STROKE);
+                canvas.drawArc(this.o, -90.0f, (this.l * 360) / this.k, false, this.f58425e);
             } else if (i5 != 1) {
             } else {
-                this.f58295e.setStyle(Paint.Style.FILL_AND_STROKE);
+                this.f58425e.setStyle(Paint.Style.FILL_AND_STROKE);
                 if (this.l != 0) {
-                    canvas.drawArc(this.o, -90.0f, (i2 * 360) / this.k, true, this.f58295e);
+                    canvas.drawArc(this.o, -90.0f, (i2 * 360) / this.k, true, this.f58425e);
                 }
             }
         }
@@ -190,21 +190,21 @@ public class PluginRoundProgressBar extends View {
     public void setRoundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f58296f = i2;
+            this.f58426f = i2;
         }
     }
 
     public void setRoundProgressColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f58297g = i2;
+            this.f58427g = i2;
         }
     }
 
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f58298h = i2;
+            this.f58428h = i2;
         }
     }
 
@@ -248,14 +248,14 @@ public class PluginRoundProgressBar extends View {
                 return;
             }
         }
-        this.f58295e = new Paint();
+        this.f58425e = new Paint();
         this.o = new RectF();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.RoundProgressBar);
-        this.f58296f = obtainStyledAttributes.getColor(h.RoundProgressBar_roundColor, getResources().getColor(b.round_progressbar_round_color));
-        this.f58297g = obtainStyledAttributes.getColor(h.RoundProgressBar_roundProgressColor, getResources().getColor(b.color_logo));
-        this.f58298h = obtainStyledAttributes.getColor(h.RoundProgressBar_roundTextColor, getResources().getColor(b.plugin_loading_white));
-        this.f58299i = obtainStyledAttributes.getDimension(h.RoundProgressBar_roundTextSize, l.e(getContext(), 11.0f));
-        this.f58300j = obtainStyledAttributes.getDimension(h.RoundProgressBar_roundWidth, 7.0f);
+        this.f58426f = obtainStyledAttributes.getColor(h.RoundProgressBar_roundColor, getResources().getColor(b.round_progressbar_round_color));
+        this.f58427g = obtainStyledAttributes.getColor(h.RoundProgressBar_roundProgressColor, getResources().getColor(b.color_logo));
+        this.f58428h = obtainStyledAttributes.getColor(h.RoundProgressBar_roundTextColor, getResources().getColor(b.plugin_loading_white));
+        this.f58429i = obtainStyledAttributes.getDimension(h.RoundProgressBar_roundTextSize, l.e(getContext(), 11.0f));
+        this.f58430j = obtainStyledAttributes.getDimension(h.RoundProgressBar_roundWidth, 7.0f);
         this.k = obtainStyledAttributes.getInteger(h.RoundProgressBar_roundMax, 100);
         this.m = obtainStyledAttributes.getBoolean(h.RoundProgressBar_roundTextIsDisplayable, true);
         this.n = obtainStyledAttributes.getInt(h.RoundProgressBar_roundStyle, 0);

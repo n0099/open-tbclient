@@ -28,11 +28,11 @@ public class a implements b.InterfaceC0517b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10432b;
+    public static final boolean f10440b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f10433a;
+    public boolean f10441a;
 
     /* renamed from: c.a.p0.e.o.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -41,10 +41,10 @@ public class a implements b.InterfaceC0517b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.s.c f10434e;
+        public final /* synthetic */ c.a.p0.a.h0.s.c f10442e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f10435f;
+        public final /* synthetic */ a f10443f;
 
         public DialogInterface$OnClickListenerC0518a(a aVar, c.a.p0.a.h0.s.c cVar) {
             Interceptable interceptable = $ic;
@@ -61,8 +61,8 @@ public class a implements b.InterfaceC0517b {
                     return;
                 }
             }
-            this.f10435f = aVar;
-            this.f10434e = cVar;
+            this.f10443f = aVar;
+            this.f10442e = cVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -71,8 +71,8 @@ public class a implements b.InterfaceC0517b {
             if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || -2 == i2) {
                 return;
             }
-            this.f10435f.j();
-            this.f10435f.l(this.f10434e);
+            this.f10443f.j();
+            this.f10443f.l(this.f10442e);
         }
     }
 
@@ -82,10 +82,10 @@ public class a implements b.InterfaceC0517b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.s.c f10436e;
+        public final /* synthetic */ c.a.p0.a.h0.s.c f10444e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f10437f;
+        public final /* synthetic */ a f10445f;
 
         /* renamed from: c.a.p0.e.o.b.d.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -94,10 +94,10 @@ public class a implements b.InterfaceC0517b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Boolean f10438a;
+            public final /* synthetic */ Boolean f10446a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f10439b;
+            public final /* synthetic */ b f10447b;
 
             public C0519a(b bVar, Boolean bool) {
                 Interceptable interceptable = $ic;
@@ -114,16 +114,16 @@ public class a implements b.InterfaceC0517b {
                         return;
                     }
                 }
-                this.f10439b = bVar;
-                this.f10438a = bool;
+                this.f10447b = bVar;
+                this.f10446a = bool;
             }
 
             @Override // c.a.p0.a.h0.s.b.c
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.f10439b;
-                    bVar.f10437f.i(this.f10438a, bVar.f10436e);
+                    b bVar = this.f10447b;
+                    bVar.f10445f.i(this.f10446a, bVar.f10444e);
                 }
             }
         }
@@ -143,8 +143,8 @@ public class a implements b.InterfaceC0517b {
                     return;
                 }
             }
-            this.f10437f = aVar;
-            this.f10436e = cVar;
+            this.f10445f = aVar;
+            this.f10444e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -153,11 +153,11 @@ public class a implements b.InterfaceC0517b {
         public void onCallback(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                if (a.f10432b) {
+                if (a.f10440b) {
                     String str = "startDownload onCallback: " + bool;
                 }
                 if (!bool.booleanValue()) {
-                    this.f10437f.i(bool, this.f10436e);
+                    this.f10445f.i(bool, this.f10444e);
                 } else {
                     SwanAppInitHelper.doWebViewInit(c.a.p0.a.a2.d.g(), new C0519a(this, bool));
                 }
@@ -242,7 +242,7 @@ public class a implements b.InterfaceC0517b {
                 return;
             }
         }
-        f10432b = k.f7077a;
+        f10440b = k.f7085a;
     }
 
     public a() {
@@ -258,7 +258,7 @@ public class a implements b.InterfaceC0517b {
                 return;
             }
         }
-        this.f10433a = false;
+        this.f10441a = false;
     }
 
     @Override // c.a.p0.e.o.b.b.InterfaceC0517b
@@ -272,7 +272,7 @@ public class a implements b.InterfaceC0517b {
     public void b(boolean z, c.a.p0.a.h0.s.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, cVar) == null) {
-            if (this.f10433a) {
+            if (this.f10441a) {
                 if (!z) {
                     j();
                 }
@@ -305,7 +305,7 @@ public class a implements b.InterfaceC0517b {
     public final void i(Boolean bool, c.a.p0.a.h0.s.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, bool, cVar) == null) {
-            this.f10433a = false;
+            this.f10441a = false;
             h();
             if (cVar != null) {
                 if (bool.booleanValue()) {
@@ -339,9 +339,9 @@ public class a implements b.InterfaceC0517b {
     public final void l(c.a.p0.a.h0.s.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-            this.f10433a = true;
-            boolean z = f10432b;
-            c.a.p0.a.n0.k.c cVar2 = c.a.p0.a.n0.k.c.f7530d;
+            this.f10441a = true;
+            boolean z = f10440b;
+            c.a.p0.a.n0.k.c cVar2 = c.a.p0.a.n0.k.c.f7538d;
             c.a.p0.a.n0.k.d dVar = new c.a.p0.a.n0.k.d();
             dVar.h(ZeusWebViewPreloadClass.ZEUS_FILE_DIR, new b(this, cVar));
             cVar2.C(dVar);

@@ -21,7 +21,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f56686e;
+    public HttpMessageListener f56803e;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -80,7 +80,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE);
-        this.f56686e = aVar;
+        this.f56803e = aVar;
         registerListener(aVar);
         LoadData();
     }

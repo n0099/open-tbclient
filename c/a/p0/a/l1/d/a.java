@@ -19,14 +19,14 @@ public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7247c;
+    public static final boolean f7255c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LruCache<String, JSONObject> f7248a;
+    public final LruCache<String, JSONObject> f7256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LruCache<String, JSONObject> f7249b;
+    public final LruCache<String, JSONObject> f7257b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public abstract class a {
                 return;
             }
         }
-        f7247c = k.f7077a;
+        f7255c = k.f7085a;
     }
 
     public a() {
@@ -57,8 +57,8 @@ public abstract class a {
                 return;
             }
         }
-        this.f7248a = new LruCache<>(5);
-        this.f7249b = new LruCache<>(5);
+        this.f7256a = new LruCache<>(5);
+        this.f7257b = new LruCache<>(5);
     }
 
     public final JSONObject a(PMSAppInfo pMSAppInfo) {
@@ -66,24 +66,24 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
             if (pMSAppInfo == null) {
-                boolean z = f7247c;
+                boolean z = f7255c;
                 return null;
             }
             String str = pMSAppInfo.appId;
             String valueOf = String.valueOf(pMSAppInfo.appSign);
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
                 String d2 = d(str, valueOf);
-                JSONObject jSONObject = this.f7248a.get(d2);
+                JSONObject jSONObject = this.f7256a.get(d2);
                 if (jSONObject == null) {
                     jSONObject = e.m(b.a(pMSAppInfo));
-                    this.f7248a.put(d2, jSONObject);
+                    this.f7256a.put(d2, jSONObject);
                 }
-                if (f7247c) {
+                if (f7255c) {
                     String str2 = "appId - " + str + " app info' ext - " + jSONObject.toString();
                 }
                 return jSONObject;
             }
-            boolean z2 = f7247c;
+            boolean z2 = f7255c;
             return null;
         }
         return (JSONObject) invokeL.objValue;
@@ -95,15 +95,15 @@ public abstract class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
             JSONObject a2 = a(pMSAppInfo);
             if (a2 == null) {
-                boolean z = f7247c;
+                boolean z = f7255c;
                 return null;
             }
             JSONObject optJSONObject = a2.optJSONObject("client");
             if (optJSONObject == null) {
-                boolean z2 = f7247c;
+                boolean z2 = f7255c;
                 return null;
             }
-            if (f7247c) {
+            if (f7255c) {
                 String str = "clientInfo - " + optJSONObject;
             }
             return optJSONObject;
@@ -116,24 +116,24 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) {
             if (pMSAppInfo == null) {
-                boolean z = f7247c;
+                boolean z = f7255c;
                 return null;
             }
             String str = pMSAppInfo.appId;
             String valueOf = String.valueOf(pMSAppInfo.versionCode);
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
                 String d2 = d(str, valueOf);
-                JSONObject jSONObject = this.f7249b.get(d2);
+                JSONObject jSONObject = this.f7257b.get(d2);
                 if (jSONObject == null) {
                     jSONObject = e.m(c.f(pMSAppInfo));
-                    this.f7248a.put(d2, jSONObject);
+                    this.f7256a.put(d2, jSONObject);
                 }
-                if (f7247c) {
+                if (f7255c) {
                     String str2 = "appId - " + str + " pkg info' ext - " + jSONObject.toString();
                 }
                 return jSONObject;
             }
-            boolean z2 = f7247c;
+            boolean z2 = f7255c;
             return null;
         }
         return (JSONObject) invokeL.objValue;
@@ -151,9 +151,9 @@ public abstract class a {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            boolean z = f7247c;
-            this.f7248a.evictAll();
-            this.f7249b.evictAll();
+            boolean z = f7255c;
+            this.f7256a.evictAll();
+            this.f7257b.evictAll();
         }
     }
 }

@@ -54,7 +54,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5720a;
+    public static final boolean f5728a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.f2.a$a  reason: collision with other inner class name */
@@ -64,16 +64,16 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f5721a;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f5729a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a f5722b;
+        public final /* synthetic */ c.a f5730b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f5723c;
+        public final /* synthetic */ int f5731c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ f f5724d;
+        public final /* synthetic */ f f5732d;
 
         public C0190a(c.a.p0.a.f1.e.b bVar, c.a aVar, int i2, f fVar) {
             Interceptable interceptable = $ic;
@@ -90,10 +90,10 @@ public final class a {
                     return;
                 }
             }
-            this.f5721a = bVar;
-            this.f5722b = aVar;
-            this.f5723c = i2;
-            this.f5724d = fVar;
+            this.f5729a = bVar;
+            this.f5730b = aVar;
+            this.f5731c = i2;
+            this.f5732d = fVar;
         }
 
         @Override // c.a.p0.a.h0.m.r.c.b
@@ -103,8 +103,8 @@ public final class a {
                 return;
             }
             SwanAppActivity x = c.a.p0.a.a2.d.g().x();
-            a.q(x, this.f5721a, this.f5722b, bitmap, this.f5723c);
-            a.r(x, this.f5721a, this.f5724d);
+            a.q(x, this.f5729a, this.f5730b, bitmap, this.f5731c);
+            a.r(x, this.f5729a, this.f5732d);
         }
     }
 
@@ -114,22 +114,22 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f5725e;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f5733e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f5726f;
+        public final /* synthetic */ Context f5734f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f5727g;
+        public final /* synthetic */ int f5735g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f5728h;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f5736h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f5729i;
+        public final /* synthetic */ Bitmap f5737i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.c f5730j;
+        public final /* synthetic */ c.a.p0.a.f1.e.c f5738j;
 
         public b(c.a.p0.a.f1.e.b bVar, Context context, int i2, c.a.p0.a.f1.e.b bVar2, Bitmap bitmap, c.a.p0.a.f1.e.c cVar) {
             Interceptable interceptable = $ic;
@@ -146,12 +146,12 @@ public final class a {
                     return;
                 }
             }
-            this.f5725e = bVar;
-            this.f5726f = context;
-            this.f5727g = i2;
-            this.f5728h = bVar2;
-            this.f5729i = bitmap;
-            this.f5730j = cVar;
+            this.f5733e = bVar;
+            this.f5734f = context;
+            this.f5735g = i2;
+            this.f5736h = bVar2;
+            this.f5737i = bitmap;
+            this.f5738j = cVar;
         }
 
         @Override // java.lang.Runnable
@@ -159,45 +159,45 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 p S = c.a.p0.a.c1.a.S();
-                String o1 = this.f5725e.o1();
-                if (!TextUtils.isEmpty(o1) && S.b(this.f5726f, o1)) {
+                String o1 = this.f5733e.o1();
+                if (!TextUtils.isEmpty(o1) && S.b(this.f5734f, o1)) {
                     a.n(PrefetchEvent.STATE_CLICK);
-                    if (S.a(this.f5726f, o1)) {
-                        if (this.f5727g != 1) {
-                            a.u(this.f5726f);
+                    if (S.a(this.f5734f, o1)) {
+                        if (this.f5735g != 1) {
+                            a.u(this.f5734f);
                             return;
                         }
                         return;
-                    } else if (S.c(this.f5726f, o1)) {
+                    } else if (S.c(this.f5734f, o1)) {
                         a.n("show");
-                        if (this.f5727g != 1) {
-                            a.u(this.f5726f);
+                        if (this.f5735g != 1) {
+                            a.u(this.f5734f);
                             return;
                         }
                         return;
                     }
                 }
                 if (c.a.p0.a.v2.d.j()) {
-                    a.t(this.f5726f, this.f5728h.H(), this.f5728h.K(), this.f5729i, c.a.p0.a.f1.e.c.d1(this.f5726f, this.f5730j));
+                    a.t(this.f5734f, this.f5736h.H(), this.f5736h.K(), this.f5737i, c.a.p0.a.f1.e.c.d1(this.f5734f, this.f5738j));
                 } else {
                     try {
-                        this.f5726f.sendBroadcast(a.m(this.f5728h.K(), this.f5729i, c.a.p0.a.f1.e.c.d1(this.f5726f, this.f5730j)));
+                        this.f5734f.sendBroadcast(a.m(this.f5736h.K(), this.f5737i, c.a.p0.a.f1.e.c.d1(this.f5734f, this.f5738j)));
                     } catch (Throwable th) {
-                        if (a.f5720a) {
+                        if (a.f5728a) {
                             th.printStackTrace();
                         }
                         try {
-                            this.f5726f.sendBroadcast(a.m(this.f5728h.K(), u.a(this.f5729i, ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT, true), c.a.p0.a.f1.e.c.d1(this.f5726f, this.f5730j)));
+                            this.f5734f.sendBroadcast(a.m(this.f5736h.K(), u.a(this.f5737i, ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT, true), c.a.p0.a.f1.e.c.d1(this.f5734f, this.f5738j)));
                         } catch (Throwable th2) {
-                            if (a.f5720a) {
+                            if (a.f5728a) {
                                 th2.printStackTrace();
                             }
-                            c.a.p0.a.z1.b.f.e.f(this.f5726f, h.aiapps_shortcut_add_failure).F();
+                            c.a.p0.a.z1.b.f.e.f(this.f5734f, h.aiapps_shortcut_add_failure).F();
                         }
                     }
                 }
-                if (this.f5727g != 1) {
-                    a.u(this.f5726f);
+                if (this.f5735g != 1) {
+                    a.u(this.f5734f);
                 }
             }
         }
@@ -209,7 +209,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f5731e;
+        public final /* synthetic */ Context f5739e;
 
         /* renamed from: c.a.p0.a.f2.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -256,18 +256,18 @@ public final class a {
                     return;
                 }
             }
-            this.f5731e = context;
+            this.f5739e = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f5731e);
+                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f5739e);
                 aVar.n(new c.a.p0.a.w2.h.a());
                 SwanAppAlertDialog c2 = aVar.c();
                 aVar.U(h.aiapps_add_shortcut_note_dialog_title);
-                aVar.w(a.p(this.f5731e, c2));
+                aVar.w(a.p(this.f5739e, c2));
                 aVar.y();
                 aVar.H(h.aiapps_confirm_text, new DialogInterface$OnClickListenerC0191a(this));
                 aVar.J(c.a.p0.a.c1.a.H().a());
@@ -284,10 +284,10 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAlertDialog f5732e;
+        public final /* synthetic */ SwanAppAlertDialog f5740e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f5733f;
+        public final /* synthetic */ Context f5741f;
 
         public d(SwanAppAlertDialog swanAppAlertDialog, Context context) {
             Interceptable interceptable = $ic;
@@ -304,16 +304,16 @@ public final class a {
                     return;
                 }
             }
-            this.f5732e = swanAppAlertDialog;
-            this.f5733f = context;
+            this.f5740e = swanAppAlertDialog;
+            this.f5741f = context;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f5732e.dismiss();
-                a0.g(this.f5733f);
+                this.f5740e.dismiss();
+                a0.g(this.f5741f);
             }
         }
 
@@ -332,13 +332,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f5734e;
+        public final /* synthetic */ f f5742e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f5735f;
+        public final /* synthetic */ Context f5743f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f5736g;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f5744g;
 
         public e(f fVar, Context context, c.a.p0.a.f1.e.b bVar) {
             Interceptable interceptable = $ic;
@@ -355,16 +355,16 @@ public final class a {
                     return;
                 }
             }
-            this.f5734e = fVar;
-            this.f5735f = context;
-            this.f5736g = bVar;
+            this.f5742e = fVar;
+            this.f5743f = context;
+            this.f5744g = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5734e.a(a.s(this.f5735f, this.f5736g.K(), this.f5736g.H()));
+                this.f5742e.a(a.s(this.f5743f, this.f5744g.K(), this.f5744g.H()));
             }
         }
     }
@@ -387,7 +387,7 @@ public final class a {
                 return;
             }
         }
-        f5720a = k.f7077a;
+        f5728a = k.f7085a;
     }
 
     public static void i(Context context, c.a.p0.a.f1.e.b bVar) {
@@ -449,11 +449,11 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
             c.a.p0.a.j2.p.e eVar = new c.a.p0.a.j2.p.e();
-            eVar.f7068f = c.a.p0.a.a2.d.g().getAppId();
-            eVar.f7064b = str;
-            eVar.f7063a = c.a.p0.a.j2.k.m(c.a.p0.a.a2.d.g().l());
+            eVar.f7076f = c.a.p0.a.a2.d.g().getAppId();
+            eVar.f7072b = str;
+            eVar.f7071a = c.a.p0.a.j2.k.m(c.a.p0.a.a2.d.g().l());
             if (c.a.p0.a.a2.e.Q() != null && c.a.p0.a.a2.e.Q().L() != null) {
-                eVar.f7065c = c.a.p0.a.a2.e.Q().L().T();
+                eVar.f7073c = c.a.p0.a.a2.e.Q().L().T();
             }
             c.a.p0.a.j2.k.u("1591", eVar);
         }
@@ -554,7 +554,7 @@ public final class a {
                 }
                 return 0;
             } catch (Exception e2) {
-                if (f5720a) {
+                if (f5728a) {
                     String str3 = "fail: " + e2;
                     return -1;
                 }
@@ -574,7 +574,7 @@ public final class a {
                     shortcutManager.requestPinShortcut(new ShortcutInfo.Builder(context, str).setShortLabel(str2).setLongLabel(str2).setIcon(Icon.createWithBitmap(bitmap)).setIntent(intent).build(), null);
                     return;
                 } catch (IllegalStateException e2) {
-                    if (f5720a) {
+                    if (f5728a) {
                         throw e2;
                     }
                     return;
@@ -588,7 +588,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, null, context) == null) {
             if (!(context instanceof Activity)) {
-                if (f5720a) {
+                if (f5728a) {
                     throw new IllegalArgumentException("context must be activity.");
                 }
                 return;

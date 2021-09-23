@@ -53,16 +53,16 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f53481e;
+        public final /* synthetic */ PopupDialog f53594e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f53482f;
+        public final /* synthetic */ int f53595f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterShowItemData f53483g;
+        public final /* synthetic */ ImMessageCenterShowItemData f53596g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ StrangerListActivity f53484h;
+        public final /* synthetic */ StrangerListActivity f53597h;
 
         public a(StrangerListActivity strangerListActivity, PopupDialog popupDialog, int i2, ImMessageCenterShowItemData imMessageCenterShowItemData) {
             Interceptable interceptable = $ic;
@@ -79,24 +79,24 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     return;
                 }
             }
-            this.f53484h = strangerListActivity;
-            this.f53481e = popupDialog;
-            this.f53482f = i2;
-            this.f53483g = imMessageCenterShowItemData;
+            this.f53597h = strangerListActivity;
+            this.f53594e = popupDialog;
+            this.f53595f = i2;
+            this.f53596g = imMessageCenterShowItemData;
         }
 
         @Override // c.a.q0.s.s.i.e
         public void onItemClick(i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                PopupDialog popupDialog = this.f53481e;
+                PopupDialog popupDialog = this.f53594e;
                 if (popupDialog != null && popupDialog.isShowing()) {
-                    this.f53481e.dismiss();
+                    this.f53594e.dismiss();
                 }
-                if (this.f53482f == 1) {
-                    this.f53484h.mModel.w(this.f53484h.IProcessImpl);
+                if (this.f53595f == 1) {
+                    this.f53597h.mModel.w(this.f53597h.IProcessImpl);
                 } else {
-                    this.f53484h.mModel.asyncDeleteItem(this.f53483g, this.f53484h.IProcessImpl);
+                    this.f53597h.mModel.asyncDeleteItem(this.f53596g, this.f53597h.IProcessImpl);
                 }
             }
         }
@@ -108,7 +108,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ StrangerListActivity f53485e;
+        public final /* synthetic */ StrangerListActivity f53598e;
 
         public b(StrangerListActivity strangerListActivity) {
             Interceptable interceptable = $ic;
@@ -125,15 +125,15 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     return;
                 }
             }
-            this.f53485e = strangerListActivity;
+            this.f53598e = strangerListActivity;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f53485e.mDelAllDialog.dismiss();
-                this.f53485e.mModel.w(this.f53485e.IProcessImpl);
+                this.f53598e.mDelAllDialog.dismiss();
+                this.f53598e.mModel.w(this.f53598e.IProcessImpl);
             }
         }
     }
@@ -144,7 +144,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ StrangerListActivity f53486e;
+        public final /* synthetic */ StrangerListActivity f53599e;
 
         public c(StrangerListActivity strangerListActivity) {
             Interceptable interceptable = $ic;
@@ -161,14 +161,14 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     return;
                 }
             }
-            this.f53486e = strangerListActivity;
+            this.f53599e = strangerListActivity;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f53486e.mDelAllDialog.dismiss();
+                this.f53599e.mDelAllDialog.dismiss();
             }
         }
     }
@@ -179,7 +179,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StrangerListActivity f53487a;
+        public final /* synthetic */ StrangerListActivity f53600a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(StrangerListActivity strangerListActivity, int i2) {
@@ -199,7 +199,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     return;
                 }
             }
-            this.f53487a = strangerListActivity;
+            this.f53600a = strangerListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -210,16 +210,16 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 return;
             }
             if (customResponsedMessage.getCmd() == 2016002) {
-                this.f53487a.processMemoryInitComplete(customResponsedMessage);
+                this.f53600a.processMemoryInitComplete(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016004) {
-                this.f53487a.processMemoryChanged(customResponsedMessage);
+                this.f53600a.processMemoryChanged(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016007) {
-                this.f53487a.processResponsedMemoryList(customResponsedMessage);
+                this.f53600a.processResponsedMemoryList(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016001) {
-                this.f53487a.mModel.setData(null, this.f53487a.mCompleteProcess);
-            } else if (customResponsedMessage.getCmd() != 2016011 || this.f53487a.mView == null || this.f53487a.mView.c() == null) {
+                this.f53600a.mModel.setData(null, this.f53600a.mCompleteProcess);
+            } else if (customResponsedMessage.getCmd() != 2016011 || this.f53600a.mView == null || this.f53600a.mView.c() == null) {
             } else {
-                this.f53487a.mView.c().notifyDataSetChanged();
+                this.f53600a.mView.c().notifyDataSetChanged();
             }
         }
     }
@@ -230,7 +230,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StrangerListActivity f53488a;
+        public final /* synthetic */ StrangerListActivity f53601a;
 
         public e(StrangerListActivity strangerListActivity) {
             Interceptable interceptable = $ic;
@@ -247,14 +247,14 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     return;
                 }
             }
-            this.f53488a = strangerListActivity;
+            this.f53601a = strangerListActivity;
         }
 
         @Override // c.a.r0.k1.f.i.a
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53488a.onCompleteProcess();
+                this.f53601a.onCompleteProcess();
             }
         }
     }
@@ -265,7 +265,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StrangerListActivity f53489a;
+        public final /* synthetic */ StrangerListActivity f53602a;
 
         public f(StrangerListActivity strangerListActivity) {
             Interceptable interceptable = $ic;
@@ -282,15 +282,15 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     return;
                 }
             }
-            this.f53489a = strangerListActivity;
+            this.f53602a = strangerListActivity;
         }
 
         @Override // c.a.r0.k1.f.i.b
         public void onCanceled() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53489a.dismissDialog();
-                this.f53489a.onCompleteProcess();
+                this.f53602a.dismissDialog();
+                this.f53602a.onCompleteProcess();
             }
         }
 
@@ -298,9 +298,9 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public void onPostExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f53489a.dismissDialog();
-                this.f53489a.showToast(R.string.delete_success, false);
-                this.f53489a.onCompleteProcess();
+                this.f53602a.dismissDialog();
+                this.f53602a.showToast(R.string.delete_success, false);
+                this.f53602a.onCompleteProcess();
             }
         }
 
@@ -308,7 +308,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f53489a.showProgressDialog();
+                this.f53602a.showProgressDialog();
             }
         }
 
@@ -316,10 +316,10 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public void onProgressUpdate(int i2, String str, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
-                if (this.f53489a.mProgressDialog != null) {
-                    this.f53489a.mProgressDialog.setPercent(i2);
+                if (this.f53602a.mProgressDialog != null) {
+                    this.f53602a.mProgressDialog.setPercent(i2);
                 }
-                this.f53489a.notifyDataSetChanged();
+                this.f53602a.notifyDataSetChanged();
             }
         }
     }

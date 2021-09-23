@@ -3,6 +3,7 @@ package c.a.y0.e.g;
 import android.content.Context;
 import c.a.y0.e.f.d;
 import c.m.a.a;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,20 +18,20 @@ public class a extends d {
 
     /* renamed from: c.a.y0.e.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1440a implements a.c {
+    public class C1438a implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicBoolean f31237a;
+        public final /* synthetic */ AtomicBoolean f31258a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Object f31238b;
+        public final /* synthetic */ Object f31259b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f31239c;
+        public final /* synthetic */ a f31260c;
 
-        public C1440a(a aVar, AtomicBoolean atomicBoolean, Object obj) {
+        public C1438a(a aVar, AtomicBoolean atomicBoolean, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,19 +46,19 @@ public class a extends d {
                     return;
                 }
             }
-            this.f31239c = aVar;
-            this.f31237a = atomicBoolean;
-            this.f31238b = obj;
+            this.f31260c = aVar;
+            this.f31258a = atomicBoolean;
+            this.f31259b = obj;
         }
 
         @Override // c.m.a.a.c
         public void a(int i2, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, exc) == null) {
-                this.f31239c.f31236g = i2;
-                this.f31237a.set(true);
-                synchronized (this.f31238b) {
-                    this.f31238b.notifyAll();
+                this.f31260c.f31257g = i2;
+                this.f31258a.set(true);
+                synchronized (this.f31259b) {
+                    this.f31259b.notifyAll();
                 }
             }
         }
@@ -66,13 +67,13 @@ public class a extends d {
         public void b(String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-                this.f31239c.f31233d = str;
-                this.f31239c.f31231b = z;
-                this.f31239c.f31232c = true;
-                this.f31239c.f31236g = 0;
-                this.f31237a.set(true);
-                synchronized (this.f31238b) {
-                    this.f31238b.notifyAll();
+                this.f31260c.f31254d = str;
+                this.f31260c.f31252b = z;
+                this.f31260c.f31253c = true;
+                this.f31260c.f31257g = 0;
+                this.f31258a.set(true);
+                synchronized (this.f31259b) {
+                    this.f31259b.notifyAll();
                 }
             }
         }
@@ -96,10 +97,10 @@ public class a extends d {
                 return;
             }
         }
-        this.f31233d = "";
-        this.f31231b = false;
-        this.f31232c = false;
-        this.f31236g = -200;
+        this.f31254d = "";
+        this.f31252b = false;
+        this.f31253c = false;
+        this.f31257g = -200;
     }
 
     @Override // c.a.y0.e.f.c
@@ -119,11 +120,11 @@ public class a extends d {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Object obj = new Object();
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            c.m.a.a.d(this.f31230a, new C1440a(this, atomicBoolean, obj));
+            c.m.a.a.d(this.f31251a, new C1438a(this, atomicBoolean, obj));
             synchronized (obj) {
                 if (!atomicBoolean.get()) {
                     try {
-                        obj.wait(4000L);
+                        obj.wait(PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
                     } catch (InterruptedException unused) {
                     }
                 }

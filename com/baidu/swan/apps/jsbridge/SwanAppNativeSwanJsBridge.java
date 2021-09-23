@@ -40,7 +40,7 @@ public class SwanAppNativeSwanJsBridge {
                 return;
             }
         }
-        DEBUG = k.f7077a;
+        DEBUG = k.f7085a;
     }
 
     public SwanAppNativeSwanJsBridge(a aVar) {

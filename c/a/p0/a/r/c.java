@@ -25,7 +25,7 @@ public abstract class c extends a0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f8144c;
+    public static final boolean f8152c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -34,13 +34,13 @@ public abstract class c extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8145a;
+        public final /* synthetic */ CallbackHandler f8153a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f8146b;
+        public final /* synthetic */ String f8154b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f8147c;
+        public final /* synthetic */ c f8155c;
 
         public a(c cVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -57,16 +57,16 @@ public abstract class c extends a0 {
                     return;
                 }
             }
-            this.f8147c = cVar;
-            this.f8145a = callbackHandler;
-            this.f8146b = str;
+            this.f8155c = cVar;
+            this.f8153a = callbackHandler;
+            this.f8154b = str;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f8145a.handleSchemeDispatchCallback(this.f8146b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
+                this.f8153a.handleSchemeDispatchCallback(this.f8154b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
             }
         }
 
@@ -82,7 +82,7 @@ public abstract class c extends a0 {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f8147c.j(response, this.f8145a, this.f8146b);
+                this.f8155c.j(response, this.f8153a, this.f8154b);
                 return response;
             }
             return invokeLI.objValue;
@@ -102,7 +102,7 @@ public abstract class c extends a0 {
                 return;
             }
         }
-        f8144c = k.f7077a;
+        f8152c = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -146,7 +146,7 @@ public abstract class c extends a0 {
             if (TextUtils.isEmpty(optString)) {
                 return l(unitedSchemeEntity, 202, "illegal cb");
             }
-            if (f8144c) {
+            if (f8152c) {
                 String str = "schema params : " + a2.toString();
                 String str2 = "schema cb : " + optString;
             }

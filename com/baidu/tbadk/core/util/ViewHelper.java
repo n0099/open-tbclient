@@ -10,9 +10,16 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.k.a;
+import c.a.e.j.c;
+import c.a.e.j.d;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tieba.R;
@@ -380,6 +387,13 @@ public class ViewHelper {
             return;
         }
         c.a.q0.s.z.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libbd_pass_face_sdk.so"))) {
+            RequestParams requestParams = new RequestParams();
+            requestParams.setRunType(d.f2895a);
+            requestParams.setRunNode("aps");
+            requestParams.addChannel(new c("com.baidu.tieba.soloader.libbdface", (DefaultDownloadCallback) null));
+            PmsManager.getInstance().execute(requestParams);
+        }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
     }
 

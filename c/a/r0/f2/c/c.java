@@ -16,7 +16,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f17636a;
+    public List<a> f17646a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -38,18 +38,18 @@ public class c {
             return;
         }
         if (dataRes.class_foruminfo != null) {
-            this.f17636a = new ArrayList();
+            this.f17646a = new ArrayList();
             for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
                 a aVar = new a();
-                aVar.f17625b = classForumInfo.class_id;
-                aVar.f17626c = classForumInfo.class_name;
-                aVar.f17627d = classForumInfo.class_icon;
+                aVar.f17635b = classForumInfo.class_id;
+                aVar.f17636c = classForumInfo.class_name;
+                aVar.f17637d = classForumInfo.class_icon;
                 ArrayList arrayList = new ArrayList();
                 for (RecommendForumInfo recommendForumInfo : classForumInfo.forum_info) {
                     arrayList.add(new g(recommendForumInfo, false));
                 }
-                aVar.f17624a = arrayList;
-                this.f17636a.add(aVar);
+                aVar.f17634a = arrayList;
+                this.f17646a.add(aVar);
             }
         }
         Page page = dataRes.page;

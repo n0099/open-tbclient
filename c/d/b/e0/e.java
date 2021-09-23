@@ -50,28 +50,28 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f31761a;
+    public static final byte[] f31782a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f31762b;
+    public static final String[] f31783b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c0 f31763c;
+    public static final c0 f31784c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Charset f31764d;
+    public static final Charset f31785d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final TimeZone f31765e;
+    public static final TimeZone f31786e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Comparator<String> f31766f;
+    public static final Comparator<String> f31787f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Method f31767g;
+    public static final Method f31788g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Pattern f31768h;
+    public static final Pattern f31789h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -109,10 +109,10 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f31769e;
+        public final /* synthetic */ String f31790e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f31770f;
+        public final /* synthetic */ boolean f31791f;
 
         public b(String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -129,8 +129,8 @@ public final class e {
                     return;
                 }
             }
-            this.f31769e = str;
-            this.f31770f = z;
+            this.f31790e = str;
+            this.f31791f = z;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -138,8 +138,8 @@ public final class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.f31769e);
-                thread.setDaemon(this.f31770f);
+                Thread thread = new Thread(runnable, this.f31790e);
+                thread.setDaemon(this.f31791f);
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -160,30 +160,30 @@ public final class e {
             }
         }
         byte[] bArr = new byte[0];
-        f31761a = bArr;
-        f31762b = new String[0];
+        f31782a = bArr;
+        f31783b = new String[0];
         Method method = null;
-        f31763c = c0.p(null, bArr);
-        a0.c(null, f31761a);
+        f31784c = c0.p(null, bArr);
+        a0.c(null, f31782a);
         ByteString.decodeHex("efbbbf");
         ByteString.decodeHex("feff");
         ByteString.decodeHex("fffe");
         ByteString.decodeHex("0000ffff");
         ByteString.decodeHex("ffff0000");
-        f31764d = Charset.forName("UTF-8");
+        f31785d = Charset.forName("UTF-8");
         Charset.forName("ISO-8859-1");
         Charset.forName("UTF-16BE");
         Charset.forName("UTF-16LE");
         Charset.forName("UTF-32BE");
         Charset.forName("UTF-32LE");
-        f31765e = TimeZone.getTimeZone("GMT");
-        f31766f = new a();
+        f31786e = TimeZone.getTimeZone("GMT");
+        f31787f = new a();
         try {
             method = Throwable.class.getDeclaredMethod("addSuppressed", Throwable.class);
         } catch (Exception unused) {
         }
-        f31767g = method;
-        f31768h = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f31788g = method;
+        f31789h = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
     public static boolean A(Comparator<String> comparator, String[] strArr, String[] strArr2) {
@@ -304,7 +304,7 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) {
             r.a aVar = new r.a();
             for (c.d.b.e0.k.a aVar2 : list) {
-                c.d.b.e0.a.f31758a.b(aVar, aVar2.f31882a.utf8(), aVar2.f31883b.utf8());
+                c.d.b.e0.a.f31779a.b(aVar, aVar2.f31903a.utf8(), aVar2.f31904b.utf8());
             }
             return aVar.d();
         }
@@ -324,13 +324,13 @@ public final class e {
     public static boolean I(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f31768h.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f31789h.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static void a(Throwable th, Throwable th2) {
         Method method;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, th, th2) == null) || (method = f31767g) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65546, null, th, th2) == null) || (method = f31788g) == null) {
             return;
         }
         try {

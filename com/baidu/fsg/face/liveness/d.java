@@ -35,38 +35,38 @@ public final class d {
     public static final String Z = "videoFileException";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f40234a = "#startLiveness";
+    public static final String f40294a = "#startLiveness";
     public static final String aa = "videoFileTooLargeException";
     public static final String ab = "videoMediaRecordIdealBitrate";
     public static final String ac = "videoFileSize";
     public static final String ad = "videoFileUploadTimeout";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f40235b = "@queryVideo";
+    public static final String f40295b = "@queryVideo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f40236c = "enterLiveness";
+    public static final String f40296c = "enterLiveness";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f40237d = "userSwitchSound";
+    public static final String f40297d = "userSwitchSound";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f40238e = "@getPortrait";
+    public static final String f40298e = "@getPortrait";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f40239f = "passLiveness";
+    public static final String f40299f = "passLiveness";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f40240g = "faceDetected";
+    public static final String f40300g = "faceDetected";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f40241h = "showBlink";
+    public static final String f40301h = "showBlink";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f40242i = "detectBlink";
+    public static final String f40302i = "detectBlink";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f40243j = "showMouth";
+    public static final String f40303j = "showMouth";
     public static final String k = "detectMouth";
     public static final String l = "firstTimeOut";
     public static final String m = "secondTimeOut";

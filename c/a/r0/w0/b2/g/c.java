@@ -21,11 +21,11 @@ public class c extends c.a.q0.s.q.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f26517f;
+    public static final BdUniqueId f26540f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d2> f26518e;
+    public List<d2> f26541e;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class c extends c.a.q0.s.q.a {
                 return;
             }
         }
-        f26517f = BdUniqueId.gen();
+        f26540f = BdUniqueId.gen();
     }
 
     public c() {
@@ -63,15 +63,15 @@ public class c extends c.a.q0.s.q.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f26518e.size() > 10) {
+            if (this.f26541e.size() > 10) {
                 ArrayList arrayList = new ArrayList();
-                Iterator<d2> it = this.f26518e.iterator();
+                Iterator<d2> it = this.f26541e.iterator();
                 while (it.hasNext() && arrayList.size() < 10) {
                     arrayList.add(it.next());
                 }
                 return arrayList;
             }
-            return this.f26518e;
+            return this.f26541e;
         }
         return (List) invokeV.objValue;
     }
@@ -100,17 +100,17 @@ public class c extends c.a.q0.s.q.a {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f26517f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f26540f : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(List<ThreadInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f26518e = new ArrayList();
+            this.f26541e = new ArrayList();
             for (ThreadInfo threadInfo : list) {
                 d2 d2Var = new d2();
                 d2Var.Y2(threadInfo);
-                this.f26518e.add(d2Var);
+                this.f26541e.add(d2Var);
             }
         }
     }

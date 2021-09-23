@@ -19,22 +19,22 @@ public class d implements c.a.p0.a.l1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f6535e;
+    public String f6543e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.p0.a.h1.c.h.c f6536f;
+    public c.a.p0.a.h1.c.h.c f6544f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f6537g;
+    public String f6545g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f6538h;
+    public String f6546h;
 
     /* renamed from: i  reason: collision with root package name */
-    public double f6539i;
+    public double f6547i;
 
     /* renamed from: j  reason: collision with root package name */
-    public double f6540j;
+    public double f6548j;
     public int k;
     public int l;
     public b m;
@@ -48,10 +48,10 @@ public class d implements c.a.p0.a.l1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public double f6541e;
+        public double f6549e;
 
         /* renamed from: f  reason: collision with root package name */
-        public double f6542f;
+        public double f6550f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -66,8 +66,8 @@ public class d implements c.a.p0.a.l1.a {
                     return;
                 }
             }
-            this.f6541e = 0.5d;
-            this.f6542f = 1.0d;
+            this.f6549e = 0.5d;
+            this.f6550f = 1.0d;
         }
 
         @Override // c.a.p0.a.l1.a
@@ -76,23 +76,23 @@ public class d implements c.a.p0.a.l1.a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f6541e = Math.abs(jSONObject.optDouble("x", 0.5d));
+            this.f6549e = Math.abs(jSONObject.optDouble("x", 0.5d));
             double d2 = 1.0d;
-            this.f6542f = Math.abs(jSONObject.optDouble("y", 1.0d));
-            double d3 = this.f6541e;
+            this.f6550f = Math.abs(jSONObject.optDouble("y", 1.0d));
+            double d3 = this.f6549e;
             if (d3 < 0.0d) {
                 d3 = 0.0d;
             } else if (d3 > 1.0d) {
                 d3 = 1.0d;
             }
-            this.f6541e = d3;
-            double d4 = this.f6542f;
+            this.f6549e = d3;
+            double d4 = this.f6550f;
             if (d4 < 0.0d) {
                 d2 = 0.0d;
             } else if (d4 <= 1.0d) {
                 d2 = d4;
             }
-            this.f6542f = d2;
+            this.f6550f = d2;
         }
 
         @Override // c.a.p0.a.l1.a
@@ -113,7 +113,7 @@ public class d implements c.a.p0.a.l1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public float f6543j;
+        public float f6551j;
         public String k;
         public int l;
 
@@ -135,7 +135,7 @@ public class d implements c.a.p0.a.l1.a {
                     return;
                 }
             }
-            this.f6543j = 0.0f;
+            this.f6551j = 0.0f;
             this.k = "BYCLICK";
             this.l = -1;
         }
@@ -147,7 +147,7 @@ public class d implements c.a.p0.a.l1.a {
                 return;
             }
             super.a(jSONObject);
-            this.f6543j = (float) jSONObject.optDouble("borderRadius", 0.0d);
+            this.f6551j = (float) jSONObject.optDouble("borderRadius", 0.0d);
             jSONObject.optDouble("borderWidth", 0.0d);
             this.k = jSONObject.has("display") ? jSONObject.optString("display") : "BYCLICK";
             this.l = c.a.p0.a.h1.c.d.a(jSONObject.optString("bgColor"), -1);
@@ -162,7 +162,7 @@ public class d implements c.a.p0.a.l1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public float f6544j;
+        public float f6552j;
         public float k;
         public float l;
         public int m;
@@ -186,7 +186,7 @@ public class d implements c.a.p0.a.l1.a {
                     return;
                 }
             }
-            this.f6544j = 0.0f;
+            this.f6552j = 0.0f;
             this.k = 0.0f;
             this.l = 0.0f;
             this.m = 0;
@@ -200,11 +200,11 @@ public class d implements c.a.p0.a.l1.a {
                 return;
             }
             super.a(jSONObject);
-            this.f6544j = c.a.p0.a.h1.c.d.b(jSONObject.optDouble("x", 0.0d));
+            this.f6552j = c.a.p0.a.h1.c.d.b(jSONObject.optDouble("x", 0.0d));
             float b2 = c.a.p0.a.h1.c.d.b(jSONObject.optDouble("y", 0.0d));
             this.k = b2;
-            if (this.f6544j == 0.0f && b2 == 0.0f) {
-                this.f6544j = c.a.p0.a.h1.c.d.b(jSONObject.optDouble("anchorX", 0.0d));
+            if (this.f6552j == 0.0f && b2 == 0.0f) {
+                this.f6552j = c.a.p0.a.h1.c.d.b(jSONObject.optDouble("anchorX", 0.0d));
                 this.k = c.a.p0.a.h1.c.d.b(jSONObject.optDouble("anchorY", 0.0d));
             }
             this.l = (float) jSONObject.optDouble("borderWidth", 0.0d);
@@ -221,19 +221,19 @@ public class d implements c.a.p0.a.l1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f6545e;
+        public String f6553e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f6546f;
+        public int f6554f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f6547g;
+        public float f6555g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f6548h;
+        public int f6556h;
 
         /* renamed from: i  reason: collision with root package name */
-        public float f6549i;
+        public float f6557i;
 
         public C0254d(d dVar) {
             Interceptable interceptable = $ic;
@@ -250,11 +250,11 @@ public class d implements c.a.p0.a.l1.a {
                     return;
                 }
             }
-            this.f6545e = "";
-            this.f6546f = -16777216;
-            this.f6547g = c.a.p0.a.h1.c.d.b(10.0d);
-            this.f6548h = 0;
-            this.f6549i = 0.0f;
+            this.f6553e = "";
+            this.f6554f = -16777216;
+            this.f6555g = c.a.p0.a.h1.c.d.b(10.0d);
+            this.f6556h = 0;
+            this.f6557i = 0.0f;
         }
 
         @Override // c.a.p0.a.l1.a
@@ -262,16 +262,16 @@ public class d implements c.a.p0.a.l1.a {
             float b2;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("content")) {
-                this.f6545e = jSONObject.optString("content");
-                this.f6546f = c.a.p0.a.h1.c.d.a(jSONObject.optString("color"), -16777216);
+                this.f6553e = jSONObject.optString("content");
+                this.f6554f = c.a.p0.a.h1.c.d.a(jSONObject.optString("color"), -16777216);
                 if (jSONObject.has("fontSize")) {
                     b2 = Math.abs(c.a.p0.a.h1.c.d.b(jSONObject.optDouble("fontSize", 10.0d)));
                 } else {
                     b2 = c.a.p0.a.h1.c.d.b(10.0d);
                 }
-                this.f6547g = b2;
-                this.f6548h = c.a.p0.a.h1.c.d.a(jSONObject.optString("bgColor"), 0);
-                this.f6549i = c.a.p0.a.h1.c.d.b(jSONObject.optDouble("padding", 0.0d));
+                this.f6555g = b2;
+                this.f6556h = c.a.p0.a.h1.c.d.a(jSONObject.optString("bgColor"), 0);
+                this.f6557i = c.a.p0.a.h1.c.d.b(jSONObject.optDouble("padding", 0.0d));
                 if (jSONObject.has("textAlign")) {
                     jSONObject.optString("textAlign");
                 }
@@ -282,7 +282,7 @@ public class d implements c.a.p0.a.l1.a {
         public boolean isValid() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.f6545e) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.f6553e) : invokeV.booleanValue;
         }
     }
 
@@ -299,11 +299,11 @@ public class d implements c.a.p0.a.l1.a {
                 return;
             }
         }
-        this.f6535e = "";
-        this.f6537g = "";
-        this.f6538h = "";
-        this.f6539i = 0.0d;
-        this.f6540j = 1.0d;
+        this.f6543e = "";
+        this.f6545g = "";
+        this.f6546h = "";
+        this.f6547i = 0.0d;
+        this.f6548j = 1.0d;
         this.k = -1;
         this.l = -1;
     }
@@ -315,18 +315,18 @@ public class d implements c.a.p0.a.l1.a {
             return;
         }
         c.a.p0.a.h1.c.h.c cVar = new c.a.p0.a.h1.c.h.c();
-        this.f6536f = cVar;
+        this.f6544f = cVar;
         cVar.a(jSONObject);
-        if (this.f6536f.isValid()) {
+        if (this.f6544f.isValid()) {
             String optString = jSONObject.optString("markerId");
-            this.f6535e = optString;
+            this.f6543e = optString;
             if (TextUtils.isEmpty(optString)) {
-                this.f6535e = jSONObject.optString("id");
+                this.f6543e = jSONObject.optString("id");
             }
-            this.f6537g = jSONObject.optString("title");
-            this.f6538h = jSONObject.optString("iconPath");
-            this.f6539i = jSONObject.optDouble("rotate", 0.0d);
-            this.f6540j = Math.abs(jSONObject.optDouble("alpha", 1.0d));
+            this.f6545g = jSONObject.optString("title");
+            this.f6546h = jSONObject.optString("iconPath");
+            this.f6547i = jSONObject.optDouble("rotate", 0.0d);
+            this.f6548j = Math.abs(jSONObject.optDouble("alpha", 1.0d));
             this.k = jSONObject.has("width") ? Math.abs(n0.g(jSONObject.optInt("width"))) : -1;
             this.l = jSONObject.has("height") ? Math.abs(n0.g(jSONObject.optInt("height"))) : -1;
             jSONObject.optInt("zIndex", 0);
@@ -347,7 +347,7 @@ public class d implements c.a.p0.a.l1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.p0.a.h1.c.h.c cVar = this.f6536f;
+            c.a.p0.a.h1.c.h.c cVar = this.f6544f;
             return cVar != null && cVar.isValid();
         }
         return invokeV.booleanValue;

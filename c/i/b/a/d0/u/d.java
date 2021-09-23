@@ -16,22 +16,22 @@ public final class d implements c.i.b.a.a0.g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.i.b.a.a0.e f33151e;
+    public final c.i.b.a.a0.e f33174e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f33152f;
+    public final int f33175f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Format f33153g;
+    public final Format f33176g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final SparseArray<a> f33154h;
+    public final SparseArray<a> f33177h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f33155i;
+    public boolean f33178i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f33156j;
+    public b f33179j;
     public c.i.b.a.a0.l k;
     public Format[] l;
 
@@ -41,19 +41,19 @@ public final class d implements c.i.b.a.a0.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f33157a;
+        public final int f33180a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f33158b;
+        public final int f33181b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Format f33159c;
+        public final Format f33182c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Format f33160d;
+        public Format f33183d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.i.b.a.a0.m f33161e;
+        public c.i.b.a.a0.m f33184e;
 
         public a(int i2, int i3, Format format) {
             Interceptable interceptable = $ic;
@@ -70,16 +70,16 @@ public final class d implements c.i.b.a.a0.g {
                     return;
                 }
             }
-            this.f33157a = i2;
-            this.f33158b = i3;
-            this.f33159c = format;
+            this.f33180a = i2;
+            this.f33181b = i3;
+            this.f33182c = format;
         }
 
         @Override // c.i.b.a.a0.m
         public void a(c.i.b.a.i0.l lVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, lVar, i2) == null) {
-                this.f33161e.a(lVar, i2);
+                this.f33184e.a(lVar, i2);
             }
         }
 
@@ -87,12 +87,12 @@ public final class d implements c.i.b.a.a0.g {
         public void b(Format format) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, format) == null) {
-                Format format2 = this.f33159c;
+                Format format2 = this.f33182c;
                 if (format2 != null) {
                     format = format.copyWithManifestFormatInfo(format2);
                 }
-                this.f33160d = format;
-                this.f33161e.b(format);
+                this.f33183d = format;
+                this.f33184e.b(format);
             }
         }
 
@@ -100,7 +100,7 @@ public final class d implements c.i.b.a.a0.g {
         public void c(long j2, int i2, int i3, int i4, m.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), aVar}) == null) {
-                this.f33161e.c(j2, i2, i3, i4, aVar);
+                this.f33184e.c(j2, i2, i3, i4, aVar);
             }
         }
 
@@ -108,19 +108,19 @@ public final class d implements c.i.b.a.a0.g {
         public int d(c.i.b.a.a0.f fVar, int i2, boolean z) throws IOException, InterruptedException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{fVar, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? this.f33161e.d(fVar, i2, z) : invokeCommon.intValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{fVar, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? this.f33184e.d(fVar, i2, z) : invokeCommon.intValue;
         }
 
         public void e(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
                 if (bVar == null) {
-                    this.f33161e = new c.i.b.a.a0.d();
+                    this.f33184e = new c.i.b.a.a0.d();
                     return;
                 }
-                c.i.b.a.a0.m a2 = bVar.a(this.f33157a, this.f33158b);
-                this.f33161e = a2;
-                Format format = this.f33160d;
+                c.i.b.a.a0.m a2 = bVar.a(this.f33180a, this.f33181b);
+                this.f33184e = a2;
+                Format format = this.f33183d;
                 if (format != null) {
                     a2.b(format);
                 }
@@ -148,10 +148,10 @@ public final class d implements c.i.b.a.a0.g {
                 return;
             }
         }
-        this.f33151e = eVar;
-        this.f33152f = i2;
-        this.f33153g = format;
-        this.f33154h = new SparseArray<>();
+        this.f33174e = eVar;
+        this.f33175f = i2;
+        this.f33176g = format;
+        this.f33177h = new SparseArray<>();
     }
 
     @Override // c.i.b.a.a0.g
@@ -159,12 +159,12 @@ public final class d implements c.i.b.a.a0.g {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-            a aVar = this.f33154h.get(i2);
+            a aVar = this.f33177h.get(i2);
             if (aVar == null) {
                 c.i.b.a.i0.a.f(this.l == null);
-                aVar = new a(i2, i3, i3 == this.f33152f ? this.f33153g : null);
-                aVar.e(this.f33156j);
-                this.f33154h.put(i2, aVar);
+                aVar = new a(i2, i3, i3 == this.f33175f ? this.f33176g : null);
+                aVar.e(this.f33179j);
+                this.f33177h.put(i2, aVar);
             }
             return aVar;
         }
@@ -186,15 +186,15 @@ public final class d implements c.i.b.a.a0.g {
     public void d(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f33156j = bVar;
-            if (!this.f33155i) {
-                this.f33151e.f(this);
-                this.f33155i = true;
+            this.f33179j = bVar;
+            if (!this.f33178i) {
+                this.f33174e.f(this);
+                this.f33178i = true;
                 return;
             }
-            this.f33151e.a(0L, 0L);
-            for (int i2 = 0; i2 < this.f33154h.size(); i2++) {
-                this.f33154h.valueAt(i2).e(bVar);
+            this.f33174e.a(0L, 0L);
+            for (int i2 = 0; i2 < this.f33177h.size(); i2++) {
+                this.f33177h.valueAt(i2).e(bVar);
             }
         }
     }
@@ -203,9 +203,9 @@ public final class d implements c.i.b.a.a0.g {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Format[] formatArr = new Format[this.f33154h.size()];
-            for (int i2 = 0; i2 < this.f33154h.size(); i2++) {
-                formatArr[i2] = this.f33154h.valueAt(i2).f33160d;
+            Format[] formatArr = new Format[this.f33177h.size()];
+            for (int i2 = 0; i2 < this.f33177h.size(); i2++) {
+                formatArr[i2] = this.f33177h.valueAt(i2).f33183d;
             }
             this.l = formatArr;
         }

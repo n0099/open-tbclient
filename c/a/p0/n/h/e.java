@@ -14,16 +14,16 @@ public class e extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11885g;
+    public String f11893g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11886h;
+    public int f11894h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f11887i;
+    public long f11895i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f11888j;
+    public String f11896j;
     public long k;
     public String l;
     public String m;
@@ -46,7 +46,7 @@ public class e extends c {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f11885g) || this.f11887i <= 0 || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.m) || TextUtils.isEmpty(this.n)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f11893g) || this.f11895i <= 0 || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.m) || TextUtils.isEmpty(this.n)) ? false : true : invokeV.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -58,7 +58,7 @@ public class e extends c {
             }
             if (obj != null && (obj instanceof e)) {
                 e eVar = (e) obj;
-                return (TextUtils.isEmpty(this.f11888j) && TextUtils.isEmpty(eVar.f11888j)) ? this.f11885g.equals(eVar.f11885g) && this.f11887i == eVar.f11887i : TextUtils.equals(this.f11885g, eVar.f11885g) && this.f11887i == eVar.f11887i && TextUtils.equals(this.f11888j, eVar.f11888j);
+                return (TextUtils.isEmpty(this.f11896j) && TextUtils.isEmpty(eVar.f11896j)) ? this.f11893g.equals(eVar.f11893g) && this.f11895i == eVar.f11895i : TextUtils.equals(this.f11893g, eVar.f11893g) && this.f11895i == eVar.f11895i && TextUtils.equals(this.f11896j, eVar.f11896j);
             }
             return false;
         }
@@ -68,14 +68,14 @@ public class e extends c {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(this.f11885g, Integer.valueOf(this.f11886h), Long.valueOf(this.f11887i), this.f11888j) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(this.f11893g, Integer.valueOf(this.f11894h), Long.valueOf(this.f11895i), this.f11896j) : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "bundleId=" + this.f11885g + ", category=" + this.f11886h + ", versionCode=" + this.f11887i + ", versionName=" + this.f11888j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
+            return "bundleId=" + this.f11893g + ", category=" + this.f11894h + ", versionCode=" + this.f11895i + ", versionName=" + this.f11896j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
         }
         return (String) invokeV.objValue;
     }

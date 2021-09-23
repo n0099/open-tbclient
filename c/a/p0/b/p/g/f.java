@@ -36,7 +36,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.b.p.g.c f10260a;
+        public final /* synthetic */ c.a.p0.b.p.g.c f10268a;
 
         public a(c.a.p0.b.p.g.c cVar) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class f {
                     return;
                 }
             }
-            this.f10260a = cVar;
+            this.f10268a = cVar;
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
@@ -61,7 +61,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
                 if (oneKeyLoginResult == null) {
-                    this.f10260a.a(null);
+                    this.f10268a.a(null);
                     return;
                 }
                 boolean z = oneKeyLoginResult.enable;
@@ -93,7 +93,7 @@ public class f {
                 } else if (c2 == 2) {
                     aVar.i(14);
                 }
-                this.f10260a.a(QuickLoginInfo.parseQuickLoginInfo(aVar));
+                this.f10268a.a(QuickLoginInfo.parseQuickLoginInfo(aVar));
             }
         }
 
@@ -102,7 +102,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
                 super.unAvailable(oneKeyLoginResult);
-                this.f10260a.a(null);
+                this.f10268a.a(null);
             }
         }
     }
@@ -113,7 +113,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.b.p.g.c f10261c;
+        public final /* synthetic */ c.a.p0.b.p.g.c f10269c;
 
         public b(c.a.p0.b.p.g.c cVar) {
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class f {
                     return;
                 }
             }
-            this.f10261c = cVar;
+            this.f10269c = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -140,15 +140,15 @@ public class f {
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 Bundle a2 = bVar.a();
                 if (a2 == null) {
-                    this.f10261c.a(null);
+                    this.f10269c.a(null);
                     return;
                 }
                 a2.setClassLoader(QuickLoginInfo.class.getClassLoader());
                 QuickLoginInfo quickLoginInfo = (QuickLoginInfo) a2.getParcelable("quick_login_info_result");
                 if (quickLoginInfo == null) {
-                    this.f10261c.a(null);
+                    this.f10269c.a(null);
                 } else {
-                    this.f10261c.a(quickLoginInfo);
+                    this.f10269c.a(quickLoginInfo);
                 }
             }
         }
@@ -160,10 +160,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f10262a;
+        public final /* synthetic */ Activity f10270a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f10263b;
+        public final /* synthetic */ e f10271b;
 
         public c(Activity activity, e eVar) {
             Interceptable interceptable = $ic;
@@ -180,15 +180,15 @@ public class f {
                     return;
                 }
             }
-            this.f10262a = activity;
-            this.f10263b = eVar;
+            this.f10270a = activity;
+            this.f10271b = eVar;
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void available(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                v.a().n(this.f10262a, oneKeyLoginResult.sign, this.f10263b);
+                v.a().n(this.f10270a, oneKeyLoginResult.sign, this.f10271b);
             }
         }
 
@@ -196,7 +196,7 @@ public class f {
         public void unAvailable(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
-                this.f10263b.onResult(-1);
+                this.f10271b.onResult(-1);
             }
         }
     }
@@ -207,7 +207,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f10264a;
+        public final /* synthetic */ e f10272a;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -224,7 +224,7 @@ public class f {
                     return;
                 }
             }
-            this.f10264a = eVar;
+            this.f10272a = eVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
@@ -232,8 +232,8 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
                 Bundle bundle = delegateResult.mResult;
-                if (this.f10264a != null) {
-                    this.f10264a.onResult(c.a.p0.a.v2.v.f(bundle, "quick_login", -1));
+                if (this.f10272a != null) {
+                    this.f10272a.onResult(c.a.p0.a.v2.v.f(bundle, "quick_login", -1));
                 }
             }
         }
@@ -252,7 +252,7 @@ public class f {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public static void a(c.a.p0.b.p.g.c cVar) {

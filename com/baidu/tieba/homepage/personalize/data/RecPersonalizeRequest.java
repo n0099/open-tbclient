@@ -3,7 +3,8 @@ package com.baidu.tieba.homepage.personalize.data;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.j;
 import c.a.e.e.p.l;
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
+import c.a.q0.d1.g;
 import c.a.q0.s.q.g1;
 import c.a.r0.y2.j0.a;
 import c.a.r0.y2.l0.b;
@@ -65,7 +66,7 @@ public class RecPersonalizeRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            x.c(builder, true, false, true);
+            a0.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -95,6 +96,7 @@ public class RecPersonalizeRequest extends NetMessage {
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.e(this.adFloorInfo);
             builder.ad_ext_params = b2.a();
+            builder.app_transmit_data = g.b();
             PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

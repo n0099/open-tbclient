@@ -21,20 +21,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7985c;
+    public static final boolean f7993c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f7986d;
+    public static a f7994d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f7987e;
+    public static a f7995e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7988a;
+    public String f7996a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f7989b;
+    public long f7997b;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class a {
                 return;
             }
         }
-        f7985c = k.f7077a;
+        f7993c = k.f7085a;
     }
 
     public a() {
@@ -71,10 +71,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (f7986d == null) {
-                f7986d = d(e(str));
+            if (f7994d == null) {
+                f7994d = d(e(str));
             }
-            return f7986d;
+            return f7994d;
         }
         return (a) invokeL.objValue;
     }
@@ -97,10 +97,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (f7987e == null) {
-                f7987e = d(e(str));
+            if (f7995e == null) {
+                f7995e = d(e(str));
             }
-            return f7987e;
+            return f7995e;
         }
         return (a) invokeL.objValue;
     }
@@ -112,8 +112,8 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, jSONObject)) == null) {
             a aVar = new a();
             if (jSONObject != null) {
-                aVar.f7988a = jSONObject.optString("extension-core-version-name");
-                aVar.f7989b = jSONObject.optLong("extension-core-version-code");
+                aVar.f7996a = jSONObject.optString("extension-core-version-name");
+                aVar.f7997b = jSONObject.optLong("extension-core-version-code");
             }
             return aVar;
         }
@@ -124,20 +124,20 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            boolean z = f7985c;
+            boolean z = f7993c;
             String C = d.C(AppRuntime.getAppContext(), str);
             if (TextUtils.isEmpty(C)) {
-                boolean z2 = f7985c;
+                boolean z2 = f7993c;
                 return null;
             }
             try {
                 JSONObject jSONObject = new JSONObject(C);
-                if (f7985c) {
+                if (f7993c) {
                     String str2 = "readPresetConfig end. config: " + jSONObject.toString();
                 }
                 return jSONObject;
             } catch (JSONException e2) {
-                if (f7985c) {
+                if (f7993c) {
                     throw new RuntimeException(e2);
                 }
                 return null;

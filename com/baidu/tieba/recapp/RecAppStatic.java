@@ -142,13 +142,13 @@ public class RecAppStatic {
                 return;
             }
         }
-        y.f29663a.set(new a0());
-        c.a.r0.y2.g0.a.f29475a.set(new x());
+        y.f29683a.set(new a0());
+        c.a.r0.y2.g0.a.f29495a.set(new x());
         TbadkCoreApplication.getInst().setRecAppExist(true);
         c.a.r0.q.a.l().e(new a());
         e.b().c(1, new j());
         e.b().c(2, new h());
-        d2.M3.set(true);
+        d2.N3.set(true);
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(AdWebVideoActivityConfig.class, AdWebVideoActivity.class);
         b bVar = new b(inst);
@@ -157,7 +157,7 @@ public class RecAppStatic {
         inst.registerReceiver(bVar, intentFilter);
         f.t().b();
         f.t().f();
-        c.a.r0.q.e.i.a.f24134a.set(new c.a.r0.y2.f0.b());
+        c.a.r0.q.e.i.a.f24150a.set(new c.a.r0.y2.f0.b());
     }
 
     public RecAppStatic() {

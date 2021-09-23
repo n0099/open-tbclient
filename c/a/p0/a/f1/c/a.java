@@ -24,7 +24,7 @@ public class a implements c.a.p0.a.f1.f.a {
             }
             long currentTimeMillis = System.currentTimeMillis();
             SwanAppConfigData b2 = d.b(file.getAbsolutePath());
-            if (c.a.p0.a.f1.f.a.f5702a) {
+            if (c.a.p0.a.f1.f.a.f5710a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 StringBuilder sb = new StringBuilder();
                 sb.append("buildAppJsonConfig cost = ");
@@ -55,7 +55,7 @@ public class a implements c.a.p0.a.f1.f.a {
                 }
                 b.c().d(file.getAbsolutePath(), swanAppConfigData);
             } else {
-                boolean z = c.a.p0.a.f1.f.a.f5702a;
+                boolean z = c.a.p0.a.f1.f.a.f5710a;
             }
             return swanAppConfigData;
         }

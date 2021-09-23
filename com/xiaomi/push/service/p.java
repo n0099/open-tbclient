@@ -21,7 +21,7 @@ public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<Pair<String, byte[]>> f78229a;
+    public static ArrayList<Pair<String, byte[]>> f78548a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final Map<String, byte[]> f972a;
@@ -41,7 +41,7 @@ public class p {
             }
         }
         f972a = new HashMap();
-        f78229a = new ArrayList<>();
+        f78548a = new ArrayList<>();
     }
 
     public static void a(Context context, int i2, String str) {
@@ -99,9 +99,9 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, xMPushService) == null) {
             try {
-                synchronized (f78229a) {
-                    arrayList = f78229a;
-                    f78229a = new ArrayList<>();
+                synchronized (f78548a) {
+                    arrayList = f78548a;
+                    f78548a = new ArrayList<>();
                 }
                 boolean z = Thread.currentThread() == Looper.getMainLooper().getThread();
                 Iterator<Pair<String, byte[]>> it = arrayList.iterator();
@@ -125,10 +125,10 @@ public class p {
     public static void b(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, bArr) == null) {
-            synchronized (f78229a) {
-                f78229a.add(new Pair<>(str, bArr));
-                if (f78229a.size() > 50) {
-                    f78229a.remove(0);
+            synchronized (f78548a) {
+                f78548a.add(new Pair<>(str, bArr));
+                if (f78548a.size() > 50) {
+                    f78548a.remove(0);
                 }
             }
         }

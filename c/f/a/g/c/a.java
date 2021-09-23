@@ -23,11 +23,11 @@ public class a implements Object<String, String> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static TimeZone f32280f;
+    public static TimeZone f32301f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, List<String>> f32281e;
+    public final Map<String, List<String>> f32302e;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class a implements Object<String, String> {
                 return;
             }
         }
-        f32280f = TimeZone.getTimeZone("GMT");
+        f32301f = TimeZone.getTimeZone("GMT");
     }
 
     public a(Map<String, List<String>> map, boolean z) {
@@ -68,10 +68,10 @@ public class a implements Object<String, String> {
             for (Map.Entry<String, List<String>> entry : map.entrySet()) {
                 linkedCaseInsensitiveMap.put((LinkedCaseInsensitiveMap) entry.getKey(), (String) Collections.unmodifiableList(entry.getValue()));
             }
-            this.f32281e = Collections.unmodifiableMap(linkedCaseInsensitiveMap);
+            this.f32302e = Collections.unmodifiableMap(linkedCaseInsensitiveMap);
             return;
         }
-        this.f32281e = map;
+        this.f32302e = map;
     }
 
     public String a() {
@@ -85,7 +85,7 @@ public class a implements Object<String, String> {
     public List<String> get(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f32281e.get(obj) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f32302e.get(obj) : (List) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -93,26 +93,26 @@ public class a implements Object<String, String> {
     public List<String> put(String str, List<String> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list)) == null) ? this.f32281e.put(str, list) : (List) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list)) == null) ? this.f32302e.put(str, list) : (List) invokeLL.objValue;
     }
 
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f32281e.clear();
+            this.f32302e.clear();
         }
     }
 
     public boolean containsKey(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.f32281e.containsKey(obj) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.f32302e.containsKey(obj) : invokeL.booleanValue;
     }
 
     public boolean containsValue(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? this.f32281e.containsValue(obj) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? this.f32302e.containsValue(obj) : invokeL.booleanValue;
     }
 
     public void d(String str) {
@@ -127,14 +127,14 @@ public class a implements Object<String, String> {
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             LinkedList linkedList = new LinkedList();
             linkedList.add(str2);
-            this.f32281e.put(str, linkedList);
+            this.f32302e.put(str, linkedList);
         }
     }
 
     public Set<Map.Entry<String, List<String>>> entrySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f32281e.entrySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f32302e.entrySet() : (Set) invokeV.objValue;
     }
 
     @Override // java.lang.Object
@@ -146,7 +146,7 @@ public class a implements Object<String, String> {
                 return true;
             }
             if (obj instanceof a) {
-                return this.f32281e.equals(((a) obj).f32281e);
+                return this.f32302e.equals(((a) obj).f32302e);
             }
             return false;
         }
@@ -174,7 +174,7 @@ public class a implements Object<String, String> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            List<String> list = this.f32281e.get(str);
+            List<String> list = this.f32302e.get(str);
             if (list != null) {
                 return list.get(0);
             }
@@ -188,14 +188,14 @@ public class a implements Object<String, String> {
     public List<String> remove(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, obj)) == null) ? this.f32281e.remove(obj) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, obj)) == null) ? this.f32302e.remove(obj) : (List) invokeL.objValue;
     }
 
     @Override // java.lang.Object
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f32281e.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f32302e.hashCode() : invokeV.intValue;
     }
 
     public String i() {
@@ -207,14 +207,14 @@ public class a implements Object<String, String> {
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f32281e.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f32302e.isEmpty() : invokeV.booleanValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            List<String> list = this.f32281e.get("Content-Type");
+            List<String> list = this.f32302e.get("Content-Type");
             if (list == null || list.size() <= 1) {
                 return null;
             }
@@ -232,33 +232,33 @@ public class a implements Object<String, String> {
     public Set<String> keySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f32281e.keySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f32302e.keySet() : (Set) invokeV.objValue;
     }
 
     public void putAll(Map<? extends String, ? extends List<String>> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, map) == null) {
-            this.f32281e.putAll(map);
+            this.f32302e.putAll(map);
         }
     }
 
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f32281e.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f32302e.size() : invokeV.intValue;
     }
 
     @Override // java.lang.Object
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f32281e.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f32302e.toString() : (String) invokeV.objValue;
     }
 
     public Collection<List<String>> values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f32281e.values() : (Collection) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f32302e.values() : (Collection) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

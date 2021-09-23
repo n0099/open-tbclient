@@ -1,112 +1,53 @@
 package c.a.q0.d1;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Message;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.service.AsyncService;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.EnterForePvThread;
-import com.baidu.tbadk.core.util.PvThread;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: i  reason: collision with root package name */
-    public static n f12964i;
+    /* renamed from: c  reason: collision with root package name */
+    public static n f12986c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f12965a;
+    public c f12987a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12966b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f12967c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f12968d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f12969e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f12970f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Handler f12971g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Runnable f12972h;
+    public b f12988b;
 
     /* loaded from: classes3.dex */
-    public class a implements Handler.Callback {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f12973e;
-
-        public a(n nVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12973e = nVar;
-        }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                if (message.what != 5) {
-                    return false;
-                }
-                if (Boolean.TRUE.equals(message.obj)) {
-                    this.f12973e.o();
-                    this.f12973e.k();
-                    return false;
-                }
-                this.f12973e.l();
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements Runnable {
+    public interface b {
+        void onResult(boolean z);
+    }
+
+    /* loaded from: classes3.dex */
+    public class c extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f12974e;
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ n f12989a;
 
-        public b(n nVar) {
+        public c(n nVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,224 +62,101 @@ public class n {
                     return;
                 }
             }
-            this.f12974e = nVar;
+            this.f12989a = nVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public /* synthetic */ c(n nVar, a aVar) {
+            this(nVar);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Boolean doInBackground(String... strArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                n nVar = this.f12974e;
-                if (nVar.f12969e == null) {
-                    nVar.f12969e = new AtomicBoolean(false);
-                }
-                if (this.f12974e.f12969e.get()) {
-                    return;
-                }
-                this.f12974e.f12969e.set(true);
-                if (this.f12974e.j(true)) {
-                    TbadkCoreApplication.getInst().fixOppoTimeout();
-                    MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.TRUE));
-                    TiebaStaticHelper.setCurrentActivity(null);
-                    TiebaStatic.save();
-                }
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? Boolean.valueOf(this.f12989a.d()) : (Boolean) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) || this.f12989a.f12988b == null || bool == null) {
+                return;
+            }
+            this.f12989a.f12988b.onResult(bool.booleanValue());
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(39179205, "Lc/a/q0/d1/n;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(39179205, "Lc/a/q0/d1/n;");
+                return;
             }
         }
+        f12986c = new n();
     }
 
     public n() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.f12965a = 0;
-        this.f12966b = 0L;
-        this.f12967c = 0L;
-        this.f12968d = 0;
-        this.f12969e = null;
-        this.f12970f = false;
-        this.f12971g = new Handler(new a(this));
-        this.f12972h = new b(this);
     }
 
-    public static n g() {
+    public static n e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f12964i == null) {
-                synchronized (n.class) {
-                    if (f12964i == null) {
-                        f12964i = new n();
-                    }
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f12986c : (n) invokeV.objValue;
+    }
+
+    public void c(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.f12988b = bVar;
+            c cVar = this.f12987a;
+            if (cVar != null) {
+                cVar.cancel();
             }
-            return f12964i;
-        }
-        return (n) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f12968d++;
-            n();
-            c.a.q0.s.p.a.c().b();
+            c cVar2 = new c(this, null);
+            this.f12987a = cVar2;
+            cVar2.setPriority(4);
+            this.f12987a.execute(new String[0]);
         }
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f12968d--;
-            n();
-        }
-    }
-
-    public boolean d() {
+    public final boolean d() {
         InterceptResult invokeV;
+        String[] split;
+        int e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (j(false)) {
-                if (this.f12970f) {
-                    Intent intent = new Intent("com.tieba.baidu.notifyprocess");
-                    intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                    intent.putExtra("message", true);
-                    TbadkCoreApplication.getInst().sendBroadcast(intent);
-                    return false;
-                }
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte[] GetFileData = FileHelper.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
+            String str = GetFileData != null ? new String(GetFileData) : null;
+            long j2 = StringUtils.getyyyyMMddHHTimeForNow();
+            long j3 = 0;
+            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null || split.length != 2) {
+                e2 = 0;
+            } else {
+                e2 = c.a.e.e.m.b.e(split[0], 0);
+                j3 = c.a.e.e.m.b.g(split[1], j2);
             }
-            Intent intent2 = new Intent("com.tieba.baidu.notifyprocess");
-            intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            intent2.putExtra("message", false);
-            TbadkCoreApplication.getInst().sendBroadcast(intent2);
-            return false;
+            return j3 == j2 && e2 > 1;
         }
         return invokeV.booleanValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f12965a = 0;
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12965a : invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12968d : invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            AtomicBoolean atomicBoolean = this.f12969e;
-            if (atomicBoolean == null) {
-                return true;
-            }
-            return atomicBoolean.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? TbadkCoreApplication.getInst().isMainProcess(z) : invokeZ.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AsyncService.INSTANCE.sendRunnable(this.f12972h);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            AsyncService.INSTANCE.removeRunnable(this.f12972h);
-            if (this.f12969e == null) {
-                this.f12969e = new AtomicBoolean(true);
-            }
-            if (this.f12969e.get()) {
-                this.f12969e.set(false);
-                this.f12965a++;
-                if (j(true)) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    long j2 = this.f12966b;
-                    if (currentTimeMillis - j2 > 3600000 || j2 == 0) {
-                        this.f12966b = System.currentTimeMillis();
-                        new EnterForePvThread().start();
-                    }
-                    MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.FALSE));
-                }
-            }
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f12970f = !z;
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (this.f12968d < 0) {
-                this.f12968d = 0;
-            }
-            if (j(true) && this.f12967c == 0 && this.f12968d > 0) {
-                this.f12967c = System.nanoTime();
-            }
-            this.f12971g.removeMessages(5);
-            if (this.f12968d == 0) {
-                p();
-                return;
-            }
-            AtomicBoolean atomicBoolean = this.f12969e;
-            if (atomicBoolean == null || atomicBoolean.get()) {
-                Handler handler = this.f12971g;
-                handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.FALSE), 1000L);
-            }
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.f12968d == 0 && this.f12967c > 0) {
-            long nanoTime = ((System.nanoTime() - this.f12967c) / 1000000) / 1000;
-            if (nanoTime >= TbadkCoreApplication.getInst().getUseTimeInterval()) {
-                new PvThread(TbConfig.ST_TYPE_USE, String.valueOf(nanoTime)).start();
-                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_USE, null, 1, "st_param", String.valueOf(nanoTime));
-            }
-            this.f12967c = 0L;
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            Handler handler = this.f12971g;
-            handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.TRUE), 1000L);
-        }
     }
 }

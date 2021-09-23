@@ -23,22 +23,22 @@ public class b implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumInfo f27594e;
+    public ForumInfo f27614e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27595f;
+    public String f27615f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27596g;
+    public String f27616g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<ForumRule> f27597h;
+    public List<ForumRule> f27617h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27598i;
+    public int f27618i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f27599j;
+    public String f27619j;
     public boolean k;
     public String l;
     public BawuRoleInfoPub m;
@@ -79,13 +79,13 @@ public class b implements n {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27599j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27619j : (String) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27598i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27618i : invokeV.intValue;
     }
 
     public BawuRoleInfoPub d() {
@@ -110,7 +110,7 @@ public class b implements n {
     public ForumInfo h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27594e : (ForumInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27614e : (ForumInfo) invokeV.objValue;
     }
 
     public boolean i() {
@@ -122,7 +122,7 @@ public class b implements n {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27596g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27616g : (String) invokeV.objValue;
     }
 
     public String l() {
@@ -134,13 +134,13 @@ public class b implements n {
     public List<ForumRule> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27597h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27617h : (List) invokeV.objValue;
     }
 
     public String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27595f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27615f : (String) invokeV.objValue;
     }
 
     public a p() {
@@ -154,12 +154,12 @@ public class b implements n {
         if (!(interceptable == null || interceptable.invokeL(1048588, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f27594e = dataRes.forum;
-        this.f27595f = dataRes.title;
-        this.f27596g = dataRes.preface;
-        this.f27597h = dataRes.rules;
-        this.f27598i = dataRes.audit_status.intValue();
-        this.f27599j = dataRes.audit_opinion;
+        this.f27614e = dataRes.forum;
+        this.f27615f = dataRes.title;
+        this.f27616g = dataRes.preface;
+        this.f27617h = dataRes.rules;
+        this.f27618i = dataRes.audit_status.intValue();
+        this.f27619j = dataRes.audit_opinion;
         this.k = dataRes.is_manager.intValue() == 1;
         Long l = dataRes.forum_rule_id;
         this.l = dataRes.publish_time;
@@ -183,7 +183,7 @@ public class b implements n {
     public void t(ForumInfo forumInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, forumInfo) == null) {
-            this.f27594e = forumInfo;
+            this.f27614e = forumInfo;
         }
     }
 
@@ -197,7 +197,7 @@ public class b implements n {
     public void v(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f27596g = str;
+            this.f27616g = str;
         }
     }
 }

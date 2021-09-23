@@ -57,7 +57,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InviteFriendListActivity f53427a;
+        public final /* synthetic */ InviteFriendListActivity f53540a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(InviteFriendListActivity inviteFriendListActivity, int i2) {
@@ -77,7 +77,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                     return;
                 }
             }
-            this.f53427a = inviteFriendListActivity;
+            this.f53540a = inviteFriendListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -85,7 +85,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof PersonalChatDisplayResponse)) {
-                this.f53427a.finish();
+                this.f53540a.finish();
             }
         }
     }
@@ -96,7 +96,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InviteFriendListActivity f53428a;
+        public final /* synthetic */ InviteFriendListActivity f53541a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(InviteFriendListActivity inviteFriendListActivity, int i2) {
@@ -116,7 +116,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                     return;
                 }
             }
-            this.f53428a = inviteFriendListActivity;
+            this.f53541a = inviteFriendListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -124,20 +124,20 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof GetContactListResponsedMessage)) {
-                this.f53428a.isLoaded = true;
-                this.f53428a.isLoading.set(false);
-                InviteFriendListActivity inviteFriendListActivity = this.f53428a;
+                this.f53541a.isLoaded = true;
+                this.f53541a.isLoading.set(false);
+                InviteFriendListActivity inviteFriendListActivity = this.f53541a;
                 inviteFriendListActivity.hideLoadingView(inviteFriendListActivity.mView.u());
                 List<c.a.q0.t.f.a> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
                 if (contacts == null) {
                     contacts = new LinkedList<>();
                 }
-                InviteFriendListActivity inviteFriendListActivity2 = this.f53428a;
+                InviteFriendListActivity inviteFriendListActivity2 = this.f53541a;
                 inviteFriendListActivity2.friendList = contacts;
                 if (inviteFriendListActivity2.mView == null) {
                     return;
                 }
-                this.f53428a.refreshWithCurrentData();
+                this.f53541a.refreshWithCurrentData();
             }
         }
     }
@@ -148,7 +148,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InviteFriendListActivity f53429e;
+        public final /* synthetic */ InviteFriendListActivity f53542e;
 
         public c(InviteFriendListActivity inviteFriendListActivity) {
             Interceptable interceptable = $ic;
@@ -165,16 +165,16 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                     return;
                 }
             }
-            this.f53429e = inviteFriendListActivity;
+            this.f53542e = inviteFriendListActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f53429e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f53542e.mModel == null) {
                 return;
             }
-            this.f53429e.mModel.cancelLoadData();
+            this.f53542e.mModel.cancelLoadData();
         }
     }
 
@@ -184,7 +184,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InviteFriendListActivity f53430a;
+        public final /* synthetic */ InviteFriendListActivity f53543a;
 
         /* loaded from: classes7.dex */
         public class a implements Runnable {
@@ -192,7 +192,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f53431e;
+            public final /* synthetic */ d f53544e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -209,16 +209,16 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                         return;
                     }
                 }
-                this.f53431e = dVar;
+                this.f53544e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f53431e.f53430a.isFinishing()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f53544e.f53543a.isFinishing()) {
                     return;
                 }
-                this.f53431e.f53430a.finish();
+                this.f53544e.f53543a.finish();
             }
         }
 
@@ -240,7 +240,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                     return;
                 }
             }
-            this.f53430a = inviteFriendListActivity;
+            this.f53543a = inviteFriendListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -248,14 +248,14 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.f53430a.closeLoadingDialog();
+                this.f53543a.closeLoadingDialog();
                 if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205002 && (socketResponsedMessage instanceof ResponseCommitInviteMessage)) {
                     ResponseCommitInviteMessage responseCommitInviteMessage = (ResponseCommitInviteMessage) socketResponsedMessage;
                     if (responseCommitInviteMessage.getError() != 0) {
-                        this.f53430a.showToast(StringUtils.isNull(responseCommitInviteMessage.getErrorString()) ? this.f53430a.getResources().getString(R.string.neterror) : responseCommitInviteMessage.getErrorString());
+                        this.f53543a.showToast(StringUtils.isNull(responseCommitInviteMessage.getErrorString()) ? this.f53543a.getResources().getString(R.string.neterror) : responseCommitInviteMessage.getErrorString());
                         return;
                     }
-                    InviteFriendListActivity inviteFriendListActivity = this.f53430a;
+                    InviteFriendListActivity inviteFriendListActivity = this.f53543a;
                     inviteFriendListActivity.showToast(inviteFriendListActivity.getPageContext().getString(R.string.send_success), false);
                     new Handler().postDelayed(new a(this), 400L);
                 }
@@ -400,7 +400,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getPageContext().getPageActivity(), aVar.e(), aVar.f(), aVar.g(), aVar.h(), 0)));
             } else if (view == null || (tag = view.getTag()) == null || !(tag instanceof c.a)) {
             } else {
-                TbCheckBox tbCheckBox = ((c.a) tag).f21848d;
+                TbCheckBox tbCheckBox = ((c.a) tag).f21862d;
                 tbCheckBox.setChecked(!tbCheckBox.isChecked());
             }
         }

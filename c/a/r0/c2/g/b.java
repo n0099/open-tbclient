@@ -17,7 +17,7 @@ public class b extends c.a.q0.i.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MarkModel f16502a;
+    public MarkModel f16512a;
 
     public b(BaseActivity baseActivity) {
         Interceptable interceptable = $ic;
@@ -34,15 +34,15 @@ public class b extends c.a.q0.i.a {
                 return;
             }
         }
-        this.f16502a = null;
-        this.f16502a = new MarkModel(baseActivity);
+        this.f16512a = null;
+        this.f16512a = new MarkModel(baseActivity);
     }
 
     @Override // c.a.q0.i.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f16502a.z();
+            this.f16512a.z();
         }
     }
 
@@ -50,7 +50,7 @@ public class b extends c.a.q0.i.a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f16502a.A();
+            this.f16512a.A();
         }
     }
 
@@ -58,28 +58,28 @@ public class b extends c.a.q0.i.a {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16502a.B() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16512a.B() : invokeV.booleanValue;
     }
 
     @Override // c.a.q0.i.a
     public MarkData f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16502a.C() : (MarkData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16512a.C() : (MarkData) invokeV.objValue;
     }
 
     @Override // c.a.q0.i.a
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16502a.D() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16512a.D() : (String) invokeV.objValue;
     }
 
     @Override // c.a.q0.i.a
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f16502a.E(z);
+            this.f16512a.E(z);
         }
     }
 
@@ -87,15 +87,15 @@ public class b extends c.a.q0.i.a {
     public void i(MarkData markData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
-            this.f16502a.F(markData);
+            this.f16512a.F(markData);
         }
     }
 
     @Override // c.a.q0.i.a
-    public void j(a.InterfaceC0670a interfaceC0670a) {
+    public void j(a.InterfaceC0668a interfaceC0668a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0670a) == null) {
-            this.f16502a.G(interfaceC0670a);
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0668a) == null) {
+            this.f16512a.G(interfaceC0668a);
         }
     }
 
@@ -114,7 +114,7 @@ public class b extends c.a.q0.i.a {
                 return;
             }
         }
-        this.f16502a = null;
-        this.f16502a = new MarkModel(baseFragmentActivity);
+        this.f16512a = null;
+        this.f16512a = new MarkModel(baseFragmentActivity);
     }
 }

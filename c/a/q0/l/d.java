@@ -13,13 +13,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f13559a;
+    public ViewGroup f13555a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f13560b;
+    public a f13556b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f13561c;
+    public b f13557c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -38,26 +38,26 @@ public class d {
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13560b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13556b : (a) invokeV.objValue;
     }
 
     public ViewGroup b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13559a : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13555a : (ViewGroup) invokeV.objValue;
     }
 
     public void c(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f13560b = aVar;
+            this.f13556b = aVar;
         }
     }
 
     public void d(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) {
-            this.f13559a = viewGroup;
+            this.f13555a = viewGroup;
         }
     }
 }

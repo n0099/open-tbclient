@@ -28,26 +28,26 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f76425c;
+    public static String f76744c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76426a;
+    public String f76745a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f76427b;
+    public d f76746b;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f76428d;
+    public long f76747d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f76429e;
+    public Handler f76748e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<Activity> f76430f;
+    public WeakReference<Activity> f76749f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f76431g;
+    public Runnable f76750g;
 
     public c(Activity activity) {
         Interceptable interceptable = $ic;
@@ -64,12 +64,12 @@ public class c {
                 return;
             }
         }
-        this.f76431g = new Runnable(this) { // from class: com.tencent.open.utils.c.2
+        this.f76750g = new Runnable(this) { // from class: com.tencent.open.utils.c.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f76433a;
+            public final /* synthetic */ c f76752a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -86,7 +86,7 @@ public class c {
                         return;
                     }
                 }
-                this.f76433a = this;
+                this.f76752a = this;
             }
 
             @Override // java.lang.Runnable
@@ -95,14 +95,14 @@ public class c {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     SLog.v("AsynLoadImg", "saveFileRunnable:");
-                    String str = "share_qq_" + l.f(this.f76433a.f76426a) + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
-                    String str2 = c.f76425c + str;
+                    String str = "share_qq_" + l.f(this.f76752a.f76745a) + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+                    String str2 = c.f76744c + str;
                     File file = new File(str2);
-                    Message obtainMessage = this.f76433a.f76429e.obtainMessage();
+                    Message obtainMessage = this.f76752a.f76748e.obtainMessage();
                     if (!file.exists()) {
-                        Bitmap a2 = c.a(this.f76433a.f76426a);
+                        Bitmap a2 = c.a(this.f76752a.f76745a);
                         if (a2 != null) {
-                            z = this.f76433a.a(a2, str);
+                            z = this.f76752a.a(a2, str);
                         } else {
                             SLog.v("AsynLoadImg", "saveFileRunnable:get bmp fail---");
                             z = false;
@@ -113,23 +113,23 @@ public class c {
                         } else {
                             obtainMessage.arg1 = 1;
                         }
-                        SLog.v("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - this.f76433a.f76428d));
+                        SLog.v("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - this.f76752a.f76747d));
                     } else {
                         obtainMessage.arg1 = 0;
                         obtainMessage.obj = str2;
-                        SLog.v("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - this.f76433a.f76428d));
+                        SLog.v("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - this.f76752a.f76747d));
                     }
-                    this.f76433a.f76429e.sendMessage(obtainMessage);
+                    this.f76752a.f76748e.sendMessage(obtainMessage);
                 }
             }
         };
-        this.f76430f = new WeakReference<>(activity);
-        this.f76429e = new Handler(this, activity.getMainLooper()) { // from class: com.tencent.open.utils.c.1
+        this.f76749f = new WeakReference<>(activity);
+        this.f76748e = new Handler(this, activity.getMainLooper()) { // from class: com.tencent.open.utils.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f76432a;
+            public final /* synthetic */ c f76751a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -149,7 +149,7 @@ public class c {
                         return;
                     }
                 }
-                this.f76432a = this;
+                this.f76751a = this;
             }
 
             @Override // android.os.Handler
@@ -158,9 +158,9 @@ public class c {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                     SLog.v("AsynLoadImg", "handleMessage:" + message.arg1);
                     if (message.arg1 == 0) {
-                        this.f76432a.f76427b.a(message.arg1, (String) message.obj);
+                        this.f76751a.f76746b.a(message.arg1, (String) message.obj);
                     } else {
-                        this.f76432a.f76427b.a(message.arg1, (String) null);
+                        this.f76751a.f76746b.a(message.arg1, (String) null);
                     }
                 }
             }
@@ -176,8 +176,8 @@ public class c {
                     dVar.a(2, (String) null);
                     return;
                 }
-                if (this.f76430f.get() != null) {
-                    Activity activity = this.f76430f.get();
+                if (this.f76749f.get() != null) {
+                    Activity activity = this.f76749f.get();
                     File h2 = l.h(activity, "Images");
                     File externalStorageDirectory = Environment.getExternalStorageDirectory();
                     if (h2 == null) {
@@ -188,12 +188,12 @@ public class c {
                     StringBuilder sb = new StringBuilder();
                     sb.append(i.c(activity) ? h2.getAbsolutePath() : externalStorageDirectory.getAbsolutePath());
                     sb.append("/tmp/");
-                    f76425c = sb.toString();
+                    f76744c = sb.toString();
                 }
-                this.f76428d = System.currentTimeMillis();
-                this.f76426a = str;
-                this.f76427b = dVar;
-                new Thread(this.f76431g).start();
+                this.f76747d = System.currentTimeMillis();
+                this.f76745a = str;
+                this.f76746b = dVar;
+                new Thread(this.f76750g).start();
                 return;
             }
             dVar.a(1, (String) null);
@@ -205,7 +205,7 @@ public class c {
         BufferedOutputStream bufferedOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, str)) == null) {
-            String str2 = f76425c;
+            String str2 = f76744c;
             BufferedOutputStream bufferedOutputStream2 = null;
             try {
                 try {

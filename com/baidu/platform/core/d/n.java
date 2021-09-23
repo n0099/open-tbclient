@@ -33,24 +33,24 @@ public class n extends com.baidu.platform.base.e {
     private void a(TransitRoutePlanOption transitRoutePlanOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, transitRoutePlanOption) == null) {
-            this.f44305a.a("qt", "bus");
-            com.baidu.platform.util.a aVar = this.f44305a;
+            this.f44367a.a("qt", "bus");
+            com.baidu.platform.util.a aVar = this.f44367a;
             aVar.a("sy", transitRoutePlanOption.mPolicy.getInt() + "");
-            this.f44305a.a("ie", "utf-8");
-            this.f44305a.a("lrn", "20");
-            this.f44305a.a("version", "3");
-            this.f44305a.a("rp_format", "json");
-            this.f44305a.a("rp_filter", "mobile");
-            this.f44305a.a("ic_info", "2");
-            this.f44305a.a("exptype", "depall");
-            this.f44305a.a(IAdRequestParam.SN, a(transitRoutePlanOption.mFrom));
-            this.f44305a.a(com.baidu.fsg.base.statistics.f.f39499a, a(transitRoutePlanOption.mTo));
+            this.f44367a.a("ie", "utf-8");
+            this.f44367a.a("lrn", "20");
+            this.f44367a.a("version", "3");
+            this.f44367a.a("rp_format", "json");
+            this.f44367a.a("rp_filter", "mobile");
+            this.f44367a.a("ic_info", "2");
+            this.f44367a.a("exptype", "depall");
+            this.f44367a.a(IAdRequestParam.SN, a(transitRoutePlanOption.mFrom));
+            this.f44367a.a(com.baidu.fsg.base.statistics.h.f39556a, a(transitRoutePlanOption.mTo));
             String str = transitRoutePlanOption.mCityName;
             if (str != null) {
-                this.f44305a.a("c", str);
+                this.f44367a.a("c", str);
             }
             if (TransitRoutePlanOption.TransitPolicy.EBUS_NO_SUBWAY == transitRoutePlanOption.mPolicy) {
-                this.f44305a.a("f", "[0,2,4,7,5,8,9,10,11]");
+                this.f44367a.a("f", "[0,2,4,7,5,8,9,10,11]");
             }
         }
     }

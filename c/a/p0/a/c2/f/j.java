@@ -66,7 +66,7 @@ public class j extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, 2006, c.a.p0.a.c2.b.a(2006));
                 return false;
             } else {
-                String M = c.a.p0.a.k2.b.M(optString, eVar.f4558f);
+                String M = c.a.p0.a.k2.b.M(optString, eVar.f4566f);
                 if (TextUtils.isEmpty(M)) {
                     c.a.p0.a.e0.d.b("GetLocalImgDataAction", "GetLocalImgDataAction realPath null");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -80,7 +80,7 @@ public class j extends a0 {
                     return true;
                 } catch (JSONException e2) {
                     c.a.p0.a.e0.d.b("GetLocalImgDataAction", "getLocalImgData failed");
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e2.printStackTrace();
                     }
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

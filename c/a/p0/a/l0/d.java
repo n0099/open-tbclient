@@ -33,12 +33,12 @@ public class d extends c.a.p0.a.l0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public c f7182e;
+        public c f7190e;
         @V8JavascriptField
         public b env;
 
         /* renamed from: f  reason: collision with root package name */
-        public c.a.p0.a.r0.e f7183f;
+        public c.a.p0.a.r0.e f7191f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, String str) {
@@ -58,7 +58,7 @@ public class d extends c.a.p0.a.l0.a {
                     return;
                 }
             }
-            this.f7182e = cVar;
+            this.f7190e = cVar;
             b bVar = new b();
             this.env = bVar;
             bVar.basePath = str;
@@ -110,7 +110,7 @@ public class d extends c.a.p0.a.l0.a {
         public String getEnvVariables() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.a.p0.a.d1.b.b.a(this.f7182e) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.a.p0.a.d1.b.b.a(this.f7190e) : (String) invokeV.objValue;
         }
 
         @JavascriptInterface
@@ -118,10 +118,10 @@ public class d extends c.a.p0.a.l0.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.f7183f == null) {
-                    this.f7183f = new c.a.p0.a.r0.e((c.a.p0.a.l0.a) this.f7182e);
+                if (this.f7191f == null) {
+                    this.f7191f = new c.a.p0.a.r0.e((c.a.p0.a.l0.a) this.f7190e);
                 }
-                return this.f7183f;
+                return this.f7191f;
             }
             return (c.a.p0.a.r0.e) invokeV.objValue;
         }
@@ -187,7 +187,7 @@ public class d extends c.a.p0.a.l0.a {
                 return;
             }
         }
-        s = k.f7077a;
+        s = k.f7085a;
         t = new Object();
         u = "";
     }
@@ -232,7 +232,7 @@ public class d extends c.a.p0.a.l0.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar = new a(this, this.f7172f.getInitBasePath());
+            a aVar = new a(this, this.f7180f.getInitBasePath());
             aVar.env.config = c.a.p0.a.m2.c.a.b();
             return aVar;
         }

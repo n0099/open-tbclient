@@ -23,10 +23,10 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Function1 f7643a;
+        public final /* synthetic */ Function1 f7651a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f7644b;
+        public final /* synthetic */ String f7652b;
 
         public a(Function1 function1, String str) {
             Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public final class d {
                     return;
                 }
             }
-            this.f7643a = function1;
-            this.f7644b = str;
+            this.f7651a = function1;
+            this.f7652b = str;
         }
 
         @Override // c.a.p0.a.n1.q.b.a
@@ -55,8 +55,8 @@ public final class d {
                 if (c2 != null && c2.length() != 0) {
                     int length = c2.length();
                     for (int i2 = 0; i2 < length; i2++) {
-                        if (Intrinsics.areEqual(this.f7644b, c2.get(i2))) {
-                            Function1 function1 = this.f7643a;
+                        if (Intrinsics.areEqual(this.f7652b, c2.get(i2))) {
+                            Function1 function1 = this.f7651a;
                             if (function1 != null) {
                                 Unit unit = (Unit) function1.invoke(Boolean.TRUE);
                                 return;
@@ -64,14 +64,14 @@ public final class d {
                             return;
                         }
                     }
-                    Function1 function12 = this.f7643a;
+                    Function1 function12 = this.f7651a;
                     if (function12 != null) {
                         Unit unit2 = (Unit) function12.invoke(Boolean.FALSE);
                         return;
                     }
                     return;
                 }
-                Function1 function13 = this.f7643a;
+                Function1 function13 = this.f7651a;
                 if (function13 != null) {
                     Unit unit3 = (Unit) function13.invoke(Boolean.TRUE);
                 }

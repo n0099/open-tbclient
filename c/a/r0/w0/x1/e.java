@@ -34,7 +34,7 @@ public class e extends c.a.q0.h0.b {
                 return;
             }
         }
-        getFragmentTabStructure().f13467a = frsFragment;
+        getFragmentTabStructure().f13463a = frsFragment;
     }
 
     public void a(i0 i0Var) {
@@ -50,9 +50,9 @@ public class e extends c.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             c.a.q0.h0.c cVar = new c.a.q0.h0.c();
-            cVar.f13471e = 1;
-            cVar.f13468b = R.string.chosen_pb_title;
-            cVar.f13475i = c.a.q0.h0.c.k;
+            cVar.f13467e = 1;
+            cVar.f13464b = R.string.chosen_pb_title;
+            cVar.f13471i = c.a.q0.h0.c.k;
             return cVar;
         }
         return (c.a.q0.h0.c) invokeV.objValue;

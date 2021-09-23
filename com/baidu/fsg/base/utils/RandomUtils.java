@@ -26,16 +26,16 @@ public final class RandomUtils {
         }
     }
 
-    public static String a() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? UUID.randomUUID().toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new Random(System.currentTimeMillis() + Thread.currentThread().getId()).nextInt(100) % 3 : invokeV.intValue;
     }
 
-    public static int b() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new Random(System.currentTimeMillis() + Thread.currentThread().getId()).nextInt(100) % 3 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UUID.randomUUID().toString() : (String) invokeV.objValue;
     }
 
     public static String getRandomString(int i2) {
@@ -44,7 +44,7 @@ public final class RandomUtils {
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             for (int i3 = 0; i3 < i2 / 32; i3++) {
-                stringBuffer.append(a());
+                stringBuffer.append(b());
             }
             return stringBuffer.toString();
         }

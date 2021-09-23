@@ -6,6 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.p0.a.f1.e.b;
 import c.a.p0.a.j2.h;
 import c.a.p0.a.j2.k;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bdeventbus.Action;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
@@ -23,20 +24,20 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f7356d;
+    public static final boolean f7364d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile g f7357e;
+    public static volatile g f7365e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f7358a;
+    public boolean f7366a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7359b;
+    public boolean f7367b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.p0.a.m1.a f7360c;
+    public c.a.p0.a.m1.a f7368c;
 
     /* loaded from: classes.dex */
     public class a implements Action<c.a.p0.a.z1.b.b.a> {
@@ -44,7 +45,7 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f7361a;
+        public final /* synthetic */ g f7369a;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -61,7 +62,7 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
                     return;
                 }
             }
-            this.f7361a = gVar;
+            this.f7369a = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +71,7 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
         public void call(c.a.p0.a.z1.b.b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f7361a.h(new c.a.p0.a.m1.h.a(aVar));
+                this.f7369a.h(new c.a.p0.a.m1.h.a(aVar));
             }
         }
     }
@@ -88,7 +89,7 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
                 return;
             }
         }
-        f7356d = c.a.p0.a.a2.e.y;
+        f7364d = c.a.p0.a.a2.e.y;
     }
 
     public g() {
@@ -104,8 +105,8 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
                 return;
             }
         }
-        this.f7359b = false;
-        this.f7360c = new b();
+        this.f7367b = false;
+        this.f7368c = new b();
         BdEventBus.Companion.getDefault().lazyRegister("dialog_event_tag", c.a.p0.a.z1.b.b.a.class, 0, new a(this));
     }
 
@@ -121,14 +122,14 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f7357e == null) {
+            if (f7365e == null) {
                 synchronized (g.class) {
-                    if (f7357e == null) {
-                        f7357e = new g();
+                    if (f7365e == null) {
+                        f7365e = new g();
                     }
                 }
             }
-            return f7357e;
+            return f7365e;
         }
         return (g) invokeV.objValue;
     }
@@ -137,7 +138,7 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
     public void a(c.a.p0.a.p.e.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            boolean z = f7356d;
+            boolean z = f7364d;
             h(new c.a.p0.a.m1.h.e(eVar, true));
         }
     }
@@ -146,7 +147,7 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
     public void b(c.a.p0.a.p.e.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            boolean z = f7356d;
+            boolean z = f7364d;
             h(new c.a.p0.a.m1.h.e(eVar, false));
         }
     }
@@ -154,7 +155,7 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((b) this.f7360c).d() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((b) this.f7368c).d() : invokeV.intValue;
     }
 
     public final boolean g() {
@@ -170,7 +171,7 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
     public final void h(c.a.p0.a.m1.h.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f7360c.a(cVar);
+            this.f7368c.a(cVar);
         }
     }
 
@@ -184,7 +185,7 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (f7356d) {
+            if (f7364d) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("change to ");
                 sb.append(z ? NotificationCompat.WearableExtender.KEY_BACKGROUND : Constant.FOREGROUND);
@@ -196,7 +197,7 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && h.f7004e) {
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && h.f7012e) {
             if (z) {
                 m();
             } else {
@@ -208,18 +209,18 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f7359b = true;
+            this.f7367b = true;
             h(new c.a.p0.a.m1.h.c(12, null, 0L, false));
-            boolean z = f7356d;
+            boolean z = f7364d;
         }
     }
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.f7359b) {
-            h(new c.a.p0.a.m1.h.c(13, null, 4000L, false));
-            if (f7356d) {
-                String str = "**************** page onResume start route monitor, time=4000";
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.f7367b) {
+            h(new c.a.p0.a.m1.h.c(13, null, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL, false));
+            if (f7364d) {
+                String str = "**************** page onResume start route monitor, time=" + PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
             }
         }
     }
@@ -227,11 +228,11 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f7358a = z;
+            this.f7366a = z;
             if (z) {
                 f.k();
                 c.a.p0.a.j2.e.z();
-                this.f7359b = false;
+                this.f7367b = false;
             }
         }
     }
@@ -242,12 +243,12 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             long o = c.a.p0.a.c1.a.Z().o();
-            if (f7356d) {
+            if (f7364d) {
                 String str = "start page monitoring, delay: " + o;
             }
-            if (this.f7358a) {
+            if (this.f7366a) {
                 boolean g2 = g();
-                if (f7356d) {
+                if (f7364d) {
                     String str2 = "WhiteScreenForward: switch=" + g2;
                 }
                 SwanAppActivity activity = c.a.p0.a.g1.f.V().getActivity();
@@ -255,7 +256,7 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
                     long currentTimeMillis = System.currentTimeMillis() - L.N();
                     o -= currentTimeMillis;
                     if (o < 0) {
-                        if (f7356d) {
+                        if (f7364d) {
                             String str3 = "WhiteScreenMonitor out of time: time=" + currentTimeMillis;
                         }
                         c.a.p0.a.q2.a aVar = new c.a.p0.a.q2.a();
@@ -270,18 +271,18 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
                     }
                 }
                 cVar = new c.a.p0.a.m1.h.c(1, null, o, true);
-                this.f7358a = false;
-                this.f7359b = false;
-                if (h.f7004e) {
+                this.f7366a = false;
+                this.f7367b = false;
+                if (h.f7012e) {
                     h(cVar);
                 }
             } else {
                 cVar = null;
             }
-            if (f7356d) {
+            if (f7364d) {
                 String str4 = "WhiteScreenMonitor monitortime: " + o;
             }
-            if (h.f7004e) {
+            if (h.f7012e) {
                 return;
             }
             if (cVar == null) {
@@ -312,7 +313,7 @@ public class g implements c.a.p0.a.h0.j.c, c.a.p0.a.h0.j.e {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            boolean z = f7356d;
+            boolean z = f7364d;
             h(new c.a.p0.a.m1.h.c(7));
         }
     }

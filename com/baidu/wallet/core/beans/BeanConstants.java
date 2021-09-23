@@ -20,6 +20,7 @@ public abstract class BeanConstants {
     public static final String BANK_CREDIT = "credit";
     public static final String BANK_DEBIT = "debit";
     public static final String BANK_TYPE = "bank_type";
+    public static final int BEAN_ID_FOR_BACKUP_INIT = 1042;
     public static final int BEAN_ID_FOR_NEW_INIT = 786;
     public static final int BEAN_ID_GET_FP = 530;
     public static String CHANNEL_ID = "baiduapp";
@@ -40,13 +41,10 @@ public abstract class BeanConstants {
     public static final String CHANNEL_ID_WEISHI = "weishi";
     public static final String CHANNEL_ID_YIPINGTAI = "yipingtai";
     public static final String CHANNEL_ID_YUN = "bdcloud";
-    public static final String COOKIE_BDUSS = "BDUSS";
     public static final String COOKIE_OPENBDUSS = "OPENBDUSS";
     public static final boolean DEBUG = false;
-    public static final String DOMAIN_CHANGE_SWITCH_KEY = "wallet_sdk_domain_change_key";
-    public static final String DOMAIN_CHANGE_SWITCH_NAME_ONLINE = "wallet_sdk_domain_change_name_online";
-    public static final String DOMAIN_CHANGE_SWITCH_NAME_QA = "wallet_sdk_domain_change_name_qa";
     public static final String DOMAIN_CONFIG_KEY = "wallet_sdk_domain_config_key";
+    public static final String DOMAIN_CONFIG_KEY_FOR_APP = "wallet_sdk_domain_config_for_app";
     public static final String DOMAIN_CONFIG_NAME_ONLINE = "wallet_sdk_domain_config_name_online";
     public static final String DOMAIN_CONFIG_NAME_QA = "wallet_sdk_domain_config_name_qa";
     public static boolean ENABLE_SAFE_KEYBOARD = false;
@@ -77,7 +75,7 @@ public abstract class BeanConstants {
     public static final int SCREEN_ORIENTATION_LANDSCAPE = 0;
     public static final int SCREEN_ORIENTATION_PORTRAIT = 1;
     public static String SDK_VERSION = "";
-    public static String VERSION_NO = "9.4.0.111";
+    public static String VERSION_NO = "9.5.5.109";
     public static final String WEB_VIEW_CACHE_TAG = "WebViewCacheManager";
     public static boolean needActAnimation = true;
     public transient /* synthetic */ FieldHolder $fh;

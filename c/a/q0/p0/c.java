@@ -11,7 +11,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f13644a;
+    public static final String f13640a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,6 +27,6 @@ public class c {
                 return;
             }
         }
-        f13644a = k.getUrlEncode("http://tieba.baidu.com/mo/q/tbeanget?_client_return_page=close");
+        f13640a = k.getUrlEncode("http://tieba.baidu.com/mo/q/tbeanget?_client_return_page=close");
     }
 }

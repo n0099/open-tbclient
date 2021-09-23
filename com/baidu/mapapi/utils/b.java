@@ -44,34 +44,34 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f42011a = -1;
+    public static int f42073a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ServiceConnection f42012b = null;
+    public static ServiceConnection f42074b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f42013c = "com.baidu.mapapi.utils.b";
+    public static final String f42075c = "com.baidu.mapapi.utils.b";
 
     /* renamed from: d  reason: collision with root package name */
-    public static com.baidu.mapframework.open.aidl.a f42014d;
+    public static com.baidu.mapframework.open.aidl.a f42076d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static IComOpenClient f42015e;
+    public static IComOpenClient f42077e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f42016f;
+    public static int f42078f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f42017g;
+    public static String f42079g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f42018h;
+    public static String f42080h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f42019i;
+    public static String f42081i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static List<DispathcPoiData> f42020j;
+    public static List<DispathcPoiData> f42082j;
     public static LatLng k;
     public static LatLng l;
     public static String m;
@@ -99,7 +99,7 @@ public class b {
                 return;
             }
         }
-        f42020j = new ArrayList();
+        f42082j = new ArrayList();
         k = null;
         l = null;
         m = null;
@@ -110,7 +110,7 @@ public class b {
         s = 0;
         t = false;
         u = false;
-        f42012b = new d();
+        f42074b = new d();
     }
 
     public b() {
@@ -170,7 +170,7 @@ public class b {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) && u) {
-            context.unbindService(f42012b);
+            context.unbindService(f42074b);
             u = false;
         }
     }
@@ -178,15 +178,15 @@ public class b {
     public static void a(List<DispathcPoiData> list, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, list, context) == null) {
-            f42017g = context.getPackageName();
-            f42018h = b(context);
-            f42019i = "";
-            List<DispathcPoiData> list2 = f42020j;
+            f42079g = context.getPackageName();
+            f42080h = b(context);
+            f42081i = "";
+            List<DispathcPoiData> list2 = f42082j;
             if (list2 != null) {
                 list2.clear();
             }
             for (DispathcPoiData dispathcPoiData : list) {
-                f42020j.add(dispathcPoiData);
+                f42082j.add(dispathcPoiData);
             }
         }
     }
@@ -231,46 +231,46 @@ public class b {
                 t = false;
                 switch (i2) {
                     case 0:
-                        f42011a = 0;
+                        f42073a = 0;
                         break;
                     case 1:
-                        f42011a = 1;
+                        f42073a = 1;
                         break;
                     case 2:
-                        f42011a = 2;
+                        f42073a = 2;
                         break;
                     case 3:
-                        f42011a = 3;
+                        f42073a = 3;
                         break;
                     case 4:
-                        f42011a = 4;
+                        f42073a = 4;
                         break;
                     case 5:
-                        f42011a = 5;
+                        f42073a = 5;
                         break;
                     case 6:
-                        f42011a = 6;
+                        f42073a = 6;
                         break;
                     case 7:
-                        f42011a = 7;
+                        f42073a = 7;
                         break;
                     case 8:
-                        f42011a = 8;
+                        f42073a = 8;
                         break;
                     case 9:
-                        f42011a = 9;
+                        f42073a = 9;
                         break;
                 }
                 if (i2 == 9) {
                     u = false;
                 }
-                if (f42014d == null || !u) {
+                if (f42076d == null || !u) {
                     b(context, i2);
-                } else if (f42015e != null) {
+                } else if (f42077e != null) {
                     t = true;
                     return a(i2);
                 } else {
-                    f42014d.a(new c(i2));
+                    f42076d.a(new c(i2));
                 }
                 return true;
             }
@@ -351,7 +351,7 @@ public class b {
             intent.setAction("com.baidu.map.action.OPEN_SERVICE");
             intent.setPackage("com.baidu.BaiduMap");
             if (i2 != 9) {
-                u = context.bindService(intent, f42012b, 1);
+                u = context.bindService(intent, f42074b, 1);
             }
             if (!u) {
                 a(i2, context);
@@ -367,7 +367,7 @@ public class b {
     public static void b(NaviParaOption naviParaOption, Context context, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65554, null, naviParaOption, context, i2) == null) {
-            f42017g = context.getPackageName();
+            f42079g = context.getPackageName();
             m = null;
             k = null;
             n = null;
@@ -394,7 +394,7 @@ public class b {
             q = null;
             r = null;
             s = 0;
-            f42017g = context.getPackageName();
+            f42079g = context.getPackageName();
             if (poiParaOption.getUid() != null) {
                 p = poiParaOption.getUid();
             }
@@ -418,7 +418,7 @@ public class b {
             k = null;
             n = null;
             l = null;
-            f42017g = context.getPackageName();
+            f42079g = context.getPackageName();
             if (routeParaOption.getStartPoint() != null) {
                 k = routeParaOption.getStartPoint();
             }
@@ -445,7 +445,7 @@ public class b {
             } else {
                 i3 = 0;
             }
-            f42016f = i3;
+            f42078f = i3;
         }
     }
 
@@ -463,7 +463,7 @@ public class b {
             sb.append("&show_type=");
             sb.append("detail_page");
             sb.append("&src=");
-            sb.append("sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent.setFlags(268435456);
             context.startActivity(intent);
@@ -518,7 +518,7 @@ public class b {
                     sb.append("&target=");
                     sb.append("1");
                     sb.append("&src=");
-                    sb.append("sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+                    sb.append("sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
                     Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
                     intent.setFlags(268435456);
                     context.startActivity(intent);
@@ -535,7 +535,7 @@ public class b {
                 sb.append("&target=");
                 sb.append("1");
                 sb.append("&src=");
-                sb.append("sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+                sb.append("sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
                 Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
                 intent2.setFlags(268435456);
                 context.startActivity(intent2);
@@ -560,7 +560,7 @@ public class b {
             sb.append("&target=");
             sb.append("1");
             sb.append("&src=");
-            sb.append("sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
             Intent intent22 = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent22.setFlags(268435456);
             context.startActivity(intent22);
@@ -588,7 +588,7 @@ public class b {
             sb.append("&radius=");
             sb.append(s);
             sb.append("&src=");
-            sb.append("sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent.setFlags(268435456);
             context.startActivity(intent);
@@ -617,7 +617,7 @@ public class b {
             sb.append(",");
             sb.append(l.longitude);
             sb.append("&src=");
-            sb.append("sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent.setFlags(268435456);
             context.startActivity(intent);
@@ -646,7 +646,7 @@ public class b {
             sb.append(",");
             sb.append(l.longitude);
             sb.append("&src=");
-            sb.append("sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent.setFlags(268435456);
             context.startActivity(intent);
@@ -675,7 +675,7 @@ public class b {
             sb.append(",");
             sb.append(l.longitude);
             sb.append("&src=");
-            sb.append("sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent.setFlags(268435456);
             context.startActivity(intent);
@@ -687,12 +687,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
             try {
-                String a2 = f42015e.a("map.android.baidu.mainmap");
+                String a2 = f42077e.a("map.android.baidu.mainmap");
                 if (a2 != null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("target", "route_search_page");
                     Bundle bundle2 = new Bundle();
-                    bundle2.putInt("route_type", f42016f);
+                    bundle2.putInt("route_type", f42078f);
                     bundle2.putInt("bus_strategy", o.ordinal());
                     bundle2.putInt("cross_city_bus_strategy", 5);
                     if (k != null) {
@@ -727,9 +727,9 @@ public class b {
                     bundle2.putString("end_uid", "");
                     bundle.putBundle("base_params", bundle2);
                     Bundle bundle3 = new Bundle();
-                    bundle3.putString("launch_from", "sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+                    bundle3.putString("launch_from", "sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
                     bundle.putBundle("ext_params", bundle3);
-                    return f42015e.a("map.android.baidu.mainmap", a2, bundle);
+                    return f42077e.a("map.android.baidu.mainmap", a2, bundle);
                 }
             } catch (RemoteException unused) {
             }
@@ -762,7 +762,7 @@ public class b {
             sb.append("&mode=");
             sb.append("walking_ar");
             sb.append("&src=");
-            sb.append("sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
             sb.toString();
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent.setFlags(268435456);
@@ -775,7 +775,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
             try {
-                String a2 = f42015e.a("map.android.baidu.mainmap");
+                String a2 = f42077e.a("map.android.baidu.mainmap");
                 if (a2 != null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("target", "request_poi_detail_page");
@@ -783,9 +783,9 @@ public class b {
                     bundle2.putString("uid", p != null ? p : "");
                     bundle.putBundle("base_params", bundle2);
                     Bundle bundle3 = new Bundle();
-                    bundle3.putString("launch_from", "sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+                    bundle3.putString("launch_from", "sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
                     bundle.putBundle("ext_params", bundle3);
-                    return f42015e.a("map.android.baidu.mainmap", a2, bundle);
+                    return f42077e.a("map.android.baidu.mainmap", a2, bundle);
                 }
                 return false;
             } catch (RemoteException unused) {
@@ -799,26 +799,26 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
-            List<DispathcPoiData> list = f42020j;
+            List<DispathcPoiData> list = f42082j;
             if (list != null && list.size() > 0) {
                 try {
-                    String a2 = f42015e.a("map.android.baidu.mainmap");
+                    String a2 = f42077e.a("map.android.baidu.mainmap");
                     if (a2 != null) {
                         Bundle bundle = new Bundle();
                         bundle.putString("target", "favorite_page");
                         Bundle bundle2 = new Bundle();
                         JSONArray jSONArray = new JSONArray();
                         int i2 = 0;
-                        for (int i3 = 0; i3 < f42020j.size(); i3++) {
-                            if (f42020j.get(i3).name != null && !f42020j.get(i3).name.equals("") && f42020j.get(i3).pt != null) {
+                        for (int i3 = 0; i3 < f42082j.size(); i3++) {
+                            if (f42082j.get(i3).name != null && !f42082j.get(i3).name.equals("") && f42082j.get(i3).pt != null) {
                                 JSONObject jSONObject = new JSONObject();
                                 try {
-                                    jSONObject.put("name", f42020j.get(i3).name);
-                                    GeoPoint ll2mc = CoordUtil.ll2mc(f42020j.get(i3).pt);
+                                    jSONObject.put("name", f42082j.get(i3).name);
+                                    GeoPoint ll2mc = CoordUtil.ll2mc(f42082j.get(i3).pt);
                                     jSONObject.put("ptx", ll2mc.getLongitudeE6());
                                     jSONObject.put("pty", ll2mc.getLatitudeE6());
-                                    jSONObject.put(DuPaBInfoMsg.B_ADDR, f42020j.get(i3).addr);
-                                    jSONObject.put("uid", f42020j.get(i3).uid);
+                                    jSONObject.put(DuPaBInfoMsg.B_ADDR, f42082j.get(i3).addr);
+                                    jSONObject.put("uid", f42082j.get(i3).uid);
                                     i2++;
                                     jSONArray.put(jSONObject);
                                 } catch (JSONException e2) {
@@ -830,15 +830,15 @@ public class b {
                             return false;
                         }
                         bundle2.putString("data", jSONArray.toString());
-                        bundle2.putString("from", f42018h);
-                        bundle2.putString("pkg", f42017g);
-                        bundle2.putString("cls", f42019i);
+                        bundle2.putString("from", f42080h);
+                        bundle2.putString("pkg", f42079g);
+                        bundle2.putString("cls", f42081i);
                         bundle2.putInt("count", i2);
                         bundle.putBundle("base_params", bundle2);
                         Bundle bundle3 = new Bundle();
-                        bundle3.putString("launch_from", "sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+                        bundle3.putString("launch_from", "sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
                         bundle.putBundle("ext_params", bundle3);
-                        return f42015e.a("map.android.baidu.mainmap", a2, bundle);
+                        return f42077e.a("map.android.baidu.mainmap", a2, bundle);
                     }
                 } catch (RemoteException unused) {
                 }
@@ -853,7 +853,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
             try {
-                String a2 = f42015e.a("map.android.baidu.mainmap");
+                String a2 = f42077e.a("map.android.baidu.mainmap");
                 if (a2 != null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("target", "navigation_page");
@@ -880,9 +880,9 @@ public class b {
                     bundle2.putString("destination", stringBuffer2.toString());
                     bundle.putBundle("base_params", bundle2);
                     Bundle bundle3 = new Bundle();
-                    bundle3.putString("launch_from", "sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+                    bundle3.putString("launch_from", "sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
                     bundle.putBundle("ext_params", bundle3);
-                    return f42015e.a("map.android.baidu.mainmap", a2, bundle);
+                    return f42077e.a("map.android.baidu.mainmap", a2, bundle);
                 }
             } catch (RemoteException unused) {
             }
@@ -896,7 +896,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
             try {
-                String a2 = f42015e.a("map.android.baidu.mainmap");
+                String a2 = f42077e.a("map.android.baidu.mainmap");
                 if (a2 != null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("target", "walknavi_page");
@@ -922,9 +922,9 @@ public class b {
                     bundle2.putString("destination", stringBuffer2.toString());
                     bundle.putBundle("base_params", bundle2);
                     Bundle bundle3 = new Bundle();
-                    bundle3.putString("launch_from", "sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+                    bundle3.putString("launch_from", "sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
                     bundle.putBundle("ext_params", bundle3);
-                    return f42015e.a("map.android.baidu.mainmap", a2, bundle);
+                    return f42077e.a("map.android.baidu.mainmap", a2, bundle);
                 }
             } catch (Exception unused) {
             }
@@ -938,7 +938,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             try {
-                String a2 = f42015e.a("map.android.baidu.mainmap");
+                String a2 = f42077e.a("map.android.baidu.mainmap");
                 if (a2 != null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("target", "bikenavi_page");
@@ -964,9 +964,9 @@ public class b {
                     bundle2.putString("destination", stringBuffer2.toString());
                     bundle.putBundle("base_params", bundle2);
                     Bundle bundle3 = new Bundle();
-                    bundle3.putString("launch_from", "sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+                    bundle3.putString("launch_from", "sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
                     bundle.putBundle("ext_params", bundle3);
-                    return f42015e.a("map.android.baidu.mainmap", a2, bundle);
+                    return f42077e.a("map.android.baidu.mainmap", a2, bundle);
                 }
             } catch (RemoteException unused) {
             }
@@ -980,7 +980,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
             try {
-                String a2 = f42015e.a("map.android.baidu.mainmap");
+                String a2 = f42077e.a("map.android.baidu.mainmap");
                 if (a2 != null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("target", "poi_search_page");
@@ -1005,9 +1005,9 @@ public class b {
                     bundle2.putBoolean("is_direct_area_search", true);
                     bundle.putBundle("base_params", bundle2);
                     Bundle bundle3 = new Bundle();
-                    bundle3.putString("launch_from", "sdk_[" + f42017g + PreferencesUtil.RIGHT_MOUNT);
+                    bundle3.putString("launch_from", "sdk_[" + f42079g + PreferencesUtil.RIGHT_MOUNT);
                     bundle.putBundle("ext_params", bundle3);
-                    return f42015e.a("map.android.baidu.mainmap", a2, bundle);
+                    return f42077e.a("map.android.baidu.mainmap", a2, bundle);
                 }
                 return false;
             } catch (RemoteException unused) {

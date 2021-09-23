@@ -52,22 +52,22 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f24205e;
+    public Context f24221e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f24206f;
+    public LinearLayout f24222f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f24207g;
+    public EMTextView f24223g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.q3.c f24208h;
+    public c.a.r0.q3.c f24224h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EMTextView f24209i;
+    public EMTextView f24225i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f24210j;
+    public View f24226j;
     public AlertDialog k;
     public DialogInterface.OnDismissListener l;
     public boolean m;
@@ -81,7 +81,7 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f24211a;
+        public final /* synthetic */ d f24227a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2) {
@@ -101,7 +101,7 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
                     return;
                 }
             }
-            this.f24211a = dVar;
+            this.f24227a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,8 +109,8 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                this.f24211a.g();
-                d dVar = this.f24211a;
+                this.f24227a.g();
+                d dVar = this.f24227a;
                 dVar.l(dVar.n);
             }
         }
@@ -122,7 +122,7 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f24212e;
+        public final /* synthetic */ d f24228e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -139,19 +139,19 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
                     return;
                 }
             }
-            this.f24212e = dVar;
+            this.f24228e = dVar;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                if (this.f24212e.l != null) {
-                    this.f24212e.l.onDismiss(dialogInterface);
+                if (this.f24228e.l != null) {
+                    this.f24228e.l.onDismiss(dialogInterface);
                 }
                 MessageManager.getInstance().unRegisterTask(2001450);
-                if (this.f24212e.f24208h != null) {
-                    this.f24212e.f24208h.s();
+                if (this.f24228e.f24224h != null) {
+                    this.f24228e.f24224h.s();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.FALSE));
             }
@@ -164,7 +164,7 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f24213e;
+        public final /* synthetic */ d f24229e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -181,7 +181,7 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
                     return;
                 }
             }
-            this.f24213e = dVar;
+            this.f24229e = dVar;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -189,10 +189,10 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (this.f24213e.k == null || !this.f24213e.k.isShowing()) {
+                if (this.f24229e.k == null || !this.f24229e.k.isShowing()) {
                     return null;
                 }
-                this.f24213e.h();
+                this.f24229e.h();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -239,42 +239,42 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
         }
         this.o = 0.33f;
         this.p = new a(this, 2001304);
-        this.f24205e = context;
+        this.f24221e = context;
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f24206f = linearLayout;
+        this.f24222f = linearLayout;
         linearLayout.setOrientation(1);
         EMTextView eMTextView = new EMTextView(context);
-        this.f24207g = eMTextView;
+        this.f24223g = eMTextView;
         eMTextView.setTextSize(0, u);
-        EMTextView eMTextView2 = this.f24207g;
+        EMTextView eMTextView2 = this.f24223g;
         int i4 = q;
         eMTextView2.setPadding(i4, r, i4, s);
-        this.f24207g.setGravity(1);
-        this.f24207g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        this.f24206f.addView(this.f24207g);
-        this.f24208h = new c.a.r0.q3.c(context);
+        this.f24223g.setGravity(1);
+        this.f24223g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.f24222f.addView(this.f24223g);
+        this.f24224h = new c.a.r0.q3.c(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         int i5 = ShareGridLayout.DEFAULT_MARGIN_LEFT_RIGHT;
         layoutParams.leftMargin = i5;
         layoutParams.rightMargin = i5;
-        this.f24206f.addView(this.f24208h.l(z), layoutParams);
+        this.f24222f.addView(this.f24224h.l(z), layoutParams);
         EMTextView eMTextView3 = new EMTextView(context);
-        this.f24209i = eMTextView3;
+        this.f24225i = eMTextView3;
         eMTextView3.setGravity(1);
-        this.f24209i.setTextSize(0, v);
-        this.f24209i.setText(R.string.cancel);
+        this.f24225i.setTextSize(0, v);
+        this.f24225i.setText(R.string.cancel);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams2.topMargin = w;
-        this.f24209i.setLayoutParams(layoutParams2);
-        EMTextView eMTextView4 = this.f24209i;
+        this.f24225i.setLayoutParams(layoutParams2);
+        EMTextView eMTextView4 = this.f24225i;
         int i6 = t;
         eMTextView4.setPadding(0, i6, 0, i6);
-        this.f24209i.setOnClickListener(this);
-        this.f24206f.addView(this.f24209i);
-        this.f24210j = new View(context);
-        this.f24210j.setLayoutParams(new LinearLayout.LayoutParams(-1, l.g(TbadkCoreApplication.getInst(), R.dimen.bottom_enter_anim_place_holder_height)));
-        this.f24206f.addView(this.f24210j);
-        this.f24208h.t(this);
+        this.f24225i.setOnClickListener(this);
+        this.f24222f.addView(this.f24225i);
+        this.f24226j = new View(context);
+        this.f24226j.setLayoutParams(new LinearLayout.LayoutParams(-1, l.g(TbadkCoreApplication.getInst(), R.dimen.bottom_enter_anim_place_holder_height)));
+        this.f24222f.addView(this.f24226j);
+        this.f24224h.t(this);
     }
 
     @Override // c.a.r0.q3.a
@@ -288,11 +288,11 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f24206f);
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f24222f);
             d2.o(R.string.J_X14);
             d2.f(R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.f24207g, R.color.CAM_X0109);
-            SkinManager.setViewTextColorSelector(this.f24209i, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f24223g, R.color.CAM_X0109);
+            SkinManager.setViewTextColorSelector(this.f24225i, R.color.CAM_X0107);
         }
     }
 
@@ -302,7 +302,7 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (alertDialog = this.k) == null) {
             return;
         }
-        Context context = this.f24205e;
+        Context context = this.f24221e;
         if (context instanceof Activity) {
             g.a(alertDialog, (Activity) context);
             MessageManager.getInstance().unRegisterListener(this.p);
@@ -314,7 +314,7 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
         g0 sharePanelConfData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, from) == null) && (sharePanelConfData = TbSingleton.getInstance().getSharePanelConfData()) != null && sharePanelConfData.d(from) && sharePanelConfData.c() && !k.isEmpty(sharePanelConfData.b())) {
-            this.f24207g.setText(sharePanelConfData.b());
+            this.f24223g.setText(sharePanelConfData.b());
         }
     }
 
@@ -344,22 +344,22 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
             ShareItem shareItem2 = shareDialogConfig.shareItem;
             if (!shareItem2.d0) {
                 if (shareItem2.e0) {
-                    this.f24207g.setText(R.string.transmit_share_more);
+                    this.f24223g.setText(R.string.transmit_share_more);
                 } else {
-                    this.f24207g.setText(R.string.transmit_share_no_outer);
+                    this.f24223g.setText(R.string.transmit_share_no_outer);
                 }
             } else {
                 String sharePanelText = TbSingleton.getInstance().getSharePanelText();
                 if (!TextUtils.isEmpty(sharePanelText)) {
-                    this.f24207g.setText(sharePanelText);
+                    this.f24223g.setText(sharePanelText);
                 } else {
-                    this.f24207g.setText(R.string.transmit_share_not_add_experience);
+                    this.f24223g.setText(R.string.transmit_share_not_add_experience);
                 }
             }
             if (shareDialogConfig.isShowNovelMask()) {
-                this.f24207g.setVisibility(4);
+                this.f24223g.setVisibility(4);
             }
-            this.f24208h.u(shareDialogConfig, this.m);
+            this.f24224h.u(shareDialogConfig, this.m);
             this.n = shareDialogConfig;
         }
     }
@@ -375,15 +375,15 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             g();
-            AlertDialog create = new AlertDialog.Builder(this.f24205e, R.style.DialogTheme).create();
+            AlertDialog create = new AlertDialog.Builder(this.f24221e, R.style.DialogTheme).create();
             this.k = create;
             create.setCanceledOnTouchOutside(true);
             this.k.setOnDismissListener(new b(this));
-            Context context = this.f24205e;
+            Context context = this.f24221e;
             if (context instanceof Activity) {
                 g.i(this.k, (Activity) context);
             }
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f24206f);
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f24222f);
             d2.o(R.string.J_X14);
             d2.f(R.color.CAM_X0212);
             Window window = this.k.getWindow();
@@ -397,10 +397,10 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
             window.setWindowAnimations(R.style.share_dialog_style);
             window.setGravity(80);
             window.setLayout(-1, -2);
-            window.setContentView(this.f24206f);
+            window.setContentView(this.f24222f);
             window.setDimAmount(this.o);
             j();
-            j.a(this.f24205e).registerListener(this.p);
+            j.a(this.f24221e).registerListener(this.p);
             MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.TRUE));
         }
     }
@@ -408,14 +408,14 @@ public class d implements View.OnClickListener, c.a.r0.q3.a {
     public final void o(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, objArr) == null) {
-            TiebaStatic.eventStat(this.f24205e, str, PrefetchEvent.STATE_CLICK, 1, objArr);
+            TiebaStatic.eventStat(this.f24221e, str, PrefetchEvent.STATE_CLICK, 1, objArr);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, view) == null) && view == this.f24209i) {
+        if ((interceptable == null || interceptable.invokeL(1048586, this, view) == null) && view == this.f24225i) {
             o("share_cancel", new Object[0]);
             h();
         }

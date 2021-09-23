@@ -44,7 +44,7 @@ public final class m0 extends k0<com.bytedance.embedapplog.a> {
         public com.bytedance.embedapplog.a a(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iBinder)) == null) ? a.AbstractBinderC1871a.a(iBinder) : (com.bytedance.embedapplog.a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iBinder)) == null) ? a.AbstractBinderC1875a.a(iBinder) : (com.bytedance.embedapplog.a) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */

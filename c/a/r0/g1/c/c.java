@@ -37,7 +37,7 @@ public class c {
         d2 threadData = aVar.getThreadData();
         if (threadData.e2()) {
             statisticItem.param("obj_type", 4);
-        } else if (threadData.y1) {
+        } else if (threadData.z1) {
             statisticItem.param("obj_type", 5);
         } else if (threadData.M1()) {
             statisticItem.param("obj_type", 6);
@@ -47,7 +47,7 @@ public class c {
             statisticItem.param("obj_type", 8);
         } else if (threadData.O1()) {
             statisticItem.param("obj_type", 9);
-        } else if (threadData.getType() == d2.Z2) {
+        } else if (threadData.getType() == d2.a3) {
             statisticItem.param("obj_type", 1);
         } else if (threadData.E2()) {
             statisticItem.param("obj_type", 2);

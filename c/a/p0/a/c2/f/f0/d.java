@@ -28,19 +28,19 @@ public class d extends b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f4814a;
+        public final /* synthetic */ c.a.p0.a.a2.e f4822a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4815b;
+        public final /* synthetic */ CallbackHandler f4823b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f4816c;
+        public final /* synthetic */ UnitedSchemeEntity f4824c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f4817d;
+        public final /* synthetic */ String f4825d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f4818e;
+        public final /* synthetic */ d f4826e;
 
         public a(d dVar, c.a.p0.a.a2.e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
@@ -57,23 +57,23 @@ public class d extends b {
                     return;
                 }
             }
-            this.f4818e = dVar;
-            this.f4814a = eVar;
-            this.f4815b = callbackHandler;
-            this.f4816c = unitedSchemeEntity;
-            this.f4817d = str;
+            this.f4826e = dVar;
+            this.f4822a = eVar;
+            this.f4823b = callbackHandler;
+            this.f4824c = unitedSchemeEntity;
+            this.f4825d = str;
         }
 
         @Override // c.a.p0.a.q0.b.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f4818e.f4808d) {
-                    c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f4814a.getApplicationContext(), h.swanapp_tip_net_unavailable);
+                if (this.f4826e.f4816d) {
+                    c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f4822a.getApplicationContext(), h.swanapp_tip_net_unavailable);
                     f2.l(2);
                     f2.F();
                 }
-                this.f4818e.n(this.f4816c, this.f4815b, this.f4817d);
+                this.f4826e.n(this.f4824c, this.f4823b, this.f4825d);
             }
         }
 
@@ -81,12 +81,12 @@ public class d extends b {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.f4818e.f4808d) {
-                    c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f4814a.getApplicationContext(), h.aiapps_cancel_fav_fail);
+                if (this.f4826e.f4816d) {
+                    c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f4822a.getApplicationContext(), h.aiapps_cancel_fav_fail);
                     f2.l(2);
                     f2.F();
                 }
-                this.f4818e.n(this.f4816c, this.f4815b, this.f4817d);
+                this.f4826e.n(this.f4824c, this.f4823b, this.f4825d);
             }
         }
 
@@ -98,17 +98,17 @@ public class d extends b {
                 try {
                     jSONObject.put("success", "1");
                 } catch (JSONException e2) {
-                    if (k.f7077a) {
+                    if (k.f7085a) {
                         e2.printStackTrace();
                     }
                 }
-                if (this.f4818e.f4808d) {
+                if (this.f4826e.f4816d) {
                     b.m("0", "btn", "success");
-                    c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f4814a.getApplicationContext(), h.aiapps_cancel_fav_success);
+                    c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f4822a.getApplicationContext(), h.aiapps_cancel_fav_success);
                     f2.l(2);
                     f2.F();
                 }
-                UnitedSchemeUtility.safeCallback(this.f4815b, this.f4816c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f4817d);
+                UnitedSchemeUtility.safeCallback(this.f4823b, this.f4824c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f4825d);
             }
         }
     }
@@ -144,8 +144,8 @@ public class d extends b {
                 return false;
             }
             try {
-                String D = this.f4808d ? eVar.D() : new JSONObject(param).optString("appid");
-                this.f4807c = D;
+                String D = this.f4816d ? eVar.D() : new JSONObject(param).optString("appid");
+                this.f4815c = D;
                 return !TextUtils.isEmpty(D);
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -159,13 +159,13 @@ public class d extends b {
     public void k(c.a.p0.a.a2.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, unitedSchemeEntity, callbackHandler, str) == null) {
-            if (this.f4808d) {
+            if (this.f4816d) {
                 b.m("0", "btn", "invoke");
             } else {
                 b.m("0", RetrieveTaskManager.KEY, "invoke");
             }
             SwanFavorDataManager h2 = SwanFavorDataManager.h();
-            String str2 = this.f4807c;
+            String str2 = this.f4815c;
             a aVar = new a(this, eVar, callbackHandler, unitedSchemeEntity, str);
             c.a.p0.a.n0.l.c l = c.a.p0.a.n0.l.c.l();
             l.n(3);
@@ -177,7 +177,7 @@ public class d extends b {
     public void l(c.a.p0.a.a2.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         f0 e0;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, unitedSchemeEntity, callbackHandler, str) == null) && this.f4808d && (e0 = c.a.p0.a.c1.a.e0()) != null) {
+        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, unitedSchemeEntity, callbackHandler, str) == null) && this.f4816d && (e0 = c.a.p0.a.c1.a.e0()) != null) {
             e0.e(eVar);
         }
     }

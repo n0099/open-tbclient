@@ -19,7 +19,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<c.a.e.l.e.a> f19327a;
+    public List<c.a.e.l.e.a> f19342a;
 
     public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
@@ -36,22 +36,22 @@ public class b {
                 return;
             }
         }
-        this.f19327a = new ArrayList();
+        this.f19342a = new ArrayList();
         k kVar = (k) MessageManager.getInstance().runTask(2921336, k.class, tbPageContext).getData();
         if (kVar != null) {
-            this.f19327a.add(kVar);
+            this.f19342a.add(kVar);
         }
-        this.f19327a.add(new c(tbPageContext, d2.G3));
-        this.f19327a.add(new a(tbPageContext, d2.H3));
-        bdTypeRecyclerView.addAdapters(this.f19327a);
+        this.f19342a.add(new c(tbPageContext, d2.H3));
+        this.f19342a.add(new a(tbPageContext, d2.I3));
+        bdTypeRecyclerView.addAdapters(this.f19342a);
     }
 
     public void a(TbPageTag tbPageTag) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbPageTag) == null) || ListUtils.isEmpty(this.f19327a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbPageTag) == null) || ListUtils.isEmpty(this.f19342a)) {
             return;
         }
-        for (c.a.e.l.e.a aVar : this.f19327a) {
+        for (c.a.e.l.e.a aVar : this.f19342a) {
             if (aVar instanceof k) {
                 ((k) aVar).s0(tbPageTag);
             }

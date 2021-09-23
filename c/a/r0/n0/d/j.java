@@ -14,7 +14,7 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<i> f22506a;
+    public ArrayList<i> f22522a;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -33,16 +33,16 @@ public class j {
     public void a(List<FrsTabInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            if (this.f22506a == null) {
-                this.f22506a = new ArrayList<>();
+            if (this.f22522a == null) {
+                this.f22522a = new ArrayList<>();
             }
-            this.f22506a.clear();
+            this.f22522a.clear();
             if (list == null) {
                 return;
             }
             for (FrsTabInfo frsTabInfo : list) {
                 if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                    this.f22506a.add(new i(frsTabInfo));
+                    this.f22522a.add(new i(frsTabInfo));
                 }
             }
         }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.dynamic;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import c.a.q0.k0.b.d;
 import c.a.q0.k0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
@@ -20,7 +20,7 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f51060common;
+    public CommonReq f51175common;
     public long forumId;
     public long lastThreadId;
     public int qType;
@@ -55,7 +55,7 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
             builder.q_type = Integer.valueOf(this.qType);
             builder.last_thread_id = Long.valueOf(this.lastThreadId);
             builder.rn = 30;
-            x.c(builder, true, false, true);
+            a0.c(builder, true, false, true);
             StarTrendsReqIdl.Builder builder2 = new StarTrendsReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

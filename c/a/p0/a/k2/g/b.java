@@ -23,17 +23,17 @@ public class b extends g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f7121e;
+    public static final boolean f7129e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SharedPreferences$EditorC0280b f7122b;
+    public final SharedPreferences$EditorC0280b f7130b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f7123c;
+    public final boolean f7131c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f7124d;
+    public final String f7132d;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -54,7 +54,7 @@ public class b extends g {
                 return;
             }
         }
-        f7121e = k.f7077a;
+        f7129e = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,9 +75,9 @@ public class b extends g {
                 return;
             }
         }
-        this.f7122b = new SharedPreferences$EditorC0280b(this, null);
-        this.f7124d = str;
-        this.f7123c = ProcessUtils.isMainProcess() || b();
+        this.f7130b = new SharedPreferences$EditorC0280b(this, null);
+        this.f7132d = str;
+        this.f7131c = ProcessUtils.isMainProcess() || b();
     }
 
     @Override // c.a.p0.a.k2.g.g, android.content.SharedPreferences.Editor
@@ -85,7 +85,7 @@ public class b extends g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f7123c) {
+            if (this.f7131c) {
                 super.clear();
             } else {
                 c.a.p0.a.v1.b.d.b(f.class, c.a(i(), 100, "", ""));
@@ -105,7 +105,7 @@ public class b extends g {
     public SharedPreferences.Editor edit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7123c ? super.edit() : this.f7122b : (SharedPreferences.Editor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7131c ? super.edit() : this.f7130b : (SharedPreferences.Editor) invokeV.objValue;
     }
 
     public float f(String str, float f2) {
@@ -133,14 +133,14 @@ public class b extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, str, z)) == null) {
             try {
-                if (this.f7123c) {
+                if (this.f7131c) {
                     return e(str, z);
                 }
                 c.a.p0.a.v1.b.f b2 = c.a.p0.a.v1.b.d.b(e.class, c.a(i(), 3, str, String.valueOf(z)));
-                if (f7121e) {
-                    String str2 = "getBoolean processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f9229a.getBoolean("result_value");
+                if (f7129e) {
+                    String str2 = "getBoolean processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f9237a.getBoolean("result_value");
                 }
-                return b2.f9229a.getBoolean("result_value");
+                return b2.f9237a.getBoolean("result_value");
             } catch (ClassCastException unused) {
                 return false;
             }
@@ -153,14 +153,14 @@ public class b extends g {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048583, this, str, f2)) == null) {
-            if (this.f7123c) {
+            if (this.f7131c) {
                 return f(str, f2);
             }
             c.a.p0.a.v1.b.f b2 = c.a.p0.a.v1.b.d.b(e.class, c.a(i(), 5, str, String.valueOf(f2)));
-            if (f7121e) {
-                String str2 = "getFloat processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f9229a.getFloat("result_value");
+            if (f7129e) {
+                String str2 = "getFloat processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f9237a.getFloat("result_value");
             }
-            return b2.f9229a.getFloat("result_value");
+            return b2.f9237a.getFloat("result_value");
         }
         return invokeLF.floatValue;
     }
@@ -170,14 +170,14 @@ public class b extends g {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) {
-            if (this.f7123c) {
+            if (this.f7131c) {
                 return g(str, i2);
             }
             c.a.p0.a.v1.b.f b2 = c.a.p0.a.v1.b.d.b(e.class, c.a(i(), 1, str, String.valueOf(i2)));
-            if (f7121e) {
-                String str2 = "getInt processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f9229a.getInt("result_value");
+            if (f7129e) {
+                String str2 = "getInt processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f9237a.getInt("result_value");
             }
-            return b2.f9229a.getInt("result_value");
+            return b2.f9237a.getInt("result_value");
         }
         return invokeLI.intValue;
     }
@@ -187,14 +187,14 @@ public class b extends g {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j2)) == null) {
-            if (this.f7123c) {
+            if (this.f7131c) {
                 return h(str, j2);
             }
             c.a.p0.a.v1.b.f b2 = c.a.p0.a.v1.b.d.b(e.class, c.a(i(), 2, str, String.valueOf(j2)));
-            if (f7121e) {
-                String str2 = "getLong processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f9229a.getLong("result_value");
+            if (f7129e) {
+                String str2 = "getLong processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f9237a.getLong("result_value");
             }
-            return b2.f9229a.getLong("result_value");
+            return b2.f9237a.getLong("result_value");
         }
         return invokeLJ.longValue;
     }
@@ -204,14 +204,14 @@ public class b extends g {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
-            if (this.f7123c) {
+            if (this.f7131c) {
                 return j(str, str2);
             }
             c.a.p0.a.v1.b.f b2 = c.a.p0.a.v1.b.d.b(e.class, c.a(i(), 4, str, str2));
-            if (f7121e) {
-                String str3 = "getString processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f9229a.getString("result_value");
+            if (f7129e) {
+                String str3 = "getString processName:" + ProcessUtils.getCurProcessName() + " result value:" + b2.f9237a.getString("result_value");
             }
-            return b2.f9229a.getString("result_value");
+            return b2.f9237a.getString("result_value");
         }
         return (String) invokeLL.objValue;
     }
@@ -225,7 +225,7 @@ public class b extends g {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f7124d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f7132d : (String) invokeV.objValue;
     }
 
     public String j(String str, String str2) {
@@ -237,7 +237,7 @@ public class b extends g {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f7123c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f7131c : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.a.k2.g.g, android.content.SharedPreferences.Editor
@@ -245,7 +245,7 @@ public class b extends g {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048591, this, str, z)) == null) {
-            if (this.f7123c) {
+            if (this.f7131c) {
                 super.putBoolean(str, z);
             } else {
                 c.a.p0.a.v1.b.d.b(f.class, c.a(i(), 3, str, String.valueOf(z)));
@@ -260,7 +260,7 @@ public class b extends g {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048592, this, str, f2)) == null) {
-            if (this.f7123c) {
+            if (this.f7131c) {
                 super.putFloat(str, f2);
             } else {
                 c.a.p0.a.v1.b.d.b(f.class, c.a(i(), 5, str, String.valueOf(f2)));
@@ -275,7 +275,7 @@ public class b extends g {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, str, i2)) == null) {
-            if (this.f7123c) {
+            if (this.f7131c) {
                 super.putInt(str, i2);
             } else {
                 c.a.p0.a.v1.b.d.b(f.class, c.a(i(), 1, str, String.valueOf(i2)));
@@ -290,7 +290,7 @@ public class b extends g {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048594, this, str, j2)) == null) {
-            if (this.f7123c) {
+            if (this.f7131c) {
                 super.edit().putLong(str, j2).commit();
             } else {
                 c.a.p0.a.v1.b.d.b(f.class, c.a(i(), 2, str, String.valueOf(j2)));
@@ -305,7 +305,7 @@ public class b extends g {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, str, str2)) == null) {
-            if (this.f7123c) {
+            if (this.f7131c) {
                 super.putString(str, str2);
             } else {
                 c.a.p0.a.v1.b.d.b(f.class, c.a(i(), 4, str, str2));
@@ -320,7 +320,7 @@ public class b extends g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-            if (this.f7123c) {
+            if (this.f7131c) {
                 super.remove(str);
             } else {
                 c.a.p0.a.v1.b.d.b(f.class, c.a(i(), 101, str, ""));
@@ -337,10 +337,10 @@ public class b extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Deque<Runnable> f7125a;
+        public final Deque<Runnable> f7133a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f7126b;
+        public final /* synthetic */ b f7134b;
 
         /* renamed from: c.a.p0.a.k2.g.b$b$a */
         /* loaded from: classes.dex */
@@ -349,13 +349,13 @@ public class b extends g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f7127e;
+            public final /* synthetic */ String f7135e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f7128f;
+            public final /* synthetic */ String f7136f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ SharedPreferences$EditorC0280b f7129g;
+            public final /* synthetic */ SharedPreferences$EditorC0280b f7137g;
 
             public a(SharedPreferences$EditorC0280b sharedPreferences$EditorC0280b, String str, String str2) {
                 Interceptable interceptable = $ic;
@@ -372,16 +372,16 @@ public class b extends g {
                         return;
                     }
                 }
-                this.f7129g = sharedPreferences$EditorC0280b;
-                this.f7127e = str;
-                this.f7128f = str2;
+                this.f7137g = sharedPreferences$EditorC0280b;
+                this.f7135e = str;
+                this.f7136f = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f7129g.f7126b.putString(this.f7127e, this.f7128f);
+                    this.f7137g.f7134b.putString(this.f7135e, this.f7136f);
                 }
             }
         }
@@ -393,13 +393,13 @@ public class b extends g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f7130e;
+            public final /* synthetic */ String f7138e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Set f7131f;
+            public final /* synthetic */ Set f7139f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ SharedPreferences$EditorC0280b f7132g;
+            public final /* synthetic */ SharedPreferences$EditorC0280b f7140g;
 
             public RunnableC0281b(SharedPreferences$EditorC0280b sharedPreferences$EditorC0280b, String str, Set set) {
                 Interceptable interceptable = $ic;
@@ -416,16 +416,16 @@ public class b extends g {
                         return;
                     }
                 }
-                this.f7132g = sharedPreferences$EditorC0280b;
-                this.f7130e = str;
-                this.f7131f = set;
+                this.f7140g = sharedPreferences$EditorC0280b;
+                this.f7138e = str;
+                this.f7139f = set;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f7132g.f7126b.putStringSet(this.f7130e, this.f7131f);
+                    this.f7140g.f7134b.putStringSet(this.f7138e, this.f7139f);
                 }
             }
         }
@@ -437,13 +437,13 @@ public class b extends g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f7133e;
+            public final /* synthetic */ String f7141e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f7134f;
+            public final /* synthetic */ int f7142f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ SharedPreferences$EditorC0280b f7135g;
+            public final /* synthetic */ SharedPreferences$EditorC0280b f7143g;
 
             public c(SharedPreferences$EditorC0280b sharedPreferences$EditorC0280b, String str, int i2) {
                 Interceptable interceptable = $ic;
@@ -460,16 +460,16 @@ public class b extends g {
                         return;
                     }
                 }
-                this.f7135g = sharedPreferences$EditorC0280b;
-                this.f7133e = str;
-                this.f7134f = i2;
+                this.f7143g = sharedPreferences$EditorC0280b;
+                this.f7141e = str;
+                this.f7142f = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f7135g.f7126b.putInt(this.f7133e, this.f7134f);
+                    this.f7143g.f7134b.putInt(this.f7141e, this.f7142f);
                 }
             }
         }
@@ -481,13 +481,13 @@ public class b extends g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f7136e;
+            public final /* synthetic */ String f7144e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ long f7137f;
+            public final /* synthetic */ long f7145f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ SharedPreferences$EditorC0280b f7138g;
+            public final /* synthetic */ SharedPreferences$EditorC0280b f7146g;
 
             public d(SharedPreferences$EditorC0280b sharedPreferences$EditorC0280b, String str, long j2) {
                 Interceptable interceptable = $ic;
@@ -504,16 +504,16 @@ public class b extends g {
                         return;
                     }
                 }
-                this.f7138g = sharedPreferences$EditorC0280b;
-                this.f7136e = str;
-                this.f7137f = j2;
+                this.f7146g = sharedPreferences$EditorC0280b;
+                this.f7144e = str;
+                this.f7145f = j2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f7138g.f7126b.putLong(this.f7136e, this.f7137f);
+                    this.f7146g.f7134b.putLong(this.f7144e, this.f7145f);
                 }
             }
         }
@@ -525,13 +525,13 @@ public class b extends g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f7139e;
+            public final /* synthetic */ String f7147e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ float f7140f;
+            public final /* synthetic */ float f7148f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ SharedPreferences$EditorC0280b f7141g;
+            public final /* synthetic */ SharedPreferences$EditorC0280b f7149g;
 
             public e(SharedPreferences$EditorC0280b sharedPreferences$EditorC0280b, String str, float f2) {
                 Interceptable interceptable = $ic;
@@ -548,16 +548,16 @@ public class b extends g {
                         return;
                     }
                 }
-                this.f7141g = sharedPreferences$EditorC0280b;
-                this.f7139e = str;
-                this.f7140f = f2;
+                this.f7149g = sharedPreferences$EditorC0280b;
+                this.f7147e = str;
+                this.f7148f = f2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f7141g.f7126b.putFloat(this.f7139e, this.f7140f);
+                    this.f7149g.f7134b.putFloat(this.f7147e, this.f7148f);
                 }
             }
         }
@@ -569,13 +569,13 @@ public class b extends g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f7142e;
+            public final /* synthetic */ String f7150e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ boolean f7143f;
+            public final /* synthetic */ boolean f7151f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ SharedPreferences$EditorC0280b f7144g;
+            public final /* synthetic */ SharedPreferences$EditorC0280b f7152g;
 
             public f(SharedPreferences$EditorC0280b sharedPreferences$EditorC0280b, String str, boolean z) {
                 Interceptable interceptable = $ic;
@@ -592,16 +592,16 @@ public class b extends g {
                         return;
                     }
                 }
-                this.f7144g = sharedPreferences$EditorC0280b;
-                this.f7142e = str;
-                this.f7143f = z;
+                this.f7152g = sharedPreferences$EditorC0280b;
+                this.f7150e = str;
+                this.f7151f = z;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f7144g.f7126b.putBoolean(this.f7142e, this.f7143f);
+                    this.f7152g.f7134b.putBoolean(this.f7150e, this.f7151f);
                 }
             }
         }
@@ -613,10 +613,10 @@ public class b extends g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f7145e;
+            public final /* synthetic */ String f7153e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ SharedPreferences$EditorC0280b f7146f;
+            public final /* synthetic */ SharedPreferences$EditorC0280b f7154f;
 
             public g(SharedPreferences$EditorC0280b sharedPreferences$EditorC0280b, String str) {
                 Interceptable interceptable = $ic;
@@ -633,15 +633,15 @@ public class b extends g {
                         return;
                     }
                 }
-                this.f7146f = sharedPreferences$EditorC0280b;
-                this.f7145e = str;
+                this.f7154f = sharedPreferences$EditorC0280b;
+                this.f7153e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f7146f.f7126b.remove(this.f7145e);
+                    this.f7154f.f7134b.remove(this.f7153e);
                 }
             }
         }
@@ -653,7 +653,7 @@ public class b extends g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ SharedPreferences$EditorC0280b f7147e;
+            public final /* synthetic */ SharedPreferences$EditorC0280b f7155e;
 
             public h(SharedPreferences$EditorC0280b sharedPreferences$EditorC0280b) {
                 Interceptable interceptable = $ic;
@@ -670,14 +670,14 @@ public class b extends g {
                         return;
                     }
                 }
-                this.f7147e = sharedPreferences$EditorC0280b;
+                this.f7155e = sharedPreferences$EditorC0280b;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f7147e.f7126b.clear();
+                    this.f7155e.f7134b.clear();
                 }
             }
         }
@@ -697,8 +697,8 @@ public class b extends g {
                     return;
                 }
             }
-            this.f7126b = bVar;
-            this.f7125a = new ArrayDeque();
+            this.f7134b = bVar;
+            this.f7133a = new ArrayDeque();
         }
 
         @Override // android.content.SharedPreferences.Editor
@@ -725,9 +725,9 @@ public class b extends g {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                synchronized (this.f7125a) {
-                    while (!this.f7125a.isEmpty()) {
-                        Runnable poll = this.f7125a.poll();
+                synchronized (this.f7133a) {
+                    while (!this.f7133a.isEmpty()) {
+                        Runnable poll = this.f7133a.poll();
                         if (poll != null) {
                             poll.run();
                         }
@@ -742,8 +742,8 @@ public class b extends g {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, runnable)) == null) {
-                synchronized (this.f7125a) {
-                    this.f7125a.offer(runnable);
+                synchronized (this.f7133a) {
+                    this.f7133a.offer(runnable);
                 }
                 return this;
             }

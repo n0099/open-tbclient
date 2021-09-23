@@ -13,13 +13,13 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29505a;
+    public String f29525a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f29506b;
+    public double f29526b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f29507c;
+    public double f29527c;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class f {
                 return null;
             }
             f fVar = new f();
-            fVar.f29505a = jSONObject.optString("bottom_picture", "");
+            fVar.f29525a = jSONObject.optString("bottom_picture", "");
             jSONObject.optInt("cover_shadow_switch", 0);
-            fVar.f29506b = jSONObject.optDouble("player_width_ratio", 0.0d);
-            fVar.f29507c = jSONObject.optDouble("right_margin_ratio", 0.0d);
+            fVar.f29526b = jSONObject.optDouble("player_width_ratio", 0.0d);
+            fVar.f29527c = jSONObject.optDouble("right_margin_ratio", 0.0d);
             jSONObject.optDouble("player_height_clipping_ratio", 0.0d);
             return fVar;
         }
@@ -56,6 +56,6 @@ public class f {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f29505a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f29525a) : invokeV.booleanValue;
     }
 }

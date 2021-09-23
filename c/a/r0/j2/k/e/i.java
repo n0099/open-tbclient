@@ -77,7 +77,7 @@ public class i extends n<c.a.q0.s.q.q, PbBjhRecommendViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            PbBjhRecommendViewHolder pbBjhRecommendViewHolder = new PbBjhRecommendViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.bjh_recommend_item, (ViewGroup) null), this.m.getPbActivity());
+            PbBjhRecommendViewHolder pbBjhRecommendViewHolder = new PbBjhRecommendViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.bjh_recommend_item, (ViewGroup) null), this.m.getPbActivity());
             j0(pbBjhRecommendViewHolder);
             return pbBjhRecommendViewHolder;
         }
@@ -115,10 +115,10 @@ public class i extends n<c.a.q0.s.q.q, PbBjhRecommendViewHolder> {
                 } else if (i3 != 3) {
                     i4 = 4;
                 }
-                if (qVar.c0 == 40) {
-                    StatisticItem.make("c13536").param("tid", qVar.s1()).param("fid", qVar.T()).param("obj_source", i4).param("obj_locate", qVar.O4()).param("obj_id", this.s.Q()).param("obj_type", qVar.R1() ? 1 : 0).eventStat();
+                if (qVar.i0 == 40) {
+                    StatisticItem.make("c13536").param("tid", qVar.s1()).param("fid", qVar.T()).param("obj_source", i4).param("obj_locate", qVar.N4()).param("obj_id", this.s.Q()).param("obj_type", qVar.R1() ? 1 : 0).eventStat();
                 } else {
-                    StatisticItem.make("c13533").param("tid", qVar.s1()).param("fid", qVar.T()).param("obj_source", i4).param("obj_locate", qVar.O4()).param("obj_id", this.s.Q()).eventStat();
+                    StatisticItem.make("c13533").param("tid", qVar.s1()).param("fid", qVar.T()).param("obj_source", i4).param("obj_locate", qVar.N4()).param("obj_id", this.s.Q()).eventStat();
                 }
                 if (this.s.p0()) {
                     StatisticItem statisticItem = new StatisticItem("c13588");
@@ -126,9 +126,9 @@ public class i extends n<c.a.q0.s.q.q, PbBjhRecommendViewHolder> {
                         statisticItem.param("fid", qVar.Y().getForumId());
                     }
                     statisticItem.param("tid", qVar.s1());
-                    statisticItem.param("obj_param1", qVar.X0);
-                    statisticItem.param("obj_source", qVar.W0);
-                    statisticItem.param("obj_locate", qVar.O4());
+                    statisticItem.param("obj_param1", qVar.Y0);
+                    statisticItem.param("obj_source", qVar.X0);
+                    statisticItem.param("obj_locate", qVar.N4());
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
                     statisticItem.param("obj_id", this.s.Q());
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -140,8 +140,8 @@ public class i extends n<c.a.q0.s.q.q, PbBjhRecommendViewHolder> {
                         statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, qVar.L().oriUgcVid);
                     }
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, qVar.B1());
-                    statisticItem.param("ab_tag", qVar.Y0);
-                    statisticItem.param("extra", qVar.Z0);
+                    statisticItem.param("ab_tag", qVar.Z0);
+                    statisticItem.param("extra", qVar.a1);
                     TiebaStatic.log(statisticItem);
                 }
             }

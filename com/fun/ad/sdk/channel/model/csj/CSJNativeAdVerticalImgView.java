@@ -27,7 +27,7 @@ public final class CSJNativeAdVerticalImgView extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f69953f;
+    public ImageView f70272f;
 
     /* loaded from: classes9.dex */
     public class a extends DrawableImageViewTarget {
@@ -171,7 +171,7 @@ public final class CSJNativeAdVerticalImgView extends b {
             if (imageList == null || imageList.isEmpty() || (tTImage = imageList.get(0)) == null || !tTImage.isValid()) {
                 return;
             }
-            Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this, this.f69953f));
+            Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this, this.f70272f));
         }
     }
 
@@ -180,7 +180,7 @@ public final class CSJNativeAdVerticalImgView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f69953f = (ImageView) findViewById(R.id.ad_img);
+            this.f70272f = (ImageView) findViewById(R.id.ad_img);
         }
     }
 }

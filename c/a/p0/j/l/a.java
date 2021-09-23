@@ -27,7 +27,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11735a;
+    public static final boolean f11743a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.j.l.a$a  reason: collision with other inner class name */
@@ -37,7 +37,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public JSONObject f11736a;
+        public JSONObject f11744a;
 
         public C0612a() {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class a {
                     return;
                 }
             }
-            this.f11736a = new JSONObject();
+            this.f11744a = new JSONObject();
         }
 
         public static C0612a a() {
@@ -64,7 +64,7 @@ public class a {
         public JSONObject b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11736a : (JSONObject) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11744a : (JSONObject) invokeV.objValue;
         }
 
         public C0612a c(String str, Object obj) {
@@ -73,7 +73,7 @@ public class a {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
                 if (!TextUtils.isEmpty(str)) {
                     try {
-                        this.f11736a.put(str, obj);
+                        this.f11744a.put(str, obj);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
@@ -97,27 +97,27 @@ public class a {
                 return;
             }
         }
-        f11735a = k.f7077a;
+        f11743a = k.f7085a;
     }
 
     public static void a(c cVar, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, cVar, dVar) == null) {
             C0612a a2 = C0612a.a();
-            a2.c("mapId", cVar.f11760j);
-            a2.c("markerId", dVar.f6535e);
+            a2.c("mapId", cVar.f11768j);
+            a2.c("markerId", dVar.f6543e);
             JSONObject b2 = a2.b();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("vtype", "callouttap");
                 jSONObject.put("data", b2.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11759i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11767i);
             } catch (JSONException e2) {
-                if (f11735a) {
+                if (f11743a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.p0.a.w2.g.c.a.d(cVar.f11759i, cVar.f11760j, "map", "callouttap", jSONObject);
+            c.a.p0.a.w2.g.c.a.d(cVar.f11767i, cVar.f11768j, "map", "callouttap", jSONObject);
         }
     }
 
@@ -126,22 +126,22 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, view, cVar) == null) {
             c.a.p0.j.n.a I = cVar.I(view);
-            String str = (I == null || (bVar = I.f11745a) == null) ? "" : bVar.f6529e;
+            String str = (I == null || (bVar = I.f11753a) == null) ? "" : bVar.f6537e;
             C0612a a2 = C0612a.a();
-            a2.c("mapId", cVar.f11760j);
+            a2.c("mapId", cVar.f11768j);
             a2.c("controlId", str);
             JSONObject b2 = a2.b();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("vtype", "controltap");
                 jSONObject.put("data", b2.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11759i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11767i);
             } catch (JSONException e2) {
-                if (f11735a) {
+                if (f11743a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.p0.a.w2.g.c.a.d(cVar.f11759i, cVar.f11760j, "map", "controltap", jSONObject);
+            c.a.p0.a.w2.g.c.a.d(cVar.f11767i, cVar.f11768j, "map", "controltap", jSONObject);
         }
     }
 
@@ -154,7 +154,7 @@ public class a {
             a2.c("longitude", Double.valueOf(position.longitude));
             a2.b();
             C0612a a3 = C0612a.a();
-            a3.c("mapId", cVar.f11760j);
+            a3.c("mapId", cVar.f11768j);
             a3.c("name", mapPoi.getName());
             a3.c("latitude", Double.valueOf(position.latitude));
             a3.c("longitude", Double.valueOf(position.longitude));
@@ -163,13 +163,13 @@ public class a {
             try {
                 jSONObject.put("vtype", "poitap");
                 jSONObject.put("data", b2.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11759i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11767i);
             } catch (JSONException e2) {
-                if (f11735a) {
+                if (f11743a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.p0.a.w2.g.c.a.d(cVar.f11759i, cVar.f11760j, "map", "poitap", jSONObject);
+            c.a.p0.a.w2.g.c.a.d(cVar.f11767i, cVar.f11768j, "map", "poitap", jSONObject);
         }
     }
 
@@ -181,20 +181,20 @@ public class a {
             a2.c("longitude", Double.valueOf(latLng.longitude));
             JSONObject b2 = a2.b();
             C0612a a3 = C0612a.a();
-            a3.c("mapId", cVar.f11760j);
+            a3.c("mapId", cVar.f11768j);
             a3.c("position", b2);
             JSONObject b3 = a3.b();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("vtype", "tap");
                 jSONObject.put("data", b3.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11759i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11767i);
             } catch (JSONException e2) {
-                if (f11735a) {
+                if (f11743a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.p0.a.w2.g.c.a.d(cVar.f11759i, cVar.f11760j, "map", "tap", jSONObject);
+            c.a.p0.a.w2.g.c.a.d(cVar.f11767i, cVar.f11768j, "map", "tap", jSONObject);
         }
     }
 
@@ -202,19 +202,19 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cVar) == null) {
             C0612a a2 = C0612a.a();
-            a2.c("mapId", cVar.f11760j);
+            a2.c("mapId", cVar.f11768j);
             JSONObject b2 = a2.b();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("vtype", "updated");
                 jSONObject.put("data", b2.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11759i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11767i);
             } catch (JSONException e2) {
-                if (f11735a) {
+                if (f11743a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.p0.a.w2.g.c.a.d(cVar.f11759i, cVar.f11760j, "map", "updated", jSONObject);
+            c.a.p0.a.w2.g.c.a.d(cVar.f11767i, cVar.f11768j, "map", "updated", jSONObject);
         }
     }
 
@@ -223,22 +223,22 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, marker, cVar) == null) {
             c.a.p0.j.n.b J = cVar.J(marker);
-            String str = (J == null || (dVar = J.f11748a) == null) ? "" : dVar.f6535e;
+            String str = (J == null || (dVar = J.f11756a) == null) ? "" : dVar.f6543e;
             C0612a a2 = C0612a.a();
-            a2.c("mapId", cVar.f11760j);
+            a2.c("mapId", cVar.f11768j);
             a2.c("markerId", str);
             JSONObject b2 = a2.b();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("vtype", "markertap");
                 jSONObject.put("data", b2.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11759i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11767i);
             } catch (JSONException e2) {
-                if (f11735a) {
+                if (f11743a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.p0.a.w2.g.c.a.d(cVar.f11759i, cVar.f11760j, "map", "markertap", jSONObject);
+            c.a.p0.a.w2.g.c.a.d(cVar.f11767i, cVar.f11768j, "map", "markertap", jSONObject);
         }
     }
 
@@ -254,7 +254,7 @@ public class a {
             a3.c("longitude", Double.valueOf(mapStatus.bound.southwest.longitude));
             JSONObject b3 = a3.b();
             C0612a a4 = C0612a.a();
-            a4.c("mapId", cVar.f11760j);
+            a4.c("mapId", cVar.f11768j);
             a4.c("northeast", b2);
             a4.c("southwest", b3);
             a4.c("scale", Float.valueOf(mapStatus.zoom));
@@ -264,13 +264,13 @@ public class a {
             try {
                 jSONObject.put("vtype", "regionchange");
                 jSONObject.put("data", b4.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11759i);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, cVar.f11767i);
             } catch (JSONException e2) {
-                if (f11735a) {
+                if (f11743a) {
                     e2.printStackTrace();
                 }
             }
-            c.a.p0.a.w2.g.c.a.d(cVar.f11759i, cVar.f11760j, "map", "regionchange", jSONObject);
+            c.a.p0.a.w2.g.c.a.d(cVar.f11767i, cVar.f11768j, "map", "regionchange", jSONObject);
         }
     }
 }

@@ -13,14 +13,14 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile f f11679c;
+    public static volatile f f11687c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f11680a;
+    public boolean f11688a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11681b;
+    public String f11689b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -40,14 +40,14 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11679c == null) {
+            if (f11687c == null) {
                 synchronized (f.class) {
-                    if (f11679c == null) {
-                        f11679c = new f();
+                    if (f11687c == null) {
+                        f11687c = new f();
                     }
                 }
             }
-            return f11679c;
+            return f11687c;
         }
         return (f) invokeV.objValue;
     }
@@ -56,10 +56,10 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f11681b)) {
+            if (TextUtils.isEmpty(this.f11689b)) {
                 return "";
             }
-            return this.f11681b + File.separator + "index.js";
+            return this.f11689b + File.separator + "index.js";
         }
         return (String) invokeV.objValue;
     }
@@ -67,13 +67,13 @@ public class f {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11680a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11688a : invokeV.booleanValue;
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f11680a = z;
+            this.f11688a = z;
         }
     }
 
@@ -86,7 +86,7 @@ public class f {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f11681b = str;
+            this.f11689b = str;
         }
     }
 }

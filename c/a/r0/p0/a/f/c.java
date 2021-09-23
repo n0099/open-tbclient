@@ -25,20 +25,20 @@ public class c extends a {
                 return;
             }
         }
-        this.f23414d = z;
+        this.f23430d = z;
     }
 
     @Override // c.a.r0.p0.a.f.a
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.r0.p0.a.g.c cVar = this.f23411a;
-            if (cVar.f23433h == null) {
-                this.f23412b.onError(cVar.f23431f, "cover config is null !!");
+            c.a.r0.p0.a.g.c cVar = this.f23427a;
+            if (cVar.f23449h == null) {
+                this.f23428b.onError(cVar.f23447f, "cover config is null !!");
                 return;
             }
-            Bitmap createBitmap = Bitmap.createBitmap(cVar.f23426a, cVar.f23427b, Bitmap.Config.ARGB_8888);
-            createBitmap.copyPixelsFromBuffer(this.f23411a.f23433h);
+            Bitmap createBitmap = Bitmap.createBitmap(cVar.f23442a, cVar.f23443b, Bitmap.Config.ARGB_8888);
+            createBitmap.copyPixelsFromBuffer(this.f23427a.f23449h);
             g(new c.a.r0.p0.a.g.b(), createBitmap);
         }
     }

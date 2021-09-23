@@ -16,7 +16,7 @@ public class o {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f12035a = -1;
+    public static int f12043a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,7 +56,7 @@ public class o {
                 int optInt = optJSONObject.optInt(str, -1);
                 return optInt < 0 ? i2 : optInt;
             } catch (JSONException e2) {
-                if (c.a.p0.n.c.f11856a) {
+                if (c.a.p0.n.c.f11864a) {
                     e2.printStackTrace();
                 }
                 return i2;
@@ -75,11 +75,11 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f12035a < 0) {
+            if (f12043a < 0) {
                 c.a.p0.n.c.b().C("swan_update_expired_time", 0);
-                f12035a = 0;
+                f12043a = 0;
             }
-            return f12035a;
+            return f12043a;
         }
         return invokeV.intValue;
     }
@@ -96,7 +96,7 @@ public class o {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (c.a.p0.n.c.f11856a) {
+        if (c.a.p0.n.c.f11864a) {
             String str = "processUpdateExpireTime: data" + jSONObject;
         }
         String optString = jSONObject.optString("version");

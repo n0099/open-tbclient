@@ -19,7 +19,7 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f48315e;
+    public a f48423e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchFSPanelFrameLayout(Context context) {
@@ -45,7 +45,7 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f48315e = new a(this);
+            this.f48423e = new a(this);
         }
     }
 
@@ -53,14 +53,14 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
     public void onKeyboardShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f48315e.a(z);
+            this.f48423e.a(z);
         }
     }
 
     public void recordKeyboardStatus(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, window) == null) {
-            this.f48315e.b(window);
+            this.f48423e.b(window);
         }
     }
 

@@ -11,10 +11,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f12164a;
+    public static final int[] f12172a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object[] f12165b;
+    public static final Object[] f12173b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,8 +30,8 @@ public class b {
                 return;
             }
         }
-        f12164a = new int[0];
-        f12165b = new Object[0];
+        f12172a = new int[0];
+        f12173b = new Object[0];
     }
 
     public static int a(int[] iArr, int i2, int i3) {

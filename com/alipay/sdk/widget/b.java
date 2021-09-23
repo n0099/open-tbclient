@@ -16,6 +16,33 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes4.dex */
+    public static class a implements DialogInterface.OnKeyListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.content.DialogInterface.OnKeyListener
+        public boolean onKey(DialogInterface dialogInterface, int i2, KeyEvent keyEvent) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i2, keyEvent)) == null) ? i2 == 4 : invokeLIL.booleanValue;
+        }
+    }
+
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,31 +66,7 @@ public class b {
             a2.setMessage(str2);
             AlertDialog create = a2.create();
             create.setCanceledOnTouchOutside(false);
-            create.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.alipay.sdk.widget.b.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
-                @Override // android.content.DialogInterface.OnKeyListener
-                public boolean onKey(DialogInterface dialogInterface, int i2, KeyEvent keyEvent) {
-                    InterceptResult invokeLIL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, dialogInterface, i2, keyEvent)) == null) ? i2 == 4 : invokeLIL.booleanValue;
-                }
-            });
+            create.setOnKeyListener(new a());
             try {
                 create.show();
             } catch (Throwable th) {

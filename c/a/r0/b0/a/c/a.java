@@ -37,17 +37,17 @@ public class a extends c.a.q0.k0.f.a<tinfo, c.a.q0.k0.d.b> {
 
     /* renamed from: c.a.r0.b0.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0761a implements View.OnClickListener {
+    public class View$OnClickListenerC0759a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ tinfo f15899e;
+        public final /* synthetic */ tinfo f15909e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f15900f;
+        public final /* synthetic */ a f15910f;
 
-        public View$OnClickListenerC0761a(a aVar, tinfo tinfoVar) {
+        public View$OnClickListenerC0759a(a aVar, tinfo tinfoVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,18 +62,18 @@ public class a extends c.a.q0.k0.f.a<tinfo, c.a.q0.k0.d.b> {
                     return;
                 }
             }
-            this.f15900f = aVar;
-            this.f15899e = tinfoVar;
+            this.f15910f = aVar;
+            this.f15909e = tinfoVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                String str = this.f15899e.forum_name;
+                String str = this.f15909e.forum_name;
                 if (k.isForumName(str)) {
-                    TiebaStatic.eventStat(this.f15900f.a(), "kantie_6", null, 1, new Object[0]);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15900f.a()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                    TiebaStatic.eventStat(this.f15910f.a(), "kantie_6", null, 1, new Object[0]);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15910f.a()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
                 }
             }
         }
@@ -128,7 +128,7 @@ public class a extends c.a.q0.k0.f.a<tinfo, c.a.q0.k0.d.b> {
             } else {
                 this.m.setVisibility(0);
                 this.m.setText(UtilHelper.getFixedText(b().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-                this.m.setOnClickListener(new View$OnClickListenerC0761a(this, tinfoVar));
+                this.m.setOnClickListener(new View$OnClickListenerC0759a(this, tinfoVar));
             }
             Integer num = tinfoVar.zan_num;
             if (num != null) {
@@ -148,7 +148,7 @@ public class a extends c.a.q0.k0.f.a<tinfo, c.a.q0.k0.d.b> {
         }
     }
 
-    @Override // c.a.r0.j3.t
+    @Override // c.a.r0.j3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

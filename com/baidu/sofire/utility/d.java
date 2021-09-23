@@ -17,14 +17,14 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f45429c;
+    public static d f45532c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f45430a;
+    public Context f45533a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.sofire.g.a f45431b;
+    public com.baidu.sofire.g.a f45534b;
 
     static {
         InterceptResult invokeClinit;
@@ -56,8 +56,8 @@ public final class d {
                 return;
             }
         }
-        this.f45430a = context.getApplicationContext();
-        this.f45431b = new com.baidu.sofire.g.a(context);
+        this.f45533a = context.getApplicationContext();
+        this.f45534b = new com.baidu.sofire.g.a(context);
     }
 
     public static synchronized d a(Context context) {
@@ -66,10 +66,10 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (d.class) {
-                if (f45429c == null) {
-                    f45429c = new d(context);
+                if (f45532c == null) {
+                    f45532c = new d(context);
                 }
-                dVar = f45429c;
+                dVar = f45532c;
             }
             return dVar;
         }
@@ -79,7 +79,7 @@ public final class d {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            com.baidu.sofire.g.a aVar = this.f45431b;
+            com.baidu.sofire.g.a aVar = this.f45534b;
             Message message = new Message();
             message.what = 7;
             aVar.a(message);
@@ -91,20 +91,20 @@ public final class d {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Message message = new Message();
             message.what = 2;
-            this.f45431b.a(message);
+            this.f45534b.a(message);
         }
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.baidu.sofire.g.a aVar = this.f45431b;
-            if (aVar.f45333c == null) {
-                aVar.f45333c = new Receiver();
+            com.baidu.sofire.g.a aVar = this.f45534b;
+            if (aVar.f45422c == null) {
+                aVar.f45422c = new Receiver();
             }
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.b.r.p");
-            aVar.f45332b.getApplicationContext().registerReceiver(aVar.f45333c, intentFilter, aVar.f45332b.getPackageName() + ".permission.sofire.RECEIVE", null);
+            aVar.f45421b.getApplicationContext().registerReceiver(aVar.f45422c, intentFilter, aVar.f45421b.getPackageName() + ".permission.sofire.RECEIVE", null);
             Message message = new Message();
             message.what = 5;
             aVar.a(message);

@@ -22,10 +22,10 @@ public class g implements c.a.p0.a.p.b.a.f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11221a;
+    public static final boolean f11229a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11222b;
+    public static final String f11230b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -90,8 +90,8 @@ public class g implements c.a.p0.a.p.b.a.f {
         @Override // c.a.p0.h.f.b
         public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && g.f11221a) {
-                String unused = g.f11222b;
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && g.f11229a) {
+                String unused = g.f11230b;
                 String str = "download sConsole result: " + z;
             }
         }
@@ -110,8 +110,8 @@ public class g implements c.a.p0.a.p.b.a.f {
                 return;
             }
         }
-        f11221a = k.f7077a;
-        f11222b = g.class.getSimpleName();
+        f11229a = k.f7085a;
+        f11230b = g.class.getSimpleName();
     }
 
     public g() {

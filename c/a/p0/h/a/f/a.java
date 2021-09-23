@@ -13,11 +13,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f10964b;
+    public static volatile a f10972b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<c> f10965a;
+    public List<c> f10973a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,37 +32,37 @@ public class a {
                 return;
             }
         }
-        this.f10965a = new CopyOnWriteArrayList();
+        this.f10973a = new CopyOnWriteArrayList();
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f10964b == null) {
+            if (f10972b == null) {
                 synchronized (a.class) {
-                    if (f10964b == null) {
-                        f10964b = new a();
+                    if (f10972b == null) {
+                        f10972b = new a();
                     }
                 }
             }
-            return f10964b;
+            return f10972b;
         }
         return (a) invokeV.objValue;
     }
 
     public void a(c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.f10965a.contains(cVar)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.f10973a.contains(cVar)) {
             return;
         }
-        this.f10965a.add(cVar);
+        this.f10973a.add(cVar);
     }
 
     public void c(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            for (c cVar : this.f10965a) {
+            for (c cVar : this.f10973a) {
                 if (i2 == 16) {
                     cVar.c();
                 } else if (i2 == 17) {
@@ -75,8 +75,8 @@ public class a {
 
     public void d(c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) && this.f10965a.contains(cVar)) {
-            this.f10965a.remove(cVar);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) && this.f10973a.contains(cVar)) {
+            this.f10973a.remove(cVar);
         }
     }
 }

@@ -30,11 +30,11 @@ public class a implements k0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f25134b;
+    public static final boolean f25155b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f25135a;
+    public long f25156a;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class a implements k0 {
                 return;
             }
         }
-        f25134b = k.f7077a;
+        f25155b = k.f7085a;
     }
 
     public a() {
@@ -70,20 +70,20 @@ public class a implements k0 {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            boolean z = f25134b;
+            boolean z = f25155b;
             long l = c.a.q0.s.d0.b.j().l("smart_app_tid", 0L);
             String p = c.a.q0.s.d0.b.j().p("smart_app_id", "");
             String p2 = c.a.q0.s.d0.b.j().p("smart_app_name", "");
-            if (this.f25135a == 0 || l == 0) {
+            if (this.f25156a == 0 || l == 0) {
                 return;
             }
-            long currentTimeMillis = System.currentTimeMillis() - this.f25135a;
+            long currentTimeMillis = System.currentTimeMillis() - this.f25156a;
             d dVar = new d();
             dVar.w(currentTimeMillis);
             dVar.q(g());
             dVar.A(l);
-            dVar.f13636i = p;
-            dVar.f13637j = p2;
+            dVar.f13632i = p;
+            dVar.f13633j = p2;
             dVar.v(h());
             e.b().j(true);
             e.b().k(TbadkApplication.getInst().getApplicationContext(), dVar, i());
@@ -102,10 +102,10 @@ public class a implements k0 {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f25134b) {
-                String str2 = "onAppForeground" + c.a.p0.a.a2.e.i().f4558f;
+            if (f25155b) {
+                String str2 = "onAppForeground" + c.a.p0.a.a2.e.i().f4566f;
             }
-            this.f25135a = System.currentTimeMillis();
+            this.f25156a = System.currentTimeMillis();
         }
     }
 
@@ -113,7 +113,7 @@ public class a implements k0 {
     public void d(@NonNull SwanAppActivity swanAppActivity, int i2, @Nullable c.a.p0.a.f1.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i2, bVar) == null) {
-            boolean z = f25134b;
+            boolean z = f25155b;
             if (c.a.q0.s.d0.b.j().g("key_ai_app_guide_display", true)) {
                 c.a.q0.s.d0.b.j().t("key_ai_app_guide_display", false);
                 Intent intent = new Intent(swanAppActivity, DealIntentService.class);

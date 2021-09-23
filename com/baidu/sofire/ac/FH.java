@@ -14,7 +14,7 @@ import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.d;
 import com.baidu.sofire.core.f;
 import com.baidu.sofire.utility.c;
-import com.baidu.sofire.utility.t;
+import com.baidu.sofire.utility.v;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,17 +74,17 @@ public class FH {
         b a2;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || (a2 = b.a()) == null || (aVar = a2.f45224b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || (a2 = b.a()) == null || (aVar = a2.f45286b) == null) {
             return;
         }
         try {
-            aVar.f45197f = true;
-            callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, aVar.f45196e, Boolean.TRUE, "");
+            aVar.f45259f = true;
+            callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, aVar.f45258e, Boolean.TRUE, "");
             aVar.a(-6);
         } catch (Throwable unused) {
             c.a();
         }
-        a2.f45224b = null;
+        a2.f45286b = null;
     }
 
     public static String gd(Context context) {
@@ -100,7 +100,7 @@ public class FH {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65546, null, i2, i3)) == null) {
             try {
-                if (com.baidu.sofire.core.c.f45251b != null && t.a(com.baidu.sofire.core.c.f45251b) && i3 == 1 && i2 > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
+                if (com.baidu.sofire.core.c.f45340b != null && v.a(com.baidu.sofire.core.c.f45340b) && i3 == 1 && i2 > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
                     for (ApkInfo apkInfo : b2) {
                         if (apkInfo.key == i2) {
                             return apkInfo.versionName == null ? "" : apkInfo.versionName;
@@ -119,37 +119,50 @@ public class FH {
     public static String getVersion(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? "3.5.8.7" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? "3.5.8.8" : (String) invokeL.objValue;
+    }
+
+    public static IVideoRecordProcess getVideoRecordProcess(Activity activity, SurfaceHolder surfaceHolder, RecordCallback recordCallback, int i2) {
+        InterceptResult invokeLLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65548, null, activity, surfaceHolder, recordCallback, i2)) == null) {
+            b a2 = b.a(activity.getApplicationContext());
+            if (a2 != null) {
+                return a2.a(activity, surfaceHolder, recordCallback, i2);
+            }
+            return null;
+        }
+        return (IVideoRecordProcess) invokeLLLI.objValue;
     }
 
     public static String gt(Context context, String str, String str2, int i2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{context, str, str2, Integer.valueOf(i2), str3})) == null) ? d.a(context, str, str2, i2, str3) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, str2, Integer.valueOf(i2), str3})) == null) ? d.a(context, str, str2, i2, str3) : (String) invokeCommon.objValue;
     }
 
     public static String gz(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) ? d.a(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) ? d.a(context) : (String) invokeL.objValue;
     }
 
     public static String gzfi(Context context, String str, int i2, String str2) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65551, null, context, str, i2, str2)) == null) ? d.a(context, str, i2, str2) : (String) invokeLLIL.objValue;
+        return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65552, null, context, str, i2, str2)) == null) ? d.a(context, str, i2, str2) : (String) invokeLLIL.objValue;
     }
 
     public static void init(Context context, String str, String str2, int... iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65552, null, context, str, str2, iArr) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65553, null, context, str, str2, iArr) == null) {
             d.a(context, 0, str, str2, iArr);
         }
     }
 
     public static void initDelay(Context context, int i2, String str, String str2, int... iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{context, Integer.valueOf(i2), str, str2, iArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{context, Integer.valueOf(i2), str, str2, iArr}) == null) {
             d.a(context, i2, str, str2, iArr);
         }
     }
@@ -159,12 +172,12 @@ public class FH {
         Method[] methods;
         Method method;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, context, str)) == null) {
             try {
                 if (context == null) {
                     return new Pair<>(-1, "");
                 }
-                if (!t.a(context)) {
+                if (!v.a(context)) {
                     return new Pair<>(12, "");
                 }
                 JSONObject jSONObject = new JSONObject(str);
@@ -172,8 +185,8 @@ public class FH {
                 if (!TextUtils.isEmpty(optString) && !"init".equals(optString) && !"initDelay".equals(optString) && !NotificationCompat.CATEGORY_CALL.equals(optString)) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("p");
                     if ("callSync".equals(optString)) {
-                        if (com.baidu.sofire.core.c.f45251b == null && context != null) {
-                            com.baidu.sofire.core.c.f45251b = context.getApplicationContext();
+                        if (com.baidu.sofire.core.c.f45340b == null && context != null) {
+                            com.baidu.sofire.core.c.f45340b = context.getApplicationContext();
                         }
                         if (optJSONArray != null && optJSONArray.length() == 2) {
                             method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
@@ -242,9 +255,9 @@ public class FH {
     public static boolean isInitSuc(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i2)) == null) {
-            Context context = com.baidu.sofire.core.c.f45251b;
-            if (context == null || !t.a(context)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i2)) == null) {
+            Context context = com.baidu.sofire.core.c.f45340b;
+            if (context == null || !v.a(context)) {
                 return false;
             }
             return c.a(i2);
@@ -255,7 +268,7 @@ public class FH {
     public static boolean parseBoolean(String str) throws IllegalArgumentException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
             if ("T".equals(str)) {
                 return true;
             }
@@ -270,7 +283,7 @@ public class FH {
     public static byte parseByte(String str) throws IllegalArgumentException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
             int intValue = Integer.valueOf(str).intValue();
             if (intValue > 127 || intValue < -128) {
                 throw new IllegalArgumentException("parse byte fail");
@@ -283,7 +296,7 @@ public class FH {
     public static char parseChar(String str) throws IllegalArgumentException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
             if (str.length() == 1) {
                 return str.charAt(0);
             }
@@ -295,7 +308,7 @@ public class FH {
     public static Class[] parseClassArray(String str) throws IllegalArgumentException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
             int length = str.length();
             Class[] clsArr = new Class[length];
             for (int i2 = 0; i2 < length; i2++) {
@@ -336,25 +349,25 @@ public class FH {
     public static double parseDouble(String str) throws IllegalArgumentException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) ? Double.valueOf(str).doubleValue() : invokeL.doubleValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) ? Double.valueOf(str).doubleValue() : invokeL.doubleValue;
     }
 
     public static float parseFloat(String str) throws IllegalArgumentException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) ? Float.valueOf(str).floatValue() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) ? Float.valueOf(str).floatValue() : invokeL.floatValue;
     }
 
     public static int parseInt(String str) throws IllegalArgumentException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) ? Integer.valueOf(str).intValue() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65563, null, str)) == null) ? Integer.valueOf(str).intValue() : invokeL.intValue;
     }
 
     public static long parseLong(String str) throws IllegalArgumentException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65563, null, str)) == null) ? Long.valueOf(str).longValue() : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) ? Long.valueOf(str).longValue() : invokeL.longValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x001a  */
@@ -365,7 +378,7 @@ public class FH {
         int i3;
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65564, null, new Object[]{str, context, jSONArray, Integer.valueOf(i2), clsArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65565, null, new Object[]{str, context, jSONArray, Integer.valueOf(i2), clsArr})) == null) {
             try {
                 boolean equals = "callSync".equals(str);
                 if (clsArr != null && clsArr.length != 0) {
@@ -378,8 +391,8 @@ public class FH {
                             if (cls.equals(Context.class)) {
                                 if (context != null) {
                                     objArr[i4] = context;
-                                } else if (com.baidu.sofire.core.c.f45251b != null) {
-                                    objArr[i4] = com.baidu.sofire.core.c.f45251b;
+                                } else if (com.baidu.sofire.core.c.f45340b != null) {
+                                    objArr[i4] = com.baidu.sofire.core.c.f45340b;
                                 } else {
                                     throw new IllegalArgumentException("method request context");
                                 }
@@ -496,27 +509,27 @@ public class FH {
     public static short parseShort(String str) throws IllegalArgumentException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) ? Short.valueOf(str).shortValue() : invokeL.shortValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) ? Short.valueOf(str).shortValue() : invokeL.shortValue;
     }
 
     public static void setAgreePolicy(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65566, null, context, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65567, null, context, z) == null) {
             d.b(context, z);
         }
     }
 
     public static void setDid(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65567, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65568, null, context, str) == null) {
             d.b(context, str);
         }
     }
 
     public static void setFaceLicenseId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65568, null, str) == null) {
-            b.f45221c = str;
+        if (interceptable == null || interceptable.invokeL(65569, null, str) == null) {
+            b.f45283d = str;
         }
     }
 
@@ -524,11 +537,11 @@ public class FH {
         b a2;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65569, null, z) == null) || (a2 = b.a()) == null || (aVar = a2.f45224b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65570, null, z) == null) || (a2 = b.a()) == null || (aVar = a2.f45286b) == null) {
             return;
         }
         try {
-            if (aVar.f45192a && !aVar.f45197f) {
+            if (aVar.f45254a && !aVar.f45259f) {
                 if (aVar.p != null) {
                     aVar.p.setLivenessStrategySoundEnable(z);
                 }
@@ -543,50 +556,19 @@ public class FH {
     public static boolean startFaceCompare(Activity activity, SurfaceHolder surfaceHolder, FaceProcessCallback faceProcessCallback, int i2, FaceCompareInfo faceCompareInfo, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{activity, surfaceHolder, faceProcessCallback, Integer.valueOf(i2), faceCompareInfo, Boolean.valueOf(z)})) == null) {
-            b a2 = b.a(activity.getApplicationContext());
-            if (a2.f45224b != null) {
-                a2.a(activity, faceProcessCallback, -1);
-                return false;
-            }
-            a aVar = new a(a2, activity, surfaceHolder, faceProcessCallback, i2, faceCompareInfo, 2, z);
-            a2.f45224b = aVar;
-            aVar.a();
-            return true;
-        }
-        return invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65571, null, new Object[]{activity, surfaceHolder, faceProcessCallback, Integer.valueOf(i2), faceCompareInfo, Boolean.valueOf(z)})) == null) ? b.a(activity.getApplicationContext()).a(activity, surfaceHolder, faceProcessCallback, i2, faceCompareInfo, z) : invokeCommon.booleanValue;
     }
 
     public static boolean startFaceVerify(Activity activity, SurfaceHolder surfaceHolder, FaceProcessCallback faceProcessCallback, int i2, FaceVerifyInfo faceVerifyInfo, boolean z) {
         InterceptResult invokeCommon;
-        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65571, null, new Object[]{activity, surfaceHolder, faceProcessCallback, Integer.valueOf(i2), faceVerifyInfo, Boolean.valueOf(z)})) == null) {
-            b a2 = b.a(activity.getApplicationContext());
-            if (com.baidu.sofire.core.c.a() != null && (context = com.baidu.sofire.core.c.f45251b) != null) {
-                if (!t.a(context)) {
-                    a2.a(activity, faceProcessCallback, -14);
-                    return false;
-                } else if (a2.f45224b != null) {
-                    a2.a(activity, faceProcessCallback, -1);
-                    return false;
-                } else {
-                    a aVar = new a(a2, activity, surfaceHolder, faceProcessCallback, i2, faceVerifyInfo, 1, z);
-                    a2.f45224b = aVar;
-                    aVar.a();
-                    return true;
-                }
-            }
-            a2.a(activity, faceProcessCallback, -13);
-            return false;
-        }
-        return invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{activity, surfaceHolder, faceProcessCallback, Integer.valueOf(i2), faceVerifyInfo, Boolean.valueOf(z)})) == null) ? b.a(activity.getApplicationContext()).a(activity, surfaceHolder, faceProcessCallback, i2, faceVerifyInfo, z) : invokeCommon.booleanValue;
     }
 
     public static String xgz(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, context, str)) == null) ? d.a(context, str) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65573, null, context, str)) == null) ? d.a(context, str) : (String) invokeLL.objValue;
     }
 
     public static boolean call(int i2, String str, Callback callback) {
@@ -604,7 +586,7 @@ public class FH {
     public static String gzfi(Context context, String str, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65550, null, context, str, i2)) == null) ? d.a(context, str, i2, (String) null) : (String) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65551, null, context, str, i2)) == null) ? d.a(context, str, i2, (String) null) : (String) invokeLLI.objValue;
     }
 
     public static boolean call(int i2, String str, Class<?>[] clsArr, Object... objArr) {

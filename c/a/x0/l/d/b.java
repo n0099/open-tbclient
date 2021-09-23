@@ -47,7 +47,7 @@ public class b extends c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public c.b a(String str, boolean z, f.C1427f c1427f, f.C1427f c1427f2, long j2, long j3, long j4) throws Exception {
+    public c.b a(String str, boolean z, f.C1425f c1425f, f.C1425f c1425f2, long j2, long j3, long j4) throws Exception {
         InterceptResult invokeCommon;
         MediaFormat mediaFormat;
         ByteBuffer[] byteBufferArr;
@@ -57,14 +57,14 @@ public class b extends c {
         byte[] bArr;
         byte[] bArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), c1427f, c1427f2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
-            f.C1427f c1427f3 = c1427f2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), c1425f, c1425f2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
+            f.C1425f c1425f3 = c1425f2;
             long j6 = j3;
-            if (TextUtils.isEmpty(str) || c1427f == null || c1427f3 == null) {
+            if (TextUtils.isEmpty(str) || c1425f == null || c1425f3 == null) {
                 return null;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            String str2 = this.f30934a;
+            String str2 = this.f30955a;
             MediaExtractor mediaExtractor = new MediaExtractor();
             mediaExtractor.setDataSource(str2);
             int i2 = 0;
@@ -91,11 +91,11 @@ public class b extends c {
             }
             c.a.x0.t.c.b("mediaFormat " + mediaFormat);
             c.b bVar = new c.b();
-            int i3 = c1427f3.f30962b;
-            int i4 = c1427f3.f30961a;
-            int i5 = c1427f3.f30963c;
-            bVar.f30936a = str;
-            FileOutputStream fileOutputStream = new FileOutputStream(bVar.f30936a);
+            int i3 = c1425f3.f30983b;
+            int i4 = c1425f3.f30982a;
+            int i5 = c1425f3.f30984c;
+            bVar.f30957a = str;
+            FileOutputStream fileOutputStream = new FileOutputStream(bVar.f30957a);
             MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
             createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
             createDecoderByType.start();
@@ -139,7 +139,7 @@ public class b extends c {
                                     if (dequeueOutputBuffer == -3) {
                                         byteBufferArr3 = createDecoderByType.getOutputBuffers();
                                         c.a.x0.t.c.b("output buffers have changed.");
-                                        c1427f3 = c1427f2;
+                                        c1425f3 = c1425f2;
                                         inputBuffers = byteBufferArr;
                                         j6 = j3;
                                         currentTimeMillis = j7;
@@ -165,9 +165,9 @@ public class b extends c {
                                             bArr = null;
                                             bArr2 = null;
                                         } else {
-                                            bArr2 = c1427f2.a() ? f.c(c1427f3.f30963c / 8, c1427f.f30963c / 8, bArr3) : null;
-                                            if (c1427f2.b()) {
-                                                bArr = f.d(c1427f3.f30962b, c1427f.f30962b, c1427f.f30963c / 8, bArr2 == null ? bArr3 : bArr2);
+                                            bArr2 = c1425f2.a() ? f.c(c1425f3.f30984c / 8, c1425f.f30984c / 8, bArr3) : null;
+                                            if (c1425f2.b()) {
+                                                bArr = f.d(c1425f3.f30983b, c1425f.f30983b, c1425f.f30984c / 8, bArr2 == null ? bArr3 : bArr2);
                                             } else {
                                                 bArr = null;
                                             }
@@ -176,10 +176,10 @@ public class b extends c {
                                             bArr = bArr2 == null ? bArr3 : bArr2;
                                         }
                                         fileOutputStream.write(bArr);
-                                        if (this.f30935b != null) {
-                                            this.f30935b.a(bArr3, bufferInfo.presentationTimeUs / d2);
+                                        if (this.f30956b != null) {
+                                            this.f30956b.a(bArr3, bufferInfo.presentationTimeUs / d2);
                                         }
-                                        c.a.x0.t.c.b(this.f30934a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                        c.a.x0.t.c.b(this.f30955a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
                                     }
                                     createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
                                     if ((bufferInfo.flags & 4) != 0) {
@@ -188,7 +188,7 @@ public class b extends c {
                                     }
                                 }
                                 byteBufferArr3 = byteBufferArr2;
-                                c1427f3 = c1427f2;
+                                c1425f3 = c1425f2;
                                 inputBuffers = byteBufferArr;
                                 j6 = j3;
                                 currentTimeMillis = j7;
@@ -198,7 +198,7 @@ public class b extends c {
                             if (dequeueOutputBuffer < 0) {
                             }
                             byteBufferArr3 = byteBufferArr2;
-                            c1427f3 = c1427f2;
+                            c1425f3 = c1425f2;
                             inputBuffers = byteBufferArr;
                             j6 = j3;
                             currentTimeMillis = j7;
@@ -216,14 +216,14 @@ public class b extends c {
                 if (dequeueOutputBuffer < 0) {
                 }
                 byteBufferArr3 = byteBufferArr2;
-                c1427f3 = c1427f2;
+                c1425f3 = c1425f2;
                 inputBuffers = byteBufferArr;
                 j6 = j3;
                 currentTimeMillis = j7;
             }
             long j8 = currentTimeMillis;
-            if (this.f30935b != null) {
-                this.f30935b.a(null, 1.0d);
+            if (this.f30956b != null) {
+                this.f30956b.a(null, 1.0d);
             }
             c.a.x0.t.c.b("decode " + str + " cost " + (System.currentTimeMillis() - j8) + " milliseconds !");
             return bVar;

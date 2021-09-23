@@ -24,7 +24,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -32,7 +32,7 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
     public final transient ImmutableMap<K, ? extends ImmutableCollection<V>> map;
     public final transient int size;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class EntryCollection<K, V> extends ImmutableCollection<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -94,7 +94,7 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class Keys extends ImmutableMultiset<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,7 +183,7 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class KeysSerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -214,7 +214,7 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Values<K, V> extends ImmutableCollection<V> {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -286,22 +286,22 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class a extends o1<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Iterator<? extends Map.Entry<K, ? extends ImmutableCollection<V>>> f70499e;
+        public final Iterator<? extends Map.Entry<K, ? extends ImmutableCollection<V>>> f70818e;
 
         /* renamed from: f  reason: collision with root package name */
-        public K f70500f;
+        public K f70819f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Iterator<V> f70501g;
+        public Iterator<V> f70820g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ImmutableMultimap f70502h;
+        public final /* synthetic */ ImmutableMultimap f70821h;
 
         public a(ImmutableMultimap immutableMultimap) {
             Interceptable interceptable = $ic;
@@ -318,10 +318,10 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
                     return;
                 }
             }
-            this.f70502h = immutableMultimap;
-            this.f70499e = this.f70502h.map.entrySet().iterator();
-            this.f70500f = null;
-            this.f70501g = Iterators.i();
+            this.f70821h = immutableMultimap;
+            this.f70818e = this.f70821h.map.entrySet().iterator();
+            this.f70819f = null;
+            this.f70820g = Iterators.i();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -331,12 +331,12 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!this.f70501g.hasNext()) {
-                    Map.Entry<K, ? extends ImmutableCollection<V>> next = this.f70499e.next();
-                    this.f70500f = next.getKey();
-                    this.f70501g = next.getValue().iterator();
+                if (!this.f70820g.hasNext()) {
+                    Map.Entry<K, ? extends ImmutableCollection<V>> next = this.f70818e.next();
+                    this.f70819f = next.getKey();
+                    this.f70820g = next.getValue().iterator();
                 }
-                return Maps.l(this.f70500f, this.f70501g.next());
+                return Maps.l(this.f70819f, this.f70820g.next());
             }
             return (Map.Entry) invokeV.objValue;
         }
@@ -345,23 +345,23 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70501g.hasNext() || this.f70499e.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70820g.hasNext() || this.f70818e.hasNext() : invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class b extends o1<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Iterator<? extends ImmutableCollection<V>> f70503e;
+        public Iterator<? extends ImmutableCollection<V>> f70822e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Iterator<V> f70504f;
+        public Iterator<V> f70823f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ImmutableMultimap f70505g;
+        public final /* synthetic */ ImmutableMultimap f70824g;
 
         public b(ImmutableMultimap immutableMultimap) {
             Interceptable interceptable = $ic;
@@ -378,16 +378,16 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
                     return;
                 }
             }
-            this.f70505g = immutableMultimap;
-            this.f70503e = this.f70505g.map.values().iterator();
-            this.f70504f = Iterators.i();
+            this.f70824g = immutableMultimap;
+            this.f70822e = this.f70824g.map.values().iterator();
+            this.f70823f = Iterators.i();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70504f.hasNext() || this.f70503e.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70823f.hasNext() || this.f70822e.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
@@ -395,28 +395,28 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (!this.f70504f.hasNext()) {
-                    this.f70504f = this.f70503e.next().iterator();
+                if (!this.f70823f.hasNext()) {
+                    this.f70823f = this.f70822e.next().iterator();
                 }
-                return this.f70504f.next();
+                return this.f70823f.next();
             }
             return (V) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class c<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<K, Collection<V>> f70506a;
+        public Map<K, Collection<V>> f70825a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Comparator<? super K> f70507b;
+        public Comparator<? super K> f70826b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Comparator<? super V> f70508c;
+        public Comparator<? super V> f70827c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -431,19 +431,19 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
                     return;
                 }
             }
-            this.f70506a = y0.h();
+            this.f70825a = y0.h();
         }
 
         public ImmutableMultimap<K, V> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Collection entrySet = this.f70506a.entrySet();
-                Comparator<? super K> comparator = this.f70507b;
+                Collection entrySet = this.f70825a.entrySet();
+                Comparator<? super K> comparator = this.f70826b;
                 if (comparator != null) {
                     entrySet = Ordering.from(comparator).onKeys().immutableSortedCopy(entrySet);
                 }
-                return ImmutableListMultimap.fromMapEntries(entrySet, this.f70508c);
+                return ImmutableListMultimap.fromMapEntries(entrySet, this.f70827c);
             }
             return (ImmutableMultimap) invokeV.objValue;
         }
@@ -459,9 +459,9 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
                 m.a(k, v);
-                Collection<V> collection = this.f70506a.get(k);
+                Collection<V> collection = this.f70825a.get(k);
                 if (collection == null) {
-                    Map<K, Collection<V>> map = this.f70506a;
+                    Map<K, Collection<V>> map = this.f70825a;
                     Collection<V> b2 = b();
                     map.put(k, b2);
                     collection = b2;
@@ -491,15 +491,15 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d1.b<ImmutableMultimap> f70509a;
+        public static final d1.b<ImmutableMultimap> f70828a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d1.b<ImmutableMultimap> f70510b;
+        public static final d1.b<ImmutableMultimap> f70829b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -515,8 +515,8 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
                     return;
                 }
             }
-            f70509a = d1.a(ImmutableMultimap.class, "map");
-            f70510b = d1.a(ImmutableMultimap.class, "size");
+            f70828a = d1.a(ImmutableMultimap.class, "map");
+            f70829b = d1.a(ImmutableMultimap.class, "size");
         }
     }
 

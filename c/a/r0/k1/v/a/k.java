@@ -59,10 +59,10 @@ public class k implements CustomMessageTask.CustomRunnable<String> {
                             if (msgInfo != null) {
                                 Date date = new Date();
                                 date.setTime(msgInfo.sendTime.longValue() * 1000);
-                                aVar.f53012a = c.a.e.e.p.k.getDateStringMouth(date);
-                                aVar.f53013b = msgInfo.type.intValue();
-                                aVar.f53014c = msgInfo.content;
-                                aVar.f53015d = msgInfo.id.intValue();
+                                aVar.f53125a = c.a.e.e.p.k.getDateStringMouth(date);
+                                aVar.f53126b = msgInfo.type.intValue();
+                                aVar.f53127c = msgInfo.content;
+                                aVar.f53128d = msgInfo.id.intValue();
                                 linkedList.add(aVar);
                             }
                         }

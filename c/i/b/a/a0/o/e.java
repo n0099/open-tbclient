@@ -14,10 +14,10 @@ public final class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f32524a;
+    public final l f32547a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32525b;
+    public int f32548b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class e {
                 return;
             }
         }
-        this.f32524a = new l(8);
+        this.f32547a = new l(8);
     }
 
     public final long a(c.i.b.a.a0.f fVar) throws IOException, InterruptedException {
@@ -40,8 +40,8 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
             int i2 = 0;
-            fVar.c(this.f32524a.f33812a, 0, 1);
-            int i3 = this.f32524a.f33812a[0] & 255;
+            fVar.c(this.f32547a.f33835a, 0, 1);
+            int i3 = this.f32547a.f33835a[0] & 255;
             if (i3 == 0) {
                 return Long.MIN_VALUE;
             }
@@ -52,12 +52,12 @@ public final class e {
                 i5++;
             }
             int i6 = i3 & (~i4);
-            fVar.c(this.f32524a.f33812a, 1, i5);
+            fVar.c(this.f32547a.f33835a, 1, i5);
             while (i2 < i5) {
                 i2++;
-                i6 = (this.f32524a.f33812a[i2] & 255) + (i6 << 8);
+                i6 = (this.f32547a.f33835a[i2] & 255) + (i6 << 8);
             }
-            this.f32525b += i5 + 1;
+            this.f32548b += i5 + 1;
             return i6;
         }
         return invokeL.longValue;
@@ -78,20 +78,20 @@ public final class e {
             j2 = length;
         }
         int i4 = (int) j2;
-        fVar.c(this.f32524a.f33812a, 0, 4);
-        long z = this.f32524a.z();
-        this.f32525b = 4;
+        fVar.c(this.f32547a.f33835a, 0, 4);
+        long z = this.f32547a.z();
+        this.f32548b = 4;
         while (z != 440786851) {
-            int i5 = this.f32525b + 1;
-            this.f32525b = i5;
+            int i5 = this.f32548b + 1;
+            this.f32548b = i5;
             if (i5 == i4) {
                 return false;
             }
-            fVar.c(this.f32524a.f33812a, 0, 1);
-            z = ((z << 8) & (-256)) | (this.f32524a.f33812a[0] & 255);
+            fVar.c(this.f32547a.f33835a, 0, 1);
+            z = ((z << 8) & (-256)) | (this.f32547a.f33835a[0] & 255);
         }
         long a3 = a(fVar);
-        long j3 = this.f32525b;
+        long j3 = this.f32548b;
         if (a3 == Long.MIN_VALUE) {
             return false;
         }
@@ -99,14 +99,14 @@ public final class e {
             return false;
         }
         while (true) {
-            int i6 = this.f32525b;
+            int i6 = this.f32548b;
             long j4 = j3 + a3;
             if (i6 >= j4) {
                 return ((long) i6) == j4;
             } else if (a(fVar) != Long.MIN_VALUE && (a(fVar)) >= 0 && a2 <= 2147483647L) {
                 if (i2 != 0) {
                     fVar.g((int) a2);
-                    this.f32525b = (int) (this.f32525b + a2);
+                    this.f32548b = (int) (this.f32548b + a2);
                 }
             }
         }

@@ -19,23 +19,23 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f7240e;
+    public static final boolean f7248e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f7241f;
+    public static String f7249f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7242a;
+    public String f7250a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7243b;
+    public String f7251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7244c;
+    public String f7252c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f7245d;
+    public boolean f7253d;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -43,7 +43,7 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c f7246a;
+        public c f7254a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -58,20 +58,20 @@ public final class c {
                     return;
                 }
             }
-            this.f7246a = new c();
+            this.f7254a = new c();
         }
 
         public c a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7246a : (c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7254a : (c) invokeV.objValue;
         }
 
         public a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f7246a.f7243b = str;
+                this.f7254a.f7251b = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -81,7 +81,7 @@ public final class c {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f7246a.f7245d = z;
+                this.f7254a.f7253d = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -91,7 +91,7 @@ public final class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f7246a.f7242a = str;
+                this.f7254a.f7250a = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -101,7 +101,7 @@ public final class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f7246a.f7244c = str;
+                this.f7254a.f7252c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -121,8 +121,8 @@ public final class c {
                 return;
             }
         }
-        f7240e = k.f7077a;
-        f7241f = "SwanAppParam";
+        f7248e = k.f7085a;
+        f7249f = "SwanAppParam";
     }
 
     public c() {
@@ -149,13 +149,13 @@ public final class c {
             try {
                 c cVar = new c();
                 JSONObject jSONObject = new JSONObject(str);
-                cVar.f7242a = jSONObject.optString("page");
-                cVar.f7244c = jSONObject.optString("params");
-                cVar.f7243b = jSONObject.optString("baseUrl");
-                cVar.f7245d = jSONObject.optBoolean("isFirstPage");
+                cVar.f7250a = jSONObject.optString("page");
+                cVar.f7252c = jSONObject.optString("params");
+                cVar.f7251b = jSONObject.optString("baseUrl");
+                cVar.f7253d = jSONObject.optBoolean("isFirstPage");
                 return cVar;
             } catch (JSONException e2) {
-                if (f7240e) {
+                if (f7248e) {
                     String str2 = "createSwanAppParam() error: " + Log.getStackTraceString(e2);
                 }
                 return null;
@@ -167,19 +167,19 @@ public final class c {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7243b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7251b : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7242a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7250a : (String) invokeV.objValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7244c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7252c : (String) invokeV.objValue;
     }
 
     public String i() {
@@ -188,12 +188,12 @@ public final class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("page", this.f7242a);
-                jSONObject.put("params", this.f7244c);
-                jSONObject.put("baseUrl", this.f7243b);
-                jSONObject.put("isFirstPage", this.f7245d);
+                jSONObject.put("page", this.f7250a);
+                jSONObject.put("params", this.f7252c);
+                jSONObject.put("baseUrl", this.f7251b);
+                jSONObject.put("isFirstPage", this.f7253d);
             } catch (JSONException e2) {
-                if (f7240e) {
+                if (f7248e) {
                     String str = "toJSONString error: " + Log.getStackTraceString(e2);
                 }
             }
@@ -205,7 +205,7 @@ public final class c {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f7245d = false;
+            this.f7253d = false;
         }
     }
 }

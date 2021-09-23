@@ -30,14 +30,14 @@ public class a implements c.a.p0.a.f1.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f8447d;
+    public static final Set<String> f8455d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, SwanAppConfigData> f8448b;
+    public ConcurrentHashMap<String, SwanAppConfigData> f8456b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f8449c;
+    public boolean f8457c;
 
     /* renamed from: c.a.p0.a.r1.l.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -46,7 +46,7 @@ public class a implements c.a.p0.a.f1.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f8450e;
+        public final /* synthetic */ a f8458e;
 
         public RunnableC0362a(a aVar) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class a implements c.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            this.f8450e = aVar;
+            this.f8458e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -71,9 +71,9 @@ public class a implements c.a.p0.a.f1.f.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                this.f8450e.b();
+                this.f8458e.b();
                 long currentTimeMillis2 = System.currentTimeMillis();
-                if (c.a.p0.a.f1.f.a.f5702a) {
+                if (c.a.p0.a.f1.f.a.f5710a) {
                     String str = "async batch parse app.json cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms";
                 }
             }
@@ -135,7 +135,7 @@ public class a implements c.a.p0.a.f1.f.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f8451a;
+        public static final a f8459a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -151,7 +151,7 @@ public class a implements c.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            f8451a = new a(null);
+            f8459a = new a(null);
         }
     }
 
@@ -168,7 +168,7 @@ public class a implements c.a.p0.a.f1.f.a {
                 return;
             }
         }
-        f8447d = new HashSet();
+        f8455d = new HashSet();
     }
 
     public /* synthetic */ a(RunnableC0362a runnableC0362a) {
@@ -178,7 +178,7 @@ public class a implements c.a.p0.a.f1.f.a {
     public static a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.f8451a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.f8459a : (a) invokeV.objValue;
     }
 
     public final void b() {
@@ -189,7 +189,7 @@ public class a implements c.a.p0.a.f1.f.a {
             if (!g2.exists() || (listFiles = g2.listFiles()) == null || listFiles.length == 0) {
                 return;
             }
-            for (String str : f8447d) {
+            for (String str : f8455d) {
                 c(new File(g2, str));
             }
         }
@@ -202,7 +202,7 @@ public class a implements c.a.p0.a.f1.f.a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) || file == null || !file.exists() || !file.isDirectory() || (d2 = d(file)) == null || (a2 = c.a.p0.a.f1.c.a.a(d2)) == null) {
             return;
         }
-        this.f8448b.put(d2.getAbsolutePath(), a2);
+        this.f8456b.put(d2.getAbsolutePath(), a2);
     }
 
     public final File d(File file) {
@@ -221,7 +221,7 @@ public class a implements c.a.p0.a.f1.f.a {
                 bVar.h(file.getAbsolutePath());
                 bVar.k("async parse swanApp");
                 bVar.m();
-                if (c.a.p0.a.f1.f.a.f5702a) {
+                if (c.a.p0.a.f1.f.a.f5710a) {
                     String str = file.getAbsolutePath() + " is an empty folder";
                 }
             }
@@ -233,22 +233,22 @@ public class a implements c.a.p0.a.f1.f.a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap = this.f8448b;
+            ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap = this.f8456b;
             if (concurrentHashMap != null && !concurrentHashMap.isEmpty()) {
-                this.f8448b.clear();
+                this.f8456b.clear();
             }
-            this.f8449c = false;
-            boolean z = c.a.p0.a.f1.f.a.f5702a;
+            this.f8457c = false;
+            boolean z = c.a.p0.a.f1.f.a.f5710a;
         }
     }
 
     public void g(String str) {
         ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.f8448b) == null || concurrentHashMap.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.f8456b) == null || concurrentHashMap.isEmpty()) {
             return;
         }
-        Iterator<Map.Entry<String, SwanAppConfigData>> it = this.f8448b.entrySet().iterator();
+        Iterator<Map.Entry<String, SwanAppConfigData>> it = this.f8456b.entrySet().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -257,12 +257,12 @@ public class a implements c.a.p0.a.f1.f.a {
             if (next != null) {
                 String key = next.getKey();
                 if (!TextUtils.isEmpty(key) && key.contains(str)) {
-                    this.f8448b.remove(key);
+                    this.f8456b.remove(key);
                     break;
                 }
             }
         }
-        if (c.a.p0.a.f1.f.a.f5702a) {
+        if (c.a.p0.a.f1.f.a.f5710a) {
             String str2 = "release app.json appId = " + str;
         }
     }
@@ -270,11 +270,11 @@ public class a implements c.a.p0.a.f1.f.a {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            f8447d.add("eot71qyZ0ino8W34o3XG6aQ9YdAn4R1m");
-            f8447d.add("AZQtr4jkpf90T3X9QMWVLF1bkeV4LXxD");
-            f8447d.add("AukeaxXFpdt1qCe7lE35VCvH27x6ayWI");
-            f8447d.add("flFqXclepWs7RdugAszy9eERL7G5dS0I");
-            f8447d.add("oFx3nbdDN6GWF3Vb0Wh7EDBMBxRTTcfe");
+            f8455d.add("eot71qyZ0ino8W34o3XG6aQ9YdAn4R1m");
+            f8455d.add("AZQtr4jkpf90T3X9QMWVLF1bkeV4LXxD");
+            f8455d.add("AukeaxXFpdt1qCe7lE35VCvH27x6ayWI");
+            f8455d.add("flFqXclepWs7RdugAszy9eERL7G5dS0I");
+            f8455d.add("oFx3nbdDN6GWF3Vb0Wh7EDBMBxRTTcfe");
         }
     }
 
@@ -282,18 +282,18 @@ public class a implements c.a.p0.a.f1.f.a {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f8449c) {
-                if (c.a.p0.a.f1.f.a.f5702a) {
-                    String str = "has batch parse app.json, size = " + this.f8448b.size();
+            if (this.f8457c) {
+                if (c.a.p0.a.f1.f.a.f5710a) {
+                    String str = "has batch parse app.json, size = " + this.f8456b.size();
                     return;
                 }
                 return;
             }
-            this.f8449c = true;
+            this.f8457c = true;
             try {
                 q.j(new RunnableC0362a(this), "startAsyncBatchParseAppJson");
             } catch (Throwable th) {
-                if (c.a.p0.a.f1.f.a.f5702a) {
+                if (c.a.p0.a.f1.f.a.f5710a) {
                     th.printStackTrace();
                 }
             }
@@ -311,8 +311,8 @@ public class a implements c.a.p0.a.f1.f.a {
             if (TextUtils.isEmpty(absolutePath)) {
                 return null;
             }
-            SwanAppConfigData swanAppConfigData = this.f8448b.get(absolutePath);
-            if (c.a.p0.a.f1.f.a.f5702a) {
+            SwanAppConfigData swanAppConfigData = this.f8456b.get(absolutePath);
+            if (c.a.p0.a.f1.f.a.f5710a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("try obtain config data success = ");
                 sb.append(swanAppConfigData != null);
@@ -336,8 +336,8 @@ public class a implements c.a.p0.a.f1.f.a {
                 return;
             }
         }
-        this.f8448b = new ConcurrentHashMap<>();
-        this.f8449c = false;
+        this.f8456b = new ConcurrentHashMap<>();
+        this.f8457c = false;
         h();
     }
 }

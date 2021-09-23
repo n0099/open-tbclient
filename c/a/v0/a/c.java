@@ -28,29 +28,29 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f30281a;
+    public Context f30302a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30282b;
+    public String f30303b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30283c;
+    public String f30304c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f30284d;
+    public boolean f30305d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONArray f30285e;
+    public JSONArray f30306e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, com.baidu.ubs.analytics.a.g> f30286f;
+    public Map<String, com.baidu.ubs.analytics.a.g> f30307f;
 
     /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f30287a;
+        public static final c f30308a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -66,7 +66,7 @@ public final class c {
                     return;
                 }
             }
-            f30287a = new c((byte) 0);
+            f30308a = new c((byte) 0);
         }
     }
 
@@ -76,7 +76,7 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public C1402c f30288a;
+        public C1400c f30309a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -91,40 +91,40 @@ public final class c {
                     return;
                 }
             }
-            this.f30288a = new C1402c();
+            this.f30309a = new C1400c();
         }
 
         public final List<com.baidu.ubs.analytics.a.a> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30288a.a() : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30309a.a() : (List) invokeV.objValue;
         }
 
         public final void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f30288a.b(i2);
+                this.f30309a.b(i2);
             }
         }
 
         public final void c(com.baidu.ubs.analytics.a.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                this.f30288a.c(aVar);
+                this.f30309a.c(aVar);
             }
         }
     }
 
     /* renamed from: c.a.v0.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public final class C1402c {
+    public final class C1400c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SQLiteDatabase f30289a;
+        public SQLiteDatabase f30310a;
 
-        public C1402c() {
+        public C1400c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,14 +137,14 @@ public final class c {
                     return;
                 }
             }
-            this.f30289a = f.a().c();
+            this.f30310a = f.a().c();
         }
 
         public final List<com.baidu.ubs.analytics.a.a> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Cursor rawQuery = this.f30289a.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
+                Cursor rawQuery = this.f30310a.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
                 ArrayList arrayList = new ArrayList();
                 while (rawQuery.moveToNext()) {
                     com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
@@ -166,14 +166,14 @@ public final class c {
         public final void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f30289a.execSQL("delete from tb_ab_click_log where _id <= " + i2);
+                this.f30310a.execSQL("delete from tb_ab_click_log where _id <= " + i2);
             }
         }
 
         public final void c(com.baidu.ubs.analytics.a.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                this.f30289a.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
+                this.f30310a.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
             }
         }
     }
@@ -212,7 +212,7 @@ public final class c {
             }
             int i2 = 0;
             while (true) {
-                String[] strArr = e.f30290a;
+                String[] strArr = e.f30311a;
                 if (i2 >= strArr.length) {
                     return;
                 }
@@ -234,7 +234,7 @@ public final class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f30290a;
+        public static final String[] f30311a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -250,7 +250,7 @@ public final class c {
                     return;
                 }
             }
-            f30290a = new String[]{"CREATE TABLE if not exists tb_ab_click_log (\n  _eventId varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _parameter varchar,\n  _timeStamp varchar,\n  _sessionId varchar,\n  _productLine varchar,\n  _pagerName varchar\n);", "CREATE TABLE if not exists tb_ab_netlog (\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _parameters varchar,\n  _timeStamp varchar,\n  _type varchar,\n  _url varchar,\n  _sessionId varchar\n);", "CREATE TABLE if not exists tb_ab_page_log (\n  _endTime varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _pagerName varchar,\n  _path varchar,\n  _startTime varchar,\n  _sessionId varchar\n);", "CREATE TABLE if not exists tb_ab_sessionlog (\n  _endTime varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _keepTime varchar,\n  _sessionId varchar,\n  _startTime varchar\n);"};
+            f30311a = new String[]{"CREATE TABLE if not exists tb_ab_click_log (\n  _eventId varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _parameter varchar,\n  _timeStamp varchar,\n  _sessionId varchar,\n  _productLine varchar,\n  _pagerName varchar\n);", "CREATE TABLE if not exists tb_ab_netlog (\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _parameters varchar,\n  _timeStamp varchar,\n  _type varchar,\n  _url varchar,\n  _sessionId varchar\n);", "CREATE TABLE if not exists tb_ab_page_log (\n  _endTime varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _pagerName varchar,\n  _path varchar,\n  _startTime varchar,\n  _sessionId varchar\n);", "CREATE TABLE if not exists tb_ab_sessionlog (\n  _endTime varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _keepTime varchar,\n  _sessionId varchar,\n  _startTime varchar\n);"};
         }
     }
 
@@ -259,17 +259,17 @@ public final class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: c  reason: collision with root package name */
-        public static f f30291c;
+        public static f f30312c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static SQLiteOpenHelper f30292d;
+        public static SQLiteOpenHelper f30313d;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AtomicInteger f30293a;
+        public AtomicInteger f30314a;
 
         /* renamed from: b  reason: collision with root package name */
-        public SQLiteDatabase f30294b;
+        public SQLiteDatabase f30315b;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -284,7 +284,7 @@ public final class c {
                     return;
                 }
             }
-            this.f30293a = new AtomicInteger();
+            this.f30314a = new AtomicInteger();
         }
 
         public static synchronized f a() {
@@ -293,10 +293,10 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 synchronized (f.class) {
-                    if (f30291c == null) {
+                    if (f30312c == null) {
                         b(c.i().g());
                     }
-                    fVar = f30291c;
+                    fVar = f30312c;
                 }
                 return fVar;
             }
@@ -307,9 +307,9 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
                 synchronized (f.class) {
-                    if (f30291c == null) {
-                        f30291c = new f();
-                        f30292d = new d(context);
+                    if (f30312c == null) {
+                        f30312c = new f();
+                        f30313d = new d(context);
                     }
                 }
             }
@@ -321,11 +321,11 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 synchronized (this) {
-                    if (this.f30293a.incrementAndGet() == 1) {
+                    if (this.f30314a.incrementAndGet() == 1) {
                         c.a.v0.a.f.a.a("***************新建立了 一个数据库的实例****************");
-                        this.f30294b = f30292d.getWritableDatabase();
+                        this.f30315b = f30313d.getWritableDatabase();
                     }
-                    sQLiteDatabase = this.f30294b;
+                    sQLiteDatabase = this.f30315b;
                 }
                 return sQLiteDatabase;
             }
@@ -339,7 +339,7 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SQLiteDatabase f30295a;
+        public SQLiteDatabase f30316a;
 
         public g() {
             Interceptable interceptable = $ic;
@@ -354,14 +354,14 @@ public final class c {
                     return;
                 }
             }
-            this.f30295a = f.a().c();
+            this.f30316a = f.a().c();
         }
 
         public final List<com.baidu.ubs.analytics.a.i> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Cursor rawQuery = this.f30295a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
+                Cursor rawQuery = this.f30316a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
                 ArrayList arrayList = new ArrayList();
                 while (rawQuery.moveToNext()) {
                     com.baidu.ubs.analytics.a.i iVar = new com.baidu.ubs.analytics.a.i();
@@ -382,7 +382,7 @@ public final class c {
         public final void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f30295a.execSQL("delete from tb_ab_netlog where _id <= " + i2);
+                this.f30316a.execSQL("delete from tb_ab_netlog where _id <= " + i2);
             }
         }
     }
@@ -393,7 +393,7 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public g f30296a;
+        public g f30317a;
 
         public h() {
             Interceptable interceptable = $ic;
@@ -408,19 +408,19 @@ public final class c {
                     return;
                 }
             }
-            this.f30296a = new g();
+            this.f30317a = new g();
         }
 
         public final List<com.baidu.ubs.analytics.a.i> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30296a.a() : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30317a.a() : (List) invokeV.objValue;
         }
 
         public final void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f30296a.b(i2);
+                this.f30317a.b(i2);
             }
         }
     }
@@ -431,7 +431,7 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SQLiteDatabase f30297a;
+        public SQLiteDatabase f30318a;
 
         public i() {
             Interceptable interceptable = $ic;
@@ -446,14 +446,14 @@ public final class c {
                     return;
                 }
             }
-            this.f30297a = f.a().c();
+            this.f30318a = f.a().c();
         }
 
         public final List<com.baidu.ubs.analytics.a.l> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Cursor rawQuery = this.f30297a.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+                Cursor rawQuery = this.f30318a.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
                 ArrayList arrayList = new ArrayList();
                 while (rawQuery.moveToNext()) {
                     com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
@@ -474,14 +474,14 @@ public final class c {
         public final void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f30297a.execSQL("delete from tb_ab_page_log where _id <= " + i2);
+                this.f30318a.execSQL("delete from tb_ab_page_log where _id <= " + i2);
             }
         }
 
         public final void c(com.baidu.ubs.analytics.a.l lVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
-                this.f30297a.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
+                this.f30318a.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
             }
         }
     }
@@ -492,7 +492,7 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public i f30298a;
+        public i f30319a;
 
         public j() {
             Interceptable interceptable = $ic;
@@ -507,26 +507,26 @@ public final class c {
                     return;
                 }
             }
-            this.f30298a = new i();
+            this.f30319a = new i();
         }
 
         public final List<com.baidu.ubs.analytics.a.l> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30298a.a() : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30319a.a() : (List) invokeV.objValue;
         }
 
         public final void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f30298a.b(i2);
+                this.f30319a.b(i2);
             }
         }
 
         public final void c(com.baidu.ubs.analytics.a.l lVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
-                this.f30298a.c(lVar);
+                this.f30319a.c(lVar);
             }
         }
     }
@@ -537,7 +537,7 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SQLiteDatabase f30299a;
+        public SQLiteDatabase f30320a;
 
         public k() {
             Interceptable interceptable = $ic;
@@ -552,13 +552,13 @@ public final class c {
                     return;
                 }
             }
-            this.f30299a = f.a().c();
+            this.f30320a = f.a().c();
         }
 
         public final void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f30299a.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
+                this.f30320a.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
             }
         }
 
@@ -566,7 +566,7 @@ public final class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                Cursor rawQuery = this.f30299a.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
+                Cursor rawQuery = this.f30320a.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
                 int count = rawQuery.getCount();
                 rawQuery.close();
                 return count > 0;
@@ -578,7 +578,7 @@ public final class c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                Cursor rawQuery = this.f30299a.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
+                Cursor rawQuery = this.f30320a.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
                 ArrayList arrayList = new ArrayList();
                 while (rawQuery.moveToNext()) {
                     n nVar = new n();
@@ -597,14 +597,14 @@ public final class c {
         public final void d(n nVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, nVar) == null) {
-                this.f30299a.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
+                this.f30320a.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
             }
         }
 
         public final void e(n nVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
-                this.f30299a.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
+                this.f30320a.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
             }
         }
     }
@@ -615,7 +615,7 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public k f30300a;
+        public k f30321a;
 
         public l() {
             Interceptable interceptable = $ic;
@@ -630,46 +630,46 @@ public final class c {
                     return;
                 }
             }
-            this.f30300a = new k();
+            this.f30321a = new k();
         }
 
         public final void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f30300a.a(str);
+                this.f30321a.a(str);
             }
         }
 
         public final boolean b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f30300a.b(str) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f30321a.b(str) : invokeL.booleanValue;
         }
 
         public final void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f30300a.a(str);
+                this.f30321a.a(str);
             }
         }
 
         public final List<n> d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30300a.c() : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30321a.c() : (List) invokeV.objValue;
         }
 
         public final void e(n nVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
-                this.f30300a.e(nVar);
+                this.f30321a.e(nVar);
             }
         }
 
         public final void f(n nVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, nVar) == null) {
-                this.f30300a.d(nVar);
+                this.f30321a.d(nVar);
             }
         }
     }
@@ -681,20 +681,20 @@ public final class c {
     public static c i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f30287a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f30308a : (c) invokeV.objValue;
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f30281a = context;
+            this.f30302a = context;
         }
     }
 
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f30282b = str;
+            this.f30303b = str;
         }
     }
 
@@ -702,10 +702,10 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             synchronized (this) {
-                this.f30286f = new HashMap();
+                this.f30307f = new HashMap();
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     if (list.get(i2) != null) {
-                        this.f30286f.put(list.get(i2).getId(), list.get(i2));
+                        this.f30307f.put(list.get(i2).getId(), list.get(i2));
                     }
                 }
             }
@@ -716,7 +716,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             synchronized (this) {
-                this.f30284d = z;
+                this.f30305d = z;
             }
         }
     }
@@ -724,7 +724,7 @@ public final class c {
     public final void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f30283c = str;
+            this.f30304c = str;
         }
     }
 
@@ -733,17 +733,17 @@ public final class c {
         Map<String, com.baidu.ubs.analytics.a.g> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (this.f30285e == null) {
-                if (str != null && (map = this.f30286f) != null) {
+            if (this.f30306e == null) {
+                if (str != null && (map = this.f30307f) != null) {
                     if (map.containsKey(str)) {
-                        return c.a.v0.a.f.h.a(this.f30286f.get(str).getGroup());
+                        return c.a.v0.a.f.h.a(this.f30307f.get(str).getGroup());
                     }
                     return SampleResult.OTHERE;
                 }
                 return SampleResult.OTHERE;
             }
-            for (int i2 = 0; i2 < this.f30285e.length(); i2++) {
-                JSONObject optJSONObject = this.f30285e.optJSONObject(i2);
+            for (int i2 = 0; i2 < this.f30306e.length(); i2++) {
+                JSONObject optJSONObject = this.f30306e.optJSONObject(i2);
                 if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
                     return c.a.v0.a.f.h.a(optJSONObject.optString("group"));
                 }
@@ -756,31 +756,31 @@ public final class c {
     public final Context g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30281a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30302a : (Context) invokeV.objValue;
     }
 
     public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30284d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30305d : invokeV.booleanValue;
     }
 
     public final String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30282b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30303b : (String) invokeV.objValue;
     }
 
     public final String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30283c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30304c : (String) invokeV.objValue;
     }
 
     public final Map<String, com.baidu.ubs.analytics.a.g> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f30286f : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f30307f : (Map) invokeV.objValue;
     }
 
     public c() {
@@ -796,6 +796,6 @@ public final class c {
                 return;
             }
         }
-        this.f30284d = true;
+        this.f30305d = true;
     }
 }

@@ -33,7 +33,7 @@ public final class c implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b.C0315b f7571e;
+    public final b.C0315b f7579e;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -41,7 +41,7 @@ public final class c implements b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f7572e;
+        public final /* synthetic */ c f7580e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public final class c implements b {
                     return;
                 }
             }
-            this.f7572e = cVar;
+            this.f7580e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7572e.f();
+                this.f7580e.f();
             }
         }
     }
@@ -85,7 +85,7 @@ public final class c implements b {
                 return;
             }
         }
-        this.f7571e = c0315b == null ? new b.C0315b() : c0315b;
+        this.f7579e = c0315b == null ? new b.C0315b() : c0315b;
     }
 
     public static boolean d(b.a aVar) {
@@ -110,10 +110,10 @@ public final class c implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (e() && !TextUtils.isEmpty(str) && !d(this.f7571e.f7567a.get(str))) {
+            if (e() && !TextUtils.isEmpty(str) && !d(this.f7579e.f7575a.get(str))) {
                 c.a.p0.a.n0.l.a c2 = c.a.p0.a.n0.l.a.c(str);
                 if (d(c2)) {
-                    this.f7571e.f7567a.put(c2.a(), c2);
+                    this.f7579e.f7575a.put(c2.a(), c2);
                 }
             }
             return this;
@@ -125,9 +125,9 @@ public final class c implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b.C0315b c0315b = this.f7571e;
-            int i2 = c0315b.f7570d;
-            return i2 == 0 ? c0315b.f7569c : i2;
+            b.C0315b c0315b = this.f7579e;
+            int i2 = c0315b.f7578d;
+            return i2 == 0 ? c0315b.f7577c : i2;
         }
         return invokeV.intValue;
     }
@@ -137,8 +137,8 @@ public final class c implements b {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.f7571e) {
-                z = this.f7571e.f7568b;
+            synchronized (this.f7579e) {
+                z = this.f7579e.f7576b;
             }
             return z;
         }
@@ -150,16 +150,16 @@ public final class c implements b {
         b.a value;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this.f7571e) {
+            synchronized (this.f7579e) {
                 if (e()) {
-                    this.f7571e.f7568b = false;
+                    this.f7579e.f7576b = false;
                     e eVar = new e();
-                    eVar.f7063a = "swan";
-                    eVar.f7065c = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
+                    eVar.f7071a = "swan";
+                    eVar.f7073c = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
                     int c2 = c();
-                    eVar.f7064b = String.valueOf(c2);
+                    eVar.f7072b = String.valueOf(c2);
                     JSONArray jSONArray = new JSONArray();
-                    for (Map.Entry<String, b.a> entry : this.f7571e.f7567a.entrySet()) {
+                    for (Map.Entry<String, b.a> entry : this.f7579e.f7575a.entrySet()) {
                         if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
                             jSONArray.put(value.b());
                         }
@@ -272,8 +272,8 @@ public final class c implements b {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (e() && i2 != (i3 = (c0315b = this.f7571e).f7570d) && (i3 == 0 || i3 == c0315b.f7569c)) {
-                this.f7571e.f7570d = i2;
+            if (e() && i2 != (i3 = (c0315b = this.f7579e).f7578d) && (i3 == 0 || i3 == c0315b.f7577c)) {
+                this.f7579e.f7578d = i2;
             }
             return this;
         }
@@ -284,7 +284,7 @@ public final class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (b.e0) {
-                String str = "performReport: " + this.f7571e;
+                String str = "performReport: " + this.f7579e;
             }
             if (e()) {
                 ExecutorUtilsExt.postOnElastic(new a(this), "PurgerStatistic", 3);
@@ -295,7 +295,7 @@ public final class c implements b {
     public b.C0315b k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f7571e : (b.C0315b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f7579e : (b.C0315b) invokeV.objValue;
     }
 
     public c n(int i2) {
@@ -303,7 +303,7 @@ public final class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
             if (e()) {
-                this.f7571e.f7569c = i2;
+                this.f7579e.f7577c = i2;
             }
             return this;
         }

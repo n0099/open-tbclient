@@ -16,19 +16,19 @@ public final class LocationCache {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static double f61737a;
+    public static double f61850a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static double f61738b;
+    public static double f61851b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Coord f61739c;
+    public static Coord f61852c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f61740d;
+    public static long f61853d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static LocationProvider f61741e;
+    public static LocationProvider f61854e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -119,43 +119,43 @@ public final class LocationCache {
                 return;
             }
         }
-        f61739c = Coord.UNKNOWN;
-        f61740d = 0L;
-        f61741e = LocationProvider.HOST;
+        f61852c = Coord.UNKNOWN;
+        f61853d = 0L;
+        f61854e = LocationProvider.HOST;
     }
 
     public static void a(double d2, double d3, Coord coord, LocationProvider locationProvider) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), coord, locationProvider}) == null) {
-            f61737a = d2;
-            f61738b = d3;
-            f61739c = coord;
-            f61740d = System.currentTimeMillis();
-            f61741e = locationProvider;
+            f61850a = d2;
+            f61851b = d3;
+            f61852c = coord;
+            f61853d = System.currentTimeMillis();
+            f61854e = locationProvider;
         }
     }
 
     public static double b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f61738b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f61851b : invokeV.doubleValue;
     }
 
     public static Coord c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f61739c : (Coord) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f61852c : (Coord) invokeV.objValue;
     }
 
     public static long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f61740d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f61853d : invokeV.longValue;
     }
 
     public static double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f61737a : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f61850a : invokeV.doubleValue;
     }
 }

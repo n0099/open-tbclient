@@ -13,16 +13,16 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24056a;
+    public String f24072a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24057b;
+    public String f24073b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f24058c;
+    public long f24074c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f24059d;
+    public String f24075d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -41,25 +41,25 @@ public class d {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24057b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24073b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24056a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24072a : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24059d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24075d : (String) invokeV.objValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24058c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24074c : invokeV.longValue;
     }
 
     public void e(ThemeList themeList) {
@@ -67,9 +67,9 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, themeList) == null) || themeList == null) {
             return;
         }
-        this.f24056a = themeList.name;
-        this.f24057b = themeList.icon;
-        this.f24058c = themeList.last_update_time.longValue();
-        this.f24059d = themeList.type;
+        this.f24072a = themeList.name;
+        this.f24073b = themeList.icon;
+        this.f24074c = themeList.last_update_time.longValue();
+        this.f24075d = themeList.type;
     }
 }

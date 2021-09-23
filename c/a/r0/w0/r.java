@@ -57,7 +57,7 @@ public class r extends k<s, FrsNoListItemViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f2957e).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
+            View inflate = LayoutInflater.from(this.f2958e).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
             ViewGroup.LayoutParams u = u(viewGroup);
             u.width = -1;
             u.height = this.x;

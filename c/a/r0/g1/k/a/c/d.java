@@ -17,23 +17,23 @@ public class d extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final BdUniqueId f18493j;
+    public static final BdUniqueId f18502j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18494e;
+    public boolean f18503e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18495f;
+    public int f18504f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f18496g;
+    public long f18505g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f18497h;
+    public String f18506h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d2 f18498i;
+    public d2 f18507i;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class d extends BaseCardInfo {
                 return;
             }
         }
-        f18493j = BdUniqueId.gen();
+        f18502j = BdUniqueId.gen();
     }
 
     public d() {
@@ -71,15 +71,15 @@ public class d extends BaseCardInfo {
             return;
         }
         d2 d2Var = new d2();
-        this.f18498i = d2Var;
+        this.f18507i = d2Var;
         d2Var.Y2(threadInfo);
-        this.f18498i.c3();
+        this.f18507i.c3();
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f18493j : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f18502j : (BdUniqueId) invokeV.objValue;
     }
 }

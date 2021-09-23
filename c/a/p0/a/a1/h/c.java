@@ -26,17 +26,17 @@ public class c extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f4530h;
+    public static final boolean f4538h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CountDownLatch f4531e;
+    public CountDownLatch f4539e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f4532f;
+    public File f4540f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicInteger f4533g;
+    public AtomicInteger f4541g;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -44,7 +44,7 @@ public class c extends HandlerThread {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f4534a;
+        public final /* synthetic */ c f4542a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, Looper looper) {
@@ -64,7 +64,7 @@ public class c extends HandlerThread {
                     return;
                 }
             }
-            this.f4534a = cVar;
+            this.f4542a = cVar;
         }
 
         @Override // android.os.Handler
@@ -74,24 +74,24 @@ public class c extends HandlerThread {
                 int i2 = message.what;
                 if (i2 != 100) {
                     if (i2 == 200) {
-                        if (this.f4534a.f4531e != null) {
-                            this.f4534a.f4531e.countDown();
+                        if (this.f4542a.f4539e != null) {
+                            this.f4542a.f4539e.countDown();
                         }
-                        this.f4534a.quit();
+                        this.f4542a.quit();
                         return;
                     }
                     return;
                 }
                 C0116c c0116c = (C0116c) message.obj;
-                File file = new File(this.f4534a.f4532f, c0116c.f4536a);
+                File file = new File(this.f4542a.f4540f, c0116c.f4544a);
                 d.k(file.getParentFile());
                 try {
                     FileOutputStream fileOutputStream = new FileOutputStream(file);
-                    fileOutputStream.write(c0116c.f4537b);
+                    fileOutputStream.write(c0116c.f4545b);
                     fileOutputStream.close();
                 } catch (Exception e2) {
-                    if (this.f4534a.f4533g != null) {
-                        this.f4534a.f4533g.incrementAndGet();
+                    if (this.f4542a.f4541g != null) {
+                        this.f4542a.f4541g.incrementAndGet();
                     }
                     c.a.p0.a.e0.d.i("FileOutputThread", "write file fail - " + file.getAbsolutePath(), e2);
                 }
@@ -105,7 +105,7 @@ public class c extends HandlerThread {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f4535a;
+        public final /* synthetic */ c f4543a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(c cVar, Looper looper) {
@@ -125,7 +125,7 @@ public class c extends HandlerThread {
                     return;
                 }
             }
-            this.f4535a = cVar;
+            this.f4543a = cVar;
         }
 
         @Override // android.os.Handler
@@ -135,25 +135,25 @@ public class c extends HandlerThread {
                 int i2 = message.what;
                 if (i2 != 100) {
                     if (i2 == 200) {
-                        if (this.f4535a.f4531e != null) {
-                            this.f4535a.f4531e.countDown();
+                        if (this.f4543a.f4539e != null) {
+                            this.f4543a.f4539e.countDown();
                         }
-                        this.f4535a.quit();
+                        this.f4543a.quit();
                         return;
                     }
                     return;
                 }
                 C0116c c0116c = (C0116c) message.obj;
-                File file = new File(this.f4535a.f4532f, c0116c.f4536a);
+                File file = new File(this.f4543a.f4540f, c0116c.f4544a);
                 try {
                     if (c.a.p0.a.a1.c.a()) {
-                        this.f4535a.i(c0116c, file);
+                        this.f4543a.i(c0116c, file);
                     } else {
-                        this.f4535a.h(c0116c, file);
+                        this.f4543a.h(c0116c, file);
                     }
                 } catch (Exception e2) {
-                    if (this.f4535a.f4533g != null) {
-                        this.f4535a.f4533g.incrementAndGet();
+                    if (this.f4543a.f4541g != null) {
+                        this.f4543a.f4541g.incrementAndGet();
                     }
                     c.a.p0.a.e0.d.i("FileOutputThread", "write file fail - " + file.getAbsolutePath(), e2);
                 }
@@ -168,10 +168,10 @@ public class c extends HandlerThread {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4536a;
+        public String f4544a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f4537b;
+        public byte[] f4545b;
 
         public C0116c() {
             Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class c extends HandlerThread {
                 return;
             }
         }
-        f4530h = k.f7077a;
+        f4538h = k.f7085a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -248,7 +248,7 @@ public class c extends HandlerThread {
             File g2 = g(str);
             boolean z2 = g2 != null;
             if (!z2) {
-                g2 = new File(this.f4532f, str);
+                g2 = new File(this.f4540f, str);
             }
             if (!g2.exists()) {
                 g2.getParentFile().mkdirs();
@@ -260,23 +260,23 @@ public class c extends HandlerThread {
             fileOutputStream.write(bArr);
             d.d(fileOutputStream);
             if (z2) {
-                File file = new File(this.f4532f, str);
-                long currentTimeMillis = f4530h ? System.currentTimeMillis() : 0L;
+                File file = new File(this.f4540f, str);
+                long currentTimeMillis = f4538h ? System.currentTimeMillis() : 0L;
                 if (file.exists()) {
                     if (file.length() == g2.length()) {
-                        if (f4530h) {
+                        if (f4538h) {
                             String str2 = "target file already exist, no need to rename - " + file.getAbsolutePath();
                         }
                         d.K(g2);
                         return true;
                     }
-                    if (f4530h) {
+                    if (f4538h) {
                         String str3 = "target file already exist, but size not same - " + file.getAbsolutePath();
                     }
                     d.K(file);
                 }
                 z = (g2.renameTo(file) || file.exists()) ? true : true;
-                if (f4530h) {
+                if (f4538h) {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     String str4 = "delete and rename file cost - " + (currentTimeMillis2 - currentTimeMillis);
                 }
@@ -298,7 +298,7 @@ public class c extends HandlerThread {
             String str2 = str + "_" + System.nanoTime();
             String str3 = str2;
             for (int i2 = 0; i2 < 100; i2++) {
-                File file = new File(this.f4532f, str3);
+                File file = new File(this.f4540f, str3);
                 if (!file.exists()) {
                     return file;
                 }
@@ -319,17 +319,17 @@ public class c extends HandlerThread {
                 }
             }
             FileOutputStream fileOutputStream = new FileOutputStream(file);
-            fileOutputStream.write(c0116c.f4537b);
+            fileOutputStream.write(c0116c.f4545b);
             d.d(fileOutputStream);
         }
     }
 
     public void i(@NonNull C0116c c0116c, @NonNull File file) throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, c0116c, file) == null) || f(c0116c.f4537b, c0116c.f4536a)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, c0116c, file) == null) || f(c0116c.f4545b, c0116c.f4544a)) {
             return;
         }
-        AtomicInteger atomicInteger = this.f4533g;
+        AtomicInteger atomicInteger = this.f4541g;
         if (atomicInteger != null) {
             atomicInteger.incrementAndGet();
         }
@@ -355,8 +355,8 @@ public class c extends HandlerThread {
                 return;
             }
         }
-        this.f4532f = file;
-        this.f4531e = countDownLatch;
-        this.f4533g = atomicInteger;
+        this.f4540f = file;
+        this.f4539e = countDownLatch;
+        this.f4541g = atomicInteger;
     }
 }

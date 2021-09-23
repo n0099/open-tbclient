@@ -23,7 +23,7 @@ public class d extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f9084a;
+        public final /* synthetic */ d f9092a;
 
         /* renamed from: c.a.p0.a.u.e.o.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -32,10 +32,10 @@ public class d extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ l f9085a;
+            public final /* synthetic */ l f9093a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f9086b;
+            public final /* synthetic */ a f9094b;
 
             public C0418a(a aVar, l lVar) {
                 Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public class d extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f9086b = aVar;
-                this.f9085a = lVar;
+                this.f9094b = aVar;
+                this.f9093a = lVar;
             }
 
             @Override // c.a.p0.a.n2.f.a.c
@@ -64,10 +64,10 @@ public class d extends c.a.p0.a.u.c.d {
                     try {
                         jSONObject.put("direction", f2);
                         jSONObject.put("accuracy", c.a.p0.a.n2.f.a.h(i2));
-                        this.f9085a.d(this.f9086b.f9084a, jSONObject);
+                        this.f9093a.d(this.f9094b.f9092a, jSONObject);
                     } catch (JSONException e2) {
                         c.a.p0.a.e0.d.b("Api-Compass", "handle compass,json error，" + e2.toString());
-                        this.f9085a.f(this.f9086b.f9084a, "Json error");
+                        this.f9093a.f(this.f9094b.f9092a, "Json error");
                     }
                 }
             }
@@ -88,7 +88,7 @@ public class d extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9084a = dVar;
+            this.f9092a = dVar;
         }
 
         @Override // c.a.p0.a.u.c.d.b
@@ -99,11 +99,11 @@ public class d extends c.a.p0.a.u.c.d {
                 c.a.p0.a.e0.d.g("Api-Compass", " init ");
                 l lVar = new l("compassChange", jSONObject, str);
                 c.a.p0.a.n2.f.a i2 = c.a.p0.a.n2.f.a.i();
-                i2.l(this.f9084a.i());
+                i2.l(this.f9092a.i());
                 i2.o(new C0418a(this, lVar));
                 c.a.p0.a.e0.d.g("Api-Compass", "start listen compass");
                 i2.p();
-                lVar.b(this.f9084a);
+                lVar.b(this.f9092a);
                 return new c.a.p0.a.u.h.b(0);
             }
             return (c.a.p0.a.u.h.b) invokeLLL.objValue;
@@ -134,7 +134,7 @@ public class d extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             return j(str, true, new a(this));
         }
         return (c.a.p0.a.u.h.b) invokeL.objValue;
@@ -144,7 +144,7 @@ public class d extends c.a.p0.a.u.c.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             c.a.p0.a.e0.d.g("Api-Compass", "stop listen compass");
             c.a.p0.a.n2.f.a.i().q();
             return new c.a.p0.a.u.h.b(0);

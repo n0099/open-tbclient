@@ -69,7 +69,7 @@ public class a extends c.a.r0.a0.d0.b {
     public static boolean P(d2 d2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, d2Var)) == null) ? d2Var != null && d2Var.getType() == d2.n3 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, d2Var)) == null) ? d2Var != null && d2Var.getType() == d2.o3 : invokeL.booleanValue;
     }
 
     public void Q(NewTopicList newTopicList) {
@@ -86,14 +86,14 @@ public class a extends c.a.r0.a0.d0.b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             b bVar = new b();
             this.a0 = bVar;
-            bVar.f18533a = this.V;
-            bVar.f18538f = 1;
+            bVar.f18542a = this.V;
+            bVar.f18547f = 1;
             bVar.b(newTopicList.pk_module);
         }
         if (newTopicList.top_agree_post != null) {
             PostData postData = new PostData();
             this.b0 = postData;
-            postData.c0(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
+            postData.e0(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
         }
     }
 
@@ -112,8 +112,8 @@ public class a extends c.a.r0.a0.d0.b {
         }
         b bVar = new b();
         this.a0 = bVar;
-        bVar.f18533a = this.V;
-        bVar.f18538f = 3;
+        bVar.f18542a = this.V;
+        bVar.f18547f = 3;
         bVar.c(topicModule.pk_module);
     }
 

@@ -74,7 +74,7 @@ public interface i extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof i)) {
                     return (i) queryLocalInterface;
                 }
-                return new C2064a(iBinder);
+                return new C2068a(iBinder);
             }
             return (i) invokeL.objValue;
         }
@@ -82,7 +82,7 @@ public interface i extends IInterface {
         public static i b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2064a.f75873a : (i) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2068a.f76192a : (i) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
@@ -177,17 +177,17 @@ public interface i extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.i$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static class C2064a implements i {
+        public static class C2068a implements i {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static i f75873a;
+            public static i f76192a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f75874b;
+            public IBinder f76193b;
 
-            public C2064a(IBinder iBinder) {
+            public C2068a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -202,7 +202,7 @@ public interface i extends IInterface {
                         return;
                     }
                 }
-                this.f75874b = iBinder;
+                this.f76193b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.i
@@ -214,7 +214,7 @@ public interface i extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
-                        if (!this.f75874b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f76193b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                             return a.b().a();
                         }
                         obtain2.readException();
@@ -231,7 +231,7 @@ public interface i extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75874b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76193b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.i
@@ -248,7 +248,7 @@ public interface i extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75874b.transact(3, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f76193b.transact(3, obtain, obtain2, 0) && a.b() != null) {
                             a.b().b(downloadInfo);
                         } else {
                             obtain2.readException();
@@ -274,7 +274,7 @@ public interface i extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75874b.transact(4, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f76193b.transact(4, obtain, obtain2, 0) && a.b() != null) {
                             a.b().c(downloadInfo);
                         } else {
                             obtain2.readException();
@@ -300,7 +300,7 @@ public interface i extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75874b.transact(5, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f76193b.transact(5, obtain, obtain2, 0) && a.b() != null) {
                             a.b().d(downloadInfo);
                         } else {
                             obtain2.readException();
@@ -326,7 +326,7 @@ public interface i extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75874b.transact(6, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f76193b.transact(6, obtain, obtain2, 0) && a.b() != null) {
                             a.b().e(downloadInfo);
                         } else {
                             obtain2.readException();
@@ -352,7 +352,7 @@ public interface i extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75874b.transact(8, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f76193b.transact(8, obtain, obtain2, 0) && a.b() != null) {
                             a.b().f(downloadInfo);
                         } else {
                             obtain2.readException();
@@ -378,7 +378,7 @@ public interface i extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75874b.transact(9, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f76193b.transact(9, obtain, obtain2, 0) && a.b() != null) {
                             a.b().g(downloadInfo);
                         } else {
                             obtain2.readException();
@@ -404,7 +404,7 @@ public interface i extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75874b.transact(10, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f76193b.transact(10, obtain, obtain2, 0) && a.b() != null) {
                             a.b().h(downloadInfo);
                         } else {
                             obtain2.readException();
@@ -430,7 +430,7 @@ public interface i extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75874b.transact(13, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f76193b.transact(13, obtain, obtain2, 0) && a.b() != null) {
                             a.b().i(downloadInfo);
                         } else {
                             obtain2.readException();
@@ -456,7 +456,7 @@ public interface i extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75874b.transact(2, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f76193b.transact(2, obtain, obtain2, 0) && a.b() != null) {
                             a.b().a(downloadInfo);
                         } else {
                             obtain2.readException();
@@ -488,7 +488,7 @@ public interface i extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75874b.transact(11, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f76193b.transact(11, obtain, obtain2, 0) && a.b() != null) {
                             a.b().b(downloadInfo, baseException);
                         } else {
                             obtain2.readException();
@@ -520,7 +520,7 @@ public interface i extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75874b.transact(12, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f76193b.transact(12, obtain, obtain2, 0) && a.b() != null) {
                             a.b().c(downloadInfo, baseException);
                         } else {
                             obtain2.readException();
@@ -552,7 +552,7 @@ public interface i extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75874b.transact(7, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f76193b.transact(7, obtain, obtain2, 0) && a.b() != null) {
                             a.b().a(downloadInfo, baseException);
                         } else {
                             obtain2.readException();

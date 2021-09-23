@@ -21,7 +21,7 @@ public class c extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f10913d;
+    public static final boolean f10921d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class c extends b {
                 return;
             }
         }
-        f10913d = k.f7077a;
+        f10921d = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -97,7 +97,7 @@ public class c extends b {
                 jSONObject.put("total", download.getTotalbytes());
                 jSONObject.put("fileExist", c.a.p0.g.c.d.c.j(download) ? "1" : "0");
             } catch (JSONException e2) {
-                if (f10913d) {
+                if (f10921d) {
                     e2.printStackTrace();
                 }
             }
@@ -115,7 +115,7 @@ public class c extends b {
                 jSONObject.put("data", obj);
                 jSONObject.put("message", str);
             } catch (JSONException e2) {
-                if (f10913d) {
+                if (f10921d) {
                     e2.printStackTrace();
                 }
             }

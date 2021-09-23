@@ -23,10 +23,10 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8996a;
+    public static final boolean f9004a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f8997b;
+    public static final Set<String> f9005b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,8 +42,8 @@ public class h {
                 return;
             }
         }
-        f8996a = k.f7077a;
-        f8997b = Sets.newHashSet("localhost", "127.0.0.1");
+        f9004a = k.f7085a;
+        f9005b = Sets.newHashSet("localhost", "127.0.0.1");
     }
 
     public static String a(String str) {
@@ -64,7 +64,7 @@ public class h {
                 i2 = false;
             }
             if (httpUrl != null) {
-                return (!i2 || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !f8997b.contains(httpUrl.host().toLowerCase());
+                return (!i2 || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !f9005b.contains(httpUrl.host().toLowerCase());
             }
             return false;
         }
@@ -81,7 +81,7 @@ public class h {
                     jSONObject.put("cancelTag", str);
                 }
             } catch (JSONException e2) {
-                if (f8996a) {
+                if (f9004a) {
                     e2.printStackTrace();
                 }
             }

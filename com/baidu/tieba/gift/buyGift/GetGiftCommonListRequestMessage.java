@@ -1,6 +1,6 @@
 package com.baidu.tieba.gift.buyGift;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -45,7 +45,7 @@ public class GetGiftCommonListRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.timestamp = 0;
             if (z) {
-                x.a(builder, true);
+                a0.a(builder, true);
             }
             GetGiftCommonListReqIdl.Builder builder2 = new GetGiftCommonListReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -14,10 +14,10 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f15025a;
+    public String f15032a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15026b;
+    public String f15033b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public class f {
                 return;
             }
         }
-        this.f15025a = null;
+        this.f15032a = null;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15026b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15033b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15025a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15032a : (String) invokeV.objValue;
     }
 
     public void c(Lbs lbs) {
@@ -53,10 +53,10 @@ public class f {
             return;
         }
         try {
-            this.f15025a = lbs.name;
+            this.f15032a = lbs.name;
             String str = lbs.lat;
             String str2 = lbs.lng;
-            this.f15026b = lbs.distance;
+            this.f15033b = lbs.distance;
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }

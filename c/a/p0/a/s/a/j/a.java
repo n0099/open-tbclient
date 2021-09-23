@@ -29,10 +29,10 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8504e;
+        public final /* synthetic */ String f8512e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f8505f;
+        public final /* synthetic */ a f8513f;
 
         public C0366a(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -49,8 +49,8 @@ public class a extends d {
                     return;
                 }
             }
-            this.f8505f = aVar;
-            this.f8504e = str;
+            this.f8513f = aVar;
+            this.f8512e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,15 +60,15 @@ public class a extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    this.f8505f.t(this.f8504e);
+                    this.f8513f.t(this.f8512e);
                     return;
                 }
                 int b2 = iVar.b();
                 String f2 = c.a.p0.a.e2.c.d.f(b2);
-                if (d.f8727c) {
+                if (d.f8735c) {
                     String str = "getUnionBDUSS failed: auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX;
                 }
-                this.f8505f.d(this.f8504e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
+                this.f8513f.d(this.f8512e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
             }
         }
     }
@@ -97,18 +97,18 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (d.f8727c) {
+            if (d.f8735c) {
                 String str2 = "getUnionBduss start: " + str;
             }
             e Q = e.Q();
             if (Q == null) {
-                boolean z = d.f8727c;
+                boolean z = d.f8735c;
                 return new c.a.p0.a.u.h.b(1001, "null swan runtime");
             }
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("AllianceAccountApi", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (d.f8727c) {
+                if (d.f8735c) {
                     c.a.p0.a.e0.d.b("AllianceAccountApi", "parse fail");
                 }
                 return bVar;
@@ -127,7 +127,7 @@ public class a extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             JSONObject jSONObject = new JSONObject();
-            w.f(jSONObject, "bduss", c.a.p0.a.s.a.d.f8487a.a());
+            w.f(jSONObject, "bduss", c.a.p0.a.s.a.d.f8495a.a());
             d(str, new c.a.p0.a.u.h.b(0, jSONObject));
         }
     }

@@ -16,7 +16,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SwanAppAlertDialog f10983a;
+    public SwanAppAlertDialog f10991a;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -24,22 +24,22 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f10984e;
+        public final /* synthetic */ Activity f10992e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10985f;
+        public final /* synthetic */ String f10993f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10986g;
+        public final /* synthetic */ String f10994g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f10987h;
+        public final /* synthetic */ boolean f10995h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnClickListener f10988i;
+        public final /* synthetic */ DialogInterface.OnClickListener f10996i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c f10989j;
+        public final /* synthetic */ c f10997j;
 
         public a(c cVar, Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -56,27 +56,27 @@ public class c {
                     return;
                 }
             }
-            this.f10989j = cVar;
-            this.f10984e = activity;
-            this.f10985f = str;
-            this.f10986g = str2;
-            this.f10987h = z;
-            this.f10988i = onClickListener;
+            this.f10997j = cVar;
+            this.f10992e = activity;
+            this.f10993f = str;
+            this.f10994g = str2;
+            this.f10995h = z;
+            this.f10996i = onClickListener;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f10989j.f10983a != null && this.f10989j.f10983a.isShowing()) {
-                    this.f10989j.f10983a.dismiss();
+                if (this.f10997j.f10991a != null && this.f10997j.f10991a.isShowing()) {
+                    this.f10997j.f10991a.dismiss();
                 }
-                Activity activity = this.f10984e;
+                Activity activity = this.f10992e;
                 if (activity == null || activity.isFinishing()) {
                     return;
                 }
-                SwanAppAlertDialog.a d2 = this.f10989j.d(this.f10984e, this.f10985f, this.f10986g, this.f10987h, this.f10988i);
-                this.f10989j.f10983a = d2.X();
+                SwanAppAlertDialog.a d2 = this.f10997j.d(this.f10992e, this.f10993f, this.f10994g, this.f10995h, this.f10996i);
+                this.f10997j.f10991a = d2.X();
             }
         }
     }
@@ -115,13 +115,13 @@ public class c {
     public void e() {
         SwanAppAlertDialog swanAppAlertDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (swanAppAlertDialog = this.f10983a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (swanAppAlertDialog = this.f10991a) == null) {
             return;
         }
         if (swanAppAlertDialog.isShowing()) {
-            this.f10983a.dismiss();
+            this.f10991a.dismiss();
         }
-        this.f10983a = null;
+        this.f10991a = null;
     }
 
     public void f(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {

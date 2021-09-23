@@ -16,10 +16,10 @@ public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f37886a = 1032;
+    public static final int f37934a = 1032;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<Class<?>, Method> f37887b;
+    public static Map<Class<?>, Method> f37935b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class f {
                 return;
             }
         }
-        f37887b = new HashMap();
+        f37935b = new HashMap();
     }
 
     public f() {
@@ -55,20 +55,20 @@ public class f {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (f37887b) {
-                f37887b.clear();
+            synchronized (f37935b) {
+                f37935b.clear();
             }
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:35:0x0070, code lost:
-        r1 = com.baidu.apollon.eventbus.f.f37887b;
+        r1 = com.baidu.apollon.eventbus.f.f37935b;
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x0072, code lost:
         monitor-enter(r1);
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x0073, code lost:
-        com.baidu.apollon.eventbus.f.f37887b.put(r12, r2);
+        com.baidu.apollon.eventbus.f.f37935b.put(r12, r2);
      */
     /* JADX WARN: Code restructure failed: missing block: B:38:0x0078, code lost:
         monitor-exit(r1);
@@ -84,8 +84,8 @@ public class f {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            synchronized (f37887b) {
-                method = f37887b.get(cls);
+            synchronized (f37935b) {
+                method = f37935b.get(cls);
             }
             if (method != null) {
                 return method;

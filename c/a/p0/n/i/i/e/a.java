@@ -17,7 +17,7 @@ public class a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<T> f11906a;
+    public final List<T> f11914a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a<T> {
                 return;
             }
         }
-        this.f11906a = new ArrayList();
+        this.f11914a = new ArrayList();
     }
 
     public synchronized T c() {
@@ -40,11 +40,11 @@ public class a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                if (this.f11906a.isEmpty()) {
+                if (this.f11914a.isEmpty()) {
                     return null;
                 }
-                T t = this.f11906a.get(0);
-                this.f11906a.remove(0);
+                T t = this.f11914a.get(0);
+                this.f11914a.remove(0);
                 return t;
             }
         }
@@ -56,10 +56,10 @@ public class a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (this.f11906a.isEmpty()) {
+                if (this.f11914a.isEmpty()) {
                     return null;
                 }
-                return this.f11906a.get(0);
+                return this.f11914a.get(0);
             }
         }
         return (T) invokeV.objValue;
@@ -70,9 +70,9 @@ public class a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
             if (t != null) {
-                for (int size = this.f11906a.size() - 1; size >= 0; size--) {
-                    if (t.equals(this.f11906a.get(size))) {
-                        return this.f11906a.get(size);
+                for (int size = this.f11914a.size() - 1; size >= 0; size--) {
+                    if (t.equals(this.f11914a.get(size))) {
+                        return this.f11914a.get(size);
                     }
                 }
                 return null;
@@ -86,7 +86,7 @@ public class a<T> {
     public Iterator<T> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11906a.iterator() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11914a.iterator() : (Iterator) invokeV.objValue;
     }
 
     public String toString() {
@@ -94,10 +94,10 @@ public class a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(",Queue Size:" + this.f11906a.size());
+            sb.append(",Queue Size:" + this.f11914a.size());
             synchronized (this) {
                 int i2 = 0;
-                for (T t : this.f11906a) {
+                for (T t : this.f11914a) {
                     sb.append(":[" + i2 + PreferencesUtil.RIGHT_MOUNT + t);
                     i2++;
                 }

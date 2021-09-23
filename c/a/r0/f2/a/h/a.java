@@ -27,25 +27,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdTypeRecyclerView f17598a;
+    public BdTypeRecyclerView f17608a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<c.a.e.l.e.a> f17599b;
+    public final List<c.a.e.l.e.a> f17609b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<n> f17600c;
+    public List<n> f17610c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f17601d;
+    public g f17611d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f17602e;
+    public e f17612e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f17603f;
+    public f f17613f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f17604g;
+    public c f17614g;
 
     public a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
@@ -62,50 +62,50 @@ public class a {
                 return;
             }
         }
-        this.f17599b = new ArrayList();
+        this.f17609b = new ArrayList();
         d(context, bdTypeRecyclerView);
     }
 
     public void a(int i2, c.a.r0.f2.c.c cVar, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), cVar, Integer.valueOf(i3)}) == null) {
-            new c.a.r0.f2.d.a().a(i2, cVar, i3, this.f17600c, this.f17598a);
+            new c.a.r0.f2.d.a().a(i2, cVar, i3, this.f17610c, this.f17608a);
         }
     }
 
     public void b(boolean z) {
         List<n> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (list = this.f17600c) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (list = this.f17610c) == null || list.size() <= 0) {
             return;
         }
-        for (n nVar : this.f17600c) {
+        for (n nVar : this.f17610c) {
             if (nVar != null && (nVar instanceof d)) {
                 d dVar = (d) nVar;
                 dVar.u(z);
                 h(dVar);
             }
         }
-        this.f17598a.getAdapter().notifyDataSetChanged();
+        this.f17608a.getAdapter().notifyDataSetChanged();
     }
 
     public List<n> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17600c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17610c : (List) invokeV.objValue;
     }
 
     public final void d(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, bdTypeRecyclerView) == null) {
-            this.f17601d = new g(context, c.a.r0.f2.c.f.f17647g);
-            this.f17602e = new e(context, d.m);
-            this.f17603f = new f(context, c.a.r0.f2.c.e.f17643h);
-            this.f17599b.add(this.f17601d);
-            this.f17599b.add(this.f17602e);
-            this.f17599b.add(this.f17603f);
-            this.f17598a = bdTypeRecyclerView;
-            bdTypeRecyclerView.addAdapters(this.f17599b);
+            this.f17611d = new g(context, c.a.r0.f2.c.f.f17657g);
+            this.f17612e = new e(context, d.m);
+            this.f17613f = new f(context, c.a.r0.f2.c.e.f17653h);
+            this.f17609b.add(this.f17611d);
+            this.f17609b.add(this.f17612e);
+            this.f17609b.add(this.f17613f);
+            this.f17608a = bdTypeRecyclerView;
+            bdTypeRecyclerView.addAdapters(this.f17609b);
         }
     }
 
@@ -113,9 +113,9 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<n> list = this.f17600c;
+            List<n> list = this.f17610c;
             if (list != null && list.size() > 0) {
-                for (n nVar : this.f17600c) {
+                for (n nVar : this.f17610c) {
                     if (nVar != null && (nVar instanceof d) && ((d) nVar).l()) {
                         return true;
                     }
@@ -130,11 +130,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<n> list = this.f17600c;
+            List<n> list = this.f17610c;
             if (list == null || list.size() <= 0) {
                 return false;
             }
-            for (n nVar : this.f17600c) {
+            for (n nVar : this.f17610c) {
                 if (nVar != null && (nVar instanceof d) && !((d) nVar).l()) {
                     return false;
                 }
@@ -147,15 +147,15 @@ public class a {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            g gVar = this.f17601d;
+            g gVar = this.f17611d;
             if (gVar != null) {
                 gVar.P();
             }
-            e eVar = this.f17602e;
+            e eVar = this.f17612e;
             if (eVar != null) {
                 eVar.P();
             }
-            f fVar = this.f17603f;
+            f fVar = this.f17613f;
             if (fVar != null) {
                 fVar.P();
             }
@@ -176,34 +176,34 @@ public class a {
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f17603f.m0(bVar);
+            this.f17613f.m0(bVar);
         }
     }
 
     public void j(List<c.a.r0.f2.c.a> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, list) == null) || this.f17598a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, list) == null) || this.f17608a == null) {
             return;
         }
         List<n> b2 = new c.a.r0.f2.d.a().b(list);
-        if (ListUtils.isEmpty(this.f17600c)) {
-            this.f17600c = b2;
+        if (ListUtils.isEmpty(this.f17610c)) {
+            this.f17610c = b2;
         } else {
-            this.f17600c.addAll(b2);
+            this.f17610c.addAll(b2);
         }
-        if (ListUtils.isEmpty(this.f17600c)) {
+        if (ListUtils.isEmpty(this.f17610c)) {
             return;
         }
-        this.f17598a.setData(this.f17600c);
-        this.f17604g.a();
+        this.f17608a.setData(this.f17610c);
+        this.f17614g.a();
     }
 
     public void k(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.f17604g = cVar;
-            this.f17602e.o0(cVar);
-            this.f17603f.n0(cVar);
+            this.f17614g = cVar;
+            this.f17612e.o0(cVar);
+            this.f17613f.n0(cVar);
         }
     }
 }

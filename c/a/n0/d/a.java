@@ -56,17 +56,17 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f4110c;
+    public static final String f4117c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f4111d;
+    public static int f4118d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f4112a;
+    public final Context f4119a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PublicKey f4113b;
+    public PublicKey f4120b;
 
     /* renamed from: c.a.n0.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -97,17 +97,17 @@ public final class a {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dVar, dVar2)) == null) {
-                int i2 = dVar2.f4116c - dVar.f4116c;
+                int i2 = dVar2.f4123c - dVar.f4123c;
                 if (i2 != 0) {
                     return i2;
                 }
-                if (dVar.f4115b && dVar2.f4115b) {
+                if (dVar.f4122b && dVar2.f4122b) {
                     return 0;
                 }
-                if (dVar.f4115b) {
+                if (dVar.f4122b) {
                     return -1;
                 }
-                if (dVar2.f4115b) {
+                if (dVar2.f4122b) {
                     return 1;
                 }
                 return i2;
@@ -243,16 +243,16 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ApplicationInfo f4114a;
+        public ApplicationInfo f4121a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f4115b;
+        public boolean f4122b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f4116c;
+        public int f4123c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f4117d;
+        public boolean f4124d;
 
         public /* synthetic */ d(C0103a c0103a) {
             this();
@@ -271,9 +271,9 @@ public final class a {
                     return;
                 }
             }
-            this.f4116c = 0;
-            this.f4117d = false;
-            this.f4115b = false;
+            this.f4123c = 0;
+            this.f4124d = false;
+            this.f4122b = false;
         }
     }
 
@@ -283,13 +283,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4118a;
+        public String f4125a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f4119b;
+        public String f4126b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f4120c;
+        public int f4127c;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -304,7 +304,7 @@ public final class a {
                     return;
                 }
             }
-            this.f4120c = 0;
+            this.f4127c = 0;
         }
 
         public static e a(String str) {
@@ -330,15 +330,15 @@ public final class a {
                     int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
                     if (!TextUtils.isEmpty(string)) {
                         e eVar = new e();
-                        eVar.f4118a = string;
-                        eVar.f4120c = length;
+                        eVar.f4125a = string;
+                        eVar.f4127c = length;
                         if (length >= 14) {
                             return eVar;
                         }
                         if (!TextUtils.isEmpty(str3)) {
                             str2 = str3;
                         }
-                        eVar.f4119b = str2;
+                        eVar.f4126b = str2;
                         return eVar;
                     }
                 } catch (Exception e2) {
@@ -363,16 +363,16 @@ public final class a {
                     return null;
                 }
                 e eVar = new e();
-                eVar.f4118a = str;
+                eVar.f4125a = str;
                 int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-                eVar.f4120c = length;
+                eVar.f4127c = length;
                 if (length >= 14) {
                     return eVar;
                 }
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "0";
                 }
-                eVar.f4119b = str2;
+                eVar.f4126b = str2;
                 return eVar;
             }
             return (e) invokeLL.objValue;
@@ -388,11 +388,11 @@ public final class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String str = this.f4119b;
+                String str = this.f4126b;
                 if (TextUtils.isEmpty(str)) {
                     str = "0";
                 }
-                return this.f4118a + "|" + str;
+                return this.f4125a + "|" + str;
             }
             return (String) invokeV.objValue;
         }
@@ -400,13 +400,13 @@ public final class a {
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d(this.f4120c) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d(this.f4127c) : invokeV.booleanValue;
         }
 
         public boolean h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g(this.f4119b) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g(this.f4126b) : invokeV.booleanValue;
         }
     }
 
@@ -456,7 +456,7 @@ public final class a {
             }
         }
         String str = new String(c.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
-        f4110c = str + new String(c.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
+        f4117c = str + new String(c.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
     }
 
     public a(Context context) {
@@ -474,7 +474,7 @@ public final class a {
                 return;
             }
         }
-        this.f4112a = context.getApplicationContext();
+        this.f4119a = context.getApplicationContext();
         t();
     }
 
@@ -597,7 +597,7 @@ public final class a {
                 return null;
             }
             try {
-                return new String(b.a(f4110c, f4110c, c.a(str.getBytes())));
+                return new String(b.a(f4117c, f4117c, c.a(str.getBytes())));
             } catch (Exception e2) {
                 m(e2);
                 return "";
@@ -616,25 +616,25 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<d> f2 = f(new Intent("com.baidu.intent.action.GALAXY").setPackage(this.f4112a.getPackageName()), true);
+            List<d> f2 = f(new Intent("com.baidu.intent.action.GALAXY").setPackage(this.f4119a.getPackageName()), true);
             boolean z = false;
             if (f2 != null && f2.size() != 0) {
-                z = f2.get(0).f4117d;
+                z = f2.get(0).f4124d;
             }
-            File file = new File(this.f4112a.getFilesDir(), "libcuid.so");
+            File file = new File(this.f4119a.getFilesDir(), "libcuid.so");
             e a2 = file.exists() ? e.a(p(c(file))) : null;
             if (a2 == null) {
-                f4111d |= 16;
+                f4118d |= 16;
                 List<d> f3 = f(new Intent("com.baidu.intent.action.GALAXY"), z);
                 if (f3 != null) {
-                    String str = com.baidu.fsg.face.base.b.c.f39787g;
-                    File filesDir = this.f4112a.getFilesDir();
-                    if (!com.baidu.fsg.face.base.b.c.f39787g.equals(filesDir.getName())) {
+                    String str = com.baidu.fsg.face.base.b.c.f39841g;
+                    File filesDir = this.f4119a.getFilesDir();
+                    if (!com.baidu.fsg.face.base.b.c.f39841g.equals(filesDir.getName())) {
                         str = filesDir.getName();
                     }
                     for (d dVar : f3) {
-                        if (!dVar.f4115b) {
-                            File file2 = new File(new File(dVar.f4114a.dataDir, str), "libcuid.so");
+                        if (!dVar.f4122b) {
+                            File file2 = new File(new File(dVar.f4121a.dataDir, str), "libcuid.so");
                             if (file2.exists() && (a2 = e.a(p(c(file2)))) != null) {
                                 break;
                             }
@@ -647,15 +647,15 @@ public final class a {
             }
             boolean n = n("android.permission.READ_EXTERNAL_STORAGE");
             if (a2 == null && n) {
-                f4111d |= 2;
+                f4118d |= 2;
                 a2 = o();
             }
             if (a2 == null) {
-                f4111d |= 8;
+                f4118d |= 8;
                 a2 = l();
             }
             if (a2 == null && n) {
-                f4111d |= 1;
+                f4118d |= 1;
                 a2 = s(q());
             }
             h(a2);
@@ -669,7 +669,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, z)) == null) {
             ArrayList arrayList = new ArrayList();
-            PackageManager packageManager = this.f4112a.getPackageManager();
+            PackageManager packageManager = this.f4119a.getPackageManager();
             List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
             if (queryBroadcastReceivers != null) {
                 for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
@@ -683,10 +683,10 @@ public final class a {
                                     byte[] a2 = c.a(string.getBytes("utf-8"));
                                     JSONObject jSONObject = new JSONObject(new String(a2));
                                     d dVar = new d(null);
-                                    dVar.f4116c = jSONObject.getInt("priority");
-                                    dVar.f4114a = resolveInfo.activityInfo.applicationInfo;
-                                    if (this.f4112a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                        dVar.f4115b = true;
+                                    dVar.f4123c = jSONObject.getInt("priority");
+                                    dVar.f4121a = resolveInfo.activityInfo.applicationInfo;
+                                    if (this.f4119a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
+                                        dVar.f4122b = true;
                                     }
                                     if (z) {
                                         String string2 = bundle.getString("galaxy_sf");
@@ -699,9 +699,9 @@ public final class a {
                                                 strArr[i2] = jSONArray.getString(i2);
                                             }
                                             if (i(strArr, k(packageInfo.signatures))) {
-                                                byte[] j2 = j(c.a(string2.getBytes()), this.f4113b);
+                                                byte[] j2 = j(c.a(string2.getBytes()), this.f4120b);
                                                 if (j2 != null && Arrays.equals(j2, g.a(a2))) {
-                                                    dVar.f4117d = true;
+                                                    dVar.f4124d = true;
                                                 }
                                             }
                                         }
@@ -729,10 +729,10 @@ public final class a {
                 return false;
             }
             if (eVar.f()) {
-                eVar.f4119b = "O";
+                eVar.f4126b = "O";
                 return true;
             } else if (eVar.h()) {
-                eVar.f4119b = "0";
+                eVar.f4126b = "0";
                 return true;
             } else {
                 return false;
@@ -784,7 +784,7 @@ public final class a {
     public final boolean n(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.f4112a.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.f4119a.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeL.booleanValue;
     }
 
     public final e o() {
@@ -798,7 +798,7 @@ public final class a {
                     return null;
                 }
                 try {
-                    return e.a(new String(b.a(f4110c, f4110c, c.a(c2.getBytes()))));
+                    return e.a(new String(b.a(f4117c, f4117c, c.a(c2.getBytes()))));
                 } catch (Exception e2) {
                     m(e2);
                     return null;
@@ -837,7 +837,7 @@ public final class a {
                     sb.append(Part.CRLF);
                 }
                 bufferedReader.close();
-                String[] split = new String(b.a(f4110c, f4110c, c.a(sb.toString().getBytes()))).split("=");
+                String[] split = new String(b.a(f4117c, f4117c, c.a(sb.toString().getBytes()))).split("=");
                 if (split == null || split.length != 2) {
                     str2 = "";
                 } else {
@@ -874,7 +874,7 @@ public final class a {
                     try {
                         byteArrayInputStream = new ByteArrayInputStream(f.a());
                         try {
-                            this.f4113b = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+                            this.f4120b = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
                             byteArrayInputStream.close();
                         } catch (Exception e3) {
                             e2 = e3;
@@ -916,7 +916,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
             try {
-                return Settings.System.getString(this.f4112a.getContentResolver(), str);
+                return Settings.System.getString(this.f4119a.getContentResolver(), str);
             } catch (Exception e2) {
                 m(e2);
                 return null;

@@ -12,7 +12,7 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f9229a;
+    public Bundle f9237a;
 
     public f(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -29,12 +29,12 @@ public class f {
                 return;
             }
         }
-        this.f9229a = bundle;
+        this.f9237a = bundle;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9229a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9237a != null : invokeV.booleanValue;
     }
 }

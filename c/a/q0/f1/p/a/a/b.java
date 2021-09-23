@@ -12,10 +12,10 @@ public class b implements c.a.q0.f1.p.b.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13287a;
+    public int f13304a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13288b;
+    public int f13305b;
 
     public b(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -32,15 +32,15 @@ public class b implements c.a.q0.f1.p.b.a.a {
                 return;
             }
         }
-        this.f13287a = i2;
-        this.f13288b = i3;
+        this.f13304a = i2;
+        this.f13305b = i3;
     }
 
     @Override // c.a.q0.f1.p.b.a.a
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f13288b - this.f13287a) + 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f13305b - this.f13304a) + 1 : invokeV.intValue;
     }
 
     @Override // c.a.q0.f1.p.b.a.a
@@ -49,7 +49,7 @@ public class b implements c.a.q0.f1.p.b.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             if (i2 >= 0 && i2 < a()) {
-                return Integer.valueOf(this.f13287a + i2);
+                return Integer.valueOf(this.f13304a + i2);
             }
             return 0;
         }

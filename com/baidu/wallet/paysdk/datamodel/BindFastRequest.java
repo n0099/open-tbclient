@@ -33,6 +33,7 @@ public class BindFastRequest extends BeanRequestBase implements Serializable {
     public static final int BIND_FROM_DIRECT_AUTHORIZE = 8;
     public static final int BIND_FROM_FORGET_PASSSWD = 3;
     public static final int BIND_FROM_FORGET_PASSSWD_BY_OLD_CARD = 4;
+    public static final String BIND_FROM_INITIATIVE = "11";
     public static final int BIND_FROM_ONLY_COMPLETION = 5;
     public static final int BIND_FROM_PAY = 0;
     public static final String BIND_IS_FIRST = "bind_is_first";

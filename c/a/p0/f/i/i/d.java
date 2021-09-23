@@ -29,34 +29,34 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10523a;
+    public Context f10531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdElementInfo f10524b;
+    public AdElementInfo f10532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f10525c;
+    public View f10533c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f10526d;
+    public LinearLayout f10534d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f10527e;
+    public int f10535e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f10528f;
+    public int f10536f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdImageVIew f10529g;
+    public AdImageVIew f10537g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdImageVIew f10530h;
+    public AdImageVIew f10538h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f10531i;
+    public RelativeLayout f10539i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RelativeLayout f10532j;
+    public RelativeLayout f10540j;
     public RelativeLayout k;
     public TextView l;
     public TextView m;
@@ -77,7 +77,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f10533e;
+        public final /* synthetic */ d f10541e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -94,14 +94,14 @@ public class d {
                     return;
                 }
             }
-            this.f10533e = dVar;
+            this.f10541e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10533e.g();
+                this.f10541e.g();
             }
         }
     }
@@ -112,7 +112,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f10534e;
+        public final /* synthetic */ d f10542e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -129,16 +129,16 @@ public class d {
                     return;
                 }
             }
-            this.f10534e = dVar;
+            this.f10542e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.p0.f.i.r.d.b(this.f10534e.u);
-                if (this.f10534e.s != null) {
-                    this.f10534e.s.b();
+                c.a.p0.f.i.r.d.b(this.f10542e.u);
+                if (this.f10542e.s != null) {
+                    this.f10542e.s.b();
                 }
             }
         }
@@ -150,7 +150,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f10535e;
+        public final /* synthetic */ d f10543e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -167,16 +167,16 @@ public class d {
                     return;
                 }
             }
-            this.f10535e = dVar;
+            this.f10543e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f10535e.q == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f10543e.q == null) {
                 return;
             }
-            this.f10535e.q.b(CommandType.BANNER_VIEW, null);
+            this.f10543e.q.b(CommandType.BANNER_VIEW, null);
         }
     }
 
@@ -187,7 +187,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f10536e;
+        public final /* synthetic */ d f10544e;
 
         public View$OnClickListenerC0523d(d dVar) {
             Interceptable interceptable = $ic;
@@ -204,16 +204,16 @@ public class d {
                     return;
                 }
             }
-            this.f10536e = dVar;
+            this.f10544e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f10536e.r == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f10544e.r == null) {
                 return;
             }
-            this.f10536e.r.f(view);
+            this.f10544e.r.f(view);
         }
     }
 
@@ -240,8 +240,8 @@ public class d {
         this.u = new a(this);
         this.v = new c(this);
         this.w = new View$OnClickListenerC0523d(this);
-        this.f10523a = context;
-        this.f10524b = adElementInfo;
+        this.f10531a = context;
+        this.f10532b = adElementInfo;
         this.p = c.a.p0.f.i.m.a.a().j();
         this.t = z;
         h();
@@ -251,51 +251,51 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             int a2 = h.a(i2);
-            this.f10527e = a2;
-            this.f10528f = (int) (a2 / c.a.p0.f.i.i.e.f10537a);
-            this.f10525c.setLayoutParams(new RelativeLayout.LayoutParams(this.f10527e, this.f10528f));
-            this.f10526d.setLayoutParams(new RelativeLayout.LayoutParams(this.f10527e, this.f10528f));
-            int i3 = (int) (this.f10528f * c.a.p0.f.i.i.e.f10538b);
-            this.f10532j.setLayoutParams(new LinearLayout.LayoutParams(i3, this.f10528f));
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (i3 * c.a.p0.f.i.i.e.m), (int) (this.f10528f * c.a.p0.f.i.i.e.n));
+            this.f10535e = a2;
+            this.f10536f = (int) (a2 / c.a.p0.f.i.i.e.f10545a);
+            this.f10533c.setLayoutParams(new RelativeLayout.LayoutParams(this.f10535e, this.f10536f));
+            this.f10534d.setLayoutParams(new RelativeLayout.LayoutParams(this.f10535e, this.f10536f));
+            int i3 = (int) (this.f10536f * c.a.p0.f.i.i.e.f10546b);
+            this.f10540j.setLayoutParams(new LinearLayout.LayoutParams(i3, this.f10536f));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (i3 * c.a.p0.f.i.i.e.m), (int) (this.f10536f * c.a.p0.f.i.i.e.n));
             layoutParams.addRule(12);
             layoutParams.addRule(9);
             layoutParams.setMarginStart(0);
-            this.f10530h.setLayoutParams(layoutParams);
-            int i4 = this.f10527e - i3;
-            this.f10531i.setLayoutParams(new LinearLayout.LayoutParams(i4, this.f10528f));
-            int i5 = this.f10528f;
+            this.f10538h.setLayoutParams(layoutParams);
+            int i4 = this.f10535e - i3;
+            this.f10539i.setLayoutParams(new LinearLayout.LayoutParams(i4, this.f10536f));
+            int i5 = this.f10536f;
             float f2 = i4;
-            int i6 = (int) (c.a.p0.f.i.i.e.f10544h * f2);
+            int i6 = (int) (c.a.p0.f.i.i.e.f10552h * f2);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams2.addRule(9);
-            layoutParams2.topMargin = (int) (i5 * c.a.p0.f.i.i.e.f10539c);
+            layoutParams2.topMargin = (int) (i5 * c.a.p0.f.i.i.e.f10547c);
             layoutParams2.leftMargin = i6;
             layoutParams2.rightMargin = i6;
             this.l.setLayoutParams(layoutParams2);
-            this.l.setTextSize(0, (int) (i5 * c.a.p0.f.i.i.e.f10541e));
-            this.l.setLineSpacing((int) (i5 * c.a.p0.f.i.i.e.f10540d), 1.0f);
-            int i7 = this.f10528f;
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, (int) (i7 * c.a.p0.f.i.i.e.f10543g));
+            this.l.setTextSize(0, (int) (i5 * c.a.p0.f.i.i.e.f10549e));
+            this.l.setLineSpacing((int) (i5 * c.a.p0.f.i.i.e.f10548d), 1.0f);
+            int i7 = this.f10536f;
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, (int) (i7 * c.a.p0.f.i.i.e.f10551g));
             layoutParams3.addRule(12);
-            layoutParams3.bottomMargin = (int) (i7 * c.a.p0.f.i.i.e.f10542f);
+            layoutParams3.bottomMargin = (int) (i7 * c.a.p0.f.i.i.e.f10550f);
             layoutParams3.leftMargin = i6;
             layoutParams3.rightMargin = i6;
             this.k.setLayoutParams(layoutParams3);
-            int i8 = (int) (this.f10528f * c.a.p0.f.i.i.e.k);
-            RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams((int) (f2 * c.a.p0.f.i.i.e.f10545i), -1);
+            int i8 = (int) (this.f10536f * c.a.p0.f.i.i.e.k);
+            RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams((int) (f2 * c.a.p0.f.i.i.e.f10553i), -1);
             layoutParams4.addRule(9);
             float f3 = (int) (c.a.p0.f.i.i.e.l * i8);
             this.m.setTextSize(0, f3);
             layoutParams4.addRule(15);
             this.m.setLayoutParams(layoutParams4);
-            RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams((int) (c.a.p0.f.i.i.e.f10546j * f2), i8);
+            RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams((int) (c.a.p0.f.i.i.e.f10554j * f2), i8);
             layoutParams5.addRule(12);
             layoutParams5.addRule(11);
             this.n.setTextSize(0, f3);
             this.n.setLayoutParams(layoutParams5);
             if (this.o != null) {
-                int i9 = (int) (this.f10528f * c.a.p0.f.i.i.e.o);
+                int i9 = (int) (this.f10536f * c.a.p0.f.i.i.e.o);
                 RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(i9, i9);
                 layoutParams6.addRule(10);
                 layoutParams6.addRule(11);
@@ -307,15 +307,15 @@ public class d {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10525c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10533c : (View) invokeV.objValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View view = this.f10525c;
+            View view = this.f10533c;
             if (view != null && view.getVisibility() == 0) {
-                this.f10525c.setVisibility(4);
+                this.f10533c.setVisibility(4);
             }
             c.a.p0.f.i.r.d.b(this.u);
         }
@@ -325,61 +325,61 @@ public class d {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Resources resources = this.f10523a.getResources();
-            View inflate = LayoutInflater.from(this.f10523a).inflate(c.a.p0.f.i.f.ng_game_banner_ad, (ViewGroup) null);
-            this.f10525c = inflate;
-            this.f10526d = (LinearLayout) inflate.findViewById(c.a.p0.f.i.e.banner_view);
-            this.f10532j = (RelativeLayout) this.f10525c.findViewById(c.a.p0.f.i.e.banner_ad_left);
-            AdImageVIew adImageVIew = (AdImageVIew) this.f10525c.findViewById(c.a.p0.f.i.e.banner_w_pic);
-            this.f10529g = adImageVIew;
-            AdElementInfo adElementInfo = this.f10524b;
+            Resources resources = this.f10531a.getResources();
+            View inflate = LayoutInflater.from(this.f10531a).inflate(c.a.p0.f.i.f.ng_game_banner_ad, (ViewGroup) null);
+            this.f10533c = inflate;
+            this.f10534d = (LinearLayout) inflate.findViewById(c.a.p0.f.i.e.banner_view);
+            this.f10540j = (RelativeLayout) this.f10533c.findViewById(c.a.p0.f.i.e.banner_ad_left);
+            AdImageVIew adImageVIew = (AdImageVIew) this.f10533c.findViewById(c.a.p0.f.i.e.banner_w_pic);
+            this.f10537g = adImageVIew;
+            AdElementInfo adElementInfo = this.f10532b;
             if (adElementInfo != null) {
                 adImageVIew.setImageUrl(adElementInfo.getPictureUrl());
             }
-            AdImageVIew adImageVIew2 = (AdImageVIew) this.f10525c.findViewById(c.a.p0.f.i.e.ad_text);
-            this.f10530h = adImageVIew2;
+            AdImageVIew adImageVIew2 = (AdImageVIew) this.f10533c.findViewById(c.a.p0.f.i.e.ad_text);
+            this.f10538h = adImageVIew2;
             adImageVIew2.setImageUrl("https://cpro.baidustatic.com/cpro/ui/noexpire/css/2.1.4/img/mob-adIcon_2x.png");
-            this.f10531i = (RelativeLayout) this.f10525c.findViewById(c.a.p0.f.i.e.banner_ad_right);
-            this.k = (RelativeLayout) this.f10525c.findViewById(c.a.p0.f.i.e.banner_right_bottom);
-            this.l = (TextView) this.f10525c.findViewById(c.a.p0.f.i.e.banner_title);
-            this.m = (TextView) this.f10525c.findViewById(c.a.p0.f.i.e.banner_app_name);
-            AdElementInfo adElementInfo2 = this.f10524b;
+            this.f10539i = (RelativeLayout) this.f10533c.findViewById(c.a.p0.f.i.e.banner_ad_right);
+            this.k = (RelativeLayout) this.f10533c.findViewById(c.a.p0.f.i.e.banner_right_bottom);
+            this.l = (TextView) this.f10533c.findViewById(c.a.p0.f.i.e.banner_title);
+            this.m = (TextView) this.f10533c.findViewById(c.a.p0.f.i.e.banner_app_name);
+            AdElementInfo adElementInfo2 = this.f10532b;
             if (adElementInfo2 != null) {
                 this.l.setText(adElementInfo2.getTitle());
-                this.m.setText(this.f10524b.getAppName());
+                this.m.setText(this.f10532b.getAppName());
             }
-            Button button = (Button) this.f10525c.findViewById(c.a.p0.f.i.e.banner_ad_act);
+            Button button = (Button) this.f10533c.findViewById(c.a.p0.f.i.e.banner_ad_act);
             this.n = button;
             button.setVisibility(8);
-            AdElementInfo adElementInfo3 = this.f10524b;
+            AdElementInfo adElementInfo3 = this.f10532b;
             if (adElementInfo3 != null && adElementInfo3.getActionType() == 1) {
                 this.n.setVisibility(0);
                 this.n.setText(resources.getString(g.see_detail));
             }
-            AdElementInfo adElementInfo4 = this.f10524b;
+            AdElementInfo adElementInfo4 = this.f10532b;
             if (adElementInfo4 != null && adElementInfo4.getActionType() == 2) {
                 this.n.setVisibility(0);
                 this.n.setText(resources.getString(g.swanapp_ad_download_button));
             }
-            if (this.f10524b == null) {
-                this.f10532j.setVisibility(8);
-                this.f10531i.setVisibility(8);
-                this.f10525c.findViewById(c.a.p0.f.i.e.no_ad_tips).setVisibility(0);
+            if (this.f10532b == null) {
+                this.f10540j.setVisibility(8);
+                this.f10539i.setVisibility(8);
+                this.f10533c.findViewById(c.a.p0.f.i.e.no_ad_tips).setVisibility(0);
                 return;
             }
-            this.f10532j.setVisibility(0);
-            this.f10531i.setVisibility(0);
-            this.f10525c.findViewById(c.a.p0.f.i.e.no_ad_tips).setVisibility(8);
+            this.f10540j.setVisibility(0);
+            this.f10539i.setVisibility(0);
+            this.f10533c.findViewById(c.a.p0.f.i.e.no_ad_tips).setVisibility(8);
             if (this.t) {
                 this.n.setOnClickListener(this.w);
-                this.f10526d.setOnClickListener(this.w);
+                this.f10534d.setOnClickListener(this.w);
             } else {
                 this.n.setOnClickListener(this.v);
-                this.f10526d.setOnClickListener(this.v);
+                this.f10534d.setOnClickListener(this.v);
             }
-            this.f10525c.setVisibility(4);
+            this.f10533c.setVisibility(4);
             if (this.p) {
-                ImageView imageView = (ImageView) this.f10525c.findViewById(c.a.p0.f.i.e.close_ad_btn);
+                ImageView imageView = (ImageView) this.f10533c.findViewById(c.a.p0.f.i.e.close_ad_btn);
                 this.o = imageView;
                 imageView.setVisibility(0);
                 this.o.setOnClickListener(new b(this));
@@ -411,9 +411,9 @@ public class d {
     public void l() {
         View view;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (view = this.f10525c) != null && view.getVisibility() == 4) {
-            this.f10525c.setAnimation(AnimationUtils.loadAnimation(this.f10523a, c.a.p0.f.i.a.ng_game_ad_open));
-            this.f10525c.setVisibility(0);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (view = this.f10533c) != null && view.getVisibility() == 4) {
+            this.f10533c.setAnimation(AnimationUtils.loadAnimation(this.f10531a, c.a.p0.f.i.a.ng_game_ad_open));
+            this.f10533c.setVisibility(0);
             c.a.p0.f.i.r.d.a(this.u, c.a.p0.f.i.m.a.a().a());
         }
     }
@@ -436,7 +436,7 @@ public class d {
         this.u = new a(this);
         this.v = new c(this);
         this.w = new View$OnClickListenerC0523d(this);
-        this.f10523a = context;
+        this.f10531a = context;
         h();
     }
 }

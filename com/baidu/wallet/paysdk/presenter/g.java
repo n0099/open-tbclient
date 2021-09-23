@@ -15,7 +15,10 @@ public final class g {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i2, payBaseBeanActivity)) == null) {
             if (i2 != 1) {
                 if (i2 != 3) {
-                    return null;
+                    if (i2 != 5) {
+                        return null;
+                    }
+                    return new com.baidu.wallet.newbindcard.b.b(payBaseBeanActivity);
                 }
                 return new j(payBaseBeanActivity);
             }

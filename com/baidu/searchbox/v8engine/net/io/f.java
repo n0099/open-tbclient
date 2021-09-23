@@ -12,10 +12,10 @@ public final class f {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f45153a;
+    public static e f45215a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f45154b;
+    public static long f45216b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public f() {
@@ -37,11 +37,11 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (f.class) {
-                if (f45153a != null) {
-                    e eVar = f45153a;
-                    f45153a = eVar.f45151f;
-                    eVar.f45151f = null;
-                    f45154b -= 8192;
+                if (f45215a != null) {
+                    e eVar = f45215a;
+                    f45215a = eVar.f45213f;
+                    eVar.f45213f = null;
+                    f45216b -= 8192;
                     return eVar;
                 }
                 return new e();
@@ -53,19 +53,19 @@ public final class f {
     public static void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, eVar) == null) {
-            if (eVar.f45151f == null && eVar.f45152g == null) {
-                if (eVar.f45149d) {
+            if (eVar.f45213f == null && eVar.f45214g == null) {
+                if (eVar.f45211d) {
                     return;
                 }
                 synchronized (f.class) {
-                    if (f45154b + 8192 > 65536) {
+                    if (f45216b + 8192 > 65536) {
                         return;
                     }
-                    f45154b += 8192;
-                    eVar.f45151f = f45153a;
-                    eVar.f45148c = 0;
-                    eVar.f45147b = 0;
-                    f45153a = eVar;
+                    f45216b += 8192;
+                    eVar.f45213f = f45215a;
+                    eVar.f45210c = 0;
+                    eVar.f45209b = 0;
+                    f45215a = eVar;
                     return;
                 }
             }

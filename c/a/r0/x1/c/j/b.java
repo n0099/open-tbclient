@@ -21,13 +21,13 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f28432e;
+    public TbPageContext<BaseFragmentActivity> f28452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<o> f28433f;
+    public List<o> f28453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f28434g;
+    public View.OnClickListener f28454g;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -35,7 +35,7 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public BasicTaskItemView f28435a;
+        public BasicTaskItemView f28455a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -67,9 +67,9 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f28432e = tbPageContext;
-        this.f28433f = arrayList;
-        this.f28434g = onClickListener;
+        this.f28452e = tbPageContext;
+        this.f28453f = arrayList;
+        this.f28454g = onClickListener;
     }
 
     @Override // android.widget.Adapter
@@ -77,7 +77,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<o> list = this.f28433f;
+            List<o> list = this.f28453f;
             if (list == null) {
                 return 0;
             }
@@ -91,7 +91,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            List<o> list = this.f28433f;
+            List<o> list = this.f28453f;
             if (list == null) {
                 return null;
             }
@@ -105,7 +105,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            List<o> list = this.f28433f;
+            List<o> list = this.f28453f;
             if (list == null) {
                 return 0L;
             }
@@ -123,17 +123,17 @@ public class b extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 aVar = new a();
-                BasicTaskItemView basicTaskItemView = new BasicTaskItemView(this.f28432e.getPageActivity(), this.f28434g);
-                aVar.f28435a = basicTaskItemView;
+                BasicTaskItemView basicTaskItemView = new BasicTaskItemView(this.f28452e.getPageActivity(), this.f28454g);
+                aVar.f28455a = basicTaskItemView;
                 basicTaskItemView.hideDivideLine();
-                view2 = aVar.f28435a;
+                view2 = aVar.f28455a;
                 view2.setTag(aVar);
             } else {
                 view2 = view;
                 aVar = (a) view.getTag();
             }
-            aVar.f28435a.renderView(this.f28433f.get(i2));
-            c.a.q0.w0.a.a(this.f28432e, view2);
+            aVar.f28455a.renderView(this.f28453f.get(i2));
+            c.a.q0.w0.a.a(this.f28452e, view2);
             return view2;
         }
         return (View) invokeILL.objValue;

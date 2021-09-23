@@ -13,34 +13,34 @@ public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final l f37692a;
+    public static final l f37740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final l f37693b;
+    public static final l f37741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final l f37694c;
+    public static final l f37742c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final l f37695d;
+    public static final l f37743d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final l f37696e;
+    public static final l f37744e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final l f37697f;
+    public static final l f37745f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final l f37698g;
+    public static final l f37746g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final l f37699h;
+    public static final l f37747h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final l f37700i;
+    public static final l f37748i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final l f37701j;
+    public static final l f37749j;
     public static final l k;
     public static final l l;
     public static final /* synthetic */ l[] n;
@@ -60,20 +60,20 @@ public final class l {
                 return;
             }
         }
-        f37692a = new l("MSG_TYPE_INVALID", 0, -1);
-        f37693b = new l("MSG_TYPE_SINGLE_PRIVATE", 1, 0);
-        f37694c = new l("MSG_TYPE_MULTI_PRIVATE", 2, 1);
-        f37695d = new l("MSG_TYPE_SINGLE_PUBLIC", 3, 2);
-        f37696e = new l("MSG_TYPE_MULTI_PUBLIC", 4, 3);
-        f37697f = new l("MSG_TYPE_MULTI_PRIVATE_NOTIFICATION", 5, 5);
-        f37698g = new l("MSG_TYPE_PRIVATE_MESSAGE", 6, 6);
-        f37699h = new l("MSG_TYPE_CLEAR_MESSAGE", 7, 8);
-        f37700i = new l("MSG_TYPE_CROSS_PUSH", 8, 20);
-        f37701j = new l("MSG_TYPE_APP_PRIORITY", 9, 30);
+        f37740a = new l("MSG_TYPE_INVALID", 0, -1);
+        f37741b = new l("MSG_TYPE_SINGLE_PRIVATE", 1, 0);
+        f37742c = new l("MSG_TYPE_MULTI_PRIVATE", 2, 1);
+        f37743d = new l("MSG_TYPE_SINGLE_PUBLIC", 3, 2);
+        f37744e = new l("MSG_TYPE_MULTI_PUBLIC", 4, 3);
+        f37745f = new l("MSG_TYPE_MULTI_PRIVATE_NOTIFICATION", 5, 5);
+        f37746g = new l("MSG_TYPE_PRIVATE_MESSAGE", 6, 6);
+        f37747h = new l("MSG_TYPE_CLEAR_MESSAGE", 7, 8);
+        f37748i = new l("MSG_TYPE_CROSS_PUSH", 8, 20);
+        f37749j = new l("MSG_TYPE_APP_PRIORITY", 9, 30);
         k = new l("MSG_TYPE_INNERBIND", 10, 101);
         l lVar = new l("MSG_TYPE_APPSTAT_COMMAND", 11, 104);
         l = lVar;
-        n = new l[]{f37692a, f37693b, f37694c, f37695d, f37696e, f37697f, f37698g, f37699h, f37700i, f37701j, k, lVar};
+        n = new l[]{f37740a, f37741b, f37742c, f37743d, f37744e, f37745f, f37746g, f37747h, f37748i, f37749j, k, lVar};
     }
 
     public l(String str, int i2, int i3) {
@@ -100,7 +100,7 @@ public final class l {
     public static l a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 5 ? i2 != 6 ? i2 != 8 ? i2 != 20 ? i2 != 30 ? i2 != 101 ? i2 != 104 ? f37692a : l : k : f37701j : f37700i : f37699h : f37698g : f37697f : f37696e : f37695d : f37694c : f37693b : (l) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 5 ? i2 != 6 ? i2 != 8 ? i2 != 20 ? i2 != 30 ? i2 != 101 ? i2 != 104 ? f37740a : l : k : f37749j : f37748i : f37747h : f37746g : f37745f : f37744e : f37743d : f37742c : f37741b : (l) invokeI.objValue;
     }
 
     public static l[] a() {

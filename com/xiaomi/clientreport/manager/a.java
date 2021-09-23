@@ -32,7 +32,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f77240a;
+    public static final int f77559a;
 
     /* renamed from: a  reason: collision with other field name */
     public static volatile a f34a;
@@ -60,7 +60,7 @@ public class a {
     public ExecutorService f41a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f77241b;
+    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f77560b;
 
     static {
         InterceptResult invokeClinit;
@@ -75,7 +75,7 @@ public class a {
                 return;
             }
         }
-        f77240a = l.m538a() ? 30 : 10;
+        f77559a = l.m538a() ? 30 : 10;
     }
 
     public a(Context context) {
@@ -95,7 +95,7 @@ public class a {
         }
         this.f41a = Executors.newSingleThreadExecutor();
         this.f40a = new HashMap<>();
-        this.f77241b = new HashMap<>();
+        this.f77560b = new HashMap<>();
         this.f35a = context;
     }
 
@@ -104,11 +104,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap = this.f77241b;
+            HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap = this.f77560b;
             if (hashMap != null) {
                 int i2 = 0;
                 for (String str : hashMap.keySet()) {
-                    ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f77241b.get(str);
+                    ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f77560b.get(str);
                     i2 += arrayList != null ? arrayList.size() : 0;
                 }
                 return i2;
@@ -175,7 +175,7 @@ public class a {
         }
         iEventProcessor.mo81a(eventClientReport);
         if (a() < 10) {
-            a(new d(this), f77240a);
+            a(new d(this), f77559a);
             return;
         }
         d();
@@ -191,7 +191,7 @@ public class a {
         }
         iPerfProcessor.mo81a(perfClientReport);
         if (b() < 10) {
-            a(new f(this), f77240a);
+            a(new f(this), f77559a);
             return;
         }
         e();
@@ -313,7 +313,7 @@ public class a {
             this.f36a = config;
             this.f37a = iEventProcessor;
             this.f38a = iPerfProcessor;
-            iEventProcessor.setEventMap(this.f77241b);
+            iEventProcessor.setEventMap(this.f77560b);
             this.f38a.setPerfMap(this.f40a);
         }
     }

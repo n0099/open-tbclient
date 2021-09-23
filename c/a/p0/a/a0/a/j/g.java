@@ -32,7 +32,7 @@ public class g extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) {
             bVar.k = true;
-            canvas.clipPath(bVar.f4396j, Region.Op.INTERSECT);
+            canvas.clipPath(bVar.f4404j, Region.Op.INTERSECT);
         }
     }
 

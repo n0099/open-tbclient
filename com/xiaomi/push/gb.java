@@ -15,37 +15,37 @@ public class gb extends gc {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f77677a;
+    public boolean f77996a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f77678b;
+    public String f77997b;
 
     /* renamed from: b  reason: collision with other field name */
     public boolean f429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f77679c;
+    public String f77998c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f77680d;
+    public String f77999d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f77681e;
+    public String f78000e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f77682f;
+    public String f78001f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f77683g;
+    public String f78002g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f77684h;
+    public String f78003h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f77685i;
+    public String f78004i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f77686j;
+    public String f78005j;
     public String k;
     public String l;
 
@@ -62,11 +62,11 @@ public class gb extends gc {
                 return;
             }
         }
-        this.f77678b = null;
-        this.f77679c = null;
-        this.f77677a = false;
-        this.f77685i = "";
-        this.f77686j = "";
+        this.f77997b = null;
+        this.f77998c = null;
+        this.f77996a = false;
+        this.f78004i = "";
+        this.f78005j = "";
         this.k = "";
         this.l = "";
         this.f429b = false;
@@ -90,25 +90,25 @@ public class gb extends gc {
                 return;
             }
         }
-        this.f77678b = null;
-        this.f77679c = null;
-        this.f77677a = false;
-        this.f77685i = "";
-        this.f77686j = "";
+        this.f77997b = null;
+        this.f77998c = null;
+        this.f77996a = false;
+        this.f78004i = "";
+        this.f78005j = "";
         this.k = "";
         this.l = "";
         this.f429b = false;
-        this.f77678b = bundle.getString("ext_msg_type");
-        this.f77680d = bundle.getString("ext_msg_lang");
-        this.f77679c = bundle.getString("ext_msg_thread");
-        this.f77681e = bundle.getString("ext_msg_sub");
-        this.f77682f = bundle.getString("ext_msg_body");
-        this.f77683g = bundle.getString("ext_body_encode");
-        this.f77684h = bundle.getString("ext_msg_appid");
-        this.f77677a = bundle.getBoolean("ext_msg_trans", false);
+        this.f77997b = bundle.getString("ext_msg_type");
+        this.f77999d = bundle.getString("ext_msg_lang");
+        this.f77998c = bundle.getString("ext_msg_thread");
+        this.f78000e = bundle.getString("ext_msg_sub");
+        this.f78001f = bundle.getString("ext_msg_body");
+        this.f78002g = bundle.getString("ext_body_encode");
+        this.f78003h = bundle.getString("ext_msg_appid");
+        this.f77996a = bundle.getBoolean("ext_msg_trans", false);
         this.f429b = bundle.getBoolean("ext_msg_encrypt", false);
-        this.f77685i = bundle.getString("ext_msg_seq");
-        this.f77686j = bundle.getString("ext_msg_mseq");
+        this.f78004i = bundle.getString("ext_msg_seq");
+        this.f78005j = bundle.getString("ext_msg_mseq");
         this.k = bundle.getString("ext_msg_fseq");
         this.l = bundle.getString("ext_msg_status");
     }
@@ -119,40 +119,40 @@ public class gb extends gc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle a2 = super.a();
-            if (!TextUtils.isEmpty(this.f77678b)) {
-                a2.putString("ext_msg_type", this.f77678b);
+            if (!TextUtils.isEmpty(this.f77997b)) {
+                a2.putString("ext_msg_type", this.f77997b);
             }
-            String str = this.f77680d;
+            String str = this.f77999d;
             if (str != null) {
                 a2.putString("ext_msg_lang", str);
             }
-            String str2 = this.f77681e;
+            String str2 = this.f78000e;
             if (str2 != null) {
                 a2.putString("ext_msg_sub", str2);
             }
-            String str3 = this.f77682f;
+            String str3 = this.f78001f;
             if (str3 != null) {
                 a2.putString("ext_msg_body", str3);
             }
-            if (!TextUtils.isEmpty(this.f77683g)) {
-                a2.putString("ext_body_encode", this.f77683g);
+            if (!TextUtils.isEmpty(this.f78002g)) {
+                a2.putString("ext_body_encode", this.f78002g);
             }
-            String str4 = this.f77679c;
+            String str4 = this.f77998c;
             if (str4 != null) {
                 a2.putString("ext_msg_thread", str4);
             }
-            String str5 = this.f77684h;
+            String str5 = this.f78003h;
             if (str5 != null) {
                 a2.putString("ext_msg_appid", str5);
             }
-            if (this.f77677a) {
+            if (this.f77996a) {
                 a2.putBoolean("ext_msg_trans", true);
             }
-            if (!TextUtils.isEmpty(this.f77685i)) {
-                a2.putString("ext_msg_seq", this.f77685i);
+            if (!TextUtils.isEmpty(this.f78004i)) {
+                a2.putString("ext_msg_seq", this.f78004i);
             }
-            if (!TextUtils.isEmpty(this.f77686j)) {
-                a2.putString("ext_msg_mseq", this.f77686j);
+            if (!TextUtils.isEmpty(this.f78005j)) {
+                a2.putString("ext_msg_mseq", this.f78005j);
             }
             if (!TextUtils.isEmpty(this.k)) {
                 a2.putString("ext_msg_fseq", this.k);
@@ -181,7 +181,7 @@ public class gb extends gc {
                 sb.append(p());
                 sb.append("\"");
             }
-            if (this.f77680d != null) {
+            if (this.f77999d != null) {
                 sb.append(" xml:lang=\"");
                 sb.append(h());
                 sb.append("\"");
@@ -226,45 +226,45 @@ public class gb extends gc {
                 sb.append(gn.a(k()));
                 sb.append("\"");
             }
-            if (this.f77677a) {
+            if (this.f77996a) {
                 sb.append(" transient=\"true\"");
             }
-            if (!TextUtils.isEmpty(this.f77684h)) {
+            if (!TextUtils.isEmpty(this.f78003h)) {
                 sb.append(" appid=\"");
                 sb.append(c());
                 sb.append("\"");
             }
-            if (!TextUtils.isEmpty(this.f77678b)) {
+            if (!TextUtils.isEmpty(this.f77997b)) {
                 sb.append(" type=\"");
-                sb.append(this.f77678b);
+                sb.append(this.f77997b);
                 sb.append("\"");
             }
             if (this.f429b) {
                 sb.append(" s=\"1\"");
             }
             sb.append(">");
-            if (this.f77681e != null) {
+            if (this.f78000e != null) {
                 sb.append("<subject>");
-                sb.append(gn.a(this.f77681e));
+                sb.append(gn.a(this.f78000e));
                 sb.append("</subject>");
             }
-            if (this.f77682f != null) {
+            if (this.f78001f != null) {
                 sb.append("<body");
-                if (!TextUtils.isEmpty(this.f77683g)) {
+                if (!TextUtils.isEmpty(this.f78002g)) {
                     sb.append(" encode=\"");
-                    sb.append(this.f77683g);
+                    sb.append(this.f78002g);
                     sb.append("\"");
                 }
                 sb.append(">");
-                sb.append(gn.a(this.f77682f));
+                sb.append(gn.a(this.f78001f));
                 sb.append("</body>");
             }
-            if (this.f77679c != null) {
+            if (this.f77998c != null) {
                 sb.append("<thread>");
-                sb.append(this.f77679c);
+                sb.append(this.f77998c);
                 sb.append("</thread>");
             }
-            if ("error".equalsIgnoreCase(this.f77678b) && (m346a = m346a()) != null) {
+            if ("error".equalsIgnoreCase(this.f77997b) && (m346a = m346a()) != null) {
                 sb.append(m346a.m350a());
             }
             sb.append(o());
@@ -278,7 +278,7 @@ public class gb extends gc {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f77684h = str;
+            this.f78003h = str;
         }
     }
 
@@ -286,15 +286,15 @@ public class gb extends gc {
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            this.f77682f = str;
-            this.f77683g = str2;
+            this.f78001f = str;
+            this.f78002g = str2;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f77677a = z;
+            this.f77996a = z;
         }
     }
 
@@ -302,13 +302,13 @@ public class gb extends gc {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f77678b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f77997b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f77685i = str;
+            this.f78004i = str;
         }
     }
 
@@ -322,20 +322,20 @@ public class gb extends gc {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f77684h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f78003h : (String) invokeV.objValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f77686j = str;
+            this.f78005j = str;
         }
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f77685i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f78004i : (String) invokeV.objValue;
     }
 
     public void d(String str) {
@@ -348,7 +348,7 @@ public class gb extends gc {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f77686j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f78005j : (String) invokeV.objValue;
     }
 
     public void e(String str) {
@@ -371,15 +371,15 @@ public class gb extends gc {
             }
             gb gbVar = (gb) obj;
             if (super.equals(gbVar)) {
-                String str = this.f77682f;
-                if (str == null ? gbVar.f77682f == null : str.equals(gbVar.f77682f)) {
-                    String str2 = this.f77680d;
-                    if (str2 == null ? gbVar.f77680d == null : str2.equals(gbVar.f77680d)) {
-                        String str3 = this.f77681e;
-                        if (str3 == null ? gbVar.f77681e == null : str3.equals(gbVar.f77681e)) {
-                            String str4 = this.f77679c;
-                            if (str4 == null ? gbVar.f77679c == null : str4.equals(gbVar.f77679c)) {
-                                return this.f77678b == gbVar.f77678b;
+                String str = this.f78001f;
+                if (str == null ? gbVar.f78001f == null : str.equals(gbVar.f78001f)) {
+                    String str2 = this.f77999d;
+                    if (str2 == null ? gbVar.f77999d == null : str2.equals(gbVar.f77999d)) {
+                        String str3 = this.f78000e;
+                        if (str3 == null ? gbVar.f78000e == null : str3.equals(gbVar.f78000e)) {
+                            String str4 = this.f77998c;
+                            if (str4 == null ? gbVar.f77998c == null : str4.equals(gbVar.f77998c)) {
+                                return this.f77997b == gbVar.f77997b;
                             }
                             return false;
                         }
@@ -403,7 +403,7 @@ public class gb extends gc {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f77678b = str;
+            this.f77997b = str;
         }
     }
 
@@ -416,20 +416,20 @@ public class gb extends gc {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f77681e = str;
+            this.f78000e = str;
         }
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f77680d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f77999d : (String) invokeV.objValue;
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f77682f = str;
+            this.f78001f = str;
         }
     }
 
@@ -438,15 +438,15 @@ public class gb extends gc {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            String str = this.f77678b;
+            String str = this.f77997b;
             int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.f77682f;
+            String str2 = this.f78001f;
             int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.f77679c;
+            String str3 = this.f77998c;
             int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-            String str4 = this.f77680d;
+            String str4 = this.f77999d;
             int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
-            String str5 = this.f77681e;
+            String str5 = this.f78000e;
             return hashCode4 + (str5 != null ? str5.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -455,14 +455,14 @@ public class gb extends gc {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.f77679c = str;
+            this.f77998c = str;
         }
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.f77680d = str;
+            this.f77999d = str;
         }
     }
 }

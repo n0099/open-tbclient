@@ -14,10 +14,10 @@ public class SuggestionSearch extends l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.platform.core.f.a f41951a;
+    public com.baidu.platform.core.f.a f42013a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f41952b;
+    public boolean f42014b;
 
     public SuggestionSearch() {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class SuggestionSearch extends l {
                 return;
             }
         }
-        this.f41952b = false;
-        this.f41951a = new com.baidu.platform.core.f.b();
+        this.f42014b = false;
+        this.f42013a = new com.baidu.platform.core.f.b();
     }
 
     public static SuggestionSearch newInstance() {
@@ -48,11 +48,11 @@ public class SuggestionSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41952b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42014b) {
             return;
         }
-        this.f41952b = true;
-        this.f41951a.a();
+        this.f42014b = true;
+        this.f42013a.a();
         BMapManager.destroy();
     }
 
@@ -60,7 +60,7 @@ public class SuggestionSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, suggestionSearchOption)) == null) {
-            com.baidu.platform.core.f.a aVar = this.f41951a;
+            com.baidu.platform.core.f.a aVar = this.f42013a;
             if (aVar != null) {
                 if (suggestionSearchOption == null || suggestionSearchOption.mKeyword == null || suggestionSearchOption.mCity == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option or keyword or city can not be null");
@@ -75,7 +75,7 @@ public class SuggestionSearch extends l {
     public void setOnGetSuggestionResultListener(OnGetSuggestionResultListener onGetSuggestionResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onGetSuggestionResultListener) == null) {
-            com.baidu.platform.core.f.a aVar = this.f41951a;
+            com.baidu.platform.core.f.a aVar = this.f42013a;
             if (aVar == null) {
                 throw new IllegalStateException("BDMapSDKException: suggestionsearch is null, please call newInstance() first.");
             }

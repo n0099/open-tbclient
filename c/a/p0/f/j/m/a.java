@@ -34,10 +34,10 @@ public class a implements c.a.p0.h.t.c.c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f10727a;
+        public static final /* synthetic */ int[] f10735a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f10728b;
+        public static final /* synthetic */ int[] f10736b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,59 +54,59 @@ public class a implements c.a.p0.h.t.c.c {
                 }
             }
             int[] iArr = new int[Download.DownloadState.values().length];
-            f10728b = iArr;
+            f10736b = iArr;
             try {
                 iArr[Download.DownloadState.WAITING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f10728b[Download.DownloadState.DOWNLOADING.ordinal()] = 2;
+                f10736b[Download.DownloadState.DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f10728b[Download.DownloadState.PAUSE.ordinal()] = 3;
+                f10736b[Download.DownloadState.PAUSE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f10728b[Download.DownloadState.FAILED.ordinal()] = 4;
+                f10736b[Download.DownloadState.FAILED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f10728b[Download.DownloadState.CANCEL.ordinal()] = 5;
+                f10736b[Download.DownloadState.CANCEL.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f10728b[Download.DownloadState.FINISH.ordinal()] = 6;
+                f10736b[Download.DownloadState.FINISH.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             int[] iArr2 = new int[SwanAppDownloadAction.SwanAppDownloadType.values().length];
-            f10727a = iArr2;
+            f10735a = iArr2;
             try {
                 iArr2[SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS.ordinal()] = 1;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f10727a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
+                f10735a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f10727a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
+                f10735a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f10727a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
+                f10735a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f10727a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_STOP_SERVICE.ordinal()] = 5;
+                f10735a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_STOP_SERVICE.ordinal()] = 5;
             } catch (NoSuchFieldError unused11) {
             }
             try {
-                f10727a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 6;
+                f10735a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 6;
             } catch (NoSuchFieldError unused12) {
             }
             try {
-                f10727a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 7;
+                f10735a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 7;
             } catch (NoSuchFieldError unused13) {
             }
         }
@@ -118,7 +118,7 @@ public class a implements c.a.p0.h.t.c.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.a.p0.f.i.k.f.a f10729c;
+        public c.a.p0.f.i.k.f.a f10737c;
 
         public b(c.a.p0.f.i.k.f.a aVar) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class a implements c.a.p0.h.t.c.c {
                     return;
                 }
             }
-            this.f10729c = aVar;
+            this.f10737c = aVar;
         }
 
         @Override // c.a.p0.a.v1.a.b.c.a
@@ -166,7 +166,7 @@ public class a implements c.a.p0.h.t.c.c {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (a2 = bVar.a()) == null) {
                 return;
             }
-            a.f(a2, this.f10729c);
+            a.f(a2, this.f10737c);
         }
     }
 
@@ -221,7 +221,7 @@ public class a implements c.a.p0.h.t.c.c {
             if (optJSONObject == null) {
                 return;
             }
-            switch (C0536a.f10728b[Download.DownloadState.getState(optJSONObject.optInt("status", -1)).ordinal()]) {
+            switch (C0536a.f10736b[Download.DownloadState.getState(optJSONObject.optInt("status", -1)).ordinal()]) {
                 case 1:
                     aVar.c(DownloadState.WAIT, optInt);
                     return;
@@ -293,7 +293,7 @@ public class a implements c.a.p0.h.t.c.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanAppDownloadType)) == null) {
-            switch (C0536a.f10727a[swanAppDownloadType.ordinal()]) {
+            switch (C0536a.f10735a[swanAppDownloadType.ordinal()]) {
                 case 1:
                     return "queryStatus";
                 case 2:

@@ -21,16 +21,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f24928a;
+    public TbPageContext f24949a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f24929b;
+    public BdUniqueId f24950b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f24930c;
+    public b f24951c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f24931d;
+    public HttpMessageListener f24952d;
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -38,7 +38,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f24932a;
+        public final /* synthetic */ c f24953a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2) {
@@ -58,7 +58,7 @@ public class c {
                     return;
                 }
             }
-            this.f24932a = cVar;
+            this.f24953a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,9 +68,9 @@ public class c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getOrginalMessage() == null) {
                 return;
             }
-            boolean z = httpResponsedMessage.getOrginalMessage().getTag() == this.f24932a.f24929b;
-            if (this.f24932a.f24930c != null) {
-                this.f24932a.f24930c.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
+            boolean z = httpResponsedMessage.getOrginalMessage().getTag() == this.f24953a.f24950b;
+            if (this.f24953a.f24951c != null) {
+                this.f24953a.f24951c.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
             }
         }
     }
@@ -96,11 +96,11 @@ public class c {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
-        this.f24931d = aVar;
-        this.f24928a = tbPageContext;
-        this.f24929b = bdUniqueId;
+        this.f24952d = aVar;
+        this.f24949a = tbPageContext;
+        this.f24950b = bdUniqueId;
         aVar.setTag(bdUniqueId);
-        this.f24928a.registerListener(this.f24931d);
+        this.f24949a.registerListener(this.f24952d);
         c();
     }
 
@@ -120,7 +120,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
-            httpMessage.setTag(this.f24929b);
+            httpMessage.setTag(this.f24950b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -128,7 +128,7 @@ public class c {
     public void e(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f24930c = bVar;
+            this.f24951c = bVar;
         }
     }
 }

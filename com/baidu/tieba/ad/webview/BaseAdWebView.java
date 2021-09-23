@@ -40,7 +40,7 @@ public abstract class BaseAdWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f49207e;
+    public e f49317e;
     public Context mContext;
     public DownloadCacheKey mDownloadCacheKey;
     public boolean mDownloadPicOnLoad;
@@ -56,7 +56,7 @@ public abstract class BaseAdWebView extends WebView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BaseAdWebView f49208c;
+        public final /* synthetic */ BaseAdWebView f49318c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BaseAdWebView baseAdWebView, BaseAdWebView baseAdWebView2, Activity activity) {
@@ -77,7 +77,7 @@ public abstract class BaseAdWebView extends WebView {
                     return;
                 }
             }
-            this.f49208c = baseAdWebView;
+            this.f49318c = baseAdWebView;
         }
 
         @Override // com.baidu.tieba.ad.webview.BaseAdWebView.c, android.webkit.WebViewClient
@@ -103,7 +103,7 @@ public abstract class BaseAdWebView extends WebView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BaseAdWebView f49209a;
+        public final /* synthetic */ BaseAdWebView f49319a;
 
         public b(BaseAdWebView baseAdWebView) {
             Interceptable interceptable = $ic;
@@ -120,14 +120,14 @@ public abstract class BaseAdWebView extends WebView {
                     return;
                 }
             }
-            this.f49209a = baseAdWebView;
+            this.f49319a = baseAdWebView;
         }
 
         @Override // android.webkit.DownloadListener
         public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
-                BaseAdWebView baseAdWebView = this.f49209a;
+                BaseAdWebView baseAdWebView = this.f49319a;
                 if (baseAdWebView.mWebview != null) {
                     baseAdWebView.shouldOverrideUrlLoadingByDownloadApp(str, str3, str4, j2);
                 }
@@ -141,10 +141,10 @@ public abstract class BaseAdWebView extends WebView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public BaseAdWebView f49210a;
+        public BaseAdWebView f49320a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Activity f49211b;
+        public Activity f49321b;
 
         public c(BaseAdWebView baseAdWebView, Activity activity) {
             Interceptable interceptable = $ic;
@@ -161,16 +161,16 @@ public abstract class BaseAdWebView extends WebView {
                     return;
                 }
             }
-            this.f49210a = baseAdWebView;
-            this.f49211b = activity;
+            this.f49320a = baseAdWebView;
+            this.f49321b = activity;
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                this.f49210a.setLightTouchEnabled();
-                BaseAdWebView baseAdWebView = this.f49210a;
+                this.f49320a.setLightTouchEnabled();
+                BaseAdWebView baseAdWebView = this.f49320a;
                 if (!baseAdWebView.mDownloadPicOnLoad) {
                     baseAdWebView.getSettings().setBlockNetworkImage(false);
                 }
@@ -182,7 +182,7 @@ public abstract class BaseAdWebView extends WebView {
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-                this.f49210a.mWebviewUrl = str;
+                this.f49320a.mWebviewUrl = str;
                 super.onPageStarted(webView, str, bitmap);
             }
         }
@@ -205,15 +205,15 @@ public abstract class BaseAdWebView extends WebView {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
                 super.shouldOverrideUrlLoading(webView, str);
                 try {
-                    if (this.f49211b != null) {
+                    if (this.f49321b != null) {
                         if (str.startsWith("tel:")) {
-                            this.f49211b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                            this.f49321b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                             return true;
                         } else if (str.startsWith("wtai://wp/mc;")) {
-                            this.f49211b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
+                            this.f49321b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
                             return true;
                         } else if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO)) {
-                            this.f49211b.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
+                            this.f49321b.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
                             return true;
                         }
                     }
@@ -412,7 +412,7 @@ public abstract class BaseAdWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048587, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            e eVar = this.f49207e;
+            e eVar = this.f49317e;
             if (eVar != null) {
                 eVar.onScrollChanged(i2, i3, i4, i5);
             }
@@ -462,7 +462,7 @@ public abstract class BaseAdWebView extends WebView {
     public void setWebViewScrollListener(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, eVar) == null) {
-            this.f49207e = eVar;
+            this.f49317e = eVar;
         }
     }
 

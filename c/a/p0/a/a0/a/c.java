@@ -25,13 +25,13 @@ public class c extends c.a.p0.a.a0.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a0.b.c f4377e;
+        public final /* synthetic */ c.a.p0.a.a0.b.c f4385e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CanvasView f4378f;
+        public final /* synthetic */ CanvasView f4386f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4379g;
+        public final /* synthetic */ CallbackHandler f4387g;
 
         public a(c cVar, c.a.p0.a.a0.b.c cVar2, CanvasView canvasView, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -48,21 +48,21 @@ public class c extends c.a.p0.a.a0.a.a {
                     return;
                 }
             }
-            this.f4377e = cVar2;
-            this.f4378f = canvasView;
-            this.f4379g = callbackHandler;
+            this.f4385e = cVar2;
+            this.f4386f = canvasView;
+            this.f4387g = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject k = this.f4377e.k(this.f4378f);
-                String str = this.f4377e.f4660i;
+                JSONObject k = this.f4385e.k(this.f4386f);
+                String str = this.f4385e.f4668i;
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                this.f4379g.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(k, 0).toString());
+                this.f4387g.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(k, 0).toString());
             }
         }
     }
@@ -100,10 +100,10 @@ public class c extends c.a.p0.a.a0.a.a {
                 unitedSchemeEntity.result = l(201);
                 return false;
             }
-            if (TextUtils.isEmpty(m.f4658g) && (J = c.a.p0.a.g1.f.V().J()) != null) {
-                m.f4658g = J.e3();
+            if (TextUtils.isEmpty(m.f4666g) && (J = c.a.p0.a.g1.f.V().J()) != null) {
+                m.f4666g = J.e3();
             }
-            if (!TextUtils.isEmpty(m.f4658g) && !TextUtils.isEmpty(m.f4657f)) {
+            if (!TextUtils.isEmpty(m.f4666g) && !TextUtils.isEmpty(m.f4665f)) {
                 CanvasView a2 = c.a.p0.a.c0.c.d.b.a.a(m);
                 if (a2 == null) {
                     c.a.p0.a.e0.d.b("SwanAppCanvas", "CanvasGetImageData canvas view is null");
@@ -114,7 +114,7 @@ public class c extends c.a.p0.a.a0.a.a {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
-            c.a.p0.a.e0.d.b("SwanAppCanvas", "CanvasGetImageData slave id = " + m.f4658g + " ; canvas id = " + m.f4657f);
+            c.a.p0.a.e0.d.b("SwanAppCanvas", "CanvasGetImageData slave id = " + m.f4666g + " ; canvas id = " + m.f4665f);
             unitedSchemeEntity.result = l(201);
             return false;
         }

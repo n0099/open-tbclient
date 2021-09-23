@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import c.a.p0.a.k;
 import c.a.p0.a.v2.w;
-import com.alipay.sdk.util.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -32,10 +31,10 @@ public class b extends c.a.p0.g.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f10843c;
+    public static final boolean f10851c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ExecutorService f10844d;
+    public static ExecutorService f10852d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -44,13 +43,13 @@ public class b extends c.a.p0.g.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f10845a;
+        public final /* synthetic */ String f10853a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10846b;
+        public final /* synthetic */ String f10854b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.u0.b f10847c;
+        public final /* synthetic */ c.a.p0.a.u0.b f10855c;
 
         public a(b bVar, String str, String str2, c.a.p0.a.u0.b bVar2) {
             Interceptable interceptable = $ic;
@@ -67,39 +66,39 @@ public class b extends c.a.p0.g.f.a {
                     return;
                 }
             }
-            this.f10845a = str;
-            this.f10846b = str2;
-            this.f10847c = bVar2;
+            this.f10853a = str;
+            this.f10854b = str2;
+            this.f10855c = bVar2;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                if (b.f10843c) {
-                    String str = "InstallAppDelegation onDelegateCallBack isOk:" + delegateResult.isOk() + ",packageName：" + this.f10845a + ",result:" + delegateResult.mResult;
+                if (b.f10851c) {
+                    String str = "InstallAppDelegation onDelegateCallBack isOk:" + delegateResult.isOk() + ",packageName：" + this.f10853a + ",result:" + delegateResult.mResult;
                 }
                 String string = delegateResult.mResult.getString("packageName");
-                if (!TextUtils.isEmpty(this.f10845a) && !TextUtils.equals(this.f10845a, string)) {
-                    if (c.a.p0.g.c.e.a.h(AppRuntime.getAppContext(), this.f10845a)) {
-                        if (!TextUtils.isEmpty(this.f10846b)) {
-                            c.a.p0.g.c.i.c.a(this.f10845a, this.f10846b, "success", "", null);
+                if (!TextUtils.isEmpty(this.f10853a) && !TextUtils.equals(this.f10853a, string)) {
+                    if (c.a.p0.g.c.e.a.h(AppRuntime.getAppContext(), this.f10853a)) {
+                        if (!TextUtils.isEmpty(this.f10854b)) {
+                            c.a.p0.g.c.i.c.a(this.f10853a, this.f10854b, "success", "", null);
                         }
-                        this.f10847c.a(new JSONObject());
+                        this.f10855c.a(new JSONObject());
                         return;
                     }
-                    if (!TextUtils.isEmpty(this.f10846b)) {
-                        c.a.p0.g.c.i.c.a(this.f10845a, this.f10846b, com.baidu.pass.biometrics.face.liveness.b.a.g0, "", null);
+                    if (!TextUtils.isEmpty(this.f10854b)) {
+                        c.a.p0.g.c.i.c.a(this.f10853a, this.f10854b, com.baidu.pass.biometrics.face.liveness.b.a.g0, "", null);
                     }
-                    this.f10847c.onFail(31003, "apk install cancel");
+                    this.f10855c.onFail(31003, "apk install cancel");
                 } else if (!delegateResult.isOk()) {
-                    if (!TextUtils.isEmpty(this.f10846b)) {
-                        c.a.p0.g.c.i.c.a(this.f10845a, this.f10846b, com.baidu.pass.biometrics.face.liveness.b.a.g0, "", null);
+                    if (!TextUtils.isEmpty(this.f10854b)) {
+                        c.a.p0.g.c.i.c.a(this.f10853a, this.f10854b, com.baidu.pass.biometrics.face.liveness.b.a.g0, "", null);
                     }
-                    this.f10847c.onFail(31003, "apk install cancel");
+                    this.f10855c.onFail(31003, "apk install cancel");
                 } else {
-                    c.a.p0.g.c.a.n().t(this.f10845a);
-                    b.g(delegateResult.mResult, this.f10847c);
+                    c.a.p0.g.c.a.n().t(this.f10853a);
+                    b.g(delegateResult.mResult, this.f10855c);
                 }
             }
         }
@@ -112,13 +111,13 @@ public class b extends c.a.p0.g.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f10848c;
+        public String f10856c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f10849d;
+        public String f10857d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.p0.a.u0.b f10850e;
+        public c.a.p0.a.u0.b f10858e;
 
         public C0543b(String str, String str2, c.a.p0.a.u0.b bVar) {
             Interceptable interceptable = $ic;
@@ -135,9 +134,9 @@ public class b extends c.a.p0.g.f.a {
                     return;
                 }
             }
-            this.f10849d = str;
-            this.f10848c = str2;
-            this.f10850e = bVar;
+            this.f10857d = str;
+            this.f10856c = str2;
+            this.f10858e = bVar;
         }
 
         @Override // c.a.p0.a.v1.a.b.c.a
@@ -163,12 +162,12 @@ public class b extends c.a.p0.g.f.a {
         public final void e() {
             c.a.p0.a.u0.b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f10850e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f10858e) == null) {
                 return;
             }
             bVar.onFail(31018, "download process is killed");
-            b.e(this.f10849d, this.f10848c, 31018);
-            this.f10850e = null;
+            b.e(this.f10857d, this.f10856c, 31018);
+            this.f10858e = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -177,7 +176,7 @@ public class b extends c.a.p0.g.f.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
                 Bundle a2 = bVar.a();
-                c.a.p0.a.u0.b bVar2 = this.f10850e;
+                c.a.p0.a.u0.b bVar2 = this.f10858e;
                 if (bVar2 == null) {
                     return;
                 }
@@ -196,7 +195,7 @@ public class b extends c.a.p0.g.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<C0543b> f10851e;
+        public WeakReference<C0543b> f10859e;
 
         public c(C0543b c0543b) {
             Interceptable interceptable = $ic;
@@ -213,16 +212,16 @@ public class b extends c.a.p0.g.f.a {
                     return;
                 }
             }
-            this.f10851e = new WeakReference<>(c0543b);
+            this.f10859e = new WeakReference<>(c0543b);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = b.f10843c;
-                if (this.f10851e.get() != null) {
-                    this.f10851e.get().e();
+                boolean unused = b.f10851c;
+                if (this.f10859e.get() != null) {
+                    this.f10859e.get().e();
                 }
             }
         }
@@ -241,8 +240,8 @@ public class b extends c.a.p0.g.f.a {
                 return;
             }
         }
-        f10843c = k.f7077a;
-        f10844d = Executors.newSingleThreadExecutor();
+        f10851c = k.f7085a;
+        f10852d = Executors.newSingleThreadExecutor();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -279,8 +278,8 @@ public class b extends c.a.p0.g.f.a {
                 return;
             }
             String string2 = bundle.getString("resultData", "");
-            int i2 = bundle.getInt(i.f36094a, 1001);
-            if (f10843c) {
+            int i2 = bundle.getInt("resultStatus", 1001);
+            if (f10851c) {
                 String str = "handleResult:function = " + string + ",result = " + string2;
             }
             char c2 = 65535;
@@ -308,7 +307,7 @@ public class b extends c.a.p0.g.f.a {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
-            if (f10843c) {
+            if (f10851c) {
                 String str3 = "handle: " + jSONObject;
             }
             String optString = jSONObject.optString(AppDownloadNetworkStateReceiver.KEY_OPERATION);
@@ -351,7 +350,7 @@ public class b extends c.a.p0.g.f.a {
             } else if (c.a.p0.g.c.e.a.h(AppRuntime.getAppContext(), str)) {
                 bVar.a(new JSONObject());
             } else {
-                boolean z = f10843c;
+                boolean z = f10851c;
                 DelegateUtils.callOnMainWithActivity(x, InstallPluginDelegateActivity.class, c.a.p0.g.c.e.b.class, bundle, new a(this, str, str2, bVar));
             }
         }

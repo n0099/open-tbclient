@@ -51,7 +51,7 @@ public class a extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
                 return false;
             }
@@ -65,7 +65,7 @@ public class a extends a0 {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str2 = "handleSubAction subAction: " + str;
             }
             d.g("map", "handleSubAction " + str);
@@ -274,16 +274,16 @@ public class a extends a0 {
                 bVar.d(202);
                 return true;
             }
-            if (TextUtils.isEmpty(cVar.f4658g)) {
+            if (TextUtils.isEmpty(cVar.f4666g)) {
                 String B = q0.B();
                 if (!TextUtils.isEmpty(B)) {
-                    cVar.f4658g = B;
+                    cVar.f4666g = B;
                 }
                 d.l("map", "webView id is empty, use current webView");
             }
-            if (q0.m(cVar.f4658g) == null) {
+            if (q0.m(cVar.f4666g) == null) {
                 bVar.d(202);
-                d.b("map", "can not find weiView by id " + cVar.f4658g);
+                d.b("map", "can not find weiView by id " + cVar.f4666g);
                 return true;
             }
             return false;

@@ -17,7 +17,7 @@ public class d implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f7505a;
+    public final String[] f7513a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class d implements a {
                 return;
             }
         }
-        this.f7505a = new String[]{c.a.p0.a.k2.b.w(), c.a.p0.a.k2.b.y(), c.a.p0.a.h0.o.h.d.a.c()};
+        this.f7513a = new String[]{c.a.p0.a.k2.b.w(), c.a.p0.a.k2.b.y(), c.a.p0.a.h0.o.h.d.a.c()};
     }
 
     @Override // c.a.p0.a.n0.j.d.a
@@ -41,13 +41,13 @@ public class d implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.f7505a) {
+            for (String str : this.f7513a) {
                 String J = c.a.p0.t.d.J(str);
                 if (!TextUtils.isEmpty(J)) {
                     arraySet.add(J);
                 }
             }
-            if (k.f7077a) {
+            if (k.f7085a) {
                 b(arraySet);
             }
             c.a.p0.a.e0.d.h("SwanSdcardFileCollector", "recovery renameAllFiles:" + arraySet.toString());

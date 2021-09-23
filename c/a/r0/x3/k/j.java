@@ -30,34 +30,34 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ByteOrder f29099a;
+    public ByteOrder f29119a;
 
     /* renamed from: b  reason: collision with root package name */
-    public k f29100b;
+    public k f29120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f29101c;
+    public double f29121c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f29102d;
+    public double f29122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29103e;
+    public int f29123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double[][] f29104f;
+    public double[][] f29124f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29105g;
+    public int f29125g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29106h;
+    public int f29126h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29107i;
+    public int f29127i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f29108j;
+    public int f29128j;
     public double[] k;
     public int l;
     public boolean m;
@@ -134,11 +134,11 @@ public class j {
                 return;
             }
         }
-        this.f29099a = ByteOrder.LITTLE_ENDIAN;
-        this.f29100b = new k();
-        this.f29101c = 150.0d;
-        this.f29102d = 200.0d;
-        this.f29103e = 1;
+        this.f29119a = ByteOrder.LITTLE_ENDIAN;
+        this.f29120b = new k();
+        this.f29121c = 150.0d;
+        this.f29122d = 200.0d;
+        this.f29123e = 1;
         this.m = false;
         double[] dArr3 = {0.0d};
         if (i8 >= 0 && i8 <= 4) {
@@ -185,7 +185,7 @@ public class j {
                     if (i10 == 0) {
                         int i25 = i11;
                         if (i25 == 1) {
-                            i18 = com.alipay.sdk.encrypt.a.f35987g;
+                            i18 = com.alipay.sdk.encrypt.a.f36021g;
                             i16 = 127;
                             i17 = 2;
                         } else {
@@ -324,34 +324,34 @@ public class j {
                 int i5 = this.l;
                 this.l = i5 + 1;
                 double d3 = d2 + dArr2[i5 & 65535];
-                int i6 = this.f29107i;
+                int i6 = this.f29127i;
                 if (d3 < i6) {
                     double d4 = d3 / i6;
                     if (dArr[0] >= d4) {
                         d4 = dArr[0];
                     }
                     dArr[0] = d4;
-                    d3 = this.f29107i;
+                    d3 = this.f29127i;
                 }
-                int i7 = this.f29108j;
+                int i7 = this.f29128j;
                 if (d3 > i7) {
                     double d5 = d3 / i7;
                     if (dArr[0] >= d5) {
                         d5 = dArr[0];
                     }
                     dArr[0] = d5;
-                    d3 = this.f29108j;
+                    d3 = this.f29128j;
                 }
                 return a(d3);
             }
             double d6 = 0.0d;
             int i8 = 0;
             while (true) {
-                i4 = this.f29106h;
+                i4 = this.f29126h;
                 if (i8 >= i4) {
                     break;
                 }
-                d6 += t[this.f29105g][i8] * this.f29104f[i3][i8];
+                d6 += t[this.f29125g][i8] * this.f29124f[i3][i8];
                 i8++;
             }
             double d7 = d2 + d6;
@@ -360,47 +360,47 @@ public class j {
             this.l = i9 + 1;
             double d8 = dArr3[65535 & i9] + d7;
             for (int i10 = i4 - 2; i10 >= 0; i10--) {
-                double[][] dArr4 = this.f29104f;
+                double[][] dArr4 = this.f29124f;
                 dArr4[i3][i10 + 1] = dArr4[i3][i10];
             }
-            int i11 = this.f29107i;
+            int i11 = this.f29127i;
             if (d8 < i11) {
                 double d9 = d8 / i11;
                 if (dArr[0] >= d9) {
                     d9 = dArr[0];
                 }
                 dArr[0] = d9;
-                a2 = this.f29107i;
-                double[][] dArr5 = this.f29104f;
+                a2 = this.f29127i;
+                double[][] dArr5 = this.f29124f;
                 dArr5[i3][0] = a2 - d7;
                 if (dArr5[i3][0] > 1.0d) {
                     dArr5[i3][0] = 1.0d;
                 }
-                double[][] dArr6 = this.f29104f;
+                double[][] dArr6 = this.f29124f;
                 if (dArr6[i3][0] < -1.0d) {
                     dArr6[i3][0] = -1.0d;
                 }
             } else {
-                int i12 = this.f29108j;
+                int i12 = this.f29128j;
                 if (d8 > i12) {
                     double d10 = d8 / i12;
                     if (dArr[0] >= d10) {
                         d10 = dArr[0];
                     }
                     dArr[0] = d10;
-                    a2 = this.f29108j;
-                    double[][] dArr7 = this.f29104f;
+                    a2 = this.f29128j;
+                    double[][] dArr7 = this.f29124f;
                     dArr7[i3][0] = a2 - d7;
                     if (dArr7[i3][0] > 1.0d) {
                         dArr7[i3][0] = 1.0d;
                     }
-                    double[][] dArr8 = this.f29104f;
+                    double[][] dArr8 = this.f29124f;
                     if (dArr8[i3][0] < -1.0d) {
                         dArr8[i3][0] = -1.0d;
                     }
                 } else {
                     a2 = a(d8);
-                    this.f29104f[i3][0] = a2 - d7;
+                    this.f29124f[i3][0] = a2 - d7;
                 }
             }
             return (int) a2;
@@ -501,8 +501,8 @@ public class j {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{inputStream, outputStream, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Double.valueOf(d2), Integer.valueOf(i7), Boolean.valueOf(z), Integer.valueOf(i8)})) == null) {
             int i52 = i6;
             double[] dArr7 = {0.0d};
-            int i53 = this.f29103e;
-            double d9 = this.f29101c;
+            int i53 = this.f29123e;
+            double d9 = this.f29121c;
             int e2 = e(i5, i52);
             int i54 = i52 / e2;
             if (i54 == 1) {
@@ -528,7 +528,7 @@ public class j {
                 d4 = i52;
                 d5 = (d4 - d11) / 2.0d;
                 i11 = i9;
-                if (d11 < this.f29102d) {
+                if (d11 < this.f29122d) {
                     break;
                 }
                 i56 *= 2;
@@ -575,7 +575,7 @@ public class j {
             iArr4[0] = 0;
             int i73 = i71 / 2;
             double[] dArr12 = new double[i73];
-            this.f29100b.B(i71, 1, dArr10, iArr4, dArr12);
+            this.f29120b.B(i71, 1, dArr10, iArr4, dArr12);
             if (i72 == 1) {
                 int i74 = (i5 / e2) * i52;
                 int[] iArr5 = {i5 / i52};
@@ -594,7 +594,7 @@ public class j {
                 i19 = i68;
                 i15 = 1;
             } else {
-                double d12 = this.f29101c;
+                double d12 = this.f29121c;
                 int i75 = (i5 / e2) * i52;
                 int i76 = i5 / 2;
                 double[] dArr14 = dArr12;
@@ -730,7 +730,7 @@ public class j {
                     i22 = i72;
                     i23 = 0;
                     while (i23 < i120 * i2) {
-                        dArr19[(i2 * 0) + i23] = ((wrap.get(i23) & 255) + com.alipay.sdk.encrypt.a.f35987g) * 0.007874015748031496d;
+                        dArr19[(i2 * 0) + i23] = ((wrap.get(i23) & 255) + com.alipay.sdk.encrypt.a.f36021g) * 0.007874015748031496d;
                         i23++;
                         wrap = wrap;
                     }
@@ -791,7 +791,7 @@ public class j {
                             for (int i130 = i125; i130 < i129; i130++) {
                                 dArr16[i24][i130] = 0.0d;
                             }
-                            jVar.f29100b.B(i129, 1, dArr16[i24], iArr, dArr);
+                            jVar.f29120b.B(i129, 1, dArr16[i24], iArr, dArr);
                             dArr16[i24][0] = dArr10[0] * dArr16[i24][0];
                             dArr16[i24][1] = dArr10[1] * dArr16[i24][1];
                             for (int i131 = 1; i131 < i125; i131++) {
@@ -800,7 +800,7 @@ public class j {
                                 dArr16[i24][i132] = (dArr10[i132] * dArr16[i24][i132]) - (dArr10[i133] * dArr16[i24][i133]);
                                 dArr16[i24][i133] = (dArr10[i133] * dArr16[i24][i132]) + (dArr10[i132] * dArr16[i24][i133]);
                             }
-                            jVar.f29100b.B(i129, -1, dArr16[i24], iArr, dArr);
+                            jVar.f29120b.B(i129, -1, dArr16[i24], iArr, dArr);
                             int i134 = 0;
                             while (i134 < i125) {
                                 double[] dArr21 = dArr3[i24];
@@ -897,7 +897,7 @@ public class j {
                                                 d24 = dArr11[0];
                                             }
                                             dArr11[0] = d24;
-                                            a2 = com.alipay.sdk.encrypt.a.f35987g;
+                                            a2 = com.alipay.sdk.encrypt.a.f36021g;
                                         } else {
                                             c2 = 0;
                                         }
@@ -961,7 +961,7 @@ public class j {
                                             a3 = 32767;
                                         }
                                     }
-                                    byteBuffer5.order(jVar2.f29099a).asShortBuffer().put(i34, (short) a3);
+                                    byteBuffer5.order(jVar2.f29119a).asShortBuffer().put(i34, (short) a3);
                                     int i156 = i155 + 1;
                                     i155 = i156 == i2 ? 0 : i156;
                                     i154 = i34 + 1;
@@ -1264,7 +1264,7 @@ public class j {
                     } else {
                         i23 = 0;
                         while (i23 < i120 * i2) {
-                            dArr19[(i2 * 0) + i23] = wrap.order(this.f29099a).getInt(i23) * 4.656612875245797E-10d;
+                            dArr19[(i2 * 0) + i23] = wrap.order(this.f29119a).getInt(i23) * 4.656612875245797E-10d;
                             i23++;
                             d20 = d20;
                             i17 = i17;
@@ -1358,7 +1358,7 @@ public class j {
                     i22 = i72;
                     i23 = 0;
                     while (i23 < i120 * i2) {
-                        dArr19[(i2 * 0) + i23] = wrap.order(jVar.f29099a).asShortBuffer().get(i23) * 3.051850947599719E-5d;
+                        dArr19[(i2 * 0) + i23] = wrap.order(jVar.f29119a).asShortBuffer().get(i23) * 3.051850947599719E-5d;
                         i23++;
                         dArr17 = dArr17;
                     }
@@ -1497,14 +1497,14 @@ public class j {
             if (i6 == 4 && (i8 == 1 || i8 == 2)) {
                 i8 += 5;
             }
-            this.f29105g = i8;
-            this.f29104f = new double[i3];
-            this.f29106h = r[i8];
+            this.f29125g = i8;
+            this.f29124f = new double[i3];
+            this.f29126h = r[i8];
             for (int i9 = 0; i9 < i3; i9++) {
-                this.f29104f[i9] = new double[this.f29106h];
+                this.f29124f[i9] = new double[this.f29126h];
             }
-            this.f29107i = i4;
-            this.f29108j = i5;
+            this.f29127i = i4;
+            this.f29128j = i5;
             this.k = new double[65536];
             Random random = new Random(System.currentTimeMillis());
             for (int i10 = 0; i10 < 97; i10++) {
@@ -1555,7 +1555,7 @@ public class j {
             if (i6 == 0 || i6 == 1) {
                 return 1;
             }
-            return s[this.f29105g];
+            return s[this.f29125g];
         }
         return invokeCommon.intValue;
     }
@@ -1619,7 +1619,7 @@ public class j {
                     wrap.position(wrap.limit());
                     wrap.flip();
                     i8 = i14;
-                    d3 = 3.051850947599719E-5d * wrap.order(this.f29099a).asShortBuffer().get(0);
+                    d3 = 3.051850947599719E-5d * wrap.order(this.f29119a).asShortBuffer().get(0);
                 } else {
                     if (i3 == 3) {
                         dArr = dArr2;
@@ -1649,7 +1649,7 @@ public class j {
                         wrap.position(wrap.limit());
                         wrap.flip();
                         dArr = dArr2;
-                        d3 = wrap.order(this.f29099a).asIntBuffer().get(i12) * 4.656612875245797E-10d;
+                        d3 = wrap.order(this.f29119a).asIntBuffer().get(i12) * 4.656612875245797E-10d;
                         i7 = i16;
                         i8 = i14;
                     }
@@ -1852,8 +1852,8 @@ public class j {
             j jVar = this;
             Class<double> cls = double.class;
             double[] dArr5 = {0.0d};
-            int i37 = jVar.f29103e;
-            double d8 = jVar.f29101c;
+            int i37 = jVar.f29123e;
+            double d8 = jVar.f29121c;
             int e2 = i5 / jVar.e(i5, i6);
             int i38 = e2 * i6;
             int i39 = i38 / i6;
@@ -1941,7 +1941,7 @@ public class j {
             j jVar2 = jVar;
             int i61 = i42;
             int i62 = i51;
-            double d13 = jVar2.f29101c;
+            double d13 = jVar2.f29121c;
             double d14 = d13 > 21.0d ? (d13 - 7.95d) / 14.36d : 0.9222d;
             int i63 = 1;
             while (true) {
@@ -1951,7 +1951,7 @@ public class j {
                 }
                 i11 = i64;
                 d5 = i59;
-                if ((d5 * d14) / (i11 - 1) < jVar2.f29102d) {
+                if ((d5 * d14) / (i11 - 1) < jVar2.f29122d) {
                     break;
                 }
                 i63 *= 2;
@@ -1996,7 +1996,7 @@ public class j {
             iArr5[0] = 0;
             int i73 = i72 / 2;
             double[] dArr12 = new double[i73];
-            jVar4.f29100b.B(i72, 1, dArr11, iArr5, dArr12);
+            jVar4.f29120b.B(i72, 1, dArr11, iArr5, dArr12);
             k();
             int i74 = (i73 / i9) + 1;
             int[] iArr6 = {r4, i74};
@@ -2049,7 +2049,7 @@ public class j {
                         byteBuffer = allocate2;
                         i14 = 0;
                         while (i14 < i95 * i75) {
-                            dArr18[(i75 * i81) + i14] = wrap.order(jVar4.f29099a).asShortBuffer().get(i14) * 3.051850947599719E-5d;
+                            dArr18[(i75 * i81) + i14] = wrap.order(jVar4.f29119a).asShortBuffer().get(i14) * 3.051850947599719E-5d;
                             i14++;
                             jVar4 = this;
                             i73 = i73;
@@ -2072,7 +2072,7 @@ public class j {
                     } else {
                         i14 = 0;
                         while (i14 < i95 * i75) {
-                            dArr18[(i75 * i81) + i14] = wrap.order(jVar4.f29099a).asIntBuffer().get(i14) * 4.656612875245797E-10d;
+                            dArr18[(i75 * i81) + i14] = wrap.order(jVar4.f29119a).asIntBuffer().get(i14) * 4.656612875245797E-10d;
                             i14++;
                             allocate2 = allocate2;
                         }
@@ -2159,7 +2159,7 @@ public class j {
                     for (int i114 = i35; i114 < i113; i114++) {
                         dArr14[i102][i114] = 0.0d;
                     }
-                    this.f29100b.B(i113, 1, dArr14[i102], iArr5, dArr12);
+                    this.f29120b.B(i113, 1, dArr14[i102], iArr5, dArr12);
                     dArr14[i102][0] = dArr11[0] * dArr14[i102][0];
                     dArr14[i102][1] = dArr11[1] * dArr14[i102][1];
                     for (int i115 = 1; i115 < i35; i115++) {
@@ -2168,7 +2168,7 @@ public class j {
                         dArr14[i102][i116] = (dArr11[i116] * dArr14[i102][i116]) - (dArr11[i117] * dArr14[i102][i117]);
                         dArr14[i102][i117] = (dArr11[i117] * dArr14[i102][i116]) + (dArr11[i116] * dArr14[i102][i117]);
                     }
-                    this.f29100b.B(i113, -1, dArr14[i102], iArr5, dArr12);
+                    this.f29120b.B(i113, -1, dArr14[i102], iArr5, dArr12);
                     int i118 = i98;
                     int i119 = i86;
                     int i120 = 0;
@@ -2248,7 +2248,7 @@ public class j {
                                         d24 = dArr7[0];
                                     }
                                     dArr7[0] = d24;
-                                    a2 = com.alipay.sdk.encrypt.a.f35987g;
+                                    a2 = com.alipay.sdk.encrypt.a.f36021g;
                                 } else {
                                     c2 = 0;
                                 }
@@ -2311,7 +2311,7 @@ public class j {
                                     a3 = 32767;
                                 }
                             }
-                            byteBuffer4.order(this.f29099a).asShortBuffer().put(i23, (short) a3);
+                            byteBuffer4.order(this.f29119a).asShortBuffer().put(i23, (short) a3);
                             int i133 = i132 + 1;
                             i132 = i133 == i16 ? 0 : i133;
                             i131 = i23 + 1;

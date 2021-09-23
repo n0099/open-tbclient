@@ -13,10 +13,10 @@ public final class m implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ List f76614a;
+    public final /* synthetic */ List f76933a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f76615b;
+    public final /* synthetic */ LocalAliasTagsManager f76934b;
 
     public m(LocalAliasTagsManager localAliasTagsManager, List list) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class m implements Runnable {
                 return;
             }
         }
-        this.f76615b = localAliasTagsManager;
-        this.f76614a = list;
+        this.f76934b = localAliasTagsManager;
+        this.f76933a = list;
     }
 
     @Override // java.lang.Runnable
@@ -42,14 +42,14 @@ public final class m implements Runnable {
         List list;
         ISubscribeAppTagManager iSubscribeAppTagManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f76614a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f76933a) == null || list.size() <= 0) {
             return;
         }
         HashSet hashSet = new HashSet();
-        for (String str : this.f76614a) {
+        for (String str : this.f76933a) {
             hashSet.add(str);
         }
-        iSubscribeAppTagManager = this.f76615b.mSubscribeAppTagManager;
+        iSubscribeAppTagManager = this.f76934b.mSubscribeAppTagManager;
         iSubscribeAppTagManager.delTagsSuccess(hashSet);
     }
 }

@@ -12,7 +12,7 @@ public class p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.r0.w0.f2.l f27493a;
+    public c.a.r0.w0.f2.l f27513a;
 
     public p(TbPageContext tbPageContext, c.a.r0.w0.f2.l lVar) {
         Interceptable interceptable = $ic;
@@ -29,27 +29,27 @@ public class p {
                 return;
             }
         }
-        this.f27493a = lVar;
+        this.f27513a = lVar;
     }
 
     public void a(c.a.r0.f.d dVar) {
         c.a.r0.w0.f2.l lVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) || (lVar = this.f27493a) == null || lVar.getModelController() == null || this.f27493a.getModelController().d0() == null || this.f27493a.getFrsView() == null || dVar == null || this.f27493a.getFrsView().b0() == null || this.f27493a.getHeaderVC() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) || (lVar = this.f27513a) == null || lVar.getModelController() == null || this.f27513a.getModelController().d0() == null || this.f27513a.getFrsView() == null || dVar == null || this.f27513a.getFrsView().b0() == null || this.f27513a.getHeaderVC() == null) {
             return;
         }
-        BdTypeRecyclerView b0 = this.f27493a.getFrsView().b0();
-        int i2 = dVar.f17465a;
+        BdTypeRecyclerView b0 = this.f27513a.getFrsView().b0();
+        int i2 = dVar.f17475a;
         if (i2 != 2) {
             if (i2 == 3 && dVar.a() != null) {
                 b0.removeHeaderView(dVar.a());
-                this.f27493a.getHeaderVC().c0(0);
+                this.f27513a.getHeaderVC().c0(0);
             }
         } else if (dVar.a() == null) {
         } else {
             b0.removeHeaderView(dVar.a());
             b0.addHeaderView(dVar.a(), b0.getHeaderViewsCount() - 1);
-            this.f27493a.getHeaderVC().c0(8);
+            this.f27513a.getHeaderVC().c0(8);
         }
     }
 }

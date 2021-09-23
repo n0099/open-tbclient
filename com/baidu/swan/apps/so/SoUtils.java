@@ -57,7 +57,7 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = k.f7077a;
+        DEBUG = k.f7085a;
         sUbcImpl = new c();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }

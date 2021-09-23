@@ -24,12 +24,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.RandomAccess;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Lists {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class OnePlusArrayList<E> extends AbstractList<E> implements Serializable, RandomAccess {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -76,7 +76,7 @@ public final class Lists {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class StringAsImmutableList extends ImmutableList<Character> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +168,7 @@ public final class Lists {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class TransformingRandomAccessList<F, T> extends AbstractList<T> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -176,13 +176,13 @@ public final class Lists {
         public final List<F> fromList;
         public final g<? super F, ? extends T> function;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public class a extends n1<F, T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ TransformingRandomAccessList f70604f;
+            public final /* synthetic */ TransformingRandomAccessList f70923f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(TransformingRandomAccessList transformingRandomAccessList, ListIterator listIterator) {
@@ -202,14 +202,14 @@ public final class Lists {
                         return;
                     }
                 }
-                this.f70604f = transformingRandomAccessList;
+                this.f70923f = transformingRandomAccessList;
             }
 
             @Override // c.i.d.c.m1
             public T a(F f2) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f70604f.function.apply(f2) : (T) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f70923f.function.apply(f2) : (T) invokeL.objValue;
             }
         }
 
@@ -287,7 +287,7 @@ public final class Lists {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class TransformingSequentialList<F, T> extends AbstractSequentialList<T> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -295,13 +295,13 @@ public final class Lists {
         public final List<F> fromList;
         public final g<? super F, ? extends T> function;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public class a extends n1<F, T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ TransformingSequentialList f70605f;
+            public final /* synthetic */ TransformingSequentialList f70924f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(TransformingSequentialList transformingSequentialList, ListIterator listIterator) {
@@ -321,14 +321,14 @@ public final class Lists {
                         return;
                     }
                 }
-                this.f70605f = transformingSequentialList;
+                this.f70924f = transformingSequentialList;
             }
 
             @Override // c.i.d.c.m1
             public T a(F f2) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f70605f.function.apply(f2) : (T) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f70924f.function.apply(f2) : (T) invokeL.objValue;
             }
         }
 
@@ -376,7 +376,7 @@ public final class Lists {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class TwoPlusArrayList<E> extends AbstractList<E> implements Serializable, RandomAccess {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;

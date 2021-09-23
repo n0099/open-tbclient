@@ -33,11 +33,11 @@ public class a {
 
     /* renamed from: c.a.r0.y2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1369a implements Comparator<o0> {
+    public static class C1367a implements Comparator<o0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1369a() {
+        public C1367a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,15 +88,15 @@ public class a {
                 if (nVar != null) {
                     for (c.a.e.l.e.n nVar2 : a2) {
                         if ((nVar instanceof o0) && (m2 = ((o0) nVar).m()) != null && nVar2.hashCode() == m2.hashCode()) {
-                            m2.f4 = ((AdvertAppInfo) nVar2).f4;
+                            m2.g4 = ((AdvertAppInfo) nVar2).g4;
                         }
                     }
-                    if ((nVar instanceof o0) && (m = ((o0) nVar).m()) != null && m.f4 == null) {
+                    if ((nVar instanceof o0) && (m = ((o0) nVar).m()) != null && m.g4 == null) {
                         c.a.q0.s.q.e eVar = new c.a.q0.s.q.e();
-                        m.f4 = eVar;
+                        m.g4 = eVar;
                         eVar.f14143a = str;
                         eVar.f14144b = i2;
-                        eVar.f14150h = m.d4;
+                        eVar.f14150h = m.e4;
                         eVar.f14151i = false;
                         hashSet.add(m);
                     }
@@ -164,7 +164,7 @@ public class a {
                     if (z) {
                         o0 o0Var = (o0) next;
                         if (o0Var.m() != null) {
-                            str2 = o0Var.m().W3;
+                            str2 = o0Var.m().X3;
                         }
                     }
                     str2 = "";
@@ -206,7 +206,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, advertAppInfo)) == null) {
-            return "#Nad=" + advertAppInfo.d4;
+            return "#Nad=" + advertAppInfo.e4;
         }
         return (String) invokeL.objValue;
     }
@@ -218,10 +218,10 @@ public class a {
             if (advertAppInfo == null) {
                 return 0;
             }
-            if (TextUtils.isEmpty(advertAppInfo.c4)) {
+            if (TextUtils.isEmpty(advertAppInfo.d4)) {
                 return -1;
             }
-            return c.a.e.e.m.b.e(advertAppInfo.c4, -1);
+            return c.a.e.e.m.b.e(advertAppInfo.d4, -1);
         }
         return invokeL.intValue;
     }
@@ -237,8 +237,8 @@ public class a {
             String str2 = "src ad list size " + list.size();
             for (App app : list) {
                 AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                advertAppInfo.V4(app);
-                advertAppInfo.g4 = str;
+                advertAppInfo.U4(app);
+                advertAppInfo.h4 = str;
                 int m = m(advertAppInfo);
                 if (m != 0) {
                     r(advertAppInfo, m);
@@ -359,11 +359,11 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, advertAppInfo)) == null) {
-            int T4 = advertAppInfo.T4();
+            int S4 = advertAppInfo.S4();
             if (g(advertAppInfo) < 0) {
                 return 23;
             }
-            return T4;
+            return S4;
         }
         return invokeL.intValue;
     }
@@ -478,7 +478,7 @@ public class a {
     public static void t(List<o0> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, list) == null) {
-            Collections.sort(list, new C1369a());
+            Collections.sort(list, new C1367a());
         }
     }
 

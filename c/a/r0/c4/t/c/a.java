@@ -13,10 +13,10 @@ public abstract class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f16895a;
+    public f f16905a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f16896b;
+    public View f16906b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(f fVar) {
@@ -36,7 +36,7 @@ public abstract class a extends d {
                 return;
             }
         }
-        this.f16895a = fVar;
+        this.f16905a = fVar;
         c();
     }
 

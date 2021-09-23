@@ -26,7 +26,7 @@ public class d extends c.a.r0.h2.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f18977a;
+        public final /* synthetic */ d f18986a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -43,15 +43,15 @@ public class d extends c.a.r0.h2.b.a {
                     return;
                 }
             }
-            this.f18977a = dVar;
+            this.f18986a = dVar;
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void onFail(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                this.f18977a.f18951b.closeLoadingDialog();
-                BaseActivity baseActivity = this.f18977a.f18951b;
+                this.f18986a.f18960b.closeLoadingDialog();
+                BaseActivity baseActivity = this.f18986a.f18960b;
                 baseActivity.showToast(String.format(baseActivity.getString(R.string.onekey_login_fail), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
             }
         }
@@ -68,7 +68,7 @@ public class d extends c.a.r0.h2.b.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oneKeyLoginResult) == null) {
                 DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
-                this.f18977a.f();
+                this.f18986a.f();
             }
         }
     }
@@ -98,7 +98,7 @@ public class d extends c.a.r0.h2.b.a {
     public void j(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f18954e = cVar;
+            this.f18963e = cVar;
         }
     }
 
@@ -122,7 +122,7 @@ public class d extends c.a.r0.h2.b.a {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BaseActivity baseActivity = this.f18951b;
+            BaseActivity baseActivity = this.f18960b;
             new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.onekey_login_dialog_activity_agreement_text), SwanAppPhoneLoginDialog.PASS_ACCOUNT_AGREE, false).start();
         }
     }
@@ -132,27 +132,27 @@ public class d extends c.a.r0.h2.b.a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             l();
             PassportSDK passportSDK = PassportSDK.getInstance();
-            BaseActivity baseActivity = this.f18951b;
-            passportSDK.loadOneKeyLogin(baseActivity, c.a.r0.h2.c.b.h(baseActivity, this.f18954e.f18975c), new a(this));
+            BaseActivity baseActivity = this.f18960b;
+            passportSDK.loadOneKeyLogin(baseActivity, c.a.r0.h2.c.b.h(baseActivity, this.f18963e.f18984c), new a(this));
         }
     }
 
     public final void t() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.f18954e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.f18963e) == null) {
             return;
         }
         int a2 = cVar.a();
         if (a2 == 1) {
-            BaseActivity baseActivity = this.f18951b;
+            BaseActivity baseActivity = this.f18960b;
             new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.onekey_login_dialog_activity_operator_1), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
         } else if (a2 == 2) {
-            BaseActivity baseActivity2 = this.f18951b;
+            BaseActivity baseActivity2 = this.f18960b;
             new TbWebViewActivityConfig(baseActivity2, baseActivity2.getResources().getString(R.string.onekey_login_dialog_activity_operator_2), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
         } else if (a2 != 3) {
         } else {
-            BaseActivity baseActivity3 = this.f18951b;
+            BaseActivity baseActivity3 = this.f18960b;
             new TbWebViewActivityConfig(baseActivity3, baseActivity3.getResources().getString(R.string.onekey_login_dialog_activity_operator_3), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
         }
     }
@@ -160,7 +160,7 @@ public class d extends c.a.r0.h2.b.a {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            BaseActivity baseActivity = this.f18951b;
+            BaseActivity baseActivity = this.f18960b;
             new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.onekey_login_dialog_activity_privacy_text), "http://privacy.baidu.com/mdetail?id=288", false).start();
         }
     }

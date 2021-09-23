@@ -20,10 +20,10 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35613a = "d";
+    public static final String f35636a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35614b = "RSA/ECB/PKCS1Padding";
+    public static String f35637b = "RSA/ECB/PKCS1Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -78,7 +78,7 @@ public class d {
             try {
                 return (RSAPublicKey) a("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC5se07mkN71qsSJHjZ2Z0+Z+4LlLvf2sz7Md38VAa3EmAOvI7vZp3hbAxicL724ylcmisTPtZQhT/9C+25AELqy9PN9JmzKpwoVTUoJvxG4BoyT49+gGVl6s6zo1byNoHUzTfkmRfmC9MC53HvG8GwKP5xtcdptFjAIcgIR7oAWQIDAQAB");
             } catch (Throwable th) {
-                CtAuth.warn(f35613a, "getPublicKey error", th);
+                CtAuth.warn(f35636a, "getPublicKey error", th);
                 return null;
             }
         }
@@ -90,11 +90,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, rSAPublicKey, bArr)) == null) {
             try {
-                Cipher cipher = Cipher.getInstance(f35614b);
+                Cipher cipher = Cipher.getInstance(f35637b);
                 cipher.init(1, rSAPublicKey);
                 return cipher.doFinal(bArr);
             } catch (Throwable th) {
-                CtAuth.warn(f35613a, "Rsa encrypt4Ux error", th);
+                CtAuth.warn(f35636a, "Rsa encrypt4Ux error", th);
                 return null;
             }
         }

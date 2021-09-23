@@ -22,19 +22,19 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<BubbleListData.BubbleData> f28321e;
+    public List<BubbleListData.BubbleData> f28341e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<BubbleChooseActivity> f28322f;
+    public TbPageContext<BubbleChooseActivity> f28342f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28323g;
+    public int f28343g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28324h;
+    public int f28344h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f28325i;
+    public boolean f28345i;
 
     public a(TbPageContext<BubbleChooseActivity> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f28321e = new ArrayList();
-        this.f28322f = tbPageContext;
-        this.f28323g = (int) tbPageContext.getResources().getDimension(R.dimen.ds30);
-        this.f28324h = (int) this.f28322f.getResources().getDimension(R.dimen.ds30);
+        this.f28341e = new ArrayList();
+        this.f28342f = tbPageContext;
+        this.f28343g = (int) tbPageContext.getResources().getDimension(R.dimen.ds30);
+        this.f28344h = (int) this.f28342f.getResources().getDimension(R.dimen.ds30);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,10 +64,10 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<BubbleListData.BubbleData> list = this.f28321e;
+            List<BubbleListData.BubbleData> list = this.f28341e;
             if (list != null) {
                 if (i2 >= 0 || i2 < list.size()) {
-                    return this.f28321e.get(i2);
+                    return this.f28341e.get(i2);
                 }
                 return null;
             }
@@ -79,17 +79,17 @@ public class a extends BaseAdapter {
     public List<BubbleListData.BubbleData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28321e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28341e : (List) invokeV.objValue;
     }
 
     public void c(List<BubbleListData.BubbleData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f28321e.clear();
+            this.f28341e.clear();
             BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
             bubbleData.setBcode(0);
-            this.f28321e.add(bubbleData);
-            this.f28321e.addAll(list);
+            this.f28341e.add(bubbleData);
+            this.f28341e.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -97,7 +97,7 @@ public class a extends BaseAdapter {
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f28325i = z;
+            this.f28345i = z;
         }
     }
 
@@ -106,7 +106,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<BubbleListData.BubbleData> list = this.f28321e;
+            List<BubbleListData.BubbleData> list = this.f28341e;
             if (list == null) {
                 return 0;
             }
@@ -130,28 +130,28 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                bubbleView2 = new BubbleView(this.f28322f.getPageActivity());
+                bubbleView2 = new BubbleView(this.f28342f.getPageActivity());
                 bubbleView = bubbleView2;
             } else {
                 bubbleView = view;
                 bubbleView2 = (BubbleView) view;
             }
             if (i2 == 0 || i2 == 1) {
-                bubbleView2.setPadding(0, this.f28324h, 0, 0);
+                bubbleView2.setPadding(0, this.f28344h, 0, 0);
             }
             if (getCount() % 2 == 0) {
                 if (i2 == getCount() - 1 || i2 == getCount() - 2) {
-                    bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.f28323g);
+                    bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.f28343g);
                 }
             } else if (i2 == getCount() - 1) {
-                bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.f28323g);
+                bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.f28343g);
             }
             BubbleListData.BubbleData item = getItem(i2);
             if (item != null) {
                 bubbleView2.setShowName(true);
-                bubbleView2.setData(item, this.f28325i);
+                bubbleView2.setData(item, this.f28345i);
             }
-            bubbleView2.changeSkinType(this.f28322f);
+            bubbleView2.changeSkinType(this.f28342f);
             return bubbleView;
         }
         return (View) invokeILL.objValue;

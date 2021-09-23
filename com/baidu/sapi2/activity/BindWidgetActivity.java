@@ -48,7 +48,7 @@ public class BindWidgetActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BindWidgetActivity f44662a;
+            public final /* synthetic */ BindWidgetActivity f44724a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,7 +65,7 @@ public class BindWidgetActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f44662a = this;
+                this.f44724a = this;
             }
 
             @Override // com.baidu.sapi2.result.WebBindWidgetResult
@@ -73,7 +73,7 @@ public class BindWidgetActivity extends BaseActivity {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     super.loginSuc();
-                    this.f44662a.onClose();
+                    this.f44724a.onClose();
                 }
             }
         };
@@ -183,7 +183,7 @@ public class BindWidgetActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BindWidgetActivity f44663a;
+                public final /* synthetic */ BindWidgetActivity f44725a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -200,14 +200,14 @@ public class BindWidgetActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44663a = this;
+                    this.f44725a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
                 public void onBack() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f44663a.a();
+                        this.f44725a.a();
                     }
                 }
             });
@@ -216,7 +216,7 @@ public class BindWidgetActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BindWidgetActivity f44664a;
+                public final /* synthetic */ BindWidgetActivity f44726a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -233,14 +233,14 @@ public class BindWidgetActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44664a = this;
+                    this.f44726a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f44664a.onClose();
+                        this.f44726a.onClose();
                     }
                 }
             });
@@ -249,7 +249,7 @@ public class BindWidgetActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BindWidgetActivity f44665a;
+                public final /* synthetic */ BindWidgetActivity f44727a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -266,7 +266,7 @@ public class BindWidgetActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44665a = this;
+                    this.f44727a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.BindWidgetCallback
@@ -275,15 +275,15 @@ public class BindWidgetActivity extends BaseActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         SapiAccountManager.getInstance().getSapiConfiguration().presetPhoneNumber = str;
                         if (CoreViewRouter.getInstance().getWebBindWidgetDTO().handleLogin && CoreViewRouter.getInstance().getWebBindWidgetCallback() != null) {
-                            this.f44665a.v.setResultCode(-10001);
-                            this.f44665a.v.setResultMsg("请登录");
-                            CoreViewRouter.getInstance().getWebBindWidgetCallback().onFinish(this.f44665a.v);
+                            this.f44727a.v.setResultCode(-10001);
+                            this.f44727a.v.setResultMsg("请登录");
+                            CoreViewRouter.getInstance().getWebBindWidgetCallback().onFinish(this.f44727a.v);
                             return;
                         }
-                        Intent intent = new Intent(this.f44665a, LoginActivity.class);
+                        Intent intent = new Intent(this.f44727a, LoginActivity.class);
                         intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, WebLoginDTO.EXTRA_LOGIN_WITH_SMS);
                         intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
-                        this.f44665a.startActivityForResult(intent, BindWidgetActivity.REQUEST_CODE_LOGIN);
+                        this.f44727a.startActivityForResult(intent, BindWidgetActivity.REQUEST_CODE_LOGIN);
                     }
                 }
             });

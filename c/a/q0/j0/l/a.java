@@ -38,7 +38,7 @@ public class a implements b<AgreeEvent> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, agreeEvent)) == null) {
             if (agreeEvent != null && agreeEvent.agreeData != null) {
                 e eVar = new e();
-                eVar.f20841b = agreeEvent.agreeData;
+                eVar.f20853b = agreeEvent.agreeData;
                 String str = agreeEvent.agreeExtra;
                 if (AgreeEvent.IS_THREAD.equals(str)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, eVar));

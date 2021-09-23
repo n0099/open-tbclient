@@ -13,25 +13,25 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12842a;
+    public String f12856a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12843b;
+    public int f12857b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12844c;
+    public int f12858c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12845d;
+    public String f12859d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12846e;
+    public String f12860e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12847f;
+    public String f12861f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12848g;
+    public String f12862g;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -53,12 +53,12 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             try {
                 c cVar = new c();
-                cVar.f12842a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
-                cVar.f12843b = jSONObject.optInt("width");
-                cVar.f12844c = jSONObject.optInt("height");
-                cVar.f12845d = jSONObject.optString("pic_url");
-                cVar.f12846e = jSONObject.optString("thumbnail");
-                cVar.f12848g = jSONObject.optString("origin_url");
+                cVar.f12856a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
+                cVar.f12857b = jSONObject.optInt("width");
+                cVar.f12858c = jSONObject.optInt("height");
+                cVar.f12859d = jSONObject.optString("pic_url");
+                cVar.f12860e = jSONObject.optString("thumbnail");
+                cVar.f12862g = jSONObject.optString("origin_url");
                 return cVar;
             } catch (Exception unused) {
                 return null;

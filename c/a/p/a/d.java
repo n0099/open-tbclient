@@ -15,11 +15,11 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f4366b;
+    public static d f4373b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedHashMap<String, Integer> f4367a;
+    public LinkedHashMap<String, Integer> f4374a;
 
     static {
         InterceptResult invokeClinit;
@@ -49,21 +49,21 @@ public class d {
                 return;
             }
         }
-        this.f4367a = new LinkedHashMap<>(150, 0.75f, true);
+        this.f4374a = new LinkedHashMap<>(150, 0.75f, true);
     }
 
     public static d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f4366b == null) {
+            if (f4373b == null) {
                 synchronized (d.class) {
-                    if (f4366b == null) {
-                        f4366b = new d();
+                    if (f4373b == null) {
+                        f4373b = new d();
                     }
                 }
             }
-            return f4366b;
+            return f4373b;
         }
         return (d) invokeV.objValue;
     }
@@ -72,7 +72,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Integer num = this.f4367a.get(str);
+            Integer num = this.f4374a.get(str);
             if (num != null) {
                 return num.intValue();
             }
@@ -86,16 +86,16 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f4367a.remove(str);
+        this.f4374a.remove(str);
     }
 
     public void d(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
-            if (i2 == 0 && this.f4367a.containsKey(str)) {
+            if (i2 == 0 && this.f4374a.containsKey(str)) {
                 return;
             }
-            this.f4367a.put(str, Integer.valueOf(i2));
+            this.f4374a.put(str, Integer.valueOf(i2));
         }
     }
 }

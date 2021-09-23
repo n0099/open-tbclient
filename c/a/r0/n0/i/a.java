@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.q0.d1.m0;
+import c.a.q0.d1.n0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -41,34 +41,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f22593a;
+    public final String f22609a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f22594b;
+    public final long f22610b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f22595c;
+    public int f22611c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f22596d;
+    public View f22612d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f22597e;
+    public TextView f22613e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f22598f;
+    public TextView f22614f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22599g;
+    public TextView f22615g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f22600h;
+    public ImageView f22616h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f22601i;
+    public ImageView f22617i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f22602j;
+    public ImageView f22618j;
     public ImageView k;
     public ImageView l;
     public IrregularImageView m;
@@ -86,14 +86,14 @@ public class a {
 
     /* renamed from: c.a.r0.n0.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1056a implements View.OnClickListener {
+    public class View$OnClickListenerC1054a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f22603e;
+        public final /* synthetic */ a f22619e;
 
-        public View$OnClickListenerC1056a(a aVar) {
+        public View$OnClickListenerC1054a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,20 +108,20 @@ public class a {
                     return;
                 }
             }
-            this.f22603e = aVar;
+            this.f22619e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f22603e.f22594b > 0) {
+                if (this.f22619e.f22610b > 0) {
                     StatisticItem statisticItem = new StatisticItem("c13671");
-                    statisticItem.param("fid", this.f22603e.f22594b);
+                    statisticItem.param("fid", this.f22619e.f22610b);
                     TiebaStatic.log(statisticItem);
                 }
-                HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(this.f22603e.f22596d.getContext());
-                hotUserRankActivityConfig.setCategory(this.f22603e.u);
+                HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(this.f22619e.f22612d.getContext());
+                hotUserRankActivityConfig.setCategory(this.f22619e.u);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
             }
         }
@@ -133,7 +133,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f22604e;
+        public final /* synthetic */ a f22620e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -150,27 +150,27 @@ public class a {
                     return;
                 }
             }
-            this.f22604e = aVar;
+            this.f22620e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view.getId() != this.f22604e.v.getId() || this.f22604e.w == null || this.f22604e.w.f22616c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view.getId() != this.f22620e.v.getId() || this.f22620e.w == null || this.f22620e.w.f22632c == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f22604e.f22596d.getContext(), this.f22604e.w.f22616c.getUserId(), this.f22604e.w.f22616c.getName_show())));
-            if (!TextUtils.isEmpty(this.f22604e.f22593a)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f22620e.f22612d.getContext(), this.f22620e.w.f22632c.getUserId(), this.f22620e.w.f22632c.getName_show())));
+            if (!TextUtils.isEmpty(this.f22620e.f22609a)) {
                 StatisticItem statisticItem = new StatisticItem("c13659");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f22604e.w.f22614a);
-                statisticItem.param(TiebaStatic.Params.FRIEND_UID, this.f22604e.w.f22616c.rankNum);
+                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f22620e.w.f22630a);
+                statisticItem.param(TiebaStatic.Params.FRIEND_UID, this.f22620e.w.f22632c.rankNum);
                 TiebaStatic.log(statisticItem);
                 return;
             }
             StatisticItem statisticItem2 = new StatisticItem("c13683");
-            statisticItem2.param("uid", this.f22604e.w.f22616c.getUserId());
-            statisticItem2.param("fid", this.f22604e.f22594b);
+            statisticItem2.param("uid", this.f22620e.w.f22632c.getUserId());
+            statisticItem2.param("fid", this.f22620e.f22610b);
             TiebaStatic.log(statisticItem2);
         }
     }
@@ -190,38 +190,38 @@ public class a {
                 return;
             }
         }
-        this.f22595c = 3;
+        this.f22611c = 3;
         this.x = new b(this);
-        this.f22596d = view;
-        this.f22593a = str;
-        this.f22594b = j2;
+        this.f22612d = view;
+        this.f22609a = str;
+        this.f22610b = j2;
         View findViewById = view.findViewById(R.id.top_container);
         this.v = findViewById;
         findViewById.setOnClickListener(this.x);
         TextView textView = (TextView) view.findViewById(R.id.rank_name);
-        this.f22597e = textView;
+        this.f22613e = textView;
         textView.getPaint().setFakeBoldText(true);
-        this.f22598f = (TextView) view.findViewById(R.id.top_user_name);
-        this.f22599g = (TextView) view.findViewById(R.id.rank_data);
-        this.f22600h = (ImageView) view.findViewById(R.id.img_left_top_cover);
-        this.f22601i = (ImageView) view.findViewById(R.id.img_left_bottom_cover);
-        this.f22602j = (ImageView) view.findViewById(R.id.img_center_top_cover);
+        this.f22614f = (TextView) view.findViewById(R.id.top_user_name);
+        this.f22615g = (TextView) view.findViewById(R.id.rank_data);
+        this.f22616h = (ImageView) view.findViewById(R.id.img_left_top_cover);
+        this.f22617i = (ImageView) view.findViewById(R.id.img_left_bottom_cover);
+        this.f22618j = (ImageView) view.findViewById(R.id.img_center_top_cover);
         this.k = (ImageView) view.findViewById(R.id.img_right_top_cover);
         this.l = (ImageView) view.findViewById(R.id.img_right_bottom_cover);
         IrregularImageView irregularImageView = (IrregularImageView) view.findViewById(R.id.img_user_head);
         this.m = irregularImageView;
         irregularImageView.setErrorRes(R.drawable.pic_list_avatar);
-        this.f22600h.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_rule_line100, 1, false));
-        this.f22601i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_list_circle, 1, false));
-        this.f22602j.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_list_line, 1, false));
+        this.f22616h.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_rule_line100, 1, false));
+        this.f22617i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_list_circle, 1, false));
+        this.f22618j.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_list_line, 1, false));
         this.k.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_list_circle2, 1, false));
         this.l.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.svg_pic_mask_list_line2, 1, false));
         TextView textView2 = (TextView) view.findViewById(R.id.text_compute_method);
         this.n = textView2;
-        textView2.setText(this.f22596d.getResources().getString(R.string.hot_user_rank_influence_desc));
+        textView2.setText(this.f22612d.getResources().getString(R.string.hot_user_rank_influence_desc));
         RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.hot_rank_entry);
         this.o = relativeLayout;
-        relativeLayout.setOnClickListener(new View$OnClickListenerC1056a(this));
+        relativeLayout.setOnClickListener(new View$OnClickListenerC1054a(this));
         this.p = (ImageView) view.findViewById(R.id.hot_rank_entry_crown);
         this.q = (TextView) view.findViewById(R.id.hot_rank_entry_describe);
         this.t = (ImageView) view.findViewById(R.id.hot_rank_entry_first_tag);
@@ -289,10 +289,10 @@ public class a {
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f22595c == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f22611c == i2) {
             return;
         }
-        this.f22595c = i2;
+        this.f22611c = i2;
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
         SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.p, R.drawable.svg_icon_mask_crown24, SvgManager.SvgResourceStateType.NORMAL);
         SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.t, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
@@ -308,32 +308,32 @@ public class a {
             if (aVar == null) {
                 return;
             }
-            this.f22597e.setText(aVar.f22614a);
-            if (aVar.f22616c != null) {
-                String str = aVar.f22615b;
-                if (m0.d(str) > 10) {
-                    str = m0.m(aVar.f22615b, 10) + "...";
+            this.f22613e.setText(aVar.f22630a);
+            if (aVar.f22632c != null) {
+                String str = aVar.f22631b;
+                if (n0.d(str) > 10) {
+                    str = n0.m(aVar.f22631b, 10) + "...";
                 }
-                this.f22598f.setText(String.format(this.f22596d.getContext().getResources().getString(R.string.hot_user_rank_top_name), str));
+                this.f22614f.setText(String.format(this.f22612d.getContext().getResources().getString(R.string.hot_user_rank_top_name), str));
             }
-            if (aVar.f22617d == 0) {
-                this.f22599g.setVisibility(8);
+            if (aVar.f22633d == 0) {
+                this.f22615g.setVisibility(8);
             } else {
-                this.f22599g.setVisibility(0);
-                this.f22599g.setText(String.format(this.f22596d.getContext().getString(R.string.hot_user_rank_data), StringHelper.getDateStringMdChinease(aVar.f22617d * 1000)));
+                this.f22615g.setVisibility(0);
+                this.f22615g.setText(String.format(this.f22612d.getContext().getString(R.string.hot_user_rank_data), StringHelper.getDateStringMdChinease(aVar.f22633d * 1000)));
             }
-            this.m.setImage(aVar.f22618e, h(this.f22596d.getContext()), R.drawable.mask_list_avatar);
-            TiebaFieldsInfo tiebaFieldsInfo = aVar.f22619f;
+            this.m.setImage(aVar.f22634e, h(this.f22612d.getContext()), R.drawable.mask_list_avatar);
+            TiebaFieldsInfo tiebaFieldsInfo = aVar.f22635f;
             if (tiebaFieldsInfo != null && !z && !TextUtils.isEmpty(tiebaFieldsInfo.tieba_name)) {
                 this.o.setVisibility(0);
-                this.q.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.cat_hot_rank), aVar.f22619f.tieba_name));
-                List<String> i2 = i(aVar.f22619f.user_rank);
+                this.q.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.cat_hot_rank), aVar.f22635f.tieba_name));
+                List<String> i2 = i(aVar.f22635f.user_rank);
                 this.r.setData(i2);
                 g(i2);
-                this.u = aVar.f22619f.tieba_name;
-                if (this.f22594b > 0) {
+                this.u = aVar.f22635f.tieba_name;
+                if (this.f22610b > 0) {
                     StatisticItem statisticItem = new StatisticItem("c13670");
-                    statisticItem.param("fid", this.f22594b);
+                    statisticItem.param("fid", this.f22610b);
                     TiebaStatic.log(statisticItem);
                     return;
                 }

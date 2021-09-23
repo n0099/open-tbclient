@@ -16,35 +16,35 @@ public class a {
 
     /* renamed from: c.a.r0.l1.a.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1027a {
+    public static class C1025a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f21875a;
+        public int f21889a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f21876b;
+        public String f21890b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f21877c;
+        public String f21891c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f21878d;
+        public String f21892d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f21879e;
+        public String f21893e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f21880f;
+        public String f21894f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f21881g;
+        public String f21895g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f21882h;
+        public int f21896h;
 
-        public C1027a() {
+        public C1025a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,26 +59,26 @@ public class a {
         }
     }
 
-    public static C1027a a(String str) {
+    public static C1025a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            C1027a c1027a = new C1027a();
+            C1025a c1025a = new C1025a();
             try {
                 JSONArray jSONArray = new JSONArray(str);
                 if (jSONArray.length() > 0) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(0);
                     optJSONObject.optString("title");
-                    c1027a.f21876b = optJSONObject.optString("content");
-                    c1027a.f21877c = optJSONObject.optString("quote_content");
-                    c1027a.f21878d = optJSONObject.optString("fname");
-                    c1027a.f21879e = optJSONObject.optString("thread_id");
-                    c1027a.f21880f = optJSONObject.optString("post_id");
-                    c1027a.f21882h = optJSONObject.optInt("type");
-                    c1027a.f21881g = optJSONObject.optString("title");
+                    c1025a.f21890b = optJSONObject.optString("content");
+                    c1025a.f21891c = optJSONObject.optString("quote_content");
+                    c1025a.f21892d = optJSONObject.optString("fname");
+                    c1025a.f21893e = optJSONObject.optString("thread_id");
+                    c1025a.f21894f = optJSONObject.optString("post_id");
+                    c1025a.f21896h = optJSONObject.optInt("type");
+                    c1025a.f21895g = optJSONObject.optString("title");
                     optJSONObject.optInt("thread_type");
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                     if (optJSONObject2 != null) {
@@ -89,15 +89,15 @@ public class a {
                     JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                     if (optJSONObject3 != null) {
                         optJSONObject3.optString("id");
-                        c1027a.f21875a = optJSONObject3.optInt("gender");
+                        c1025a.f21889a = optJSONObject3.optInt("gender");
                     }
                 }
-                return c1027a;
+                return c1025a;
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (C1027a) invokeL.objValue;
+        return (C1025a) invokeL.objValue;
     }
 }

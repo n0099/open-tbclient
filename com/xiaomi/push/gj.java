@@ -19,14 +19,14 @@ public class gj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static gj f77726a;
+    public static gj f78045a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
     public Map<String, Object> f442a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Object> f77727b;
+    public Map<String, Object> f78046b;
 
     public gj() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class gj {
             }
         }
         this.f442a = new ConcurrentHashMap();
-        this.f77727b = new ConcurrentHashMap();
+        this.f78046b = new ConcurrentHashMap();
         m354a();
     }
 
@@ -52,10 +52,10 @@ public class gj {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (gj.class) {
-                if (f77726a == null) {
-                    f77726a = new gj();
+                if (f78045a == null) {
+                    f78045a = new gj();
                 }
-                gjVar = f77726a;
+                gjVar = f78045a;
             }
             return gjVar;
         }
@@ -140,14 +140,14 @@ public class gj {
                                     newPullParser.next();
                                     String nextText3 = newPullParser.nextText();
                                     String a2 = a(nextText, nextText2);
-                                    if (!this.f77727b.containsKey(a2)) {
+                                    if (!this.f78046b.containsKey(a2)) {
                                         try {
                                             Class<?> cls = Class.forName(nextText3);
                                             if (gh.class.isAssignableFrom(cls)) {
-                                                map2 = this.f77727b;
+                                                map2 = this.f78046b;
                                                 obj2 = cls.newInstance();
                                             } else if (ga.class.isAssignableFrom(cls)) {
-                                                map2 = this.f77727b;
+                                                map2 = this.f78046b;
                                                 obj2 = cls;
                                             }
                                             map2.put(a2, obj2);

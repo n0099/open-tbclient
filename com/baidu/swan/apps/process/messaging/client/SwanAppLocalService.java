@@ -66,7 +66,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppLocalService f46180e;
+        public final /* synthetic */ SwanAppLocalService f46282e;
 
         public a(SwanAppLocalService swanAppLocalService) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                     return;
                 }
             }
-            this.f46180e = swanAppLocalService;
+            this.f46282e = swanAppLocalService;
         }
 
         @Override // java.lang.Runnable
@@ -98,10 +98,10 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                 c.a.p0.a.r1.n.a.a().c(c.a.p0.a.g.aiapps_fragment, c.a.p0.a.g.aiapps_pull_to_load_footer);
                 c.a.p0.a.c1.a.Q().a(c.a.p0.a.c1.a.l0().a());
                 if (c.a.p0.a.r1.l.e.j()) {
-                    boolean z = c.a.p0.a.w2.d.b.f9596i;
+                    boolean z = c.a.p0.a.w2.d.b.f9604i;
                     c.a.p0.a.f1.c.b.c().d("screenSize", g0.b());
                 }
-                this.f46180e.preloadActivityClass();
+                this.f46282e.preloadActivityClass();
             }
         }
     }
@@ -112,7 +112,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppLocalService f46181e;
+        public final /* synthetic */ SwanAppLocalService f46283e;
 
         public b(SwanAppLocalService swanAppLocalService) {
             Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                     return;
                 }
             }
-            this.f46181e = swanAppLocalService;
+            this.f46283e = swanAppLocalService;
         }
 
         @Override // java.lang.Runnable
@@ -137,7 +137,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    ClassLoader classLoader = this.f46181e.getClassLoader();
+                    ClassLoader classLoader = this.f46283e.getClassLoader();
                     Class.forName(SwanAppProcessInfo.current().activity.getName(), true, classLoader);
                     Class.forName(f.class.getName(), true, classLoader);
                     Class.forName(g.b.class.getName(), true, classLoader);
@@ -174,7 +174,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                 return;
             }
         }
-        DEBUG = k.f7077a;
+        DEBUG = k.f7085a;
         sFlagPreloaded = false;
     }
 

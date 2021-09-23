@@ -16,10 +16,10 @@ public final class f extends InputStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public InputStream f6352e;
+    public InputStream f6360e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f6353f;
+    public d f6361f;
 
     public f(@NonNull InputStream inputStream, @NonNull d dVar) {
         Interceptable interceptable = $ic;
@@ -36,15 +36,15 @@ public final class f extends InputStream {
                 return;
             }
         }
-        this.f6352e = inputStream;
-        this.f6353f = dVar;
+        this.f6360e = inputStream;
+        this.f6361f = dVar;
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6352e.available() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6360e.available() : invokeV.intValue;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -52,8 +52,8 @@ public final class f extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.close();
-            c.a.p0.t.d.d(this.f6352e);
-            this.f6353f.a();
+            c.a.p0.t.d.d(this.f6360e);
+            this.f6361f.a();
         }
     }
 
@@ -62,7 +62,7 @@ public final class f extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.mark(i2);
-            this.f6352e.mark(i2);
+            this.f6360e.mark(i2);
         }
     }
 
@@ -70,7 +70,7 @@ public final class f extends InputStream {
     public boolean markSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6352e.markSupported() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6360e.markSupported() : invokeV.booleanValue;
     }
 
     @Override // java.io.InputStream
@@ -78,8 +78,8 @@ public final class f extends InputStream {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
-            int read = this.f6352e.read(bArr);
-            this.f6353f.c(bArr, 0, read);
+            int read = this.f6360e.read(bArr);
+            this.f6361f.c(bArr, 0, read);
             return read;
         }
         return invokeL.intValue;
@@ -91,7 +91,7 @@ public final class f extends InputStream {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
                 super.reset();
-                this.f6352e.reset();
+                this.f6360e.reset();
             }
         }
     }
@@ -101,7 +101,7 @@ public final class f extends InputStream {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) {
-            this.f6352e.skip(j2);
+            this.f6360e.skip(j2);
             return super.skip(j2);
         }
         return invokeJ.longValue;
@@ -112,8 +112,8 @@ public final class f extends InputStream {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) {
-            int read = this.f6352e.read(bArr, i2, i3);
-            this.f6353f.c(bArr, i2, read);
+            int read = this.f6360e.read(bArr, i2, i3);
+            this.f6361f.c(bArr, i2, read);
             return read;
         }
         return invokeLII.intValue;
@@ -123,6 +123,6 @@ public final class f extends InputStream {
     public int read() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6352e.read() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6360e.read() : invokeV.intValue;
     }
 }

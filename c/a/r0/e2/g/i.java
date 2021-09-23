@@ -27,14 +27,14 @@ public class i extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f17374g = 3;
+    public static int f17384g = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17375e;
+    public Context f17385e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<BazhuInfoData.BaInfo> f17376f;
+    public List<BazhuInfoData.BaInfo> f17386f;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -42,19 +42,19 @@ public class i extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f17377a;
+        public TextView f17387a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CheckBox f17378b;
+        public CheckBox f17388b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BarImageView f17379c;
+        public BarImageView f17389c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f17380d;
+        public int f17390d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Drawable f17381e;
+        public Drawable f17391e;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -71,23 +71,23 @@ public class i extends BaseAdapter {
                     return;
                 }
             }
-            this.f17380d = 3;
+            this.f17390d = 3;
             if (view == null) {
                 return;
             }
-            this.f17377a = (TextView) view.findViewById(R.id.transmit_forum_name);
-            this.f17378b = (CheckBox) view.findViewById(R.id.transmit_check_box);
-            this.f17379c = (BarImageView) view.findViewById(R.id.forum_avatar);
+            this.f17387a = (TextView) view.findViewById(R.id.transmit_forum_name);
+            this.f17388b = (CheckBox) view.findViewById(R.id.transmit_check_box);
+            this.f17389c = (BarImageView) view.findViewById(R.id.forum_avatar);
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (i.f17374g != this.f17380d) {
-                    SkinManager.setViewTextColor(this.f17377a, R.color.CAM_X0105);
-                    this.f17381e = SkinManager.getDrawable(R.drawable.transmit_check_box);
+                if (i.f17384g != this.f17390d) {
+                    SkinManager.setViewTextColor(this.f17387a, R.color.CAM_X0105);
+                    this.f17391e = SkinManager.getDrawable(R.drawable.transmit_check_box);
                 }
-                this.f17380d = i.f17374g;
+                this.f17390d = i.f17384g;
             }
         }
 
@@ -96,10 +96,10 @@ public class i extends BaseAdapter {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baInfo) == null) || baInfo == null) {
                 return;
             }
-            this.f17377a.setText(baInfo.forum_name);
-            this.f17378b.setChecked(baInfo.isChecked);
-            this.f17379c.startLoad(baInfo.forum_Avatar, 10, false);
-            this.f17378b.setButtonDrawable(this.f17381e);
+            this.f17387a.setText(baInfo.forum_name);
+            this.f17388b.setChecked(baInfo.isChecked);
+            this.f17389c.startLoad(baInfo.forum_Avatar, 10, false);
+            this.f17388b.setButtonDrawable(this.f17391e);
         }
     }
 
@@ -133,15 +133,15 @@ public class i extends BaseAdapter {
                 return;
             }
         }
-        this.f17376f = new ArrayList();
-        this.f17375e = context;
+        this.f17386f = new ArrayList();
+        this.f17385e = context;
     }
 
     public void b(List<BazhuInfoData.BaInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f17376f.clear();
-            this.f17376f.addAll(list);
+            this.f17386f.clear();
+            this.f17386f.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -149,10 +149,10 @@ public class i extends BaseAdapter {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (f17374g != i2) {
+            if (f17384g != i2) {
                 notifyDataSetChanged();
             }
-            f17374g = i2;
+            f17384g = i2;
         }
     }
 
@@ -160,7 +160,7 @@ public class i extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17376f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17386f.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -190,7 +190,7 @@ public class i extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
             a aVar = null;
             if (view == null) {
-                view = LayoutInflater.from(this.f17375e).inflate(R.layout.layout_select__single_forum_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f17385e).inflate(R.layout.layout_select__single_forum_item, (ViewGroup) null);
                 aVar = new a(view);
                 view.setTag(aVar);
             } else {
@@ -201,7 +201,7 @@ public class i extends BaseAdapter {
             }
             if (aVar != null) {
                 aVar.a();
-                aVar.b(this.f17376f.get(i2));
+                aVar.b(this.f17386f.get(i2));
             }
             return view;
         }

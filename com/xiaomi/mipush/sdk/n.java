@@ -16,7 +16,7 @@ public class n {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f77319a = -1;
+    public static int f77638a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,9 +39,9 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.f77275f : af.f77270a;
+                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.f77594f : af.f77589a;
             } catch (Exception unused) {
-                return af.f77275f;
+                return af.f77594f;
             }
         }
         return (af) invokeL.objValue;
@@ -72,26 +72,26 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             Object a2 = bh.a(bh.a("com.google.android.gms.common.GoogleApiAvailability", "getInstance", new Object[0]), "isGooglePlayServicesAvailable", context);
-            Object a3 = bh.a("com.google.android.gms.common.ConnectionResult", com.alipay.security.mobile.module.http.model.c.f36199g);
+            Object a3 = bh.a("com.google.android.gms.common.ConnectionResult", com.alipay.security.mobile.module.http.model.c.p);
             if (a3 == null || !(a3 instanceof Integer)) {
                 com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
-                f77319a = 0;
+                f77638a = 0;
                 return false;
             }
             int intValue = ((Integer) Integer.class.cast(a3)).intValue();
             if (a2 != null) {
                 if (a2 instanceof Integer) {
-                    f77319a = ((Integer) Integer.class.cast(a2)).intValue() == intValue ? 1 : 0;
+                    f77638a = ((Integer) Integer.class.cast(a2)).intValue() == intValue ? 1 : 0;
                 } else {
-                    f77319a = 0;
+                    f77638a = 0;
                     com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
                 }
             }
             StringBuilder sb = new StringBuilder();
             sb.append("is google service can be used");
-            sb.append(f77319a > 0);
+            sb.append(f77638a > 0);
             com.xiaomi.channel.commonutils.logger.b.c(sb.toString());
-            return f77319a > 0;
+            return f77638a > 0;
         }
         return invokeL.booleanValue;
     }

@@ -23,8 +23,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.util.h;
-import com.alipay.sdk.util.k;
+import com.alipay.sdk.util.i;
+import com.alipay.sdk.util.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -38,53 +38,319 @@ import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
 public class e extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static Handler f36144g;
+    public static Handler m;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f36145a;
+    public ImageView f36187a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f36146b;
+    public TextView f36188b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f36147c;
+    public ImageView f36189c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ProgressBar f36148d;
+    public ProgressBar f36190d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebView f36149e;
+    public WebView f36191e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final a f36150f;
+    public final C1571e f36192f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public f f36193g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f36151h;
+    public g f36194h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f36152i;
+    public h f36195i;
 
     /* renamed from: j  reason: collision with root package name */
-    public d f36153j;
-    public final com.alipay.sdk.sys.a k;
-    public View.OnClickListener l;
-    public final float m;
+    public final com.alipay.sdk.sys.a f36196j;
+    public View.OnClickListener k;
+    public final float l;
 
     /* loaded from: classes4.dex */
-    public static final class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f36161a;
+        public final /* synthetic */ e f36197a;
+
+        /* renamed from: com.alipay.sdk.widget.e$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class RunnableC1570a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ View f36198a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ a f36199b;
+
+            public RunnableC1570a(a aVar, View view) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, view};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f36199b = aVar;
+                this.f36198a = view;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.f36198a.setEnabled(true);
+                }
+            }
+        }
+
+        public a(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f36197a = eVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            h hVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (hVar = this.f36197a.f36195i) == null) {
+                return;
+            }
+            view.setEnabled(false);
+            e.m.postDelayed(new RunnableC1570a(this, view), 256L);
+            if (view != this.f36197a.f36187a) {
+                if (view == this.f36197a.f36189c) {
+                    hVar.a(this.f36197a);
+                    return;
+                }
+                return;
+            }
+            hVar.b(this.f36197a);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements DownloadListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ Context f36200a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f36162b;
+        public final /* synthetic */ e f36201b;
 
-        public a(boolean z, boolean z2) {
+        public b(e eVar, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f36201b = eVar;
+            this.f36200a = context;
+        }
+
+        @Override // android.webkit.DownloadListener
+        public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
+                try {
+                    Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+                    intent.setFlags(268435456);
+                    this.f36200a.startActivity(intent);
+                } catch (Throwable unused) {
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends WebChromeClient {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ e f36202a;
+
+        public c(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f36202a = eVar;
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+            InterceptResult invokeLLLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.f36202a.f36193g.a(this.f36202a, str, str2, str3, jsPromptResult) : invokeLLLLL.booleanValue;
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public void onProgressChanged(WebView webView, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i2) == null) {
+                if (!this.f36202a.f36192f.f36205b) {
+                    this.f36202a.f36190d.setVisibility(8);
+                } else if (i2 > 90) {
+                    this.f36202a.f36190d.setVisibility(4);
+                } else {
+                    if (this.f36202a.f36190d.getVisibility() == 4) {
+                        this.f36202a.f36190d.setVisibility(0);
+                    }
+                    this.f36202a.f36190d.setProgress(i2);
+                }
+            }
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public void onReceivedTitle(WebView webView, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
+                this.f36202a.f36193g.c(this.f36202a, str);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d extends WebViewClient {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ e f36203a;
+
+        public d(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f36203a = eVar;
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onPageFinished(WebView webView, String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) || this.f36203a.f36194h.b(this.f36203a, str)) {
+                return;
+            }
+            super.onPageFinished(webView, str);
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) || this.f36203a.f36194h.d(this.f36203a, str)) {
+                return;
+            }
+            super.onPageFinished(webView, str);
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onReceivedError(WebView webView, int i2, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) || this.f36203a.f36194h.a(this.f36203a, i2, str, str2)) {
+                return;
+            }
+            super.onReceivedError(webView, i2, str, str2);
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(1048579, this, webView, sslErrorHandler, sslError) == null) || this.f36203a.f36194h.a(this.f36203a, sslErrorHandler, sslError)) {
+                return;
+            }
+            super.onReceivedSslError(webView, sslErrorHandler, sslError);
+        }
+
+        @Override // android.webkit.WebViewClient
+        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
+                if (this.f36203a.f36194h.a(this.f36203a, str)) {
+                    return true;
+                }
+                return super.shouldOverrideUrlLoading(webView, str);
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* renamed from: com.alipay.sdk.widget.e$e  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public static final class C1571e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f36204a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f36205b;
+
+        public C1571e(boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,33 +365,33 @@ public class e extends LinearLayout {
                     return;
                 }
             }
-            this.f36161a = z;
-            this.f36162b = z2;
+            this.f36204a = z;
+            this.f36205b = z2;
         }
     }
 
     /* loaded from: classes4.dex */
-    public interface b {
-        void a(e eVar, String str);
-
+    public interface f {
         boolean a(e eVar, String str, String str2, String str3, JsPromptResult jsPromptResult);
+
+        void c(e eVar, String str);
     }
 
     /* loaded from: classes4.dex */
-    public interface c {
+    public interface g {
         boolean a(e eVar, int i2, String str, String str2);
 
         boolean a(e eVar, SslErrorHandler sslErrorHandler, SslError sslError);
 
-        boolean b(e eVar, String str);
+        boolean a(e eVar, String str);
 
-        boolean c(e eVar, String str);
+        boolean b(e eVar, String str);
 
         boolean d(e eVar, String str);
     }
 
     /* loaded from: classes4.dex */
-    public interface d {
+    public interface h {
         void a(e eVar);
 
         void b(e eVar);
@@ -144,23 +410,23 @@ public class e extends LinearLayout {
                 return;
             }
         }
-        f36144g = new Handler(Looper.getMainLooper());
+        m = new Handler(Looper.getMainLooper());
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public e(Context context, com.alipay.sdk.sys.a aVar, a aVar2) {
-        this(context, null, aVar, aVar2);
+    public e(Context context, com.alipay.sdk.sys.a aVar, C1571e c1571e) {
+        this(context, null, aVar, c1571e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar, aVar2};
+            Object[] objArr = {context, aVar, c1571e};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], (com.alipay.sdk.sys.a) objArr2[2], (a) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], (com.alipay.sdk.sys.a) objArr2[2], (C1571e) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -171,207 +437,78 @@ public class e extends LinearLayout {
     public ImageView getBackButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36145a : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36187a : (ImageView) invokeV.objValue;
     }
 
     public ProgressBar getProgressbar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36148d : (ProgressBar) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36190d : (ProgressBar) invokeV.objValue;
     }
 
     public ImageView getRefreshButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36147c : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36189c : (ImageView) invokeV.objValue;
     }
 
     public TextView getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36146b : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36188b : (TextView) invokeV.objValue;
     }
 
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f36149e.getUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f36191e.getUrl() : (String) invokeV.objValue;
     }
 
     public WebView getWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f36149e : (WebView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f36191e : (WebView) invokeV.objValue;
     }
 
-    public void setChromeProxy(b bVar) {
+    public void setChromeProxy(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f36151h = bVar;
-            if (bVar == null) {
-                this.f36149e.setWebChromeClient(null);
+        if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
+            this.f36193g = fVar;
+            if (fVar == null) {
+                this.f36191e.setWebChromeClient(null);
             } else {
-                this.f36149e.setWebChromeClient(new WebChromeClient(this) { // from class: com.alipay.sdk.widget.e.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ e f36159a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f36159a = this;
-                    }
-
-                    @Override // android.webkit.WebChromeClient
-                    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-                        InterceptResult invokeLLLLL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLLLLL = interceptable2.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.f36159a.f36151h.a(this.f36159a, str, str2, str3, jsPromptResult) : invokeLLLLL.booleanValue;
-                    }
-
-                    @Override // android.webkit.WebChromeClient
-                    public void onProgressChanged(WebView webView, int i2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i2) == null) {
-                            if (!this.f36159a.f36150f.f36162b) {
-                                this.f36159a.f36148d.setVisibility(8);
-                            } else if (i2 > 90) {
-                                this.f36159a.f36148d.setVisibility(4);
-                            } else {
-                                if (this.f36159a.f36148d.getVisibility() == 4) {
-                                    this.f36159a.f36148d.setVisibility(0);
-                                }
-                                this.f36159a.f36148d.setProgress(i2);
-                            }
-                        }
-                    }
-
-                    @Override // android.webkit.WebChromeClient
-                    public void onReceivedTitle(WebView webView, String str) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
-                            this.f36159a.f36151h.a(this.f36159a, str);
-                        }
-                    }
-                });
+                this.f36191e.setWebChromeClient(new c(this));
             }
         }
     }
 
-    public void setWebClientProxy(c cVar) {
+    public void setWebClientProxy(g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
-            this.f36152i = cVar;
-            if (cVar == null) {
-                this.f36149e.setWebViewClient(null);
+        if (interceptable == null || interceptable.invokeL(1048587, this, gVar) == null) {
+            this.f36194h = gVar;
+            if (gVar == null) {
+                this.f36191e.setWebViewClient(null);
             } else {
-                this.f36149e.setWebViewClient(new WebViewClient(this) { // from class: com.alipay.sdk.widget.e.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ e f36160a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f36160a = this;
-                    }
-
-                    @Override // android.webkit.WebViewClient
-                    public void onPageFinished(WebView webView, String str) {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) || this.f36160a.f36152i.d(this.f36160a, str)) {
-                            return;
-                        }
-                        super.onPageFinished(webView, str);
-                    }
-
-                    @Override // android.webkit.WebViewClient
-                    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) || this.f36160a.f36152i.c(this.f36160a, str)) {
-                            return;
-                        }
-                        super.onPageFinished(webView, str);
-                    }
-
-                    @Override // android.webkit.WebViewClient
-                    public void onReceivedError(WebView webView, int i2, String str, String str2) {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) || this.f36160a.f36152i.a(this.f36160a, i2, str, str2)) {
-                            return;
-                        }
-                        super.onReceivedError(webView, i2, str, str2);
-                    }
-
-                    @Override // android.webkit.WebViewClient
-                    public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLLL(1048579, this, webView, sslErrorHandler, sslError) == null) || this.f36160a.f36152i.a(this.f36160a, sslErrorHandler, sslError)) {
-                            return;
-                        }
-                        super.onReceivedSslError(webView, sslErrorHandler, sslError);
-                    }
-
-                    @Override // android.webkit.WebViewClient
-                    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                        InterceptResult invokeLL;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048580, this, webView, str)) == null) {
-                            if (this.f36160a.f36152i.b(this.f36160a, str)) {
-                                return true;
-                            }
-                            return super.shouldOverrideUrlLoading(webView, str);
-                        }
-                        return invokeLL.booleanValue;
-                    }
-                });
+                this.f36191e.setWebViewClient(new d(this));
             }
         }
     }
 
-    public void setWebEventProxy(d dVar) {
+    public void setWebEventProxy(h hVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, dVar) == null) {
-            this.f36153j = dVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, hVar) == null) {
+            this.f36195i = hVar;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(Context context, AttributeSet attributeSet, com.alipay.sdk.sys.a aVar, a aVar2) {
+    public e(Context context, AttributeSet attributeSet, com.alipay.sdk.sys.a aVar, C1571e c1571e) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, aVar, aVar2};
+            Object[] objArr = {context, attributeSet, aVar, c1571e};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -383,89 +520,10 @@ public class e extends LinearLayout {
                 return;
             }
         }
-        this.l = new View.OnClickListener(this) { // from class: com.alipay.sdk.widget.e.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ e f36154a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.f36154a = this;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                d dVar;
-                Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (dVar = this.f36154a.f36153j) == null) {
-                    return;
-                }
-                view.setEnabled(false);
-                e.f36144g.postDelayed(new Runnable(this, view) { // from class: com.alipay.sdk.widget.e.1.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ View f36155a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass1 f36156b;
-
-                    {
-                        Interceptable interceptable3 = $ic;
-                        if (interceptable3 != null) {
-                            InitContext newInitContext2 = TitanRuntime.newInitContext();
-                            newInitContext2.initArgs = r2;
-                            Object[] objArr3 = {this, view};
-                            interceptable3.invokeUnInit(65536, newInitContext2);
-                            int i4 = newInitContext2.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
-                                newInitContext2.thisArg = this;
-                                interceptable3.invokeInitBody(65536, newInitContext2);
-                                return;
-                            }
-                        }
-                        this.f36156b = this;
-                        this.f36155a = view;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable3 = $ic;
-                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                            this.f36155a.setEnabled(true);
-                        }
-                    }
-                }, 256L);
-                if (view != this.f36154a.f36145a) {
-                    if (view == this.f36154a.f36147c) {
-                        dVar.b(this.f36154a);
-                        return;
-                    }
-                    return;
-                }
-                dVar.a(this.f36154a);
-            }
-        };
-        this.f36150f = aVar2 == null ? new a(false, false) : aVar2;
-        this.k = aVar;
-        this.m = context.getResources().getDisplayMetrics().density;
+        this.k = new a(this);
+        this.f36192f = c1571e == null ? new C1571e(false, false) : c1571e;
+        this.f36196j = aVar;
+        this.l = context.getResources().getDisplayMetrics().density;
         setOrientation(1);
         a(context);
         b(context);
@@ -479,34 +537,34 @@ public class e extends LinearLayout {
             linearLayout.setBackgroundColor(-218103809);
             linearLayout.setOrientation(0);
             linearLayout.setGravity(16);
-            linearLayout.setVisibility(this.f36150f.f36161a ? 0 : 8);
+            linearLayout.setVisibility(this.f36192f.f36204a ? 0 : 8);
             ImageView imageView = new ImageView(context);
-            this.f36145a = imageView;
-            imageView.setOnClickListener(this.l);
-            this.f36145a.setScaleType(ImageView.ScaleType.CENTER);
-            this.f36145a.setImageDrawable(h.a(h.f36091a, context));
-            this.f36145a.setPadding(a(12), 0, a(12), 0);
-            linearLayout.addView(this.f36145a, new LinearLayout.LayoutParams(-2, -2));
+            this.f36187a = imageView;
+            imageView.setOnClickListener(this.k);
+            this.f36187a.setScaleType(ImageView.ScaleType.CENTER);
+            this.f36187a.setImageDrawable(i.a(i.f36129a, context));
+            this.f36187a.setPadding(a(12), 0, a(12), 0);
+            linearLayout.addView(this.f36187a, new LinearLayout.LayoutParams(-2, -2));
             View view = new View(context);
             view.setBackgroundColor(-2500135);
             linearLayout.addView(view, new LinearLayout.LayoutParams(a(1), a(25)));
             TextView textView = new TextView(context);
-            this.f36146b = textView;
+            this.f36188b = textView;
             textView.setTextColor(-15658735);
-            this.f36146b.setTextSize(17.0f);
-            this.f36146b.setMaxLines(1);
-            this.f36146b.setEllipsize(TextUtils.TruncateAt.END);
+            this.f36188b.setTextSize(17.0f);
+            this.f36188b.setMaxLines(1);
+            this.f36188b.setEllipsize(TextUtils.TruncateAt.END);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.setMargins(a(17), 0, 0, 0);
             layoutParams.weight = 1.0f;
-            linearLayout.addView(this.f36146b, layoutParams);
+            linearLayout.addView(this.f36188b, layoutParams);
             ImageView imageView2 = new ImageView(context);
-            this.f36147c = imageView2;
-            imageView2.setOnClickListener(this.l);
-            this.f36147c.setScaleType(ImageView.ScaleType.CENTER);
-            this.f36147c.setImageDrawable(h.a(h.f36092b, context));
-            this.f36147c.setPadding(a(12), 0, a(12), 0);
-            linearLayout.addView(this.f36147c, new LinearLayout.LayoutParams(-2, -2));
+            this.f36189c = imageView2;
+            imageView2.setOnClickListener(this.k);
+            this.f36189c.setScaleType(ImageView.ScaleType.CENTER);
+            this.f36189c.setImageDrawable(i.a(i.f36130b, context));
+            this.f36189c.setPadding(a(12), 0, a(12), 0);
+            linearLayout.addView(this.f36189c, new LinearLayout.LayoutParams(-2, -2));
             addView(linearLayout, new LinearLayout.LayoutParams(-1, a(48)));
         }
     }
@@ -515,10 +573,10 @@ public class e extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, context) == null) {
             WebView webView = new WebView(context);
-            this.f36149e = webView;
+            this.f36191e = webView;
             webView.setVerticalScrollbarOverlay(true);
-            a(this.f36149e, context);
-            WebSettings settings = this.f36149e.getSettings();
+            a(this.f36191e, context);
+            WebSettings settings = this.f36191e.getSettings();
             settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
             settings.setSupportMultipleWindows(true);
             settings.setUseWideViewPort(true);
@@ -537,66 +595,25 @@ public class e extends LinearLayout {
             settings.setCacheMode(1);
             settings.setDomStorageEnabled(true);
             settings.setAllowContentAccess(false);
-            this.f36149e.setVerticalScrollbarOverlay(true);
-            this.f36149e.setDownloadListener(new DownloadListener(this, context) { // from class: com.alipay.sdk.widget.e.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f36157a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f36158b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f36158b = this;
-                    this.f36157a = context;
-                }
-
-                @Override // android.webkit.DownloadListener
-                public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
-                        try {
-                            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                            intent.setFlags(268435456);
-                            this.f36157a.startActivity(intent);
-                        } catch (Throwable unused) {
-                        }
-                    }
-                }
-            });
+            this.f36191e.setVerticalScrollbarOverlay(true);
+            this.f36191e.setDownloadListener(new b(this, context));
             try {
                 try {
-                    this.f36149e.removeJavascriptInterface("searchBoxJavaBridge_");
-                    this.f36149e.removeJavascriptInterface("accessibility");
-                    this.f36149e.removeJavascriptInterface("accessibilityTraversal");
+                    this.f36191e.removeJavascriptInterface("searchBoxJavaBridge_");
+                    this.f36191e.removeJavascriptInterface("accessibility");
+                    this.f36191e.removeJavascriptInterface("accessibilityTraversal");
                 } catch (Throwable unused) {
                 }
             } catch (Exception unused2) {
-                Method method = this.f36149e.getClass().getMethod("removeJavascriptInterface", new Class[0]);
+                Method method = this.f36191e.getClass().getMethod("removeJavascriptInterface", new Class[0]);
                 if (method != null) {
-                    method.invoke(this.f36149e, "searchBoxJavaBridge_");
-                    method.invoke(this.f36149e, "accessibility");
-                    method.invoke(this.f36149e, "accessibilityTraversal");
+                    method.invoke(this.f36191e, "searchBoxJavaBridge_");
+                    method.invoke(this.f36191e, "accessibility");
+                    method.invoke(this.f36191e, "accessibilityTraversal");
                 }
             }
-            com.alipay.sdk.widget.c.a(this.f36149e);
-            addView(this.f36149e, new LinearLayout.LayoutParams(-1, -1));
+            com.alipay.sdk.widget.c.a(this.f36191e);
+            addView(this.f36191e, new LinearLayout.LayoutParams(-1, -1));
         }
     }
 
@@ -604,11 +621,11 @@ public class e extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
             ProgressBar progressBar = new ProgressBar(context, null, 16973855);
-            this.f36148d = progressBar;
+            this.f36190d = progressBar;
             progressBar.setProgressDrawable(context.getResources().getDrawable(17301612));
-            this.f36148d.setMax(100);
-            this.f36148d.setBackgroundColor(-218103809);
-            addView(this.f36148d, new LinearLayout.LayoutParams(-1, a(2)));
+            this.f36190d.setMax(100);
+            this.f36190d.setBackgroundColor(-218103809);
+            addView(this.f36190d, new LinearLayout.LayoutParams(-1, a(2)));
         }
     }
 
@@ -617,22 +634,22 @@ public class e extends LinearLayout {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, context) == null) {
             String userAgentString = webView.getSettings().getUserAgentString();
             WebSettings settings = webView.getSettings();
-            settings.setUserAgentString(userAgentString + k.c(context));
+            settings.setUserAgentString(userAgentString + l.g(context));
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f36149e.loadUrl(str);
-            com.alipay.sdk.widget.c.a(this.f36149e);
+            this.f36191e.loadUrl(str);
+            com.alipay.sdk.widget.c.a(this.f36191e);
         }
     }
 
     public void a(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, bArr) == null) {
-            this.f36149e.postUrl(str, bArr);
+            this.f36191e.postUrl(str, bArr);
         }
     }
 
@@ -640,16 +657,16 @@ public class e extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             removeAllViews();
-            this.f36149e.removeAllViews();
-            this.f36149e.setWebViewClient(null);
-            this.f36149e.setWebChromeClient(null);
-            this.f36149e.destroy();
+            this.f36191e.removeAllViews();
+            this.f36191e.setWebViewClient(null);
+            this.f36191e.setWebChromeClient(null);
+            this.f36191e.destroy();
         }
     }
 
     private int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) ? (int) (i2 * this.m) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) ? (int) (i2 * this.l) : invokeI.intValue;
     }
 }

@@ -12,22 +12,22 @@ public class f extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11992d;
+    public String f12000d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11993e;
+    public String f12001e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11994f;
+    public int f12002f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11995g;
+    public String f12003g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f11996h;
+    public String f12004h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11997i;
+    public int f12005i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(String str, int i2, String str2, int i3) {
@@ -47,52 +47,52 @@ public class f extends g {
                 return;
             }
         }
-        this.f11997i = -1;
-        this.f11992d = str;
-        this.f11993e = str2;
-        this.f11994f = i2;
+        this.f12005i = -1;
+        this.f12000d = str;
+        this.f12001e = str2;
+        this.f12002f = i2;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11992d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12000d : (String) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11997i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12005i : invokeV.intValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11996h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12004h : (String) invokeV.objValue;
     }
 
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11995g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12003g : (String) invokeV.objValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11994f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12002f : invokeV.intValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11993e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12001e : (String) invokeV.objValue;
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f11996h = str;
+            this.f12004h = str;
         }
     }
 
@@ -100,7 +100,7 @@ public class f extends g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            this.f11995g = str;
+            this.f12003g = str;
             return this;
         }
         return (f) invokeL.objValue;
@@ -124,13 +124,13 @@ public class f extends g {
                 return;
             }
         }
-        this.f11997i = -1;
-        this.f11992d = str;
-        this.f11993e = str3;
+        this.f12005i = -1;
+        this.f12000d = str;
+        this.f12001e = str3;
         try {
-            this.f11994f = Integer.valueOf(str2).intValue();
+            this.f12002f = Integer.valueOf(str2).intValue();
         } catch (NumberFormatException unused) {
-            this.f11994f = 0;
+            this.f12002f = 0;
         }
     }
 }

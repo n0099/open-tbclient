@@ -45,11 +45,11 @@ public class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static t f24337b;
+    public static t f24353b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GetEmotionInfosModel f24338a;
+    public GetEmotionInfosModel f24354a;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Void, Void, Integer> {
@@ -57,16 +57,16 @@ public class t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f24339a;
+        public final /* synthetic */ l f24355a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f24340b;
+        public final /* synthetic */ List f24356b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f24341c;
+        public final /* synthetic */ boolean f24357c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ t f24342d;
+        public final /* synthetic */ t f24358d;
 
         public a(t tVar, l lVar, List list, boolean z) {
             Interceptable interceptable = $ic;
@@ -83,10 +83,10 @@ public class t {
                     return;
                 }
             }
-            this.f24342d = tVar;
-            this.f24339a = lVar;
-            this.f24340b = list;
-            this.f24341c = z;
+            this.f24358d = tVar;
+            this.f24355a = lVar;
+            this.f24356b = list;
+            this.f24357c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -103,7 +103,7 @@ public class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
                 if (num.intValue() >= 300) {
-                    l lVar = this.f24339a;
+                    l lVar = this.f24355a;
                     if (lVar != null) {
                         lVar.onResult(4, 0, 0);
                         return;
@@ -112,11 +112,11 @@ public class t {
                         return;
                     }
                 }
-                while (this.f24340b.size() + num.intValue() > 300) {
-                    List list = this.f24340b;
+                while (this.f24356b.size() + num.intValue() > 300) {
+                    List list = this.f24356b;
                     list.remove(list.size() - 1);
                 }
-                this.f24342d.i(this.f24340b, this.f24341c, this.f24339a);
+                this.f24358d.i(this.f24356b, this.f24357c, this.f24355a);
             }
         }
     }
@@ -127,19 +127,19 @@ public class t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f24343a;
+        public final /* synthetic */ l f24359a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Map f24344b;
+        public final /* synthetic */ Map f24360b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f24345c;
+        public final /* synthetic */ List f24361c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f24346d;
+        public final /* synthetic */ boolean f24362d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ t f24347e;
+        public final /* synthetic */ t f24363e;
 
         public b(t tVar, l lVar, Map map, List list, boolean z) {
             Interceptable interceptable = $ic;
@@ -156,18 +156,18 @@ public class t {
                     return;
                 }
             }
-            this.f24347e = tVar;
-            this.f24343a = lVar;
-            this.f24344b = map;
-            this.f24345c = list;
-            this.f24346d = z;
+            this.f24363e = tVar;
+            this.f24359a = lVar;
+            this.f24360b = map;
+            this.f24361c = list;
+            this.f24362d = z;
         }
 
         @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
         public void onFail(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                l lVar = this.f24343a;
+                l lVar = this.f24359a;
                 if (lVar == null) {
                     c.a.e.e.p.l.L(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
                 } else {
@@ -181,7 +181,7 @@ public class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 if (list == null || list.isEmpty()) {
-                    l lVar = this.f24343a;
+                    l lVar = this.f24359a;
                     if (lVar == null) {
                         c.a.e.e.p.l.L(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
                     } else {
@@ -189,12 +189,12 @@ public class t {
                     }
                 }
                 for (c.a.q0.d0.c cVar : list) {
-                    if (!u.e().f(cVar.f12842a)) {
-                        cVar.f12847f = (String) this.f24344b.get(cVar.f12848g);
-                        this.f24345c.add(cVar);
+                    if (!u.e().f(cVar.f12856a)) {
+                        cVar.f12861f = (String) this.f24360b.get(cVar.f12862g);
+                        this.f24361c.add(cVar);
                     }
                 }
-                this.f24347e.m(this.f24345c, this.f24343a, this.f24346d);
+                this.f24363e.m(this.f24361c, this.f24359a, this.f24362d);
             }
         }
     }
@@ -205,22 +205,22 @@ public class t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f24348a;
+        public final /* synthetic */ List f24364a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.d0.c f24349b;
+        public final /* synthetic */ c.a.q0.d0.c f24365b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ AtomicInteger f24350c;
+        public final /* synthetic */ AtomicInteger f24366c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ l f24351d;
+        public final /* synthetic */ l f24367d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f24352e;
+        public final /* synthetic */ boolean f24368e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ t f24353f;
+        public final /* synthetic */ t f24369f;
 
         public c(t tVar, List list, c.a.q0.d0.c cVar, AtomicInteger atomicInteger, l lVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -237,19 +237,19 @@ public class t {
                     return;
                 }
             }
-            this.f24353f = tVar;
-            this.f24348a = list;
-            this.f24349b = cVar;
-            this.f24350c = atomicInteger;
-            this.f24351d = lVar;
-            this.f24352e = z;
+            this.f24369f = tVar;
+            this.f24364a = list;
+            this.f24365b = cVar;
+            this.f24366c = atomicInteger;
+            this.f24367d = lVar;
+            this.f24368e = z;
         }
 
         @Override // c.a.r0.r0.t.j
         public void onFail() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f24350c.decrementAndGet() == 0) {
-                this.f24353f.f(this.f24348a, this.f24351d, this.f24352e);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f24366c.decrementAndGet() == 0) {
+                this.f24369f.f(this.f24364a, this.f24367d, this.f24368e);
             }
         }
 
@@ -257,9 +257,9 @@ public class t {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f24348a.add(this.f24353f.w(this.f24349b));
-                if (this.f24350c.decrementAndGet() == 0) {
-                    this.f24353f.f(this.f24348a, this.f24351d, this.f24352e);
+                this.f24364a.add(this.f24369f.w(this.f24365b));
+                if (this.f24366c.decrementAndGet() == 0) {
+                    this.f24369f.f(this.f24364a, this.f24367d, this.f24368e);
                 }
             }
         }
@@ -271,13 +271,13 @@ public class t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f24354a;
+        public final /* synthetic */ List f24370a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f24355b;
+        public final /* synthetic */ l f24371b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f24356c;
+        public final /* synthetic */ boolean f24372c;
 
         public d(t tVar, List list, l lVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -294,9 +294,9 @@ public class t {
                     return;
                 }
             }
-            this.f24354a = list;
-            this.f24355b = lVar;
-            this.f24356c = z;
+            this.f24370a = list;
+            this.f24371b = lVar;
+            this.f24372c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -304,7 +304,7 @@ public class t {
         public Boolean doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) ? Boolean.valueOf(c.a.r0.r0.g.k().b(this.f24354a)) : (Boolean) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) ? Boolean.valueOf(c.a.r0.r0.g.k().b(this.f24370a)) : (Boolean) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -313,21 +313,21 @@ public class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
                 if (bool != null && bool.booleanValue()) {
-                    l lVar = this.f24355b;
+                    l lVar = this.f24371b;
                     if (lVar == null) {
                         c.a.e.e.p.l.L(TbadkCoreApplication.getInst(), R.string.add_success);
                     } else {
                         lVar.onResult(4, 1, 0);
                     }
                     u.e().g();
-                    if (this.f24356c) {
+                    if (this.f24372c) {
                         new UserCollectModel().w();
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
                     TiebaStatic.log("c12222");
                     return;
                 }
-                l lVar2 = this.f24355b;
+                l lVar2 = this.f24371b;
                 if (lVar2 == null) {
                     c.a.e.e.p.l.L(TbadkCoreApplication.getInst(), R.string.save_emotion_failed);
                 } else {
@@ -343,13 +343,13 @@ public class t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f24357a;
+        public final /* synthetic */ List f24373a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f24358b;
+        public final /* synthetic */ l f24374b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f24359c;
+        public final /* synthetic */ boolean f24375c;
 
         public e(t tVar, List list, l lVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -366,9 +366,9 @@ public class t {
                     return;
                 }
             }
-            this.f24357a = list;
-            this.f24358b = lVar;
-            this.f24359c = z;
+            this.f24373a = list;
+            this.f24374b = lVar;
+            this.f24375c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -384,8 +384,8 @@ public class t {
                     hashMap.put(collectEmotionData.getSharpText(), collectEmotionData);
                 }
                 int size = n.size() - 2;
-                for (int i2 = 0; i2 < this.f24357a.size(); i2++) {
-                    CollectEmotionData collectEmotionData2 = (CollectEmotionData) this.f24357a.get(i2);
+                for (int i2 = 0; i2 < this.f24373a.size(); i2++) {
+                    CollectEmotionData collectEmotionData2 = (CollectEmotionData) this.f24373a.get(i2);
                     collectEmotionData2.orderId = size;
                     String sharpText = collectEmotionData2.getSharpText();
                     if (hashMap.containsKey(sharpText)) {
@@ -397,17 +397,17 @@ public class t {
                 }
                 for (int i3 = 0; i3 < n.size(); i3++) {
                     CollectEmotionData collectEmotionData3 = n.get(i3);
-                    if (!c.a.q0.c0.d.f12799d.equals(collectEmotionData3.sharpText)) {
+                    if (!c.a.q0.c0.d.f12813d.equals(collectEmotionData3.sharpText)) {
                         collectEmotionData3.orderId = size;
                         c.a.r0.r0.g.k().r(collectEmotionData3);
                         size--;
                     }
                 }
-                if (this.f24357a.size() > 0) {
+                if (this.f24373a.size() > 0) {
                     u.e().g();
                 }
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(Integer.valueOf(this.f24357a.size()));
+                arrayList.add(Integer.valueOf(this.f24373a.size()));
                 arrayList.add(0);
                 return arrayList;
             }
@@ -419,12 +419,12 @@ public class t {
         /* renamed from: c */
         public void onPostExecute(List<Integer> list) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f24358b == null || list == null || list.size() != 2) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f24374b == null || list == null || list.size() != 2) {
                 return;
             }
-            this.f24358b.onResult(2, list.get(0).intValue(), list.get(1).intValue());
+            this.f24374b.onResult(2, list.get(0).intValue(), list.get(1).intValue());
             if (list.get(0).intValue() > 0) {
-                if (this.f24359c) {
+                if (this.f24375c) {
                     new UserCollectModel().w();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
@@ -441,13 +441,13 @@ public class t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f24360a;
+        public final /* synthetic */ List f24376a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f24361b;
+        public final /* synthetic */ l f24377b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f24362c;
+        public final /* synthetic */ boolean f24378c;
 
         public f(t tVar, List list, l lVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -464,9 +464,9 @@ public class t {
                     return;
                 }
             }
-            this.f24360a = list;
-            this.f24361b = lVar;
-            this.f24362c = z;
+            this.f24376a = list;
+            this.f24377b = lVar;
+            this.f24378c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -477,8 +477,8 @@ public class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 int i2 = 0;
-                for (CollectEmotionData collectEmotionData : this.f24360a) {
-                    if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid) && !c.a.q0.c0.d.f12799d.equals(collectEmotionData.sharpText)) {
+                for (CollectEmotionData collectEmotionData : this.f24376a) {
+                    if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid) && !c.a.q0.c0.d.f12813d.equals(collectEmotionData.sharpText)) {
                         c.a.r0.r0.g.k().g(collectEmotionData);
                         ImageFileInfo imageFileInfo = collectEmotionData.imageFileInfo;
                         if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath())) {
@@ -502,7 +502,7 @@ public class t {
                 List<CollectEmotionData> n = c.a.r0.r0.g.k().n(TbadkCoreApplication.getCurrentAccount());
                 for (int i3 = 0; i3 < n.size(); i3++) {
                     CollectEmotionData collectEmotionData2 = n.get(i3);
-                    if (!c.a.q0.c0.d.f12799d.equals(collectEmotionData2.getSharpText())) {
+                    if (!c.a.q0.c0.d.f12813d.equals(collectEmotionData2.getSharpText())) {
                         collectEmotionData2.orderId = (n.size() - i3) - 1;
                         c.a.r0.r0.g.k().r(collectEmotionData2);
                     }
@@ -512,7 +512,7 @@ public class t {
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(Integer.valueOf(i2));
-                arrayList.add(Integer.valueOf(this.f24360a.size() - i2));
+                arrayList.add(Integer.valueOf(this.f24376a.size() - i2));
                 return arrayList;
             }
             return (List) invokeL.objValue;
@@ -523,12 +523,12 @@ public class t {
         /* renamed from: c */
         public void onPostExecute(List<Integer> list) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f24361b == null || list == null || list.size() != 2) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f24377b == null || list == null || list.size() != 2) {
                 return;
             }
-            this.f24361b.onResult(1, list.get(0).intValue(), list.get(1).intValue());
+            this.f24377b.onResult(1, list.get(0).intValue(), list.get(1).intValue());
             if (list.get(0).intValue() > 0) {
-                if (this.f24362c) {
+                if (this.f24378c) {
                     new UserCollectModel().w();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
@@ -545,13 +545,13 @@ public class t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f24363a;
+        public final /* synthetic */ List f24379a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f24364b;
+        public final /* synthetic */ l f24380b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ t f24365c;
+        public final /* synthetic */ t f24381c;
 
         public g(t tVar, List list, l lVar) {
             Interceptable interceptable = $ic;
@@ -568,9 +568,9 @@ public class t {
                     return;
                 }
             }
-            this.f24365c = tVar;
-            this.f24363a = list;
-            this.f24364b = lVar;
+            this.f24381c = tVar;
+            this.f24379a = list;
+            this.f24380b = lVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -581,12 +581,12 @@ public class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 int i2 = 0;
-                for (CollectEmotionData collectEmotionData : this.f24363a) {
+                for (CollectEmotionData collectEmotionData : this.f24379a) {
                     String filePath = collectEmotionData.imageFileInfo.getFilePath();
                     File file = new File(filePath.replace("_s.jpg", "_b.jpg"));
-                    byte[] r = file.exists() ? this.f24365c.r(file) : null;
+                    byte[] r = file.exists() ? this.f24381c.r(file) : null;
                     if (r == null) {
-                        r = this.f24365c.r(new File(filePath.replace("_s.jpg", "_b.gif")));
+                        r = this.f24381c.r(new File(filePath.replace("_s.jpg", "_b.gif")));
                     }
                     if (r != null && FileHelper.saveImageFileByUser(collectEmotionData.picUrl, r, TbadkCoreApplication.getInst().getContext()) == 0) {
                         i2++;
@@ -594,7 +594,7 @@ public class t {
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(Integer.valueOf(i2));
-                arrayList.add(Integer.valueOf(this.f24363a.size() - i2));
+                arrayList.add(Integer.valueOf(this.f24379a.size() - i2));
                 return arrayList;
             }
             return (List) invokeL.objValue;
@@ -605,10 +605,10 @@ public class t {
         /* renamed from: c */
         public void onPostExecute(List<Integer> list) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f24364b == null || list == null || list.size() != 2) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f24380b == null || list == null || list.size() != 2) {
                 return;
             }
-            this.f24364b.onResult(3, list.get(0).intValue(), list.get(1).intValue());
+            this.f24380b.onResult(3, list.get(0).intValue(), list.get(1).intValue());
             if (list.get(0).intValue() > 0) {
                 StatisticItem statisticItem = new StatisticItem("c12228");
                 statisticItem.param("obj_param1", list.get(0).intValue());
@@ -623,7 +623,7 @@ public class t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ t f24366a;
+        public final /* synthetic */ t f24382a;
 
         public h(t tVar) {
             Interceptable interceptable = $ic;
@@ -640,7 +640,7 @@ public class t {
                     return;
                 }
             }
-            this.f24366a = tVar;
+            this.f24382a = tVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -649,7 +649,7 @@ public class t {
         public List<CollectEmotionData> doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) ? this.f24366a.p() : (List) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) ? this.f24382a.p() : (List) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -663,13 +663,13 @@ public class t {
             for (CollectEmotionData collectEmotionData : list) {
                 if (collectEmotionData != null) {
                     c.a.q0.d0.c cVar = new c.a.q0.d0.c();
-                    cVar.f12842a = collectEmotionData.pid;
-                    cVar.f12847f = collectEmotionData.pkgId;
-                    cVar.f12845d = collectEmotionData.picUrl;
-                    cVar.f12846e = collectEmotionData.thumbnail;
-                    cVar.f12843b = collectEmotionData.width;
-                    cVar.f12844c = collectEmotionData.height;
-                    new k(this.f24366a, null).execute(cVar);
+                    cVar.f12856a = collectEmotionData.pid;
+                    cVar.f12861f = collectEmotionData.pkgId;
+                    cVar.f12859d = collectEmotionData.picUrl;
+                    cVar.f12860e = collectEmotionData.thumbnail;
+                    cVar.f12857b = collectEmotionData.width;
+                    cVar.f12858c = collectEmotionData.height;
+                    new k(this.f24382a, null).execute(cVar);
                 }
             }
         }
@@ -717,13 +717,13 @@ public class t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.q0.d0.c f24367a;
+        public c.a.q0.d0.c f24383a;
 
         /* renamed from: b  reason: collision with root package name */
-        public j f24368b;
+        public j f24384b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ t f24369c;
+        public final /* synthetic */ t f24385c;
 
         public k(t tVar, j jVar) {
             Interceptable interceptable = $ic;
@@ -740,8 +740,8 @@ public class t {
                     return;
                 }
             }
-            this.f24369c = tVar;
-            this.f24368b = jVar;
+            this.f24385c = tVar;
+            this.f24384b = jVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -752,11 +752,11 @@ public class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVarArr)) == null) {
                 if (cVarArr != null && cVarArr.length > 0) {
-                    this.f24367a = cVarArr[0];
+                    this.f24383a = cVarArr[0];
                     WebClient webClient = new WebClient();
-                    byte[] downloadImageBytes = webClient.downloadImageBytes(this.f24367a.f12845d, false);
+                    byte[] downloadImageBytes = webClient.downloadImageBytes(this.f24383a.f12859d, false);
                     if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
-                        String q = this.f24369c.q(this.f24367a, true);
+                        String q = this.f24385c.q(this.f24383a, true);
                         if (TextUtils.isEmpty(q)) {
                             return Boolean.FALSE;
                         }
@@ -767,14 +767,14 @@ public class t {
                         if (!file.getParentFile().exists()) {
                             file.getParentFile().mkdirs();
                         }
-                        if (!this.f24369c.u(file, downloadImageBytes)) {
+                        if (!this.f24385c.u(file, downloadImageBytes)) {
                             return Boolean.FALSE;
                         }
-                        byte[] downloadImageBytes2 = webClient.downloadImageBytes(this.f24367a.f12846e, false);
+                        byte[] downloadImageBytes2 = webClient.downloadImageBytes(this.f24383a.f12860e, false);
                         if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {
-                            String q2 = this.f24369c.q(this.f24367a, false);
+                            String q2 = this.f24385c.q(this.f24383a, false);
                             if (!TextUtils.isEmpty(q2)) {
-                                if (!this.f24369c.u(new File(q2), downloadImageBytes2)) {
+                                if (!this.f24385c.u(new File(q2), downloadImageBytes2)) {
                                     return Boolean.FALSE;
                                 }
                                 return Boolean.TRUE;
@@ -796,14 +796,14 @@ public class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
                 if (bool != null && bool.booleanValue()) {
-                    j jVar = this.f24368b;
+                    j jVar = this.f24384b;
                     if (jVar != null) {
                         jVar.onSuccess();
                         return;
                     }
                     return;
                 }
-                j jVar2 = this.f24368b;
+                j jVar2 = this.f24384b;
                 if (jVar2 != null) {
                     jVar2.onFail();
                 }
@@ -852,10 +852,10 @@ public class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f24337b == null) {
-                f24337b = new t();
+            if (f24353b == null) {
+                f24353b = new t();
             }
-            return f24337b;
+            return f24353b;
         }
         return (t) invokeV.objValue;
     }
@@ -875,8 +875,8 @@ public class t {
                 return;
             }
             c.a.q0.d0.c cVar = new c.a.q0.d0.c();
-            cVar.f12845d = str;
-            cVar.f12847f = str2;
+            cVar.f12859d = str;
+            cVar.f12861f = str2;
             ArrayList arrayList = new ArrayList();
             arrayList.add(cVar);
             h(arrayList, true, null);
@@ -904,24 +904,24 @@ public class t {
                 ArrayList arrayList2 = new ArrayList();
                 HashMap hashMap = new HashMap();
                 for (c.a.q0.d0.c cVar : list) {
-                    String str = cVar.f12842a;
+                    String str = cVar.f12856a;
                     if (str != null && !TextUtils.isEmpty(str)) {
-                        if (!u.e().f(cVar.f12842a)) {
+                        if (!u.e().f(cVar.f12856a)) {
                             arrayList.add(cVar);
                         }
                     } else {
-                        arrayList2.add(cVar.f12845d);
-                        String str2 = cVar.f12847f;
+                        arrayList2.add(cVar.f12859d);
+                        String str2 = cVar.f12861f;
                         if (str2 != null) {
-                            hashMap.put(cVar.f12845d, str2);
+                            hashMap.put(cVar.f12859d, str2);
                         }
                     }
                 }
                 if (arrayList2.size() > 0) {
-                    if (this.f24338a == null) {
-                        this.f24338a = new GetEmotionInfosModel();
+                    if (this.f24354a == null) {
+                        this.f24354a = new GetEmotionInfosModel();
                     }
-                    this.f24338a.y(arrayList2, new b(this, lVar, hashMap, arrayList, z));
+                    this.f24354a.y(arrayList2, new b(this, lVar, hashMap, arrayList, z));
                     return;
                 }
                 m(arrayList, lVar, z);
@@ -947,7 +947,7 @@ public class t {
             ArrayList arrayList = new ArrayList();
             for (String str : list) {
                 c.a.q0.d0.c cVar = new c.a.q0.d0.c();
-                cVar.f12845d = str;
+                cVar.f12859d = str;
                 arrayList.add(cVar);
             }
             h(arrayList, true, lVar);
@@ -1031,7 +1031,7 @@ public class t {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048586, this, cVar, z)) == null) {
-            if (cVar == null || TextUtils.isEmpty(cVar.f12845d) || TextUtils.isEmpty(cVar.f12842a)) {
+            if (cVar == null || TextUtils.isEmpty(cVar.f12859d) || TextUtils.isEmpty(cVar.f12856a)) {
                 return "";
             }
             if (z) {
@@ -1039,7 +1039,7 @@ public class t {
             } else {
                 str = "_s" + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
             }
-            return TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + c.a.q0.c0.d.b() + "/" + cVar.f12842a + str;
+            return TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + c.a.q0.c0.d.b() + "/" + cVar.f12856a + str;
         }
         return (String) invokeLZ.objValue;
     }
@@ -1166,29 +1166,29 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, cVar)) == null) {
             CollectEmotionData collectEmotionData = new CollectEmotionData();
-            StringBuilder sb = new StringBuilder(c.a.q0.c0.d.f12801f);
-            if (TextUtils.isEmpty(cVar.f12847f)) {
-                sb.append(cVar.f12842a);
+            StringBuilder sb = new StringBuilder(c.a.q0.c0.d.f12815f);
+            if (TextUtils.isEmpty(cVar.f12861f)) {
+                sb.append(cVar.f12856a);
                 sb.append(",");
             } else {
-                sb.append(cVar.f12847f);
+                sb.append(cVar.f12861f);
                 sb.append("_");
-                sb.append(cVar.f12842a);
+                sb.append(cVar.f12856a);
                 sb.append(",");
             }
-            sb.append(cVar.f12843b);
+            sb.append(cVar.f12857b);
             sb.append(",");
-            sb.append(cVar.f12844c);
+            sb.append(cVar.f12858c);
             sb.append(",");
             String lowerCase = c.a.e.e.p.q.c(sb.toString().replace("collect_", "") + "7S6wbXjEKL9N").toLowerCase();
-            collectEmotionData.pid = cVar.f12842a;
+            collectEmotionData.pid = cVar.f12856a;
             collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
             collectEmotionData.sharpText = SmallTailInfo.EMOTION_PREFIX + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX;
             collectEmotionData.orderId = c.a.r0.r0.g.k().i(collectEmotionData.uid) + 1;
-            collectEmotionData.width = cVar.f12843b;
-            collectEmotionData.height = cVar.f12844c;
-            collectEmotionData.picUrl = cVar.f12845d;
-            collectEmotionData.thumbnail = cVar.f12846e;
+            collectEmotionData.width = cVar.f12857b;
+            collectEmotionData.height = cVar.f12858c;
+            collectEmotionData.picUrl = cVar.f12859d;
+            collectEmotionData.thumbnail = cVar.f12860e;
             collectEmotionData.backup = "";
             return collectEmotionData;
         }

@@ -14,10 +14,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f32426a;
+    public static volatile String f32449a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f32427b;
+    public static final Object f32450b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,22 +33,22 @@ public class c {
                 return;
             }
         }
-        f32427b = new Object();
+        f32450b = new Object();
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f32426a != null) {
-                return f32426a;
+            if (f32449a != null) {
+                return f32449a;
             }
-            synchronized (f32427b) {
-                if (f32426a != null) {
-                    return f32426a;
+            synchronized (f32450b) {
+                if (f32449a != null) {
+                    return f32449a;
                 }
-                f32426a = b(c.h.b.a.c.d().provideContext());
-                return f32426a;
+                f32449a = b(c.h.b.a.c.d().provideContext());
+                return f32449a;
             }
         }
         return (String) invokeV.objValue;

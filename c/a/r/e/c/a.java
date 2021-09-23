@@ -12,19 +12,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[][] f15300a;
+    public static final byte[][] f15309a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r.e.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0731a {
+    public static class C0729a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f15301a;
+        public byte[] f15310a;
 
-        public C0731a(byte[] bArr, int i2) {
+        public C0729a(byte[] bArr, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,13 +39,13 @@ public class a {
                     return;
                 }
             }
-            this.f15301a = bArr;
+            this.f15310a = bArr;
         }
 
         public byte[] a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15301a : (byte[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15310a : (byte[]) invokeV.objValue;
         }
     }
 
@@ -62,7 +62,7 @@ public class a {
                 return;
             }
         }
-        f15300a = new byte[][]{new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
+        f15309a = new byte[][]{new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
     }
 
     public static int a(int i2) {
@@ -85,7 +85,7 @@ public class a {
         return invokeI.intValue;
     }
 
-    public static C0731a b(byte[] bArr) {
+    public static C0729a b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
@@ -114,9 +114,9 @@ public class a {
             if (i4 > 0 && i3 < i2) {
                 bArr2[i3] = (byte) (bArr2[i3] << i4);
             }
-            return new C0731a(bArr2, length);
+            return new C0729a(bArr2, length);
         }
-        return (C0731a) invokeL.objValue;
+        return (C0729a) invokeL.objValue;
     }
 
     public static byte[] c(byte[] bArr, int i2) {
@@ -147,7 +147,7 @@ public class a {
                 for (int i8 = 7; i8 >= 0; i8--) {
                     bArr2[i6] = (byte) ((bArr2[i6] << 1) | ((b3 >> i8) & 1));
                     if (i7 % 3 == 2) {
-                        byte[][] bArr3 = f15300a;
+                        byte[][] bArr3 = f15309a;
                         bArr2[i6 + 1] = bArr3[bArr2[i6]][1];
                         bArr2[i6] = bArr3[bArr2[i6]][0];
                         i6 += 2;
@@ -163,7 +163,7 @@ public class a {
             }
             if (b2 > 0) {
                 bArr2[i6] = (byte) (bArr2[i6] << b2);
-                byte[][] bArr4 = f15300a;
+                byte[][] bArr4 = f15309a;
                 bArr2[i6 + 1] = bArr4[bArr2[i6]][1];
                 bArr2[i6] = bArr4[bArr2[i6]][0];
                 bArr2[i6 + 2] = b2;

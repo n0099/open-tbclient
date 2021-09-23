@@ -58,7 +58,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TopicDetailActivity f52492a;
+        public final /* synthetic */ TopicDetailActivity f52605a;
 
         public a(TopicDetailActivity topicDetailActivity) {
             Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                     return;
                 }
             }
-            this.f52492a = topicDetailActivity;
+            this.f52605a = topicDetailActivity;
         }
 
         @Override // c.a.q0.a.g.b
@@ -86,7 +86,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.f52492a.topicID = b.g(str, -1L);
+                this.f52605a.topicID = b.g(str, -1L);
             }
         }
     }
@@ -236,7 +236,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, aVar) == null) {
             this.mTopicDetailView.hideLoadingView();
-            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f18477f)) {
+            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f18486f)) {
                 this.mTopicDetailView.hideNetRefreshView();
                 this.mTopicDetailView.setData(aVar);
                 return;
@@ -288,7 +288,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             adjustResizeForSoftInput();
             this.mTopicDetailModel.D(this);
             loadData();
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.f().i("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {

@@ -21,14 +21,14 @@ public class n extends c.a.r0.a0.d0.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f19312g;
+    public static final BdUniqueId f19327g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.e.l.e.n> f19313e;
+    public List<c.a.e.l.e.n> f19328e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19314f;
+    public boolean f19329f;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class n extends c.a.r0.a0.d0.a {
                 return;
             }
         }
-        f19312g = BdUniqueId.gen();
+        f19327g = BdUniqueId.gen();
     }
 
     public n() {
@@ -59,18 +59,18 @@ public class n extends c.a.r0.a0.d0.a {
                 return;
             }
         }
-        this.f19313e = null;
+        this.f19328e = null;
     }
 
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<c.a.e.l.e.n> list = this.f19313e;
+            List<c.a.e.l.e.n> list = this.f19328e;
             if (list == null || list.size() == 0) {
                 return 0;
             }
-            return this.f19313e.size();
+            return this.f19328e.size();
         }
         return invokeV.intValue;
     }
@@ -79,7 +79,7 @@ public class n extends c.a.r0.a0.d0.a {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19312g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19327g : (BdUniqueId) invokeV.objValue;
     }
 
     public void parserProtobuf(List<RelateForum> list) {
@@ -89,12 +89,12 @@ public class n extends c.a.r0.a0.d0.a {
         }
         this.showTopDivider = true;
         this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.recommend_relative_forum);
-        this.f19313e = new ArrayList();
+        this.f19328e = new ArrayList();
         for (RelateForum relateForum : list) {
             if (!StringUtils.isNull(relateForum.forum_name)) {
                 RelateForumItemData relateForumItemData = new RelateForumItemData();
                 relateForumItemData.parserProtobuf(relateForum);
-                this.f19313e.add(relateForumItemData);
+                this.f19328e.add(relateForumItemData);
             }
         }
     }

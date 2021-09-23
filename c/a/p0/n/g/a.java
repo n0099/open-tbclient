@@ -22,7 +22,7 @@ public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f11857a;
+    public static volatile a f11865a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -43,14 +43,14 @@ public abstract class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11857a == null) {
+            if (f11865a == null) {
                 synchronized (a.class) {
-                    if (f11857a == null) {
-                        f11857a = new b();
+                    if (f11865a == null) {
+                        f11865a = new b();
                     }
                 }
             }
-            return f11857a;
+            return f11865a;
         }
         return (a) invokeV.objValue;
     }

@@ -17,28 +17,28 @@ public class q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f64142a;
+    public final int f64453a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f64143b;
+    public final String f64454b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f64144c;
+    public final String f64455c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f64145d;
+    public final String f64456d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f64146e;
+    public final String f64457e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f64147f;
+    public final String f64458f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f64148g;
+    public final String f64459g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f64149h;
+    public final String f64460h;
 
     /* renamed from: com.bytedance.sdk.component.a.q$1  reason: invalid class name */
     /* loaded from: classes9.dex */
@@ -53,25 +53,25 @@ public class q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f64150a;
+        public String f64461a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f64151b;
+        public String f64462b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f64152c;
+        public String f64463c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f64153d;
+        public String f64464d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f64154e;
+        public String f64465e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f64155f;
+        public String f64466f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f64156g;
+        public String f64467g;
 
         public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
             this();
@@ -95,7 +95,7 @@ public class q {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.f64150a = str;
+                this.f64461a = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -105,7 +105,7 @@ public class q {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f64151b = str;
+                this.f64462b = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -115,7 +115,7 @@ public class q {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f64152c = str;
+                this.f64463c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -125,7 +125,7 @@ public class q {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f64153d = str;
+                this.f64464d = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -135,7 +135,7 @@ public class q {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f64154e = str;
+                this.f64465e = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -145,7 +145,7 @@ public class q {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f64155f = str;
+                this.f64466f = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -155,7 +155,7 @@ public class q {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.f64156g = str;
+                this.f64467g = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -183,7 +183,7 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "methodName: " + this.f64145d + ", params: " + this.f64146e + ", callbackId: " + this.f64147f + ", type: " + this.f64144c + ", version: " + this.f64143b + StringUtil.ARRAY_ELEMENT_SEPARATOR;
+            return "methodName: " + this.f64456d + ", params: " + this.f64457e + ", callbackId: " + this.f64458f + ", type: " + this.f64455c + ", version: " + this.f64454b + StringUtil.ARRAY_ELEMENT_SEPARATOR;
         }
         return (String) invokeV.objValue;
     }
@@ -203,14 +203,14 @@ public class q {
                 return;
             }
         }
-        this.f64143b = null;
-        this.f64144c = null;
-        this.f64145d = null;
-        this.f64146e = null;
-        this.f64147f = str;
-        this.f64148g = null;
-        this.f64142a = i2;
-        this.f64149h = null;
+        this.f64454b = null;
+        this.f64455c = null;
+        this.f64456d = null;
+        this.f64457e = null;
+        this.f64458f = str;
+        this.f64459g = null;
+        this.f64453a = i2;
+        this.f64460h = null;
     }
 
     public static q a(String str, int i2) {
@@ -222,7 +222,7 @@ public class q {
     public static boolean a(q qVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, qVar)) == null) ? qVar == null || qVar.f64142a != 1 || TextUtils.isEmpty(qVar.f64145d) || TextUtils.isEmpty(qVar.f64146e) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, qVar)) == null) ? qVar == null || qVar.f64453a != 1 || TextUtils.isEmpty(qVar.f64456d) || TextUtils.isEmpty(qVar.f64457e) : invokeL.booleanValue;
     }
 
     public q(a aVar) {
@@ -240,13 +240,13 @@ public class q {
                 return;
             }
         }
-        this.f64143b = aVar.f64150a;
-        this.f64144c = aVar.f64151b;
-        this.f64145d = aVar.f64152c;
-        this.f64146e = aVar.f64153d;
-        this.f64147f = aVar.f64154e;
-        this.f64148g = aVar.f64155f;
-        this.f64142a = 1;
-        this.f64149h = aVar.f64156g;
+        this.f64454b = aVar.f64461a;
+        this.f64455c = aVar.f64462b;
+        this.f64456d = aVar.f64463c;
+        this.f64457e = aVar.f64464d;
+        this.f64458f = aVar.f64465e;
+        this.f64459g = aVar.f64466f;
+        this.f64453a = 1;
+        this.f64460h = aVar.f64467g;
     }
 }

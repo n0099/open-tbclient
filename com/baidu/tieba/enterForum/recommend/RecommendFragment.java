@@ -28,16 +28,16 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecommendModel f50271e;
+    public RecommendModel f50384e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecommendView f50272f;
+    public RecommendView f50385f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50273g;
+    public boolean f50386g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f50274h;
+    public c f50387h;
 
     public RecommendFragment() {
         Interceptable interceptable = $ic;
@@ -64,9 +64,9 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
     public void loadData() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && j.z()) {
-            this.f50272f.hideNetRefreshView();
-            this.f50272f.showLoadingView(false);
-            this.f50271e.z();
+            this.f50385f.hideNetRefreshView();
+            this.f50385f.showLoadingView(false);
+            this.f50384e.z();
         }
     }
 
@@ -74,15 +74,15 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
     public void netCallback(int i2, c.a.r0.n0.k.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, aVar) == null) {
-            this.f50272f.hideLoadingView();
-            this.f50272f.stopPullRefresh();
+            this.f50385f.hideLoadingView();
+            this.f50385f.stopPullRefresh();
             if (i2 == 0 && aVar != null) {
-                this.f50272f.hideNetRefreshView();
-                this.f50272f.showListView();
-                this.f50272f.setData(aVar);
+                this.f50385f.hideNetRefreshView();
+                this.f50385f.showListView();
+                this.f50385f.setData(aVar);
                 return;
             }
-            this.f50272f.showNetRefreshView(false);
+            this.f50385f.showNetRefreshView(false);
         }
     }
 
@@ -91,11 +91,11 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            if (this.f50271e == null) {
+            if (this.f50384e == null) {
                 RecommendModel recommendModel = new RecommendModel(getPageContext());
-                this.f50271e = recommendModel;
+                this.f50384e = recommendModel;
                 recommendModel.A(this);
-                this.f50271e.setUniqueId(getUniqueId());
+                this.f50384e.setUniqueId(getUniqueId());
             }
         }
     }
@@ -104,7 +104,7 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
     public void onChangeSkinType(int i2) {
         RecommendView recommendView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (recommendView = this.f50272f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (recommendView = this.f50385f) == null) {
             return;
         }
         recommendView.onChangeSkinType();
@@ -116,19 +116,19 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.f50272f == null) {
+            if (this.f50385f == null) {
                 RecommendView recommendView = new RecommendView(getPageContext());
-                this.f50272f = recommendView;
-                recommendView.setTabViewController(this.f50274h);
-                this.f50272f.setPresenter(this);
-                this.f50272f.setListPullRefreshListener(this);
-                this.f50272f.setPageUniqueId(getUniqueId());
+                this.f50385f = recommendView;
+                recommendView.setTabViewController(this.f50387h);
+                this.f50385f.setPresenter(this);
+                this.f50385f.setListPullRefreshListener(this);
+                this.f50385f.setPageUniqueId(getUniqueId());
             }
-            if (this.f50272f.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.f50272f.getParent()).removeView(this.f50272f);
+            if (this.f50385f.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.f50385f.getParent()).removeView(this.f50385f);
             }
             c.a.r0.i3.c.g().i(getUniqueId());
-            return this.f50272f;
+            return this.f50385f;
         }
         return (View) invokeLLL.objValue;
     }
@@ -137,9 +137,9 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
     public void onDestroyView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f50274h = null;
-            this.f50272f.onDestroy();
-            this.f50271e.onDestroy();
+            this.f50387h = null;
+            this.f50385f.onDestroy();
+            this.f50384e.onDestroy();
             c.a.r0.i3.c.g().k(getUniqueId());
             super.onDestroyView();
         }
@@ -148,19 +148,19 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f50273g || TbadkCoreApplication.getInst().checkInterrupt()) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f50386g || TbadkCoreApplication.getInst().checkInterrupt()) {
             return;
         }
-        this.f50272f.showLoadingView(false);
-        this.f50271e.z();
-        this.f50273g = true;
+        this.f50385f.showLoadingView(false);
+        this.f50384e.z();
+        this.f50386g = true;
     }
 
     @Override // c.a.q0.s.f0.f.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            RecommendModel recommendModel = this.f50271e;
+            RecommendModel recommendModel = this.f50384e;
             if (recommendModel != null) {
                 recommendModel.z();
             }
@@ -171,7 +171,7 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
     public void onNavigationbarHeightChange(View view, int i2) {
         RecommendView recommendView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048585, this, view, i2) == null) || (recommendView = this.f50272f) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048585, this, view, i2) == null) || (recommendView = this.f50385f) == null) {
             return;
         }
         recommendView.onNavigationbarHeightChange(view, i2);
@@ -184,11 +184,11 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
             super.onPrimary();
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921385));
-                if (this.f50273g) {
+                if (this.f50386g) {
                     return;
                 }
                 loadData();
-                this.f50273g = true;
+                this.f50386g = true;
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921386));
@@ -199,7 +199,7 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
     public void setTabViewController(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
-            this.f50274h = cVar;
+            this.f50387h = cVar;
         }
     }
 }

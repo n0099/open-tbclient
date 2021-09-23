@@ -11,10 +11,10 @@ public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f65255a;
+    public static Object f65566a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f65256b;
+    public static Method f65567b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class s {
             Method declaredMethod = Class.class.getDeclaredMethod("forName", String.class);
             Method declaredMethod2 = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
             Class cls = (Class) declaredMethod.invoke(null, "dalvik.system.VMRuntime");
-            f65256b = (Method) declaredMethod2.invoke(cls, "setHiddenApiExemptions", new Class[]{String[].class});
-            f65255a = ((Method) declaredMethod2.invoke(cls, "getRuntime", null)).invoke(null, new Object[0]);
+            f65567b = (Method) declaredMethod2.invoke(cls, "setHiddenApiExemptions", new Class[]{String[].class});
+            f65566a = ((Method) declaredMethod2.invoke(cls, "getRuntime", null)).invoke(null, new Object[0]);
         } catch (Throwable th) {
             k.b("Reflection", "reflect bootstrap failed:", th);
         }
@@ -46,8 +46,8 @@ public class s {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, strArr)) == null) {
-            Object obj = f65255a;
-            if (obj != null && (method = f65256b) != null) {
+            Object obj = f65566a;
+            if (obj != null && (method = f65567b) != null) {
                 try {
                     method.invoke(obj, strArr);
                     return true;

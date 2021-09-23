@@ -26,13 +26,13 @@ public class e extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f9087e;
+        public final /* synthetic */ Context f9095e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9088f;
+        public final /* synthetic */ String f9096f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f9089g;
+        public final /* synthetic */ e f9097g;
 
         public a(e eVar, Context context, String str) {
             Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public class e extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9089g = eVar;
-            this.f9087e = context;
-            this.f9088f = str;
+            this.f9097g = eVar;
+            this.f9095e = context;
+            this.f9096f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,15 +61,15 @@ public class e extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    this.f9089g.d(this.f9088f, new c.a.p0.a.u.h.b(0, this.f9089g.t(this.f9087e)));
+                    this.f9097g.d(this.f9096f, new c.a.p0.a.u.h.b(0, this.f9097g.t(this.f9095e)));
                     return;
                 }
                 int b2 = iVar.b();
                 String f2 = c.a.p0.a.e2.c.d.f(b2);
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     String str = "getDeviceInfo auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX;
                 }
-                this.f9089g.d(this.f9088f, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
+                this.f9097g.d(this.f9096f, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
             }
         }
     }
@@ -98,7 +98,7 @@ public class e extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
             if (Q == null) {
                 return new c.a.p0.a.u.h.b(1001, "SwanApp is null");
@@ -106,7 +106,7 @@ public class e extends c.a.p0.a.u.c.d {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-DeviceInfo", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-DeviceInfo", "parse fail");
                 }
                 return bVar;
@@ -131,7 +131,7 @@ public class e extends c.a.p0.a.u.c.d {
                 jSONObject.put("oaid", c.a.p0.a.c1.a.q().b(context));
                 jSONObject.put("androidId", c.a.p0.a.c1.a.q().a(context));
             } catch (JSONException e2) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     e2.printStackTrace();
                 }
             }

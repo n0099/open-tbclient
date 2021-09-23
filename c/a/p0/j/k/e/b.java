@@ -31,7 +31,7 @@ public class b extends c.a.p0.j.k.a<c.a.p0.a.h1.c.c> {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public b() {
@@ -66,14 +66,14 @@ public class b extends c.a.p0.j.k.a<c.a.p0.a.h1.c.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cVar, bVar, eVar, jSONObject)) == null) {
             c.a.p0.a.e0.d.g("map", "GetRegionAction start");
-            c.a.p0.a.p.e.d B = c.a.p0.a.g1.f.V().B(cVar.f4658g);
+            c.a.p0.a.p.e.d B = c.a.p0.a.g1.f.V().B(cVar.f4666g);
             if (!(B instanceof c.a.p0.a.p.e.b)) {
                 c.a.p0.a.e0.d.b("map", "WebViewManager is null");
                 return false;
             }
-            c.a.p0.j.n.c d2 = c.a.p0.j.c.b().c((c.a.p0.a.p.e.b) B).d(cVar.f4657f);
+            c.a.p0.j.n.c d2 = c.a.p0.j.c.b().c((c.a.p0.a.p.e.b) B).d(cVar.f4665f);
             if (d2 == null) {
-                c.a.p0.a.e0.d.b("map", "can not find map by id " + cVar.f4657f);
+                c.a.p0.a.e0.d.b("map", "can not find map by id " + cVar.f4665f);
                 return false;
             }
             MapStatus mapStatus = d2.l.getMap().getMapStatus();

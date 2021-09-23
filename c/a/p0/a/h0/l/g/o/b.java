@@ -30,7 +30,7 @@ public class b extends c.a.p0.a.h0.l.g.a {
                 return;
             }
         }
-        l = k.f7077a;
+        l = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,10 +59,10 @@ public class b extends c.a.p0.a.h0.l.g.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, cVar)) == null) {
-            if (this.f6093e == null || this.f6093e.f6113b == null) {
+            if (this.f6101e == null || this.f6101e.f6121b == null) {
                 return false;
             }
-            return (pMSAppInfo.versionCode == this.f6093e.f6113b.versionCode && TextUtils.equals(pMSAppInfo.appId, this.f6093e.f6112a) && !m(cVar, this.f6093e.f6114c)) ? false : true;
+            return (pMSAppInfo.versionCode == this.f6101e.f6121b.versionCode && TextUtils.equals(pMSAppInfo.appId, this.f6101e.f6120a) && !m(cVar, this.f6101e.f6122c)) ? false : true;
         }
         return invokeLL.booleanValue;
     }

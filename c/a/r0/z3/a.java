@@ -23,24 +23,24 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f29754a;
+    public boolean f29774a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f29755b;
+    public d f29775b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NEGFeedBackView.b f29756c;
+    public NEGFeedBackView.b f29776c;
 
     /* renamed from: c.a.r0.z3.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1386a implements NEGFeedBackView.b {
+    public class C1384a implements NEGFeedBackView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f29757a;
+        public final /* synthetic */ a f29777a;
 
-        public C1386a(a aVar) {
+        public C1384a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +55,7 @@ public class a {
                     return;
                 }
             }
-            this.f29757a = aVar;
+            this.f29777a = aVar;
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
@@ -91,7 +91,7 @@ public class a {
                 i2 = 3;
             }
             boolean z = x0Var.r;
-            if (!this.f29757a.f29754a) {
+            if (!this.f29777a.f29774a) {
                 i5 = z ? 5 : 4;
             } else if (!z) {
                 i5 = 2;
@@ -120,14 +120,14 @@ public class a {
                 return;
             }
         }
-        this.f29754a = false;
-        this.f29756c = new C1386a(this);
+        this.f29774a = false;
+        this.f29776c = new C1384a(this);
     }
 
     public void b() {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dVar = this.f29755b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dVar = this.f29775b) == null) {
             return;
         }
         dVar.h();
@@ -136,7 +136,7 @@ public class a {
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f29754a = z;
+            this.f29774a = z;
         }
     }
 
@@ -145,8 +145,8 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, videoItemData, z) == null) || tbPageContext == null || videoItemData == null || !ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
             return;
         }
-        if (this.f29755b == null) {
-            this.f29755b = new d(tbPageContext);
+        if (this.f29775b == null) {
+            this.f29775b = new d(tbPageContext);
         }
         x0 negFeedBackData = videoItemData.getNegFeedBackData();
         if (negFeedBackData == null) {
@@ -157,12 +157,12 @@ public class a {
         negFeedBackData.r = z;
         negFeedBackData.p(str);
         negFeedBackData.m(str2);
-        this.f29755b.r(this.f29754a);
-        this.f29755b.p(this.f29756c);
-        this.f29755b.o(negFeedBackData);
-        this.f29755b.q(true);
-        this.f29755b.h();
-        this.f29755b.s();
-        StatisticItem.make(TbadkCoreStatisticKey.NEGATIVE_FEEDBACK_OPEN_CLICK).param("obj_locate", this.f29754a ? z ? 3 : 2 : z ? 5 : 4).param("fid", str2).param("tid", str).param("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
+        this.f29775b.r(this.f29774a);
+        this.f29775b.p(this.f29776c);
+        this.f29775b.o(negFeedBackData);
+        this.f29775b.q(true);
+        this.f29775b.h();
+        this.f29775b.s();
+        StatisticItem.make(TbadkCoreStatisticKey.NEGATIVE_FEEDBACK_OPEN_CLICK).param("obj_locate", this.f29774a ? z ? 3 : 2 : z ? 5 : 4).param("fid", str2).param("tid", str).param("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
     }
 }

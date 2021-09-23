@@ -25,15 +25,16 @@ import java.util.Properties;
 /* loaded from: classes8.dex */
 public final class DebugConfig {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String A = null;
+    public static Boolean[] A = null;
     public static String B = null;
-    public static DebugConfig C = null;
+    public static String C = null;
+    public static DebugConfig D = null;
     public static String DEFAULT_ENVIRONMENT = "ONLINE";
     public static final String ENVIRONMENT_ONLINE = "ONLINE";
     public static final String ENVIRONMENT_PRELINE = "PRELINE";
     public static final String ENVIRONMENT_QA = "QA";
     public static final String ENVIRONMENT_RD = "RD";
-    public static final String F = "https://www.baifubao.com";
+    public static final String G = "https://www.baifubao.com";
     public static String LBS_HOST = null;
     public static final String PASS_COMPLETE_VERIFY = "pass_complete_verify";
     public static final String SERVER_COMPLETE_VERIFY = "http://wappass.baidu.com/v2/?bindingret";
@@ -42,34 +43,34 @@ public final class DebugConfig {
     public static final String VOICE_SERVICE_URL_DFT = "https://wallet.baidu.com";
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f60905a = false;
+    public static boolean f61022a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f60906b = "wallet_config.properties";
+    public static final String f61023b = "wallet_config.properties";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f60907c = "wallet_https_host";
+    public static final String f61024c = "wallet_https_host";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f60908d = "wallet_passport_host";
+    public static final String f61025d = "wallet_passport_host";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f60909e = "environment";
+    public static final String f61026e = "environment";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f60910f = "wallet_plugin_host";
+    public static final String f61027f = "wallet_plugin_host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f60911g = "wallet_nfc_host";
+    public static final String f61028g = "wallet_nfc_host";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f60912h = "wallet_web_cache_host";
+    public static final String f61029h = "wallet_web_cache_host";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f60913i = "voiceprint_service";
+    public static final String f61030i = "voiceprint_service";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f60914j = "voiceprint_host";
+    public static final String f61031j = "voiceprint_host";
     public static final String k = "wallet_stat_host";
     public static final String l = "wallet_stat_strategy_host";
     public static final String m = "wallet_sensor_stat_host";
@@ -87,8 +88,8 @@ public final class DebugConfig {
     public static String y = "https://www.baifubao.com";
     public static String z = "https://datasink.dxmpay.com";
     public transient /* synthetic */ FieldHolder $fh;
-    public File D;
-    public Properties E;
+    public File E;
+    public Properties F;
 
     static {
         InterceptResult invokeClinit;
@@ -103,10 +104,11 @@ public final class DebugConfig {
                 return;
             }
         }
-        A = DomainConfig.getInstance().getCometHost();
-        LBS_HOST = DomainConfig.getInstance().getZhiFuHost();
-        B = "https://www.baifubao.com/wireless/0/config?cate[plugin]&_app=wallet";
-        C = null;
+        A = new Boolean[]{Boolean.FALSE};
+        B = DomainConfig.getInstance().getCometHost(A);
+        LBS_HOST = DomainConfig.getInstance().getZhiFuHost(A);
+        C = "https://www.baifubao.com/wireless/0/config?cate[plugin]&_app=wallet";
+        D = null;
     }
 
     public DebugConfig(Context context) {
@@ -124,7 +126,7 @@ public final class DebugConfig {
                 return;
             }
         }
-        this.D = null;
+        this.E = null;
         if (context != null) {
             try {
                 if (context.getApplicationInfo().targetSdkVersion >= 29 && Build.VERSION.SDK_INT >= 29) {
@@ -132,15 +134,15 @@ public final class DebugConfig {
                     if (externalFilesDir != null && !externalFilesDir.exists()) {
                         externalFilesDir.mkdirs();
                     }
-                    this.D = new File(externalFilesDir, f60906b);
-                    this.E = b();
+                    this.E = new File(externalFilesDir, f61023b);
+                    this.F = b();
                 }
             } catch (Exception unused) {
                 return;
             }
         }
-        this.D = new File(String.valueOf(Environment.getExternalStorageDirectory()), f60906b);
-        this.E = b();
+        this.E = new File(String.valueOf(Environment.getExternalStorageDirectory()), f61023b);
+        this.F = b();
     }
 
     private void a() {
@@ -148,15 +150,15 @@ public final class DebugConfig {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             c.a().a(a("life_host"));
             c.a().d(a("app_host"));
-            c.a().f(a(c.n));
-            c.a().h(a(c.p));
+            c.a().f(a(c.r));
+            c.a().h(a(c.t));
             c.a().k(a("comet_host"));
-            c.a().c(a(c.k));
-            c.a().g(a(c.o));
+            c.a().c(a(c.o));
+            c.a().g(a(c.s));
             c.a().e(a("nfc_host"));
             c.a().b(a("my_host"));
-            c.a().i(a(c.q));
-            c.a().j(a(c.r));
+            c.a().i(a(c.u));
+            c.a().j(a(c.v));
             c.a().l(a("wallet_web_cache_host"));
             DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.QA);
             String a2 = a(k);
@@ -187,7 +189,7 @@ public final class DebugConfig {
             try {
                 try {
                     try {
-                        fileInputStream = new FileInputStream(this.D);
+                        fileInputStream = new FileInputStream(this.E);
                     } catch (Exception unused) {
                     }
                 } catch (Throwable th) {
@@ -227,10 +229,10 @@ public final class DebugConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
             synchronized (DebugConfig.class) {
-                if (C == null) {
-                    C = new DebugConfig(context);
+                if (D == null) {
+                    D = new DebugConfig(context);
                 }
-                debugConfig = C;
+                debugConfig = D;
             }
             return debugConfig;
         }
@@ -240,14 +242,14 @@ public final class DebugConfig {
     public void changeOnline() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f60905a = false;
+            f61022a = false;
             p = "https://www.baifubao.com";
             r = "https://wappass.baidu.com/passport/";
             s = "https://chong.baidu.com";
-            LBS_HOST = DomainConfig.getInstance().getZhiFuHost();
+            LBS_HOST = DomainConfig.getInstance().getZhiFuHost(A);
             t = "https://wallet.baidu.com";
             DEFAULT_ENVIRONMENT = "ONLINE";
-            A = DomainConfig.getInstance().getCometHost();
+            B = DomainConfig.getInstance().getCometHost(A);
             u = "https://wallet.baidu.com";
             v = "https://wallet.baidu.com";
             w = "https://www.baifubao.com";
@@ -259,7 +261,7 @@ public final class DebugConfig {
     public void changeQA() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f60905a = true;
+            f61022a = true;
             DEFAULT_ENVIRONMENT = "QA";
             readConfigHost(true);
         }
@@ -268,7 +270,7 @@ public final class DebugConfig {
     public String getCometPushHttps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? A : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? B : (String) invokeV.objValue;
     }
 
     public String getCouponHost() {
@@ -281,8 +283,8 @@ public final class DebugConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (f60905a) {
-                return a(f60909e);
+            if (f61022a) {
+                return a(f61026e);
             }
             return DEFAULT_ENVIRONMENT;
         }
@@ -299,7 +301,7 @@ public final class DebugConfig {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            if (!f60905a) {
+            if (!f61022a) {
                 LogUtil.logd("没有打开DEBUG开关 返回默认值=" + str2);
                 return str2;
             }
@@ -325,7 +327,7 @@ public final class DebugConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (isOnline()) {
-                return DomainConfig.getInstance().getLifeHost();
+                return DomainConfig.getInstance().getLifeHost(A);
             }
             return x;
         }
@@ -337,7 +339,7 @@ public final class DebugConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (isOnline()) {
-                return DomainConfig.getInstance().getAppHost();
+                return DomainConfig.getInstance().getAppHost(A);
             }
             return w;
         }
@@ -377,7 +379,7 @@ public final class DebugConfig {
     public String getWalletPluginHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? B : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? C : (String) invokeV.objValue;
     }
 
     public String getWebCacheHost() {
@@ -395,16 +397,16 @@ public final class DebugConfig {
     public void readConfigHost(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z2) == null) {
-            f60905a = z2;
+            f61022a = z2;
             if (z2) {
                 a();
             } else {
                 p = "https://www.baifubao.com";
                 r = "https://wappass.baidu.com/passport/";
-                B = "https://www.baifubao.com/wireless/0/config?cate[plugin]&_app=wallet";
+                C = "https://www.baifubao.com/wireless/0/config?cate[plugin]&_app=wallet";
                 s = "https://chong.baidu.com";
                 t = "https://wallet.baidu.com";
-                A = DomainConfig.getInstance().getCometHost();
+                B = DomainConfig.getInstance().getCometHost(A);
                 u = "https://wallet.baidu.com";
                 v = "https://wallet.baidu.com";
                 w = "https://www.baifubao.com";
@@ -419,7 +421,7 @@ public final class DebugConfig {
     public void setCometPushHttps(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            A = str;
+            B = str;
         }
     }
 
@@ -436,10 +438,10 @@ public final class DebugConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             synchronized (DebugConfig.class) {
-                if (C == null) {
-                    C = new DebugConfig(null);
+                if (D == null) {
+                    D = new DebugConfig(null);
                 }
-                debugConfig = C;
+                debugConfig = D;
             }
             return debugConfig;
         }
@@ -451,7 +453,7 @@ public final class DebugConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             Properties b2 = b();
-            this.E = b2;
+            this.F = b2;
             return b2.getProperty(str);
         }
         return (String) invokeL.objValue;

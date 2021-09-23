@@ -20,25 +20,27 @@ public class a implements Comparable<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f15013e;
+    public long f15015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15014f;
+    public String f15016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15015g;
+    public String f15017g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f15016h;
+    public String f15018h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f15017i;
+    public String f15019i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f15018j;
+    public int f15020j;
     public String k;
     public String l;
     public String m;
+    public String n;
+    public String o;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -60,13 +62,13 @@ public class a implements Comparable<a> {
     public int compareTo(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? i() > aVar.i() ? -1 : 1 : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? k() > aVar.k() ? -1 : 1 : invokeL.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15017i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15019i : (String) invokeV.objValue;
     }
 
     public String c() {
@@ -84,42 +86,54 @@ public class a implements Comparable<a> {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15018j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15020j : invokeV.intValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15016h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.o : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f15014f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.n : (String) invokeV.objValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f15015g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f15018h : (String) invokeV.objValue;
     }
 
-    public long i() {
+    public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f15013e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f15016f : (String) invokeV.objValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f15017g : (String) invokeV.objValue;
     }
 
-    public final void k() {
+    public long k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f15015e : invokeV.longValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.k : (String) invokeV.objValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             if (StringUtils.isNull(this.k) && StringUtils.isNull(this.l)) {
                 return;
             }
@@ -141,39 +155,43 @@ public class a implements Comparable<a> {
         }
     }
 
-    public void l(Advertisement advertisement) {
+    public void n(Advertisement advertisement) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, advertisement) == null) {
-            this.f15013e = advertisement.time.longValue();
-            this.f15014f = advertisement.pic;
-            this.f15015g = advertisement.pic_click;
-            this.f15016h = advertisement.jump_link;
-            this.f15017i = advertisement.advertisement_id;
+        if (interceptable == null || interceptable.invokeL(1048590, this, advertisement) == null) {
+            this.f15015e = advertisement.time.longValue();
+            this.f15016f = advertisement.pic;
+            this.f15017g = advertisement.pic_click;
+            this.f15018h = advertisement.jump_link;
+            this.f15019i = advertisement.advertisement_id;
             this.k = advertisement.view_statistics_url;
             this.l = advertisement.click_statistics_url;
             this.m = advertisement.floating_text;
-            k();
+            this.n = advertisement.scheme;
+            this.o = advertisement.package_name;
+            m();
         }
     }
 
-    public void m(JSONObject jSONObject) {
+    public void o(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) {
-            this.f15014f = jSONObject.optString("pic");
-            this.f15015g = jSONObject.optString("pic_click");
-            this.f15016h = jSONObject.optString("jump_link");
-            this.f15017i = jSONObject.optString("advertisement_id");
+        if (interceptable == null || interceptable.invokeL(1048591, this, jSONObject) == null) {
+            this.f15016f = jSONObject.optString("pic");
+            this.f15017g = jSONObject.optString("pic_click");
+            this.f15018h = jSONObject.optString("jump_link");
+            this.f15019i = jSONObject.optString("advertisement_id");
             this.k = jSONObject.optString("view_statistics_url");
             this.l = jSONObject.optString("click_statistics_url");
             this.m = jSONObject.optString("floating_text");
-            k();
+            this.n = jSONObject.optString("scheme");
+            this.o = jSONObject.optString("package_name");
+            m();
         }
     }
 
-    public void n(int i2) {
+    public void p(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f15018j = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.f15020j = i2;
         }
     }
 }

@@ -12,7 +12,7 @@ public class a extends f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c.a.p0.a.y0.k.f.a f9841a;
+    public final c.a.p0.a.y0.k.f.a f9849a;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -29,28 +29,28 @@ public class a extends f {
                 return;
             }
         }
-        this.f9841a = new c.a.p0.a.y0.k.f.a();
+        this.f9849a = new c.a.p0.a.y0.k.f.a();
     }
 
     @Override // c.a.p0.a.y0.k.f.c.f, c.a.p0.a.y0.k.f.c.e
     public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, hybridUbcFlow) == null) {
-            if (this.f9841a.f()) {
-                this.f9841a.k();
+            if (this.f9849a.f()) {
+                this.f9849a.k();
                 c.a.p0.a.y0.k.f.b.f();
                 return;
             }
-            this.f9841a.g("fmpArrived", z ? "1" : "0");
+            this.f9849a.g("fmpArrived", z ? "1" : "0");
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f9841a.c();
-            if (this.f9841a.e("fmpArrived")) {
-                this.f9841a.k();
+            this.f9849a.c();
+            if (this.f9849a.e("fmpArrived")) {
+                this.f9849a.k();
                 c.a.p0.a.y0.k.f.b.f();
             }
         }

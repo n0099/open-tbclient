@@ -47,10 +47,10 @@ public class a extends UnitedSchemeBaseInterceptor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11570a;
+    public static final boolean f11578a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f11571b;
+    public static final Set<String> f11579b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.h.v.a$a  reason: collision with other inner class name */
@@ -60,19 +60,19 @@ public class a extends UnitedSchemeBaseInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f11572a;
+        public final /* synthetic */ Context f11580a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f11573b;
+        public final /* synthetic */ c f11581b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f11574c;
+        public final /* synthetic */ CallbackHandler f11582c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f11575d;
+        public final /* synthetic */ UnitedSchemeEntity f11583d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11576e;
+        public final /* synthetic */ a f11584e;
 
         /* renamed from: c.a.p0.h.v.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
@@ -81,7 +81,7 @@ public class a extends UnitedSchemeBaseInterceptor {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0598a f11577e;
+            public final /* synthetic */ C0598a f11585e;
 
             public RunnableC0599a(C0598a c0598a) {
                 Interceptable interceptable = $ic;
@@ -98,14 +98,14 @@ public class a extends UnitedSchemeBaseInterceptor {
                         return;
                     }
                 }
-                this.f11577e = c0598a;
+                this.f11585e = c0598a;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.p0.a.z1.b.f.e.g(this.f11577e.f11572a, "小游戏包下载成功").F();
+                    c.a.p0.a.z1.b.f.e.g(this.f11585e.f11580a, "小游戏包下载成功").F();
                 }
             }
         }
@@ -117,7 +117,7 @@ public class a extends UnitedSchemeBaseInterceptor {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ C0598a f11578a;
+            public final /* synthetic */ C0598a f11586a;
 
             public b(C0598a c0598a) {
                 Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                         return;
                     }
                 }
-                this.f11578a = c0598a;
+                this.f11586a = c0598a;
             }
 
             @Override // c.a.p0.a.a1.b
@@ -143,17 +143,17 @@ public class a extends UnitedSchemeBaseInterceptor {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIL(1048576, this, i2, aVar) == null) {
                     a.c cVar = (a.c) aVar;
-                    if (i2 != 0 || cVar == null || (aVar2 = cVar.f11542c) == null) {
+                    if (i2 != 0 || cVar == null || (aVar2 = cVar.f11550c) == null) {
                         return;
                     }
-                    this.f11578a.f11573b.P0(aVar2.f11118b);
-                    C0598a c0598a = this.f11578a;
-                    Intent d1 = c.d1(c0598a.f11572a, c0598a.f11573b);
+                    this.f11586a.f11581b.P0(aVar2.f11126b);
+                    C0598a c0598a = this.f11586a;
+                    Intent d1 = c.d1(c0598a.f11580a, c0598a.f11581b);
                     d1.setAction(SwanAppLauncherActivity.SWAN_APP_LAUNCH_ACTION);
                     d1.setFlags(268435456);
-                    this.f11578a.f11572a.startActivity(d1);
-                    C0598a c0598a2 = this.f11578a;
-                    UnitedSchemeUtility.callCallback(c0598a2.f11574c, c0598a2.f11575d, UnitedSchemeUtility.wrapCallbackParams(0));
+                    this.f11586a.f11580a.startActivity(d1);
+                    C0598a c0598a2 = this.f11586a;
+                    UnitedSchemeUtility.callCallback(c0598a2.f11582c, c0598a2.f11583d, UnitedSchemeUtility.wrapCallbackParams(0));
                 }
             }
         }
@@ -173,25 +173,25 @@ public class a extends UnitedSchemeBaseInterceptor {
                     return;
                 }
             }
-            this.f11576e = aVar;
-            this.f11572a = context;
-            this.f11573b = cVar;
-            this.f11574c = callbackHandler;
-            this.f11575d = unitedSchemeEntity;
+            this.f11584e = aVar;
+            this.f11580a = context;
+            this.f11581b = cVar;
+            this.f11582c = callbackHandler;
+            this.f11583d = unitedSchemeEntity;
         }
 
         @Override // c.a.p0.a.a1.e.c
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = a.f11570a;
+                boolean unused = a.f11578a;
                 c.a.p0.a.q2.a aVar = new c.a.p0.a.q2.a();
                 aVar.j(7L);
                 aVar.h(9L);
                 aVar.e("debug download pkg fail");
                 c.a.p0.a.q2.e.a().f(aVar);
-                c.a.p0.a.f1.d.a.d(this.f11572a, aVar, 1, this.f11573b.H());
-                this.f11575d.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                c.a.p0.a.f1.d.a.d(this.f11580a, aVar, 1, this.f11581b.H());
+                this.f11583d.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             }
         }
 
@@ -206,11 +206,11 @@ public class a extends UnitedSchemeBaseInterceptor {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                boolean unused = a.f11570a;
+                boolean unused = a.f11578a;
                 q0.b0(new RunnableC0599a(this));
-                this.f11573b.Y0("1.6.0");
-                this.f11573b.z0(true);
-                c.a.p0.a.f1.e.b d2 = this.f11576e.d(this.f11573b);
+                this.f11581b.Y0("1.6.0");
+                this.f11581b.z0(true);
+                c.a.p0.a.f1.e.b d2 = this.f11584e.d(this.f11581b);
                 if (d2 == null) {
                     return;
                 }
@@ -232,9 +232,9 @@ public class a extends UnitedSchemeBaseInterceptor {
                 return;
             }
         }
-        f11570a = k.f7077a;
+        f11578a = k.f7085a;
         HashSet hashSet = new HashSet();
-        f11571b = hashSet;
+        f11579b = hashSet;
         hashSet.add("_baiduboxapp");
     }
 
@@ -329,7 +329,7 @@ public class a extends UnitedSchemeBaseInterceptor {
     public final String g(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) ? o0.i(uri.getQuery(), f11571b) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) ? o0.i(uri.getQuery(), f11579b) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
@@ -344,7 +344,7 @@ public class a extends UnitedSchemeBaseInterceptor {
         if (interceptable == null || interceptable.invokeLLLLL(1048582, this, cVar, str, context, unitedSchemeEntity, callbackHandler) == null) {
             e.d dVar = new e.d();
             cVar.H();
-            dVar.f4497a = str;
+            dVar.f4505a = str;
             Context applicationContext = context.getApplicationContext();
             if (applicationContext == null) {
                 return;
@@ -372,7 +372,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                 return true;
             }
             String e2 = e(uri);
-            if (f11570a) {
+            if (f11578a) {
                 String str2 = "mAppId: " + e2;
             }
             if (TextUtils.isEmpty(e2)) {
@@ -390,11 +390,11 @@ public class a extends UnitedSchemeBaseInterceptor {
                 return true;
             }
             String f2 = f(e2, uri);
-            if (f11570a) {
+            if (f11578a) {
                 String str3 = "pagePath: " + f2;
             }
             String g2 = g(uri);
-            if (f11570a) {
+            if (f11578a) {
                 String str4 = "query: " + g2;
             }
             c.a aVar2 = (c.a) ((c.a) ((c.a) ((c.a) new c.a().u0(e2)).J0(uri.toString())).t0(1)).F0(false);
@@ -428,10 +428,10 @@ public class a extends UnitedSchemeBaseInterceptor {
                         }
                     } catch (JSONException e3) {
                         e = e3;
-                        if (f11570a) {
+                        if (f11578a) {
                             String str5 = "getLaunchFrom failed: " + Log.getStackTraceString(e);
                         }
-                        if (f11570a) {
+                        if (f11578a) {
                         }
                         param = unitedSchemeEntity.getParam(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL);
                         if (!c.a.p0.a.u1.a.a.w()) {
@@ -445,11 +445,11 @@ public class a extends UnitedSchemeBaseInterceptor {
                     str = null;
                 }
             }
-            if (f11570a) {
+            if (f11578a) {
                 String str6 = "launchParams: " + aVar2;
             }
             param = unitedSchemeEntity.getParam(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL);
-            if ((!c.a.p0.a.u1.a.a.w() || f11570a) && !TextUtils.isEmpty(param)) {
+            if ((!c.a.p0.a.u1.a.a.w() || f11578a) && !TextUtils.isEmpty(param)) {
                 aVar2.F0(true);
                 h(aVar2, param, context, unitedSchemeEntity, callbackHandler);
                 return true;

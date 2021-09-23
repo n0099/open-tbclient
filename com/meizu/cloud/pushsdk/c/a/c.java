@@ -7,40 +7,40 @@ import java.util.Map;
 public class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f74754a = c.class.getSimpleName();
+    public final String f75073a = c.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, Object> f74755b = new HashMap<>();
+    public final HashMap<String, Object> f75074b = new HashMap<>();
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public Map a() {
-        return this.f74755b;
+        return this.f75074b;
     }
 
     public void a(String str, Object obj) {
         if (obj != null) {
-            this.f74755b.put(str, obj);
+            this.f75074b.put(str, obj);
             return;
         }
-        String str2 = this.f74754a;
+        String str2 = this.f75073a;
         com.meizu.cloud.pushsdk.c.f.c.c(str2, "The keys value is empty, returning without adding key: " + str, new Object[0]);
     }
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public void a(String str, String str2) {
         if (str2 != null && !str2.isEmpty()) {
-            this.f74755b.put(str, str2);
+            this.f75074b.put(str, str2);
             return;
         }
-        String str3 = this.f74754a;
+        String str3 = this.f75073a;
         com.meizu.cloud.pushsdk.c.f.c.c(str3, "The keys value is empty, returning without adding key: " + str, new Object[0]);
     }
 
     public void a(Map<String, Object> map) {
         if (map == null) {
-            com.meizu.cloud.pushsdk.c.f.c.c(this.f74754a, "Map passed in is null, returning without adding map.", new Object[0]);
+            com.meizu.cloud.pushsdk.c.f.c.c(this.f75073a, "Map passed in is null, returning without adding map.", new Object[0]);
         } else {
-            this.f74755b.putAll(map);
+            this.f75074b.putAll(map);
         }
     }
 
@@ -51,6 +51,6 @@ public class c implements a {
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public String toString() {
-        return e.a((Map) this.f74755b).toString();
+        return e.a((Map) this.f75074b).toString();
     }
 }

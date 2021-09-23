@@ -19,34 +19,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f27850a;
+    public boolean f27870a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27851b;
+    public int f27871b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d2> f27852c;
+    public List<d2> f27872c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ScoreCardInfo f27853d;
+    public ScoreCardInfo f27873d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<FeatureCardHot> f27854e;
+    public List<FeatureCardHot> f27874e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<FeatureCardTopic> f27855f;
+    public List<FeatureCardTopic> f27875f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<b> f27856g;
+    public List<b> f27876g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<FeatureCardCompetition> f27857h;
+    public List<FeatureCardCompetition> f27877h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<FeatureCardGod> f27858i;
+    public List<FeatureCardGod> f27878i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<FeatureCardGame> f27859j;
+    public List<FeatureCardGame> f27879j;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -61,12 +61,12 @@ public class a {
                 return;
             }
         }
-        this.f27852c = new ArrayList();
-        this.f27854e = new ArrayList();
-        this.f27855f = new ArrayList();
-        this.f27856g = new ArrayList();
-        this.f27857h = new ArrayList();
-        this.f27858i = new ArrayList();
-        this.f27859j = new ArrayList();
+        this.f27872c = new ArrayList();
+        this.f27874e = new ArrayList();
+        this.f27875f = new ArrayList();
+        this.f27876g = new ArrayList();
+        this.f27877h = new ArrayList();
+        this.f27878i = new ArrayList();
+        this.f27879j = new ArrayList();
     }
 }

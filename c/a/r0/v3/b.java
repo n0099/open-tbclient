@@ -23,19 +23,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public KeyguardManager f26367a;
+    public KeyguardManager f26390a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PowerManager f26368b;
+    public PowerManager f26391b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PowerManager.WakeLock f26369c;
+    public PowerManager.WakeLock f26392c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KeyguardManager.KeyguardLock f26370d;
+    public KeyguardManager.KeyguardLock f26393d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f26371e;
+    public Context f26394e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -52,15 +52,15 @@ public class b {
         }
         try {
             Application app = TbadkCoreApplication.getInst().getApp();
-            this.f26371e = app;
+            this.f26394e = app;
             PowerManager powerManager = (PowerManager) app.getSystemService("power");
-            this.f26368b = powerManager;
+            this.f26391b = powerManager;
             PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
-            this.f26369c = newWakeLock;
+            this.f26392c = newWakeLock;
             newWakeLock.setReferenceCounted(false);
-            KeyguardManager keyguardManager = (KeyguardManager) this.f26371e.getSystemService("keyguard");
-            this.f26367a = keyguardManager;
-            this.f26370d = keyguardManager.newKeyguardLock("ScreenLockUtils");
+            KeyguardManager keyguardManager = (KeyguardManager) this.f26394e.getSystemService("keyguard");
+            this.f26390a = keyguardManager;
+            this.f26393d = keyguardManager.newKeyguardLock("ScreenLockUtils");
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -100,7 +100,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.f26367a, new Object[0])).booleanValue();
+                return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.f26390a, new Object[0])).booleanValue();
             } catch (Throwable th) {
                 th.printStackTrace();
                 return false;
@@ -112,17 +112,17 @@ public class b {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26368b.isScreenOn() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26391b.isScreenOn() : invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                this.f26370d.reenableKeyguard();
-                if (this.f26369c != null) {
-                    this.f26369c.release();
-                    this.f26369c = null;
+                this.f26393d.reenableKeyguard();
+                if (this.f26392c != null) {
+                    this.f26392c.release();
+                    this.f26392c = null;
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -134,14 +134,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                if (this.f26369c == null) {
-                    PowerManager.WakeLock newWakeLock = this.f26368b.newWakeLock(268435462, "ScreenLockNotify");
-                    this.f26369c = newWakeLock;
+                if (this.f26392c == null) {
+                    PowerManager.WakeLock newWakeLock = this.f26391b.newWakeLock(268435462, "ScreenLockNotify");
+                    this.f26392c = newWakeLock;
                     newWakeLock.setReferenceCounted(false);
                 }
-                if (this.f26369c != null) {
-                    this.f26369c.acquire(10000L);
-                    this.f26370d.disableKeyguard();
+                if (this.f26392c != null) {
+                    this.f26392c.acquire(10000L);
+                    this.f26393d.disableKeyguard();
                 }
             } catch (Throwable th) {
                 th.printStackTrace();

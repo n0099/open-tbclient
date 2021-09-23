@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class BaseInterestSelectionFragment extends BaseFragment implements a.InterfaceC0861a {
+public abstract class BaseInterestSelectionFragment extends BaseFragment implements a.InterfaceC0859a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCENE = "scene";
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         }
     }
 
-    @Override // c.a.r0.f2.a.a.InterfaceC0861a
+    @Override // c.a.r0.f2.a.a.InterfaceC0859a
     public void onSelectCountChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {

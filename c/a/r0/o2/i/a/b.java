@@ -25,25 +25,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f23285a;
+    public TbPageContext f23301a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f23286b;
+    public BdUniqueId f23302b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.o2.i.b.a f23287c;
+    public c.a.r0.o2.i.b.a f23303c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23288d;
+    public int f23304d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CustomMessageListener f23289e;
+    public final CustomMessageListener f23305e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final CustomMessageListener f23290f;
+    public final CustomMessageListener f23306f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final CustomMessageListener f23291g;
+    public final CustomMessageListener f23307g;
 
     /* loaded from: classes3.dex */
     public class a implements q.j {
@@ -51,10 +51,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d2 f23292a;
+        public final /* synthetic */ d2 f23308a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f23293b;
+        public final /* synthetic */ b f23309b;
 
         public a(b bVar, d2 d2Var) {
             Interceptable interceptable = $ic;
@@ -71,8 +71,8 @@ public class b {
                     return;
                 }
             }
-            this.f23293b = bVar;
-            this.f23292a = d2Var;
+            this.f23309b = bVar;
+            this.f23308a = d2Var;
         }
 
         @Override // c.a.r0.a0.q.j
@@ -80,24 +80,24 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    l.L(this.f23293b.f23285a.getPageActivity(), R.string.thread_has_hide);
+                    l.L(this.f23309b.f23301a.getPageActivity(), R.string.thread_has_hide);
                 }
-                this.f23293b.h(z, this.f23292a);
+                this.f23309b.h(z, this.f23308a);
             }
         }
     }
 
     /* renamed from: c.a.r0.o2.i.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1083b extends CustomMessageListener {
+    public class C1081b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f23294a;
+        public final /* synthetic */ b f23310a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1083b(b bVar, int i2) {
+        public C1081b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -114,15 +114,15 @@ public class b {
                     return;
                 }
             }
-            this.f23294a = bVar;
+            this.f23310a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof d2) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == this.f23294a.f23286b && this.f23294a.f23287c != null && this.f23294a.f23287c.isAvaliableToShowManageWindow()) {
-                this.f23294a.k((d2) customResponsedMessage.getData());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof d2) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == this.f23310a.f23302b && this.f23310a.f23303c != null && this.f23310a.f23303c.isAvaliableToShowManageWindow()) {
+                this.f23310a.k((d2) customResponsedMessage.getData());
             }
         }
     }
@@ -133,7 +133,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f23295a;
+        public final /* synthetic */ b f23311a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(b bVar, int i2) {
@@ -153,7 +153,7 @@ public class b {
                     return;
                 }
             }
-            this.f23295a = bVar;
+            this.f23311a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -161,7 +161,7 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.f23295a.j((String) customResponsedMessage.getData());
+                this.f23311a.j((String) customResponsedMessage.getData());
             }
         }
     }
@@ -172,7 +172,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f23296a;
+        public final /* synthetic */ b f23312a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(b bVar, int i2) {
@@ -192,7 +192,7 @@ public class b {
                     return;
                 }
             }
-            this.f23296a = bVar;
+            this.f23312a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -200,7 +200,7 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.f23296a.i((String) customResponsedMessage.getData());
+                this.f23312a.i((String) customResponsedMessage.getData());
             }
         }
     }
@@ -220,40 +220,40 @@ public class b {
                 return;
             }
         }
-        this.f23289e = new C1083b(this, 2921428);
-        this.f23290f = new c(this, 2016557);
-        this.f23291g = new d(this, 2921436);
-        this.f23285a = tbPageContext;
-        this.f23286b = bdUniqueId;
-        this.f23287c = aVar;
-        this.f23288d = i2;
-        this.f23289e.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f23289e);
-        this.f23290f.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f23290f);
-        this.f23291g.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f23291g);
+        this.f23305e = new C1081b(this, 2921428);
+        this.f23306f = new c(this, 2016557);
+        this.f23307g = new d(this, 2921436);
+        this.f23301a = tbPageContext;
+        this.f23302b = bdUniqueId;
+        this.f23303c = aVar;
+        this.f23304d = i2;
+        this.f23305e.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f23305e);
+        this.f23306f.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f23306f);
+        this.f23307g.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f23307g);
     }
 
     public final void h(boolean z, d2 d2Var) {
         c.a.r0.o2.i.b.a aVar;
         d2 e2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, d2Var) == null) || d2Var == null || (aVar = this.f23287c) == null || ListUtils.isEmpty(aVar.getListData()) || this.f23287c.getMainView() == null || this.f23287c.getMainView().e() == null) {
+        if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, d2Var) == null) || d2Var == null || (aVar = this.f23303c) == null || ListUtils.isEmpty(aVar.getListData()) || this.f23303c.getMainView() == null || this.f23303c.getMainView().e() == null) {
             return;
         }
         boolean z2 = false;
         int i2 = 0;
         while (true) {
-            if (i2 >= this.f23287c.getListData().size()) {
+            if (i2 >= this.f23303c.getListData().size()) {
                 break;
             }
-            n nVar = this.f23287c.getListData().get(i2);
-            if (nVar != null && (e2 = c.a.r0.o2.i.c.a.e(nVar)) != null && !StringUtils.isNull(e2.D) && e2.D.equals(d2Var.D)) {
-                e2.i2 = z;
+            n nVar = this.f23303c.getListData().get(i2);
+            if (nVar != null && (e2 = c.a.r0.o2.i.c.a.e(nVar)) != null && !StringUtils.isNull(e2.E) && e2.E.equals(d2Var.E)) {
+                e2.j2 = z;
                 c.a.r0.a0.d0.b d2 = c.a.r0.o2.i.c.a.d(e2);
                 if (d2 != null) {
-                    this.f23287c.getListData().set(i2, d2);
+                    this.f23303c.getListData().set(i2, d2);
                     z2 = true;
                     break;
                 }
@@ -261,7 +261,7 @@ public class b {
             i2++;
         }
         if (z2) {
-            this.f23287c.getMainView().n(this.f23287c.getListData());
+            this.f23303c.getMainView().n(this.f23303c.getListData());
         }
     }
 
@@ -269,11 +269,11 @@ public class b {
         c.a.r0.o2.i.b.a aVar;
         d2 e2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str) || (aVar = this.f23287c) == null || ListUtils.isEmpty(aVar.getListData()) || this.f23287c.getMainView() == null || this.f23287c.getMainView().e() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str) || (aVar = this.f23303c) == null || ListUtils.isEmpty(aVar.getListData()) || this.f23303c.getMainView() == null || this.f23303c.getMainView().e() == null) {
             return;
         }
         boolean z = false;
-        Iterator<n> it = this.f23287c.getListData().iterator();
+        Iterator<n> it = this.f23303c.getListData().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -286,7 +286,7 @@ public class b {
             }
         }
         if (z) {
-            this.f23287c.getMainView().n(this.f23287c.getListData());
+            this.f23303c.getMainView().n(this.f23303c.getListData());
         }
     }
 
@@ -294,24 +294,24 @@ public class b {
         c.a.r0.o2.i.b.a aVar;
         d2 e2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || StringUtils.isNull(str) || (aVar = this.f23287c) == null || ListUtils.isEmpty(aVar.getListData()) || this.f23287c.getMainView() == null || this.f23287c.getMainView().e() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || StringUtils.isNull(str) || (aVar = this.f23303c) == null || ListUtils.isEmpty(aVar.getListData()) || this.f23303c.getMainView() == null || this.f23303c.getMainView().e() == null) {
             return;
         }
         boolean z = false;
-        Iterator<n> it = this.f23287c.getListData().iterator();
+        Iterator<n> it = this.f23303c.getListData().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             n next = it.next();
-            if (next != null && (e2 = c.a.r0.o2.i.c.a.e(next)) != null && !StringUtils.isNull(e2.D) && e2.D.equals(str)) {
+            if (next != null && (e2 = c.a.r0.o2.i.c.a.e(next)) != null && !StringUtils.isNull(e2.E) && e2.E.equals(str)) {
                 it.remove();
                 z = true;
                 break;
             }
         }
         if (z) {
-            this.f23287c.getMainView().n(this.f23287c.getListData());
+            this.f23303c.getMainView().n(this.f23303c.getListData());
         }
     }
 
@@ -320,15 +320,15 @@ public class b {
         if (interceptable == null || interceptable.invokeL(1048579, this, d2Var) == null) {
             CardPersonDynamicThreadData cardPersonDynamicThreadData = new CardPersonDynamicThreadData();
             cardPersonDynamicThreadData.t = d2Var;
-            cardPersonDynamicThreadData.f50009e = String.valueOf(d2Var.T());
-            cardPersonDynamicThreadData.f50010f = d2Var.D;
-            cardPersonDynamicThreadData.f50013i = d2Var.j2;
-            cardPersonDynamicThreadData.s = d2Var.i2;
+            cardPersonDynamicThreadData.f50120e = String.valueOf(d2Var.T());
+            cardPersonDynamicThreadData.f50121f = d2Var.E;
+            cardPersonDynamicThreadData.f50124i = d2Var.k2;
+            cardPersonDynamicThreadData.s = d2Var.j2;
             if (d2Var != null && d2Var.L() != null) {
                 cardPersonDynamicThreadData.K = d2Var.L().oriUgcNid;
             }
-            q qVar = new q(this.f23285a);
-            qVar.t(this.f23288d == 1);
+            q qVar = new q(this.f23301a);
+            qVar.t(this.f23304d == 1);
             qVar.o();
             qVar.s(new a(this, d2Var));
             qVar.n(cardPersonDynamicThreadData, false);

@@ -28,18 +28,18 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RemindActivity f54837e;
+        public final /* synthetic */ RemindActivity f54952e;
 
         /* renamed from: com.baidu.tieba.passaccount.app.RemindActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1778a implements c.e {
+        public class C1781a implements c.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f54838a;
+            public final /* synthetic */ a f54953a;
 
-            public C1778a(a aVar) {
+            public C1781a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,7 +54,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
                         return;
                     }
                 }
-                this.f54838a = aVar;
+                this.f54953a = aVar;
             }
 
             @Override // c.a.r0.h2.d.c.e
@@ -62,7 +62,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
                     c.a.r0.h2.d.b.f().d(z, str);
-                    this.f54838a.f54837e.finishActivity(true);
+                    this.f54953a.f54952e.finishActivity(true);
                 }
             }
 
@@ -71,7 +71,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
                     c.a.r0.h2.d.b.f().d(z2, str);
-                    this.f54838a.f54837e.finishActivity(true);
+                    this.f54953a.f54952e.finishActivity(true);
                 }
             }
 
@@ -107,14 +107,14 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
                     return;
                 }
             }
-            this.f54837e = remindActivity;
+            this.f54952e = remindActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.i().g(this.f54837e, new C1778a(this));
+                c.i().g(this.f54952e, new C1781a(this));
             }
         }
     }
@@ -125,7 +125,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RemindActivity f54839e;
+        public final /* synthetic */ RemindActivity f54954e;
 
         public b(RemindActivity remindActivity) {
             Interceptable interceptable = $ic;
@@ -142,14 +142,14 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
                     return;
                 }
             }
-            this.f54839e = remindActivity;
+            this.f54954e = remindActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f54839e.getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
+                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f54954e.getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
             }
         }
     }

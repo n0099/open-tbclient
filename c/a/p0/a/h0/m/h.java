@@ -19,7 +19,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6220a;
+    public static final boolean f6228a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class h {
                 return;
             }
         }
-        f6220a = c.a.p0.a.k.f7077a;
+        f6228a = c.a.p0.a.k.f7085a;
     }
 
     public static void a(Message message) {
@@ -54,7 +54,7 @@ public class h {
                 try {
                     jSONObject.put("hasUpdate", bundle.getBoolean("hasUpdate"));
                 } catch (JSONException e2) {
-                    if (f6220a) {
+                    if (f6228a) {
                         e2.printStackTrace();
                     }
                 }
@@ -109,7 +109,7 @@ public class h {
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            boolean z = f6220a;
+            boolean z = f6228a;
             d("updateReady", str, null);
         }
     }

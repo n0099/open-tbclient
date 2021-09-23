@@ -25,17 +25,17 @@ public class g extends m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f4504i;
+    public static final boolean f4512i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Map<String, f> f4505f;
+    public final Map<String, f> f4513f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a.p0.a.f1.e.f.c f4506g;
+    public final c.a.p0.a.f1.e.f.c f4514g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.p0.a.f1.e.f.c f4507h;
+    public final c.a.p0.a.f1.e.f.c f4515h;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.v2.e1.b<f> {
@@ -43,7 +43,7 @@ public class g extends m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f4508e;
+        public final /* synthetic */ g f4516e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class g extends m {
                     return;
                 }
             }
-            this.f4508e = gVar;
+            this.f4516e = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,8 +69,8 @@ public class g extends m {
         public void onCallback(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                fVar.g(this.f4508e);
-                this.f4508e.f4505f.put(fVar.f4513e, fVar);
+                fVar.g(this.f4516e);
+                this.f4516e.f4513f.put(fVar.f4521e, fVar);
             }
         }
     }
@@ -81,10 +81,10 @@ public class g extends m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.c1.a f4509e;
+        public final /* synthetic */ c.a.p0.a.v2.c1.a f4517e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ g f4510f;
+        public final /* synthetic */ g f4518f;
 
         public b(g gVar, c.a.p0.a.v2.c1.a aVar) {
             Interceptable interceptable = $ic;
@@ -101,8 +101,8 @@ public class g extends m {
                     return;
                 }
             }
-            this.f4510f = gVar;
-            this.f4509e = aVar;
+            this.f4518f = gVar;
+            this.f4517e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -112,13 +112,13 @@ public class g extends m {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 if ("on_progress".equals(str)) {
-                    this.f4510f.A((i.a) new i.a("installer_on_progress").u(" event_params_installer_progress", this.f4509e.j()));
+                    this.f4518f.A((i.a) new i.a("installer_on_progress").u(" event_params_installer_progress", this.f4517e.j()));
                 } else if ("pump_finish".equals(str)) {
-                    this.f4510f.q("installer_on_pump_finish");
+                    this.f4518f.q("installer_on_pump_finish");
                 } else if (ConstantHelper.LOG_FINISH.equals(str)) {
-                    this.f4510f.q("installer_on_finish");
+                    this.f4518f.q("installer_on_finish");
                 } else if ("start".equals(str)) {
-                    this.f4510f.q("installer_on_start");
+                    this.f4518f.q("installer_on_start");
                 }
             }
         }
@@ -130,7 +130,7 @@ public class g extends m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.c1.a f4511e;
+        public final /* synthetic */ c.a.p0.a.v2.c1.a f4519e;
 
         public c(g gVar, c.a.p0.a.v2.c1.a aVar) {
             Interceptable interceptable = $ic;
@@ -147,7 +147,7 @@ public class g extends m {
                     return;
                 }
             }
-            this.f4511e = aVar;
+            this.f4519e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -156,7 +156,7 @@ public class g extends m {
         public void onCallback(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                this.f4511e.d(fVar);
+                this.f4519e.d(fVar);
             }
         }
     }
@@ -199,7 +199,7 @@ public class g extends m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean[] f4512e;
+        public final /* synthetic */ boolean[] f4520e;
 
         public e(g gVar, boolean[] zArr) {
             Interceptable interceptable = $ic;
@@ -216,7 +216,7 @@ public class g extends m {
                     return;
                 }
             }
-            this.f4512e = zArr;
+            this.f4520e = zArr;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -225,7 +225,7 @@ public class g extends m {
         public void onCallback(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                boolean[] zArr = this.f4512e;
+                boolean[] zArr = this.f4520e;
                 zArr[0] = fVar.c() & zArr[0];
             }
         }
@@ -237,13 +237,13 @@ public class g extends m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f4513e;
+        public final String f4521e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Bundle f4514f;
+        public final Bundle f4522f;
 
         /* renamed from: g  reason: collision with root package name */
-        public g f4515g;
+        public g f4523g;
 
         public f(String str) {
             Interceptable interceptable = $ic;
@@ -260,14 +260,14 @@ public class g extends m {
                     return;
                 }
             }
-            this.f4514f = new Bundle();
-            this.f4513e = str;
+            this.f4522f = new Bundle();
+            this.f4521e = str;
         }
 
         public Bundle b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4514f : (Bundle) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4522f : (Bundle) invokeV.objValue;
         }
 
         public boolean c() {
@@ -282,7 +282,7 @@ public class g extends m {
         public void onCallback(Pipe.SourceChannel sourceChannel) {
             g gVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sourceChannel) == null) && (gVar = this.f4515g) != null && f(sourceChannel, gVar.f4506g.C())) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sourceChannel) == null) && (gVar = this.f4523g) != null && f(sourceChannel, gVar.f4514g.C())) {
                 h();
             }
         }
@@ -298,21 +298,21 @@ public class g extends m {
         public final void g(g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
-                this.f4515g = gVar;
+                this.f4523g = gVar;
             }
         }
 
         public final void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.f4514f.putBoolean("flag_is_ok", true);
+                this.f4522f.putBoolean("flag_is_ok", true);
             }
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f4513e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f4521e : (String) invokeV.objValue;
         }
     }
 
@@ -329,7 +329,7 @@ public class g extends m {
                 return;
             }
         }
-        f4504i = k.f7077a;
+        f4512i = k.f7085a;
     }
 
     public g() {
@@ -345,9 +345,9 @@ public class g extends m {
                 return;
             }
         }
-        this.f4505f = new HashMap();
-        this.f4506g = new c.a();
-        this.f4507h = new c.a();
+        this.f4513f = new HashMap();
+        this.f4514g = new c.a();
+        this.f4515h = new c.a();
     }
 
     public g f(f... fVarArr) {
@@ -364,7 +364,7 @@ public class g extends m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            this.f4506g.D(bundle);
+            this.f4514g.D(bundle);
             return this;
         }
         return (g) invokeL.objValue;
@@ -373,7 +373,7 @@ public class g extends m {
     public final void h(c.a.p0.a.v2.e1.b<f> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            c.a.p0.a.v2.e1.a.c(bVar, this.f4505f.values());
+            c.a.p0.a.v2.e1.a.c(bVar, this.f4513f.values());
         }
     }
 
@@ -383,17 +383,17 @@ public class g extends m {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, readableByteChannel)) == null) {
             synchronized (this) {
                 long currentTimeMillis = System.currentTimeMillis();
-                this.f4507h.b();
+                this.f4515h.b();
                 c.a.p0.a.v2.c1.a aVar = new c.a.p0.a.v2.c1.a();
                 aVar.o(32768);
                 aVar.q(30L, TimeUnit.SECONDS);
-                aVar.g(this.f4506g.C());
+                aVar.g(this.f4514g.C());
                 aVar.p(new b(this, aVar));
                 h(new c(this, aVar));
                 k("connect: " + readableByteChannel + " at: " + currentTimeMillis);
                 aVar.h(readableByteChannel);
                 boolean j2 = j();
-                if (f4504i) {
+                if (f4512i) {
                     k("allOk: " + j2 + " cost: " + (System.currentTimeMillis() - currentTimeMillis));
                 }
                 if (!j2) {
@@ -409,12 +409,12 @@ public class g extends m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f4505f.isEmpty() || this.f4507h.e("flag_is_ok", false)) {
+            if (this.f4513f.isEmpty() || this.f4515h.e("flag_is_ok", false)) {
                 return true;
             }
             boolean[] zArr = {true};
             h(new e(this, zArr));
-            this.f4507h.s("flag_is_ok", zArr[0]);
+            this.f4515h.s("flag_is_ok", zArr[0]);
             return zArr[0];
         }
         return invokeV.booleanValue;
@@ -422,8 +422,8 @@ public class g extends m {
 
     public final void k(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && f4504i) {
-            c.a.p0.a.f1.g.a.d(this.f4506g.o("launch_id", "")).f(str).b("SwanInstaller");
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && f4512i) {
+            c.a.p0.a.f1.g.a.d(this.f4514g.o("launch_id", "")).f(str).b("SwanInstaller");
         }
     }
 }

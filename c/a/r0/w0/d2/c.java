@@ -19,10 +19,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f26564a;
+    public b f26587a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f26565b;
+    public HttpMessageListener f26588b;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -30,7 +30,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f26566a;
+        public final /* synthetic */ c f26589a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2) {
@@ -50,15 +50,15 @@ public class c {
                     return;
                 }
             }
-            this.f26566a = cVar;
+            this.f26589a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && this.f26566a.f26564a != null) {
-                this.f26566a.f26564a.a((FrsLiveTipResponseMessage) httpResponsedMessage);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && this.f26589a.f26587a != null) {
+                this.f26589a.f26587a.a((FrsLiveTipResponseMessage) httpResponsedMessage);
             }
         }
     }
@@ -83,10 +83,10 @@ public class c {
                 return;
             }
         }
-        this.f26565b = new a(this, CmdConfigHttp.FRS_LIVE_TIP_CMD);
-        this.f26564a = bVar;
+        this.f26588b = new a(this, CmdConfigHttp.FRS_LIVE_TIP_CMD);
+        this.f26587a = bVar;
         d();
-        MessageManager.getInstance().registerListener(this.f26565b);
+        MessageManager.getInstance().registerListener(this.f26588b);
     }
 
     public void b(int i2) {
@@ -102,7 +102,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.FRS_LIVE_TIP_CMD);
-            MessageManager.getInstance().unRegisterListener(this.f26565b);
+            MessageManager.getInstance().unRegisterListener(this.f26588b);
         }
     }
 

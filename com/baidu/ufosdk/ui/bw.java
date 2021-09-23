@@ -13,7 +13,7 @@ public final class bw implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59765a;
+    public final /* synthetic */ FeedbackInputActivity f59896a;
 
     public bw(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class bw implements View.OnTouchListener {
                 return;
             }
         }
-        this.f59765a = feedbackInputActivity;
+        this.f59896a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnTouchListener

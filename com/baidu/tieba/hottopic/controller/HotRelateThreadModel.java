@@ -27,16 +27,16 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f52676e;
+    public BaseActivity<?> f52789e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f52677f;
+    public c f52790f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f52678g;
+    public b f52791g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.e.c.g.a f52679h;
+    public c.a.e.c.g.a f52792h;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -44,7 +44,7 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotRelateThreadModel f52680a;
+        public final /* synthetic */ HotRelateThreadModel f52793a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HotRelateThreadModel hotRelateThreadModel, int i2, int i3) {
@@ -65,32 +65,32 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
                     return;
                 }
             }
-            this.f52680a = hotRelateThreadModel;
+            this.f52793a = hotRelateThreadModel;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (this.f52680a.f52678g != null) {
-                    this.f52680a.f52678g.complete();
+                if (this.f52793a.f52791g != null) {
+                    this.f52793a.f52791g.complete();
                 }
                 if (responsedMessage == null) {
                     return;
                 }
-                if (((responsedMessage instanceof ResponseHttpGetTopicRelateThreadMessage) || (responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f52680a.getUniqueId()) {
+                if (((responsedMessage instanceof ResponseHttpGetTopicRelateThreadMessage) || (responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f52793a.getUniqueId()) {
                     int i2 = 1;
                     if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
                         i2 = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
                     }
                     if (!responsedMessage.hasError()) {
-                        this.f52680a.B(responsedMessage);
+                        this.f52793a.B(responsedMessage);
                         return;
                     }
                     if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                        this.f52680a.f52676e.showToast(responsedMessage.getErrorString());
+                        this.f52793a.f52789e.showToast(responsedMessage.getErrorString());
                     }
-                    this.f52680a.f52677f.hotRelateThreadCallback(false, null, i2);
+                    this.f52793a.f52790f.hotRelateThreadCallback(false, null, i2);
                 }
             }
         }
@@ -125,8 +125,8 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, 309005);
-        this.f52679h = aVar;
-        this.f52676e = baseActivity;
+        this.f52792h = aVar;
+        this.f52789e = baseActivity;
         registerListener(aVar);
     }
 
@@ -156,7 +156,7 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
                 dVar = responseSocketGetTopicRelateThreadMessage.getHotThreadItemListData();
             }
         }
-        this.f52677f.hotRelateThreadCallback(!responsedMessage.hasError(), dVar, (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) ? 1 : ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue());
+        this.f52790f.hotRelateThreadCallback(!responsedMessage.hasError(), dVar, (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) ? 1 : ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue());
     }
 
     public final void C(e eVar, int i2) {
@@ -171,8 +171,8 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
             double d2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int k = l.k(TbadkCoreApplication.getInst().getApp());
             int i3 = l.i(TbadkCoreApplication.getInst().getApp());
-            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(c.a.e.e.m.b.g(h2.f19279e, 0L)));
-            requestGetTopicRelateThreadMessage.setTopicName(h2.f19280f);
+            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(c.a.e.e.m.b.g(h2.f19294e, 0L)));
+            requestGetTopicRelateThreadMessage.setTopicName(h2.f19295f);
             Long l = h2.o;
             if (l != null && h2.p != null) {
                 requestGetTopicRelateThreadMessage.setPmy_topic_id(l);
@@ -200,14 +200,14 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
     public void D(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f52677f = cVar;
+            this.f52790f = cVar;
         }
     }
 
     public void E(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f52678g = bVar;
+            this.f52791g = bVar;
         }
     }
 

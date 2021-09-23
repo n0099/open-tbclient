@@ -22,7 +22,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f11007a;
+        public final /* synthetic */ c f11015a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class e {
                     return;
                 }
             }
-            this.f11007a = cVar;
+            this.f11015a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -49,14 +49,14 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
                 if (!TextUtils.isEmpty(str)) {
-                    JSONObject b2 = e.b(str, this.f11007a);
+                    JSONObject b2 = e.b(str, this.f11015a);
                     if (b2 == null) {
                         return;
                     }
-                    this.f11007a.onSuccess(g.a(b2));
+                    this.f11015a.onSuccess(g.a(b2));
                     return;
                 }
-                this.f11007a.onFail("response is null");
+                this.f11015a.onFail("response is null");
             }
         }
 
@@ -64,7 +64,7 @@ public class e {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                this.f11007a.onFail(exc.getMessage());
+                this.f11015a.onFail(exc.getMessage());
             }
         }
     }
@@ -75,7 +75,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f11008a;
+        public final /* synthetic */ c f11016a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class e {
                     return;
                 }
             }
-            this.f11008a = cVar;
+            this.f11016a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,14 +102,14 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
                 if (!TextUtils.isEmpty(str)) {
-                    JSONObject b2 = e.b(str, this.f11008a);
+                    JSONObject b2 = e.b(str, this.f11016a);
                     if (b2 == null) {
                         return;
                     }
-                    this.f11008a.onSuccess(f.a(b2));
+                    this.f11016a.onSuccess(f.a(b2));
                     return;
                 }
-                this.f11008a.onFail("response is null");
+                this.f11016a.onFail("response is null");
             }
         }
 
@@ -117,7 +117,7 @@ public class e {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                this.f11008a.onFail(exc.getMessage());
+                this.f11016a.onFail(exc.getMessage());
             }
         }
     }

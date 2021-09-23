@@ -119,12 +119,12 @@ public class g extends f {
                 return;
             }
         }
-        H = c.a.p0.a.k.f7077a;
+        H = c.a.p0.a.k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(c.a.p0.a.a2.e eVar) {
-        super(eVar.f4558f);
+        super(eVar.f4566f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -149,11 +149,11 @@ public class g extends f {
             return;
         }
         c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-        fVar.f7063a = c.a.p0.a.j2.k.m(bVar.G());
-        fVar.f7068f = bVar.H();
-        fVar.f7065c = bVar.T();
-        fVar.f7064b = "launch";
-        fVar.f7067e = "success";
+        fVar.f7071a = c.a.p0.a.j2.k.m(bVar.G());
+        fVar.f7076f = bVar.H();
+        fVar.f7073c = bVar.T();
+        fVar.f7072b = "launch";
+        fVar.f7075e = "success";
         fVar.a("status", "1");
         if (aVar != null) {
             fVar.a("errcode", String.valueOf(aVar.a()));
@@ -185,13 +185,13 @@ public class g extends f {
             }
             c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();
             aVar2.j(10L);
-            aVar2.h(aVar.f11875a);
-            aVar2.c(aVar.f11876b);
-            aVar2.p(aVar.f11877c);
-            if (aVar.f11875a == 1013 && c.a.p0.a.c1.a.O().a(c.a.p0.a.c1.a.b(), this.r, aVar2)) {
+            aVar2.h(aVar.f11883a);
+            aVar2.c(aVar.f11884b);
+            aVar2.p(aVar.f11885c);
+            if (aVar.f11883a == 1013 && c.a.p0.a.c1.a.O().a(c.a.p0.a.c1.a.b(), this.r, aVar2)) {
                 q0(aVar2, false);
                 F0(this.G.L(), aVar2);
-            } else if (aVar.f11875a == 1020) {
+            } else if (aVar.f11883a == 1020) {
                 q0(aVar2, false);
                 F0(this.G.L(), aVar2);
             } else {
@@ -445,22 +445,22 @@ public class g extends f {
                 boolean z2 = H;
                 c.a.p0.a.f1.e.b G0 = G0();
                 c.a.p0.n.h.d dVar = this.o;
-                if (dVar != null && dVar.f11886h == 0) {
+                if (dVar != null && dVar.f11894h == 0) {
                     G0.X0(c.a.p0.a.m2.b.e(0));
                     G0.E(1);
                 }
                 c.a.p0.n.h.d dVar2 = this.o;
-                if (dVar2 != null && dVar2.f11886h == 1) {
+                if (dVar2 != null && dVar2.f11894h == 1) {
                     G0.X0(c.a.p0.a.m2.b.e(1));
                     G0.E(1);
                 }
                 c.a.p0.n.h.b bVar = this.p;
-                if (bVar != null && bVar.f11886h == 0) {
+                if (bVar != null && bVar.f11894h == 0) {
                     G0.B0(c.a.p0.a.p0.b.c(0));
                     G0.E(2);
                 }
                 c.a.p0.n.h.b bVar2 = this.p;
-                if (bVar2 != null && bVar2.f11886h == 1) {
+                if (bVar2 != null && bVar2.f11894h == 1) {
                     G0.B0(c.a.p0.a.p0.b.c(1));
                     G0.E(2);
                 }

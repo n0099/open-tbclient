@@ -32,7 +32,7 @@ public class b0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f19872a;
+    public int f19887a;
 
     public b0(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class b0 {
             }
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
-                this.f19872a = 5;
+                this.f19887a = 5;
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
                 c.a.q0.a.w.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));

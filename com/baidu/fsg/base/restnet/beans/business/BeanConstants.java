@@ -58,7 +58,7 @@ public abstract class BeanConstants {
         ERROR_MSG_CHECKSIGN = ResUtils.string("error_msg_checksign");
         ERROR_MSG_SPNO_INVALIDATE = ResUtils.string("error_msg_spno_invalidate");
         rim_timeout_error = ResUtils.string("rim_timeout_error");
-        CHANNEL_ID = "";
+        CHANNEL_ID = a.f39359g;
         CHANNEL_ID_RIM = "Channel";
         VERSION_NO = a.k;
         SDK_VERSION = "";

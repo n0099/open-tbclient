@@ -1,67 +1,71 @@
 package com.baidu.sofire.utility;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes6.dex */
-public final class k {
+public abstract class k {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final k f45444c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f45445a;
+    public static byte[] a(byte[] bArr) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            b(byteArrayInputStream, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.flush();
+            byteArrayOutputStream.close();
+            byteArrayInputStream.close();
+            return byteArray;
+        }
+        return (byte[]) invokeL.objValue;
+    }
 
-    /* renamed from: b  reason: collision with root package name */
-    public Handler f45446b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1443542270, "Lcom/baidu/sofire/utility/k;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1443542270, "Lcom/baidu/sofire/utility/k;");
+    public static void b(InputStream inputStream, OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65538, null, inputStream, outputStream) != null) {
+            return;
+        }
+        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+        byte[] bArr = new byte[2048];
+        while (true) {
+            int read = inputStream.read(bArr, 0, 2048);
+            if (read != -1) {
+                gZIPOutputStream.write(bArr, 0, read);
+            } else {
+                gZIPOutputStream.flush();
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
                 return;
             }
         }
-        f45444c = new k();
     }
 
-    public k() {
+    public static void a(InputStream inputStream, OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable != null && interceptable.invokeLL(65536, null, inputStream, outputStream) != null) {
+            return;
+        }
+        GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
+        byte[] bArr = new byte[2048];
+        while (true) {
+            int read = gZIPInputStream.read(bArr, 0, 2048);
+            if (read != -1) {
+                outputStream.write(bArr, 0, read);
+            } else {
+                gZIPInputStream.close();
                 return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread("rp_th", 10);
-        this.f45445a = handlerThread;
-        handlerThread.start();
-        this.f45446b = new Handler(this.f45445a.getLooper());
-    }
-
-    public static Looper a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f45444c.f45446b.getLooper() : (Looper) invokeV.objValue;
     }
 }

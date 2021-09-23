@@ -15,10 +15,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27301a;
+    public String f27321a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27302b;
+    public String f27322b;
 
     public d(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class d {
                 return;
             }
         }
-        this.f27301a = str;
-        this.f27302b = str2;
+        this.f27321a = str;
+        this.f27322b = str2;
     }
 
     public final boolean a(String str, String str2) {
@@ -49,7 +49,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f27301a + "_" + this.f27302b;
+            return this.f27321a + "_" + this.f27322b;
         }
         return (String) invokeV.objValue;
     }
@@ -58,7 +58,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (a(this.f27301a, this.f27302b)) {
+            if (a(this.f27321a, this.f27322b)) {
                 String b2 = b();
                 Date date = new Date(c.a.q0.s.d0.b.j().l(b2, 0L));
                 long currentTimeMillis = System.currentTimeMillis();

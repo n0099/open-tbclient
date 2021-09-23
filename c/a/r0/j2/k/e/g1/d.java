@@ -22,19 +22,19 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f20112a;
+    public int f20127a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f20113b;
+    public TbPageContext f20128b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f20114c;
+    public TextView f20129c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20115d;
+    public int f20130d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f20116e;
+    public CustomMessageListener f20131e;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -42,7 +42,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f20117a;
+        public final /* synthetic */ d f20132a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2) {
@@ -62,7 +62,7 @@ public class d {
                     return;
                 }
             }
-            this.f20117a = dVar;
+            this.f20132a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,8 +71,8 @@ public class d {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof i)) {
                 i iVar = (i) customResponsedMessage.getData();
-                this.f20117a.b(iVar);
-                this.f20117a.d(iVar);
+                this.f20132a.b(iVar);
+                this.f20132a.d(iVar);
             }
         }
     }
@@ -92,13 +92,13 @@ public class d {
                 return;
             }
         }
-        this.f20112a = 3;
-        this.f20115d = 0;
-        this.f20116e = new a(this, 2016502);
-        this.f20113b = tbPageContext;
-        this.f20114c = (TextView) view.findViewById(R.id.pb_list_video_item_play_count);
+        this.f20127a = 3;
+        this.f20130d = 0;
+        this.f20131e = new a(this, 2016502);
+        this.f20128b = tbPageContext;
+        this.f20129c = (TextView) view.findViewById(R.id.pb_list_video_item_play_count);
         c(TbadkCoreApplication.getInst().getSkinType());
-        tbPageContext.registerListener(this.f20116e);
+        tbPageContext.registerListener(this.f20131e);
     }
 
     public final void b(i iVar) {
@@ -106,35 +106,35 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) || iVar == null) {
             return;
         }
-        int i2 = this.f20115d + 1;
-        this.f20115d = i2;
+        int i2 = this.f20130d + 1;
+        this.f20130d = i2;
         iVar.l(i2);
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (this.f20112a != i2) {
-                this.f20114c.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_pb_video_num_gray, 0, 0, 0);
-                this.f20114c.setCompoundDrawablePadding(l.g(this.f20113b.getPageActivity(), R.dimen.ds12));
-                SkinManager.setViewTextColor(this.f20114c, R.color.CAM_X0108, 1);
+            if (this.f20127a != i2) {
+                this.f20129c.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_pb_video_num_gray, 0, 0, 0);
+                this.f20129c.setCompoundDrawablePadding(l.g(this.f20128b.getPageActivity(), R.dimen.ds12));
+                SkinManager.setViewTextColor(this.f20129c, R.color.CAM_X0108, 1);
             }
-            this.f20112a = i2;
+            this.f20127a = i2;
         }
     }
 
     public void d(i iVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) || this.f20114c == null || iVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) || this.f20129c == null || iVar == null) {
             return;
         }
         int e2 = iVar.e();
-        int i2 = this.f20115d;
+        int i2 = this.f20130d;
         if (e2 < i2) {
             iVar.l(i2);
         } else {
-            this.f20115d = iVar.e();
+            this.f20130d = iVar.e();
         }
-        this.f20114c.setText(StringHelper.numberUniformFormat(this.f20115d));
+        this.f20129c.setText(StringHelper.numberUniformFormat(this.f20130d));
     }
 }

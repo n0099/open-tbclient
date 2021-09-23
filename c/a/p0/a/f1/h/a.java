@@ -29,7 +29,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5719a;
+    public static final boolean f5727a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.f1.h.a$a  reason: collision with other inner class name */
@@ -115,13 +115,13 @@ public class a {
                 return;
             }
         }
-        f5719a = k.f7077a;
+        f5727a = k.f7085a;
     }
 
     public static void a(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
-            boolean z = f5719a;
+            boolean z = f5727a;
             String string = bundle.getString("mAppId");
             if (TextUtils.isEmpty(string)) {
                 return;
@@ -134,7 +134,7 @@ public class a {
             if (bundle.containsKey("pms_update_expect_pkg_ver")) {
                 cVar.o(bundle.getLong("pms_update_expect_pkg_ver"));
             }
-            if (f5719a) {
+            if (f5727a) {
                 String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i2), Long.valueOf(cVar.h()));
             }
             cVar.d("4");
@@ -185,7 +185,7 @@ public class a {
                             }
                             lastIndexOf2 = g2.lastIndexOf(File.separator);
                         }
-                        if (f5719a) {
+                        if (f5727a) {
                             String str = "isInDependentPkg=" + z + ", pagePath=" + g2;
                         }
                         if (z && !TextUtils.isEmpty(g2)) {

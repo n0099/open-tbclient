@@ -12,22 +12,22 @@ public final class s implements w {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final r f32915a;
+    public final r f32938a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.i.b.a.i0.l f32916b;
+    public final c.i.b.a.i0.l f32939b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f32917c;
+    public int f32940c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f32918d;
+    public int f32941d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f32919e;
+    public boolean f32942e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f32920f;
+    public boolean f32943f;
 
     public s(r rVar) {
         Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public final class s implements w {
                 return;
             }
         }
-        this.f32915a = rVar;
-        this.f32916b = new c.i.b.a.i0.l(32);
+        this.f32938a = rVar;
+        this.f32939b = new c.i.b.a.i0.l(32);
     }
 
     @Override // c.i.b.a.a0.t.w
     public void a(c.i.b.a.i0.s sVar, c.i.b.a.a0.g gVar, w.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, sVar, gVar, dVar) == null) {
-            this.f32915a.a(sVar, gVar, dVar);
-            this.f32920f = true;
+            this.f32938a.a(sVar, gVar, dVar);
+            this.f32943f = true;
         }
     }
 
@@ -61,7 +61,7 @@ public final class s implements w {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f32920f = true;
+            this.f32943f = true;
         }
     }
 
@@ -70,65 +70,65 @@ public final class s implements w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, lVar, z) == null) {
             int c2 = z ? lVar.c() + lVar.x() : -1;
-            if (this.f32920f) {
+            if (this.f32943f) {
                 if (!z) {
                     return;
                 }
-                this.f32920f = false;
+                this.f32943f = false;
                 lVar.J(c2);
-                this.f32918d = 0;
+                this.f32941d = 0;
             }
             while (lVar.a() > 0) {
-                int i2 = this.f32918d;
+                int i2 = this.f32941d;
                 if (i2 < 3) {
                     if (i2 == 0) {
                         int x = lVar.x();
                         lVar.J(lVar.c() - 1);
                         if (x == 255) {
-                            this.f32920f = true;
+                            this.f32943f = true;
                             return;
                         }
                     }
-                    int min = Math.min(lVar.a(), 3 - this.f32918d);
-                    lVar.g(this.f32916b.f33812a, this.f32918d, min);
-                    int i3 = this.f32918d + min;
-                    this.f32918d = i3;
+                    int min = Math.min(lVar.a(), 3 - this.f32941d);
+                    lVar.g(this.f32939b.f33835a, this.f32941d, min);
+                    int i3 = this.f32941d + min;
+                    this.f32941d = i3;
                     if (i3 == 3) {
-                        this.f32916b.G(3);
-                        this.f32916b.K(1);
-                        int x2 = this.f32916b.x();
-                        int x3 = this.f32916b.x();
-                        this.f32919e = (x2 & 128) != 0;
-                        this.f32917c = (((x2 & 15) << 8) | x3) + 3;
-                        int b2 = this.f32916b.b();
-                        int i4 = this.f32917c;
+                        this.f32939b.G(3);
+                        this.f32939b.K(1);
+                        int x2 = this.f32939b.x();
+                        int x3 = this.f32939b.x();
+                        this.f32942e = (x2 & 128) != 0;
+                        this.f32940c = (((x2 & 15) << 8) | x3) + 3;
+                        int b2 = this.f32939b.b();
+                        int i4 = this.f32940c;
                         if (b2 < i4) {
-                            c.i.b.a.i0.l lVar2 = this.f32916b;
-                            byte[] bArr = lVar2.f33812a;
+                            c.i.b.a.i0.l lVar2 = this.f32939b;
+                            byte[] bArr = lVar2.f33835a;
                             lVar2.G(Math.min(4098, Math.max(i4, bArr.length * 2)));
-                            System.arraycopy(bArr, 0, this.f32916b.f33812a, 0, 3);
+                            System.arraycopy(bArr, 0, this.f32939b.f33835a, 0, 3);
                         }
                     }
                 } else {
-                    int min2 = Math.min(lVar.a(), this.f32917c - this.f32918d);
-                    lVar.g(this.f32916b.f33812a, this.f32918d, min2);
-                    int i5 = this.f32918d + min2;
-                    this.f32918d = i5;
-                    int i6 = this.f32917c;
+                    int min2 = Math.min(lVar.a(), this.f32940c - this.f32941d);
+                    lVar.g(this.f32939b.f33835a, this.f32941d, min2);
+                    int i5 = this.f32941d + min2;
+                    this.f32941d = i5;
+                    int i6 = this.f32940c;
                     if (i5 != i6) {
                         continue;
                     } else {
-                        if (this.f32919e) {
-                            if (c.i.b.a.i0.v.m(this.f32916b.f33812a, 0, i6, -1) != 0) {
-                                this.f32920f = true;
+                        if (this.f32942e) {
+                            if (c.i.b.a.i0.v.m(this.f32939b.f33835a, 0, i6, -1) != 0) {
+                                this.f32943f = true;
                                 return;
                             }
-                            this.f32916b.G(this.f32917c - 4);
+                            this.f32939b.G(this.f32940c - 4);
                         } else {
-                            this.f32916b.G(i6);
+                            this.f32939b.G(i6);
                         }
-                        this.f32915a.c(this.f32916b);
-                        this.f32918d = 0;
+                        this.f32938a.c(this.f32939b);
+                        this.f32941d = 0;
                     }
                 }
             }

@@ -30,40 +30,40 @@ public class a extends BaseAdapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f16385i;
+    public static final int f16395i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.r0.b4.l.e.c.b> f16386e;
+    public List<c.a.r0.b4.l.e.c.b> f16396e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16387f;
+    public String f16397f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16388g;
+    public int f16398g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecordEffectLayout.i f16389h;
+    public RecordEffectLayout.i f16399h;
 
     /* renamed from: c.a.r0.b4.l.e.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0785a {
+    public class C0783a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f16390a;
+        public TbImageView f16400a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ProgressBar f16391b;
+        public ProgressBar f16401b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f16392c;
+        public TextView f16402c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f16393d;
+        public int f16403d;
 
-        public C0785a(a aVar) {
+        public C0783a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +93,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        f16385i = UtilHelper.getDimenPixelSize(R.dimen.tbds156);
+        f16395i = UtilHelper.getDimenPixelSize(R.dimen.tbds156);
     }
 
     public a() {
@@ -109,7 +109,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        this.f16388g = -1;
+        this.f16398g = -1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -119,44 +119,44 @@ public class a extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<c.a.r0.b4.l.e.c.b> list = this.f16386e;
+            List<c.a.r0.b4.l.e.c.b> list = this.f16396e;
             if (list != null && i2 >= 0 && i2 < list.size()) {
-                return this.f16386e.get(i2);
+                return this.f16396e.get(i2);
             }
             return null;
         }
         return (c.a.r0.b4.l.e.c.b) invokeI.objValue;
     }
 
-    public final void b(C0785a c0785a, View view, ViewGroup viewGroup) {
+    public final void b(C0783a c0783a, View view, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0785a, view, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0783a, view, viewGroup) == null) {
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.iv_effect);
-            c0785a.f16390a = tbImageView;
+            c0783a.f16400a = tbImageView;
             tbImageView.setIsRound(true);
-            c0785a.f16390a.setDrawerType(1);
-            c0785a.f16390a.setDefaultBgResource(R.color.transparent);
-            c0785a.f16390a.setBorderWidth(l.g(viewGroup.getContext(), R.dimen.ds4));
-            c0785a.f16390a.setConrers(15);
-            c0785a.f16390a.setBorderColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0302));
-            c0785a.f16392c = (TextView) view.findViewById(R.id.tv_name);
+            c0783a.f16400a.setDrawerType(1);
+            c0783a.f16400a.setDefaultBgResource(R.color.transparent);
+            c0783a.f16400a.setBorderWidth(l.g(viewGroup.getContext(), R.dimen.ds4));
+            c0783a.f16400a.setConrers(15);
+            c0783a.f16400a.setBorderColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0302));
+            c0783a.f16402c = (TextView) view.findViewById(R.id.tv_name);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getItem(2) != null && getItem(2).c() == 1) {
-            this.f16388g = 0;
-            this.f16387f = getItem(2).b();
+            this.f16398g = 0;
+            this.f16397f = getItem(2).b();
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getItem(0) != null && getItem(0).c() == 2) {
-            this.f16388g = 0;
-            this.f16387f = ((QmFilterItem) getItem(0).d()).id;
-            List<c.a.r0.b4.l.e.c.b> list = this.f16386e;
+            this.f16398g = 0;
+            this.f16397f = ((QmFilterItem) getItem(0).d()).id;
+            List<c.a.r0.b4.l.e.c.b> list = this.f16396e;
             if (list != null) {
                 for (c.a.r0.b4.l.e.c.b bVar : list) {
                     QmFilterItem qmFilterItem = (QmFilterItem) bVar.d();
@@ -174,8 +174,8 @@ public class a extends BaseAdapter implements View.OnClickListener {
     public void e() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && getItem(0) != null && getItem(0).c() == 3) {
-            this.f16388g = 0;
-            this.f16387f = TbadkCoreApplication.getInst().getString(R.string.music_normal);
+            this.f16398g = 0;
+            this.f16397f = TbadkCoreApplication.getInst().getString(R.string.music_normal);
         }
     }
 
@@ -184,15 +184,15 @@ public class a extends BaseAdapter implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, tbMusicData) == null) || getCount() <= 1 || getItem(1) == null || getItem(1).c() != 3) {
             return;
         }
-        this.f16388g = 1;
-        this.f16387f = TbadkCoreApplication.getInst().getString(R.string.music_cloud);
+        this.f16398g = 1;
+        this.f16397f = TbadkCoreApplication.getInst().getString(R.string.music_cloud);
         notifyDataSetChanged();
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f16387f = str;
+            this.f16397f = str;
         }
     }
 
@@ -201,7 +201,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<c.a.r0.b4.l.e.c.b> list = this.f16386e;
+            List<c.a.r0.b4.l.e.c.b> list = this.f16396e;
             if (list != null) {
                 return list.size();
             }
@@ -241,106 +241,106 @@ public class a extends BaseAdapter implements View.OnClickListener {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C0785a c0785a;
+        C0783a c0783a;
         View view2;
         c.a.r0.b4.l.e.c.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                c0785a = new C0785a(this);
+                c0783a = new C0783a(this);
                 int itemViewType = getItemViewType(i2);
                 if (itemViewType == 0) {
                     view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.capture_list_item_effect, (ViewGroup) null);
-                    b(c0785a, view2, viewGroup);
-                    c0785a.f16391b = (ProgressBar) view2.findViewById(R.id.iv_loading);
-                    c0785a.f16392c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
+                    b(c0783a, view2, viewGroup);
+                    c0783a.f16401b = (ProgressBar) view2.findViewById(R.id.iv_loading);
+                    c0783a.f16402c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
                 } else if (itemViewType == 1) {
                     view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.capture_list_item_effect, (ViewGroup) null);
-                    b(c0785a, view2, viewGroup);
-                    c0785a.f16391b = (ProgressBar) view2.findViewById(R.id.iv_loading);
-                    c0785a.f16390a.setDefaultResource(R.drawable.bg_video_cloudmusic);
-                    c0785a.f16392c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
+                    b(c0783a, view2, viewGroup);
+                    c0783a.f16401b = (ProgressBar) view2.findViewById(R.id.iv_loading);
+                    c0783a.f16400a.setDefaultResource(R.drawable.bg_video_cloudmusic);
+                    c0783a.f16402c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
                 } else if (itemViewType != 2) {
                     view2 = view;
                 } else {
                     view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.capture_list_item_beauty, (ViewGroup) null);
-                    b(c0785a, view2, viewGroup);
-                    c0785a.f16392c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
+                    b(c0783a, view2, viewGroup);
+                    c0783a.f16402c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
                 }
-                view2.setTag(c0785a);
+                view2.setTag(c0783a);
             } else {
-                c0785a = (C0785a) view.getTag();
+                c0783a = (C0783a) view.getTag();
                 view2 = view;
             }
-            List<c.a.r0.b4.l.e.c.b> list = this.f16386e;
-            if (list != null && i2 >= 0 && i2 <= list.size() - 1 && (bVar = this.f16386e.get(i2)) != null) {
+            List<c.a.r0.b4.l.e.c.b> list = this.f16396e;
+            if (list != null && i2 >= 0 && i2 <= list.size() - 1 && (bVar = this.f16396e.get(i2)) != null) {
                 int itemViewType2 = getItemViewType(i2);
                 if (itemViewType2 == 0) {
                     QmFilterItem qmFilterItem = (QmFilterItem) bVar.d();
                     if ("-1".equals(qmFilterItem.id)) {
-                        TbImageView tbImageView = c0785a.f16390a;
+                        TbImageView tbImageView = c0783a.f16400a;
                         String str = qmFilterItem.bgurl;
-                        int i3 = f16385i;
+                        int i3 = f16395i;
                         tbImageView.startLoad(str, 24, i3, i3, false);
                     } else {
-                        TbImageView tbImageView2 = c0785a.f16390a;
+                        TbImageView tbImageView2 = c0783a.f16400a;
                         String str2 = qmFilterItem.bgurl;
-                        int i4 = f16385i;
+                        int i4 = f16395i;
                         tbImageView2.startLoad(str2, 10, i4, i4, false);
                     }
-                    if (!TextUtils.isEmpty(qmFilterItem.id) && qmFilterItem.id.equals(this.f16387f)) {
-                        c0785a.f16390a.setDrawBorder(true);
+                    if (!TextUtils.isEmpty(qmFilterItem.id) && qmFilterItem.id.equals(this.f16397f)) {
+                        c0783a.f16400a.setDrawBorder(true);
                     } else {
-                        c0785a.f16390a.setDrawBorder(false);
+                        c0783a.f16400a.setDrawBorder(false);
                     }
                     if (qmFilterItem.isDownLoading) {
-                        c0785a.f16391b.setVisibility(0);
+                        c0783a.f16401b.setVisibility(0);
                     } else {
-                        c0785a.f16391b.setVisibility(4);
+                        c0783a.f16401b.setVisibility(4);
                     }
-                    if (this.f16388g != i2) {
-                        c0785a.f16391b.setVisibility(4);
-                    } else if (c0785a.f16391b.getVisibility() == 0) {
-                        c0785a.f16390a.setDrawBorder(false);
+                    if (this.f16398g != i2) {
+                        c0783a.f16401b.setVisibility(4);
+                    } else if (c0783a.f16401b.getVisibility() == 0) {
+                        c0783a.f16400a.setDrawBorder(false);
                     }
-                    c0785a.f16392c.setText(bVar.b());
+                    c0783a.f16402c.setText(bVar.b());
                 } else if (itemViewType2 == 1) {
                     MusicData musicData = (MusicData) bVar.d();
                     int i5 = musicData.editMusicType;
                     if (i5 != 0 && (i5 != 2 || TextUtils.isEmpty(musicData.img))) {
-                        TbImageView tbImageView3 = c0785a.f16390a;
+                        TbImageView tbImageView3 = c0783a.f16400a;
                         String valueOf = String.valueOf(bVar.a());
-                        int i6 = f16385i;
+                        int i6 = f16395i;
                         tbImageView3.startLoad(valueOf, 24, i6, i6, false);
                     } else {
-                        TbImageView tbImageView4 = c0785a.f16390a;
+                        TbImageView tbImageView4 = c0783a.f16400a;
                         String str3 = musicData.img;
-                        int i7 = f16385i;
+                        int i7 = f16395i;
                         tbImageView4.startLoad(str3, 10, i7, i7, false);
                     }
-                    if (!TextUtils.isEmpty(bVar.b()) && bVar.b().equals(this.f16387f)) {
-                        c0785a.f16390a.setDrawBorder(true);
+                    if (!TextUtils.isEmpty(bVar.b()) && bVar.b().equals(this.f16397f)) {
+                        c0783a.f16400a.setDrawBorder(true);
                     } else {
-                        c0785a.f16390a.setDrawBorder(false);
+                        c0783a.f16400a.setDrawBorder(false);
                     }
-                    if (this.f16388g != i2) {
-                        c0785a.f16391b.setVisibility(4);
-                    } else if (c0785a.f16391b.getVisibility() == 0) {
-                        c0785a.f16390a.setDrawBorder(false);
+                    if (this.f16398g != i2) {
+                        c0783a.f16401b.setVisibility(4);
+                    } else if (c0783a.f16401b.getVisibility() == 0) {
+                        c0783a.f16400a.setDrawBorder(false);
                     }
-                    c0785a.f16392c.setText(musicData.name);
+                    c0783a.f16402c.setText(musicData.name);
                 } else if (itemViewType2 == 2) {
-                    if (!TextUtils.isEmpty(bVar.b()) && bVar.b().equals(this.f16387f)) {
-                        c0785a.f16390a.setBackgroundResource(R.drawable.bg_beauty_item_choosed);
+                    if (!TextUtils.isEmpty(bVar.b()) && bVar.b().equals(this.f16397f)) {
+                        c0783a.f16400a.setBackgroundResource(R.drawable.bg_beauty_item_choosed);
                     } else {
-                        c0785a.f16390a.setBackgroundResource(R.drawable.bg_beauty_item);
+                        c0783a.f16400a.setBackgroundResource(R.drawable.bg_beauty_item);
                     }
-                    c0785a.f16392c.setText(bVar.b());
+                    c0783a.f16402c.setText(bVar.b());
                 }
-                c0785a.f16390a.setTag(bVar);
-                c0785a.f16390a.setTag(R.id.record_video_effect_holder, c0785a);
-                c0785a.f16390a.setOnClickListener(this);
-                c0785a.f16393d = i2;
+                c0783a.f16400a.setTag(bVar);
+                c0783a.f16400a.setTag(R.id.record_video_effect_holder, c0783a);
+                c0783a.f16400a.setOnClickListener(this);
+                c0783a.f16403d = i2;
             }
             return view2;
         }
@@ -360,15 +360,15 @@ public class a extends BaseAdapter implements View.OnClickListener {
     public void h(List<c.a.r0.b4.l.e.c.b> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, list, str) == null) {
-            this.f16386e = list;
-            this.f16387f = str;
+            this.f16396e = list;
+            this.f16397f = str;
         }
     }
 
     public void i(RecordEffectLayout.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, iVar) == null) {
-            this.f16389h = iVar;
+            this.f16399h = iVar;
         }
     }
 
@@ -387,27 +387,27 @@ public class a extends BaseAdapter implements View.OnClickListener {
         if ((interceptable == null || interceptable.invokeL(1048592, this, view) == null) && view.getId() == R.id.iv_effect && (view.getTag() instanceof c.a.r0.b4.l.e.c.b)) {
             c.a.r0.b4.l.e.c.b bVar = (c.a.r0.b4.l.e.c.b) view.getTag();
             if (bVar.c() == 3 && (bVar.d() instanceof MusicData)) {
-                if (view.getResources().getString(R.string.music_cloud).equals(bVar.b()) && (iVar = this.f16389h) != null) {
+                if (view.getResources().getString(R.string.music_cloud).equals(bVar.b()) && (iVar = this.f16399h) != null) {
                     iVar.b(bVar, view.getTag(R.id.record_video_effect_holder));
-                    this.f16388g = this.f16386e.indexOf(bVar);
-                    this.f16387f = bVar.b();
+                    this.f16398g = this.f16396e.indexOf(bVar);
+                    this.f16397f = bVar.b();
                 }
-                if (!TextUtils.isEmpty(bVar.b()) && bVar.b().equals(this.f16387f)) {
+                if (!TextUtils.isEmpty(bVar.b()) && bVar.b().equals(this.f16397f)) {
                     return;
                 }
                 if (!bVar.b().equals(view.getResources().getString(R.string.music_cloud))) {
-                    this.f16388g = this.f16386e.indexOf(bVar);
+                    this.f16398g = this.f16396e.indexOf(bVar);
                 }
             } else {
-                this.f16388g = this.f16386e.indexOf(bVar);
+                this.f16398g = this.f16396e.indexOf(bVar);
             }
             if (bVar.c() == 2 && (bVar.d() instanceof QmFilterItem)) {
-                this.f16387f = ((QmFilterItem) bVar.d()).id;
+                this.f16397f = ((QmFilterItem) bVar.d()).id;
             } else {
-                this.f16387f = bVar.b();
+                this.f16397f = bVar.b();
             }
             notifyDataSetChanged();
-            RecordEffectLayout.i iVar2 = this.f16389h;
+            RecordEffectLayout.i iVar2 = this.f16399h;
             if (iVar2 != null) {
                 iVar2.b(bVar, view.getTag(R.id.record_video_effect_holder));
             }

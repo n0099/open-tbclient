@@ -84,7 +84,7 @@ public class b extends OtherBean<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return DomainConfig.getInstance().getAppHost() + "/odp/wireless/sdk/getuserfinancialinfobysdk";
+            return DomainConfig.getInstance().getAppHost(this.tag) + "/odp/wireless/sdk/getuserfinancialinfobysdk";
         }
         return (String) invokeV.objValue;
     }

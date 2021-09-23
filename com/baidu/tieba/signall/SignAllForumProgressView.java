@@ -44,22 +44,22 @@ public class SignAllForumProgressView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56851e;
+    public int f56968e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f56852f;
+    public Context f56969f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ProgressBar f56853g;
+    public ProgressBar f56970g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f56854h;
+    public ImageView f56971h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f56855i;
+    public TextView f56972i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f56856j;
+    public TextView f56973j;
     public TextView k;
     public Scroller l;
     public TbImageView m;
@@ -76,7 +76,7 @@ public class SignAllForumProgressView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumProgressView f56857e;
+        public final /* synthetic */ SignAllForumProgressView f56974e;
 
         public a(SignAllForumProgressView signAllForumProgressView) {
             Interceptable interceptable = $ic;
@@ -93,31 +93,31 @@ public class SignAllForumProgressView extends FrameLayout {
                     return;
                 }
             }
-            this.f56857e = signAllForumProgressView;
+            this.f56974e = signAllForumProgressView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f56857e.l.computeScrollOffset()) {
-                    int currX = this.f56857e.l.getCurrX();
-                    if (currX < (this.f56857e.f56853g.getMax() * 9) / 10 || this.f56857e.f56851e == 2) {
-                        this.f56857e.f56853g.setProgress(currX);
-                        SignAllForumProgressView signAllForumProgressView = this.f56857e;
+                if (this.f56974e.l.computeScrollOffset()) {
+                    int currX = this.f56974e.l.getCurrX();
+                    if (currX < (this.f56974e.f56970g.getMax() * 9) / 10 || this.f56974e.f56968e == 2) {
+                        this.f56974e.f56970g.setProgress(currX);
+                        SignAllForumProgressView signAllForumProgressView = this.f56974e;
                         signAllForumProgressView.postDelayed(signAllForumProgressView.q, 16L);
                         return;
                     }
-                    this.f56857e.l.forceFinished(true);
-                    SignAllForumProgressView signAllForumProgressView2 = this.f56857e;
+                    this.f56974e.l.forceFinished(true);
+                    SignAllForumProgressView signAllForumProgressView2 = this.f56974e;
                     signAllForumProgressView2.postDelayed(signAllForumProgressView2.r, 2000L);
                     return;
                 }
-                int progress = this.f56857e.f56853g.getProgress();
-                int max = (this.f56857e.f56853g.getMax() * 9) / 10;
+                int progress = this.f56974e.f56970g.getProgress();
+                int max = (this.f56974e.f56970g.getMax() * 9) / 10;
                 if (progress < max) {
-                    this.f56857e.l.startScroll(progress, 0, max - progress, 0, 5000);
-                    this.f56857e.post(this);
+                    this.f56974e.l.startScroll(progress, 0, max - progress, 0, 5000);
+                    this.f56974e.post(this);
                 }
             }
         }
@@ -129,7 +129,7 @@ public class SignAllForumProgressView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumProgressView f56858e;
+        public final /* synthetic */ SignAllForumProgressView f56975e;
 
         public b(SignAllForumProgressView signAllForumProgressView) {
             Interceptable interceptable = $ic;
@@ -146,14 +146,14 @@ public class SignAllForumProgressView extends FrameLayout {
                     return;
                 }
             }
-            this.f56858e = signAllForumProgressView;
+            this.f56975e = signAllForumProgressView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56858e.postDelayed(this, 2000L);
+                this.f56975e.postDelayed(this, 2000L);
             }
         }
     }
@@ -164,7 +164,7 @@ public class SignAllForumProgressView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumProgressView f56859e;
+        public final /* synthetic */ SignAllForumProgressView f56976e;
 
         public c(SignAllForumProgressView signAllForumProgressView) {
             Interceptable interceptable = $ic;
@@ -181,19 +181,19 @@ public class SignAllForumProgressView extends FrameLayout {
                     return;
                 }
             }
-            this.f56859e = signAllForumProgressView;
+            this.f56976e = signAllForumProgressView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int e2 = l.e(this.f56859e.f56852f, 6.0f);
-                int e3 = l.e(this.f56859e.f56852f, 100.0f);
+                int e2 = l.e(this.f56976e.f56969f, 6.0f);
+                int e3 = l.e(this.f56976e.f56969f, 100.0f);
                 int i2 = e3 - (e2 * 2);
                 int i3 = (e3 - i2) / 2;
                 int i4 = i2 + i3;
-                this.f56859e.f56853g.getProgressDrawable().setBounds(i3, i3, i4, i4);
+                this.f56976e.f56970g.getProgressDrawable().setBounds(i3, i3, i4, i4);
             }
         }
     }
@@ -204,16 +204,16 @@ public class SignAllForumProgressView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f56860e;
+        public final /* synthetic */ String f56977e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f56861f;
+        public final /* synthetic */ String f56978f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f56862g;
+        public final /* synthetic */ BaseActivity f56979g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumProgressView f56863h;
+        public final /* synthetic */ SignAllForumProgressView f56980h;
 
         /* loaded from: classes7.dex */
         public class a implements View.OnClickListener {
@@ -221,7 +221,7 @@ public class SignAllForumProgressView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f56864e;
+            public final /* synthetic */ d f56981e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -238,15 +238,15 @@ public class SignAllForumProgressView extends FrameLayout {
                         return;
                     }
                 }
-                this.f56864e = dVar;
+                this.f56981e = dVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    if (!UrlManager.getInstance().dealOneLinkWithDialog(this.f56864e.f56862g.getPageContext(), "", new String[]{this.f56864e.f56861f}, false, null, true) && !UrlManager.getInstance().UrlValidated(this.f56864e.f56861f)) {
-                        this.f56864e.f56862g.showToast(R.string.pluginstatus_tip_unknown);
+                    if (!UrlManager.getInstance().dealOneLinkWithDialog(this.f56981e.f56979g.getPageContext(), "", new String[]{this.f56981e.f56978f}, false, null, true) && !UrlManager.getInstance().UrlValidated(this.f56981e.f56978f)) {
+                        this.f56981e.f56979g.showToast(R.string.pluginstatus_tip_unknown);
                     } else {
                         TiebaStatic.log("c11758");
                     }
@@ -269,25 +269,25 @@ public class SignAllForumProgressView extends FrameLayout {
                     return;
                 }
             }
-            this.f56863h = signAllForumProgressView;
-            this.f56860e = str;
-            this.f56861f = str2;
-            this.f56862g = baseActivity;
+            this.f56980h = signAllForumProgressView;
+            this.f56977e = str;
+            this.f56978f = str2;
+            this.f56979g = baseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f56863h.n.getVisibility() != 0) {
+                if (this.f56980h.n.getVisibility() != 0) {
                     TiebaStatic.log("c11822");
                 }
-                this.f56863h.n.setVisibility(0);
-                this.f56863h.m.startLoad(this.f56860e, 10, true);
-                if (StringUtils.isNull(this.f56861f)) {
+                this.f56980h.n.setVisibility(0);
+                this.f56980h.m.startLoad(this.f56977e, 10, true);
+                if (StringUtils.isNull(this.f56978f)) {
                     return;
                 }
-                this.f56863h.n.setOnClickListener(new a(this));
+                this.f56980h.n.setOnClickListener(new a(this));
             }
         }
     }
@@ -310,7 +310,7 @@ public class SignAllForumProgressView extends FrameLayout {
                 return;
             }
         }
-        this.f56851e = 0;
+        this.f56968e = 0;
         this.o = 2000;
         this.q = new a(this);
         this.r = new b(this);
@@ -328,13 +328,13 @@ public class SignAllForumProgressView extends FrameLayout {
     public int getCurrentStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56851e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56968e : invokeV.intValue;
     }
 
     public TextView getMessage1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56856j : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56973j : (TextView) invokeV.objValue;
     }
 
     public TextView getMessage2() {
@@ -346,7 +346,7 @@ public class SignAllForumProgressView extends FrameLayout {
     public ProgressBar getProgressBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f56853g : (ProgressBar) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f56970g : (ProgressBar) invokeV.objValue;
     }
 
     public void hideBanner() {
@@ -360,17 +360,17 @@ public class SignAllForumProgressView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             Context context = getContext();
-            this.f56852f = context;
+            this.f56969f = context;
             LayoutInflater.from(context).inflate(R.layout.signallforum_progress_view, this);
-            this.f56853g = (ProgressBar) findViewById(R.id.signallforum_progress);
-            this.f56854h = (ImageView) findViewById(R.id.signallforum_icon);
-            this.f56855i = (TextView) findViewById(R.id.signallforun_status);
-            this.f56856j = (TextView) findViewById(R.id.signallforun_message1);
+            this.f56970g = (ProgressBar) findViewById(R.id.signallforum_progress);
+            this.f56971h = (ImageView) findViewById(R.id.signallforum_icon);
+            this.f56972i = (TextView) findViewById(R.id.signallforun_status);
+            this.f56973j = (TextView) findViewById(R.id.signallforun_message1);
             this.k = (TextView) findViewById(R.id.signallforun_message2);
             this.m = (TbImageView) findViewById(R.id.signallforum_banner_image);
             this.n = (RelativeLayout) findViewById(R.id.signallforum_banner_layout);
             updateUI();
-            this.l = new Scroller(this.f56852f, new DecelerateInterpolator());
+            this.l = new Scroller(this.f56969f, new DecelerateInterpolator());
             BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), R.drawable.bg_all_sign));
             Shader.TileMode tileMode = Shader.TileMode.REPEAT;
             bitmapDrawable.setTileModeXY(tileMode, tileMode);
@@ -404,27 +404,27 @@ public class SignAllForumProgressView extends FrameLayout {
     public void setSignBefore(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f56853g.setProgress(i2);
-            this.f56851e = 0;
+            this.f56970g.setProgress(i2);
+            this.f56968e = 0;
             updateUI();
         }
     }
 
     public void setSignSuccess() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f56851e == 2) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f56968e == 2) {
             return;
         }
-        this.f56851e = 2;
+        this.f56968e = 2;
         updateUI();
     }
 
     public void setSigning(int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i2) == null) && (i3 = this.f56851e) != 1 && i3 == 0) {
-            this.f56853g.setProgress(i2);
-            this.f56851e = 1;
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i2) == null) && (i3 = this.f56968e) != 1 && i3 == 0) {
+            this.f56970g.setProgress(i2);
+            this.f56968e = 1;
             updateUI();
         }
     }
@@ -432,7 +432,7 @@ public class SignAllForumProgressView extends FrameLayout {
     public void setmCurrentStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f56851e = i2;
+            this.f56968e = i2;
             updateUI();
         }
     }
@@ -450,63 +450,63 @@ public class SignAllForumProgressView extends FrameLayout {
             removeCallbacks(this.q);
             removeCallbacks(this.r);
             if (this.p) {
-                this.f56853g.setProgressDrawable(getResources().getDrawable(R.drawable.vip_singnallforum_progress));
+                this.f56970g.setProgressDrawable(getResources().getDrawable(R.drawable.vip_singnallforum_progress));
             } else {
-                this.f56853g.setProgressDrawable(getResources().getDrawable(R.drawable.singnallforum_progress));
+                this.f56970g.setProgressDrawable(getResources().getDrawable(R.drawable.singnallforum_progress));
             }
-            int i2 = this.f56851e;
+            int i2 = this.f56968e;
             if (i2 == 0) {
-                this.f56853g.setClickable(true);
-                this.f56853g.setProgress(0);
-                this.f56853g.setSecondaryProgress(0);
+                this.f56970g.setClickable(true);
+                this.f56970g.setProgress(0);
+                this.f56970g.setSecondaryProgress(0);
                 if (this.p) {
-                    SkinManager.setBackgroundResource(this.f56853g, R.drawable.btn_vip_all_sign);
-                    SkinManager.setImageResource(this.f56854h, R.drawable.icon_vip_sign);
+                    SkinManager.setBackgroundResource(this.f56970g, R.drawable.btn_vip_all_sign);
+                    SkinManager.setImageResource(this.f56971h, R.drawable.icon_vip_sign);
                 } else {
-                    SkinManager.setBackgroundResource(this.f56853g, R.drawable.btn_all_sign);
-                    SkinManager.setImageResource(this.f56854h, R.drawable.icon_all_sign);
+                    SkinManager.setBackgroundResource(this.f56970g, R.drawable.btn_all_sign);
+                    SkinManager.setImageResource(this.f56971h, R.drawable.icon_all_sign);
                 }
-                this.f56855i.setText(R.string.signallforum_begin);
+                this.f56972i.setText(R.string.signallforum_begin);
             } else if (i2 == 1) {
                 post(this.s);
-                this.f56853g.setClickable(false);
-                SkinManager.setBackgroundResource(this.f56853g, R.drawable.bg_all_sign_conduct);
+                this.f56970g.setClickable(false);
+                SkinManager.setBackgroundResource(this.f56970g, R.drawable.bg_all_sign_conduct);
                 if (this.p) {
-                    SkinManager.setImageResource(this.f56854h, R.drawable.icon_vip_sign);
+                    SkinManager.setImageResource(this.f56971h, R.drawable.icon_vip_sign);
                 } else {
-                    SkinManager.setImageResource(this.f56854h, R.drawable.icon_all_sign);
+                    SkinManager.setImageResource(this.f56971h, R.drawable.icon_all_sign);
                 }
-                this.f56855i.setText(R.string.signallforum_ing);
-                int max = (this.f56853g.getMax() * (new Random(System.currentTimeMillis()).nextInt(30) + 50)) / 100;
-                if (max - this.f56853g.getProgress() < 0) {
-                    this.l.startScroll(max, 0, this.f56853g.getProgress() - max, 0, this.o);
+                this.f56972i.setText(R.string.signallforum_ing);
+                int max = (this.f56970g.getMax() * (new Random(System.currentTimeMillis()).nextInt(30) + 50)) / 100;
+                if (max - this.f56970g.getProgress() < 0) {
+                    this.l.startScroll(max, 0, this.f56970g.getProgress() - max, 0, this.o);
                 } else {
-                    this.l.startScroll(this.f56853g.getProgress(), 0, max - this.f56853g.getProgress(), 0, this.o);
+                    this.l.startScroll(this.f56970g.getProgress(), 0, max - this.f56970g.getProgress(), 0, this.o);
                 }
                 post(this.q);
             } else if (i2 != 2) {
                 if (i2 != 3) {
                     return;
                 }
-                this.f56853g.setClickable(false);
+                this.f56970g.setClickable(false);
                 if (this.p) {
-                    SkinManager.setImageResource(this.f56854h, R.drawable.icon_vip_sign);
+                    SkinManager.setImageResource(this.f56971h, R.drawable.icon_vip_sign);
                 } else {
-                    SkinManager.setImageResource(this.f56854h, R.drawable.icon_all_sign);
+                    SkinManager.setImageResource(this.f56971h, R.drawable.icon_all_sign);
                 }
-                SkinManager.setBackgroundResource(this.f56853g, R.drawable.bg_all_sign_conduct);
-                this.f56855i.setText(R.string.can_not_sign);
+                SkinManager.setBackgroundResource(this.f56970g, R.drawable.bg_all_sign_conduct);
+                this.f56972i.setText(R.string.can_not_sign);
             } else {
-                this.f56853g.setClickable(true);
+                this.f56970g.setClickable(true);
                 if (this.p) {
-                    SkinManager.setBackgroundResource(this.f56853g, R.drawable.bg_vip_sign_ok_d);
-                    SkinManager.setImageResource(this.f56854h, R.drawable.icon_vip_sign_ok);
+                    SkinManager.setBackgroundResource(this.f56970g, R.drawable.bg_vip_sign_ok_d);
+                    SkinManager.setImageResource(this.f56971h, R.drawable.icon_vip_sign_ok);
                 } else {
-                    SkinManager.setBackgroundResource(this.f56853g, R.drawable.bg_all_sign_ok_d);
-                    SkinManager.setImageResource(this.f56854h, R.drawable.icon_all_sign_ok);
+                    SkinManager.setBackgroundResource(this.f56970g, R.drawable.bg_all_sign_ok_d);
+                    SkinManager.setImageResource(this.f56971h, R.drawable.icon_all_sign_ok);
                 }
-                this.f56853g.setProgress(0);
-                this.f56855i.setText(R.string.signallforum_success);
+                this.f56970g.setProgress(0);
+                this.f56972i.setText(R.string.signallforum_success);
             }
         }
     }
@@ -530,7 +530,7 @@ public class SignAllForumProgressView extends FrameLayout {
                 return;
             }
         }
-        this.f56851e = 0;
+        this.f56968e = 0;
         this.o = 2000;
         this.q = new a(this);
         this.r = new b(this);
@@ -557,7 +557,7 @@ public class SignAllForumProgressView extends FrameLayout {
                 return;
             }
         }
-        this.f56851e = 0;
+        this.f56968e = 0;
         this.o = 2000;
         this.q = new a(this);
         this.r = new b(this);

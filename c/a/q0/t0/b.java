@@ -30,10 +30,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f15007a = "#";
+    public static String f15009a = "#";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f15008b;
+    public static final Pattern f15010b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +49,7 @@ public class b {
                 return;
             }
         }
-        f15008b = Pattern.compile("#([^#(]+)#", 2);
+        f15010b = Pattern.compile("#([^#(]+)#", 2);
     }
 
     public static String a(String str) {
@@ -63,9 +63,9 @@ public class b {
                 return str;
             }
             StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append(f15007a);
+            sb.append(f15009a);
             sb.append(str);
-            sb.append(f15007a);
+            sb.append(f15009a);
             return sb.toString();
         }
         return (String) invokeL.objValue;
@@ -111,13 +111,13 @@ public class b {
     public static boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? str != null && str.startsWith(f15007a) && str.endsWith(f15007a) && "".equals(str.substring(1, str.length() - 1).trim()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? str != null && str.startsWith(f15009a) && str.endsWith(f15009a) && "".equals(str.substring(1, str.length() - 1).trim()) : invokeL.booleanValue;
     }
 
     public static boolean f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? f15007a.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? f15009a.equals(str) : invokeL.booleanValue;
     }
 
     public static boolean g() {
@@ -147,7 +147,7 @@ public class b {
     public static void i(l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, lVar) == null) {
-            int i2 = lVar.f15043b;
+            int i2 = lVar.f15050b;
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? "" : "1" : TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM : "pb" : "frs" : "index"));
         }
     }
@@ -159,7 +159,7 @@ public class b {
             if (StringUtils.isNull(str)) {
                 return new SpannableString("");
             }
-            Matcher matcher = f15008b.matcher(str);
+            Matcher matcher = f15010b.matcher(str);
             SpannableString spannableString = new SpannableString(str);
             while (matcher.find()) {
                 int start = matcher.start();
@@ -183,7 +183,7 @@ public class b {
         if (StringUtils.isNull(obj)) {
             return;
         }
-        Matcher matcher = f15008b.matcher(obj);
+        Matcher matcher = f15010b.matcher(obj);
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();

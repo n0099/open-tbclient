@@ -32,14 +32,14 @@ public class c implements l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f11247c;
+    public static final boolean f11255c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f11248a;
+    public SharedPreferences f11256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f11249b;
+    public File f11257b;
 
     /* loaded from: classes3.dex */
     public class a implements c.a<Long> {
@@ -47,7 +47,7 @@ public class c implements l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f11250a;
+        public final /* synthetic */ c f11258a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class c implements l {
                     return;
                 }
             }
-            this.f11250a = cVar;
+            this.f11258a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,7 +73,7 @@ public class c implements l {
         public Long update() throws IllegalStateException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Long.valueOf(this.f11250a.m()) : (Long) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Long.valueOf(this.f11258a.m()) : (Long) invokeV.objValue;
         }
     }
 
@@ -90,7 +90,7 @@ public class c implements l {
                 return;
             }
         }
-        f11247c = k.f7077a;
+        f11255c = k.f7085a;
     }
 
     public c() {
@@ -107,14 +107,14 @@ public class c implements l {
             }
         }
         String o = o();
-        if (f11247c) {
+        if (f11255c) {
             String str = "preferencesName:" + o;
         }
         if (o != null) {
-            this.f11248a = c.a.p0.a.c1.a.b().getSharedPreferences(o, 0);
-            this.f11249b = new File(q(), o + ActivityChooserModel.HISTORY_FILE_EXTENSION);
+            this.f11256a = c.a.p0.a.c1.a.b().getSharedPreferences(o, 0);
+            this.f11257b = new File(q(), o + ActivityChooserModel.HISTORY_FILE_EXTENSION);
         }
-        c.a.p0.a.q2.d.f8131h.e(new a(this));
+        c.a.p0.a.q2.d.f8139h.e(new a(this));
     }
 
     public static void k(String str) {
@@ -220,14 +220,14 @@ public class c implements l {
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? r() && this.f11248a.edit().clear().commit() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? r() && this.f11256a.edit().clear().commit() : invokeV.booleanValue;
     }
 
     public long m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            File file = this.f11249b;
+            File file = this.f11257b;
             if (file != null) {
                 return file.length();
             }
@@ -241,7 +241,7 @@ public class c implements l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             if (r()) {
-                Set<String> keySet = this.f11248a.getAll().keySet();
+                Set<String> keySet = this.f11256a.getAll().keySet();
                 String[] strArr = new String[keySet.size()];
                 keySet.toArray(strArr);
                 return strArr;
@@ -270,7 +270,7 @@ public class c implements l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
             if (r()) {
-                return this.f11248a.getString(str, str2);
+                return this.f11256a.getString(str, str2);
             }
             return null;
         }
@@ -280,7 +280,7 @@ public class c implements l {
     public final boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f11248a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f11256a != null : invokeV.booleanValue;
     }
 
     public long s() {
@@ -296,13 +296,13 @@ public class c implements l {
     public boolean t(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, str2)) == null) ? r() && this.f11248a.edit().putString(str, str2).commit() : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, str2)) == null) ? r() && this.f11256a.edit().putString(str, str2).commit() : invokeLL.booleanValue;
     }
 
     @SuppressLint({"ApplySharedPref"})
     public boolean u(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? r() && this.f11248a.edit().remove(str).commit() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? r() && this.f11256a.edit().remove(str).commit() : invokeL.booleanValue;
     }
 }

@@ -23,17 +23,17 @@ public class i extends c.a.p0.a.u.c.d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f8922g;
+    public static final boolean f8930g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public SwanAppWebPopWindow f8923d;
+    public SwanAppWebPopWindow f8931d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.a.h0.g.l.a f8924e;
+    public c.a.p0.a.h0.g.l.a f8932e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.p0.a.h0.g.d f8925f;
+    public c.a.p0.a.h0.g.d f8933f;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.v2.e1.b<c.a.p0.a.e2.c.i<b.e>> {
@@ -41,16 +41,16 @@ public class i extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8926e;
+        public final /* synthetic */ String f8934e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f8927f;
+        public final /* synthetic */ c.a.p0.a.a2.e f8935f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8928g;
+        public final /* synthetic */ String f8936g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ i f8929h;
+        public final /* synthetic */ i f8937h;
 
         public a(i iVar, String str, c.a.p0.a.a2.e eVar, String str2) {
             Interceptable interceptable = $ic;
@@ -67,10 +67,10 @@ public class i extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8929h = iVar;
-            this.f8926e = str;
-            this.f8927f = eVar;
-            this.f8928g = str2;
+            this.f8937h = iVar;
+            this.f8934e = str;
+            this.f8935f = eVar;
+            this.f8936g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,9 +80,9 @@ public class i extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    this.f8929h.C(this.f8927f, this.f8928g, this.f8926e);
+                    this.f8937h.C(this.f8935f, this.f8936g, this.f8934e);
                 } else {
-                    this.f8929h.d(this.f8926e, new c.a.p0.a.u.h.b(10005, "system deny"));
+                    this.f8937h.d(this.f8934e, new c.a.p0.a.u.h.b(10005, "system deny"));
                 }
             }
         }
@@ -94,19 +94,19 @@ public class i extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8930e;
+        public final /* synthetic */ String f8938e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f8931f;
+        public final /* synthetic */ c.a.p0.a.a2.e f8939f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8932g;
+        public final /* synthetic */ String f8940g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f8933h;
+        public final /* synthetic */ String f8941h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ i f8934i;
+        public final /* synthetic */ i f8942i;
 
         /* loaded from: classes.dex */
         public class a extends c.a.p0.a.h0.g.l.a {
@@ -114,7 +114,7 @@ public class i extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f8935a;
+            public final /* synthetic */ b f8943a;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class i extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8935a = bVar;
+                this.f8943a = bVar;
             }
 
             @Override // c.a.p0.a.h0.g.l.a, c.a.p0.a.h0.g.l.b
@@ -139,11 +139,11 @@ public class i extends c.a.p0.a.u.c.d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     super.a();
-                    c.a.p0.a.e0.d.g("Api-WebPopWindow", "swanId=" + this.f8935a.f8931f.f4558f + ", nowId=" + c.a.p0.a.a2.e.V());
-                    if (TextUtils.equals(this.f8935a.f8931f.f4558f, c.a.p0.a.a2.e.V())) {
+                    c.a.p0.a.e0.d.g("Api-WebPopWindow", "swanId=" + this.f8943a.f8939f.f4566f + ", nowId=" + c.a.p0.a.a2.e.V());
+                    if (TextUtils.equals(this.f8943a.f8939f.f4566f, c.a.p0.a.a2.e.V())) {
                         return;
                     }
-                    this.f8935a.f8934i.B();
+                    this.f8943a.f8942i.B();
                 }
             }
 
@@ -152,11 +152,11 @@ public class i extends c.a.p0.a.u.c.d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     c.a.p0.a.e0.d.g("Api-WebPopWindow", "call onFragmentDestroyed");
-                    this.f8935a.f8934i.B();
-                    if (this.f8935a.f8934i.f8925f == null || this.f8935a.f8934i.f8924e == null) {
+                    this.f8943a.f8942i.B();
+                    if (this.f8943a.f8942i.f8933f == null || this.f8943a.f8942i.f8932e == null) {
                         return;
                     }
-                    this.f8935a.f8934i.f8925f.D2(this.f8935a.f8934i.f8924e);
+                    this.f8943a.f8942i.f8933f.D2(this.f8943a.f8942i.f8932e);
                 }
             }
         }
@@ -176,11 +176,11 @@ public class i extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8934i = iVar;
-            this.f8930e = str;
-            this.f8931f = eVar;
-            this.f8932g = str2;
-            this.f8933h = str3;
+            this.f8942i = iVar;
+            this.f8938e = str;
+            this.f8939f = eVar;
+            this.f8940g = str2;
+            this.f8941h = str3;
         }
 
         @Override // java.lang.Runnable
@@ -190,44 +190,44 @@ public class i extends c.a.p0.a.u.c.d {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (activity = c.a.p0.a.g1.f.V().getActivity()) == null) {
                 return;
             }
-            if (this.f8934i.f8923d != null && this.f8934i.f8923d.x()) {
-                this.f8934i.d(this.f8930e, new c.a.p0.a.u.h.b(303, "execute failed, halfScreenWebview is showing"));
+            if (this.f8942i.f8931d != null && this.f8942i.f8931d.x()) {
+                this.f8942i.d(this.f8938e, new c.a.p0.a.u.h.b(303, "execute failed, halfScreenWebview is showing"));
                 return;
             }
             c.a.p0.a.h0.g.g W = c.a.p0.a.g1.f.V().W();
             if (W == null) {
                 return;
             }
-            this.f8934i.f8925f = W.m();
-            if (this.f8934i.f8925f == null) {
+            this.f8942i.f8933f = W.m();
+            if (this.f8942i.f8933f == null) {
                 return;
             }
-            if (this.f8934i.f8924e != null) {
-                this.f8934i.f8925f.D2(this.f8934i.f8924e);
+            if (this.f8942i.f8932e != null) {
+                this.f8942i.f8933f.D2(this.f8942i.f8932e);
             }
-            this.f8934i.f8924e = new a(this);
-            this.f8934i.f8925f.f2(this.f8934i.f8924e);
-            i iVar = this.f8934i;
-            SwanAppWebPopWindow swanAppWebPopWindow = new SwanAppWebPopWindow(activity, this.f8932g);
+            this.f8942i.f8932e = new a(this);
+            this.f8942i.f8933f.f2(this.f8942i.f8932e);
+            i iVar = this.f8942i;
+            SwanAppWebPopWindow swanAppWebPopWindow = new SwanAppWebPopWindow(activity, this.f8940g);
             swanAppWebPopWindow.z0(c.a.p0.a.h.swan_app_baidu_guarantee_title);
-            iVar.f8923d = swanAppWebPopWindow;
-            if (TextUtils.equals(this.f8933h, "protect")) {
-                SwanAppWebPopWindow swanAppWebPopWindow2 = this.f8934i.f8923d;
+            iVar.f8931d = swanAppWebPopWindow;
+            if (TextUtils.equals(this.f8941h, "protect")) {
+                SwanAppWebPopWindow swanAppWebPopWindow2 = this.f8942i.f8931d;
                 swanAppWebPopWindow2.v0(SwanAppWebPopWindow.CloseStyle.CLOSE_AT_BOTTOM);
                 swanAppWebPopWindow2.w0();
             }
-            SwanAppWebPopWindow swanAppWebPopWindow3 = this.f8934i.f8923d;
+            SwanAppWebPopWindow swanAppWebPopWindow3 = this.f8942i.f8931d;
             swanAppWebPopWindow3.u0();
             swanAppWebPopWindow3.B0();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("status", 0);
             } catch (JSONException e2) {
-                if (i.f8922g) {
+                if (i.f8930g) {
                     e2.printStackTrace();
                 }
             }
-            this.f8934i.d(this.f8930e, new c.a.p0.a.u.h.b(0, "show halfScreenWebview success", jSONObject));
+            this.f8942i.d(this.f8938e, new c.a.p0.a.u.h.b(0, "show halfScreenWebview success", jSONObject));
         }
     }
 
@@ -244,7 +244,7 @@ public class i extends c.a.p0.a.u.c.d {
                 return;
             }
         }
-        f8922g = k.f7077a;
+        f8930g = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -281,7 +281,7 @@ public class i extends c.a.p0.a.u.c.d {
     public final void B() {
         SwanAppWebPopWindow swanAppWebPopWindow;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f8925f.e0() && (swanAppWebPopWindow = this.f8923d) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f8933f.e0() && (swanAppWebPopWindow = this.f8931d) != null) {
             swanAppWebPopWindow.r();
         }
     }
@@ -314,7 +314,7 @@ public class i extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (f8922g) {
+            if (f8930g) {
                 String str2 = "start show web pop window action, params =" + str;
             }
             c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();

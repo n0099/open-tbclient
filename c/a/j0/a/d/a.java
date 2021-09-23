@@ -76,22 +76,22 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
     public BDSplashActionView a0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f3592e;
+    public Context f3593e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3593f;
+    public int f3594f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f3594g;
+    public ImageView f3595g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f3595h;
+    public ImageView f3596h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AbsCountDownView f3596i;
+    public AbsCountDownView f3597i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c.a.j0.a.k.b f3597j;
+    public final c.a.j0.a.k.b f3598j;
     public boolean k;
     public boolean l;
     public c.a.j0.a.c.b m;
@@ -116,7 +116,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f3598e;
+        public final /* synthetic */ a f3599e;
 
         public View$OnClickListenerC0079a(a aVar) {
             Interceptable interceptable = $ic;
@@ -133,14 +133,14 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
                     return;
                 }
             }
-            this.f3598e = aVar;
+            this.f3599e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f3598e.G();
+                this.f3599e.G();
             }
         }
     }
@@ -151,10 +151,10 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LottieAnimationView f3599a;
+        public final /* synthetic */ LottieAnimationView f3600a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f3600b;
+        public final /* synthetic */ a f3601b;
 
         /* renamed from: c.a.j0.a.d.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -163,13 +163,13 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public float f3601e;
+            public float f3602e;
 
             /* renamed from: f  reason: collision with root package name */
-            public float f3602f;
+            public float f3603f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ b f3603g;
+            public final /* synthetic */ b f3604g;
 
             public View$OnTouchListenerC0080a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -186,7 +186,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
                         return;
                     }
                 }
-                this.f3603g = bVar;
+                this.f3604g = bVar;
             }
 
             @Override // android.view.View.OnTouchListener
@@ -195,17 +195,17 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                     if (motionEvent.getAction() == 0) {
-                        this.f3601e = motionEvent.getX();
-                        this.f3602f = motionEvent.getY();
+                        this.f3602e = motionEvent.getX();
+                        this.f3603f = motionEvent.getY();
                     } else if (motionEvent.getAction() == 2) {
                         float x = motionEvent.getX();
-                        float f2 = c.a.j0.a.k.h.f(this.f3603g.f3600b.f3592e, motionEvent.getY() - this.f3602f);
-                        if (Math.abs(c.a.j0.a.k.h.f(this.f3603g.f3600b.f3592e, x - this.f3601e)) > this.f3603g.f3600b.W || Math.abs(f2) > this.f3603g.f3600b.W) {
+                        float f2 = c.a.j0.a.k.h.f(this.f3604g.f3601b.f3593e, motionEvent.getY() - this.f3603f);
+                        if (Math.abs(c.a.j0.a.k.h.f(this.f3604g.f3601b.f3593e, x - this.f3602e)) > this.f3604g.f3601b.W || Math.abs(f2) > this.f3604g.f3601b.W) {
                             c.a.f0.b.g.b.l("2");
-                            this.f3603g.f3600b.G();
+                            this.f3604g.f3601b.G();
                         }
                     } else if (motionEvent.getAction() == 1) {
-                        a aVar = this.f3603g.f3600b;
+                        a aVar = this.f3604g.f3601b;
                         if (aVar.O == 0) {
                             aVar.G();
                         }
@@ -231,8 +231,8 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
                     return;
                 }
             }
-            this.f3600b = aVar;
-            this.f3599a = lottieAnimationView;
+            this.f3601b = aVar;
+            this.f3600a = lottieAnimationView;
         }
 
         @Override // c.a.f0.a.c.b.f
@@ -240,12 +240,12 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3599a.setRepeatCount(-1);
-                this.f3599a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.f3600b.p.addView(this.f3599a, new RelativeLayout.LayoutParams(-1, -1));
-                this.f3600b.x();
-                if (this.f3600b.Q) {
-                    this.f3599a.setOnTouchListener(new View$OnTouchListenerC0080a(this));
+                this.f3600a.setRepeatCount(-1);
+                this.f3600a.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.f3601b.p.addView(this.f3600a, new RelativeLayout.LayoutParams(-1, -1));
+                this.f3601b.x();
+                if (this.f3601b.Q) {
+                    this.f3600a.setOnTouchListener(new View$OnTouchListenerC0080a(this));
                 }
             }
         }
@@ -264,44 +264,9 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f3604e;
-
-        public c(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f3604e = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3604e.C();
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ a f3605e;
 
-        public d(a aVar) {
+        public c(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -323,7 +288,42 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3605e.D();
+                this.f3605e.C();
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ a f3606e;
+
+        public d(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f3606e = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f3606e.D();
             }
         }
     }
@@ -334,7 +334,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f3606a;
+        public final /* synthetic */ a f3607a;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -351,14 +351,14 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
                     return;
                 }
             }
-            this.f3606a = aVar;
+            this.f3607a = aVar;
         }
 
         @Override // com.baidu.sdk.container.widget.DisplayInfoView.d
         public void onPermissionClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3606a.M();
+                this.f3607a.M();
             }
         }
 
@@ -366,7 +366,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         public void onPrivacyClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f3606a.N();
+                this.f3607a.N();
             }
         }
     }
@@ -377,13 +377,13 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageView f3607a;
+        public final /* synthetic */ ImageView f3608a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f3608b;
+        public final /* synthetic */ String f3609b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f3609c;
+        public final /* synthetic */ a f3610c;
 
         /* renamed from: c.a.j0.a.d.a$f$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -392,7 +392,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ f f3610e;
+            public final /* synthetic */ f f3611e;
 
             public RunnableC0081a(f fVar) {
                 Interceptable interceptable = $ic;
@@ -409,15 +409,15 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
                         return;
                     }
                 }
-                this.f3610e = fVar;
+                this.f3611e = fVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    f fVar = this.f3610e;
-                    fVar.f3609c.E(fVar.f3607a, fVar.f3608b);
+                    f fVar = this.f3611e;
+                    fVar.f3610c.E(fVar.f3608a, fVar.f3609b);
                 }
             }
         }
@@ -437,16 +437,16 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
                     return;
                 }
             }
-            this.f3609c = aVar;
-            this.f3607a = imageView;
-            this.f3608b = str;
+            this.f3610c = aVar;
+            this.f3608a = imageView;
+            this.f3609b = str;
         }
 
         @Override // c.a.j0.a.e.a
         public void a(String str, View view, MaterialLoadErrorCode materialLoadErrorCode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view, materialLoadErrorCode) == null) {
-                this.f3609c.H("Fetch Ad icon image load failed.");
+                this.f3610c.H("Fetch Ad icon image load failed.");
             }
         }
 
@@ -455,7 +455,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view, bitmap) == null) {
                 if (Looper.myLooper() == Looper.getMainLooper()) {
-                    this.f3609c.E(this.f3607a, this.f3608b);
+                    this.f3610c.E(this.f3608a, this.f3609b);
                 } else {
                     c.a.j0.a.k.a.a(new RunnableC0081a(this));
                 }
@@ -476,46 +476,9 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f3611e;
-
-        public g(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f3611e = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3611e.k) {
-                return;
-            }
-            this.f3611e.k = true;
-            this.f3611e.J();
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class h implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ a f3612e;
 
-        public h(a aVar) {
+        public g(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -545,14 +508,14 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
     }
 
     /* loaded from: classes.dex */
-    public class i implements View.OnClickListener {
+    public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ a f3613e;
 
-        public i(a aVar) {
+        public h(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -573,9 +536,46 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3613e.k) {
+                return;
+            }
+            this.f3613e.k = true;
+            this.f3613e.J();
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class i implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ a f3614e;
+
+        public i(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f3614e = aVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f3613e.pause();
-                this.f3613e.O();
+                this.f3614e.pause();
+                this.f3614e.O();
             }
         }
     }
@@ -586,7 +586,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f3614a;
+        public final /* synthetic */ a f3615a;
 
         public j(a aVar) {
             Interceptable interceptable = $ic;
@@ -603,14 +603,14 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
                     return;
                 }
             }
-            this.f3614a = aVar;
+            this.f3615a = aVar;
         }
 
         @Override // com.baidu.sdk.container.widget.AbsCountDownView.b
         public void onEnd() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f3614a.l) {
-                this.f3614a.y("time_end");
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f3615a.l) {
+                this.f3615a.y("time_end");
             }
         }
 
@@ -628,13 +628,13 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f3615a;
+        public final /* synthetic */ int f3616a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f3616b;
+        public final /* synthetic */ int f3617b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f3617c;
+        public final /* synthetic */ a f3618c;
 
         /* renamed from: c.a.j0.a.d.a$k$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -643,7 +643,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ k f3618e;
+            public final /* synthetic */ k f3619e;
 
             public View$OnClickListenerC0082a(k kVar) {
                 Interceptable interceptable = $ic;
@@ -660,14 +660,14 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
                         return;
                     }
                 }
-                this.f3618e = kVar;
+                this.f3619e = kVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f3618e.f3617c.G();
+                    this.f3619e.f3618c.G();
                 }
             }
         }
@@ -687,18 +687,18 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
                     return;
                 }
             }
-            this.f3617c = aVar;
-            this.f3615a = i2;
-            this.f3616b = i3;
+            this.f3618c = aVar;
+            this.f3616a = i2;
+            this.f3617b = i3;
         }
 
         @Override // c.a.f0.a.c.b.f
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a aVar = this.f3617c;
-                aVar.n(aVar.Z, this.f3615a, this.f3616b, "click_float_lottie", aVar.P);
-                this.f3617c.Z.setOnClickListener(new View$OnClickListenerC0082a(this));
+                a aVar = this.f3618c;
+                aVar.n(aVar.Z, this.f3616a, this.f3617b, "click_float_lottie", aVar.P);
+                this.f3618c.Z.setOnClickListener(new View$OnClickListenerC0082a(this));
             }
         }
 
@@ -706,13 +706,13 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                a aVar = this.f3617c;
-                if (aVar.f3593f == 2 || aVar.f3592e == null) {
+                a aVar = this.f3618c;
+                if (aVar.f3594f == 2 || aVar.f3593e == null) {
                     return;
                 }
                 try {
                     aVar.n.put("displayMantle", true);
-                    this.f3617c.t();
+                    this.f3618c.t();
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -751,9 +751,9 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
                 return;
             }
         }
-        this.f3593f = 0;
-        this.f3594g = null;
-        this.f3595h = null;
+        this.f3594f = 0;
+        this.f3595g = null;
+        this.f3596h = null;
         this.k = false;
         this.u = 4;
         this.v = "";
@@ -772,25 +772,25 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         this.R = false;
         this.T = false;
         this.X = new AtomicBoolean(false);
-        this.f3592e = context.getApplicationContext();
+        this.f3593e = context.getApplicationContext();
         this.n = jSONObject;
-        this.f3597j = c.a.j0.a.k.b.i();
-        AdView adView = new AdView(this.f3592e);
+        this.f3598j = c.a.j0.a.k.b.i();
+        AdView adView = new AdView(this.f3593e);
         this.p = adView;
         adView.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         this.p.setListener(this);
-        this.m = new c.a.j0.a.c.b(this.f3592e);
-        this.q = new c.a.j0.a.j.a(this.f3592e);
+        this.m = new c.a.j0.a.c.b(this.f3593e);
+        this.q = new c.a.j0.a.j.a(this.f3593e);
         P();
     }
 
     public void A() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.j0.a.k.e.f3656b && this.f3592e != null) {
-            TextView textView = new TextView(this.f3592e);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.j0.a.k.e.f3657b && this.f3593e != null) {
+            TextView textView = new TextView(this.f3593e);
             textView.setTextColor(-16776961);
             textView.setTextSize(15.0f);
-            textView.setText("P : " + c.a.j0.a.k.e.f3655a);
+            textView.setText("P : " + c.a.j0.a.k.e.f3656a);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.bottomMargin = 10;
             layoutParams.addRule(13);
@@ -802,13 +802,13 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.C) {
             u();
-            this.f3596i.setTimeMillis(this.x);
-            this.f3596i.start();
+            this.f3597i.setTimeMillis(this.x);
+            this.f3597i.start();
             int i2 = this.u;
             if (i2 == 5) {
-                this.f3596i.setVisibility(0);
+                this.f3597i.setVisibility(0);
             } else if (i2 == 1) {
-                this.f3596i.setVisibility(0);
+                this.f3597i.setVisibility(0);
             }
         }
     }
@@ -837,34 +837,34 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
 
     public final void E(ImageView imageView, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, imageView, str) == null) || this.p == null || this.f3592e == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, imageView, str) == null) || this.p == null || this.f3593e == null) {
             return;
         }
         imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
         imageView.setId(XBaseAdContainer.Baidu_Ad_IMG_ID);
         if (str.equals("https://cpro.baidustatic.com/cpro/logo/sdk/new-bg-logo.png")) {
             imageView.setTag("BAIDU_LOGO");
-            m(imageView, c.a.j0.a.k.h.a(this.f3592e, 13.0f), c.a.j0.a.k.h.a(this.f3592e, 13.0f), "bd_logo");
+            m(imageView, c.a.j0.a.k.h.a(this.f3593e, 13.0f), c.a.j0.a.k.h.a(this.f3593e, 13.0f), "bd_logo");
         } else if (str.equals("https://cpro.baidustatic.com/cpro/logo/sdk/mob-adIcon_2x.png")) {
             imageView.setTag("AD_LOGO");
-            m(imageView, c.a.j0.a.k.h.a(this.f3592e, 25.0f), c.a.j0.a.k.h.a(this.f3592e, 13.0f), "ad_logo");
+            m(imageView, c.a.j0.a.k.h.a(this.f3593e, 25.0f), c.a.j0.a.k.h.a(this.f3593e, 13.0f), "ad_logo");
         }
-        this.f3594g = (ImageView) this.p.findViewWithTag("BAIDU_LOGO");
+        this.f3595g = (ImageView) this.p.findViewWithTag("BAIDU_LOGO");
         ImageView imageView2 = (ImageView) this.p.findViewWithTag("AD_LOGO");
-        this.f3595h = imageView2;
+        this.f3596h = imageView2;
         this.k = false;
-        if (this.f3594g == null || imageView2 == null) {
+        if (this.f3595g == null || imageView2 == null) {
             return;
         }
         imageView2.setOnClickListener(new g(this));
-        this.f3594g.setOnClickListener(new h(this));
+        this.f3595g.setOnClickListener(new h(this));
     }
 
     public void F(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            ImageView imageView = new ImageView(this.f3592e);
-            MaterialLoader.k(this.f3592e).q(imageView, str, new f(this, imageView, str));
+            ImageView imageView = new ImageView(this.f3593e);
+            MaterialLoader.k(this.f3593e).q(imageView, str, new f(this, imageView, str));
         }
     }
 
@@ -877,16 +877,19 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         if (aVar != null) {
             aVar.onAdClick();
         }
+        S();
         this.T = true;
     }
 
     public void H(String str) {
-        c.a.j0.a.g.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (cVar = this.t) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            c.a.j0.a.g.c cVar = this.t;
+            if (cVar != null) {
+                cVar.onAdError(str);
+            }
+            S();
         }
-        cVar.onAdError(str);
     }
 
     public void I() {
@@ -948,12 +951,14 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
     }
 
     public void O() {
-        c.a.j0.a.g.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.s) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            c.a.j0.a.g.a aVar = this.s;
+            if (aVar != null) {
+                aVar.onSkipClick();
+            }
+            S();
         }
-        aVar.onSkipClick();
     }
 
     public void P() {
@@ -998,7 +1003,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
     public void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f3597j.b(b0, "start");
+            this.f3598j.b(b0, "start");
             c.a.j0.a.k.a.a(new c(this));
         }
     }
@@ -1006,9 +1011,9 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
     public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f3593f = 2;
+            this.f3594f = 2;
             c.a.j0.a.k.a.a(new d(this));
-            AbsCountDownView absCountDownView = this.f3596i;
+            AbsCountDownView absCountDownView = this.f3597i;
             if (absCountDownView != null) {
                 absCountDownView.stop();
             }
@@ -1028,8 +1033,8 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.f3597j.b(b0, "load");
-            this.f3593f = 1;
+            this.f3598j.b(b0, "load");
+            this.f3594f = 1;
         }
     }
 
@@ -1061,14 +1066,14 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             int optInt = this.n.optInt("ad_label_width", 25);
             int optInt2 = this.n.optInt("ad_label_height", 13);
-            TextView textView = new TextView(this.f3592e);
+            TextView textView = new TextView(this.f3593e);
             textView.setText(str);
             textView.setBackgroundColor(Color.parseColor("#33000000"));
             textView.setTextSize(10.0f);
             textView.setIncludeFontPadding(false);
             textView.setTextColor(-1);
             textView.setGravity(17);
-            m(textView, c.a.j0.a.k.h.a(this.f3592e, optInt), c.a.j0.a.k.h.a(this.f3592e, optInt2), NotificationCompatJellybean.KEY_LABEL);
+            m(textView, c.a.j0.a.k.h.a(this.f3593e, optInt), c.a.j0.a.k.h.a(this.f3593e, optInt2), NotificationCompatJellybean.KEY_LABEL);
         }
     }
 
@@ -1090,8 +1095,8 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || !this.E || this.z || TextUtils.isEmpty(this.B) || TextUtils.isEmpty(this.A)) {
             return;
         }
-        RelativeLayout relativeLayout = new RelativeLayout(this.f3592e);
-        DisplayInfoView.c cVar = new DisplayInfoView.c(this.f3592e);
+        RelativeLayout relativeLayout = new RelativeLayout(this.f3593e);
+        DisplayInfoView.c cVar = new DisplayInfoView.c(this.f3593e);
         cVar.a(this.B, this.A);
         cVar.c(-10066330);
         cVar.b(new e(this));
@@ -1122,7 +1127,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
     public final void o() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && this.U) {
-            LottieAnimationView lottieAnimationView = new LottieAnimationView(this.f3592e);
+            LottieAnimationView lottieAnimationView = new LottieAnimationView(this.f3593e);
             c.a.f0.a.c.b.c().b(this.V, lottieAnimationView, null, new b(this, lottieAnimationView));
         }
     }
@@ -1154,22 +1159,22 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         if (!(interceptable == null || interceptable.invokeV(1048607, this) == null) || TextUtils.isEmpty(this.L)) {
             return;
         }
-        int optInt = this.n.optInt("bottom_logo_height", c.a.j0.a.j.b.f3651a);
-        if (optInt != c.a.j0.a.j.b.f3651a) {
-            c.a.j0.a.j.b.f3651a = optInt;
+        int optInt = this.n.optInt("bottom_logo_height", c.a.j0.a.j.b.f3652a);
+        if (optInt != c.a.j0.a.j.b.f3652a) {
+            c.a.j0.a.j.b.f3652a = optInt;
         }
         try {
-            RelativeLayout relativeLayout = new RelativeLayout(this.f3592e);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, c.a.j0.a.k.h.a(this.f3592e, optInt));
+            RelativeLayout relativeLayout = new RelativeLayout(this.f3593e);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, c.a.j0.a.k.h.a(this.f3593e, optInt));
             layoutParams.addRule(12);
             relativeLayout.setId(15);
-            ImageView imageView = new ImageView(this.f3592e);
+            ImageView imageView = new ImageView(this.f3593e);
             imageView.setImageResource(Integer.parseInt(this.L));
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             relativeLayout.addView(imageView, new RelativeLayout.LayoutParams(-1, -1));
             this.p.addView(relativeLayout, layoutParams);
         } catch (Throwable th) {
-            this.f3597j.f(b0, th);
+            this.f3598j.f(b0, th);
         }
     }
 
@@ -1177,7 +1182,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
     public void pause() {
         AbsCountDownView absCountDownView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || (absCountDownView = this.f3596i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || (absCountDownView = this.f3597i) == null) {
             return;
         }
         absCountDownView.stop();
@@ -1193,12 +1198,12 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
             int optInt = this.n.optInt("small_logo_width", -2);
             int optInt2 = this.n.optInt("small_logo_height", -2);
             try {
-                ImageView imageView = new ImageView(this.f3592e);
+                ImageView imageView = new ImageView(this.f3593e);
                 imageView.setImageResource(Integer.parseInt(optString));
                 imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                m(imageView, c.a.j0.a.k.h.a(this.f3592e, optInt), c.a.j0.a.k.h.a(this.f3592e, optInt2), "logo");
+                m(imageView, c.a.j0.a.k.h.a(this.f3593e, optInt), c.a.j0.a.k.h.a(this.f3593e, optInt2), "logo");
             } catch (Throwable th) {
-                this.f3597j.f(b0, th);
+                this.f3598j.f(b0, th);
             }
         }
     }
@@ -1222,7 +1227,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
     public void resume() {
         AbsCountDownView absCountDownView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048611, this) == null) || (absCountDownView = this.f3596i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048611, this) == null) || (absCountDownView = this.f3597i) == null) {
             return;
         }
         absCountDownView.start();
@@ -1241,11 +1246,11 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
             if (TextUtils.isEmpty(this.M) || !this.N) {
                 return;
             }
-            this.Z = new LottieAnimationView(this.f3592e);
+            this.Z = new LottieAnimationView(this.f3593e);
             JSONObject optJSONObject = this.P.optJSONObject("click_float_lottie");
             double optDouble = optJSONObject != null ? optJSONObject.optDouble("floatW_screenW_ratio", 0.69d) : 0.69d;
             double optDouble2 = optJSONObject != null ? optJSONObject.optDouble("floatH_floatW_ratio", 0.419d) : 0.419d;
-            int screenWidth = (int) (ScreenUtils.getScreenWidth(this.f3592e) * optDouble);
+            int screenWidth = (int) (ScreenUtils.getScreenWidth(this.f3593e) * optDouble);
             c.a.f0.a.c.b.c().b(this.M, this.Z, null, new k(this, screenWidth, (int) (screenWidth * optDouble2)));
         }
     }
@@ -1260,7 +1265,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
             aVar.m(optInt);
             aVar.o(this.H);
             aVar.n(new View$OnClickListenerC0079a(this));
-            BDSplashActionView k2 = aVar.k(this.f3592e);
+            BDSplashActionView k2 = aVar.k(this.f3593e);
             this.a0 = k2;
             k2.attachTo(this.p);
         }
@@ -1271,14 +1276,14 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
             try {
                 if (this.J == 1) {
-                    this.f3596i = new RectangleCountDownView(this.f3592e);
+                    this.f3597i = new RectangleCountDownView(this.f3593e);
                 } else {
-                    this.f3596i = new CircleTextProgressbar(this.f3592e);
+                    this.f3597i = new CircleTextProgressbar(this.f3593e);
                 }
-                this.f3596i.setVisibility(4);
-                this.f3596i.setOnClickListener(new i(this));
-                this.f3596i.setCountdownProgressListener(new j(this));
-                m(this.f3596i, c.a.j0.a.k.h.a(this.f3592e, this.n.optInt("skip_btn_width", 40)), c.a.j0.a.k.h.a(this.f3592e, this.n.optInt("skip_btn_height", 40)), FreeSpaceBox.TYPE);
+                this.f3597i.setVisibility(4);
+                this.f3597i.setOnClickListener(new i(this));
+                this.f3597i.setCountdownProgressListener(new j(this));
+                m(this.f3597i, c.a.j0.a.k.h.a(this.f3593e, this.n.optInt("skip_btn_width", 40)), c.a.j0.a.k.h.a(this.f3593e, this.n.optInt("skip_btn_height", 40)), FreeSpaceBox.TYPE);
             } catch (Exception unused) {
             }
         }
@@ -1287,11 +1292,11 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
     public void v() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048615, this) == null) && this.D) {
-            TextView textView = new TextView(this.f3592e);
+            TextView textView = new TextView(this.f3593e);
             this.r = textView;
             textView.setText("已于Wi-Fi环境预加载");
             this.r.setTextColor(Color.parseColor("#999999"));
-            this.r.setTextSize(0, c.a.j0.a.k.h.c(this.f3592e, 11));
+            this.r.setTextSize(0, c.a.j0.a.k.h.c(this.f3593e, 11));
             m(this.r, -2, -2, "wifi_tip");
         }
     }
@@ -1302,7 +1307,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
         if ((interceptable == null || interceptable.invokeV(1048616, this) == null) && this.R) {
             if (this.S == null) {
                 try {
-                    this.S = (SensorManager) this.f3592e.getSystemService("sensor");
+                    this.S = (SensorManager) this.f3593e.getSystemService("sensor");
                 } catch (Exception unused) {
                     return;
                 }
@@ -1326,7 +1331,7 @@ public abstract class a implements c.a.j0.a.g.b, AdView.a, SensorEventListener {
             if (bDSplashActionView != null) {
                 bDSplashActionView.bringToFront();
             }
-            AbsCountDownView absCountDownView = this.f3596i;
+            AbsCountDownView absCountDownView = this.f3597i;
             if (absCountDownView != null) {
                 absCountDownView.bringToFront();
             }

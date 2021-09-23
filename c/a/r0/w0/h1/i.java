@@ -14,19 +14,19 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f26845a;
+    public d f26865a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26846b;
+    public String f26866b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VideoAggregationModel f26847c;
+    public VideoAggregationModel f26867c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f26848d;
+    public boolean f26868d;
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoAggregationModel.c f26849e;
+    public VideoAggregationModel.c f26869e;
 
     /* loaded from: classes4.dex */
     public class a implements VideoAggregationModel.c {
@@ -34,7 +34,7 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f26850a;
+        public final /* synthetic */ i f26870a;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -51,29 +51,29 @@ public class i {
                     return;
                 }
             }
-            this.f26850a = iVar;
+            this.f26870a = iVar;
         }
 
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
         public void a(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f26850a.f26845a == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f26870a.f26865a == null) {
                 return;
             }
-            this.f26850a.f26845a.hideLoadingView();
-            this.f26850a.f26845a.showMsg(str);
-            this.f26850a.f26845a.onLoadFail();
+            this.f26870a.f26865a.hideLoadingView();
+            this.f26870a.f26865a.showMsg(str);
+            this.f26870a.f26865a.onLoadFail();
         }
 
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
         public void b(List<g> list, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f26850a.f26845a == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f26870a.f26865a == null) {
                 return;
             }
-            this.f26850a.f26845a.hideLoadingView();
-            this.f26850a.f26848d = z2;
-            this.f26850a.f26845a.setData(list, z, z2);
+            this.f26870a.f26865a.hideLoadingView();
+            this.f26870a.f26868d = z2;
+            this.f26870a.f26865a.setData(list, z, z2);
         }
     }
 
@@ -93,15 +93,15 @@ public class i {
             }
         }
         a aVar = new a(this);
-        this.f26849e = aVar;
-        this.f26845a = dVar;
-        this.f26847c = new VideoAggregationModel(tbPageContext, aVar);
+        this.f26869e = aVar;
+        this.f26865a = dVar;
+        this.f26867c = new VideoAggregationModel(tbPageContext, aVar);
     }
 
     public void c() {
         VideoAggregationModel videoAggregationModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (videoAggregationModel = this.f26847c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (videoAggregationModel = this.f26867c) == null) {
             return;
         }
         videoAggregationModel.cancelLoadData();
@@ -110,7 +110,7 @@ public class i {
     public void d() {
         VideoAggregationModel videoAggregationModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (videoAggregationModel = this.f26847c) != null && this.f26848d) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (videoAggregationModel = this.f26867c) != null && this.f26868d) {
             videoAggregationModel.LoadData();
         }
     }
@@ -118,7 +118,7 @@ public class i {
     public void e() {
         VideoAggregationModel videoAggregationModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (videoAggregationModel = this.f26847c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (videoAggregationModel = this.f26867c) == null) {
             return;
         }
         videoAggregationModel.A();
@@ -127,7 +127,7 @@ public class i {
     public void f(String str) {
         VideoAggregationModel videoAggregationModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (videoAggregationModel = this.f26847c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (videoAggregationModel = this.f26867c) == null) {
             return;
         }
         videoAggregationModel.setFrom(str);
@@ -136,8 +136,8 @@ public class i {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f26846b = str;
-            VideoAggregationModel videoAggregationModel = this.f26847c;
+            this.f26866b = str;
+            VideoAggregationModel videoAggregationModel = this.f26867c;
             if (videoAggregationModel != null) {
                 videoAggregationModel.B(str);
             }
@@ -147,7 +147,7 @@ public class i {
     public void h(String str) {
         VideoAggregationModel videoAggregationModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (videoAggregationModel = this.f26847c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (videoAggregationModel = this.f26867c) == null) {
             return;
         }
         videoAggregationModel.C(str);
@@ -156,7 +156,7 @@ public class i {
     public void i(String str) {
         VideoAggregationModel videoAggregationModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (videoAggregationModel = this.f26847c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (videoAggregationModel = this.f26867c) == null) {
             return;
         }
         videoAggregationModel.D(str);

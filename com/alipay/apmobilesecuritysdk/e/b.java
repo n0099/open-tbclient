@@ -10,13 +10,13 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35788a;
+    public String f35811a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35789b;
+    public String f35812b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35790c;
+    public String f35813c;
 
     public b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -33,11 +33,11 @@ public final class b {
                 return;
             }
         }
-        this.f35788a = "";
-        this.f35789b = "";
-        this.f35790c = "";
-        this.f35788a = str;
-        this.f35789b = str2;
-        this.f35790c = str3;
+        this.f35811a = "";
+        this.f35812b = "";
+        this.f35813c = "";
+        this.f35811a = str;
+        this.f35812b = str2;
+        this.f35813c = str3;
     }
 }

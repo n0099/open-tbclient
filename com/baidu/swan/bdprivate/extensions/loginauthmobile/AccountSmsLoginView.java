@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AccountSmsLoginView extends SmsLoginView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context v;
+    public Context w;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -25,7 +25,7 @@ public class AccountSmsLoginView extends SmsLoginView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f46730e;
+        public final /* synthetic */ AccountSmsLoginView f46832e;
 
         public a(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class AccountSmsLoginView extends SmsLoginView {
                     return;
                 }
             }
-            this.f46730e = accountSmsLoginView;
+            this.f46832e = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.a(this.f46730e.v, ((FragmentActivity) this.f46730e.v).getWindow().getDecorView().getWindowToken());
+                x.a(this.f46832e.w, ((FragmentActivity) this.f46832e.w).getWindow().getDecorView().getWindowToken());
             }
         }
     }
@@ -60,7 +60,7 @@ public class AccountSmsLoginView extends SmsLoginView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f46731e;
+        public final /* synthetic */ AccountSmsLoginView f46833e;
 
         public b(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class AccountSmsLoginView extends SmsLoginView {
                     return;
                 }
             }
-            this.f46731e = accountSmsLoginView;
+            this.f46833e = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.b(this.f46731e.v, false);
+                x.b(this.f46833e.w, false);
             }
         }
     }
@@ -107,7 +107,7 @@ public class AccountSmsLoginView extends SmsLoginView {
                 return;
             }
         }
-        this.v = context;
+        this.w = context;
         requestFocusAndShowKeyBoard();
     }
 
@@ -155,7 +155,7 @@ public class AccountSmsLoginView extends SmsLoginView {
                 return;
             }
         }
-        this.v = context;
+        this.w = context;
         requestFocusAndShowKeyBoard();
     }
 
@@ -178,7 +178,7 @@ public class AccountSmsLoginView extends SmsLoginView {
                 return;
             }
         }
-        this.v = context;
+        this.w = context;
         requestFocusAndShowKeyBoard();
     }
 }

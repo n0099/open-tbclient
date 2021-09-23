@@ -15,20 +15,20 @@ public class a extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f26510g;
+    public static final BdUniqueId f26533g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f26511h;
+    public static final BdUniqueId f26534h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f26512i;
+    public static final BdUniqueId f26535i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26513e;
+    public int f26536e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26514f;
+    public int f26537f;
 
     static {
         InterceptResult invokeClinit;
@@ -43,9 +43,9 @@ public class a extends BaseCardInfo {
                 return;
             }
         }
-        f26510g = BdUniqueId.gen();
-        f26511h = BdUniqueId.gen();
-        f26512i = BdUniqueId.gen();
+        f26533g = BdUniqueId.gen();
+        f26534h = BdUniqueId.gen();
+        f26535i = BdUniqueId.gen();
     }
 
     public a() {
@@ -65,7 +65,7 @@ public class a extends BaseCardInfo {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26513e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26536e : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
@@ -74,12 +74,12 @@ public class a extends BaseCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (isSupportTop()) {
-                return f26510g;
+                return f26533g;
             }
             if (isSupportBottom()) {
-                return f26511h;
+                return f26534h;
             }
-            return f26512i;
+            return f26535i;
         }
         return (BdUniqueId) invokeV.objValue;
     }
@@ -87,20 +87,20 @@ public class a extends BaseCardInfo {
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26514f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26537f : invokeV.intValue;
     }
 
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f26513e = i2;
+            this.f26536e = i2;
         }
     }
 
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f26514f = i2;
+            this.f26537f = i2;
         }
     }
 }

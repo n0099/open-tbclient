@@ -23,10 +23,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<PlaceId, List<AdvertAppInfo>> f24081a;
+    public final Map<PlaceId, List<AdvertAppInfo>> f24097a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<PlaceId, Long> f24082b;
+    public final Map<PlaceId, Long> f24098b;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -36,11 +36,11 @@ public class b {
 
     /* renamed from: c.a.r0.q.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1119b {
+    public static class C1117b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f24083a;
+        public static final b f24099a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,7 +56,7 @@ public class b {
                     return;
                 }
             }
-            f24083a = new b(null);
+            f24099a = new b(null);
         }
     }
 
@@ -67,21 +67,21 @@ public class b {
     public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1119b.f24083a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1117b.f24099a : (b) invokeV.objValue;
     }
 
     public void a(@NonNull PlaceId placeId, @NonNull List<AdvertAppInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, placeId, list) == null) {
-            List<AdvertAppInfo> list2 = this.f24081a.get(placeId);
+            List<AdvertAppInfo> list2 = this.f24097a.get(placeId);
             if (list2 == null) {
-                synchronized (this.f24081a) {
+                synchronized (this.f24097a) {
                     list2 = Collections.synchronizedList(new ArrayList());
-                    this.f24081a.put(placeId, list2);
+                    this.f24097a.put(placeId, list2);
                 }
             }
             list2.addAll(list);
-            this.f24082b.put(placeId, Long.valueOf(System.currentTimeMillis()));
+            this.f24098b.put(placeId, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
@@ -90,7 +90,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, placeId)) == null) {
-            List<AdvertAppInfo> list = this.f24081a.get(placeId);
+            List<AdvertAppInfo> list = this.f24097a.get(placeId);
             if (c.a.r0.p1.o.k.a.e(list)) {
                 return null;
             }
@@ -106,7 +106,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, placeId)) == null) {
-            List<AdvertAppInfo> list = this.f24081a.get(placeId);
+            List<AdvertAppInfo> list = this.f24097a.get(placeId);
             if (c.a.r0.p1.o.k.a.e(list)) {
                 return null;
             }
@@ -119,7 +119,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, placeId)) == null) {
-            Long l = this.f24082b.get(placeId);
+            Long l = this.f24098b.get(placeId);
             if (l == null) {
                 return 0L;
             }
@@ -131,7 +131,7 @@ public class b {
     public boolean f(@NonNull PlaceId placeId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, placeId)) == null) ? !c.a.r0.p1.o.k.a.e(this.f24081a.get(placeId)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, placeId)) == null) ? !c.a.r0.p1.o.k.a.e(this.f24097a.get(placeId)) : invokeL.booleanValue;
     }
 
     public b() {
@@ -147,7 +147,7 @@ public class b {
                 return;
             }
         }
-        this.f24081a = new ConcurrentHashMap();
-        this.f24082b = new ConcurrentHashMap();
+        this.f24097a = new ConcurrentHashMap();
+        this.f24098b = new ConcurrentHashMap();
     }
 }

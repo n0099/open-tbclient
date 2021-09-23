@@ -1,55 +1,72 @@
 package c.a.r0.j3;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.GconAccount;
+import tbclient.ActBtn;
 /* loaded from: classes3.dex */
-public class r {
+public class r implements c.a.e.l.e.n {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final BdUniqueId f21058g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f21047a;
+    /* renamed from: e  reason: collision with root package name */
+    public String f21059e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f21048b;
+    /* renamed from: f  reason: collision with root package name */
+    public String f21060f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1787590372, "Lc/a/r0/j3/r;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1787590372, "Lc/a/r0/j3/r;");
+                return;
+            }
+        }
+        f21058g = BdUniqueId.gen();
+    }
 
     public r() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void b(ActBtn actBtn) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21048b : (String) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21047a : invokeV.booleanValue;
-    }
-
-    public void c(GconAccount gconAccount) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gconAccount) == null) || gconAccount == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, actBtn) == null) || actBtn == null) {
             return;
         }
-        this.f21047a = gconAccount.has_account.intValue() == 1;
-        this.f21048b = gconAccount.menu_name;
+        this.f21059e = actBtn.text;
+        this.f21060f = actBtn.url;
+    }
+
+    @Override // c.a.e.l.e.n
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f21058g : (BdUniqueId) invokeV.objValue;
     }
 }

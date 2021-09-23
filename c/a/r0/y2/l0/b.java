@@ -23,14 +23,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f29583c;
+    public static b f29603c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, List<JSONObject>> f29584a;
+    public ConcurrentHashMap<String, List<JSONObject>> f29604a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, Integer> f29585b;
+    public ConcurrentHashMap<String, Integer> f29605b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public class b {
                 return;
             }
         }
-        this.f29584a = new ConcurrentHashMap<>();
-        this.f29585b = new ConcurrentHashMap<>();
+        this.f29604a = new ConcurrentHashMap<>();
+        this.f29605b = new ConcurrentHashMap<>();
     }
 
     public static JSONObject b(ThreadInfo threadInfo) {
@@ -113,14 +113,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f29583c == null) {
+            if (f29603c == null) {
                 synchronized (b.class) {
-                    if (f29583c == null) {
-                        f29583c = new b();
+                    if (f29603c == null) {
+                        f29603c = new b();
                     }
                 }
             }
-            return f29583c;
+            return f29603c;
         }
         return (b) invokeV.objValue;
     }
@@ -128,21 +128,21 @@ public class b {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f29584a.put(str, new ArrayList());
+            this.f29604a.put(str, new ArrayList());
         }
     }
 
     public String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? g(this.f29584a.get(str)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? g(this.f29604a.get(str)) : (String) invokeL.objValue;
     }
 
     public int e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Integer num = this.f29585b.get(str);
+            Integer num = this.f29605b.get(str);
             if (num == null) {
                 return 0;
             }
@@ -178,14 +178,14 @@ public class b {
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(list);
-            this.f29584a.put(str, arrayList);
+            this.f29604a.put(str, arrayList);
         }
     }
 
     public void i(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, str, i2) == null) {
-            this.f29585b.put(str, Integer.valueOf(i2));
+            this.f29605b.put(str, Integer.valueOf(i2));
         }
     }
 }

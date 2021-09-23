@@ -1,6 +1,7 @@
 package com.baidu.apollon.beans;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.NoProguard;
 import com.baidu.apollon.utils.JsonUtils;
@@ -17,16 +18,17 @@ public class BeanResponseBase implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37825a = "系统开小差，等一会儿再试吧";
+    public static final String f37873a = "系统开小差，等一会儿再试吧";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37826b = "content";
+    public static final String f37874b = "content";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f37827c = "data";
+    public static final String f37875c = "data";
     public transient /* synthetic */ FieldHolder $fh;
     public Session cashdesk;
     public JSONObject content;
+    public String contentSign;
     public JSONObject data;
     public int encrypted;
     public JSONObject errContent;
@@ -89,18 +91,25 @@ public class BeanResponseBase implements NoProguard {
         this.data = null;
         this.token = "";
         this.encrypted = 0;
+        this.contentSign = "";
+    }
+
+    public String getContentsign() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.contentSign : (String) invokeV.objValue;
     }
 
     public String getNameOfRealResponseContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.content == null && this.data != null) ? "data" : "content" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.content == null && this.data != null) ? "data" : "content" : (String) invokeV.objValue;
     }
 
     public String getRealResponseContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = this.content;
             if (jSONObject != null) {
                 return StringUtils.replaceBom(jSONObject.toString());
@@ -114,7 +123,7 @@ public class BeanResponseBase implements NoProguard {
     public String getRealResponseErrContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject jSONObject = this.errContent;
             return jSONObject != null ? StringUtils.replaceBom(jSONObject.toString()) : "";
         }
@@ -124,7 +133,7 @@ public class BeanResponseBase implements NoProguard {
     public String getRealResponseMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (!TextUtils.isEmpty(this.msg)) {
                 return this.msg;
             }
@@ -132,7 +141,7 @@ public class BeanResponseBase implements NoProguard {
                 return this.err_msg;
             }
             if (TextUtils.isEmpty(this.result_info)) {
-                return !TextUtils.isEmpty(this.result_string) ? this.result_string : f37825a;
+                return !TextUtils.isEmpty(this.result_string) ? this.result_string : f37873a;
             }
             return this.result_info;
         }
@@ -142,7 +151,7 @@ public class BeanResponseBase implements NoProguard {
     public int getServerReturnValue(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
             int i2 = this.ret;
             if (i2 != 0) {
                 return i2;
@@ -173,18 +182,18 @@ public class BeanResponseBase implements NoProguard {
     public String getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.token : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.token : (String) invokeV.objValue;
     }
 
     public boolean needDecryption() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.encrypted == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.encrypted == 1 : invokeV.booleanValue;
     }
 
     public boolean needVerifySignature() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (TextUtils.isEmpty(this.signature) || TextUtils.isEmpty(this.mdAlgorithm)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (TextUtils.isEmpty(this.signature) || TextUtils.isEmpty(this.mdAlgorithm)) ? false : true : invokeV.booleanValue;
     }
 }

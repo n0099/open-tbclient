@@ -14,11 +14,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f24070b;
+    public static b f24086b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile HashMap<String, List<a>> f24071a;
+    public volatile HashMap<String, List<a>> f24087a;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -26,10 +26,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f24072a;
+        public String f24088a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, Object> f24073b;
+        public HashMap<String, Object> f24089b;
 
         public a(String str, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class b {
                     return;
                 }
             }
-            this.f24072a = str;
-            this.f24073b = hashMap;
+            this.f24088a = str;
+            this.f24089b = hashMap;
         }
     }
 
@@ -64,21 +64,21 @@ public class b {
                 return;
             }
         }
-        this.f24071a = new HashMap<>();
+        this.f24087a = new HashMap<>();
     }
 
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f24070b == null) {
+            if (f24086b == null) {
                 synchronized (b.class) {
-                    if (f24070b == null) {
-                        f24070b = new b();
+                    if (f24086b == null) {
+                        f24086b = new b();
                     }
                 }
             }
-            return f24070b;
+            return f24086b;
         }
         return (b) invokeV.objValue;
     }
@@ -86,10 +86,10 @@ public class b {
     public void a(String str, String str2, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, hashMap) == null) {
-            List<a> list = this.f24071a.get(str);
+            List<a> list = this.f24087a.get(str);
             if (list == null) {
                 list = new ArrayList<>();
-                this.f24071a.put(str, list);
+                this.f24087a.put(str, list);
             }
             list.add(new a(str2, hashMap));
         }
@@ -98,7 +98,7 @@ public class b {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f24071a.remove(str);
+            this.f24087a.remove(str);
         }
     }
 
@@ -106,8 +106,8 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.f24071a.containsKey(str)) {
-                return this.f24071a.get(str);
+            if (this.f24087a.containsKey(str)) {
+                return this.f24087a.get(str);
             }
             return new ArrayList();
         }

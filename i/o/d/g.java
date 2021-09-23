@@ -14,7 +14,7 @@ public final class g<T> extends i.h<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final T f78843b;
+    public final T f79162b;
 
     /* loaded from: classes10.dex */
     public class a implements h.c<T> {
@@ -22,7 +22,7 @@ public final class g<T> extends i.h<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Object f78844e;
+        public final /* synthetic */ Object f79163e;
 
         public a(Object obj) {
             Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public final class g<T> extends i.h<T> {
                     return;
                 }
             }
-            this.f78844e = obj;
+            this.f79163e = obj;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -48,7 +48,7 @@ public final class g<T> extends i.h<T> {
         public void call(i<? super T> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                iVar.c((Object) this.f78844e);
+                iVar.c((Object) this.f79163e);
             }
         }
     }
@@ -59,10 +59,10 @@ public final class g<T> extends i.h<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final i.o.c.b f78845e;
+        public final i.o.c.b f79164e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final T f78846f;
+        public final T f79165f;
 
         public b(i.o.c.b bVar, T t) {
             Interceptable interceptable = $ic;
@@ -79,8 +79,8 @@ public final class g<T> extends i.h<T> {
                     return;
                 }
             }
-            this.f78845e = bVar;
-            this.f78846f = t;
+            this.f79164e = bVar;
+            this.f79165f = t;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -89,7 +89,7 @@ public final class g<T> extends i.h<T> {
         public void call(i<? super T> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                iVar.a(this.f78845e.a(new d(iVar, this.f78846f)));
+                iVar.a(this.f79164e.a(new d(iVar, this.f79165f)));
             }
         }
     }
@@ -100,10 +100,10 @@ public final class g<T> extends i.h<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final i.g f78847e;
+        public final i.g f79166e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final T f78848f;
+        public final T f79167f;
 
         public c(i.g gVar, T t) {
             Interceptable interceptable = $ic;
@@ -120,8 +120,8 @@ public final class g<T> extends i.h<T> {
                     return;
                 }
             }
-            this.f78847e = gVar;
-            this.f78848f = t;
+            this.f79166e = gVar;
+            this.f79167f = t;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -130,9 +130,9 @@ public final class g<T> extends i.h<T> {
         public void call(i<? super T> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                g.a createWorker = this.f78847e.createWorker();
+                g.a createWorker = this.f79166e.createWorker();
                 iVar.a(createWorker);
-                createWorker.b(new d(iVar, this.f78848f));
+                createWorker.b(new d(iVar, this.f79167f));
             }
         }
     }
@@ -143,10 +143,10 @@ public final class g<T> extends i.h<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final i<? super T> f78849e;
+        public final i<? super T> f79168e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final T f78850f;
+        public final T f79169f;
 
         public d(i<? super T> iVar, T t) {
             Interceptable interceptable = $ic;
@@ -163,8 +163,8 @@ public final class g<T> extends i.h<T> {
                     return;
                 }
             }
-            this.f78849e = iVar;
-            this.f78850f = t;
+            this.f79168e = iVar;
+            this.f79169f = t;
         }
 
         /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
@@ -173,9 +173,9 @@ public final class g<T> extends i.h<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f78849e.c((T) this.f78850f);
+                    this.f79168e.c((T) this.f79169f);
                 } catch (Throwable th) {
-                    this.f78849e.b(th);
+                    this.f79168e.b(th);
                 }
             }
         }
@@ -199,7 +199,7 @@ public final class g<T> extends i.h<T> {
                 return;
             }
         }
-        this.f78843b = t;
+        this.f79162b = t;
     }
 
     public static <T> g<T> m(T t) {
@@ -213,9 +213,9 @@ public final class g<T> extends i.h<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             if (gVar instanceof i.o.c.b) {
-                return i.h.b(new b((i.o.c.b) gVar, this.f78843b));
+                return i.h.b(new b((i.o.c.b) gVar, this.f79162b));
             }
-            return i.h.b(new c(gVar, this.f78843b));
+            return i.h.b(new c(gVar, this.f79162b));
         }
         return (i.h) invokeL.objValue;
     }

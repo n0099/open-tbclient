@@ -20,22 +20,22 @@ public class c implements b, View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f29202e;
+    public float f29222e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f29203f;
+    public TbPageContext f29223f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f29204g;
+    public LinearLayout f29224g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f29205h;
+    public ImageView f29225h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f29206i;
+    public ImageView f29226i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f29207j;
+    public ImageView f29227j;
     public ImageView k;
     public ImageView l;
     public RelativeLayout m;
@@ -62,10 +62,10 @@ public class c implements b, View.OnClickListener {
                 return;
             }
         }
-        this.f29203f = tbPageContext;
+        this.f29223f = tbPageContext;
         this.r = aVar;
         float f2 = (i2 * 1.0f) / i3;
-        this.f29202e = f2;
+        this.f29222e = f2;
         this.s = f2;
         this.t = 0.0f;
         a();
@@ -75,21 +75,21 @@ public class c implements b, View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.f29203f.getPageActivity().findViewById(R.id.capture_ratio_container);
-            this.f29204g = linearLayout;
+            LinearLayout linearLayout = (LinearLayout) this.f29223f.getPageActivity().findViewById(R.id.capture_ratio_container);
+            this.f29224g = linearLayout;
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(linearLayout);
             d2.o(R.string.J_X05);
             d2.f(R.color.CAM_X0214);
-            this.f29205h = (ImageView) this.f29203f.getPageActivity().findViewById(R.id.ratio_original);
-            this.m = (RelativeLayout) this.f29203f.getPageActivity().findViewById(R.id.ratio_original_container);
-            this.k = (ImageView) this.f29203f.getPageActivity().findViewById(R.id.ratio_9_16);
-            this.p = (RelativeLayout) this.f29203f.getPageActivity().findViewById(R.id.ratio_9_16_container);
-            this.f29207j = (ImageView) this.f29203f.getPageActivity().findViewById(R.id.ratio_3_4);
-            this.o = (RelativeLayout) this.f29203f.getPageActivity().findViewById(R.id.ratio_3_4_container);
-            this.f29206i = (ImageView) this.f29203f.getPageActivity().findViewById(R.id.ratio_16_9);
-            this.n = (RelativeLayout) this.f29203f.getPageActivity().findViewById(R.id.ratio_16_9_container);
-            this.l = (ImageView) this.f29203f.getPageActivity().findViewById(R.id.ratio_1_1);
-            this.q = (RelativeLayout) this.f29203f.getPageActivity().findViewById(R.id.ratio_1_1_container);
+            this.f29225h = (ImageView) this.f29223f.getPageActivity().findViewById(R.id.ratio_original);
+            this.m = (RelativeLayout) this.f29223f.getPageActivity().findViewById(R.id.ratio_original_container);
+            this.k = (ImageView) this.f29223f.getPageActivity().findViewById(R.id.ratio_9_16);
+            this.p = (RelativeLayout) this.f29223f.getPageActivity().findViewById(R.id.ratio_9_16_container);
+            this.f29227j = (ImageView) this.f29223f.getPageActivity().findViewById(R.id.ratio_3_4);
+            this.o = (RelativeLayout) this.f29223f.getPageActivity().findViewById(R.id.ratio_3_4_container);
+            this.f29226i = (ImageView) this.f29223f.getPageActivity().findViewById(R.id.ratio_16_9);
+            this.n = (RelativeLayout) this.f29223f.getPageActivity().findViewById(R.id.ratio_16_9_container);
+            this.l = (ImageView) this.f29223f.getPageActivity().findViewById(R.id.ratio_1_1);
+            this.q = (RelativeLayout) this.f29223f.getPageActivity().findViewById(R.id.ratio_1_1_container);
             g();
             this.m.setOnClickListener(this);
             this.p.setOnClickListener(this);
@@ -105,14 +105,14 @@ public class c implements b, View.OnClickListener {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29204g.getVisibility() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29224g.getVisibility() : invokeV.intValue;
     }
 
     @Override // c.a.r0.y.b.b
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f29204g.setVisibility(i2);
+            this.f29224g.setVisibility(i2);
         }
     }
 
@@ -150,22 +150,22 @@ public class c implements b, View.OnClickListener {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f29205h.setImageDrawable(this.f29203f.getResources().getDrawable(R.drawable.icon_pure_proportion_original));
-            this.k.setImageDrawable(this.f29203f.getResources().getDrawable(R.drawable.icon_pure_proportion_9_16));
-            this.f29207j.setImageDrawable(this.f29203f.getResources().getDrawable(R.drawable.icon_pure_proportion_3_4));
-            this.f29206i.setImageDrawable(this.f29203f.getResources().getDrawable(R.drawable.icon_pure_proportion_16_9));
-            this.l.setImageDrawable(this.f29203f.getResources().getDrawable(R.drawable.icon_pure_proportion_1_1));
+            this.f29225h.setImageDrawable(this.f29223f.getResources().getDrawable(R.drawable.icon_pure_proportion_original));
+            this.k.setImageDrawable(this.f29223f.getResources().getDrawable(R.drawable.icon_pure_proportion_9_16));
+            this.f29227j.setImageDrawable(this.f29223f.getResources().getDrawable(R.drawable.icon_pure_proportion_3_4));
+            this.f29226i.setImageDrawable(this.f29223f.getResources().getDrawable(R.drawable.icon_pure_proportion_16_9));
+            this.l.setImageDrawable(this.f29223f.getResources().getDrawable(R.drawable.icon_pure_proportion_1_1));
             float f2 = this.t;
             if (f2 == 0.0f) {
-                this.f29205h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_proportion_original, this.f29203f.getResources().getColor(R.color.CAM_X0302), null));
+                this.f29225h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_proportion_original, this.f29223f.getResources().getColor(R.color.CAM_X0302), null));
             } else if (f2 == 1.7777778f) {
-                this.k.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_proportion_9_16, this.f29203f.getResources().getColor(R.color.CAM_X0302), null));
+                this.k.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_proportion_9_16, this.f29223f.getResources().getColor(R.color.CAM_X0302), null));
             } else if (f2 == 1.3333334f) {
-                this.f29207j.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_proportion_3_4, this.f29203f.getResources().getColor(R.color.CAM_X0302), null));
+                this.f29227j.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_proportion_3_4, this.f29223f.getResources().getColor(R.color.CAM_X0302), null));
             } else if (f2 == 0.5625f) {
-                this.f29206i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_proportion_16_9, this.f29203f.getResources().getColor(R.color.CAM_X0302), null));
+                this.f29226i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_proportion_16_9, this.f29223f.getResources().getColor(R.color.CAM_X0302), null));
             } else if (f2 == 1.0f) {
-                this.l.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_proportion_1_1, this.f29203f.getResources().getColor(R.color.CAM_X0302), null));
+                this.l.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_proportion_1_1, this.f29223f.getResources().getColor(R.color.CAM_X0302), null));
             }
         }
     }
@@ -183,7 +183,7 @@ public class c implements b, View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
             if (view.getId() == R.id.ratio_original_container) {
                 this.t = 0.0f;
-                f(this.f29202e);
+                f(this.f29222e);
             } else if (view.getId() == R.id.ratio_9_16_container) {
                 this.t = 1.7777778f;
                 f(1.7777778f);
@@ -205,7 +205,7 @@ public class c implements b, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.t = 0.0f;
-            f(this.f29202e);
+            f(this.f29222e);
         }
     }
 
@@ -224,9 +224,9 @@ public class c implements b, View.OnClickListener {
                 return;
             }
         }
-        this.f29203f = tbPageContext;
+        this.f29223f = tbPageContext;
         this.r = aVar;
-        this.f29202e = 1.7777778f;
+        this.f29222e = 1.7777778f;
         this.s = 1.7777778f;
         this.t = 0.0f;
         a();

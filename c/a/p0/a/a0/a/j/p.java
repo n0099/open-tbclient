@@ -13,10 +13,10 @@ public class p extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4464a;
+    public int f4472a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4465b;
+    public int f4473b;
 
     public p() {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class p extends a {
                 return;
             }
         }
-        this.f4464a = Integer.MAX_VALUE;
-        this.f4465b = Integer.MAX_VALUE;
+        this.f4472a = Integer.MAX_VALUE;
+        this.f4473b = Integer.MAX_VALUE;
     }
 
     @Override // c.a.p0.a.a0.a.j.a
@@ -40,10 +40,10 @@ public class p extends a {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (i2 = this.f4464a) == Integer.MAX_VALUE || (i3 = this.f4465b) == Integer.MAX_VALUE) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (i2 = this.f4472a) == Integer.MAX_VALUE || (i3 = this.f4473b) == Integer.MAX_VALUE) {
             return;
         }
-        bVar.f4396j.lineTo(i2, i3);
+        bVar.f4404j.lineTo(i2, i3);
     }
 
     @Override // c.a.p0.a.a0.a.j.a
@@ -52,7 +52,7 @@ public class p extends a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
             return;
         }
-        this.f4464a = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
-        this.f4465b = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
+        this.f4472a = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
+        this.f4473b = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
     }
 }

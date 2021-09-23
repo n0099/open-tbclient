@@ -166,9 +166,15 @@ public class AlaInfoData implements Serializable, Parcelable {
         return invokeV.booleanValue;
     }
 
+    public boolean isVertialLive() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.screen_direction == 0 : invokeV.booleanValue;
+    }
+
     public void parserJson(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e2) {
@@ -179,7 +185,7 @@ public class AlaInfoData implements Serializable, Parcelable {
 
     public void parserProtobuf(AlaLiveInfo alaLiveInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, alaLiveInfo) == null) || alaLiveInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, alaLiveInfo) == null) || alaLiveInfo == null) {
             return;
         }
         try {
@@ -254,7 +260,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
             parcel.writeLong(this.live_id);
             parcel.writeInt(this.live_status);
             parcel.writeParcelable(this.mYyExtData, i2);
@@ -283,7 +289,7 @@ public class AlaInfoData implements Serializable, Parcelable {
 
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {

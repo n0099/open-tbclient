@@ -20,7 +20,7 @@ import io.reactivex.parallel.ParallelFlowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ParallelMapTry<T, R> extends ParallelFlowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class ParallelMapTry<T, R> extends ParallelFlowable<R> {
     public final ParallelFlowable<T> source;
 
     /* renamed from: io.reactivex.internal.operators.parallel.ParallelMapTry$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$parallel$ParallelFailureHandling;
         public static /* synthetic */ Interceptable $ic;
@@ -65,7 +65,7 @@ public final class ParallelMapTry<T, R> extends ParallelFlowable<R> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class ParallelMapTryConditionalSubscriber<T, R> implements ConditionalSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,7 +202,7 @@ public final class ParallelMapTry<T, R> extends ParallelFlowable<R> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class ParallelMapTrySubscriber<T, R> implements ConditionalSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

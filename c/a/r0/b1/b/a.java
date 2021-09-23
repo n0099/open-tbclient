@@ -20,19 +20,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f15921a;
+    public d f15931a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GodSquareRecGodAdapter f15922b;
+    public GodSquareRecGodAdapter f15932b;
 
     /* renamed from: c  reason: collision with root package name */
-    public GodSquareHotGodAdapter f15923c;
+    public GodSquareHotGodAdapter f15933c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c.a.e.l.e.a> f15924d;
+    public List<c.a.e.l.e.a> f15934d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdTypeListView f15925e;
+    public BdTypeListView f15935e;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -49,27 +49,27 @@ public class a {
                 return;
             }
         }
-        this.f15924d = new ArrayList();
-        this.f15925e = bdTypeListView;
-        this.f15921a = new d(tbPageContext);
-        this.f15922b = new GodSquareRecGodAdapter(tbPageContext);
-        this.f15923c = new GodSquareHotGodAdapter(tbPageContext);
-        this.f15924d.add(this.f15921a);
-        this.f15924d.add(this.f15922b);
-        this.f15924d.add(this.f15923c);
+        this.f15934d = new ArrayList();
+        this.f15935e = bdTypeListView;
+        this.f15931a = new d(tbPageContext);
+        this.f15932b = new GodSquareRecGodAdapter(tbPageContext);
+        this.f15933c = new GodSquareHotGodAdapter(tbPageContext);
+        this.f15934d.add(this.f15931a);
+        this.f15934d.add(this.f15932b);
+        this.f15934d.add(this.f15933c);
     }
 
     public List<c.a.e.l.e.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15924d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15934d : (List) invokeV.objValue;
     }
 
     public void b() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f15925e) != null && (bdTypeListView.getAdapter2() instanceof e)) {
-            this.f15925e.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f15935e) != null && (bdTypeListView.getAdapter2() instanceof e)) {
+            this.f15935e.getAdapter2().notifyDataSetChanged();
         }
     }
 }

@@ -28,7 +28,7 @@ public class o extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f4969a;
+        public final /* synthetic */ Activity f4977a;
 
         public a(o oVar, Activity activity, Uri uri, String str, CallbackHandler callbackHandler, String str2) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class o extends a0 {
                     return;
                 }
             }
-            this.f4969a = activity;
+            this.f4977a = activity;
         }
     }
 
@@ -83,7 +83,7 @@ public class o extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
                 return false;
             } else if (eVar.d0()) {
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {

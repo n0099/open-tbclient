@@ -46,7 +46,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.g1.c.f.a, ThreadCardViewHolder<c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ s f17879a;
+        public final /* synthetic */ s f17888a;
 
         public a(s sVar) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.g1.c.f.a, ThreadCardViewHolder<c.a.r0.
                     return;
                 }
             }
-            this.f17879a = sVar;
+            this.f17888a = sVar;
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
@@ -79,11 +79,11 @@ public class s extends c.a.e.l.e.a<c.a.r0.g1.c.f.a, ThreadCardViewHolder<c.a.r0.
             if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, str, x0Var) == null) || arrayList == null || x0Var == null) {
                 return;
             }
-            CustomMessage customMessage = new CustomMessage(2921425, this.f17879a.n.getUniqueId());
+            CustomMessage customMessage = new CustomMessage(2921425, this.f17888a.n.getUniqueId());
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921425);
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-            new b(this.f17879a, null).execute(new Integer[0]);
+            new b(this.f17888a, null).execute(new Integer[0]);
             TiebaStatic.log(new StatisticItem("c13572"));
         }
 
@@ -101,7 +101,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.g1.c.f.a, ThreadCardViewHolder<c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f17880a;
+        public NetWork f17889a;
 
         public b(s sVar) {
             Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.g1.c.f.a, ThreadCardViewHolder<c.a.r0.
                     return;
                 }
             }
-            this.f17880a = null;
+            this.f17889a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -126,10 +126,10 @@ public class s extends c.a.e.l.e.a<c.a.r0.g1.c.f.a, ThreadCardViewHolder<c.a.r0.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.cancel(true);
-                NetWork netWork = this.f17880a;
+                NetWork netWork = this.f17889a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
-                    this.f17880a = null;
+                    this.f17889a = null;
                 }
             }
         }
@@ -142,12 +142,12 @@ public class s extends c.a.e.l.e.a<c.a.r0.g1.c.f.a, ThreadCardViewHolder<c.a.r0.
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr)) == null) {
                 try {
                     NetWork netWork = new NetWork();
-                    this.f17880a = netWork;
+                    this.f17889a = netWork;
                     netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
-                    this.f17880a.addPostData("dislike_from", "concernpage");
-                    this.f17880a.addPostData("dislike_type", "1");
-                    this.f17880a.getNetContext().getRequest().mIsNeedTbs = true;
-                    return this.f17880a.postNetData();
+                    this.f17889a.addPostData("dislike_from", "concernpage");
+                    this.f17889a.addPostData("dislike_type", "1");
+                    this.f17889a.getNetContext().getRequest().mIsNeedTbs = true;
+                    return this.f17889a.postNetData();
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                     return null;
@@ -221,7 +221,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.g1.c.f.a, ThreadCardViewHolder<c.a.r0.
             b0 showNEGFeedBackView = threadCardViewHolder.showNEGFeedBackView(false);
             showNEGFeedBackView.t(this.q);
             showNEGFeedBackView.r(false);
-            showNEGFeedBackView.s(this.f2957e.getString(R.string.concern_recommend_dialog_title));
+            showNEGFeedBackView.s(this.f2958e.getString(R.string.concern_recommend_dialog_title));
             showNEGFeedBackView.v(true);
             showNEGFeedBackView.k = true;
             return threadCardViewHolder;

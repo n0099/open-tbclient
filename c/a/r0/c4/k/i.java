@@ -38,22 +38,22 @@ public class i extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<MediaFileInfo> f16748e;
+    public final List<MediaFileInfo> f16758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaseFragmentActivity f16749f;
+    public BaseFragmentActivity f16759f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LayoutInflater f16750g;
+    public LayoutInflater f16760g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.c4.k.c f16751h;
+    public c.a.r0.c4.k.c f16761h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f16752i;
+    public boolean f16762i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f16753j;
+    public boolean f16763j;
     public boolean k;
     public View.OnClickListener l;
     public c.a.r0.c4.k.g m;
@@ -98,7 +98,7 @@ public class i extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f16754e;
+        public final /* synthetic */ i f16764e;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class i extends BaseAdapter {
                     return;
                 }
             }
-            this.f16754e = iVar;
+            this.f16764e = iVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -129,8 +129,8 @@ public class i extends BaseAdapter {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f16754e.r.f16759d.cancelAnimation();
-                this.f16754e.r.f16759d.setFrame(0);
+                this.f16764e.r.f16769d.cancelAnimation();
+                this.f16764e.r.f16769d.setFrame(0);
             }
         }
 
@@ -155,7 +155,7 @@ public class i extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f16755e;
+        public final /* synthetic */ i f16765e;
 
         public c(i iVar) {
             Interceptable interceptable = $ic;
@@ -172,14 +172,14 @@ public class i extends BaseAdapter {
                     return;
                 }
             }
-            this.f16755e = iVar;
+            this.f16765e = iVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f16755e.q.I();
+                this.f16765e.q.I();
             }
         }
     }
@@ -190,16 +190,16 @@ public class i extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f16756a;
+        public View f16766a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f16757b;
+        public View f16767b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbCameraView f16758c;
+        public TbCameraView f16768c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TBLottieAnimationView f16759d;
+        public TBLottieAnimationView f16769d;
 
         public d(i iVar) {
             Interceptable interceptable = $ic;
@@ -228,13 +228,13 @@ public class i extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public MediaFileInfo f16760e;
+        public MediaFileInfo f16770e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f16761f;
+        public int f16771f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i f16762g;
+        public final /* synthetic */ i f16772g;
 
         public e(i iVar, MediaFileInfo mediaFileInfo, int i2) {
             Interceptable interceptable = $ic;
@@ -251,9 +251,9 @@ public class i extends BaseAdapter {
                     return;
                 }
             }
-            this.f16762g = iVar;
-            this.f16760e = mediaFileInfo;
-            this.f16761f = i2;
+            this.f16772g = iVar;
+            this.f16770e = mediaFileInfo;
+            this.f16771f = i2;
         }
 
         @Override // android.view.View.OnClickListener
@@ -261,18 +261,18 @@ public class i extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == R.id.pic) {
-                    if (this.f16762g.m == null || this.f16760e == null) {
+                    if (this.f16772g.m == null || this.f16770e == null) {
                         return;
                     }
-                    this.f16762g.m.a(this.f16761f, this.f16760e);
+                    this.f16772g.m.a(this.f16771f, this.f16770e);
                 } else if (view.getId() == R.id.lay_select) {
-                    if (this.f16760e == null || this.f16762g.n == null) {
+                    if (this.f16770e == null || this.f16772g.n == null) {
                         return;
                     }
-                    this.f16762g.n.a(this.f16761f, this.f16760e);
-                } else if (view.getId() != R.id.video_thumb || this.f16762g.n == null || this.f16760e == null) {
+                    this.f16772g.n.a(this.f16771f, this.f16770e);
+                } else if (view.getId() != R.id.video_thumb || this.f16772g.n == null || this.f16770e == null) {
                 } else {
-                    this.f16762g.n.a(this.f16761f, this.f16760e);
+                    this.f16772g.n.a(this.f16771f, this.f16770e);
                 }
             }
         }
@@ -284,13 +284,13 @@ public class i extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f16763a;
+        public View f16773a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f16764b;
+        public TbImageView f16774b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f16765c;
+        public TextView f16775c;
 
         public f(i iVar) {
             Interceptable interceptable = $ic;
@@ -319,16 +319,16 @@ public class i extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f16766a;
+        public View f16776a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f16767b;
+        public TbImageView f16777b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f16768c;
+        public ImageView f16778c;
 
         /* renamed from: d  reason: collision with root package name */
-        public RelativeLayout f16769d;
+        public RelativeLayout f16779d;
 
         public g(i iVar) {
             Interceptable interceptable = $ic;
@@ -366,13 +366,13 @@ public class i extends BaseAdapter {
                 return;
             }
         }
-        this.f16748e = new ArrayList();
-        this.f16752i = false;
-        this.f16753j = true;
+        this.f16758e = new ArrayList();
+        this.f16762i = false;
+        this.f16763j = true;
         this.k = true;
-        this.f16749f = baseFragmentActivity;
-        this.f16751h = cVar;
-        this.f16750g = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
+        this.f16759f = baseFragmentActivity;
+        this.f16761h = cVar;
+        this.f16760g = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -381,7 +381,7 @@ public class i extends BaseAdapter {
     public MediaFileInfo getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (MediaFileInfo) ListUtils.getItem(this.f16748e, i2) : (MediaFileInfo) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (MediaFileInfo) ListUtils.getItem(this.f16758e, i2) : (MediaFileInfo) invokeI.objValue;
     }
 
     public final View f(int i2, View view, ViewGroup viewGroup, MediaFileInfo mediaFileInfo) {
@@ -392,30 +392,30 @@ public class i extends BaseAdapter {
                 return view;
             }
             d dVar = this.r;
-            if (dVar == null || dVar.f16758c == null) {
+            if (dVar == null || dVar.f16768c == null) {
                 this.r = new d(this, null);
-                View inflate = this.f16750g.inflate(R.layout.album_make_picture_view, viewGroup, false);
+                View inflate = this.f16760g.inflate(R.layout.album_make_picture_view, viewGroup, false);
                 d dVar2 = this.r;
-                dVar2.f16756a = inflate;
-                dVar2.f16758c = (TbCameraView) inflate.findViewById(R.id.camera_surfaceview);
-                this.r.f16759d = (TBLottieAnimationView) inflate.findViewById(R.id.anim_make_photo);
-                this.r.f16757b = inflate.findViewById(R.id.icon_placer_holder);
-                this.r.f16759d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.r.f16759d.setFrame(0);
-                this.r.f16759d.setRenderMode(RenderMode.HARDWARE);
-                SkinManager.setLottieAnimation(this.r.f16759d, R.raw.lottie_photo);
+                dVar2.f16766a = inflate;
+                dVar2.f16768c = (TbCameraView) inflate.findViewById(R.id.camera_surfaceview);
+                this.r.f16769d = (TBLottieAnimationView) inflate.findViewById(R.id.anim_make_photo);
+                this.r.f16767b = inflate.findViewById(R.id.icon_placer_holder);
+                this.r.f16769d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.r.f16769d.setFrame(0);
+                this.r.f16769d.setRenderMode(RenderMode.HARDWARE);
+                SkinManager.setLottieAnimation(this.r.f16769d, R.raw.lottie_photo);
                 inflate.setTag(this.r);
-                x(this.r.f16757b);
+                x(this.r.f16767b);
             }
-            SkinManager.setBackgroundColor(this.r.f16756a, R.color.black_alpha90);
-            this.r.f16758c.setOnRequestPermissionListener(this.o);
-            this.r.f16758c.setOnOpenCameraFailedListener(this.p);
-            this.r.f16759d.setOnClickListener(this.l);
-            this.r.f16758c.setOnClickListener(this.l);
-            this.r.f16756a.setOnClickListener(this.l);
-            this.r.f16759d.addAnimatorUpdateListener(new a(this));
-            this.r.f16759d.addAnimatorListener(new b(this));
-            return this.r.f16756a;
+            SkinManager.setBackgroundColor(this.r.f16766a, R.color.black_alpha90);
+            this.r.f16768c.setOnRequestPermissionListener(this.o);
+            this.r.f16768c.setOnOpenCameraFailedListener(this.p);
+            this.r.f16769d.setOnClickListener(this.l);
+            this.r.f16768c.setOnClickListener(this.l);
+            this.r.f16766a.setOnClickListener(this.l);
+            this.r.f16769d.addAnimatorUpdateListener(new a(this));
+            this.r.f16769d.addAnimatorListener(new b(this));
+            return this.r.f16766a;
         }
         return (View) invokeCommon.objValue;
     }
@@ -431,33 +431,33 @@ public class i extends BaseAdapter {
                     gVar = (g) view.getTag();
                 } else {
                     g gVar2 = new g(this, null);
-                    View inflate = this.f16750g.inflate(R.layout.album_image_item_view, viewGroup, false);
-                    gVar2.f16766a = inflate;
+                    View inflate = this.f16760g.inflate(R.layout.album_image_item_view, viewGroup, false);
+                    gVar2.f16776a = inflate;
                     TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.pic);
-                    gVar2.f16767b = tbImageView;
+                    gVar2.f16777b = tbImageView;
                     tbImageView.setDefaultResource(0);
-                    gVar2.f16767b.setTagPaddingDis(8, 8);
-                    gVar2.f16767b.setGifIconSupport(true);
-                    gVar2.f16767b.setLongIconSupport(true);
-                    gVar2.f16768c = (ImageView) inflate.findViewById(R.id.select_icon);
-                    gVar2.f16769d = (RelativeLayout) inflate.findViewById(R.id.lay_select);
-                    c.a.r0.c4.k.c cVar = this.f16751h;
-                    if (cVar != null && cVar.m() != null && this.f16751h.m().isFromQRCode()) {
-                        gVar2.f16769d.setVisibility(8);
+                    gVar2.f16777b.setTagPaddingDis(8, 8);
+                    gVar2.f16777b.setGifIconSupport(true);
+                    gVar2.f16777b.setLongIconSupport(true);
+                    gVar2.f16778c = (ImageView) inflate.findViewById(R.id.select_icon);
+                    gVar2.f16779d = (RelativeLayout) inflate.findViewById(R.id.lay_select);
+                    c.a.r0.c4.k.c cVar = this.f16761h;
+                    if (cVar != null && cVar.m() != null && this.f16761h.m().isFromQRCode()) {
+                        gVar2.f16779d.setVisibility(8);
                     }
                     if (!this.k) {
-                        gVar2.f16769d.setVisibility(8);
+                        gVar2.f16779d.setVisibility(8);
                     }
                     inflate.setTag(gVar2);
                     gVar = gVar2;
                     view = inflate;
                 }
-                gVar.f16767b.setIsLongPic(imageFileInfo.isLong());
-                gVar.f16767b.startLoad(imageFileInfo.getFilePath(), 35, false);
-                s(gVar.f16768c, mediaFileInfo);
+                gVar.f16777b.setIsLongPic(imageFileInfo.isLong());
+                gVar.f16777b.startLoad(imageFileInfo.getFilePath(), 35, false);
+                s(gVar.f16778c, mediaFileInfo);
                 e eVar = new e(this, mediaFileInfo, i2);
-                gVar.f16767b.setOnClickListener(eVar);
-                gVar.f16769d.setOnClickListener(eVar);
+                gVar.f16777b.setOnClickListener(eVar);
+                gVar.f16779d.setOnClickListener(eVar);
             }
             return view;
         }
@@ -468,7 +468,7 @@ public class i extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(this.f16748e) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(this.f16758e) : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -483,7 +483,7 @@ public class i extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            MediaFileInfo mediaFileInfo = (MediaFileInfo) ListUtils.getItem(this.f16748e, i2);
+            MediaFileInfo mediaFileInfo = (MediaFileInfo) ListUtils.getItem(this.f16758e, i2);
             if (mediaFileInfo != null) {
                 return mediaFileInfo.getType();
             }
@@ -533,22 +533,22 @@ public class i extends BaseAdapter {
                     fVar = (f) view.getTag();
                 } else {
                     f fVar2 = new f(this, null);
-                    View inflate = this.f16750g.inflate(R.layout.album_video_item_view, viewGroup, false);
-                    fVar2.f16763a = inflate;
+                    View inflate = this.f16760g.inflate(R.layout.album_video_item_view, viewGroup, false);
+                    fVar2.f16773a = inflate;
                     TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.video_thumb);
-                    fVar2.f16764b = tbImageView;
+                    fVar2.f16774b = tbImageView;
                     tbImageView.setDefaultResource(0);
-                    fVar2.f16764b.setTagPaddingDis(8, 8);
-                    fVar2.f16764b.setGifIconSupport(false);
-                    fVar2.f16764b.setLongIconSupport(false);
-                    fVar2.f16765c = (TextView) inflate.findViewById(R.id.video_play_time);
+                    fVar2.f16774b.setTagPaddingDis(8, 8);
+                    fVar2.f16774b.setGifIconSupport(false);
+                    fVar2.f16774b.setLongIconSupport(false);
+                    fVar2.f16775c = (TextView) inflate.findViewById(R.id.video_play_time);
                     inflate.setTag(fVar2);
                     fVar = fVar2;
                     view = inflate;
                 }
-                fVar.f16764b.startLoad(videoFileInfo.videoPath, 37, false);
-                fVar.f16765c.setText(StringHelper.stringForVideoTime(videoFileInfo.videoDuration));
-                fVar.f16764b.setOnClickListener(new e(this, mediaFileInfo, i2));
+                fVar.f16774b.startLoad(videoFileInfo.videoPath, 37, false);
+                fVar.f16775c.setText(StringHelper.stringForVideoTime(videoFileInfo.videoDuration));
+                fVar.f16774b.setOnClickListener(new e(this, mediaFileInfo, i2));
             }
             return view;
         }
@@ -560,11 +560,11 @@ public class i extends BaseAdapter {
         List<MediaFileInfo> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, imageFileInfo)) == null) {
-            if (imageFileInfo != null && imageFileInfo.getFilePath() != null && (list = this.f16748e) != null && list.size() != 0) {
+            if (imageFileInfo != null && imageFileInfo.getFilePath() != null && (list = this.f16758e) != null && list.size() != 0) {
                 String filePath = imageFileInfo.getFilePath();
-                int size = this.f16748e.size();
+                int size = this.f16758e.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    MediaFileInfo mediaFileInfo = this.f16748e.get(i2);
+                    MediaFileInfo mediaFileInfo = this.f16758e.get(i2);
                     if (mediaFileInfo instanceof ImageFileInfo) {
                         ImageFileInfo imageFileInfo2 = (ImageFileInfo) mediaFileInfo;
                         if (imageFileInfo2.getFilePath() != null && imageFileInfo2.getFilePath().equals(filePath)) {
@@ -584,7 +584,7 @@ public class i extends BaseAdapter {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             d dVar = this.r;
             if (dVar != null) {
-                return dVar.f16758c;
+                return dVar.f16768c;
             }
             return null;
         }
@@ -594,7 +594,7 @@ public class i extends BaseAdapter {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f16752i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f16762i : invokeV.booleanValue;
     }
 
     public final MediaFileInfo l() {
@@ -606,12 +606,12 @@ public class i extends BaseAdapter {
     public void m(List<MediaFileInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
-            this.f16748e.clear();
-            if (this.f16753j) {
-                this.f16748e.add(l());
+            this.f16758e.clear();
+            if (this.f16763j) {
+                this.f16758e.add(l());
             }
             if (!ListUtils.isEmpty(list)) {
-                this.f16748e.addAll(list);
+                this.f16758e.addAll(list);
             }
             notifyDataSetChanged();
         }
@@ -648,7 +648,7 @@ public class i extends BaseAdapter {
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.f16752i = z;
+            this.f16762i = z;
         }
     }
 
@@ -656,11 +656,11 @@ public class i extends BaseAdapter {
         boolean q;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, imageView, mediaFileInfo) == null) {
-            c.a.r0.c4.k.c cVar = this.f16751h;
+            c.a.r0.c4.k.c cVar = this.f16761h;
             if (cVar != null && (mediaFileInfo instanceof ImageFileInfo)) {
                 q = cVar.n((ImageFileInfo) mediaFileInfo);
             } else {
-                c.a.r0.c4.k.c cVar2 = this.f16751h;
+                c.a.r0.c4.k.c cVar2 = this.f16761h;
                 q = (cVar2 == null || !(mediaFileInfo instanceof VideoFileInfo)) ? false : cVar2.q((VideoFileInfo) mediaFileInfo);
             }
             t(imageView, q);
@@ -673,11 +673,11 @@ public class i extends BaseAdapter {
             return;
         }
         if (z) {
-            imageView.setContentDescription(this.f16749f.getResources().getString(R.string.check_box_checked));
+            imageView.setContentDescription(this.f16759f.getResources().getString(R.string.check_box_checked));
             imageView.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_set_list_ok_selection26, WebPManager.ResourceStateType.NORMAL));
             return;
         }
-        imageView.setContentDescription(this.f16749f.getResources().getString(R.string.check_box_not_checked));
+        imageView.setContentDescription(this.f16759f.getResources().getString(R.string.check_box_not_checked));
         imageView.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_set_list_ok26, WebPManager.ResourceStateType.NORMAL));
     }
 
@@ -690,10 +690,10 @@ public class i extends BaseAdapter {
 
     public void v(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || this.f16753j == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || this.f16763j == z) {
             return;
         }
-        this.f16753j = z;
+        this.f16763j = z;
         notifyDataSetChanged();
     }
 
@@ -708,7 +708,7 @@ public class i extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, view) == null) {
             if (this.q == null && view != null) {
-                c.a.r0.e0.e eVar = new c.a.r0.e0.e(this.f16749f.getPageContext(), view);
+                c.a.r0.e0.e eVar = new c.a.r0.e0.e(this.f16759f.getPageContext(), view);
                 this.q = eVar;
                 eVar.g0(R.drawable.bg_tip_blue_up_left);
                 this.q.M(new c(this));
@@ -717,7 +717,7 @@ public class i extends BaseAdapter {
             }
             if (this.q != null) {
                 String n = c.a.q0.s.d0.b.n("key_show_take_photo_tip");
-                this.q.m0(this.f16749f.getString(R.string.album_take_photo_tip), n);
+                this.q.m0(this.f16759f.getString(R.string.album_take_photo_tip), n);
             }
         }
     }

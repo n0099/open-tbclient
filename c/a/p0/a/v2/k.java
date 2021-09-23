@@ -18,13 +18,13 @@ public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<Integer> f9354a;
+    public static final Set<Integer> f9362a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<Integer> f9355b;
+    public static final Set<Integer> f9363b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<Integer> f9356c;
+    public static final Set<Integer> f9364c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,18 +40,18 @@ public final class k {
                 return;
             }
         }
-        f9354a = new HashSet();
-        f9355b = new HashSet();
-        f9356c = new HashSet();
-        f9354a.add(2);
-        f9354a.add(3);
-        f9354a.add(4);
-        f9354a.add(5);
-        f9354a.add(6);
-        f9355b.add(7);
-        f9355b.add(1);
-        f9356c.addAll(f9354a);
-        f9356c.addAll(f9355b);
+        f9362a = new HashSet();
+        f9363b = new HashSet();
+        f9364c = new HashSet();
+        f9362a.add(2);
+        f9362a.add(3);
+        f9362a.add(4);
+        f9362a.add(5);
+        f9362a.add(6);
+        f9363b.add(7);
+        f9363b.add(1);
+        f9364c.addAll(f9362a);
+        f9364c.addAll(f9363b);
     }
 
     public static Date a() {
@@ -158,7 +158,7 @@ public final class k {
             try {
                 return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(j2));
             } catch (NumberFormatException e2) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e2.printStackTrace();
                     return "";
                 }

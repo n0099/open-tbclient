@@ -19,11 +19,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f12880b;
+    public static c f12894b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, Class<? extends b>> f12881a;
+    public final HashMap<String, Class<? extends b>> f12895a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class c {
                 return;
             }
         }
-        f12880b = new c();
+        f12894b = new c();
     }
 
     public c() {
@@ -54,7 +54,7 @@ public class c {
                 return;
             }
         }
-        this.f12881a = new HashMap<>();
+        this.f12895a = new HashMap<>();
         f(d.class);
         f(f.class);
         f(a.class);
@@ -65,7 +65,7 @@ public class c {
     public static c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f12880b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f12894b : (c) invokeV.objValue;
     }
 
     public b a(ImageOperation imageOperation) {
@@ -73,7 +73,7 @@ public class c {
         b e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageOperation)) == null) {
-            Class<? extends b> cls = this.f12881a.get(imageOperation.actionName);
+            Class<? extends b> cls = this.f12895a.get(imageOperation.actionName);
             if (cls == null || (e2 = e(cls)) == null) {
                 return null;
             }
@@ -198,6 +198,6 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, cls) == null) || (e2 = e(cls)) == null) {
             return;
         }
-        this.f12881a.put(e2.a(), cls);
+        this.f12895a.put(e2.a(), cls);
     }
 }

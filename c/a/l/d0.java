@@ -30,10 +30,10 @@ public class d0 extends c implements p<d2>, q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f3797i;
+    public RelativeLayout f3798i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f3798j;
+    public ImageView f3799j;
     public FrameLayout k;
     public d2 l;
     public BdUniqueId m;
@@ -49,7 +49,7 @@ public class d0 extends c implements p<d2>, q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d0 f3799e;
+        public final /* synthetic */ d0 f3800e;
 
         public a(d0 d0Var) {
             Interceptable interceptable = $ic;
@@ -66,17 +66,17 @@ public class d0 extends c implements p<d2>, q {
                     return;
                 }
             }
-            this.f3799e = d0Var;
+            this.f3800e = d0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3799e.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3800e.l == null) {
                 return;
             }
-            CustomMessage customMessage = new CustomMessage(2921428, this.f3799e.m);
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921428, this.f3799e.l);
+            CustomMessage customMessage = new CustomMessage(2921428, this.f3800e.m);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921428, this.f3800e.l);
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
@@ -118,17 +118,17 @@ public class d0 extends c implements p<d2>, q {
         this.p = R.color.CAM_X0111;
         this.r = new a(this);
         this.n = i2;
-        this.f3797i = new RelativeLayout(context);
-        this.f3798j = new ImageView(context);
+        this.f3798i = new RelativeLayout(context);
+        this.f3799j = new ImageView(context);
         FrameLayout frameLayout = new FrameLayout(context);
         this.k = frameLayout;
-        ImageView imageView = this.f3798j;
+        ImageView imageView = this.f3799j;
         int i5 = s;
         frameLayout.addView(imageView, new FrameLayout.LayoutParams(i5, i5));
         this.k.setOnClickListener(this.r);
         l(Align.ALIGN_RIGHT_BOTTOM);
-        this.f3797i.addView(this.k);
-        f(this.f3797i);
+        this.f3798i.addView(this.k);
+        f(this.f3798i);
         g(-1);
         h(new RelativeLayout.LayoutParams(-1, -1));
     }
@@ -193,7 +193,7 @@ public class d0 extends c implements p<d2>, q {
                 this.k.setVisibility(8);
             } else {
                 this.k.setVisibility(0);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f3798j, this.o, this.p, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f3799j, this.o, this.p, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
         }
     }
@@ -202,7 +202,7 @@ public class d0 extends c implements p<d2>, q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i2) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f3798j, this.o, this.p, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f3799j, this.o, this.p, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 

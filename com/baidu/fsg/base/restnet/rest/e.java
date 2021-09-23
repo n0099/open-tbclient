@@ -5,15 +5,15 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
 public interface e {
-    int a() throws IOException;
+    com.baidu.fsg.base.restnet.http.a a();
 
-    String b() throws IOException;
+    int b() throws IOException;
 
-    InputStream c() throws IOException;
+    String c() throws IOException;
 
-    com.baidu.fsg.base.restnet.http.a d();
+    void close();
 
-    HttpStatus e() throws Exception;
+    InputStream d() throws IOException;
 
-    void f();
+    HttpStatus getStatusCode() throws Exception;
 }

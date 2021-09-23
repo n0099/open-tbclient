@@ -11,11 +11,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f3133b;
+    public static b f3134b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f3134a;
+    public c f3135a;
 
     public b(c cVar) {
         Interceptable interceptable = $ic;
@@ -32,15 +32,15 @@ public class b {
                 return;
             }
         }
-        this.f3134a = cVar;
+        this.f3135a = cVar;
     }
 
     public static void a(c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, cVar) == null) && f3133b == null) {
+        if ((interceptable == null || interceptable.invokeL(65537, null, cVar) == null) && f3134b == null) {
             synchronized (b.class) {
-                if (f3133b == null) {
-                    f3133b = new b(cVar);
+                if (f3134b == null) {
+                    f3134b = new b(cVar);
                 }
             }
         }
@@ -49,13 +49,13 @@ public class b {
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3133b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3134b : (b) invokeV.objValue;
     }
 
     public void b(ImageView imageView, String str) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) || (cVar = this.f3134a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) || (cVar = this.f3135a) == null) {
             return;
         }
         cVar.a(imageView, str);

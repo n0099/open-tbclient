@@ -19,19 +19,19 @@ public class c extends c.a.q0.x.p.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24215e;
+    public String f24231e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24216f;
+    public String f24232f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f24217g;
+    public int f24233g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f24218h;
+    public int f24234h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<String> f24219i;
+    public ArrayList<String> f24235i;
 
     public c(EmotionGroupData emotionGroupData) {
         Interceptable interceptable = $ic;
@@ -48,11 +48,11 @@ public class c extends c.a.q0.x.p.c {
                 return;
             }
         }
-        this.f24219i = new ArrayList<>();
-        this.f24215e = emotionGroupData.getGroupId();
-        this.f24216f = emotionGroupData.getGroupName();
-        this.f24217g = emotionGroupData.getWidth();
-        this.f24218h = emotionGroupData.getHeight();
+        this.f24235i = new ArrayList<>();
+        this.f24231e = emotionGroupData.getGroupId();
+        this.f24232f = emotionGroupData.getGroupName();
+        this.f24233g = emotionGroupData.getWidth();
+        this.f24234h = emotionGroupData.getHeight();
         t();
     }
 
@@ -61,10 +61,10 @@ public class c extends c.a.q0.x.p.c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 >= this.f24219i.size()) {
+            if (i2 >= this.f24235i.size()) {
                 return null;
             }
-            return this.f24219i.get(i2);
+            return this.f24235i.get(i2);
         }
         return (String) invokeI.objValue;
     }
@@ -73,21 +73,21 @@ public class c extends c.a.q0.x.p.c {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24219i.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24235i.size() : invokeV.intValue;
     }
 
     @Override // c.a.q0.x.p.c
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24215e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24231e : (String) invokeV.objValue;
     }
 
     @Override // c.a.q0.x.p.c
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24216f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24232f : (String) invokeV.objValue;
     }
 
     @Override // c.a.q0.x.p.c
@@ -101,7 +101,7 @@ public class c extends c.a.q0.x.p.c {
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24218h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24234h : invokeV.intValue;
     }
 
     @Override // c.a.q0.x.p.c
@@ -118,14 +118,14 @@ public class c extends c.a.q0.x.p.c {
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f24217g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f24233g : invokeV.intValue;
     }
 
     @Override // c.a.q0.x.p.c
     public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.f24219i.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.f24235i.contains(str) : invokeL.booleanValue;
     }
 
     @Override // c.a.q0.x.p.c
@@ -149,7 +149,7 @@ public class c extends c.a.q0.x.p.c {
             } else {
                 b2 = b.b(str, false);
             }
-            Bitmap f2 = b.f(this.f24215e, b2);
+            Bitmap f2 = b.f(this.f24231e, b2);
             if (f2 == null) {
                 return null;
             }
@@ -163,17 +163,17 @@ public class c extends c.a.q0.x.p.c {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             s(2);
             p(4);
-            Bitmap f2 = b.f(this.f24215e, "panel.png");
-            Bitmap f3 = b.f(this.f24215e, "panel_momo.png");
+            Bitmap f2 = b.f(this.f24231e, "panel.png");
+            Bitmap f3 = b.f(this.f24231e, "panel_momo.png");
             if (f2 != null) {
                 q(new c.a.e.l.d.a(f2, false));
             }
             if (f3 != null) {
                 r(new c.a.e.l.d.a(f3, false));
             }
-            this.f24219i.clear();
-            for (EmotionData emotionData : g.k().m(this.f24215e)) {
-                this.f24219i.add(emotionData.getSharpText());
+            this.f24235i.clear();
+            for (EmotionData emotionData : g.k().m(this.f24231e)) {
+                this.f24235i.add(emotionData.getSharpText());
             }
         }
     }

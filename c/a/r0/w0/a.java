@@ -27,29 +27,29 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<d2> f26410a;
+    public final List<d2> f26433a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f26411b;
+    public boolean f26434b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26412c;
+    public String f26435c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f26413d;
+    public int f26436d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<FrsTabInfo> f26414e;
+    public List<FrsTabInfo> f26437e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArray<FrsTabInfo> f26415f;
+    public SparseArray<FrsTabInfo> f26438f;
 
     /* renamed from: g  reason: collision with root package name */
-    public w0 f26416g;
+    public w0 f26439g;
 
     /* renamed from: c.a.r0.w0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1242a {
+    public static /* synthetic */ class C1240a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -59,7 +59,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f26417a;
+        public static a f26440a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -75,18 +75,18 @@ public class a {
                     return;
                 }
             }
-            f26417a = new a(null);
+            f26440a = new a(null);
         }
     }
 
-    public /* synthetic */ a(C1242a c1242a) {
+    public /* synthetic */ a(C1240a c1240a) {
         this();
     }
 
     public static a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f26417a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f26440a : (a) invokeV.objValue;
     }
 
     public boolean a(d2 d2Var) {
@@ -96,17 +96,17 @@ public class a {
             if (d2Var == null) {
                 return false;
             }
-            if (this.f26410a.size() > 29) {
-                w0 w0Var = this.f26416g;
+            if (this.f26433a.size() > 29) {
+                w0 w0Var = this.f26439g;
                 if (w0Var != null) {
                     w0Var.b(2);
                 }
                 return false;
             }
-            this.f26410a.add(d2Var);
-            w0 w0Var2 = this.f26416g;
+            this.f26433a.add(d2Var);
+            w0 w0Var2 = this.f26439g;
             if (w0Var2 != null) {
-                w0Var2.c(this.f26410a.size(), 2);
+                w0Var2.c(this.f26433a.size(), 2);
                 return true;
             }
             return true;
@@ -117,13 +117,13 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (d2 d2Var : this.f26410a) {
+            for (d2 d2Var : this.f26433a) {
                 if (d2Var != null) {
-                    d2Var.h4(false);
+                    d2Var.g4(false);
                 }
             }
-            this.f26410a.clear();
-            w0 w0Var = this.f26416g;
+            this.f26433a.clear();
+            w0 w0Var = this.f26439g;
             if (w0Var != null) {
                 w0Var.c(0, 2);
             }
@@ -133,13 +133,13 @@ public class a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f26412c = null;
-            this.f26413d = -1;
-            List<FrsTabInfo> list = this.f26414e;
+            this.f26435c = null;
+            this.f26436d = -1;
+            List<FrsTabInfo> list = this.f26437e;
             if (list != null) {
                 list.clear();
             }
-            SparseArray<FrsTabInfo> sparseArray = this.f26415f;
+            SparseArray<FrsTabInfo> sparseArray = this.f26438f;
             if (sparseArray != null) {
                 sparseArray.clear();
             }
@@ -148,59 +148,59 @@ public class a {
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || ListUtils.isEmpty(this.f26410a)) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || ListUtils.isEmpty(this.f26433a)) {
             return;
         }
-        this.f26410a.clear();
-        w0 w0Var = this.f26416g;
+        this.f26433a.clear();
+        w0 w0Var = this.f26439g;
         if (w0Var != null) {
-            w0Var.c(this.f26410a.size(), 2);
+            w0Var.c(this.f26433a.size(), 2);
         }
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26413d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26436d : invokeV.intValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26412c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26435c : (String) invokeV.objValue;
     }
 
     public List<FrsTabInfo> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26414e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26437e : (List) invokeV.objValue;
     }
 
     public List<d2> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26410a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26433a : (List) invokeV.objValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26411b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26434b : invokeV.booleanValue;
     }
 
     public boolean k(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.f26415f.get(i2) != null && this.f26415f.get(i2).is_general_tab.intValue() == 1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.f26438f.get(i2) != null && this.f26438f.get(i2).is_general_tab.intValue() == 1 : invokeI.booleanValue;
     }
 
     public void l(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, d2Var) == null) {
-            this.f26410a.remove(d2Var);
-            w0 w0Var = this.f26416g;
+            this.f26433a.remove(d2Var);
+            w0 w0Var = this.f26439g;
             if (w0Var != null) {
-                w0Var.c(this.f26410a.size(), 2);
+                w0Var.c(this.f26433a.size(), 2);
             }
         }
     }
@@ -240,15 +240,15 @@ public class a {
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f26413d = i2;
+            this.f26436d = i2;
         }
     }
 
     public void p(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f26411b = z;
-            w0 w0Var = this.f26416g;
+            this.f26434b = z;
+            w0 w0Var = this.f26439g;
             if (w0Var != null) {
                 w0Var.a(z, z2, 2);
             }
@@ -258,18 +258,18 @@ public class a {
     public void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f26412c = str;
+            this.f26435c = str;
         }
     }
 
     public void r(List<FrsTabInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
-            this.f26414e = new ArrayList(list);
-            this.f26415f = new SparseArray<>();
-            for (FrsTabInfo frsTabInfo : this.f26414e) {
+            this.f26437e = new ArrayList(list);
+            this.f26438f = new SparseArray<>();
+            for (FrsTabInfo frsTabInfo : this.f26437e) {
                 if (frsTabInfo != null) {
-                    this.f26415f.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
+                    this.f26438f.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
                 }
             }
         }
@@ -278,7 +278,7 @@ public class a {
     public void s(w0 w0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, w0Var) == null) {
-            this.f26416g = w0Var;
+            this.f26439g = w0Var;
         }
     }
 
@@ -295,7 +295,7 @@ public class a {
                 return;
             }
         }
-        this.f26413d = -1;
-        this.f26410a = new ArrayList();
+        this.f26436d = -1;
+        this.f26433a = new ArrayList();
     }
 }

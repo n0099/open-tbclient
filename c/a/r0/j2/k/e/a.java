@@ -21,7 +21,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f19783a;
+    public TbPageContext f19798a;
 
     public a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class a {
                 return;
             }
         }
-        this.f19783a = tbPageContext;
+        this.f19798a = tbPageContext;
     }
 
     public final void a(PbModel pbModel, int i2) {
@@ -50,9 +50,9 @@ public class a {
         statisticItem.param("fid", pbModel.J.n());
         statisticItem.param("tid", pbModel.J.Q());
         statisticItem.param("obj_type", i2);
-        if (pbModel.N0() == 5) {
+        if (pbModel.O0() == 5) {
             statisticItem.param("obj_source", 1);
-        } else if (pbModel.N0() == 7) {
+        } else if (pbModel.O0() == 7) {
             statisticItem.param("obj_source", 2);
         } else {
             statisticItem.param("obj_source", 3);
@@ -69,11 +69,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbModel)) == null) {
             int i2 = 0;
-            if (this.f19783a.getPageActivity() != null && pbModel != null && (eVar = pbModel.J) != null) {
+            if (this.f19798a.getPageActivity() != null && pbModel != null && (eVar = pbModel.J) != null) {
                 if ("3".equals(eVar.g0)) {
-                    MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.f19783a.getPageActivity()).createNormalCfg(2);
-                    createNormalCfg.setSubTabName(this.f19783a.getString(R.string.tab_name_topic_rank));
-                    this.f19783a.sendMessage(new CustomMessage(2015002, createNormalCfg));
+                    MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.f19798a.getPageActivity()).createNormalCfg(2);
+                    createNormalCfg.setSubTabName(this.f19798a.getString(R.string.tab_name_topic_rank));
+                    this.f19798a.sendMessage(new CustomMessage(2015002, createNormalCfg));
                     return true;
                 }
                 String p = c.a.q0.s.d0.b.j().p("key_pb_back_sid1", "");
@@ -90,15 +90,15 @@ public class a {
                     return false;
                 }
                 if (str.equals("1")) {
-                    MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.f19783a.getPageActivity()).createNormalCfg(2);
+                    MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.f19798a.getPageActivity()).createNormalCfg(2);
                     createNormalCfg2.setSubTab(1, null);
-                    this.f19783a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
+                    this.f19798a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
                     a(pbModel, 1);
                     return true;
                 } else if (str.equals("2")) {
-                    MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.f19783a.getPageActivity()).createNormalCfg(1);
+                    MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.f19798a.getPageActivity()).createNormalCfg(1);
                     createNormalCfg3.setSubTab(0, pbModel.J.g0);
-                    this.f19783a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
+                    this.f19798a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
                     if ("游戏".equals(pbModel.J.g0)) {
                         i2 = 2;
                     } else if ("数码".equals(pbModel.J.g0)) {

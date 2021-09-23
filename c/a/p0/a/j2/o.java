@@ -23,10 +23,10 @@ public class o extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f7058e;
+        public final /* synthetic */ String f7066e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7059f;
+        public final /* synthetic */ String f7067f;
 
         public a(o oVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -43,19 +43,19 @@ public class o extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f7058e = str;
-            this.f7059f = str2;
+            this.f7066e = str;
+            this.f7067f = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (TextUtils.equals(this.f7058e, "671")) {
-                    c.a.p0.a.e0.d.h("ubcAndCeresStatisticEvent", "671 event=" + this.f7059f);
+                if (TextUtils.equals(this.f7066e, "671")) {
+                    c.a.p0.a.e0.d.h("ubcAndCeresStatisticEvent", "671 event=" + this.f7067f);
                 }
                 try {
-                    c.a.p0.a.j2.b.m(this.f7058e, new JSONObject(this.f7059f));
+                    c.a.p0.a.j2.b.m(this.f7066e, new JSONObject(this.f7067f));
                 } catch (JSONException e2) {
                     c.a.p0.a.e0.d.h("ubcAndCeresStatisticEvent", e2.toString());
                 }
@@ -69,10 +69,10 @@ public class o extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f7060e;
+        public final /* synthetic */ String f7068e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f7061f;
+        public final /* synthetic */ JSONObject f7069f;
 
         public b(o oVar, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -89,15 +89,15 @@ public class o extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f7060e = str;
-            this.f7061f = jSONObject;
+            this.f7068e = str;
+            this.f7069f = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.r.e.m(this.f7060e, this.f7061f);
+                c.a.p0.r.e.m(this.f7068e, this.f7069f);
             }
         }
     }
@@ -140,7 +140,7 @@ public class o extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 r0 = "data - " + str;
             }
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-ubcAndCeresStatisticEvent", str);
@@ -172,7 +172,7 @@ public class o extends c.a.p0.a.u.c.d {
                         jSONObject.putOpt("propagation", w.f(jSONObject.optJSONObject("propagation"), "source", c.a.p0.a.a2.d.g().r().L().T()));
                         jSONObject.put("eventName", str2);
                     } catch (JSONException e2) {
-                        if (c.a.p0.a.u.c.d.f8727c) {
+                        if (c.a.p0.a.u.c.d.f8735c) {
                             e2.printStackTrace();
                         }
                     }

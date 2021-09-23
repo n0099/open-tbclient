@@ -28,23 +28,23 @@ public class e extends Handler implements c.a.e.c.e.c.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static e f14972j;
+    public static e f14974j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f14973e;
+    public long f14975e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14974f;
+    public int f14976f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14975g;
+    public int f14977g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14976h;
+    public int f14978h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PingMessage f14977i;
+    public PingMessage f14979i;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.c.g.c {
@@ -52,7 +52,7 @@ public class e extends Handler implements c.a.e.c.e.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f14978a;
+        public final /* synthetic */ e f14980a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(e eVar, int i2) {
@@ -72,7 +72,7 @@ public class e extends Handler implements c.a.e.c.e.c.b {
                     return;
                 }
             }
-            this.f14978a = eVar;
+            this.f14980a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,7 +82,7 @@ public class e extends Handler implements c.a.e.c.e.c.b {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) || socketResponsedMessage == null) {
                 return;
             }
-            this.f14978a.l(socketResponsedMessage);
+            this.f14980a.l(socketResponsedMessage);
         }
     }
 
@@ -92,7 +92,7 @@ public class e extends Handler implements c.a.e.c.e.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f14979a;
+        public final /* synthetic */ e f14981a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(e eVar, int i2) {
@@ -112,7 +112,7 @@ public class e extends Handler implements c.a.e.c.e.c.b {
                     return;
                 }
             }
-            this.f14979a = eVar;
+            this.f14981a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,7 +122,7 @@ public class e extends Handler implements c.a.e.c.e.c.b {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f14979a.h((BackgroundSwitchMessage) customResponsedMessage);
+            this.f14981a.h((BackgroundSwitchMessage) customResponsedMessage);
         }
     }
 
@@ -154,25 +154,25 @@ public class e extends Handler implements c.a.e.c.e.c.b {
                 return;
             }
         }
-        this.f14973e = 0L;
-        this.f14974f = TiebaStatic.MAX_COST_VALUE;
-        this.f14975g = 900000;
-        this.f14976h = 900000;
-        this.f14977i = null;
+        this.f14975e = 0L;
+        this.f14976f = TiebaStatic.MAX_COST_VALUE;
+        this.f14977g = 900000;
+        this.f14978h = 900000;
+        this.f14979i = null;
     }
 
     public static e j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f14972j == null) {
+            if (f14974j == null) {
                 synchronized (e.class) {
-                    if (f14972j == null) {
-                        f14972j = new e();
+                    if (f14974j == null) {
+                        f14974j = new e();
                     }
                 }
             }
-            return f14972j;
+            return f14974j;
         }
         return (e) invokeV.objValue;
     }
@@ -190,14 +190,14 @@ public class e extends Handler implements c.a.e.c.e.c.b {
         InterceptResult invokeZL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
-            if ((z || System.currentTimeMillis() - this.f14973e >= 180000) && BdSocketLinkService.isOpen()) {
-                this.f14973e = System.currentTimeMillis();
-                MessageManager.getInstance().sendMessage(this.f14977i);
-                PingMessage pingMessage = this.f14977i;
+            if ((z || System.currentTimeMillis() - this.f14975e >= 180000) && BdSocketLinkService.isOpen()) {
+                this.f14975e = System.currentTimeMillis();
+                MessageManager.getInstance().sendMessage(this.f14979i);
+                PingMessage pingMessage = this.f14979i;
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
                 sb.append("-");
-                sb.append(this.f14976h == this.f14975g ? com.alipay.sdk.widget.d.l : "fore");
+                sb.append(this.f14978h == this.f14977g ? com.alipay.sdk.widget.d.u : "fore");
                 c.a.e.c.e.c.i.c("PingManager", pingMessage, 0, "send_ping", 0, sb.toString());
                 return true;
             }
@@ -234,8 +234,8 @@ public class e extends Handler implements c.a.e.c.e.c.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             removeMessages(1);
-            sendMessageDelayed(obtainMessage(1), this.f14976h);
-            this.f14973e = System.currentTimeMillis();
+            sendMessageDelayed(obtainMessage(1), this.f14978h);
+            this.f14975e = System.currentTimeMillis();
         }
     }
 
@@ -245,10 +245,10 @@ public class e extends Handler implements c.a.e.c.e.c.b {
             return;
         }
         if (backgroundSwitchMessage.getData().booleanValue()) {
-            this.f14976h = this.f14975g;
+            this.f14978h = this.f14977g;
             return;
         }
-        this.f14976h = this.f14974f;
+        this.f14978h = this.f14976f;
         d("switchToForeground");
     }
 
@@ -264,7 +264,7 @@ public class e extends Handler implements c.a.e.c.e.c.b {
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14974f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14976f : invokeV.intValue;
     }
 
     public void k() {
@@ -277,7 +277,7 @@ public class e extends Handler implements c.a.e.c.e.c.b {
             bVar.f(SocketMessageTask.DupLicateMode.REMOVE_ME);
             bVar.e(false);
             MessageManager.getInstance().registerTask(bVar);
-            this.f14977i = new PingMessage();
+            this.f14979i = new PingMessage();
             m();
             a aVar = new a(this, 1003);
             MessageManager.getInstance().registerListener(new b(this, 2001011));
@@ -293,14 +293,14 @@ public class e extends Handler implements c.a.e.c.e.c.b {
         int error = responsedMessage.getError();
         if (error == 0) {
             com.baidu.adp.framework.message.Message<?> orginalMessage = responsedMessage.getOrginalMessage();
-            int i2 = c.a.q0.s.h.f13990a;
-            c.a.e.c.e.c.i.c("PingManager", orginalMessage, 0, "ping_succ", i2, "costtime:" + String.valueOf(System.currentTimeMillis() - this.f14973e));
+            int i2 = c.a.q0.s.h.f13987a;
+            c.a.e.c.e.c.i.c("PingManager", orginalMessage, 0, "ping_succ", i2, "costtime:" + String.valueOf(System.currentTimeMillis() - this.f14975e));
             return;
         }
         BdSocketLinkService.close(7, "ping error");
-        int cmd = this.f14977i.getCmd();
-        long clientLogID = this.f14977i.getClientLogID();
-        c.a.e.c.e.c.i.b("PingManager", cmd, clientLogID, 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.f14973e));
+        int cmd = this.f14979i.getCmd();
+        long clientLogID = this.f14979i.getClientLogID();
+        c.a.e.c.e.c.i.b("PingManager", cmd, clientLogID, 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.f14975e));
     }
 
     public void m() {
@@ -309,13 +309,13 @@ public class e extends Handler implements c.a.e.c.e.c.b {
             int[] socketHeartBeatStratgy = TbadkCoreApplication.getInst().getSocketHeartBeatStratgy();
             if (socketHeartBeatStratgy.length == 2) {
                 int i2 = socketHeartBeatStratgy[0] * 1000;
-                this.f14974f = i2;
-                this.f14975g = socketHeartBeatStratgy[1] * 1000;
+                this.f14976f = i2;
+                this.f14977g = socketHeartBeatStratgy[1] * 1000;
                 if (i2 < 180000) {
-                    this.f14974f = TiebaStatic.MAX_COST_VALUE;
+                    this.f14976f = TiebaStatic.MAX_COST_VALUE;
                 }
-                if (this.f14975g < 180000) {
-                    this.f14975g = TiebaStatic.MAX_COST_VALUE;
+                if (this.f14977g < 180000) {
+                    this.f14977g = TiebaStatic.MAX_COST_VALUE;
                 }
             }
         }

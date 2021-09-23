@@ -17,7 +17,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3180a = "https://etrade.baidu.com/sgw/common/pingd/trace";
+    public static String f3181a = "https://etrade.baidu.com/sgw/common/pingd/trace";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class c {
             }
         }
         if (c.a.e0.k.b.a.d() != 1) {
-            f3180a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
+            f3181a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
         }
     }
 
@@ -59,7 +59,7 @@ public class c {
             return;
         }
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(f3180a).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(f3181a).openConnection();
             for (Map.Entry<String, String> entry : cVar.d().entrySet()) {
                 httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }

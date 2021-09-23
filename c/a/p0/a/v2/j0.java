@@ -27,7 +27,7 @@ public class j0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9353a;
+    public static final boolean f9361a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +43,7 @@ public class j0 {
                 return;
             }
         }
-        f9353a = c.a.p0.a.k.f7077a;
+        f9361a = c.a.p0.a.k.f7085a;
     }
 
     public static boolean a(File file, String str) {
@@ -64,7 +64,7 @@ public class j0 {
                     sb.append(z);
                     sb.append("; exists=");
                     sb.append(z ? "" : Boolean.valueOf(file.exists()));
-                    cVar.f9290a = sb.toString();
+                    cVar.f9298a = sb.toString();
                 }
                 return false;
             }
@@ -73,7 +73,7 @@ public class j0 {
                 readableByteChannel = Channels.newChannel(new FileInputStream(file));
                 return d(readableByteChannel, str, cVar);
             } catch (IOException e2) {
-                if (f9353a) {
+                if (f9361a) {
                     e2.printStackTrace();
                 }
                 return false;
@@ -97,27 +97,27 @@ public class j0 {
             boolean z = readableByteChannel == null;
             if (z || TextUtils.isEmpty(str)) {
                 if (cVar != null) {
-                    cVar.f9290a = "zipSource isNullIs=" + z;
+                    cVar.f9298a = "zipSource isNullIs=" + z;
                 }
                 return false;
             }
             String c2 = c.a.p0.t.f.c(false, readableByteChannel);
             if (cVar != null) {
-                cVar.f9290a = c2;
+                cVar.f9298a = c2;
             }
             try {
                 String str2 = new String(e(Base64.decode(str.getBytes("utf-8"), 8), f("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
                 if (cVar != null) {
-                    cVar.f9291b = str2;
+                    cVar.f9299b = str2;
                 }
                 return TextUtils.equals(str2, c2);
             } catch (Exception e2) {
-                if (f9353a) {
+                if (f9361a) {
                     e2.toString();
                     e2.printStackTrace();
                 }
                 if (cVar != null) {
-                    cVar.f9291b = e2.getLocalizedMessage();
+                    cVar.f9299b = e2.getLocalizedMessage();
                 }
                 return false;
             }

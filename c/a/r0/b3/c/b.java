@@ -24,34 +24,34 @@ public class b extends c.a.e.a.d<AdSettingActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdSettingActivity f16024a;
+    public AdSettingActivity f16034a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f16025b;
+    public View f16035b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f16026c;
+    public NavigationBar f16036c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MsgSettingItemView f16027d;
+    public MsgSettingItemView f16037d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f16028e;
+    public TextView f16038e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f16029f;
+    public View f16039f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f16030g;
+    public View f16040g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16031h;
+    public TextView f16041h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f16032i;
+    public TextView f16042i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f16033j;
+    public ImageView f16043j;
     public TextView k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,22 +72,22 @@ public class b extends c.a.e.a.d<AdSettingActivity> {
                 return;
             }
         }
-        this.f16024a = adSettingActivity;
+        this.f16034a = adSettingActivity;
         e();
     }
 
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16030g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16040g : (View) invokeV.objValue;
     }
 
     public final void d() {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f16027d.setText(R.string.member_ad_setting_text);
-            this.f16027d.setOnSwitchStateChangeListener(this.f16024a);
+            this.f16037d.setText(R.string.member_ad_setting_text);
+            this.f16037d.setOnSwitchStateChangeListener(this.f16034a);
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             int i3 = 0;
             if (currentAccountObj != null) {
@@ -97,15 +97,15 @@ public class b extends c.a.e.a.d<AdSettingActivity> {
                 i2 = 0;
             }
             if (i3 == 0) {
-                this.f16027d.setVisibility(8);
-                this.f16028e.setVisibility(8);
+                this.f16037d.setVisibility(8);
+                this.f16038e.setVisibility(8);
             } else if (i2 == 0) {
-                this.f16027d.turnOffNoCallback();
+                this.f16037d.turnOffNoCallback();
             } else {
-                this.f16027d.turnOnNoCallback();
+                this.f16037d.turnOnNoCallback();
             }
             if (TextUtils.isEmpty(c.a.q0.s.d0.b.j().p("sync_ad_privacy_url", ""))) {
-                this.f16029f.setVisibility(8);
+                this.f16039f.setVisibility(8);
             }
         }
     }
@@ -113,24 +113,24 @@ public class b extends c.a.e.a.d<AdSettingActivity> {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f16024a.setContentView(R.layout.ad_setting_activity);
-            NavigationBar navigationBar = (NavigationBar) this.f16024a.findViewById(R.id.view_navigation_bar);
-            this.f16026c = navigationBar;
+            this.f16034a.setContentView(R.layout.ad_setting_activity);
+            NavigationBar navigationBar = (NavigationBar) this.f16034a.findViewById(R.id.view_navigation_bar);
+            this.f16036c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f16026c.setTitleText(this.f16024a.getPageContext().getString(R.string.ad_control_setting));
-            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.f16024a.findViewById(R.id.memberAdSetting);
-            this.f16027d = msgSettingItemView;
+            this.f16036c.setTitleText(this.f16034a.getPageContext().getString(R.string.ad_control_setting));
+            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.f16034a.findViewById(R.id.memberAdSetting);
+            this.f16037d = msgSettingItemView;
             msgSettingItemView.setLineVisibility(false);
-            this.f16028e = (TextView) this.f16024a.findViewById(R.id.memberAdTips);
-            this.f16029f = this.f16024a.findViewById(R.id.privacyContainer);
-            this.f16030g = this.f16024a.findViewById(R.id.privacyItem);
-            this.k = (TextView) this.f16024a.findViewById(R.id.privacyControlText);
-            this.f16031h = (TextView) this.f16024a.findViewById(R.id.privacyControlTipsSmall);
-            this.f16031h = (TextView) this.f16024a.findViewById(R.id.privacyControlTipsSmall);
-            this.f16032i = (TextView) this.f16024a.findViewById(R.id.privacyControlTips);
-            this.f16033j = (ImageView) this.f16024a.findViewById(R.id.arrow);
-            this.f16025b = this.f16024a.findViewById(R.id.parent);
-            this.f16030g.setOnClickListener(this.f16024a);
+            this.f16038e = (TextView) this.f16034a.findViewById(R.id.memberAdTips);
+            this.f16039f = this.f16034a.findViewById(R.id.privacyContainer);
+            this.f16040g = this.f16034a.findViewById(R.id.privacyItem);
+            this.k = (TextView) this.f16034a.findViewById(R.id.privacyControlText);
+            this.f16041h = (TextView) this.f16034a.findViewById(R.id.privacyControlTipsSmall);
+            this.f16041h = (TextView) this.f16034a.findViewById(R.id.privacyControlTipsSmall);
+            this.f16042i = (TextView) this.f16034a.findViewById(R.id.privacyControlTips);
+            this.f16043j = (ImageView) this.f16034a.findViewById(R.id.arrow);
+            this.f16035b = this.f16034a.findViewById(R.id.parent);
+            this.f16040g.setOnClickListener(this.f16034a);
             d();
         }
     }
@@ -138,31 +138,31 @@ public class b extends c.a.e.a.d<AdSettingActivity> {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f16027d.turnOffNoCallback();
+            this.f16037d.turnOffNoCallback();
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f16027d.turnOnNoCallback();
+            this.f16037d.turnOnNoCallback();
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f16024a.getLayoutMode().k(i2 == 1);
-            this.f16024a.getLayoutMode().j(this.f16025b);
-            this.f16026c.onChangeSkinType(getPageContext(), i2);
-            SkinManager.setViewTextColor(this.f16028e, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f16032i, R.color.CAM_X0105);
+            this.f16034a.getLayoutMode().k(i2 == 1);
+            this.f16034a.getLayoutMode().j(this.f16035b);
+            this.f16036c.onChangeSkinType(getPageContext(), i2);
+            SkinManager.setViewTextColor(this.f16038e, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f16042i, R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f16031h, R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.f16028e, R.color.CAM_X0201);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f16033j, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setBackgroundColor(this.f16029f, R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.f16030g, R.drawable.setting_item_selector);
+            SkinManager.setViewTextColor(this.f16041h, R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.f16038e, R.color.CAM_X0201);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f16043j, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setBackgroundColor(this.f16039f, R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.f16040g, R.drawable.setting_item_selector);
         }
     }
 }

@@ -33,16 +33,16 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7739a;
+        public final /* synthetic */ UnitedSchemeEntity f7747a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7740b;
+        public final /* synthetic */ CallbackHandler f7748b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ l f7741c;
+        public final /* synthetic */ l f7749c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f7742d;
+        public final /* synthetic */ a f7750d;
 
         public C0330a(a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l lVar) {
             Interceptable interceptable = $ic;
@@ -59,17 +59,17 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f7742d = aVar;
-            this.f7739a = unitedSchemeEntity;
-            this.f7740b = callbackHandler;
-            this.f7741c = lVar;
+            this.f7750d = aVar;
+            this.f7747a = unitedSchemeEntity;
+            this.f7748b = callbackHandler;
+            this.f7749c = lVar;
         }
 
         @Override // c.a.p0.a.n2.i.a.b
         public void a(float[] fArr) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, fArr) == null) && fArr != null && fArr.length == 3) {
-                this.f7742d.k(this.f7739a, this.f7740b, this.f7741c, fArr);
+                this.f7750d.k(this.f7747a, this.f7748b, this.f7749c, fArr);
             }
         }
     }
@@ -155,7 +155,7 @@ public class a extends a0 {
             dArr[0] = Math.toDegrees(d2);
             dArr[1] = Math.toDegrees(-fArr[2]);
             dArr[2] = Math.toDegrees(-fArr[1]);
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "deviceMotionChange: " + Arrays.toString(dArr);
             }
             try {

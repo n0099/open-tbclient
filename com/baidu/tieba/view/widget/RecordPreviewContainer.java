@@ -13,6 +13,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
 import c.a.x0.t.t;
 import com.alibaba.fastjson.asm.Opcodes;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
@@ -29,22 +30,22 @@ public class RecordPreviewContainer extends FrameLayout {
     public boolean A;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58517e;
+    public int f58647e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f58518f;
+    public float f58648f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f58519g;
+    public int f58649g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58520h;
+    public int f58650h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f58521i;
+    public long f58651i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f58522j;
+    public long f58652j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -68,7 +69,7 @@ public class RecordPreviewContainer extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecordPreviewContainer f58523e;
+        public final /* synthetic */ RecordPreviewContainer f58653e;
 
         public a(RecordPreviewContainer recordPreviewContainer) {
             Interceptable interceptable = $ic;
@@ -85,15 +86,15 @@ public class RecordPreviewContainer extends FrameLayout {
                     return;
                 }
             }
-            this.f58523e = recordPreviewContainer;
+            this.f58653e = recordPreviewContainer;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f58523e.k();
-                this.f58523e.j();
+                this.f58653e.k();
+                this.f58653e.j();
             }
         }
     }
@@ -104,10 +105,10 @@ public class RecordPreviewContainer extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MotionEvent f58524e;
+        public final /* synthetic */ MotionEvent f58654e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RecordPreviewContainer f58525f;
+        public final /* synthetic */ RecordPreviewContainer f58655f;
 
         public b(RecordPreviewContainer recordPreviewContainer, MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
@@ -124,19 +125,19 @@ public class RecordPreviewContainer extends FrameLayout {
                     return;
                 }
             }
-            this.f58525f = recordPreviewContainer;
-            this.f58524e = motionEvent;
+            this.f58655f = recordPreviewContainer;
+            this.f58654e = motionEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f58525f.z == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f58655f.z == null) {
                 return;
             }
-            f fVar = this.f58525f.z;
-            MotionEvent motionEvent = this.f58524e;
-            fVar.c(motionEvent, motionEvent.getX(), this.f58524e.getY());
+            f fVar = this.f58655f.z;
+            MotionEvent motionEvent = this.f58654e;
+            fVar.c(motionEvent, motionEvent.getX(), this.f58654e.getY());
         }
     }
 
@@ -146,10 +147,10 @@ public class RecordPreviewContainer extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MotionEvent f58526e;
+        public final /* synthetic */ MotionEvent f58656e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RecordPreviewContainer f58527f;
+        public final /* synthetic */ RecordPreviewContainer f58657f;
 
         public c(RecordPreviewContainer recordPreviewContainer, MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
@@ -166,17 +167,17 @@ public class RecordPreviewContainer extends FrameLayout {
                     return;
                 }
             }
-            this.f58527f = recordPreviewContainer;
-            this.f58526e = motionEvent;
+            this.f58657f = recordPreviewContainer;
+            this.f58656e = motionEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f58527f.k || !this.f58527f.l || Math.abs(this.f58527f.p - this.f58526e.getX()) >= 30.0f || this.f58527f.z == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f58657f.k || !this.f58657f.l || Math.abs(this.f58657f.p - this.f58656e.getX()) >= 30.0f || this.f58657f.z == null) {
                 return;
             }
-            this.f58527f.z.d(this.f58526e);
+            this.f58657f.z.d(this.f58656e);
         }
     }
 
@@ -284,11 +285,11 @@ public class RecordPreviewContainer extends FrameLayout {
             if (motionEvent.getAction() == 1) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (y > this.f58519g || x < t.k(R.dimen.ds64)) {
+                if (y > this.f58649g || x < t.k(R.dimen.ds64)) {
                     return true;
                 }
-                int a2 = c.a.r0.b4.j.a.h.a.a(x, Opcodes.IFNE, this.f58520h - Opcodes.IFNE);
-                int a3 = c.a.r0.b4.j.a.h.a.a(y, Opcodes.IFNE, this.f58519g - Opcodes.IFNE);
+                int a2 = c.a.r0.b4.j.a.h.a.a(x, Opcodes.IFNE, this.f58650h - Opcodes.IFNE);
+                int a3 = c.a.r0.b4.j.a.h.a.a(y, Opcodes.IFNE, this.f58649g - Opcodes.IFNE);
                 e eVar = this.y;
                 if (eVar != null) {
                     eVar.b(motionEvent, 308, 308, a2, a3);
@@ -318,27 +319,27 @@ public class RecordPreviewContainer extends FrameLayout {
                     if (action != 2) {
                         if (action != 3) {
                             if (action == 5) {
-                                this.f58517e = 1;
-                                this.f58518f = m(motionEvent);
+                                this.f58647e = 1;
+                                this.f58648f = m(motionEvent);
                             }
                         }
-                    } else if (this.f58517e == 1) {
+                    } else if (this.f58647e == 1) {
                         if (motionEvent.getPointerCount() < 2) {
                             return false;
                         }
                         float m = m(motionEvent);
-                        int i2 = (int) ((m - this.f58518f) / 100.0f);
+                        int i2 = (int) ((m - this.f58648f) / 100.0f);
                         if ((i2 >= 1 || i2 <= -1) && (eVar = this.y) != null) {
                             this.A = true;
                             eVar.a(motionEvent, i2);
-                            this.f58518f = m;
+                            this.f58648f = m;
                         }
                     } else if (Math.abs(this.p - motionEvent.getX()) > this.r || Math.abs(this.q - motionEvent.getY()) > this.r) {
                         l();
                     }
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.f58521i < 100 && currentTimeMillis - this.f58522j < 500) {
+                if (currentTimeMillis - this.f58651i < 100 && currentTimeMillis - this.f58652j < 500) {
                     this.k = true;
                 } else {
                     this.k = false;
@@ -355,7 +356,7 @@ public class RecordPreviewContainer extends FrameLayout {
                     this.A = false;
                     eVar2.c();
                 }
-                this.f58522j = currentTimeMillis;
+                this.f58652j = currentTimeMillis;
             } else {
                 float x = motionEvent.getX();
                 this.p = x;
@@ -363,8 +364,8 @@ public class RecordPreviewContainer extends FrameLayout {
                 float y = motionEvent.getY();
                 this.q = y;
                 this.n = y;
-                this.f58517e = 0;
-                this.f58521i = System.currentTimeMillis();
+                this.f58647e = 0;
+                this.f58651i = System.currentTimeMillis();
                 this.l = true;
                 this.k = false;
             }
@@ -391,7 +392,7 @@ public class RecordPreviewContainer extends FrameLayout {
             if (this.w != null) {
                 int width = getWidth();
                 int width2 = this.w.getWidth();
-                int i2 = this.f58520h;
+                int i2 = this.f58650h;
                 int i3 = (((i2 * 3) / 4) - (width2 / 2)) + ((width - i2) / 2);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds44), UtilHelper.getDimenPixelSize(R.dimen.tbds52));
                 layoutParams.gravity = 17;
@@ -428,11 +429,11 @@ public class RecordPreviewContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onFinishInflate();
             this.r = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
-            this.f58520h = l.k(getContext());
-            this.f58519g = l.i(getContext());
+            this.f58650h = l.k(getContext());
+            this.f58649g = l.i(getContext());
             this.x = (AspectGLSurfaceView) findViewById(R.id.capture_surface_view);
             this.s = new Handler();
-            postDelayed(new a(this), 4000L);
+            postDelayed(new a(this), PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
         }
     }
 
@@ -533,7 +534,7 @@ public class RecordPreviewContainer extends FrameLayout {
                 return;
             }
         }
-        this.f58517e = 0;
+        this.f58647e = 0;
         this.m = true;
         this.A = false;
         this.u = context;

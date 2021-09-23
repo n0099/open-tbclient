@@ -20,10 +20,10 @@ public class f extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f16935e;
+    public List<String> f16945e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f16936f;
+    public e f16946f;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -31,7 +31,7 @@ public class f extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f16937e;
+        public final /* synthetic */ f f16947e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class f extends BaseAdapter {
                     return;
                 }
             }
-            this.f16937e = fVar;
+            this.f16947e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -56,10 +56,10 @@ public class f extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TbImageView tbImageView = (TbImageView) view;
-                if (this.f16937e.f16936f == null || tbImageView == null || tbImageView.getBdImage() == null || tbImageView.getBdImage().p() == null) {
+                if (this.f16947e.f16946f == null || tbImageView == null || tbImageView.getBdImage() == null || tbImageView.getBdImage().p() == null) {
                     return;
                 }
-                this.f16937e.f16936f.a(tbImageView.getBdImage().p(), false);
+                this.f16947e.f16946f.a(tbImageView.getBdImage().p(), false);
             }
         }
     }
@@ -70,7 +70,7 @@ public class f extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f16938e;
+        public final /* synthetic */ f f16948e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class f extends BaseAdapter {
                     return;
                 }
             }
-            this.f16938e = fVar;
+            this.f16948e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -95,10 +95,10 @@ public class f extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TbImageView tbImageView = (TbImageView) view;
-                if (this.f16938e.f16936f == null || tbImageView == null || tbImageView.getBdImage() == null || tbImageView.getBdImage().p() == null) {
+                if (this.f16948e.f16946f == null || tbImageView == null || tbImageView.getBdImage() == null || tbImageView.getBdImage().p() == null) {
                     return;
                 }
-                this.f16938e.f16936f.a(tbImageView.getBdImage().p(), true);
+                this.f16948e.f16946f.a(tbImageView.getBdImage().p(), true);
             }
         }
     }
@@ -109,10 +109,10 @@ public class f extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f16939a;
+        public TbImageView f16949a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f16940b;
+        public TbImageView f16950b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -149,7 +149,7 @@ public class f extends BaseAdapter {
     public String getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (String) ListUtils.getItem(this.f16935e, i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (String) ListUtils.getItem(this.f16945e, i2) : (String) invokeI.objValue;
     }
 
     public void c(List<String> list) {
@@ -157,13 +157,13 @@ public class f extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f16935e = list;
+        this.f16945e = list;
     }
 
     public void d(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f16936f = eVar;
+            this.f16946f = eVar;
         }
     }
 
@@ -172,10 +172,10 @@ public class f extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.isEmpty(this.f16935e)) {
+            if (ListUtils.isEmpty(this.f16945e)) {
                 return 0;
             }
-            return (int) Math.ceil(this.f16935e.size() / 2.0d);
+            return (int) Math.ceil(this.f16945e.size() / 2.0d);
         }
         return invokeV.intValue;
     }
@@ -199,19 +199,19 @@ public class f extends BaseAdapter {
             if (view == null) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pic_sticker_item, (ViewGroup) null);
                 cVar = new c();
-                cVar.f16939a = (TbImageView) view.findViewById(R.id.top_sticker);
-                cVar.f16940b = (TbImageView) view.findViewById(R.id.bottom_sticker);
+                cVar.f16949a = (TbImageView) view.findViewById(R.id.top_sticker);
+                cVar.f16950b = (TbImageView) view.findViewById(R.id.bottom_sticker);
                 view.setTag(cVar);
             } else {
                 cVar = (c) view.getTag();
             }
-            cVar.f16939a.setGifIconSupport(false);
-            cVar.f16940b.setGifIconSupport(false);
+            cVar.f16949a.setGifIconSupport(false);
+            cVar.f16950b.setGifIconSupport(false);
             int i3 = i2 * 2;
-            cVar.f16939a.startLoad(this.f16935e.get(i3), 10, true);
-            cVar.f16939a.setOnClickListener(new a(this));
-            cVar.f16940b.startLoad(this.f16935e.get(i3 + 1), 10, true);
-            cVar.f16940b.setOnClickListener(new b(this));
+            cVar.f16949a.startLoad(this.f16945e.get(i3), 10, true);
+            cVar.f16949a.setOnClickListener(new a(this));
+            cVar.f16950b.startLoad(this.f16945e.get(i3 + 1), 10, true);
+            cVar.f16950b.setOnClickListener(new b(this));
             return view;
         }
         return (View) invokeILL.objValue;

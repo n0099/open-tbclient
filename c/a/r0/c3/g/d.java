@@ -22,11 +22,11 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.j;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.q0.d1.r;
+import c.a.q0.d1.u;
 import c.a.q0.s.s.a;
 import c.a.q0.t.c.g0;
 import c.a.q0.t.c.h0;
-import c.a.r0.j3.z;
+import c.a.r0.j3.a0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -73,22 +73,22 @@ public class d implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f16554e;
+    public final Context f16564e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final View f16555f;
+    public final View f16565f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final View f16556g;
+    public final View f16566g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final TextView f16557h;
+    public final TextView f16567h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ShareGridLayout f16558i;
+    public ShareGridLayout f16568i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final EMTextView f16559j;
+    public final EMTextView f16569j;
     public final List<View> k;
     public View.OnClickListener l;
     public DialogInterface.OnDismissListener m;
@@ -112,7 +112,7 @@ public class d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f16560a;
+        public final /* synthetic */ d f16570a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2) {
@@ -132,7 +132,7 @@ public class d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f16560a = dVar;
+            this.f16570a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -140,9 +140,9 @@ public class d implements View.OnClickListener {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                this.f16560a.k();
-                this.f16560a.f16558i.removeAllViews();
-                this.f16560a.j();
+                this.f16570a.k();
+                this.f16570a.f16568i.removeAllViews();
+                this.f16570a.j();
             }
         }
     }
@@ -153,7 +153,7 @@ public class d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16561e;
+        public final /* synthetic */ d f16571e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -170,7 +170,7 @@ public class d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f16561e = dVar;
+            this.f16571e = dVar;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -178,10 +178,10 @@ public class d implements View.OnClickListener {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (this.f16561e.o == null || !this.f16561e.o.isShowing()) {
+                if (this.f16571e.o == null || !this.f16571e.o.isShowing()) {
                     return null;
                 }
-                this.f16561e.m();
+                this.f16571e.m();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -194,7 +194,7 @@ public class d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16562e;
+        public final /* synthetic */ d f16572e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -211,15 +211,15 @@ public class d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f16562e = dVar;
+            this.f16572e = dVar;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                if (this.f16562e.m != null) {
-                    this.f16562e.m.onDismiss(dialogInterface);
+                if (this.f16572e.m != null) {
+                    this.f16572e.m.onDismiss(dialogInterface);
                 }
                 MessageManager.getInstance().unRegisterTask(2001277);
                 MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.FALSE));
@@ -229,14 +229,14 @@ public class d implements View.OnClickListener {
 
     /* renamed from: c.a.r0.c3.g.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class DialogInterface$OnCancelListenerC0797d implements DialogInterface.OnCancelListener {
+    public class DialogInterface$OnCancelListenerC0795d implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16563e;
+        public final /* synthetic */ d f16573e;
 
-        public DialogInterface$OnCancelListenerC0797d(d dVar) {
+        public DialogInterface$OnCancelListenerC0795d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -251,26 +251,26 @@ public class d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f16563e = dVar;
+            this.f16573e = dVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f16563e.n == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f16573e.n == null) {
                 return;
             }
-            this.f16563e.n.onCancel(dialogInterface);
+            this.f16573e.n.onCancel(dialogInterface);
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e extends r.a {
+    public class e extends u.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f16564a;
+        public final /* synthetic */ d f16574a;
 
         public e(d dVar) {
             Interceptable interceptable = $ic;
@@ -287,22 +287,22 @@ public class d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f16564a = dVar;
+            this.f16574a = dVar;
         }
 
-        @Override // c.a.q0.d1.r.a
+        @Override // c.a.q0.d1.u.a
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                l.M(this.f16564a.f16554e, "保存失败！");
+                l.M(this.f16574a.f16564e, "保存失败！");
             }
         }
 
-        @Override // c.a.q0.d1.r.a
+        @Override // c.a.q0.d1.u.a
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                l.M(this.f16564a.f16554e, "保存成功！");
+                l.M(this.f16574a.f16564e, "保存成功！");
             }
         }
     }
@@ -313,10 +313,10 @@ public class d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f16565e;
+        public final /* synthetic */ ShareItem f16575e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f16566f;
+        public final /* synthetic */ d f16576f;
 
         public f(d dVar, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -333,16 +333,16 @@ public class d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f16566f = dVar;
-            this.f16565e = shareItem;
+            this.f16576f = dVar;
+            this.f16575e = shareItem;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                c.a.e.e.p.a.a(this.f16565e.s);
-                l.L(this.f16566f.f16554e.getApplicationContext(), R.string.copy_success);
+                c.a.e.e.p.a.a(this.f16575e.s);
+                l.L(this.f16576f.f16564e.getApplicationContext(), R.string.copy_success);
                 aVar.dismiss();
             }
         }
@@ -384,10 +384,10 @@ public class d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public View.OnClickListener f16567e;
+        public View.OnClickListener f16577e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f16568f;
+        public final /* synthetic */ d f16578f;
 
         public h(d dVar, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -404,16 +404,16 @@ public class d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f16568f = dVar;
-            this.f16567e = onClickListener;
+            this.f16578f = dVar;
+            this.f16577e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f16568f.m();
-                View.OnClickListener onClickListener = this.f16567e;
+                this.f16578f.m();
+                View.OnClickListener onClickListener = this.f16577e;
                 if (onClickListener != null) {
                     onClickListener.onClick(view);
                 }
@@ -462,29 +462,29 @@ public class d implements View.OnClickListener {
         this.y = new a(this, 2001304);
         this.z = 0;
         this.z = i2;
-        this.f16554e = context;
+        this.f16564e = context;
         this.k = new ArrayList();
         View p = p();
-        this.f16555f = p;
-        this.f16556g = p.findViewById(R.id.share_dialog_main_view);
-        this.f16557h = (TextView) this.f16555f.findViewById(R.id.share_dialog_title);
+        this.f16565f = p;
+        this.f16566g = p.findViewById(R.id.share_dialog_main_view);
+        this.f16567h = (TextView) this.f16565f.findViewById(R.id.share_dialog_title);
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
         if (!TextUtils.isEmpty(sharePanelText)) {
-            this.f16557h.setText(sharePanelText);
+            this.f16567h.setText(sharePanelText);
         }
-        ShareGridLayout shareGridLayout = (ShareGridLayout) this.f16555f.findViewById(R.id.share_grid_layout);
-        this.f16558i = shareGridLayout;
+        ShareGridLayout shareGridLayout = (ShareGridLayout) this.f16565f.findViewById(R.id.share_grid_layout);
+        this.f16568i = shareGridLayout;
         ViewGroup.LayoutParams layoutParams = shareGridLayout.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             int i5 = ShareGridLayout.DEFAULT_MARGIN_LEFT_RIGHT;
             marginLayoutParams.leftMargin = i5;
             marginLayoutParams.rightMargin = i5;
-            this.f16558i.setLayoutParams(marginLayoutParams);
+            this.f16568i.setLayoutParams(marginLayoutParams);
         }
-        this.f16558i.setItemParams(A, B);
-        EMTextView eMTextView = (EMTextView) this.f16555f.findViewById(R.id.btnShareCancel);
-        this.f16559j = eMTextView;
+        this.f16568i.setItemParams(A, B);
+        EMTextView eMTextView = (EMTextView) this.f16565f.findViewById(R.id.btnShareCancel);
+        this.f16569j = eMTextView;
         eMTextView.setOnClickListener(this);
     }
 
@@ -498,7 +498,7 @@ public class d implements View.OnClickListener {
         g0 sharePanelConfData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, from) == null) && (sharePanelConfData = TbSingleton.getInstance().getSharePanelConfData()) != null && sharePanelConfData.d(from) && sharePanelConfData.c() && !k.isEmpty(sharePanelConfData.b())) {
-            this.f16557h.setText(sharePanelConfData.b());
+            this.f16567h.setText(sharePanelConfData.b());
         }
     }
 
@@ -557,7 +557,7 @@ public class d implements View.OnClickListener {
             if (StringUtils.isNull(shareItem.n)) {
                 return;
             }
-            this.f16557h.setText(shareItem.n);
+            this.f16567h.setText(shareItem.n);
         }
     }
 
@@ -608,16 +608,16 @@ public class d implements View.OnClickListener {
                 l.L(TbadkCoreApplication.getInst().getContext(), R.string.plugin_share_install_failure);
             } else {
                 j();
-                AlertDialog create = new AlertDialog.Builder(this.f16554e, R.style.DialogTheme).create();
+                AlertDialog create = new AlertDialog.Builder(this.f16564e, R.style.DialogTheme).create();
                 this.o = create;
                 create.setCanceledOnTouchOutside(true);
                 this.o.setOnDismissListener(new c(this));
-                this.o.setOnCancelListener(new DialogInterface$OnCancelListenerC0797d(this));
-                Context context = this.f16554e;
+                this.o.setOnCancelListener(new DialogInterface$OnCancelListenerC0795d(this));
+                Context context = this.f16564e;
                 if (context instanceof Activity) {
                     c.a.e.e.m.g.i(this.o, (Activity) context);
                 }
-                c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f16556g);
+                c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f16566g);
                 d2.o(R.string.J_X14);
                 d2.f(R.color.CAM_X0204);
                 Window window = this.o.getWindow();
@@ -635,11 +635,11 @@ public class d implements View.OnClickListener {
                 }
                 window.setGravity(80);
                 T(window);
-                window.setContentView(this.f16555f);
+                window.setContentView(this.f16565f);
                 window.setDimAmount(this.p);
                 k();
                 D();
-                c.a.e.a.j.a(this.f16554e).registerListener(this.y);
+                c.a.e.a.j.a(this.f16564e).registerListener(this.y);
                 MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.TRUE));
             }
         }
@@ -682,7 +682,7 @@ public class d implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048592, this, shareItem) == null) || shareItem == null || TextUtils.isEmpty(shareItem.s) || TextUtils.isEmpty(shareItem.r)) {
             return;
         }
-        Context context = this.f16554e;
+        Context context = this.f16564e;
         if (context instanceof Activity) {
             Activity activity = (Activity) context;
             c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(activity);
@@ -709,7 +709,7 @@ public class d implements View.OnClickListener {
     public final void Z(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, str, objArr) == null) {
-            TiebaStatic.eventStat(this.f16554e, str, PrefetchEvent.STATE_CLICK, 1, objArr);
+            TiebaStatic.eventStat(this.f16564e, str, PrefetchEvent.STATE_CLICK, 1, objArr);
         }
     }
 
@@ -763,7 +763,7 @@ public class d implements View.OnClickListener {
     public final void c0(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048597, this, i2, str) == null) {
-            TiebaStatic.eventStat(this.f16554e, "pb_new_share", null, 1, "loc", Integer.valueOf(i2), PbChosenActivityConfig.KEY_TID, str);
+            TiebaStatic.eventStat(this.f16564e, "pb_new_share", null, 1, "loc", Integer.valueOf(i2), PbChosenActivityConfig.KEY_TID, str);
         }
     }
 
@@ -773,19 +773,19 @@ public class d implements View.OnClickListener {
             return;
         }
         if (shareItem.q == null) {
-            if (shareItem.f48114j) {
+            if (shareItem.f48222j) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_type", i2).param("obj_source", shareItem.E));
             }
-        } else if (shareItem.f48106b) {
+        } else if (shareItem.f48214b) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", shareItem.q).param("obj_type", i2).param("obj_source", shareItem.E).param(TiebaStatic.Params.OBJ_PARAM2, shareItem.G));
-        } else if (!shareItem.f48107c && !shareItem.f48110f) {
-            if (shareItem.f48108d) {
+        } else if (!shareItem.f48215c && !shareItem.f48218f) {
+            if (shareItem.f48216d) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).param("tid", shareItem.q).param("obj_type", i2));
-            } else if (shareItem.f48105a) {
+            } else if (shareItem.f48213a) {
                 c0(i2, shareItem.C);
-            } else if (shareItem.f48109e) {
+            } else if (shareItem.f48217e) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", 7).param("obj_type", i2).param("fid", shareItem.q).param(TiebaStatic.Params.OBJ_PARAM2, shareItem.G));
-            } else if (shareItem.f48111g) {
+            } else if (shareItem.f48219g) {
                 StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_type", i2);
                 param.param("obj_source", shareItem.E);
                 if (!k.isEmpty(shareItem.t)) {
@@ -795,7 +795,7 @@ public class d implements View.OnClickListener {
                     param.param(TiebaStatic.Params.OBJ_URL, shareItem.t);
                 }
                 TiebaStatic.log(param);
-            } else if (shareItem.f48113i) {
+            } else if (shareItem.f48221i) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_TOPIC_DETAIL).param("obj_locate", i2 == 3 ? "1" : i2 == 4 ? "2" : i2 == 9 ? "4" : i2 == 5 ? "3" : i2 == 7 ? "5" : "6").param("topic_id", shareItem.q));
             } else if (shareItem.k) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD);
@@ -821,7 +821,7 @@ public class d implements View.OnClickListener {
     public void g(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) {
-            ShareDialogItemView shareDialogItemView = new ShareDialogItemView(this.f16554e);
+            ShareDialogItemView shareDialogItemView = new ShareDialogItemView(this.f16564e);
             shareDialogItemView.setItemIcon(i3, SkinManager.getColor(R.color.CAM_X0107));
             shareDialogItemView.setItemName(i2);
             shareDialogItemView.setOnClickListener(this);
@@ -834,7 +834,7 @@ public class d implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeIL(1048600, this, i2, absSvgType) == null) || absSvgType == null) {
             return;
         }
-        ShareDialogItemView shareDialogItemView = new ShareDialogItemView(this.f16554e);
+        ShareDialogItemView shareDialogItemView = new ShareDialogItemView(this.f16564e);
         shareDialogItemView.setItemIcon(absSvgType);
         shareDialogItemView.setItemName(i2);
         shareDialogItemView.setOnClickListener(this);
@@ -859,10 +859,10 @@ public class d implements View.OnClickListener {
         }
         W();
         if (!c.a.q0.t.g.g.g()) {
-            this.f16558i.setVisibility(8);
+            this.f16568i.setVisibility(8);
         }
         for (int i2 = 0; i2 < this.k.size(); i2++) {
-            this.f16558i.addView(this.k.get(i2), new ViewGroup.LayoutParams(A, B));
+            this.f16568i.addView(this.k.get(i2), new ViewGroup.LayoutParams(A, B));
         }
     }
 
@@ -870,11 +870,11 @@ public class d implements View.OnClickListener {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f16556g);
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f16566g);
             d2.o(R.string.J_X14);
             d2.f(R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.f16557h, R.color.CAM_X0108, 1);
-            SkinManager.setViewTextColorSelector(this.f16559j, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f16567h, R.color.CAM_X0108, 1);
+            SkinManager.setViewTextColorSelector(this.f16569j, R.color.CAM_X0107);
         }
     }
 
@@ -882,13 +882,13 @@ public class d implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            if (this.f16554e instanceof Activity) {
+            if (this.f16564e instanceof Activity) {
                 if (this.q == null) {
                     this.q = new PermissionJudgePolicy();
                 }
                 this.q.clearRequestPermissionList();
-                this.q.appendRequestPermission((Activity) this.f16554e, "android.permission.WRITE_EXTERNAL_STORAGE");
-                return this.q.startRequestPermission((Activity) this.f16554e);
+                this.q.appendRequestPermission((Activity) this.f16564e, "android.permission.WRITE_EXTERNAL_STORAGE");
+                return this.q.startRequestPermission((Activity) this.f16564e);
             }
             return false;
         }
@@ -902,12 +902,12 @@ public class d implements View.OnClickListener {
             return;
         }
         this.s = false;
-        if (this.f16554e instanceof Activity) {
+        if (this.f16564e instanceof Activity) {
             DialogInterface.OnDismissListener onDismissListener = this.m;
             if (onDismissListener != null) {
                 onDismissListener.onDismiss(alertDialog);
             }
-            c.a.e.e.m.g.a(this.o, (Activity) this.f16554e);
+            c.a.e.e.m.g.a(this.o, (Activity) this.f16564e);
             MessageManager.getInstance().unRegisterListener(this.y);
             MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.FALSE));
         }
@@ -963,7 +963,7 @@ public class d implements View.OnClickListener {
             if (id == R.id.btnShareCancel || !this.s) {
                 this.s = true;
                 ShareItem r = r(1);
-                c.a.q0.t.g.g gVar = new c.a.q0.t.g.g(this.f16554e, null);
+                c.a.q0.t.g.g gVar = new c.a.q0.t.g.g(this.f16564e, null);
                 if (r != null && r.k0) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_AI_APP_SHARE_CLICK).param("obj_id", r.l0).param("obj_type", r.m0).param("obj_source", r.n0));
                     Bundle bundle = new Bundle();
@@ -975,7 +975,7 @@ public class d implements View.OnClickListener {
                 }
                 if (id == R.id.btnShareCancel) {
                     Z("share_cancel", new Object[0]);
-                    if (r != null && r.f48111g) {
+                    if (r != null && r.f48219g) {
                         d0(r, 16);
                     }
                     DialogInterface.OnCancelListener onCancelListener = this.n;
@@ -997,7 +997,7 @@ public class d implements View.OnClickListener {
                     d0(r2, 4);
                     if (r2 != null) {
                         if (u(r2) && r2.a() != null && r2.a().contains(3)) {
-                            c.a.q0.t.g.a.e(r2, this.f16554e, 3, this.n);
+                            c.a.q0.t.g.a.e(r2, this.f16564e, 3, this.n);
                         } else if (r2.h0 == 1) {
                             X(r2);
                         } else {
@@ -1016,11 +1016,11 @@ public class d implements View.OnClickListener {
                     d0(r3, 3);
                     if (r3 != null) {
                         if (u(r3) && r3.a() != null && r3.a().contains(2)) {
-                            c.a.q0.t.g.a.e(r3, this.f16554e, 2, this.n);
+                            c.a.q0.t.g.a.e(r3, this.f16564e, 2, this.n);
                         } else if (r3.h0 == 1) {
                             X(r3);
                         } else {
-                            if (r3.f48106b) {
+                            if (r3.f48214b) {
                                 r3.s = "【" + r3.r + "】 " + r3.s;
                             }
                             gVar.n(r3);
@@ -1032,20 +1032,20 @@ public class d implements View.OnClickListener {
                         l.L(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
                         return;
                     }
-                    if (z.b(this.f16554e, "com.tencent.mobileqq")) {
+                    if (a0.b(this.f16564e, "com.tencent.mobileqq")) {
                         Z("share_to_qzone", new Object[0]);
                         a0(4);
                         ShareItem r4 = r(4);
                         d0(r4, 5);
                         if (r4 != null) {
                             if (u(r4) && r4.a() != null && r4.a().contains(4)) {
-                                c.a.q0.t.g.a.e(r4, this.f16554e, 4, this.n);
+                                c.a.q0.t.g.a.e(r4, this.f16564e, 4, this.n);
                             } else {
                                 gVar.i(r4);
                             }
                         }
                     } else {
-                        Context context = this.f16554e;
+                        Context context = this.f16564e;
                         BdToast.c(context, context.getText(R.string.share_qq_not_install)).q();
                     }
                     statisticItem2.param("obj_type", 5);
@@ -1058,7 +1058,7 @@ public class d implements View.OnClickListener {
                     a0(5);
                     ShareItem r5 = r(5);
                     if (r5 != null) {
-                        if (!r5.f48105a) {
+                        if (!r5.f48213a) {
                             r5.s = o(r5);
                         }
                         gVar.l(r5);
@@ -1073,11 +1073,11 @@ public class d implements View.OnClickListener {
                     ShareItem r6 = r(6);
                     d0(r6, 7);
                     if (r6 != null) {
-                        if (!r6.f48105a) {
+                        if (!r6.f48213a) {
                             r6.s = o(r6);
                         }
                         if (u(r6) && r6.a() != null && r6.a().contains(4)) {
-                            c.a.q0.t.g.a.e(r6, this.f16554e, 6, this.n);
+                            c.a.q0.t.g.a.e(r6, this.f16564e, 6, this.n);
                         } else {
                             gVar.k(r6);
                         }
@@ -1092,7 +1092,7 @@ public class d implements View.OnClickListener {
                     a0(7);
                     ShareItem r7 = r(7);
                     if (r7 != null) {
-                        if (!r7.f48105a) {
+                        if (!r7.f48213a) {
                             r7.s = o(r7);
                         }
                         gVar.j(r7);
@@ -1102,20 +1102,20 @@ public class d implements View.OnClickListener {
                         l.L(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
                         return;
                     }
-                    if (z.b(this.f16554e, "com.tencent.mobileqq")) {
+                    if (a0.b(this.f16564e, "com.tencent.mobileqq")) {
                         Z("share_to_qq_friend", new Object[0]);
                         a0(8);
                         ShareItem r8 = r(8);
                         d0(r8, 9);
                         if (r8 != null) {
                             if (u(r8) && r8.a() != null && r8.a().contains(4)) {
-                                c.a.q0.t.g.a.e(r8, this.f16554e, 8, this.n);
+                                c.a.q0.t.g.a.e(r8, this.f16564e, 8, this.n);
                             } else {
                                 gVar.h(r8);
                             }
                         }
                     } else {
-                        Context context2 = this.f16554e;
+                        Context context2 = this.f16564e;
                         BdToast.c(context2, context2.getText(R.string.share_qq_not_install)).q();
                     }
                     statisticItem2.param("obj_type", 4);
@@ -1124,18 +1124,18 @@ public class d implements View.OnClickListener {
                         this.q = new PermissionJudgePolicy();
                     }
                     this.q.clearRequestPermissionList();
-                    this.q.appendRequestPermission((Activity) this.f16554e, "android.permission.WRITE_EXTERNAL_STORAGE");
-                    if (this.q.startRequestPermission((Activity) this.f16554e)) {
+                    this.q.appendRequestPermission((Activity) this.f16564e, "android.permission.WRITE_EXTERNAL_STORAGE");
+                    if (this.q.startRequestPermission((Activity) this.f16564e)) {
                         this.s = false;
                         return;
                     }
                     m();
                     d0(r, 17);
                     if (FileHelper.isLocalFile(r.v)) {
-                        if (FileHelper.copyImageFile(FileHelper.getImageRealPathFromUri(this.f16554e, r.v), UUID.randomUUID().toString().replace("-", "").toLowerCase(), this.f16554e) == 0) {
-                            l.M(this.f16554e, "保存成功！");
+                        if (FileHelper.copyImageFile(FileHelper.getImageRealPathFromUri(this.f16564e, r.v), UUID.randomUUID().toString().replace("-", "").toLowerCase(), this.f16564e) == 0) {
+                            l.M(this.f16564e, "保存成功！");
                         } else {
-                            l.M(this.f16554e, "保存失败！");
+                            l.M(this.f16564e, "保存失败！");
                         }
                     } else {
                         String uri = r.v.toString();
@@ -1143,7 +1143,7 @@ public class d implements View.OnClickListener {
                         if (currentActivity == null) {
                             return;
                         }
-                        new r(currentActivity, uri, new e(this)).execute(new String[0]);
+                        new u(currentActivity, uri, new e(this)).execute(new String[0]);
                     }
                     statisticItem2.param("obj_type", 1);
                 } else if (intValue == R.drawable.icon_pure_share_copy40) {
@@ -1153,10 +1153,10 @@ public class d implements View.OnClickListener {
                         onClickListener.onClick(view);
                     } else {
                         c.a.e.e.p.a.a(r.t);
-                        l.M(this.f16554e.getApplicationContext(), this.f16554e.getResources().getString(R.string.copy_pb_url_success));
+                        l.M(this.f16564e.getApplicationContext(), this.f16564e.getResources().getString(R.string.copy_pb_url_success));
                     }
                     b0(r);
-                    if (r != null && r.f48105a) {
+                    if (r != null && r.f48213a) {
                         c0(8, r.C);
                     }
                 }
@@ -1176,8 +1176,8 @@ public class d implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            if (PermissionUtil.checkLocationForGoogle(this.f16554e)) {
-                LocationManager locationManager = (LocationManager) this.f16554e.getSystemService("location");
+            if (PermissionUtil.checkLocationForGoogle(this.f16564e)) {
+                LocationManager locationManager = (LocationManager) this.f16564e.getSystemService("location");
                 Criteria criteria = new Criteria();
                 criteria.setAccuracy(1);
                 criteria.setAltitudeRequired(false);
@@ -1217,7 +1217,7 @@ public class d implements View.OnClickListener {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048613, this, i2, i3)) == null) {
-            ShareDialogItemView shareDialogItemView = new ShareDialogItemView(this.f16554e);
+            ShareDialogItemView shareDialogItemView = new ShareDialogItemView(this.f16564e);
             shareDialogItemView.setItemIcon(i3, SkinManager.getColor(R.color.CAM_X0107));
             shareDialogItemView.setItemName(i2);
             return shareDialogItemView.create();

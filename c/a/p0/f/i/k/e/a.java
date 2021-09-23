@@ -18,23 +18,23 @@ public final class a implements c.a.p0.f.i.k.f.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f10595d;
+    public static final String[] f10603d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f10596e;
+    public static final int f10604e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f10597f;
+    public static final int f10605f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f10598a;
+    public b f10606a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SQLiteDatabase f10599b;
+    public final SQLiteDatabase f10607b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final SQLiteDatabase f10600c;
+    public final SQLiteDatabase f10608c;
 
     static {
         InterceptResult invokeClinit;
@@ -49,9 +49,9 @@ public final class a implements c.a.p0.f.i.k.f.b {
                 return;
             }
         }
-        f10595d = new String[]{"_id", "createAt", "uri", "packagename", "path", "size", "progress", "status"};
-        f10596e = DownloadState.DOWNLOADED.value();
-        f10597f = DownloadState.DOWNLOAD_PAUSED.value();
+        f10603d = new String[]{"_id", "createAt", "uri", "packagename", "path", "size", "progress", "status"};
+        f10604e = DownloadState.DOWNLOADED.value();
+        f10605f = DownloadState.DOWNLOAD_PAUSED.value();
     }
 
     public a(Context context, c.a.p0.f.i.k.c.a aVar) {
@@ -69,18 +69,18 @@ public final class a implements c.a.p0.f.i.k.f.b {
                 return;
             }
         }
-        this.f10598a = null;
+        this.f10606a = null;
         b bVar = new b(context);
-        this.f10598a = bVar;
-        this.f10599b = bVar.getWritableDatabase();
-        this.f10600c = this.f10598a.getReadableDatabase();
+        this.f10606a = bVar;
+        this.f10607b = bVar.getWritableDatabase();
+        this.f10608c = this.f10606a.getReadableDatabase();
     }
 
     @Override // c.a.p0.f.i.k.f.b
     public void a(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
-            this.f10599b.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
+            this.f10607b.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
         }
     }
 
@@ -88,7 +88,7 @@ public final class a implements c.a.p0.f.i.k.f.b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f10599b.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(f10597f), Integer.valueOf(f10596e)});
+            this.f10607b.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(f10605f), Integer.valueOf(f10604e)});
         }
     }
 
@@ -97,7 +97,7 @@ public final class a implements c.a.p0.f.i.k.f.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Cursor query = this.f10600c.query("ad_download", f10595d, "_id=?", new String[]{str}, null, null, "createAt desc");
+            Cursor query = this.f10608c.query("ad_download", f10603d, "_id=?", new String[]{str}, null, null, "createAt desc");
             if (query.moveToNext()) {
                 DownloadInfo downloadInfo = new DownloadInfo();
                 e(query, downloadInfo);
@@ -115,12 +115,12 @@ public final class a implements c.a.p0.f.i.k.f.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                if (this.f10598a == null) {
+                if (this.f10606a == null) {
                     return;
                 }
                 try {
-                    this.f10598a.close();
-                    this.f10598a = null;
+                    this.f10606a.close();
+                    this.f10606a = null;
                 } catch (Exception unused) {
                 }
             }
@@ -131,7 +131,7 @@ public final class a implements c.a.p0.f.i.k.f.b {
     public void d(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) {
-            this.f10599b.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
+            this.f10607b.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
         }
     }
 

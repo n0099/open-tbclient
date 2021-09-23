@@ -23,46 +23,46 @@ public class a implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13960a;
+    public int f13957a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13961b;
+    public boolean f13958b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AudioRecord f13962c;
+    public AudioRecord f13959c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RandomAccessFile f13963d;
+    public RandomAccessFile f13960d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f13964e;
+    public File f13961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13965f;
+    public int f13962f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13966g;
+    public int f13963g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13967h;
+    public int f13964h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13968i;
+    public int f13965i;
 
     /* renamed from: j  reason: collision with root package name */
-    public short f13969j;
+    public short f13966j;
     public short k;
 
     /* renamed from: c.a.q0.s.g0.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0687a implements Runnable {
+    public class RunnableC0685a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13970e;
+        public final /* synthetic */ a f13967e;
 
-        public RunnableC0687a(a aVar) {
+        public RunnableC0685a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,14 +77,14 @@ public class a implements d {
                     return;
                 }
             }
-            this.f13970e = aVar;
+            this.f13967e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13970e.h();
+                this.f13967e.h();
             }
         }
     }
@@ -117,17 +117,17 @@ public class a implements d {
                 return;
             }
         }
-        this.f13960a = 0;
-        this.f13961b = false;
-        this.f13962c = null;
-        this.f13964e = null;
+        this.f13957a = 0;
+        this.f13958b = false;
+        this.f13959c = null;
+        this.f13961e = null;
     }
 
     @Override // c.a.q0.s.g0.c.d
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f13961b = false;
+            this.f13958b = false;
         }
     }
 
@@ -135,7 +135,7 @@ public class a implements d {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13961b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13958b : invokeV.booleanValue;
     }
 
     @Override // c.a.q0.s.g0.c.d
@@ -150,7 +150,7 @@ public class a implements d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Thread thread = new Thread(new RunnableC0687a(this));
+            Thread thread = new Thread(new RunnableC0685a(this));
             thread.setPriority(10);
             thread.setDaemon(true);
             thread.start();
@@ -169,25 +169,25 @@ public class a implements d {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str})) == null) {
-            this.f13960a = AudioRecord.getMinBufferSize(i3, i4, i5) + 2048;
-            this.f13966g = i3;
-            this.f13967h = i4;
-            this.f13968i = i5;
-            AudioRecord audioRecord = this.f13962c;
+            this.f13957a = AudioRecord.getMinBufferSize(i3, i4, i5) + 2048;
+            this.f13963g = i3;
+            this.f13964h = i4;
+            this.f13965i = i5;
+            AudioRecord audioRecord = this.f13959c;
             if (audioRecord != null) {
                 audioRecord.release();
             }
-            this.f13962c = new AudioRecord(i2, this.f13966g, this.f13967h, this.f13968i, this.f13960a);
-            this.f13969j = (short) (this.f13967h == 12 ? 2 : 1);
-            this.k = (short) (this.f13968i == 2 ? 16 : 8);
+            this.f13959c = new AudioRecord(i2, this.f13963g, this.f13964h, this.f13965i, this.f13957a);
+            this.f13966j = (short) (this.f13964h == 12 ? 2 : 1);
+            this.k = (short) (this.f13965i == 2 ? 16 : 8);
             File file = new File(str);
-            this.f13964e = file;
+            this.f13961e = file;
             if (file.exists()) {
-                this.f13964e.delete();
+                this.f13961e.delete();
             }
             try {
-                this.f13964e.createNewFile();
-                RandomAccessFile randomAccessFile = this.f13963d;
+                this.f13961e.createNewFile();
+                RandomAccessFile randomAccessFile = this.f13960d;
                 if (randomAccessFile != null) {
                     try {
                         randomAccessFile.close();
@@ -197,16 +197,16 @@ public class a implements d {
                     }
                 }
                 try {
-                    this.f13963d = new RandomAccessFile(this.f13964e, "rw");
+                    this.f13960d = new RandomAccessFile(this.f13961e, "rw");
                     i();
-                    f(this.f13964e.getParent());
+                    f(this.f13961e.getParent());
                     return true;
                 } catch (FileNotFoundException e3) {
                     e3.printStackTrace();
                     return false;
                 }
             } catch (IOException unused) {
-                this.f13964e = null;
+                this.f13961e = null;
                 return false;
             }
         }
@@ -216,30 +216,30 @@ public class a implements d {
     public final void h() {
         AudioRecord audioRecord;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (audioRecord = this.f13962c) == null || this.f13964e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (audioRecord = this.f13959c) == null || this.f13961e == null) {
             return;
         }
         try {
-            this.f13961b = true;
-            int i2 = this.f13960a;
+            this.f13958b = true;
+            int i2 = this.f13957a;
             byte[] bArr = new byte[i2];
             audioRecord.startRecording();
-            while (this.f13961b) {
-                this.f13962c.read(bArr, 0, i2);
-                this.f13963d.write(bArr);
-                this.f13965f += i2;
+            while (this.f13958b) {
+                this.f13959c.read(bArr, 0, i2);
+                this.f13960d.write(bArr);
+                this.f13962f += i2;
             }
-            this.f13963d.seek(4L);
-            this.f13963d.writeInt(Integer.reverseBytes(this.f13965f + 36));
-            this.f13963d.seek(40L);
-            this.f13963d.writeInt(Integer.reverseBytes(this.f13965f));
-            this.f13963d.close();
-            this.f13962c.stop();
-            this.f13962c.release();
-            this.f13961b = false;
+            this.f13960d.seek(4L);
+            this.f13960d.writeInt(Integer.reverseBytes(this.f13962f + 36));
+            this.f13960d.seek(40L);
+            this.f13960d.writeInt(Integer.reverseBytes(this.f13962f));
+            this.f13960d.close();
+            this.f13959c.stop();
+            this.f13959c.release();
+            this.f13958b = false;
         } catch (Throwable unused) {
-            if (this.f13964e.exists()) {
-                this.f13964e.delete();
+            if (this.f13961e.exists()) {
+                this.f13961e.delete();
             }
         }
     }
@@ -248,23 +248,23 @@ public class a implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             try {
-                this.f13963d.setLength(0L);
-                this.f13963d.writeBytes(com.baidu.wallet.base.audio.b.f60235e);
-                this.f13963d.writeInt(0);
-                this.f13963d.writeBytes(com.baidu.wallet.base.audio.b.f60236f);
-                this.f13963d.writeBytes(com.baidu.wallet.base.audio.b.f60237g);
-                this.f13963d.writeInt(Integer.reverseBytes(16));
-                this.f13963d.writeShort(Short.reverseBytes((short) 1));
-                this.f13963d.writeShort(Short.reverseBytes(this.f13969j));
-                this.f13963d.writeInt(Integer.reverseBytes(this.f13966g));
-                this.f13963d.writeInt(Integer.reverseBytes(((this.f13966g * this.f13969j) * this.k) / 8));
-                this.f13963d.writeShort(Short.reverseBytes((short) ((this.f13969j * this.k) / 8)));
-                this.f13963d.writeShort(Short.reverseBytes(this.k));
-                this.f13963d.writeBytes("data");
-                this.f13963d.writeInt(0);
+                this.f13960d.setLength(0L);
+                this.f13960d.writeBytes(com.baidu.wallet.base.audio.b.f60360e);
+                this.f13960d.writeInt(0);
+                this.f13960d.writeBytes(com.baidu.wallet.base.audio.b.f60361f);
+                this.f13960d.writeBytes(com.baidu.wallet.base.audio.b.f60362g);
+                this.f13960d.writeInt(Integer.reverseBytes(16));
+                this.f13960d.writeShort(Short.reverseBytes((short) 1));
+                this.f13960d.writeShort(Short.reverseBytes(this.f13966j));
+                this.f13960d.writeInt(Integer.reverseBytes(this.f13963g));
+                this.f13960d.writeInt(Integer.reverseBytes(((this.f13963g * this.f13966j) * this.k) / 8));
+                this.f13960d.writeShort(Short.reverseBytes((short) ((this.f13966j * this.k) / 8)));
+                this.f13960d.writeShort(Short.reverseBytes(this.k));
+                this.f13960d.writeBytes("data");
+                this.f13960d.writeInt(0);
             } catch (IOException e2) {
-                if (this.f13964e.exists()) {
-                    this.f13964e.delete();
+                if (this.f13961e.exists()) {
+                    this.f13961e.delete();
                 }
                 e2.printStackTrace();
             }

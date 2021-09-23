@@ -51,34 +51,34 @@ public final class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f10707a = 0;
+    public static long f10715a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f10708b = false;
+    public static boolean f10716b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f10709c = 0;
+    public static long f10717c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static GameGuideConfigInfo f10710d = null;
+    public static GameGuideConfigInfo f10718d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static GameGuideView f10711e = null;
+    public static GameGuideView f10719e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f10712f = "";
+    public static String f10720f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f10713g = "";
+    public static String f10721g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f10714h = 0;
+    public static int f10722h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static GameGuideViewContainer f10715i = null;
+    public static GameGuideViewContainer f10723i = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f10716j = null;
+    public static String f10724j = null;
     public static boolean k = false;
     public static boolean l = false;
     public static boolean m = true;
@@ -119,18 +119,18 @@ public final class b {
                             if (string.equals("addCoins")) {
                                 int i3 = bundle.getInt("coinsNum", 0);
                                 b bVar = b.o;
-                                b.f10714h += i3;
+                                b.f10722h += i3;
                                 GameGuideConfigInfo z = b.o.z();
                                 if (z != null) {
                                     b bVar2 = b.o;
-                                    int i4 = b.f10714h;
+                                    int i4 = b.f10722h;
                                     int i5 = z.maxNums;
                                     if (i4 > i5) {
                                         b bVar3 = b.o;
-                                        b.f10714h = i5;
+                                        b.f10722h = i5;
                                     }
                                 }
-                                b.o.S(b.f10714h);
+                                b.o.S(b.f10722h);
                                 break;
                             }
                             break;
@@ -149,7 +149,7 @@ public final class b {
                         case -338307689:
                             if (string.equals("getPlayTime")) {
                                 b bVar4 = b.o;
-                                bundle2.putLong("playTime", b.f10707a);
+                                bundle2.putLong("playTime", b.f10715a);
                                 break;
                             }
                             break;
@@ -164,7 +164,7 @@ public final class b {
                                 long F = b.o.F();
                                 if (0 <= F && SapiWebView.DEFAULT_TIMEOUT_MILLIS >= F) {
                                     b bVar5 = b.o;
-                                    b.f10707a = F;
+                                    b.f10715a = F;
                                 }
                                 int J = b.o.J();
                                 GameGuideConfigInfo z2 = b.o.z();
@@ -173,7 +173,7 @@ public final class b {
                                     J = i2;
                                 }
                                 b bVar6 = b.o;
-                                b.f10714h = J;
+                                b.f10722h = J;
                                 break;
                             }
                             break;
@@ -186,7 +186,7 @@ public final class b {
                         case 1950665292:
                             if (string.equals("getCoins")) {
                                 b bVar7 = b.o;
-                                bundle2.putInt("coinsNum", b.f10714h);
+                                bundle2.putInt("coinsNum", b.f10722h);
                                 break;
                             }
                             break;
@@ -204,7 +204,7 @@ public final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final RunnableC0535b f10717e;
+        public static final RunnableC0535b f10725e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -220,7 +220,7 @@ public final class b {
                     return;
                 }
             }
-            f10717e = new RunnableC0535b();
+            f10725e = new RunnableC0535b();
         }
 
         public RunnableC0535b() {
@@ -243,7 +243,7 @@ public final class b {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
                 if (Q == null) {
-                    boolean z = c.a.p0.a.k.f7077a;
+                    boolean z = c.a.p0.a.k.f7085a;
                     c.a.p0.f.j.r.b.n().a("小游戏非法");
                     b.o.a0(false);
                     return;
@@ -256,7 +256,7 @@ public final class b {
                     b.o.R();
                     return;
                 }
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     String str = "展示缓存数据， 小游戏为  " + Q.O();
                 }
                 b bVar2 = b.o;
@@ -277,7 +277,7 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameGuideConfigInfo f10718a;
+        public final /* synthetic */ GameGuideConfigInfo f10726a;
 
         public c(GameGuideConfigInfo gameGuideConfigInfo) {
             Interceptable interceptable = $ic;
@@ -294,7 +294,7 @@ public final class b {
                     return;
                 }
             }
-            this.f10718a = gameGuideConfigInfo;
+            this.f10726a = gameGuideConfigInfo;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -303,11 +303,11 @@ public final class b {
         public final void onResult(LottieComposition lottieComposition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
-                GameGuideConfigInfo.ViewInfo viewInfo = this.f10718a.viewInfo;
+                GameGuideConfigInfo.ViewInfo viewInfo = this.f10726a.viewInfo;
                 if (viewInfo != null) {
                     viewInfo.iconDoneLottie = lottieComposition;
                 }
-                b.o.y(this.f10718a);
+                b.o.y(this.f10726a);
             }
         }
     }
@@ -317,7 +317,7 @@ public final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f10719a;
+        public static final d f10727a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -333,7 +333,7 @@ public final class b {
                     return;
                 }
             }
-            f10719a = new d();
+            f10727a = new d();
         }
 
         public d() {
@@ -370,7 +370,7 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameGuideConfigInfo f10720a;
+        public final /* synthetic */ GameGuideConfigInfo f10728a;
 
         /* loaded from: classes.dex */
         public static final class a implements Runnable {
@@ -378,7 +378,7 @@ public final class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f10721e;
+            public final /* synthetic */ e f10729e;
 
             public a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -395,14 +395,14 @@ public final class b {
                         return;
                     }
                 }
-                this.f10721e = eVar;
+                this.f10729e = eVar;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b.o.c0(this.f10721e.f10720a);
+                    b.o.c0(this.f10729e.f10728a);
                 }
             }
         }
@@ -422,7 +422,7 @@ public final class b {
                     return;
                 }
             }
-            this.f10720a = gameGuideConfigInfo;
+            this.f10728a = gameGuideConfigInfo;
         }
 
         @Override // c.a.p0.a.v2.t.b
@@ -431,7 +431,7 @@ public final class b {
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
                 if (bitmap == null) {
                     b.o.a0(false);
-                    if (c.a.p0.a.k.f7077a) {
+                    if (c.a.p0.a.k.f7085a) {
                         String str2 = "下载导流view的图片失败， url = " + str;
                     }
                     c.a.p0.f.j.r.b n = c.a.p0.f.j.r.b.n();
@@ -440,7 +440,7 @@ public final class b {
                     return;
                 }
                 bitmap.setDensity(480);
-                GameGuideConfigInfo.ViewInfo viewInfo = this.f10720a.viewInfo;
+                GameGuideConfigInfo.ViewInfo viewInfo = this.f10728a.viewInfo;
                 if (viewInfo != null) {
                     viewInfo.iconNormalImg = bitmap;
                 }
@@ -462,17 +462,17 @@ public final class b {
                     return;
                 }
                 b.o.a0(true);
-                b.o.T(this.f10720a);
+                b.o.T(this.f10728a);
                 b.o.K();
                 q0.b0(new a(this));
                 b bVar4 = b.o;
-                String str3 = b.f10716j;
+                String str3 = b.f10724j;
                 if (str3 != null) {
                     b bVar5 = b.o;
-                    if (b.k || this.f10720a.expirationTime <= 0) {
+                    if (b.k || this.f10728a.expirationTime <= 0) {
                         return;
                     }
-                    c.a.p0.f.j.a.c().a(Q.D(), str3, SystemClock.elapsedRealtime() + this.f10720a.expirationTime);
+                    c.a.p0.f.j.a.c().a(Q.D(), str3, SystemClock.elapsedRealtime() + this.f10728a.expirationTime);
                 }
             }
         }
@@ -504,7 +504,7 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
                 if (str == null || str.length() == 0) {
-                    if (c.a.p0.a.k.f7077a) {
+                    if (c.a.p0.a.k.f7085a) {
                         String str2 = "配置信息下发异常，code = " + i2 + ",  response = " + str;
                     }
                     b.o.a0(false);
@@ -513,7 +513,7 @@ public final class b {
                     n.d(com.baidu.pass.biometrics.face.liveness.b.a.g0, b.k, "下发数据非法");
                     return;
                 }
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     String str3 = "配置信息 =   " + str;
                 }
                 b.o.O(str);
@@ -524,7 +524,7 @@ public final class b {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("请求配置信息失败，err = ");
                     sb.append(exc != null ? exc.getMessage() : null);
@@ -543,7 +543,7 @@ public final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final g f10722e;
+        public static final g f10730e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -559,7 +559,7 @@ public final class b {
                     return;
                 }
             }
-            f10722e = new g();
+            f10730e = new g();
         }
 
         public g() {
@@ -616,11 +616,11 @@ public final class b {
         public void m() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                c.a.p0.f.j.s.a.f10813f.j();
+                c.a.p0.f.j.s.a.f10821f.j();
                 b bVar = b.o;
-                GameGuideView gameGuideView = b.f10711e;
+                GameGuideView gameGuideView = b.f10719e;
                 if (gameGuideView != null) {
-                    gameGuideView.startTime(c.a.p0.f.j.s.a.f10813f.f());
+                    gameGuideView.startTime(c.a.p0.f.j.s.a.f10821f.f());
                 }
                 c.a.p0.a.g1.f.V().b();
                 if (b.o.C()) {
@@ -634,11 +634,11 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 b bVar = b.o;
-                GameGuideView gameGuideView = b.f10711e;
+                GameGuideView gameGuideView = b.f10719e;
                 if (gameGuideView != null) {
                     gameGuideView.stopTime();
                 }
-                c.a.p0.f.j.s.a.f10813f.k();
+                c.a.p0.f.j.s.a.f10821f.k();
             }
         }
     }
@@ -679,7 +679,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                return f10707a;
+                return f10715a;
             }
             Bundle bundle = new Bundle();
             bundle.putString("type", "getPlayTime");
@@ -696,7 +696,7 @@ public final class b {
     public final GameGuideViewContainer B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f10715i : (GameGuideViewContainer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f10723i : (GameGuideViewContainer) invokeV.objValue;
     }
 
     public final boolean C() {
@@ -738,7 +738,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                return f10714h;
+                return f10722h;
             }
             Bundle bundle = new Bundle();
             bundle.putString("type", "getCoins");
@@ -755,13 +755,13 @@ public final class b {
     public final String H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? f10713g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? f10721g : (String) invokeV.objValue;
     }
 
     public final String I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? f10712f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? f10720f : (String) invokeV.objValue;
     }
 
     public final int J() {
@@ -777,15 +777,15 @@ public final class b {
             if (ProcessUtils.isMainProcess()) {
                 long F = F();
                 if (0 <= F && SapiWebView.DEFAULT_TIMEOUT_MILLIS >= F) {
-                    f10707a = F;
+                    f10715a = F;
                 }
                 int J = J();
-                GameGuideConfigInfo gameGuideConfigInfo = f10710d;
+                GameGuideConfigInfo gameGuideConfigInfo = f10718d;
                 if (gameGuideConfigInfo != null && J > (i2 = gameGuideConfigInfo.maxNums)) {
                     o.S(i2);
                     J = i2;
                 }
-                f10714h = J;
+                f10722h = J;
                 return;
             }
             Bundle bundle = new Bundle();
@@ -798,12 +798,12 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (f10708b) {
+            if (f10716b) {
                 return true;
             }
             if (ProcessUtils.isMainProcess()) {
                 boolean E = E();
-                f10708b = E;
+                f10716b = E;
                 return E;
             }
             Bundle bundle = new Bundle();
@@ -812,7 +812,7 @@ public final class b {
             Intrinsics.checkNotNullExpressionValue(callOnMainWithContentProvider, "DelegateUtils.callOnMain…tion::class.java, bundle)");
             if (callOnMainWithContentProvider.isOk()) {
                 boolean z = callOnMainWithContentProvider.mResult.getBoolean("hasShowedTips", false);
-                f10708b = z;
+                f10716b = z;
                 return z;
             }
             return false;
@@ -836,22 +836,22 @@ public final class b {
     public final void N() {
         GameGuideConfigInfo gameGuideConfigInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (gameGuideConfigInfo = f10710d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (gameGuideConfigInfo = f10718d) == null) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - f10709c < 500) {
-            boolean z = c.a.p0.a.k.f7077a;
+        if (currentTimeMillis - f10717c < 500) {
+            boolean z = c.a.p0.a.k.f7085a;
             return;
         }
         c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
         if (Q != null) {
-            f10709c = currentTimeMillis;
-            long f2 = c.a.p0.f.j.s.a.f10813f.f() / 30000;
+            f10717c = currentTimeMillis;
+            long f2 = c.a.p0.f.j.s.a.f10821f.f() / 30000;
             if (f2 <= 0) {
-                boolean z2 = c.a.p0.a.k.f7077a;
+                boolean z2 = c.a.p0.a.k.f7085a;
             } else if (!SwanAppNetworkUtils.i(AppRuntime.getAppContext())) {
-                boolean z3 = c.a.p0.a.k.f7077a;
+                boolean z3 = c.a.p0.a.k.f7085a;
                 c.a.p0.a.z1.b.f.e.g(AppRuntime.getAppContext(), "网络异常，请稍后重试").F();
             } else {
                 int i2 = (int) f2;
@@ -859,7 +859,7 @@ public final class b {
                 int i3 = gameGuideConfigInfo.perCoinNum * i2;
                 int G = G();
                 boolean z4 = G >= gameGuideConfigInfo.maxNums;
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     String str = "before    expectedRewardCoins = " + i3 + " , currentRewardCoinsNum = " + G + ",  isMax = " + z4;
                 }
                 int i4 = i3 + G;
@@ -867,12 +867,12 @@ public final class b {
                 if (i4 > i5) {
                     i3 = i5 - G;
                 }
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     String str2 = "after    realRewardCoins = " + i3;
                 }
                 if (!z4) {
-                    c.a.p0.f.j.s.a.f10813f.h();
-                    GameGuideView gameGuideView = f10711e;
+                    c.a.p0.f.j.s.a.f10821f.h();
+                    GameGuideView gameGuideView = f10719e;
                     if (gameGuideView != null) {
                         gameGuideView.updateStatusWhenClick();
                     }
@@ -895,7 +895,7 @@ public final class b {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt("errno", -1);
                 if (optInt != 0) {
-                    if (c.a.p0.a.k.f7077a) {
+                    if (c.a.p0.a.k.f7085a) {
                         String str2 = "返回结果异常，errNo = " + optInt + "， response = " + str;
                     }
                     c.a.p0.f.j.r.b.n().d(com.baidu.pass.biometrics.face.liveness.b.a.g0, k, "下发数据非法");
@@ -903,19 +903,19 @@ public final class b {
                 }
                 GameGuideConfigInfo parseData = GameGuideConfigInfo.parseData(jSONObject.optJSONObject("data"));
                 if (parseData == null) {
-                    boolean z = c.a.p0.a.k.f7077a;
+                    boolean z = c.a.p0.a.k.f7085a;
                     c.a.p0.f.j.r.b.n().d(com.baidu.pass.biometrics.face.liveness.b.a.g0, k, "下发数据非法");
                     return;
                 }
                 W(parseData.install_result);
                 String str3 = parseData.targetAppPackageId;
                 Intrinsics.checkNotNullExpressionValue(str3, "configInfo.targetAppPackageId");
-                f10712f = str3;
+                f10720f = str3;
                 String str4 = parseData.targetAppDownloadUrl;
                 Intrinsics.checkNotNullExpressionValue(str4, "configInfo.targetAppDownloadUrl");
-                f10713g = str4;
+                f10721g = str4;
                 if (parseData.status == 0) {
-                    boolean z2 = c.a.p0.a.k.f7077a;
+                    boolean z2 = c.a.p0.a.k.f7085a;
                     c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
                     if (!k && parseData.expirationTime > 0 && Q != null) {
                         c.a.p0.f.j.a.c().a(Q.D(), str, SystemClock.elapsedRealtime() + parseData.expirationTime);
@@ -923,18 +923,18 @@ public final class b {
                     c.a.p0.f.j.r.b.n().d(com.baidu.pass.biometrics.face.liveness.b.a.g0, k, "配置下发不展示");
                     return;
                 }
-                f10716j = str;
+                f10724j = str;
                 if (parseData.popupSelection == 2) {
-                    f10710d = parseData;
+                    f10718d = parseData;
                 } else if (C()) {
                     c.a.p0.f.j.r.b.n().a("hasClosedWithNotShow");
-                    f10710d = parseData;
+                    f10718d = parseData;
                 } else {
                     x(parseData);
                 }
                 c.a.p0.f.j.r.b.n().d("success", k, "");
             } catch (Throwable th) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("解析配置信息失败，err = ");
                     th.printStackTrace();
@@ -949,8 +949,8 @@ public final class b {
     public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            f10711e = null;
-            f10715i = null;
+            f10719e = null;
+            f10723i = null;
             k = false;
         }
     }
@@ -958,7 +958,7 @@ public final class b {
     public final void Q() {
         GameGuideViewContainer gameGuideViewContainer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (gameGuideViewContainer = f10715i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (gameGuideViewContainer = f10723i) == null) {
             return;
         }
         c.a.p0.a.g1.f V = c.a.p0.a.g1.f.V();
@@ -1007,7 +1007,7 @@ public final class b {
     public final void T(GameGuideConfigInfo gameGuideConfigInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, gameGuideConfigInfo) == null) {
-            f10710d = gameGuideConfigInfo;
+            f10718d = gameGuideConfigInfo;
         }
     }
 
@@ -1059,13 +1059,13 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
             if (j2 < 0) {
-                boolean z = c.a.p0.a.k.f7077a;
+                boolean z = c.a.p0.a.k.f7085a;
                 return;
             }
             if (j2 > SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
                 j2 = 90000;
             }
-            f10707a = j2;
+            f10715a = j2;
             Y(j2);
         }
     }
@@ -1078,10 +1078,10 @@ public final class b {
 
     public final void b0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || f10708b) {
+        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || f10716b) {
             return;
         }
-        f10708b = true;
+        f10716b = true;
         if (ProcessUtils.isMainProcess()) {
             X(true);
             return;
@@ -1106,7 +1106,7 @@ public final class b {
         layoutParams.gravity = 8388613;
         c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
         if (Q != null) {
-            f10715i = new GameGuideViewContainer(c.a.p0.a.c1.a.b());
+            f10723i = new GameGuideViewContainer(c.a.p0.a.c1.a.b());
             int e2 = f0.e(Q.x());
             if (f0.d()) {
                 layoutParams.topMargin = dimensionPixelSize + e2;
@@ -1117,7 +1117,7 @@ public final class b {
             Intrinsics.checkNotNullExpressionValue(V, "SwanAppController.getInstance()");
             n Y = V.Y();
             Intrinsics.checkNotNullExpressionValue(Y, "SwanAppController.getIns…swanGameNARootViewManager");
-            Y.getRootView().addView(f10715i, layoutParams);
+            Y.getRootView().addView(f10723i, layoutParams);
             Context appContext2 = AppRuntime.getAppContext();
             Intrinsics.checkNotNullExpressionValue(appContext2, "AppRuntime.getAppContext()");
             LottieComposition lottieComposition = viewInfo.iconDoneLottie;
@@ -1129,25 +1129,25 @@ public final class b {
             String str2 = viewInfo.tips;
             Intrinsics.checkNotNullExpressionValue(str2, "it.tips");
             GameGuideView gameGuideView = new GameGuideView(appContext2, lottieComposition, bitmap, str, str2);
-            f10711e = gameGuideView;
-            GameGuideViewContainer gameGuideViewContainer = f10715i;
+            f10719e = gameGuideView;
+            GameGuideViewContainer gameGuideViewContainer = f10723i;
             if (gameGuideViewContainer != null) {
                 gameGuideViewContainer.addView(gameGuideView);
             }
             c.a.p0.a.g1.f V2 = c.a.p0.a.g1.f.V();
             Intrinsics.checkNotNullExpressionValue(V2, "SwanAppController.getInstance()");
             V2.Y().e(n);
-            GameGuideView gameGuideView2 = f10711e;
+            GameGuideView gameGuideView2 = f10719e;
             if (gameGuideView2 != null) {
-                gameGuideView2.setOnClickListener(g.f10722e);
+                gameGuideView2.setOnClickListener(g.f10730e);
             }
-            if (c.a.p0.f.j.s.a.f10813f.g()) {
+            if (c.a.p0.f.j.s.a.f10821f.g()) {
                 return;
             }
-            c.a.p0.f.j.s.a.f10813f.j();
-            GameGuideView gameGuideView3 = f10711e;
+            c.a.p0.f.j.s.a.f10821f.j();
+            GameGuideView gameGuideView3 = f10719e;
             if (gameGuideView3 != null) {
-                gameGuideView3.startTime(c.a.p0.f.j.s.a.f10813f.f());
+                gameGuideView3.startTime(c.a.p0.f.j.s.a.f10821f.f());
             }
         }
     }
@@ -1155,12 +1155,12 @@ public final class b {
     public final void d0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            long j2 = f10707a;
+            long j2 = f10715a;
             if (j2 < 30000) {
                 return;
             }
             long j3 = j2 % 30000;
-            f10707a = j3;
+            f10715a = j3;
             Y(j3);
         }
     }
@@ -1170,13 +1170,13 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
             if (ProcessUtils.isMainProcess()) {
-                int i4 = f10714h + i2;
-                f10714h = i4;
-                GameGuideConfigInfo gameGuideConfigInfo = f10710d;
+                int i4 = f10722h + i2;
+                f10722h = i4;
+                GameGuideConfigInfo gameGuideConfigInfo = f10718d;
                 if (gameGuideConfigInfo != null && i4 > (i3 = gameGuideConfigInfo.maxNums)) {
-                    f10714h = i3;
+                    f10722h = i3;
                 }
-                S(f10714h);
+                S(f10722h);
                 return;
             }
             Bundle bundle = new Bundle();
@@ -1189,7 +1189,7 @@ public final class b {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            q.j(RunnableC0535b.f10717e, "thread_gamenowGuideInitAndCheck");
+            q.j(RunnableC0535b.f10725e, "thread_gamenowGuideInitAndCheck");
         }
     }
 
@@ -1198,7 +1198,7 @@ public final class b {
         if (interceptable == null || interceptable.invokeL(1048608, this, gameGuideConfigInfo) == null) {
             Context appContext = AppRuntime.getAppContext();
             GameGuideConfigInfo.ViewInfo viewInfo = gameGuideConfigInfo.viewInfo;
-            LottieCompositionFactory.fromUrl(appContext, viewInfo != null ? viewInfo.iconDoneUrl : null).addListener(new c(gameGuideConfigInfo)).addFailureListener(d.f10719a);
+            LottieCompositionFactory.fromUrl(appContext, viewInfo != null ? viewInfo.iconDoneUrl : null).addListener(new c(gameGuideConfigInfo)).addFailureListener(d.f10727a);
         }
     }
 
@@ -1213,6 +1213,6 @@ public final class b {
     public final GameGuideConfigInfo z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? f10710d : (GameGuideConfigInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? f10718d : (GameGuideConfigInfo) invokeV.objValue;
     }
 }

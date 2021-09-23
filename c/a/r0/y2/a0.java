@@ -35,14 +35,14 @@ public class a0 implements v {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<AdvertAppInfo> f29284a;
+    public List<AdvertAppInfo> f29304a;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f29285a;
+        public static final /* synthetic */ int[] f29305a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -59,17 +59,17 @@ public class a0 implements v {
                 }
             }
             int[] iArr = new int[IAdBaseAsyncController.Type.values().length];
-            f29285a = iArr;
+            f29305a = iArr;
             try {
                 iArr[IAdBaseAsyncController.Type.PIC_PAGE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f29285a[IAdBaseAsyncController.Type.PIC_BANNER.ordinal()] = 2;
+                f29305a[IAdBaseAsyncController.Type.PIC_BANNER.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f29285a[IAdBaseAsyncController.Type.VIDEO_FLOW.ordinal()] = 3;
+                f29305a[IAdBaseAsyncController.Type.VIDEO_FLOW.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -97,10 +97,10 @@ public class a0 implements v {
             if (baseFragmentActivity == null) {
                 return null;
             }
-            if (bdUniqueId == AdvertAppInfo.t4) {
+            if (bdUniqueId == AdvertAppInfo.u4) {
                 return new c.a.r0.y2.c0.f(baseFragmentActivity, bdUniqueId);
             }
-            if (bdUniqueId == AdvertAppInfo.r4) {
+            if (bdUniqueId == AdvertAppInfo.s4) {
                 return new c.a.r0.y2.c0.e(baseFragmentActivity, bdUniqueId);
             }
             return null;
@@ -145,7 +145,7 @@ public class a0 implements v {
             if (uVar == null || bdUniqueId == null) {
                 return null;
             }
-            if (bdUniqueId == AdvertAppInfo.q4) {
+            if (bdUniqueId == AdvertAppInfo.r4) {
                 return new c.a.r0.y2.c0.c(uVar, bdUniqueId);
             }
             return new c.a.r0.y2.c0.d(uVar, bdUniqueId);
@@ -157,7 +157,7 @@ public class a0 implements v {
     public void g() {
         List<AdvertAppInfo> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (list = this.f29284a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (list = this.f29304a) == null) {
             return;
         }
         StringUtils.string(Integer.valueOf(list.size()));
@@ -168,10 +168,10 @@ public class a0 implements v {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f29284a == null) {
-                this.f29284a = new ArrayList();
+            if (this.f29304a == null) {
+                this.f29304a = new ArrayList();
             }
-            return this.f29284a;
+            return this.f29304a;
         }
         return (List) invokeV.objValue;
     }
@@ -183,7 +183,7 @@ public class a0 implements v {
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, advertAppInfo, context) == null) || advertAppInfo == null) {
             return;
         }
-        AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.e4;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.f4;
         AdCard adCard = null;
         if (iLegoAdvert instanceof AdCard) {
             adCard = (AdCard) iLegoAdvert;
@@ -202,12 +202,12 @@ public class a0 implements v {
         bundle.putFloat(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, videoInfo.video_width.intValue() / videoInfo.video_height.intValue());
         bundle.putInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, videoInfo.video_duration.intValue());
         bundle.putString(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, advertAppInfo.getDownloadId());
-        bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, advertAppInfo.d4);
+        bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, advertAppInfo.e4);
         bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, adCard.goodsStyle);
         bundle.putString(WebViewActivityConfig.TAG_AD_DEEPLINK_URL, adCard.scheme);
         c.a.r0.y2.i0.b.g gVar = adCard.tailFrame;
         if (gVar != null) {
-            gVar.f29512e = adCard.getButtonText();
+            gVar.f29532e = adCard.getButtonText();
             bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, adCard.tailFrame.e());
         }
         AdWebVideoActivity.setConfigAndJump(new AdWebVideoActivityConfig(context, "", m, true, true, true, bundle));
@@ -218,7 +218,7 @@ public class a0 implements v {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, tbPageContext, bdUniqueId, str)) == null) {
-            if (bdUniqueId == AdvertAppInfo.s4) {
+            if (bdUniqueId == AdvertAppInfo.t4) {
                 return new c.a.r0.y2.c0.a(tbPageContext, bdUniqueId, str);
             }
             if (bdUniqueId != null) {
@@ -235,7 +235,7 @@ public class a0 implements v {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, type, aVar)) == null) {
-            int i2 = a.f29285a[type.ordinal()];
+            int i2 = a.f29305a[type.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

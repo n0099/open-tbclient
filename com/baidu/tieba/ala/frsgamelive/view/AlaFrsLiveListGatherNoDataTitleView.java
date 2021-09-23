@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.frsgamelive.view;
 import android.view.View;
 import android.widget.TextView;
 import c.a.r0.a0.b;
-import c.a.r0.v.e.b.a;
+import c.a.r0.v.g.b.a;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;

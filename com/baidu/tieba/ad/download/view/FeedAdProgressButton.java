@@ -35,22 +35,22 @@ public class FeedAdProgressButton extends View implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49192e;
+    public int f49302e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49193f;
+    public int f49303f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49194g;
+    public int f49304g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49195h;
+    public int f49305h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49196i;
+    public int f49306i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f49197j;
+    public int f49307j;
     public int k;
     public Paint l;
     public TextPaint m;
@@ -88,15 +88,15 @@ public class FeedAdProgressButton extends View implements a {
             }
         }
         int i4 = R.color.CAM_X0901;
-        this.f49192e = i4;
-        this.f49193f = R.color.CAM_X0304;
-        this.f49194g = R.color.CAM_X0302;
-        this.f49195h = R.drawable.ad_download_progress_button_bg;
-        this.f49196i = 0;
-        this.f49197j = SkinManager.getColor(i4);
-        this.k = SkinManager.getColor(this.f49193f);
+        this.f49302e = i4;
+        this.f49303f = R.color.CAM_X0304;
+        this.f49304g = R.color.CAM_X0302;
+        this.f49305h = R.drawable.ad_download_progress_button_bg;
+        this.f49306i = 0;
+        this.f49307j = SkinManager.getColor(i4);
+        this.k = SkinManager.getColor(this.f49303f);
         this.n = 10.0f;
-        this.o = SkinManager.getColor(this.f49194g);
+        this.o = SkinManager.getColor(this.f49304g);
         this.q = 100;
         this.r = 0;
         this.u = getResources().getString(R.string.install_app);
@@ -116,7 +116,7 @@ public class FeedAdProgressButton extends View implements a {
             rectF.top = i2;
             rectF.right = getMeasuredWidth() - this.x;
             this.s.bottom = getMeasuredHeight() - this.x;
-            float f2 = this.f49196i / (this.q + 0.0f);
+            float f2 = this.f49306i / (this.q + 0.0f);
             LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.o, 0}, new float[]{f2, f2 + 0.001f}, Shader.TileMode.CLAMP);
             this.t = linearGradient;
             this.l.setShader(linearGradient);
@@ -149,10 +149,10 @@ public class FeedAdProgressButton extends View implements a {
             this.v = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
             this.w = getResources().getDimensionPixelSize(R.dimen.M_H_X003);
             this.o = obtainStyledAttributes.getInteger(R$styleable.feed_ad_progress_btn_foreground, color2);
-            this.f49197j = obtainStyledAttributes.getColor(R$styleable.feed_ad_progress_btn_textColor, color);
+            this.f49307j = obtainStyledAttributes.getColor(R$styleable.feed_ad_progress_btn_textColor, color);
             this.k = obtainStyledAttributes.getColor(R$styleable.feed_ad_progress_btn_textColorInit, color);
             this.q = obtainStyledAttributes.getInteger(R$styleable.feed_ad_progress_btn_max, this.q);
-            this.f49196i = obtainStyledAttributes.getInteger(R$styleable.feed_ad_progress_btn_progress, 0);
+            this.f49306i = obtainStyledAttributes.getInteger(R$styleable.feed_ad_progress_btn_progress, 0);
             this.p = obtainStyledAttributes.getString(R$styleable.feed_ad_progress_btn_text);
             this.n = obtainStyledAttributes.getDimension(R$styleable.feed_ad_progress_btn_textSize, (int) getResources().getDimension(R.dimen.fontsize24));
             this.r = obtainStyledAttributes.getDimensionPixelSize(R$styleable.feed_ad_progress_btn_radius, dimensionPixelSize);
@@ -166,10 +166,10 @@ public class FeedAdProgressButton extends View implements a {
     public void changeSkin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SkinManager.setBackgroundResource(this, this.f49195h);
-            this.f49197j = SkinManager.getColor(this.f49192e);
-            this.k = SkinManager.getColor(this.f49193f);
-            this.o = SkinManager.getColor(this.f49194g);
+            SkinManager.setBackgroundResource(this, this.f49305h);
+            this.f49307j = SkinManager.getColor(this.f49302e);
+            this.k = SkinManager.getColor(this.f49303f);
+            this.o = SkinManager.getColor(this.f49304g);
             postInvalidate();
         }
     }
@@ -195,7 +195,7 @@ public class FeedAdProgressButton extends View implements a {
                 textPaint.setAntiAlias(true);
                 this.m.setTextSize(this.n);
             }
-            int i2 = this.f49196i > 0 ? this.f49197j : this.k;
+            int i2 = this.f49306i > 0 ? this.f49307j : this.k;
             if (i2 != this.m.getColor()) {
                 this.m.setColor(i2);
             }
@@ -211,17 +211,17 @@ public class FeedAdProgressButton extends View implements a {
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f49196i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f49306i : invokeV.intValue;
     }
 
     @Override // c.a.r0.q.e.k.a
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SkinManager.setBackgroundResource(this, this.f49195h);
-            this.f49197j = SkinManager.getColor(this.f49192e);
-            this.k = SkinManager.getColor(this.f49193f);
-            this.o = SkinManager.getColor(this.f49194g);
+            SkinManager.setBackgroundResource(this, this.f49305h);
+            this.f49307j = SkinManager.getColor(this.f49302e);
+            this.k = SkinManager.getColor(this.f49303f);
+            this.o = SkinManager.getColor(this.f49304g);
         }
     }
 
@@ -230,7 +230,7 @@ public class FeedAdProgressButton extends View implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f49196i > 0) {
+            if (this.f49306i > 0) {
                 a(canvas);
             }
             if (TextUtils.isEmpty(this.p)) {
@@ -275,7 +275,7 @@ public class FeedAdProgressButton extends View implements a {
     public void setBackgroundSkin(@DrawableRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f49195h = i2;
+            this.f49305h = i2;
         }
     }
 
@@ -293,7 +293,7 @@ public class FeedAdProgressButton extends View implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             this.k = i2;
-            this.f49197j = i2;
+            this.f49307j = i2;
             postInvalidate();
         }
     }
@@ -322,7 +322,7 @@ public class FeedAdProgressButton extends View implements a {
     public void setForeground(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f49194g = i2;
+            this.f49304g = i2;
             this.o = SkinManager.getColor(i2);
             postInvalidate();
         }
@@ -346,11 +346,11 @@ public class FeedAdProgressButton extends View implements a {
     @Override // c.a.r0.q.e.k.a
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || i2 > this.q || i2 < this.f49196i) {
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || i2 > this.q || i2 < this.f49306i) {
             return;
         }
-        this.f49196i = i2;
-        this.p = this.f49196i + "%";
+        this.f49306i = i2;
+        this.p = this.f49306i + "%";
         postInvalidate();
     }
 
@@ -364,14 +364,14 @@ public class FeedAdProgressButton extends View implements a {
     public void setTextColorInitSkin(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f49193f = i2;
+            this.f49303f = i2;
         }
     }
 
     public void setTextColorSkin(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.f49192e = i2;
+            this.f49302e = i2;
         }
     }
 
@@ -380,7 +380,7 @@ public class FeedAdProgressButton extends View implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, str, i2) == null) {
             this.p = str;
-            this.f49196i = i2;
+            this.f49306i = i2;
             postInvalidate();
         }
     }
@@ -405,15 +405,15 @@ public class FeedAdProgressButton extends View implements a {
             }
         }
         int i5 = R.color.CAM_X0901;
-        this.f49192e = i5;
-        this.f49193f = R.color.CAM_X0304;
-        this.f49194g = R.color.CAM_X0302;
-        this.f49195h = R.drawable.ad_download_progress_button_bg;
-        this.f49196i = 0;
-        this.f49197j = SkinManager.getColor(i5);
-        this.k = SkinManager.getColor(this.f49193f);
+        this.f49302e = i5;
+        this.f49303f = R.color.CAM_X0304;
+        this.f49304g = R.color.CAM_X0302;
+        this.f49305h = R.drawable.ad_download_progress_button_bg;
+        this.f49306i = 0;
+        this.f49307j = SkinManager.getColor(i5);
+        this.k = SkinManager.getColor(this.f49303f);
         this.n = 10.0f;
-        this.o = SkinManager.getColor(this.f49194g);
+        this.o = SkinManager.getColor(this.f49304g);
         this.q = 100;
         this.r = 0;
         this.u = getResources().getString(R.string.install_app);

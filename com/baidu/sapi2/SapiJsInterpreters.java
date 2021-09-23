@@ -22,7 +22,10 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.IdcardOcrImageCallback;
 import com.baidu.sapi2.callback.SsoHashCallback;
 import com.baidu.sapi2.callback.Web2NativeLoginCallback;
+import com.baidu.sapi2.callback.inner.LoginHistoryCallback;
+import com.baidu.sapi2.common.LoginHistoryModel;
 import com.baidu.sapi2.dto.PassNameValuePair;
+import com.baidu.sapi2.dto.loginhistory.LoginHistoryItem;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.sapi2.result.IdcardOcrImageRusult;
@@ -46,7 +49,9 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.Security;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.ThirdPartyUtil;
+import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
+import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -56,6 +61,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.api.IWalletLoginListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -410,6 +416,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.GLORY;
                     Message message = new Message();
                     message.what = SocialType.GLORY.getType();
                     message.obj = SocialType.GLORY;
@@ -455,6 +462,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.HUAWEI;
                     Message message = new Message();
                     message.what = SocialType.HUAWEI.getType();
                     message.obj = SocialType.HUAWEI;
@@ -943,6 +951,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.MEIZU;
                     Message message = new Message();
                     message.what = SocialType.MEIZU.getType();
                     message.obj = SocialType.MEIZU;
@@ -988,6 +997,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.QQ;
                     Message message = new Message();
                     message.what = SocialType.QQ_SSO.getType();
                     message.obj = SocialType.QQ_SSO;
@@ -1033,6 +1043,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WEIBO;
                     Message message = new Message();
                     message.what = SocialType.SINA_WEIBO_SSO.getType();
                     message.obj = SocialType.SINA_WEIBO_SSO;
@@ -1153,28 +1164,36 @@ public class SapiJsInterpreters {
                     }
                     switch (c2) {
                         case 0:
+                            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WECHAT;
                             socialType = SocialType.WEIXIN;
                             break;
                         case 1:
                         case 2:
+                            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WEIBO;
                             socialType = SocialType.SINA_WEIBO_SSO;
                             break;
                         case 3:
+                            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.QQ;
                             socialType = SocialType.QQ_SSO;
                             break;
                         case 4:
+                            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.HUAWEI;
                             socialType = SocialType.HUAWEI;
                             break;
                         case 5:
+                            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.GLORY;
                             socialType = SocialType.GLORY;
                             break;
                         case 6:
+                            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.XIAOMI;
                             socialType = SocialType.XIAOMI;
                             break;
                         case 7:
+                            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.MEIZU;
                             socialType = SocialType.MEIZU;
                             break;
                         case '\b':
+                            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.YY;
                             socialType = SocialType.YY;
                             break;
                         default:
@@ -1227,6 +1246,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WECHAT;
                     Message message = new Message();
                     message.what = SocialType.WEIXIN.getType();
                     message.obj = SocialType.WEIXIN;
@@ -1320,6 +1340,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.socialLoginHandler != null) {
+                    SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.XIAOMI;
                     Message message = new Message();
                     message.what = SocialType.XIAOMI.getType();
                     message.obj = SocialType.XIAOMI;
@@ -1901,6 +1922,25 @@ public class SapiJsInterpreters {
             this.this$0 = sapiJsInterpreters;
         }
 
+        private boolean isShareEnable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+                SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+                if (sapiConfiguration == null || sapiConfiguration.loginShareStrategy() != LoginShareStrategy.CHOICE) {
+                    return false;
+                }
+                String packageName = sapiConfiguration.context.getPackageName();
+                for (String str : SapiContext.getInstance().getAuthorizedPackages().keySet()) {
+                    if (TextUtils.equals(str, packageName)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
             InterceptResult invokeL;
@@ -1953,47 +1993,59 @@ public class SapiJsInterpreters {
                     Log.e(e5);
                 }
                 try {
-                    Log.d(ShareUtils.TAG, "GetAllClientAccounts ----- share start --------");
-                    List<ShareStorage.StorageModel> shareStorageModel = ShareUtils.getShareStorageModel();
-                    JSONArray jSONArray2 = ShareStorage.StorageModel.toJSONArray(shareStorageModel);
-                    if (jSONArray2 != null && jSONArray2.length() != 0) {
-                        jSONObject.put("from", ShareUtils.SHARE_ACCOUNT_NEW_VERSION);
-                        jSONObject.put("canshare2Accounts", jSONArray2);
-                        Log.d(ShareUtils.TAG, "shareV2 value=" + jSONObject.toString());
-                        SapiStatUtil.statShareV2Open(shareStorageModel, null, this.this$0.sapiWebView.extras);
-                    } else if (sapiContext.getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_SHARE_V3).meetGray) {
-                        List<String> installedApps = ShareUtils.getInstalledApps(this.this$0.configuration.context);
-                        String[] deletedShareModels = ShareUtils.getDeletedShareModels();
-                        JSONArray jSONArray3 = new JSONArray();
-                        JSONArray jSONArray4 = new JSONArray();
-                        if (installedApps != null && installedApps.size() > 0) {
-                            for (String str2 : installedApps) {
-                                jSONArray3.put(str2);
+                    if (isShareEnable()) {
+                        Log.d(ShareUtils.TAG, "GetAllClientAccounts share login is enable");
+                        List<ShareStorage.StorageModel> shareStorageModel = ShareUtils.getShareStorageModel();
+                        JSONArray jSONArray2 = ShareStorage.StorageModel.toJSONArray(shareStorageModel);
+                        if (jSONArray2 != null && jSONArray2.length() != 0) {
+                            jSONObject.put("from", ShareUtils.SHARE_ACCOUNT_NEW_VERSION);
+                            jSONObject.put("canshare2Accounts", jSONArray2);
+                            Log.d(ShareUtils.TAG, "shareV2 value=" + jSONObject.toString());
+                            SapiStatUtil.statShareV2Open(shareStorageModel, null, this.this$0.sapiWebView.extras);
+                        } else if (sapiContext.getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_SHARE_V3).meetGray) {
+                            List<String> installedApps = ShareUtils.getInstalledApps(this.this$0.configuration.context);
+                            String[] deletedShareModels = ShareUtils.getDeletedShareModels();
+                            JSONArray jSONArray3 = new JSONArray();
+                            JSONArray jSONArray4 = new JSONArray();
+                            if (installedApps != null && installedApps.size() > 0) {
+                                for (String str2 : installedApps) {
+                                    jSONArray3.put(str2);
+                                }
                             }
-                        }
-                        if (deletedShareModels != null && deletedShareModels.length > 0) {
-                            for (String str3 : deletedShareModels) {
-                                jSONArray4.put(str3);
+                            if (deletedShareModels != null && deletedShareModels.length > 0) {
+                                for (String str3 : deletedShareModels) {
+                                    jSONArray4.put(str3);
+                                }
                             }
+                            jSONObject.put("from", ShareUtils.SHARE_ACCOUNT_CLOUND_VERSION);
+                            jSONObject.put("appList", jSONArray3);
+                            jSONObject.put("deleteAccounts", jSONArray4);
+                            jSONObject.put("currentAppPkg", this.this$0.configuration.context.getPackageName());
+                            Log.d(ShareUtils.TAG, "shareV3 value=" + jSONObject.toString());
+                        } else {
+                            Log.d(ShareUtils.TAG, "not support shareV3");
                         }
-                        jSONObject.put("from", ShareUtils.SHARE_ACCOUNT_CLOUND_VERSION);
-                        jSONObject.put("appList", jSONArray3);
-                        jSONObject.put("deleteAccounts", jSONArray4);
-                        jSONObject.put("currentAppPkg", this.this$0.configuration.context.getPackageName());
-                        Log.d(ShareUtils.TAG, "shareV3 value=" + jSONObject.toString());
                     } else {
-                        Log.d(ShareUtils.TAG, "not support shareV3");
+                        Log.d(ShareUtils.TAG, "GetAllClientAccounts share login is disable");
                     }
                 } catch (Exception e6) {
                     Log.e(e6);
+                }
+                try {
+                    Object jSONArray5 = LoginHistoryItem.toJSONArray(LoginHistoryLoginModel.getAvailableLoginHistoryItems());
+                    if (jSONArray5 != null) {
+                        jSONObject.put("history", jSONArray5);
+                    }
+                } catch (Exception e7) {
+                    e7.printStackTrace();
                 }
                 try {
                     jSONObject.put("recentLoginUid", sapiContext.getDecryptStr(SapiContext.KEY_LAST_LOGIN_UID));
                     if (this.this$0.sapiWebView != null && this.this$0.sapiWebView.mExcludeTypes != null) {
                         jSONObject.put("excludeTypes", this.this$0.sapiWebView.mExcludeTypes.getName());
                     }
-                } catch (JSONException e7) {
-                    Log.e(e7);
+                } catch (JSONException e8) {
+                    Log.e(e8);
                 }
                 return jSONObject.toString();
             }
@@ -2906,6 +2958,14 @@ public class SapiJsInterpreters {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
                             Log.d(OneKeyLoginSdkCall.TAG, "SapiActionChinaMobileOauth onGetTokenComplete result=" + jSONObject);
+                            String operatorType = new OneKeyLoginSdkCall().getOperatorType();
+                            if (OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC.equals(operatorType)) {
+                                SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CM.getName());
+                            } else if (OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC.equals(operatorType)) {
+                                SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CU.getName());
+                            } else if (OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC.equals(operatorType)) {
+                                SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CT.getName());
+                            }
                             this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
                         }
                     }
@@ -2983,6 +3043,54 @@ public class SapiJsInterpreters {
                         }
                     });
                     return null;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class SapiActionCurrentLoginType extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiActionCurrentLoginType(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                if (command != null && command.getActionParams() != null && !command.getActionParams().isEmpty()) {
+                    String str = command.getActionParams().get(0);
+                    if ("password".equals(str)) {
+                        SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.PWD;
+                    } else if ("sms".equals(str)) {
+                        SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.SMS;
+                    } else if ("face".equals(str)) {
+                        SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.FACE;
+                    }
                 }
                 return null;
             }
@@ -4833,6 +4941,102 @@ public class SapiJsInterpreters {
     }
 
     /* loaded from: classes5.dex */
+    public class SapiClientHistoryLogin extends AbstractInterpreter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SapiJsInterpreters this$0;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SapiClientHistoryLogin(SapiJsInterpreters sapiJsInterpreters) {
+            super(sapiJsInterpreters);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sapiJsInterpreters};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((SapiJsInterpreters) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = sapiJsInterpreters;
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            InterceptResult invokeL;
+            JSONObject jSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
+                try {
+                    jSONObject = new JSONObject(command.getActionParams().get(0));
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    jSONObject = null;
+                }
+                if (jSONObject != null) {
+                    LoginHistoryModel loginHistoryModel = new LoginHistoryModel();
+                    loginHistoryModel.bduss = jSONObject.optString("bduss");
+                    SapiAccountManager.getInstance().loadHistoryActionLoginFromWap(loginHistoryModel, new LoginHistoryCallback(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiClientHistoryLogin.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ SapiClientHistoryLogin this$1;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$1 = this;
+                        }
+
+                        @Override // com.baidu.sapi2.callback.inner.LoginHistoryCallback
+                        public void onLoginFailure() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                try {
+                                    JSONObject jSONObject2 = new JSONObject();
+                                    jSONObject2.put("errno", -1);
+                                    this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject2.toString());
+                                } catch (JSONException e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                        }
+
+                        @Override // com.baidu.sapi2.callback.inner.LoginHistoryCallback
+                        public void onLoginSuccess(SapiAccount sapiAccount) {
+                            Interceptable interceptable2 = $ic;
+                            if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiAccount) == null) || this.this$1.this$0.jsCallBacks.historyLoginCallback == null) {
+                                return;
+                            }
+                            this.this$1.this$0.sapiWebView.handleLoginHistoryLogin(sapiAccount);
+                            this.this$1.this$0.jsCallBacks.historyLoginCallback.onSuccess();
+                        }
+                    });
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
     public class SapiGoBack extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5081,24 +5285,34 @@ public class SapiJsInterpreters {
             this.this$0 = sapiJsInterpreters;
         }
 
+        /* JADX WARN: Removed duplicated region for block: B:40:0x007c A[EXC_TOP_SPLITTER, SYNTHETIC] */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public String interpret(SapiWebView.Command command) {
             InterceptResult invokeL;
+            JSONObject jSONObject;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
-                JSONObject jSONObject = new JSONObject();
+                JSONObject jSONObject2 = new JSONObject();
+                JSONObject jSONObject3 = null;
                 try {
-                    jSONObject.put("errno", 0);
-                    JSONObject jSONObject2 = new JSONObject(command.getActionParams().get(0));
-                    String optString = jSONObject2.optString("portraitSign");
+                    jSONObject2.put("errno", 0);
+                    jSONObject = new JSONObject(command.getActionParams().get(0));
+                } catch (Exception e2) {
+                    e = e2;
+                }
+                try {
+                    String optString = jSONObject.optString("portraitSign");
                     if (!TextUtils.isEmpty(optString)) {
                         SapiContext.getInstance().removeTouchidAccountByPortrait(optString);
                     }
-                    JSONArray optJSONArray = jSONObject2.optJSONArray(FaceLoginService.KEY_FACE_LOGIN_LIVINGUNAMES);
+                    JSONArray optJSONArray = jSONObject.optJSONArray(FaceLoginService.KEY_FACE_LOGIN_LIVINGUNAMES);
                     if (optJSONArray != null && optJSONArray.length() > 0) {
                         SapiContext.getInstance().markAsDeleteFaceLogin(optJSONArray);
                     }
-                    String optString2 = jSONObject2.optString("portrait");
+                    String optString2 = jSONObject.optString("portrait");
                     if (!TextUtils.isEmpty(optString2)) {
                         String[] split = optString2.split("/");
                         String str = split[split.length - 1];
@@ -5107,10 +5321,25 @@ public class SapiJsInterpreters {
                         }
                         ShareUtils.markAsDeleteShareLogin(str);
                     }
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e3) {
+                    e = e3;
+                    jSONObject3 = jSONObject;
+                    Log.e(e);
+                    jSONObject = jSONObject3;
+                    if (jSONObject != null) {
+                    }
+                    return jSONObject2.toString();
                 }
-                return jSONObject.toString();
+                if (jSONObject != null) {
+                    try {
+                        if (TextUtils.equals(jSONObject.optString(IWalletLoginListener.KEY_LOGIN_TYPE), "history")) {
+                            LoginHistoryLoginModel.delBdussLoginHistoryInfo(jSONObject.optString("bduss"));
+                        }
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                return jSONObject2.toString();
             }
             return (String) invokeL.objValue;
         }
@@ -5290,6 +5519,7 @@ public class SapiJsInterpreters {
                 } else {
                     arrayList.add(SapiContext.getInstance().getCurrentAccount());
                 }
+                SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.SWITCH;
                 JSONArray jSONArray = new JSONArray();
                 try {
                     for (SapiAccount sapiAccount : arrayList) {
@@ -5809,6 +6039,7 @@ public class SapiJsInterpreters {
                         }
                     }
                 };
+                SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.TOUCHID;
                 fingerprintResult.authType = 3;
                 if (this.this$0.jsCallBacks.fingerprintCallback != null) {
                     this.this$0.jsCallBacks.fingerprintCallback.onCallback(fingerprintResult);

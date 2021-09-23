@@ -78,7 +78,7 @@ public class h extends c.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements c.a.r0
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f23100e;
+        public final /* synthetic */ h f23116e;
 
         public b(h hVar) {
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class h extends c.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements c.a.r0
                     return;
                 }
             }
-            this.f23100e = hVar;
+            this.f23116e = hVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -105,8 +105,8 @@ public class h extends c.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements c.a.r0
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 k kVar = (k) nVar;
                 kVar.k = 1;
-                if (this.f23100e.s != null) {
-                    this.f23100e.s.a(threadCardViewHolder.getView(), kVar);
+                if (this.f23116e.s != null) {
+                    this.f23116e.s.a(threadCardViewHolder.getView(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) kVar, view.getContext(), 4, false);
                 threadCardViewHolder.getCardView().o(new a.C0095a(1));
@@ -168,7 +168,7 @@ public class h extends c.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements c.a.r0
             bVar.o(dVar);
             q0 q0Var = new q0(this.n.getPageActivity());
             bVar.n(q0Var);
-            bVar.l().g(l.g(this.f2957e, R.dimen.tbds25));
+            bVar.l().g(l.g(this.f2958e, R.dimen.tbds25));
             q0Var.t(2);
             bVar.h(new p0(this.n.getPageActivity()));
             u0 u0Var = new u0(this.n.getPageActivity());
@@ -203,7 +203,7 @@ public class h extends c.a.e.l.e.a<k, ThreadCardViewHolder<k>> implements c.a.r0
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, threadCardViewHolder})) == null) {
-            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f15562e == null) {
+            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f15571e == null) {
                 return null;
             }
             kVar.K(kVar.position + 1);

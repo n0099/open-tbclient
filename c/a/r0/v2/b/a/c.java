@@ -16,16 +16,16 @@ public class c extends AsyncTask<Void, Void, String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Camera f26357a;
+    public Camera f26380a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f26358b;
+    public byte[] f26381b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f26359c;
+    public a f26382c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f26360d;
+    public int f26383d;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -47,10 +47,10 @@ public class c extends AsyncTask<Void, Void, String> {
                 return;
             }
         }
-        this.f26357a = camera;
-        this.f26358b = bArr;
-        this.f26359c = aVar;
-        this.f26360d = i2;
+        this.f26380a = camera;
+        this.f26381b = bArr;
+        this.f26382c = aVar;
+        this.f26383d = i2;
     }
 
     public void a() {
@@ -69,7 +69,7 @@ public class c extends AsyncTask<Void, Void, String> {
         Camera.Parameters parameters;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            Camera camera = this.f26357a;
+            Camera camera = this.f26380a;
             if (camera == null) {
                 return null;
             }
@@ -85,12 +85,12 @@ public class c extends AsyncTask<Void, Void, String> {
             Camera.Size previewSize = parameters.getPreviewSize();
             int i2 = previewSize.width;
             int i3 = previewSize.height;
-            byte[] bArr = this.f26358b;
-            if (this.f26360d == 0) {
+            byte[] bArr = this.f26381b;
+            if (this.f26383d == 0) {
                 bArr = new byte[bArr.length];
                 for (int i4 = 0; i4 < i3; i4++) {
                     for (int i5 = 0; i5 < i2; i5++) {
-                        bArr[(((i5 * i3) + i3) - i4) - 1] = this.f26358b[(i4 * i2) + i5];
+                        bArr[(((i5 * i3) + i3) - i4) - 1] = this.f26381b[(i4 * i2) + i5];
                     }
                 }
                 i2 = i3;
@@ -98,15 +98,15 @@ public class c extends AsyncTask<Void, Void, String> {
             }
             try {
                 try {
-                    if (this.f26359c == null) {
+                    if (this.f26382c == null) {
                         return null;
                     }
-                    return this.f26359c.processData(bArr, i2, i3, false);
+                    return this.f26382c.processData(bArr, i2, i3, false);
                 } catch (Exception unused) {
                     return null;
                 }
             } catch (Exception unused2) {
-                return this.f26359c.processData(bArr, i2, i3, true);
+                return this.f26382c.processData(bArr, i2, i3, true);
             }
         }
         return (String) invokeL.objValue;
@@ -131,7 +131,7 @@ public class c extends AsyncTask<Void, Void, String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onCancelled();
-            this.f26359c = null;
+            this.f26382c = null;
         }
     }
 }

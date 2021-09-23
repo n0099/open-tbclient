@@ -27,34 +27,34 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4603a;
+    public int f4611a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4604b;
+    public String f4612b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4605c;
+    public String f4613c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4606d;
+    public String f4614d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4607e;
+    public int f4615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f4608f;
+    public boolean f4616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f4609g;
+    public String f4617g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f4610h;
+    public boolean f4618h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f4611i;
+    public boolean f4619i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f4612j;
+    public String f4620j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -88,16 +88,16 @@ public class g {
         public void b(@NonNull g gVar, @NonNull c.a.p0.a.b1.d dVar) throws Exception {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, dVar) == null) {
-                dVar.writeInt(gVar.f4603a);
-                dVar.f(gVar.f4604b);
-                dVar.f(gVar.f4605c);
-                dVar.f(gVar.f4606d);
-                dVar.writeInt(gVar.f4607e);
-                dVar.writeBoolean(gVar.f4608f);
-                dVar.f(gVar.f4609g);
-                dVar.writeBoolean(gVar.f4610h);
-                dVar.writeBoolean(gVar.f4611i);
-                dVar.f(gVar.f4612j);
+                dVar.writeInt(gVar.f4611a);
+                dVar.f(gVar.f4612b);
+                dVar.f(gVar.f4613c);
+                dVar.f(gVar.f4614d);
+                dVar.writeInt(gVar.f4615e);
+                dVar.writeBoolean(gVar.f4616f);
+                dVar.f(gVar.f4617g);
+                dVar.writeBoolean(gVar.f4618h);
+                dVar.writeBoolean(gVar.f4619i);
+                dVar.f(gVar.f4620j);
                 dVar.writeBoolean(gVar.k);
                 dVar.writeBoolean(gVar.l);
                 dVar.writeBoolean(gVar.m);
@@ -136,16 +136,16 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
                 g gVar = new g();
-                gVar.f4603a = cVar.readInt();
-                gVar.f4604b = cVar.r();
-                gVar.f4605c = cVar.r();
-                gVar.f4606d = cVar.r();
-                gVar.f4607e = cVar.readInt();
-                gVar.f4608f = cVar.readBoolean();
-                gVar.f4609g = cVar.r();
-                gVar.f4610h = cVar.readBoolean();
-                gVar.f4611i = cVar.readBoolean();
-                gVar.f4612j = cVar.r();
+                gVar.f4611a = cVar.readInt();
+                gVar.f4612b = cVar.r();
+                gVar.f4613c = cVar.r();
+                gVar.f4614d = cVar.r();
+                gVar.f4615e = cVar.readInt();
+                gVar.f4616f = cVar.readBoolean();
+                gVar.f4617g = cVar.r();
+                gVar.f4618h = cVar.readBoolean();
+                gVar.f4619i = cVar.readBoolean();
+                gVar.f4620j = cVar.r();
                 gVar.k = cVar.readBoolean();
                 gVar.l = cVar.readBoolean();
                 gVar.m = cVar.readBoolean();
@@ -172,7 +172,7 @@ public class g {
                 return;
             }
         }
-        r = k.f7077a;
+        r = k.f7085a;
         s = new a();
         t = new b();
     }
@@ -195,11 +195,11 @@ public class g {
         this.n = true;
         this.o = false;
         this.p = false;
-        this.f4603a = -16777216;
-        this.f4605c = "#ffffff";
-        this.f4612j = "default";
-        this.f4607e = -1;
-        this.f4608f = false;
+        this.f4611a = -16777216;
+        this.f4613c = "#ffffff";
+        this.f4620j = "default";
+        this.f4615e = -1;
+        this.f4616f = false;
     }
 
     public static g a(JSONObject jSONObject) {
@@ -246,20 +246,20 @@ public class g {
             if (TextUtils.isEmpty(optString)) {
                 optString = "#000000";
             }
-            gVar.f4603a = SwanAppConfigData.s(optString);
+            gVar.f4611a = SwanAppConfigData.s(optString);
             String optString2 = jSONObject.optString("navigationBarTextStyle");
             if (TextUtils.isEmpty(optString2)) {
                 optString2 = "white";
             }
-            gVar.f4605c = optString2;
-            gVar.f4604b = jSONObject.optString("navigationBarTitleText");
-            gVar.f4606d = jSONObject.optString("backgroundTextStyle", "black");
-            gVar.f4607e = SwanAppConfigData.s(jSONObject.optString("backgroundColor"));
-            gVar.f4608f = jSONObject.optBoolean("enablePullDownRefresh");
-            gVar.f4609g = jSONObject.optString("onReachBottomDistance");
-            gVar.f4610h = jSONObject.optBoolean("enableOpacityNavigationBar");
-            gVar.f4611i = jSONObject.optBoolean("enableOpacityNavigationBarText");
-            gVar.f4612j = jSONObject.optString("navigationStyle", "default");
+            gVar.f4613c = optString2;
+            gVar.f4612b = jSONObject.optString("navigationBarTitleText");
+            gVar.f4614d = jSONObject.optString("backgroundTextStyle", "black");
+            gVar.f4615e = SwanAppConfigData.s(jSONObject.optString("backgroundColor"));
+            gVar.f4616f = jSONObject.optBoolean("enablePullDownRefresh");
+            gVar.f4617g = jSONObject.optString("onReachBottomDistance");
+            gVar.f4618h = jSONObject.optBoolean("enableOpacityNavigationBar");
+            gVar.f4619i = jSONObject.optBoolean("enableOpacityNavigationBarText");
+            gVar.f4620j = jSONObject.optString("navigationStyle", "default");
             gVar.k = jSONObject.optBoolean("navigationHomeButtonHidden");
             gVar.q = jSONObject.optString("textSizeAdjust");
             return gVar;
@@ -285,20 +285,20 @@ public class g {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, jSONObject, gVar)) == null) {
             g gVar2 = new g();
             String optString = jSONObject.optString("navigationBarBackgroundColor");
-            gVar2.f4603a = TextUtils.isEmpty(optString) ? gVar.f4603a : SwanAppConfigData.s(optString);
-            gVar2.f4604b = jSONObject.optString("navigationBarTitleText", gVar.f4604b);
+            gVar2.f4611a = TextUtils.isEmpty(optString) ? gVar.f4611a : SwanAppConfigData.s(optString);
+            gVar2.f4612b = jSONObject.optString("navigationBarTitleText", gVar.f4612b);
             String optString2 = jSONObject.optString("navigationBarTextStyle");
             if (TextUtils.isEmpty(optString2)) {
-                optString2 = gVar.f4605c;
+                optString2 = gVar.f4613c;
             }
-            gVar2.f4605c = optString2;
-            gVar2.f4606d = jSONObject.optString("backgroundTextStyle", gVar.f4606d);
-            gVar2.f4607e = jSONObject.has("backgroundColor") ? SwanAppConfigData.s(jSONObject.optString("backgroundColor")) : gVar.f4607e;
-            gVar2.f4608f = jSONObject.optBoolean("enablePullDownRefresh", gVar.f4608f);
-            gVar2.f4609g = jSONObject.optString("onReachBottomDistance", gVar.f4609g);
-            gVar2.f4610h = jSONObject.optBoolean("enableOpacityNavigationBar", gVar.f4610h);
-            gVar2.f4611i = jSONObject.optBoolean("enableOpacityNavigationBarText", gVar.f4611i);
-            gVar2.f4612j = jSONObject.optString("navigationStyle", gVar.f4612j);
+            gVar2.f4613c = optString2;
+            gVar2.f4614d = jSONObject.optString("backgroundTextStyle", gVar.f4614d);
+            gVar2.f4615e = jSONObject.has("backgroundColor") ? SwanAppConfigData.s(jSONObject.optString("backgroundColor")) : gVar.f4615e;
+            gVar2.f4616f = jSONObject.optBoolean("enablePullDownRefresh", gVar.f4616f);
+            gVar2.f4617g = jSONObject.optString("onReachBottomDistance", gVar.f4617g);
+            gVar2.f4618h = jSONObject.optBoolean("enableOpacityNavigationBar", gVar.f4618h);
+            gVar2.f4619i = jSONObject.optBoolean("enableOpacityNavigationBarText", gVar.f4619i);
+            gVar2.f4620j = jSONObject.optString("navigationStyle", gVar.f4620j);
             gVar2.k = jSONObject.optBoolean("navigationHomeButtonHidden", gVar.k);
             gVar2.l = jSONObject.optBoolean("disableSwipeBack", false);
             gVar2.m = jSONObject.optBoolean("disableFullscreenSwipeBack", false);
@@ -316,7 +316,7 @@ public class g {
             if (gVar == null) {
                 return false;
             }
-            return gVar.f4610h || TextUtils.equals(gVar.f4612j, SchedulerSupport.CUSTOM);
+            return gVar.f4618h || TextUtils.equals(gVar.f4620j, SchedulerSupport.CUSTOM);
         }
         return invokeL.booleanValue;
     }

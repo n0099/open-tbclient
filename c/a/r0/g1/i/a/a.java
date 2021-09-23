@@ -24,10 +24,10 @@ public class a implements b, h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<Object> f18401e;
+    public List<Object> f18410e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<Object> f18402f;
+    public List<Object> f18411f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -87,16 +87,16 @@ public class a implements b, h {
         }
         if (dataRes.thread_list != null) {
             ArrayList arrayList = new ArrayList();
-            this.f18401e = arrayList;
+            this.f18410e = arrayList;
             arrayList.addAll(excFrsPageResIdl.data.thread_list);
         }
         excFrsPageResIdl.data.has_more.intValue();
         excFrsPageResIdl.data.pn.intValue();
         if (excFrsPageResIdl.data.tag_list != null) {
-            this.f18402f = new ArrayList();
+            this.f18411f = new ArrayList();
             for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
                 if (excellentTagInfo != null) {
-                    this.f18402f.add(excellentTagInfo);
+                    this.f18411f.add(excellentTagInfo);
                 }
             }
         }

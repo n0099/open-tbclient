@@ -48,10 +48,10 @@ public class i extends c.a.r0.a0.b<c.a.r0.o2.e.k> {
     @Override // c.a.r0.a0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f15548e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f15557e == i2) {
             return;
         }
-        this.f15548e = i2;
+        this.f15557e = i2;
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
         SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
     }
@@ -71,7 +71,7 @@ public class i extends c.a.r0.a0.b<c.a.r0.o2.e.k> {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, kVar) == null) || kVar == null) {
             return;
         }
-        this.m.setPadding(kVar.f23224f, kVar.f23225g, 0, kVar.f23226h);
-        this.m.setText(this.f15550g.getString(kVar.f23223e));
+        this.m.setPadding(kVar.f23240f, kVar.f23241g, 0, kVar.f23242h);
+        this.m.setText(this.f15559g.getString(kVar.f23239e));
     }
 }

@@ -16,10 +16,10 @@ public class MemoryItemRemoveMessage extends CustomResponsedMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f53193a;
+        public int f53306a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53194b;
+        public String f53307b;
 
         public a() {
             Interceptable interceptable = $ic;

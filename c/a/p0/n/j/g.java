@@ -20,7 +20,7 @@ public class g {
             try {
                 return processor.newInstance();
             } catch (IllegalAccessException | InstantiationException e2) {
-                if (c.a.p0.n.c.f11856a) {
+                if (c.a.p0.n.c.f11864a) {
                     e2.printStackTrace();
                 }
                 return null;

@@ -18,13 +18,13 @@ public class b extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicBoolean f71958b;
+    public final AtomicBoolean f72277b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsFragment f71959c;
+    public KsFragment f72278c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f71960d;
+    public String f72279d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(@NonNull KsFragment ksFragment, @NonNull View view, int i2) {
@@ -45,8 +45,8 @@ public class b extends a {
                 return;
             }
         }
-        this.f71958b = new AtomicBoolean(false);
-        this.f71959c = ksFragment;
+        this.f72277b = new AtomicBoolean(false);
+        this.f72278c = ksFragment;
     }
 
     private boolean a(@NonNull KsFragment ksFragment) {
@@ -59,22 +59,22 @@ public class b extends a {
     public void a(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 666) {
-            KsFragment ksFragment = this.f71959c;
+            KsFragment ksFragment = this.f72278c;
             if (ksFragment == null) {
                 com.kwad.sdk.core.d.a.d("FragmentPageVisibleHelper", "mFragment is null");
                 return;
             }
             if (a(ksFragment)) {
-                this.f71960d = "message fragment";
+                this.f72279d = "message fragment";
             } else {
-                this.f71960d = "message view";
+                this.f72279d = "message view";
                 if (c()) {
                     d();
-                    this.f71953a.sendEmptyMessageDelayed(TTAdConstant.STYLE_SIZE_RADIO_2_3, 500L);
+                    this.f72272a.sendEmptyMessageDelayed(TTAdConstant.STYLE_SIZE_RADIO_2_3, 500L);
                 }
             }
             e();
-            this.f71953a.sendEmptyMessageDelayed(TTAdConstant.STYLE_SIZE_RADIO_2_3, 500L);
+            this.f72272a.sendEmptyMessageDelayed(TTAdConstant.STYLE_SIZE_RADIO_2_3, 500L);
         }
     }
 
@@ -89,7 +89,7 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.f();
-            this.f71959c = null;
+            this.f72278c = null;
         }
     }
 
@@ -103,7 +103,7 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             com.kwad.sdk.core.d.a.c("FragmentPageVisibleHelper", "onFragmentPause");
-            this.f71960d = "onFragmentPause";
+            this.f72279d = "onFragmentPause";
             e();
         }
     }

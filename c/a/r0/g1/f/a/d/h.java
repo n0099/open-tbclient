@@ -19,34 +19,34 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f18077a;
+    public TbPageContext f18087a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c.a.e.l.e.a> f18078b;
+    public List<c.a.e.l.e.a> f18088b;
 
     /* renamed from: c  reason: collision with root package name */
-    public s f18079c;
+    public s f18089c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f18080d;
+    public g f18090d;
 
     /* renamed from: e  reason: collision with root package name */
-    public k f18081e;
+    public k f18091e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f18082f;
+    public b f18092f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f18083g;
+    public d f18093g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f18084h;
+    public c f18094h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f18085i;
+    public e f18095i;
 
     /* renamed from: j  reason: collision with root package name */
-    public f f18086j;
+    public f f18096j;
 
     public h(TbPageContext tbPageContext, s sVar) {
         Interceptable interceptable = $ic;
@@ -63,61 +63,61 @@ public class h {
                 return;
             }
         }
-        this.f18077a = tbPageContext;
-        this.f18079c = sVar;
+        this.f18087a = tbPageContext;
+        this.f18089c = sVar;
         b();
     }
 
     public List<n> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18079c.getData() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18089c.getData() : (List) invokeV.objValue;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ArrayList arrayList = new ArrayList();
-            this.f18078b = arrayList;
-            arrayList.add(new j(this.f18077a));
-            this.f18078b.add(new i(this.f18077a));
-            this.f18078b.add(new LoadingViewAdapter(this.f18077a));
-            g gVar = new g(this.f18077a);
-            this.f18080d = gVar;
-            gVar.k0(this.f18079c);
-            this.f18078b.add(this.f18080d);
-            k kVar = new k(this.f18077a);
-            this.f18081e = kVar;
-            kVar.k0(this.f18079c);
-            this.f18078b.add(this.f18081e);
-            b bVar = new b(this.f18077a);
-            this.f18082f = bVar;
-            bVar.k0(this.f18079c);
-            this.f18078b.add(this.f18082f);
-            d dVar = new d(this.f18077a);
-            this.f18083g = dVar;
-            dVar.k0(this.f18079c);
-            this.f18078b.add(this.f18083g);
-            c cVar = new c(this.f18077a);
-            this.f18084h = cVar;
-            cVar.k0(this.f18079c);
-            this.f18078b.add(this.f18084h);
-            e eVar = new e(this.f18077a);
-            this.f18085i = eVar;
-            eVar.k0(this.f18079c);
-            this.f18078b.add(this.f18085i);
-            f fVar = new f(this.f18077a);
-            this.f18086j = fVar;
-            fVar.k0(this.f18079c);
-            this.f18078b.add(this.f18086j);
-            this.f18079c.addAdapters(this.f18078b);
+            this.f18088b = arrayList;
+            arrayList.add(new j(this.f18087a));
+            this.f18088b.add(new i(this.f18087a));
+            this.f18088b.add(new LoadingViewAdapter(this.f18087a));
+            g gVar = new g(this.f18087a);
+            this.f18090d = gVar;
+            gVar.k0(this.f18089c);
+            this.f18088b.add(this.f18090d);
+            k kVar = new k(this.f18087a);
+            this.f18091e = kVar;
+            kVar.k0(this.f18089c);
+            this.f18088b.add(this.f18091e);
+            b bVar = new b(this.f18087a);
+            this.f18092f = bVar;
+            bVar.k0(this.f18089c);
+            this.f18088b.add(this.f18092f);
+            d dVar = new d(this.f18087a);
+            this.f18093g = dVar;
+            dVar.k0(this.f18089c);
+            this.f18088b.add(this.f18093g);
+            c cVar = new c(this.f18087a);
+            this.f18094h = cVar;
+            cVar.k0(this.f18089c);
+            this.f18088b.add(this.f18094h);
+            e eVar = new e(this.f18087a);
+            this.f18095i = eVar;
+            eVar.k0(this.f18089c);
+            this.f18088b.add(this.f18095i);
+            f fVar = new f(this.f18087a);
+            this.f18096j = fVar;
+            fVar.k0(this.f18089c);
+            this.f18088b.add(this.f18096j);
+            this.f18089c.addAdapters(this.f18088b);
         }
     }
 
     public void c() {
         s sVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (sVar = this.f18079c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (sVar = this.f18089c) == null) {
             return;
         }
         sVar.getListAdapter().notifyDataSetChanged();
@@ -126,14 +126,14 @@ public class h {
     public void d(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f18079c.setData(list);
+            this.f18089c.setData(list);
         }
     }
 
     public void e(c.a.q0.n.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
-            for (c.a.e.l.e.a aVar : this.f18078b) {
+            for (c.a.e.l.e.a aVar : this.f18088b) {
                 if (aVar instanceof a) {
                     ((a) aVar).j0(fVar);
                 }
@@ -144,7 +144,7 @@ public class h {
     public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            for (c.a.e.l.e.a aVar : this.f18078b) {
+            for (c.a.e.l.e.a aVar : this.f18088b) {
                 aVar.f0(bdUniqueId);
             }
         }

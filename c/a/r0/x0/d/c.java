@@ -26,11 +26,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f28319b;
+    public static volatile c f28339b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f28320a;
+    public List<String> f28340a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class c {
             }
         }
         ArrayList arrayList = new ArrayList();
-        this.f28320a = arrayList;
+        this.f28340a = arrayList;
         arrayList.add("pb_banner");
-        this.f28320a.add("frs_feed");
+        this.f28340a.add("frs_feed");
     }
 
     public static boolean b() {
@@ -66,14 +66,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f28319b == null) {
+            if (f28339b == null) {
                 synchronized (b.class) {
-                    if (f28319b == null) {
-                        f28319b = new c();
+                    if (f28339b == null) {
+                        f28339b = new c();
                     }
                 }
             }
-            return f28319b;
+            return f28339b;
         }
         return (c) invokeV.objValue;
     }
@@ -103,7 +103,7 @@ public class c {
     public List<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28320a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28340a : (List) invokeV.objValue;
     }
 
     public String d(String str) {
@@ -212,7 +212,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
             if (jSONObject != null && d.k()) {
-                for (String str : this.f28320a) {
+                for (String str : this.f28340a) {
                     if (!TextUtils.isEmpty(str)) {
                         FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
                         JSONObject jSONObject2 = null;

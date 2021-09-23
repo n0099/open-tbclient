@@ -16,10 +16,10 @@ public class q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f23240a;
+    public int f23256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<User> f23241b;
+    public List<User> f23257b;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class q {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             v1 v1Var = new v1();
             v1Var.f14332h = false;
-            v1Var.i(this.f23241b);
+            v1Var.i(this.f23257b);
             return v1Var;
         }
         return (v1) invokeV.objValue;
@@ -52,8 +52,8 @@ public class q {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f23241b = dataRes.recom_user_list;
+        this.f23257b = dataRes.recom_user_list;
         dataRes.has_more.intValue();
-        this.f23240a = dataRes.current_page.intValue();
+        this.f23256a = dataRes.current_page.intValue();
     }
 }

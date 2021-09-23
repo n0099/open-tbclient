@@ -24,25 +24,25 @@ public class s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f20210a;
+    public View f20225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewStub f20211b;
+    public ViewStub f20226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PbGiftListView f20212c;
+    public PbGiftListView f20227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewStub f20213d;
+    public ViewStub f20228d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f20214e;
+    public LinearLayout f20229e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f20215f;
+    public View f20230f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseWebView f20216g;
+    public BaseWebView f20231g;
 
     /* loaded from: classes3.dex */
     public class a implements BaseWebView.d {
@@ -112,7 +112,7 @@ public class s {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f20217e;
+        public final /* synthetic */ s f20232e;
 
         public c(s sVar) {
             Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public class s {
                     return;
                 }
             }
-            this.f20217e = sVar;
+            this.f20232e = sVar;
         }
 
         @Override // java.lang.Runnable
@@ -137,9 +137,9 @@ public class s {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f20217e.f20216g != null) {
-                        this.f20217e.f20216g.destroy();
-                        this.f20217e.f20216g = null;
+                    if (this.f20232e.f20231g != null) {
+                        this.f20232e.f20231g.destroy();
+                        this.f20232e.f20231g = null;
                     }
                 } catch (Throwable th) {
                     BdLog.e(th);
@@ -163,20 +163,20 @@ public class s {
                 return;
             }
         }
-        this.f20210a = view;
-        this.f20211b = (ViewStub) view.findViewById(R.id.gift_list_viewStub);
-        this.f20213d = (ViewStub) view.findViewById(R.id.link_thread_viewStub);
+        this.f20225a = view;
+        this.f20226b = (ViewStub) view.findViewById(R.id.gift_list_viewStub);
+        this.f20228d = (ViewStub) view.findViewById(R.id.link_thread_viewStub);
     }
 
     public void a() {
         BaseWebView baseWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (baseWebView = this.f20216g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (baseWebView = this.f20231g) == null) {
             return;
         }
         baseWebView.removeAllViews();
-        this.f20216g.getSettings().setBuiltInZoomControls(true);
-        this.f20216g.setVisibility(8);
+        this.f20231g.getSettings().setBuiltInZoomControls(true);
+        this.f20231g.setVisibility(8);
         c.a.e.e.m.e.a().postDelayed(new c(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
     }
 
@@ -184,16 +184,16 @@ public class s {
         ViewStub viewStub;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{d1Var, str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            if (d1Var != null && !ListUtils.isEmpty(d1Var.a()) && (viewStub = this.f20211b) != null) {
-                if (this.f20212c == null) {
-                    this.f20212c = (PbGiftListView) viewStub.inflate();
+            if (d1Var != null && !ListUtils.isEmpty(d1Var.a()) && (viewStub = this.f20226b) != null) {
+                if (this.f20227c == null) {
+                    this.f20227c = (PbGiftListView) viewStub.inflate();
                 }
-                this.f20212c.setVisibility(0);
-                this.f20212c.fillGiftData(d1Var, str, str2, j2, j3, j4);
-                this.f20212c.onChangeSkinType();
+                this.f20227c.setVisibility(0);
+                this.f20227c.fillGiftData(d1Var, str, str2, j2, j3, j4);
+                this.f20227c.onChangeSkinType();
                 return;
             }
-            PbGiftListView pbGiftListView = this.f20212c;
+            PbGiftListView pbGiftListView = this.f20227c;
             if (pbGiftListView != null) {
                 pbGiftListView.setVisibility(8);
             }
@@ -205,44 +205,44 @@ public class s {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r0Var) == null) || r0Var == null || c.a.e.e.p.k.isEmpty(r0Var.e())) {
             return;
         }
-        BaseWebView baseWebView = this.f20216g;
-        if ((baseWebView == null || !baseWebView.getIsLoaded()) && r0Var.c() == c.a.q0.s.q.r0.f14291g && this.f20213d != null) {
+        BaseWebView baseWebView = this.f20231g;
+        if ((baseWebView == null || !baseWebView.getIsLoaded()) && r0Var.c() == c.a.q0.s.q.r0.f14291g && this.f20228d != null) {
             if (r0Var.f()) {
-                LinearLayout linearLayout = this.f20214e;
+                LinearLayout linearLayout = this.f20229e;
                 if (linearLayout != null) {
                     linearLayout.setVisibility(8);
                     return;
                 }
                 return;
             }
-            if (this.f20214e == null) {
-                LinearLayout linearLayout2 = (LinearLayout) this.f20213d.inflate();
-                this.f20214e = linearLayout2;
-                this.f20215f = linearLayout2.findViewById(R.id.link_thread_divider);
-                this.f20216g = (BaseWebView) this.f20214e.findViewById(R.id.link_thread_webview);
+            if (this.f20229e == null) {
+                LinearLayout linearLayout2 = (LinearLayout) this.f20228d.inflate();
+                this.f20229e = linearLayout2;
+                this.f20230f = linearLayout2.findViewById(R.id.link_thread_divider);
+                this.f20231g = (BaseWebView) this.f20229e.findViewById(R.id.link_thread_webview);
             }
-            this.f20215f.setVisibility(0);
-            SkinManager.setBackgroundColor(this.f20215f, R.color.CAM_X0204);
-            this.f20216g.setVisibility(0);
-            this.f20216g.setFocusable(false);
-            this.f20216g.setBackgroundColor(0);
-            this.f20216g.getSettings().setCacheMode(-1);
-            this.f20216g.setVerticalScrollBarEnabled(false);
-            this.f20216g.setHorizontalScrollBarEnabled(false);
-            this.f20216g.getSettings().setAllowFileAccess(true);
-            this.f20216g.getSettings().setAppCacheEnabled(true);
-            this.f20216g.getSettings().setDomStorageEnabled(true);
-            this.f20216g.getSettings().setDatabaseEnabled(true);
-            this.f20216g.setOnLoadUrlListener(new a(this));
-            this.f20216g.setOnPageFinishedListener(new b(this));
-            this.f20216g.loadUrl(r0Var.e());
+            this.f20230f.setVisibility(0);
+            SkinManager.setBackgroundColor(this.f20230f, R.color.CAM_X0204);
+            this.f20231g.setVisibility(0);
+            this.f20231g.setFocusable(false);
+            this.f20231g.setBackgroundColor(0);
+            this.f20231g.getSettings().setCacheMode(-1);
+            this.f20231g.setVerticalScrollBarEnabled(false);
+            this.f20231g.setHorizontalScrollBarEnabled(false);
+            this.f20231g.getSettings().setAllowFileAccess(true);
+            this.f20231g.getSettings().setAppCacheEnabled(true);
+            this.f20231g.getSettings().setDomStorageEnabled(true);
+            this.f20231g.getSettings().setDatabaseEnabled(true);
+            this.f20231g.setOnLoadUrlListener(new a(this));
+            this.f20231g.setOnPageFinishedListener(new b(this));
+            this.f20231g.loadUrl(r0Var.e());
         }
     }
 
     public void d() {
         BaseWebView baseWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (baseWebView = this.f20216g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (baseWebView = this.f20231g) == null) {
             return;
         }
         try {
@@ -255,7 +255,7 @@ public class s {
     public void e() {
         BaseWebView baseWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (baseWebView = this.f20216g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (baseWebView = this.f20231g) == null) {
             return;
         }
         try {

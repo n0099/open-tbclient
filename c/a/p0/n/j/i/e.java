@@ -15,7 +15,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f12013a;
+    public static volatile e f12021a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public e() {
@@ -36,14 +36,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12013a == null) {
+            if (f12021a == null) {
                 synchronized (e.class) {
-                    if (f12013a == null) {
-                        f12013a = new e();
+                    if (f12021a == null) {
+                        f12021a = new e();
                     }
                 }
             }
-            return f12013a;
+            return f12021a;
         }
         return (e) invokeV.objValue;
     }
@@ -60,7 +60,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (c.a.p0.n.c.f11856a) {
+        if (c.a.p0.n.c.f11864a) {
             String str = WebGLImageLoader.DATA_URL + jSONObject;
         }
         String optString = jSONObject.optString("version");
@@ -68,7 +68,7 @@ public class e {
             return;
         }
         int optInt = optJSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0);
-        if (c.a.p0.n.c.f11856a) {
+        if (c.a.p0.n.c.f11864a) {
             String str2 = "retrySwitch:" + optInt;
         }
         c.a.p0.n.c.b().j().putString("get_pkg_retry_version", optString);

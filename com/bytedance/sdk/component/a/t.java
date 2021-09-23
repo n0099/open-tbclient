@@ -10,16 +10,16 @@ public final class t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64165a;
+    public String f64476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public x f64166b;
+    public x f64477b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f64167c;
+    public a f64478c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64168d;
+    public boolean f64479d;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -40,9 +40,9 @@ public final class t {
                 return;
             }
         }
-        this.f64168d = true;
-        this.f64165a = str;
-        this.f64166b = xVar;
-        this.f64167c = aVar;
+        this.f64479d = true;
+        this.f64476a = str;
+        this.f64477b = xVar;
+        this.f64478c = aVar;
     }
 }

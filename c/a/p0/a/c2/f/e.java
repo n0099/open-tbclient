@@ -25,13 +25,13 @@ public class e extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4781e;
+        public final /* synthetic */ CallbackHandler f4789e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4782f;
+        public final /* synthetic */ String f4790f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f4783g;
+        public final /* synthetic */ String f4791g;
 
         public a(e eVar, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class e extends a0 {
                     return;
                 }
             }
-            this.f4781e = callbackHandler;
-            this.f4782f = str;
-            this.f4783g = str2;
+            this.f4789e = callbackHandler;
+            this.f4790f = str;
+            this.f4791g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,11 +60,11 @@ public class e extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.p0.a.e2.c.d.h(iVar)) {
-                    c.a.p0.a.e2.c.d.p(iVar, this.f4781e, this.f4782f);
+                    c.a.p0.a.e2.c.d.p(iVar, this.f4789e, this.f4790f);
                     return;
                 }
-                this.f4781e.handleSchemeDispatchCallback(this.f4782f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                c.a.p0.a.v0.a.b().e(this.f4783g);
+                this.f4789e.handleSchemeDispatchCallback(this.f4790f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                c.a.p0.a.v0.a.b().e(this.f4791g);
             }
         }
     }

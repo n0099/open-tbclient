@@ -43,7 +43,7 @@ public class SwanApiNetworkV8Module {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
-            boolean z = d.f8727c;
+            boolean z = d.f8735c;
             c.a.p0.a.u.h.b L = this.requestApi.L(jsObject);
             return L == null ? "" : L.a();
         }

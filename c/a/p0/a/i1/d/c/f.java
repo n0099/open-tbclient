@@ -13,19 +13,19 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6747a;
+    public int f6755a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6748b;
+    public boolean f6756b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6749c;
+    public String f6757c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6750d;
+    public String f6758d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6751e;
+    public int f6759e;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class f {
                 return;
             }
         }
-        this.f6747a = 3;
-        this.f6748b = true;
-        this.f6750d = com.alipay.sdk.widget.d.l;
-        this.f6751e = 60;
+        this.f6755a = 3;
+        this.f6756b = true;
+        this.f6758d = com.alipay.sdk.widget.d.u;
+        this.f6759e = 60;
     }
 
     public static f a(JSONObject jSONObject) {
@@ -73,13 +73,13 @@ public class f {
                             i2 |= 2;
                         }
                     }
-                    fVar.f6747a = i2;
+                    fVar.f6755a = i2;
                 }
-                fVar.f6748b = jSONObject.optBoolean("compressed", true);
+                fVar.f6756b = jSONObject.optBoolean("compressed", true);
                 int optInt = jSONObject.optInt("maxDuration", 60);
-                fVar.f6751e = optInt <= 60 ? optInt : 60;
-                fVar.f6750d = jSONObject.optString("camera");
-                fVar.f6749c = jSONObject.optString("cb");
+                fVar.f6759e = optInt <= 60 ? optInt : 60;
+                fVar.f6758d = jSONObject.optString("camera");
+                fVar.f6757c = jSONObject.optString("cb");
             }
             return fVar;
         }

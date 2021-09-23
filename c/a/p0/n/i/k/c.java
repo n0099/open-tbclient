@@ -53,7 +53,7 @@ public class c extends c.a.p0.n.i.d<c.a.p0.n.i.l.c> {
             if (cVar == null) {
                 return false;
             }
-            h hVar = cVar.f11968a;
+            h hVar = cVar.f11976a;
             return hVar == null || hVar.a();
         }
         return invokeL.booleanValue;
@@ -66,15 +66,15 @@ public class c extends c.a.p0.n.i.d<c.a.p0.n.i.l.c> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
-            this.f11902e.D();
+            this.f11910e.D();
             f fVar = new f();
-            k(cVar.f11968a, fVar);
+            k(cVar.f11976a, fVar);
             if (fVar.l() == 0) {
-                this.f11902e.E();
+                this.f11910e.E();
                 return null;
             }
-            this.f11902e.F(fVar);
-            c.a.p0.n.i.i.a.c(cVar, this.f11902e);
+            this.f11910e.F(fVar);
+            c.a.p0.n.i.i.a.c(cVar, this.f11910e);
             return null;
         }
         return (c.a.p0.n.h.a) invokeL.objValue;

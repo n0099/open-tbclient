@@ -24,7 +24,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b0<a> f38798e;
+    public b0<a> f38849e;
     public AppletsCellView mAppletsCellView;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -61,7 +61,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public b0<a> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38798e : (b0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38849e : (b0) invokeV.objValue;
     }
 
     public void setFromCDN(boolean z) {
@@ -73,7 +73,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public void setSubClickListener(b0<a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, b0Var) == null) {
-            this.f38798e = b0Var;
+            this.f38849e = b0Var;
         }
     }
 

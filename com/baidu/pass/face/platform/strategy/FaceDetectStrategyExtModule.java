@@ -201,14 +201,17 @@ public class FaceDetectStrategyExtModule implements a {
     public void processStrategy(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, bArr) == null) {
-            BDFaceImageInstance bDFaceImageInstance = new BDFaceImageInstance(bArr, this.mPreviewRect.width(), this.mPreviewRect.height(), BDFaceSDKCommon.BDFaceImageType.BDFACE_IMAGE_TYPE_YUV_NV21, 360 - this.mDegree, 1);
-            FaceInfo[] detect = FaceSDKManager.getInstance().detect(bDFaceImageInstance);
-            FaceModel faceModel = setFaceModel(detect, bDFaceImageInstance);
-            ISecurityCallback iSecurityCallback = this.mISecurityCallback;
-            if (iSecurityCallback != null) {
-                iSecurityCallback.getFaceInfoForSecurity(detect);
+            try {
+                BDFaceImageInstance bDFaceImageInstance = new BDFaceImageInstance(bArr, this.mPreviewRect.width(), this.mPreviewRect.height(), BDFaceSDKCommon.BDFaceImageType.BDFACE_IMAGE_TYPE_YUV_NV21, 360 - this.mDegree, 1);
+                FaceInfo[] detect = FaceSDKManager.getInstance().detect(bDFaceImageInstance);
+                FaceModel faceModel = setFaceModel(detect, bDFaceImageInstance);
+                if (this.mISecurityCallback != null) {
+                    this.mISecurityCallback.getFaceInfoForSecurity(detect);
+                }
+                processUIResult(faceModel, bDFaceImageInstance);
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-            processUIResult(faceModel, bDFaceImageInstance);
         }
     }
 

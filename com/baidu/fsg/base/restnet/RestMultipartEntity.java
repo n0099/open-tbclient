@@ -156,7 +156,11 @@ public class RestMultipartEntity {
         }
         try {
             ByteArrayOutputStream byteArrayOutputStream = this.mOut;
-            byteArrayOutputStream.write(("\r\n--" + this.mBoundary + "--\r\n").getBytes());
+            StringBuilder sb = new StringBuilder();
+            sb.append("\r\n--");
+            sb.append(this.mBoundary);
+            sb.append("--\r\n");
+            byteArrayOutputStream.write(sb.toString().getBytes());
         } catch (IOException e2) {
             e2.printStackTrace();
         }
@@ -182,43 +186,52 @@ public class RestMultipartEntity {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, inputStream, str3, Boolean.valueOf(z)}) == null) {
             try {
                 try {
-                    try {
-                        writeBoundaryLine();
-                        ByteArrayOutputStream byteArrayOutputStream = this.mOut;
-                        byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"; filename=\"" + str2 + "\"\r\n").getBytes());
-                        if (str3 != null) {
-                            ByteArrayOutputStream byteArrayOutputStream2 = this.mOut;
-                            byteArrayOutputStream2.write((Part.CONTENT_TYPE + str3 + "\r\n\r\n").getBytes());
-                        } else {
-                            this.mOut.write("Content-Type: application/octet-stream\r\n\r\n".getBytes());
-                        }
-                        byte[] bArr = new byte[4096];
-                        while (true) {
-                            int read = inputStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            this.mOut.write(bArr, 0, read);
-                        }
-                        if (z) {
-                            writeLastBoundaryIfNeeds();
-                        }
-                        this.mOut.flush();
-                        inputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    writeBoundaryLine();
+                    ByteArrayOutputStream byteArrayOutputStream = this.mOut;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("Content-Disposition: form-data; name=\"");
+                    sb.append(str);
+                    sb.append("\"; filename=\"");
+                    sb.append(str2);
+                    sb.append("\"\r\n");
+                    byteArrayOutputStream.write(sb.toString().getBytes());
+                    if (str3 != null) {
+                        ByteArrayOutputStream byteArrayOutputStream2 = this.mOut;
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append(Part.CONTENT_TYPE);
+                        sb2.append(str3);
+                        sb2.append("\r\n\r\n");
+                        byteArrayOutputStream2.write(sb2.toString().getBytes());
+                    } else {
+                        this.mOut.write("Content-Type: application/octet-stream\r\n\r\n".getBytes());
                     }
-                } catch (Throwable th) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    byte[] bArr = new byte[4096];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        this.mOut.write(bArr, 0, read);
                     }
-                    throw th;
+                    if (z) {
+                        writeLastBoundaryIfNeeds();
+                    }
+                    this.mOut.flush();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                 }
-            } catch (IOException e4) {
-                e4.printStackTrace();
-                inputStream.close();
+                try {
+                    inputStream.close();
+                } catch (IOException e3) {
+                    e3.printStackTrace();
+                }
+            } catch (Throwable th) {
+                try {
+                    inputStream.close();
+                } catch (IOException e4) {
+                    e4.printStackTrace();
+                }
+                throw th;
             }
         }
     }
@@ -229,7 +242,11 @@ public class RestMultipartEntity {
             try {
                 writeBoundaryLine();
                 ByteArrayOutputStream byteArrayOutputStream = this.mOut;
-                byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"\r\n\r\n").getBytes());
+                StringBuilder sb = new StringBuilder();
+                sb.append("Content-Disposition: form-data; name=\"");
+                sb.append(str);
+                sb.append("\"\r\n\r\n");
+                byteArrayOutputStream.write(sb.toString().getBytes());
                 this.mOut.write(str2.getBytes());
                 if (z) {
                     writeLastBoundaryIfNeeds();

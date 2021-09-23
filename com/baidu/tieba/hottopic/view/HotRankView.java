@@ -31,22 +31,22 @@ public class HotRankView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f52706e;
+    public TbPageContext<?> f52819e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeListView f52707f;
+    public BdTypeListView f52820f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.i1.a.a f52708g;
+    public c.a.r0.i1.a.a f52821g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f52709h;
+    public g f52822h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f52710i;
+    public View f52823i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.q0.g0.g f52711j;
+    public c.a.q0.g0.g f52824j;
     public h k;
 
     /* loaded from: classes7.dex */
@@ -55,7 +55,7 @@ public class HotRankView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotRankView f52712e;
+        public final /* synthetic */ HotRankView f52825e;
 
         public a(HotRankView hotRankView) {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class HotRankView extends FrameLayout {
                     return;
                 }
             }
-            this.f52712e = hotRankView;
+            this.f52825e = hotRankView;
         }
 
         @Override // c.a.q0.s.f0.f.g
@@ -81,11 +81,11 @@ public class HotRankView extends FrameLayout {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (!j.z()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                    this.f52712e.f52707f.completePullRefreshPostDelayed(0L);
+                    this.f52825e.f52820f.completePullRefreshPostDelayed(0L);
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004012));
-                ((HotRanklistActivity) this.f52712e.f52706e.getOrignalPage()).loadHotTopicRanklistData();
+                ((HotRanklistActivity) this.f52825e.f52819e.getOrignalPage()).loadHotTopicRanklistData();
             }
         }
     }
@@ -96,7 +96,7 @@ public class HotRankView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotRankView f52713e;
+        public final /* synthetic */ HotRankView f52826e;
 
         public b(HotRankView hotRankView) {
             Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class HotRankView extends FrameLayout {
                     return;
                 }
             }
-            this.f52713e = hotRankView;
+            this.f52826e = hotRankView;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -138,7 +138,7 @@ public class HotRankView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotRankView f52714e;
+        public final /* synthetic */ HotRankView f52827e;
 
         public c(HotRankView hotRankView) {
             Interceptable interceptable = $ic;
@@ -155,17 +155,17 @@ public class HotRankView extends FrameLayout {
                     return;
                 }
             }
-            this.f52714e = hotRankView;
+            this.f52827e = hotRankView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && j.A()) {
-                this.f52714e.hideNetRefreshView();
-                HotRankView hotRankView = this.f52714e;
-                hotRankView.showLoadingView(true, l.g(hotRankView.f52706e.getPageActivity(), R.dimen.ds500));
-                ((HotRanklistActivity) this.f52714e.f52706e.getOrignalPage()).loadHotTopicRanklistData();
+                this.f52827e.hideNetRefreshView();
+                HotRankView hotRankView = this.f52827e;
+                hotRankView.showLoadingView(true, l.g(hotRankView.f52819e.getPageActivity(), R.dimen.ds500));
+                ((HotRanklistActivity) this.f52827e.f52819e.getOrignalPage()).loadHotTopicRanklistData();
             }
         }
     }
@@ -189,9 +189,9 @@ public class HotRankView extends FrameLayout {
                 return;
             }
         }
-        this.f52707f = null;
-        this.f52708g = null;
-        this.f52709h = null;
+        this.f52820f = null;
+        this.f52821g = null;
+        this.f52822h = null;
         c(context);
     }
 
@@ -199,29 +199,29 @@ public class HotRankView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             BdTypeListView bdTypeListView = new BdTypeListView(context);
-            this.f52707f = bdTypeListView;
+            this.f52820f = bdTypeListView;
             bdTypeListView.setVerticalScrollBarEnabled(false);
-            this.f52707f.setDividerHeight(0);
-            this.f52707f.setSelector(17170445);
+            this.f52820f.setDividerHeight(0);
+            this.f52820f.setSelector(17170445);
             c.a.e.a.f<?> a2 = c.a.e.a.j.a(context);
             if (a2 instanceof TbPageContext) {
-                this.f52706e = (TbPageContext) a2;
+                this.f52819e = (TbPageContext) a2;
             }
-            g gVar = new g(this.f52706e);
-            this.f52709h = gVar;
+            g gVar = new g(this.f52819e);
+            this.f52822h = gVar;
             gVar.a(new a(this));
-            this.f52707f.setPullRefresh(this.f52709h);
-            this.f52710i = BdListViewHelper.d(context, this.f52707f, BdListViewHelper.HeadType.HASTAB);
-            this.f52707f.setOnScrollListener(new b(this));
-            this.f52708g = new c.a.r0.i1.a.a((HotRanklistActivity) this.f52706e.getOrignalPage(), this.f52707f);
-            addView(this.f52707f);
+            this.f52820f.setPullRefresh(this.f52822h);
+            this.f52823i = BdListViewHelper.d(context, this.f52820f, BdListViewHelper.HeadType.HASTAB);
+            this.f52820f.setOnScrollListener(new b(this));
+            this.f52821g = new c.a.r0.i1.a.a((HotRanklistActivity) this.f52819e.getOrignalPage(), this.f52820f);
+            addView(this.f52820f);
         }
     }
 
     public void completePullRefresh(boolean z) {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (bdTypeListView = this.f52707f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (bdTypeListView = this.f52820f) == null) {
             return;
         }
         if (z) {
@@ -234,11 +234,11 @@ public class HotRankView extends FrameLayout {
     public void hideLoadingView() {
         c.a.q0.g0.g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gVar = this.f52711j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gVar = this.f52824j) == null) {
             return;
         }
         gVar.dettachView(this);
-        this.f52711j = null;
+        this.f52824j = null;
     }
 
     public void hideNetRefreshView() {
@@ -255,7 +255,7 @@ public class HotRankView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.a.q0.g0.g gVar = this.f52711j;
+            c.a.q0.g0.g gVar = this.f52824j;
             if (gVar != null) {
                 return gVar.isViewAttached();
             }
@@ -280,7 +280,7 @@ public class HotRankView extends FrameLayout {
     public void listViewStartPullRefresh() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bdTypeListView = this.f52707f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bdTypeListView = this.f52820f) == null) {
             return;
         }
         bdTypeListView.startPullRefresh();
@@ -290,9 +290,9 @@ public class HotRankView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.f52707f, R.color.CAM_X0201);
-            this.f52707f.getListAdapter().notifyDataSetChanged();
-            c.a.q0.g0.g gVar = this.f52711j;
+            SkinManager.setBackgroundColor(this.f52820f, R.color.CAM_X0201);
+            this.f52820f.getListAdapter().notifyDataSetChanged();
+            c.a.q0.g0.g gVar = this.f52824j;
             if (gVar != null) {
                 gVar.onChangeSkinType();
             }
@@ -306,22 +306,22 @@ public class HotRankView extends FrameLayout {
     public void onTabLayoutSizeChanged(View view, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) this.f52710i.getLayoutParams();
+            AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) this.f52823i.getLayoutParams();
             layoutParams.height = i3;
-            this.f52710i.setLayoutParams(layoutParams);
+            this.f52823i.setLayoutParams(layoutParams);
         }
     }
 
     public void refreshView(c.a.r0.i1.c.j jVar, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, jVar, str) == null) || this.f52708g == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, jVar, str) == null) || this.f52821g == null) {
             return;
         }
         if (jVar == null) {
             jVar = new c.a.r0.i1.c.j();
         }
-        this.f52707f.setVisibility(0);
-        this.f52708g.b(jVar, str);
+        this.f52820f.setVisibility(0);
+        this.f52821g.b(jVar, str);
     }
 
     public void showLoadingView(boolean z, int i2) {
@@ -329,18 +329,18 @@ public class HotRankView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || isLoadingViewShowing()) {
             return;
         }
-        if (this.f52711j == null) {
+        if (this.f52824j == null) {
             if (i2 <= 0) {
-                this.f52711j = new c.a.q0.g0.g(getContext());
+                this.f52824j = new c.a.q0.g0.g(getContext());
             } else {
                 c.a.q0.g0.g gVar = new c.a.q0.g0.g(getContext(), i2);
-                this.f52711j = gVar;
+                this.f52824j = gVar;
                 gVar.h();
             }
-            this.f52711j.onChangeSkinType();
+            this.f52824j.onChangeSkinType();
         }
-        this.f52711j.attachView(this, z);
-        this.f52707f.setVisibility(8);
+        this.f52824j.attachView(this, z);
+        this.f52820f.setVisibility(8);
     }
 
     public void showNetRefreshView(String str, boolean z) {
@@ -354,7 +354,7 @@ public class HotRankView extends FrameLayout {
         this.k.j(getContext().getResources().getDimensionPixelSize(R.dimen.ds280));
         this.k.attachView(this, z);
         this.k.o();
-        this.f52707f.setVisibility(8);
+        this.f52820f.setVisibility(8);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -376,9 +376,9 @@ public class HotRankView extends FrameLayout {
                 return;
             }
         }
-        this.f52707f = null;
-        this.f52708g = null;
-        this.f52709h = null;
+        this.f52820f = null;
+        this.f52821g = null;
+        this.f52822h = null;
         c(context);
     }
 
@@ -400,9 +400,9 @@ public class HotRankView extends FrameLayout {
                 return;
             }
         }
-        this.f52707f = null;
-        this.f52708g = null;
-        this.f52709h = null;
+        this.f52820f = null;
+        this.f52821g = null;
+        this.f52822h = null;
         c(context);
     }
 }

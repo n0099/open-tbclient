@@ -21,10 +21,10 @@ public class f extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8896e;
+        public final /* synthetic */ String f8904e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f8897f;
+        public final /* synthetic */ f f8905f;
 
         public a(f fVar, String str) {
             Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class f extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8897f = fVar;
-            this.f8896e = str;
+            this.f8905f = fVar;
+            this.f8904e = str;
         }
 
         @Override // java.lang.Runnable
@@ -52,20 +52,20 @@ public class f extends c.a.p0.a.u.c.d {
                 c.a.p0.a.h0.g.g W = c.a.p0.a.g1.f.V().W();
                 if (W == null) {
                     c.a.p0.a.e0.d.b("Api-PullDownRefresh", "manager is null");
-                    this.f8897f.d(this.f8896e, new c.a.p0.a.u.h.b(1001));
+                    this.f8905f.d(this.f8904e, new c.a.p0.a.u.h.b(1001));
                 } else if (!(W.m() instanceof c.a.p0.a.h0.g.f)) {
                     c.a.p0.a.e0.d.b("Api-PullDownRefresh", "top fragment error");
-                    this.f8897f.d(this.f8896e, new c.a.p0.a.u.h.b(1001));
+                    this.f8905f.d(this.f8904e, new c.a.p0.a.u.h.b(1001));
                 } else {
                     c.a.p0.a.h0.g.f fVar = (c.a.p0.a.h0.g.f) W.m();
                     if (fVar.g0() == null) {
                         c.a.p0.a.e0.d.b("Api-PullDownRefresh", "view is null");
-                        this.f8897f.d(this.f8896e, new c.a.p0.a.u.h.b(1001));
+                        this.f8905f.d(this.f8904e, new c.a.p0.a.u.h.b(1001));
                         return;
                     }
                     fVar.g0().onPullDownRefreshComplete(false);
                     c.a.p0.a.e0.d.g("Api-PullDownRefresh", "refresh complete");
-                    this.f8897f.d(this.f8896e, new c.a.p0.a.u.h.b(0));
+                    this.f8905f.d(this.f8904e, new c.a.p0.a.u.h.b(0));
                 }
             }
         }
@@ -95,11 +95,11 @@ public class f extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-PullDownRefresh", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-PullDownRefresh", "parse fail");
                 }
                 return bVar;

@@ -16,7 +16,7 @@ public class d extends c.a.l.a<c.a.q0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.r0.g1.k.b.d.a f18400j;
+    public c.a.r0.g1.k.b.d.a f18409j;
     public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -38,14 +38,14 @@ public class d extends c.a.l.a<c.a.q0.s.q.a> {
             }
         }
         this.k = 3;
-        this.f18400j = new c.a.r0.g1.k.b.d.a(tbPageContext);
+        this.f18409j = new c.a.r0.g1.k.b.d.a(tbPageContext);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18400j.p() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18409j.p() : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,14 +54,14 @@ public class d extends c.a.l.a<c.a.q0.s.q.a> {
     public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (aVar instanceof c.a.r0.g1.k.b.c.a)) {
-            this.f18400j.k((c.a.r0.g1.k.b.c.a) aVar);
+            this.f18409j.k((c.a.r0.g1.k.b.c.a) aVar);
         }
     }
 
     public void o(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.f18400j.n(bdUniqueId);
+            this.f18409j.n(bdUniqueId);
         }
     }
 
@@ -70,7 +70,7 @@ public class d extends c.a.l.a<c.a.q0.s.q.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
             if (this.k != i2) {
-                this.f18400j.l(tbPageContext, i2);
+                this.f18409j.l(tbPageContext, i2);
                 l(f(), 3);
             }
             this.k = i2;

@@ -12,16 +12,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29487a;
+    public String f29507a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29488b;
+    public String f29508b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29489c;
+    public String f29509c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f29490d;
+    public boolean f29510d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class b {
                 return null;
             }
             b bVar = new b();
-            bVar.f29487a = jSONObject.optString("apk_name");
-            bVar.f29488b = jSONObject.optString("apk_url");
-            bVar.f29489c = jSONObject.optString("download_key");
-            bVar.f29490d = jSONObject.optBoolean("direcrt_download");
+            bVar.f29507a = jSONObject.optString("apk_name");
+            bVar.f29508b = jSONObject.optString("apk_url");
+            bVar.f29509c = jSONObject.optString("download_key");
+            bVar.f29510d = jSONObject.optBoolean("direcrt_download");
             return bVar;
         }
         return (b) invokeL.objValue;

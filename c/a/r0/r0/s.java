@@ -31,10 +31,10 @@ public class s extends c.a.q0.x.p.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<String> f24335e;
+    public ArrayList<String> f24351e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Set<String> f24336f;
+    public Set<String> f24352f;
 
     public s() {
         Interceptable interceptable = $ic;
@@ -49,8 +49,8 @@ public class s extends c.a.q0.x.p.c {
                 return;
             }
         }
-        this.f24335e = new ArrayList<>();
-        this.f24336f = new HashSet();
+        this.f24351e = new ArrayList<>();
+        this.f24352f = new HashSet();
         v();
     }
 
@@ -59,10 +59,10 @@ public class s extends c.a.q0.x.p.c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 >= this.f24335e.size()) {
+            if (i2 >= this.f24351e.size()) {
                 return null;
             }
-            return this.f24335e.get(i2);
+            return this.f24351e.get(i2);
         }
         return (String) invokeI.objValue;
     }
@@ -72,11 +72,11 @@ public class s extends c.a.q0.x.p.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.f24335e;
+            ArrayList<String> arrayList = this.f24351e;
             if (arrayList == null || arrayList.size() == 0) {
                 return 1;
             }
-            return this.f24335e.size();
+            return this.f24351e.size();
         }
         return invokeV.intValue;
     }
@@ -143,7 +143,7 @@ public class s extends c.a.q0.x.p.c {
     public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.f24336f.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.f24352f.contains(str) : invokeL.booleanValue;
     }
 
     @Override // c.a.q0.x.p.c
@@ -218,7 +218,7 @@ public class s extends c.a.q0.x.p.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if (c.a.q0.c0.d.f12799d.equals(str)) {
+            if (c.a.q0.c0.d.f12813d.equals(str)) {
                 return new c.a.e.l.d.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_emotion_set_n), false);
             }
             Bitmap image = FileHelper.getImage(t(str).getAbsolutePath());
@@ -251,8 +251,8 @@ public class s extends c.a.q0.x.p.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (this.f24335e != null && !TextUtils.isEmpty(str)) {
-                Iterator<String> it = this.f24335e.iterator();
+            if (this.f24351e != null && !TextUtils.isEmpty(str)) {
+                Iterator<String> it = this.f24351e.iterator();
                 while (it.hasNext()) {
                     if (it.next().contains(str)) {
                         return true;
@@ -280,11 +280,11 @@ public class s extends c.a.q0.x.p.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             List<CollectEmotionData> n = g.k().n(TbadkCoreApplication.getCurrentAccountForEmotion());
-            this.f24335e.clear();
-            this.f24336f.clear();
+            this.f24351e.clear();
+            this.f24352f.clear();
             for (CollectEmotionData collectEmotionData : n) {
-                this.f24335e.add(collectEmotionData.sharpText);
-                this.f24336f.add(collectEmotionData.sharpText);
+                this.f24351e.add(collectEmotionData.sharpText);
+                this.f24352f.add(collectEmotionData.sharpText);
             }
         }
     }

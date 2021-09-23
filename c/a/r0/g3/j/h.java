@@ -27,25 +27,25 @@ public class h extends c.a.e.a.d<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<Object> f18810a;
+    public TbPageContext<Object> f18819a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f18811b;
+    public View f18820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdListView f18812c;
+    public BdListView f18821c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f18813d;
+    public NoNetworkView f18822d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.s.f0.g f18814e;
+    public c.a.q0.s.f0.g f18823e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f18815f;
+    public e f18824f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoDataView f18816g;
+    public NoDataView f18825g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public h(TbPageContext<Object> tbPageContext, BdUniqueId bdUniqueId, View view, View.OnKeyListener onKeyListener) {
@@ -66,27 +66,27 @@ public class h extends c.a.e.a.d<Object> {
                 return;
             }
         }
-        this.f18814e.V(bdUniqueId);
+        this.f18823e.V(bdUniqueId);
     }
 
     public void c(NoNetworkView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f18813d.addNetworkChangeListener(bVar);
+            this.f18822d.addNetworkChangeListener(bVar);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f18812c.completePullRefreshPostDelayed(0L);
+            this.f18821c.completePullRefreshPostDelayed(0L);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f18813d.setVisibility(0);
+            this.f18822d.setVisibility(0);
         }
     }
 
@@ -97,30 +97,30 @@ public class h extends c.a.e.a.d<Object> {
             if (z || str == null) {
                 return;
             }
-            this.f18810a.showToast(str, true);
+            this.f18819a.showToast(str, true);
         }
     }
 
     public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18811b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18820b : (View) invokeV.objValue;
     }
 
     public void h() {
         NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (noDataView = this.f18816g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (noDataView = this.f18825g) == null) {
             return;
         }
         noDataView.setVisibility(8);
-        this.f18812c.removeHeaderView(this.f18816g);
+        this.f18821c.removeHeaderView(this.f18825g);
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f18813d.setVisibility(8);
+            this.f18822d.setVisibility(8);
         }
     }
 
@@ -133,8 +133,8 @@ public class h extends c.a.e.a.d<Object> {
             if (fVar.g()) {
                 return;
             }
-            this.f18815f.i(fVar);
-            this.f18815f.notifyDataSetChanged();
+            this.f18824f.i(fVar);
+            this.f18824f.notifyDataSetChanged();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -143,39 +143,39 @@ public class h extends c.a.e.a.d<Object> {
     public void k(NoNetworkView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f18813d.removeNetworkChangeListener(bVar);
+            this.f18822d.removeNetworkChangeListener(bVar);
         }
     }
 
     public void l(f.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, gVar) == null) {
-            this.f18814e.a(gVar);
+            this.f18823e.a(gVar);
         }
     }
 
     public void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            if (this.f18816g == null) {
-                this.f18816g = NoDataViewFactory.a(this.f18810a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds240)), NoDataViewFactory.e.a(i2), null);
+            if (this.f18825g == null) {
+                this.f18825g = NoDataViewFactory.a(this.f18819a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds240)), NoDataViewFactory.e.a(i2), null);
             }
-            this.f18816g.setTextOption(NoDataViewFactory.e.a(i2));
-            this.f18816g.onChangeSkinType(this.f18810a, TbadkCoreApplication.getInst().getSkinType());
-            this.f18816g.setVisibility(0);
-            this.f18812c.removeHeaderView(this.f18816g);
-            this.f18812c.addHeaderView(this.f18816g);
+            this.f18825g.setTextOption(NoDataViewFactory.e.a(i2));
+            this.f18825g.onChangeSkinType(this.f18819a, TbadkCoreApplication.getInst().getSkinType());
+            this.f18825g.setVisibility(0);
+            this.f18821c.removeHeaderView(this.f18825g);
+            this.f18821c.addHeaderView(this.f18825g);
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f18810a.getLayoutMode().k(i2 == 1);
-            this.f18810a.getLayoutMode().j(this.f18811b);
-            this.f18815f.h(i2);
-            this.f18814e.D(i2);
-            this.f18813d.onChangeSkinType(this.mContext, i2);
+            this.f18819a.getLayoutMode().k(i2 == 1);
+            this.f18819a.getLayoutMode().j(this.f18820b);
+            this.f18824f.h(i2);
+            this.f18823e.D(i2);
+            this.f18822d.onChangeSkinType(this.mContext, i2);
         }
     }
 
@@ -197,24 +197,24 @@ public class h extends c.a.e.a.d<Object> {
                 return;
             }
         }
-        this.f18810a = null;
-        this.f18812c = null;
-        this.f18814e = null;
-        this.f18815f = null;
-        this.f18810a = tbPageContext;
-        this.f18811b = view;
+        this.f18819a = null;
+        this.f18821c = null;
+        this.f18823e = null;
+        this.f18824f = null;
+        this.f18819a = tbPageContext;
+        this.f18820b = view;
         BdListView bdListView = (BdListView) view.findViewById(R.id.square_list);
-        this.f18812c = bdListView;
+        this.f18821c = bdListView;
         bdListView.setOnKeyListener(onKeyListener);
-        if (this.f18810a.getOrignalPage() instanceof SquareActivity) {
-            this.f18812c.setOnItemClickListener((SquareActivity) this.f18810a.getOrignalPage());
+        if (this.f18819a.getOrignalPage() instanceof SquareActivity) {
+            this.f18821c.setOnItemClickListener((SquareActivity) this.f18819a.getOrignalPage());
         }
         e eVar = new e(tbPageContext);
-        this.f18815f = eVar;
-        this.f18812c.setAdapter((ListAdapter) eVar);
+        this.f18824f = eVar;
+        this.f18821c.setAdapter((ListAdapter) eVar);
         c.a.q0.s.f0.g gVar = new c.a.q0.s.f0.g(tbPageContext);
-        this.f18814e = gVar;
-        this.f18812c.setPullRefresh(gVar);
-        this.f18813d = (NoNetworkView) this.f18811b.findViewById(R.id.view_no_network);
+        this.f18823e = gVar;
+        this.f18821c.setPullRefresh(gVar);
+        this.f18822d = (NoNetworkView) this.f18820b.findViewById(R.id.view_no_network);
     }
 }

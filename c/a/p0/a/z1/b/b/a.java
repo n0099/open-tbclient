@@ -11,7 +11,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9996a;
+    public String f10004a;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -28,12 +28,12 @@ public class a {
                 return;
             }
         }
-        this.f9996a = str;
+        this.f10004a = str;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9996a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10004a : (String) invokeV.objValue;
     }
 }

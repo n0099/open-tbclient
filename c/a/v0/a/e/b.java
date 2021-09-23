@@ -13,13 +13,13 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30304a;
+    public static boolean f30325a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a.InterfaceC1403a f30305b;
+    public static a.InterfaceC1401a f30326b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a.InterfaceC1403a f30306c;
+    public static a.InterfaceC1401a f30327c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,15 +41,15 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
             synchronized (b.class) {
-                if (!f30304a) {
+                if (!f30325a) {
                     c.a.v0.a.f.a.b(" ActivityLifeTask   add  " + new Date().toLocaleString());
-                    f30305b = new c();
-                    f30306c = new m();
+                    f30326b = new c();
+                    f30327c = new m();
                     a.a().c();
-                    a.a().d(f30306c);
-                    a.a().d(f30305b);
+                    a.a().d(f30327c);
+                    a.a().d(f30326b);
                     a.a().e(context);
-                    f30304a = true;
+                    f30325a = true;
                     return;
                 }
                 c.a.v0.a.f.a.b(" ActivityLifeTask  is added  " + new Date().toLocaleString());

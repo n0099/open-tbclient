@@ -28,19 +28,19 @@ public class d extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10180e;
+        public final /* synthetic */ CallbackHandler f10188e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10181f;
+        public final /* synthetic */ String f10189f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f10182g;
+        public final /* synthetic */ Context f10190g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f10183h;
+        public final /* synthetic */ boolean f10191h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ d f10184i;
+        public final /* synthetic */ d f10192i;
 
         public a(d dVar, CallbackHandler callbackHandler, String str, Context context, boolean z) {
             Interceptable interceptable = $ic;
@@ -57,11 +57,11 @@ public class d extends a0 {
                     return;
                 }
             }
-            this.f10184i = dVar;
-            this.f10180e = callbackHandler;
-            this.f10181f = str;
-            this.f10182g = context;
-            this.f10183h = z;
+            this.f10192i = dVar;
+            this.f10188e = callbackHandler;
+            this.f10189f = str;
+            this.f10190g = context;
+            this.f10191h = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,9 +71,9 @@ public class d extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    this.f10184i.k((Activity) this.f10182g, this.f10183h, this.f10180e, this.f10181f);
+                    this.f10192i.k((Activity) this.f10190g, this.f10191h, this.f10188e, this.f10189f);
                 } else {
-                    c.a.p0.a.e2.c.d.p(iVar, this.f10180e, this.f10181f);
+                    c.a.p0.a.e2.c.d.p(iVar, this.f10188e, this.f10189f);
                 }
             }
         }
@@ -85,10 +85,10 @@ public class d extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10185e;
+        public final /* synthetic */ CallbackHandler f10193e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10186f;
+        public final /* synthetic */ String f10194f;
 
         public b(d dVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -105,8 +105,8 @@ public class d extends a0 {
                     return;
                 }
             }
-            this.f10185e = callbackHandler;
-            this.f10186f = str;
+            this.f10193e = callbackHandler;
+            this.f10194f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,9 +117,9 @@ public class d extends a0 {
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 c.a.p0.a.e0.d.g("OpenData", "onOpenDataCallback:: " + aVar.toString());
                 if (!aVar.F()) {
-                    c.a.p0.a.e2.c.d.m(aVar, this.f10185e, this.f10186f);
+                    c.a.p0.a.e2.c.d.m(aVar, this.f10193e, this.f10194f);
                 } else {
-                    this.f10185e.handleSchemeDispatchCallback(this.f10186f, UnitedSchemeUtility.wrapCallbackParams(aVar.f5618g, 0).toString());
+                    this.f10193e.handleSchemeDispatchCallback(this.f10194f, UnitedSchemeUtility.wrapCallbackParams(aVar.f5626g, 0).toString());
                 }
             }
         }

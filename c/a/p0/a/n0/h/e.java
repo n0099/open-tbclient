@@ -37,13 +37,13 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7486a;
+    public static final boolean f7494a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f7487b;
+    public static final int f7495b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f7488c;
+    public static final int f7496c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -52,22 +52,22 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f7489e;
+        public final /* synthetic */ Set f7497e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f7490f;
+        public final /* synthetic */ boolean f7498f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.n.j.i.a f7491g;
+        public final /* synthetic */ c.a.p0.n.j.i.a f7499g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f7492h;
+        public final /* synthetic */ long f7500h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b.C0315b f7493i;
+        public final /* synthetic */ b.C0315b f7501i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ e f7494j;
+        public final /* synthetic */ e f7502j;
 
         public a(e eVar, Set set, boolean z, c.a.p0.n.j.i.a aVar, long j2, b.C0315b c0315b) {
             Interceptable interceptable = $ic;
@@ -84,12 +84,12 @@ public class e {
                     return;
                 }
             }
-            this.f7494j = eVar;
-            this.f7489e = set;
-            this.f7490f = z;
-            this.f7491g = aVar;
-            this.f7492h = j2;
-            this.f7493i = c0315b;
+            this.f7502j = eVar;
+            this.f7497e = set;
+            this.f7498f = z;
+            this.f7499g = aVar;
+            this.f7500h = j2;
+            this.f7501i = c0315b;
         }
 
         @Override // java.lang.Runnable
@@ -97,7 +97,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HashSet hashSet = new HashSet();
-                Set set = this.f7489e;
+                Set set = this.f7497e;
                 if (set != null) {
                     hashSet.addAll(set);
                 }
@@ -109,9 +109,9 @@ public class e {
                 c.a.p0.a.e0.d.h("SwanAppDiskCleaner", "排除正在下载中的小程：" + b2);
                 Map<String, PMSAppInfo> t = c.a.p0.n.g.a.h().t();
                 if (c.a.p0.a.n0.f.c().d().n(t)) {
-                    boolean unused = e.f7486a;
+                    boolean unused = e.f7494a;
                     c.a.p0.a.a1.e.d(hashSet, t);
-                    Map m = this.f7494j.m(86400000L, t);
+                    Map m = this.f7502j.m(86400000L, t);
                     if (m.isEmpty()) {
                         return;
                     }
@@ -121,16 +121,16 @@ public class e {
                     ArrayList arrayList3 = new ArrayList();
                     e.l(arrayList, arrayList2, arrayList3);
                     ArrayList arrayList4 = new ArrayList();
-                    int max = Math.max(10, this.f7490f ? e.f7487b : this.f7491g.f12008d);
+                    int max = Math.max(10, this.f7498f ? e.f7495b : this.f7499g.f12016d);
                     e.r(arrayList3, max, arrayList4);
-                    long j2 = this.f7491g.f12009e;
+                    long j2 = this.f7499g.f12017e;
                     e.q(arrayList3, j2 * 3600000, arrayList4, m);
-                    int max2 = Math.max(40, this.f7490f ? e.f7488c : this.f7491g.f12006b);
+                    int max2 = Math.max(40, this.f7498f ? e.f7496c : this.f7499g.f12014b);
                     e.r(arrayList2, max2, arrayList4);
-                    long j3 = this.f7491g.f12007c;
+                    long j3 = this.f7499g.f12015c;
                     e.q(arrayList2, 3600000 * j3, arrayList4, m);
-                    c.a.p0.a.e0.d.h("SwanAppDiskCleaner", "clean_internal_hour=" + this.f7492h + " pre_hold_count=" + max + " pre_force_clean_hour=" + j2 + " used_hold_count=" + max2 + " used_force_clean_hour=" + j3 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + StringUtils.LF);
-                    c.a.p0.a.n0.f.c().d().g(arrayList4, false, false, this.f7493i);
+                    c.a.p0.a.e0.d.h("SwanAppDiskCleaner", "clean_internal_hour=" + this.f7500h + " pre_hold_count=" + max + " pre_force_clean_hour=" + j2 + " used_hold_count=" + max2 + " used_force_clean_hour=" + j3 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + StringUtils.LF);
+                    c.a.p0.a.n0.f.c().d().g(arrayList4, false, false, this.f7501i);
                     c.a.p0.a.h0.m.r.a.c();
                     return;
                 }
@@ -185,11 +185,11 @@ public class e {
                 return;
             }
         }
-        f7486a = k.f7077a;
+        f7494a = k.f7085a;
         c.a.p0.a.c1.a.Z().getSwitch("swan_disk_level_pkg_hold_used", 0);
-        f7487b = 0;
+        f7495b = 0;
         c.a.p0.a.c1.a.Z().getSwitch("swan_disk_level_pkg_hold_predownload", 0);
-        f7488c = 0;
+        f7496c = 0;
     }
 
     public e() {
@@ -310,13 +310,13 @@ public class e {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{set, Boolean.valueOf(z), c0315b}) == null) {
             synchronized (this) {
                 if (!ProcessUtils.isMainProcess()) {
-                    boolean z2 = f7486a;
+                    boolean z2 = f7494a;
                     return;
                 }
                 c.a.p0.a.e0.d.h("SwanAppDiskCleaner", "是否为强制自动清理：" + z);
                 c.a.p0.n.j.i.a a2 = c.a.p0.n.j.i.b.b().a();
                 boolean z3 = z && c.a();
-                long j2 = a2.f12005a;
+                long j2 = a2.f12013a;
                 if (z3 || !o(3600000 * j2)) {
                     h.a().putLong("clean_disk_check_time", System.currentTimeMillis());
                     ExecutorUtilsExt.postOnSerial(new a(this, set, z, a2, j2, c0315b), "cleanDiskSpaceOptimized");

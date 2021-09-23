@@ -24,7 +24,7 @@ public class f implements b<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f12395a;
+    public Context f12403a;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class f implements b<String> {
                 return;
             }
         }
-        this.f12395a = context.getApplicationContext();
+        this.f12403a = context.getApplicationContext();
     }
 
     public static byte[] g(byte[]... bArr) {
@@ -104,7 +104,7 @@ public class f implements b<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String string = Settings.Secure.getString(this.f12395a.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            String string = Settings.Secure.getString(this.f12403a.getContentResolver(), IAdRequestParam.ANDROID_ID);
             if (TextUtils.isEmpty(string)) {
                 string = e();
             }

@@ -21,34 +21,34 @@ public abstract class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f18963a;
+    public TbPageContext f18972a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f18964b;
+    public View f18973b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f18965c;
+    public NavigationBar f18974c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f18966d;
+    public View f18975d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f18967e;
+    public TextView f18976e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f18968f;
+    public ImageView f18977f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f18969g;
+    public TextView f18978g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f18970h;
+    public ImageView f18979h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f18971i;
+    public ImageView f18980i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f18972j;
+    public ImageView f18981j;
     public ImageView k;
     public ImageView l;
     public TextView m;
@@ -69,31 +69,31 @@ public abstract class b {
                 return;
             }
         }
-        this.f18963a = tbPageContext;
-        this.f18964b = view;
+        this.f18972a = tbPageContext;
+        this.f18973b = view;
         NavigationBar navigationBar = (NavigationBar) view.findViewById(R.id.navigation_bar);
-        this.f18965c = navigationBar;
+        this.f18974c = navigationBar;
         View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f18966d = addSystemImageButton;
+        this.f18975d = addSystemImageButton;
         addSystemImageButton.setId(R.id.btn_close);
-        TextView addTextButton = this.f18965c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getString(R.string.skip));
-        this.f18967e = addTextButton;
+        TextView addTextButton = this.f18974c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getString(R.string.skip));
+        this.f18976e = addTextButton;
         addTextButton.setId(R.id.btn_skip);
         this.m = (TextView) view.findViewById(R.id.top_tip);
         this.n = (TextView) view.findViewById(R.id.top_sub_tip);
         ImageView imageView = (ImageView) view.findViewById(R.id.img_logo);
-        this.f18968f = imageView;
+        this.f18977f = imageView;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
         layoutParams.topMargin = l.i(tbPageContext.getPageActivity()) / 4;
-        this.f18968f.setLayoutParams(layoutParams);
+        this.f18977f.setLayoutParams(layoutParams);
         TextView textView = (TextView) view.findViewById(R.id.login_btn);
-        this.f18969g = textView;
+        this.f18978g = textView;
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) textView.getLayoutParams();
         layoutParams2.topMargin = (l.i(tbPageContext.getPageActivity()) / 2) + l.g(tbPageContext.getPageActivity(), R.dimen.tbds239);
-        this.f18969g.setLayoutParams(layoutParams2);
-        this.f18970h = (ImageView) view.findViewById(R.id.qq_login_btn);
-        this.f18971i = (ImageView) view.findViewById(R.id.wechat_login_btn);
-        this.f18972j = (ImageView) view.findViewById(R.id.weibo_login_btn);
+        this.f18978g.setLayoutParams(layoutParams2);
+        this.f18979h = (ImageView) view.findViewById(R.id.qq_login_btn);
+        this.f18980i = (ImageView) view.findViewById(R.id.wechat_login_btn);
+        this.f18981j = (ImageView) view.findViewById(R.id.weibo_login_btn);
         this.k = (ImageView) view.findViewById(R.id.yy_login_btn);
         this.l = (ImageView) view.findViewById(R.id.more_login_btn);
     }
@@ -101,10 +101,10 @@ public abstract class b {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f18965c.onChangeSkinType(this.f18963a, i2);
-            SkinManager.setBackgroundColor(this.f18965c, R.color.CAM_X0201, i2);
-            SkinManager.setBackgroundColor(this.f18964b, R.color.CAM_X0201, i2);
-            SkinManager.setViewTextColor(this.f18967e, R.color.CAM_X0107);
+            this.f18974c.onChangeSkinType(this.f18972a, i2);
+            SkinManager.setBackgroundColor(this.f18974c, R.color.CAM_X0201, i2);
+            SkinManager.setBackgroundColor(this.f18973b, R.color.CAM_X0201, i2);
+            SkinManager.setViewTextColor(this.f18976e, R.color.CAM_X0107);
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.m);
             d2.w(R.color.CAM_X0105);
             d2.A(R.dimen.T_X03);
@@ -114,19 +114,19 @@ public abstract class b {
             d3.A(R.dimen.T_X08);
             d3.B(R.string.F_X01);
             if (i2 == 0) {
-                WebPManager.setMaskDrawable(this.f18968f, R.drawable.icon_mask_signin_logo_day, null);
+                WebPManager.setMaskDrawable(this.f18977f, R.drawable.icon_mask_signin_logo_day, null);
             } else {
-                WebPManager.setMaskDrawable(this.f18968f, R.drawable.icon_mask_signin_logo_night, null);
+                WebPManager.setMaskDrawable(this.f18977f, R.drawable.icon_mask_signin_logo_night, null);
             }
-            c.a.q0.s.u.c d4 = c.a.q0.s.u.c.d(this.f18969g);
+            c.a.q0.s.u.c d4 = c.a.q0.s.u.c.d(this.f18978g);
             d4.w(R.color.CAM_X0101);
             d4.A(R.dimen.T_X05);
             d4.B(R.string.F_X01);
             d4.o(R.string.J_X01);
             d4.f(R.color.CAM_X0302);
-            WebPManager.setMaskDrawable(this.f18970h, R.drawable.icon_share_qq, null);
-            WebPManager.setMaskDrawable(this.f18971i, R.drawable.icon_share_wechat, null);
-            WebPManager.setMaskDrawable(this.f18972j, R.drawable.icon_share_weibo, null);
+            WebPManager.setMaskDrawable(this.f18979h, R.drawable.icon_share_qq, null);
+            WebPManager.setMaskDrawable(this.f18980i, R.drawable.icon_share_wechat, null);
+            WebPManager.setMaskDrawable(this.f18981j, R.drawable.icon_share_weibo, null);
             WebPManager.setMaskDrawable(this.k, R.drawable.icon_share_yy, null);
             WebPManager.setMaskDrawable(this.l, R.drawable.icon_share_more, null);
         }
@@ -135,7 +135,7 @@ public abstract class b {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f18966d.setVisibility(z ? 0 : 4);
+            this.f18975d.setVisibility(z ? 0 : 4);
         }
     }
 
@@ -144,11 +144,11 @@ public abstract class b {
     public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f18967e.setOnClickListener(onClickListener);
-            this.f18969g.setOnClickListener(onClickListener);
-            this.f18970h.setOnClickListener(onClickListener);
-            this.f18971i.setOnClickListener(onClickListener);
-            this.f18972j.setOnClickListener(onClickListener);
+            this.f18976e.setOnClickListener(onClickListener);
+            this.f18978g.setOnClickListener(onClickListener);
+            this.f18979h.setOnClickListener(onClickListener);
+            this.f18980i.setOnClickListener(onClickListener);
+            this.f18981j.setOnClickListener(onClickListener);
             this.k.setOnClickListener(onClickListener);
             this.l.setOnClickListener(onClickListener);
         }

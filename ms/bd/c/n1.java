@@ -26,23 +26,23 @@ public final class n1 implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static volatile n1 f79295j;
+    public static volatile n1 f79614j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SensorManager f79296e;
+    public SensorManager f79615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f79297f;
+    public int f79616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f79298g;
+    public int f79617g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float[] f79299h;
+    public float[] f79618h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<JSONArray> f79300i;
+    public List<JSONArray> f79619i;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public final class n1 implements SensorEventListener {
             }
         }
         new DecimalFormat((String) h.a(16777217, 0, 0L, "04aa7f", new byte[]{113, 120, 66}));
-        f79295j = null;
+        f79614j = null;
     }
 
     @JProtect
@@ -77,13 +77,13 @@ public final class n1 implements SensorEventListener {
                 return;
             }
         }
-        this.f79296e = null;
-        this.f79298g = 0;
-        this.f79299h = new float[3];
-        this.f79300i = new ArrayList();
+        this.f79615e = null;
+        this.f79617g = 0;
+        this.f79618h = new float[3];
+        this.f79619i = new ArrayList();
         Context applicationContext = context.getApplicationContext();
         if (applicationContext != null) {
-            this.f79296e = (SensorManager) applicationContext.getSystemService((String) h.a(16777217, 0, 0L, "a7381f", new byte[]{99, 48, 78, 95, 1, 99}));
+            this.f79615e = (SensorManager) applicationContext.getSystemService((String) h.a(16777217, 0, 0L, "a7381f", new byte[]{99, 48, 78, 95, 1, 99}));
         }
     }
 
@@ -91,18 +91,18 @@ public final class n1 implements SensorEventListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f79295j == null) {
+            if (f79614j == null) {
                 synchronized (n1.class) {
                     try {
-                        if (f79295j == null) {
-                            f79295j = new n1(context);
+                        if (f79614j == null) {
+                            f79614j = new n1(context);
                         }
                     } catch (Throwable th) {
                         throw th;
                     }
                 }
             }
-            return f79295j;
+            return f79614j;
         }
         return (n1) invokeL.objValue;
     }
@@ -115,13 +115,13 @@ public final class n1 implements SensorEventListener {
                 if (c2 == null) {
                     return;
                 }
-                this.f79300i.add(c2);
+                this.f79619i.add(c2);
                 try {
-                    int size = this.f79300i.size();
+                    int size = this.f79619i.size();
                     if (size > 100) {
-                        ArrayList arrayList = new ArrayList(this.f79300i.subList(size - 50, size));
-                        this.f79300i.clear();
-                        this.f79300i = arrayList;
+                        ArrayList arrayList = new ArrayList(this.f79619i.subList(size - 50, size));
+                        this.f79619i.clear();
+                        this.f79619i = arrayList;
                     }
                 } catch (Throwable unused) {
                 }
@@ -145,33 +145,33 @@ public final class n1 implements SensorEventListener {
                 try {
                     synchronized (this) {
                         int i2 = 0;
-                        while (this.f79298g == 0 && i2 < 10) {
+                        while (this.f79617g == 0 && i2 < 10) {
                             i2++;
                             wait(1000L);
                         }
                     }
                     jSONArray = new JSONArray();
-                    jSONArray.put(new BigDecimal(this.f79299h[0]).setScale(2, 4));
-                    jSONArray.put(new BigDecimal(this.f79299h[1]).setScale(2, 4));
-                    bigDecimal = new BigDecimal(this.f79299h[2]);
+                    jSONArray.put(new BigDecimal(this.f79618h[0]).setScale(2, 4));
+                    jSONArray.put(new BigDecimal(this.f79618h[1]).setScale(2, 4));
+                    bigDecimal = new BigDecimal(this.f79618h[2]);
                 } catch (Exception unused) {
                     String str = (String) h.a(16777217, 0, 0L, "7f7d73", new byte[]{53, 119, 71, 47, 15});
                     jSONArray = new JSONArray();
-                    jSONArray.put(new BigDecimal(this.f79299h[0]).setScale(2, 4));
-                    jSONArray.put(new BigDecimal(this.f79299h[1]).setScale(2, 4));
-                    bigDecimal = new BigDecimal(this.f79299h[2]);
+                    jSONArray.put(new BigDecimal(this.f79618h[0]).setScale(2, 4));
+                    jSONArray.put(new BigDecimal(this.f79618h[1]).setScale(2, 4));
+                    bigDecimal = new BigDecimal(this.f79618h[2]);
                 }
                 jSONArray.put(bigDecimal.setScale(2, 4));
                 f();
-                this.f79298g = 0;
+                this.f79617g = 0;
                 return jSONArray;
             } catch (Throwable th) {
                 JSONArray jSONArray2 = new JSONArray();
-                jSONArray2.put(new BigDecimal(this.f79299h[0]).setScale(2, 4));
-                jSONArray2.put(new BigDecimal(this.f79299h[1]).setScale(2, 4));
-                jSONArray2.put(new BigDecimal(this.f79299h[2]).setScale(2, 4));
+                jSONArray2.put(new BigDecimal(this.f79618h[0]).setScale(2, 4));
+                jSONArray2.put(new BigDecimal(this.f79618h[1]).setScale(2, 4));
+                jSONArray2.put(new BigDecimal(this.f79618h[2]).setScale(2, 4));
                 f();
-                this.f79298g = 0;
+                this.f79617g = 0;
                 throw th;
             }
         }
@@ -184,11 +184,11 @@ public final class n1 implements SensorEventListener {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 StringBuilder sb = new StringBuilder();
-                int size = this.f79300i.size();
+                int size = this.f79619i.size();
                 if (size <= 0) {
                     return null;
                 }
-                List<JSONArray> list = this.f79300i;
+                List<JSONArray> list = this.f79619i;
                 int i2 = size - 50;
                 if (i2 <= 0) {
                     i2 = 0;
@@ -223,13 +223,13 @@ public final class n1 implements SensorEventListener {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
                 try {
-                    if (this.f79296e != null) {
-                        if (this.f79297f == 0) {
-                            if (!this.f79296e.registerListener(this, this.f79296e.getDefaultSensor(1), 3)) {
+                    if (this.f79615e != null) {
+                        if (this.f79616f == 0) {
+                            if (!this.f79615e.registerListener(this, this.f79615e.getDefaultSensor(1), 3)) {
                                 return;
                             }
                         }
-                        this.f79297f++;
+                        this.f79616f++;
                     }
                 } catch (Exception unused) {
                 }
@@ -242,11 +242,11 @@ public final class n1 implements SensorEventListener {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
                 try {
-                    if (this.f79296e != null) {
-                        int i2 = this.f79297f - 1;
-                        this.f79297f = i2;
+                    if (this.f79615e != null) {
+                        int i2 = this.f79616f - 1;
+                        this.f79616f = i2;
                         if (i2 == 0) {
-                            this.f79296e.unregisterListener(this);
+                            this.f79615e.unregisterListener(this);
                         }
                     }
                 } catch (Exception unused) {
@@ -267,8 +267,8 @@ public final class n1 implements SensorEventListener {
     public void onSensorChanged(SensorEvent sensorEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, sensorEvent) == null) {
-            this.f79299h = sensorEvent.values;
-            this.f79298g = 1;
+            this.f79618h = sensorEvent.values;
+            this.f79617g = 1;
         }
     }
 }

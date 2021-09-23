@@ -31,6 +31,7 @@ import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -39,22 +40,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 /* loaded from: classes5.dex */
 public class ThirdPartyService implements AbstractThirdPartyService {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f44567b = 500;
+    public static final long f44629b = 500;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ThirdLoginCallback f44568c;
+    public static ThirdLoginCallback f44630c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f44569d;
+    public static boolean f44631d = false;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final int f44632e = -404;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f44570a;
+    public long f44633a;
 
     static {
         InterceptResult invokeClinit;
@@ -84,20 +89,20 @@ public class ThirdPartyService implements AbstractThirdPartyService {
                 return;
             }
         }
-        this.f44570a = 0L;
+        this.f44633a = 0L;
         CoreViewRouter.getInstance().setThirdPartyService(this);
     }
 
     public static ThirdLoginCallback getThirdLoginCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f44568c : (ThirdLoginCallback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f44630c : (ThirdLoginCallback) invokeV.objValue;
     }
 
     public static void releaseThirdLoginCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f44568c = null;
+            f44630c = null;
         }
     }
 
@@ -105,15 +110,17 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public void handleWXLoginResp(Activity activity, String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048576, this, activity, str, str2, i2) == null) {
-            if (f44569d) {
+            if (f44631d) {
+                ThirdLoginCallback thirdLoginCallback = f44630c;
+                releaseThirdLoginCallback();
                 if (i2 == 0) {
                     String urlWeixinBind = ParamsUtil.getUrlWeixinBind(SapiAccountManager.getInstance().getConfignation(), str2, str, false);
-                    f44568c.onAuthSuccess();
-                    a.a().a(urlWeixinBind, f44568c);
+                    thirdLoginCallback.onAuthSuccess();
+                    a.a().a(urlWeixinBind, thirdLoginCallback);
                 } else {
-                    f44568c.onAuthFailure(i2, OAuthResult.ERROR_MSG_UNKNOWN);
+                    thirdLoginCallback.onAuthFailure(i2, OAuthResult.ERROR_MSG_UNKNOWN);
                 }
-                f44569d = false;
+                f44631d = false;
                 return;
             }
             Intent intent = new Intent(activity, WXLoginActivity.class);
@@ -149,8 +156,17 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadWechatLogin(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, context, i2) == null) {
-            f44569d = true;
+        if (!(interceptable == null || interceptable.invokeLI(1048582, this, context, i2) == null) || f44630c == null) {
+            return;
+        }
+        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
+        if (confignation == null) {
+            f44630c.onAuthFailure(-404, "pass没有初始化");
+        } else if (!WXAPIFactory.createWXAPI(confignation.context, confignation.wxAppID).isWXAppInstalled()) {
+            f44630c.onAuthFailure(-404, "微信未安装");
+            releaseThirdLoginCallback();
+        } else {
+            f44631d = true;
             Intent intent = new Intent(context, WXLoginActivity.class);
             intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i2);
             if (!(context instanceof Activity)) {
@@ -189,9 +205,10 @@ public class ThirdPartyService implements AbstractThirdPartyService {
             sapiAccount.username = sapiAccountResponse.username;
             sapiAccount.app = TextUtils.isEmpty(sapiAccountResponse.app) ? SapiUtils.getAppName(context) : sapiAccountResponse.app;
             sapiAccount.extra = sapiAccountResponse.extra;
-            if (SocialType.UNKNOWN != sapiAccountResponse.socialType) {
-                SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, sapiAccountResponse.socialType.getName());
-                sapiAccount.addSocialInfo(sapiAccountResponse.socialType, sapiAccountResponse.socialPortraitUrl, sapiAccountResponse.socialNickname);
+            SocialType socialType = SocialType.UNKNOWN;
+            SocialType socialType2 = sapiAccountResponse.socialType;
+            if (socialType != socialType2) {
+                sapiAccount.addSocialInfo(socialType2, sapiAccountResponse.socialPortraitUrl, sapiAccountResponse.socialNickname);
                 sapiAccount.putExtra("account_type", Integer.valueOf(sapiAccountResponse.accountType.getType()));
             }
             sapiAccount.putExtra("tpl", sapiConfiguration.tpl);
@@ -212,7 +229,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public void socialBind(Activity activity, SocialType socialType, int i2, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLIL(1048585, this, activity, socialType, i2, str) == null) && socialType == SocialType.WEIXIN) {
-            f44569d = false;
+            f44631d = false;
             Intent intent = new Intent(activity, WXLoginActivity.class);
             intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i2);
             intent.putExtra(AccountCenterActivity.EXTRA_WEIIXIN_BIND_URL, str);
@@ -224,7 +241,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i2, ThirdLoginCallback thirdLoginCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, socialType, i2, thirdLoginCallback) == null) {
-            f44568c = thirdLoginCallback;
+            f44630c = thirdLoginCallback;
             loadThirdPartyLogin(context, socialType, i2, null, false);
         }
     }
@@ -241,40 +258,53 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i2, String str, boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, socialType, Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) || System.currentTimeMillis() - this.f44570a < 500) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, socialType, Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) || System.currentTimeMillis() - this.f44633a < 500) {
             return;
         }
-        this.f44570a = System.currentTimeMillis();
+        this.f44633a = System.currentTimeMillis();
         SapiStatUtil.statThirdLoginEnter(socialType);
         boolean z2 = context instanceof Activity;
         if (socialType == SocialType.SINA_WEIBO_SSO) {
             intent = new Intent(context, SinaSSOLoginActivity.class);
+            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WEIBO;
         } else if (socialType == SocialType.HUAWEI) {
             intent = new Intent(context, HuaweiSSOLoginActivity.class);
+            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.HUAWEI;
         } else if (socialType == SocialType.WEIXIN) {
-            f44569d = false;
+            f44631d = false;
             intent = new Intent(context, WXLoginActivity.class);
+            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WECHAT;
         } else if (socialType == SocialType.QQ_SSO) {
             intent = new Intent(context, QQSSOLoginActivity.class);
+            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.QQ;
         } else if (socialType == SocialType.MEIZU) {
             intent = new Intent(context, MeizuSSOLoginActivity.class);
+            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.MEIZU;
         } else if (socialType == SocialType.FACEBOOK) {
             intent = new Intent(context, FacebookSSOLoginActivity.class);
+            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.OTHER;
         } else if (socialType == SocialType.XIAOMI) {
             intent = new Intent(context, XiaomiSSOLoginActivity.class);
+            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.XIAOMI;
         } else if (socialType == SocialType.TWITTER) {
             intent = new Intent(context, TwitterSSOLoginActivity.class);
+            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.OTHER;
         } else if (socialType == SocialType.GOOGLE) {
             intent = new Intent(context, GoogleSSOLoginActivity.class);
+            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.OTHER;
         } else if (socialType == SocialType.GLORY) {
             intent = new Intent(context, GlorySSOLoginActivity.class);
+            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.GLORY;
         } else if (socialType == SocialType.YY) {
             intent = new Intent(context, YYSSOLoginActivity.class);
+            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.YY;
         } else if (socialType == SocialType.QQ_SSO_BACKGROUND) {
             loadQQLogin(context, i2);
+            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.QQ;
             return;
         } else if (socialType == SocialType.WEIXIN_BACKGROUND) {
             loadWechatLogin(context, i2);
+            SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WECHAT;
             return;
         } else {
             throw new IllegalArgumentException(socialType.getName() + " type login not support");

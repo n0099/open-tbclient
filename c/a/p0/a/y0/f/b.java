@@ -20,7 +20,7 @@ public class b extends c.a.p0.a.y0.b<c.a.p0.a.y0.f.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f9763a;
+        public final /* synthetic */ b f9771a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -37,25 +37,25 @@ public class b extends c.a.p0.a.y0.b<c.a.p0.a.y0.f.a> {
                     return;
                 }
             }
-            this.f9763a = bVar;
+            this.f9771a = bVar;
         }
 
         @Override // c.a.p0.a.y0.f.a.InterfaceC0463a
         public void a(Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || this.f9763a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || this.f9771a.f9725b == null) {
                 return;
             }
-            this.f9763a.f9717b.onCallback(this.f9763a, "onMediaMetadataExtracted", bundle);
+            this.f9771a.f9725b.onCallback(this.f9771a, "onMediaMetadataExtracted", bundle);
         }
 
         @Override // c.a.p0.a.y0.f.a.InterfaceC0463a
         public void onRelease() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f9763a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f9771a.f9725b == null) {
                 return;
             }
-            this.f9763a.f9717b = null;
+            this.f9771a.f9725b = null;
         }
     }
 
@@ -77,8 +77,8 @@ public class b extends c.a.p0.a.y0.b<c.a.p0.a.y0.f.a> {
                 return;
             }
         }
-        ((c.a.p0.a.y0.f.a) this.f9718c).w(new a(this));
-        this.f9716a.a(new c.a.p0.a.y0.f.d.a());
-        this.f9716a.a(new c.a.p0.a.y0.f.d.b());
+        ((c.a.p0.a.y0.f.a) this.f9726c).w(new a(this));
+        this.f9724a.a(new c.a.p0.a.y0.f.d.a());
+        this.f9724a.a(new c.a.p0.a.y0.f.d.b());
     }
 }

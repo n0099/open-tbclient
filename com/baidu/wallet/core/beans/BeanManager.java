@@ -17,7 +17,7 @@ public final class BeanManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, ArrayList<BaseBean<?>>> f60933a;
+    public final HashMap<String, ArrayList<BaseBean<?>>> f61050a;
 
     /* renamed from: com.baidu.wallet.core.beans.BeanManager$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -31,7 +31,7 @@ public final class BeanManager {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BeanManager f60934a;
+        public static BeanManager f61051a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +47,7 @@ public final class BeanManager {
                     return;
                 }
             }
-            f60934a = new BeanManager(null);
+            f61051a = new BeanManager(null);
         }
 
         public a() {
@@ -72,17 +72,17 @@ public final class BeanManager {
     public static BeanManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60934a : (BeanManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61051a : (BeanManager) invokeV.objValue;
     }
 
     public synchronized void addBean(String str, BaseBean<?> baseBean) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, baseBean) == null) {
             synchronized (this) {
-                ArrayList<BaseBean<?>> arrayList = this.f60933a.get(str);
+                ArrayList<BaseBean<?>> arrayList = this.f61050a.get(str);
                 if (arrayList == null) {
                     arrayList = new ArrayList<>();
-                    this.f60933a.put(str, arrayList);
+                    this.f61050a.put(str, arrayList);
                 }
                 arrayList.add(baseBean);
             }
@@ -93,13 +93,13 @@ public final class BeanManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             synchronized (this) {
-                ArrayList<BaseBean<?>> arrayList = this.f60933a.get(str);
+                ArrayList<BaseBean<?>> arrayList = this.f61050a.get(str);
                 if (arrayList != null) {
                     Iterator<BaseBean<?>> it = arrayList.iterator();
                     while (it.hasNext()) {
                         it.next().destroyBean();
                     }
-                    this.f60933a.remove(str);
+                    this.f61050a.remove(str);
                 }
             }
         }
@@ -109,8 +109,8 @@ public final class BeanManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, baseBean) == null) {
             synchronized (this) {
-                for (String str : this.f60933a.keySet()) {
-                    ArrayList<BaseBean<?>> arrayList = this.f60933a.get(str);
+                for (String str : this.f61050a.keySet()) {
+                    ArrayList<BaseBean<?>> arrayList = this.f61050a.get(str);
                     if (arrayList != null && arrayList.size() > 0) {
                         Iterator<BaseBean<?>> it = arrayList.iterator();
                         while (true) {
@@ -143,6 +143,6 @@ public final class BeanManager {
                 return;
             }
         }
-        this.f60933a = new HashMap<>();
+        this.f61050a = new HashMap<>();
     }
 }

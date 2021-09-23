@@ -18,7 +18,7 @@ public class b implements a<JSONObject> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f6901b;
+    public JSONArray f6909b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public class b implements a<JSONObject> {
                 return;
             }
         }
-        this.f6901b = new JSONArray();
+        this.f6909b = new JSONArray();
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             if (TextUtils.isEmpty(str)) {
-                boolean z = a.f6900a;
+                boolean z = a.f6908a;
                 return;
             }
             JSONObject jSONObject = new JSONObject();
@@ -50,7 +50,7 @@ public class b implements a<JSONObject> {
                 jSONObject.put("info", str2);
                 b(jSONObject);
             } catch (JSONException e2) {
-                if (a.f6900a) {
+                if (a.f6908a) {
                     Log.getStackTraceString(e2);
                 }
             }
@@ -62,13 +62,13 @@ public class b implements a<JSONObject> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f6901b.put(jSONObject);
+        this.f6909b.put(jSONObject);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f6901b = new JSONArray();
+            this.f6909b = new JSONArray();
         }
     }
 
@@ -78,9 +78,9 @@ public class b implements a<JSONObject> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("launchLog", this.f6901b);
+                jSONObject.put("launchLog", this.f6909b);
             } catch (JSONException e2) {
-                if (a.f6900a) {
+                if (a.f6908a) {
                     Log.getStackTraceString(e2);
                 }
             }

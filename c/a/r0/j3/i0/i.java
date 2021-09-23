@@ -19,13 +19,13 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f20849a;
+    public boolean f20861a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<h> f20850b;
+    public ArrayList<h> f20862b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<k> f20851c;
+    public ArrayList<k> f20863c;
 
     public i(TPointPost tPointPost) {
         Interceptable interceptable = $ic;
@@ -46,20 +46,20 @@ public class i {
             try {
                 String str = tPointPost.position;
                 tPointPost.template_id.longValue();
-                this.f20849a = tPointPost.is_tuiguang.intValue() != 0;
+                this.f20861a = tPointPost.is_tuiguang.intValue() != 0;
                 tPointPost.template_type.intValue();
                 List<ActBtn> list = tPointPost.act_btn;
                 if (list != null && list.size() > 0) {
-                    this.f20850b = new ArrayList<>();
+                    this.f20862b = new ArrayList<>();
                     for (int i4 = 0; i4 != list.size(); i4++) {
-                        this.f20850b.add(new h(list.get(i4)));
+                        this.f20862b.add(new h(list.get(i4)));
                     }
                 }
                 List<Timgs> list2 = tPointPost.t_imgs;
                 if (list2 != null && list2.size() > 0) {
-                    this.f20851c = new ArrayList<>();
+                    this.f20863c = new ArrayList<>();
                     for (int i5 = 0; i5 != list2.size(); i5++) {
-                        this.f20851c.add(new k(list2.get(i5)));
+                        this.f20863c.add(new k(list2.get(i5)));
                     }
                 }
                 if (tPointPost.detail_info != null) {
@@ -78,6 +78,6 @@ public class i {
     public k a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (k) ListUtils.getItem(this.f20851c, 0) : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (k) ListUtils.getItem(this.f20863c, 0) : (k) invokeV.objValue;
     }
 }

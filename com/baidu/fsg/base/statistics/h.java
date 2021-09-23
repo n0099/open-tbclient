@@ -1,24 +1,13 @@
 package com.baidu.fsg.base.statistics;
 
-import android.content.Context;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.base.armor.RimArmor;
-import com.baidu.fsg.base.restnet.beans.business.core.utils.NetUtils;
-import com.baidu.fsg.base.utils.BussinessUtils;
-import com.baidu.fsg.base.utils.LogUtil;
-import com.baidu.fsg.base.utils.PhoneUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Pattern;
+import java.util.Collection;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -26,259 +15,107 @@ public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39518a = "cu";
+    public static final String f39556a = "en";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39519b = "cu2";
+    public static final String f39557b = "et";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39520c = "ua";
+    public static final String f39558c = "ev";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39521d = "op";
+    public static final String f39559d = "eg";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39522e = "bs";
+    public static final String f39560e = "lk";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39523f = "bk";
+    public static final String f39561f = "nu";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39524g = "lc";
+    public static final String f39562g = "extra1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39525h = "sd";
+    public static final String f39563h = "extra2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39526i = "h";
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final String f39564i = "extra3";
 
     /* renamed from: j  reason: collision with root package name */
-    public Pattern f39527j;
-
-    /* renamed from: com.baidu.fsg.base.statistics.h$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static h f39528a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2004278951, "Lcom/baidu/fsg/base/statistics/h$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(2004278951, "Lcom/baidu/fsg/base/statistics/h$a;");
-                    return;
-                }
-            }
-            f39528a = new h(null);
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1047894532, "Lcom/baidu/fsg/base/statistics/h;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1047894532, "Lcom/baidu/fsg/base/statistics/h;");
-        }
-    }
+    public static final String f39565j = "extra4";
+    public static final String k = "extra5";
+    public static final String l = "extra6";
+    public static final String m = "extra7";
+    public static final String n = "extra8";
+    public static final String o = "extra9";
+    public transient /* synthetic */ FieldHolder $fh;
+    public String p;
+    public long q;
+    public String r;
+    public String s;
+    public String t;
+    public long u;
 
     public h() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.f39527j = Pattern.compile("\\s*|\t|\r|\n");
     }
 
-    public /* synthetic */ h(AnonymousClass1 anonymousClass1) {
-        this();
-    }
-
-    public static h c() {
-        InterceptResult invokeV;
+    public static h a(String str, long j2, String str2, String str3, Collection<String> collection) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f39528a : (h) invokeV.objValue;
-    }
-
-    private String c(Context context) {
-        String str;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
-            try {
-                try {
-                    return this.f39527j.matcher(PhoneUtils.getCUID(context)).replaceAll("");
-                } catch (Exception unused) {
-                    return str;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j2), str2, str3, collection})) == null) {
+            h hVar = new h();
+            hVar.p = str;
+            hVar.q = j2;
+            hVar.s = str2;
+            hVar.t = str3;
+            if (collection != null) {
+                new JSONArray();
+                JSONArray jSONArray = new JSONArray();
+                for (String str4 : collection) {
+                    jSONArray.put(str4);
                 }
-            } catch (Exception unused2) {
-                return null;
+                hVar.r = jSONArray.toString();
             }
+            return hVar;
         }
-        return (String) invokeL.objValue;
+        return (h) invokeCommon.objValue;
     }
 
-    private String d(Context context) {
-        String str;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) == null) {
-            try {
-                try {
-                    return this.f39527j.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
-                } catch (Exception unused) {
-                    return str;
-                }
-            } catch (Exception unused2) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    private String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context)) == null) {
-            try {
-                return BussinessUtils.getUA(context);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    private String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, context)) == null) {
-            try {
-                return ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    private String g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, context)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    private String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, this, context)) == null) ? RimArmor.getInstance().getpwProxy() : (String) invokeL.objValue;
-    }
-
-    public String a() {
+    public JSONObject a() throws NullPointerException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.putOpt("ua", e(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f39518a, c(RimStatisticsUtil.getAppContext()));
-                jSONObject.put(f39519b, d(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt("op", f(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt("bs", g(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f39523f, h(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt("sd", b(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f39524g, a(RimStatisticsUtil.getAppContext()));
+                jSONObject.put(f39556a, this.p);
+                jSONObject.put("et", this.q);
+                jSONObject.put(f39561f, this.u);
+                if (!TextUtils.isEmpty(this.s)) {
+                    jSONObject.putOpt(f39559d, this.s);
+                }
+                jSONObject.putOpt(f39560e, this.t);
+                if (this.r != null) {
+                    jSONObject.put("ev", this.r);
+                }
             } catch (JSONException unused) {
+                jSONObject = null;
             }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            String gPSLocation = PhoneUtils.getGPSLocation(context);
-            if (TextUtils.isEmpty(gPSLocation)) {
-                return null;
+            if (jSONObject != null) {
+                return jSONObject;
             }
-            return RimArmor.getInstance().encryptProxy(gPSLocation);
+            throw null;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                return new JSONObject().toString();
-            } catch (Throwable th) {
-                LogUtil.d(f39526i, th.toString());
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            JSONObject connectedWifi = NetUtils.getConnectedWifi(context);
-            if (connectedWifi != null) {
-                String optString = connectedWifi.optString("ssid", null);
-                return optString != null ? RimArmor.getInstance().encryptProxy(optString) : optString;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

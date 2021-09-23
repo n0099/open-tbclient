@@ -16,7 +16,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, c.a.r.h.a> f15456a;
+    public Map<String, c.a.r.h.a> f15465a;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -38,21 +38,21 @@ public class b {
                 return;
             }
         }
-        this.f15456a = new HashMap();
+        this.f15465a = new HashMap();
         for (c.a.r.h.a aVar2 : aVar.a()) {
-            this.f15456a.put(aVar2.e(), aVar2);
+            this.f15465a.put(aVar2.e(), aVar2);
         }
     }
 
     public c.a.r.h.a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f15456a.get(str) : (c.a.r.h.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f15465a.get(str) : (c.a.r.h.a) invokeL.objValue;
     }
 
     public List<c.a.r.h.a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.f15456a.values()) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.f15465a.values()) : (List) invokeV.objValue;
     }
 }

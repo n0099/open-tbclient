@@ -29,7 +29,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f48381e;
+    public final HttpMessageListener f48489e;
 
     /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
@@ -37,7 +37,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ActivityChangeSchemeModel f48382a;
+        public final /* synthetic */ ActivityChangeSchemeModel f48490a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ActivityChangeSchemeModel activityChangeSchemeModel, int i2) {
@@ -57,7 +57,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48382a = activityChangeSchemeModel;
+            this.f48490a = activityChangeSchemeModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -83,11 +83,11 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
                     b.c(scheme);
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
-                    this.f48382a.y();
+                    this.f48490a.y();
                 } else {
                     int a2 = c.a.q0.s.a0.b.a();
                     if (a2 != 2) {
-                        this.f48382a.z(a2);
+                        this.f48490a.z(a2);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
@@ -110,12 +110,12 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48381e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
+        this.f48489e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
         setUniqueId(BdUniqueId.gen());
         A();
-        this.f48381e.setTag(getUniqueId());
-        this.f48381e.setSelfListener(true);
-        registerListener(this.f48381e);
+        this.f48489e.setTag(getUniqueId());
+        this.f48489e.setSelfListener(true);
+        registerListener(this.f48489e);
     }
 
     public static void A() {

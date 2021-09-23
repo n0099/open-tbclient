@@ -25,22 +25,22 @@ public class b implements c.a.p0.f.i.k.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10559a;
+    public Context f10567a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10560b;
+    public String f10568b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdElementInfo f10561c;
+    public AdElementInfo f10569c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DownloadState f10562d;
+    public DownloadState f10570d;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f10563e;
+    public g f10571e;
 
     /* renamed from: f  reason: collision with root package name */
-    public C0524b f10564f;
+    public C0524b f10572f;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -63,10 +63,10 @@ public class b implements c.a.p0.f.i.k.f.a {
                 return;
             }
         }
-        this.f10562d = DownloadState.NOT_START;
-        this.f10559a = context;
-        this.f10561c = adElementInfo;
-        this.f10563e = gVar;
+        this.f10570d = DownloadState.NOT_START;
+        this.f10567a = context;
+        this.f10569c = adElementInfo;
+        this.f10571e = gVar;
     }
 
     @Override // c.a.p0.f.i.k.f.a
@@ -87,14 +87,14 @@ public class b implements c.a.p0.f.i.k.f.a {
     @Override // c.a.p0.f.i.k.f.a
     public void c(DownloadState downloadState, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadState, i2) == null) || this.f10562d == downloadState) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadState, i2) == null) || this.f10570d == downloadState) {
             return;
         }
         if (downloadState == DownloadState.DOWNLOADED) {
             j("2");
             h();
         }
-        this.f10562d = downloadState;
+        this.f10570d = downloadState;
     }
 
     @Override // c.a.p0.f.i.k.f.a
@@ -123,39 +123,39 @@ public class b implements c.a.p0.f.i.k.f.a {
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f10564f == null) {
-            this.f10564f = new C0524b(this, null);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f10572f == null) {
+            this.f10572f = new C0524b(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
             intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
-            this.f10559a.registerReceiver(this.f10564f, intentFilter);
+            this.f10567a.registerReceiver(this.f10572f, intentFilter);
         }
     }
 
     public void i() {
         C0524b c0524b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (c0524b = this.f10564f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (c0524b = this.f10572f) == null) {
             return;
         }
-        this.f10559a.unregisterReceiver(c0524b);
-        this.f10564f = null;
+        this.f10567a.unregisterReceiver(c0524b);
+        this.f10572f = null;
     }
 
     public final void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             c.a.p0.f.i.q.a aVar = new c.a.p0.f.i.q.a();
-            aVar.s = this.f10560b;
+            aVar.s = this.f10568b;
             aVar.r = str;
-            d.e(aVar, this.f10561c, this.f10563e);
+            d.e(aVar, this.f10569c, this.f10571e);
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f10560b = str;
+            this.f10568b = str;
             j("1");
         }
     }
@@ -193,7 +193,7 @@ public class b implements c.a.p0.f.i.k.f.a {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || intent.getData() == null || !PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
                 return;
             }
-            if (!TextUtils.equals(this.this$0.f10561c.getPackageName(), intent.getData().getSchemeSpecificPart()) || System.currentTimeMillis() - this.time < TimeUnit.SECONDS.toMillis(10L)) {
+            if (!TextUtils.equals(this.this$0.f10569c.getPackageName(), intent.getData().getSchemeSpecificPart()) || System.currentTimeMillis() - this.time < TimeUnit.SECONDS.toMillis(10L)) {
                 return;
             }
             this.time = System.currentTimeMillis();

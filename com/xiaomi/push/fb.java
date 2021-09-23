@@ -12,7 +12,7 @@ public class fb {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f77622a;
+    public static final boolean f77941a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class fb {
                 return;
             }
         }
-        f77622a = Log.isLoggable("BCompressed", 3);
+        f77941a = Log.isLoggable("BCompressed", 3);
     }
 
     public static byte[] a(fa faVar, byte[] bArr) {
@@ -37,7 +37,7 @@ public class fb {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, faVar, bArr)) == null) {
             try {
                 byte[] a2 = fe.a.a(bArr);
-                if (f77622a) {
+                if (f77941a) {
                     com.xiaomi.channel.commonutils.logger.b.m74a("BCompressed", "decompress " + bArr.length + " to " + a2.length + " for " + faVar);
                     if (faVar.f364a == 1) {
                         com.xiaomi.channel.commonutils.logger.b.m74a("BCompressed", "decompress not support upStream");

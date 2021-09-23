@@ -16,11 +16,11 @@ public class c implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f17749f;
+    public static BdUniqueId f17759f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FeatureCardCompetition f17750e;
+    public FeatureCardCompetition f17760e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class c implements n {
                 return;
             }
         }
-        f17749f = BdUniqueId.gen();
+        f17759f = BdUniqueId.gen();
     }
 
     public c() {
@@ -55,7 +55,7 @@ public class c implements n {
     public FeatureCardCompetition b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17750e : (FeatureCardCompetition) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17760e : (FeatureCardCompetition) invokeV.objValue;
     }
 
     public void c(FeatureCardCompetition featureCardCompetition) {
@@ -63,7 +63,7 @@ public class c implements n {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardCompetition) == null) || featureCardCompetition == null) {
             return;
         }
-        this.f17750e = featureCardCompetition;
+        this.f17760e = featureCardCompetition;
         String str = featureCardCompetition.title;
         Integer num = featureCardCompetition.floor;
         Integer num2 = featureCardCompetition.type;
@@ -73,6 +73,6 @@ public class c implements n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f17749f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f17759f : (BdUniqueId) invokeV.objValue;
     }
 }

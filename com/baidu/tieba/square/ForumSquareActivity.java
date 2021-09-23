@@ -48,7 +48,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            b bVar = this.mDelegate.f18629d;
+            b bVar = this.mDelegate.f18638d;
             if (bVar != null) {
                 bVar.a(i2);
             }
@@ -63,7 +63,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
             a aVar = new a(this, getPageContext());
             this.mDelegate = aVar;
             aVar.l(getIntent());
-            setContentView(this.mDelegate.f18629d.d());
+            setContentView(this.mDelegate.f18638d.d());
             this.mDelegate.o();
         }
     }

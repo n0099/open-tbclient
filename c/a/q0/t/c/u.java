@@ -18,10 +18,10 @@ public class u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Hashtable<String, String> f14745a;
+    public Hashtable<String, String> f14747a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Hashtable<String, String> f14746b;
+    public Hashtable<String, String> f14748b;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class u {
                 return;
             }
         }
-        this.f14745a = new Hashtable<>();
-        this.f14746b = new Hashtable<>();
+        this.f14747a = new Hashtable<>();
+        this.f14748b = new Hashtable<>();
     }
 
     public final void a(Hashtable hashtable, JSONArray jSONArray) {
@@ -69,9 +69,9 @@ public class u {
             }
             String str2 = null;
             if (i2 == 1) {
-                str2 = this.f14746b.get(str);
+                str2 = this.f14748b.get(str);
             } else if (i2 == 2) {
-                str2 = this.f14745a.get(str);
+                str2 = this.f14747a.get(str);
             }
             if (StringUtils.isNull(str2)) {
                 return true;
@@ -90,10 +90,10 @@ public class u {
             JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
             JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
             BdLog.e("consumepath is:" + jSONObject.toString());
-            a(this.f14745a, optJSONArray);
-            a(this.f14746b, optJSONArray2);
-            BdLog.e("pay mPayCashierType:" + this.f14745a.toString());
-            BdLog.e("pay mPayCashierType:" + this.f14746b.toString());
+            a(this.f14747a, optJSONArray);
+            a(this.f14748b, optJSONArray2);
+            BdLog.e("pay mPayCashierType:" + this.f14747a.toString());
+            BdLog.e("pay mPayCashierType:" + this.f14748b.toString());
         } catch (Exception e2) {
             e2.printStackTrace();
         }

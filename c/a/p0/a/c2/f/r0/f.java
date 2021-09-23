@@ -21,7 +21,7 @@ public class f extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.p0.a.p.e.e f5092c;
+    public c.a.p0.a.p.e.e f5100c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(c.a.p0.a.c2.e eVar) {
@@ -49,11 +49,11 @@ public class f extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             c.a.p0.a.e0.d.g("webviewPostMsg", "start post webview msg");
-            c.a.p0.a.p.e.e eVar2 = this.f5092c;
+            c.a.p0.a.p.e.e eVar2 = this.f5100c;
             if (eVar2 == null) {
                 c.a.p0.a.e0.d.b("webviewPostMsg", "none webview widget");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none webview widget");
@@ -80,15 +80,15 @@ public class f extends a0 {
                 try {
                     jSONObject.put("data", optString);
                     jSONObject.put("eventType", "message");
-                    jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, params.f4658g);
-                    jSONObject.put("webviewId", params.f4657f);
+                    jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, params.f4666g);
+                    jSONObject.put("webviewId", params.f4665f);
                 } catch (JSONException e2) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e2.printStackTrace();
                     }
                     c.a.p0.a.e0.d.b("webviewPostMsg", "meet json exception");
                 }
-                c.a.p0.a.w2.g.c.a.c(params.f4658g, params.f4657f, "webview", "message", jSONObject);
+                c.a.p0.a.w2.g.c.a.c(params.f4666g, params.f4665f, "webview", "message", jSONObject);
                 c.a.p0.a.e0.d.g("webviewPostMsg", "post webview msg success");
                 unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
@@ -100,7 +100,7 @@ public class f extends a0 {
     public void j(c.a.p0.a.p.e.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            this.f5092c = eVar;
+            this.f5100c = eVar;
         }
     }
 }

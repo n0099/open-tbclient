@@ -32,7 +32,7 @@ public class e extends c.a.p0.a.u.c.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public SwanAppPickerDialog f8863d;
+    public SwanAppPickerDialog f8871d;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -40,22 +40,22 @@ public class e extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8864e;
+        public final /* synthetic */ String f8872e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Date f8865f;
+        public final /* synthetic */ Date f8873f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Date f8866g;
+        public final /* synthetic */ Date f8874g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Date f8867h;
+        public final /* synthetic */ Date f8875h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ boolean f8868i;
+        public final /* synthetic */ boolean f8876i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f8869j;
+        public final /* synthetic */ String f8877j;
         public final /* synthetic */ String k;
         public final /* synthetic */ e l;
 
@@ -66,7 +66,7 @@ public class e extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f8870e;
+            public final /* synthetic */ a f8878e;
 
             public DialogInterface$OnCancelListenerC0399a(a aVar) {
                 Interceptable interceptable = $ic;
@@ -83,14 +83,14 @@ public class e extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8870e = aVar;
+                this.f8878e = aVar;
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                    a aVar = this.f8870e;
+                    a aVar = this.f8878e;
                     aVar.l.d(aVar.k, new c.a.p0.a.u.h.b(0));
                     dialogInterface.dismiss();
                 }
@@ -103,7 +103,7 @@ public class e extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f8871e;
+            public final /* synthetic */ a f8879e;
 
             public b(a aVar) {
                 Interceptable interceptable = $ic;
@@ -120,14 +120,14 @@ public class e extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8871e = aVar;
+                this.f8879e = aVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                    a aVar = this.f8871e;
+                    a aVar = this.f8879e;
                     aVar.l.d(aVar.k, new c.a.p0.a.u.h.b(0));
                     dialogInterface.dismiss();
                 }
@@ -140,7 +140,7 @@ public class e extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f8872e;
+            public final /* synthetic */ a f8880e;
 
             public c(a aVar) {
                 Interceptable interceptable = $ic;
@@ -157,7 +157,7 @@ public class e extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8872e = aVar;
+                this.f8880e = aVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
@@ -170,12 +170,12 @@ public class e extends c.a.p0.a.u.c.d {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("value", format);
-                        if (c.a.p0.a.u.c.d.f8727c) {
+                        if (c.a.p0.a.u.c.d.f8735c) {
                             String str = "handleShowDatePicker params = " + jSONObject.toString();
                         }
-                        this.f8872e.l.d(this.f8872e.k, new c.a.p0.a.u.h.b(0, jSONObject));
+                        this.f8880e.l.d(this.f8880e.k, new c.a.p0.a.u.h.b(0, jSONObject));
                     } catch (JSONException e2) {
-                        if (c.a.p0.a.u.c.d.f8727c) {
+                        if (c.a.p0.a.u.c.d.f8735c) {
                             e2.printStackTrace();
                         }
                     }
@@ -199,12 +199,12 @@ public class e extends c.a.p0.a.u.c.d {
                 }
             }
             this.l = eVar;
-            this.f8864e = str;
-            this.f8865f = date;
-            this.f8866g = date2;
-            this.f8867h = date3;
-            this.f8868i = z;
-            this.f8869j = str2;
+            this.f8872e = str;
+            this.f8873f = date;
+            this.f8874g = date2;
+            this.f8875h = date3;
+            this.f8876i = z;
+            this.f8877j = str2;
             this.k = str3;
         }
 
@@ -213,15 +213,15 @@ public class e extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 TimePickerDialog.a aVar = new TimePickerDialog.a(this.l.i());
-                if (!TextUtils.isEmpty(this.f8864e)) {
-                    aVar.n(this.f8864e);
+                if (!TextUtils.isEmpty(this.f8872e)) {
+                    aVar.n(this.f8872e);
                 }
-                aVar.p(this.f8865f);
-                aVar.m(this.f8866g);
-                aVar.o(this.f8867h);
-                aVar.l(this.f8868i);
+                aVar.p(this.f8873f);
+                aVar.m(this.f8874g);
+                aVar.o(this.f8875h);
+                aVar.l(this.f8876i);
                 aVar.c(true);
-                aVar.g(this.f8869j);
+                aVar.g(this.f8877j);
                 aVar.h(c.a.p0.a.h.aiapps_confirm, new c(this));
                 aVar.d(c.a.p0.a.h.aiapps_cancel, new b(this));
                 aVar.f(new DialogInterface$OnCancelListenerC0399a(this));
@@ -236,22 +236,22 @@ public class e extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8873e;
+        public final /* synthetic */ String f8881e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Date f8874f;
+        public final /* synthetic */ Date f8882f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Date f8875g;
+        public final /* synthetic */ Date f8883g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Date f8876h;
+        public final /* synthetic */ Date f8884h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ boolean f8877i;
+        public final /* synthetic */ boolean f8885i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f8878j;
+        public final /* synthetic */ String f8886j;
         public final /* synthetic */ String k;
         public final /* synthetic */ e l;
 
@@ -261,7 +261,7 @@ public class e extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f8879e;
+            public final /* synthetic */ b f8887e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -278,14 +278,14 @@ public class e extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8879e = bVar;
+                this.f8887e = bVar;
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                    b bVar = this.f8879e;
+                    b bVar = this.f8887e;
                     bVar.l.d(bVar.k, new c.a.p0.a.u.h.b(0));
                     dialogInterface.dismiss();
                 }
@@ -299,7 +299,7 @@ public class e extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f8880e;
+            public final /* synthetic */ b f8888e;
 
             public DialogInterface$OnClickListenerC0400b(b bVar) {
                 Interceptable interceptable = $ic;
@@ -316,14 +316,14 @@ public class e extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8880e = bVar;
+                this.f8888e = bVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                    b bVar = this.f8880e;
+                    b bVar = this.f8888e;
                     bVar.l.d(bVar.k, new c.a.p0.a.u.h.b(0));
                     dialogInterface.dismiss();
                 }
@@ -336,7 +336,7 @@ public class e extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f8881e;
+            public final /* synthetic */ b f8889e;
 
             public c(b bVar) {
                 Interceptable interceptable = $ic;
@@ -353,7 +353,7 @@ public class e extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8881e = bVar;
+                this.f8889e = bVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
@@ -366,15 +366,15 @@ public class e extends c.a.p0.a.u.c.d {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("value", selectedDate);
-                            if (c.a.p0.a.u.c.d.f8727c) {
+                            if (c.a.p0.a.u.c.d.f8735c) {
                                 String str = "handleShowDatePicker params = " + jSONObject.toString();
                             }
-                            this.f8881e.l.d(this.f8881e.k, new c.a.p0.a.u.h.b(0, jSONObject));
+                            this.f8889e.l.d(this.f8889e.k, new c.a.p0.a.u.h.b(0, jSONObject));
                         } catch (JSONException e2) {
-                            if (c.a.p0.a.u.c.d.f8727c) {
+                            if (c.a.p0.a.u.c.d.f8735c) {
                                 e2.printStackTrace();
                             }
-                            b bVar = this.f8881e;
+                            b bVar = this.f8889e;
                             bVar.l.d(bVar.k, new c.a.p0.a.u.h.b(202));
                         }
                     }
@@ -398,12 +398,12 @@ public class e extends c.a.p0.a.u.c.d {
                 }
             }
             this.l = eVar;
-            this.f8873e = str;
-            this.f8874f = date;
-            this.f8875g = date2;
-            this.f8876h = date3;
-            this.f8877i = z;
-            this.f8878j = str2;
+            this.f8881e = str;
+            this.f8882f = date;
+            this.f8883g = date2;
+            this.f8884h = date3;
+            this.f8885i = z;
+            this.f8886j = str2;
             this.k = str3;
         }
 
@@ -412,15 +412,15 @@ public class e extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 DatePickerDialog.a aVar = new DatePickerDialog.a(this.l.i());
-                if (!TextUtils.isEmpty(this.f8873e)) {
-                    aVar.n(this.f8873e);
+                if (!TextUtils.isEmpty(this.f8881e)) {
+                    aVar.n(this.f8881e);
                 }
-                aVar.p(this.f8874f);
-                aVar.m(this.f8875g);
-                aVar.o(this.f8876h);
-                aVar.l(this.f8877i);
+                aVar.p(this.f8882f);
+                aVar.m(this.f8883g);
+                aVar.o(this.f8884h);
+                aVar.l(this.f8885i);
                 aVar.c(true);
-                aVar.g(this.f8878j);
+                aVar.g(this.f8886j);
                 aVar.h(c.a.p0.a.h.aiapps_confirm, new c(this));
                 aVar.d(c.a.p0.a.h.aiapps_cancel, new DialogInterface$OnClickListenerC0400b(this));
                 aVar.f(new a(this));
@@ -435,16 +435,16 @@ public class e extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f8882e;
+        public final /* synthetic */ int f8890e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f8883f;
+        public final /* synthetic */ JSONArray f8891f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f8884g;
+        public final /* synthetic */ int f8892g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f8885h;
+        public final /* synthetic */ e f8893h;
 
         public c(e eVar, int i2, JSONArray jSONArray, int i3) {
             Interceptable interceptable = $ic;
@@ -461,19 +461,19 @@ public class e extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8885h = eVar;
-            this.f8882e = i2;
-            this.f8883f = jSONArray;
-            this.f8884g = i3;
+            this.f8893h = eVar;
+            this.f8890e = i2;
+            this.f8891f = jSONArray;
+            this.f8892g = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f8885h.f8863d == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f8893h.f8871d == null) {
                 return;
             }
-            ((MultiPickerDialog) this.f8885h.f8863d).updateWheel(this.f8882e, this.f8883f, this.f8884g);
+            ((MultiPickerDialog) this.f8893h.f8871d).updateWheel(this.f8890e, this.f8891f, this.f8892g);
         }
     }
 
@@ -483,22 +483,22 @@ public class e extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f8886e;
+        public final /* synthetic */ JSONArray f8894e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f8887f;
+        public final /* synthetic */ JSONArray f8895f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f8888g;
+        public final /* synthetic */ boolean f8896g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8889h;
+        public final /* synthetic */ JSONObject f8897h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f8890i;
+        public final /* synthetic */ String f8898i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f8891j;
+        public final /* synthetic */ String f8899j;
         public final /* synthetic */ e k;
 
         /* loaded from: classes.dex */
@@ -507,7 +507,7 @@ public class e extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f8892e;
+            public final /* synthetic */ d f8900e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -524,15 +524,15 @@ public class e extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8892e = dVar;
+                this.f8900e = dVar;
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                    d dVar = this.f8892e;
-                    dVar.k.E(dialogInterface, dVar.f8888g, dVar.f8890i);
+                    d dVar = this.f8900e;
+                    dVar.k.E(dialogInterface, dVar.f8896g, dVar.f8898i);
                 }
             }
         }
@@ -543,7 +543,7 @@ public class e extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f8893e;
+            public final /* synthetic */ d f8901e;
 
             public b(d dVar) {
                 Interceptable interceptable = $ic;
@@ -560,15 +560,15 @@ public class e extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8893e = dVar;
+                this.f8901e = dVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                    d dVar = this.f8893e;
-                    dVar.k.E(dialogInterface, dVar.f8888g, dVar.f8890i);
+                    d dVar = this.f8901e;
+                    dVar.k.E(dialogInterface, dVar.f8896g, dVar.f8898i);
                 }
             }
         }
@@ -579,7 +579,7 @@ public class e extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f8894e;
+            public final /* synthetic */ d f8902e;
 
             public c(d dVar) {
                 Interceptable interceptable = $ic;
@@ -596,7 +596,7 @@ public class e extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8894e = dVar;
+                this.f8902e = dVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
@@ -604,24 +604,24 @@ public class e extends c.a.p0.a.u.c.d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
                     dialogInterface.dismiss();
-                    this.f8894e.k.f8863d = null;
+                    this.f8902e.k.f8871d = null;
                     try {
                         JSONArray currentIndex = ((MultiPickerDialog) dialogInterface).getCurrentIndex();
                         JSONObject jSONObject = new JSONObject();
                         if (currentIndex != null && currentIndex.length() > 0) {
-                            if (this.f8894e.f8888g) {
+                            if (this.f8902e.f8896g) {
                                 jSONObject.put("value", currentIndex.optInt(0));
                             } else {
                                 jSONObject.put("value", currentIndex);
                                 jSONObject.put("type", "confirm");
                             }
                         }
-                        this.f8894e.k.d(this.f8894e.f8890i, new c.a.p0.a.u.h.b(0, jSONObject));
-                        if (c.a.p0.a.u.c.d.f8727c) {
+                        this.f8902e.k.d(this.f8902e.f8898i, new c.a.p0.a.u.h.b(0, jSONObject));
+                        if (c.a.p0.a.u.c.d.f8735c) {
                             String str = "handleOpenMultiPicker: output params = " + jSONObject.toString();
                         }
                     } catch (JSONException e2) {
-                        if (c.a.p0.a.u.c.d.f8727c) {
+                        if (c.a.p0.a.u.c.d.f8735c) {
                             e2.printStackTrace();
                         }
                     }
@@ -636,7 +636,7 @@ public class e extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f8895a;
+            public final /* synthetic */ d f8903a;
 
             public C0401d(d dVar) {
                 Interceptable interceptable = $ic;
@@ -653,26 +653,26 @@ public class e extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8895a = dVar;
+                this.f8903a = dVar;
             }
 
             @Override // com.baidu.swan.apps.res.ui.BdMultiPicker.b
             public void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, bdMultiPicker, jSONObject) == null) {
-                    if (c.a.p0.a.u.c.d.f8727c) {
-                        String str = "onMultiSelectedChanged: params=" + this.f8895a.f8889h;
+                    if (c.a.p0.a.u.c.d.f8735c) {
+                        String str = "onMultiSelectedChanged: params=" + this.f8903a.f8897h;
                     }
                     try {
                         JSONObject jSONObject2 = new JSONObject(jSONObject.toString());
                         jSONObject2.put("type", "columnChange");
-                        this.f8895a.k.d(this.f8895a.f8890i, new c.a.p0.a.u.h.b(0, jSONObject2));
+                        this.f8903a.k.d(this.f8903a.f8898i, new c.a.p0.a.u.h.b(0, jSONObject2));
                     } catch (JSONException e2) {
-                        if (c.a.p0.a.u.c.d.f8727c) {
+                        if (c.a.p0.a.u.c.d.f8735c) {
                             e2.printStackTrace();
                         }
-                        d dVar = this.f8895a;
-                        dVar.k.d(dVar.f8890i, new c.a.p0.a.u.h.b(202));
+                        d dVar = this.f8903a;
+                        dVar.k.d(dVar.f8898i, new c.a.p0.a.u.h.b(202));
                     }
                 }
             }
@@ -694,12 +694,12 @@ public class e extends c.a.p0.a.u.c.d {
                 }
             }
             this.k = eVar;
-            this.f8886e = jSONArray;
-            this.f8887f = jSONArray2;
-            this.f8888g = z;
-            this.f8889h = jSONObject;
-            this.f8890i = str;
-            this.f8891j = str2;
+            this.f8894e = jSONArray;
+            this.f8895f = jSONArray2;
+            this.f8896g = z;
+            this.f8897h = jSONObject;
+            this.f8898i = str;
+            this.f8899j = str2;
         }
 
         @Override // java.lang.Runnable
@@ -708,16 +708,16 @@ public class e extends c.a.p0.a.u.c.d {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 MultiPickerDialog.a aVar = new MultiPickerDialog.a(this.k.i());
                 e eVar = this.k;
-                aVar.l(this.f8886e);
-                aVar.m(this.f8887f);
-                aVar.o(this.f8888g);
+                aVar.l(this.f8894e);
+                aVar.m(this.f8895f);
+                aVar.o(this.f8896g);
                 aVar.n(new C0401d(this));
                 aVar.c(true);
-                aVar.g(this.f8891j);
+                aVar.g(this.f8899j);
                 aVar.h(c.a.p0.a.h.aiapps_confirm, new c(this));
                 aVar.d(c.a.p0.a.h.aiapps_cancel, new b(this));
                 aVar.f(new a(this));
-                eVar.f8863d = aVar.k();
+                eVar.f8871d = aVar.k();
             }
         }
     }
@@ -836,7 +836,7 @@ public class e extends c.a.p0.a.u.c.d {
                 } catch (NumberFormatException e3) {
                     e = e3;
                     date2 = date;
-                    if (c.a.p0.a.u.c.d.f8727c) {
+                    if (c.a.p0.a.u.c.d.f8735c) {
                         e.printStackTrace();
                         return date2;
                     }
@@ -852,7 +852,7 @@ public class e extends c.a.p0.a.u.c.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{dialogInterface, Boolean.valueOf(z), str}) == null) {
             dialogInterface.dismiss();
-            this.f8863d = null;
+            this.f8871d = null;
             if (z) {
                 d(str, new c.a.p0.a.u.h.b(0));
                 return;
@@ -862,7 +862,7 @@ public class e extends c.a.p0.a.u.c.d {
                 jSONObject.put("type", QueryResponse.Options.CANCEL);
                 d(str, new c.a.p0.a.u.h.b(0, jSONObject));
             } catch (JSONException e2) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     e2.printStackTrace();
                 }
                 d(str, new c.a.p0.a.u.h.b(202));
@@ -919,7 +919,7 @@ public class e extends c.a.p0.a.u.c.d {
             if (TextUtils.isEmpty(str)) {
                 return new c.a.p0.a.u.h.b(202);
             }
-            if (this.f8863d == null) {
+            if (this.f8871d == null) {
                 return new c.a.p0.a.u.h.b(1001);
             }
             try {
@@ -938,7 +938,7 @@ public class e extends c.a.p0.a.u.c.d {
                 }
                 return new c.a.p0.a.u.h.b(0);
             } catch (JSONException e2) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     e2.printStackTrace();
                 }
                 return new c.a.p0.a.u.h.b(202);
@@ -989,10 +989,10 @@ public class e extends c.a.p0.a.u.c.d {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, z)) == null) {
-            if (this.f8863d != null) {
+            if (this.f8871d != null) {
                 return new c.a.p0.a.u.h.b(1001);
             }
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str2 = "handleOpenMultiPicker: input params=" + jSONObject;
             }
             JSONArray jSONArray = new JSONArray();

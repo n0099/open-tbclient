@@ -14,16 +14,16 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<RecommendForumInfo> f18680a;
+    public List<RecommendForumInfo> f18689a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f18681b;
+    public List<String> f18690b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Page f18682c;
+    public Page f18691c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18683d;
+    public String f18692d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f18683d = dataRes.class_name;
-        this.f18682c = dataRes.page;
-        this.f18681b = dataRes.page_structure;
-        this.f18680a = dataRes.forum_info;
+        this.f18692d = dataRes.class_name;
+        this.f18691c = dataRes.page;
+        this.f18690b = dataRes.page_structure;
+        this.f18689a = dataRes.forum_info;
     }
 }

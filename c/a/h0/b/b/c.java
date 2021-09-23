@@ -19,7 +19,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<ServiceReference, b<?>> f3479a;
+    public static final ConcurrentHashMap<ServiceReference, b<?>> f3480a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class c {
                 return;
             }
         }
-        f3479a = new ConcurrentHashMap<>();
+        f3480a = new ConcurrentHashMap<>();
         d();
     }
 
@@ -43,7 +43,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, serviceReference)) == null) {
-            b<?> bVar = f3479a.get(serviceReference);
+            b<?> bVar = f3480a.get(serviceReference);
             if (bVar != null) {
                 return (T) bVar.getService();
             }
@@ -55,7 +55,7 @@ public class c {
     public static <T> void b(ServiceReference serviceReference, b<T> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, serviceReference, bVar) == null) {
-            f3479a.put(serviceReference, bVar);
+            f3480a.put(serviceReference, bVar);
         }
     }
 

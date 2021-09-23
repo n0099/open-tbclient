@@ -140,16 +140,10 @@ public final class AccountManager implements NoProguard {
         return (AccountManager) invokeL.objValue;
     }
 
-    public String getBduss() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? WalletLoginHelper.getInstance().getLoginToken() : (String) invokeV.objValue;
-    }
-
     public String getBfbToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String str = this.mbfbToken;
             if (str == null) {
                 LogUtil.d("AccountManager", "mtoken 为NULL mPreferences=" + this.mPreferences);
@@ -163,7 +157,7 @@ public final class AccountManager implements NoProguard {
     public String getFileNamePrefix() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String localEncrypt1 = SafePay.getInstance().localEncrypt1(WalletLoginHelper.getInstance().getPassUid());
             if (TextUtils.isEmpty(localEncrypt1)) {
                 return "";
@@ -177,24 +171,24 @@ public final class AccountManager implements NoProguard {
     public Map<String, String> getLoginData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? WalletLoginHelper.getInstance().getLoginData() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? WalletLoginHelper.getInstance().getLoginData() : (Map) invokeV.objValue;
     }
 
     public int getLoginType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? WalletLoginHelper.getInstance().getLoginType() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? WalletLoginHelper.getInstance().getLoginType() : invokeV.intValue;
     }
 
     public String getOpenBduss() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? WalletLoginHelper.getInstance().getOpenLoginToken() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? WalletLoginHelper.getInstance().getOpenLoginToken() : (String) invokeV.objValue;
     }
 
     public void logout() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             delScanCodeSP();
             if (LocalRouter.getInstance(this.mContext).isRequestAvailable(new RouterRequest().provider("hce").action("cleanData"))) {
                 LocalRouter.getInstance(DxmApplicationContextImpl.getApplicationContext(this.mContext)).route(this.mContext, new RouterRequest().provider("hce").action("cleanData"), new RouterCallback(this) { // from class: com.baidu.wallet.base.datamodel.AccountManager.1
@@ -202,7 +196,7 @@ public final class AccountManager implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AccountManager f60312a;
+                    public final /* synthetic */ AccountManager f60437a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -219,7 +213,7 @@ public final class AccountManager implements NoProguard {
                                 return;
                             }
                         }
-                        this.f60312a = this;
+                        this.f60437a = this;
                     }
 
                     @Override // com.baidu.wallet.router.RouterCallback
@@ -239,7 +233,7 @@ public final class AccountManager implements NoProguard {
 
     public void setBfbToken(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             LogUtil.d("AccountManager", "setBfbToken=" + str);
             this.mbfbToken = str;
             SharedPreferences.Editor edit = this.mPreferences.edit();

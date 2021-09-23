@@ -16,13 +16,13 @@ public final class a extends WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f59575a;
+    public final String f59706a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f59576b;
+    public b f59707b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f59577c;
+    public boolean f59708c;
 
     public a(String str, Class cls) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public final class a extends WebChromeClient {
                 return;
             }
         }
-        this.f59575a = "InjectedChromeClient";
-        this.f59576b = new b(str, cls);
+        this.f59706a = "InjectedChromeClient";
+        this.f59707b = new b(str, cls);
     }
 
     @Override // android.webkit.WebChromeClient
@@ -59,7 +59,7 @@ public final class a extends WebChromeClient {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            jsPromptResult.confirm(this.f59576b.a(webView, str2));
+            jsPromptResult.confirm(this.f59707b.a(webView, str2));
             return true;
         }
         return invokeLLLLL.booleanValue;
@@ -70,10 +70,10 @@ public final class a extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, webView, i2) == null) {
             if (i2 <= 25) {
-                this.f59577c = false;
-            } else if (!this.f59577c) {
-                webView.loadUrl(this.f59576b.a());
-                this.f59577c = true;
+                this.f59708c = false;
+            } else if (!this.f59708c) {
+                webView.loadUrl(this.f59707b.a());
+                this.f59708c = true;
                 com.baidu.ufosdk.f.c.a("InjectedChromeClient --> inject js interface completely on progress " + i2);
             }
             super.onProgressChanged(webView, i2);

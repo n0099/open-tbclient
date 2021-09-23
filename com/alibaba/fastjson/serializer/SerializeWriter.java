@@ -535,7 +535,7 @@ public final class SerializeWriter extends Writer {
                         int i11 = ((bArr[i2] & 255) << 10) | (i10 == 2 ? (bArr[i3] & 255) << 2 : 0);
                         write(cArr[i11 >> 12]);
                         write(cArr[(i11 >>> 6) & 63]);
-                        write(i10 == 2 ? cArr[i11 & 63] : a.f35988h);
+                        write(i10 == 2 ? cArr[i11 & 63] : a.f36022h);
                         write(61);
                     }
                     write(c2);
@@ -570,8 +570,8 @@ public final class SerializeWriter extends Writer {
                 char[] cArr3 = this.buf;
                 cArr3[i5 - 5] = cArr[i23 >> 12];
                 cArr3[i5 - 4] = cArr[(i23 >>> 6) & 63];
-                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f35988h;
-                this.buf[i5 - 2] = a.f35988h;
+                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f36022h;
+                this.buf[i5 - 2] = a.f36022h;
             }
             this.buf[i5 - 1] = c2;
         }

@@ -46,7 +46,7 @@ public class q extends c.a.e.l.e.a<c2, ThreadCardViewHolder<c2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ q f18439b;
+        public final /* synthetic */ q f18448b;
 
         public a(q qVar) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class q extends c.a.e.l.e.a<c2, ThreadCardViewHolder<c2>> {
                     return;
                 }
             }
-            this.f18439b = qVar;
+            this.f18448b = qVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,7 +73,7 @@ public class q extends c.a.e.l.e.a<c2, ThreadCardViewHolder<c2>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, c2Var) == null) {
                 t.b().d(true);
-                c.a.r0.g1.j.c.e(view, c2Var, this.f18439b.n);
+                c.a.r0.g1.j.c.e(view, c2Var, this.f18448b.n);
             }
         }
     }
@@ -121,7 +121,7 @@ public class q extends c.a.e.l.e.a<c2, ThreadCardViewHolder<c2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ q f18440e;
+        public final /* synthetic */ q f18449e;
 
         public c(q qVar) {
             Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class q extends c.a.e.l.e.a<c2, ThreadCardViewHolder<c2>> {
                     return;
                 }
             }
-            this.f18440e = qVar;
+            this.f18449e = qVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -149,8 +149,8 @@ public class q extends c.a.e.l.e.a<c2, ThreadCardViewHolder<c2>> {
                 c2 c2Var = (c2) nVar;
                 d2 d2Var = c2Var.w;
                 d2Var.objType = 1;
-                if (this.f18440e.q != null) {
-                    this.f18440e.q.a(threadCardViewHolder.getView(), c2Var);
+                if (this.f18449e.q != null) {
+                    this.f18449e.q.a(threadCardViewHolder.getView(), c2Var);
                 }
                 ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) d2Var, view.getContext(), 0, false, c.a.l.e.a((s) viewGroup, view, i2));
                 threadCardViewHolder.getCardView().o(new a.C0095a(1));
@@ -218,7 +218,7 @@ public class q extends c.a.e.l.e.a<c2, ThreadCardViewHolder<c2>> {
             if (c2Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || (d2Var = c2Var.w) == null) {
                 return null;
             }
-            d2Var.S1 = D(i2) + 1;
+            d2Var.T1 = D(i2) + 1;
             threadCardViewHolder.getCardView().q(i2);
             threadCardViewHolder.getCardView().setPage("page_recommend");
             threadCardViewHolder.showNEGFeedBackViewIfNeed(true, Align.ALIGN_RIGHT_TOP, this.r);

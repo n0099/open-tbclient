@@ -28,16 +28,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<c.a.e.l.e.a> f25266a;
+    public List<c.a.e.l.e.a> f25287a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f25267b;
+    public BdTypeListView f25288b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f25268c;
+    public k f25289c;
 
     /* renamed from: d  reason: collision with root package name */
-    public m f25269d;
+    public m f25290d;
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -55,41 +55,41 @@ public class a {
             }
         }
         ArrayList arrayList = new ArrayList();
-        this.f25266a = arrayList;
-        this.f25267b = bdTypeListView;
-        arrayList.add(new g(baseActivity.getPageContext(), h.f25247h));
-        this.f25266a.add(new i(baseActivity.getPageContext(), j.f25252g));
-        this.f25266a.add(new f(baseActivity.getPageContext(), n.f27141g));
-        this.f25266a.add(new c.a.r0.u0.b.a(baseActivity.getPageContext(), c.a.r0.u0.b.b.f25221f));
-        this.f25266a.add(new c(baseActivity.getPageContext(), d.k));
-        this.f25266a.add(new c.a.r0.u0.c.a(baseActivity.getPageContext()));
-        k kVar = new k(baseActivity.getPageContext(), l.f25256i);
-        this.f25268c = kVar;
-        this.f25266a.add(kVar);
-        m mVar = new m(baseActivity.getPageContext(), c.a.r0.u0.c.n.f25262h);
-        this.f25269d = mVar;
-        this.f25266a.add(mVar);
+        this.f25287a = arrayList;
+        this.f25288b = bdTypeListView;
+        arrayList.add(new g(baseActivity.getPageContext(), h.f25268h));
+        this.f25287a.add(new i(baseActivity.getPageContext(), j.f25273g));
+        this.f25287a.add(new f(baseActivity.getPageContext(), n.f27161g));
+        this.f25287a.add(new c.a.r0.u0.b.a(baseActivity.getPageContext(), c.a.r0.u0.b.b.f25242f));
+        this.f25287a.add(new c(baseActivity.getPageContext(), d.k));
+        this.f25287a.add(new c.a.r0.u0.c.a(baseActivity.getPageContext()));
+        k kVar = new k(baseActivity.getPageContext(), l.f25277i);
+        this.f25289c = kVar;
+        this.f25287a.add(kVar);
+        m mVar = new m(baseActivity.getPageContext(), c.a.r0.u0.c.n.f25283h);
+        this.f25290d = mVar;
+        this.f25287a.add(mVar);
     }
 
     public List<c.a.e.l.e.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25266a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25287a : (List) invokeV.objValue;
     }
 
     public void b() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f25267b) != null && (bdTypeListView.getAdapter2() instanceof e)) {
-            this.f25267b.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f25288b) != null && (bdTypeListView.getAdapter2() instanceof e)) {
+            this.f25288b.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f25268c.onDestroy();
-            this.f25269d.onDestroy();
+            this.f25289c.onDestroy();
+            this.f25290d.onDestroy();
         }
     }
 }

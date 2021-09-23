@@ -18,7 +18,7 @@ public class bh implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ServiceClient f78174a;
+    public final /* synthetic */ ServiceClient f78493a;
 
     public bh(ServiceClient serviceClient) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class bh implements ServiceConnection {
                 return;
             }
         }
-        this.f78174a = serviceClient;
+        this.f78493a = serviceClient;
     }
 
     @Override // android.content.ServiceConnection
@@ -45,19 +45,19 @@ public class bh implements ServiceConnection {
         Messenger messenger;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            synchronized (this.f78174a) {
-                this.f78174a.f839b = new Messenger(iBinder);
-                this.f78174a.f840b = false;
-                list = this.f78174a.f837a;
+            synchronized (this.f78493a) {
+                this.f78493a.f839b = new Messenger(iBinder);
+                this.f78493a.f840b = false;
+                list = this.f78493a.f837a;
                 for (Message message : list) {
                     try {
-                        messenger = this.f78174a.f839b;
+                        messenger = this.f78493a.f839b;
                         messenger.send(message);
                     } catch (RemoteException e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
                     }
                 }
-                list2 = this.f78174a.f837a;
+                list2 = this.f78493a.f837a;
                 list2.clear();
             }
         }
@@ -67,8 +67,8 @@ public class bh implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f78174a.f839b = null;
-            this.f78174a.f840b = false;
+            this.f78493a.f839b = null;
+            this.f78493a.f840b = false;
         }
     }
 }

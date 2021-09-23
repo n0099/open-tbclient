@@ -122,22 +122,34 @@ public class FaceExtInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBluriness : invokeV.floatValue;
     }
 
+    public float getCenterX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCenterX : invokeV.floatValue;
+    }
+
+    public float getCenterY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCenterY : invokeV.floatValue;
+    }
+
     public float getConfidence() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mScore : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mScore : invokeV.floatValue;
     }
 
     public int getFaceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFaceID : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFaceID : invokeV.intValue;
     }
 
     public Rect getFaceRect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             float f2 = this.mCenterX;
             float f3 = this.mWidth;
             return new Rect((int) (f2 - (f3 / 2.0f)), (int) (this.mCenterY - (f3 / 2.0f)), (int) f3, (int) f3);
@@ -148,19 +160,25 @@ public class FaceExtInfo {
     public int getFaceWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (int) this.mWidth : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (int) this.mWidth : invokeV.intValue;
+    }
+
+    public float getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mHeight : invokeV.floatValue;
     }
 
     public int getIllum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mIllum : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mIllum : invokeV.intValue;
     }
 
     public int getLandmarksOutOfDetectCount(Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, rect)) == null) {
             if (this.mLandmarks.length == 144) {
                 int[][] iArr = {comp1, comp2, comp3, comp4, comp5, comp6, comp7, comp8, comp9};
                 float[] fArr = new float[4];
@@ -192,24 +210,24 @@ public class FaceExtInfo {
     public float getLeftEyeClose() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mLeftEyeClose : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mLeftEyeClose : invokeV.floatValue;
     }
 
     public BDFaceOcclusion getOcclusion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mOcclusion : (BDFaceOcclusion) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mOcclusion : (BDFaceOcclusion) invokeV.objValue;
     }
 
     public float getPitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mPitch : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mPitch : invokeV.floatValue;
     }
 
     public void getRectPoints(int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, iArr) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, iArr) == null) {
             int[] iArr2 = iArr;
             double d2 = (this.mAngle * 3.14159d) / 180.0d;
             double cos = Math.cos(d2);
@@ -242,43 +260,64 @@ public class FaceExtInfo {
     public float getRightEyeClose() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mRightEyeClose : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mRightEyeClose : invokeV.floatValue;
     }
 
     public float getRoll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mRoll : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mRoll : invokeV.floatValue;
     }
 
     public float getYaw() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mYaw : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mYaw : invokeV.floatValue;
     }
 
     public float[] getmLandmarks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mLandmarks : (float[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mLandmarks : (float[]) invokeV.objValue;
     }
 
     public boolean isOutofDetectRect(Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, rect)) == null) ? rect.contains(getFaceRect()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, rect)) == null) ? rect.contains(getFaceRect()) : invokeL.booleanValue;
+    }
+
+    public void setCenterX(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048597, this, f2) == null) {
+            this.mCenterX = f2;
+        }
+    }
+
+    public void setCenterY(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048598, this, f2) == null) {
+            this.mCenterY = f2;
+        }
+    }
+
+    public void setHeight(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048599, this, f2) == null) {
+            this.mHeight = f2;
+        }
     }
 
     public void setLeftEyeClose(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048600, this, f2) == null) {
             this.mLeftEyeClose = f2;
         }
     }
 
     public void setRightEyeClose(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048595, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048601, this, f2) == null) {
             this.mRightEyeClose = f2;
         }
     }
@@ -327,7 +366,7 @@ public class FaceExtInfo {
     public Rect getFaceRect(float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
             float f5 = this.mCenterX * f2;
             float f6 = this.mCenterY * f3;
             float f7 = this.mWidth;

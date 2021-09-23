@@ -69,7 +69,7 @@ public class e extends b<c.a.r0.g0.b> {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f15548e != i2) {
+            if (this.f15557e != i2) {
                 SkinManager.setBackgroundResource(j(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.v, R.color.CAM_X0204);
                 SkinManager.setViewTextColor(this.q, R.color.CAM_X0101, 1);
@@ -82,7 +82,7 @@ public class e extends b<c.a.r0.g0.b> {
                 SkinManager.setViewTextColor(this.t, R.color.CAM_X0109, 1);
                 SkinManager.setViewTextColor(this.u, R.color.CAM_X0109, 1);
             }
-            this.f15548e = i2;
+            this.f15557e = i2;
         }
     }
 
@@ -109,7 +109,7 @@ public class e extends b<c.a.r0.g0.b> {
             this.u = (TextView) view.findViewById(R.id.card_frs_game_publish_time);
             this.v = view.findViewById(R.id.card_frs_game_bottom_divider);
             this.o.setDefaultBgResource(R.drawable.icon_morenpic);
-            int dimensionPixelSize = this.f15550g.getResources().getDimensionPixelSize(R.dimen.tbds326);
+            int dimensionPixelSize = this.f15559g.getResources().getDimensionPixelSize(R.dimen.tbds326);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.n.getLayoutParams();
             layoutParams.width = dimensionPixelSize;
             layoutParams.height = (dimensionPixelSize * 9) / 16;
@@ -119,7 +119,7 @@ public class e extends b<c.a.r0.g0.b> {
             this.s.setIsRound(true);
             this.s.setDrawBorder(true);
             this.s.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.s.setBorderWidth(this.f15550g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.s.setBorderWidth(this.f15559g.getResources().getDimensionPixelSize(R.dimen.tbds1));
             j().setOnClickListener(this);
         }
     }
@@ -160,7 +160,7 @@ public class e extends b<c.a.r0.g0.b> {
         this.u.setText(StringHelper.getFormatTimeShort(bVar.getThreadData().I()));
         if ("news".equals(bVar.getThreadData().b0())) {
             this.s.setVisibility(8);
-            this.t.setText(this.f15549f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.getThreadData().C1())));
+            this.t.setText(this.f15558f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.getThreadData().C1())));
             return;
         }
         this.s.setVisibility(0);

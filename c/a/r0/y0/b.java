@@ -50,7 +50,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.j f29215a;
+        public final /* synthetic */ a.j f29235a;
 
         public a(a.j jVar) {
             Interceptable interceptable = $ic;
@@ -67,14 +67,14 @@ public class b {
                     return;
                 }
             }
-            this.f29215a = jVar;
+            this.f29235a = jVar;
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTFeedAd.VideoAdListener
         public void onProgressUpdate(long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-                this.f29215a.a(j2, j3);
+                this.f29235a.a(j2, j3);
             }
         }
 
@@ -123,11 +123,11 @@ public class b {
 
     /* renamed from: c.a.r0.y0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1366b {
+    public static /* synthetic */ class C1364b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f29216a;
+        public static final /* synthetic */ int[] f29236a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -144,17 +144,17 @@ public class b {
                 }
             }
             int[] iArr = new int[FunNativeAd.InteractionType.values().length];
-            f29216a = iArr;
+            f29236a = iArr;
             try {
                 iArr[FunNativeAd.InteractionType.TYPE_DOWNLOAD.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f29216a[FunNativeAd.InteractionType.TYPE_DIAL.ordinal()] = 2;
+                f29236a[FunNativeAd.InteractionType.TYPE_DIAL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f29216a[FunNativeAd.InteractionType.TYPE_BROWSE.ordinal()] = 3;
+                f29236a[FunNativeAd.InteractionType.TYPE_BROWSE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -232,7 +232,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, funNativeAd)) == null) {
-            int i2 = C1366b.f29216a[funNativeAd.getInteractionType().ordinal()];
+            int i2 = C1364b.f29236a[funNativeAd.getInteractionType().ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     return i2 != 3 ? 1 : 4;
@@ -275,7 +275,7 @@ public class b {
             if (ksNativeAd != null) {
                 return ksNativeAd.getActionDescription();
             }
-            int i3 = C1366b.f29216a[funNativeAd.getInteractionType().ordinal()];
+            int i3 = C1364b.f29236a[funNativeAd.getInteractionType().ordinal()];
             if (i3 == 1) {
                 i2 = R.string.ad_interaction_type_download;
             } else if (i3 != 2) {
@@ -308,7 +308,7 @@ public class b {
             if (ksNativeAd != null) {
                 return ksNativeAd.getActionDescription();
             }
-            int i3 = C1366b.f29216a[funNativeAd.getInteractionType().ordinal()];
+            int i3 = C1364b.f29236a[funNativeAd.getInteractionType().ordinal()];
             if (i3 == 1) {
                 i2 = R.string.ad_interaction_type_download;
             } else if (i3 != 2) {

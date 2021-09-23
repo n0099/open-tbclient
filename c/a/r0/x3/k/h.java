@@ -41,7 +41,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile h f29094a;
+    public static volatile h f29114a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -50,10 +50,10 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public FileOutputStream f29095a;
+        public FileOutputStream f29115a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f29096b;
+        public final /* synthetic */ String f29116b;
 
         public a(h hVar, String str) throws FileNotFoundException {
             Interceptable interceptable = $ic;
@@ -70,8 +70,8 @@ public class h {
                     return;
                 }
             }
-            this.f29096b = str;
-            this.f29095a = new FileOutputStream(this.f29096b);
+            this.f29116b = str;
+            this.f29115a = new FileOutputStream(this.f29116b);
         }
 
         @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
@@ -79,8 +79,8 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f29095a != null) {
-                        this.f29095a.close();
+                    if (this.f29115a != null) {
+                        this.f29115a.close();
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -93,8 +93,8 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 try {
-                    if (this.f29095a != null) {
-                        this.f29095a.close();
+                    if (this.f29115a != null) {
+                        this.f29115a.close();
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -106,7 +106,7 @@ public class h {
         public void onMixing(byte[] bArr) throws IOException {
             FileOutputStream fileOutputStream;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || (fileOutputStream = this.f29095a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || (fileOutputStream = this.f29115a) == null) {
                 return;
             }
             fileOutputStream.write(bArr);
@@ -133,14 +133,14 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f29094a == null) {
+            if (f29114a == null) {
                 synchronized (h.class) {
-                    if (f29094a == null) {
-                        f29094a = new h();
+                    if (f29114a == null) {
+                        f29114a = new h();
                     }
                 }
             }
-            return f29094a;
+            return f29114a;
         }
         return (h) invokeV.objValue;
     }
@@ -328,7 +328,7 @@ public class h {
                                 if (!z && i3 != 0 && aVar.c()) {
                                     String str5 = str2 + "resample_" + System.currentTimeMillis();
                                     long currentTimeMillis = System.currentTimeMillis();
-                                    boolean i4 = g.i(str4, str5, aVar.f29090a, d2.f29090a);
+                                    boolean i4 = g.i(str4, str5, aVar.f29110a, d2.f29110a);
                                     BdLog.e("resample cost = " + (System.currentTimeMillis() - currentTimeMillis));
                                     if (i4) {
                                         str4 = str5;
@@ -346,8 +346,8 @@ public class h {
                             a2.d(new a(this, str3));
                             a2.b(fileArr);
                             d a3 = d.a(str3);
-                            a3.d(d2.f29090a);
-                            a3.c(d2.f29091b);
+                            a3.d(d2.f29110a);
+                            a3.c(d2.f29111b);
                             a3.b(str);
                             return true;
                         } catch (Exception e2) {
@@ -380,13 +380,13 @@ public class h {
                 LinkedList linkedList = new LinkedList();
                 try {
                     e c2 = c(str, linkedList, null);
-                    if (c2.f29083a == -1) {
-                        if (c2.f29084b == 1) {
+                    if (c2.f29103a == -1) {
+                        if (c2.f29104b == 1) {
                             i2 = 218;
                         } else {
-                            i2 = c2.f29084b == 2 ? 219 : PassLivenessRecogActivity.S;
+                            i2 = c2.f29104b == 2 ? 219 : PassLivenessRecogActivity.S;
                         }
-                        return new i(i2, c2.f29085c);
+                        return new i(i2, c2.f29105c);
                     }
                     BdLog.e("mixingVideoByAudio videoTracks = " + linkedList.size());
                     j(str2, linkedList, null);
@@ -417,7 +417,7 @@ public class h {
         }
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
             long currentTimeMillis = System.currentTimeMillis();
-            String str5 = c.a.r0.x3.c.f28885f + (TbMd5.getNameMd5FromUrl(str + str2 + str3) + "/");
+            String str5 = c.a.r0.x3.c.f28905f + (TbMd5.getNameMd5FromUrl(str + str2 + str3) + "/");
             new File(str5).mkdirs();
             File file = new File(str3);
             file.mkdirs();
@@ -430,25 +430,25 @@ public class h {
             LinkedList linkedList5 = new LinkedList();
             try {
                 e c2 = c(str, linkedList2, linkedList3);
-                long j2 = c2.f29083a;
+                long j2 = c2.f29103a;
                 if (j2 == -1) {
-                    if (c2.f29084b == 1) {
+                    if (c2.f29104b == 1) {
                         i3 = 210;
                     } else {
-                        i3 = c2.f29084b == 2 ? 211 : 212;
+                        i3 = c2.f29104b == 2 ? 211 : 212;
                     }
-                    iVar = new i(i3, c2.f29085c);
+                    iVar = new i(i3, c2.f29105c);
                     FileHelper.deleteFileOrDir(new File(str5));
                     sb = new StringBuilder();
                 } else {
                     long b2 = b(str2, linkedList4);
                     if (b2 == -1) {
-                        if (c2.f29084b == 1) {
+                        if (c2.f29104b == 1) {
                             i2 = 213;
                         } else {
-                            i2 = c2.f29084b == 2 ? 214 : JfifUtil.MARKER_RST7;
+                            i2 = c2.f29104b == 2 ? 214 : JfifUtil.MARKER_RST7;
                         }
-                        iVar = new i(i2, c2.f29085c);
+                        iVar = new i(i2, c2.f29105c);
                         FileHelper.deleteFileOrDir(new File(str5));
                         sb = new StringBuilder();
                     } else {
@@ -532,8 +532,8 @@ public class h {
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     try {
                         e c2 = c(list.get(i2), linkedList, z ? linkedList2 : null);
-                        if (c2.f29083a != -1) {
-                            long j2 = c2.f29083a;
+                        if (c2.f29103a != -1) {
+                            long j2 = c2.f29103a;
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();

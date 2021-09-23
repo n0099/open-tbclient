@@ -18,22 +18,22 @@ public final class b extends Drawable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f34335a;
+    public boolean f34358a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34336b;
+    public int f34359b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView.ScaleType f34337c;
+    public ImageView.ScaleType f34360c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.n.a.f.b f34338d;
+    public final c.n.a.f.b f34361d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SVGAVideoEntity f34339e;
+    public final SVGAVideoEntity f34362e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f34340f;
+    public final c f34363f;
 
     public b(SVGAVideoEntity sVGAVideoEntity, c cVar) {
         Interceptable interceptable = $ic;
@@ -50,56 +50,56 @@ public final class b extends Drawable {
                 return;
             }
         }
-        this.f34339e = sVGAVideoEntity;
-        this.f34340f = cVar;
-        this.f34335a = true;
-        this.f34337c = ImageView.ScaleType.MATRIX;
-        this.f34338d = new c.n.a.f.b(sVGAVideoEntity, cVar);
+        this.f34362e = sVGAVideoEntity;
+        this.f34363f = cVar;
+        this.f34358a = true;
+        this.f34360c = ImageView.ScaleType.MATRIX;
+        this.f34361d = new c.n.a.f.b(sVGAVideoEntity, cVar);
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34336b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34359b : invokeV.intValue;
     }
 
     public final SVGAVideoEntity b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34339e : (SVGAVideoEntity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34362e : (SVGAVideoEntity) invokeV.objValue;
     }
 
     public final void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f34335a == z) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f34358a == z) {
             return;
         }
-        this.f34335a = z;
+        this.f34358a = z;
         invalidateSelf();
     }
 
     public final void d(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f34336b == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f34359b == i2) {
             return;
         }
-        this.f34336b = i2;
+        this.f34359b = i2;
         invalidateSelf();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || this.f34335a || canvas == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || this.f34358a || canvas == null) {
             return;
         }
-        this.f34338d.a(canvas, this.f34336b, this.f34337c);
+        this.f34361d.a(canvas, this.f34359b, this.f34360c);
     }
 
     public final void e(ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
-            this.f34337c = scaleType;
+            this.f34360c = scaleType;
         }
     }
 

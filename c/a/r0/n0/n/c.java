@@ -21,22 +21,22 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f22874a;
+    public TbPageContext<?> f22890a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f22875b;
+    public View f22891b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f22876c;
+    public ViewGroup f22892c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f22877d;
+    public ImageView f22893d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f22878e;
+    public TextView f22894e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f22879f;
+    public TextView f22895f;
 
     public c(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -53,30 +53,30 @@ public class c {
                 return;
             }
         }
-        this.f22874a = tbPageContext;
+        this.f22890a = tbPageContext;
         View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.no_like_forum_emotion_item_view, (ViewGroup) null);
-        this.f22875b = inflate;
-        this.f22876c = (ViewGroup) inflate.findViewById(R.id.item_group);
-        this.f22877d = (ImageView) this.f22875b.findViewById(R.id.image);
-        this.f22878e = (TextView) this.f22875b.findViewById(R.id.hint_text_1);
-        this.f22879f = (TextView) this.f22875b.findViewById(R.id.hint_text_2);
-        this.f22878e.setText(R.string.no_like_forum_hint_1);
-        this.f22879f.setText(R.string.no_like_forum_hint_2);
+        this.f22891b = inflate;
+        this.f22892c = (ViewGroup) inflate.findViewById(R.id.item_group);
+        this.f22893d = (ImageView) this.f22891b.findViewById(R.id.image);
+        this.f22894e = (TextView) this.f22891b.findViewById(R.id.hint_text_1);
+        this.f22895f = (TextView) this.f22891b.findViewById(R.id.hint_text_2);
+        this.f22894e.setText(R.string.no_like_forum_hint_1);
+        this.f22895f.setText(R.string.no_like_forum_hint_2);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setImageResource(this.f22877d, R.drawable.cp_mask_attention_a);
-            SkinManager.setViewTextColor(this.f22878e, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f22879f, R.color.CAM_X0109);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0206).tlRadius(l.g(this.f22874a.getPageActivity(), R.dimen.tbds21)).trRadius(l.g(this.f22874a.getPageActivity(), R.dimen.tbds21)).blRadius(l.g(this.f22874a.getPageActivity(), R.dimen.tbds21)).brRadius(l.g(this.f22874a.getPageActivity(), R.dimen.tbds21)).into(this.f22876c);
+            SkinManager.setImageResource(this.f22893d, R.drawable.cp_mask_attention_a);
+            SkinManager.setViewTextColor(this.f22894e, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f22895f, R.color.CAM_X0109);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0206).tlRadius(l.g(this.f22890a.getPageActivity(), R.dimen.tbds21)).trRadius(l.g(this.f22890a.getPageActivity(), R.dimen.tbds21)).blRadius(l.g(this.f22890a.getPageActivity(), R.dimen.tbds21)).brRadius(l.g(this.f22890a.getPageActivity(), R.dimen.tbds21)).into(this.f22892c);
         }
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22875b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22891b : (View) invokeV.objValue;
     }
 }

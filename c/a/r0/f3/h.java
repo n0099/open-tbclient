@@ -17,28 +17,28 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17717a;
+    public int f17727a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17718b;
+    public String f17728b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f17719c;
+    public int f17729c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f17720d;
+    public String f17730d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17721e;
+    public int f17731e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f17722f;
+    public String f17732f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f17723g;
+    public a f17733g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<i> f17724h;
+    public ArrayList<i> f17734h;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -53,56 +53,56 @@ public class h {
                 return;
             }
         }
-        this.f17723g = new a();
-        this.f17724h = new ArrayList<>();
+        this.f17733g = new a();
+        this.f17734h = new ArrayList<>();
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17721e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17731e : invokeV.intValue;
     }
 
     public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17723g : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17733g : (a) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17722f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17732f : (String) invokeV.objValue;
     }
 
     public ArrayList<i> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17724h : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17734h : (ArrayList) invokeV.objValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17719c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17729c : invokeV.intValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17718b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17728b : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17720d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17730d : (String) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f17717a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f17727a : invokeV.intValue;
     }
 
     public void i(String str) {
@@ -123,13 +123,13 @@ public class h {
             return;
         }
         try {
-            this.f17723g.c(jSONObject.optJSONObject("error"));
-            this.f17717a = jSONObject.optInt("show_dialog");
-            this.f17718b = jSONObject.optString("sign_notice");
-            this.f17719c = jSONObject.optInt("is_timeout");
-            this.f17720d = jSONObject.optString("timeout_notice");
-            this.f17721e = jSONObject.optInt("error_code");
-            this.f17722f = jSONObject.optString("error_msg");
+            this.f17733g.c(jSONObject.optJSONObject("error"));
+            this.f17727a = jSONObject.optInt("show_dialog");
+            this.f17728b = jSONObject.optString("sign_notice");
+            this.f17729c = jSONObject.optInt("is_timeout");
+            this.f17730d = jSONObject.optString("timeout_notice");
+            this.f17731e = jSONObject.optInt("error_code");
+            this.f17732f = jSONObject.optString("error_msg");
             JSONArray optJSONArray = jSONObject.optJSONArray("info");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
@@ -137,7 +137,7 @@ public class h {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     i iVar = new i();
                     iVar.f(jSONObject2);
-                    this.f17724h.add(iVar);
+                    this.f17734h.add(iVar);
                 }
             }
         } catch (Exception e2) {

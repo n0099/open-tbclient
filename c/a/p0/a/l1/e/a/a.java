@@ -14,22 +14,22 @@ public class a implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7253e;
+    public int f7261e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7254f;
+    public int f7262f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7255g;
+    public int f7263g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7256h;
+    public int f7264h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f7257i;
+    public boolean f7265i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f7258j;
+    public boolean f7266j;
     public boolean k;
     public boolean l;
 
@@ -46,8 +46,8 @@ public class a implements Cloneable {
                 return;
             }
         }
-        this.f7257i = false;
-        this.f7258j = false;
+        this.f7265i = false;
+        this.f7266j = false;
         this.k = false;
     }
 
@@ -86,7 +86,7 @@ public class a implements Cloneable {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.f7253e == aVar.f7253e && this.f7254f == aVar.f7254f && this.f7256h == aVar.f7256h && this.f7255g == aVar.f7255g && this.l == aVar.l;
+                return this.f7261e == aVar.f7261e && this.f7262f == aVar.f7262f && this.f7264h == aVar.f7264h && this.f7263g == aVar.f7263g && this.l == aVar.l;
             }
             return false;
         }
@@ -96,25 +96,25 @@ public class a implements Cloneable {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7256h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7264h : invokeV.intValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7253e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7261e : invokeV.intValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7254f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7262f : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f7255g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f7263g : invokeV.intValue;
     }
 
     public boolean j() {
@@ -128,7 +128,7 @@ public class a implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             boolean z = false;
-            return (this.f7257i || this.f7255g >= 0) & ((this.f7258j || this.f7256h >= 0) ? true : true);
+            return (this.f7265i || this.f7263g >= 0) & ((this.f7266j || this.f7264h >= 0) ? true : true);
         }
         return invokeV.booleanValue;
     }
@@ -143,42 +143,42 @@ public class a implements Cloneable {
     public void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f7256h = i2;
+            this.f7264h = i2;
         }
     }
 
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f7258j = z;
+            this.f7266j = z;
         }
     }
 
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f7253e = i2;
+            this.f7261e = i2;
         }
     }
 
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f7254f = i2;
+            this.f7262f = i2;
         }
     }
 
     public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f7255g = i2;
+            this.f7263g = i2;
         }
     }
 
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f7257i = z;
+            this.f7265i = z;
         }
     }
 
@@ -186,7 +186,7 @@ public class a implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return "Position{l=" + this.f7253e + ", t=" + this.f7254f + ", w=" + this.f7255g + ", h=" + this.f7256h + ", WAuto=" + this.f7257i + ", HAuto=" + this.f7258j + ", fixed=" + this.l + ExtendedMessageFormat.END_FE;
+            return "Position{l=" + this.f7261e + ", t=" + this.f7262f + ", w=" + this.f7263g + ", h=" + this.f7264h + ", WAuto=" + this.f7265i + ", HAuto=" + this.f7266j + ", fixed=" + this.l + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -206,12 +206,12 @@ public class a implements Cloneable {
                 return;
             }
         }
-        this.f7257i = false;
-        this.f7258j = false;
+        this.f7265i = false;
+        this.f7266j = false;
         this.k = false;
-        this.f7253e = i2;
-        this.f7254f = i3;
-        this.f7255g = i4;
-        this.f7256h = i5;
+        this.f7261e = i2;
+        this.f7262f = i3;
+        this.f7263g = i4;
+        this.f7264h = i5;
     }
 }

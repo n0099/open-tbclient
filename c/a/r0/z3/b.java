@@ -29,28 +29,6 @@ public class b {
     public static void b(String str, boolean z, long j2, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Boolean.valueOf(z), Long.valueOf(j2), str2, str3, str4}) == null) {
-            String str5 = TextUtils.isEmpty(str) ? "0" : "1";
-            long currentTimeMillis = System.currentTimeMillis() - j2;
-            if ("from_nani_video".equals(str2)) {
-                String str6 = "a002";
-                if (!"index".equals(str3)) {
-                    if ("concern_tab".equals(str3)) {
-                        str6 = "a038";
-                    } else if ("frs".equals(str3)) {
-                        str6 = "a006";
-                    } else {
-                        "homepage".equals(str3);
-                    }
-                }
-                if (z) {
-                    TiebaStatic.log(new StatisticItem("stime").param("obj_type", "a023").param(TiebaStatic.Params.OBJ_DURATION, currentTimeMillis).param("obj_source", str6).param(TiebaStatic.Params.IS_VERTICAL, "1").param("is_dynamic", str5).param("obj_location", str4));
-                    return;
-                } else {
-                    TiebaStatic.log(new StatisticItem("stime").param("obj_type", "a023").param(TiebaStatic.Params.OBJ_DURATION, currentTimeMillis).param("obj_source", str6).param("is_dynamic", str5).param(TiebaStatic.Params.IS_VERTICAL, "1"));
-                    return;
-                }
-            }
-            TiebaStatic.log(new StatisticItem("stime").param("obj_type", "a023").param(TiebaStatic.Params.OBJ_DURATION, currentTimeMillis).param("is_dynamic", str5).param("obj_source", "a020"));
         }
     }
 

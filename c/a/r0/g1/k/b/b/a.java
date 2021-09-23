@@ -49,7 +49,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.g1.k.b.c.a, CardViewHolder<c.a.r0.g1.k
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             c.a.r0.g1.k.b.d.a aVar = new c.a.r0.g1.k.b.d.a(this.m);
-            aVar.n(this.f2961i);
+            aVar.n(this.f2962i);
             return new CardViewHolder<>(aVar);
         }
         return (CardViewHolder) invokeL.objValue;

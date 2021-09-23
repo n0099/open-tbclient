@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.fsg.base.b;
+import com.baidu.fsg.base.c;
 import com.baidu.fsg.base.restnet.beans.business.BeanConstants;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.BdWalletUtils;
 import com.baidu.fsg.base.router.RouterCallback;
@@ -177,7 +177,7 @@ public class BaiduRIM {
         if (hashMap.get("animstyle") != null) {
             BeanConstants.ANIMSTYLE = (String) hashMap.get("animstyle");
         }
-        b.b().initEnv();
+        c.a().initEnv();
         BeanConstants.SDK_VERSION = "BDRIM-" + BeanConstants.VERSION_NO + "-Android-" + BeanConstants.CHANNEL_ID;
         if (hashMap.get(BaiduRimConstants.RIM_ID_KEY) != null) {
             ChannelUtils.initBussinessParams(BeanConstants.SDK_VERSION, false, hashMap.get(BaiduRimConstants.RIM_ID_KEY).toString());

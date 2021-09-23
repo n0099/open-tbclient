@@ -16,25 +16,25 @@ public class b extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f17478d;
+    public Object f17488d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<n> f17479e;
+    public List<n> f17489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f17480f;
+    public List<n> f17490f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Object> f17481g;
+    public List<Object> f17491g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f17482h;
+    public boolean f17492h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f17483i;
+    public boolean f17493i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f17484j;
+    public int f17494j;
     public int k;
     public boolean l;
     public int m;
@@ -62,9 +62,9 @@ public class b extends g {
                 return;
             }
         }
-        this.f17482h = false;
-        this.f17483i = false;
-        this.f17484j = 0;
+        this.f17492h = false;
+        this.f17493i = false;
+        this.f17494j = 0;
         this.l = false;
     }
 
@@ -78,7 +78,7 @@ public class b extends g {
     public void B(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f17480f = list;
+            this.f17490f = list;
         }
     }
 
@@ -99,26 +99,26 @@ public class b extends g {
     public void E(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f17479e = list;
+            this.f17489e = list;
         }
     }
 
     public List<Object> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17481g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17491g : (List) invokeV.objValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17484j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17494j : invokeV.intValue;
     }
 
     public Object f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f17478d : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f17488d : invokeV.objValue;
     }
 
     public String g() {
@@ -148,7 +148,7 @@ public class b extends g {
     public List<n> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f17480f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f17490f : (List) invokeV.objValue;
     }
 
     public String l() {
@@ -166,19 +166,19 @@ public class b extends g {
     public List<n> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f17479e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f17489e : (List) invokeV.objValue;
     }
 
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f17483i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f17493i : invokeV.booleanValue;
     }
 
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f17482h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f17492h : invokeV.booleanValue;
     }
 
     public boolean q() {
@@ -190,21 +190,21 @@ public class b extends g {
     public void r(List<Object> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
-            this.f17481g = list;
+            this.f17491g = list;
         }
     }
 
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.f17484j = i2;
+            this.f17494j = i2;
         }
     }
 
     public void t(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, obj) == null) {
-            this.f17478d = obj;
+            this.f17488d = obj;
         }
     }
 
@@ -225,14 +225,14 @@ public class b extends g {
     public void w(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.f17483i = z;
+            this.f17493i = z;
         }
     }
 
     public void x(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.f17482h = z;
+            this.f17492h = z;
         }
     }
 

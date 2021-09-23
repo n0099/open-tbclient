@@ -18,7 +18,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, ProviderDelegation> f9228a;
+    public static final Map<String, ProviderDelegation> f9236a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class e {
                 return;
             }
         }
-        f9228a = new ConcurrentHashMap();
+        f9236a = new ConcurrentHashMap();
         c(c.a.p0.a.u.b.a());
         c(c.a.p0.a.c1.a.s().d());
     }
@@ -57,14 +57,14 @@ public class e {
     public static ProviderDelegation a(@NonNull Class<? extends ProviderDelegation> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) ? f9228a.get(cls.getName()) : (ProviderDelegation) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) ? f9236a.get(cls.getName()) : (ProviderDelegation) invokeL.objValue;
     }
 
     @Nullable
     public static ProviderDelegation b(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? f9228a.get(str) : (ProviderDelegation) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? f9236a.get(str) : (ProviderDelegation) invokeL.objValue;
     }
 
     public static void c(@Nullable Map<Class, Object> map) {
@@ -76,7 +76,7 @@ public class e {
             if (cls != null) {
                 Object obj = map.get(cls);
                 if (obj instanceof ProviderDelegation) {
-                    f9228a.put(cls.getName(), (ProviderDelegation) obj);
+                    f9236a.put(cls.getName(), (ProviderDelegation) obj);
                 }
             }
         }

@@ -11,13 +11,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42568a;
+    public String f42630a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42569b;
+    public int f42631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42570c;
+    public int f42632c;
 
     public c(NetworkInfo networkInfo) {
         Interceptable interceptable = $ic;
@@ -34,15 +34,15 @@ public class c {
                 return;
             }
         }
-        this.f42568a = networkInfo.getTypeName();
-        this.f42569b = networkInfo.getType();
-        int i4 = d.f42571a[networkInfo.getState().ordinal()];
+        this.f42630a = networkInfo.getTypeName();
+        this.f42631b = networkInfo.getType();
+        int i4 = d.f42633a[networkInfo.getState().ordinal()];
         if (i4 == 1) {
-            this.f42570c = 2;
+            this.f42632c = 2;
         } else if (i4 != 2) {
-            this.f42570c = 0;
+            this.f42632c = 0;
         } else {
-            this.f42570c = 1;
+            this.f42632c = 1;
         }
     }
 }

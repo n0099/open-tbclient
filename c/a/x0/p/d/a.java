@@ -16,16 +16,16 @@ public class a extends MediaBaseRenderer implements c.a.x0.p.g.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f31007e;
+    public int f31028e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int[] f31008f;
+    public int[] f31029f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f31009g;
+    public int f31030g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f31010h;
+    public float f31031h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class a extends MediaBaseRenderer implements c.a.x0.p.g.b {
                 return;
             }
         }
-        this.f31008f = new int[1];
+        this.f31029f = new int[1];
     }
 
     @Override // c.a.x0.p.g.b
@@ -53,15 +53,15 @@ public class a extends MediaBaseRenderer implements c.a.x0.p.g.b {
             int i4 = i2 - ((int) (i3 * f2));
             if (f2 != 0.0f && f2 != (i2 * 1.0f) / i3 && i4 > 0) {
                 b();
-                GLES20.glBindFramebuffer(36160, this.f31009g);
-                GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.f31007e, 0);
+                GLES20.glBindFramebuffer(36160, this.f31030g);
+                GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.f31028e, 0);
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
                 GLES20.glClear(16640);
                 this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, (i4 * (-1.0680001f)) / this.mSurfaceViewHeight);
                 this.mFullScreen2D.drawFrame(this.mTextureId, this.mMtx);
                 this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
                 GLES20.glBindFramebuffer(36160, 0);
-                aVar.h(this.mFullScreen2D, this.f31007e, GlUtil.IDENTITY_MATRIX);
+                aVar.h(this.mFullScreen2D, this.f31028e, GlUtil.IDENTITY_MATRIX);
             } else if (this.mTextureMode == 1) {
                 aVar.h(this.mFullScreen2D, this.mTextureId, this.mMtx);
             } else {
@@ -74,29 +74,29 @@ public class a extends MediaBaseRenderer implements c.a.x0.p.g.b {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f31010h != this.mRatio) {
+            if (this.f31031h != this.mRatio) {
                 c();
             }
-            if (this.f31007e == 0) {
-                this.f31007e = this.mFullScreen2D.createTexture2DObject();
+            if (this.f31028e == 0) {
+                this.f31028e = this.mFullScreen2D.createTexture2DObject();
                 int i2 = this.mSurfaceViewWidth;
                 GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, i2, (int) (i2 * this.mRatio), 0, GeneratedTexture.FORMAT, 5121, null);
                 GLES20.glBindTexture(3553, 0);
-                GLES20.glGenFramebuffers(1, this.f31008f, 0);
-                this.f31009g = this.f31008f[0];
-                this.f31010h = this.mRatio;
+                GLES20.glGenFramebuffers(1, this.f31029f, 0);
+                this.f31030g = this.f31029f[0];
+                this.f31031h = this.mRatio;
             }
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f31007e == 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f31028e == 0) {
             return;
         }
-        GLES20.glDeleteFramebuffers(1, this.f31008f, 0);
-        GLES20.glDeleteTextures(1, new int[]{this.f31007e}, 0);
-        this.f31007e = 0;
+        GLES20.glDeleteFramebuffers(1, this.f31029f, 0);
+        GLES20.glDeleteTextures(1, new int[]{this.f31028e}, 0);
+        this.f31028e = 0;
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread

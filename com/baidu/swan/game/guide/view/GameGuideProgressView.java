@@ -44,22 +44,22 @@ public final class GameGuideProgressView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f46970e;
+    public float f47072e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46971f;
+    public int f47073f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46972g;
+    public int f47074g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f46973h;
+    public float f47075h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f46974i;
+    public Paint f47076i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Paint f46975j;
+    public Paint f47077j;
     public float k;
     public int l;
     public int m;
@@ -91,7 +91,7 @@ public final class GameGuideProgressView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameGuideProgressView f46976e;
+        public final /* synthetic */ GameGuideProgressView f47078e;
 
         public b(GameGuideProgressView gameGuideProgressView) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public final class GameGuideProgressView extends View {
                     return;
                 }
             }
-            this.f46976e = gameGuideProgressView;
+            this.f47078e = gameGuideProgressView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -123,13 +123,13 @@ public final class GameGuideProgressView extends View {
                 Float f2 = (Float) animatedValue;
                 if (f2 != null) {
                     f2.floatValue();
-                    GameGuideProgressView gameGuideProgressView = this.f46976e;
+                    GameGuideProgressView gameGuideProgressView = this.f47078e;
                     gameGuideProgressView.o = gameGuideProgressView.e(f2.floatValue());
-                    a progressListener = this.f46976e.getProgressListener();
+                    a progressListener = this.f47078e.getProgressListener();
                     if (progressListener != null) {
-                        progressListener.b(this.f46976e.o);
+                        progressListener.b(this.f47078e.o);
                     }
-                    this.f46976e.invalidate();
+                    this.f47078e.invalidate();
                 }
             }
         }
@@ -141,10 +141,10 @@ public final class GameGuideProgressView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f46977e;
+        public boolean f47079e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GameGuideProgressView f46978f;
+        public final /* synthetic */ GameGuideProgressView f47080f;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public c(GameGuideProgressView gameGuideProgressView) {
@@ -162,7 +162,7 @@ public final class GameGuideProgressView extends View {
                     return;
                 }
             }
-            this.f46978f = gameGuideProgressView;
+            this.f47080f = gameGuideProgressView;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -170,7 +170,7 @@ public final class GameGuideProgressView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationCancel(animator);
-                this.f46977e = true;
+                this.f47079e = true;
             }
         }
 
@@ -180,7 +180,7 @@ public final class GameGuideProgressView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                if (this.f46977e || (progressListener = this.f46978f.getProgressListener()) == null) {
+                if (this.f47079e || (progressListener = this.f47080f.getProgressListener()) == null) {
                     return;
                 }
                 progressListener.c();
@@ -192,7 +192,7 @@ public final class GameGuideProgressView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
                 super.onAnimationStart(animator);
-                this.f46977e = false;
+                this.f47079e = false;
             }
         }
     }
@@ -216,11 +216,11 @@ public final class GameGuideProgressView extends View {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.f46970e = n0.h(1.0f);
+        this.f47072e = n0.h(1.0f);
         int parseColor = Color.parseColor("#FFCD5D");
-        this.f46971f = parseColor;
-        this.f46972g = parseColor;
-        this.f46973h = n0.h(20.0f);
+        this.f47073f = parseColor;
+        this.f47074g = parseColor;
+        this.f47075h = n0.h(20.0f);
         float h2 = n0.h(6.0f);
         this.k = h2;
         this.n = h2 / 2.0f;
@@ -271,7 +271,7 @@ public final class GameGuideProgressView extends View {
         }
         float f2 = this.o;
         int i3 = this.l;
-        float f3 = this.f46973h;
+        float f3 = this.f47075h;
         if (i3 * f2 <= f3) {
             if (rect != null) {
                 rect.left = (int) (f3 - (f2 * i3));
@@ -281,7 +281,7 @@ public final class GameGuideProgressView extends View {
             if (rect != null) {
                 rect.left = 0;
             }
-            i2 = (int) ((this.o * this.l) - this.f46973h);
+            i2 = (int) ((this.o * this.l) - this.f47075h);
         }
         Rect rect2 = new Rect(i2, 0, (int) (this.o * this.l), this.m);
         Rect rect3 = this.s;
@@ -295,7 +295,7 @@ public final class GameGuideProgressView extends View {
             int i4 = this.m;
             float f4 = this.k;
             float f5 = 2;
-            float f6 = this.f46970e;
+            float f6 = this.f47072e;
             RectF rectF = new RectF(0.0f, ((i4 / 2.0f) - (f4 / f5)) - (f6 / f5), this.l, (i4 / 2.0f) + (f4 / f5) + (f6 / f5));
             float f7 = this.n;
             getClipPath().addRoundRect(rectF, new float[]{f7, f7, f7, f7, f7, f7, f7, f7}, Path.Direction.CW);
@@ -338,13 +338,13 @@ public final class GameGuideProgressView extends View {
             }
             float e2 = e(f2);
             this.o = e2;
-            float f3 = this.f46970e;
+            float f3 = this.f47072e;
             float f4 = 2;
             int i2 = this.m;
             float f5 = this.k;
             RectF rectF = new RectF((f3 / f4) + 0.0f, (i2 / 2.0f) - (f5 / 2.0f), (e2 * this.l) - (f3 / f4), (i2 / 2.0f) + (f5 / 2.0f));
             float f6 = this.n;
-            Paint paint = this.f46975j;
+            Paint paint = this.f47077j;
             if (paint == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("progressPaint");
             }
@@ -355,14 +355,14 @@ public final class GameGuideProgressView extends View {
     public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            float f2 = this.f46970e;
+            float f2 = this.f47072e;
             float f3 = 2;
             float f4 = this.l - (f2 / f3);
             int i2 = this.m;
             float f5 = this.k;
             RectF rectF = new RectF((f2 / f3) + 0.0f, (i2 / 2.0f) - (f5 / 2.0f), f4, (i2 / 2.0f) + (f5 / 2.0f));
             float f6 = this.n;
-            Paint paint = this.f46974i;
+            Paint paint = this.f47076i;
             if (paint == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("strokePaint");
             }
@@ -374,28 +374,28 @@ public final class GameGuideProgressView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             Paint paint = new Paint(1);
-            this.f46974i = paint;
+            this.f47076i = paint;
             if (paint == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("strokePaint");
             }
-            paint.setStrokeWidth(this.f46970e);
-            Paint paint2 = this.f46974i;
+            paint.setStrokeWidth(this.f47072e);
+            Paint paint2 = this.f47076i;
             if (paint2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("strokePaint");
             }
-            paint2.setColor(this.f46971f);
-            Paint paint3 = this.f46974i;
+            paint2.setColor(this.f47073f);
+            Paint paint3 = this.f47076i;
             if (paint3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("strokePaint");
             }
             paint3.setStyle(Paint.Style.STROKE);
             Paint paint4 = new Paint(1);
-            this.f46975j = paint4;
+            this.f47077j = paint4;
             if (paint4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("progressPaint");
             }
-            paint4.setColor(this.f46972g);
-            Paint paint5 = this.f46975j;
+            paint4.setColor(this.f47074g);
+            Paint paint5 = this.f47077j;
             if (paint5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("progressPaint");
             }
@@ -474,9 +474,9 @@ public final class GameGuideProgressView extends View {
             super.onSizeChanged(i2, i3, i4, i5);
             this.l = i2;
             this.m = i3;
-            if (i2 <= this.f46973h) {
-                if (!k.f7077a) {
-                    this.f46973h = i2;
+            if (i2 <= this.f47075h) {
+                if (!k.f7085a) {
+                    this.f47075h = i2;
                     return;
                 }
                 throw new RuntimeException("进度条宽度异常");
@@ -487,12 +487,12 @@ public final class GameGuideProgressView extends View {
     public final void setProgressColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            Paint paint = this.f46974i;
+            Paint paint = this.f47076i;
             if (paint == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("strokePaint");
             }
             paint.setColor(i2);
-            Paint paint2 = this.f46975j;
+            Paint paint2 = this.f47077j;
             if (paint2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("progressPaint");
             }
@@ -513,7 +513,7 @@ public final class GameGuideProgressView extends View {
             float e2 = e(f2);
             this.o = e2;
             if (e2 == 1.0f) {
-                boolean z = k.f7077a;
+                boolean z = k.f7085a;
                 invalidate();
                 return;
             }
@@ -582,11 +582,11 @@ public final class GameGuideProgressView extends View {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        this.f46970e = n0.h(1.0f);
+        this.f47072e = n0.h(1.0f);
         int parseColor = Color.parseColor("#FFCD5D");
-        this.f46971f = parseColor;
-        this.f46972g = parseColor;
-        this.f46973h = n0.h(20.0f);
+        this.f47073f = parseColor;
+        this.f47074g = parseColor;
+        this.f47075h = n0.h(20.0f);
         float h2 = n0.h(6.0f);
         this.k = h2;
         this.n = h2 / 2.0f;
@@ -615,11 +615,11 @@ public final class GameGuideProgressView extends View {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        this.f46970e = n0.h(1.0f);
+        this.f47072e = n0.h(1.0f);
         int parseColor = Color.parseColor("#FFCD5D");
-        this.f46971f = parseColor;
-        this.f46972g = parseColor;
-        this.f46973h = n0.h(20.0f);
+        this.f47073f = parseColor;
+        this.f47074g = parseColor;
+        this.f47075h = n0.h(20.0f);
         float h2 = n0.h(6.0f);
         this.k = h2;
         this.n = h2 / 2.0f;

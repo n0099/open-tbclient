@@ -48,7 +48,7 @@ public class PMSDBProviderProxy extends ContentProvider {
             SQLiteDatabase writableDatabase = getProvider().b().getWritableDatabase();
             try {
                 try {
-                    boolean z = c.f11856a;
+                    boolean z = c.f11864a;
                     writableDatabase.beginTransaction();
                     ContentProviderResult[] applyBatch = super.applyBatch(arrayList);
                     for (ContentProviderResult contentProviderResult : applyBatch) {
@@ -59,16 +59,16 @@ public class PMSDBProviderProxy extends ContentProvider {
                     writableDatabase.setTransactionSuccessful();
                     return applyBatch;
                 } catch (Exception e2) {
-                    if (c.f11856a) {
+                    if (c.f11864a) {
                         String str = "applyBatch Exception:" + e2.getMessage();
                     }
                     writableDatabase.endTransaction();
-                    boolean z2 = c.f11856a;
+                    boolean z2 = c.f11864a;
                     return new ContentProviderResult[0];
                 }
             } finally {
                 writableDatabase.endTransaction();
-                boolean z3 = c.f11856a;
+                boolean z3 = c.f11864a;
             }
         }
         return (ContentProviderResult[]) invokeL.objValue;

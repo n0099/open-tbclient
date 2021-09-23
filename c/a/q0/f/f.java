@@ -33,25 +33,25 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f13054a;
+    public final String f13071a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f13055b;
+    public c f13072b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f13056c;
+    public final Context f13073c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13057d;
+    public int f13074d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f13058e;
+    public String[] f13075e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f13059f;
+    public String[] f13076f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, c.a.q0.f.a> f13060g;
+    public HashMap<String, c.a.q0.f.a> f13077g;
 
     /* loaded from: classes3.dex */
     public class a implements Comparator<MediaFileInfo> {
@@ -97,7 +97,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f13061e;
+        public final /* synthetic */ f f13078e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class f {
                     return;
                 }
             }
-            this.f13061e = fVar;
+            this.f13078e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -124,10 +124,10 @@ public class f {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) {
-                if (this.f13061e.f13054a.equals(aVar.g())) {
+                if (this.f13078e.f13071a.equals(aVar.g())) {
                     return -1;
                 }
-                if (this.f13061e.f13054a.equals(aVar2.g())) {
+                if (this.f13078e.f13071a.equals(aVar2.g())) {
                     return 1;
                 }
                 int i2 = ((aVar2.e().getSortTime() - aVar.e().getSortTime()) > 0L ? 1 : ((aVar2.e().getSortTime() - aVar.e().getSortTime()) == 0L ? 0 : -1));
@@ -146,10 +146,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final e f13062a;
+        public final e f13079a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f13063b;
+        public final /* synthetic */ f f13080b;
 
         public c(f fVar, e eVar) {
             Interceptable interceptable = $ic;
@@ -166,8 +166,8 @@ public class f {
                     return;
                 }
             }
-            this.f13063b = fVar;
-            this.f13062a = eVar;
+            this.f13080b = fVar;
+            this.f13079a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -176,7 +176,7 @@ public class f {
         public g doInBackground(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) ? this.f13063b.d() : (g) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) ? this.f13080b.d() : (g) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -186,7 +186,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) {
                 super.onPostExecute(gVar);
-                e eVar = this.f13062a;
+                e eVar = this.f13079a;
                 if (eVar != null) {
                     eVar.a(gVar);
                 }
@@ -198,7 +198,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 super.onPreExecute();
-                e eVar = this.f13062a;
+                e eVar = this.f13079a;
                 if (eVar != null) {
                     eVar.onPreLoad();
                 }
@@ -221,33 +221,33 @@ public class f {
                 return;
             }
         }
-        this.f13054a = TbConfig.getTempDirName();
-        this.f13057d = 0;
-        this.f13058e = new String[]{"_id", "bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
-        this.f13059f = new String[]{"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
-        this.f13060g = new HashMap<>();
-        this.f13056c = context;
+        this.f13071a = TbConfig.getTempDirName();
+        this.f13074d = 0;
+        this.f13075e = new String[]{"_id", "bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
+        this.f13076f = new String[]{"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
+        this.f13077g = new HashMap<>();
+        this.f13073c = context;
     }
 
     public void c() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f13055b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f13072b) == null) {
             return;
         }
         cVar.cancel();
-        this.f13055b = null;
+        this.f13072b = null;
     }
 
     public final g d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.f13060g.clear();
+            this.f13077g.clear();
             g gVar = new g();
             List<VideoFileInfo> list = null;
-            List<ImageFileInfo> e2 = this.f13057d != 1 ? e() : null;
-            int i2 = this.f13057d;
+            List<ImageFileInfo> e2 = this.f13074d != 1 ? e() : null;
+            int i2 = this.f13074d;
             if (i2 != 2 && i2 != 3) {
                 list = g();
             }
@@ -261,13 +261,13 @@ public class f {
             if (!ListUtils.isEmpty(arrayList)) {
                 Collections.sort(arrayList, new a(this));
             }
-            ArrayList arrayList2 = new ArrayList(this.f13060g.values());
+            ArrayList arrayList2 = new ArrayList(this.f13077g.values());
             if (!ListUtils.isEmpty(arrayList2)) {
                 Collections.sort(arrayList2, new b(this));
             }
-            gVar.f13064a = arrayList2;
-            gVar.f13066c = list;
-            gVar.f13065b = arrayList;
+            gVar.f13081a = arrayList2;
+            gVar.f13083c = list;
+            gVar.f13082b = arrayList;
             return gVar;
         }
         return (g) invokeV.objValue;
@@ -303,12 +303,12 @@ public class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) {
             f fVar = this;
             String str = null;
-            if (fVar.f13056c == null) {
+            if (fVar.f13073c == null) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             try {
-                Cursor query = fVar.f13056c.getContentResolver().query(uri, fVar.f13058e, "mime_type like 'image/%'", null, "date_added DESC");
+                Cursor query = fVar.f13073c.getContentResolver().query(uri, fVar.f13075e, "mime_type like 'image/%'", null, "date_added DESC");
                 if (query != null) {
                     try {
                         if (query.moveToFirst()) {
@@ -325,7 +325,7 @@ public class f {
                                 boolean endsWith = string4.endsWith("gif");
                                 if (endsWith) {
                                     try {
-                                        if (fVar.f13057d == 3 || i2 > 3145728) {
+                                        if (fVar.f13074d == 3 || i2 > 3145728) {
                                             fVar = this;
                                             if (query.moveToNext()) {
                                                 break;
@@ -360,10 +360,10 @@ public class f {
                                 imageFileInfo.setSortTime(j2);
                                 arrayList.add(imageFileInfo);
                                 fVar = this;
-                                c.a.q0.f.a aVar = fVar.f13060g.get(string);
+                                c.a.q0.f.a aVar = fVar.f13077g.get(string);
                                 if (aVar == null) {
                                     aVar = new c.a.q0.f.a();
-                                    fVar.f13060g.put(string, aVar);
+                                    fVar.f13077g.put(string, aVar);
                                 }
                                 aVar.h(string);
                                 aVar.l(string2);
@@ -407,7 +407,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            Context context = this.f13056c;
+            Context context = this.f13073c;
             if (context == null) {
                 return arrayList;
             }
@@ -415,7 +415,7 @@ public class f {
             HashSet hashSet = new HashSet();
             try {
                 Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-                Cursor query = contentResolver.query(uri, this.f13059f, null, null, "date_added DESC");
+                Cursor query = contentResolver.query(uri, this.f13076f, null, null, "date_added DESC");
                 if (query != null) {
                     try {
                         if (query.moveToFirst()) {
@@ -485,11 +485,11 @@ public class f {
                 return false;
             }
             c();
-            this.f13057d = i2;
+            this.f13074d = i2;
             c cVar = new c(this, eVar);
-            this.f13055b = cVar;
+            this.f13072b = cVar;
             cVar.setPriority(3);
-            this.f13055b.execute(new Object[0]);
+            this.f13072b.execute(new Object[0]);
             return true;
         }
         return invokeIL.booleanValue;

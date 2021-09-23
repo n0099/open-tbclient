@@ -15,11 +15,11 @@ public abstract class c implements a<c.a.p0.a.v1.a.b.a.b> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9214b;
+    public static final boolean f9222b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9215a;
+    public String f9223a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public abstract class c implements a<c.a.p0.a.v1.a.b.a.b> {
                 return;
             }
         }
-        f9214b = k.f7077a;
+        f9222b = k.f7085a;
     }
 
     public c() {
@@ -56,15 +56,15 @@ public abstract class c implements a<c.a.p0.a.v1.a.b.a.b> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.f9215a)) {
-                return this.f9215a;
+            if (!TextUtils.isEmpty(this.f9223a)) {
+                return this.f9223a;
             }
             String str = System.currentTimeMillis() + "" + hashCode();
-            this.f9215a = str;
-            if (f9214b && c.a.p0.a.v1.a.b.d.a.a(str)) {
+            this.f9223a = str;
+            if (f9222b && c.a.p0.a.v1.a.b.d.a.a(str)) {
                 throw new RuntimeException("illegal observer id");
             }
-            return this.f9215a;
+            return this.f9223a;
         }
         return (String) invokeV.objValue;
     }

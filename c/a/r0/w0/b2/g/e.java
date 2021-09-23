@@ -19,11 +19,11 @@ public class e extends c.a.q0.s.q.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f26521f;
+    public static final BdUniqueId f26544f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<ItemInfo> f26522e;
+    public List<ItemInfo> f26545e;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class e extends c.a.q0.s.q.a {
                 return;
             }
         }
-        f26521f = BdUniqueId.gen();
+        f26544f = BdUniqueId.gen();
     }
 
     public e() {
@@ -60,7 +60,7 @@ public class e extends c.a.q0.s.q.a {
     public List<ItemInfo> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26522e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26545e : (List) invokeV.objValue;
     }
 
     @Override // c.a.q0.s.q.a
@@ -87,13 +87,13 @@ public class e extends c.a.q0.s.q.a {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f26521f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f26544f : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(List<ItemInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f26522e = list;
+            this.f26545e = list;
         }
     }
 }

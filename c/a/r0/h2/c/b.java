@@ -36,22 +36,22 @@ public class b implements c.a.r0.h2.c.a, View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LoginDialogActivity f18980e;
+    public LoginDialogActivity f18989e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18981f;
+    public View f18990f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f18982g;
+    public View f18991g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f18983h;
+    public View f18992h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f18984i;
+    public ImageView f18993i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f18985j;
+    public TextView f18994j;
     public TextView k;
     public TextView l;
     public TextView m;
@@ -72,7 +72,7 @@ public class b implements c.a.r0.h2.c.a, View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f18986a;
+        public final /* synthetic */ b f18995a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -89,16 +89,16 @@ public class b implements c.a.r0.h2.c.a, View.OnClickListener {
                     return;
                 }
             }
-            this.f18986a = bVar;
+            this.f18995a = bVar;
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void onFail(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                this.f18986a.f18980e.closeLoadingDialog();
-                this.f18986a.f18980e.showToast(String.format(this.f18986a.f18980e.getString(R.string.onekey_login_fail), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
-                this.f18986a.f18980e.passLoginFail();
+                this.f18995a.f18989e.closeLoadingDialog();
+                this.f18995a.f18989e.showToast(String.format(this.f18995a.f18989e.getString(R.string.onekey_login_fail), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+                this.f18995a.f18989e.passLoginFail();
             }
         }
 
@@ -113,8 +113,8 @@ public class b implements c.a.r0.h2.c.a, View.OnClickListener {
         public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oneKeyLoginResult) == null) {
-                this.f18986a.f18980e.passLoginSucc();
-                this.f18986a.f18980e.addLoginSuccessLog(DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
+                this.f18995a.f18989e.passLoginSucc();
+                this.f18995a.f18989e.addLoginSuccessLog(DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
             }
         }
     }
@@ -188,13 +188,13 @@ public class b implements c.a.r0.h2.c.a, View.OnClickListener {
     public void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, loginDialogActivity, viewGroup) == null) {
-            this.f18980e = loginDialogActivity;
+            this.f18989e = loginDialogActivity;
             View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.onekey_login_dialog_activity_layout, viewGroup, true);
-            this.f18981f = inflate.findViewById(R.id.dialog_background);
-            this.f18982g = inflate.findViewById(R.id.dialog_layout);
-            this.f18983h = inflate.findViewById(R.id.close_btn_layout);
-            this.f18984i = (ImageView) inflate.findViewById(R.id.close_btn_view);
-            this.f18985j = (TextView) inflate.findViewById(R.id.dialog_title);
+            this.f18990f = inflate.findViewById(R.id.dialog_background);
+            this.f18991g = inflate.findViewById(R.id.dialog_layout);
+            this.f18992h = inflate.findViewById(R.id.close_btn_layout);
+            this.f18993i = (ImageView) inflate.findViewById(R.id.close_btn_view);
+            this.f18994j = (TextView) inflate.findViewById(R.id.dialog_title);
             this.k = (TextView) inflate.findViewById(R.id.dialog_subtitle);
             this.l = (TextView) inflate.findViewById(R.id.user_number);
             this.m = (TextView) inflate.findViewById(R.id.login_btn);
@@ -205,10 +205,10 @@ public class b implements c.a.r0.h2.c.a, View.OnClickListener {
             this.r = (TextView) inflate.findViewById(R.id.agreement_text);
             this.s = (TextView) inflate.findViewById(R.id.tip_3);
             this.t = (TextView) inflate.findViewById(R.id.privacy_text);
-            this.f18981f.setOnClickListener(this);
-            this.f18983h.setOnClickListener(this);
-            this.f18984i.setOnClickListener(this);
-            this.f18982g.setOnClickListener(this);
+            this.f18990f.setOnClickListener(this);
+            this.f18992h.setOnClickListener(this);
+            this.f18993i.setOnClickListener(this);
+            this.f18991g.setOnClickListener(this);
             this.m.setOnClickListener(this);
             this.n.setOnClickListener(this);
             this.p.setOnClickListener(this);
@@ -221,7 +221,7 @@ public class b implements c.a.r0.h2.c.a, View.OnClickListener {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LoginDialogActivity loginDialogActivity = this.f18980e;
+            LoginDialogActivity loginDialogActivity = this.f18989e;
             new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.onekey_login_dialog_activity_agreement_text), SwanAppPhoneLoginDialog.PASS_ACCOUNT_AGREE, false).start();
         }
     }
@@ -229,8 +229,8 @@ public class b implements c.a.r0.h2.c.a, View.OnClickListener {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f18980e.passLoginCancel();
-            this.f18980e.finish();
+            this.f18989e.passLoginCancel();
+            this.f18989e.finish();
         }
     }
 
@@ -259,9 +259,9 @@ public class b implements c.a.r0.h2.c.a, View.OnClickListener {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f18980e.showLoading();
+            this.f18989e.showLoading();
             PassportSDK passportSDK = PassportSDK.getInstance();
-            LoginDialogActivity loginDialogActivity = this.f18980e;
+            LoginDialogActivity loginDialogActivity = this.f18989e;
             passportSDK.loadOneKeyLogin(loginDialogActivity, h(loginDialogActivity, this.w), new a(this));
         }
     }
@@ -281,14 +281,14 @@ public class b implements c.a.r0.h2.c.a, View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             int i2 = this.u;
             if (i2 == 1) {
-                LoginDialogActivity loginDialogActivity = this.f18980e;
+                LoginDialogActivity loginDialogActivity = this.f18989e;
                 new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.onekey_login_dialog_activity_operator_1), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
             } else if (i2 == 2) {
-                LoginDialogActivity loginDialogActivity2 = this.f18980e;
+                LoginDialogActivity loginDialogActivity2 = this.f18989e;
                 new TbWebViewActivityConfig(loginDialogActivity2, loginDialogActivity2.getResources().getString(R.string.onekey_login_dialog_activity_operator_2), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
             } else if (i2 != 3) {
             } else {
-                LoginDialogActivity loginDialogActivity3 = this.f18980e;
+                LoginDialogActivity loginDialogActivity3 = this.f18989e;
                 new TbWebViewActivityConfig(loginDialogActivity3, loginDialogActivity3.getResources().getString(R.string.onekey_login_dialog_activity_operator_3), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
             }
         }
@@ -297,9 +297,9 @@ public class b implements c.a.r0.h2.c.a, View.OnClickListener {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f18980e.finish();
-            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.f18980e, true);
-            loginActivityConfig.setLoginListener(this.f18980e.getLoginListener());
+            this.f18989e.finish();
+            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.f18989e, true);
+            loginActivityConfig.setLoginListener(this.f18989e.getLoginListener());
             loginActivityConfig.start();
         }
     }
@@ -307,7 +307,7 @@ public class b implements c.a.r0.h2.c.a, View.OnClickListener {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            LoginDialogActivity loginDialogActivity = this.f18980e;
+            LoginDialogActivity loginDialogActivity = this.f18989e;
             new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.onekey_login_dialog_activity_privacy_text), "http://privacy.baidu.com/mdetail?id=288", false).start();
         }
     }
@@ -345,9 +345,9 @@ public class b implements c.a.r0.h2.c.a, View.OnClickListener {
     public void onViewChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            SkinManager.setBackgroundResource(this.f18982g, R.drawable.nav_bg_corner_shape, i2);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18984i, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f18985j);
+            SkinManager.setBackgroundResource(this.f18991g, R.drawable.nav_bg_corner_shape, i2);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18993i, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f18994j);
             d2.w(R.color.CAM_X0105);
             d2.A(R.dimen.T_X05);
             d2.B(R.string.F_X02);

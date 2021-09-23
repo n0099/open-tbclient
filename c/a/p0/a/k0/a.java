@@ -27,13 +27,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e.c f7079a;
+        public final /* synthetic */ e.c f7087a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f7080b;
+        public final /* synthetic */ File f7088b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f7081c;
+        public final /* synthetic */ a f7089c;
 
         public C0278a(a aVar, e.c cVar, File file) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public class a {
                     return;
                 }
             }
-            this.f7081c = aVar;
-            this.f7079a = cVar;
-            this.f7080b = file;
+            this.f7089c = aVar;
+            this.f7087a = cVar;
+            this.f7088b = file;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f7081c.c(this.f7079a, 1, 0);
+                this.f7089c.c(this.f7087a, 1, 0);
             }
         }
 
@@ -75,7 +75,7 @@ public class a {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f7081c.d(response, this.f7079a, this.f7080b);
+                this.f7089c.d(response, this.f7087a, this.f7088b);
                 return response;
             }
             return invokeLI.objValue;
@@ -88,7 +88,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f7082e;
+        public final /* synthetic */ e.c f7090e;
 
         public b(a aVar, e.c cVar) {
             Interceptable interceptable = $ic;
@@ -105,14 +105,14 @@ public class a {
                     return;
                 }
             }
-            this.f7082e = cVar;
+            this.f7090e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7082e.onSuccess();
+                this.f7090e.onSuccess();
             }
         }
     }
@@ -123,7 +123,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f7083e;
+        public final /* synthetic */ e.c f7091e;
 
         public c(a aVar, e.c cVar) {
             Interceptable interceptable = $ic;
@@ -140,14 +140,14 @@ public class a {
                     return;
                 }
             }
-            this.f7083e = cVar;
+            this.f7091e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7083e.onFailed();
+                this.f7091e.onFailed();
             }
         }
     }
@@ -158,10 +158,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f7084e;
+        public final /* synthetic */ e.c f7092e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f7085f;
+        public final /* synthetic */ int f7093f;
 
         public d(a aVar, e.c cVar, int i2) {
             Interceptable interceptable = $ic;
@@ -178,15 +178,15 @@ public class a {
                     return;
                 }
             }
-            this.f7084e = cVar;
-            this.f7085f = i2;
+            this.f7092e = cVar;
+            this.f7093f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7084e.onProgressChanged(this.f7085f);
+                this.f7092e.onProgressChanged(this.f7093f);
             }
         }
     }
@@ -296,10 +296,10 @@ public class a {
     public void e(e.d dVar, String str, e.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, dVar, str, cVar) == null) {
-            c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(dVar.f4497a, new C0278a(this, cVar, new File(str)));
-            aVar.f11845f = false;
-            aVar.f11846g = false;
-            aVar.f11847h = false;
+            c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(dVar.f4505a, new C0278a(this, cVar, new File(str)));
+            aVar.f11853f = false;
+            aVar.f11854g = false;
+            aVar.f11855h = false;
             c.a.p0.m.e.a.g().d(aVar);
         }
     }

@@ -24,30 +24,30 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f18685e;
+    public d f18694e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18686f;
+    public int f18695f;
 
     /* renamed from: g  reason: collision with root package name */
-    public C0905a f18687g;
+    public C0903a f18696g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f18688h;
+    public Context f18697h;
 
     /* renamed from: c.a.r0.g3.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0905a {
+    public class C0903a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageView f18689a;
+        public ImageView f18698a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f18690b;
+        public TextView f18699b;
 
-        public C0905a(a aVar) {
+        public C0903a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,56 +79,56 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f18686f = 0;
-        this.f18688h = context;
+        this.f18695f = 0;
+        this.f18697h = context;
     }
 
     public final View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.f18688h).inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
-            C0905a c0905a = new C0905a(this);
-            this.f18687g = c0905a;
-            c0905a.f18689a = (ImageView) inflate.findViewById(R.id.menu_choose);
-            this.f18687g.f18690b = (TextView) inflate.findViewById(R.id.menu_name);
-            inflate.setTag(this.f18687g);
+            View inflate = LayoutInflater.from(this.f18697h).inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
+            C0903a c0903a = new C0903a(this);
+            this.f18696g = c0903a;
+            c0903a.f18698a = (ImageView) inflate.findViewById(R.id.menu_choose);
+            this.f18696g.f18699b = (TextView) inflate.findViewById(R.id.menu_name);
+            inflate.setTag(this.f18696g);
             return inflate;
         }
         return (View) invokeV.objValue;
     }
 
-    public final void b(C0905a c0905a, d dVar, View view, int i2) {
+    public final void b(C0903a c0903a, d dVar, View view, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0905a, dVar, view, i2) == null) || c0905a == null || dVar == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0903a, dVar, view, i2) == null) || c0903a == null || dVar == null) {
             return;
         }
-        c0905a.f18690b.setText("");
+        c0903a.f18699b.setText("");
         if (i2 == 0) {
-            TextView textView = c0905a.f18690b;
-            textView.setText(this.f18688h.getString(R.string.all) + dVar.f18743b);
+            TextView textView = c0903a.f18699b;
+            textView.setText(this.f18697h.getString(R.string.all) + dVar.f18752b);
         } else {
-            c0905a.f18690b.setText(dVar.f18743b);
+            c0903a.f18699b.setText(dVar.f18752b);
         }
-        if (i2 != this.f18686f) {
-            c0905a.f18689a.setVisibility(4);
-            SkinManager.setViewTextColor(c0905a.f18690b, R.color.common_color_10200, 1);
+        if (i2 != this.f18695f) {
+            c0903a.f18698a.setVisibility(4);
+            SkinManager.setViewTextColor(c0903a.f18699b, R.color.common_color_10200, 1);
             return;
         }
-        c0905a.f18689a.setVisibility(0);
-        SkinManager.setViewTextColor(c0905a.f18690b, R.color.common_color_10013, 1);
+        c0903a.f18698a.setVisibility(0);
+        SkinManager.setViewTextColor(c0903a.f18699b, R.color.common_color_10013, 1);
     }
 
     public d c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18685e : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18694e : (d) invokeV.objValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f18686f = i2;
+            this.f18695f = i2;
             notifyDataSetChanged();
         }
     }
@@ -136,7 +136,7 @@ public class a extends BaseAdapter {
     public void e(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f18685e = dVar;
+            this.f18694e = dVar;
         }
     }
 
@@ -146,8 +146,8 @@ public class a extends BaseAdapter {
         ArrayList<d> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            d dVar = this.f18685e;
-            if (dVar == null || (arrayList = dVar.f18746e) == null) {
+            d dVar = this.f18694e;
+            if (dVar == null || (arrayList = dVar.f18755e) == null) {
                 return 0;
             }
             return arrayList.size();
@@ -161,8 +161,8 @@ public class a extends BaseAdapter {
         ArrayList<d> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            d dVar = this.f18685e;
-            if (dVar == null || (arrayList = dVar.f18746e) == null) {
+            d dVar = this.f18694e;
+            if (dVar == null || (arrayList = dVar.f18755e) == null) {
                 return null;
             }
             return arrayList.get(i2);
@@ -185,15 +185,15 @@ public class a extends BaseAdapter {
             if (view == null) {
                 view = a();
             }
-            d dVar = this.f18685e;
+            d dVar = this.f18694e;
             if (dVar == null) {
                 return view;
             }
-            d dVar2 = dVar.f18746e.get(i2);
-            C0905a c0905a = (C0905a) view.getTag();
-            this.f18687g = c0905a;
+            d dVar2 = dVar.f18755e.get(i2);
+            C0903a c0903a = (C0903a) view.getTag();
+            this.f18696g = c0903a;
             if (dVar2 != null) {
-                b(c0905a, dVar2, view, i2);
+                b(c0903a, dVar2, view, i2);
             }
             return view;
         }

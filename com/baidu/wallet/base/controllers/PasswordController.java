@@ -3,7 +3,6 @@ package com.baidu.wallet.base.controllers;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,22 +14,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.paysdk.api.BaiduPay;
-import com.baidu.wallet.paysdk.api.BindCardEntry;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
-import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
 import com.baidu.wallet.paysdk.datamodel.PwdRequest;
-import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.PwdCheckActivity;
 import com.baidu.wallet.paysdk.ui.PwdSetAndConfirmActivity;
-import com.baidu.wallet.paysdk.ui.SelectBindCardActivity;
 import com.dxmpay.apollon.armor.SecurePay;
 import com.dxmpay.apollon.utils.Md5Utils;
 import com.dxmpay.wallet.api.WalletLoginHelper;
 import com.dxmpay.wallet.core.beans.BeanRequestBase;
 import com.dxmpay.wallet.core.utils.BaiduWalletUtils;
 import com.dxmpay.wallet.passport.LoginBackListenerProxy;
-import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.math.BigInteger;
 import java.util.Map;
 import java.util.Random;
@@ -39,26 +33,26 @@ public final class PasswordController {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static PasswordController f60295a;
+    public static PasswordController f60420a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public IPwdListener f60296b;
+    public IPwdListener f60421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IPwdListener f60297c;
+    public IPwdListener f60422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IPwdListener f60298d;
+    public IPwdListener f60423d;
 
     /* renamed from: e  reason: collision with root package name */
-    public IPwdListener f60299e;
+    public IPwdListener f60424e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaiduPay.IBindCardCallback f60300f;
+    public BaiduPay.IBindCardCallback f60425f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LoginBackListenerProxy f60301g;
+    public LoginBackListenerProxy f60426g;
 
     /* loaded from: classes8.dex */
     public interface IPwdListener {
@@ -85,10 +79,10 @@ public final class PasswordController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f60295a == null) {
-                f60295a = new PasswordController();
+            if (f60420a == null) {
+                f60420a = new PasswordController();
             }
-            return f60295a;
+            return f60420a;
         }
         return (PasswordController) invokeV.objValue;
     }
@@ -155,7 +149,7 @@ public final class PasswordController {
     public void checkPwdFail(int i2, String str) {
         IPwdListener iPwdListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || (iPwdListener = this.f60296b) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || (iPwdListener = this.f60421b) == null) {
             return;
         }
         iPwdListener.onFail(i2, str);
@@ -164,7 +158,7 @@ public final class PasswordController {
     public void checkPwdForSp(Context context, Map<String, String> map, IPwdListener iPwdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, context, map, iPwdListener) == null) {
-            this.f60296b = iPwdListener;
+            this.f60421b = iPwdListener;
             PwdRequest pwdRequest = new PwdRequest();
             pwdRequest.mFrom = 1;
             pwdRequest.mRequestType = 2;
@@ -190,52 +184,52 @@ public final class PasswordController {
     public void checkPwdSucceed(String str) {
         IPwdListener iPwdListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (iPwdListener = this.f60296b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (iPwdListener = this.f60421b) == null) {
             return;
         }
         iPwdListener.onSucceed(str);
-        this.f60296b = null;
+        this.f60421b = null;
     }
 
     public void clearBindCardCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f60300f = null;
+            this.f60425f = null;
         }
     }
 
     public void clearCheckPwdListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f60296b = null;
+            this.f60421b = null;
         }
     }
 
     public void clearEditPwdCallBack() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f60298d = null;
+            this.f60423d = null;
         }
     }
 
     public void clearForgetPasswdCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f60299e = null;
+            this.f60424e = null;
         }
     }
 
     public void clearSetPwdListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f60297c = null;
+            this.f60422c = null;
         }
     }
 
     public void editPwd(Context context, IPwdListener iPwdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, context, iPwdListener) == null) {
-            this.f60298d = iPwdListener;
+            this.f60423d = iPwdListener;
             PwdRequest pwdRequest = new PwdRequest();
             pwdRequest.mFrom = 2;
             pwdRequest.mRequestType = 1;
@@ -251,7 +245,7 @@ public final class PasswordController {
     public void editPwdFail(int i2, String str) {
         IPwdListener iPwdListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048590, this, i2, str) == null) || (iPwdListener = this.f60298d) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048590, this, i2, str) == null) || (iPwdListener = this.f60423d) == null) {
             return;
         }
         iPwdListener.onFail(i2, str);
@@ -260,57 +254,17 @@ public final class PasswordController {
     public void editPwdSucceed(String str) {
         IPwdListener iPwdListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || (iPwdListener = this.f60298d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || (iPwdListener = this.f60423d) == null) {
             return;
         }
         iPwdListener.onSucceed(str);
-        this.f60298d = null;
-    }
-
-    public void fogetPasswd(Context context, IPwdListener iPwdListener, String str) {
-        BindFastRequest createBindRequest;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048592, this, context, iPwdListener, str) == null) {
-            StatisticManager.onEvent("forgetPWD");
-            if (iPwdListener == null) {
-                return;
-            }
-            if (context == null) {
-                forgetPasswdFailed();
-                return;
-            }
-            this.f60299e = iPwdListener;
-            if (PayDataCache.getInstance().hasBondCards()) {
-                if (PayRequestCache.getInstance().isPaying()) {
-                    createBindRequest = new BindFastRequest();
-                    PayRequestCache.getInstance().addBeanRequestToCache(PayRequestCache.BindCategory.Other.name(), createBindRequest);
-                } else {
-                    createBindRequest = BindCardEntry.createBindRequest(PayRequestCache.BindCategory.Pwd);
-                }
-                Intent intent = new Intent(context, SelectBindCardActivity.class);
-                createBindRequest.mBindFrom = 4;
-                intent.putExtra("baidu.wallet.from", PayRequestCache.BindCategory.Pwd.name());
-                if (!BaiduWalletUtils.isActivity(context)) {
-                    intent.addFlags(268435456);
-                }
-                context.startActivity(intent);
-            } else if (PayRequestCache.getInstance().isPaying()) {
-                BindFastRequest bindFastRequest = new BindFastRequest();
-                bindFastRequest.mBindFrom = 3;
-                PayRequestCache.getInstance().addBeanRequestToCache(PayRequestCache.BindCategory.Other.name(), bindFastRequest);
-                Bundle bundle = new Bundle();
-                bundle.putString("baidu.wallet.from", PayRequestCache.BindCategory.Pwd.name());
-                BaiduPay.getInstance().launchBindCardActivity(context, null, bundle);
-            } else {
-                BaiduPay.getInstance().bindCard(context, null, PayRequestCache.BindCategory.Pwd, 3, null, null, null, null, false, null);
-            }
-        }
+        this.f60423d = null;
     }
 
     public void forgetPasswdFailed() {
         IPwdListener iPwdListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (iPwdListener = this.f60299e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (iPwdListener = this.f60424e) == null) {
             return;
         }
         iPwdListener.onFail(-1, "");
@@ -319,17 +273,17 @@ public final class PasswordController {
     public void forgetPasswdSucceed(String str) {
         IPwdListener iPwdListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (iPwdListener = this.f60299e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, str) == null) || (iPwdListener = this.f60424e) == null) {
             return;
         }
         iPwdListener.onSucceed(str);
-        this.f60299e = null;
+        this.f60424e = null;
     }
 
     public void setPassByUserFail(String str) {
         BaiduPay.IBindCardCallback iBindCardCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || (iBindCardCallback = this.f60300f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (iBindCardCallback = this.f60425f) == null) {
             return;
         }
         iBindCardCallback.onChangeFailed(str);
@@ -338,26 +292,19 @@ public final class PasswordController {
     public void setPassByUserSucceed(String str) {
         BaiduPay.IBindCardCallback iBindCardCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || (iBindCardCallback = this.f60300f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || (iBindCardCallback = this.f60425f) == null) {
             return;
         }
         iBindCardCallback.onChangeSucceed(null);
-        this.f60300f = null;
-    }
-
-    public void setPasswdByUser(Context context, BaiduPay.IBindCardCallback iBindCardCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, context, iBindCardCallback) == null) {
-            setPasswdByUser(context, iBindCardCallback, null);
-        }
+        this.f60425f = null;
     }
 
     public void setPwd(Context context, boolean z, IPwdListener iPwdListener, PayRequestCache.BindCategory bindCategory) {
         PwdRequest pwdRequest;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{context, Boolean.valueOf(z), iPwdListener, bindCategory}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{context, Boolean.valueOf(z), iPwdListener, bindCategory}) == null) {
             if (iPwdListener != null) {
-                this.f60297c = iPwdListener;
+                this.f60422c = iPwdListener;
             }
             BeanRequestBase beanRequestFromCache = PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
             if (z && (beanRequestFromCache instanceof PwdRequest)) {
@@ -382,7 +329,7 @@ public final class PasswordController {
     public void setPwdFail(int i2, String str) {
         IPwdListener iPwdListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048600, this, i2, str) == null) || (iPwdListener = this.f60297c) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048597, this, i2, str) == null) || (iPwdListener = this.f60422c) == null) {
             return;
         }
         iPwdListener.onFail(i2, str);
@@ -391,11 +338,11 @@ public final class PasswordController {
     public void setPwdSucceed(String str) {
         IPwdListener iPwdListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, str) == null) || (iPwdListener = this.f60297c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, str) == null) || (iPwdListener = this.f60422c) == null) {
             return;
         }
         iPwdListener.onSucceed(str);
-        this.f60297c = null;
+        this.f60422c = null;
     }
 
     public void checkPwd(Context context, String str, IPwdListener iPwdListener) {
@@ -408,7 +355,7 @@ public final class PasswordController {
     public void checkPwdFromH5(Context context, String str, String str2, IPwdListener iPwdListener, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048582, this, context, str, str2, iPwdListener, str3) == null) {
-            this.f60296b = iPwdListener;
+            this.f60421b = iPwdListener;
             PwdRequest pwdRequest = new PwdRequest();
             pwdRequest.serviceType = str3;
             pwdRequest.mFrom = 1;
@@ -428,59 +375,27 @@ public final class PasswordController {
         }
     }
 
-    public void setPasswdByUser(Context context, BaiduPay.IBindCardCallback iBindCardCallback, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048598, this, context, iBindCardCallback, bundle) == null) || context == null) {
-            return;
-        }
-        if (PayDataCache.getInstance().hasBondCards()) {
-            this.f60300f = iBindCardCallback;
-            String string = bundle != null ? bundle.getString("baidu.wallet.from") : null;
-            PayRequestCache.BindCategory valueOf = string != null ? PayRequestCache.BindCategory.valueOf(string) : null;
-            if (valueOf == null) {
-                valueOf = PayRequestCache.BindCategory.Pwd;
-            }
-            BindFastRequest createBindRequest = BindCardEntry.createBindRequest(valueOf);
-            createBindRequest.needSetPwd = true;
-            createBindRequest.mBindFrom = 5;
-            Intent intent = new Intent(context, SelectBindCardActivity.class);
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            if (!bundle.containsKey("baidu.wallet.from")) {
-                bundle.putString("baidu.wallet.from", PayRequestCache.BindCategory.Pwd.name());
-            }
-            intent.putExtras(bundle);
-            if (!BaiduWalletUtils.isActivity(context)) {
-                intent.addFlags(268435456);
-            }
-            context.startActivity(intent);
-            return;
-        }
-        BaiduPay.getInstance().bindCard(context, iBindCardCallback, PayRequestCache.BindCategory.Initiative, 1, "", null, bundle, null, false, null);
-    }
-
     public void checkPwd(Context context, String str, IPwdListener iPwdListener, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, iPwdListener, str2) == null) {
-            this.f60301g = new LoginBackListenerProxy(context, new ILoginBackListener(this, context, str, iPwdListener, str2) { // from class: com.baidu.wallet.base.controllers.PasswordController.1
+            this.f60426g = new LoginBackListenerProxy(context, new ILoginBackListener(this, context, str, iPwdListener, str2) { // from class: com.baidu.wallet.base.controllers.PasswordController.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f60302a;
+                public final /* synthetic */ Context f60427a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f60303b;
+                public final /* synthetic */ String f60428b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ IPwdListener f60304c;
+                public final /* synthetic */ IPwdListener f60429c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f60305d;
+                public final /* synthetic */ String f60430d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ PasswordController f60306e;
+                public final /* synthetic */ PasswordController f60431e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -497,11 +412,11 @@ public final class PasswordController {
                             return;
                         }
                     }
-                    this.f60306e = this;
-                    this.f60302a = context;
-                    this.f60303b = str;
-                    this.f60304c = iPwdListener;
-                    this.f60305d = str2;
+                    this.f60431e = this;
+                    this.f60427a = context;
+                    this.f60428b = str;
+                    this.f60429c = iPwdListener;
+                    this.f60430d = str2;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
@@ -509,24 +424,24 @@ public final class PasswordController {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str3) == null) {
                         if (i2 == 603) {
-                            WalletLoginHelper.getInstance().onlyLogin(this.f60306e.f60301g);
+                            WalletLoginHelper.getInstance().onlyLogin(this.f60431e.f60426g);
                             return;
                         }
-                        this.f60306e.checkPwdFail(i2, str3);
-                        this.f60306e.f60301g = null;
+                        this.f60431e.checkPwdFail(i2, str3);
+                        this.f60431e.f60426g = null;
                     }
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onSuccess(int i2, String str3) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) || this.f60306e.f60301g.getContext() == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) || this.f60431e.f60426g.getContext() == null) {
                         return;
                     }
-                    this.f60306e.a(this.f60302a, this.f60303b, this.f60304c, this.f60305d);
+                    this.f60431e.a(this.f60427a, this.f60428b, this.f60429c, this.f60430d);
                 }
             });
-            WalletLoginHelper.getInstance().login(this.f60301g);
+            WalletLoginHelper.getInstance().login(this.f60426g);
         }
     }
 
@@ -534,7 +449,7 @@ public final class PasswordController {
     public void a(Context context, String str, IPwdListener iPwdListener, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str, iPwdListener, str2) == null) {
-            this.f60296b = iPwdListener;
+            this.f60421b = iPwdListener;
             PwdRequest pwdRequest = new PwdRequest();
             pwdRequest.serviceType = str2;
             pwdRequest.mFrom = 1;

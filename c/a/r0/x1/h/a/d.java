@@ -18,10 +18,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<TailData> f28737a;
+    public List<TailData> f28757a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f28738b;
+    public List<String> f28758b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -36,20 +36,20 @@ public class d {
                 return;
             }
         }
-        this.f28737a = new ArrayList();
-        this.f28738b = new ArrayList();
+        this.f28757a = new ArrayList();
+        this.f28758b = new ArrayList();
     }
 
     public List<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28738b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28758b : (List) invokeV.objValue;
     }
 
     public List<TailData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28737a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28757a : (List) invokeV.objValue;
     }
 
     public void c(ResData resData) {

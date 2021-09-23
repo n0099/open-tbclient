@@ -31,7 +31,7 @@ public final class k0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9357a;
+    public static final boolean f9365a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -40,7 +40,7 @@ public final class k0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f9358a;
+        public final String f9366a;
 
         public a(String str, boolean z, boolean z2, int i2) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public final class k0 {
                     return;
                 }
             }
-            this.f9358a = str;
+            this.f9366a = str;
         }
     }
 
@@ -74,7 +74,7 @@ public final class k0 {
                 return;
             }
         }
-        f9357a = c.a.p0.a.k.f7077a;
+        f9365a = c.a.p0.a.k.f7085a;
     }
 
     public static int a() {
@@ -159,13 +159,13 @@ public final class k0 {
                 bufferedReader2 = null;
             }
             try {
-                boolean z3 = f9357a;
+                boolean z3 = f9365a;
                 while (true) {
                     String readLine = bufferedReader.readLine();
                     if (readLine == null) {
                         break;
                     }
-                    boolean z4 = f9357a;
+                    boolean z4 = f9365a;
                     StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
                     String nextToken = stringTokenizer.nextToken();
                     String nextToken2 = stringTokenizer.nextToken();
@@ -203,7 +203,7 @@ public final class k0 {
                                     break;
                                 }
                                 str = (String) it.next();
-                                if (TextUtils.equals(((a) hashMap.get(str)).f9358a, nextToken)) {
+                                if (TextUtils.equals(((a) hashMap.get(str)).f9366a, nextToken)) {
                                     break;
                                 }
                             }
@@ -218,7 +218,7 @@ public final class k0 {
                     }
                 }
                 for (a aVar : hashMap.values()) {
-                    if (f(aVar.f9358a)) {
+                    if (f(aVar.f9366a)) {
                         arrayList.add(aVar);
                     }
                 }
@@ -229,7 +229,7 @@ public final class k0 {
             } catch (FileNotFoundException e4) {
                 e = e4;
                 bufferedReader2 = bufferedReader;
-                if (f9357a) {
+                if (f9365a) {
                     e.printStackTrace();
                 }
                 c.a.p0.t.d.d(bufferedReader2);
@@ -239,7 +239,7 @@ public final class k0 {
             } catch (IOException e5) {
                 e = e5;
                 bufferedReader2 = bufferedReader;
-                if (f9357a) {
+                if (f9365a) {
                     e.printStackTrace();
                 }
                 c.a.p0.t.d.d(bufferedReader2);

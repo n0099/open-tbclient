@@ -31,7 +31,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8000a;
+    public static final boolean f8008a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.p0.j.a$a  reason: collision with other inner class name */
@@ -112,7 +112,7 @@ public class a {
                 return;
             }
         }
-        f8000a = k.f7077a;
+        f8008a = k.f7085a;
     }
 
     public static void a(Bundle bundle) {
@@ -156,12 +156,12 @@ public class a {
                 }
                 arrayList.addAll(e());
                 arrayList.addAll(d(file, 3));
-                if (f8000a) {
+                if (f8008a) {
                     String str = "deleteOldExtensionCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(arrayList.toArray());
                 }
                 for (File file2 : file.listFiles()) {
                     if (!g(file2, arrayList)) {
-                        if (f8000a) {
+                        if (f8008a) {
                             String str2 = "deleteOldExtensionCores deleteFolder: " + file2;
                         }
                         d.K(file2);
@@ -213,7 +213,7 @@ public class a {
                     arrayList.add(Long.valueOf(extensionCore.extensionCoreVersionCode));
                 }
             }
-            if (f8000a) {
+            if (f8008a) {
                 String str = "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray());
             }
             return arrayList;

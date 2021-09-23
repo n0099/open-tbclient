@@ -41,7 +41,7 @@ public class c extends c.a.p0.n.j.b {
                 jSONObject3.put("version", c2.b());
                 jSONObject.put("global_info", jSONObject3);
             } catch (JSONException e2) {
-                if (c.a.p0.n.c.f11856a) {
+                if (c.a.p0.n.c.f11864a) {
                     e2.printStackTrace();
                 }
             }

@@ -190,7 +190,7 @@ public class KsAdSDK {
                     if (sdkConfig != null) {
                         q.a(a2, "sdkconfig", sdkConfig.toJson());
                     }
-                    if (b.f71061a.booleanValue()) {
+                    if (b.f71380a.booleanValue()) {
                         Loader.get().checkUpdate();
                     }
                     z = sInited.get();

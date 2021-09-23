@@ -15,10 +15,10 @@ public class r {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9399a;
+    public static final boolean f9407a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9400b;
+    public static final String f9408b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -27,10 +27,10 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9401e;
+        public final /* synthetic */ String f9409e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f9402f;
+        public final /* synthetic */ boolean f9410f;
 
         public a(String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -47,19 +47,19 @@ public class r {
                     return;
                 }
             }
-            this.f9401e = str;
-            this.f9402f = z;
+            this.f9409e = str;
+            this.f9410f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + r.f9400b;
-                if (r.f9399a) {
-                    String str2 = "recordFeedbackExtInfo: " + this.f9401e;
+                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + r.f9408b;
+                if (r.f9407a) {
+                    String str2 = "recordFeedbackExtInfo: " + this.f9409e;
                 }
-                c.a.p0.a.b1.a.b(str, this.f9401e, this.f9402f);
+                c.a.p0.a.b1.a.b(str, this.f9409e, this.f9410f);
             }
         }
     }
@@ -77,8 +77,8 @@ public class r {
                 return;
             }
         }
-        f9399a = c.a.p0.a.k.f7077a;
-        f9400b = "aiapps_folder" + File.separator + "feed_back_record.txt";
+        f9407a = c.a.p0.a.k.f7085a;
+        f9408b = "aiapps_folder" + File.separator + "feed_back_record.txt";
     }
 
     public static void c(@NonNull String str, boolean z) {

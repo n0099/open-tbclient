@@ -17,7 +17,7 @@ public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f53564a;
+    public int f53677a;
 
     public DeviderLineDecoration() {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        if (this.f53564a <= 0) {
-            this.f53564a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
+        if (this.f53677a <= 0) {
+            this.f53677a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
         }
     }
 
@@ -49,14 +49,14 @@ public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
                     return;
                 }
             }
-            rect.set(0, 0, 0, this.f53564a);
+            rect.set(0, 0, 0, this.f53677a);
         }
     }
 
     public void setDividerHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f53564a = i2;
+            this.f53677a = i2;
         }
     }
 }

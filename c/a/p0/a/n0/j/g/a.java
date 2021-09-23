@@ -20,16 +20,16 @@ public class a implements b, c.a.p0.a.n0.j.d.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f7513a;
+    public g f7521a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f7514b;
+    public l f7522b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile c.a.p0.a.n0.j.d.a[] f7515c;
+    public volatile c.a.p0.a.n0.j.d.a[] f7523c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.a.n0.j.f.a f7516d;
+    public c.a.p0.a.n0.j.f.a f7524d;
 
     /* renamed from: c.a.p0.a.n0.j.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -38,7 +38,7 @@ public class a implements b, c.a.p0.a.n0.j.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f7517e;
+        public final /* synthetic */ a f7525e;
 
         public RunnableC0312a(a aVar) {
             Interceptable interceptable = $ic;
@@ -55,14 +55,14 @@ public class a implements b, c.a.p0.a.n0.j.d.a {
                     return;
                 }
             }
-            this.f7517e = aVar;
+            this.f7525e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7517e.e();
+                this.f7525e.e();
             }
         }
     }
@@ -82,10 +82,10 @@ public class a implements b, c.a.p0.a.n0.j.d.a {
                 return;
             }
         }
-        this.f7513a = new g();
-        this.f7514b = c.a.p0.a.c1.b.m();
-        this.f7515c = new c.a.p0.a.n0.j.d.a[]{new c.a.p0.a.n0.j.d.e(), new c.a.p0.a.n0.j.d.c(), new c.a.p0.a.n0.j.d.b(), new c.a.p0.a.n0.j.d.d()};
-        this.f7516d = aVar;
+        this.f7521a = new g();
+        this.f7522b = c.a.p0.a.c1.b.m();
+        this.f7523c = new c.a.p0.a.n0.j.d.a[]{new c.a.p0.a.n0.j.d.e(), new c.a.p0.a.n0.j.d.c(), new c.a.p0.a.n0.j.d.b(), new c.a.p0.a.n0.j.d.d()};
+        this.f7524d = aVar;
     }
 
     @Override // c.a.p0.a.n0.j.d.a
@@ -97,7 +97,7 @@ public class a implements b, c.a.p0.a.n0.j.d.a {
             synchronized (this) {
                 c.a.p0.a.e0.d.h("RecoveryPolicy", "renameAllPlatformFiles start");
                 arraySet = new ArraySet<>();
-                for (c.a.p0.a.n0.j.d.a aVar : this.f7515c) {
+                for (c.a.p0.a.n0.j.d.a aVar : this.f7523c) {
                     arraySet.addAll((ArraySet<? extends String>) aVar.a());
                 }
                 c.a.p0.a.e0.d.h("RecoveryPolicy", "renameAllPlatformFiles end");
@@ -150,6 +150,6 @@ public class a implements b, c.a.p0.a.n0.j.d.a {
             return;
         }
         c.a.p0.a.e0.d.h("RecoveryPolicy", "resetAccredit appIds=" + collection);
-        this.f7513a.g(new ArrayList(collection));
+        this.f7521a.g(new ArrayList(collection));
     }
 }

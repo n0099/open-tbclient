@@ -21,14 +21,14 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f33999c;
+    public static final c f34022c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int[] f34000a;
+    public final int[] f34023a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f34001b;
+    public final int f34024b;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public final class c {
                 return;
             }
         }
-        f33999c = new c(new int[]{2}, 2);
+        f34022c = new c(new int[]{2}, 2);
     }
 
     public c(int[] iArr, int i2) {
@@ -63,12 +63,12 @@ public final class c {
         }
         if (iArr != null) {
             int[] copyOf = Arrays.copyOf(iArr, iArr.length);
-            this.f34000a = copyOf;
+            this.f34023a = copyOf;
             Arrays.sort(copyOf);
         } else {
-            this.f34000a = new int[0];
+            this.f34023a = new int[0];
         }
-        this.f34001b = i2;
+        this.f34024b = i2;
     }
 
     public static c a(Context context) {
@@ -85,7 +85,7 @@ public final class c {
             if (intent != null && intent.getIntExtra("android.media.extra.AUDIO_PLUG_STATE", 0) != 0) {
                 return new c(intent.getIntArrayExtra("android.media.extra.ENCODINGS"), intent.getIntExtra("android.media.extra.MAX_CHANNEL_COUNT", 0));
             }
-            return f33999c;
+            return f34022c;
         }
         return (c) invokeL.objValue;
     }
@@ -93,7 +93,7 @@ public final class c {
     public boolean c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? Arrays.binarySearch(this.f34000a, i2) >= 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? Arrays.binarySearch(this.f34023a, i2) >= 0 : invokeI.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -105,7 +105,7 @@ public final class c {
             }
             if (obj instanceof c) {
                 c cVar = (c) obj;
-                return Arrays.equals(this.f34000a, cVar.f34000a) && this.f34001b == cVar.f34001b;
+                return Arrays.equals(this.f34023a, cVar.f34023a) && this.f34024b == cVar.f34024b;
             }
             return false;
         }
@@ -115,14 +115,14 @@ public final class c {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34001b + (Arrays.hashCode(this.f34000a) * 31) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34024b + (Arrays.hashCode(this.f34023a) * 31) : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "AudioCapabilities[maxChannelCount=" + this.f34001b + ", supportedEncodings=" + Arrays.toString(this.f34000a) + PreferencesUtil.RIGHT_MOUNT;
+            return "AudioCapabilities[maxChannelCount=" + this.f34024b + ", supportedEncodings=" + Arrays.toString(this.f34023a) + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

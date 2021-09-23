@@ -12,7 +12,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f7502a;
+    public static volatile c f7510a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -33,14 +33,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f7502a == null) {
+            if (f7510a == null) {
                 synchronized (c.class) {
-                    if (f7502a == null) {
-                        f7502a = new c();
+                    if (f7510a == null) {
+                        f7510a = new c();
                     }
                 }
             }
-            return f7502a;
+            return f7510a;
         }
         return (c) invokeV.objValue;
     }
@@ -56,7 +56,7 @@ public class c {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             d.h("SwanRecoveryManager", "RecoverPlatform");
             c.a.p0.a.n0.j.f.a aVar = new c.a.p0.a.n0.j.f.a();
-            aVar.f7511a = 1;
+            aVar.f7519a = 1;
             a.a(aVar);
         }
     }

@@ -36,16 +36,16 @@ public class g extends c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8152a;
+        public final /* synthetic */ CallbackHandler f8160a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f8153b;
+        public final /* synthetic */ String f8161b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ h f8154c;
+        public final /* synthetic */ h f8162c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ g f8155d;
+        public final /* synthetic */ g f8163d;
 
         public a(g gVar, CallbackHandler callbackHandler, String str, h hVar) {
             Interceptable interceptable = $ic;
@@ -62,17 +62,17 @@ public class g extends c {
                     return;
                 }
             }
-            this.f8155d = gVar;
-            this.f8152a = callbackHandler;
-            this.f8153b = str;
-            this.f8154c = hVar;
+            this.f8163d = gVar;
+            this.f8160a = callbackHandler;
+            this.f8161b = str;
+            this.f8162c = hVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f8152a.handleSchemeDispatchCallback(this.f8153b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
+                this.f8160a.handleSchemeDispatchCallback(this.f8161b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
             }
         }
 
@@ -88,7 +88,7 @@ public class g extends c {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f8155d.r(response, this.f8152a, this.f8153b, this.f8154c);
+                this.f8163d.r(response, this.f8160a, this.f8161b, this.f8162c);
                 return response;
             }
             return invokeLI.objValue;
@@ -101,16 +101,16 @@ public class g extends c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8156a;
+        public final /* synthetic */ CallbackHandler f8164a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f8157b;
+        public final /* synthetic */ String f8165b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f8158c;
+        public final /* synthetic */ String f8166c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ g f8159d;
+        public final /* synthetic */ g f8167d;
 
         public b(g gVar, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -127,20 +127,20 @@ public class g extends c {
                     return;
                 }
             }
-            this.f8159d = gVar;
-            this.f8156a = callbackHandler;
-            this.f8157b = str;
-            this.f8158c = str2;
+            this.f8167d = gVar;
+            this.f8164a = callbackHandler;
+            this.f8165b = str;
+            this.f8166c = str2;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                boolean z = c.f8144c;
-                g gVar = this.f8159d;
-                CallbackHandler callbackHandler = this.f8156a;
-                String str = this.f8157b;
+                boolean z = c.f8152c;
+                g gVar = this.f8167d;
+                CallbackHandler callbackHandler = this.f8164a;
+                String str = this.f8165b;
                 gVar.s(callbackHandler, str, null, "uploadFile:fail" + exc.getMessage());
             }
         }
@@ -149,7 +149,7 @@ public class g extends c {
         public void onSuccess(Object obj, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i2) == null) {
-                this.f8156a.handleSchemeDispatchCallback(this.f8157b, UnitedSchemeUtility.wrapCallbackParams(c.a.p0.a.r.a.n(this.f8158c, null, "uploadFile:ok"), 0).toString());
+                this.f8164a.handleSchemeDispatchCallback(this.f8165b, UnitedSchemeUtility.wrapCallbackParams(c.a.p0.a.r.a.n(this.f8166c, null, "uploadFile:ok"), 0).toString());
             }
         }
 
@@ -202,7 +202,7 @@ public class g extends c {
             if (TextUtils.isEmpty(optString)) {
                 return l(unitedSchemeEntity, 202, "illegal cb");
             }
-            if (c.f8144c) {
+            if (c.f8152c) {
                 String str = "schema params : " + a2.toString();
                 String str2 = "schema cb : " + optString;
             }
@@ -270,7 +270,7 @@ public class g extends c {
             try {
                 return Integer.parseInt(str);
             } catch (NumberFormatException e2) {
-                if (c.f8144c) {
+                if (c.f8152c) {
                     e2.printStackTrace();
                 }
                 return 1001;
@@ -312,14 +312,14 @@ public class g extends c {
                                 return;
                             }
                             c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(build.url().toString(), build.body(), new b(this, callbackHandler, str, optString4));
-                            aVar.f11842c = t;
-                            aVar.f11845f = true;
-                            aVar.f11846g = false;
-                            aVar.f11847h = true;
+                            aVar.f11850c = t;
+                            aVar.f11853f = true;
+                            aVar.f11854g = false;
+                            aVar.f11855h = true;
                             c.a.p0.m.e.a.g().f(aVar);
                             return;
                         } catch (Exception e2) {
-                            if (c.f8144c) {
+                            if (c.f8152c) {
                                 e2.printStackTrace();
                             }
                             s(callbackHandler, str, optString, optString2);
@@ -382,7 +382,7 @@ public class g extends c {
                 jSONObject.put("stringMap", optJSONObject);
             }
         } catch (JSONException e2) {
-            if (c.f8144c) {
+            if (c.f8152c) {
                 e2.printStackTrace();
             }
         }

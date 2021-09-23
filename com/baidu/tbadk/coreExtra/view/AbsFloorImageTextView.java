@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import c.a.e.e.p.l;
-import c.a.q0.d1.m0;
+import c.a.q0.d1.n0;
 import c.a.r0.j2.i.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -35,7 +35,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a f48115e;
+    public c.a f48223e;
     public ImageUrlData mAssistUrlData;
     public c mTbGestureDetector;
     public String mUserId;
@@ -46,7 +46,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AbsFloorImageTextView f48116a;
+        public final /* synthetic */ AbsFloorImageTextView f48224a;
 
         public a(AbsFloorImageTextView absFloorImageTextView) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f48116a = absFloorImageTextView;
+            this.f48224a = absFloorImageTextView;
         }
 
         @Override // c.a.r0.j2.i.c.a
@@ -81,7 +81,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-                this.f48116a.jumpToPB();
+                this.f48224a.jumpToPB();
                 return true;
             }
             return invokeLL.booleanValue;
@@ -104,7 +104,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ AbsFloorImageTextView f48117h;
+        public final /* synthetic */ AbsFloorImageTextView f48225h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(AbsFloorImageTextView absFloorImageTextView, c.a aVar) {
@@ -124,7 +124,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f48117h = absFloorImageTextView;
+            this.f48225h = absFloorImageTextView;
         }
 
         @Override // c.a.r0.j2.i.c, android.view.GestureDetector.OnGestureListener
@@ -188,7 +188,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             }
         }
         a aVar = new a(this);
-        this.f48115e = aVar;
+        this.f48223e = aVar;
         this.mTbGestureDetector = new b(this, aVar);
     }
 
@@ -228,7 +228,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public Pair<Integer, Integer> measureTextViewHeightAndLine(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? m0.i(str, TEXT_SIZE, WIDTCH) : (Pair) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? n0.i(str, TEXT_SIZE, WIDTCH) : (Pair) invokeL.objValue;
     }
 
     public void setUserId(String str) {

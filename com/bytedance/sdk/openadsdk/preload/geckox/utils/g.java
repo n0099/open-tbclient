@@ -8,7 +8,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f68819a;
+    public static Context f69130a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
@@ -16,7 +16,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(65536, null, context) == null) || context == null) {
             return;
         }
-        f68819a = context;
+        f69130a = context;
     }
 
     public static void a(String str) {

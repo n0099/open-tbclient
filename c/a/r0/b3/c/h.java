@@ -30,34 +30,34 @@ public class h extends c.a.e.a.d<SystemHelpSettingActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SystemHelpSettingActivity f16084a;
+    public SystemHelpSettingActivity f16094a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f16085b;
+    public View f16095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbSettingTextTipView f16086c;
+    public TbSettingTextTipView f16096c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbSettingTextTipView f16087d;
+    public TbSettingTextTipView f16097d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdSwitchView f16088e;
+    public BdSwitchView f16098e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdSwitchView f16089f;
+    public BdSwitchView f16099f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbSettingTextNewDotView f16090g;
+    public TbSettingTextNewDotView f16100g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MsgSettingItemView f16091h;
+    public MsgSettingItemView f16101h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbSettingTextTipView f16092i;
+    public TbSettingTextTipView f16102i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RelativeLayout f16093j;
+    public RelativeLayout f16103j;
     public RelativeLayout k;
     public TextView l;
     public TextView m;
@@ -72,7 +72,7 @@ public class h extends c.a.e.a.d<SystemHelpSettingActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f16094e;
+        public final /* synthetic */ h f16104e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -89,13 +89,13 @@ public class h extends c.a.e.a.d<SystemHelpSettingActivity> {
                     return;
                 }
             }
-            this.f16094e = hVar;
+            this.f16104e = hVar;
         }
 
         @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
         public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, view, switchState) == null) && view == this.f16094e.f16091h.getSwitchView()) {
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, view, switchState) == null) && view == this.f16104e.f16101h.getSwitchView()) {
                 boolean z = BdSwitchView.SwitchState.ON == switchState;
                 c.a.q0.s.d0.b j2 = c.a.q0.s.d0.b.j();
                 j2.t("recnbar" + TbadkCoreApplication.getCurrentAccount(), !z);
@@ -156,62 +156,62 @@ public class h extends c.a.e.a.d<SystemHelpSettingActivity> {
                 return;
             }
         }
-        this.f16084a = null;
-        this.f16085b = null;
-        this.f16086c = null;
-        this.f16087d = null;
-        this.f16088e = null;
-        this.f16089f = null;
-        this.f16090g = null;
-        this.f16092i = null;
+        this.f16094a = null;
+        this.f16095b = null;
+        this.f16096c = null;
+        this.f16097d = null;
+        this.f16098e = null;
+        this.f16099f = null;
+        this.f16100g = null;
+        this.f16102i = null;
         this.q = new a(this);
         new b(this, 2001303);
-        this.f16084a = systemHelpSettingActivity;
+        this.f16094a = systemHelpSettingActivity;
         systemHelpSettingActivity.setContentView(R.layout.system_help_activity);
-        NavigationBar navigationBar = (NavigationBar) this.f16084a.findViewById(R.id.view_navigation_bar);
+        NavigationBar navigationBar = (NavigationBar) this.f16094a.findViewById(R.id.view_navigation_bar);
         this.p = navigationBar;
-        navigationBar.setTitleText(this.f16084a.getPageContext().getString(R.string.systemhelpsetting));
+        navigationBar.setTitleText(this.f16094a.getPageContext().getString(R.string.systemhelpsetting));
         this.p.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.f16084a.findViewById(R.id.clear_cache);
-        this.f16086c = tbSettingTextTipView;
+        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.f16094a.findViewById(R.id.clear_cache);
+        this.f16096c = tbSettingTextTipView;
         tbSettingTextTipView.hideArrow();
-        this.f16086c.setOnClickListener(this.f16084a);
-        TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.f16084a.findViewById(R.id.clear_im);
-        this.f16087d = tbSettingTextTipView2;
+        this.f16096c.setOnClickListener(this.f16094a);
+        TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.f16094a.findViewById(R.id.clear_im);
+        this.f16097d = tbSettingTextTipView2;
         tbSettingTextTipView2.hideArrow();
-        this.f16087d.setOnClickListener(this.f16084a);
-        this.f16088e = (BdSwitchView) this.f16084a.findViewById(R.id.item_switch);
-        l.c(this.f16084a.getPageContext().getPageActivity(), this.f16088e, 10, 10, 10, 10);
-        this.f16088e.setOnSwitchStateChangeListener(this.f16084a);
-        this.f16089f = (BdSwitchView) this.f16084a.findViewById(R.id.setting_save_video_switch);
-        l.c(this.f16084a.getPageContext().getPageActivity(), this.f16089f, 10, 10, 10, 10);
-        this.f16089f.setOnSwitchStateChangeListener(this.f16084a);
-        this.f16092i = (TbSettingTextTipView) this.f16084a.findViewById(R.id.debug_tool_launch);
-        this.f16093j = (RelativeLayout) this.f16084a.findViewById(R.id.system_savevideo);
-        this.k = (RelativeLayout) this.f16084a.findViewById(R.id.system_tingtong);
-        this.l = (TextView) this.f16084a.findViewById(R.id.system_savevideo_name);
-        this.o = (TextView) this.f16084a.findViewById(R.id.item_name);
-        this.m = (TextView) this.f16084a.findViewById(R.id.item_name_tip);
-        this.n = (TextView) this.f16084a.findViewById(R.id.system_recent_tip);
-        this.f16092i.setVisibility(8);
-        this.f16092i.hideArrow();
-        this.f16092i.setOnClickListener(this.f16084a);
-        this.f16085b = this.f16084a.findViewById(R.id.parent);
+        this.f16097d.setOnClickListener(this.f16094a);
+        this.f16098e = (BdSwitchView) this.f16094a.findViewById(R.id.item_switch);
+        l.c(this.f16094a.getPageContext().getPageActivity(), this.f16098e, 10, 10, 10, 10);
+        this.f16098e.setOnSwitchStateChangeListener(this.f16094a);
+        this.f16099f = (BdSwitchView) this.f16094a.findViewById(R.id.setting_save_video_switch);
+        l.c(this.f16094a.getPageContext().getPageActivity(), this.f16099f, 10, 10, 10, 10);
+        this.f16099f.setOnSwitchStateChangeListener(this.f16094a);
+        this.f16102i = (TbSettingTextTipView) this.f16094a.findViewById(R.id.debug_tool_launch);
+        this.f16103j = (RelativeLayout) this.f16094a.findViewById(R.id.system_savevideo);
+        this.k = (RelativeLayout) this.f16094a.findViewById(R.id.system_tingtong);
+        this.l = (TextView) this.f16094a.findViewById(R.id.system_savevideo_name);
+        this.o = (TextView) this.f16094a.findViewById(R.id.item_name);
+        this.m = (TextView) this.f16094a.findViewById(R.id.item_name_tip);
+        this.n = (TextView) this.f16094a.findViewById(R.id.system_recent_tip);
+        this.f16102i.setVisibility(8);
+        this.f16102i.hideArrow();
+        this.f16102i.setOnClickListener(this.f16094a);
+        this.f16095b = this.f16094a.findViewById(R.id.parent);
         if (TbadkCoreApplication.isLogin()) {
-            this.f16087d.setVisibility(0);
+            this.f16097d.setVisibility(0);
         } else {
-            this.f16087d.setVisibility(8);
+            this.f16097d.setVisibility(8);
         }
         TbSettingTextNewDotView tbSettingTextNewDotView = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(R.id.sv_plugin_center);
-        this.f16090g = tbSettingTextNewDotView;
-        tbSettingTextNewDotView.setOnClickListener(this.f16084a);
-        this.f16090g.setVisibility(0);
-        MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.f16084a.findViewById(R.id.recently_bar_switch);
-        this.f16091h = msgSettingItemView;
+        this.f16100g = tbSettingTextNewDotView;
+        tbSettingTextNewDotView.setOnClickListener(this.f16094a);
+        this.f16100g.setVisibility(0);
+        MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.f16094a.findViewById(R.id.recently_bar_switch);
+        this.f16101h = msgSettingItemView;
         msgSettingItemView.setLineVisibility(false);
-        this.f16091h.setSpaceView(8);
-        this.f16091h.setText(R.string.privacy_hide_recently_bar_text);
-        this.f16091h.setOnSwitchStateChangeListener(this.q);
+        this.f16101h.setSpaceView(8);
+        this.f16101h.setText(R.string.privacy_hide_recently_bar_text);
+        this.f16101h.setOnSwitchStateChangeListener(this.q);
         c.a.q0.s.d0.b j2 = c.a.q0.s.d0.b.j();
         j(j2.g("recnbar" + TbadkCoreApplication.getCurrentAccount(), false));
     }
@@ -219,46 +219,46 @@ public class h extends c.a.e.a.d<SystemHelpSettingActivity> {
     public TbSettingTextTipView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16086c : (TbSettingTextTipView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16096c : (TbSettingTextTipView) invokeV.objValue;
     }
 
     public TbSettingTextTipView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16087d : (TbSettingTextTipView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16097d : (TbSettingTextTipView) invokeV.objValue;
     }
 
     public TbSettingTextTipView f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16092i : (TbSettingTextTipView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16102i : (TbSettingTextTipView) invokeV.objValue;
     }
 
     public BdSwitchView g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16088e : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16098e : (BdSwitchView) invokeV.objValue;
     }
 
     public TbSettingTextNewDotView h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16090g : (TbSettingTextNewDotView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16100g : (TbSettingTextNewDotView) invokeV.objValue;
     }
 
     public BdSwitchView i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16089f : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16099f : (BdSwitchView) invokeV.objValue;
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (!z) {
-                this.f16091h.getSwitchView().turnOnNoCallback();
+                this.f16101h.getSwitchView().turnOnNoCallback();
             } else {
-                this.f16091h.getSwitchView().turnOffNoCallback();
+                this.f16101h.getSwitchView().turnOffNoCallback();
             }
         }
     }
@@ -266,14 +266,14 @@ public class h extends c.a.e.a.d<SystemHelpSettingActivity> {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f16084a.getLayoutMode().k(i2 == 1);
-            this.f16084a.getLayoutMode().j(this.f16085b);
+            this.f16094a.getLayoutMode().k(i2 == 1);
+            this.f16094a.getLayoutMode().j(this.f16095b);
             this.p.onChangeSkinType(getPageContext(), i2);
-            this.f16088e.setBackgroundRes(SkinManager.getBitmap(R.drawable.bg_switch_open), SkinManager.getBitmap(R.drawable.bg_switch_close), SkinManager.getBitmap(R.drawable.btn_handle));
-            this.f16089f.setBackgroundRes(SkinManager.getBitmap(R.drawable.bg_switch_open), SkinManager.getBitmap(R.drawable.bg_switch_close), SkinManager.getBitmap(R.drawable.btn_handle));
-            this.f16091h.onChangeSkinType(this.f16084a.getPageContext(), i2);
-            SkinManager.setBackgroundResource(this.f16086c, R.drawable.more_all);
-            c.a.q0.s.u.c.d(this.f16093j).w(R.color.CAM_X0205);
+            this.f16098e.setBackgroundRes(SkinManager.getBitmap(R.drawable.bg_switch_open), SkinManager.getBitmap(R.drawable.bg_switch_close), SkinManager.getBitmap(R.drawable.btn_handle));
+            this.f16099f.setBackgroundRes(SkinManager.getBitmap(R.drawable.bg_switch_open), SkinManager.getBitmap(R.drawable.bg_switch_close), SkinManager.getBitmap(R.drawable.btn_handle));
+            this.f16101h.onChangeSkinType(this.f16094a.getPageContext(), i2);
+            SkinManager.setBackgroundResource(this.f16096c, R.drawable.more_all);
+            c.a.q0.s.u.c.d(this.f16103j).w(R.color.CAM_X0205);
             c.a.q0.s.u.c.d(this.k).w(R.color.CAM_X0205);
             c.a.q0.s.u.c.d(this.l).w(R.color.CAM_X0105);
             c.a.q0.s.u.c.d(this.m).w(R.color.CAM_X0109);

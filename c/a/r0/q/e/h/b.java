@@ -16,7 +16,7 @@ public class b implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c.a.r0.q.e.g.a f24133a;
+    public final c.a.r0.q.e.g.a f24149a;
 
     public b(@NonNull c.a.r0.q.e.g.a aVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class b implements d {
                 return;
             }
         }
-        this.f24133a = aVar;
+        this.f24149a = aVar;
     }
 
     @Override // c.a.r0.q.e.h.d
@@ -41,8 +41,8 @@ public class b implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048576, this, downloadCacheKey, str, z) == null) {
             AdDownloadData b2 = e.c().b(downloadCacheKey);
-            this.f24133a.g(100);
-            this.f24133a.h(b2.extra().getStatus());
+            this.f24149a.g(100);
+            this.f24149a.h(b2.extra().getStatus());
         }
     }
 
@@ -51,8 +51,8 @@ public class b implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadCacheKey) == null) {
             AdDownloadData b2 = e.c().b(downloadCacheKey);
-            this.f24133a.g(100);
-            this.f24133a.h(b2.extra().getStatus());
+            this.f24149a.g(100);
+            this.f24149a.h(b2.extra().getStatus());
         }
     }
 
@@ -60,7 +60,7 @@ public class b implements d {
     public void c(@NonNull DownloadCacheKey downloadCacheKey, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadCacheKey, i2) == null) {
-            this.f24133a.h(e.c().b(downloadCacheKey).extra().getStatus());
+            this.f24149a.h(e.c().b(downloadCacheKey).extra().getStatus());
         }
     }
 
@@ -69,8 +69,8 @@ public class b implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, downloadCacheKey) == null) {
             AdDownloadData b2 = e.c().b(downloadCacheKey);
-            this.f24133a.g(100);
-            this.f24133a.h(b2.extra().getStatus());
+            this.f24149a.g(100);
+            this.f24149a.h(b2.extra().getStatus());
         }
     }
 
@@ -78,7 +78,7 @@ public class b implements d {
     public void e(@NonNull DownloadCacheKey downloadCacheKey) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, downloadCacheKey) == null) {
-            this.f24133a.h(e.c().b(downloadCacheKey).extra().getStatus());
+            this.f24149a.h(e.c().b(downloadCacheKey).extra().getStatus());
         }
     }
 
@@ -86,7 +86,7 @@ public class b implements d {
     public void f(@NonNull DownloadCacheKey downloadCacheKey, StopStatus stopStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, downloadCacheKey, stopStatus) == null) {
-            this.f24133a.h(e.c().b(downloadCacheKey).extra().getStatus());
+            this.f24149a.h(e.c().b(downloadCacheKey).extra().getStatus());
         }
     }
 
@@ -94,7 +94,7 @@ public class b implements d {
     public void g(@NonNull DownloadCacheKey downloadCacheKey, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, downloadCacheKey, i2) == null) {
-            this.f24133a.g(e.c().b(downloadCacheKey).extra().getPercent());
+            this.f24149a.g(e.c().b(downloadCacheKey).extra().getPercent());
         }
     }
 }

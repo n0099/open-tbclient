@@ -1,6 +1,6 @@
 package com.baidu.tbadk.BdToken.activeConfig;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -58,7 +58,7 @@ public class ActiveConfigReqMsg extends NetMessage {
                 } else {
                     builder.is_schema_up = 0;
                 }
-                x.c(builder, true, true, false);
+                a0.c(builder, true, true, false);
                 ActiveConfigReqIdl.Builder builder2 = new ActiveConfigReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

@@ -32,16 +32,16 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f14839a;
+        public NetWork f14841a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f14840b;
+        public final String f14842b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f14841c;
+        public final String f14843c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f14842d;
+        public final String f14844d;
 
         public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -58,10 +58,10 @@ public class c {
                     return;
                 }
             }
-            this.f14839a = null;
-            this.f14840b = str;
-            this.f14841c = str2;
-            this.f14842d = str3;
+            this.f14841a = null;
+            this.f14842b = str;
+            this.f14843c = str2;
+            this.f14844d = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,15 +72,15 @@ public class c {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 Boolean bool = Boolean.FALSE;
                 try {
-                    NetWork netWork = new NetWork(this.f14840b);
-                    this.f14839a = netWork;
-                    bool = Boolean.valueOf(netWork.downloadFile(this.f14841c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                    NetWork netWork = new NetWork(this.f14842b);
+                    this.f14841a = netWork;
+                    bool = Boolean.valueOf(netWork.downloadFile(this.f14843c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                     if (bool != null && bool.booleanValue()) {
-                        if (!StringUtils.isNull(FileHelper.renameTo(null, this.f14841c + ".tmp", null, this.f14841c)) && !TextUtils.isEmpty(this.f14840b) && !this.f14840b.equals(this.f14842d)) {
-                            FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.f14842d));
+                        if (!StringUtils.isNull(FileHelper.renameTo(null, this.f14843c + ".tmp", null, this.f14843c)) && !TextUtils.isEmpty(this.f14842b) && !this.f14842b.equals(this.f14844d)) {
+                            FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.f14844d));
                         }
                     } else {
-                        FileHelper.DelFile(this.f14841c + ".tmp");
+                        FileHelper.DelFile(this.f14843c + ".tmp");
                     }
                 } catch (Exception unused) {
                 }

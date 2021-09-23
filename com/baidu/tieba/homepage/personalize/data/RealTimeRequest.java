@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -65,7 +65,7 @@ public class RealTimeRequest extends NetMessage {
             builder.ori_ugc_type = this.ori_ugc_type;
             builder.ori_ugc_vid = this.ori_ugc_vid;
             if (z) {
-                x.a(builder, true);
+                a0.a(builder, true);
             }
             RealtimeReqIdl.Builder builder2 = new RealtimeReqIdl.Builder();
             builder2.data = builder.build(false);

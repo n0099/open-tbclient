@@ -11,10 +11,10 @@ public class b implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WeakReference f41235a;
+    public final /* synthetic */ WeakReference f41297a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f41236b;
+    public final /* synthetic */ a f41298b;
 
     public b(a aVar, WeakReference weakReference) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f41236b = aVar;
-        this.f41235a = weakReference;
+        this.f41298b = aVar;
+        this.f41297a = weakReference;
     }
 
     @Override // java.lang.Runnable
@@ -40,10 +40,10 @@ public class b implements Runnable {
         a aVar;
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = (a) this.f41235a.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = (a) this.f41297a.get()) == null) {
             return;
         }
-        i2 = aVar.f41233h;
+        i2 = aVar.f41295h;
         if (i2 == 3) {
             aVar.b();
         }

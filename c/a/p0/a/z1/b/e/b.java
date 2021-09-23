@@ -15,34 +15,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f10018a;
+    public final int f10026a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f10019b;
+    public boolean f10027b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f10020c;
+    public boolean f10028c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CharSequence f10021d;
+    public CharSequence f10029d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f10022e;
+    public Drawable f10030e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f10023f;
+    public boolean f10031f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f10024g;
+    public long f10032g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f10025h;
+    public int f10033h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f10026i;
+    public a f10034i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f10027j;
+    public Context f10035j;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -64,35 +64,35 @@ public class b {
                 return;
             }
         }
-        this.f10019b = true;
-        this.f10020c = false;
-        this.f10023f = true;
-        this.f10024g = 0L;
-        this.f10025h = 0;
-        this.f10027j = context;
-        this.f10018a = i2;
-        this.f10021d = charSequence;
-        this.f10022e = drawable;
+        this.f10027b = true;
+        this.f10028c = false;
+        this.f10031f = true;
+        this.f10032g = 0L;
+        this.f10033h = 0;
+        this.f10035j = context;
+        this.f10026a = i2;
+        this.f10029d = charSequence;
+        this.f10030e = drawable;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10024g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10032g : invokeV.longValue;
     }
 
     public Drawable b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Drawable drawable = this.f10022e;
+            Drawable drawable = this.f10030e;
             if (drawable != null) {
                 return drawable;
             }
-            if (this.f10025h != 0) {
-                Drawable drawable2 = this.f10027j.getResources().getDrawable(this.f10025h);
-                this.f10025h = 0;
-                this.f10022e = drawable2;
+            if (this.f10033h != 0) {
+                Drawable drawable2 = this.f10035j.getResources().getDrawable(this.f10033h);
+                this.f10033h = 0;
+                this.f10030e = drawable2;
                 return drawable2;
             }
             return null;
@@ -103,31 +103,31 @@ public class b {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10018a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10026a : invokeV.intValue;
     }
 
     public a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10026i : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10034i : (a) invokeV.objValue;
     }
 
     public CharSequence e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f10021d : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f10029d : (CharSequence) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f10023f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f10031f : invokeV.booleanValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f10019b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f10027b : invokeV.booleanValue;
     }
 
     public void h(c.a.p0.a.z1.b.e.a aVar) {
@@ -139,7 +139,7 @@ public class b {
     public void i(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.f10026i = aVar;
+            this.f10034i = aVar;
         }
     }
 }

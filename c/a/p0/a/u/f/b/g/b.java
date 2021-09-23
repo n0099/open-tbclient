@@ -19,11 +19,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9155b;
+    public static final boolean f9163b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, c.a.p0.a.u.f.b.a> f9156a;
+    public HashMap<String, c.a.p0.a.u.f.b.a> f9164a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class b {
                 return;
             }
         }
-        f9155b = k.f7077a;
+        f9163b = k.f7085a;
     }
 
     public b() {
@@ -54,7 +54,7 @@ public class b {
                 return;
             }
         }
-        this.f9156a = new LinkedHashMap();
+        this.f9164a = new LinkedHashMap();
     }
 
     public synchronized void a(BasePendingOperation basePendingOperation) {
@@ -64,7 +64,7 @@ public class b {
                 if (basePendingOperation == null) {
                     return;
                 }
-                if (f9155b) {
+                if (f9163b) {
                     String str = "*************** 【Add pending module】:" + basePendingOperation.b() + " params: " + basePendingOperation.c();
                 }
                 c(basePendingOperation.d()).b(basePendingOperation);
@@ -76,10 +76,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                for (Map.Entry<String, c.a.p0.a.u.f.b.a> entry : this.f9156a.entrySet()) {
+                for (Map.Entry<String, c.a.p0.a.u.f.b.a> entry : this.f9164a.entrySet()) {
                     entry.getValue().c();
                 }
-                this.f9156a.clear();
+                this.f9164a.clear();
             }
         }
     }
@@ -88,12 +88,12 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, operationType)) == null) {
-            if (!this.f9156a.containsKey(operationType.name())) {
+            if (!this.f9164a.containsKey(operationType.name())) {
                 c.a.p0.a.u.f.b.a a2 = e.a(operationType);
-                this.f9156a.put(operationType.name(), a2);
+                this.f9164a.put(operationType.name(), a2);
                 return a2;
             }
-            return this.f9156a.get(operationType.name());
+            return this.f9164a.get(operationType.name());
         }
         return (c.a.p0.a.u.f.b.a) invokeL.objValue;
     }
@@ -102,7 +102,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                for (Map.Entry<String, c.a.p0.a.u.f.b.a> entry : this.f9156a.entrySet()) {
+                for (Map.Entry<String, c.a.p0.a.u.f.b.a> entry : this.f9164a.entrySet()) {
                     entry.getValue().a();
                 }
             }

@@ -19,34 +19,34 @@ public class a {
     public String F;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6903a;
+    public String f6911a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6904b;
+    public String f6912b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6905c;
+    public String f6913c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6906d;
+    public int f6914d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f6907e;
+    public String f6915e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f6908f;
+    public String f6916f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f6909g;
+    public String f6917g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f6910h;
+    public String f6918h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f6911i;
+    public String f6919i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f6912j;
+    public String f6920j;
     public String k;
     public String l;
     public String m;
@@ -84,7 +84,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanAppDbInfo{appId='" + this.f6903a + ExtendedMessageFormat.QUOTE + ", appKey='" + this.f6904b + ExtendedMessageFormat.QUOTE + ", errorCode=" + this.f6906d + ", errorDetail='" + this.f6907e + ExtendedMessageFormat.QUOTE + ", errorMsg='" + this.f6908f + ExtendedMessageFormat.QUOTE + ", resumeDate='" + this.f6909g + ExtendedMessageFormat.QUOTE + ", maxSwanVersion='" + this.f6912j + ExtendedMessageFormat.QUOTE + ", minSwanVersion='" + this.k + ExtendedMessageFormat.QUOTE + ", name='" + this.l + ExtendedMessageFormat.QUOTE + ", version='" + this.q + ExtendedMessageFormat.QUOTE + ", type=" + this.r + ", isHaveZip=" + this.s + ", targetSwanVersion='" + this.v + ExtendedMessageFormat.QUOTE + ", mAppZipSize=" + this.w + ", mPendingApsErrcode=" + this.x + ", category=" + this.y + ", versionCode='" + this.A + ExtendedMessageFormat.QUOTE + ", maxAge=" + this.B + ", createTime=" + this.C + ", forceFetchMetaInfoFlag=" + this.D + ", payProtected=" + this.E + ExtendedMessageFormat.END_FE;
+            return "SwanAppDbInfo{appId='" + this.f6911a + ExtendedMessageFormat.QUOTE + ", appKey='" + this.f6912b + ExtendedMessageFormat.QUOTE + ", errorCode=" + this.f6914d + ", errorDetail='" + this.f6915e + ExtendedMessageFormat.QUOTE + ", errorMsg='" + this.f6916f + ExtendedMessageFormat.QUOTE + ", resumeDate='" + this.f6917g + ExtendedMessageFormat.QUOTE + ", maxSwanVersion='" + this.f6920j + ExtendedMessageFormat.QUOTE + ", minSwanVersion='" + this.k + ExtendedMessageFormat.QUOTE + ", name='" + this.l + ExtendedMessageFormat.QUOTE + ", version='" + this.q + ExtendedMessageFormat.QUOTE + ", type=" + this.r + ", isHaveZip=" + this.s + ", targetSwanVersion='" + this.v + ExtendedMessageFormat.QUOTE + ", mAppZipSize=" + this.w + ", mPendingApsErrcode=" + this.x + ", category=" + this.y + ", versionCode='" + this.A + ExtendedMessageFormat.QUOTE + ", maxAge=" + this.B + ", createTime=" + this.C + ", forceFetchMetaInfoFlag=" + this.D + ", payProtected=" + this.E + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

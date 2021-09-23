@@ -29,11 +29,11 @@ public class a implements v0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10265b;
+    public static final boolean f10273b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.d0.a f10266a;
+    public c.a.d0.a f10274a;
 
     /* renamed from: c.a.p0.b.p.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -42,7 +42,7 @@ public class a implements v0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f10267a;
+        public final /* synthetic */ long f10275a;
 
         public C0505a(a aVar, long j2) {
             Interceptable interceptable = $ic;
@@ -59,18 +59,18 @@ public class a implements v0 {
                     return;
                 }
             }
-            this.f10267a = j2;
+            this.f10275a = j2;
         }
 
         @Override // c.a.e0.l.a
         public void a(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                if (a.f10265b) {
+                if (a.f10273b) {
                     String str2 = "requestBatchRebateInfo onResult: " + i2 + " " + str;
                 }
                 d.i(a.e());
-                d.M(String.valueOf(this.f10267a), a.e());
+                d.M(String.valueOf(this.f10275a), a.e());
             }
         }
     }
@@ -99,7 +99,7 @@ public class a implements v0 {
         @Override // c.a.e0.l.a
         public void a(int i2, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) && a.f10265b) {
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) && a.f10273b) {
                 String str2 = "requestSingleRebateInfo onResult: " + i2 + " " + str;
             }
         }
@@ -118,7 +118,7 @@ public class a implements v0 {
                 return;
             }
         }
-        f10265b = k.f7077a;
+        f10273b = k.f7085a;
     }
 
     public a() {
@@ -134,7 +134,7 @@ public class a implements v0 {
                 return;
             }
         }
-        this.f10266a = new c.a.d0.a();
+        this.f10274a = new c.a.d0.a();
     }
 
     public static File e() {
@@ -168,18 +168,18 @@ public class a implements v0 {
             if (!TextUtils.isEmpty(D)) {
                 try {
                     if (currentTimeMillis - Long.parseLong(D) < 86400) {
-                        boolean z = f10265b;
+                        boolean z = f10273b;
                         return;
                     }
                 } catch (NumberFormatException e2) {
-                    if (f10265b) {
+                    if (f10273b) {
                         e2.printStackTrace();
                         return;
                     }
                     return;
                 }
             }
-            this.f10266a.l(new C0505a(this, currentTimeMillis));
+            this.f10274a.l(new C0505a(this, currentTimeMillis));
         }
     }
 
@@ -198,9 +198,9 @@ public class a implements v0 {
                 jSONObject.put("businessId", str6);
                 jSONObject.put("naid", str7);
                 jSONObject.put("scene", str8);
-                this.f10266a.k(jSONObject, new b(this));
+                this.f10274a.k(jSONObject, new b(this));
             } catch (JSONException e2) {
-                if (f10265b) {
+                if (f10273b) {
                     e2.printStackTrace();
                 }
             }

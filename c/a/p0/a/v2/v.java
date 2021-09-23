@@ -15,7 +15,7 @@ public class v {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9427a;
+    public static final boolean f9435a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class v {
                 return;
             }
         }
-        f9427a = c.a.p0.a.k.f7077a;
+        f9435a = c.a.p0.a.k.f7085a;
     }
 
     public static boolean a(Activity activity) {
@@ -78,7 +78,7 @@ public class v {
             try {
                 return bundle.getBoolean(str);
             } catch (Throwable unused) {
-                if (f9427a) {
+                if (f9435a) {
                     String str2 = "getBoolean failed on bundle " + bundle;
                 }
                 return z;
@@ -94,7 +94,7 @@ public class v {
             try {
                 return bundle.getBundle(str);
             } catch (Throwable unused) {
-                if (f9427a) {
+                if (f9435a) {
                     String str2 = "getBundle failed on bundle " + bundle;
                     return null;
                 }
@@ -111,7 +111,7 @@ public class v {
             try {
                 return intent.getBundleExtra(str);
             } catch (Throwable unused) {
-                if (f9427a) {
+                if (f9435a) {
                     String str2 = "getBundleExtra failed on intent " + intent;
                     return null;
                 }
@@ -128,7 +128,7 @@ public class v {
             try {
                 return bundle.getInt(str);
             } catch (Throwable unused) {
-                if (f9427a) {
+                if (f9435a) {
                     String str2 = "getInt failed on bundle " + bundle;
                 }
                 return i2;
@@ -144,7 +144,7 @@ public class v {
             try {
                 return bundle.getString(str);
             } catch (Throwable unused) {
-                if (f9427a) {
+                if (f9435a) {
                     String str2 = "getString failed on bundle " + bundle;
                     return null;
                 }
@@ -161,7 +161,7 @@ public class v {
             try {
                 return intent.getStringExtra(str);
             } catch (Throwable unused) {
-                if (f9427a) {
+                if (f9435a) {
                     String str2 = "getStringExtra failed on intent " + intent;
                     return null;
                 }
@@ -178,7 +178,7 @@ public class v {
             try {
                 return bundle.getString(str);
             } catch (Throwable unused) {
-                if (f9427a) {
+                if (f9435a) {
                     String str2 = "getStringExtra failed on bundle " + bundle;
                     return null;
                 }

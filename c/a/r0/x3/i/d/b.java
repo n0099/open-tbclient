@@ -16,34 +16,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f28940a;
+    public Context f28960a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28941b;
+    public String f28961b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28942c;
+    public String f28962c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28943d;
+    public String f28963d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28944e;
+    public boolean f28964e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f28945f;
+    public c f28965f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f28946g;
+    public f f28966g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f28947h;
+    public d f28967h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f28948i;
+    public e f28968i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f28949j;
+    public volatile boolean f28969j;
     public volatile boolean k;
     public volatile boolean l;
 
@@ -53,7 +53,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ b f28950j;
+        public final /* synthetic */ b f28970j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, Context context, String str, String str2, e eVar, c cVar) {
@@ -74,30 +74,30 @@ public class b {
                     return;
                 }
             }
-            this.f28950j = bVar;
+            this.f28970j = bVar;
         }
 
         @Override // c.a.r0.x3.i.d.f
         public void k() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28950j.f28949j = true;
-                this.f28950j.d();
+                this.f28970j.f28969j = true;
+                this.f28970j.d();
             }
         }
     }
 
     /* renamed from: c.a.r0.x3.i.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1351b extends d {
+    public class C1349b extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ b f28951j;
+        public final /* synthetic */ b f28971j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1351b(b bVar, Context context, String str, e eVar, c cVar) {
+        public C1349b(b bVar, Context context, String str, e eVar, c cVar) {
             super(context, str, eVar, cVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -115,15 +115,15 @@ public class b {
                     return;
                 }
             }
-            this.f28951j = bVar;
+            this.f28971j = bVar;
         }
 
         @Override // c.a.r0.x3.i.d.d
         public void k() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28951j.k = true;
-                this.f28951j.d();
+                this.f28971j.k = true;
+                this.f28971j.d();
             }
         }
     }
@@ -152,17 +152,17 @@ public class b {
                 return;
             }
         }
-        this.f28944e = false;
-        this.f28940a = context;
-        this.f28941b = str;
-        this.f28942c = str2;
-        this.f28943d = str3;
+        this.f28964e = false;
+        this.f28960a = context;
+        this.f28961b = str;
+        this.f28962c = str2;
+        this.f28963d = str3;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f28949j && this.k && !this.l) {
-            this.f28948i.f();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f28969j && this.k && !this.l) {
+            this.f28968i.f();
             this.l = true;
             g();
         }
@@ -171,15 +171,15 @@ public class b {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f fVar = this.f28946g;
+            f fVar = this.f28966g;
             if (fVar != null) {
                 fVar.interrupt();
-                this.f28946g = null;
+                this.f28966g = null;
             }
-            d dVar = this.f28947h;
+            d dVar = this.f28967h;
             if (dVar != null) {
                 dVar.interrupt();
-                this.f28947h = null;
+                this.f28967h = null;
             }
         }
     }
@@ -187,60 +187,60 @@ public class b {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28944e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28964e : invokeV.booleanValue;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f28945f != null) {
-                File file = new File(this.f28942c);
+            if (this.f28965f != null) {
+                File file = new File(this.f28962c);
                 if (file.exists() && file.length() > 0) {
-                    this.f28945f.onGenFilterVideoSuccess(this.f28942c);
+                    this.f28965f.onGenFilterVideoSuccess(this.f28962c);
                 } else {
-                    this.f28945f.onGenFilterVideoFail(223, "Err empty outputFile");
+                    this.f28965f.onGenFilterVideoFail(223, "Err empty outputFile");
                 }
             }
-            this.f28944e = false;
+            this.f28964e = false;
         }
     }
 
     public void h(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f28945f = cVar;
+            this.f28965f = cVar;
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f28944e) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f28964e) {
             return;
         }
-        this.f28944e = true;
-        this.f28949j = false;
+        this.f28964e = true;
+        this.f28969j = false;
         this.k = false;
         this.l = false;
         try {
-            File file = new File(new File(this.f28942c).getParent());
+            File file = new File(new File(this.f28962c).getParent());
             if (!file.exists()) {
                 file.mkdirs();
             }
         } catch (Exception e2) {
             e2.printStackTrace();
-            c cVar = this.f28945f;
+            c cVar = this.f28965f;
             if (cVar != null) {
                 cVar.onGenFilterVideoFail(222, c.a.r0.z1.a.a(e2));
             }
         }
         try {
-            this.f28948i = new e(this.f28942c);
-            a aVar = new a(this, this.f28940a, this.f28941b, this.f28943d, this.f28948i, this.f28945f);
-            this.f28946g = aVar;
+            this.f28968i = new e(this.f28962c);
+            a aVar = new a(this, this.f28960a, this.f28961b, this.f28963d, this.f28968i, this.f28965f);
+            this.f28966g = aVar;
             aVar.start();
-            C1351b c1351b = new C1351b(this, this.f28940a, this.f28941b, this.f28948i, this.f28945f);
-            this.f28947h = c1351b;
-            c1351b.start();
+            C1349b c1349b = new C1349b(this, this.f28960a, this.f28961b, this.f28968i, this.f28965f);
+            this.f28967h = c1349b;
+            c1349b.start();
         } catch (Exception unused) {
         }
     }

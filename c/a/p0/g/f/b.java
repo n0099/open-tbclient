@@ -22,11 +22,11 @@ public class b implements f1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10934b;
+    public static final boolean f10942b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, a> f10935a;
+    public HashMap<String, a> f10943a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class b implements f1 {
                 return;
             }
         }
-        f10934b = k.f7077a;
+        f10942b = k.f7085a;
     }
 
     public b() {
@@ -57,7 +57,7 @@ public class b implements f1 {
                 return;
             }
         }
-        this.f10935a = new HashMap<>();
+        this.f10943a = new HashMap<>();
         c();
     }
 
@@ -72,14 +72,14 @@ public class b implements f1 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, bVar)) == null) {
-            a aVar = this.f10935a.get(str);
+            a aVar = this.f10943a.get(str);
             if (aVar != null) {
-                if (f10934b) {
+                if (f10942b) {
                     String str2 = "action: " + str + " params: " + jSONObject;
                 }
                 return aVar.a(jSONObject, bVar);
             }
-            if (f10934b) {
+            if (f10942b) {
                 String str3 = "action has not found: " + str + ", params: " + jSONObject;
             }
             return new c.a.p0.a.u.h.b(10002, "no such api.");
@@ -114,13 +114,13 @@ public class b implements f1 {
     public void d(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (f10934b && TextUtils.isEmpty(aVar.f10933a)) {
+            if (f10942b && TextUtils.isEmpty(aVar.f10941a)) {
                 throw new IllegalArgumentException("action name is null");
             }
-            if (f10934b && this.f10935a.containsKey(aVar.f10933a)) {
+            if (f10942b && this.f10943a.containsKey(aVar.f10941a)) {
                 throw new IllegalArgumentException("duplicate action: " + aVar);
             }
-            this.f10935a.put(aVar.f10933a, aVar);
+            this.f10943a.put(aVar.f10941a, aVar);
         }
     }
 }

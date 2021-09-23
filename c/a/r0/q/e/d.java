@@ -17,19 +17,19 @@ public class d extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<AdDownloadData> f24103a;
+    public WeakReference<AdDownloadData> f24119a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<c.a.r0.q.e.g.a> f24104b;
+    public WeakReference<c.a.r0.q.e.g.a> f24120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24105c;
+    public int f24121c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f24106d;
+    public int f24122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f24107e;
+    public long f24123e;
 
     public d(c.a.r0.q.e.g.a aVar, AdDownloadData adDownloadData) {
         Interceptable interceptable = $ic;
@@ -46,11 +46,11 @@ public class d extends Handler {
                 return;
             }
         }
-        this.f24103a = new WeakReference<>(adDownloadData);
-        this.f24104b = new WeakReference<>(aVar);
-        this.f24106d = c.a.r0.a.h().b();
-        this.f24105c = c.a.r0.a.h().c();
-        this.f24107e = c.a.r0.a.h().a();
+        this.f24119a = new WeakReference<>(adDownloadData);
+        this.f24120b = new WeakReference<>(aVar);
+        this.f24122d = c.a.r0.a.h().b();
+        this.f24121c = c.a.r0.a.h().c();
+        this.f24123e = c.a.r0.a.h().a();
         d(adDownloadData.getContentLength());
     }
 
@@ -69,7 +69,7 @@ public class d extends Handler {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Message obtain = Message.obtain();
             obtain.what = 1;
-            sendMessageDelayed(obtain, (this.f24105c * 1000) / this.f24106d);
+            sendMessageDelayed(obtain, (this.f24121c * 1000) / this.f24122d);
         }
     }
 
@@ -85,9 +85,9 @@ public class d extends Handler {
         if (!(interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) || j2 <= 1) {
             return;
         }
-        long j3 = this.f24107e;
+        long j3 = this.f24123e;
         if (j3 > 0) {
-            this.f24105c = (int) (((((float) j2) * this.f24106d) / 100.0f) / ((float) j3));
+            this.f24121c = (int) (((((float) j2) * this.f24122d) / 100.0f) / ((float) j3));
         }
     }
 
@@ -100,10 +100,10 @@ public class d extends Handler {
                 c();
                 return;
             }
-            AdDownloadData adDownloadData = this.f24103a.get();
-            c.a.r0.q.e.g.a aVar = this.f24104b.get();
+            AdDownloadData adDownloadData = this.f24119a.get();
+            c.a.r0.q.e.g.a aVar = this.f24120b.get();
             if (adDownloadData != null && aVar != null) {
-                if (this.f24106d <= 0) {
+                if (this.f24122d <= 0) {
                     adDownloadData.setFakePercent(0);
                     c();
                     return;
@@ -115,7 +115,7 @@ public class d extends Handler {
                     return;
                 } else {
                     int fakePercent = adDownloadData.getFakePercent();
-                    if (fakePercent >= this.f24106d) {
+                    if (fakePercent >= this.f24122d) {
                         c();
                         return;
                     }

@@ -13,31 +13,31 @@ public class e implements c.a.p0.a.f1.f.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Integer f8438b = null;
+    public static Integer f8446b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Integer f8439c = null;
+    public static Integer f8447c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Integer f8440d = null;
+    public static Integer f8448d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Boolean f8441e = null;
+    public static Boolean f8449e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Integer f8442f = null;
+    public static Integer f8450f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Boolean f8443g = null;
+    public static Boolean f8451g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f8444h = -1;
+    public static int f8452h = -1;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f8445i = -1;
+    public static int f8453i = -1;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f8446j = -1;
+    public static int f8454j = -1;
     public static int k = -1;
     public static int l = -1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,10 +61,10 @@ public class e implements c.a.p0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f8441e == null) {
-                f8441e = Boolean.valueOf(h("swan_api_callback_opt"));
+            if (f8449e == null) {
+                f8449e = Boolean.valueOf(h("swan_api_callback_opt"));
             }
-            return f8441e.booleanValue();
+            return f8449e.booleanValue();
         }
         return invokeV.booleanValue;
     }
@@ -74,7 +74,7 @@ public class e implements c.a.p0.a.f1.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             c.a.p0.a.c1.a.Z().getSwitch(str, 0);
-            if (c.a.p0.a.f1.f.a.f5702a) {
+            if (c.a.p0.a.f1.f.a.f5710a) {
                 String str2 = "packing[" + str + " = 0" + PreferencesUtil.RIGHT_MOUNT;
             }
             return 0;
@@ -86,10 +86,10 @@ public class e implements c.a.p0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f8439c == null) {
-                f8439c = Integer.valueOf(e() % 10000);
+            if (f8447c == null) {
+                f8447c = Integer.valueOf(e() % 10000);
             }
-            return f8439c.intValue();
+            return f8447c.intValue();
         }
         return invokeV.intValue;
     }
@@ -98,10 +98,10 @@ public class e implements c.a.p0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f8440d == null) {
-                f8440d = Integer.valueOf(e() / 10000);
+            if (f8448d == null) {
+                f8448d = Integer.valueOf(e() / 10000);
             }
-            return f8440d.intValue();
+            return f8448d.intValue();
         }
         return invokeV.intValue;
     }
@@ -110,10 +110,10 @@ public class e implements c.a.p0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f8438b == null) {
-                f8438b = Integer.valueOf(b("swan_launch_api_trigger"));
+            if (f8446b == null) {
+                f8446b = Integer.valueOf(b("swan_launch_api_trigger"));
             }
-            return f8438b.intValue();
+            return f8446b.intValue();
         }
         return invokeV.intValue;
     }
@@ -122,10 +122,10 @@ public class e implements c.a.p0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f8445i == -1) {
-                f8445i = b("swan_idle_handler_opt");
+            if (f8453i == -1) {
+                f8453i = b("swan_idle_handler_opt");
             }
-            return f8445i;
+            return f8453i;
         }
         return invokeV.intValue;
     }
@@ -146,10 +146,10 @@ public class e implements c.a.p0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (f8442f == null) {
-                f8442f = Integer.valueOf(b("swan_launch_thread_dispatch"));
+            if (f8450f == null) {
+                f8450f = Integer.valueOf(b("swan_launch_thread_dispatch"));
             }
-            return f8442f.intValue();
+            return f8450f.intValue();
         }
         return invokeV.intValue;
     }
@@ -164,10 +164,10 @@ public class e implements c.a.p0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (f8444h == -1) {
-                f8444h = b("swan_optimize_launch_cpu");
+            if (f8452h == -1) {
+                f8452h = b("swan_optimize_launch_cpu");
             }
-            return f8444h;
+            return f8452h;
         }
         return invokeV.intValue;
     }
@@ -188,10 +188,10 @@ public class e implements c.a.p0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (f8443g == null) {
-                f8443g = Boolean.valueOf(h("swan_js_thread_dispatch"));
+            if (f8451g == null) {
+                f8451g = Boolean.valueOf(h("swan_js_thread_dispatch"));
             }
-            return f8443g.booleanValue();
+            return f8451g.booleanValue();
         }
         return invokeV.booleanValue;
     }
@@ -212,10 +212,10 @@ public class e implements c.a.p0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            if (f8446j == -1) {
-                f8446j = b("swan_mmap_loger_opt");
+            if (f8454j == -1) {
+                f8454j = b("swan_mmap_loger_opt");
             }
-            return f8446j;
+            return f8454j;
         }
         return invokeV.intValue;
     }

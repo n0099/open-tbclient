@@ -35,34 +35,34 @@ public class a implements j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SwanVideoView f12451a;
+    public SwanVideoView f12459a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f12452b;
+    public Context f12460b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VideoContainerManager f12453c;
+    public VideoContainerManager f12461c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f12454d;
+    public boolean f12462d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12455e;
+    public int f12463e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12456f;
+    public boolean f12464f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12457g;
+    public boolean f12465g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12458h;
+    public boolean f12466h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.p0.a.i1.g.c f12459i;
+    public c.a.p0.a.i1.g.c f12467i;
 
     /* renamed from: j  reason: collision with root package name */
-    public FrameLayout f12460j;
+    public FrameLayout f12468j;
     public j.d k;
     public j.b l;
     public j.a m;
@@ -79,10 +79,10 @@ public class a implements j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f12461e;
+        public final /* synthetic */ Activity f12469e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f12462f;
+        public final /* synthetic */ a f12470f;
 
         public RunnableC0637a(a aVar, Activity activity) {
             Interceptable interceptable = $ic;
@@ -99,22 +99,22 @@ public class a implements j {
                     return;
                 }
             }
-            this.f12462f = aVar;
-            this.f12461e = activity;
+            this.f12470f = aVar;
+            this.f12469e = activity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f12461e.setRequestedOrientation(0);
-                this.f12461e.getWindow().addFlags(1024);
-                this.f12462f.N(this.f12461e);
-                SwanAppComponentContainerView I = this.f12462f.O().I();
+                this.f12469e.setRequestedOrientation(0);
+                this.f12469e.getWindow().addFlags(1024);
+                this.f12470f.N(this.f12469e);
+                SwanAppComponentContainerView I = this.f12470f.O().I();
                 I.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
                 g.b(I);
-                g.a(this.f12461e, I);
-                c.a.p0.v.j.b.a.a.c(this.f12462f.f12459i.n, this.f12462f.f12459i.f4658g, true, this.f12462f.O());
+                g.a(this.f12469e, I);
+                c.a.p0.v.j.b.a.a.c(this.f12470f.f12467i.n, this.f12470f.f12467i.f4666g, true, this.f12470f.O());
             }
         }
     }
@@ -125,7 +125,7 @@ public class a implements j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f12463e;
+        public final /* synthetic */ a f12471e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -142,16 +142,16 @@ public class a implements j {
                     return;
                 }
             }
-            this.f12463e = aVar;
+            this.f12471e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g.b(this.f12463e.O().I());
-                this.f12463e.O().w();
-                c.a.p0.v.j.b.a.a.c(this.f12463e.f12459i.n, this.f12463e.f12459i.f4658g, false, this.f12463e.O());
+                g.b(this.f12471e.O().I());
+                this.f12471e.O().w();
+                c.a.p0.v.j.b.a.a.c(this.f12471e.f12467i.n, this.f12471e.f12467i.f4666g, false, this.f12471e.O());
             }
         }
     }
@@ -162,7 +162,7 @@ public class a implements j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f12464e;
+        public final /* synthetic */ a f12472e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -179,14 +179,14 @@ public class a implements j {
                     return;
                 }
             }
-            this.f12464e = aVar;
+            this.f12472e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f12464e.a0();
+                this.f12472e.a0();
             }
         }
     }
@@ -197,7 +197,7 @@ public class a implements j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f12465a;
+        public final /* synthetic */ a f12473a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -214,7 +214,7 @@ public class a implements j {
                     return;
                 }
             }
-            this.f12465a = aVar;
+            this.f12473a = aVar;
         }
 
         @Override // c.a.p0.v.h.a
@@ -226,7 +226,7 @@ public class a implements j {
                 int bufferPercentage = (swanVideoView.getBufferPercentage() * duration) / 100;
                 if (currentPosition >= bufferPercentage && currentPosition != 0 && (currentPosition <= 0 || bufferPercentage != 0)) {
                     c.a.p0.a.e0.d.a("SwanAppVideoPlayer", String.format("onInfo wait progress : %s, buffer : %s, duration : %s", Integer.valueOf(currentPosition), Integer.valueOf(bufferPercentage), Integer.valueOf(duration)));
-                    c.a.p0.v.j.b.a.a.b(this.f12465a.f12459i.n, this.f12465a.f12459i.f4658g, "waiting", new JSONObject());
+                    c.a.p0.v.j.b.a.a.b(this.f12473a.f12467i.n, this.f12473a.f12467i.f4666g, "waiting", new JSONObject());
                     return;
                 }
                 c.a.p0.a.e0.d.a("SwanAppVideoPlayer", String.format("onInfo update progress : %s, buffer : %s, duration :%s", Integer.valueOf(currentPosition), Integer.valueOf(bufferPercentage), Integer.valueOf(duration)));
@@ -239,9 +239,9 @@ public class a implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 if (z) {
-                    this.f12465a.S();
+                    this.f12473a.S();
                 } else {
-                    this.f12465a.T();
+                    this.f12473a.T();
                 }
             }
         }
@@ -258,7 +258,7 @@ public class a implements j {
                         e2.printStackTrace();
                     }
                 }
-                c.a.p0.v.j.b.a.a.b(this.f12465a.f12459i.n, this.f12465a.f12459i.f4658g, "timeupdate", jSONObject);
+                c.a.p0.v.j.b.a.a.b(this.f12473a.f12467i.n, this.f12473a.f12467i.f4666g, "timeupdate", jSONObject);
             }
         }
 
@@ -266,12 +266,12 @@ public class a implements j {
         public void onEnd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f12465a.f12454d = false;
-                c.a.p0.v.j.b.a.a.b(this.f12465a.f12459i.n, this.f12465a.f12459i.f4658g, "ended", new JSONObject());
-                if (this.f12465a.m != null) {
-                    this.f12465a.m.b(this.f12465a);
+                this.f12473a.f12462d = false;
+                c.a.p0.v.j.b.a.a.b(this.f12473a.f12467i.n, this.f12473a.f12467i.f4666g, "ended", new JSONObject());
+                if (this.f12473a.m != null) {
+                    this.f12473a.m.b(this.f12473a);
                 }
-                this.f12465a.f12458h = true;
+                this.f12473a.f12466h = true;
                 c.a.p0.a.e0.d.a("video", "onEnded call back");
             }
         }
@@ -280,17 +280,17 @@ public class a implements j {
         public void onError(int i2, int i3, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, str) == null) {
-                this.f12465a.f12454d = false;
+                this.f12473a.f12462d = false;
                 c.a.p0.a.e0.d.b("video", "errorCode :" + i2);
-                this.f12465a.O().L();
-                this.f12465a.O().M();
-                c.a.p0.v.j.b.a.a.b(this.f12465a.f12459i.n, this.f12465a.f12459i.f4658g, "error", c.a.p0.v.j.a.b.a.c(i3));
-                if (this.f12465a.l != null) {
-                    this.f12465a.l.f(this.f12465a, i2, i3);
+                this.f12473a.O().L();
+                this.f12473a.O().M();
+                c.a.p0.v.j.b.a.a.b(this.f12473a.f12467i.n, this.f12473a.f12467i.f4666g, "error", c.a.p0.v.j.a.b.a.c(i3));
+                if (this.f12473a.l != null) {
+                    this.f12473a.l.f(this.f12473a, i2, i3);
                 }
-                this.f12465a.f12458h = false;
-                int currentPosition = this.f12465a.P().getCurrentPosition();
-                a aVar = this.f12465a;
+                this.f12473a.f12466h = false;
+                int currentPosition = this.f12473a.P().getCurrentPosition();
+                a aVar = this.f12473a;
                 if (currentPosition <= 0) {
                     currentPosition = aVar.r;
                 }
@@ -303,11 +303,11 @@ public class a implements j {
         public void onPause() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                c.a.p0.v.j.b.a.a.b(this.f12465a.f12459i.n, this.f12465a.f12459i.f4658g, "pause", new JSONObject());
+                c.a.p0.v.j.b.a.a.b(this.f12473a.f12467i.n, this.f12473a.f12467i.f4666g, "pause", new JSONObject());
                 c.a.p0.a.e0.d.a("video", "onPaused call back");
-                this.f12465a.f12454d = true;
-                if (this.f12465a.p != null) {
-                    this.f12465a.p.c(this.f12465a);
+                this.f12473a.f12462d = true;
+                if (this.f12473a.p != null) {
+                    this.f12473a.p.c(this.f12473a);
                 }
             }
         }
@@ -317,10 +317,10 @@ public class a implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 c.a.p0.a.e0.d.a("video", "onPrepared call back");
-                this.f12465a.V();
-                this.f12465a.M();
-                if (this.f12465a.k != null) {
-                    this.f12465a.k.e(this.f12465a);
+                this.f12473a.V();
+                this.f12473a.M();
+                if (this.f12473a.k != null) {
+                    this.f12473a.k.e(this.f12473a);
                 }
             }
         }
@@ -330,12 +330,12 @@ public class a implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 super.onResume();
-                c.a.p0.v.j.b.a.a.b(this.f12465a.f12459i.n, this.f12465a.f12459i.f4658g, "play", new JSONObject());
-                this.f12465a.f12458h = false;
-                this.f12465a.f12454d = false;
-                this.f12465a.O().M();
-                if (this.f12465a.n != null) {
-                    this.f12465a.n.a(this.f12465a);
+                c.a.p0.v.j.b.a.a.b(this.f12473a.f12467i.n, this.f12473a.f12467i.f4666g, "play", new JSONObject());
+                this.f12473a.f12466h = false;
+                this.f12473a.f12462d = false;
+                this.f12473a.O().M();
+                if (this.f12473a.n != null) {
+                    this.f12473a.n.a(this.f12473a);
                 }
             }
         }
@@ -344,12 +344,12 @@ public class a implements j {
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                c.a.p0.v.j.b.a.a.b(this.f12465a.f12459i.n, this.f12465a.f12459i.f4658g, "play", new JSONObject());
-                this.f12465a.f12458h = false;
-                this.f12465a.f12454d = false;
-                this.f12465a.O().M();
-                if (this.f12465a.o != null) {
-                    this.f12465a.o.d(this.f12465a);
+                c.a.p0.v.j.b.a.a.b(this.f12473a.f12467i.n, this.f12473a.f12467i.f4666g, "play", new JSONObject());
+                this.f12473a.f12466h = false;
+                this.f12473a.f12462d = false;
+                this.f12473a.O().M();
+                if (this.f12473a.o != null) {
+                    this.f12473a.o.d(this.f12473a);
                 }
             }
         }
@@ -372,7 +372,7 @@ public class a implements j {
                 return;
             }
         }
-        s = k.f7077a;
+        s = k.f7085a;
     }
 
     public a() {
@@ -388,18 +388,18 @@ public class a implements j {
                 return;
             }
         }
-        this.f12457g = true;
+        this.f12465g = true;
         this.r = 0;
     }
 
     public final void K(c.a.p0.a.i1.g.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            c.a.p0.a.i1.g.c cVar2 = this.f12459i;
-            if (cVar2 != null && cVar != null && !TextUtils.isEmpty(cVar2.C) && !TextUtils.isEmpty(cVar.C) && !TextUtils.equals(this.f12459i.C, cVar.C)) {
-                this.f12456f = true;
+            c.a.p0.a.i1.g.c cVar2 = this.f12467i;
+            if (cVar2 != null && cVar != null && !TextUtils.isEmpty(cVar2.C) && !TextUtils.isEmpty(cVar.C) && !TextUtils.equals(this.f12467i.C, cVar.C)) {
+                this.f12464f = true;
             } else {
-                this.f12456f = false;
+                this.f12464f = false;
             }
         }
     }
@@ -408,8 +408,8 @@ public class a implements j {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cVar)) == null) {
-            this.f12452b = context;
-            this.f12459i = cVar;
+            this.f12460b = context;
+            this.f12467i = cVar;
             O();
             return this;
         }
@@ -418,7 +418,7 @@ public class a implements j {
 
     public final void M() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f12457g) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f12465g) {
             return;
         }
         pause();
@@ -435,13 +435,13 @@ public class a implements j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f12459i == null) {
+            if (this.f12467i == null) {
                 c.a.p0.a.c0.g.a.a("SwanAppVideoPlayer", "getContainerManager with a null mParams");
             }
-            if (this.f12453c == null) {
-                this.f12453c = new VideoContainerManager(this.f12452b, this.f12459i);
+            if (this.f12461c == null) {
+                this.f12461c = new VideoContainerManager(this.f12460b, this.f12467i);
             }
-            return this.f12453c;
+            return this.f12461c;
         }
         return (VideoContainerManager) invokeV.objValue;
     }
@@ -450,12 +450,12 @@ public class a implements j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f12451a == null) {
+            if (this.f12459a == null) {
                 c.a.p0.a.e0.d.g("video", "create player");
-                this.f12451a = new SwanVideoView(this.f12452b);
+                this.f12459a = new SwanVideoView(this.f12460b);
                 Q();
             }
-            return this.f12451a;
+            return this.f12459a;
         }
         return (SwanVideoView) invokeV.objValue;
     }
@@ -484,7 +484,7 @@ public class a implements j {
             }
             k.runOnUiThread(new RunnableC0637a(this, k));
             this.q = true;
-            this.f12451a.setIsLandscape(true);
+            this.f12459a.setIsLandscape(true);
             return true;
         }
         return invokeV.booleanValue;
@@ -503,7 +503,7 @@ public class a implements j {
             k.getWindow().clearFlags(1024);
             k.runOnUiThread(new b(this));
             this.q = false;
-            this.f12451a.setIsLandscape(false);
+            this.f12459a.setIsLandscape(false);
             return true;
         }
         return invokeV.booleanValue;
@@ -512,31 +512,31 @@ public class a implements j {
     public void U() {
         SwanVideoView swanVideoView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (swanVideoView = this.f12451a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (swanVideoView = this.f12459a) == null) {
             return;
         }
         swanVideoView.stopPlayback();
-        g.b(this.f12451a);
-        this.f12451a = null;
+        g.b(this.f12459a);
+        this.f12459a = null;
     }
 
     public final void V() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && f0()) {
-            if (this.f12455e != 0) {
-                P().seekTo(this.f12455e);
-                this.f12455e = 0;
+            if (this.f12463e != 0) {
+                P().seekTo(this.f12463e);
+                this.f12463e = 0;
                 return;
             }
-            int i2 = this.f12459i.q;
+            int i2 = this.f12467i.q;
             if (i2 != 0) {
-                this.f12451a.seekTo(i2 * 1000);
-                this.f12459i.q = 0;
+                this.f12459a.seekTo(i2 * 1000);
+                this.f12467i.q = 0;
                 return;
             }
             int i3 = this.r;
             if (i3 != 0) {
-                this.f12451a.seekTo(i3);
+                this.f12459a.seekTo(i3);
                 this.r = 0;
             }
         }
@@ -549,7 +549,7 @@ public class a implements j {
                 c.a.p0.a.e0.d.b("SwanAppVideoPlayer", "setDataSource params is null!");
                 return;
             }
-            P().setVideoPath(this.f12459i.C);
+            P().setVideoPath(this.f12467i.C);
             c.a.p0.a.e0.d.a("video", "setDataSource url " + cVar.C);
         }
     }
@@ -574,12 +574,12 @@ public class a implements j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, cVar)) == null) {
-            c.a.p0.a.i1.g.c cVar2 = this.f12459i;
+            c.a.p0.a.i1.g.c cVar2 = this.f12467i;
             if (cVar2 == null) {
                 return false;
             }
             if (cVar2.o == cVar.o && cVar2.B == cVar.B && TextUtils.equals(cVar2.u, cVar.u)) {
-                c.a.p0.a.i1.g.c cVar3 = this.f12459i;
+                c.a.p0.a.i1.g.c cVar3 = this.f12467i;
                 return (cVar3.L == cVar.L && cVar3.H == cVar.H && cVar3.I == cVar.I && cVar3.K == cVar.K && cVar3.J == cVar.J && cVar3.t == cVar.t) ? false : true;
             }
             return true;
@@ -598,7 +598,7 @@ public class a implements j {
     public void a(FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, frameLayout) == null) {
-            this.f12460j = frameLayout;
+            this.f12468j = frameLayout;
         }
     }
 
@@ -608,11 +608,11 @@ public class a implements j {
             O().L();
             U();
             P().openVideo();
-            X(this.f12459i);
-            h(this.f12459i, false);
-            W(this.f12459i);
+            X(this.f12467i);
+            h(this.f12467i, false);
+            W(this.f12467i);
             P().start();
-            this.f12456f = false;
+            this.f12464f = false;
         }
     }
 
@@ -626,7 +626,7 @@ public class a implements j {
     public final void b0() {
         SwanVideoView swanVideoView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (swanVideoView = this.f12451a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (swanVideoView = this.f12459a) == null) {
             return;
         }
         swanVideoView.stopPlayback();
@@ -645,10 +645,10 @@ public class a implements j {
             if (s) {
                 String str = "updatePlayStateAfterVisibleChanged isVisible=" + z;
             }
-            if (this.f12451a == null || z || !isPlaying()) {
+            if (this.f12459a == null || z || !isPlaying()) {
                 return;
             }
-            this.f12451a.pause();
+            this.f12459a.pause();
         }
     }
 
@@ -676,15 +676,15 @@ public class a implements j {
     public final void e0() {
         SwanVideoView swanVideoView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || (swanVideoView = this.f12451a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || (swanVideoView = this.f12459a) == null) {
             return;
         }
         g.b(swanVideoView);
-        FrameLayout frameLayout = this.f12460j;
+        FrameLayout frameLayout = this.f12468j;
         if (frameLayout != null) {
-            frameLayout.addView(this.f12451a);
+            frameLayout.addView(this.f12459a);
         } else {
-            O().J().addView(this.f12451a);
+            O().J().addView(this.f12459a);
         }
     }
 
@@ -699,8 +699,8 @@ public class a implements j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            c.a.p0.a.i1.g.c cVar = this.f12459i;
-            return (cVar == null || TextUtils.isEmpty(cVar.C) || TextUtils.isEmpty(this.f12459i.n) || TextUtils.isEmpty(this.f12459i.f4657f)) ? false : true;
+            c.a.p0.a.i1.g.c cVar = this.f12467i;
+            return (cVar == null || TextUtils.isEmpty(cVar.C) || TextUtils.isEmpty(this.f12467i.n) || TextUtils.isEmpty(this.f12467i.f4665f)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -738,7 +738,7 @@ public class a implements j {
             if (Y(cVar)) {
                 X(cVar);
             }
-            this.f12459i = cVar;
+            this.f12467i = cVar;
             if (z) {
                 c0(cVar.l());
             }
@@ -757,7 +757,7 @@ public class a implements j {
     public boolean isEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f12458h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f12466h : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.a.c1.d.j
@@ -765,7 +765,7 @@ public class a implements j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            SwanVideoView swanVideoView = this.f12451a;
+            SwanVideoView swanVideoView = this.f12459a;
             if (swanVideoView == null) {
                 return false;
             }
@@ -831,7 +831,7 @@ public class a implements j {
         if (interceptable == null || interceptable.invokeL(1048617, this, cVar) == null) {
             c.a.p0.a.e0.d.a("video", "Open Player " + cVar.n);
             K(cVar);
-            this.f12459i = cVar;
+            this.f12467i = cVar;
             d0(cVar);
             if (cVar.k() && cVar.l()) {
                 a0();
@@ -863,7 +863,7 @@ public class a implements j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
             P().pause();
-            this.f12454d = true;
+            this.f12462d = true;
         }
     }
 
@@ -879,7 +879,7 @@ public class a implements j {
     public void resume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
-            if (this.f12454d && !this.f12456f) {
+            if (this.f12462d && !this.f12464f) {
                 P().start();
             } else {
                 a0();
@@ -891,10 +891,10 @@ public class a implements j {
     public void seekTo(int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048623, this, i2) == null) && f0()) {
-            if (!this.f12456f) {
+            if (!this.f12464f) {
                 P().seekTo(i2);
             } else {
-                this.f12455e = i2;
+                this.f12463e = i2;
             }
         }
     }

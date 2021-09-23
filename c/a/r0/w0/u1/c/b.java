@@ -15,13 +15,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d2> f27860a;
+    public List<d2> f27880a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27861b;
+    public String f27881b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Integer f27862c;
+    public Integer f27882c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -36,12 +36,12 @@ public class b {
                 return;
             }
         }
-        this.f27860a = new ArrayList();
+        this.f27880a = new ArrayList();
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !ListUtils.isEmpty(this.f27860a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !ListUtils.isEmpty(this.f27880a) : invokeV.booleanValue;
     }
 }

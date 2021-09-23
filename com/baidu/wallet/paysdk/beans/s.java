@@ -1,27 +1,44 @@
 package com.baidu.wallet.paysdk.beans;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.datamodel.WalletInterfaceResponse;
+import com.baidu.wallet.base.statistics.PayStatServiceEvent;
+import com.baidu.wallet.paysdk.api.BaiduPay;
+import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
+import com.baidu.wallet.paysdk.datamodel.DirectPayErrorContent;
+import com.baidu.wallet.paysdk.datamodel.PayRequest;
+import com.baidu.wallet.paysdk.fingerprint.WalletFingerprint;
+import com.baidu.wallet.paysdk.storage.PayDataCache;
+import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.dxmpay.apollon.restnet.RestNameValuePair;
-import com.dxmpay.apollon.utils.SharedPreferencesUtils;
 import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
-import com.dxmpay.wallet.paysdk.storage.PayPreferenceManager;
-import java.util.ArrayList;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.StatHelper;
+import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class s extends BaseBean<WalletInterfaceResponse> {
+public class s extends BaseBean<DirectPayContentResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: a  reason: collision with root package name */
+    public PayRequest f62706a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f62707b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f62708c;
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(Context context) {
+    public <T> s(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,31 +55,31 @@ public class s extends BaseBean<WalletInterfaceResponse> {
                 return;
             }
         }
+        this.f62706a = null;
+        this.f62707b = null;
+        this.f62708c = null;
+        this.f62706a = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
-    private boolean a(Context context) {
-        InterceptResult invokeL;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, context)) == null) {
-            return ((Boolean) SharedPreferencesUtils.getParam(context, com.dxmpay.wallet.core.beans.BeanConstants.PREFERENCES_NAME, "key_for_home_mask_switch" + PayPreferenceManager.getPpKey(context), Boolean.FALSE)).booleanValue();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f62707b = str;
         }
-        return invokeL.booleanValue;
-    }
-
-    private boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
-            return ((Boolean) SharedPreferencesUtils.getParam(context, com.dxmpay.wallet.core.beans.BeanConstants.PREFERENCES_NAME, "key_for_home_mask_switch" + PayPreferenceManager.getNewPpKey(context), Boolean.FALSE)).booleanValue();
-        }
-        return invokeL.booleanValue;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.execBean(WalletInterfaceResponse.class);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (BeanConstants.API_GET_PAY_ORDER.equals(this.f62708c)) {
+                List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getSpNo());
+                HashMap hashMap = new HashMap();
+                hashMap.put("sp_no", StatHelper.getSpNo());
+                hashMap.put("pay_amount", StatHelper.getPayAmount());
+                StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_ORDER_COLLATION, collectData, hashMap);
+            }
+            super.execBean(DirectPayContentResponse.class, DirectPayErrorContent.class);
         }
     }
 
@@ -70,10 +87,8 @@ public class s extends BaseBean<WalletInterfaceResponse> {
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("isOpenSecurity", a(this.mContext) || b(this.mContext) ? "1" : "0"));
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
         return (List) invokeV.objValue;
     }
@@ -82,14 +97,24 @@ public class s extends BaseBean<WalletInterfaceResponse> {
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PayBeanFactory.BEAN_ID_GET_WALLET_INTERFACE : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.dxmpay.apollon.beans.ApollonBean
+    public String getEncode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "gbk" : (String) invokeV.objValue;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getHttpMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
@@ -98,9 +123,35 @@ public class s extends BaseBean<WalletInterfaceResponse> {
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DomainConfig.getInstance().getAppHost() + BeanConstants.API_WALLET_INTERFACE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            this.f62708c = BeanConstants.API_GET_PAY_ORDER;
+            if (this.f62706a.hasCashDeskCode()) {
+                this.f62708c = BeanConstants.API_GET_PAY_ORDER_PREPAY;
+            } else if (BaiduPay.PAY_FROM_HUA_ZHUAN_ZHANG.equals(this.f62706a.getPayFrom())) {
+                this.f62708c = BeanConstants.API_GET_PAY_ORDER_TRANSFER;
+            } else if (BaiduPay.PAY_FROM_HUA_FEI.equals(this.f62706a.getPayFrom())) {
+                this.f62708c = BeanConstants.API_GET_PAY_ORDER_CHARGE;
+            } else if (BaiduPay.PAY_FROM_BIND_CARD.equals(this.f62706a.getPayFrom())) {
+                this.f62708c = BeanConstants.API_CARD_ADD;
+            } else if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f62706a.getPayFrom())) {
+                this.f62708c = BeanConstants.API_AUTHORIZE_ORDER;
+            } else if (PayDataCache.getInstance().isFromPreCashier()) {
+                this.f62708c = BeanConstants.API_GET_PRE_PAY_ORDER;
+            }
+            if (PayDataCache.getInstance().isFromPreCashier()) {
+                str = DomainConfig.getInstance().getAppPayHost() + this.f62708c + "?" + this.f62706a.mParams + "&" + this.f62707b;
+            } else {
+                str = DomainConfig.getInstance().getAppPayHost() + this.f62708c + "?" + this.f62706a.mParams;
+            }
+            if (WalletFingerprint.getInstance(this.mContext).hasEnrollFingerprint()) {
+                str = str + "&enroll_fingerprint=1";
+            }
+            if (TextUtils.isEmpty(this.f62706a.mSecurityParams)) {
+                return str;
+            }
+            return str + "&security_sdk_param=" + this.f62706a.mSecurityParams;
         }
         return (String) invokeV.objValue;
     }

@@ -42,10 +42,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, d2Var)) == null) {
-            if (d2Var == null || d2Var.y1) {
+            if (d2Var == null || d2Var.z1) {
                 return false;
             }
-            int i2 = d2Var.c0;
+            int i2 = d2Var.i0;
             return i2 == 0 || i2 == 11 || i2 == 40 || d2Var.D2();
         }
         return invokeL.booleanValue;

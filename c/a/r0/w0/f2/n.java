@@ -1,7 +1,7 @@
 package c.a.r0.w0.f2;
 
 import android.os.MessageQueue;
-import c.a.r0.j3.s;
+import c.a.r0.j3.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketMessage;
@@ -19,19 +19,19 @@ public class n implements MessageQueue.IdleHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsModelController f26709a;
+    public FrsModelController f26732a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MvcSocketResponsedMessage<c.a.r0.j3.m, ?> f26710b;
+    public MvcSocketResponsedMessage<c.a.r0.j3.m, ?> f26733b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MvcSocketMessage<FrsRequestData, c.a.r0.j3.m> f26711c;
+    public MvcSocketMessage<FrsRequestData, c.a.r0.j3.m> f26734c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MvcNetMessage<FrsRequestData, c.a.r0.j3.m> f26712d;
+    public MvcNetMessage<FrsRequestData, c.a.r0.j3.m> f26735d;
 
     /* renamed from: e  reason: collision with root package name */
-    public s f26713e;
+    public t f26736e;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -50,35 +50,35 @@ public class n implements MessageQueue.IdleHandler {
     public void a(FrsModelController frsModelController) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
-            this.f26709a = frsModelController;
+            this.f26732a = frsModelController;
         }
     }
 
-    public void b(s sVar) {
+    public void b(t tVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sVar) == null) {
-            this.f26713e = sVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tVar) == null) {
+            this.f26736e = tVar;
         }
     }
 
     public void c(MvcSocketMessage<FrsRequestData, c.a.r0.j3.m> mvcSocketMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcSocketMessage) == null) {
-            this.f26711c = mvcSocketMessage;
+            this.f26734c = mvcSocketMessage;
         }
     }
 
     public void d(MvcNetMessage<FrsRequestData, c.a.r0.j3.m> mvcNetMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
-            this.f26712d = mvcNetMessage;
+            this.f26735d = mvcNetMessage;
         }
     }
 
     public void e(MvcSocketResponsedMessage<c.a.r0.j3.m, ?> mvcSocketResponsedMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, mvcSocketResponsedMessage) == null) {
-            this.f26710b = mvcSocketResponsedMessage;
+            this.f26733b = mvcSocketResponsedMessage;
         }
     }
 
@@ -87,14 +87,14 @@ public class n implements MessageQueue.IdleHandler {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            FrsModelController frsModelController = this.f26709a;
+            FrsModelController frsModelController = this.f26732a;
             if (frsModelController == null) {
                 return false;
             }
-            frsModelController.C0(this.f26710b, this.f26711c, this.f26712d);
-            s sVar = this.f26713e;
-            if (sVar != null) {
-                sVar.b();
+            frsModelController.C0(this.f26733b, this.f26734c, this.f26735d);
+            t tVar = this.f26736e;
+            if (tVar != null) {
+                tVar.b();
             }
             return false;
         }

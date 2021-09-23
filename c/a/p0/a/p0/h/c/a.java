@@ -15,7 +15,7 @@ public class a extends c.a.p0.a.p0.h.b<c.a.p0.a.p0.g.b.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f7995d;
+    public static boolean f8003d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class a extends c.a.p0.a.p0.h.b<c.a.p0.a.p0.g.b.a> {
             }
         }
         c.a.p0.a.c1.a.Z().getSwitch("swan_extension_unzip_check", false);
-        f7995d = false;
+        f8003d = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -77,8 +77,8 @@ public class a extends c.a.p0.a.p0.h.b<c.a.p0.a.p0.g.b.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d.h("ExtCore-SwanAppPresetControl", "isNeedUpdate sExtensionUnzipCheck=" + f7995d);
-            if (f7995d) {
+            d.h("ExtCore-SwanAppPresetControl", "isNeedUpdate sExtensionUnzipCheck=" + f8003d);
+            if (f8003d) {
                 return !r(h().extensionCorePath) || super.k();
             }
             return super.k();

@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.j;
-import c.a.q0.d1.o;
+import c.a.q0.d1.r;
 import c.a.q0.s.s.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -46,9 +46,9 @@ import java.util.List;
 public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o<Boolean> delDataCallBack;
+    public r<Boolean> delDataCallBack;
     public PopupDialog deleteItemDialog;
-    public o<LinkedList<GroupNewsPojo>> getDataCallBack;
+    public r<LinkedList<GroupNewsPojo>> getDataCallBack;
     public boolean isEditMode;
     public Runnable loadImageRunnable;
     public CustomMessageListener mCustomListener;
@@ -58,12 +58,12 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     public c.a.r0.k1.j.c updatesView;
 
     /* loaded from: classes7.dex */
-    public class a implements o<LinkedList<GroupNewsPojo>> {
+    public class a implements r<LinkedList<GroupNewsPojo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f53135a;
+        public final /* synthetic */ UpdatesActivity f53248a;
 
         public a(UpdatesActivity updatesActivity) {
             Interceptable interceptable = $ic;
@@ -80,22 +80,22 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f53135a = updatesActivity;
+            this.f53248a = updatesActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.o
+        @Override // c.a.q0.d1.r
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             ImMessageCenterPojo imMessageCenterPojo;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, linkedList) == null) {
                 List<UpdatesItemData> convertToUpdatesItemData = UpdatesModel.convertToUpdatesItemData(linkedList);
-                this.f53135a.updatesView.m(convertToUpdatesItemData);
-                this.f53135a.model.calculateSelects(convertToUpdatesItemData);
-                this.f53135a.updatesView.o(false);
-                this.f53135a.updatesView.n(this.f53135a.model.getDeleteSize());
-                this.f53135a.loadImage();
+                this.f53248a.updatesView.m(convertToUpdatesItemData);
+                this.f53248a.model.calculateSelects(convertToUpdatesItemData);
+                this.f53248a.updatesView.o(false);
+                this.f53248a.updatesView.n(this.f53248a.model.getDeleteSize());
+                this.f53248a.loadImage();
                 if (convertToUpdatesItemData == null || convertToUpdatesItemData.size() <= 0) {
                     imMessageCenterPojo = null;
                 } else {
@@ -107,28 +107,28 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 if (convertToUpdatesItemData == null || convertToUpdatesItemData.size() != 0) {
                     return;
                 }
-                this.f53135a.finish();
+                this.f53248a.finish();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements o<Boolean> {
+    public class b implements r<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ o f53136a;
+        public final /* synthetic */ r f53249a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f53137b;
+        public final /* synthetic */ UpdatesActivity f53250b;
 
-        public b(UpdatesActivity updatesActivity, o oVar) {
+        public b(UpdatesActivity updatesActivity, r rVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {updatesActivity, oVar};
+                Object[] objArr = {updatesActivity, rVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -138,31 +138,31 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f53137b = updatesActivity;
-            this.f53136a = oVar;
+            this.f53250b = updatesActivity;
+            this.f53249a = rVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.o
+        @Override // c.a.q0.d1.r
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                this.f53137b.model.clearSelect();
-                this.f53137b.updatesView.c();
-                this.f53137b.setEditMode(false);
-                UpdatesModel.requestUpdatesDataFromDB(this.f53136a);
+                this.f53250b.model.clearSelect();
+                this.f53250b.updatesView.c();
+                this.f53250b.setEditMode(false);
+                UpdatesModel.requestUpdatesDataFromDB(this.f53249a);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements o<LinkedList<GroupNewsPojo>> {
+    public class c implements r<LinkedList<GroupNewsPojo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f53138a;
+        public final /* synthetic */ UpdatesActivity f53251a;
 
         public c(UpdatesActivity updatesActivity) {
             Interceptable interceptable = $ic;
@@ -179,21 +179,21 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f53138a = updatesActivity;
+            this.f53251a = updatesActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.o
+        @Override // c.a.q0.d1.r
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, linkedList) == null) {
                 List<UpdatesItemData> convertToUpdatesItemData = UpdatesModel.convertToUpdatesItemData(linkedList);
-                this.f53138a.updatesView.m(convertToUpdatesItemData);
-                this.f53138a.model.calculateSelects(convertToUpdatesItemData);
-                this.f53138a.updatesView.o(false);
-                this.f53138a.updatesView.n(this.f53138a.model.getDeleteSize());
-                this.f53138a.loadImage();
+                this.f53251a.updatesView.m(convertToUpdatesItemData);
+                this.f53251a.model.calculateSelects(convertToUpdatesItemData);
+                this.f53251a.updatesView.o(false);
+                this.f53251a.updatesView.n(this.f53251a.model.getDeleteSize());
+                this.f53251a.loadImage();
             }
         }
     }
@@ -204,7 +204,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f53139e;
+        public final /* synthetic */ UpdatesActivity f53252e;
 
         public d(UpdatesActivity updatesActivity) {
             Interceptable interceptable = $ic;
@@ -221,21 +221,21 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f53139e = updatesActivity;
+            this.f53252e = updatesActivity;
         }
 
         @Override // c.a.q0.s.s.i.e
         public void onItemClick(i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                if (this.f53139e.deleteItemDialog != null && this.f53139e.deleteItemDialog.isShowing()) {
-                    this.f53139e.deleteItemDialog.dismiss();
+                if (this.f53252e.deleteItemDialog != null && this.f53252e.deleteItemDialog.isShowing()) {
+                    this.f53252e.deleteItemDialog.dismiss();
                 }
                 if (i2 != 0) {
                     return;
                 }
-                this.f53139e.updatesView.o(true);
-                UpdatesActivity updatesActivity = this.f53139e;
+                this.f53252e.updatesView.o(true);
+                UpdatesActivity updatesActivity = this.f53252e;
                 updatesActivity.processDel(updatesActivity.pendingToDel);
             }
         }
@@ -247,7 +247,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f53140a;
+        public final /* synthetic */ UpdatesActivity f53253a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(UpdatesActivity updatesActivity, int i2) {
@@ -267,7 +267,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f53140a = updatesActivity;
+            this.f53253a = updatesActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -275,21 +275,21 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.f53140a.updatesView.o(false);
+                this.f53253a.updatesView.o(false);
                 if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage) && 202004 == socketResponsedMessage.getCmd()) {
                     ResponseDelSystemMessage responseDelSystemMessage = (ResponseDelSystemMessage) socketResponsedMessage;
                     RequestDelSystemMessage requestDelSystemMessage = (RequestDelSystemMessage) responseDelSystemMessage.getOrginalMessage();
                     if (responseDelSystemMessage.getError() != 0) {
                         return;
                     }
-                    if (this.f53140a.pendingToDel != null) {
-                        UpdatesModel.deleteUpdatesData(this.f53140a.pendingToDel, this.f53140a.delDataCallBack);
-                        this.f53140a.pendingToDel = null;
+                    if (this.f53253a.pendingToDel != null) {
+                        UpdatesModel.deleteUpdatesData(this.f53253a.pendingToDel, this.f53253a.delDataCallBack);
+                        this.f53253a.pendingToDel = null;
                     }
-                    if (this.f53140a.model == null || this.f53140a.model.getDeleteSize() <= 0) {
+                    if (this.f53253a.model == null || this.f53253a.model.getDeleteSize() <= 0) {
                         return;
                     }
-                    this.f53140a.model.deleteDatas(this.f53140a.delDataCallBack);
+                    this.f53253a.model.deleteDatas(this.f53253a.delDataCallBack);
                 }
             }
         }
@@ -301,7 +301,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f53141a;
+        public final /* synthetic */ UpdatesActivity f53254a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(UpdatesActivity updatesActivity, int i2) {
@@ -321,7 +321,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f53141a = updatesActivity;
+            this.f53254a = updatesActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -329,11 +329,11 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f53141a.updatesView.o(false);
+                this.f53254a.updatesView.o(false);
                 if (customResponsedMessage != null && (customResponsedMessage instanceof ResponsedMessage)) {
                     int cmd = customResponsedMessage.getCmd();
                     if (2001132 == cmd || 2001133 == cmd || 2001130 == cmd || 2001129 == cmd || 2001137 == cmd) {
-                        UpdatesModel.requestUpdatesDataFromDB(this.f53141a.getDataCallBack);
+                        UpdatesModel.requestUpdatesDataFromDB(this.f53254a.getDataCallBack);
                     }
                 }
             }

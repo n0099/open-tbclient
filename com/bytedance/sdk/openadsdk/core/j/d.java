@@ -14,7 +14,7 @@ public class d extends com.bytedance.sdk.component.d.g {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f66688a;
+    public static volatile d f66999a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -39,14 +39,14 @@ public class d extends com.bytedance.sdk.component.d.g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f66688a == null) {
+            if (f66999a == null) {
                 synchronized (f.class) {
-                    if (f66688a == null) {
-                        f66688a = new d();
+                    if (f66999a == null) {
+                        f66999a = new d();
                     }
                 }
             }
-            return f66688a;
+            return f66999a;
         }
         return (d) invokeV.objValue;
     }

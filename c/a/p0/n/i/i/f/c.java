@@ -11,7 +11,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11920a;
+    public static final boolean f11928a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,14 +27,14 @@ public class c {
                 return;
             }
         }
-        f11920a = c.a.p0.n.c.f11856a;
+        f11928a = c.a.p0.n.c.f11864a;
     }
 
     public static e a(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (f11920a) {
+            if (f11928a) {
                 String str2 = "executeGetRequestSync-url:" + str;
             }
             Response executeSync = c.a.p0.m.e.a.g().getRequest().url(str).build().executeSync();

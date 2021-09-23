@@ -15,10 +15,10 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f3451a;
+    public final int f3452a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f3452b;
+    public final int f3453b;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public class f {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
         NetworkInfo activeNetworkInfo = connectivityManager == null ? null : connectivityManager.getActiveNetworkInfo();
         int type = activeNetworkInfo == null ? -1 : activeNetworkInfo.getType();
-        this.f3451a = type;
-        this.f3452b = (activeNetworkInfo == null || type != 0) ? 0 : activeNetworkInfo.getSubtype();
+        this.f3452a = type;
+        this.f3453b = (activeNetworkInfo == null || type != 0) ? 0 : activeNetworkInfo.getSubtype();
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3451a == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3452a == 0 : invokeV.booleanValue;
     }
 
     public boolean b() {
@@ -58,7 +58,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            switch (this.f3452b) {
+            switch (this.f3453b) {
                 case 1:
                 case 2:
                 case 4:
@@ -87,7 +87,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = this.f3451a;
+            int i2 = this.f3452a;
             if (i2 != 0) {
                 return i2 != 1 ? 0 : 1;
             }

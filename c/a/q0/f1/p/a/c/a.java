@@ -40,34 +40,34 @@ public class a {
     public WheelView.DividerType U;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f13290a;
+    public f f13307a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f13291b;
+    public e f13308b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.q0.f1.p.a.d.a f13292c;
+    public c.a.q0.f1.p.a.d.a f13309c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean[] f13293d;
+    public boolean[] f13310d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Calendar f13294e;
+    public Calendar f13311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Calendar f13295f;
+    public Calendar f13312f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Calendar f13296g;
+    public Calendar f13313g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13297h;
+    public int f13314h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13298i;
+    public int f13315i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f13299j;
+    public boolean f13316j;
     public boolean k;
     public String l;
     public String m;
@@ -100,8 +100,8 @@ public class a {
                 return;
             }
         }
-        this.f13293d = new boolean[]{true, true, true, false, false, false};
-        this.f13299j = false;
+        this.f13310d = new boolean[]{true, true, true, false, false, false};
+        this.f13316j = false;
         this.k = false;
         this.z = 17;
         this.E = -16417281;

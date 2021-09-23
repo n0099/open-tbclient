@@ -40,6 +40,7 @@ public class FaceConfig implements Serializable {
     public List<LivenessTypeEnum> livenessTypeList;
     public float maskValue;
     public int minFaceSize;
+    public boolean noBlackCropImage;
     public float notFaceValue;
     public float occlusionChinValue;
     public float occlusionLeftContourValue;
@@ -121,6 +122,7 @@ public class FaceConfig implements Serializable {
         this.qualityLevel = 0;
         this.faceFarRatio = 0.4f;
         this.faceClosedRatio = 1.0f;
+        this.noBlackCropImage = true;
     }
 
     public static List<LivenessTypeEnum> getRandomList(List<LivenessTypeEnum> list, int i2) {
@@ -363,125 +365,131 @@ public class FaceConfig implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.isLivenessRandom : invokeV.booleanValue;
     }
 
+    public boolean isNoBlackCropImage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.noBlackCropImage : invokeV.booleanValue;
+    }
+
     public boolean isOpenMask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.isOpenMask : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.isOpenMask : invokeV.booleanValue;
     }
 
     public boolean isOpenOnline() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.isOpenOnline : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.isOpenOnline : invokeV.booleanValue;
     }
 
     public boolean isSound() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.isSound : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.isSound : invokeV.booleanValue;
     }
 
     public void setBlurnessValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048612, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048613, this, f2) == null) {
             this.blurnessValue = f2;
         }
     }
 
     public void setBrightnessMaxValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048613, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048614, this, f2) == null) {
             this.brightnessMaxValue = f2;
         }
     }
 
     public void setBrightnessValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048614, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048615, this, f2) == null) {
             this.brightnessValue = f2;
         }
     }
 
     public void setCacheImageNum(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
             this.cacheImageNum = i2;
         }
     }
 
     public void setCropHeight(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
             this.cropHeight = i2;
         }
     }
 
     public void setCropWidth(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
             this.cropWidth = i2;
         }
     }
 
     public void setEnlargeRatio(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048618, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048619, this, f2) == null) {
             this.enlargeRatio = f2;
         }
     }
 
     public void setEyeClosedValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048619, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048620, this, f2) == null) {
             this.eyeClosedValue = f2;
         }
     }
 
     public void setFaceClosedRatio(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048620, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048621, this, f2) == null) {
             this.faceClosedRatio = f2;
         }
     }
 
     public void setFaceFarRatio(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048621, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048622, this, f2) == null) {
             this.faceFarRatio = f2;
         }
     }
 
     public void setHeadPitchValue(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
             this.headPitchValue = i2;
         }
     }
 
     public void setHeadRollValue(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
             this.headRollValue = i2;
         }
     }
 
     public void setHeadYawValue(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
             this.headYawValue = i2;
         }
     }
 
     public void setLivenessRandom(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048626, this, z) == null) {
             this.isLivenessRandom = z;
         }
     }
 
     public void setLivenessRandomCount(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048627, this, i2) == null) {
             int size = FaceEnvironment.livenessTypeDefaultList.size();
             if (i2 > size) {
                 i2 = size;
@@ -492,147 +500,154 @@ public class FaceConfig implements Serializable {
 
     public void setLivenessTypeList(List<LivenessTypeEnum> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048628, this, list) == null) {
             this.livenessTypeList = list;
         }
     }
 
     public void setMaskValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048628, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048629, this, f2) == null) {
             this.maskValue = f2;
         }
     }
 
     public void setMinFaceSize(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
             this.minFaceSize = i2;
+        }
+    }
+
+    public void setNoBlackCropImage(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048631, this, z) == null) {
+            this.noBlackCropImage = z;
         }
     }
 
     public void setNotFaceValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048630, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048632, this, f2) == null) {
             this.notFaceValue = f2;
         }
     }
 
     public void setOcclusionChinValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048631, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048633, this, f2) == null) {
             this.occlusionChinValue = f2;
         }
     }
 
     public void setOcclusionLeftContourValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048632, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048634, this, f2) == null) {
             this.occlusionLeftContourValue = f2;
         }
     }
 
     public void setOcclusionLeftEyeValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048633, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048635, this, f2) == null) {
             this.occlusionLeftEyeValue = f2;
         }
     }
 
     public void setOcclusionMouthValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048634, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048636, this, f2) == null) {
             this.occlusionMouthValue = f2;
         }
     }
 
     public void setOcclusionNoseValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048635, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048637, this, f2) == null) {
             this.occlusionNoseValue = f2;
         }
     }
 
     public void setOcclusionRightContourValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048636, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048638, this, f2) == null) {
             this.occlusionRightContourValue = f2;
         }
     }
 
     public void setOcclusionRightEyeValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048637, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048639, this, f2) == null) {
             this.occlusionRightEyeValue = f2;
         }
     }
 
     public void setOcclusionValue(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048638, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048640, this, f2) == null) {
             this.occlusionValue = f2;
         }
     }
 
     public void setOpenMask(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048639, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048641, this, z) == null) {
             this.isOpenMask = z;
         }
     }
 
     public void setOpenOnline(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048640, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
             this.isOpenOnline = z;
         }
     }
 
     public void setOutputImageType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048641, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048643, this, i2) == null) {
             this.outputImageType = i2;
         }
     }
 
     public void setQualityLevel(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048642, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048644, this, i2) == null) {
             this.qualityLevel = i2;
         }
     }
 
     public void setScale(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048643, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048645, this, f2) == null) {
             this.scale = f2;
         }
     }
 
     public void setSecType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048644, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048646, this, i2) == null) {
             this.secType = i2;
         }
     }
 
     public void setSound(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048645, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048647, this, z) == null) {
             this.isSound = z;
         }
     }
 
     public void setTimeDetectModule(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048646, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048648, this, j2) == null) {
             this.timeDetectModule = j2;
         }
     }
 
     public void setTimeLivenessCourse(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048647, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048649, this, j2) == null) {
             this.timeLivenessCourse = j2;
         }
     }

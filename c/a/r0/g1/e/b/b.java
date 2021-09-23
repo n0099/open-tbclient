@@ -36,34 +36,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f17983a;
+    public TbPageContext f17993a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f17984b;
+    public View f17994b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.g1.e.f.a f17985c;
+    public c.a.r0.g1.e.f.a f17995c;
 
     /* renamed from: d  reason: collision with root package name */
-    public GameVideoGridView f17986d;
+    public GameVideoGridView f17996d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.g1.e.a.b f17987e;
+    public c.a.r0.g1.e.a.b f17997e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f17988f;
+    public RelativeLayout f17998f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f17989g;
+    public RelativeLayout f17999g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f17990h;
+    public ImageView f18000h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f17991i;
+    public TextView f18001i;
 
     /* renamed from: j  reason: collision with root package name */
-    public f f17992j;
+    public f f18002j;
     public TranslateAnimation k;
     public TranslateAnimation l;
     public BdUniqueId m;
@@ -72,7 +72,7 @@ public class b {
     public AdapterView.OnItemClickListener p;
     public View.OnClickListener q;
     public PopupWindow.OnDismissListener r;
-    public a.InterfaceC0879a s;
+    public a.InterfaceC0877a s;
 
     /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
@@ -80,7 +80,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f17993a;
+        public final /* synthetic */ b f18003a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -97,15 +97,15 @@ public class b {
                     return;
                 }
             }
-            this.f17993a = bVar;
+            this.f18003a = bVar;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f17993a.n = false;
-                this.f17993a.f();
+                this.f18003a.n = false;
+                this.f18003a.f();
             }
         }
 
@@ -120,21 +120,21 @@ public class b {
         public void onAnimationStart(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                this.f17993a.n = true;
+                this.f18003a.n = true;
             }
         }
     }
 
     /* renamed from: c.a.r0.g1.e.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0876b implements AdapterView.OnItemClickListener {
+    public class C0874b implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f17994e;
+        public final /* synthetic */ b f18004e;
 
-        public C0876b(b bVar) {
+        public C0874b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -149,24 +149,24 @@ public class b {
                     return;
                 }
             }
-            this.f17994e = bVar;
+            this.f18004e = bVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f17994e.f17987e == null || i2 >= this.f17994e.f17987e.getCount() || this.f17994e.f17987e.getItem(i2) == null || !(this.f17994e.f17987e.getItem(i2) instanceof c.a.r0.g1.e.c.a)) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f18004e.f17997e == null || i2 >= this.f18004e.f17997e.getCount() || this.f18004e.f17997e.getItem(i2) == null || !(this.f18004e.f17997e.getItem(i2) instanceof c.a.r0.g1.e.c.a)) {
                 return;
             }
-            c.a.r0.g1.e.c.a aVar = (c.a.r0.g1.e.c.a) this.f17994e.f17987e.getItem(i2);
-            if (aVar.f18021d == 1) {
-                if (this.f17994e.f17992j != null) {
-                    this.f17994e.f17992j.a(aVar);
+            c.a.r0.g1.e.c.a aVar = (c.a.r0.g1.e.c.a) this.f18004e.f17997e.getItem(i2);
+            if (aVar.f18031d == 1) {
+                if (this.f18004e.f18002j != null) {
+                    this.f18004e.f18002j.a(aVar);
                 }
-                c.a.q0.s.d0.b.j().v("key_game_video_tab_has_choosed_sub_class_id", aVar.f18018a);
-                c.a.q0.s.d0.b.j().x("key_game_video_tab_has_choosed_sub_class_name", aVar.f18019b);
-                this.f17994e.f();
-                TiebaStatic.log(new StatisticItem("c13489").param("obj_type", aVar.f18018a));
+                c.a.q0.s.d0.b.j().v("key_game_video_tab_has_choosed_sub_class_id", aVar.f18028a);
+                c.a.q0.s.d0.b.j().x("key_game_video_tab_has_choosed_sub_class_name", aVar.f18029b);
+                this.f18004e.f();
+                TiebaStatic.log(new StatisticItem("c13489").param("obj_type", aVar.f18028a));
             }
         }
     }
@@ -177,7 +177,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f17995e;
+        public final /* synthetic */ b f18005e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -194,14 +194,14 @@ public class b {
                     return;
                 }
             }
-            this.f17995e = bVar;
+            this.f18005e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f17995e.e();
+                this.f18005e.e();
             }
         }
     }
@@ -212,7 +212,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f17996e;
+        public final /* synthetic */ b f18006e;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -229,26 +229,26 @@ public class b {
                     return;
                 }
             }
-            this.f17996e = bVar;
+            this.f18006e = bVar;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f17996e.f17992j == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f18006e.f18002j == null) {
                 return;
             }
-            this.f17996e.f17992j.b();
+            this.f18006e.f18002j.b();
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e implements a.InterfaceC0879a {
+    public class e implements a.InterfaceC0877a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f17997a;
+        public final /* synthetic */ b f18007a;
 
         public e(b bVar) {
             Interceptable interceptable = $ic;
@@ -265,14 +265,14 @@ public class b {
                     return;
                 }
             }
-            this.f17997a = bVar;
+            this.f18007a = bVar;
         }
 
-        @Override // c.a.r0.g1.e.f.a.InterfaceC0879a
+        @Override // c.a.r0.g1.e.f.a.InterfaceC0877a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f17997a.o();
+                this.f18007a.o();
             }
         }
     }
@@ -303,11 +303,11 @@ public class b {
         }
         this.n = false;
         this.o = new a(this);
-        this.p = new C0876b(this);
+        this.p = new C0874b(this);
         this.q = new c(this);
         this.r = new d(this);
         this.s = new e(this);
-        this.f17983a = tbPageContext;
+        this.f17993a = tbPageContext;
         this.m = bdUniqueId;
         g();
     }
@@ -315,7 +315,7 @@ public class b {
     public void e() {
         c.a.r0.g1.e.f.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f17985c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f17995c) == null) {
             return;
         }
         aVar.dismiss();
@@ -324,7 +324,7 @@ public class b {
     public void f() {
         c.a.r0.g1.e.f.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f17985c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f17995c) == null) {
             return;
         }
         aVar.a();
@@ -333,22 +333,22 @@ public class b {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.f17983a.getPageActivity()).inflate(R.layout.game_video_choose_halfscreen_layout, (ViewGroup) null);
-            this.f17984b = inflate;
-            this.f17988f = (RelativeLayout) inflate.findViewById(R.id.id_game_video_choose_half_wrapper);
-            this.f17989g = (RelativeLayout) this.f17984b.findViewById(R.id.id_game_video_choose_half_empty_wrapper);
-            this.f17990h = (ImageView) this.f17984b.findViewById(R.id.id_game_video_choose_half_empty_img);
-            this.f17991i = (TextView) this.f17984b.findViewById(R.id.id_game_video_choose_half_empty_txt);
-            GameVideoGridView gameVideoGridView = (GameVideoGridView) this.f17984b.findViewById(R.id.id_game_video_choose_half_gridview);
-            this.f17986d = gameVideoGridView;
-            gameVideoGridView.setMaxHeight(l.k(this.f17983a.getPageActivity()));
-            this.f17986d.setNumColumns(4);
-            this.f17986d.setEmptyView(this.f17989g);
-            c.a.r0.g1.e.a.b bVar = new c.a.r0.g1.e.a.b(this.f17983a, 102, this.m);
-            this.f17987e = bVar;
-            this.f17986d.setAdapter((ListAdapter) bVar);
-            this.f17986d.setOnItemClickListener(this.p);
-            this.f17984b.setOnClickListener(this.q);
+            View inflate = LayoutInflater.from(this.f17993a.getPageActivity()).inflate(R.layout.game_video_choose_halfscreen_layout, (ViewGroup) null);
+            this.f17994b = inflate;
+            this.f17998f = (RelativeLayout) inflate.findViewById(R.id.id_game_video_choose_half_wrapper);
+            this.f17999g = (RelativeLayout) this.f17994b.findViewById(R.id.id_game_video_choose_half_empty_wrapper);
+            this.f18000h = (ImageView) this.f17994b.findViewById(R.id.id_game_video_choose_half_empty_img);
+            this.f18001i = (TextView) this.f17994b.findViewById(R.id.id_game_video_choose_half_empty_txt);
+            GameVideoGridView gameVideoGridView = (GameVideoGridView) this.f17994b.findViewById(R.id.id_game_video_choose_half_gridview);
+            this.f17996d = gameVideoGridView;
+            gameVideoGridView.setMaxHeight(l.k(this.f17993a.getPageActivity()));
+            this.f17996d.setNumColumns(4);
+            this.f17996d.setEmptyView(this.f17999g);
+            c.a.r0.g1.e.a.b bVar = new c.a.r0.g1.e.a.b(this.f17993a, 102, this.m);
+            this.f17997e = bVar;
+            this.f17996d.setAdapter((ListAdapter) bVar);
+            this.f17996d.setOnItemClickListener(this.p);
+            this.f17994b.setOnClickListener(this.q);
             h();
             j();
         }
@@ -375,7 +375,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.a.r0.g1.e.f.a aVar = this.f17985c;
+            c.a.r0.g1.e.f.a aVar = this.f17995c;
             if (aVar != null) {
                 return aVar.isShowing();
             }
@@ -387,15 +387,15 @@ public class b {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            RelativeLayout relativeLayout = this.f17988f;
+            RelativeLayout relativeLayout = this.f17998f;
             if (relativeLayout != null) {
                 SkinManager.setBackgroundResource(relativeLayout, R.color.CAM_X0201);
             }
-            TextView textView = this.f17991i;
+            TextView textView = this.f18001i;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0109);
             }
-            ImageView imageView = this.f17990h;
+            ImageView imageView = this.f18000h;
             if (imageView != null) {
                 SkinManager.setImageResource(imageView, R.drawable.new_pic_emotion_08);
             }
@@ -414,7 +414,7 @@ public class b {
             if (translateAnimation2 != null) {
                 translateAnimation2.cancel();
             }
-            GameVideoGridView gameVideoGridView = this.f17986d;
+            GameVideoGridView gameVideoGridView = this.f17996d;
             if (gameVideoGridView != null) {
                 gameVideoGridView.onDestroy();
             }
@@ -424,14 +424,14 @@ public class b {
     public void l(List<c.a.r0.g1.e.c.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.f17987e.b(list);
+            this.f17997e.b(list);
         }
     }
 
     public void m(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            this.f17992j = fVar;
+            this.f18002j = fVar;
         }
     }
 
@@ -441,26 +441,26 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, view) == null) || view == null) {
             return;
         }
-        this.f17987e.notifyDataSetChanged();
-        if (this.f17985c == null) {
-            c.a.r0.g1.e.f.a aVar = new c.a.r0.g1.e.f.a(this.f17983a, this.f17984b, -1, -1);
-            this.f17985c = aVar;
-            aVar.setBackgroundDrawable(new ColorDrawable(this.f17983a.getResources().getColor(R.color.black_alpha66)));
-            this.f17985c.setAnimationStyle(0);
-            this.f17985c.b(this.s);
-            this.f17985c.setFocusable(true);
-            this.f17985c.setOnDismissListener(this.r);
+        this.f17997e.notifyDataSetChanged();
+        if (this.f17995c == null) {
+            c.a.r0.g1.e.f.a aVar = new c.a.r0.g1.e.f.a(this.f17993a, this.f17994b, -1, -1);
+            this.f17995c = aVar;
+            aVar.setBackgroundDrawable(new ColorDrawable(this.f17993a.getResources().getColor(R.color.black_alpha66)));
+            this.f17995c.setAnimationStyle(0);
+            this.f17995c.b(this.s);
+            this.f17995c.setFocusable(true);
+            this.f17995c.setOnDismissListener(this.r);
         }
-        if (this.f17985c.isShowing()) {
-            this.f17985c.dismiss();
+        if (this.f17995c.isShowing()) {
+            this.f17995c.dismiss();
         }
-        this.f17985c.showAsDropDown(view, 0, 0);
-        this.f17986d.showAppearAnim();
-        RelativeLayout relativeLayout = this.f17988f;
+        this.f17995c.showAsDropDown(view, 0, 0);
+        this.f17996d.showAppearAnim();
+        RelativeLayout relativeLayout = this.f17998f;
         if (relativeLayout != null && (translateAnimation = this.k) != null) {
             relativeLayout.startAnimation(translateAnimation);
         }
-        f fVar = this.f17992j;
+        f fVar = this.f18002j;
         if (fVar != null) {
             fVar.c();
         }
@@ -470,7 +470,7 @@ public class b {
         TranslateAnimation translateAnimation;
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (translateAnimation = this.l) == null || (relativeLayout = this.f17988f) == null || this.n) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (translateAnimation = this.l) == null || (relativeLayout = this.f17998f) == null || this.n) {
             return;
         }
         relativeLayout.startAnimation(translateAnimation);
@@ -479,7 +479,7 @@ public class b {
     public void p(int i2) {
         c.a.r0.g1.e.a.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (bVar = this.f17987e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (bVar = this.f17997e) == null) {
             return;
         }
         bVar.c(i2);

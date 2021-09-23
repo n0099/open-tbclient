@@ -16,7 +16,7 @@ public class g1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List f77031a;
+    public List f77350a;
 
     public g1() {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public class g1 {
                 return;
             }
         }
-        this.f77031a = Collections.synchronizedList(new ArrayList());
+        this.f77350a = Collections.synchronizedList(new ArrayList());
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.f77031a.clear();
+                this.f77350a.clear();
             } catch (Exception unused) {
             }
         }
@@ -47,9 +47,9 @@ public class g1 {
     public void a(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            synchronized (this.f77031a) {
-                this.f77031a.clear();
-                this.f77031a.addAll(list);
+            synchronized (this.f77350a) {
+                this.f77350a.clear();
+                this.f77350a.addAll(list);
             }
         }
     }
@@ -59,9 +59,9 @@ public class g1 {
         Info info;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.f77031a) {
+            synchronized (this.f77350a) {
                 info = null;
-                while (this.f77031a.size() > 0 && ((info = (Info) this.f77031a.remove(0)) == null || !info.isEffective())) {
+                while (this.f77350a.size() > 0 && ((info = (Info) this.f77350a.remove(0)) == null || !info.isEffective())) {
                 }
             }
             return info;
@@ -74,8 +74,8 @@ public class g1 {
         boolean isEmpty;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.f77031a) {
-                isEmpty = this.f77031a.isEmpty();
+            synchronized (this.f77350a) {
+                isEmpty = this.f77350a.isEmpty();
             }
             return isEmpty;
         }

@@ -17,16 +17,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f25442a;
+    public long f25463a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25443b;
+    public String f25464b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f25444c;
+    public int f25465c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbRichText f25445d;
+    public TbRichText f25466d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -45,25 +45,25 @@ public class b {
     public TbRichText a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25445d : (TbRichText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25466d : (TbRichText) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25444c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25465c : invokeV.intValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25442a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25463a : invokeV.longValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25443b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25464b : (String) invokeV.objValue;
     }
 
     public void e(Context context, LockWindowThreadInfo lockWindowThreadInfo) {
@@ -71,12 +71,12 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, context, lockWindowThreadInfo) == null) || lockWindowThreadInfo == null) {
             return;
         }
-        this.f25442a = lockWindowThreadInfo.tid.longValue();
-        this.f25443b = lockWindowThreadInfo.title;
-        this.f25444c = lockWindowThreadInfo.post_num.intValue();
+        this.f25463a = lockWindowThreadInfo.tid.longValue();
+        this.f25464b = lockWindowThreadInfo.title;
+        this.f25465c = lockWindowThreadInfo.post_num.intValue();
         if (ListUtils.isEmpty(lockWindowThreadInfo.content)) {
             return;
         }
-        this.f25445d = TbRichTextView.parser(context, lockWindowThreadInfo.content, true);
+        this.f25466d = TbRichTextView.parser(context, lockWindowThreadInfo.content, true);
     }
 }

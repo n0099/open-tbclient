@@ -21,7 +21,7 @@ public class k extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.p0.a.p.e.b f4943c;
+    public c.a.p0.a.p.e.b f4951c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(c.a.p0.a.c2.e eVar) {
@@ -49,20 +49,20 @@ public class k extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
-            if (this.f4943c == null) {
+            if (this.f4951c == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("slaveId", this.f4943c.c());
+                jSONObject.put("slaveId", this.f4951c.c());
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
                 return true;
             } catch (JSONException e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     Log.getStackTraceString(e2);
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -75,7 +75,7 @@ public class k extends a0 {
     public void j(c.a.p0.a.p.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f4943c = bVar;
+            this.f4951c = bVar;
         }
     }
 }

@@ -39,6 +39,7 @@ public abstract class BeanConstants {
     public static final String CHANNEL_ID_TIE_BA = "tieba";
     public static final String CHANNEL_ID_WAIMAI = "waimai";
     public static final String CHANNEL_ID_WALLET_APP = "walletapp";
+    public static final String CHANNEL_ID_WALLET_APP_PRO = "walletapppro";
     public static final String CHANNEL_ID_WEISHI = "weishi";
     public static final String CHANNEL_ID_YIPINGTAI = "yipingtai";
     public static final String CHANNEL_ID_YUN = "bdcloud";
@@ -87,7 +88,7 @@ public abstract class BeanConstants {
     public static final String SWAN_APP_BALANCE_SCHEME_URL = "baiduboxapp://swan/x9dq9aRPQv3nGdGfKONtCemcNEnOnT9q/entry/balance/pages/balance/balance/?_baiduboxapp=%7B%22from%22%3A%22sdk%22%2C%22ext%22%3A%7B%7D%7D&callback=_bdbox_js_275&upgrade=0";
     public static final String SWAN_APP_BANK_CARD_SCHEME_URL = "baiduboxapp://swan/x9dq9aRPQv3nGdGfKONtCemcNEnOnT9q/entry/usercenter/pages/bankcard/list/list/?_baiduboxapp=%7B%22from%22%3A%22from%3Dsdk%22%2C%22ext%22%3A%7B%7D%7D&callback=_bdbox_js_275&upgrade=0";
     public static final String SWAN_APP_TRANSACTION_SCHEME_URL = "baiduboxapp://swan/x9dq9aRPQv3nGdGfKONtCemcNEnOnT9q/entry/usercenter/pages/trans/trans/?_baiduboxapp=%7B%22from%22%3A%22from%3Dsdk%22%2C%22ext%22%3A%7B%7D%7D&callback=_bdbox_js_275&upgrade=0";
-    public static String VERSION_NO = "9.3.0.124";
+    public static String VERSION_NO = "9.4.5.108";
     public static boolean needActAnimation = true;
     public transient /* synthetic */ FieldHolder $fh;
 

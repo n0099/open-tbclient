@@ -35,16 +35,16 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f10228e;
+        public final /* synthetic */ Context f10236e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10229f;
+        public final /* synthetic */ CallbackHandler f10237f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10230g;
+        public final /* synthetic */ String f10238g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f10231h;
+        public final /* synthetic */ b f10239h;
 
         public a(b bVar, Context context, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -61,10 +61,10 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f10231h = bVar;
-            this.f10228e = context;
-            this.f10229f = callbackHandler;
-            this.f10230g = str;
+            this.f10239h = bVar;
+            this.f10236e = context;
+            this.f10237f = callbackHandler;
+            this.f10238g = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,7 +73,7 @@ public class b extends a0 {
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f10231h.l(iVar, this.f10228e, this.f10229f, this.f10230g);
+                this.f10239h.l(iVar, this.f10236e, this.f10237f, this.f10238g);
             }
         }
     }
@@ -135,7 +135,7 @@ public class b extends a0 {
             String l = o0.l(cookie, "BAIDUID");
             String l2 = o0.l(cookie, "H_WISE_SIDS");
             String a2 = c.a.p0.u.b.b(AppRuntime.getAppContext()).a();
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str2 = "cuid = " + i2 + ", imei = " + r + ", zid = " + D + ", uid = " + h2 + ", baiDuId = " + l + ", sid = " + l2;
             }
             try {
@@ -150,7 +150,7 @@ public class b extends a0 {
                 d.g("GetSysInfo", "fetch commonSysInfo success");
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             } catch (JSONException e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e2.printStackTrace();
                 }
                 d.b("GetSysInfo", "generate data occur exception");

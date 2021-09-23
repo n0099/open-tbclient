@@ -33,13 +33,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f71101a;
+    public String f71420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71102b;
+    public String f71421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f71103c;
+    public int f71422c;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -63,8 +63,8 @@ public class e {
                 return;
             }
         }
-        this.f71102b = str;
-        this.f71101a = str;
+        this.f71421b = str;
+        this.f71420a = str;
     }
 
     private String a() {
@@ -73,7 +73,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             Context context = Loader.get().getContext();
-            int i3 = com.kwad.sdk.api.a.f71060a;
+            int i3 = com.kwad.sdk.api.a.f71379a;
             String valueOf = String.valueOf(Loader.get().a(context));
             IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
             if (ksAdSDKImpl != null) {
@@ -184,10 +184,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            if (TextUtils.isEmpty(this.f71101a)) {
+            if (TextUtils.isEmpty(this.f71420a)) {
                 return null;
             }
-            HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f71101a, 10000, 30000, false);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f71420a, 10000, 30000, false);
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setInstanceFollowRedirects(true);
@@ -219,9 +219,9 @@ public class e {
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f71103c < 21) {
-                        this.f71101a = httpURLConnection.getHeaderField("Location");
-                        this.f71103c++;
+                    } else if (this.f71422c < 21) {
+                        this.f71420a = httpURLConnection.getHeaderField("Location");
+                        this.f71422c++;
                         b(aVar);
                     }
                 }
@@ -257,10 +257,10 @@ public class e {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f71104a;
+                public final /* synthetic */ a f71423a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f71105b;
+                public final /* synthetic */ e f71424b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -277,15 +277,15 @@ public class e {
                             return;
                         }
                     }
-                    this.f71105b = this;
-                    this.f71104a = aVar;
+                    this.f71424b = this;
+                    this.f71423a = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f71105b.b(this.f71104a);
+                        this.f71424b.b(this.f71423a);
                     }
                 }
             });

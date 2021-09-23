@@ -17,7 +17,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4600a = -1;
+    public static int f4608a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -26,10 +26,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppConfigData f4601e;
+        public final /* synthetic */ SwanAppConfigData f4609e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f4602f;
+        public final /* synthetic */ File f4610f;
 
         public a(SwanAppConfigData swanAppConfigData, File file, String str) {
             Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class d {
                     return;
                 }
             }
-            this.f4601e = swanAppConfigData;
-            this.f4602f = file;
+            this.f4609e = swanAppConfigData;
+            this.f4610f = file;
         }
 
         @Override // java.lang.Runnable
@@ -55,14 +55,14 @@ public class d {
             FileOutputStream fileOutputStream;
             Throwable th;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f4601e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f4609e == null) {
                 return;
             }
             FileOutputStream fileOutputStream2 = null;
             try {
-                fileOutputStream = new FileOutputStream(this.f4602f);
+                fileOutputStream = new FileOutputStream(this.f4610f);
                 try {
-                    fileOutputStream.write(SwanAppConfigData.s.call(this.f4601e));
+                    fileOutputStream.write(SwanAppConfigData.s.call(this.f4609e));
                     c.a.p0.t.d.d(fileOutputStream);
                 } catch (Exception unused) {
                     fileOutputStream2 = fileOutputStream;
@@ -99,11 +99,11 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f4600a == -1) {
+            if (f4608a == -1) {
                 c.a.p0.a.c1.a.Z().getSwitch("swan_app_json_serialize", 0);
-                f4600a = 0;
+                f4608a = 0;
             }
-            return f4600a == 1;
+            return f4608a == 1;
         }
         return invokeV.booleanValue;
     }

@@ -49,7 +49,7 @@ public class r extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         }
         this.y = 3;
         this.o = tbPageContext;
-        this.f2961i = bdUniqueId2;
+        this.f2962i = bdUniqueId2;
     }
 
     @Override // c.a.r0.a0.z
@@ -67,7 +67,7 @@ public class r extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             d2Var.objType = 1;
             ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) d2Var, view.getContext(), this.y, false);
             ((ThreadCardViewHolder) view.getTag()).getCardView().o(new a.C0095a(1));
-            c.a.r0.w0.k2.a.e(d2Var, 1, this.f2961i, c.a.r0.w0.k2.d.h0, i0());
+            c.a.r0.w0.k2.a.e(d2Var, 1, this.f2962i, c.a.r0.w0.k2.d.h0, i0());
             FrsViewData frsViewData = this.n;
             if (frsViewData == null || frsViewData.getForum() == null) {
                 return;
@@ -129,7 +129,7 @@ public class r extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             l0 k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.q);
             k.r(3);
             ThreadCardViewHolder<d2> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.setPageId(this.f2961i);
+            threadCardViewHolder.setPageId(this.f2962i);
             d0(this);
             threadCardViewHolder.showMultiDelDecorItem(false);
             return threadCardViewHolder;
@@ -152,7 +152,7 @@ public class r extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             threadCardViewHolder.getCardView().q(i2);
             threadCardViewHolder.onBindDataToView(c2Var.w);
             threadCardViewHolder.getCardView().onChangeSkinType(this.o, TbadkCoreApplication.getInst().getSkinType());
-            c2Var.w.N4();
+            c2Var.w.M4();
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

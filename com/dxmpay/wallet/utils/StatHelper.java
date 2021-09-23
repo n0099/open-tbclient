@@ -55,13 +55,13 @@ public class StatHelper {
     public static final String STD_PAY_CHANNEL = "0";
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f69932a = false;
+    public static boolean f70251a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f69933b = false;
+    public static boolean f70252b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f69934c = "";
+    public static String f70253c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -69,6 +69,7 @@ public class StatHelper {
     public static final class Key {
         public static final /* synthetic */ Key[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
+        public static final Key alipayVersion;
         public static final Key bankCardStartTime;
         public static final Key bankCode;
         public static final Key bindCardUserType;
@@ -125,9 +126,10 @@ public class StatHelper {
             hasBankCard = new Key("hasBankCard", 17);
             code = new Key("code", 18);
             msg = new Key("msg", 19);
-            Key key = new Key("bankCardStartTime", 20);
-            bankCardStartTime = key;
-            $VALUES = new Key[]{orderNo, spNo, fromPkg, hasPwd, payType, payWay, orderId, channelId, passLoginStatus, sessionId, payAmount, precashierMark, bankCode, cardType, payFrom, bindCardUserType, signPay, hasBankCard, code, msg, key};
+            bankCardStartTime = new Key("bankCardStartTime", 20);
+            Key key = new Key("alipayVersion", 21);
+            alipayVersion = key;
+            $VALUES = new Key[]{orderNo, spNo, fromPkg, hasPwd, payType, payWay, orderId, channelId, passLoginStatus, sessionId, payAmount, precashierMark, bankCode, cardType, payFrom, bindCardUserType, signPay, hasBankCard, code, msg, bankCardStartTime, key};
         }
 
         public Key(String str, int i2) {
@@ -219,10 +221,10 @@ public class StatHelper {
         hashMap.put("card_type", getCardType());
         hashMap.put("pay_from", getPayFrom());
         hashMap.put(HAS_BANK_CARD, getHasBankCard());
-        if (f69932a) {
+        if (f70251a) {
             hashMap.put(PAY_BANKSIGN, "1");
         }
-        if (f69933b) {
+        if (f70252b) {
             hashMap.put(PAY_CATEGORY, "1");
         }
         if ("4".equals(getPayFrom())) {
@@ -287,44 +289,51 @@ public class StatHelper {
         StatisticManager.onEventWithValues(str, collectData, hashMap);
     }
 
+    public static void cacheAlipayVersion(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            a.c(Key.alipayVersion.name(), str);
+        }
+    }
+
     public static void cacheBankCardStartTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65543, null, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65544, null, j2) == null) {
             a.c(Key.bankCardStartTime.name(), Long.valueOf(j2));
         }
     }
 
     public static void cacheBankCode(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
             a.c(Key.bankCode.name(), str);
         }
     }
 
     public static void cacheBindCardUserType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
             a.c(Key.bindCardUserType.name(), str);
         }
     }
 
     public static void cacheCardType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
             a.c(Key.cardType.name(), str);
         }
     }
 
     public static void cacheChannelId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
             a.c(Key.channelId.name(), str);
         }
     }
 
     public static void cacheCodeAndMsg(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) {
             a.c(Key.code.name(), str);
             a.c(Key.msg.name(), str2);
         }
@@ -332,105 +341,105 @@ public class StatHelper {
 
     public static void cacheFromPkg(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
             a.c(Key.fromPkg.name(), str);
         }
     }
 
     public static void cacheHasBankCard(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
             a.c(Key.hasBankCard.name(), z ? "1" : "0");
         }
     }
 
     public static void cacheHasPwd(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65552, null, z) == null) {
             a.c(Key.hasPwd.name(), z ? "1" : "0");
         }
     }
 
     public static void cacheOrderId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
             a.c(Key.orderId.name(), str);
         }
     }
 
     public static void cacheOrderNo(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65554, null, str) == null) {
             a.c(Key.orderNo.name(), str);
         }
     }
 
     public static void cachePassLoginStatus(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
             a.c(Key.passLoginStatus.name(), str);
         }
     }
 
     public static void cachePayAmount(double d2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{Double.valueOf(d2)}) == null) {
             a.c(Key.payAmount.name(), Double.valueOf(d2));
         }
     }
 
     public static void cachePayFrom(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
             a.c(Key.payFrom.name(), str);
         }
     }
 
     public static void cachePayType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65557, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65558, null, i2) == null) {
             a.c(Key.payType.name(), String.valueOf(i2));
         }
     }
 
     public static void cachePayWay(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65558, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65559, null, i2) == null) {
             a.c(Key.payWay.name(), String.valueOf(i2));
         }
     }
 
     public static void cacheSessionId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65560, null, str) == null) {
             a.c(Key.sessionId.name(), str);
         }
     }
 
     public static void cacheSignPay(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65560, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65561, null, str) == null) {
             a.c(Key.signPay.name(), str);
         }
     }
 
     public static void cacheSpNo(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65561, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65562, null, str) == null) {
             a.c(Key.spNo.name(), str);
         }
     }
 
     public static void clearProcesssId() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65562, null) == null) {
-            f69934c = null;
+        if (interceptable == null || interceptable.invokeV(65563, null) == null) {
+            f70253c = null;
         }
     }
 
     public static void clearSensor() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65563, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65564, null) == null) {
             a.c(Key.payWay.name(), null);
             a.c(Key.payType.name(), null);
             a.c(Key.hasPwd.name(), null);
@@ -447,15 +456,16 @@ public class StatHelper {
             a.c(Key.signPay.name(), null);
             a.c(Key.code.name(), null);
             a.c(Key.msg.name(), null);
-            f69932a = false;
-            f69933b = false;
+            a.c(Key.alipayVersion.name(), null);
+            f70251a = false;
+            f70252b = false;
         }
     }
 
     public static List<String> collectData(String str, String... strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, str, strArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, str, strArr)) == null) {
             ArrayList arrayList = new ArrayList();
             if (str != null) {
                 arrayList.add(str);
@@ -471,7 +481,7 @@ public class StatHelper {
     public static double fen2YuanBigDecimal(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 str = "0";
             }
@@ -484,76 +494,82 @@ public class StatHelper {
         return invokeL.doubleValue;
     }
 
+    public static String getAlipayVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? (String) a.b(Key.alipayVersion.name()) : (String) invokeV.objValue;
+    }
+
     public static long getBankCardStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? ((Long) a.b(Key.bankCardStartTime.name())).longValue() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) ? ((Long) a.b(Key.bankCardStartTime.name())).longValue() : invokeV.longValue;
     }
 
     public static String getBankCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? (String) a.b(Key.bankCode.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) ? (String) a.b(Key.bankCode.name()) : (String) invokeV.objValue;
     }
 
     public static String getBindCardUserType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) ? (String) a.b(Key.bindCardUserType.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) ? (String) a.b(Key.bindCardUserType.name()) : (String) invokeV.objValue;
     }
 
     public static String getCardType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) ? (String) a.b(Key.cardType.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? (String) a.b(Key.cardType.name()) : (String) invokeV.objValue;
     }
 
     public static String getChannelId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) ? (String) a.b(Key.channelId.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? (String) a.b(Key.channelId.name()) : (String) invokeV.objValue;
     }
 
     public static String getCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? (String) a.b(Key.code.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) ? (String) a.b(Key.code.name()) : (String) invokeV.objValue;
     }
 
     public static String getFromPkg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? (String) a.b(Key.fromPkg.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? (String) a.b(Key.fromPkg.name()) : (String) invokeV.objValue;
     }
 
     public static String getHasBankCard() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) ? (String) a.b(Key.hasBankCard.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) ? (String) a.b(Key.hasBankCard.name()) : (String) invokeV.objValue;
     }
 
     public static String getHasPwd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? (String) a.b(Key.hasPwd.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) ? (String) a.b(Key.hasPwd.name()) : (String) invokeV.objValue;
     }
 
     public static String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) ? (String) a.b(Key.msg.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) ? (String) a.b(Key.msg.name()) : (String) invokeV.objValue;
     }
 
     public static String getOrderId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) ? (String) a.b(Key.orderId.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) ? (String) a.b(Key.orderId.name()) : (String) invokeV.objValue;
     }
 
     public static String getOrderNo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -565,13 +581,13 @@ public class StatHelper {
     public static String getPassLoginStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) ? (String) a.b(Key.passLoginStatus.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) ? (String) a.b(Key.passLoginStatus.name()) : (String) invokeV.objValue;
     }
 
     public static String getPayAmount(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -583,30 +599,30 @@ public class StatHelper {
     public static String getPayFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) ? (String) a.b(Key.payFrom.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) ? (String) a.b(Key.payFrom.name()) : (String) invokeV.objValue;
     }
 
     public static String getPayType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) ? (String) a.b(Key.payType.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) ? (String) a.b(Key.payType.name()) : (String) invokeV.objValue;
     }
 
     public static String getPayWay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) ? (String) a.b(Key.payWay.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65586, null)) == null) ? (String) a.b(Key.payWay.name()) : (String) invokeV.objValue;
     }
 
     public static String getProcesssId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) {
-            if (!TextUtils.isEmpty(f69934c)) {
-                return f69934c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) {
+            if (!TextUtils.isEmpty(f70253c)) {
+                return f70253c;
             }
             String a2 = a();
-            f69934c = a2;
+            f70253c = a2;
             return a2;
         }
         return (String) invokeV.objValue;
@@ -615,7 +631,7 @@ public class StatHelper {
     public static String getPureSign(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -627,25 +643,25 @@ public class StatHelper {
     public static String getSessionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) ? (String) a.b(Key.sessionId.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65589, null)) == null) ? (String) a.b(Key.sessionId.name()) : (String) invokeV.objValue;
     }
 
     public static String getSignPay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65588, null)) == null) ? (String) a.b(Key.signPay.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65590, null)) == null) ? (String) a.b(Key.signPay.name()) : (String) invokeV.objValue;
     }
 
     public static String getSpNo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65590, null, str)) == null) ? RealTimeEventHelper.getSinalParam(str, "sp_no") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65592, null, str)) == null) ? RealTimeEventHelper.getSinalParam(str, "sp_no") : (String) invokeL.objValue;
     }
 
     public static boolean isPrecashierPay(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -656,7 +672,7 @@ public class StatHelper {
 
     public static void payEventEndWithValues(String str, Map<String, Object> map, String... strArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65592, null, str, map, strArr) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65594, null, str, map, strArr) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         List<String> collectData = collectData(getOrderNo(), new String[0]);
@@ -679,7 +695,7 @@ public class StatHelper {
 
     public static void payLoginSeneor(String str, String... strArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65593, null, str, strArr) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65595, null, str, strArr) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         HashMap hashMap = new HashMap();
@@ -697,28 +713,28 @@ public class StatHelper {
 
     public static void setDowngrade(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65594, null, z) == null) {
-            f69933b = z;
+        if (interceptable == null || interceptable.invokeZ(65596, null, z) == null) {
+            f70252b = z;
         }
     }
 
     public static void setPayBankSign(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65595, null, z) == null) {
-            f69932a = z;
+        if (interceptable == null || interceptable.invokeZ(65597, null, z) == null) {
+            f70251a = z;
         }
     }
 
     public static void setPrecashierMark(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65596, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65598, null, str) == null) {
             a.c(Key.precashierMark.name(), str);
         }
     }
 
     public static void statServiceEvent(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65597, null, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65599, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         statServiceEvent(str, null, new String[0]);
@@ -727,24 +743,24 @@ public class StatHelper {
     public static String getSpNo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65589, null)) == null) ? (String) a.b(Key.spNo.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65591, null)) == null) ? (String) a.b(Key.spNo.name()) : (String) invokeV.objValue;
     }
 
     public static String getOrderNo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) ? (String) a.b(Key.orderNo.name()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) ? (String) a.b(Key.orderNo.name()) : (String) invokeV.objValue;
     }
 
     public static Double getPayAmount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) ? (Double) a.b(Key.payAmount.name()) : (Double) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) ? (Double) a.b(Key.payAmount.name()) : (Double) invokeV.objValue;
     }
 
     public static void statServiceEvent(String str, Map<String, Object> map, String... strArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65598, null, str, map, strArr) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65600, null, str, map, strArr) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         if (TextUtils.isEmpty(getPayFrom())) {

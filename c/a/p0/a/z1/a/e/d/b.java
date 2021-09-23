@@ -13,7 +13,7 @@ public final class b extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WheelView3d f9984a;
+    public final WheelView3d f9992a;
 
     public b(WheelView3d wheelView3d) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class b extends Handler {
                 return;
             }
         }
-        this.f9984a = wheelView3d;
+        this.f9992a = wheelView3d;
     }
 
     @Override // android.os.Handler
@@ -39,12 +39,12 @@ public final class b extends Handler {
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             int i2 = message.what;
             if (i2 == 1000) {
-                this.f9984a.invalidate();
+                this.f9992a.invalidate();
             } else if (i2 == 2000) {
-                this.f9984a.smoothScroll(WheelView3d.ACTION.FLING);
+                this.f9992a.smoothScroll(WheelView3d.ACTION.FLING);
             } else if (i2 != 3000) {
             } else {
-                this.f9984a.onItemSelected();
+                this.f9992a.onItemSelected();
             }
         }
     }

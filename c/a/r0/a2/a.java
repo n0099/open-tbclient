@@ -14,19 +14,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f15805a;
+    public Context f15815a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f15806b;
+    public Handler f15816b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f15807c;
+    public RelativeLayout f15817c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15808d;
+    public TextView f15818d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f15809e;
+    public Runnable f15819e;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -43,15 +43,15 @@ public class a {
                 return;
             }
         }
-        this.f15805a = context;
+        this.f15815a = context;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f15807c == null || this.f15808d == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f15817c == null || this.f15818d == null) {
             return;
         }
-        this.f15806b.removeCallbacks(this.f15809e);
-        this.f15806b.post(this.f15809e);
+        this.f15816b.removeCallbacks(this.f15819e);
+        this.f15816b.post(this.f15819e);
     }
 }

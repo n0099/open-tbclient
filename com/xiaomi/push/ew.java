@@ -41,7 +41,7 @@ public final class ew {
     public static final ew Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ew f77593a;
+    public static final ew f77912a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ ew[] f345a;
@@ -52,31 +52,31 @@ public final class ew {
     public static final ew ae;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ew f77594b;
+    public static final ew f77913b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ew f77595c;
+    public static final ew f77914c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ew f77596d;
+    public static final ew f77915d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ew f77597e;
+    public static final ew f77916e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ew f77598f;
+    public static final ew f77917f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ew f77599g;
+    public static final ew f77918g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final ew f77600h;
+    public static final ew f77919h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final ew f77601i;
+    public static final ew f77920i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final ew f77602j;
+    public static final ew f77921j;
     public static final ew k;
     public static final ew l;
     public static final ew m;
@@ -111,16 +111,16 @@ public final class ew {
                 return;
             }
         }
-        f77593a = new ew("TCP_CONN_FAIL", 0, 1);
-        f77594b = new ew("TCP_CONN_TIME", 1, 2);
-        f77595c = new ew("PING_RTT", 2, 3);
-        f77596d = new ew("CHANNEL_CON_FAIL", 3, 4);
-        f77597e = new ew("CHANNEL_CON_OK", 4, 5);
-        f77598f = new ew("ICMP_PING_FAIL", 5, 6);
-        f77599g = new ew("ICMP_PING_OK", 6, 7);
-        f77600h = new ew("CHANNEL_ONLINE_RATE", 7, 8);
-        f77601i = new ew("BATCH_TCP_CONN_SUCCESS", 8, 1000);
-        f77602j = new ew("BATCH_TCP_CONN_FAIL", 9, 1001);
+        f77912a = new ew("TCP_CONN_FAIL", 0, 1);
+        f77913b = new ew("TCP_CONN_TIME", 1, 2);
+        f77914c = new ew("PING_RTT", 2, 3);
+        f77915d = new ew("CHANNEL_CON_FAIL", 3, 4);
+        f77916e = new ew("CHANNEL_CON_OK", 4, 5);
+        f77917f = new ew("ICMP_PING_FAIL", 5, 6);
+        f77918g = new ew("ICMP_PING_OK", 6, 7);
+        f77919h = new ew("CHANNEL_ONLINE_RATE", 7, 8);
+        f77920i = new ew("BATCH_TCP_CONN_SUCCESS", 8, 1000);
+        f77921j = new ew("BATCH_TCP_CONN_FAIL", 9, 1001);
         k = new ew("CHANNEL_STATS_COUNTER", 10, 8000);
         l = new ew("GSLB_REQUEST_SUCCESS", 11, 10000);
         m = new ew("GSLB_TCP_NOACCESS", 12, 10101);
@@ -169,7 +169,7 @@ public final class ew {
         ad = new ew("CHANNEL_BOSH_EXCEPTION", 55, 40499);
         ew ewVar = new ew("CHANNEL_TIMER_DELAYED", 56, 50001);
         ae = ewVar;
-        f345a = new ew[]{f77593a, f77594b, f77595c, f77596d, f77597e, f77598f, f77599g, f77600h, f77601i, f77602j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ewVar};
+        f345a = new ew[]{f77912a, f77913b, f77914c, f77915d, f77916e, f77917f, f77918g, f77919h, f77920i, f77921j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ewVar};
     }
 
     public ew(String str, int i2, int i3) {
@@ -201,21 +201,21 @@ public final class ew {
                 if (i2 != 30502) {
                     switch (i2) {
                         case 1:
-                            return f77593a;
+                            return f77912a;
                         case 2:
-                            return f77594b;
+                            return f77913b;
                         case 3:
-                            return f77595c;
+                            return f77914c;
                         case 4:
-                            return f77596d;
+                            return f77915d;
                         case 5:
-                            return f77597e;
+                            return f77916e;
                         case 6:
-                            return f77598f;
+                            return f77917f;
                         case 7:
-                            return f77599g;
+                            return f77918g;
                         case 8:
-                            return f77600h;
+                            return f77919h;
                         default:
                             switch (i2) {
                                 case 8000:

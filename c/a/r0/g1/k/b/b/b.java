@@ -17,19 +17,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f18528a;
+    public TbPageContext f18537a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c.a.e.l.e.a> f18529b;
+    public List<c.a.e.l.e.a> f18538b;
 
     /* renamed from: c  reason: collision with root package name */
-    public s f18530c;
+    public s f18539c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f18531d;
+    public a f18540d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f18532e;
+    public c f18541e;
 
     public b(TbPageContext tbPageContext, s sVar) {
         Interceptable interceptable = $ic;
@@ -46,27 +46,27 @@ public class b {
                 return;
             }
         }
-        this.f18528a = tbPageContext;
-        this.f18530c = sVar;
+        this.f18537a = tbPageContext;
+        this.f18539c = sVar;
         a();
-        this.f18530c.addAdapters(this.f18529b);
+        this.f18539c.addAdapters(this.f18538b);
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f18529b = new ArrayList();
-            this.f18531d = new a(this.f18528a);
-            this.f18532e = new c(this.f18528a);
-            this.f18529b.add(this.f18531d);
-            this.f18529b.add(this.f18532e);
+            this.f18538b = new ArrayList();
+            this.f18540d = new a(this.f18537a);
+            this.f18541e = new c(this.f18537a);
+            this.f18538b.add(this.f18540d);
+            this.f18538b.add(this.f18541e);
         }
     }
 
     public void b() {
         s sVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar = this.f18530c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar = this.f18539c) == null) {
             return;
         }
         sVar.getListAdapter().notifyDataSetChanged();
@@ -75,14 +75,14 @@ public class b {
     public void c(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f18530c.setData(list);
+            this.f18539c.setData(list);
         }
     }
 
     public void d(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            for (c.a.e.l.e.a aVar : this.f18529b) {
+            for (c.a.e.l.e.a aVar : this.f18538b) {
                 aVar.f0(bdUniqueId);
             }
         }

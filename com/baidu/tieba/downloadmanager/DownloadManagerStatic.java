@@ -1,11 +1,18 @@
 package com.baidu.tieba.downloadmanager;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.DownloadManagerActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +20,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Item;
 /* loaded from: classes7.dex */
 public class DownloadManagerStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -43,7 +49,7 @@ public class DownloadManagerStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                c.a.r0.i0.b.a.e().c(customMessage.getData());
+                c.a.r0.i0.c.a.e().c(customMessage.getData());
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -51,7 +57,7 @@ public class DownloadManagerStatic {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<Item> {
+    public static class b implements CustomMessageTask.CustomRunnable<c.a.r0.i0.b.b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,14 +76,49 @@ public class DownloadManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<Item> run(CustomMessage<Item> customMessage) {
+        public CustomResponsedMessage<c.a.r0.i0.b.b> run(CustomMessage<c.a.r0.i0.b.b> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                c.a.r0.i0.b.a.e().i(customMessage.getData());
+                c.a.r0.i0.c.a.e().i(customMessage.getData());
+                c.a.r0.i0.g.a.a(customMessage.getData());
                 return new CustomResponsedMessage<>(2921627, customMessage.getData());
             }
             return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements UrlManager.UrlDealListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
+                if (strArr == null || strArr.length == 0 || strArr[0] == null || !strArr[0].contains("com.baidu.tieba://unidispatch/gameSub")) {
+                    return 3;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new DownloadManagerActivityConfig(tbPageContext.getPageActivity(), 5)));
+                return 0;
+            }
+            return invokeLL.intValue;
         }
     }
 
@@ -96,6 +137,8 @@ public class DownloadManagerStatic {
         }
         TbadkCoreApplication.getInst().RegisterIntent(DownloadManagerActivityConfig.class, DownloadManagerActivity.class);
         a();
+        b();
+        c();
     }
 
     public DownloadManagerStatic() {
@@ -117,6 +160,22 @@ public class DownloadManagerStatic {
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             MessageManager.getInstance().registerTask(new CustomMessageTask(2921626, new a()));
             MessageManager.getInstance().registerTask(new CustomMessageTask(2921627, new b()));
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            UrlManager.getInstance().addListener(new c());
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO, TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_DOWNLOAD_INFO);
+            tbHttpMessageTask.setResponsedClass(HttpResponsedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 }

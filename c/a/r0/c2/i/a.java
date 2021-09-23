@@ -115,7 +115,7 @@ public class a extends c.a.q0.k0.f.a<c.a.r0.c2.h.a, b> {
         }
     }
 
-    @Override // c.a.r0.j3.t
+    @Override // c.a.r0.j3.u
     @SuppressLint({"ResourceAsColor"})
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;

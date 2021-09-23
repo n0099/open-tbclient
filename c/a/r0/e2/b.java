@@ -39,27 +39,27 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.e2.e.b f17242a;
+        public final /* synthetic */ c.a.r0.e2.e.b f17252a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f17243b;
+        public final /* synthetic */ String f17253b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.e2.f.a f17244c;
+        public final /* synthetic */ c.a.r0.e2.f.a f17254c;
 
         /* renamed from: c.a.r0.e2.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0836a extends BdAsyncTask<Void, Void, Boolean> {
+        public class C0834a extends BdAsyncTask<Void, Void, Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DownloadData f17245a;
+            public final /* synthetic */ DownloadData f17255a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f17246b;
+            public final /* synthetic */ a f17256b;
 
-            public C0836a(a aVar, DownloadData downloadData) {
+            public C0834a(a aVar, DownloadData downloadData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,8 +74,8 @@ public class b {
                         return;
                     }
                 }
-                this.f17246b = aVar;
-                this.f17245a = downloadData;
+                this.f17256b = aVar;
+                this.f17255a = downloadData;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -84,10 +84,10 @@ public class b {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                    FileHelper.deleteFileOrDir(new File(this.f17246b.f17243b));
-                    if (b.g(this.f17245a.getPath(), this.f17246b.f17244c)) {
-                        a aVar = this.f17246b;
-                        return Boolean.valueOf(b.f(aVar.f17244c, aVar.f17243b));
+                    FileHelper.deleteFileOrDir(new File(this.f17256b.f17253b));
+                    if (b.g(this.f17255a.getPath(), this.f17256b.f17254c)) {
+                        a aVar = this.f17256b;
+                        return Boolean.valueOf(b.f(aVar.f17254c, aVar.f17253b));
                     }
                     return Boolean.FALSE;
                 }
@@ -100,11 +100,11 @@ public class b {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
                     if (bool.booleanValue()) {
-                        a aVar = this.f17246b;
-                        aVar.f17242a.onSuccess(aVar.f17243b);
+                        a aVar = this.f17256b;
+                        aVar.f17252a.onSuccess(aVar.f17253b);
                         return;
                     }
-                    this.f17246b.f17242a.onFail("fail to download");
+                    this.f17256b.f17252a.onFail("fail to download");
                 }
             }
         }
@@ -124,29 +124,29 @@ public class b {
                     return;
                 }
             }
-            this.f17242a = bVar;
-            this.f17243b = str;
-            this.f17244c = aVar;
+            this.f17252a = bVar;
+            this.f17253b = str;
+            this.f17254c = aVar;
         }
 
         @Override // c.a.q0.w.e
         public void onFileDownloadFailed(DownloadData downloadData, int i2, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i2, str) == null) || this.f17242a == null) {
+            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i2, str) == null) || this.f17252a == null) {
                 return;
             }
             String str2 = "faile to download:";
             if (downloadData != null && !TextUtils.isEmpty(downloadData.getUrl())) {
                 str2 = "faile to download:" + downloadData.getUrl();
             }
-            this.f17242a.onFail(str2);
+            this.f17252a.onFail(str2);
         }
 
         @Override // c.a.q0.w.e
         public void onFileDownloadSucceed(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-                new C0836a(this, downloadData).execute(new Void[0]);
+                new C0834a(this, downloadData).execute(new Void[0]);
             }
         }
 
@@ -164,7 +164,7 @@ public class b {
         public void onFileUpdateProgress(DownloadData downloadData) {
             c.a.r0.e2.e.b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || (bVar = this.f17242a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || (bVar = this.f17252a) == null) {
                 return;
             }
             bVar.onProgress(downloadData.getProcess());
@@ -185,31 +185,31 @@ public class b {
         List<c.a.r0.e2.f.b> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, aVar, bVar) == null) {
-            if (aVar == null || (list = aVar.f17281e) == null || list.size() == 0 || TextUtils.isEmpty(aVar.f17280d)) {
+            if (aVar == null || (list = aVar.f17291e) == null || list.size() == 0 || TextUtils.isEmpty(aVar.f17290d)) {
                 if (bVar != null) {
                     bVar.onFail("group data null");
                     return;
                 }
                 return;
             }
-            a aVar2 = new a(bVar, c.f17248c + aVar.f17277a + "/", aVar);
-            new File(c.f17248c).mkdirs();
-            d(aVar, c.f17248c, aVar2);
+            a aVar2 = new a(bVar, c.f17258c + aVar.f17287a + "/", aVar);
+            new File(c.f17258c).mkdirs();
+            d(aVar, c.f17258c, aVar2);
         }
     }
 
     public static void d(c.a.r0.e2.f.a aVar, String str, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, aVar, str, eVar) == null) {
-            if (aVar == null || TextUtils.isEmpty(aVar.f17280d)) {
+            if (aVar == null || TextUtils.isEmpty(aVar.f17290d)) {
                 if (eVar != null) {
                     eVar.onFileDownloadFailed(null, 0, "data is null");
                     return;
                 }
                 return;
             }
-            String str2 = aVar.f17277a + ".zip";
-            DownloadData downloadData = new DownloadData(aVar.f17277a, str2, Uri.encode(aVar.f17280d, "-![.:/,%?&=]"), eVar);
+            String str2 = aVar.f17287a + ".zip";
+            DownloadData downloadData = new DownloadData(aVar.f17287a, str2, Uri.encode(aVar.f17290d, "-![.:/,%?&=]"), eVar);
             downloadData.setPath(str + str2);
             f.k().l(downloadData);
         }
@@ -247,10 +247,10 @@ public class b {
             if (file.exists() && file2.exists()) {
                 return true;
             }
-            if (new File(str + aVar.f17279c).exists()) {
+            if (new File(str + aVar.f17289c).exists()) {
                 Bitmap bitmap = null;
                 try {
-                    bitmap = BitmapFactory.decodeFile(str + aVar.f17279c);
+                    bitmap = BitmapFactory.decodeFile(str + aVar.f17289c);
                 } catch (OutOfMemoryError e2) {
                     e2.printStackTrace();
                 }
@@ -282,7 +282,7 @@ public class b {
                         ZipEntry nextEntry = zipInputStream2.getNextEntry();
                         if (nextEntry != null) {
                             if (!nextEntry.isDirectory()) {
-                                String str2 = ".emotions/" + aVar.f17277a;
+                                String str2 = ".emotions/" + aVar.f17287a;
                                 FileHelper.saveFile(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + str2 + "/" + nextEntry.getName(), zipInputStream2);
                             }
                         } else {

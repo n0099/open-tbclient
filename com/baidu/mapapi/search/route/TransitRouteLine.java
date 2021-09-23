@@ -26,7 +26,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TaxiInfo f41923b;
+    public TaxiInfo f41985b;
 
     /* loaded from: classes5.dex */
     public static class TransitStep extends RouteStep implements Parcelable {
@@ -35,22 +35,22 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public VehicleInfo f41924d;
+        public VehicleInfo f41986d;
 
         /* renamed from: e  reason: collision with root package name */
-        public RouteNode f41925e;
+        public RouteNode f41987e;
 
         /* renamed from: f  reason: collision with root package name */
-        public RouteNode f41926f;
+        public RouteNode f41988f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TransitRouteStepType f41927g;
+        public TransitRouteStepType f41989g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f41928h;
+        public String f41990h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f41929i;
+        public String f41991i;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes5.dex */
@@ -162,13 +162,13 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
                     return;
                 }
             }
-            this.f41924d = (VehicleInfo) parcel.readParcelable(VehicleInfo.class.getClassLoader());
-            this.f41925e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f41926f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f41986d = (VehicleInfo) parcel.readParcelable(VehicleInfo.class.getClassLoader());
+            this.f41987e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f41988f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
             int readInt = parcel.readInt();
-            this.f41927g = readInt == -1 ? null : TransitRouteStepType.values()[readInt];
-            this.f41928h = parcel.readString();
-            this.f41929i = parcel.readString();
+            this.f41989g = readInt == -1 ? null : TransitRouteStepType.values()[readInt];
+            this.f41990h = parcel.readString();
+            this.f41991i = parcel.readString();
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
@@ -184,31 +184,31 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         public RouteNode getEntrance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41925e : (RouteNode) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41987e : (RouteNode) invokeV.objValue;
         }
 
         public RouteNode getExit() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41926f : (RouteNode) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41988f : (RouteNode) invokeV.objValue;
         }
 
         public String getInstructions() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41928h : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41990h : (String) invokeV.objValue;
         }
 
         public TransitRouteStepType getStepType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41927g : (TransitRouteStepType) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41989g : (TransitRouteStepType) invokeV.objValue;
         }
 
         public VehicleInfo getVehicleInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41924d : (VehicleInfo) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41986d : (VehicleInfo) invokeV.objValue;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
@@ -217,7 +217,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 if (this.mWayPoints == null) {
-                    this.mWayPoints = CoordUtil.decodeLocationList(this.f41929i);
+                    this.mWayPoints = CoordUtil.decodeLocationList(this.f41991i);
                 }
                 return this.mWayPoints;
             }
@@ -227,42 +227,42 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         public void setEntrace(RouteNode routeNode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, routeNode) == null) {
-                this.f41925e = routeNode;
+                this.f41987e = routeNode;
             }
         }
 
         public void setExit(RouteNode routeNode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, routeNode) == null) {
-                this.f41926f = routeNode;
+                this.f41988f = routeNode;
             }
         }
 
         public void setInstructions(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-                this.f41928h = str;
+                this.f41990h = str;
             }
         }
 
         public void setPathString(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-                this.f41929i = str;
+                this.f41991i = str;
             }
         }
 
         public void setStepType(TransitRouteStepType transitRouteStepType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, transitRouteStepType) == null) {
-                this.f41927g = transitRouteStepType;
+                this.f41989g = transitRouteStepType;
             }
         }
 
         public void setVehicleInfo(VehicleInfo vehicleInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, vehicleInfo) == null) {
-                this.f41924d = vehicleInfo;
+                this.f41986d = vehicleInfo;
             }
         }
 
@@ -271,13 +271,13 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i2) == null) {
                 super.writeToParcel(parcel, i2);
-                parcel.writeParcelable(this.f41924d, 1);
-                parcel.writeParcelable(this.f41925e, 1);
-                parcel.writeParcelable(this.f41926f, 1);
-                TransitRouteStepType transitRouteStepType = this.f41927g;
+                parcel.writeParcelable(this.f41986d, 1);
+                parcel.writeParcelable(this.f41987e, 1);
+                parcel.writeParcelable(this.f41988f, 1);
+                TransitRouteStepType transitRouteStepType = this.f41989g;
                 parcel.writeInt(transitRouteStepType == null ? -1 : transitRouteStepType.ordinal());
-                parcel.writeString(this.f41928h);
-                parcel.writeString(this.f41929i);
+                parcel.writeString(this.f41990h);
+                parcel.writeString(this.f41991i);
             }
         }
     }
@@ -330,7 +330,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
                 return;
             }
         }
-        this.f41923b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.f41985b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
@@ -347,13 +347,13 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
     public TaxiInfo getTaxitInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41923b : (TaxiInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41985b : (TaxiInfo) invokeV.objValue;
     }
 
     public void setTaxitInfo(TaxiInfo taxiInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taxiInfo) == null) {
-            this.f41923b = taxiInfo;
+            this.f41985b = taxiInfo;
         }
     }
 
@@ -363,7 +363,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
             super.setType(RouteLine.TYPE.TRANSITSTEP);
             super.writeToParcel(parcel, i2);
-            parcel.writeParcelable(this.f41923b, 1);
+            parcel.writeParcelable(this.f41985b, 1);
         }
     }
 }

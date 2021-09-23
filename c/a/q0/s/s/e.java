@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.m0;
+import c.a.q0.d1.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
@@ -159,7 +159,7 @@ public class e implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (this.f14418e != null && !TextUtils.isEmpty(str)) {
-                String e2 = m0.e(str, 34);
+                String e2 = n0.e(str, 34);
                 int t = c.a.e.e.p.l.t(this.f14422i.getPaint(), e2);
                 ViewGroup.LayoutParams layoutParams = this.f14420g.getLayoutParams();
                 layoutParams.width = t + (this.q * 2);

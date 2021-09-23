@@ -58,9 +58,9 @@ public class InitDelayThread extends Thread {
             if (!TextUtils.isEmpty(rimAllConfig)) {
                 try {
                     GetFPResponse.RimConfig rimConfig = (GetFPResponse.RimConfig) JsonUtils.fromJson(rimAllConfig, GetFPResponse.RimConfig.class);
-                    if (rimConfig != null && rimConfig.f39407common != null) {
+                    if (rimConfig != null && rimConfig.f39465common != null) {
                         try {
-                            j2 = Long.parseLong(rimConfig.f39407common.init_delay);
+                            j2 = Long.parseLong(rimConfig.f39465common.init_delay);
                         } catch (NumberFormatException e2) {
                             e2.printStackTrace();
                         }
@@ -69,41 +69,7 @@ public class InitDelayThread extends Thread {
                     e3.printStackTrace();
                 }
             }
-            new Handler(Looper.myLooper()).postDelayed(new Runnable(this) { // from class: com.baidu.fsg.base.InitDelayThread.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ InitDelayThread f39294a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f39294a = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    InitDelayCallback initDelayCallback;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (initDelayCallback = this.f39294a.mCallback) == null) {
-                        return;
-                    }
-                    initDelayCallback.callBack();
-                }
-            }, j2);
+            new Handler(Looper.myLooper()).postDelayed(new b(this), j2);
         }
     }
 }

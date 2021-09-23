@@ -20,7 +20,7 @@ public class b implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f16517a;
+    public Context f16527a;
 
     public b(Context context, c.a.q0.t.g.c cVar) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class b implements d {
                 return;
             }
         }
-        this.f16517a = null;
-        this.f16517a = context;
+        this.f16527a = null;
+        this.f16527a = context;
     }
 
     @Override // c.a.q0.t.g.d
@@ -51,10 +51,10 @@ public class b implements d {
 
     public final void b(ShareItem shareItem, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i2) == null) || this.f16517a == null || shareItem == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i2) == null) || this.f16527a == null || shareItem == null) {
             return;
         }
-        IntentConfig intentConfig = new IntentConfig(this.f16517a);
+        IntentConfig intentConfig = new IntentConfig(this.f16527a);
         ShareEntity shareEntity = new ShareEntity();
         shareEntity.setTitle(shareItem.r);
         shareEntity.setContent(shareItem.s);

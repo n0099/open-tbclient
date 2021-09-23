@@ -13,11 +13,11 @@ public class a implements com.kwad.sdk.core.webview.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1998a f72445a;
+    public InterfaceC2002a f72764a;
 
     /* renamed from: com.kwad.sdk.core.webview.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC1998a {
+    public interface InterfaceC2002a {
         void a();
     }
 
@@ -47,9 +47,9 @@ public class a implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            InterfaceC1998a interfaceC1998a = this.f72445a;
-            if (interfaceC1998a != null) {
-                interfaceC1998a.a();
+            InterfaceC2002a interfaceC2002a = this.f72764a;
+            if (interfaceC2002a != null) {
+                interfaceC2002a.a();
             }
             c();
         }
@@ -59,7 +59,7 @@ public class a implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f72445a = null;
+            this.f72764a = null;
         }
     }
 

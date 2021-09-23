@@ -28,13 +28,13 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9461a;
+    public static final boolean f9469a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f9462b;
+    public static final List<String> f9470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<String> f9463c;
+    public static final List<String> f9471c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,9 +50,9 @@ public final class b {
                 return;
             }
         }
-        f9461a = k.f7077a;
-        f9462b = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"title", "image", ReplyEditorParams.MODULE_EMOJI, "video", "friends", "target"});
-        f9463c = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"image", ReplyEditorParams.MODULE_EMOJI});
+        f9469a = k.f7085a;
+        f9470b = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"title", "image", ReplyEditorParams.MODULE_EMOJI, "video", "friends", "target"});
+        f9471c = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"image", ReplyEditorParams.MODULE_EMOJI});
     }
 
     public static final PublishParams a(JSONObject jSONObject) {
@@ -66,25 +66,25 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject != null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("moduleList");
-                ArrayList arrayList = new ArrayList(f9463c);
+                ArrayList arrayList = new ArrayList(f9471c);
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     arrayList.clear();
                     int length = optJSONArray.length();
                     for (int i6 = 0; i6 < length; i6++) {
                         try {
                             String string = optJSONArray.getString(i6);
-                            if (f9462b.contains(string)) {
+                            if (f9470b.contains(string)) {
                                 arrayList.add(string);
                             }
                         } catch (JSONException e2) {
-                            if (f9461a) {
+                            if (f9469a) {
                                 e2.printStackTrace();
                             }
                         }
                     }
                 }
                 if (arrayList.isEmpty()) {
-                    boolean z = f9461a;
+                    boolean z = f9469a;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("imageConf");
                 if (optJSONObject != null) {
@@ -110,7 +110,7 @@ public final class b {
                 try {
                     i3 = Color.parseColor(c(jSONObject, "navBarBackgroundColor", "#FFFFFF"));
                 } catch (Exception e7) {
-                    if (f9461a) {
+                    if (f9469a) {
                         e7.printStackTrace();
                     }
                     i3 = -1;
@@ -119,7 +119,7 @@ public final class b {
                 try {
                     i4 = Color.parseColor(c(jSONObject, "confirmColor", "#3388FF"));
                 } catch (Exception e8) {
-                    if (f9461a) {
+                    if (f9469a) {
                         e8.printStackTrace();
                     }
                     i4 = color;
@@ -127,7 +127,7 @@ public final class b {
                 try {
                     i5 = Color.parseColor(c(jSONObject, "cancelColor", "#000000"));
                 } catch (Exception e9) {
-                    if (f9461a) {
+                    if (f9469a) {
                         e9.printStackTrace();
                     }
                     i5 = -16777216;

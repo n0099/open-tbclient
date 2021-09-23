@@ -26,7 +26,8 @@ import java.lang.reflect.Proxy;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public final class BaiduWallet implements IWalletFacade {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String TAG = "BaiduWallet";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.api.BaiduWallet$1  reason: invalid class name */
@@ -41,7 +42,7 @@ public final class BaiduWallet implements IWalletFacade {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final IWalletFacade f60140a;
+        public static final IWalletFacade f60265a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -57,7 +58,7 @@ public final class BaiduWallet implements IWalletFacade {
                     return;
                 }
             }
-            f60140a = (IWalletFacade) Proxy.newProxyInstance(BaiduWallet.class.getClassLoader(), new Class[]{IWalletFacade.class}, new WalletFacadeAOP(new BaiduWallet(null)));
+            f60265a = (IWalletFacade) Proxy.newProxyInstance(BaiduWallet.class.getClassLoader(), new Class[]{IWalletFacade.class}, new WalletFacadeAOP(new BaiduWallet(null)));
         }
     }
 
@@ -99,7 +100,7 @@ public final class BaiduWallet implements IWalletFacade {
     public static IWalletFacade getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f60140a : (IWalletFacade) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f60265a : (IWalletFacade) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.api.IWalletPayFacade

@@ -12,7 +12,7 @@ public class P0 extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ S0 f76834a;
+    public final /* synthetic */ S0 f77153a;
 
     public P0(S0 s0) {
         Interceptable interceptable = $ic;
@@ -29,17 +29,17 @@ public class P0 extends Handler {
                 return;
             }
         }
-        this.f76834a = s0;
+        this.f77153a = s0;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
-            this.f76834a.f76886e = true;
-            this.f76834a.k.removeMessages(11);
-            Z0.a(this.f76834a.f76883b).a(new a1(this.f76834a.f76887f), 2002, (this.f76834a.b() ? this.f76834a.f76887f.getWt() : 0) * 1000).a();
-            this.f76834a.f76889h.onFail(PBError.TIMEOUT);
+            this.f77153a.f77205e = true;
+            this.f77153a.k.removeMessages(11);
+            Z0.a(this.f77153a.f77202b).a(new a1(this.f77153a.f77206f), 2002, (this.f77153a.b() ? this.f77153a.f77206f.getWt() : 0) * 1000).a();
+            this.f77153a.f77208h.onFail(PBError.TIMEOUT);
         }
     }
 }

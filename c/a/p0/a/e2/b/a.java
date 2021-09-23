@@ -32,16 +32,16 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5429e;
+        public final /* synthetic */ CallbackHandler f5437e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5430f;
+        public final /* synthetic */ String f5438f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f5431g;
+        public final /* synthetic */ String f5439g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f5432h;
+        public final /* synthetic */ a f5440h;
 
         public C0167a(a aVar, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -58,10 +58,10 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f5432h = aVar;
-            this.f5429e = callbackHandler;
-            this.f5430f = str;
-            this.f5431g = str2;
+            this.f5440h = aVar;
+            this.f5437e = callbackHandler;
+            this.f5438f = str;
+            this.f5439g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +70,7 @@ public class a extends a0 {
         public void onCallback(c.a.p0.a.e2.c.i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f5432h.k(this.f5429e, this.f5430f, this.f5431g, iVar);
+                this.f5440h.k(this.f5437e, this.f5438f, this.f5439g, iVar);
             }
         }
     }
@@ -88,7 +88,7 @@ public class a extends a0 {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -159,7 +159,7 @@ public class a extends a0 {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("scope", str);
-                if (iVar != null && iVar.f5582a != null) {
+                if (iVar != null && iVar.f5590a != null) {
                     if (!iVar.c()) {
                         OAuthException a2 = iVar.a();
                         jSONObject.put("errMsg", a2 == null ? "" : a2.getMessage());
@@ -167,10 +167,10 @@ public class a extends a0 {
                         c.a.p0.a.c1.b.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
                         return;
                     }
-                    jSONObject.put("code", iVar.f5582a.f5596a);
-                    jSONObject.put("errMsg", iVar.f5582a.f5597b ? "authorize:ok" : "user deny");
-                    callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.f5582a.f5597b ? 0 : 10003).toString());
-                    if (iVar.f5582a.f5597b) {
+                    jSONObject.put("code", iVar.f5590a.f5604a);
+                    jSONObject.put("errMsg", iVar.f5590a.f5605b ? "authorize:ok" : "user deny");
+                    callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.f5590a.f5605b ? 0 : 10003).toString());
+                    if (iVar.f5590a.f5605b) {
                         return;
                     }
                     c.a.p0.a.c1.b.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());

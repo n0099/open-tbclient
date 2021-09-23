@@ -21,35 +21,35 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13362a;
+    public boolean f13379a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13363b;
+    public boolean f13380b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13364c;
+    public int f13381c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f13365d;
+    public float f13382d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f13366e;
+    public float f13383e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13367f;
+    public float f13384f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13368g;
+    public int f13385g;
 
     /* renamed from: h  reason: collision with root package name */
-    public VelocityTracker f13369h;
+    public VelocityTracker f13386h;
     @NonNull
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewGroup f13370i;
+    public ViewGroup f13387i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f13371j;
+    public boolean f13388j;
 
     public a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
@@ -66,10 +66,10 @@ public class a {
                 return;
             }
         }
-        this.f13368g = -1;
-        this.f13371j = true;
-        this.f13370i = viewGroup;
-        this.f13364c = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(viewGroup.getContext()));
+        this.f13385g = -1;
+        this.f13388j = true;
+        this.f13387i = viewGroup;
+        this.f13381c = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(viewGroup.getContext()));
     }
 
     @SuppressLint({"LongLogTag"})
@@ -80,57 +80,57 @@ public class a {
             int action = motionEvent.getAction() & 255;
             if (action != 3 && action != 1) {
                 if (action != 0) {
-                    if (this.f13362a) {
+                    if (this.f13379a) {
                         return true;
                     }
-                    if (this.f13363b) {
+                    if (this.f13380b) {
                         return false;
                     }
                 }
                 if (action == 0) {
-                    this.f13366e = motionEvent.getX();
+                    this.f13383e = motionEvent.getX();
                     float y = motionEvent.getY();
-                    this.f13367f = y;
-                    this.f13365d = y;
-                    this.f13368g = MotionEventCompat.getPointerId(motionEvent, 0);
-                    this.f13363b = false;
-                    this.f13362a = false;
+                    this.f13384f = y;
+                    this.f13382d = y;
+                    this.f13385g = MotionEventCompat.getPointerId(motionEvent, 0);
+                    this.f13380b = false;
+                    this.f13379a = false;
                 } else if (action == 2) {
-                    int i2 = this.f13368g;
+                    int i2 = this.f13385g;
                     if (i2 != -1) {
                         int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i2);
                         if (findPointerIndex >= 0 && findPointerIndex < motionEvent.getPointerCount()) {
-                            float y2 = MotionEventCompat.getY(motionEvent, findPointerIndex) - this.f13365d;
+                            float y2 = MotionEventCompat.getY(motionEvent, findPointerIndex) - this.f13382d;
                             float abs = Math.abs(y2);
-                            float abs2 = Math.abs(MotionEventCompat.getX(motionEvent, findPointerIndex) - this.f13366e);
-                            float f2 = this.f13371j ? 0.5f : 3.0f;
-                            if (abs > this.f13364c && abs * f2 > abs2) {
-                                this.f13362a = true;
+                            float abs2 = Math.abs(MotionEventCompat.getX(motionEvent, findPointerIndex) - this.f13383e);
+                            float f2 = this.f13388j ? 0.5f : 3.0f;
+                            if (abs > this.f13381c && abs * f2 > abs2) {
+                                this.f13379a = true;
                                 c(true);
-                                this.f13365d = y2 > 0.0f ? this.f13367f + this.f13364c : this.f13367f - this.f13364c;
-                            } else if (abs2 > this.f13364c) {
-                                this.f13363b = true;
+                                this.f13382d = y2 > 0.0f ? this.f13384f + this.f13381c : this.f13384f - this.f13381c;
+                            } else if (abs2 > this.f13381c) {
+                                this.f13380b = true;
                             }
                         } else {
-                            this.f13362a = false;
+                            this.f13379a = false;
                         }
                     }
                 } else if (action == 6) {
                     b(motionEvent);
                 }
-                if (this.f13369h == null) {
-                    this.f13369h = VelocityTracker.obtain();
+                if (this.f13386h == null) {
+                    this.f13386h = VelocityTracker.obtain();
                 }
-                this.f13369h.addMovement(motionEvent);
-                return this.f13362a;
+                this.f13386h.addMovement(motionEvent);
+                return this.f13379a;
             }
-            this.f13362a = false;
-            this.f13363b = false;
-            this.f13368g = -1;
-            VelocityTracker velocityTracker = this.f13369h;
+            this.f13379a = false;
+            this.f13380b = false;
+            this.f13385g = -1;
+            VelocityTracker velocityTracker = this.f13386h;
             if (velocityTracker != null) {
                 velocityTracker.recycle();
-                this.f13369h = null;
+                this.f13386h = null;
             }
             return false;
         }
@@ -141,11 +141,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent) == null) {
             int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-            if (MotionEventCompat.getPointerId(motionEvent, actionIndex) == this.f13368g) {
+            if (MotionEventCompat.getPointerId(motionEvent, actionIndex) == this.f13385g) {
                 int i2 = actionIndex == 0 ? 1 : 0;
-                this.f13365d = MotionEventCompat.getY(motionEvent, i2);
-                this.f13368g = MotionEventCompat.getPointerId(motionEvent, i2);
-                VelocityTracker velocityTracker = this.f13369h;
+                this.f13382d = MotionEventCompat.getY(motionEvent, i2);
+                this.f13385g = MotionEventCompat.getPointerId(motionEvent, i2);
+                VelocityTracker velocityTracker = this.f13386h;
                 if (velocityTracker != null) {
                     velocityTracker.clear();
                 }
@@ -156,7 +156,7 @@ public class a {
     public final void c(boolean z) {
         ViewParent parent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (parent = this.f13370i.getParent()) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (parent = this.f13387i.getParent()) == null) {
             return;
         }
         parent.requestDisallowInterceptTouchEvent(z);
@@ -165,7 +165,7 @@ public class a {
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f13371j = z;
+            this.f13388j = z;
         }
     }
 }

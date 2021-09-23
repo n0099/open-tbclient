@@ -21,7 +21,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f18843a;
+    public static b f18852a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -32,21 +32,21 @@ public class b {
 
     /* renamed from: c.a.r0.h0.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0911b extends BdAsyncTask<String, Void, Boolean> {
+    public static class C0909b extends BdAsyncTask<String, Void, Boolean> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final BdUniqueId f18844d;
+        public static final BdUniqueId f18853d;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Process f18845a;
+        public Process f18854a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18846b;
+        public String f18855b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f18847c;
+        public long f18856c;
 
         static {
             InterceptResult invokeClinit;
@@ -61,10 +61,10 @@ public class b {
                     return;
                 }
             }
-            f18844d = BdUniqueId.gen();
+            f18853d = BdUniqueId.gen();
         }
 
-        public /* synthetic */ C0911b(String str, a aVar) {
+        public /* synthetic */ C0909b(String str, a aVar) {
             this(str);
         }
 
@@ -83,7 +83,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 super.onCancelled();
-                Process process = this.f18845a;
+                Process process = this.f18854a;
                 if (process != null) {
                     try {
                         process.destroy();
@@ -91,11 +91,11 @@ public class b {
                         th.printStackTrace();
                     }
                 }
-                c.a.r0.h0.i.d.m().n(this.f18846b, (int) this.f18847c, false);
+                c.a.r0.h0.i.d.m().n(this.f18855b, (int) this.f18856c, false);
             }
         }
 
-        public C0911b(String str) {
+        public C0909b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,9 +110,9 @@ public class b {
                     return;
                 }
             }
-            this.f18845a = null;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, f18844d));
-            this.f18846b = str;
+            this.f18854a = null;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, f18853d));
+            this.f18855b = str;
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 0, expect 1 */
@@ -127,10 +127,10 @@ public class b {
                     try {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
-                            Process exec = runtime.exec(b() + this.f18846b);
-                            this.f18845a = exec;
+                            Process exec = runtime.exec(b() + this.f18855b);
+                            this.f18854a = exec;
                             r1 = exec.waitFor() == 0;
-                            this.f18847c = System.currentTimeMillis() - currentTimeMillis;
+                            this.f18856c = System.currentTimeMillis() - currentTimeMillis;
                         } catch (InterruptedException e2) {
                             BdLog.detailException(e2);
                             d.c().a("test_speed", e2.getMessage());
@@ -142,10 +142,10 @@ public class b {
                         BdLog.detailException(th);
                         d.c().a("test_speed", th.getMessage());
                     }
-                    this.f18845a.destroy();
+                    this.f18854a.destroy();
                     return Boolean.valueOf(r1);
                 } catch (Throwable th2) {
-                    this.f18845a.destroy();
+                    this.f18854a.destroy();
                     throw th2;
                 }
             }
@@ -158,12 +158,12 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, bool) == null) {
                 boolean booleanValue = bool != null ? bool.booleanValue() : true;
-                c.a.r0.h0.i.d.m().n(this.f18846b, (int) this.f18847c, booleanValue);
+                c.a.r0.h0.i.d.m().n(this.f18855b, (int) this.f18856c, booleanValue);
                 c.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("workflow", "dnsproxy_testspeed");
                 statsItem.c("issuc", Boolean.valueOf(booleanValue));
-                statsItem.b("ip", this.f18846b);
-                statsItem.c("speed", Integer.valueOf((int) this.f18847c));
+                statsItem.b("ip", this.f18855b);
+                statsItem.c("speed", Integer.valueOf((int) this.f18856c));
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
             }
         }
@@ -202,14 +202,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f18843a == null) {
+            if (f18852a == null) {
                 synchronized (b.class) {
-                    if (f18843a == null) {
-                        f18843a = new b();
+                    if (f18852a == null) {
+                        f18852a = new b();
                     }
                 }
             }
-            return f18843a;
+            return f18852a;
         }
         return (b) invokeV.objValue;
     }
@@ -218,7 +218,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, set) == null) {
             for (String str : set) {
-                new C0911b(str, null).execute(new String[0]);
+                new C0909b(str, null).execute(new String[0]);
             }
         }
     }

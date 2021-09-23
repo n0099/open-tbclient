@@ -15,7 +15,7 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<WeakReference<h>> f5782a;
+    public static List<WeakReference<h>> f5790a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,16 +31,16 @@ public class i {
                 return;
             }
         }
-        f5782a = new ArrayList();
+        f5790a = new ArrayList();
     }
 
     public static void a(c.a.p0.a.p.e.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, dVar) == null) {
-            for (int size = f5782a.size() - 1; size >= 0; size--) {
-                h hVar = f5782a.get(size).get();
+            for (int size = f5790a.size() - 1; size >= 0; size--) {
+                h hVar = f5790a.get(size).get();
                 if (hVar == null) {
-                    f5782a.remove(size);
+                    f5790a.remove(size);
                 } else {
                     hVar.d(dVar);
                 }
@@ -51,10 +51,10 @@ public class i {
     public static void b(c.a.p0.a.p.e.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, dVar) == null) {
-            for (int size = f5782a.size() - 1; size >= 0; size--) {
-                h hVar = f5782a.get(size).get();
+            for (int size = f5790a.size() - 1; size >= 0; size--) {
+                h hVar = f5790a.get(size).get();
                 if (hVar == null) {
-                    f5782a.remove(size);
+                    f5790a.remove(size);
                 } else {
                     hVar.b(dVar);
                 }
@@ -65,10 +65,10 @@ public class i {
     public static void c(c.a.p0.a.p.e.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, dVar) == null) {
-            for (int size = f5782a.size() - 1; size >= 0; size--) {
-                h hVar = f5782a.get(size).get();
+            for (int size = f5790a.size() - 1; size >= 0; size--) {
+                h hVar = f5790a.get(size).get();
                 if (hVar == null) {
-                    f5782a.remove(size);
+                    f5790a.remove(size);
                 } else {
                     hVar.c(dVar);
                 }
@@ -79,10 +79,10 @@ public class i {
     public static void d(c.a.p0.a.p.e.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, dVar) == null) {
-            for (int size = f5782a.size() - 1; size >= 0; size--) {
-                h hVar = f5782a.get(size).get();
+            for (int size = f5790a.size() - 1; size >= 0; size--) {
+                h hVar = f5790a.get(size).get();
                 if (hVar == null) {
-                    f5782a.remove(size);
+                    f5790a.remove(size);
                 } else {
                     hVar.a(dVar);
                 }
@@ -96,10 +96,10 @@ public class i {
             return;
         }
         boolean z = false;
-        for (int size = f5782a.size() - 1; size >= 0; size--) {
-            h hVar2 = f5782a.get(size).get();
+        for (int size = f5790a.size() - 1; size >= 0; size--) {
+            h hVar2 = f5790a.get(size).get();
             if (hVar2 == null) {
-                f5782a.remove(size);
+                f5790a.remove(size);
             } else {
                 z = hVar2 == hVar;
             }
@@ -107,7 +107,7 @@ public class i {
         if (z) {
             return;
         }
-        f5782a.add(new WeakReference<>(hVar));
+        f5790a.add(new WeakReference<>(hVar));
     }
 
     public static void f(h hVar) {
@@ -115,10 +115,10 @@ public class i {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, hVar) == null) || hVar == null) {
             return;
         }
-        for (int size = f5782a.size() - 1; size >= 0; size--) {
-            h hVar2 = f5782a.get(size).get();
+        for (int size = f5790a.size() - 1; size >= 0; size--) {
+            h hVar2 = f5790a.get(size).get();
             if (hVar2 == null || hVar == hVar2) {
-                f5782a.remove(size);
+                f5790a.remove(size);
             }
         }
     }

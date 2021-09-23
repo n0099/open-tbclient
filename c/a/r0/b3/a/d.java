@@ -14,10 +14,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<b> f15987a;
+    public List<b> f15997a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f15988b;
+    public boolean f15998b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class d {
                 return;
             }
         }
-        this.f15987a = new ArrayList();
-        this.f15988b = true;
+        this.f15997a = new ArrayList();
+        this.f15998b = true;
     }
 
     public void a(DataRes dataRes) {
@@ -43,11 +43,11 @@ public class d {
         }
         for (ForumList forumList : dataRes.forum_list) {
             b bVar = new b();
-            bVar.f15978a = forumList.avatar;
-            bVar.f15979b = forumList.forum_name;
-            bVar.f15980c = String.valueOf(forumList.forum_id);
-            this.f15987a.add(bVar);
+            bVar.f15988a = forumList.avatar;
+            bVar.f15989b = forumList.forum_name;
+            bVar.f15990c = String.valueOf(forumList.forum_id);
+            this.f15997a.add(bVar);
         }
-        this.f15988b = dataRes.has_more.intValue() == 1;
+        this.f15998b = dataRes.has_more.intValue() == 1;
     }
 }

@@ -13,13 +13,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24060a;
+    public String f24076a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24061b;
+    public String f24077b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24062c;
+    public String f24078c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -38,19 +38,19 @@ public class e {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24062c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24078c : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24060a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24076a : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24061b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24077b : (String) invokeV.objValue;
     }
 
     public void d(ThemeRecommand themeRecommand) {
@@ -58,9 +58,9 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, themeRecommand) == null) || themeRecommand == null) {
             return;
         }
-        this.f24060a = themeRecommand.icon;
-        this.f24061b = themeRecommand.tip_text;
-        this.f24062c = themeRecommand.button_text;
+        this.f24076a = themeRecommand.icon;
+        this.f24077b = themeRecommand.tip_text;
+        this.f24078c = themeRecommand.button_text;
         String str = themeRecommand.button_url;
     }
 }

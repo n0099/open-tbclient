@@ -14,22 +14,22 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11564a;
+    public String f11572a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11565b;
+    public int f11573b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f11566c;
+    public boolean f11574c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f11567d;
+    public boolean f11575d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11568e;
+    public int f11576e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11569f;
+    public String f11577f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public class c {
                 return;
             }
         }
-        this.f11564a = "";
-        this.f11565b = Integer.MAX_VALUE;
-        this.f11566c = false;
-        this.f11567d = false;
+        this.f11572a = "";
+        this.f11573b = Integer.MAX_VALUE;
+        this.f11574c = false;
+        this.f11575d = false;
     }
 
     public boolean a(c.a.p0.a.y.b.a aVar) throws JSTypeMismatchException {
@@ -55,10 +55,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             try {
-                this.f11564a = aVar.C("defaultValue");
-                this.f11565b = aVar.r("maxLength");
-                this.f11566c = aVar.m("multiple");
-                this.f11567d = aVar.m("confirmHold");
+                this.f11572a = aVar.C("defaultValue");
+                this.f11573b = aVar.r("maxLength");
+                this.f11574c = aVar.m("multiple");
+                this.f11575d = aVar.m("confirmHold");
                 String C = aVar.C("confirmType");
                 char c2 = 65535;
                 switch (C.hashCode()) {
@@ -94,23 +94,23 @@ public class c {
                         break;
                 }
                 if (c2 == 0) {
-                    this.f11568e = 6;
-                    this.f11569f = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.f11576e = 6;
+                    this.f11577f = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                 } else if (c2 == 1) {
-                    this.f11568e = 5;
-                    this.f11569f = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.f11576e = 5;
+                    this.f11577f = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                 } else if (c2 == 2) {
-                    this.f11568e = 3;
-                    this.f11569f = "search";
+                    this.f11576e = 3;
+                    this.f11577f = "search";
                 } else if (c2 == 3) {
-                    this.f11568e = 2;
-                    this.f11569f = "go";
+                    this.f11576e = 2;
+                    this.f11577f = "go";
                 } else if (c2 != 4) {
-                    this.f11568e = 6;
-                    this.f11569f = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.f11576e = 6;
+                    this.f11577f = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                 } else {
-                    this.f11568e = 4;
-                    this.f11569f = "send";
+                    this.f11576e = 4;
+                    this.f11577f = "send";
                 }
                 return true;
             } catch (Exception unused) {

@@ -31,7 +31,7 @@ public class m implements c.a.p0.a.p.d.y {
     public long a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? c.a.p0.a.d0.b.b().f5136a : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? c.a.p0.a.d0.b.b().f5144a : invokeL.longValue;
     }
 
     @Override // c.a.p0.a.p.d.y

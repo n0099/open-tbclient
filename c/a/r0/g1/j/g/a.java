@@ -40,14 +40,14 @@ public class a extends c.a.e.l.e.a<r1, ThreadCardViewHolder<r1>> implements c.a.
 
     /* renamed from: c.a.r0.g1.j.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0892a implements View.OnClickListener {
+    public class View$OnClickListenerC0890a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f18413e;
+        public final /* synthetic */ a f18422e;
 
-        public View$OnClickListenerC0892a(a aVar) {
+        public View$OnClickListenerC0890a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,14 +62,14 @@ public class a extends c.a.e.l.e.a<r1, ThreadCardViewHolder<r1>> implements c.a.
                     return;
                 }
             }
-            this.f18413e = aVar;
+            this.f18422e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f18413e.k0();
+                this.f18422e.k0();
             }
         }
     }
@@ -80,7 +80,7 @@ public class a extends c.a.e.l.e.a<r1, ThreadCardViewHolder<r1>> implements c.a.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f18414a;
+        public final /* synthetic */ a f18423a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -97,14 +97,14 @@ public class a extends c.a.e.l.e.a<r1, ThreadCardViewHolder<r1>> implements c.a.
                     return;
                 }
             }
-            this.f18414a = aVar;
+            this.f18423a = aVar;
         }
 
         @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f18414a.k0();
+                this.f18423a.k0();
             }
         }
     }
@@ -115,7 +115,7 @@ public class a extends c.a.e.l.e.a<r1, ThreadCardViewHolder<r1>> implements c.a.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f18415e;
+        public final /* synthetic */ a f18424e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -132,7 +132,7 @@ public class a extends c.a.e.l.e.a<r1, ThreadCardViewHolder<r1>> implements c.a.
                     return;
                 }
             }
-            this.f18415e = aVar;
+            this.f18424e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -143,7 +143,7 @@ public class a extends c.a.e.l.e.a<r1, ThreadCardViewHolder<r1>> implements c.a.
             if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, q1Var, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || q1Var == null) {
                 return;
             }
-            c.a.r0.g1.j.c.b("c13756", q1Var, i2 + 1, this.f18415e.q);
+            c.a.r0.g1.j.c.b("c13756", q1Var, i2 + 1, this.f18424e.q);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -153,13 +153,13 @@ public class a extends c.a.e.l.e.a<r1, ThreadCardViewHolder<r1>> implements c.a.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, q1Var, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 if (q1Var == null) {
-                    this.f18415e.k0();
+                    this.f18424e.k0();
                     return;
                 }
                 String p = q1Var.p();
                 if (c.a.e.e.p.k.isForumName(p)) {
-                    this.f18415e.n.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18415e.n.getPageActivity()).createNormalCfg(p, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
-                    c.a.r0.g1.j.c.a("c13756", q1Var, i2 + 1, this.f18415e.q);
+                    this.f18424e.n.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18424e.n.getPageActivity()).createNormalCfg(p, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
+                    c.a.r0.g1.j.c.a("c13756", q1Var, i2 + 1, this.f18424e.q);
                 }
             }
         }
@@ -184,7 +184,7 @@ public class a extends c.a.e.l.e.a<r1, ThreadCardViewHolder<r1>> implements c.a.
                 return;
             }
         }
-        this.s = new View$OnClickListenerC0892a(this);
+        this.s = new View$OnClickListenerC0890a(this);
         this.t = new b(this);
         this.u = new c(this);
         this.n = tbPageContext;

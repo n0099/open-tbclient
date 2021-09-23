@@ -25,13 +25,13 @@ public class i extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f9095e;
+        public final /* synthetic */ int f9103e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9096f;
+        public final /* synthetic */ String f9104f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i f9097g;
+        public final /* synthetic */ i f9105g;
 
         public a(i iVar, int i2, String str) {
             Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class i extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9097g = iVar;
-            this.f9095e = i2;
-            this.f9096f = str;
+            this.f9105g = iVar;
+            this.f9103e = i2;
+            this.f9104f = str;
         }
 
         @Override // java.lang.Runnable
@@ -59,7 +59,7 @@ public class i extends c.a.p0.a.u.c.d {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 View b2 = c.a.p0.a.z1.b.a.b();
                 LinearLayout c2 = c.a.p0.a.z1.b.a.c();
-                int i2 = this.f9095e;
+                int i2 = this.f9103e;
                 if (i2 == -90) {
                     if (b2 != null) {
                         b2.setVisibility(8);
@@ -90,8 +90,8 @@ public class i extends c.a.p0.a.u.c.d {
                     c.a.p0.a.z1.b.a.k(true);
                     i.v(0);
                 }
-                k.e().t(this.f9095e);
-                this.f9097g.d(this.f9096f, new c.a.p0.a.u.h.b(0));
+                k.e().t(this.f9103e);
+                this.f9105g.d(this.f9104f, new c.a.p0.a.u.h.b(0));
             }
         }
     }
@@ -165,11 +165,11 @@ public class i extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-FullScreenApi", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-FullScreenApi", "parse fail");
                 }
                 return bVar;

@@ -22,10 +22,10 @@ public class c extends c.a.p0.a.c0.b.a<TextureMapView, c.a.p0.a.h1.c.c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f11759i;
+    public String f11767i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f11760j;
+    public String f11768j;
     public boolean k;
     @NonNull
     public TextureMapView l;
@@ -54,9 +54,9 @@ public class c extends c.a.p0.a.c0.b.a<TextureMapView, c.a.p0.a.h1.c.c> {
         }
         this.n = new ArrayList();
         this.o = new ArrayList();
-        this.f11759i = cVar.f4658g;
-        this.f11760j = cVar.f4657f;
-        String str = cVar.f4659h;
+        this.f11767i = cVar.f4666g;
+        this.f11768j = cVar.f4665f;
+        String str = cVar.f4667h;
         this.m = context;
         this.l = new TextureMapView(context);
         this.k = cVar.v;
@@ -78,11 +78,11 @@ public class c extends c.a.p0.a.c0.b.a<TextureMapView, c.a.p0.a.h1.c.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             for (b bVar : this.n) {
-                this.l.removeView(bVar.f11752e);
+                this.l.removeView(bVar.f11760e);
             }
             this.n.clear();
             for (a aVar : this.o) {
-                this.l.removeView(aVar.f11746b);
+                this.l.removeView(aVar.f11754b);
             }
             this.o.clear();
             this.l.getMap().clear();
@@ -94,7 +94,7 @@ public class c extends c.a.p0.a.c0.b.a<TextureMapView, c.a.p0.a.h1.c.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) {
             for (a aVar : this.o) {
-                if (aVar.f11746b == view) {
+                if (aVar.f11754b == view) {
                     return aVar;
                 }
             }
@@ -109,7 +109,7 @@ public class c extends c.a.p0.a.c0.b.a<TextureMapView, c.a.p0.a.h1.c.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, marker)) == null) {
             for (b bVar : this.n) {
-                if (marker == bVar.f11749b) {
+                if (marker == bVar.f11757b) {
                     return bVar;
                 }
             }
@@ -124,8 +124,8 @@ public class c extends c.a.p0.a.c0.b.a<TextureMapView, c.a.p0.a.h1.c.c> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             ArrayList arrayList = new ArrayList(1);
             for (b bVar : this.n) {
-                d dVar = bVar.f11748a;
-                if (dVar != null && TextUtils.equals(str, dVar.f6535e)) {
+                d dVar = bVar.f11756a;
+                if (dVar != null && TextUtils.equals(str, dVar.f6543e)) {
                     arrayList.add(bVar);
                 }
             }

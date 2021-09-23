@@ -23,7 +23,7 @@ public final class d extends DefaultHttpClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f35719a;
+    public final /* synthetic */ b f35742a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar, ClientConnectionManager clientConnectionManager, HttpParams httpParams) {
@@ -44,7 +44,7 @@ public final class d extends DefaultHttpClient {
                 return;
             }
         }
-        this.f35719a = bVar;
+        this.f35742a = bVar;
     }
 
     @Override // org.apache.http.impl.client.DefaultHttpClient, org.apache.http.impl.client.AbstractHttpClient
@@ -75,9 +75,9 @@ public final class d extends DefaultHttpClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             BasicHttpProcessor createHttpProcessor = super.createHttpProcessor();
-            httpRequestInterceptor = b.f35712c;
+            httpRequestInterceptor = b.f35735c;
             createHttpProcessor.addRequestInterceptor(httpRequestInterceptor);
-            createHttpProcessor.addRequestInterceptor(new b.a(this.f35719a, (byte) 0));
+            createHttpProcessor.addRequestInterceptor(new b.a(this.f35742a, (byte) 0));
             return createHttpProcessor;
         }
         return (BasicHttpProcessor) invokeV.objValue;

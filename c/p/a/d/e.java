@@ -45,13 +45,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ExecutorService f34808a;
+    public ExecutorService f34831a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f34809b;
+    public ExecutorService f34832b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ScheduledExecutorService f34810c;
+    public ScheduledExecutorService f34833c;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -110,7 +110,7 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static e f34811a;
+        public static e f34834a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -126,7 +126,7 @@ public class e {
                     return;
                 }
             }
-            f34811a = new e(null);
+            f34834a = new e(null);
         }
     }
 
@@ -146,7 +146,7 @@ public class e {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static c f34812a;
+            public static c f34835a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -162,7 +162,7 @@ public class e {
                         return;
                     }
                 }
-                f34812a = new c(null);
+                f34835a = new c(null);
             }
         }
 
@@ -173,7 +173,7 @@ public class e {
         public static c a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f34812a : (c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f34835a : (c) invokeV.objValue;
         }
 
         public final JSONObject b(c.p.a.b.a.c.a aVar) {
@@ -208,11 +208,11 @@ public class e {
                 c.f v = c.g.e().v(j2);
                 if (v.x()) {
                     f.e.b().d("sendClickEvent ModelBox notValid");
-                } else if (v.f34623c.l()) {
+                } else if (v.f34646c.l()) {
                     int i3 = 1;
-                    c.p.a.a.a.d.c cVar = v.f34623c;
+                    c.p.a.a.a.d.c cVar = v.f34646c;
                     String c2 = i2 == 1 ? cVar.c() : cVar.b();
-                    String m = h.r.m(v.f34623c.d(), PrefetchEvent.STATE_CLICK);
+                    String m = h.r.m(v.f34646c.d(), PrefetchEvent.STATE_CLICK);
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.putOpt("download_click_type", Integer.valueOf(i2));
@@ -225,10 +225,10 @@ public class e {
                         e2.printStackTrace();
                     }
                     p(c2, m, jSONObject, v);
-                    if (!PrefetchEvent.STATE_CLICK.equals(m) || v.f34622b == null) {
+                    if (!PrefetchEvent.STATE_CLICK.equals(m) || v.f34645b == null) {
                         return;
                     }
-                    C1538e.a().b(j2, v.f34622b.u());
+                    C1537e.a().b(j2, v.f34645b.u());
                 }
             }
         }
@@ -245,15 +245,15 @@ public class e {
                 JSONObject jSONObject = new JSONObject();
                 h.r.q(jSONObject, "download_scene", Integer.valueOf(v.t()));
                 if (i2 == 1) {
-                    str = h.r.m(v.f34623c.i(), "storage_deny");
+                    str = h.r.m(v.f34646c.i(), "storage_deny");
                 } else if (i2 == 2) {
-                    str = h.r.m(v.f34623c.e(), "click_start");
+                    str = h.r.m(v.f34646c.e(), "click_start");
                     h.l.c(downloadInfo, jSONObject);
                 } else if (i2 == 3) {
-                    str = h.r.m(v.f34623c.f(), "click_pause");
+                    str = h.r.m(v.f34646c.f(), "click_pause");
                     h.l.f(downloadInfo, jSONObject);
                 } else if (i2 == 4) {
-                    str = h.r.m(v.f34623c.g(), "click_continue");
+                    str = h.r.m(v.f34646c.g(), "click_continue");
                     h.l.g(downloadInfo, jSONObject);
                 } else if (i2 == 5) {
                     if (downloadInfo != null) {
@@ -263,7 +263,7 @@ public class e {
                         } catch (Throwable unused) {
                         }
                     }
-                    str = h.r.m(v.f34623c.h(), "click_install");
+                    str = h.r.m(v.f34646c.h(), "click_install");
                 }
                 o(null, str, jSONObject, 0L, 1, v);
             }
@@ -293,9 +293,9 @@ public class e {
                 c.f v = c.g.e().v(j2);
                 if (v.x()) {
                     f.e.b().d("sendQuickAppEvent ModelBox notValid");
-                } else if (v.f34622b.B() == null) {
+                } else if (v.f34645b.B() == null) {
                 } else {
-                    c.p.a.a.a.d.d dVar = v.f34622b;
+                    c.p.a.a.a.d.d dVar = v.f34645b;
                     if (dVar instanceof c.p.a.b.a.a.c) {
                         ((c.p.a.b.a.a.c) dVar).b(3);
                     }
@@ -574,7 +574,7 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String[] f34813e;
+        public static final String[] f34836e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -590,7 +590,7 @@ public class e {
                     return;
                 }
             }
-            f34813e = new String[]{"_id", LegoListActivityConfig.AD_ID, IAdRequestParam.REQ_ID, "time"};
+            f34836e = new String[]{"_id", LegoListActivityConfig.AD_ID, IAdRequestParam.REQ_ID, "time"};
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -634,17 +634,17 @@ public class e {
 
     /* renamed from: c.p.a.d.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1538e {
+    public class C1537e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static volatile C1538e f34814b;
+        public static volatile C1537e f34837b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SQLiteDatabase f34815a;
+        public SQLiteDatabase f34838a;
 
-        public C1538e() {
+        public C1537e() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -658,33 +658,33 @@ public class e {
                 }
             }
             try {
-                this.f34815a = new d(l.a()).getWritableDatabase();
+                this.f34838a = new d(l.a()).getWritableDatabase();
             } catch (Throwable th) {
                 f.e.b().a(th, "ClickEventHelper");
             }
         }
 
-        public static C1538e a() {
+        public static C1537e a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (f34814b == null) {
-                    synchronized (C1538e.class) {
-                        if (f34814b == null) {
-                            f34814b = new C1538e();
+                if (f34837b == null) {
+                    synchronized (C1537e.class) {
+                        if (f34837b == null) {
+                            f34837b = new C1537e();
                         }
                     }
                 }
-                return f34814b;
+                return f34837b;
             }
-            return (C1538e) invokeV.objValue;
+            return (C1537e) invokeV.objValue;
         }
 
         public void b(long j2, String str) {
             SQLiteDatabase sQLiteDatabase;
             String optString;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJL(1048576, this, j2, str) == null) || (sQLiteDatabase = this.f34815a) == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
+            if (!(interceptable == null || interceptable.invokeJL(1048576, this, j2, str) == null) || (sQLiteDatabase = this.f34838a) == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
                 return;
             }
             try {
@@ -699,7 +699,7 @@ public class e {
             contentValues.put(LegoListActivityConfig.AD_ID, Long.valueOf(j2));
             contentValues.put(IAdRequestParam.REQ_ID, optString);
             contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
-            this.f34815a.insert("click_event", null, contentValues);
+            this.f34838a.insert("click_event", null, contentValues);
             e(j2, str);
         }
 
@@ -714,7 +714,7 @@ public class e {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, str)) == null) {
-                SQLiteDatabase sQLiteDatabase = this.f34815a;
+                SQLiteDatabase sQLiteDatabase = this.f34838a;
                 if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
                     return false;
                 }
@@ -725,7 +725,7 @@ public class e {
                         if (TextUtils.isEmpty(optString)) {
                             return false;
                         }
-                        cursor = this.f34815a.query("click_event", d.f34813e, "time > ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j2), optString}, null, null, null, null);
+                        cursor = this.f34838a.query("click_event", d.f34836e, "time > ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j2), optString}, null, null, null, null);
                         boolean z = cursor.getCount() > 0;
                         if (cursor != null) {
                             cursor.close();
@@ -751,7 +751,7 @@ public class e {
         public final void e(long j2, String str) {
             SQLiteDatabase sQLiteDatabase;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJL(1048579, this, j2, str) == null) || (sQLiteDatabase = this.f34815a) == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
+            if (!(interceptable == null || interceptable.invokeJL(1048579, this, j2, str) == null) || (sQLiteDatabase = this.f34838a) == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
                 return;
             }
             try {
@@ -759,7 +759,7 @@ public class e {
                 if (TextUtils.isEmpty(optString)) {
                     return;
                 }
-                this.f34815a.delete("click_event", "time < ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j2), optString});
+                this.f34838a.delete("click_event", "time < ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j2), optString});
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -779,7 +779,7 @@ public class e {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f34811a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f34834a : (e) invokeV.objValue;
     }
 
     public void b(Runnable runnable) {
@@ -816,16 +816,16 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f34808a == null) {
+            if (this.f34831a == null) {
                 synchronized (e.class) {
-                    if (this.f34808a == null) {
+                    if (this.f34831a == null) {
                         TimeUnit timeUnit = TimeUnit.SECONDS;
                         SynchronousQueue synchronousQueue = new SynchronousQueue();
-                        this.f34808a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new c.p.a.e.b.k.a(h.class.getName() + "-CPUThreadPool"));
+                        this.f34831a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new c.p.a.e.b.k.a(h.class.getName() + "-CPUThreadPool"));
                     }
                 }
             }
-            return this.f34808a;
+            return this.f34831a;
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -853,16 +853,16 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f34809b == null) {
+            if (this.f34832b == null) {
                 synchronized (e.class) {
-                    if (this.f34809b == null) {
+                    if (this.f34832b == null) {
                         TimeUnit timeUnit = TimeUnit.SECONDS;
                         SynchronousQueue synchronousQueue = new SynchronousQueue();
-                        this.f34809b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new c.p.a.e.b.k.a(h.class.getName() + "-IOThreadPool"));
+                        this.f34832b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new c.p.a.e.b.k.a(h.class.getName() + "-IOThreadPool"));
                     }
                 }
             }
-            return this.f34809b;
+            return this.f34832b;
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -871,14 +871,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f34810c == null) {
+            if (this.f34833c == null) {
                 synchronized (e.class) {
-                    if (this.f34810c == null) {
-                        this.f34810c = new ScheduledThreadPoolExecutor(0, new c.p.a.e.b.k.a(h.class.getName() + "-ScheduledThreadPool"));
+                    if (this.f34833c == null) {
+                        this.f34833c = new ScheduledThreadPoolExecutor(0, new c.p.a.e.b.k.a(h.class.getName() + "-ScheduledThreadPool"));
                     }
                 }
             }
-            return this.f34810c;
+            return this.f34833c;
         }
         return (ScheduledExecutorService) invokeV.objValue;
     }

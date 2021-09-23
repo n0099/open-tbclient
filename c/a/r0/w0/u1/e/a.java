@@ -33,46 +33,46 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f27866a;
+    public TbPageContext f27886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.w0.u1.b.a f27867b;
+    public c.a.r0.w0.u1.b.a f27887b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f27868c;
+    public View f27888c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrameLayout f27869d;
+    public FrameLayout f27889d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f27870e;
+    public NavigationBar f27890e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeListView f27871f;
+    public BdTypeListView f27891f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoNetworkView f27872g;
+    public NoNetworkView f27892g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PbListView f27873h;
+    public PbListView f27893h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f27874i;
+    public g f27894i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f27875j;
+    public String f27895j;
     public String k;
 
     /* renamed from: c.a.r0.w0.u1.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1312a implements View.OnClickListener {
+    public class View$OnClickListenerC1310a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27876e;
+        public final /* synthetic */ a f27896e;
 
-        public View$OnClickListenerC1312a(a aVar) {
+        public View$OnClickListenerC1310a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,14 +87,14 @@ public class a {
                     return;
                 }
             }
-            this.f27876e = aVar;
+            this.f27896e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f27876e.g();
+                this.f27896e.g();
             }
         }
     }
@@ -114,8 +114,8 @@ public class a {
                 return;
             }
         }
-        this.f27866a = tbPageContext;
-        this.f27875j = str;
+        this.f27886a = tbPageContext;
+        this.f27895j = str;
         this.k = str2;
         h();
     }
@@ -123,40 +123,40 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f27871f.completePullRefresh();
+            this.f27891f.completePullRefresh();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f27871f != null && j.z()) {
-            this.f27871f.startPullRefresh();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f27891f != null && j.z()) {
+            this.f27891f.startPullRefresh();
         }
     }
 
     public FrameLayout d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27869d : (FrameLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27889d : (FrameLayout) invokeV.objValue;
     }
 
     public NavigationBar e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27870e : (NavigationBar) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27890e : (NavigationBar) invokeV.objValue;
     }
 
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27868c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27888c : (View) invokeV.objValue;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
-            customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.f27866a.getUniqueId()));
+            customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.f27886a.getUniqueId()));
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
     }
@@ -164,25 +164,25 @@ public class a {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            View inflate = LayoutInflater.from(this.f27866a.getPageActivity()).inflate(R.layout.frs_game_recommend_layout, (ViewGroup) null);
-            this.f27868c = inflate;
-            this.f27872g = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-            this.f27869d = (FrameLayout) this.f27868c.findViewById(R.id.game_recom_container);
-            BdTypeListView bdTypeListView = (BdTypeListView) this.f27868c.findViewById(R.id.game_recom_listview);
-            this.f27871f = bdTypeListView;
+            View inflate = LayoutInflater.from(this.f27886a.getPageActivity()).inflate(R.layout.frs_game_recommend_layout, (ViewGroup) null);
+            this.f27888c = inflate;
+            this.f27892g = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+            this.f27889d = (FrameLayout) this.f27888c.findViewById(R.id.game_recom_container);
+            BdTypeListView bdTypeListView = (BdTypeListView) this.f27888c.findViewById(R.id.game_recom_listview);
+            this.f27891f = bdTypeListView;
             bdTypeListView.setDivider(null);
-            g gVar = new g(this.f27866a);
-            this.f27874i = gVar;
-            gVar.V(this.f27866a.getUniqueId());
-            this.f27871f.setPullRefresh(this.f27874i);
-            NavigationBar navigationBar = (NavigationBar) this.f27868c.findViewById(R.id.view_navigation_bar);
-            this.f27870e = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View$OnClickListenerC1312a(this));
-            this.f27870e.showBottomLine();
-            PbListView pbListView = new PbListView(this.f27866a.getPageActivity());
-            this.f27873h = pbListView;
+            g gVar = new g(this.f27886a);
+            this.f27894i = gVar;
+            gVar.V(this.f27886a.getUniqueId());
+            this.f27891f.setPullRefresh(this.f27894i);
+            NavigationBar navigationBar = (NavigationBar) this.f27888c.findViewById(R.id.view_navigation_bar);
+            this.f27890e = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View$OnClickListenerC1310a(this));
+            this.f27890e.showBottomLine();
+            PbListView pbListView = new PbListView(this.f27886a.getPageActivity());
+            this.f27893h = pbListView;
             pbListView.a();
-            this.f27867b = new c.a.r0.w0.u1.b.a(this.f27866a, this.f27871f, this.f27875j, this.k);
+            this.f27887b = new c.a.r0.w0.u1.b.a(this.f27886a, this.f27891f, this.f27895j, this.k);
             i(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -190,13 +190,13 @@ public class a {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            NoNetworkView noNetworkView = this.f27872g;
+            NoNetworkView noNetworkView = this.f27892g;
             if (noNetworkView != null) {
-                noNetworkView.onChangeSkinType(this.f27866a, i2);
+                noNetworkView.onChangeSkinType(this.f27886a, i2);
             }
-            NavigationBar navigationBar = this.f27870e;
+            NavigationBar navigationBar = this.f27890e;
             if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.f27866a, i2);
+                navigationBar.onChangeSkinType(this.f27886a, i2);
             }
         }
     }
@@ -215,54 +215,54 @@ public class a {
             } else {
                 p();
             }
-            this.f27867b.c(list);
+            this.f27887b.c(list);
         }
     }
 
     public void l(f.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, gVar) == null) {
-            this.f27874i.a(gVar);
+            this.f27894i.a(gVar);
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f27871f.setNextPage(null);
+            this.f27891f.setNextPage(null);
         }
     }
 
     public void n(BdListView.p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, pVar) == null) {
-            this.f27871f.setOnSrollToBottomListener(pVar);
+            this.f27891f.setOnSrollToBottomListener(pVar);
         }
     }
 
     public final void o() {
         PbListView pbListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (pbListView = this.f27873h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (pbListView = this.f27893h) == null) {
             return;
         }
         if (pbListView.b().getParent() == null) {
-            this.f27871f.setNextPage(this.f27873h);
+            this.f27891f.setNextPage(this.f27893h);
         }
-        this.f27873h.M();
-        this.f27873h.O();
+        this.f27893h.M();
+        this.f27893h.O();
     }
 
     public final void p() {
         PbListView pbListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (pbListView = this.f27873h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (pbListView = this.f27893h) == null) {
             return;
         }
         if (pbListView.b().getParent() == null) {
-            this.f27871f.setNextPage(this.f27873h);
+            this.f27891f.setNextPage(this.f27893h);
         }
-        this.f27873h.A(this.f27866a.getPageActivity().getResources().getString(R.string.list_no_more));
-        this.f27873h.f();
+        this.f27893h.A(this.f27886a.getPageActivity().getResources().getString(R.string.list_no_more));
+        this.f27893h.f();
     }
 }

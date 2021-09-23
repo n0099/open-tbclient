@@ -31,10 +31,10 @@ public final class BussinessUtils {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x002e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0030, code lost:
         if (r2 != null) goto L13;
      */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0095  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0094  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -42,12 +42,11 @@ public final class BussinessUtils {
         InterceptResult invokeL;
         String str;
         String str2;
-        String str3;
         PackageManager packageManager;
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String str4 = "";
+            String str3 = "";
             try {
                 packageManager = context.getPackageManager();
             } catch (Exception unused) {
@@ -56,11 +55,9 @@ public final class BussinessUtils {
             if (packageManager != null && (packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0)) != null) {
                 str = packageInfo.versionName;
                 try {
-                    str4 = packageInfo.versionCode + "";
+                    str3 = packageInfo.versionCode + "";
                 } catch (Exception unused2) {
                 }
-                str2 = str4;
-                str4 = str;
                 DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
                 StringBuilder sb = new StringBuilder();
                 sb.append(ChannelUtils.getSDKVersion());
@@ -73,18 +70,18 @@ public final class BussinessUtils {
                 sb.append('_');
                 sb.append(Build.VERSION.SDK);
                 sb.append('_');
-                str3 = Build.VERSION.RELEASE;
-                if (!TextUtils.isEmpty(str3)) {
-                    str3 = str3.replace(' ', SignatureImpl.SEP).replace('_', SignatureImpl.SEP);
+                str2 = Build.VERSION.RELEASE;
+                if (!TextUtils.isEmpty(str2)) {
+                    str2 = str2.replace(' ', SignatureImpl.SEP).replace('_', SignatureImpl.SEP);
                 }
-                sb.append(str3);
-                sb.append('_');
-                sb.append(str4);
-                sb.append('_');
                 sb.append(str2);
+                sb.append('_');
+                sb.append(str);
+                sb.append('_');
+                sb.append(str3);
                 return sb.toString();
             }
-            str2 = "";
+            str = "";
             DisplayMetrics displayMetrics2 = context.getResources().getDisplayMetrics();
             StringBuilder sb2 = new StringBuilder();
             sb2.append(ChannelUtils.getSDKVersion());
@@ -97,14 +94,14 @@ public final class BussinessUtils {
             sb2.append('_');
             sb2.append(Build.VERSION.SDK);
             sb2.append('_');
-            str3 = Build.VERSION.RELEASE;
-            if (!TextUtils.isEmpty(str3)) {
+            str2 = Build.VERSION.RELEASE;
+            if (!TextUtils.isEmpty(str2)) {
             }
-            sb2.append(str3);
-            sb2.append('_');
-            sb2.append(str4);
-            sb2.append('_');
             sb2.append(str2);
+            sb2.append('_');
+            sb2.append(str);
+            sb2.append('_');
+            sb2.append(str3);
             return sb2.toString();
         }
         return (String) invokeL.objValue;

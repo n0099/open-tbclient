@@ -119,7 +119,7 @@ public class a implements c.a.d0.g.a {
     public void g(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            String str = c.a.p0.a.q1.a.b().f8062a;
+            String str = c.a.p0.a.q1.a.b().f8070a;
             if (TextUtils.isEmpty(str)) {
                 d.a(bundle);
                 return;
@@ -136,7 +136,7 @@ public class a implements c.a.d0.g.a {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            c.a.p0.a.q1.a.b().f8062a = str;
+            c.a.p0.a.q1.a.b().f8070a = str;
         }
     }
 }

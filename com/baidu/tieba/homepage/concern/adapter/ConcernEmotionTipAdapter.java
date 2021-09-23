@@ -30,7 +30,7 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f52050a;
+        public int f52164a;
         public ViewGroup concernEmotionTipLayout;
         public ImageView emotionPic;
         public TextView tipText;
@@ -53,7 +53,7 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
                     return;
                 }
             }
-            this.f52050a = 3;
+            this.f52164a = 3;
             this.concernEmotionTipLayout = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
             this.emotionPic = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
             this.tipText = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
@@ -62,11 +62,11 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
         public void onChangeSkinType(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                if (this.f52050a != i2) {
+                if (this.f52164a != i2) {
                     SkinManager.setViewTextColor(this.tipText, R.color.CAM_X0107);
                 }
                 SkinManager.setImageResource(this.emotionPic, i3);
-                this.f52050a = i2;
+                this.f52164a = i2;
             }
         }
     }
@@ -108,18 +108,18 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, concernEmotionTipViewHolder})) == null) {
-            String str = bVar.f17901f;
+            String str = bVar.f17910f;
             if (str != null) {
                 concernEmotionTipViewHolder.tipText.setText(str);
             }
-            if (bVar.getType() == b.f17899j) {
-                if (bVar.f17900e == 2) {
+            if (bVar.getType() == b.f17908j) {
+                if (bVar.f17909e == 2) {
                     concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_person_no_data_title));
                 } else {
                     concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_no_data_title));
                 }
             }
-            int i3 = bVar.f17900e;
+            int i3 = bVar.f17909e;
             if (i3 == 2) {
                 concernEmotionTipViewHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
             } else if (i3 == 3) {

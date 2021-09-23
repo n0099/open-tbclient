@@ -27,7 +27,7 @@ public class d extends c.a.q0.f1.m.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f19972a;
+        public final /* synthetic */ d f19987a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class d extends c.a.q0.f1.m.a {
                     return;
                 }
             }
-            this.f19972a = dVar;
+            this.f19987a = dVar;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.h
@@ -64,7 +64,7 @@ public class d extends c.a.q0.f1.m.a {
                 return;
             }
             Matrix imageMatrix = tbImageView.getImageMatrix();
-            c.a.e.l.d.a m = c.a.q0.c0.c.k().m(c.a.e.e.l.d.h().g(tbImageView.getUrl(), this.f19972a.r ? 17 : 18));
+            c.a.e.l.d.a m = c.a.q0.c0.c.k().m(c.a.e.e.l.d.h().g(tbImageView.getUrl(), this.f19987a.r ? 17 : 18));
             int i3 = 0;
             if (m != null) {
                 i3 = m.r();

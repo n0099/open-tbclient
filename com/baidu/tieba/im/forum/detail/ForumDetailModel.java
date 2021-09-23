@@ -2,7 +2,7 @@ package com.baidu.tieba.im.forum.detail;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.j3.w;
+import c.a.r0.j3.x;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -32,10 +32,10 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumDetailActivity f53086e;
+    public ForumDetailActivity f53199e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f53087f;
+    public f f53200f;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -43,7 +43,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailModel f53088a;
+        public final /* synthetic */ ForumDetailModel f53201a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ForumDetailModel forumDetailModel, int i2) {
@@ -63,15 +63,15 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     return;
                 }
             }
-            this.f53088a = forumDetailModel;
+            this.f53201a = forumDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof w)) {
-                this.f53088a.f53086e.updateLikeAndMsgStatus(((w) customResponsedMessage.getData()).l() == 1);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof x)) {
+                this.f53201a.f53199e.updateLikeAndMsgStatus(((x) customResponsedMessage.getData()).l() == 1);
             }
         }
     }
@@ -82,7 +82,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailModel f53089a;
+        public final /* synthetic */ ForumDetailModel f53202a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ForumDetailModel forumDetailModel, int i2, int i3) {
@@ -103,7 +103,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     return;
                 }
             }
-            this.f53089a = forumDetailModel;
+            this.f53202a = forumDetailModel;
         }
 
         @Override // c.a.e.c.g.a
@@ -111,19 +111,19 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage == null) {
-                    if (this.f53089a.f53087f != null) {
-                        this.f53089a.f53087f.onNetError(null);
+                    if (this.f53202a.f53200f != null) {
+                        this.f53202a.f53200f.onNetError(null);
                     }
                 } else if (responsedMessage.hasError()) {
-                    if (this.f53089a.f53087f != null) {
-                        this.f53089a.f53087f.onNetError(responsedMessage.getErrorString());
+                    if (this.f53202a.f53200f != null) {
+                        this.f53202a.f53200f.onNetError(responsedMessage.getErrorString());
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
-                        this.f53089a.f53087f.onHttpResponsedMessage((ForumDetailHttpResponse) responsedMessage);
+                        this.f53202a.f53200f.onHttpResponsedMessage((ForumDetailHttpResponse) responsedMessage);
                     }
                     if (responsedMessage instanceof ForumDetailSocketResponse) {
-                        this.f53089a.f53087f.onSocketResponsedMessage((ForumDetailSocketResponse) responsedMessage);
+                        this.f53202a.f53200f.onSocketResponsedMessage((ForumDetailSocketResponse) responsedMessage);
                     }
                 }
             }
@@ -136,7 +136,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailModel f53090a;
+        public final /* synthetic */ ForumDetailModel f53203a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(ForumDetailModel forumDetailModel, int i2) {
@@ -156,7 +156,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     return;
                 }
             }
-            this.f53090a = forumDetailModel;
+            this.f53203a = forumDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -174,20 +174,20 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     }
                     if (responseUpdateMaskInfoMessage.getError() != 0) {
                         if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                            errorString = this.f53090a.f53086e.getResources().getString(R.string.neterror);
+                            errorString = this.f53203a.f53199e.getResources().getString(R.string.neterror);
                         } else {
                             errorString = responseUpdateMaskInfoMessage.getErrorString();
                         }
-                        this.f53090a.f53086e.showToast(errorString);
+                        this.f53203a.f53199e.showToast(errorString);
                         if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                            this.f53090a.f53087f.onSubscrib(false);
+                            this.f53203a.f53200f.onSubscrib(false);
                         } else {
-                            this.f53090a.f53087f.onUnSubscrib(false);
+                            this.f53203a.f53200f.onUnSubscrib(false);
                         }
                     } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                        this.f53090a.f53087f.onSubscrib(true);
+                        this.f53203a.f53200f.onSubscrib(true);
                     } else {
-                        this.f53090a.f53087f.onUnSubscrib(true);
+                        this.f53203a.f53200f.onUnSubscrib(true);
                     }
                 }
             }
@@ -200,7 +200,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailModel f53091a;
+        public final /* synthetic */ ForumDetailModel f53204a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(ForumDetailModel forumDetailModel, int i2) {
@@ -220,7 +220,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     return;
                 }
             }
-            this.f53091a = forumDetailModel;
+            this.f53204a = forumDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -228,7 +228,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001151) {
-                this.f53091a.f53086e.showToast(R.string.delete_success);
+                this.f53204a.f53199e.showToast(R.string.delete_success);
             }
         }
     }
@@ -239,7 +239,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailModel f53092a;
+        public final /* synthetic */ ForumDetailModel f53205a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(ForumDetailModel forumDetailModel, int i2) {
@@ -259,7 +259,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     return;
                 }
             }
-            this.f53092a = forumDetailModel;
+            this.f53205a = forumDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -269,11 +269,11 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002510 && ((z = httpResponsedMessage instanceof BarEmotionResponseMessage))) {
                 if (httpResponsedMessage.hasError()) {
-                    if (this.f53092a.f53087f != null) {
-                        this.f53092a.f53087f.onNetError(httpResponsedMessage.getErrorString());
+                    if (this.f53205a.f53200f != null) {
+                        this.f53205a.f53200f.onNetError(httpResponsedMessage.getErrorString());
                     }
                 } else if (z && httpResponsedMessage.getCmd() == 1002510) {
-                    this.f53092a.f53087f.onHttpEmotionResponseMessage((BarEmotionResponseMessage) httpResponsedMessage);
+                    this.f53205a.f53200f.onHttpEmotionResponseMessage((BarEmotionResponseMessage) httpResponsedMessage);
                 }
             }
         }
@@ -312,8 +312,8 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                 return;
             }
         }
-        this.f53086e = forumDetailActivity;
-        this.f53087f = forumDetailActivity;
+        this.f53199e = forumDetailActivity;
+        this.f53200f = forumDetailActivity;
         B();
         C();
         y();

@@ -26,28 +26,28 @@ public class b extends c.a.e.a.d<IMBlackListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IMBlackListActivity f21831a;
+    public IMBlackListActivity f21845a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NoNetworkView f21832b;
+    public NoNetworkView f21846b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f21833c;
+    public NavigationBar f21847c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f21834d;
+    public View f21848d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f21835e;
+    public BdListView f21849e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f21836f;
+    public a f21850f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoDataView f21837g;
+    public NoDataView f21851g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ProgressBar f21838h;
+    public ProgressBar f21852h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(IMBlackListActivity iMBlackListActivity) {
@@ -67,7 +67,7 @@ public class b extends c.a.e.a.d<IMBlackListActivity> {
                 return;
             }
         }
-        this.f21831a = iMBlackListActivity;
+        this.f21845a = iMBlackListActivity;
         e();
     }
 
@@ -75,38 +75,38 @@ public class b extends c.a.e.a.d<IMBlackListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            this.f21831a.getLayoutMode().k(skinType == 1);
-            this.f21831a.getLayoutMode().j(this.f21834d);
-            this.f21833c.onChangeSkinType(this.f21831a.getPageContext(), skinType);
-            this.f21837g.onChangeSkinType(this.f21831a.getPageContext(), skinType);
-            this.f21832b.onChangeSkinType(this.f21831a.getPageContext(), skinType);
+            this.f21845a.getLayoutMode().k(skinType == 1);
+            this.f21845a.getLayoutMode().j(this.f21848d);
+            this.f21847c.onChangeSkinType(this.f21845a.getPageContext(), skinType);
+            this.f21851g.onChangeSkinType(this.f21845a.getPageContext(), skinType);
+            this.f21846b.onChangeSkinType(this.f21845a.getPageContext(), skinType);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f21838h.setVisibility(8);
+            this.f21852h.setVisibility(8);
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f21831a.setContentView(R.layout.im_black_list);
-            View findViewById = this.f21831a.findViewById(R.id.root_view);
-            this.f21834d = findViewById;
-            this.f21832b = (NoNetworkView) findViewById.findViewById(R.id.view_no_network);
-            NavigationBar navigationBar = (NavigationBar) this.f21834d.findViewById(R.id.view_navigation_bar);
-            this.f21833c = navigationBar;
+            this.f21845a.setContentView(R.layout.im_black_list);
+            View findViewById = this.f21845a.findViewById(R.id.root_view);
+            this.f21848d = findViewById;
+            this.f21846b = (NoNetworkView) findViewById.findViewById(R.id.view_no_network);
+            NavigationBar navigationBar = (NavigationBar) this.f21848d.findViewById(R.id.view_navigation_bar);
+            this.f21847c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f21833c.setTitleText(R.string.chat_black_list_title);
-            this.f21835e = (BdListView) this.f21834d.findViewById(R.id.black_list);
-            this.f21837g = NoDataViewFactory.a(this.f21831a.getPageContext().getContext(), this.f21834d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.f48502a), NoDataViewFactory.e.a(R.string.black_list_no_data_text), null);
-            this.f21838h = (ProgressBar) this.f21834d.findViewById(R.id.progress);
-            a aVar = new a(this.f21831a);
-            this.f21836f = aVar;
-            this.f21835e.setAdapter((ListAdapter) aVar);
+            this.f21847c.setTitleText(R.string.chat_black_list_title);
+            this.f21849e = (BdListView) this.f21848d.findViewById(R.id.black_list);
+            this.f21851g = NoDataViewFactory.a(this.f21845a.getPageContext().getContext(), this.f21848d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.f48610a), NoDataViewFactory.e.a(R.string.black_list_no_data_text), null);
+            this.f21852h = (ProgressBar) this.f21848d.findViewById(R.id.progress);
+            a aVar = new a(this.f21845a);
+            this.f21850f = aVar;
+            this.f21849e.setAdapter((ListAdapter) aVar);
             c();
         }
     }
@@ -114,21 +114,21 @@ public class b extends c.a.e.a.d<IMBlackListActivity> {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f21838h.setVisibility(0);
+            this.f21852h.setVisibility(0);
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f21836f.getCount() <= 0) {
-                this.f21835e.setVisibility(8);
-                this.f21837g.setVisibility(0);
+            if (this.f21850f.getCount() <= 0) {
+                this.f21849e.setVisibility(8);
+                this.f21851g.setVisibility(0);
                 return;
             }
-            this.f21835e.setVisibility(0);
-            this.f21837g.setVisibility(8);
-            this.f21836f.notifyDataSetChanged();
+            this.f21849e.setVisibility(0);
+            this.f21851g.setVisibility(8);
+            this.f21850f.notifyDataSetChanged();
         }
     }
 
@@ -136,29 +136,29 @@ public class b extends c.a.e.a.d<IMBlackListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             if (arrayList != null && arrayList.size() > 0) {
-                this.f21835e.setVisibility(0);
-                this.f21837g.setVisibility(8);
-                this.f21836f.f(arrayList);
-                this.f21836f.notifyDataSetChanged();
+                this.f21849e.setVisibility(0);
+                this.f21851g.setVisibility(8);
+                this.f21850f.f(arrayList);
+                this.f21850f.notifyDataSetChanged();
                 return;
             }
-            this.f21835e.setVisibility(8);
-            this.f21837g.setVisibility(0);
+            this.f21849e.setVisibility(8);
+            this.f21851g.setVisibility(0);
         }
     }
 
     public void i(BlackListItemData blackListItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, blackListItemData) == null) {
-            this.f21836f.e(blackListItemData);
-            if (this.f21836f.getCount() <= 0) {
-                this.f21835e.setVisibility(8);
-                this.f21837g.setVisibility(0);
+            this.f21850f.e(blackListItemData);
+            if (this.f21850f.getCount() <= 0) {
+                this.f21849e.setVisibility(8);
+                this.f21851g.setVisibility(0);
                 return;
             }
-            this.f21835e.setVisibility(0);
-            this.f21837g.setVisibility(8);
-            this.f21836f.notifyDataSetChanged();
+            this.f21849e.setVisibility(0);
+            this.f21851g.setVisibility(8);
+            this.f21850f.notifyDataSetChanged();
         }
     }
 }

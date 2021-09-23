@@ -18,10 +18,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5182a;
+    public static final boolean f5190a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, c.a.p0.a.p.e.a> f5183b;
+    public static final Map<String, c.a.p0.a.p.e.a> f5191b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,15 +37,15 @@ public class c {
                 return;
             }
         }
-        f5182a = k.f7077a;
-        f5183b = new HashMap(2);
+        f5190a = k.f7085a;
+        f5191b = new HashMap(2);
     }
 
     public static c.a.p0.a.p.e.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            boolean z = f5182a;
+            boolean z = f5190a;
             d.k(true);
             return g.N().X().a(AppRuntime.getAppContext());
         }
@@ -68,25 +68,25 @@ public class c {
                 if (Q != null && !TextUtils.isEmpty(Q.getAppId())) {
                     str = Q.getAppId();
                     String a2 = c.a.p0.a.v.a.a(str);
-                    aVar = f5183b.get(a2);
+                    aVar = f5191b.get(a2);
                     if (aVar == null) {
                         e();
                         aVar = a();
-                        f5183b.put(a2, aVar);
-                        if (f5182a) {
+                        f5191b.put(a2, aVar);
+                        if (f5190a) {
                             String str2 = "can not find sconsole for appId - " + str;
                         }
                     }
-                    if (f5182a) {
+                    if (f5190a) {
                         String str3 = "get sconsole for appId - " + str;
                     }
                 }
                 str = "_no_id_";
                 String a22 = c.a.p0.a.v.a.a(str);
-                aVar = f5183b.get(a22);
+                aVar = f5191b.get(a22);
                 if (aVar == null) {
                 }
-                if (f5182a) {
+                if (f5190a) {
                 }
             }
             return aVar;
@@ -99,10 +99,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
-            if (Q != null && !TextUtils.isEmpty(Q.f4558f)) {
-                return b.b(c.a.p0.a.v.a.a(Q.f4558f));
+            if (Q != null && !TextUtils.isEmpty(Q.f4566f)) {
+                return b.b(c.a.p0.a.v.a.a(Q.f4566f));
             }
-            boolean z = f5182a;
+            boolean z = f5190a;
             return false;
         }
         return invokeV.booleanValue;
@@ -119,14 +119,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
             synchronized (c.class) {
-                if (f5183b.size() > 0) {
-                    for (String str : f5183b.keySet()) {
-                        c.a.p0.a.p.e.a aVar = f5183b.get(str);
+                if (f5191b.size() > 0) {
+                    for (String str : f5191b.keySet()) {
+                        c.a.p0.a.p.e.a aVar = f5191b.get(str);
                         if (aVar != null) {
                             aVar.F();
                         }
                     }
-                    f5183b.clear();
+                    f5191b.clear();
                 }
             }
         }

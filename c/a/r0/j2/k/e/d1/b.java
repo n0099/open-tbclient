@@ -25,19 +25,19 @@ public class b extends c.a.r0.j2.k.e.d1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f19988f;
+    public LinearLayout f20003f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.q0.s.q.a f19989g;
+    public c.a.q0.s.q.a f20004g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g0 f19990h;
+    public g0 f20005h;
 
     /* renamed from: i  reason: collision with root package name */
-    public o0 f19991i;
+    public o0 f20006i;
 
     /* renamed from: j  reason: collision with root package name */
-    public d2 f19992j;
+    public d2 f20007j;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.q0.s.q.a {
@@ -45,7 +45,7 @@ public class b extends c.a.r0.j2.k.e.d1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f19993e;
+        public final /* synthetic */ b f20008e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class b extends c.a.r0.j2.k.e.d1.a {
                     return;
                 }
             }
-            this.f19993e = bVar;
+            this.f20008e = bVar;
         }
 
         @Override // c.a.q0.s.q.a
@@ -79,7 +79,7 @@ public class b extends c.a.r0.j2.k.e.d1.a {
         public d2 getThreadData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19993e.f19992j : (d2) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20008e.f20007j : (d2) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
@@ -95,14 +95,14 @@ public class b extends c.a.r0.j2.k.e.d1.a {
 
     /* renamed from: c.a.r0.j2.k.e.d1.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0957b implements View.OnClickListener {
+    public class View$OnClickListenerC0955b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f19994e;
+        public final /* synthetic */ b f20009e;
 
-        public View$OnClickListenerC0957b(b bVar) {
+        public View$OnClickListenerC0955b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class b extends c.a.r0.j2.k.e.d1.a {
                     return;
                 }
             }
-            this.f19994e = bVar;
+            this.f20009e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -125,10 +125,10 @@ public class b extends c.a.r0.j2.k.e.d1.a {
             b bVar;
             a.InterfaceC0093a interfaceC0093a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (bVar = this.f19994e).f19985c) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (bVar = this.f20009e).f20000c) == null) {
                 return;
             }
-            interfaceC0093a.a(bVar.f19989g);
+            interfaceC0093a.a(bVar.f20004g);
         }
     }
 
@@ -157,29 +157,29 @@ public class b extends c.a.r0.j2.k.e.d1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f19988f == null) {
-                LinearLayout linearLayout = new LinearLayout(this.f19983a.getPageActivity());
-                this.f19988f = linearLayout;
+            if (this.f20003f == null) {
+                LinearLayout linearLayout = new LinearLayout(this.f19998a.getPageActivity());
+                this.f20003f = linearLayout;
                 SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
-                this.f19988f.setOrientation(1);
-                this.f19988f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+                this.f20003f.setOrientation(1);
+                this.f20003f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             }
-            this.f19988f.removeAllViews();
-            if (this.f19990h == null) {
-                g0 g0Var = new g0(this.f19983a);
-                this.f19990h = g0Var;
+            this.f20003f.removeAllViews();
+            if (this.f20005h == null) {
+                g0 g0Var = new g0(this.f19998a);
+                this.f20005h = g0Var;
                 g0Var.m(Boolean.TRUE);
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = this.f19983a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            layoutParams.leftMargin = this.f19983a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams.rightMargin = this.f19983a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            this.f19988f.addView(this.f19990h.f(), layoutParams);
-            if (this.f19991i == null) {
-                this.f19991i = new o0(this.f19983a.getPageActivity());
+            layoutParams.topMargin = this.f19998a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
+            layoutParams.leftMargin = this.f19998a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+            layoutParams.rightMargin = this.f19998a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+            this.f20003f.addView(this.f20005h.f(), layoutParams);
+            if (this.f20006i == null) {
+                this.f20006i = new o0(this.f19998a.getPageActivity());
             }
-            this.f19988f.addView(this.f19991i.f());
-            return this.f19988f;
+            this.f20003f.addView(this.f20006i.f());
+            return this.f20003f;
         }
         return (View) invokeV.objValue;
     }
@@ -187,16 +187,16 @@ public class b extends c.a.r0.j2.k.e.d1.a {
     @Override // c.a.r0.j2.k.e.d1.a
     public void b(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) || this.f19987e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) || this.f20002e == i2) {
             return;
         }
-        this.f19987e = i2;
-        SkinManager.setBackgroundColor(this.f19988f, R.color.CAM_X0206);
-        g0 g0Var = this.f19990h;
+        this.f20002e = i2;
+        SkinManager.setBackgroundColor(this.f20003f, R.color.CAM_X0206);
+        g0 g0Var = this.f20005h;
         if (g0Var != null) {
             g0Var.onChangeSkinType(tbPageContext, i2);
         }
-        o0 o0Var = this.f19991i;
+        o0 o0Var = this.f20006i;
         if (o0Var != null) {
             o0Var.onChangeSkinType(tbPageContext, i2);
         }
@@ -206,17 +206,17 @@ public class b extends c.a.r0.j2.k.e.d1.a {
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.f19986d = originalThreadInfo;
-            this.f19992j = originalThreadInfo == null ? null : originalThreadInfo.a();
+            this.f20001d = originalThreadInfo;
+            this.f20007j = originalThreadInfo == null ? null : originalThreadInfo.a();
             a aVar = new a(this);
-            this.f19989g = aVar;
-            o0 o0Var = this.f19991i;
+            this.f20004g = aVar;
+            o0 o0Var = this.f20006i;
             if (o0Var != null) {
                 o0Var.onBindDataToView(aVar);
             }
-            g0 g0Var = this.f19990h;
+            g0 g0Var = this.f20005h;
             if (g0Var != null) {
-                g0Var.onBindDataToView(this.f19989g);
+                g0Var.onBindDataToView(this.f20004g);
             }
         }
     }
@@ -226,17 +226,17 @@ public class b extends c.a.r0.j2.k.e.d1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0093a) == null) {
             super.d(interfaceC0093a);
-            o0 o0Var = this.f19991i;
+            o0 o0Var = this.f20006i;
             if (o0Var != null) {
                 o0Var.t(interfaceC0093a);
             }
-            g0 g0Var = this.f19990h;
+            g0 g0Var = this.f20005h;
             if (g0Var != null) {
                 g0Var.v(interfaceC0093a);
             }
-            LinearLayout linearLayout = this.f19988f;
+            LinearLayout linearLayout = this.f20003f;
             if (linearLayout != null) {
-                linearLayout.setOnClickListener(new View$OnClickListenerC0957b(this));
+                linearLayout.setOnClickListener(new View$OnClickListenerC0955b(this));
             }
         }
     }
@@ -246,9 +246,9 @@ public class b extends c.a.r0.j2.k.e.d1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, b0Var) == null) {
             super.e(b0Var);
-            o0 o0Var = this.f19991i;
+            o0 o0Var = this.f20006i;
             if (o0Var != null) {
-                o0Var.k(this.f19984b);
+                o0Var.k(this.f19999b);
             }
         }
     }

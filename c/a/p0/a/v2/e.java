@@ -30,20 +30,20 @@ public class e implements SlideInterceptor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f9331i;
+    public static final boolean f9339i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SlideHelper f9332e;
+    public SlideHelper f9340e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<SwanAppActivity> f9333f;
+    public WeakReference<SwanAppActivity> f9341f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.p0.a.g2.b f9334g;
+    public c.a.p0.a.g2.b f9342g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BroadcastReceiver f9335h;
+    public BroadcastReceiver f9343h;
 
     /* loaded from: classes.dex */
     public class a extends BroadcastReceiver {
@@ -77,9 +77,9 @@ public class e implements SlideInterceptor {
                 if (TextUtils.isEmpty(stringExtra)) {
                     return;
                 }
-                if (("homekey".equals(stringExtra) || stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS)) && this.this$0.f9332e != null) {
-                    this.this$0.f9332e.closePane();
-                    this.this$0.f9332e.setCanSlide(false);
+                if (("homekey".equals(stringExtra) || stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS)) && this.this$0.f9340e != null) {
+                    this.this$0.f9340e.closePane();
+                    this.this$0.f9340e.setCanSlide(false);
                 }
             }
         }
@@ -91,10 +91,10 @@ public class e implements SlideInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f9336a;
+        public final /* synthetic */ SwanAppActivity f9344a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f9337b;
+        public final /* synthetic */ e f9345b;
 
         public b(e eVar, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -111,8 +111,8 @@ public class e implements SlideInterceptor {
                     return;
                 }
             }
-            this.f9337b = eVar;
-            this.f9336a = swanAppActivity;
+            this.f9345b = eVar;
+            this.f9344a = swanAppActivity;
         }
 
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
@@ -126,9 +126,9 @@ public class e implements SlideInterceptor {
         public void onPanelOpened(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                this.f9336a.onBackPressed(3);
-                this.f9337b.h();
-                this.f9336a.overridePendingTransition(0, 0);
+                this.f9344a.onBackPressed(3);
+                this.f9345b.h();
+                this.f9344a.overridePendingTransition(0, 0);
                 c.a.p0.a.m1.g.f().i();
             }
         }
@@ -137,12 +137,12 @@ public class e implements SlideInterceptor {
         public void onPanelSlide(View view, float f2) {
             View maskView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) || (maskView = this.f9337b.f9332e.getMaskView()) == null) {
+            if (!(interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) || (maskView = this.f9345b.f9340e.getMaskView()) == null) {
                 return;
             }
             maskView.setAlpha(1.0f - f2);
-            if (this.f9336a.hasActivedFrame()) {
-                this.f9336a.getFrame().i0();
+            if (this.f9344a.hasActivedFrame()) {
+                this.f9344a.getFrame().i0();
             }
             if (f2 == 0.0f) {
                 maskView.setBackgroundColor(Color.parseColor(SlideHelper.DEFAULT_MASK_COLOR));
@@ -166,7 +166,7 @@ public class e implements SlideInterceptor {
                 return;
             }
         }
-        f9331i = c.a.p0.a.k.f7077a;
+        f9339i = c.a.p0.a.k.f7085a;
     }
 
     public e(SwanAppActivity swanAppActivity) {
@@ -184,16 +184,16 @@ public class e implements SlideInterceptor {
                 return;
             }
         }
-        this.f9335h = new a(this);
-        this.f9333f = new WeakReference<>(swanAppActivity);
-        this.f9332e = new SlideHelper();
+        this.f9343h = new a(this);
+        this.f9341f = new WeakReference<>(swanAppActivity);
+        this.f9340e = new SlideHelper();
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            SwanAppActivity swanAppActivity = this.f9333f.get();
+            SwanAppActivity swanAppActivity = this.f9341f.get();
             return (swanAppActivity == null || swanAppActivity.getResources().getConfiguration().orientation == 2 || Build.VERSION.SDK_INT == 26) ? false : true;
         }
         return invokeV.booleanValue;
@@ -202,25 +202,25 @@ public class e implements SlideInterceptor {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f9332e.closePane();
+            this.f9340e.closePane();
         }
     }
 
     public void f() {
         SwanAppActivity swanAppActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (swanAppActivity = this.f9333f.get()) == null || swanAppActivity.isDestroyed()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (swanAppActivity = this.f9341f.get()) == null || swanAppActivity.isDestroyed()) {
             return;
         }
-        this.f9332e.attachSlideView(swanAppActivity, swanAppActivity.findViewById(16908290), new SlidingPaneLayout.LayoutParams(-1, -1));
-        this.f9332e.attachActivity(swanAppActivity);
-        this.f9332e.setEnableReleaseWhenNoTranslucent(false);
-        this.f9332e.setFadeColor(0);
-        this.f9332e.setSlideInterceptor(this);
-        this.f9332e.setSlideListener(new b(this, swanAppActivity));
+        this.f9340e.attachSlideView(swanAppActivity, swanAppActivity.findViewById(16908290), new SlidingPaneLayout.LayoutParams(-1, -1));
+        this.f9340e.attachActivity(swanAppActivity);
+        this.f9340e.setEnableReleaseWhenNoTranslucent(false);
+        this.f9340e.setFadeColor(0);
+        this.f9340e.setSlideInterceptor(this);
+        this.f9340e.setSlideListener(new b(this, swanAppActivity));
         c.a.p0.a.p.e.b g2 = g();
         if (g2 != null) {
-            this.f9332e.setRegionFactor(g2.B());
+            this.f9340e.setRegionFactor(g2.B());
         }
     }
 
@@ -230,7 +230,7 @@ public class e implements SlideInterceptor {
         c.a.p0.a.h0.g.d m;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            SwanAppActivity swanAppActivity = this.f9333f.get();
+            SwanAppActivity swanAppActivity = this.f9341f.get();
             if (swanAppActivity == null || (swanAppFragmentManager = swanAppActivity.getSwanAppFragmentManager()) == null || (m = swanAppFragmentManager.m()) == null || !(m instanceof c.a.p0.a.h0.g.f)) {
                 return null;
             }
@@ -242,7 +242,7 @@ public class e implements SlideInterceptor {
     public final void h() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && c.a.p0.a.c1.a.H().a()) {
-            this.f9334g.c(8);
+            this.f9342g.c(8);
         }
     }
 
@@ -254,7 +254,7 @@ public class e implements SlideInterceptor {
         c.a.p0.a.p.e.b g2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            SwanAppActivity swanAppActivity = this.f9333f.get();
+            SwanAppActivity swanAppActivity = this.f9341f.get();
             if (swanAppActivity == null || !swanAppActivity.hasActivedFrame() || (swanAppFragmentManager = swanAppActivity.getSwanAppFragmentManager()) == null || (g2 = g()) == null) {
                 return false;
             }
@@ -268,7 +268,7 @@ public class e implements SlideInterceptor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            SwanAppActivity swanAppActivity = this.f9333f.get();
+            SwanAppActivity swanAppActivity = this.f9341f.get();
             if (swanAppActivity != null && !swanAppActivity.isDestroyed() && swanAppActivity.hasActivedFrame()) {
                 c.a.p0.a.h0.g.f o = swanAppActivity.getSwanAppFragmentManager().o();
                 if (o != null) {
@@ -278,17 +278,17 @@ public class e implements SlideInterceptor {
                     }
                     if (B1.l || B1.m) {
                         c.a.p0.a.e2.c.f fVar = c.a.p0.a.n1.q.c.a.g(true).get("scope_disable_swipe_back");
-                        if (fVar == null || fVar.f5541d) {
+                        if (fVar == null || fVar.f5549d) {
                             return false;
                         }
-                        SlideHelper slideHelper = this.f9332e;
+                        SlideHelper slideHelper = this.f9340e;
                         if (slideHelper != null) {
                             slideHelper.setRegionFactor(0.1d);
                         }
                     }
                     return true;
                 }
-                boolean z = f9331i;
+                boolean z = f9339i;
             }
             return false;
         }
@@ -298,16 +298,16 @@ public class e implements SlideInterceptor {
     public void m() {
         SwanAppActivity swanAppActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (swanAppActivity = this.f9333f.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (swanAppActivity = this.f9341f.get()) == null) {
             return;
         }
         c.a.p0.a.g2.b skinDecorator = swanAppActivity.getSkinDecorator();
-        this.f9334g = skinDecorator;
+        this.f9342g = skinDecorator;
         if (skinDecorator == null) {
             return;
         }
         if (c.a.p0.a.f1.c.a.c(false).booleanValue()) {
-            this.f9334g.c(0);
+            this.f9342g.c(0);
         }
         f();
     }
@@ -315,57 +315,57 @@ public class e implements SlideInterceptor {
     public void o() {
         SwanAppActivity swanAppActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (swanAppActivity = this.f9333f.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (swanAppActivity = this.f9341f.get()) == null) {
             return;
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.CLOSE_SYSTEM_DIALOGS");
-        swanAppActivity.registerReceiver(this.f9335h, intentFilter);
+        swanAppActivity.registerReceiver(this.f9343h, intentFilter);
     }
 
     public void p() {
         WeakReference<SwanAppActivity> weakReference;
         SwanAppActivity swanAppActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (weakReference = this.f9333f) == null || (swanAppActivity = weakReference.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (weakReference = this.f9341f) == null || (swanAppActivity = weakReference.get()) == null) {
             return;
         }
-        swanAppActivity.unregisterReceiver(this.f9335h);
+        swanAppActivity.unregisterReceiver(this.f9343h);
     }
 
     public void q() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f9333f.get() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f9341f.get() == null) {
             return;
         }
-        this.f9332e.setCanSlide(c());
+        this.f9340e.setCanSlide(c());
     }
 
     public void r() {
         SwanAppActivity swanAppActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (swanAppActivity = this.f9333f.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (swanAppActivity = this.f9341f.get()) == null) {
             return;
         }
         b.a launchInfo = swanAppActivity.getLaunchInfo();
         if ((launchInfo != null && "1230000000000000".equals(launchInfo.T())) || swanAppActivity.getFrameType() == 1) {
-            this.f9332e.setCanSlide(false);
+            this.f9340e.setCanSlide(false);
         } else {
-            this.f9332e.setCanSlide(c());
+            this.f9340e.setCanSlide(c());
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && c.a.p0.a.f1.c.a.c(true).booleanValue()) {
-            this.f9334g.c(0);
+            this.f9342g.c(0);
         }
     }
 
     public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f9332e.setCanSlide(z);
+            this.f9340e.setCanSlide(z);
         }
     }
 }

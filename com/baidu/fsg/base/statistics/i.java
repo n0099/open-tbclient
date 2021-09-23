@@ -1,278 +1,286 @@
 package com.baidu.fsg.base.statistics;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
-import com.baidu.fsg.base.statistics.k;
 import com.baidu.fsg.base.utils.LogUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class i {
+public class i extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39529a = "LogSender";
+    public static final String f39566a = "logsender";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39530b = 10000;
+    public static final String f39567b = "rim_stat_event";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f39531c = 10001;
+    public static final String f39568c = "rim_stat_event.db";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final int f39569d = 1;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f39570e = "CREATE TABLE IF NOT EXISTS rim_stat_event(en VARCHAR(64) not null ,extra1 VARCHAR(64)  ,extra2 VARCHAR(64)  ,extra3 VARCHAR(64),extra4 VARCHAR(64)  ,extra5 VARCHAR(64) ,et BIGINT,ev TEXT,extra6 TEXT,extra7 TEXT,extra8 TEXT,extra9 TEXT,eg VARCHAR(20) default(null),lk VARCHAR(10) default(null),nu INTEGER PRIMARY KEY autoincrement)";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static i f39571f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
+    /* renamed from: g  reason: collision with root package name */
+    public SQLiteDatabase f39572g;
 
-        /* renamed from: a  reason: collision with root package name */
-        public static i f39537a;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: h  reason: collision with root package name */
+    public final byte[] f39573h;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2004308742, "Lcom/baidu/fsg/base/statistics/i$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(2004308742, "Lcom/baidu/fsg/base/statistics/i$a;");
-                    return;
-                }
-            }
-            f39537a = new i();
-        }
+    /* renamed from: i  reason: collision with root package name */
+    public int f39574i;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    public i() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
+        super(context, str, cursorFactory, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, cursorFactory, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static i a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f39537a : (i) invokeV.objValue;
-    }
-
-    private JSONArray a(f[] fVarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, fVarArr)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (f fVar : fVarArr) {
-                LogUtil.d(f39529a, fVar.a().toString());
-                jSONArray.put(fVar.a());
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    private void a(String str, k.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, aVar) == null) || str == null || str.trim().length() == 0) {
-            return;
-        }
-        String str2 = str.toString();
-        try {
-            k kVar = new k();
-            String encodeToString = Base64.encodeToString(str2.getBytes(), 2);
-            HashMap hashMap = new HashMap();
-            hashMap.put("publish_data", encodeToString);
-            String signKey = RimStatisticsUtil.getInstance().getSignKey();
-            hashMap.put("sign", com.baidu.fsg.base.statistics.a.a((encodeToString + signKey).getBytes("GBK"), false));
-            hashMap.put("mk", "rim");
-            kVar.a(b.l, hashMap, aVar);
-        } catch (Exception unused) {
-            aVar.b();
-        }
-    }
-
-    public String a(JSONArray jSONArray, String str) {
-        JSONObject jSONObject;
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONArray, str)) == null) {
-            try {
-                jSONObject = new JSONObject(h.c().a());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                jSONObject = null;
-            }
-            try {
-                jSONObject.put(str, jSONArray);
-            } catch (JSONException e3) {
-                e3.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-        }
-    }
-
-    public void b(String str) {
-        Context appContext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("=====sendLogData=====");
-            sb.append(str);
-            LogUtil.d(f39529a, sb.toString() == "normal_log" ? "normal" : "crash");
-            if ((str.equals(b.o) && e.a().c()) || (appContext = RimStatisticsUtil.getAppContext()) == null || !com.baidu.fsg.base.statistics.a.a(appContext)) {
                 return;
             }
-            JSONArray jSONArray = null;
-            f[] b2 = g.a(RimStatisticsUtil.getAppContext()).b();
-            if ("normal_log".equalsIgnoreCase(str)) {
-                jSONArray = a(b2);
-            } else if (b.o.equalsIgnoreCase(str)) {
-                j jVar = new j(RimStatisticsUtil.getAppContext(), a(e.a().d(), "exception"));
-                jVar.setResponseCallback(new IBeanResponseCallback(this, str) { // from class: com.baidu.fsg.base.statistics.i.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+        }
+        this.f39573h = new byte[0];
+        this.f39574i = 200;
+        this.f39572g = getWritableDatabase();
+    }
 
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f39532a;
+    public static synchronized i a(Context context) {
+        InterceptResult invokeL;
+        i iVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (i.class) {
+                if (f39571f == null) {
+                    f39571f = new i(context, f39568c, null, 1);
+                }
+                iVar = f39571f;
+            }
+            return iVar;
+        }
+        return (i) invokeL.objValue;
+    }
 
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ i f39533b;
+    public void a(h hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hVar) == null) {
+            synchronized (this.f39573h) {
+                if (hVar != null) {
+                    if (!TextUtils.isEmpty(hVar.p)) {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put(h.f39556a, hVar.p);
+                        contentValues.put("et", Long.valueOf(hVar.q));
+                        contentValues.put("ev", hVar.r);
+                        contentValues.put(h.f39559d, hVar.s);
+                        contentValues.put(h.f39560e, hVar.t);
+                        try {
+                            this.f39572g.insert(f39567b, null, contentValues);
+                        } catch (Exception unused) {
+                        }
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("插入一条数据");
+                        sb.append(hVar.p);
+                        LogUtil.d("logsender", sb.toString());
+                    }
+                }
+            }
+        }
+    }
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
+    public void a(h[] hVarArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVarArr) == null) {
+            synchronized (this.f39573h) {
+                if (hVarArr != null) {
+                    if (hVarArr.length != 0) {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("=====removeEvents-begin=====size=");
+                        sb.append(hVarArr.length);
+                        LogUtil.d("logsender", sb.toString());
+                        for (h hVar : hVarArr) {
+                            if (hVar != null) {
+                                SQLiteDatabase sQLiteDatabase = this.f39572g;
+                                StringBuilder sb2 = new StringBuilder();
+                                sb2.append("nu=");
+                                sb2.append(hVar.u);
+                                sQLiteDatabase.delete(f39567b, sb2.toString(), null);
                             }
                         }
-                        this.f39533b = this;
-                        this.f39532a = str;
+                        LogUtil.d("logsender", "=====removeEvents-end=====");
+                        return;
                     }
-
-                    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
-                    public void onBeanExecFailure(int i2, int i3, String str2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, str2) == null) {
-                        }
-                    }
-
-                    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
-                    public void onBeanExecSuccess(int i2, Object obj, String str2, String str3) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), obj, str2, str3}) == null) {
-                            e.a().a(this.f39532a);
-                        }
-                    }
-                });
-                jVar.execBean();
-                return;
+                }
+                LogUtil.d("logsender", "=====removeEvents=====size=0");
             }
-            if (jSONArray == null || jSONArray.length() == 0) {
-                return;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x007d, code lost:
+        if (r3 != null) goto L41;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x009d A[Catch: all -> 0x0098, TryCatch #3 {all -> 0x0098, blocks: (B:13:0x0017, B:14:0x001a, B:50:0x009d, B:51:0x009f, B:45:0x0094, B:40:0x008a, B:41:0x008d), top: B:59:0x0009 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public h[] a() {
+        InterceptResult invokeV;
+        h[] hVarArr;
+        h[] hVarArr2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) != null) {
+            return (h[]) invokeV.objValue;
+        }
+        synchronized (this.f39573h) {
+            Cursor cursor = null;
+            try {
+                try {
+                    Cursor cursor2 = this.f39572g.rawQuery("select * from rim_stat_event", null);
+                    try {
+                        if (cursor2 == null) {
+                            h[] hVarArr3 = new h[0];
+                            if (cursor2 != null) {
+                                cursor2.close();
+                            }
+                            return hVarArr3;
+                        }
+                        hVarArr2 = new h[cursor2.getCount()];
+                        int i2 = 0;
+                        while (cursor2.moveToNext()) {
+                            h hVar = new h();
+                            hVar.p = cursor2.getString(cursor2.getColumnIndex(h.f39556a));
+                            hVar.q = cursor2.getLong(cursor2.getColumnIndex("et"));
+                            hVar.r = cursor2.getString(cursor2.getColumnIndex("ev"));
+                            hVar.s = cursor2.getString(cursor2.getColumnIndex(h.f39559d));
+                            hVar.t = cursor2.getString(cursor2.getColumnIndex(h.f39560e));
+                            hVar.u = cursor2.getInt(cursor2.getColumnIndex(h.f39561f));
+                            int i3 = i2 + 1;
+                            hVarArr2[i2] = hVar;
+                            i2 = i3;
+                        }
+                    } catch (Exception unused) {
+                        hVarArr = null;
+                        cursor = cursor2;
+                        if (cursor == null) {
+                            hVarArr2 = hVarArr;
+                            if (hVarArr2 == null) {
+                            }
+                            return hVarArr2;
+                        }
+                        h[] hVarArr4 = hVarArr;
+                        cursor2 = cursor;
+                        hVarArr2 = hVarArr4;
+                        cursor2.close();
+                        if (hVarArr2 == null) {
+                            hVarArr2 = new h[0];
+                        }
+                        return hVarArr2;
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor = cursor2;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    throw th2;
+                }
+            } catch (Exception unused2) {
+                hVarArr = null;
+            } catch (Throwable th3) {
+                th = th3;
             }
-            a(a(jSONArray, "array"), new k.a(this, str, b2) { // from class: com.baidu.fsg.base.statistics.i.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+        }
+    }
 
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f39534a;
+    public void finalize() throws Throwable {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            SQLiteDatabase sQLiteDatabase = this.f39572g;
+            if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
+                this.f39572g.close();
+            }
+            this.f39572g = null;
+            super.finalize();
+        }
+    }
 
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f[] f39535b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ i f39536c;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, b2};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f39536c = this;
-                    this.f39534a = str;
-                    this.f39535b = b2;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0031, code lost:
+        if (r1 == null) goto L24;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this.f39573h) {
+                Cursor rawQuery = this.f39572g.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
+                if (rawQuery == null) {
+                    return 0;
                 }
-
-                @Override // com.baidu.fsg.base.statistics.k.a
-                public void a() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        LogUtil.d(i.f39529a, "====send-success==");
-                        if (b.o.equals(this.f39534a)) {
-                            e.a().a(this.f39534a);
-                        } else {
-                            g.a(RimStatisticsUtil.getAppContext()).a(this.f39535b);
-                        }
+                try {
+                } catch (Exception unused) {
+                } catch (Throwable th) {
+                    if (rawQuery != null) {
+                        rawQuery.close();
                     }
+                    throw th;
                 }
-
-                @Override // com.baidu.fsg.base.statistics.k.a
-                public void b() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        LogUtil.d(i.f39529a, "====send-fail=====");
+                if (!rawQuery.moveToFirst()) {
+                    if (rawQuery != null) {
+                        rawQuery.close();
                     }
+                    return 0;
                 }
-            });
+                int i2 = rawQuery.getInt(0);
+                if (rawQuery != null) {
+                    rawQuery.close();
+                }
+                return i2;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(f39570e);
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i2, i3) == null) {
         }
     }
 }

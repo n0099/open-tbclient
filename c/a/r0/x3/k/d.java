@@ -12,13 +12,13 @@ public abstract class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29080a;
+    public String f29100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29081b;
+    public int f29101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29082c;
+    public int f29102c;
 
     public d(String str) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public abstract class d {
                 return;
             }
         }
-        this.f29080a = str;
+        this.f29100a = str;
     }
 
     public static d a(String str) {
@@ -49,14 +49,14 @@ public abstract class d {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f29082c = i2;
+            this.f29102c = i2;
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f29081b = i2;
+            this.f29101b = i2;
         }
     }
 }

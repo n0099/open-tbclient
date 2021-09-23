@@ -23,25 +23,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PopupDialog f21935a;
+    public PopupDialog f21949a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f21936b;
+    public i f21950b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<f> f21937c;
+    public List<f> f21951c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f21938d;
+    public f f21952d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.l1.b.f.a f21939e;
+    public c.a.r0.l1.b.f.a f21953e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f21940f;
+    public c f21954f;
 
     /* renamed from: g  reason: collision with root package name */
-    public i.d f21941g;
+    public i.d f21955g;
 
     /* loaded from: classes3.dex */
     public class a implements i.c {
@@ -49,7 +49,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f21942a;
+        public final /* synthetic */ b f21956a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -66,28 +66,28 @@ public class b {
                     return;
                 }
             }
-            this.f21942a = bVar;
+            this.f21956a = bVar;
         }
 
         @Override // c.a.q0.s.s.i.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21942a.d();
+                this.f21956a.d();
             }
         }
     }
 
     /* renamed from: c.a.r0.l1.b.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1031b implements i.d {
+    public class C1029b implements i.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f21943a;
+        public final /* synthetic */ b f21957a;
 
-        public C1031b(b bVar) {
+        public C1029b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,18 +102,18 @@ public class b {
                     return;
                 }
             }
-            this.f21943a = bVar;
+            this.f21957a = bVar;
         }
 
         @Override // c.a.q0.s.s.i.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21943a.c();
-                if (this.f21943a.f21940f != null) {
-                    this.f21943a.f21940f.a();
+                this.f21957a.c();
+                if (this.f21957a.f21954f != null) {
+                    this.f21957a.f21954f.a();
                 }
-                this.f21943a.d();
+                this.f21957a.d();
             }
         }
     }
@@ -138,46 +138,46 @@ public class b {
                 return;
             }
         }
-        this.f21941g = new C1031b(this);
-        this.f21936b = new i(fVar.getPageActivity());
-        f fVar2 = new f(fVar.getString(R.string.delete), this.f21936b);
-        this.f21938d = fVar2;
-        fVar2.l(this.f21941g);
+        this.f21955g = new C1029b(this);
+        this.f21950b = new i(fVar.getPageActivity());
+        f fVar2 = new f(fVar.getString(R.string.delete), this.f21950b);
+        this.f21952d = fVar2;
+        fVar2.l(this.f21955g);
         ArrayList arrayList = new ArrayList();
-        this.f21937c = arrayList;
-        arrayList.add(this.f21938d);
-        this.f21936b.m(new a(this));
-        this.f21936b.k(this.f21937c);
-        this.f21935a = new PopupDialog(fVar, this.f21936b);
+        this.f21951c = arrayList;
+        arrayList.add(this.f21952d);
+        this.f21950b.m(new a(this));
+        this.f21950b.k(this.f21951c);
+        this.f21949a = new PopupDialog(fVar, this.f21950b);
         e();
         f();
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f21939e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f21953e == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
-        httpMessage.addParam("type", this.f21939e.f21931a);
-        httpMessage.addParam("thread_id", this.f21939e.f21932b);
-        httpMessage.addParam("post_id", this.f21939e.f21933c);
-        httpMessage.addParam("ori_ugc_nid", this.f21939e.f21934d);
+        httpMessage.addParam("type", this.f21953e.f21945a);
+        httpMessage.addParam("thread_id", this.f21953e.f21946b);
+        httpMessage.addParam("post_id", this.f21953e.f21947c);
+        httpMessage.addParam("ori_ugc_nid", this.f21953e.f21948d);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void d() {
         PopupDialog popupDialog;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (popupDialog = this.f21935a) != null && popupDialog.isShowing()) {
-            this.f21935a.dismiss();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (popupDialog = this.f21949a) != null && popupDialog.isShowing()) {
+            this.f21949a.dismiss();
         }
     }
 
     public void e() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (iVar = this.f21936b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (iVar = this.f21950b) == null) {
             return;
         }
         iVar.j();
@@ -197,21 +197,21 @@ public class b {
     public void g(c.a.r0.l1.b.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f21939e = aVar;
+            this.f21953e = aVar;
         }
     }
 
     public void h(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f21940f = cVar;
+            this.f21954f = cVar;
         }
     }
 
     public void i() {
         PopupDialog popupDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (popupDialog = this.f21935a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (popupDialog = this.f21949a) == null) {
             return;
         }
         popupDialog.show();

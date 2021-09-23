@@ -25,20 +25,20 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f15698e;
+    public Context f15708e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<GiftCommonList.GiftItem> f15699f;
+    public List<GiftCommonList.GiftItem> f15709f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15700g;
+    public int f15710g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout.LayoutParams f15701h;
+    public RelativeLayout.LayoutParams f15711h;
 
     /* renamed from: c.a.r0.a1.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C0750a {
+    public static /* synthetic */ class C0748a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -49,16 +49,16 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f15702a;
+        public TbImageView f15712a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f15703b;
+        public View f15713b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f15704c;
+        public TextView f15714c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f15705d;
+        public TextView f15715d;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(a aVar, C0750a c0750a) {
+        public /* synthetic */ b(a aVar, C0748a c0748a) {
             this(aVar);
         }
     }
@@ -96,9 +96,9 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f15700g = -1;
-        this.f15698e = context;
-        this.f15701h = new RelativeLayout.LayoutParams(-1, (context.getResources().getDimensionPixelSize(R.dimen.ds450) - 8) / 2);
+        this.f15710g = -1;
+        this.f15708e = context;
+        this.f15711h = new RelativeLayout.LayoutParams(-1, (context.getResources().getDimensionPixelSize(R.dimen.ds450) - 8) / 2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -111,7 +111,7 @@ public class a extends BaseAdapter {
             if (i2 < 0 || i2 >= getCount()) {
                 return null;
             }
-            return this.f15699f.get(i2);
+            return this.f15709f.get(i2);
         }
         return (GiftCommonList.GiftItem) invokeI.objValue;
     }
@@ -119,13 +119,13 @@ public class a extends BaseAdapter {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15700g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15710g : invokeV.intValue;
     }
 
     public void c(List<GiftCommonList.GiftItem> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f15699f = list;
+            this.f15709f = list;
             notifyDataSetChanged();
         }
     }
@@ -133,7 +133,7 @@ public class a extends BaseAdapter {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f15700g = i2;
+            this.f15710g = i2;
         }
     }
 
@@ -142,7 +142,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<GiftCommonList.GiftItem> list = this.f15699f;
+            List<GiftCommonList.GiftItem> list = this.f15709f;
             if (list == null) {
                 return 0;
             }
@@ -167,28 +167,28 @@ public class a extends BaseAdapter {
             if (view != null && view.getTag() != null) {
                 bVar = (b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f15698e).inflate(R.layout.gift_list_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f15708e).inflate(R.layout.gift_list_item, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.f15702a = (TbImageView) view.findViewById(R.id.image);
-                bVar.f15703b = view.findViewById(R.id.mask);
-                bVar.f15704c = (TextView) view.findViewById(R.id.name);
-                bVar.f15705d = (TextView) view.findViewById(R.id.price);
+                bVar.f15712a = (TbImageView) view.findViewById(R.id.image);
+                bVar.f15713b = view.findViewById(R.id.mask);
+                bVar.f15714c = (TextView) view.findViewById(R.id.name);
+                bVar.f15715d = (TextView) view.findViewById(R.id.price);
                 view.setTag(bVar);
             }
-            bVar.f15703b.setLayoutParams(this.f15701h);
+            bVar.f15713b.setLayoutParams(this.f15711h);
             SkinManager.setBackgroundResource(view, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(bVar.f15704c, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(bVar.f15705d, R.color.CAM_X0301, 1);
-            if (i2 == this.f15700g) {
-                SkinManager.setBackgroundResource(bVar.f15703b, R.drawable.chx_box_gift_s);
+            SkinManager.setViewTextColor(bVar.f15714c, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(bVar.f15715d, R.color.CAM_X0301, 1);
+            if (i2 == this.f15710g) {
+                SkinManager.setBackgroundResource(bVar.f15713b, R.drawable.chx_box_gift_s);
             } else {
-                bVar.f15703b.setBackgroundResource(R.color.common_color_10022);
+                bVar.f15713b.setBackgroundResource(R.color.common_color_10022);
             }
             GiftCommonList.GiftItem item = getItem(i2);
             if (item != null) {
-                bVar.f15704c.setText(item.getName());
-                bVar.f15705d.setText(String.format(this.f15698e.getString(R.string.tdou_price_format), Integer.valueOf(item.getPrice())));
-                bVar.f15702a.startLoad(item.getThumbnailUrl(), 10, false);
+                bVar.f15714c.setText(item.getName());
+                bVar.f15715d.setText(String.format(this.f15708e.getString(R.string.tdou_price_format), Integer.valueOf(item.getPrice())));
+                bVar.f15712a.startLoad(item.getThumbnailUrl(), 10, false);
             }
             return view;
         }

@@ -34,7 +34,7 @@ public final class a extends com.vivo.push.v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, yVar) == null) {
             com.vivo.push.b.c cVar = (com.vivo.push.b.c) yVar;
-            com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f76727a);
+            com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f77046a);
             if (a2 == null) {
                 com.vivo.push.p.a().a(cVar.h(), 1005, new Object[0]);
                 return;
@@ -50,7 +50,7 @@ public final class a extends com.vivo.push.v {
                     return;
                 }
             }
-            com.vivo.push.a.a.a(this.f76727a, a3, yVar);
+            com.vivo.push.a.a.a(this.f77046a, a3, yVar);
         }
     }
 }

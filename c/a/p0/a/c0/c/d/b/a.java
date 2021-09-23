@@ -21,7 +21,7 @@ public class a {
                 d.b("Component-Canvas-Utils", "get canvas view fail: find a null component");
                 return null;
             }
-            return aVar2.f4669i;
+            return aVar2.f4677i;
         }
         return (CanvasView) invokeL.objValue;
     }

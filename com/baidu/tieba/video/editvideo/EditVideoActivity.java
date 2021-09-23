@@ -87,7 +87,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditVideoActivity f57570a;
+        public final /* synthetic */ EditVideoActivity f57687a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EditVideoActivity editVideoActivity, int i2) {
@@ -107,7 +107,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
                     return;
                 }
             }
-            this.f57570a = editVideoActivity;
+            this.f57687a = editVideoActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,8 +117,8 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ResponseGetVideoActivityMessage)) {
                 ResponseGetVideoActivityMessage responseGetVideoActivityMessage = (ResponseGetVideoActivityMessage) httpResponsedMessage;
                 if (httpResponsedMessage.getError() == 0) {
-                    this.f57570a.mVideoTitleData = responseGetVideoActivityMessage.getVideoTitleData();
-                    this.f57570a.mAllVideoTitleDatas = responseGetVideoActivityMessage.getAllVideoTitleList();
+                    this.f57687a.mVideoTitleData = responseGetVideoActivityMessage.getVideoTitleData();
+                    this.f57687a.mAllVideoTitleDatas = responseGetVideoActivityMessage.getAllVideoTitleList();
                 }
             }
         }
@@ -130,7 +130,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ EditVideoActivity f57571i;
+        public final /* synthetic */ EditVideoActivity f57688i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(EditVideoActivity editVideoActivity, BaseActivity baseActivity, String str, String str2) {
@@ -151,7 +151,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
                     return;
                 }
             }
-            this.f57571i = editVideoActivity;
+            this.f57688i = editVideoActivity;
         }
 
         @Override // c.a.r0.x3.b
@@ -159,7 +159,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.c();
-                this.f57571i.hideProgress();
+                this.f57688i.hideProgress();
             }
         }
 
@@ -168,7 +168,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 super.d(i2, str);
-                this.f57571i.hideProgress();
+                this.f57688i.hideProgress();
             }
         }
 
@@ -184,16 +184,16 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, videoInfo) == null) {
                 super.f(videoInfo);
-                if (this.f57571i.isSend) {
+                if (this.f57688i.isSend) {
                     return;
                 }
                 File file = new File(videoInfo.getVideoPath());
-                String str = c.a.r0.x3.c.f28886g + file.getName();
+                String str = c.a.r0.x3.c.f28906g + file.getName();
                 if (!str.equals(file.getAbsolutePath())) {
                     FileHelper.copyFile(file.getAbsolutePath(), str);
                 }
-                this.f57571i.syncMediaData(str);
-                this.f57571i.finishPage();
+                this.f57688i.syncMediaData(str);
+                this.f57688i.finishPage();
             }
         }
 
@@ -202,7 +202,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
                 super.g(i2, str);
-                this.f57571i.hideProgress();
+                this.f57688i.hideProgress();
             }
         }
 
@@ -210,9 +210,9 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f57571i.mEditVideoView.O();
-                this.f57571i.mEditVideoView.P();
-                this.f57571i.mEditVideoView.v().releaseSource();
+                this.f57688i.mEditVideoView.O();
+                this.f57688i.mEditVideoView.P();
+                this.f57688i.mEditVideoView.v().releaseSource();
             }
         }
     }
@@ -223,7 +223,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditVideoActivity f57572a;
+        public final /* synthetic */ EditVideoActivity f57689a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(EditVideoActivity editVideoActivity, int i2) {
@@ -243,7 +243,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
                     return;
                 }
             }
-            this.f57572a = editVideoActivity;
+            this.f57689a = editVideoActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -251,7 +251,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
-                this.f57572a.finishPage();
+                this.f57689a.finishPage();
             }
         }
     }
@@ -304,7 +304,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
                     bitmap = this.mEditVideoView.o(bitmap);
                 }
                 if (bitmap != null) {
-                    this.mCoverModel.A(bitmap, c.a.r0.x3.c.f28881b);
+                    this.mCoverModel.A(bitmap, c.a.r0.x3.c.f28901b);
                     return;
                 }
                 return;
@@ -548,7 +548,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
             if (!TextUtils.isEmpty(this.mVideoPath) && !new File(this.mVideoPath).exists()) {
                 finishPage();
             }
-            new File(c.a.r0.x3.c.f28886g).mkdirs();
+            new File(c.a.r0.x3.c.f28906g).mkdirs();
             this.mCoverModel = new SelectCoverModel(getPageContext(), this, this.mPostMonitorManager);
             this.mMusicModel = new SelectMusicModel(getPageContext(), this);
             this.mFilterEffectManager = new c.a.r0.x3.i.d.a(this);
@@ -623,7 +623,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
                 this.mVideoInfo = videoInfo;
                 String videoPath = videoInfo.getVideoPath();
                 this.mVideoPath = videoPath;
-                this.thisPageCallback.f28873b = videoPath;
+                this.thisPageCallback.f28893b = videoPath;
             }
             this.mEditVideoView.T(this.mVideoPath);
             setSelectedMusicAndFilter();
@@ -715,11 +715,11 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.x3.i.a, c.
             this.isSend = false;
             this.thisPageCallback.i(false);
             c.a.r0.x3.b bVar = this.thisPageCallback;
-            bVar.f28874c = this.mCoverPath;
-            bVar.f28873b = this.mVideoPath;
-            bVar.f28875d = this.mEditVideoView.s();
-            this.thisPageCallback.f28876e = this.mEditVideoView.A();
-            this.thisPageCallback.f28877f = this.mFilterEffectManager.b();
+            bVar.f28894c = this.mCoverPath;
+            bVar.f28893b = this.mVideoPath;
+            bVar.f28895d = this.mEditVideoView.s();
+            this.thisPageCallback.f28896e = this.mEditVideoView.A();
+            this.thisPageCallback.f28897f = this.mFilterEffectManager.b();
             this.saveEditVideoController.b();
         }
     }

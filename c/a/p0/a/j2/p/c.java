@@ -44,7 +44,7 @@ public class c extends f {
                 return;
             }
         }
-        E = k.f7077a;
+        E = k.f7085a;
     }
 
     public c(String str, int i2, long j2, long j3) {
@@ -74,36 +74,36 @@ public class c extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f7070h == null) {
-                this.f7070h = new JSONObject();
+            if (this.f7078h == null) {
+                this.f7078h = new JSONObject();
             }
             try {
                 if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
-                    this.f7070h.put("errorno", this.v);
+                    this.f7078h.put("errorno", this.v);
                 }
                 String a2 = j.a(this.w);
                 this.w = a2;
-                this.f7070h.put("url", a2);
-                this.f7070h.put("netStatus", this.y);
+                this.f7078h.put("url", a2);
+                this.f7078h.put("netStatus", this.y);
                 if (!TextUtils.isEmpty(this.x)) {
-                    this.f7070h.put("msg", this.x);
+                    this.f7078h.put("msg", this.x);
                 }
                 if (!TextUtils.isEmpty(this.z)) {
-                    this.f7070h.put("pagetype", this.z);
+                    this.f7078h.put("pagetype", this.z);
                 }
                 if (!TextUtils.isEmpty(this.A)) {
-                    this.f7070h.put("curpage", this.A);
+                    this.f7078h.put("curpage", this.A);
                 }
                 if (!TextUtils.isEmpty(this.B)) {
-                    this.f7070h.put("requesttype", this.B);
+                    this.f7078h.put("requesttype", this.B);
                 }
                 if (this.D - this.C > 0) {
-                    this.f7070h.put("startTime", this.C);
-                    this.f7070h.put("endTime", this.D);
+                    this.f7078h.put("startTime", this.C);
+                    this.f7078h.put("endTime", this.D);
                 }
                 ExtensionCore M = c.a.p0.a.h0.u.g.N().M();
                 if (M != null) {
-                    this.f7070h.put("extension_ver", M.extensionCoreVersionName);
+                    this.f7078h.put("extension_ver", M.extensionCoreVersionName);
                 }
             } catch (JSONException e2) {
                 if (E) {

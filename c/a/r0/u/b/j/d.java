@@ -33,10 +33,10 @@ public class d implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public i.a f25172a;
+    public i.a f25193a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f25173b;
+    public CustomMessageListener f25194b;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -44,7 +44,7 @@ public class d implements i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f25174a;
+        public final /* synthetic */ d f25195a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2) {
@@ -64,18 +64,18 @@ public class d implements i {
                     return;
                 }
             }
-            this.f25174a = dVar;
+            this.f25195a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f25174a.f25172a != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f25195a.f25193a != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    this.f25174a.f25172a.b();
+                    this.f25195a.f25193a.b();
                 } else {
-                    this.f25174a.f25172a.a();
+                    this.f25195a.f25193a.a();
                 }
             }
         }
@@ -87,7 +87,7 @@ public class d implements i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i.a f25175a;
+        public final /* synthetic */ i.a f25196a;
 
         public b(d dVar, i.a aVar) {
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class d implements i {
                     return;
                 }
             }
-            this.f25175a = aVar;
+            this.f25196a = aVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
@@ -112,9 +112,9 @@ public class d implements i {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
                 if (delegateResult.mResult.getBoolean("share_result")) {
-                    this.f25175a.b();
+                    this.f25196a.b();
                 } else {
-                    this.f25175a.a();
+                    this.f25196a.a();
                 }
             }
         }
@@ -133,16 +133,16 @@ public class d implements i {
                 return;
             }
         }
-        this.f25173b = new a(this, 2921366);
+        this.f25194b = new a(this, 2921366);
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.f25173b);
+        MessageManager.getInstance().registerListener(this.f25194b);
     }
 
     @Override // c.a.p0.a.c1.d.i
     public void a(Context context, JSONObject jSONObject, i.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048576, this, context, jSONObject, aVar) == null) && (context instanceof Activity)) {
-            this.f25172a = aVar;
+            this.f25193a = aVar;
             Bundle bundle = new Bundle();
             try {
                 String optString = jSONObject.optString("shareUrl");

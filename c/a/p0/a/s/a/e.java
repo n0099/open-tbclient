@@ -26,7 +26,7 @@ public class e extends k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f8488c;
+        public final /* synthetic */ e f8496c;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class e extends k {
                     return;
                 }
             }
-            this.f8488c = eVar;
+            this.f8496c = eVar;
         }
 
         @Override // c.a.p0.a.h0.j.a, c.a.p0.a.h0.j.d
@@ -79,7 +79,7 @@ public class e extends k {
                 return true;
             }
             R2();
-            f.f8492d.a(g.d(), g.a());
+            f.f8500d.a(g.d(), g.a());
             return false;
         }
         return invokeV.booleanValue;
@@ -114,7 +114,7 @@ public class e extends k {
     public final void R2() {
         c.a.p0.a.m.a d2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || f.f8492d.c() || (d2 = f.f8492d.d()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || f.f8500d.c() || (d2 = f.f8500d.d()) == null) {
             return;
         }
         d2.onResult(-2);

@@ -119,7 +119,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         d2 d2Var;
         WorksInfoData worksInfoData;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? isVideoPb() && (d2Var = this.mData) != null && (worksInfoData = d2Var.L2) != null && worksInfoData.isWorks : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? isVideoPb() && (d2Var = this.mData) != null && (worksInfoData = d2Var.M2) != null && worksInfoData.isWorks : invokeV.booleanValue;
     }
 
     public boolean needJumpReplyFragment() {

@@ -39,10 +39,10 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f54969a;
+    public ImageView f55084a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f54970b;
+    public View f55085b;
     public AppletsCellView mAppletsCellView;
     public View mBottomDivider;
     public ThreadForumEnterButtonContainer mForumEnterButtonContainer;
@@ -86,12 +86,12 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.mSkinType = 3;
         this.mViewStubController = new s(view);
         ImageView imageView = (ImageView) view.findViewById(R.id.pb_thread_type_stamp_first_floor_bottom_part);
-        this.f54969a = imageView;
+        this.f55084a = imageView;
         imageView.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
         matrix.postTranslate(0.0f, -q0.g());
-        this.f54969a.setImageMatrix(matrix);
-        this.f54970b = view.findViewById(R.id.blank_view_above_rich_text);
+        this.f55084a.setImageMatrix(matrix);
+        this.f55085b = view.findViewById(R.id.blank_view_above_rich_text);
         this.richText = (TbRichTextView) view.findViewById(R.id.richText);
         this.pbItemViewRoot = view;
         int k = (((l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight();
@@ -129,14 +129,14 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public void showBlankViewAboveRichText(boolean z, int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f54970b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f55085b) == null) {
             return;
         }
         if (z) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
             layoutParams.height = i2;
-            this.f54970b.setLayoutParams(layoutParams);
-            this.f54970b.setVisibility(0);
+            this.f55085b.setLayoutParams(layoutParams);
+            this.f55085b.setVisibility(0);
             return;
         }
         view.setVisibility(8);
@@ -156,15 +156,15 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
             ListUtils.isEmpty(eVar.q());
         }
         d2 d2Var = new d2();
-        d2Var.O3(eVar.Q());
-        d2Var.E3(b.g(eVar.m().getId(), 0L));
-        d2Var.I3(eVar.m().getName());
-        d2Var.F3(eVar.m().getFirst_class());
-        d2Var.r4(eVar.m().getSecond_class());
+        d2Var.N3(eVar.Q());
+        d2Var.D3(b.g(eVar.m().getId(), 0L));
+        d2Var.H3(eVar.m().getName());
+        d2Var.E3(eVar.m().getFirst_class());
+        d2Var.q4(eVar.m().getSecond_class());
         if (eVar.O() != null) {
-            d2Var.z4(eVar.O().c0);
+            d2Var.y4(eVar.O().i0);
         }
-        if (eVar.f19619i) {
+        if (eVar.f19634i) {
             this.mForumEnterButtonContainer.setVisibility(8);
             this.mPbBusinessPromotionContainer.bindForumData(d2Var, eVar.h(), eVar.p0());
             return;
@@ -175,20 +175,20 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public void showThreadTypeStampBottomPart(c.a.r0.j2.h.e eVar, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{eVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (eVar != null && eVar.f19620j) {
-                this.f54969a.setImageResource(R.drawable.pic_frs_headlines_n);
-                this.f54969a.setVisibility(0);
+            if (eVar != null && eVar.f19635j) {
+                this.f55084a.setImageResource(R.drawable.pic_frs_headlines_n);
+                this.f55084a.setVisibility(0);
             } else if (z && z2) {
-                this.f54969a.setImageResource(R.drawable.pic_pb_stick_refined_n);
-                this.f54969a.setVisibility(0);
+                this.f55084a.setImageResource(R.drawable.pic_pb_stick_refined_n);
+                this.f55084a.setVisibility(0);
             } else if (z) {
-                this.f54969a.setImageResource(R.drawable.pic_pb_refined_n);
-                this.f54969a.setVisibility(0);
+                this.f55084a.setImageResource(R.drawable.pic_pb_refined_n);
+                this.f55084a.setVisibility(0);
             } else if (z2) {
-                this.f54969a.setImageResource(R.drawable.pic_pb_stick_n);
-                this.f54969a.setVisibility(0);
+                this.f55084a.setImageResource(R.drawable.pic_pb_stick_n);
+                this.f55084a.setVisibility(0);
             } else {
-                this.f54969a.setVisibility(8);
+                this.f55084a.setVisibility(8);
             }
         }
     }

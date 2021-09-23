@@ -21,10 +21,10 @@ public class e implements m0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<m0> f26567a;
+    public static final AtomicReference<m0> f26590a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final m0 f26568b;
+    public static final m0 f26591b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,8 +40,8 @@ public class e implements m0 {
                 return;
             }
         }
-        f26567a = new AtomicReference<>(null);
-        f26568b = new e();
+        f26590a = new AtomicReference<>(null);
+        f26591b = new e();
     }
 
     public e() {
@@ -62,8 +62,8 @@ public class e implements m0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            m0 m0Var = f26567a.get();
-            return m0Var == null ? f26568b : m0Var;
+            m0 m0Var = f26590a.get();
+            return m0Var == null ? f26591b : m0Var;
         }
         return (m0) invokeV.objValue;
     }

@@ -34,7 +34,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4627a;
+    public static final boolean f4635a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -43,10 +43,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f4628e;
+        public final /* synthetic */ d f4636e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4629f;
+        public final /* synthetic */ String f4637f;
 
         public a(d dVar, String str) {
             Interceptable interceptable = $ic;
@@ -63,8 +63,8 @@ public class c {
                     return;
                 }
             }
-            this.f4628e = dVar;
-            this.f4629f = str;
+            this.f4636e = dVar;
+            this.f4637f = str;
         }
 
         @Override // java.lang.Runnable
@@ -72,7 +72,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.p0.a.e0.d.h("WebSafeWhiteListMgr", "async read webDomains");
-                c.o(this.f4628e, this.f4629f);
+                c.o(this.f4636e, this.f4637f);
             }
         }
     }
@@ -83,13 +83,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f4630e;
+        public final /* synthetic */ d f4638e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4631f;
+        public final /* synthetic */ String f4639f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f4632g;
+        public final /* synthetic */ String f4640g;
 
         public b(d dVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -106,9 +106,9 @@ public class c {
                     return;
                 }
             }
-            this.f4630e = dVar;
-            this.f4631f = str;
-            this.f4632g = str2;
+            this.f4638e = dVar;
+            this.f4639f = str;
+            this.f4640g = str2;
         }
 
         @Override // java.lang.Runnable
@@ -116,7 +116,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.p0.a.e0.d.h("WebSafeWhiteListMgr", "async read serverDomains");
-                c.p(this.f4630e, this.f4631f, this.f4632g);
+                c.p(this.f4638e, this.f4639f, this.f4640g);
             }
         }
     }
@@ -128,10 +128,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f4633e;
+        public final /* synthetic */ d f4641e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4634f;
+        public final /* synthetic */ String f4642f;
 
         public RunnableC0121c(d dVar, String str) {
             Interceptable interceptable = $ic;
@@ -148,8 +148,8 @@ public class c {
                     return;
                 }
             }
-            this.f4633e = dVar;
-            this.f4634f = str;
+            this.f4641e = dVar;
+            this.f4642f = str;
         }
 
         @Override // java.lang.Runnable
@@ -157,7 +157,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.p0.a.e0.d.h("WebSafeWhiteListMgr", "async read webActions");
-                c.o(this.f4633e, this.f4634f);
+                c.o(this.f4641e, this.f4642f);
             }
         }
     }
@@ -168,13 +168,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4635a;
+        public String f4643a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<String> f4636b;
+        public List<String> f4644b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f4637c;
+        public long f4645c;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -189,7 +189,7 @@ public class c {
                     return;
                 }
             }
-            this.f4636b = new CopyOnWriteArrayList();
+            this.f4644b = new CopyOnWriteArrayList();
         }
 
         @NonNull
@@ -214,8 +214,8 @@ public class c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f4635a = jSONObject.optString("token");
-            this.f4636b.addAll(d(jSONObject.optJSONArray("data")));
+            this.f4643a = jSONObject.optString("token");
+            this.f4644b.addAll(d(jSONObject.optJSONArray("data")));
         }
 
         public void b(JSONObject jSONObject, String str) {
@@ -224,13 +224,13 @@ public class c {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                 return;
             }
-            this.f4636b.addAll(d(optJSONObject.optJSONArray(str)));
+            this.f4644b.addAll(d(optJSONObject.optJSONArray(str)));
         }
 
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f4636b.clear();
+                this.f4644b.clear();
             }
         }
 
@@ -238,7 +238,7 @@ public class c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "WebSafeData{token='" + this.f4635a + ExtendedMessageFormat.QUOTE + ", data=" + this.f4636b + ", lastModifiedTime=" + this.f4637c + ExtendedMessageFormat.END_FE;
+                return "WebSafeData{token='" + this.f4643a + ExtendedMessageFormat.QUOTE + ", data=" + this.f4644b + ", lastModifiedTime=" + this.f4645c + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -257,7 +257,7 @@ public class c {
                 return;
             }
         }
-        f4627a = k.f7077a;
+        f4635a = k.f7085a;
     }
 
     @NonNull
@@ -317,9 +317,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), str, str2, dVar}) == null) {
             if (TextUtils.isEmpty(str)) {
-                boolean z2 = f4627a;
+                boolean z2 = f4635a;
             } else if (dVar == null) {
-                if (f4627a) {
+                if (f4635a) {
                     throw new RuntimeException("Please init webSafeData first!");
                 }
             } else {
@@ -351,7 +351,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(65547, null, z, dVar) == null) {
             if (dVar == null) {
-                if (f4627a) {
+                if (f4635a) {
                     throw new RuntimeException("Please init webSafeData first!");
                 }
                 return;
@@ -369,9 +369,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Boolean.valueOf(z), str, dVar}) == null) {
             if (TextUtils.isEmpty(str)) {
-                boolean z2 = f4627a;
+                boolean z2 = f4635a;
             } else if (dVar == null) {
-                if (f4627a) {
+                if (f4635a) {
                     throw new RuntimeException("Please init webSafeData first!");
                 }
             } else {
@@ -458,7 +458,7 @@ public class c {
                 }
                 w(str, arraySet);
             }
-            if (f4627a) {
+            if (f4635a) {
                 String str3 = "saveDomainConfig appId=" + str + ", domainConfig=" + str2;
             }
         }
@@ -477,13 +477,13 @@ public class c {
                     c.a.p0.a.e0.d.h("WebSafeWhiteListMgr", "save serverDomains: result=" + b2 + " filePath=" + i2 + " appId= " + str + " data=" + jSONObject);
                     return b2;
                 } catch (JSONException e2) {
-                    if (f4627a) {
+                    if (f4635a) {
                         Log.getStackTraceString(e2);
                     }
                     return false;
                 }
             }
-            boolean z = f4627a;
+            boolean z = f4635a;
             return false;
         }
         return invokeLL.booleanValue;
@@ -494,7 +494,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, str, jSONArray)) == null) {
             if (jSONArray == null) {
-                boolean z = f4627a;
+                boolean z = f4635a;
                 return false;
             }
             JSONObject jSONObject = new JSONObject();
@@ -508,7 +508,7 @@ public class c {
                 c.a.p0.a.e0.d.h("WebSafeWhiteListMgr", "save webActions: result=" + b2 + " filePath=" + j2 + " token=" + str + " data=" + jSONArray);
                 return b2;
             } catch (JSONException e2) {
-                if (f4627a) {
+                if (f4635a) {
                     Log.getStackTraceString(e2);
                 }
                 return false;
@@ -533,13 +533,13 @@ public class c {
                     c.a.p0.a.e0.d.h("WebSafeWhiteListMgr", "save WebDomains: result=" + b2 + " filePath=" + m + " appId= " + str + " token=" + str2 + " data=" + jSONArray);
                     return b2;
                 } catch (JSONException e2) {
-                    if (f4627a) {
+                    if (f4635a) {
                         Log.getStackTraceString(e2);
                     }
                     return false;
                 }
             }
-            boolean z = f4627a;
+            boolean z = f4635a;
             return false;
         }
         return invokeLLL.booleanValue;
@@ -550,7 +550,7 @@ public class c {
         if (interceptable == null || interceptable.invokeLL(65558, null, dVar, str) == null) {
             File file = new File(str);
             if (file.exists()) {
-                dVar.f4637c = file.lastModified();
+                dVar.f4645c = file.lastModified();
             }
         }
     }

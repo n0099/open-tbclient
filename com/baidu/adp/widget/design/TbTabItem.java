@@ -17,13 +17,13 @@ public final class TbTabItem extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CharSequence f36559e;
+    public final CharSequence f36602e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Drawable f36560f;
+    public final Drawable f36603f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f36561g;
+    public final int f36604g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbTabItem(Context context) {
@@ -67,9 +67,9 @@ public final class TbTabItem extends View {
             }
         }
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.TabItem);
-        this.f36559e = obtainStyledAttributes.getText(R.styleable.TabItem_android_text);
-        this.f36560f = obtainStyledAttributes.getDrawable(R.styleable.TabItem_android_icon);
-        this.f36561g = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
+        this.f36602e = obtainStyledAttributes.getText(R.styleable.TabItem_android_text);
+        this.f36603f = obtainStyledAttributes.getDrawable(R.styleable.TabItem_android_icon);
+        this.f36604g = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
         obtainStyledAttributes.recycle();
     }
 }

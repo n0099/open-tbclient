@@ -12,7 +12,7 @@ public class z0 implements c.a.r0.h1.b.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MetaData f28047a;
+    public MetaData f28067a;
 
     public z0() {
         Interceptable interceptable = $ic;
@@ -28,9 +28,9 @@ public class z0 implements c.a.r0.h1.b.c {
             }
         }
         MetaData metaData = new MetaData();
-        this.f28047a = metaData;
+        this.f28067a = metaData;
         if (metaData.getGodUserData() == null) {
-            this.f28047a.setGodUserData(new GodUserData());
+            this.f28067a.setGodUserData(new GodUserData());
         }
     }
 }

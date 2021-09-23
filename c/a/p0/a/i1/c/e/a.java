@@ -19,14 +19,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6616c;
+    public static final boolean f6624c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CallbackHandler f6617a;
+    public CallbackHandler f6625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f6618b;
+    public JSONObject f6626b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class a {
                 return;
             }
         }
-        f6616c = k.f7077a;
+        f6624c = k.f7085a;
     }
 
     public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
@@ -59,8 +59,8 @@ public class a {
                 return;
             }
         }
-        this.f6617a = callbackHandler;
-        this.f6618b = jSONObject;
+        this.f6625a = callbackHandler;
+        this.f6626b = jSONObject;
     }
 
     public void a(String str) {
@@ -73,11 +73,11 @@ public class a {
     public void b(String str, JSONObject jSONObject) {
         JSONObject wrapCallbackParamsWithEncode;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) || this.f6618b == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) || this.f6626b == null) {
             return;
         }
-        this.f6617a.handleSchemeDispatchCallback(this.f6618b.optString(str), UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-        if (f6616c) {
+        this.f6625a.handleSchemeDispatchCallback(this.f6626b.optString(str), UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+        if (f6624c) {
             String str2 = "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString();
         }
     }
@@ -85,20 +85,20 @@ public class a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? UnitedSchemeUtility.isInvokedFromSwanGame(this.f6617a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? UnitedSchemeUtility.isInvokedFromSwanGame(this.f6625a) : invokeV.booleanValue;
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                boolean z = f6616c;
+                boolean z = f6624c;
                 return;
             }
             try {
-                this.f6618b = new JSONObject(str);
+                this.f6626b = new JSONObject(str);
             } catch (JSONException unused) {
-                boolean z2 = f6616c;
+                boolean z2 = f6624c;
             }
         }
     }

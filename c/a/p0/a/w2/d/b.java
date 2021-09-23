@@ -32,39 +32,39 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f9596i;
+    public static final boolean f9604i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f9597j;
+    public static int f9605j;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f9598a;
+    public Activity f9606a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f9599b;
+    public ViewGroup f9607b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public View f9600c;
+    public View f9608c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public View f9601d;
+    public View f9609d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f9602e;
+    public int f9610e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f9603f;
+    public boolean f9611f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.p0.a.w2.d.a f9604g;
+    public c.a.p0.a.w2.d.a f9612g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnSystemUiVisibilityChangeListener f9605h;
+    public View.OnSystemUiVisibilityChangeListener f9613h;
 
     /* loaded from: classes.dex */
     public class a implements View.OnSystemUiVisibilityChangeListener {
@@ -108,12 +108,12 @@ public class b {
                 return;
             }
         }
-        f9596i = j();
-        f9597j = 0;
+        f9604i = j();
+        f9605j = 0;
         if (TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
-            f9597j = 1;
+            f9605j = 1;
         } else if (TextUtils.equals(Build.MANUFACTURER, "Meizu")) {
-            f9597j = 2;
+            f9605j = 2;
         }
     }
 
@@ -178,7 +178,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int f2 = f();
-            this.f9604g = b(f2, g(f2), false, false, true);
+            this.f9612g = b(f2, g(f2), false, false, true);
         }
     }
 
@@ -187,10 +187,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f9604g == null) {
+            if (this.f9612g == null) {
                 c();
             }
-            return this.f9604g;
+            return this.f9612g;
         }
         return (c.a.p0.a.w2.d.a) invokeV.objValue;
     }
@@ -199,7 +199,7 @@ public class b {
     public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f9601d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f9609d : (View) invokeV.objValue;
     }
 
     public final int f() {
@@ -207,9 +207,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return this.f9598a.getResources().getColor(c.aiapps_statusbar_immersion_bg);
+                return this.f9606a.getResources().getColor(c.aiapps_statusbar_immersion_bg);
             }
-            return this.f9598a.getResources().getColor(c.aiapps_statusbar_immersion_bg_below_lollipop);
+            return this.f9606a.getResources().getColor(c.aiapps_statusbar_immersion_bg_below_lollipop);
         }
         return invokeV.intValue;
     }
@@ -230,25 +230,25 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, aVar)) == null) {
-            if (aVar.f9588g) {
-                View view = this.f9601d;
+            if (aVar.f9596g) {
+                View view = this.f9609d;
                 if (view != null) {
-                    if (aVar.f9586e) {
+                    if (aVar.f9594e) {
                         return view;
                     }
-                    this.f9599b.removeView(view);
-                    this.f9601d = null;
+                    this.f9607b.removeView(view);
+                    this.f9609d = null;
                     return null;
-                } else if (!aVar.f9586e) {
-                    this.f9601d = null;
+                } else if (!aVar.f9594e) {
+                    this.f9609d = null;
                     return null;
                 } else {
                     int u = n0.u();
-                    View view2 = new View(this.f9598a);
+                    View view2 = new View(this.f9606a);
                     view2.setTag("IMMERSION_VIEW");
                     view2.setId(f.immersion_custom_statusbar_view);
-                    this.f9599b.addView(view2, new ViewGroup.LayoutParams(-1, u));
-                    this.f9601d = view2;
+                    this.f9607b.addView(view2, new ViewGroup.LayoutParams(-1, u));
+                    this.f9609d = view2;
                     return view2;
                 }
             }
@@ -260,14 +260,14 @@ public class b {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f9603f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f9611f : invokeV.booleanValue;
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f9604g = null;
-            this.f9602e = 1;
+            this.f9612g = null;
+            this.f9610e = 1;
         }
     }
 
@@ -288,19 +288,19 @@ public class b {
     public void n(int i2, boolean z, boolean z2, boolean z3) {
         c.a.p0.a.w2.d.a b2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) && f9596i) {
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) && f9604i) {
             if (i2 == 1) {
-                if (this.f9602e != 1) {
+                if (this.f9610e != 1) {
                     k();
                 }
-                this.f9602e = i2;
+                this.f9610e = i2;
                 b2 = d();
             } else {
-                this.f9602e = i2;
+                this.f9610e = i2;
                 b2 = b(i2, g(i2), z3, z, z2);
-                this.f9604g = b2;
+                this.f9612g = b2;
             }
-            this.f9603f = z;
+            this.f9611f = z;
             o(b2);
         }
     }
@@ -308,21 +308,21 @@ public class b {
     public final void o(@NonNull c.a.p0.a.w2.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            if (f9597j == 2) {
+            if (f9605j == 2) {
                 p(aVar);
             } else {
                 r();
                 s(aVar);
             }
-            View view = this.f9600c;
+            View view = this.f9608c;
             if (view != null) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
-                if (aVar.f9587f) {
+                if (aVar.f9595f) {
                     layoutParams.topMargin = 0;
                 } else {
                     layoutParams.topMargin = n0.u();
                 }
-                this.f9600c.setLayoutParams(layoutParams);
+                this.f9608c.setLayoutParams(layoutParams);
             }
         }
     }
@@ -331,7 +331,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
             try {
-                Window window = this.f9598a.getWindow();
+                Window window = this.f9606a.getWindow();
                 window.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
@@ -340,9 +340,9 @@ public class b {
                 declaredField2.setAccessible(true);
                 int i2 = declaredField.getInt(null);
                 int i3 = declaredField2.getInt(attributes);
-                declaredField2.setInt(attributes, aVar.f9585d ? i2 | i3 : (~i2) & i3);
+                declaredField2.setInt(attributes, aVar.f9593d ? i2 | i3 : (~i2) & i3);
                 window.setAttributes(attributes);
-                int i4 = aVar.f9583b;
+                int i4 = aVar.f9591b;
                 if (i4 == 1) {
                     i4 = f();
                 }
@@ -385,7 +385,7 @@ public class b {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            Window window = this.f9598a.getWindow();
+            Window window = this.f9606a.getWindow();
             window.clearFlags(1024);
             int i2 = Build.VERSION.SDK_INT;
             if (i2 < 21) {
@@ -397,10 +397,10 @@ public class b {
             }
             window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
             window.addFlags(Integer.MIN_VALUE);
-            if (f9597j != 1) {
+            if (f9605j != 1) {
                 return;
             }
-            q(window, d().f9585d);
+            q(window, d().f9593d);
         }
     }
 
@@ -408,25 +408,25 @@ public class b {
     public final void s(c.a.p0.a.w2.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, aVar) == null) {
-            Window window = this.f9598a.getWindow();
-            boolean z = aVar.f9584c;
-            int i2 = aVar.f9585d ? 13312 : 5120;
-            int i3 = !aVar.f9586e ? i2 & (-257) : i2 | 256;
-            int i4 = aVar.f9583b;
+            Window window = this.f9606a.getWindow();
+            boolean z = aVar.f9592c;
+            int i2 = aVar.f9593d ? 13312 : 5120;
+            int i3 = !aVar.f9594e ? i2 & (-257) : i2 | 256;
+            int i4 = aVar.f9591b;
             if (i4 == 1) {
                 i4 = f();
             }
             window.getDecorView().setSystemUiVisibility(i3);
             if (Build.VERSION.SDK_INT >= 21) {
-                window.setStatusBarColor(aVar.f9582a);
+                window.setStatusBarColor(aVar.f9590a);
             }
             View h2 = h(aVar);
             if (h2 != null) {
                 h2.setBackgroundColor(i4);
             }
-            if (this.f9605h == null) {
-                this.f9605h = new a(this);
-                window.getDecorView().setOnSystemUiVisibilityChangeListener(this.f9605h);
+            if (this.f9613h == null) {
+                this.f9613h = new a(this);
+                window.getDecorView().setOnSystemUiVisibilityChangeListener(this.f9613h);
             }
         }
     }
@@ -446,9 +446,9 @@ public class b {
                 return;
             }
         }
-        this.f9602e = 1;
-        this.f9598a = activity;
-        this.f9599b = viewGroup;
-        this.f9600c = viewGroup.getChildAt(0);
+        this.f9610e = 1;
+        this.f9606a = activity;
+        this.f9607b = viewGroup;
+        this.f9608c = viewGroup.getChildAt(0);
     }
 }

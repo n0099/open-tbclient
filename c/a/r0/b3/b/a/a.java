@@ -3,7 +3,7 @@ package c.a.r0.b3.b.a;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.setting.PrivacyMarkActivityConfig;
+import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,34 +16,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f15989a;
+    public int f15999a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f15990b;
+    public int f16000b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f15991c;
+    public int f16001c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f15992d;
+    public int f16002d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f15993e;
+    public boolean f16003e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15994f;
+    public int f16004f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15995g;
+    public int f16005g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15996h;
+    public int f16006h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SimpleUser f15997i;
+    public SimpleUser f16007i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f15998j;
+    public int f16008j;
     public int k;
 
     public a() {
@@ -63,43 +63,43 @@ public class a {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15995g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16005g : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15996h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16006h : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15990b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16000b : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15991c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16001c : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15992d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16002d : invokeV.intValue;
     }
 
     public SimpleUser f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15997i : (SimpleUser) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16007i : (SimpleUser) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15994f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f16004f : invokeV.intValue;
     }
 
     public int h() {
@@ -111,13 +111,13 @@ public class a {
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f15989a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f15999a : invokeV.intValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f15993e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f16003e : invokeV.booleanValue;
     }
 
     public boolean k() {
@@ -126,16 +126,16 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             c.a.q0.s.d0.b j2 = c.a.q0.s.d0.b.j();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            this.f15989a = j2.k("post" + currentAccount, 0);
-            this.f15990b = j2.k("like" + currentAccount, 0);
-            this.f15991c = j2.k("group" + currentAccount, 0);
-            this.f15992d = j2.k("live" + currentAccount, 0);
-            this.f15994f = j2.k("reply" + currentAccount, 1);
+            this.f15999a = j2.k("post" + currentAccount, 0);
+            this.f16000b = j2.k("like" + currentAccount, 0);
+            this.f16001c = j2.k("group" + currentAccount, 0);
+            this.f16002d = j2.k("live" + currentAccount, 0);
+            this.f16004f = j2.k("reply" + currentAccount, 1);
             this.k = j2.k("reply_show_myself" + currentAccount, 0);
-            this.f15995g = j2.k(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0);
-            this.f15996h = j2.k(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0);
-            this.f15993e = TbadkCoreApplication.getInst().getLocationShared();
-            return (this.f15989a == 0 && this.f15990b == 0 && this.f15991c == 0 && this.f15992d == 0 && this.f15994f == 1 && this.k == 0 && this.f15995g == 0 && this.f15996h == 0) ? false : true;
+            this.f16005g = j2.k(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0);
+            this.f16006h = j2.k(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0);
+            this.f16003e = TbadkCoreApplication.getInst().getLocationShared();
+            return (this.f15999a == 0 && this.f16000b == 0 && this.f16001c == 0 && this.f16002d == 0 && this.f16004f == 1 && this.k == 0 && this.f16005g == 0 && this.f16006h == 0) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -145,16 +145,16 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.f15989a = aVar.f15989a;
-        this.f15990b = aVar.f15990b;
-        this.f15991c = aVar.f15991c;
-        this.f15993e = aVar.f15993e;
-        this.f15992d = aVar.f15992d;
-        this.f15998j = aVar.f15998j;
-        this.f15994f = aVar.f15994f;
+        this.f15999a = aVar.f15999a;
+        this.f16000b = aVar.f16000b;
+        this.f16001c = aVar.f16001c;
+        this.f16003e = aVar.f16003e;
+        this.f16002d = aVar.f16002d;
+        this.f16008j = aVar.f16008j;
+        this.f16004f = aVar.f16004f;
         this.k = aVar.k;
-        this.f15996h = aVar.f15996h;
-        this.f15995g = aVar.f15995g;
+        this.f16006h = aVar.f16006h;
+        this.f16005g = aVar.f16005g;
     }
 
     public void m() {
@@ -162,15 +162,15 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             c.a.q0.s.d0.b j2 = c.a.q0.s.d0.b.j();
-            j2.v("post" + currentAccount, this.f15989a);
-            j2.v("like" + currentAccount, this.f15990b);
-            j2.v("group" + currentAccount, this.f15991c);
-            j2.v("live" + currentAccount, this.f15992d);
-            j2.v("reply" + currentAccount, this.f15994f);
+            j2.v("post" + currentAccount, this.f15999a);
+            j2.v("like" + currentAccount, this.f16000b);
+            j2.v("group" + currentAccount, this.f16001c);
+            j2.v("live" + currentAccount, this.f16002d);
+            j2.v("reply" + currentAccount, this.f16004f);
             j2.v("reply_show_myself" + currentAccount, this.k);
-            j2.v(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, this.f15995g);
-            j2.v(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, this.f15996h);
-            TbadkCoreApplication.getInst().setLocationShared(this.f15993e);
+            j2.v(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, this.f16005g);
+            j2.v(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, this.f16006h);
+            TbadkCoreApplication.getInst().setLocationShared(this.f16003e);
         }
     }
 
@@ -186,21 +186,21 @@ public class a {
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f15995g = i2;
+            this.f16005g = i2;
         }
     }
 
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f15996h = i2;
+            this.f16006h = i2;
         }
     }
 
     public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f15998j = i2;
+            this.f16008j = i2;
         }
     }
 
@@ -209,7 +209,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || i2 > 3 || i2 < 1) {
             return;
         }
-        this.f15990b = i2;
+        this.f16000b = i2;
     }
 
     public void s(int i2) {
@@ -217,7 +217,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || i2 > 3 || i2 < 1) {
             return;
         }
-        this.f15991c = i2;
+        this.f16001c = i2;
     }
 
     public void t(int i2) {
@@ -225,16 +225,16 @@ public class a {
         if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || i2 > 3 || i2 < 1) {
             return;
         }
-        this.f15992d = i2;
+        this.f16002d = i2;
     }
 
     public void u(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
             if (i2 != 1) {
-                this.f15993e = false;
+                this.f16003e = false;
             } else {
-                this.f15993e = true;
+                this.f16003e = true;
             }
         }
     }
@@ -242,7 +242,7 @@ public class a {
     public void v(SimpleUser simpleUser) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, simpleUser) == null) {
-            this.f15997i = simpleUser;
+            this.f16007i = simpleUser;
             if (simpleUser != null) {
                 x(simpleUser.show_onlyme.intValue());
             }
@@ -253,9 +253,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
             if (i2 == 0) {
-                this.f15994f = 1;
+                this.f16004f = 1;
             } else {
-                this.f15994f = i2;
+                this.f16004f = i2;
             }
         }
     }
@@ -270,7 +270,7 @@ public class a {
     public void y(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.f15989a = i2;
+            this.f15999a = i2;
         }
     }
 }

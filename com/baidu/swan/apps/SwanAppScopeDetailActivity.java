@@ -40,7 +40,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppScopeDetailActivity f45524e;
+        public final /* synthetic */ SwanAppScopeDetailActivity f45626e;
 
         public a(SwanAppScopeDetailActivity swanAppScopeDetailActivity) {
             Interceptable interceptable = $ic;
@@ -57,14 +57,14 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                     return;
                 }
             }
-            this.f45524e = swanAppScopeDetailActivity;
+            this.f45626e = swanAppScopeDetailActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f45524e.finish();
+                this.f45626e.finish();
             }
         }
     }
@@ -75,7 +75,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SwanAppScopeDetailActivity f45525c;
+        public final /* synthetic */ SwanAppScopeDetailActivity f45627c;
 
         public b(SwanAppScopeDetailActivity swanAppScopeDetailActivity) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                     return;
                 }
             }
-            this.f45525c = swanAppScopeDetailActivity;
+            this.f45627c = swanAppScopeDetailActivity;
         }
 
         @Override // c.a.p0.a.h0.j.a, c.a.p0.a.h0.j.d
@@ -103,7 +103,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                ((TextView) this.f45525c.findViewById(f.title)).setText(str);
+                ((TextView) this.f45627c.findViewById(f.title)).setText(str);
             }
         }
     }
@@ -121,7 +121,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 return;
             }
         }
-        DEBUG = k.f7077a;
+        DEBUG = k.f7085a;
     }
 
     public SwanAppScopeDetailActivity() {

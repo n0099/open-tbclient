@@ -21,30 +21,30 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<List<DressItemData>> f23990e;
+    public List<List<DressItemData>> f24006e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f23991f;
+    public TbPageContext<?> f24007f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.p3.f.a.a f23992g;
+    public c.a.r0.p3.f.a.a f24008g;
 
     /* renamed from: c.a.r0.p3.f.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1115a {
+    public static class C1113a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f23993a;
+        public View f24009a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BubbleItemView f23994b;
+        public BubbleItemView f24010b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BubbleItemView f23995c;
+        public BubbleItemView f24011c;
 
-        public C1115a() {
+        public C1113a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,8 +74,8 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f23991f = tbPageContext;
-        this.f23992g = aVar;
+        this.f24007f = tbPageContext;
+        this.f24008g = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -85,11 +85,11 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<List<DressItemData>> list = this.f23990e;
-            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f23990e.size()) {
+            List<List<DressItemData>> list = this.f24006e;
+            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f24006e.size()) {
                 return null;
             }
-            return this.f23990e.get(i2);
+            return this.f24006e.get(i2);
         }
         return (List) invokeI.objValue;
     }
@@ -97,7 +97,7 @@ public class a extends BaseAdapter {
     public void b(List<List<DressItemData>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f23990e = list;
+            this.f24006e = list;
         }
     }
 
@@ -106,7 +106,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<List<DressItemData>> list = this.f23990e;
+            List<List<DressItemData>> list = this.f24006e;
             if (list != null) {
                 return list.size();
             }
@@ -128,38 +128,38 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C1115a c1115a;
+        C1113a c1113a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
             List<DressItemData> item = getItem(i2);
             if (view != null) {
-                c1115a = (C1115a) view.getTag();
+                c1113a = (C1113a) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f23991f.getPageActivity()).inflate(R.layout.bubble_row, viewGroup, false);
-                c1115a = new C1115a();
-                c1115a.f23993a = view.findViewById(R.id.top_white_line);
-                c1115a.f23994b = (BubbleItemView) view.findViewById(R.id.bg_view1);
-                c1115a.f23995c = (BubbleItemView) view.findViewById(R.id.bg_view2);
-                view.setTag(c1115a);
+                view = LayoutInflater.from(this.f24007f.getPageActivity()).inflate(R.layout.bubble_row, viewGroup, false);
+                c1113a = new C1113a();
+                c1113a.f24009a = view.findViewById(R.id.top_white_line);
+                c1113a.f24010b = (BubbleItemView) view.findViewById(R.id.bg_view1);
+                c1113a.f24011c = (BubbleItemView) view.findViewById(R.id.bg_view2);
+                view.setTag(c1113a);
             }
             if (item != null) {
                 if (i2 == 0) {
-                    c1115a.f23993a.setVisibility(0);
+                    c1113a.f24009a.setVisibility(0);
                 } else {
-                    c1115a.f23993a.setVisibility(8);
+                    c1113a.f24009a.setVisibility(8);
                 }
-                c1115a.f23994b.fillView(item.get(0));
-                c1115a.f23994b.setController(this.f23992g);
-                c1115a.f23994b.setFromBubbleGroup(false);
+                c1113a.f24010b.fillView(item.get(0));
+                c1113a.f24010b.setController(this.f24008g);
+                c1113a.f24010b.setFromBubbleGroup(false);
                 if (item.size() > 1) {
-                    c1115a.f23995c.fillView(item.get(1));
-                    c1115a.f23995c.setController(this.f23992g);
-                    c1115a.f23995c.setFromBubbleGroup(false);
+                    c1113a.f24011c.fillView(item.get(1));
+                    c1113a.f24011c.setController(this.f24008g);
+                    c1113a.f24011c.setFromBubbleGroup(false);
                 } else {
-                    c1115a.f23995c.hide();
+                    c1113a.f24011c.hide();
                 }
             }
-            this.f23991f.getLayoutMode().j(view);
+            this.f24007f.getLayoutMode().j(view);
             return view;
         }
         return (View) invokeILL.objValue;

@@ -19,13 +19,13 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B> implements Object<B>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<Class<? extends B>, B> delegate;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class SerializedForm<B> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -57,13 +57,13 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a extends e0<Class<? extends B>, B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map.Entry f70692e;
+        public final /* synthetic */ Map.Entry f71011e;
 
         public a(Map.Entry entry) {
             Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
                     return;
                 }
             }
-            this.f70692e = entry;
+            this.f71011e = entry;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -89,7 +89,7 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
         public Map.Entry<Class<? extends B>, B> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70692e : (Map.Entry) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71011e : (Map.Entry) invokeV.objValue;
         }
 
         @Override // c.i.d.c.e0, java.util.Map.Entry
@@ -100,15 +100,15 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class b extends j0<Map.Entry<Class<? extends B>, B>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MutableClassToInstanceMap f70693e;
+        public final /* synthetic */ MutableClassToInstanceMap f71012e;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public class a extends m1<Map.Entry<Class<? extends B>, B>, Map.Entry<Class<? extends B>, B>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +158,7 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
                     return;
                 }
             }
-            this.f70693e = mutableClassToInstanceMap;
+            this.f71012e = mutableClassToInstanceMap;
         }
 
         @Override // c.i.d.c.y, java.util.Collection, java.lang.Iterable, c.i.d.c.s0
@@ -187,7 +187,7 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
         public Set<Map.Entry<Class<? extends B>, B>> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70693e.delegate().entrySet() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71012e.delegate().entrySet() : (Set) invokeV.objValue;
         }
     }
 

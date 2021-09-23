@@ -16,14 +16,14 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f76589a;
+    public static final Object f76908a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f76590b;
+    public static volatile b f76909b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f76591c;
+    public e f76910c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public final class b {
                 return;
             }
         }
-        f76589a = new Object();
+        f76908a = new Object();
     }
 
     public b() {
@@ -59,14 +59,14 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f76590b == null) {
-                synchronized (f76589a) {
-                    if (f76590b == null) {
-                        f76590b = new b();
+            if (f76909b == null) {
+                synchronized (f76908a) {
+                    if (f76909b == null) {
+                        f76909b = new b();
                     }
                 }
             }
-            return f76590b;
+            return f76909b;
         }
         return (b) invokeV.objValue;
     }
@@ -75,7 +75,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            e eVar = this.f76591c;
+            e eVar = this.f76910c;
             if (eVar != null) {
                 return eVar;
             }
@@ -84,7 +84,7 @@ public final class b {
                 Method method = Class.forName(str).getMethod("getInstance", Context.class);
                 p.d("ConfigManagerFactory", "createConfig success is " + str);
                 e eVar2 = (e) method.invoke(null, context);
-                this.f76591c = eVar2;
+                this.f76910c = eVar2;
                 return eVar2;
             } catch (Exception e2) {
                 e2.printStackTrace();

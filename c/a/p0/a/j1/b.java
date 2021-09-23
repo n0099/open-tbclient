@@ -45,14 +45,14 @@ public class b extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = d.f8727c;
+            boolean z = d.f8735c;
             if (e.Q() == null) {
                 return new c.a.p0.a.u.h.b(1001, "null swan runtime");
             }
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-callImageMenu", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (d.f8727c) {
+                if (d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-callImageMenu", "parse fail");
                 }
                 return bVar;

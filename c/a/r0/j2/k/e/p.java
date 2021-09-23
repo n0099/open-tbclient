@@ -19,16 +19,16 @@ public class p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PbModel f20181a;
+    public PbModel f20196a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragmentActivity f20182b;
+    public BaseFragmentActivity f20197b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f20183c;
+    public b f20198c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HttpMessageListener f20184d;
+    public final HttpMessageListener f20199d;
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -36,7 +36,7 @@ public class p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ p f20185a;
+        public final /* synthetic */ p f20200a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(p pVar, int i2) {
@@ -56,7 +56,7 @@ public class p {
                     return;
                 }
             }
-            this.f20185a = pVar;
+            this.f20200a = pVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public class p {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
                 if (httpResponsedMessage.getStatusCode() != 200) {
-                    this.f20185a.f20183c.a(-1, null, null);
+                    this.f20200a.f20198c.a(-1, null, null);
                     return;
                 }
                 ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
@@ -75,7 +75,7 @@ public class p {
                 if (errorCode == 0) {
                     errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
                 }
-                this.f20185a.f20183c.a(errorCode, errorMessage, tid);
+                this.f20200a.f20198c.a(errorCode, errorMessage, tid);
             }
         }
     }
@@ -100,21 +100,21 @@ public class p {
                 return;
             }
         }
-        this.f20183c = null;
+        this.f20198c = null;
         a aVar = new a(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-        this.f20184d = aVar;
-        this.f20181a = pbModel;
-        this.f20182b = baseFragmentActivity;
+        this.f20199d = aVar;
+        this.f20196a = pbModel;
+        this.f20197b = baseFragmentActivity;
         baseFragmentActivity.registerListener(aVar);
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f20181a == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f20196a == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-        httpMessage.addParam("thread_id", this.f20181a.e1());
+        httpMessage.addParam("thread_id", this.f20196a.f1());
         httpMessage.addParam("status", String.valueOf(i2));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
@@ -122,7 +122,7 @@ public class p {
     public void c(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f20183c = bVar;
+            this.f20198c = bVar;
         }
     }
 }

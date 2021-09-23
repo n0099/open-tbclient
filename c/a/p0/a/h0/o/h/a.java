@@ -22,7 +22,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CopyOnWriteArrayList<c.a.p0.a.h0.o.h.g.a> f6306a;
+    public CopyOnWriteArrayList<c.a.p0.a.h0.o.h.g.a> f6314a;
 
     /* renamed from: c.a.p0.a.h0.o.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -36,7 +36,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f6307a;
+        public static final a f6315a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,7 +52,7 @@ public class a {
                     return;
                 }
             }
-            f6307a = new a(null);
+            f6315a = new a(null);
         }
     }
 
@@ -63,15 +63,15 @@ public class a {
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f6307a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f6315a : (a) invokeV.objValue;
     }
 
     public void a(c.a.p0.a.h0.o.h.g.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || this.f6306a.contains(aVar)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || this.f6314a.contains(aVar)) {
             return;
         }
-        this.f6306a.add(aVar);
+        this.f6314a.add(aVar);
     }
 
     @RequiresApi(api = 21)
@@ -92,10 +92,10 @@ public class a {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, map, z)) == null) {
-            if (this.f6306a.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
+            if (this.f6314a.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
                 return null;
             }
-            return new c(this.f6306a, str, map, 0, z).b(str, map, z);
+            return new c(this.f6314a, str, map, 0, z).b(str, map, z);
         }
         return (WebResourceResponse) invokeLLZ.objValue;
     }
@@ -113,6 +113,6 @@ public class a {
                 return;
             }
         }
-        this.f6306a = new CopyOnWriteArrayList<>();
+        this.f6314a = new CopyOnWriteArrayList<>();
     }
 }

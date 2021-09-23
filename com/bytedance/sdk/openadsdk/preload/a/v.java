@@ -34,7 +34,7 @@ public abstract class v<T> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ v f68608a;
+            public final /* synthetic */ v f68919a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -51,7 +51,7 @@ public abstract class v<T> {
                         return;
                     }
                 }
-                this.f68608a = this;
+                this.f68919a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -61,7 +61,7 @@ public abstract class v<T> {
                     if (t == null) {
                         cVar.f();
                     } else {
-                        this.f68608a.a(cVar, t);
+                        this.f68919a.a(cVar, t);
                     }
                 }
             }
@@ -71,11 +71,11 @@ public abstract class v<T> {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68564i) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68875i) {
                         aVar.j();
                         return null;
                     }
-                    return (T) this.f68608a.b(aVar);
+                    return (T) this.f68919a.b(aVar);
                 }
                 return (T) invokeL.objValue;
             }

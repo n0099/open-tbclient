@@ -19,7 +19,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8704a;
+    public static final boolean f8712a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class a {
                 return;
             }
         }
-        f8704a = k.f7077a;
+        f8712a = k.f7085a;
     }
 
     public static void a() {
@@ -47,8 +47,8 @@ public class a {
         for (String str : list) {
             if (!TextUtils.isEmpty(str)) {
                 h hVar = new h();
-                hVar.f11885g = str;
-                hVar.f11887i = -1L;
+                hVar.f11893g = str;
+                hVar.f11895i = -1L;
                 c.a.p0.n.g.a.h().f(hVar);
             }
         }
@@ -68,7 +68,7 @@ public class a {
             try {
                 j3 = Long.parseLong(str2);
             } catch (NumberFormatException e2) {
-                if (f8704a) {
+                if (f8712a) {
                     c.a.p0.a.t1.d.a.a(Log.getStackTraceString(e2));
                 }
             }
@@ -98,7 +98,7 @@ public class a {
                 int min = Math.min(list.size(), 2);
                 for (int i2 = 0; i2 < min; i2++) {
                     h hVar = list.get(i2);
-                    if (hVar != null && (j2 == hVar.f11887i || j2 == l0.c(hVar.f11888j))) {
+                    if (hVar != null && (j2 == hVar.f11895i || j2 == l0.c(hVar.f11896j))) {
                         return true;
                     }
                 }

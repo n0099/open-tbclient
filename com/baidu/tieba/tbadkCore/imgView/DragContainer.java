@@ -20,16 +20,16 @@ public class DragContainer extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f57085e;
+    public Scroller f57202e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f57086f;
+    public Rect f57203f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f57087g;
+    public View f57204g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f57088h;
+    public Bitmap f57205h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DragContainer(Context context) {
@@ -49,34 +49,34 @@ public class DragContainer extends LinearLayout {
                 return;
             }
         }
-        this.f57086f = new Rect();
+        this.f57203f = new Rect();
         a(context);
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f57085e = new Scroller(context);
+            this.f57202e = new Scroller(context);
         }
     }
 
     public void delete(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f57087g = view;
+            this.f57204g = view;
             view.setDrawingCacheEnabled(true);
             view.buildDrawingCache();
             Bitmap drawingCache = view.getDrawingCache();
             if (drawingCache != null) {
-                this.f57088h = Bitmap.createBitmap(drawingCache);
+                this.f57205h = Bitmap.createBitmap(drawingCache);
             }
             view.destroyDrawingCache();
             view.setDrawingCacheEnabled(false);
-            view.getDrawingRect(this.f57086f);
-            offsetDescendantRectToMyCoords(view, this.f57086f);
+            view.getDrawingRect(this.f57203f);
+            offsetDescendantRectToMyCoords(view, this.f57203f);
             int height = getHeight();
-            Scroller scroller = this.f57085e;
-            int i2 = this.f57086f.top;
+            Scroller scroller = this.f57202e;
+            int i2 = this.f57203f.top;
             scroller.startScroll(i2, 0, height - i2, 0, 800);
             invalidate();
         }
@@ -87,20 +87,20 @@ public class DragContainer extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            if (this.f57087g != null) {
-                if (this.f57085e.computeScrollOffset() && this.f57088h != null) {
+            if (this.f57204g != null) {
+                if (this.f57202e.computeScrollOffset() && this.f57205h != null) {
                     canvas.save();
-                    canvas.drawBitmap(this.f57088h, this.f57086f.left, this.f57085e.getCurrX(), (Paint) null);
+                    canvas.drawBitmap(this.f57205h, this.f57203f.left, this.f57202e.getCurrX(), (Paint) null);
                     canvas.restore();
                     postInvalidateDelayed(16L);
                     return;
                 }
-                Bitmap bitmap = this.f57088h;
+                Bitmap bitmap = this.f57205h;
                 if (bitmap != null) {
                     bitmap.recycle();
                 }
-                this.f57088h = null;
-                this.f57087g = null;
+                this.f57205h = null;
+                this.f57204g = null;
             }
         }
     }
@@ -110,13 +110,13 @@ public class DragContainer extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            this.f57085e.forceFinished(true);
-            Bitmap bitmap = this.f57088h;
+            this.f57202e.forceFinished(true);
+            Bitmap bitmap = this.f57205h;
             if (bitmap != null) {
                 bitmap.recycle();
             }
-            this.f57088h = null;
-            this.f57087g = null;
+            this.f57205h = null;
+            this.f57204g = null;
         }
     }
 
@@ -139,7 +139,7 @@ public class DragContainer extends LinearLayout {
                 return;
             }
         }
-        this.f57086f = new Rect();
+        this.f57203f = new Rect();
         a(context);
     }
 }

@@ -13,19 +13,19 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f78562a;
+    public static final d f78881a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f78563b;
+    public static final d f78882b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C2113a implements d {
+    public static final class C2117a implements d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final C2113a f78564a;
+        public static final C2117a f78883a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,10 +41,10 @@ public final class a {
                     return;
                 }
             }
-            f78564a = new C2113a();
+            f78883a = new C2117a();
         }
 
-        public C2113a() {
+        public C2117a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +74,7 @@ public final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f78565a;
+        public static final b f78884a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -90,7 +90,7 @@ public final class a {
                     return;
                 }
             }
-            f78565a = new b();
+            f78884a = new b();
         }
 
         public b() {
@@ -123,7 +123,7 @@ public final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f78566a;
+        public static final c f78885a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -139,7 +139,7 @@ public final class a {
                     return;
                 }
             }
-            f78566a = new c();
+            f78885a = new c();
         }
 
         public c() {
@@ -185,10 +185,10 @@ public final class a {
                 return;
             }
         }
-        c cVar = c.f78566a;
-        f78562a = cVar;
-        f78563b = cVar;
-        b bVar = b.f78565a;
-        C2113a c2113a = C2113a.f78564a;
+        c cVar = c.f78885a;
+        f78881a = cVar;
+        f78882b = cVar;
+        b bVar = b.f78884a;
+        C2117a c2117a = C2117a.f78883a;
     }
 }

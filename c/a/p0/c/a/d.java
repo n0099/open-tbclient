@@ -15,11 +15,11 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f10316b;
+    public static volatile d f10324b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.c.a.a f10317a;
+    public c.a.p0.c.a.a f10325a;
 
     /* loaded from: classes.dex */
     public static class a implements BdtlsController.a {
@@ -62,7 +62,7 @@ public class d {
                 return;
             }
         }
-        boolean z = c.a.p0.c.a.a.f10311a;
+        boolean z = c.a.p0.c.a.a.f10319a;
         BdtlsController.a(new a());
     }
 
@@ -79,21 +79,21 @@ public class d {
                 return;
             }
         }
-        this.f10317a = new c.a.p0.c.a.a();
+        this.f10325a = new c.a.p0.c.a.a();
     }
 
     public static d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f10316b == null) {
+            if (f10324b == null) {
                 synchronized (d.class) {
-                    if (f10316b == null) {
-                        f10316b = new d();
+                    if (f10324b == null) {
+                        f10324b = new d();
                     }
                 }
             }
-            return f10316b;
+            return f10324b;
         }
         return (d) invokeV.objValue;
     }
@@ -116,7 +116,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c.a.p0.c.a.a aVar = this.f10317a;
+            c.a.p0.c.a.a aVar = this.f10325a;
             if (aVar == null) {
                 return false;
             }
@@ -129,7 +129,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            c.a.p0.c.a.a aVar = this.f10317a;
+            c.a.p0.c.a.a aVar = this.f10325a;
             return aVar != null && aVar.b(str);
         }
         return invokeL.booleanValue;

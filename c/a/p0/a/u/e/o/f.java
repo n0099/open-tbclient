@@ -16,10 +16,10 @@ public class f extends c.a.p0.a.u.c.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9090d;
+    public String f9098d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.a.v2.e1.b<Integer> f9091e;
+    public c.a.p0.a.v2.e1.b<Integer> f9099e;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.v2.e1.b<Integer> {
@@ -27,7 +27,7 @@ public class f extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f9092e;
+        public final /* synthetic */ f f9100e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class f extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9092e = fVar;
+            this.f9100e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class f extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, num) == null) {
                 if (num.intValue() == 1 || num.intValue() == 0) {
-                    this.f9092e.t();
+                    this.f9100e.t();
                 }
             }
         }
@@ -78,7 +78,7 @@ public class f extends c.a.p0.a.u.c.d {
                 return;
             }
         }
-        this.f9091e = new a(this);
+        this.f9099e = new a(this);
     }
 
     public c.a.p0.a.u.h.b s(String str) {
@@ -88,17 +88,17 @@ public class f extends c.a.p0.a.u.c.d {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-ExitFullScreenApi", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-ExitFullScreenApi", "parse fail");
                 }
                 return bVar;
             }
             String optString = ((JSONObject) b2.second).optString("cb");
-            this.f9090d = optString;
+            this.f9098d = optString;
             if (TextUtils.isEmpty(optString)) {
                 return new c.a.p0.a.u.h.b(201);
             }
-            k.e().u(this.f9091e);
+            k.e().u(this.f9099e);
             k.e().l();
             return new c.a.p0.a.u.h.b(0);
         }
@@ -110,7 +110,7 @@ public class f extends c.a.p0.a.u.c.d {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             k.e().v();
             k.e().o();
-            d(this.f9090d, new c.a.p0.a.u.h.b(0));
+            d(this.f9098d, new c.a.p0.a.u.h.b(0));
         }
     }
 }

@@ -22,7 +22,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.c4.u.p.b.a f59189e;
+    public c.a.r0.c4.u.p.b.a f59320e;
 
     /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
@@ -30,7 +30,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkVideoGuideModel f59190a;
+        public final /* synthetic */ WorkVideoGuideModel f59321a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(WorkVideoGuideModel workVideoGuideModel, int i2) {
@@ -50,7 +50,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f59190a = workVideoGuideModel;
+            this.f59321a = workVideoGuideModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +58,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof ResponseHttpWorkVIdeoGuideMessage)) {
-                this.f59190a.f59189e.netCallBack(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                this.f59321a.f59320e.netCallBack(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
             }
         }
     }
@@ -81,7 +81,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
                 return;
             }
         }
-        this.f59189e = aVar;
+        this.f59320e = aVar;
         x();
     }
 
@@ -109,7 +109,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             registerListener(new a(this, CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE));
-            c.a.r0.j3.d0.a.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
+            c.a.r0.j3.e0.a.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
         }
     }
 

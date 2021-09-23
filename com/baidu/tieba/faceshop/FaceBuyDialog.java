@@ -26,22 +26,22 @@ public class FaceBuyDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f50445e;
+    public TbPageContext f50558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50446f;
+    public View f50559f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SpannableString f50447g;
+    public SpannableString f50560g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50448h;
+    public TextView f50561h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f50449i;
+    public TextView f50562i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f50450j;
+    public int f50563j;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -49,7 +49,7 @@ public class FaceBuyDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceBuyDialog f50451e;
+        public final /* synthetic */ FaceBuyDialog f50564e;
 
         public a(FaceBuyDialog faceBuyDialog) {
             Interceptable interceptable = $ic;
@@ -66,15 +66,15 @@ public class FaceBuyDialog extends Dialog {
                     return;
                 }
             }
-            this.f50451e = faceBuyDialog;
+            this.f50564e = faceBuyDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                FaceBuyDialog faceBuyDialog = this.f50451e;
-                g.b(faceBuyDialog, faceBuyDialog.f50445e);
+                FaceBuyDialog faceBuyDialog = this.f50564e;
+                g.b(faceBuyDialog, faceBuyDialog.f50558e);
             }
         }
     }
@@ -97,33 +97,33 @@ public class FaceBuyDialog extends Dialog {
                 return;
             }
         }
-        this.f50445e = tbPageContextSupport.getPageContext();
+        this.f50558e = tbPageContextSupport.getPageContext();
     }
 
     public final void b() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (tbPageContext = this.f50445e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (tbPageContext = this.f50558e) == null) {
             return;
         }
-        tbPageContext.getLayoutMode().k(this.f50450j == 1);
-        this.f50445e.getLayoutMode().j(this.f50446f);
+        tbPageContext.getLayoutMode().k(this.f50563j == 1);
+        this.f50558e.getLayoutMode().j(this.f50559f);
     }
 
     public void setFailDialogInfo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f50446f = LayoutInflater.from(this.f50445e.getPageActivity()).inflate(R.layout.face_buy_fail, (ViewGroup) null);
-            this.f50450j = TbadkApplication.getInst().getSkinType();
+            this.f50559f = LayoutInflater.from(this.f50558e.getPageActivity()).inflate(R.layout.face_buy_fail, (ViewGroup) null);
+            this.f50563j = TbadkApplication.getInst().getSkinType();
             String string = getContext().getResources().getString(R.string.query_buy_fail_tel);
-            this.f50447g = new SpannableString(string);
-            this.f50447g.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10159)), 5, string.length(), 33);
-            setContentView(this.f50446f, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.ds522), getContext().getResources().getDimensionPixelSize(R.dimen.ds364)));
+            this.f50560g = new SpannableString(string);
+            this.f50560g.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10159)), 5, string.length(), 33);
+            setContentView(this.f50559f, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.ds522), getContext().getResources().getDimensionPixelSize(R.dimen.ds364)));
             TextView textView = (TextView) findViewById(R.id.telphone);
-            this.f50448h = textView;
-            textView.setText(this.f50447g);
+            this.f50561h = textView;
+            textView.setText(this.f50560g);
             TextView textView2 = (TextView) findViewById(R.id.confirm);
-            this.f50449i = textView2;
+            this.f50562i = textView2;
             textView2.setOnClickListener(new a(this));
             setCancelable(true);
             b();
@@ -133,9 +133,9 @@ public class FaceBuyDialog extends Dialog {
     public void setLoadingDialogInfo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f50446f = LayoutInflater.from(this.f50445e.getPageActivity()).inflate(R.layout.face_buy_loading, (ViewGroup) null);
-            this.f50450j = TbadkApplication.getInst().getSkinType();
-            setContentView(this.f50446f, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.ds522), getContext().getResources().getDimensionPixelSize(R.dimen.ds282)));
+            this.f50559f = LayoutInflater.from(this.f50558e.getPageActivity()).inflate(R.layout.face_buy_loading, (ViewGroup) null);
+            this.f50563j = TbadkApplication.getInst().getSkinType();
+            setContentView(this.f50559f, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.ds522), getContext().getResources().getDimensionPixelSize(R.dimen.ds282)));
             setCancelable(false);
             b();
         }
@@ -160,7 +160,7 @@ public class FaceBuyDialog extends Dialog {
                 return;
             }
         }
-        this.f50445e = tbPageContextSupport.getPageContext();
+        this.f50558e = tbPageContextSupport.getPageContext();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -182,6 +182,6 @@ public class FaceBuyDialog extends Dialog {
                 return;
             }
         }
-        this.f50445e = tbPageContext;
+        this.f50558e = tbPageContext;
     }
 }

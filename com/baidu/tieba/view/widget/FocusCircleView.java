@@ -26,22 +26,22 @@ public class FocusCircleView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f58489e;
+    public Paint f58619e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58490f;
+    public int f58620f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AnimatorSet f58491g;
+    public AnimatorSet f58621g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ObjectAnimator f58492h;
+    public ObjectAnimator f58622h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f58493i;
+    public boolean f58623i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Bitmap f58494j;
+    public Bitmap f58624j;
 
     /* loaded from: classes7.dex */
     public class a implements Animator.AnimatorListener {
@@ -49,18 +49,18 @@ public class FocusCircleView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FocusCircleView f58495e;
+        public final /* synthetic */ FocusCircleView f58625e;
 
         /* renamed from: com.baidu.tieba.view.widget.FocusCircleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1802a implements Animator.AnimatorListener {
+        public class C1805a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f58496e;
+            public final /* synthetic */ a f58626e;
 
-            public C1802a(a aVar) {
+            public C1805a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +75,7 @@ public class FocusCircleView extends View {
                         return;
                     }
                 }
-                this.f58496e = aVar;
+                this.f58626e = aVar;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -89,7 +89,7 @@ public class FocusCircleView extends View {
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.f58496e.f58495e.f58493i = false;
+                    this.f58626e.f58625e.f58623i = false;
                 }
             }
 
@@ -123,7 +123,7 @@ public class FocusCircleView extends View {
                     return;
                 }
             }
-            this.f58495e = focusCircleView;
+            this.f58625e = focusCircleView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -137,13 +137,13 @@ public class FocusCircleView extends View {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                if (this.f58495e.f58492h == null) {
-                    FocusCircleView focusCircleView = this.f58495e;
-                    focusCircleView.f58492h = ObjectAnimator.ofFloat(focusCircleView, "alpha", 1.0f, 0.0f);
-                    this.f58495e.f58492h.setDuration(960L);
-                    this.f58495e.f58492h.addListener(new C1802a(this));
+                if (this.f58625e.f58622h == null) {
+                    FocusCircleView focusCircleView = this.f58625e;
+                    focusCircleView.f58622h = ObjectAnimator.ofFloat(focusCircleView, "alpha", 1.0f, 0.0f);
+                    this.f58625e.f58622h.setDuration(960L);
+                    this.f58625e.f58622h.addListener(new C1805a(this));
                 }
-                this.f58495e.f58492h.start();
+                this.f58625e.f58622h.start();
             }
         }
 
@@ -158,7 +158,7 @@ public class FocusCircleView extends View {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f58495e.setAlpha(1.0f);
+                this.f58625e.setAlpha(1.0f);
             }
         }
     }
@@ -181,35 +181,35 @@ public class FocusCircleView extends View {
                 return;
             }
         }
-        this.f58490f = 4;
-        this.f58493i = false;
+        this.f58620f = 4;
+        this.f58623i = false;
         d(context);
     }
 
     public void beginFocus() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f58493i = true;
-            AnimatorSet animatorSet = this.f58491g;
+            this.f58623i = true;
+            AnimatorSet animatorSet = this.f58621g;
             if (animatorSet == null) {
                 ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "scaleX", 3.0f, 2.0f, 1.0f);
                 ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this, "scaleY", 3.0f, 2.0f, 1.0f);
                 AnimatorSet animatorSet2 = new AnimatorSet();
-                this.f58491g = animatorSet2;
+                this.f58621g = animatorSet2;
                 animatorSet2.play(ofFloat).with(ofFloat2);
-                this.f58491g.setInterpolator(new LinearInterpolator());
-                this.f58491g.setDuration(500L);
-                this.f58491g.addListener(new a(this));
+                this.f58621g.setInterpolator(new LinearInterpolator());
+                this.f58621g.setDuration(500L);
+                this.f58621g.addListener(new a(this));
             } else {
                 if (animatorSet.isRunning()) {
-                    this.f58491g.cancel();
+                    this.f58621g.cancel();
                 }
-                ObjectAnimator objectAnimator = this.f58492h;
+                ObjectAnimator objectAnimator = this.f58622h;
                 if (objectAnimator != null && objectAnimator.isRunning()) {
-                    this.f58492h.cancel();
+                    this.f58622h.cancel();
                 }
             }
-            this.f58491g.start();
+            this.f58621g.start();
         }
     }
 
@@ -217,13 +217,13 @@ public class FocusCircleView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             Paint paint = new Paint();
-            this.f58489e = paint;
+            this.f58619e = paint;
             paint.setAntiAlias(true);
-            this.f58489e.setStyle(Paint.Style.STROKE);
-            this.f58489e.setColor(Color.parseColor("#ffffffff"));
-            this.f58489e.setStrokeWidth(this.f58490f);
+            this.f58619e.setStyle(Paint.Style.STROKE);
+            this.f58619e.setColor(Color.parseColor("#ffffffff"));
+            this.f58619e.setStrokeWidth(this.f58620f);
             setAlpha(0.0f);
-            this.f58494j = BitmapHelper.resizeBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.camera_focus), 180);
+            this.f58624j = BitmapHelper.resizeBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.camera_focus), 180);
         }
     }
 
@@ -231,29 +231,29 @@ public class FocusCircleView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setVisibility(4);
-            AnimatorSet animatorSet = this.f58491g;
+            AnimatorSet animatorSet = this.f58621g;
             if (animatorSet != null && animatorSet.isRunning()) {
-                this.f58491g.cancel();
+                this.f58621g.cancel();
             }
-            ObjectAnimator objectAnimator = this.f58492h;
+            ObjectAnimator objectAnimator = this.f58622h;
             if (objectAnimator == null || !objectAnimator.isRunning()) {
                 return;
             }
-            this.f58492h.cancel();
+            this.f58622h.cancel();
         }
     }
 
     public boolean isFocusing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58493i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58623i : invokeV.booleanValue;
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            canvas.drawBitmap(this.f58494j, (getWidth() / 2) - 80, (getHeight() / 2) - 80, this.f58489e);
+            canvas.drawBitmap(this.f58624j, (getWidth() / 2) - 80, (getHeight() / 2) - 80, this.f58619e);
         }
     }
 
@@ -276,8 +276,8 @@ public class FocusCircleView extends View {
                 return;
             }
         }
-        this.f58490f = 4;
-        this.f58493i = false;
+        this.f58620f = 4;
+        this.f58623i = false;
         d(context);
     }
 
@@ -300,8 +300,8 @@ public class FocusCircleView extends View {
                 return;
             }
         }
-        this.f58490f = 4;
-        this.f58493i = false;
+        this.f58620f = 4;
+        this.f58623i = false;
         d(context);
     }
 }

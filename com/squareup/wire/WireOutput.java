@@ -98,7 +98,7 @@ public final class WireOutput {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
-            if ((i2 & a.f35987g) == 0) {
+            if ((i2 & a.f36021g) == 0) {
                 return 1;
             }
             if ((i2 & (-16384)) == 0) {
@@ -254,7 +254,7 @@ public final class WireOutput {
     public void writeVarint32(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            while ((i2 & a.f35987g) != 0) {
+            while ((i2 & a.f36021g) != 0) {
                 writeRawByte((i2 & 127) | 128);
                 i2 >>>= 7;
             }

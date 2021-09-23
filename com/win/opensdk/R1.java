@@ -13,7 +13,7 @@ public class R1 implements OnGetOaidListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ S1 f76872a;
+    public final /* synthetic */ S1 f77191a;
 
     public R1(S1 s1) {
         Interceptable interceptable = $ic;
@@ -30,17 +30,17 @@ public class R1 implements OnGetOaidListener {
                 return;
             }
         }
-        this.f76872a = s1;
+        this.f77191a = s1;
     }
 
     @Override // com.fun.openid.sdk.OnGetOaidListener
     public void onGetOaid(String str) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !TextUtils.isEmpty(S1.f76893c) || TextUtils.isEmpty(str) || (context = this.f76872a.f76896a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !TextUtils.isEmpty(S1.f77212c) || TextUtils.isEmpty(str) || (context = this.f77191a.f77215a) == null) {
             return;
         }
-        S1.f76893c = str;
+        S1.f77212c = str;
         U1.g(context, str);
     }
 }

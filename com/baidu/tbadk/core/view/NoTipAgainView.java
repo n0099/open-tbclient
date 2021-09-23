@@ -24,16 +24,16 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f47750e;
+    public TextView f47857e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f47751f;
+    public ImageView f47858f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f47752g;
+    public boolean f47859g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.f f47753h;
+    public a.f f47860h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NoTipAgainView(Context context) {
@@ -60,10 +60,10 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.view_no_tip_again, this);
-            this.f47750e = (TextView) findViewById(R.id.no_tip_again_text);
-            this.f47751f = (ImageView) findViewById(R.id.checkbox);
+            this.f47857e = (TextView) findViewById(R.id.no_tip_again_text);
+            this.f47858f = (ImageView) findViewById(R.id.checkbox);
             onChangeSkinType();
-            this.f47751f.setOnClickListener(this);
+            this.f47858f.setOnClickListener(this);
         }
     }
 
@@ -71,10 +71,10 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
         ImageView imageView;
         Drawable maskDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (imageView = this.f47751f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (imageView = this.f47858f) == null) {
             return;
         }
-        if (this.f47752g) {
+        if (this.f47859g) {
             maskDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_mask_use_complete16_svg, R.color.CAM_X0304, null);
         } else {
             maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
@@ -85,24 +85,24 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     public boolean isNoTipAgainChecked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47752g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47859g : invokeV.booleanValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             b();
-            SkinManager.setViewTextColor(this.f47750e, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f47857e, R.color.CAM_X0107);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.f47751f) {
-            this.f47752g = !this.f47752g;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.f47858f) {
+            this.f47859g = !this.f47859g;
             b();
-            a.f fVar = this.f47753h;
+            a.f fVar = this.f47860h;
             if (fVar != null) {
                 fVar.a();
             }
@@ -112,7 +112,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     public void setOnNoTipAgainCheckListener(a.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.f47753h = fVar;
+            this.f47860h = fVar;
         }
     }
 
@@ -156,7 +156,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
                 return;
             }
         }
-        this.f47752g = false;
+        this.f47859g = false;
         a();
     }
 }

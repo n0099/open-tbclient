@@ -22,10 +22,10 @@ public class b implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Handler f10582a;
+    public final Handler f10590a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.p0.f.i.k.f.b f10583b;
+    public final c.a.p0.f.i.k.f.b f10591b;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -62,7 +62,7 @@ public class b implements e {
                 if (downloadInfo.getDownloadListener() == null) {
                     return;
                 }
-                switch (C0526b.f10584a[DownloadState.convert(status).ordinal()]) {
+                switch (C0526b.f10592a[DownloadState.convert(status).ordinal()]) {
                     case 1:
                         downloadInfo.getDownloadListener().e(downloadInfo.getProgress(), downloadInfo.getSize());
                         return;
@@ -97,7 +97,7 @@ public class b implements e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f10584a;
+        public static final /* synthetic */ int[] f10592a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -114,33 +114,33 @@ public class b implements e {
                 }
             }
             int[] iArr = new int[DownloadState.values().length];
-            f10584a = iArr;
+            f10592a = iArr;
             try {
                 iArr[DownloadState.DOWNLOADING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f10584a[DownloadState.PREPARE_DOWNLOAD.ordinal()] = 2;
+                f10592a[DownloadState.PREPARE_DOWNLOAD.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f10584a[DownloadState.WAIT.ordinal()] = 3;
+                f10592a[DownloadState.WAIT.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f10584a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 4;
+                f10592a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f10584a[DownloadState.DOWNLOADED.ordinal()] = 5;
+                f10592a[DownloadState.DOWNLOADED.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f10584a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
+                f10592a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f10584a[DownloadState.DELETED.ordinal()] = 7;
+                f10592a[DownloadState.DELETED.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
         }
@@ -161,8 +161,8 @@ public class b implements e {
                 return;
             }
         }
-        this.f10583b = bVar;
-        this.f10582a = new a(this, Looper.getMainLooper());
+        this.f10591b = bVar;
+        this.f10590a = new a(this, Looper.getMainLooper());
     }
 
     @Override // c.a.p0.f.i.k.f.e
@@ -177,9 +177,9 @@ public class b implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
             if (downloadInfo.getStatus() != DownloadState.DELETED.value()) {
-                this.f10583b.a(downloadInfo);
+                this.f10591b.a(downloadInfo);
             }
-            Message obtainMessage = this.f10582a.obtainMessage(downloadInfo.getId().hashCode());
+            Message obtainMessage = this.f10590a.obtainMessage(downloadInfo.getId().hashCode());
             obtainMessage.obj = downloadInfo;
             obtainMessage.sendToTarget();
         }

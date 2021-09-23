@@ -83,7 +83,7 @@ public class BannerExpressBackupView extends BackupView {
             }
         }
         this.p = 1;
-        this.f66777a = context;
+        this.f67088a = context;
     }
 
     private void b() {
@@ -91,31 +91,31 @@ public class BannerExpressBackupView extends BackupView {
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             this.q = a(this.n.getExpectExpressWidth(), this.n.getExpectExpressHeight());
             if (this.n.getExpectExpressWidth() > 0 && this.n.getExpectExpressHeight() > 0) {
-                this.f66782f = s.d(this.f66777a, this.n.getExpectExpressWidth());
-                this.f66783g = s.d(this.f66777a, this.n.getExpectExpressHeight());
+                this.f67093f = s.d(this.f67088a, this.n.getExpectExpressWidth());
+                this.f67094g = s.d(this.f67088a, this.n.getExpectExpressHeight());
             } else {
-                int c2 = s.c(this.f66777a);
-                this.f66782f = c2;
-                this.f66783g = Float.valueOf(c2 / this.q.f66895c).intValue();
+                int c2 = s.c(this.f67088a);
+                this.f67093f = c2;
+                this.f67094g = Float.valueOf(c2 / this.q.f67206c).intValue();
             }
-            int i2 = this.f66782f;
-            if (i2 > 0 && i2 > s.c(this.f66777a)) {
-                float c3 = s.c(this.f66777a) / this.f66782f;
-                this.f66782f = s.c(this.f66777a);
-                this.f66783g = Float.valueOf(this.f66783g * c3).intValue();
+            int i2 = this.f67093f;
+            if (i2 > 0 && i2 > s.c(this.f67088a)) {
+                float c3 = s.c(this.f67088a) / this.f67093f;
+                this.f67093f = s.c(this.f67088a);
+                this.f67094g = Float.valueOf(this.f67094g * c3).intValue();
             }
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(this.f66782f, this.f66783g);
+                layoutParams = new ViewGroup.LayoutParams(this.f67093f, this.f67094g);
             }
-            layoutParams.width = this.f66782f;
-            layoutParams.height = this.f66783g;
+            layoutParams.width = this.f67093f;
+            layoutParams.height = this.f67094g;
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 ((FrameLayout.LayoutParams) layoutParams).gravity = 17;
             }
             setLayoutParams(layoutParams);
             k kVar = this.q;
-            int i3 = kVar.f66893a;
+            int i3 = kVar.f67204a;
             if (i3 == 1) {
                 c();
             } else if (i3 == 3) {
@@ -129,29 +129,29 @@ public class BannerExpressBackupView extends BackupView {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            float d2 = (this.f66783g * 1.0f) / s.d(this.f66777a, 50.0f);
-            int i2 = this.f66782f;
-            if ((this.f66783g * 1.0f) / i2 > 0.21875f) {
-                d2 = (i2 * 1.0f) / s.d(this.f66777a, 320.0f);
+            float d2 = (this.f67094g * 1.0f) / s.d(this.f67088a, 50.0f);
+            int i2 = this.f67093f;
+            if ((this.f67094g * 1.0f) / i2 > 0.21875f) {
+                d2 = (i2 * 1.0f) / s.d(this.f67088a, 320.0f);
             }
-            View inflate = LayoutInflater.from(this.f66777a).inflate(t.f(this.f66777a, "tt_backup_banner_layout1"), (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.f67088a).inflate(t.f(this.f67088a, "tt_backup_banner_layout1"), (ViewGroup) this, true);
             this.m = inflate;
-            this.t = (ImageView) inflate.findViewById(t.e(this.f66777a, "tt_bu_close"));
-            ImageView imageView = (ImageView) this.m.findViewById(t.e(this.f66777a, "tt_bu_icon"));
-            this.r = (TextView) this.m.findViewById(t.e(this.f66777a, "tt_bu_title"));
-            TextView textView = (TextView) this.m.findViewById(t.e(this.f66777a, "tt_bu_score"));
-            TTRatingBar tTRatingBar = (TTRatingBar) this.m.findViewById(t.e(this.f66777a, "tt_bu_score_bar"));
-            TextView textView2 = (TextView) this.m.findViewById(t.e(this.f66777a, "tt_bu_download"));
+            this.t = (ImageView) inflate.findViewById(t.e(this.f67088a, "tt_bu_close"));
+            ImageView imageView = (ImageView) this.m.findViewById(t.e(this.f67088a, "tt_bu_icon"));
+            this.r = (TextView) this.m.findViewById(t.e(this.f67088a, "tt_bu_title"));
+            TextView textView = (TextView) this.m.findViewById(t.e(this.f67088a, "tt_bu_score"));
+            TTRatingBar tTRatingBar = (TTRatingBar) this.m.findViewById(t.e(this.f67088a, "tt_bu_score_bar"));
+            TextView textView2 = (TextView) this.m.findViewById(t.e(this.f67088a, "tt_bu_download"));
             TextView textView3 = this.r;
-            textView3.setTextSize(2, s.a(this.f66777a, textView3.getTextSize()) * d2);
-            textView.setTextSize(2, s.a(this.f66777a, textView.getTextSize()) * d2);
-            textView2.setTextSize(2, s.a(this.f66777a, textView2.getTextSize()) * d2);
+            textView3.setTextSize(2, s.a(this.f67088a, textView3.getTextSize()) * d2);
+            textView.setTextSize(2, s.a(this.f67088a, textView.getTextSize()) * d2);
+            textView2.setTextSize(2, s.a(this.f67088a, textView2.getTextSize()) * d2);
             this.t.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressBackupView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BannerExpressBackupView f66232a;
+                public final /* synthetic */ BannerExpressBackupView f66543a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -168,35 +168,35 @@ public class BannerExpressBackupView extends BackupView {
                             return;
                         }
                     }
-                    this.f66232a = this;
+                    this.f66543a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f66232a.a();
+                        this.f66543a.a();
                     }
                 }
             });
-            s.a((TextView) this.m.findViewById(t.e(this.f66777a, "tt_ad_logo")), this.f66778b, 27, 11);
-            ImageLoaderWrapper.from(this.f66778b.Y()).to(imageView);
+            s.a((TextView) this.m.findViewById(t.e(this.f67088a, "tt_ad_logo")), this.f67089b, 27, 11);
+            ImageLoaderWrapper.from(this.f67089b.Y()).to(imageView);
             this.r.setText(getTitle());
             ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.width = (int) (s.d(this.f66777a, 45.0f) * d2);
-                layoutParams.height = (int) (s.d(this.f66777a, 45.0f) * d2);
+                layoutParams.width = (int) (s.d(this.f67088a, 45.0f) * d2);
+                layoutParams.height = (int) (s.d(this.f67088a, 45.0f) * d2);
             }
-            if (!TextUtils.isEmpty(this.f66778b.aj())) {
-                textView2.setText(this.f66778b.aj());
+            if (!TextUtils.isEmpty(this.f67089b.aj())) {
+                textView2.setText(this.f67089b.aj());
             }
-            int e2 = this.f66778b.al() != null ? this.f66778b.al().e() : 4;
+            int e2 = this.f67089b.al() != null ? this.f67089b.al().e() : 4;
             textView.setText(String.format(Locale.getDefault(), "%.1f", Float.valueOf(e2)));
             tTRatingBar.setStarEmptyNum(1);
             tTRatingBar.setStarFillNum(e2);
-            tTRatingBar.setStarImageWidth(s.d(this.f66777a, 15.0f) * d2);
-            tTRatingBar.setStarImageHeight(s.d(this.f66777a, 14.0f) * d2);
-            tTRatingBar.setStarImagePadding(s.d(this.f66777a, 4.0f));
+            tTRatingBar.setStarImageWidth(s.d(this.f67088a, 15.0f) * d2);
+            tTRatingBar.setStarImageHeight(s.d(this.f67088a, 14.0f) * d2);
+            tTRatingBar.setStarImagePadding(s.d(this.f67088a, 4.0f));
             tTRatingBar.a();
             a((View) this, true);
             a((View) textView2, true);
@@ -206,7 +206,7 @@ public class BannerExpressBackupView extends BackupView {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            int i2 = this.q.f66893a;
+            int i2 = this.q.f67204a;
             if (i2 != 2 && i2 != 3) {
                 TextView textView = this.r;
                 if (textView != null) {
@@ -237,7 +237,7 @@ public class BannerExpressBackupView extends BackupView {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            int i2 = this.q.f66893a;
+            int i2 = this.q.f67204a;
             if (i2 != 2 && i2 != 3) {
                 TextView textView = this.r;
                 if (textView != null) {
@@ -271,13 +271,13 @@ public class BannerExpressBackupView extends BackupView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, mVar, nativeExpressView, aVar) == null) {
             setBackgroundColor(-1);
-            this.f66778b = mVar;
+            this.f67089b = mVar;
             this.n = nativeExpressView;
             this.o = aVar;
-            this.f66781e = "banner_ad";
+            this.f67092e = "banner_ad";
             nativeExpressView.addView(this, new ViewGroup.LayoutParams(-2, -2));
-            int d2 = q.d(this.f66778b.ao());
-            this.f66784h = d2;
+            int d2 = q.d(this.f67089b.ao());
+            this.f67095h = d2;
             b(d2);
             b();
             c(h.d().A());
@@ -287,44 +287,44 @@ public class BannerExpressBackupView extends BackupView {
     private void a(ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, imageView) == null) {
-            ImageLoaderWrapper.from(this.f66778b.ad().get(0)).to(imageView);
+            ImageLoaderWrapper.from(this.f67089b.ad().get(0)).to(imageView);
         }
     }
 
     private void a(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, kVar) == null) {
-            float d2 = (this.f66783g * 1.0f) / s.d(this.f66777a, 250.0f);
-            View inflate = LayoutInflater.from(this.f66777a).inflate(t.f(this.f66777a, "tt_backup_banner_layout3"), (ViewGroup) this, true);
+            float d2 = (this.f67094g * 1.0f) / s.d(this.f67088a, 250.0f);
+            View inflate = LayoutInflater.from(this.f67088a).inflate(t.f(this.f67088a, "tt_backup_banner_layout3"), (ViewGroup) this, true);
             this.m = inflate;
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(t.e(this.f66777a, "tt_ad_content_layout"));
-            this.t = (ImageView) this.m.findViewById(t.e(this.f66777a, "tt_bu_close"));
-            ImageView imageView = (ImageView) this.m.findViewById(t.e(this.f66777a, "tt_bu_img"));
-            ImageView imageView2 = (ImageView) this.m.findViewById(t.e(this.f66777a, "tt_bu_icon"));
-            this.r = (TextView) this.m.findViewById(t.e(this.f66777a, "tt_bu_title"));
-            this.s = (TextView) this.m.findViewById(t.e(this.f66777a, "tt_bu_desc"));
-            TextView textView = (TextView) this.m.findViewById(t.e(this.f66777a, "tt_bu_name"));
-            TextView textView2 = (TextView) this.m.findViewById(t.e(this.f66777a, "tt_bu_download"));
-            s.a((TextView) this.m.findViewById(t.e(this.f66777a, "tt_ad_logo")), this.f66778b);
-            LinearLayout linearLayout = (LinearLayout) this.m.findViewById(t.e(this.f66777a, "tt_bu_total_title"));
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(t.e(this.f67088a, "tt_ad_content_layout"));
+            this.t = (ImageView) this.m.findViewById(t.e(this.f67088a, "tt_bu_close"));
+            ImageView imageView = (ImageView) this.m.findViewById(t.e(this.f67088a, "tt_bu_img"));
+            ImageView imageView2 = (ImageView) this.m.findViewById(t.e(this.f67088a, "tt_bu_icon"));
+            this.r = (TextView) this.m.findViewById(t.e(this.f67088a, "tt_bu_title"));
+            this.s = (TextView) this.m.findViewById(t.e(this.f67088a, "tt_bu_desc"));
+            TextView textView = (TextView) this.m.findViewById(t.e(this.f67088a, "tt_bu_name"));
+            TextView textView2 = (TextView) this.m.findViewById(t.e(this.f67088a, "tt_bu_download"));
+            s.a((TextView) this.m.findViewById(t.e(this.f67088a, "tt_ad_logo")), this.f67089b);
+            LinearLayout linearLayout = (LinearLayout) this.m.findViewById(t.e(this.f67088a, "tt_bu_total_title"));
             ViewGroup.LayoutParams layoutParams = imageView2.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.width = (int) (s.d(this.f66777a, 45.0f) * d2);
-                layoutParams.height = (int) (s.d(this.f66777a, 45.0f) * d2);
+                layoutParams.width = (int) (s.d(this.f67088a, 45.0f) * d2);
+                layoutParams.height = (int) (s.d(this.f67088a, 45.0f) * d2);
             }
             TextView textView3 = this.r;
-            textView3.setTextSize(2, s.a(this.f66777a, textView3.getTextSize()) * d2);
+            textView3.setTextSize(2, s.a(this.f67088a, textView3.getTextSize()) * d2);
             TextView textView4 = this.s;
-            textView4.setTextSize(2, s.a(this.f66777a, textView4.getTextSize()) * d2);
-            textView.setTextSize(2, s.a(this.f66777a, textView.getTextSize()) * d2);
-            textView2.setTextSize(2, s.a(this.f66777a, textView2.getTextSize()) * d2);
+            textView4.setTextSize(2, s.a(this.f67088a, textView4.getTextSize()) * d2);
+            textView.setTextSize(2, s.a(this.f67088a, textView.getTextSize()) * d2);
+            textView2.setTextSize(2, s.a(this.f67088a, textView2.getTextSize()) * d2);
             try {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
                 float f2 = d2 - 1.0f;
                 if (f2 > 0.0f) {
-                    layoutParams2.topMargin = s.d(this.f66777a, f2 * 8.0f);
+                    layoutParams2.topMargin = s.d(this.f67088a, f2 * 8.0f);
                 }
-                ((RelativeLayout.LayoutParams) textView2.getLayoutParams()).setMargins(0, (int) (s.d(this.f66777a, 16.0f) * d2), 0, 0);
+                ((RelativeLayout.LayoutParams) textView2.getLayoutParams()).setMargins(0, (int) (s.d(this.f67088a, 16.0f) * d2), 0, 0);
             } catch (Throwable unused) {
             }
             this.t.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressBackupView.1
@@ -332,7 +332,7 @@ public class BannerExpressBackupView extends BackupView {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BannerExpressBackupView f66231a;
+                public final /* synthetic */ BannerExpressBackupView f66542a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -349,36 +349,36 @@ public class BannerExpressBackupView extends BackupView {
                             return;
                         }
                     }
-                    this.f66231a = this;
+                    this.f66542a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f66231a.a();
+                        this.f66542a.a();
                     }
                 }
             });
-            int b2 = (int) s.b(this.f66777a, 15.0f);
+            int b2 = (int) s.b(this.f67088a, 15.0f);
             s.a(this.t, b2, b2, b2, b2);
-            if (this.f66778b.V() != null) {
+            if (this.f67089b.V() != null) {
                 View videoView = getVideoView();
                 if (videoView != null) {
-                    int i2 = (this.f66783g * 266) / 400;
-                    int i3 = (this.f66782f * 406) / 600;
+                    int i2 = (this.f67094g * 266) / 400;
+                    int i3 = (this.f67093f * 406) / 600;
                     FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(i3, (i3 * 9) / 16);
-                    int i4 = kVar.f66894b;
+                    int i4 = kVar.f67205b;
                     if (i4 == 1) {
-                        int i5 = (this.f66782f * 406) / 600;
+                        int i5 = (this.f67093f * 406) / 600;
                         layoutParams3 = new FrameLayout.LayoutParams(i5, (i5 * 9) / 16);
                     } else if (i4 == 2) {
                         layoutParams3 = new FrameLayout.LayoutParams(-1, -1);
                     } else if (i4 == 3) {
-                        int i6 = (this.f66783g * Opcodes.NEWARRAY) / 260;
+                        int i6 = (this.f67094g * Opcodes.NEWARRAY) / 260;
                         layoutParams3 = new FrameLayout.LayoutParams((i6 * 16) / 9, i6);
                     } else if (i4 == 4) {
-                        int i7 = (this.f66782f * 480) / 690;
+                        int i7 = (this.f67093f * 480) / 690;
                         layoutParams3 = new FrameLayout.LayoutParams(i7, (i7 * 9) / 16);
                     }
                     layoutParams3.gravity = 17;
@@ -389,12 +389,12 @@ public class BannerExpressBackupView extends BackupView {
                 a(imageView);
                 s.a((View) imageView, 0);
             }
-            ImageLoaderWrapper.from(this.f66778b.Y()).to(imageView2);
+            ImageLoaderWrapper.from(this.f67089b.Y()).to(imageView2);
             textView.setText(getNameOrSource());
             this.r.setText(String.format(Locale.getDefault(), "%s提供的广告", getNameOrSource()));
             this.s.setText(getDescription());
-            if (!TextUtils.isEmpty(this.f66778b.aj())) {
-                textView2.setText(this.f66778b.aj());
+            if (!TextUtils.isEmpty(this.f67089b.aj())) {
+                textView2.setText(this.f67089b.aj());
             }
             a((View) this, true);
             a((View) textView2, true);

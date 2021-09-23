@@ -22,20 +22,20 @@ public class a {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f9510d;
+    public static a f9518d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Context f9511e;
+    public static Context f9519e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public EditText f9512a;
+    public EditText f9520a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9513b;
+    public boolean f9521b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f9514c;
+    public Runnable f9522c;
 
     /* renamed from: c.a.p0.a.w1.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -44,7 +44,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9515e;
+        public final /* synthetic */ a f9523e;
 
         public RunnableC0444a(a aVar) {
             Interceptable interceptable = $ic;
@@ -61,15 +61,15 @@ public class a {
                     return;
                 }
             }
-            this.f9515e = aVar;
+            this.f9523e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9515e.f9512a.dispatchKeyEvent(new KeyEvent(0, 67));
-                this.f9515e.f9512a.postDelayed(this.f9515e.f9514c, 60L);
+                this.f9523e.f9520a.dispatchKeyEvent(new KeyEvent(0, 67));
+                this.f9523e.f9520a.postDelayed(this.f9523e.f9522c, 60L);
             }
         }
     }
@@ -80,7 +80,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9516e;
+        public final /* synthetic */ a f9524e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class a {
                     return;
                 }
             }
-            this.f9516e = aVar;
+            this.f9524e = aVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -107,23 +107,23 @@ public class a {
                 Object adapter = adapterView.getAdapter();
                 if (adapter instanceof EmojiBagLayout.b) {
                     EmojiBagLayout.b bVar = (EmojiBagLayout.b) adapter;
-                    if (this.f9516e.f9512a == null) {
+                    if (this.f9524e.f9520a == null) {
                         return;
                     }
                     if (i2 == bVar.getCount() - 1) {
-                        if (this.f9516e.f9513b) {
-                            this.f9516e.f9512a.removeCallbacks(this.f9516e.f9514c);
-                            this.f9516e.f9513b = false;
+                        if (this.f9524e.f9521b) {
+                            this.f9524e.f9520a.removeCallbacks(this.f9524e.f9522c);
+                            this.f9524e.f9521b = false;
                             return;
                         }
-                        this.f9516e.f9512a.dispatchKeyEvent(new KeyEvent(0, 67));
+                        this.f9524e.f9520a.dispatchKeyEvent(new KeyEvent(0, 67));
                         return;
                     }
                     String item = bVar.getItem(i2);
                     if (TextUtils.isEmpty(item)) {
                         return;
                     }
-                    this.f9516e.f9512a.getEditableText().insert(this.f9516e.f9512a.getSelectionStart(), c.a.p0.a.w1.h.b.c().g(a.f9511e, item, this.f9516e.f9512a));
+                    this.f9524e.f9520a.getEditableText().insert(this.f9524e.f9520a.getSelectionStart(), c.a.p0.a.w1.h.b.c().g(a.f9519e, item, this.f9524e.f9520a));
                 }
             }
         }
@@ -135,7 +135,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9517e;
+        public final /* synthetic */ a f9525e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -152,7 +152,7 @@ public class a {
                     return;
                 }
             }
-            this.f9517e = aVar;
+            this.f9525e = aVar;
         }
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -162,9 +162,9 @@ public class a {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
                 Object adapter = adapterView.getAdapter();
                 if ((adapter instanceof EmojiBagLayout.b) && i2 == ((EmojiBagLayout.b) adapter).getCount() - 1) {
-                    this.f9517e.f9513b = true;
-                    if (this.f9517e.f9512a != null) {
-                        this.f9517e.f9512a.post(this.f9517e.f9514c);
+                    this.f9525e.f9521b = true;
+                    if (this.f9525e.f9520a != null) {
+                        this.f9525e.f9520a.post(this.f9525e.f9522c);
                         return false;
                     }
                     return false;
@@ -181,7 +181,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9518e;
+        public final /* synthetic */ a f9526e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -198,7 +198,7 @@ public class a {
                     return;
                 }
             }
-            this.f9518e = aVar;
+            this.f9526e = aVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -207,7 +207,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.f9518e.k();
+                    this.f9526e.k();
                     return false;
                 }
                 return false;
@@ -229,22 +229,22 @@ public class a {
                 return;
             }
         }
-        this.f9514c = new RunnableC0444a(this);
+        this.f9522c = new RunnableC0444a(this);
     }
 
     public static a g(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            f9511e = context.getApplicationContext();
-            if (f9510d == null) {
+            f9519e = context.getApplicationContext();
+            if (f9518d == null) {
                 synchronized (a.class) {
-                    if (f9510d == null) {
-                        f9510d = new a();
+                    if (f9518d == null) {
+                        f9518d = new a();
                     }
                 }
             }
-            return f9510d;
+            return f9518d;
         }
         return (a) invokeL.objValue;
     }
@@ -252,7 +252,7 @@ public class a {
     public void f(EditText editText) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editText) == null) {
-            this.f9512a = editText;
+            this.f9520a = editText;
         }
     }
 
@@ -277,9 +277,9 @@ public class a {
     public void k() {
         EditText editText;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (editText = this.f9512a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (editText = this.f9520a) == null) {
             return;
         }
-        editText.removeCallbacks(this.f9514c);
+        editText.removeCallbacks(this.f9522c);
     }
 }

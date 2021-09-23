@@ -1,10 +1,7 @@
 package com.baidu.fsg.face.liveness.activity;
 
-import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.hardware.Camera;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -16,22 +13,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.restnet.RestMultipartEntity;
 import com.baidu.fsg.base.restnet.beans.BeanManager;
 import com.baidu.fsg.base.restnet.beans.business.BeanConstants;
 import com.baidu.fsg.base.restnet.beans.business.UploadBean;
-import com.baidu.fsg.base.restnet.beans.business.core.utils.BdWalletUtils;
 import com.baidu.fsg.base.restnet.fp.GetFPResponse;
 import com.baidu.fsg.base.statistics.RimStatisticsUtil;
-import com.baidu.fsg.base.utils.Base64Utils;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.NetworkUtils;
+import com.baidu.fsg.face.base.c.a;
 import com.baidu.fsg.face.base.d.b;
-import com.baidu.fsg.face.base.d.e;
 import com.baidu.fsg.face.base.d.g;
 import com.baidu.fsg.face.liveness.SapiLivenessRecogManager;
 import com.baidu.fsg.face.liveness.beans.FaceSDKBeansFactory;
@@ -44,152 +37,381 @@ import com.baidu.fsg.face.liveness.datamodel.VideoFaceMatchModel;
 import com.baidu.fsg.face.liveness.datamodel.VideoGetPortraitModel;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
+import com.baidu.fsg.face.liveness.utils.FaceSDKResSettings;
 import com.baidu.fsg.face.liveness.utils.LivenessVideoState;
+import com.baidu.fsg.face.liveness.utils.SoUtils;
 import com.baidu.fsg.face.liveness.view.BioAlertDialog;
 import com.baidu.fsg.face.liveness.view.LivenessVideoUploadView;
 import com.baidu.fsg.face.liveness.view.LivenessVideoWarningTipTextView;
 import com.baidu.fsg.face.liveness.view.LivenessVideoXfordView;
 import com.baidu.fsg.face.liveness.view.LrcTipTextview;
 import com.baidu.fsg.face.liveness.view.LrcView;
-import com.baidu.idl.facesdk.FaceInfo;
-import com.baidu.idl.facesdk.FaceSDK;
-import com.baidu.idl.facesdk.FaceTracker;
-import com.baidu.idl.facesdk.FaceVerifyData;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.pass.face.platform.FaceConfig;
+import com.baidu.pass.face.platform.FaceSDKManager;
+import com.baidu.pass.face.platform.FaceStatusNewEnum;
+import com.baidu.pass.face.platform.LivenessTypeEnum;
+import com.baidu.pass.face.platform.listener.IInitCallback;
 import com.baidu.sapi2.biometrics.liveness.R;
+import com.baidu.sofire.ac.FH;
+import com.baidu.sofire.ac.IVideoRecordProcess;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
-import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Random;
 /* loaded from: classes5.dex */
 public class LivenessVideoActivity extends LivenessCameraBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f40035b = "CONSTRASTBEANTAG";
-
     /* renamed from: c  reason: collision with root package name */
-    public static final String f40036c = "LivenessVideoActivity";
+    public static boolean f40090c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f40037d = -1;
+    public static final String f40091d = "CONSTRASTBEANTAG";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f40038e = 0;
+    public static final String f40092e = "LivenessVideoActivity";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f40039f = 1;
+    public static final int f40093f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f40040g = 2;
+    public static final int f40094g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f40041h = 3;
+    public static final int f40095h = 1;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f40042i = 4;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int[] A;
-    public int B;
-    public int C;
-    public ArrayList<HashMap<String, byte[]>> D;
-    public boolean E;
-    public byte[] F;
-    public byte[] G;
-    public VideoGetPortraitModel H;
-    public long[] I;
-    public List<String> J;
-    public LivenessVideoState K;
-    public boolean L;
-    public int M;
-    public int N;
-    public boolean O;
-    public boolean P;
-    public boolean Q;
-    public boolean R;
-    public int S;
-    public int T;
-    public byte[] U;
-    public int V;
-    public int W;
-    public int X;
+    public static final int f40096i = 2;
 
     /* renamed from: j  reason: collision with root package name */
-    public LivenessVideoXfordView f40043j;
-    public RelativeLayout k;
-    public ImageView l;
-    public LrcView m;
-    public LinearLayout n;
-    public ImageView o;
-    public TextView p;
-    public LivenessVideoWarningTipTextView q;
-    public LivenessVideoUploadView r;
-    public LrcTipTextview s;
-    public LivenessRecogCallback t;
-    public FaceTracker u;
-    public GetFPResponse.LivenessConfig v;
-    public int w;
-    public a x;
-    public FaceTracker.ErrCode y;
-    public FaceInfo[] z;
+    public static final int f40097j = 3;
+    public static final int k = 4;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int A;
+    public ArrayList<HashMap<String, byte[]>> B;
+    public boolean C;
+    public VideoGetPortraitModel D;
+    public long[] E;
+    public List<String> F;
+    public boolean G;
+    public int H;
+    public int I;
+    public boolean J;
+    public boolean K;
+    public boolean L;
+    public boolean M;
+    public int N;
+    public int O;
+    public byte[] P;
+    public int Q;
+    public int R;
+    public int S;
+    public LivenessVideoXfordView l;
+    public RelativeLayout m;
+    public ImageView n;
+    public LrcView o;
+    public LinearLayout p;
+    public ImageView q;
+    public TextView r;
+    public LivenessVideoWarningTipTextView s;
+    public LivenessVideoUploadView t;
+    public LrcTipTextview u;
+    public LivenessRecogCallback v;
+    public GetFPResponse.LivenessConfig w;
+    public int x;
+    public int[] y;
+    public int z;
+
+    /* renamed from: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity$13  reason: invalid class name */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class AnonymousClass13 {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f40104a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(854945049, "Lcom/baidu/fsg/face/liveness/activity/LivenessVideoActivity$13;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(854945049, "Lcom/baidu/fsg/face/liveness/activity/LivenessVideoActivity$13;");
+                    return;
+                }
+            }
+            int[] iArr = new int[FaceStatusNewEnum.values().length];
+            f40104a = iArr;
+            try {
+                iArr[FaceStatusNewEnum.OK.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.FaceLivenessActionComplete.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.DetectRemindCodeTooClose.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.DetectRemindCodeTooFar.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.DetectRemindCodeBeyondPreviewFrame.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.DetectRemindCodeNoFaceDetected.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.DetectRemindCodePoorIllumination.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.FaceLivenessActionTypeLivePitchUp.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.FaceLivenessActionTypeLivePitchDown.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.FaceLivenessActionTypeLiveYawLeft.ordinal()] = 10;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.FaceLivenessActionTypeLiveYawRight.ordinal()] = 11;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.DetectRemindCodePitchOutofUpRange.ordinal()] = 12;
+            } catch (NoSuchFieldError unused12) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.DetectRemindCodePitchOutofDownRange.ordinal()] = 13;
+            } catch (NoSuchFieldError unused13) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.DetectRemindCodeYawOutofLeftRange.ordinal()] = 14;
+            } catch (NoSuchFieldError unused14) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.DetectRemindCodeYawOutofRightRange.ordinal()] = 15;
+            } catch (NoSuchFieldError unused15) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.DetectRemindCodeTimeout.ordinal()] = 16;
+            } catch (NoSuchFieldError unused16) {
+            }
+            try {
+                f40104a[FaceStatusNewEnum.FaceLivenessActionCodeTimeout.ordinal()] = 17;
+            } catch (NoSuchFieldError unused17) {
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(52939095, "Lcom/baidu/fsg/face/liveness/activity/LivenessVideoActivity;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(52939095, "Lcom/baidu/fsg/face/liveness/activity/LivenessVideoActivity;");
+        }
+    }
 
     public LivenessVideoActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.w = 0;
-        this.A = null;
-        this.J = new ArrayList();
-        this.K = new LivenessVideoState();
-        this.M = -1;
-        this.N = -1;
-        this.O = false;
-        this.R = false;
+        this.x = 0;
+        this.y = null;
+        this.F = new ArrayList();
+        this.H = -1;
+        this.I = -1;
+        this.J = false;
+        this.M = false;
     }
 
-    public static /* synthetic */ int e(LivenessVideoActivity livenessVideoActivity) {
-        int i2 = livenessVideoActivity.w - 1;
-        livenessVideoActivity.w = i2;
-        return i2;
-    }
-
-    private void s() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65587, this) == null) {
-            RimStatisticsUtil.onEvent(d.S);
-            BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
-            bioAlertDialog.setDialogMsg(getString(R.string.liveness_video_interrupt_dialog_msg));
-            bioAlertDialog.setDialogMsgColor(getResources().getColor(R.color.sapi_dialog_title_text_color));
-            bioAlertDialog.setBtnCount(1);
-            bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.15
+        if (interceptable == null || interceptable.invokeV(65568, this) == null) {
+            this.l.updateXfordViewState(LivenessVideoXfordView.VideoXfordViewState.SUCCESSED, null);
+            this.s.startInvisibleAnim();
+            this.o.toInvalidate();
+            this.p.setVisibility(0);
+            this.u.setVisibility(0);
+            this.u.postDelayed(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f40054a;
+                public final /* synthetic */ LivenessVideoActivity f40115a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f40115a = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        LivenessVideoState livenessVideoState = this.f40115a.livenessVideoState;
+                        livenessVideoState.currentState = 4;
+                        livenessVideoState.setLrcTextStartTime();
+                        this.f40115a.livenessVideoState.updateState(5);
+                        this.f40115a.m();
+                    }
+                }
+            }, 1000L);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65569, this) == null) {
+            this.livenessVideoState.isLrcTipAnimCalling = true;
+            this.u.startLrcTipAnim(new LrcView.a(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.20
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ LivenessVideoActivity f40120a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f40120a = this;
+                }
+
+                @Override // com.baidu.fsg.face.liveness.view.LrcView.a
+                public void a() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        IVideoRecordProcess iVideoRecordProcess = this.f40120a.mProcess;
+                        if (iVideoRecordProcess != null) {
+                            iVideoRecordProcess.startRecord();
+                            LogUtil.d("hello", "start record");
+                        }
+                        this.f40120a.u.postDelayed(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.20.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            /* renamed from: a  reason: collision with root package name */
+                            public final /* synthetic */ AnonymousClass20 f40121a;
+
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.f40121a = this;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                    LivenessVideoActivity livenessVideoActivity = this.f40121a.f40120a;
+                                    livenessVideoActivity.livenessVideoState.isLrcTipAnimCalling = false;
+                                    livenessVideoActivity.o.setLrcList(this.f40121a.f40120a.F);
+                                    this.f40121a.f40120a.o.toInvalidate();
+                                }
+                            }
+                        }, 300L);
+                    }
+                }
+            });
+        }
+    }
+
+    private void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65570, this) == null) {
+            this.M = true;
+            BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
+            bioAlertDialog.setDialogMsg(getString(R.string.liveness_video_timeout_dialog_msg));
+            bioAlertDialog.setDialogMsgColor(getResources().getColor(R.color.sapi_dialog_title_text_color));
+            bioAlertDialog.setBtnCount(1);
+            bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ BioAlertDialog f40126a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40055b;
+                public final /* synthetic */ LivenessVideoActivity f40127b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -206,16 +428,22 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f40055b = this;
-                    this.f40054a = bioAlertDialog;
+                    this.f40127b = this;
+                    this.f40126a = bioAlertDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f40054a.dismiss();
-                        this.f40055b.a(-204, com.baidu.fsg.face.base.c.a.ERROR_MSG_USER_CANCEL);
+                        this.f40127b.M = false;
+                        this.f40126a.dismiss();
+                        if (this.f40127b.v != null) {
+                            LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
+                            livenessRecogResult.setResultCode(-401);
+                            this.f40127b.v.b(livenessRecogResult);
+                        }
+                        this.f40127b.c();
                     }
                 }
             });
@@ -227,23 +455,262 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         }
     }
 
-    private void t() {
+    private void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65571, this) == null) {
+            BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
+            bioAlertDialog.setDialogMsg(getString(R.string.sapi_liveness_upload_video_fail_dialog_msg));
+            bioAlertDialog.setDialogMsgColor(getResources().getColor(R.color.sapi_dialog_title_text_color));
+            bioAlertDialog.setBtnCount(2);
+            bioAlertDialog.setPositiveBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ BioAlertDialog f40128a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ LivenessVideoActivity f40129b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, bioAlertDialog};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f40129b = this;
+                    this.f40128a = bioAlertDialog;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        RimStatisticsUtil.onEvent(d.X);
+                        this.f40128a.dismiss();
+                        this.f40129b.k();
+                    }
+                }
+            });
+            bioAlertDialog.setNegativeBtn(getString(R.string.sapi_alert_dialog_btn_cancel), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ BioAlertDialog f40130a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ LivenessVideoActivity f40131b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, bioAlertDialog};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f40131b = this;
+                    this.f40130a = bioAlertDialog;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        RimStatisticsUtil.onEvent(d.Y);
+                        this.f40130a.dismiss();
+                        g.c(g.b(this.f40131b.getActivity()));
+                        this.f40131b.a(-204, a.ERROR_MSG_USER_CANCEL);
+                    }
+                }
+            });
+            bioAlertDialog.setCancelable(false);
+            if (isFinishing() || bioAlertDialog.isShowing()) {
+                return;
+            }
+            bioAlertDialog.show();
+        }
+    }
+
+    private void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65572, this) == null) {
+            BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
+            bioAlertDialog.setDialogMsg(BeanConstants.rim_timeout_error);
+            bioAlertDialog.setDialogMsgColor(getResources().getColor(R.color.sapi_dialog_title_text_color));
+            bioAlertDialog.setBtnCount(2);
+            bioAlertDialog.setPositiveBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ BioAlertDialog f40132a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ LivenessVideoActivity f40133b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, bioAlertDialog};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f40133b = this;
+                    this.f40132a = bioAlertDialog;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.f40132a.dismiss();
+                        this.f40133b.k();
+                    }
+                }
+            });
+            bioAlertDialog.setNegativeBtn(getString(R.string.sapi_alert_dialog_btn_cancel), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ BioAlertDialog f40134a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ LivenessVideoActivity f40135b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, bioAlertDialog};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f40135b = this;
+                    this.f40134a = bioAlertDialog;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.f40134a.dismiss();
+                        g.c(g.b(this.f40135b.getActivity()));
+                        this.f40135b.a(-204, a.ERROR_MSG_USER_CANCEL);
+                    }
+                }
+            });
+            bioAlertDialog.setCancelable(false);
+            if (isFinishing() || bioAlertDialog.isShowing()) {
+                return;
+            }
+            bioAlertDialog.show();
+        }
+    }
+
+    private void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65573, this) == null) {
+            BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
+            bioAlertDialog.setDialogMsg(getString(R.string.liveness_video_interrupt_dialog_msg));
+            bioAlertDialog.setDialogMsgColor(getResources().getColor(R.color.sapi_dialog_title_text_color));
+            bioAlertDialog.setBtnCount(1);
+            bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ BioAlertDialog f40136a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ LivenessVideoActivity f40137b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, bioAlertDialog};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f40137b = this;
+                    this.f40136a = bioAlertDialog;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        this.f40136a.dismiss();
+                        this.f40137b.a(-204, a.ERROR_MSG_USER_CANCEL);
+                    }
+                }
+            });
+            bioAlertDialog.setCancelable(false);
+            if (isFinishing() || bioAlertDialog.isShowing()) {
+                return;
+            }
+            bioAlertDialog.show();
+        }
+    }
+
+    private void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65574, this) == null) {
             RimStatisticsUtil.onEvent(d.Z);
             BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
             bioAlertDialog.setDialogMsg(getString(R.string.liveness_video_file_exceptio_dialog_msg));
             bioAlertDialog.setDialogMsgColor(getResources().getColor(R.color.sapi_dialog_title_text_color));
             bioAlertDialog.setBtnCount(1);
-            bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.16
+            bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f40056a;
+                public final /* synthetic */ BioAlertDialog f40099a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40057b;
+                public final /* synthetic */ LivenessVideoActivity f40100b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -260,16 +727,16 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f40057b = this;
-                    this.f40056a = bioAlertDialog;
+                    this.f40100b = this;
+                    this.f40099a = bioAlertDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f40056a.dismiss();
-                        this.f40057b.a(-204, com.baidu.fsg.face.base.c.a.ERROR_MSG_USER_CANCEL);
+                        this.f40099a.dismiss();
+                        this.f40100b.a(-204, a.ERROR_MSG_USER_CANCEL);
                     }
                 }
             });
@@ -281,22 +748,22 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         }
     }
 
-    private void u() {
+    private void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65575, this) == null) {
             BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
             bioAlertDialog.setDialogMsg(LivenessRecogResult.ERROR_MSG_LIVENESS_VIDEO_TOOLARGE);
             bioAlertDialog.setDialogMsgColor(getResources().getColor(R.color.sapi_dialog_title_text_color));
             bioAlertDialog.setBtnCount(1);
-            bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.17
+            bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.11
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f40058a;
+                public final /* synthetic */ BioAlertDialog f40101a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40059b;
+                public final /* synthetic */ LivenessVideoActivity f40102b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -313,16 +780,16 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f40059b = this;
-                    this.f40058a = bioAlertDialog;
+                    this.f40102b = this;
+                    this.f40101a = bioAlertDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f40058a.dismiss();
-                        this.f40059b.a(-402, LivenessRecogResult.ERROR_MSG_LIVENESS_VIDEO_TOOLARGE);
+                        this.f40101a.dismiss();
+                        this.f40102b.a(-402, LivenessRecogResult.ERROR_MSG_LIVENESS_VIDEO_TOOLARGE);
                     }
                 }
             });
@@ -340,18 +807,62 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         }
     }
 
+    @Override // com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity
+    public void buildDataError() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.v != null) {
+                LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
+                livenessRecogResult.setResultMsg(a.ERROR_MSG_BUILD_DATA_ERROR);
+                livenessRecogResult.setResultCode(a.ERROR_CODE_BUILD_DATA_ERROR);
+                this.v.b(livenessRecogResult);
+            }
+            c();
+        }
+    }
+
+    @Override // com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity
+    public void cameraException() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            a(false, true);
+        }
+    }
+
+    @Override // com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity
+    public void dofaceMatch() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            RimStatisticsUtil.onEventStart(d.O);
+            LogUtil.d("hello", "onEventStart(StatServiceEvent.FACEMATCH):  对比接口开始");
+            n nVar = (n) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 10, "CONSTRASTBEANTAG");
+            LivenessRecogDTO livenessRecogDTO = this.livenessRecogDTO;
+            if (livenessRecogDTO != null) {
+                nVar.b(livenessRecogDTO);
+            }
+            nVar.g("image");
+            nVar.d("digests");
+            nVar.a(this.sKey);
+            nVar.c(this.xDeviceId);
+            nVar.b(this.faceData);
+            nVar.e(this.livenessVideoState.reqTimes + "");
+            nVar.setResponseCallback(this);
+            nVar.execBean();
+        }
+    }
+
     @Override // com.baidu.fsg.base.activity.BeanActivity
     public void handleFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, str) == null) {
+        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, str) == null) {
             if (i2 == 10) {
                 a("0", i3);
             } else if (i2 == 11) {
-                c(i3);
+                a(i3);
                 if (i3 == -5) {
-                    r();
+                    p();
                 } else {
-                    q();
+                    o();
                 }
             } else {
                 super.handleFailure(i2, i3, str);
@@ -362,7 +873,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
     @Override // com.baidu.fsg.face.liveness.activity.LivenessBaseActivity, com.baidu.fsg.base.activity.BeanActivity
     public void handleResponse(int i2, Object obj, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, obj, str) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048585, this, i2, obj, str) == null) {
             super.handleResponse(i2, obj, str);
             if (i2 == 10) {
                 if (obj == null || !(obj instanceof VideoFaceMatchModel)) {
@@ -370,31 +881,45 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 }
                 a(((VideoFaceMatchModel) obj).isContrastPass() ? "1" : "0", 0);
             } else if (i2 == 11) {
-                c(0);
+                a(0);
                 if (obj != null && (obj instanceof AudioVideoUploadModel)) {
-                    if (this.t != null) {
+                    if (this.v != null) {
                         LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
                         livenessRecogResult.setResultCode(0);
                         livenessRecogResult.callbackkey = ((AudioVideoUploadModel) obj).callbackkey;
-                        this.t.a(livenessRecogResult);
-                        g.b(g.b(getActivity()));
-                        e();
+                        this.v.a(livenessRecogResult);
+                        g.c(g.b(getActivity()));
+                        c();
                         return;
                     }
                     return;
                 }
-                a(-206, com.baidu.fsg.face.base.c.a.ERROR_MSG_SERVER_ERROR);
+                a(-206, a.ERROR_MSG_SERVER_ERROR);
             }
+        }
+    }
+
+    @Override // com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity
+    public void notTrustedDevice() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (this.v != null) {
+                LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
+                livenessRecogResult.setResultMsg(a.ERROR_MSG_UNTRUSTED_DEVICE);
+                livenessRecogResult.setResultCode(a.ERROR_CODE_UNTRUSTED_DEVICE);
+                this.v.b(livenessRecogResult);
+            }
+            c();
         }
     }
 
     @Override // com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onBackPressed();
             RimStatisticsUtil.onEvent(d.R);
-            a(-204, com.baidu.fsg.face.base.c.a.ERROR_MSG_USER_CANCEL);
+            a(-204, a.ERROR_MSG_USER_CANCEL);
         }
     }
 
@@ -402,84 +927,160 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
     public void onCreate(Bundle bundle) {
         Serializable serializable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onCreate(bundle);
+            this.v = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
             if (this.livenessRecogDTO == null) {
-                a(-206, com.baidu.fsg.face.base.c.a.ERROR_MSG_SERVER_ERROR);
-                return;
+                a(-206, a.ERROR_MSG_SERVER_ERROR);
+            } else if (f40090c) {
+                i();
+                LogUtil.d("hello", "callManyTimes");
+            } else {
+                f40090c = true;
+                d();
+                FaceSDKResSettings.initializeResId();
+                if (getIntent().getExtras() != null && (serializable = getIntent().getExtras().getSerializable(LivenessVideoLoadingActivity.KEY_VIDEOGETPORTRAITMODEL)) != null && (serializable instanceof VideoGetPortraitModel)) {
+                    VideoGetPortraitModel videoGetPortraitModel = (VideoGetPortraitModel) serializable;
+                    this.D = videoGetPortraitModel;
+                    this.E = videoGetPortraitModel.getCutTimePoints();
+                    this.F = this.D.getLrcContent();
+                    this.N = this.D.getVideoMaxSize();
+                }
+                this.livenessVideoState.currentCount = -1;
+                e();
             }
-            f();
-            g();
-            this.t = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
-            if (getIntent().getExtras() != null && (serializable = getIntent().getExtras().getSerializable(LivenessVideoLoadingActivity.KEY_VIDEOGETPORTRAITMODEL)) != null && (serializable instanceof VideoGetPortraitModel)) {
-                VideoGetPortraitModel videoGetPortraitModel = (VideoGetPortraitModel) serializable;
-                this.H = videoGetPortraitModel;
-                this.I = videoGetPortraitModel.getCutTimePoints();
-                this.J = this.H.getLrcContent();
-                this.S = this.H.getVideoMaxSize();
-            }
-            startVideoOrCamera();
         }
     }
 
     @Override // com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity, com.baidu.fsg.base.activity.BeanActivity, com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDestroy();
-            LivenessVideoXfordView livenessVideoXfordView = this.f40043j;
+            FaceSDKManager.getInstance().release();
+            LivenessVideoXfordView livenessVideoXfordView = this.l;
             if (livenessVideoXfordView != null) {
                 livenessVideoXfordView.release();
             }
-            BeanManager.getInstance().removeAllBeans(f40036c);
+            BeanManager.getInstance().removeAllBeans(f40092e);
             BeanManager.getInstance().removeAllBeans("CONSTRASTBEANTAG");
+            f40090c = false;
         }
     }
 
-    @Override // com.baidu.fsg.base.activity.BeanActivity, com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
-    public void onPause() {
+    @Override // com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity
+    public void onRefreshView(FaceStatusNewEnum faceStatusNewEnum, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.onPause();
+        if (interceptable == null || interceptable.invokeLLI(1048590, this, faceStatusNewEnum, str, i2) == null) {
+            LogUtil.d("hello", "status:" + faceStatusNewEnum.toString() + ",message:" + str);
+            switch (AnonymousClass13.f40104a[faceStatusNewEnum.ordinal()]) {
+                case 1:
+                case 2:
+                    a("非常好");
+                    return;
+                case 3:
+                    a("请将脸部离远一点");
+                    return;
+                case 4:
+                    a("请将脸部靠近一点");
+                    return;
+                case 5:
+                    a("把脸移入框内");
+                    return;
+                case 6:
+                    a("把脸移入框内");
+                    return;
+                case 7:
+                    a("请使环境光线再亮些");
+                    return;
+                case 8:
+                    a("缓慢抬头");
+                    return;
+                case 9:
+                    a("缓慢低头");
+                    return;
+                case 10:
+                    a("向左缓慢转头");
+                    return;
+                case 11:
+                    a("向右缓慢转头");
+                    return;
+                case 12:
+                    a("请略微低头");
+                    return;
+                case 13:
+                    a("请略微抬头");
+                    return;
+                case 14:
+                    a("请略微向右转头");
+                    return;
+                case 15:
+                    a("请略微向左转头");
+                    return;
+                case 16:
+                case 17:
+                    n();
+                    a("检测超时");
+                    return;
+                default:
+                    return;
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.onStart();
+            LogUtil.d("hello", "onStart");
+            if (this.G) {
+                this.G = false;
+                if (!this.livenessVideoState.isWarnCancleTipAfterOnPause() || this.M) {
+                    return;
+                }
+                q();
+                return;
+            }
+            getCameraPermission();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            super.onStop();
+            LogUtil.d("hello", MissionEvent.MESSAGE_STOP);
+            if (this.mProcess != null) {
+                LogUtil.d("hello", "mProcess.release");
+                this.mProcess.release();
+            }
+            LogUtil.d("hello", "cancel face process");
+            FH.cancelFaceProcess();
             if (this.permissionFlag) {
                 return;
             }
-            this.L = true;
-            stopVideoOrCamera();
-        }
-    }
-
-    @Override // com.baidu.fsg.base.activity.BeanActivity, com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            super.onResume();
-            if (this.L) {
-                this.L = false;
-                if (!this.K.isWarnCancleTipAfterOnPause() || this.R) {
-                    return;
-                }
-                s();
-            }
+            this.G = true;
         }
     }
 
     public void showVideoDoneView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            RimStatisticsUtil.onEventWithValue(d.T, this.Q ? "1" : "0");
-            this.k.setVisibility(4);
-            this.f40043j.setVisibility(4);
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            RimStatisticsUtil.onEventWithValue(d.T, this.L ? "1" : "0");
+            this.m.setVisibility(4);
+            this.l.setVisibility(4);
             LivenessVideoUploadView livenessVideoUploadView = new LivenessVideoUploadView(getActivity());
-            this.r = livenessVideoUploadView;
+            this.t = livenessVideoUploadView;
             ((FrameLayout) findViewById(R.id.view_stup_upload_video)).addView(livenessVideoUploadView);
-            this.r.showBackgroundBitmap();
-            this.r.setUploadListener(new LivenessVideoUploadView.a(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.18
+            this.t.showBackgroundBitmap();
+            this.t.setUploadListener(new LivenessVideoUploadView.a(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.16
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40060a;
+                public final /* synthetic */ LivenessVideoActivity f40107a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -496,7 +1097,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f40060a = this;
+                    this.f40107a = this;
                 }
 
                 @Override // com.baidu.fsg.face.liveness.view.LivenessVideoUploadView.a
@@ -504,8 +1105,8 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         RimStatisticsUtil.onEvent(d.V);
-                        g.b(g.b(this.f40060a.getActivity()));
-                        this.f40060a.a(-204, com.baidu.fsg.face.base.c.a.ERROR_MSG_USER_CANCEL);
+                        g.c(g.b(this.f40107a.getActivity()));
+                        this.f40107a.a(-204, a.ERROR_MSG_USER_CANCEL);
                     }
                 }
 
@@ -514,10 +1115,10 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                        if (NetworkUtils.isNetworkAvailable(this.f40060a.getActivity())) {
+                        if (NetworkUtils.isNetworkAvailable(this.f40107a.getActivity())) {
                             return true;
                         }
-                        this.f40060a.showNoNetWorkDialog();
+                        this.f40107a.showNoNetWorkDialog();
                         return false;
                     }
                     return invokeV.booleanValue;
@@ -528,156 +1129,173 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                         RimStatisticsUtil.onEvent(d.U);
-                        this.f40060a.j();
+                        this.f40107a.k();
                     }
                 }
             });
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends AsyncTask<Void, Void, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LivenessVideoActivity f40091a;
-
-        public a(LivenessVideoActivity livenessVideoActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {livenessVideoActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f40091a = livenessVideoActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.AsyncTask
-        /* renamed from: a */
-        public String doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                if (this.f40091a.K.isInitOk()) {
-                    this.f40091a.k();
-                    return null;
-                }
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.AsyncTask
-        /* renamed from: a */
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                super.onPostExecute(str);
-                LivenessVideoActivity.e(this.f40091a);
-            }
-        }
-    }
-
-    private void c(int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65557, this, i2) == null) || this.livenessRecogDTO == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(this.livenessRecogDTO.getSpno() + "");
-        arrayList.add(this.livenessRecogDTO.spParams + "");
-        arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-        RimStatisticsUtil.onEventEndWithValues(d.W, i2, arrayList);
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             RimStatisticsUtil.getInstance().triggerSending();
             LogUtil.d("hello", "triggerSending:发送日志");
-            stopVideoOrCamera();
             setResult(0);
             finish();
         }
     }
 
+    private void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            GetFPResponse.LivenessConfig a2 = c.a().a(getActivity());
+            this.w = a2;
+            if (a2 == null) {
+                this.w = new GetFPResponse.LivenessConfig();
+            }
+        }
+    }
+
+    private void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
+            if (!SoUtils.loadAIModelSo(this)) {
+                f();
+            } else if (!FH.isInitSuc(1)) {
+                g();
+            } else {
+                j();
+            }
+        }
+    }
+
     private void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
-            GetFPResponse.LivenessConfig a2 = c.a().a(getActivity());
-            this.v = a2;
-            if (a2 == null) {
-                this.v = new GetFPResponse.LivenessConfig();
+        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
+            if (this.v != null) {
+                LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
+                livenessRecogResult.setResultCode(-403);
+                livenessRecogResult.setResultMsg(LivenessRecogResult.ERROR_MSG_MML_FRAMEWORK_NOT_FIND);
+                this.v.b(livenessRecogResult);
             }
+            c();
         }
     }
 
     private void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65564, this) == null) {
-            try {
-                h();
-                i();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(65558, this) == null) {
+            if (this.v != null) {
+                LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
+                livenessRecogResult.setResultCode(-404);
+                livenessRecogResult.setResultMsg(LivenessRecogResult.ERROR_MSG_SAFE_MODULE_LOAD_FAIL);
+                this.v.b(livenessRecogResult);
             }
-        }
-    }
-
-    private void h() throws Exception {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65566, this) == null) && !com.baidu.fsg.face.base.b.d.a(this, 4, null)) {
-            throw new Exception("load so failure");
-        }
-    }
-
-    private void i() throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65568, this) == null) {
-            String token = RimArmor.getInstance().getToken();
-            if (!TextUtils.isEmpty(token) && !TextUtils.isEmpty("frfsd_ai")) {
-                try {
-                    FaceTracker faceTracker = new FaceTracker(getAssets(), this, "frfsd_ai", token, "", FaceSDK.AlignMethodType.SDM_7PTS, FaceSDK.ParsMethodType.NOT_USE);
-                    this.u = faceTracker;
-                    faceTracker.set_isFineAlign(false);
-                    this.u.set_isVerifyLive(true);
-                    if (this.v == null) {
-                        this.v = new GetFPResponse.LivenessConfig();
-                    }
-                    this.u.set_min_face_size(this.v.getMinFaceSize());
-                    this.u.set_illum_thr(this.v.getIllumThr());
-                    this.u.set_track_by_detection_interval(this.v.getTrackInterval());
-                    this.u.set_detect_in_video_interval(this.v.getDetectInterval());
-                    this.u.set_eulur_angle_thr(this.v.getYaw(), this.v.getPitch(), this.v.getRoll());
-                    this.u.set_max_reg_img_num(this.v.getMaxRegImgNum(this.livenessRecogDTO.spParams));
-                    this.u.set_prefetch_reg_img_interval(this.v.getPrefetchRegImgInterval());
-                    this.u.set_cropFaceSize(this.v.getCropFaceSize());
-                    this.u.set_cropFaceEnlargeRatio(this.v.getCropFaceRatio());
-                    return;
-                } catch (Exception e2) {
-                    throw new Exception("init faceTracker failure: " + e2.getMessage());
-                }
-            }
-            throw new Exception("idlToken or apiKey is empty");
+            c();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void j() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65569, this) != null) {
+        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
+            if (this.v != null) {
+                LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
+                livenessRecogResult.setResultCode(-303);
+                livenessRecogResult.setResultMsg(LivenessRecogResult.ERROR_MSG_FACE_SDK_INIT_FAIL);
+                this.v.b(livenessRecogResult);
+            }
+            c();
+        }
+    }
+
+    private void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
+            if (this.v != null) {
+                LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
+                livenessRecogResult.setResultCode(a.ERROR_CODE_MANY_CALL);
+                livenessRecogResult.setResultMsg(a.ERROR_MSG_MANY_CALL);
+                this.v.b(livenessRecogResult);
+            }
+            c();
+        }
+    }
+
+    private void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65565, this) == null) {
+            FaceConfig faceConfig = FaceSDKManager.getInstance().getFaceConfig();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new Random().nextInt(100) % 2 == 0 ? LivenessTypeEnum.Eye : LivenessTypeEnum.Mouth);
+            faceConfig.setLivenessTypeList(arrayList);
+            faceConfig.setCacheImageNum(1);
+            faceConfig.setOutputImageType(1);
+            faceConfig.setBlurnessValue(0.8f);
+            faceConfig.setBrightnessValue(30.0f);
+            faceConfig.setBrightnessMaxValue(240.0f);
+            faceConfig.setOcclusionLeftEyeValue(0.95f);
+            faceConfig.setOcclusionRightEyeValue(0.95f);
+            faceConfig.setOcclusionNoseValue(0.95f);
+            faceConfig.setOcclusionMouthValue(0.95f);
+            faceConfig.setOcclusionLeftContourValue(0.95f);
+            faceConfig.setOcclusionRightContourValue(0.95f);
+            faceConfig.setOcclusionChinValue(0.95f);
+            faceConfig.setHeadPitchValue(30);
+            faceConfig.setHeadYawValue(18);
+            faceConfig.setHeadRollValue(30);
+            FaceSDKManager.getInstance().setFaceConfig(faceConfig);
+            FaceSDKManager.getInstance().initialize(this, "baidu-sec-face-demo-face-android", "idl-license.face-android", new IInitCallback(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ LivenessVideoActivity f40098a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f40098a = this;
+                }
+
+                @Override // com.baidu.pass.face.platform.listener.IInitCallback
+                public void initFailure(int i2, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                        this.f40098a.h();
+                        LogUtil.d("face-init", "初始化失败 = " + i2 + " " + str);
+                    }
+                }
+
+                @Override // com.baidu.pass.face.platform.listener.IInitCallback
+                public void initSuccess() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        LogUtil.d("face-init", "初始化成功");
+                    }
+                }
+            });
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(65566, this) != null) {
             return;
         }
         FileInputStream fileInputStream = null;
@@ -692,43 +1310,46 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 } catch (IOException e2) {
                     e2.printStackTrace();
                 }
-                this.T = available;
+                this.O = available;
                 int i2 = available / 1048576;
                 ArrayList arrayList = new ArrayList();
                 arrayList.add("" + c.a().b(getApplicationContext()));
-                arrayList.add(String.valueOf(this.T));
-                arrayList.add(this.S + "");
+                arrayList.add(String.valueOf(this.O));
+                arrayList.add(this.N + "");
                 if (this.livenessRecogDTO != null) {
                     arrayList.add(this.livenessRecogDTO.getSpno() + "");
                     arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
                 }
                 RimStatisticsUtil.onEventWithValues(d.ac, arrayList);
-                if (this.T == 0) {
-                    t();
-                } else if (i2 >= this.S) {
+                if (this.O == 0) {
+                    r();
+                } else if (i2 >= this.N) {
                     RimStatisticsUtil.onEventWithValues(d.aa, arrayList);
-                    int b2 = (int) (c.a().b(getApplicationContext()) / ((i2 / this.S) + 0.5f));
+                    int b2 = (int) (c.a().b(getApplicationContext()) / ((i2 / this.N) + 0.5f));
                     RimStatisticsUtil.onEventWithValue(d.ab, b2 + "");
                     c.a().a(getApplicationContext(), b2);
-                    u();
+                    s();
                 } else {
                     RimStatisticsUtil.onEventStart(d.W);
                     LogUtil.d("hello", "onEventStart(StatServiceEvent.VIDEOUPLOAD):  视频上传接口开始");
-                    com.baidu.fsg.face.liveness.beans.a aVar = (com.baidu.fsg.face.liveness.beans.a) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 11, f40036c);
+                    com.baidu.fsg.face.liveness.beans.a aVar = (com.baidu.fsg.face.liveness.beans.a) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 11, f40092e);
                     UploadBean.UploadFileModel uploadFileModel = new UploadBean.UploadFileModel();
                     uploadFileModel.contentType = "video/mp4";
                     uploadFileModel.filedata = bArr;
                     uploadFileModel.fileName = "video.mp4";
                     uploadFileModel.name = "file";
+                    aVar.a(this.sKey);
+                    aVar.c(this.xDeviceId);
+                    aVar.b(this.faceData);
                     aVar.addFile(uploadFileModel);
-                    aVar.a(this.K.getLrcStartTimeOffset());
-                    aVar.b(this.Q ? "0" : "1");
-                    aVar.setProgressListener(new RestMultipartEntity.ProgressListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.19
+                    aVar.d(this.livenessVideoState.getLrcStartTimeOffset());
+                    aVar.e(this.L ? "0" : "1");
+                    aVar.setProgressListener(new RestMultipartEntity.ProgressListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.17
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ LivenessVideoActivity f40061a;
+                        public final /* synthetic */ LivenessVideoActivity f40108a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -745,7 +1366,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                                     return;
                                 }
                             }
-                            this.f40061a = this;
+                            this.f40108a = this;
                         }
 
                         @Override // com.baidu.fsg.base.restnet.RestMultipartEntity.ProgressListener
@@ -757,18 +1378,18 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                                 sb.append("progress:  ");
                                 sb.append((int) ((((float) j2) / ((float) j3)) * 100.0f));
                                 LogUtil.d("hello", sb.toString());
-                                this.f40061a.runOnUiThread(new Runnable(this, j2, j3) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.19.1
+                                this.f40108a.runOnUiThread(new Runnable(this, j2, j3) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.17.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ long f40062a;
+                                    public final /* synthetic */ long f40109a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ long f40063b;
+                                    public final /* synthetic */ long f40110b;
 
                                     /* renamed from: c  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass19 f40064c;
+                                    public final /* synthetic */ AnonymousClass17 f40111c;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -785,16 +1406,16 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                                                 return;
                                             }
                                         }
-                                        this.f40064c = this;
-                                        this.f40062a = j2;
-                                        this.f40063b = j3;
+                                        this.f40111c = this;
+                                        this.f40109a = j2;
+                                        this.f40110b = j3;
                                     }
 
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            this.f40064c.f40061a.r.updateProgress((int) ((((float) this.f40062a) / ((float) this.f40063b)) * 100.0f));
+                                            this.f40111c.f40108a.t.updateProgress((int) ((((float) this.f40109a) / ((float) this.f40110b)) * 100.0f));
                                         }
                                     }
                                 });
@@ -831,813 +1452,39 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0090 A[Catch: all -> 0x012d, TryCatch #0 {all -> 0x012d, blocks: (B:8:0x000c, B:10:0x0045, B:12:0x004d, B:14:0x005b, B:28:0x0090, B:31:0x0095, B:33:0x00ab, B:35:0x00b5, B:37:0x00bf, B:39:0x00d4, B:41:0x00d9, B:43:0x00dc, B:44:0x00df, B:45:0x00e4, B:47:0x00ea, B:48:0x00fe, B:50:0x0113, B:51:0x011c, B:53:0x0124, B:15:0x005e, B:17:0x006c, B:18:0x006f, B:20:0x0075, B:21:0x0079, B:23:0x0085, B:24:0x0088, B:25:0x008b), top: B:61:0x000c }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00fe A[Catch: all -> 0x012d, TryCatch #0 {all -> 0x012d, blocks: (B:8:0x000c, B:10:0x0045, B:12:0x004d, B:14:0x005b, B:28:0x0090, B:31:0x0095, B:33:0x00ab, B:35:0x00b5, B:37:0x00bf, B:39:0x00d4, B:41:0x00d9, B:43:0x00dc, B:44:0x00df, B:45:0x00e4, B:47:0x00ea, B:48:0x00fe, B:50:0x0113, B:51:0x011c, B:53:0x0124, B:15:0x005e, B:17:0x006c, B:18:0x006f, B:20:0x0075, B:21:0x0079, B:23:0x0085, B:24:0x0088, B:25:0x008b), top: B:61:0x000c }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void k() {
-        byte[] bArr;
-        int[] iArr;
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65571, this) == null) || (bArr = this.U) == null || (iArr = this.A) == null) {
-            return;
-        }
-        try {
-            FaceSDK.getARGBFromYUVimg(bArr, iArr, this.V, this.W, this.X, 1);
-            this.U = null;
-            this.y = this.u.face_verification(this.A, this.V, this.W, FaceSDK.ImgType.ARGB, FaceTracker.ActionType.RECOGNIZE, "", "", "");
-            this.A = null;
-            FaceInfo[] faceInfoArr = this.u.get_TrackedFaceInfo();
-            this.z = faceInfoArr;
-            boolean z = true;
-            if (a(faceInfoArr)) {
-                if (b(this.z)) {
-                    if (e.c(this.z[0].landmarks, this.faceRectGroup)) {
-                        this.N = 1;
-                    } else if (e.b(this.z[0].landmarks, this.faceRectGroup)) {
-                        this.N = 0;
-                    } else if (this.y == FaceTracker.ErrCode.POOR_ILLUMINATION) {
-                        this.N = 2;
-                    } else {
-                        if (a(this.z[0], this.y)) {
-                            this.N = 4;
-                        }
-                        if (!z) {
-                            if (this.O) {
-                                return;
-                            }
-                            runOnUiThread(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.20
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-
-                                /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ LivenessVideoActivity f40068a;
-
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.f40068a = this;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        if (this.f40068a.K.isFirstRecog()) {
-                                            this.f40068a.f40043j.updateXfordViewState(LivenessVideoXfordView.VideoXfordViewState.SUCCESSING, new LivenessVideoXfordView.a(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.20.1
-                                                public static /* synthetic */ Interceptable $ic;
-                                                public transient /* synthetic */ FieldHolder $fh;
-
-                                                /* renamed from: a  reason: collision with root package name */
-                                                public final /* synthetic */ AnonymousClass20 f40069a;
-
-                                                {
-                                                    Interceptable interceptable3 = $ic;
-                                                    if (interceptable3 != null) {
-                                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                                        newInitContext.initArgs = r2;
-                                                        Object[] objArr = {this};
-                                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                                        int i2 = newInitContext.flag;
-                                                        if ((i2 & 1) != 0) {
-                                                            int i3 = i2 & 2;
-                                                            newInitContext.thisArg = this;
-                                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                                            return;
-                                                        }
-                                                    }
-                                                    this.f40069a = this;
-                                                }
-
-                                                @Override // com.baidu.fsg.face.liveness.view.LivenessVideoXfordView.a
-                                                public void a() {
-                                                    Interceptable interceptable3 = $ic;
-                                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                        this.f40069a.f40068a.n();
-                                                    }
-                                                }
-                                            });
-                                        } else if (this.f40068a.K.currentState < 5) {
-                                            this.f40068a.f40043j.updateXfordViewState(LivenessVideoXfordView.VideoXfordViewState.SUCCESSING, new LivenessVideoXfordView.a(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.20.2
-                                                public static /* synthetic */ Interceptable $ic;
-                                                public transient /* synthetic */ FieldHolder $fh;
-
-                                                /* renamed from: a  reason: collision with root package name */
-                                                public final /* synthetic */ AnonymousClass20 f40070a;
-
-                                                {
-                                                    Interceptable interceptable3 = $ic;
-                                                    if (interceptable3 != null) {
-                                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                                        newInitContext.initArgs = r2;
-                                                        Object[] objArr = {this};
-                                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                                        int i2 = newInitContext.flag;
-                                                        if ((i2 & 1) != 0) {
-                                                            int i3 = i2 & 2;
-                                                            newInitContext.thisArg = this;
-                                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                                            return;
-                                                        }
-                                                    }
-                                                    this.f40070a = this;
-                                                }
-
-                                                @Override // com.baidu.fsg.face.liveness.view.LivenessVideoXfordView.a
-                                                public void a() {
-                                                    Interceptable interceptable3 = $ic;
-                                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                    }
-                                                }
-                                            });
-                                        } else {
-                                            this.f40068a.f40043j.updateXfordViewState(LivenessVideoXfordView.VideoXfordViewState.SUCCESSED, null);
-                                            if (!this.f40068a.K.isLrcTipViewHadGone) {
-                                                this.f40068a.s.setVisibility(0);
-                                            }
-                                        }
-                                        this.f40068a.q.startInvisibleAnim();
-                                    }
-                                }
-                            });
-                            this.M = -1;
-                            this.K.setLastFindFaceStartTime();
-                            if (this.y == FaceTracker.ErrCode.OK) {
-                                if (this.K.isGotoRecogFace(this.I)) {
-                                    FaceVerifyData[] faceVerifyDataArr = this.u.get_FaceVerifyData(0);
-                                    if (faceVerifyDataArr != null) {
-                                        str = faceVerifyDataArr.length + "";
-                                    } else {
-                                        str = "0";
-                                    }
-                                    RimStatisticsUtil.onEventWithValue(d.p, str);
-                                    if (faceVerifyDataArr != null && faceVerifyDataArr.length > 0) {
-                                        a(faceVerifyDataArr);
-                                    }
-                                    this.u.clearTrackedFaces();
-                                }
-                                if (this.K.currentState == 4) {
-                                    this.K.setLrcTextStartTime();
-                                    this.K.updateState(5);
-                                    runOnUiThread(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.21
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-
-                                        /* renamed from: a  reason: collision with root package name */
-                                        public final /* synthetic */ LivenessVideoActivity f40071a;
-
-                                        {
-                                            Interceptable interceptable2 = $ic;
-                                            if (interceptable2 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this};
-                                                interceptable2.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                                    return;
-                                                }
-                                            }
-                                            this.f40071a = this;
-                                        }
-
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            Interceptable interceptable2 = $ic;
-                                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                                this.f40071a.o();
-                                            }
-                                        }
-                                    });
-                                    return;
-                                }
-                                return;
-                            }
-                            return;
-                        }
-                        a(this.N);
-                        runOnUiThread(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.22
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ LivenessVideoActivity f40072a;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.f40072a = this;
-                            }
-
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    this.f40072a.f40043j.updateXfordViewState(LivenessVideoXfordView.VideoXfordViewState.FAILURE, null);
-                                }
-                            }
-                        });
-                        if (this.K.isFirstRecogTimeout()) {
-                            runOnUiThread(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.23
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-
-                                /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ LivenessVideoActivity f40073a;
-
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.f40073a = this;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        RimStatisticsUtil.onEvent(d.P);
-                                        this.f40073a.p();
-                                        this.f40073a.stopVideoOrCamera();
-                                    }
-                                }
-                            });
-                            return;
-                        } else if (this.K.isVideoStateLostFaceTimeout()) {
-                            runOnUiThread(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.24
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-
-                                /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ LivenessVideoActivity f40074a;
-
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.f40074a = this;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        RimStatisticsUtil.onEvent(d.Q);
-                                        this.f40074a.p();
-                                        this.f40074a.m.stopLrc();
-                                        this.f40074a.stopVideoOrCamera();
-                                    }
-                                }
-                            });
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                } else {
-                    this.N = 3;
-                }
-            } else {
-                this.N = 3;
-            }
-            z = false;
-            if (!z) {
-            }
-        } catch (Throwable th) {
-            com.baidu.fsg.face.base.d.d.a(th);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
-        ArrayList<HashMap<String, byte[]>> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65574, this) == null) || (arrayList = this.D) == null || arrayList.size() == 0) {
-            return;
-        }
-        this.F = this.D.get(0).get("data");
-        this.G = this.D.get(0).get(LightappBusinessClient.MTD_DIGEST);
-        m();
-    }
-
-    private void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65576, this) == null) {
-            RimStatisticsUtil.onEventStart(d.O);
-            LogUtil.d("hello", "onEventStart(StatServiceEvent.FACEMATCH):  对比接口开始");
-            n nVar = (n) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 10, "CONSTRASTBEANTAG");
-            LivenessRecogDTO livenessRecogDTO = this.livenessRecogDTO;
-            if (livenessRecogDTO != null) {
-                nVar.a(livenessRecogDTO);
-            }
-            if (this.G != null) {
-                nVar.a(new String(this.G));
-            }
-            nVar.d(Base64Utils.encodeToString(this.F));
-            nVar.b(this.K.reqTimes + "");
-            nVar.setResponseCallback(this);
-            nVar.execBean();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65578, this) == null) {
-            this.K.currentState = 3;
-            this.m.toInvalidate();
-            this.n.setVisibility(0);
-            this.s.setVisibility(0);
-            playSound(R.raw.rim_video_lrc_tip);
-            this.s.postDelayed(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40078a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f40078a = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f40078a.K.currentState = 4;
-                    }
-                }
-            }, 5000L);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65579, this) == null) {
-            this.K.isLrcTipAnimCalling = true;
-            this.s.startLrcTipAnim(new LrcView.a(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40079a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f40079a = this;
-                }
-
-                @Override // com.baidu.fsg.face.liveness.view.LrcView.a
-                public void a() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f40079a.startRecod();
-                        this.f40079a.s.postDelayed(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.6.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass6 f40080a;
-
-                            {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this};
-                                    interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable3.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.f40080a = this;
-                            }
-
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.f40080a.f40079a.K.isLrcTipAnimCalling = false;
-                                    this.f40080a.f40079a.m.setLrcList(this.f40080a.f40079a.J);
-                                    this.f40080a.f40079a.m.toInvalidate();
-                                }
-                            }
-                        }, 300L);
-                    }
-                }
-            });
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65582, this) == null) {
-            this.R = true;
-            BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
-            bioAlertDialog.setDialogMsg(getString(R.string.liveness_video_timeout_dialog_msg));
-            bioAlertDialog.setDialogMsgColor(getResources().getColor(R.color.sapi_dialog_title_text_color));
-            bioAlertDialog.setBtnCount(1);
-            bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f40089a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40090b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, bioAlertDialog};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f40090b = this;
-                    this.f40089a = bioAlertDialog;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f40090b.R = false;
-                        this.f40089a.dismiss();
-                        if (this.f40090b.t != null) {
-                            LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
-                            livenessRecogResult.setResultCode(-401);
-                            this.f40090b.t.b(livenessRecogResult);
-                        }
-                        this.f40090b.e();
-                    }
-                }
-            });
-            bioAlertDialog.setCancelable(false);
-            if (isFinishing() || bioAlertDialog.isShowing()) {
-                return;
-            }
-            bioAlertDialog.show();
-        }
-    }
-
-    private void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65584, this) == null) {
-            BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
-            bioAlertDialog.setDialogMsg(getString(R.string.sapi_liveness_upload_video_fail_dialog_msg));
-            bioAlertDialog.setDialogMsgColor(getResources().getColor(R.color.sapi_dialog_title_text_color));
-            bioAlertDialog.setBtnCount(2);
-            bioAlertDialog.setPositiveBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.10
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f40045a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40046b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, bioAlertDialog};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f40046b = this;
-                    this.f40045a = bioAlertDialog;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        RimStatisticsUtil.onEvent(d.X);
-                        this.f40045a.dismiss();
-                        this.f40046b.j();
-                    }
-                }
-            });
-            bioAlertDialog.setNegativeBtn(getString(R.string.sapi_alert_dialog_btn_cancel), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.11
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f40047a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40048b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, bioAlertDialog};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f40048b = this;
-                    this.f40047a = bioAlertDialog;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        RimStatisticsUtil.onEvent(d.Y);
-                        this.f40047a.dismiss();
-                        g.b(g.b(this.f40048b.getActivity()));
-                        this.f40048b.a(-204, com.baidu.fsg.face.base.c.a.ERROR_MSG_USER_CANCEL);
-                    }
-                }
-            });
-            bioAlertDialog.setCancelable(false);
-            if (isFinishing() || bioAlertDialog.isShowing()) {
-                return;
-            }
-            bioAlertDialog.show();
-        }
-    }
-
-    private void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65585, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(this.T + "");
-            arrayList.add(String.valueOf(NetworkUtils.getNetworkType(getApplicationContext())));
-            if (this.livenessRecogDTO != null) {
-                arrayList.add(this.livenessRecogDTO.getSpno() + "");
-                arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-            }
-            RimStatisticsUtil.onEventWithValues(d.ad, arrayList);
-            BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
-            bioAlertDialog.setDialogMsg(BeanConstants.rim_timeout_error);
-            bioAlertDialog.setDialogMsgColor(getResources().getColor(R.color.sapi_dialog_title_text_color));
-            bioAlertDialog.setBtnCount(2);
-            bioAlertDialog.setPositiveBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.13
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f40050a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40051b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, bioAlertDialog};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f40051b = this;
-                    this.f40050a = bioAlertDialog;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        RimStatisticsUtil.onEvent(d.X);
-                        this.f40050a.dismiss();
-                        this.f40051b.j();
-                    }
-                }
-            });
-            bioAlertDialog.setNegativeBtn(getString(R.string.sapi_alert_dialog_btn_cancel), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.14
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f40052a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40053b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, bioAlertDialog};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f40053b = this;
-                    this.f40052a = bioAlertDialog;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        RimStatisticsUtil.onEvent(d.Y);
-                        this.f40052a.dismiss();
-                        g.b(g.b(this.f40053b.getActivity()));
-                        this.f40053b.a(-204, com.baidu.fsg.face.base.c.a.ERROR_MSG_USER_CANCEL);
-                    }
-                }
-            });
-            bioAlertDialog.setCancelable(false);
-            if (isFinishing() || bioAlertDialog.isShowing()) {
-                return;
-            }
-            bioAlertDialog.show();
-        }
-    }
-
-    @Override // com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.P = true;
-            RimStatisticsUtil.onEvent(d.N);
-            if (this.livenessRecogDTO != null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("processid", this.livenessRecogDTO.processid);
-                    if (!TextUtils.isEmpty(this.livenessRecogDTO.getCertInfo())) {
-                        jSONObject.put("certinfo", this.livenessRecogDTO.getCertInfo());
-                    }
-                    if (!TextUtils.isEmpty(this.livenessRecogDTO.authToken)) {
-                        jSONObject.put("authtoken", this.livenessRecogDTO.authToken);
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-                Context applicationContext = getActivity().getApplicationContext();
-                LivenessRecogDTO livenessRecogDTO = this.livenessRecogDTO;
-                BdWalletUtils.realTimeStatistics(applicationContext, livenessRecogDTO.spParams, livenessRecogDTO.getAtbc(), d.N, jSONObject.toString());
-            }
-        }
-    }
-
     @Override // com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             int[] iArr = new int[2];
-            this.m.getLocationOnScreen(iArr);
+            this.o.getLocationInWindow(iArr);
             Rect rect = new Rect();
             rect.left = iArr[0];
             rect.top = iArr[1];
-            rect.right = this.f40043j.getWidth() - rect.left;
+            rect.right = this.l.getWidth() - rect.left;
             rect.bottom = rect.top + rect.width();
-            this.faceRectGroup.f39836a = rect;
-            this.f40043j.setFocusViewRect(rect);
-            ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
+            this.faceRectGroup.f39890a = rect;
+            this.l.setFocusViewRect(rect);
+            ViewGroup.LayoutParams layoutParams = this.o.getLayoutParams();
             layoutParams.width = rect.width();
             layoutParams.height = rect.height();
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.s.getLayoutParams();
-            layoutParams2.topMargin = (rect.top + (rect.height() / 2)) - (this.s.getMeasuredHeight() / 2);
-            this.s.setLayoutParams(layoutParams2);
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.u.getLayoutParams();
+            layoutParams2.topMargin = (rect.top + (rect.height() / 2)) - (this.u.getMeasuredHeight() / 2);
+            this.u.setLayoutParams(layoutParams2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, this, i2, str) == null) {
-            if (this.t != null) {
+        if (interceptable == null || interceptable.invokeIL(65539, this, i2, str) == null) {
+            if (this.v != null) {
                 LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
                 livenessRecogResult.setResultCode(i2);
                 livenessRecogResult.setResultMsg(str);
-                this.t.b(livenessRecogResult);
+                this.v.b(livenessRecogResult);
             }
-            e();
-        }
-    }
-
-    @Override // com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.K.setProcessStartTime();
-            this.K.updateState(1);
+            c();
         }
     }
 
@@ -1648,13 +1495,13 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.layout_liveness_video_activity, (ViewGroup) null);
             ImageView imageView = (ImageView) inflate.findViewById(R.id.btn_cancel);
-            this.l = imageView;
-            imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.1
+            this.n = imageView;
+            imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.12
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40044a;
+                public final /* synthetic */ LivenessVideoActivity f40103a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1671,27 +1518,27 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f40044a = this;
+                    this.f40103a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f40044a.onBackPressed();
+                        this.f40103a.onBackPressed();
                     }
                 }
             });
-            this.k = (RelativeLayout) inflate.findViewById(R.id.content);
-            this.f40043j = (LivenessVideoXfordView) inflate.findViewById(R.id.xfordview);
+            this.m = (RelativeLayout) inflate.findViewById(R.id.content);
+            this.l = (LivenessVideoXfordView) inflate.findViewById(R.id.xfordview);
             LrcView lrcView = (LrcView) inflate.findViewById(R.id.focuslayout);
-            this.m = lrcView;
-            lrcView.setLrcFinishInterface(new LrcView.a(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.12
+            this.o = lrcView;
+            lrcView.setLrcFinishInterface(new LrcView.a(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.14
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40049a;
+                public final /* synthetic */ LivenessVideoActivity f40105a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1708,83 +1555,40 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f40049a = this;
+                    this.f40105a = this;
                 }
 
                 @Override // com.baidu.fsg.face.liveness.view.LrcView.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f40049a.stopVideoOrCamera();
-                        this.f40049a.K.updateState(6);
-                        this.f40049a.showVideoDoneView();
+                        LivenessVideoActivity livenessVideoActivity = this.f40105a;
+                        IVideoRecordProcess iVideoRecordProcess = livenessVideoActivity.mProcess;
+                        if (iVideoRecordProcess != null) {
+                            livenessVideoActivity.isRecording = false;
+                            iVideoRecordProcess.stopRecord();
+                            LogUtil.d("hello", "stop record");
+                        }
+                        this.f40105a.livenessVideoState.updateState(6);
+                        this.f40105a.showVideoDoneView();
                     }
                 }
             });
-            this.q = (LivenessVideoWarningTipTextView) inflate.findViewById(R.id.toastanim);
-            this.n = (LinearLayout) inflate.findViewById(R.id.ll_time_count);
-            this.p = (TextView) inflate.findViewById(R.id.tv_time_count);
-            this.o = (ImageView) inflate.findViewById(R.id.iv_time_count_point);
-            this.o.startAnimation(AnimationUtils.loadAnimation(this, R.anim.sapi_liveness_time_count_point));
-            this.s = (LrcTipTextview) inflate.findViewById(R.id.lrc_tipview);
+            this.s = (LivenessVideoWarningTipTextView) inflate.findViewById(R.id.toastanim);
+            this.p = (LinearLayout) inflate.findViewById(R.id.ll_time_count);
+            this.r = (TextView) inflate.findViewById(R.id.tv_time_count);
+            this.q = (ImageView) inflate.findViewById(R.id.iv_time_count_point);
+            this.q.startAnimation(AnimationUtils.loadAnimation(this, R.anim.sapi_liveness_time_count_point));
+            this.u = (LrcTipTextview) inflate.findViewById(R.id.lrc_tipview);
             return inflate;
         }
         return (View) invokeV.objValue;
     }
 
-    private boolean b(FaceInfo[] faceInfoArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, this, faceInfoArr)) == null) ? faceInfoArr != null && faceInfoArr.length > 0 && e.a(faceInfoArr[0].landmarks, this.faceRectGroup) : invokeL.booleanValue;
-    }
-
-    private void b(int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65551, this, i2) == null) && this.K.isFirstRecog()) {
-            runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f40075a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40076b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f40076b = this;
-                    this.f40075a = i2;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f40076b.playSound(this.f40075a);
-                    }
-                }
-            });
-        }
-    }
-
     private void b(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.R = true;
+        if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.M = true;
             String string = !z ? getString(R.string.sapi_permission_audio) : null;
             if (!z2) {
                 string = getString(R.string.sapi_permission_camera);
@@ -1798,21 +1602,21 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
             bioAlertDialog.setTitleVisible(true);
             bioAlertDialog.setDialogMsg(String.format(getString(R.string.sapi_permission_without_msg1), string) + String.format(getString(R.string.sapi_permission_without_msg2), string));
             bioAlertDialog.setBtnCount(1);
-            bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog, z2, z) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.8
+            bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog, z2, z) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f40085a;
+                public final /* synthetic */ BioAlertDialog f40122a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f40086b;
+                public final /* synthetic */ boolean f40123b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f40087c;
+                public final /* synthetic */ boolean f40124c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40088d;
+                public final /* synthetic */ LivenessVideoActivity f40125d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1829,28 +1633,28 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f40088d = this;
-                    this.f40085a = bioAlertDialog;
-                    this.f40086b = z2;
-                    this.f40087c = z;
+                    this.f40125d = this;
+                    this.f40122a = bioAlertDialog;
+                    this.f40123b = z2;
+                    this.f40124c = z;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f40088d.R = false;
-                        this.f40085a.dismiss();
-                        if (this.f40088d.t != null) {
+                        this.f40125d.M = false;
+                        this.f40122a.dismiss();
+                        if (this.f40125d.v != null) {
                             LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
-                            if (!this.f40086b) {
+                            if (!this.f40123b) {
                                 livenessRecogResult.setResultCode(-304);
-                            } else if (!this.f40087c) {
+                            } else if (!this.f40124c) {
                                 livenessRecogResult.setResultCode(LivenessRecogResult.ERROR_CODE_MAY_BE_NO_RECORD_AUDIO_PERMISSION);
                             }
-                            this.f40088d.t.b(livenessRecogResult);
+                            this.f40125d.v.b(livenessRecogResult);
                         }
-                        this.f40088d.e();
+                        this.f40125d.c();
                     }
                 }
             });
@@ -1867,21 +1671,43 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, bArr, camera) == null) {
             try {
-                if (this.w > 0) {
+                if (this.isRecording) {
                     return;
                 }
-                if (this.K.currentState == 5) {
-                    if (!this.P) {
-                        return;
+                this.isRecording = true;
+                this.l.updateXfordViewState(LivenessVideoXfordView.VideoXfordViewState.SUCCESSING, new LivenessVideoXfordView.a(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.15
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ LivenessVideoActivity f40106a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f40106a = this;
                     }
-                    this.Q = true;
-                }
-                this.U = bArr;
-                a(camera);
-                this.w++;
-                a aVar = new a();
-                this.x = aVar;
-                aVar.execute(new Void[0]);
+
+                    @Override // com.baidu.fsg.face.liveness.view.LivenessVideoXfordView.a
+                    public void a() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.f40106a.l();
+                        }
+                    }
+                });
             } catch (Throwable th) {
                 com.baidu.fsg.face.base.d.d.a(th);
             }
@@ -1890,104 +1716,40 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
 
     private void a(Camera camera) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, camera) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, camera) == null) {
             Camera.Size previewSize = camera.getParameters().getPreviewSize();
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            if (this.cameraControl.a()) {
-                Camera.getCameraInfo(1, cameraInfo);
-            } else {
-                Camera.getCameraInfo(0, cameraInfo);
-            }
+            Camera.getCameraInfo(1, cameraInfo);
             int i2 = previewSize.width;
-            this.V = i2;
+            this.Q = i2;
             int i3 = previewSize.height;
-            this.W = i3;
-            this.X = cameraInfo.orientation;
+            this.R = i3;
+            this.S = cameraInfo.orientation;
             b bVar = this.faceRectGroup;
-            bVar.f39838c = i2;
-            bVar.f39839d = i3;
-            GetFPResponse.LivenessConfig livenessConfig = this.v;
+            bVar.f39892c = i2;
+            bVar.f39893d = i3;
+            GetFPResponse.LivenessConfig livenessConfig = this.w;
             if (livenessConfig == null || TextUtils.isEmpty(livenessConfig.min_face_size)) {
-                if (this.V > 640 && this.W > 480) {
-                    this.u.set_min_face_size(200);
-                } else {
-                    this.u.set_min_face_size(100);
-                }
+                int i4 = this.Q;
             }
-            if (this.A == null) {
-                this.A = new int[this.V * this.W];
+            if (this.y == null) {
+                this.y = new int[this.Q * this.R];
             }
         }
-    }
-
-    private boolean a(FaceInfo[] faceInfoArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, this, faceInfoArr)) == null) ? faceInfoArr != null && faceInfoArr.length > 0 : invokeL.booleanValue;
-    }
-
-    private boolean a(FaceInfo faceInfo, FaceTracker.ErrCode errCode) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, faceInfo, errCode)) == null) {
-            if (errCode == FaceTracker.ErrCode.YAW_OUT_OF_RANGE || errCode == FaceTracker.ErrCode.PITCH_OUT_OF_RANGE) {
-                return true;
-            }
-            if (errCode == FaceTracker.ErrCode.OK) {
-                float[] fArr = faceInfo.headPose;
-                if (fArr.length == 3) {
-                    float abs = Math.abs(fArr[0]);
-                    GetFPResponse.LivenessConfig livenessConfig = this.v;
-                    if (abs < (livenessConfig != null ? livenessConfig.getPitch() : 15)) {
-                        float abs2 = Math.abs(faceInfo.headPose[1]);
-                        GetFPResponse.LivenessConfig livenessConfig2 = this.v;
-                        if (abs2 >= (livenessConfig2 != null ? livenessConfig2.getYaw() : 15)) {
-                        }
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    private void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) || this.O || this.K.isLrcTipAnimCalling) {
-            return;
-        }
-        if (this.M != i2) {
-            if (i2 == 1) {
-                a(getString(R.string.rim_liveness_video_tofar_from_camera));
-                b(R.raw.rim_video_too_far);
-            } else if (i2 == 0) {
-                a(getString(R.string.rim_liveness_video_tonear_from_camera));
-                b(R.raw.rim_video_too_near);
-            } else if (i2 == 2) {
-                a(getString(R.string.sapi_liveness_brightness_too_dark));
-            } else if (i2 == 4) {
-                a(getString(R.string.sapi_liveness_face_to_screen));
-            } else {
-                b(R.raw.rim_video_put_face_round);
-                a(getString(R.string.rim_liveness_video_put_face_round));
-            }
-        }
-        this.M = i2;
     }
 
     private void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, str) == null) {
-            runOnUiThread(new Runnable(this, str) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.2
+        if (interceptable == null || interceptable.invokeL(65543, this, str) == null) {
+            runOnUiThread(new Runnable(this, str) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.18
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f40065a;
+                public final /* synthetic */ String f40112a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40066b;
+                public final /* synthetic */ LivenessVideoActivity f40113b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2004,38 +1766,42 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f40066b = this;
-                    this.f40065a = str;
+                    this.f40113b = this;
+                    this.f40112a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f40066b.K.isWarningTipAnimCalled) {
-                            this.f40066b.q.startVisibleAnim();
-                            this.f40066b.q.setText(this.f40065a);
-                            if (this.f40066b.K.currentState == 5 && this.f40066b.s.getVisibility() == 0) {
-                                this.f40066b.s.setVisibility(4);
-                                this.f40066b.K.isLrcTipViewHadGone = true;
+                        LivenessVideoActivity livenessVideoActivity = this.f40113b;
+                        LivenessVideoState livenessVideoState = livenessVideoActivity.livenessVideoState;
+                        if (livenessVideoState.isWarningTipAnimCalled) {
+                            livenessVideoActivity.s.startVisibleAnim();
+                            this.f40113b.s.setText(this.f40112a);
+                            LivenessVideoActivity livenessVideoActivity2 = this.f40113b;
+                            if (livenessVideoActivity2.livenessVideoState.currentState == 5 && livenessVideoActivity2.u.getVisibility() == 0) {
+                                this.f40113b.u.setVisibility(4);
+                                this.f40113b.livenessVideoState.isLrcTipViewHadGone = true;
                                 return;
                             }
                             return;
                         }
-                        if (this.f40066b.K.currentState == 5 && this.f40066b.s.getVisibility() == 0) {
-                            this.f40066b.s.setVisibility(4);
-                            this.f40066b.K.isLrcTipViewHadGone = true;
+                        if (livenessVideoState.currentState == 5 && livenessVideoActivity.u.getVisibility() == 0) {
+                            this.f40113b.u.setVisibility(4);
+                            this.f40113b.livenessVideoState.isLrcTipViewHadGone = true;
                         }
-                        this.f40066b.K.isWarningTipAnimCalled = true;
-                        this.f40066b.q.setVisibility(0);
-                        this.f40066b.q.setText(this.f40065a);
-                        this.f40066b.O = true;
-                        this.f40066b.q.startTranslateAnim(new LivenessVideoWarningTipTextView.a(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.2.1
+                        LivenessVideoActivity livenessVideoActivity3 = this.f40113b;
+                        livenessVideoActivity3.livenessVideoState.isWarningTipAnimCalled = true;
+                        livenessVideoActivity3.s.setVisibility(0);
+                        this.f40113b.s.setText(this.f40112a);
+                        this.f40113b.J = true;
+                        this.f40113b.s.startTranslateAnim(new LivenessVideoWarningTipTextView.a(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.18.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f40067a;
+                            public final /* synthetic */ AnonymousClass18 f40114a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -2052,7 +1818,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                                         return;
                                     }
                                 }
-                                this.f40067a = this;
+                                this.f40114a = this;
                             }
 
                             @Override // com.baidu.fsg.face.liveness.view.LivenessVideoWarningTipTextView.a
@@ -2066,7 +1832,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             public void b() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                    this.f40067a.f40066b.O = false;
+                                    this.f40114a.f40113b.J = false;
                                 }
                             }
                         });
@@ -2076,98 +1842,9 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         }
     }
 
-    private void a(FaceVerifyData[] faceVerifyDataArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, this, faceVerifyDataArr) == null) {
-            new AsyncTask<FaceVerifyData, Void, ArrayList<HashMap<String, byte[]>>>(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40077a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f40077a = this;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // android.os.AsyncTask
-                /* renamed from: a */
-                public ArrayList<HashMap<String, byte[]>> doInBackground(FaceVerifyData... faceVerifyDataArr2) {
-                    InterceptResult invokeL;
-                    int i2;
-                    int i3;
-                    Bitmap createBitmap;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, faceVerifyDataArr2)) == null) {
-                        ArrayList<HashMap<String, byte[]>> arrayList = new ArrayList<>();
-                        for (FaceVerifyData faceVerifyData : faceVerifyDataArr2) {
-                            int[] iArr = faceVerifyData.mRegImg;
-                            byte[] bArr = faceVerifyData.mRegDigest;
-                            if (iArr != null && iArr.length > 0 && bArr != null && bArr.length > 0 && (createBitmap = Bitmap.createBitmap((i3 = faceVerifyData.cols), (i2 = faceVerifyData.rows), Bitmap.Config.ARGB_8888)) != null) {
-                                createBitmap.setPixels(iArr, 0, i3, 0, 0, i3, i2);
-                                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                                createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                                if (!createBitmap.isRecycled()) {
-                                    createBitmap.recycle();
-                                }
-                                HashMap<String, byte[]> hashMap = new HashMap<>();
-                                hashMap.put("data", byteArrayOutputStream.toByteArray());
-                                hashMap.put(LightappBusinessClient.MTD_DIGEST, bArr);
-                                arrayList.add(hashMap);
-                                try {
-                                    byteArrayOutputStream.close();
-                                } catch (IOException e2) {
-                                    e2.printStackTrace();
-                                }
-                            }
-                        }
-                        return arrayList;
-                    }
-                    return (ArrayList) invokeL.objValue;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // android.os.AsyncTask
-                /* renamed from: a */
-                public void onPostExecute(ArrayList<HashMap<String, byte[]>> arrayList) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-                        if (arrayList != null && arrayList.size() > 0) {
-                            this.f40077a.B = arrayList.size();
-                            this.f40077a.D = arrayList;
-                            if (this.f40077a.v != null) {
-                                LivenessVideoActivity livenessVideoActivity = this.f40077a;
-                                livenessVideoActivity.B = livenessVideoActivity.v.getRecogUploadPortraitCount(this.f40077a.B);
-                            }
-                            this.f40077a.l();
-                            this.f40077a.K.reqTimes++;
-                            return;
-                        }
-                        Toast.makeText(this.f40077a.getActivity(), "系统异常，失败回调", 1).show();
-                    }
-                }
-            }.execute(faceVerifyDataArr);
-        }
-    }
-
     private void a(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65545, this, str, i2) == null) || this.livenessRecogDTO == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65544, this, str, i2) == null) || this.livenessRecogDTO == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -2175,51 +1852,59 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         arrayList.add(this.livenessRecogDTO.spParams + "");
         arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
         arrayList.add(str);
-        arrayList.add(this.K.reqTimes + "");
+        arrayList.add(this.livenessVideoState.reqTimes + "");
         RimStatisticsUtil.onEventEndWithValues(d.O, i2, arrayList);
+    }
+
+    private void a(int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(65538, this, i2) == null) || this.livenessRecogDTO == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(this.livenessRecogDTO.getSpno() + "");
+        arrayList.add(this.livenessRecogDTO.spParams + "");
+        arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
+        RimStatisticsUtil.onEventEndWithValues(d.W, i2, arrayList);
     }
 
     @Override // com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity
     public void a(boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            if (z3) {
-                b(z2, z);
-            } else {
-                a(z, z2);
-            }
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) && z3) {
+            b(z2, z);
         }
     }
 
     private void a(boolean z, boolean z2) {
         String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.R = true;
+        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.M = true;
             BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
             bioAlertDialog.setTitleVisible(true);
             if (!z) {
-                string = getString(R.string.sapi_liveness_video_record_failed);
+                string = getString(R.string.sapi_liveness_open_camera_no_permission);
             } else {
                 string = !z2 ? getString(R.string.sapi_liveness_record_video_no_audio_permission) : "";
             }
             bioAlertDialog.setDialogMsg(string);
             bioAlertDialog.setBtnCount(1);
-            bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog, z, z2) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.7
+            bioAlertDialog.setNeutralBtn(getString(R.string.sapi_alert_dialog_btn_ok), new View.OnClickListener(this, bioAlertDialog, z, z2) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f40081a;
+                public final /* synthetic */ BioAlertDialog f40116a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f40082b;
+                public final /* synthetic */ boolean f40117b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f40083c;
+                public final /* synthetic */ boolean f40118c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoActivity f40084d;
+                public final /* synthetic */ LivenessVideoActivity f40119d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2236,28 +1921,28 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                             return;
                         }
                     }
-                    this.f40084d = this;
-                    this.f40081a = bioAlertDialog;
-                    this.f40082b = z;
-                    this.f40083c = z2;
+                    this.f40119d = this;
+                    this.f40116a = bioAlertDialog;
+                    this.f40117b = z;
+                    this.f40118c = z2;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f40084d.R = false;
-                        this.f40081a.dismiss();
-                        if (this.f40084d.t != null) {
+                        this.f40119d.M = false;
+                        this.f40116a.dismiss();
+                        if (this.f40119d.v != null) {
                             LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
-                            if (!this.f40082b) {
-                                livenessRecogResult.setResultCode(-304);
-                            } else if (!this.f40083c) {
+                            if (!this.f40117b) {
+                                livenessRecogResult.setResultCode(a.ERROR_CODE_CAMERA_EXCEPTION);
+                            } else if (!this.f40118c) {
                                 livenessRecogResult.setResultCode(LivenessRecogResult.ERROR_CODE_MAY_BE_NO_RECORD_AUDIO_PERMISSION);
                             }
-                            this.f40084d.t.b(livenessRecogResult);
+                            this.f40119d.v.b(livenessRecogResult);
                         }
-                        this.f40084d.e();
+                        this.f40119d.c();
                     }
                 }
             });

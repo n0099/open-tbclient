@@ -56,9 +56,9 @@ public class g0 implements a1 {
                 return null;
             }
             if (c.a.p0.a.h0.s.a.b()) {
-                return c.a.p0.a.h0.s.a.f6412b + File.separator + "libcom.baidu.zeus.so";
+                return c.a.p0.a.h0.s.a.f6420b + File.separator + "libcom.baidu.zeus.so";
             }
-            return c.a.p0.a.h0.s.a.f6414d + File.separator + "libcom.baidu.zeus.so";
+            return c.a.p0.a.h0.s.a.f6422d + File.separator + "libcom.baidu.zeus.so";
         }
         return (String) invokeV.objValue;
     }

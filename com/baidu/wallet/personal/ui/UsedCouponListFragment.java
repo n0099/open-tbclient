@@ -200,7 +200,7 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ UsedCouponListFragment f63487a;
+                public final /* synthetic */ UsedCouponListFragment f63798a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -217,16 +217,16 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                             return;
                         }
                     }
-                    this.f63487a = this;
+                    this.f63798a = this;
                 }
 
                 @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase.OnRefreshListener
                 public void onPullDownToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, pullToRefreshBase) == null) {
-                        this.f63487a.mCurrPage = 0;
-                        LogUtil.d("onActivityCreated. onRefresh. curr page = " + this.f63487a.mCurrPage);
-                        this.f63487a.queryCoupon(false);
+                        this.f63798a.mCurrPage = 0;
+                        LogUtil.d("onActivityCreated. onRefresh. curr page = " + this.f63798a.mCurrPage);
+                        this.f63798a.queryCoupon(false);
                     }
                 }
 
@@ -234,8 +234,8 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                 public void onPullUpToRefresh(PullToRefreshBase<ListView> pullToRefreshBase) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pullToRefreshBase) == null) {
-                        LogUtil.d("onActivityCreated. onRefresh. curr page = " + this.f63487a.mCurrPage);
-                        this.f63487a.queryCoupon(false);
+                        LogUtil.d("onActivityCreated. onRefresh. curr page = " + this.f63798a.mCurrPage);
+                        this.f63798a.queryCoupon(false);
                     }
                 }
             });
@@ -244,7 +244,7 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ UsedCouponListFragment f63488a;
+                public final /* synthetic */ UsedCouponListFragment f63799a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -261,7 +261,7 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                             return;
                         }
                     }
-                    this.f63488a = this;
+                    this.f63799a = this;
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
@@ -271,7 +271,7 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                     BaseActivity baseActivity;
                     String str;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f63488a.getActivity() == null || CheckUtils.isFastDoubleClick() || (item = this.f63488a.mInvalidCouponAdapter.getItem(i2)) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f63799a.getActivity() == null || CheckUtils.isFastDoubleClick() || (item = this.f63799a.mInvalidCouponAdapter.getItem(i2)) == null) {
                         return;
                     }
                     JSONObject jSONObject = new JSONObject();
@@ -286,28 +286,28 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                     DXMSdkSAUtils.onEventWithValues("CouponListToUseBtnClick", Arrays.asList(jSONObject.toString()));
                     CouponList.Coupon.AppSceneService appSceneService = item.app_scene_service;
                     if (appSceneService != null) {
-                        if (appSceneService.f63440android > 0) {
-                            BaiduWalletServiceController.getInstance().gotoWalletService(((BaseFragment) this.f63488a).mAct, item.app_scene_service.f63440android, "");
+                        if (appSceneService.f63751android > 0) {
+                            BaiduWalletServiceController.getInstance().gotoWalletService(((BaseFragment) this.f63799a).mAct, item.app_scene_service.f63751android, "");
                         } else if (!TextUtils.isEmpty(appSceneService.url)) {
                             baiduWalletDelegate = BaiduWalletDelegate.getInstance();
-                            baseActivity = ((BaseFragment) this.f63488a).mAct;
+                            baseActivity = ((BaseFragment) this.f63799a).mAct;
                             str = item.app_scene_service.url;
                             baiduWalletDelegate.openH5Module(baseActivity, str, true);
                         }
                     } else if (TextUtils.isEmpty(item.list_scene_service_label_URL)) {
                         Intent intent = new Intent();
-                        intent.setClass(((BaseFragment) this.f63488a).mAct, MyCouponDetailActivity.class);
+                        intent.setClass(((BaseFragment) this.f63799a).mAct, MyCouponDetailActivity.class);
                         intent.putExtra("cardType", item.card_type);
                         intent.putExtra("couponNum", item.coupon_num);
                         intent.putExtra("templateNum", item.template_num);
-                        ((BaseFragment) this.f63488a).mAct.startActivityForResult(intent, 1);
+                        ((BaseFragment) this.f63799a).mAct.startActivityForResult(intent, 1);
                     } else {
                         baiduWalletDelegate = BaiduWalletDelegate.getInstance();
-                        baseActivity = ((BaseFragment) this.f63488a).mAct;
+                        baseActivity = ((BaseFragment) this.f63799a).mAct;
                         str = item.list_scene_service_label_URL;
                         baiduWalletDelegate.openH5Module(baseActivity, str, true);
                     }
-                    this.f63488a.needRefreshList = true;
+                    this.f63799a.needRefreshList = true;
                 }
             });
         }
@@ -331,16 +331,16 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f63493a;
+                public final /* synthetic */ int f63804a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f63494b;
+                public final /* synthetic */ int f63805b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f63495c;
+                public final /* synthetic */ String f63806c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ UsedCouponListFragment f63496d;
+                public final /* synthetic */ UsedCouponListFragment f63807d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -357,17 +357,17 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                             return;
                         }
                     }
-                    this.f63496d = this;
-                    this.f63493a = i2;
-                    this.f63494b = i3;
-                    this.f63495c = str;
+                    this.f63807d = this;
+                    this.f63804a = i2;
+                    this.f63805b = i3;
+                    this.f63806c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f63496d.handleResFailure(this.f63493a, this.f63494b, this.f63495c);
+                        this.f63807d.handleResFailure(this.f63804a, this.f63805b, this.f63806c);
                     }
                 }
             });
@@ -384,16 +384,16 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f63489a;
+                public final /* synthetic */ int f63800a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f63490b;
+                public final /* synthetic */ Object f63801b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f63491c;
+                public final /* synthetic */ String f63802c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ UsedCouponListFragment f63492d;
+                public final /* synthetic */ UsedCouponListFragment f63803d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -410,17 +410,17 @@ public class UsedCouponListFragment extends CouponBaseFragment {
                             return;
                         }
                     }
-                    this.f63492d = this;
-                    this.f63489a = i2;
-                    this.f63490b = obj;
-                    this.f63491c = str;
+                    this.f63803d = this;
+                    this.f63800a = i2;
+                    this.f63801b = obj;
+                    this.f63802c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f63492d.handleResSuccess(this.f63489a, this.f63490b, this.f63491c);
+                        this.f63803d.handleResSuccess(this.f63800a, this.f63801b, this.f63802c);
                     }
                 }
             });

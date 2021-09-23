@@ -48,7 +48,7 @@ public class a extends a0 {
                 return false;
             }
             eVar.U().g().edit().clear().apply();
-            c.a.p0.a.q2.d.f8131h.b();
+            c.a.p0.a.q2.d.f8139h.b();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

@@ -42,19 +42,19 @@ public class g extends e implements c.a.r0.o2.h.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final BaseFragmentActivity f23127f;
+    public final BaseFragmentActivity f23143f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseFragment f23128g;
+    public BaseFragment f23144g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext f23129h;
+    public TbPageContext f23145h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final View f23130i;
+    public final View f23146i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final BdUniqueId f23131j;
+    public final BdUniqueId f23147j;
     public long k;
     public String l;
     public f m;
@@ -76,7 +76,7 @@ public class g extends e implements c.a.r0.o2.h.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f23132a;
+        public final /* synthetic */ g f23148a;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -93,14 +93,14 @@ public class g extends e implements c.a.r0.o2.h.b {
                     return;
                 }
             }
-            this.f23132a = gVar;
+            this.f23148a = gVar;
         }
 
         @Override // c.a.r0.o2.d.f.e
         public void a(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f23132a.loadData();
+                this.f23148a.loadData();
             }
         }
     }
@@ -111,7 +111,7 @@ public class g extends e implements c.a.r0.o2.h.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f23133a;
+        public final /* synthetic */ g f23149a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(g gVar, int i2) {
@@ -131,7 +131,7 @@ public class g extends e implements c.a.r0.o2.h.b {
                     return;
                 }
             }
-            this.f23133a = gVar;
+            this.f23149a = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -139,7 +139,7 @@ public class g extends e implements c.a.r0.o2.h.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f23133a.g();
+                this.f23149a.g();
             }
         }
     }
@@ -150,7 +150,7 @@ public class g extends e implements c.a.r0.o2.h.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f23134a;
+        public final /* synthetic */ g f23150a;
 
         public c(g gVar) {
             Interceptable interceptable = $ic;
@@ -167,7 +167,7 @@ public class g extends e implements c.a.r0.o2.h.b {
                     return;
                 }
             }
-            this.f23134a = gVar;
+            this.f23150a = gVar;
         }
 
         @Override // c.a.r0.l2.a.c
@@ -180,7 +180,7 @@ public class g extends e implements c.a.r0.o2.h.b {
                 if (picinfo != null && (picDetailedInfo = picinfo.bigPic) != null) {
                     str2 = picDetailedInfo.picUrl;
                 }
-                j.a(str2, this.f23134a.r());
+                j.a(str2, this.f23150a.r());
             }
         }
     }
@@ -207,33 +207,33 @@ public class g extends e implements c.a.r0.o2.h.b {
         this.v = false;
         this.w = new a(this);
         this.x = new b(this, 2921424);
-        this.f23128g = baseFragment;
+        this.f23144g = baseFragment;
         BaseFragmentActivity baseFragmentActivity = baseFragment.getBaseFragmentActivity();
-        this.f23127f = baseFragmentActivity;
-        this.f23130i = view;
-        this.f23131j = bdUniqueId;
+        this.f23143f = baseFragmentActivity;
+        this.f23146i = view;
+        this.f23147j = bdUniqueId;
         this.k = j2;
         this.l = str;
-        this.f23129h = baseFragmentActivity.getPageContext();
+        this.f23145h = baseFragmentActivity.getPageContext();
         MessageManager.getInstance().registerListener(this.x);
-        this.o = new d(this.f23128g.getPageContext(), bdUniqueId);
-        f fVar = new f(this.f23128g.getPageContext(), view, z);
+        this.o = new d(this.f23144g.getPageContext(), bdUniqueId);
+        f fVar = new f(this.f23144g.getPageContext(), view, z);
         this.m = fVar;
         fVar.t(this.w);
-        this.s = new PersonPolymericEventController(this.f23129h, this);
-        PersonPolymericModel personPolymericModel = new PersonPolymericModel(this.f23127f, bdUniqueId, z);
+        this.s = new PersonPolymericEventController(this.f23145h, this);
+        PersonPolymericModel personPolymericModel = new PersonPolymericModel(this.f23143f, bdUniqueId, z);
         this.n = personPolymericModel;
         personPolymericModel.N(new p(z));
         this.n.L(this);
         this.n.M(this.o);
-        this.p = new BlackListModel(this.f23127f.getPageContext(), bdUniqueId);
+        this.p = new BlackListModel(this.f23143f.getPageContext(), bdUniqueId);
         if (StringUtils.isNull(this.l)) {
-            k kVar = new k(this.f23128g, this, this.f23131j, this.k, z);
+            k kVar = new k(this.f23144g, this, this.f23147j, this.k, z);
             this.q = kVar;
             kVar.k(TbadkCoreApplication.getInst().getSkinType());
             this.q.j(this.s);
         }
-        this.t = new h(this.f23129h, this.o, this.p, bdUniqueId);
+        this.t = new h(this.f23145h, this.o, this.p, bdUniqueId);
         loadData();
     }
 
@@ -245,7 +245,7 @@ public class g extends e implements c.a.r0.o2.h.b {
             if (aVar != null && aVar.j() != null && !StringUtils.isNull(this.l)) {
                 this.k = aVar.j().getUserIdLong();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921443, Long.valueOf(this.k)));
-                this.f23115e = this.k == c.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+                this.f23131e = this.k == c.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
             }
             this.m.n();
             h hVar = this.t;
@@ -259,7 +259,7 @@ public class g extends e implements c.a.r0.o2.h.b {
             if (kVar != null) {
                 kVar.o(aVar);
             } else {
-                k kVar2 = new k(this.f23128g, this, this.f23131j, this.k, this.f23115e);
+                k kVar2 = new k(this.f23144g, this, this.f23147j, this.k, this.f23131e);
                 this.q = kVar2;
                 kVar2.k(TbadkCoreApplication.getInst().getSkinType());
                 this.q.j(this.s);
@@ -278,16 +278,16 @@ public class g extends e implements c.a.r0.o2.h.b {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!TbadkCoreApplication.isLogin() && this.f23115e) {
+            if (!TbadkCoreApplication.isLogin() && this.f23131e) {
                 this.m.A();
             } else if (c.a.e.e.p.j.A()) {
                 this.n.I(this.k, this.l);
             } else {
                 this.m.n();
-                l.M(this.f23129h.getContext(), this.f23129h.getString(R.string.data_load_error));
+                l.M(this.f23145h.getContext(), this.f23145h.getString(R.string.data_load_error));
                 ArrayList arrayList = new ArrayList();
                 c.a.r0.o2.e.i iVar = new c.a.r0.o2.e.i();
-                iVar.f23218e = this.f23115e;
+                iVar.f23234e = this.f23131e;
                 arrayList.add(iVar);
                 this.m.m();
                 this.m.v(arrayList);
@@ -311,7 +311,7 @@ public class g extends e implements c.a.r0.o2.h.b {
                 return false;
             }
             if (c.a.q0.s.d0.b.j().g(c.a.q0.s.d0.b.n(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.f23127f).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.f23143f).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
                 return true;
             }
             return false;
@@ -328,7 +328,7 @@ public class g extends e implements c.a.r0.o2.h.b {
     public void loadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (!TbadkCoreApplication.isLogin() && this.f23115e) {
+            if (!TbadkCoreApplication.isLogin() && this.f23131e) {
                 this.m.A();
             } else if (c.a.e.e.p.j.A()) {
                 c.a.r0.o2.b.d().m(System.currentTimeMillis());
@@ -339,7 +339,7 @@ public class g extends e implements c.a.r0.o2.h.b {
             } else {
                 this.m.n();
                 this.m.s(8);
-                this.m.x(this.f23128g.getString(R.string.neterror), true);
+                this.m.x(this.f23144g.getString(R.string.neterror), true);
             }
         }
     }
@@ -447,7 +447,7 @@ public class g extends e implements c.a.r0.o2.h.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, postWriteCallBackData) == null) {
             if (this.r == null) {
-                this.r = new c.a.r0.e0.h(this.f23127f.getPageContext(), (NavigationBarCoverTip) this.f23127f.findViewById(R.id.navigation_cover_tip));
+                this.r = new c.a.r0.e0.h(this.f23143f.getPageContext(), (NavigationBarCoverTip) this.f23143f.findViewById(R.id.navigation_cover_tip));
             }
             this.r.l(postWriteCallBackData);
         }

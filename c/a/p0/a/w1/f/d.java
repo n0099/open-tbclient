@@ -31,13 +31,13 @@ public class d extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9507a;
+        public final /* synthetic */ CallbackHandler f9515a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f9508b;
+        public final /* synthetic */ UnitedSchemeEntity f9516b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f9509c;
+        public final /* synthetic */ String f9517c;
 
         public a(d dVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
@@ -54,9 +54,9 @@ public class d extends a0 {
                     return;
                 }
             }
-            this.f9507a = callbackHandler;
-            this.f9508b = unitedSchemeEntity;
-            this.f9509c = str;
+            this.f9515a = callbackHandler;
+            this.f9516b = unitedSchemeEntity;
+            this.f9517c = str;
         }
 
         @Override // c.a.p0.a.w1.a
@@ -64,9 +64,9 @@ public class d extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 if (jSONObject == null) {
-                    UnitedSchemeUtility.safeCallback(this.f9507a, this.f9508b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.f9509c);
+                    UnitedSchemeUtility.safeCallback(this.f9515a, this.f9516b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.f9517c);
                 } else {
-                    UnitedSchemeUtility.safeCallback(this.f9507a, this.f9508b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f9509c);
+                    UnitedSchemeUtility.safeCallback(this.f9515a, this.f9516b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f9517c);
                 }
             }
         }
@@ -75,7 +75,7 @@ public class d extends a0 {
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                UnitedSchemeUtility.safeCallback(this.f9507a, this.f9508b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.f9509c);
+                UnitedSchemeUtility.safeCallback(this.f9515a, this.f9516b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.f9517c);
             }
         }
     }
@@ -139,7 +139,7 @@ public class d extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
                 return false;
             } else if (eVar.d0()) {
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {

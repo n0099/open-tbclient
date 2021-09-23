@@ -20,16 +20,16 @@ public class RoundRelativeLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f56387e;
+    public float f56504e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f56388f;
+    public Path f56505f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f56389g;
+    public RectF f56506g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float[] f56390h;
+    public float[] f56507h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundRelativeLayout(Context context) {
@@ -50,8 +50,8 @@ public class RoundRelativeLayout extends RelativeLayout {
             }
         }
         float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.f56387e = g2;
-        this.f56390h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
+        this.f56504e = g2;
+        this.f56507h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
         a();
     }
 
@@ -59,15 +59,15 @@ public class RoundRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setWillNotDraw(false);
-            this.f56388f = new Path();
-            this.f56389g = new RectF();
+            this.f56505f = new Path();
+            this.f56506g = new RectF();
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f56388f.addRoundRect(this.f56389g, this.f56390h, Path.Direction.CW);
+            this.f56505f.addRoundRect(this.f56506g, this.f56507h, Path.Direction.CW);
         }
     }
 
@@ -75,7 +75,7 @@ public class RoundRelativeLayout extends RelativeLayout {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            canvas.clipPath(this.f56388f);
+            canvas.clipPath(this.f56505f);
             super.draw(canvas);
         }
     }
@@ -85,7 +85,7 @@ public class RoundRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            this.f56389g.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            this.f56506g.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
             b();
         }
     }
@@ -95,9 +95,9 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, fArr) == null) || fArr == null || fArr.length <= 0) {
             return;
         }
-        this.f56390h = new float[fArr.length];
+        this.f56507h = new float[fArr.length];
         for (int i2 = 0; i2 < fArr.length; i2++) {
-            this.f56390h[i2] = fArr[i2];
+            this.f56507h[i2] = fArr[i2];
         }
         b();
         invalidate();
@@ -123,8 +123,8 @@ public class RoundRelativeLayout extends RelativeLayout {
             }
         }
         float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.f56387e = g2;
-        this.f56390h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
+        this.f56504e = g2;
+        this.f56507h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
         a();
     }
 
@@ -148,8 +148,8 @@ public class RoundRelativeLayout extends RelativeLayout {
             }
         }
         float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.f56387e = g2;
-        this.f56390h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
+        this.f56504e = g2;
+        this.f56507h = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
         a();
     }
 }

@@ -12,19 +12,19 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27000a;
+    public String f27020a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27001b;
+    public int f27021b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e1 f27002c;
+    public e1 f27022c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27003d;
+    public String f27023d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27004e;
+    public int f27024e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class e {
                 return false;
             }
             e eVar = (e) obj;
-            if (this.f27001b == eVar.f27001b && (str = this.f27000a) != null && str.equals(eVar.f27000a)) {
+            if (this.f27021b == eVar.f27021b && (str = this.f27020a) != null && str.equals(eVar.f27020a)) {
                 return true;
             }
             return super.equals(obj);

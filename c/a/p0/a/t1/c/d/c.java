@@ -20,10 +20,10 @@ public class c extends c.a.p0.a.t1.c.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.t1.c.c.a f8695a;
+        public final /* synthetic */ c.a.p0.a.t1.c.c.a f8703a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.j.b f8696b;
+        public final /* synthetic */ c.a.p0.a.h0.j.b f8704b;
 
         public a(c cVar, c.a.p0.a.t1.c.c.a aVar, c.a.p0.a.h0.j.b bVar) {
             Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class c extends c.a.p0.a.t1.c.d.a {
                     return;
                 }
             }
-            this.f8695a = aVar;
-            this.f8696b = bVar;
+            this.f8703a = aVar;
+            this.f8704b = bVar;
         }
 
         @Override // c.a.p0.a.n.a.b
@@ -49,7 +49,7 @@ public class c extends c.a.p0.a.t1.c.d.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 c.a.p0.a.t1.d.a.a("obtain address failure, errCode = " + i2);
-                this.f8696b.a(this.f8695a);
+                this.f8704b.a(this.f8703a);
             }
         }
 
@@ -58,12 +58,12 @@ public class c extends c.a.p0.a.t1.c.d.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
                 c.a.p0.a.t1.d.a.a("obtain address success");
-                c.a.p0.a.t1.c.c.a aVar = this.f8695a;
-                aVar.f8678d = true;
+                c.a.p0.a.t1.c.c.a aVar = this.f8703a;
+                aVar.f8686d = true;
                 if (jSONObject != null) {
-                    aVar.f8679e = jSONObject.toString();
+                    aVar.f8687e = jSONObject.toString();
                 }
-                this.f8696b.a(this.f8695a);
+                this.f8704b.a(this.f8703a);
             }
         }
     }
@@ -110,9 +110,9 @@ public class c extends c.a.p0.a.t1.c.d.a {
     public void p(SwanAppActivity swanAppActivity, String str, c.a.p0.a.t1.c.b.b bVar, c.a.p0.a.e2.d.a aVar, c.a.p0.a.h0.j.b<c.a.p0.a.t1.c.c.a> bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, bVar, aVar, bVar2) == null) {
-            c.a.p0.a.t1.c.c.a aVar2 = new c.a.p0.a.t1.c.c.a(bVar.f8671f);
-            aVar2.f8675a = bVar.f8670e;
-            if (aVar != null && aVar.f5621j.a() != LightappBusinessClient.SVC_ID_H5_TRANSERECORD) {
+            c.a.p0.a.t1.c.c.a aVar2 = new c.a.p0.a.t1.c.c.a(bVar.f8679f);
+            aVar2.f8683a = bVar.f8678e;
+            if (aVar != null && aVar.f5629j.a() != LightappBusinessClient.SVC_ID_H5_TRANSERECORD) {
                 c.a.p0.a.t1.d.a.a("obtain address detail");
                 c.a.p0.a.c1.a.c0().a(swanAppActivity, str, str, new a(this, aVar2, bVar2));
                 return;

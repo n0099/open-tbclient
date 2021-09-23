@@ -18,34 +18,34 @@ public class c<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f13321a;
+    public View f13338a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WheelView f13322b;
+    public WheelView f13339b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WheelView f13323c;
+    public WheelView f13340c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WheelView f13324d;
+    public WheelView f13341d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<T> f13325e;
+    public List<T> f13342e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<List<T>> f13326f;
+    public List<List<T>> f13343f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<List<List<T>>> f13327g;
+    public List<List<List<T>>> f13344g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13328h;
+    public boolean f13345h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13329i;
+    public boolean f13346i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.q0.f1.p.b.c.b f13330j;
+    public c.a.q0.f1.p.b.c.b f13347j;
     public c.a.q0.f1.p.b.c.b k;
     public c.a.q0.f1.p.a.d.d l;
     public int m;
@@ -60,7 +60,7 @@ public class c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f13331a;
+        public final /* synthetic */ c f13348a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class c<T> {
                     return;
                 }
             }
-            this.f13331a = cVar;
+            this.f13348a = cVar;
         }
 
         @Override // c.a.q0.f1.p.b.c.b
@@ -85,27 +85,27 @@ public class c<T> {
             int i3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (this.f13331a.f13326f == null) {
-                    if (this.f13331a.l != null) {
-                        this.f13331a.l.a(this.f13331a.f13322b.getCurrentItem(), 0, 0);
+                if (this.f13348a.f13343f == null) {
+                    if (this.f13348a.l != null) {
+                        this.f13348a.l.a(this.f13348a.f13339b.getCurrentItem(), 0, 0);
                         return;
                     }
                     return;
                 }
-                if (this.f13331a.f13329i) {
+                if (this.f13348a.f13346i) {
                     i3 = 0;
                 } else {
-                    i3 = this.f13331a.f13323c.getCurrentItem();
-                    if (i3 >= ((List) this.f13331a.f13326f.get(i2)).size() - 1) {
-                        i3 = ((List) this.f13331a.f13326f.get(i2)).size() - 1;
+                    i3 = this.f13348a.f13340c.getCurrentItem();
+                    if (i3 >= ((List) this.f13348a.f13343f.get(i2)).size() - 1) {
+                        i3 = ((List) this.f13348a.f13343f.get(i2)).size() - 1;
                     }
                 }
-                this.f13331a.f13323c.setAdapter(new c.a.q0.f1.p.a.a.a((List) this.f13331a.f13326f.get(i2)));
-                this.f13331a.f13323c.setCurrentItem(i3);
-                if (this.f13331a.f13327g != null) {
-                    this.f13331a.k.a(i3);
-                } else if (this.f13331a.l != null) {
-                    this.f13331a.l.a(i2, i3, 0);
+                this.f13348a.f13340c.setAdapter(new c.a.q0.f1.p.a.a.a((List) this.f13348a.f13343f.get(i2)));
+                this.f13348a.f13340c.setCurrentItem(i3);
+                if (this.f13348a.f13344g != null) {
+                    this.f13348a.k.a(i3);
+                } else if (this.f13348a.l != null) {
+                    this.f13348a.l.a(i2, i3, 0);
                 }
             }
         }
@@ -117,7 +117,7 @@ public class c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f13332a;
+        public final /* synthetic */ c f13349a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class c<T> {
                     return;
                 }
             }
-            this.f13332a = cVar;
+            this.f13349a = cVar;
         }
 
         @Override // c.a.q0.f1.p.b.c.b
@@ -142,24 +142,24 @@ public class c<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 int i3 = 0;
-                if (this.f13332a.f13327g != null) {
-                    int currentItem = this.f13332a.f13322b.getCurrentItem();
-                    if (currentItem >= this.f13332a.f13327g.size() - 1) {
-                        currentItem = this.f13332a.f13327g.size() - 1;
+                if (this.f13349a.f13344g != null) {
+                    int currentItem = this.f13349a.f13339b.getCurrentItem();
+                    if (currentItem >= this.f13349a.f13344g.size() - 1) {
+                        currentItem = this.f13349a.f13344g.size() - 1;
                     }
-                    if (i2 >= ((List) this.f13332a.f13326f.get(currentItem)).size() - 1) {
-                        i2 = ((List) this.f13332a.f13326f.get(currentItem)).size() - 1;
+                    if (i2 >= ((List) this.f13349a.f13343f.get(currentItem)).size() - 1) {
+                        i2 = ((List) this.f13349a.f13343f.get(currentItem)).size() - 1;
                     }
-                    if (!this.f13332a.f13329i) {
-                        i3 = this.f13332a.f13324d.getCurrentItem() >= ((List) ((List) this.f13332a.f13327g.get(currentItem)).get(i2)).size() + (-1) ? ((List) ((List) this.f13332a.f13327g.get(currentItem)).get(i2)).size() - 1 : this.f13332a.f13324d.getCurrentItem();
+                    if (!this.f13349a.f13346i) {
+                        i3 = this.f13349a.f13341d.getCurrentItem() >= ((List) ((List) this.f13349a.f13344g.get(currentItem)).get(i2)).size() + (-1) ? ((List) ((List) this.f13349a.f13344g.get(currentItem)).get(i2)).size() - 1 : this.f13349a.f13341d.getCurrentItem();
                     }
-                    this.f13332a.f13324d.setAdapter(new c.a.q0.f1.p.a.a.a((List) ((List) this.f13332a.f13327g.get(this.f13332a.f13322b.getCurrentItem())).get(i2)));
-                    this.f13332a.f13324d.setCurrentItem(i3);
-                    if (this.f13332a.l != null) {
-                        this.f13332a.l.a(this.f13332a.f13322b.getCurrentItem(), i2, i3);
+                    this.f13349a.f13341d.setAdapter(new c.a.q0.f1.p.a.a.a((List) ((List) this.f13349a.f13344g.get(this.f13349a.f13339b.getCurrentItem())).get(i2)));
+                    this.f13349a.f13341d.setCurrentItem(i3);
+                    if (this.f13349a.l != null) {
+                        this.f13349a.l.a(this.f13349a.f13339b.getCurrentItem(), i2, i3);
                     }
-                } else if (this.f13332a.l != null) {
-                    this.f13332a.l.a(this.f13332a.f13322b.getCurrentItem(), i2, 0);
+                } else if (this.f13349a.l != null) {
+                    this.f13349a.l.a(this.f13349a.f13339b.getCurrentItem(), i2, 0);
                 }
             }
         }
@@ -172,7 +172,7 @@ public class c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f13333a;
+        public final /* synthetic */ c f13350a;
 
         public C0662c(c cVar) {
             Interceptable interceptable = $ic;
@@ -189,14 +189,14 @@ public class c<T> {
                     return;
                 }
             }
-            this.f13333a = cVar;
+            this.f13350a = cVar;
         }
 
         @Override // c.a.q0.f1.p.b.c.b
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f13333a.l.a(this.f13333a.f13322b.getCurrentItem(), this.f13333a.f13323c.getCurrentItem(), i2);
+                this.f13350a.l.a(this.f13350a.f13339b.getCurrentItem(), this.f13350a.f13340c.getCurrentItem(), i2);
             }
         }
     }
@@ -216,20 +216,20 @@ public class c<T> {
                 return;
             }
         }
-        this.f13328h = true;
-        this.f13329i = z;
-        this.f13321a = view;
-        this.f13322b = (WheelView) view.findViewById(R.id.options1);
-        this.f13323c = (WheelView) view.findViewById(R.id.options2);
-        this.f13324d = (WheelView) view.findViewById(R.id.options3);
+        this.f13345h = true;
+        this.f13346i = z;
+        this.f13338a = view;
+        this.f13339b = (WheelView) view.findViewById(R.id.options1);
+        this.f13340c = (WheelView) view.findViewById(R.id.options2);
+        this.f13341d = (WheelView) view.findViewById(R.id.options3);
     }
 
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f13322b.setTextColorOut(this.m);
-            this.f13323c.setTextColorOut(this.m);
-            this.f13324d.setTextColorOut(this.m);
+            this.f13339b.setTextColorOut(this.m);
+            this.f13340c.setTextColorOut(this.m);
+            this.f13341d.setTextColorOut(this.m);
         }
     }
 
@@ -245,9 +245,9 @@ public class c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             float f2 = i2;
-            this.f13322b.setTextSize(f2);
-            this.f13323c.setTextSize(f2);
-            this.f13324d.setTextSize(f2);
+            this.f13339b.setTextSize(f2);
+            this.f13340c.setTextSize(f2);
+            this.f13341d.setTextSize(f2);
         }
     }
 
@@ -256,18 +256,18 @@ public class c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int[] iArr = new int[3];
-            iArr[0] = this.f13322b.getCurrentItem();
-            List<List<T>> list = this.f13326f;
+            iArr[0] = this.f13339b.getCurrentItem();
+            List<List<T>> list = this.f13343f;
             if (list != null && list.size() > 0) {
-                iArr[1] = this.f13323c.getCurrentItem() > this.f13326f.get(iArr[0]).size() - 1 ? 0 : this.f13323c.getCurrentItem();
+                iArr[1] = this.f13340c.getCurrentItem() > this.f13343f.get(iArr[0]).size() - 1 ? 0 : this.f13340c.getCurrentItem();
             } else {
-                iArr[1] = this.f13323c.getCurrentItem();
+                iArr[1] = this.f13340c.getCurrentItem();
             }
-            List<List<List<T>>> list2 = this.f13327g;
+            List<List<List<T>>> list2 = this.f13344g;
             if (list2 != null && list2.size() > 0) {
-                iArr[2] = this.f13324d.getCurrentItem() <= this.f13327g.get(iArr[0]).get(iArr[1]).size() - 1 ? this.f13324d.getCurrentItem() : 0;
+                iArr[2] = this.f13341d.getCurrentItem() <= this.f13344g.get(iArr[0]).get(iArr[1]).size() - 1 ? this.f13341d.getCurrentItem() : 0;
             } else {
-                iArr[2] = this.f13324d.getCurrentItem();
+                iArr[2] = this.f13341d.getCurrentItem();
             }
             return iArr;
         }
@@ -277,36 +277,36 @@ public class c<T> {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f13322b.invalidate();
-            this.f13323c.invalidate();
-            this.f13324d.invalidate();
+            this.f13339b.invalidate();
+            this.f13340c.invalidate();
+            this.f13341d.invalidate();
         }
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f13322b.isCenterLabel(z);
-            this.f13323c.isCenterLabel(z);
-            this.f13324d.isCenterLabel(z);
+            this.f13339b.isCenterLabel(z);
+            this.f13340c.isCenterLabel(z);
+            this.f13341d.isCenterLabel(z);
         }
     }
 
     public final void l(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048582, this, i2, i3, i4) == null) {
-            if (this.f13325e != null) {
-                this.f13322b.setCurrentItem(i2);
+            if (this.f13342e != null) {
+                this.f13339b.setCurrentItem(i2);
             }
-            List<List<T>> list = this.f13326f;
+            List<List<T>> list = this.f13343f;
             if (list != null) {
-                this.f13323c.setAdapter(new c.a.q0.f1.p.a.a.a(list.get(i2)));
-                this.f13323c.setCurrentItem(i3);
+                this.f13340c.setAdapter(new c.a.q0.f1.p.a.a.a(list.get(i2)));
+                this.f13340c.setCurrentItem(i3);
             }
-            List<List<List<T>>> list2 = this.f13327g;
+            List<List<List<T>>> list2 = this.f13344g;
             if (list2 != null) {
-                this.f13324d.setAdapter(new c.a.q0.f1.p.a.a.a(list2.get(i2).get(i3)));
-                this.f13324d.setCurrentItem(i4);
+                this.f13341d.setAdapter(new c.a.q0.f1.p.a.a.a(list2.get(i2).get(i3)));
+                this.f13341d.setCurrentItem(i4);
             }
         }
     }
@@ -314,40 +314,40 @@ public class c<T> {
     public void m(Typeface typeface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, typeface) == null) {
-            this.f13322b.setCenterTypeface(typeface);
-            this.f13323c.setCenterTypeface(typeface);
-            this.f13324d.setCenterTypeface(typeface);
+            this.f13339b.setCenterTypeface(typeface);
+            this.f13340c.setCenterTypeface(typeface);
+            this.f13341d.setCenterTypeface(typeface);
         }
     }
 
     public void n(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4) == null) {
-            if (this.f13328h) {
+            if (this.f13345h) {
                 l(i2, i3, i4);
                 return;
             }
-            this.f13322b.setCurrentItem(i2);
-            this.f13323c.setCurrentItem(i3);
-            this.f13324d.setCurrentItem(i4);
+            this.f13339b.setCurrentItem(i2);
+            this.f13340c.setCurrentItem(i3);
+            this.f13341d.setCurrentItem(i4);
         }
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f13322b.setCyclic(z);
-            this.f13323c.setCyclic(z);
-            this.f13324d.setCyclic(z);
+            this.f13339b.setCyclic(z);
+            this.f13340c.setCyclic(z);
+            this.f13341d.setCyclic(z);
         }
     }
 
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f13322b.setDividerColor(this.o);
-            this.f13323c.setDividerColor(this.o);
-            this.f13324d.setDividerColor(this.o);
+            this.f13339b.setDividerColor(this.o);
+            this.f13340c.setDividerColor(this.o);
+            this.f13341d.setDividerColor(this.o);
         }
     }
 
@@ -362,9 +362,9 @@ public class c<T> {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f13322b.setDividerType(this.p);
-            this.f13323c.setDividerType(this.p);
-            this.f13324d.setDividerType(this.p);
+            this.f13339b.setDividerType(this.p);
+            this.f13340c.setDividerType(this.p);
+            this.f13341d.setDividerType(this.p);
         }
     }
 
@@ -379,18 +379,18 @@ public class c<T> {
     public void t(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f13322b.setItemsVisible(i2);
-            this.f13323c.setItemsVisible(i2);
-            this.f13324d.setItemsVisible(i2);
+            this.f13339b.setItemsVisible(i2);
+            this.f13340c.setItemsVisible(i2);
+            this.f13341d.setItemsVisible(i2);
         }
     }
 
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f13322b.setLineSpacingMultiplier(this.q);
-            this.f13323c.setLineSpacingMultiplier(this.q);
-            this.f13324d.setLineSpacingMultiplier(this.q);
+            this.f13339b.setLineSpacingMultiplier(this.q);
+            this.f13340c.setLineSpacingMultiplier(this.q);
+            this.f13341d.setLineSpacingMultiplier(this.q);
         }
     }
 
@@ -412,57 +412,57 @@ public class c<T> {
     public void x(List<T> list, List<List<T>> list2, List<List<List<T>>> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048594, this, list, list2, list3) == null) {
-            this.f13325e = list;
-            this.f13326f = list2;
-            this.f13327g = list3;
-            this.f13322b.setAdapter(new c.a.q0.f1.p.a.a.a(list));
-            this.f13322b.setCurrentItem(0);
-            List<List<T>> list4 = this.f13326f;
+            this.f13342e = list;
+            this.f13343f = list2;
+            this.f13344g = list3;
+            this.f13339b.setAdapter(new c.a.q0.f1.p.a.a.a(list));
+            this.f13339b.setCurrentItem(0);
+            List<List<T>> list4 = this.f13343f;
             if (list4 != null) {
-                this.f13323c.setAdapter(new c.a.q0.f1.p.a.a.a(list4.get(0)));
+                this.f13340c.setAdapter(new c.a.q0.f1.p.a.a.a(list4.get(0)));
             }
-            WheelView wheelView = this.f13323c;
+            WheelView wheelView = this.f13340c;
             wheelView.setCurrentItem(wheelView.getCurrentItem());
-            List<List<List<T>>> list5 = this.f13327g;
+            List<List<List<T>>> list5 = this.f13344g;
             if (list5 != null) {
-                this.f13324d.setAdapter(new c.a.q0.f1.p.a.a.a(list5.get(0).get(0)));
+                this.f13341d.setAdapter(new c.a.q0.f1.p.a.a.a(list5.get(0).get(0)));
             }
-            WheelView wheelView2 = this.f13324d;
+            WheelView wheelView2 = this.f13341d;
             wheelView2.setCurrentItem(wheelView2.getCurrentItem());
-            this.f13322b.setIsOptions(true);
-            this.f13323c.setIsOptions(true);
-            this.f13324d.setIsOptions(true);
-            if (this.f13326f == null) {
-                this.f13323c.setVisibility(8);
+            this.f13339b.setIsOptions(true);
+            this.f13340c.setIsOptions(true);
+            this.f13341d.setIsOptions(true);
+            if (this.f13343f == null) {
+                this.f13340c.setVisibility(8);
             } else {
-                this.f13323c.setVisibility(0);
+                this.f13340c.setVisibility(0);
             }
-            if (this.f13327g == null) {
-                this.f13324d.setVisibility(8);
+            if (this.f13344g == null) {
+                this.f13341d.setVisibility(8);
             } else {
-                this.f13324d.setVisibility(0);
+                this.f13341d.setVisibility(0);
             }
-            this.f13330j = new a(this);
+            this.f13347j = new a(this);
             this.k = new b(this);
-            if (list != null && this.f13328h) {
-                this.f13322b.setOnItemSelectedListener(this.f13330j);
+            if (list != null && this.f13345h) {
+                this.f13339b.setOnItemSelectedListener(this.f13347j);
             }
-            if (list2 != null && this.f13328h) {
-                this.f13323c.setOnItemSelectedListener(this.k);
+            if (list2 != null && this.f13345h) {
+                this.f13340c.setOnItemSelectedListener(this.k);
             }
-            if (list3 == null || !this.f13328h || this.l == null) {
+            if (list3 == null || !this.f13345h || this.l == null) {
                 return;
             }
-            this.f13324d.setOnItemSelectedListener(new C0662c(this));
+            this.f13341d.setOnItemSelectedListener(new C0662c(this));
         }
     }
 
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.f13322b.setTextColorCenter(this.n);
-            this.f13323c.setTextColorCenter(this.n);
-            this.f13324d.setTextColorCenter(this.n);
+            this.f13339b.setTextColorCenter(this.n);
+            this.f13340c.setTextColorCenter(this.n);
+            this.f13341d.setTextColorCenter(this.n);
         }
     }
 

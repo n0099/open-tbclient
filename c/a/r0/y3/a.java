@@ -29,22 +29,22 @@ public class a extends c.a.q0.s.s.a implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f29671e;
+    public ViewGroup f29691e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f29672f;
+    public ImageView f29692f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f29673g;
+    public TextView f29693g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f29674h;
+    public ViewGroup f29694h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbCheckBox f29675i;
+    public TbCheckBox f29695i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f29676j;
+    public TextView f29696j;
     public Button k;
     public Button l;
     public ImageView m;
@@ -62,14 +62,14 @@ public class a extends c.a.q0.s.s.a implements View.OnClickListener {
 
     /* renamed from: c.a.r0.y3.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1382a implements TbCheckBox.b {
+    public class C1380a implements TbCheckBox.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f29677a;
+        public final /* synthetic */ a f29697a;
 
-        public C1382a(a aVar) {
+        public C1380a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,16 +84,16 @@ public class a extends c.a.q0.s.s.a implements View.OnClickListener {
                     return;
                 }
             }
-            this.f29677a = aVar;
+            this.f29697a = aVar;
         }
 
         @Override // com.baidu.tbadk.core.view.TbCheckBox.b
         public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbCheckBox, Boolean.valueOf(z), obj}) == null) || this.f29677a.u == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbCheckBox, Boolean.valueOf(z), obj}) == null) || this.f29697a.u == null) {
                 return;
             }
-            this.f29677a.u.onCheckedChanged(null, z);
+            this.f29697a.u.onCheckedChanged(null, z);
         }
     }
 
@@ -103,7 +103,7 @@ public class a extends c.a.q0.s.s.a implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f29678a;
+        public final /* synthetic */ a f29698a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public class a extends c.a.q0.s.s.a implements View.OnClickListener {
                     return;
                 }
             }
-            this.f29678a = aVar;
+            this.f29698a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -130,12 +130,12 @@ public class a extends c.a.q0.s.s.a implements View.OnClickListener {
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((b) aVar, str, i2);
                 if (aVar == null || !aVar.w()) {
-                    this.f29678a.f29672f.setImageResource(R.drawable.frs_luhan_moren_background);
+                    this.f29698a.f29692f.setImageResource(R.drawable.frs_luhan_moren_background);
                     return;
                 }
-                this.f29678a.f29672f.setBackgroundResource(0);
-                this.f29678a.f29672f.setImageDrawable(null);
-                aVar.h(this.f29678a.f29672f);
+                this.f29698a.f29692f.setBackgroundResource(0);
+                this.f29698a.f29692f.setImageDrawable(null);
+                aVar.h(this.f29698a.f29692f);
             }
         }
     }
@@ -146,7 +146,7 @@ public class a extends c.a.q0.s.s.a implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f29679e;
+        public boolean f29699e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -163,21 +163,21 @@ public class a extends c.a.q0.s.s.a implements View.OnClickListener {
                     return;
                 }
             }
-            this.f29679e = false;
+            this.f29699e = false;
         }
 
         @Override // com.baidu.tbadk.core.view.TbCheckBox.c
         public boolean isChecked() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29679e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29699e : invokeV.booleanValue;
         }
 
         @Override // com.baidu.tbadk.core.view.TbCheckBox.c
         public void setChecked(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.f29679e = z;
+                this.f29699e = z;
             }
         }
     }
@@ -201,7 +201,7 @@ public class a extends c.a.q0.s.s.a implements View.OnClickListener {
             }
         }
         this.v = false;
-        this.w = new C1382a(this);
+        this.w = new C1380a(this);
         this.x = new b(this);
         c();
         setContentViewSize(1);
@@ -213,28 +213,28 @@ public class a extends c.a.q0.s.s.a implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.easter_egg_dialog, (ViewGroup) null);
-            this.f29671e = viewGroup;
-            this.f29672f = (ImageView) viewGroup.findViewById(R.id.dialog_bg);
-            this.f29673g = (TextView) this.f29671e.findViewById(R.id.message);
-            Button button = (Button) this.f29671e.findViewById(R.id.negative_btn);
+            this.f29691e = viewGroup;
+            this.f29692f = (ImageView) viewGroup.findViewById(R.id.dialog_bg);
+            this.f29693g = (TextView) this.f29691e.findViewById(R.id.message);
+            Button button = (Button) this.f29691e.findViewById(R.id.negative_btn);
             this.l = button;
             button.setOnClickListener(this);
-            Button button2 = (Button) this.f29671e.findViewById(R.id.positive_btn);
+            Button button2 = (Button) this.f29691e.findViewById(R.id.positive_btn);
             this.k = button2;
             button2.setOnClickListener(this);
-            ImageView imageView = (ImageView) this.f29671e.findViewById(R.id.close);
+            ImageView imageView = (ImageView) this.f29691e.findViewById(R.id.close);
             this.m = imageView;
             imageView.setOnClickListener(this);
-            this.f29674h = (ViewGroup) this.f29671e.findViewById(R.id.checkbox_container);
-            this.f29676j = (TextView) this.f29671e.findViewById(R.id.checkbox_text);
-            TbCheckBox tbCheckBox = (TbCheckBox) this.f29671e.findViewById(R.id.checkbox);
-            this.f29675i = tbCheckBox;
+            this.f29694h = (ViewGroup) this.f29691e.findViewById(R.id.checkbox_container);
+            this.f29696j = (TextView) this.f29691e.findViewById(R.id.checkbox_text);
+            TbCheckBox tbCheckBox = (TbCheckBox) this.f29691e.findViewById(R.id.checkbox);
+            this.f29695i = tbCheckBox;
             tbCheckBox.setBackgroundDrawableId(R.drawable.icon_frs_luhan_selct, R.drawable.icon_frs_luhan_selctguand);
-            this.f29675i.setStatedChangedListener(this.w);
-            this.f29675i.setTagData(new c(this));
-            this.f29674h.setClickable(true);
-            this.f29674h.setOnClickListener(this);
-            setContentView(this.f29671e);
+            this.f29695i.setStatedChangedListener(this.w);
+            this.f29695i.setTagData(new c(this));
+            this.f29694h.setClickable(true);
+            this.f29694h.setOnClickListener(this);
+            setContentView(this.f29691e);
         }
     }
 
@@ -249,12 +249,12 @@ public class a extends c.a.q0.s.s.a implements View.OnClickListener {
             this.v = true;
             super.create(fVar);
             if (!k.isEmpty(this.o)) {
-                this.f29673g.setText(this.o);
+                this.f29693g.setText(this.o);
             }
             if (!k.isEmpty(this.t)) {
-                this.f29676j.setText(this.t);
+                this.f29696j.setText(this.t);
             } else {
-                this.f29674h.setVisibility(4);
+                this.f29694h.setVisibility(4);
             }
             if (!k.isEmpty(this.r)) {
                 this.l.setText(this.r);
@@ -265,7 +265,7 @@ public class a extends c.a.q0.s.s.a implements View.OnClickListener {
             if (!TextUtils.isEmpty(this.n)) {
                 d.h().m(this.n, 10, this.x, fVar.getUniqueId());
             } else {
-                this.f29672f.setImageResource(R.drawable.frs_luhan_moren_background);
+                this.f29692f.setImageResource(R.drawable.frs_luhan_moren_background);
             }
             getRealView().setBackgroundDrawable(null);
             return this;
@@ -366,7 +366,7 @@ public class a extends c.a.q0.s.s.a implements View.OnClickListener {
         } else if (id == R.id.close) {
             dismiss();
         } else if (id == R.id.checkbox_container) {
-            TbCheckBox tbCheckBox = this.f29675i;
+            TbCheckBox tbCheckBox = this.f29695i;
             tbCheckBox.setChecked(!tbCheckBox.isChecked());
         }
     }

@@ -22,19 +22,19 @@ public class a extends c.a.q0.s.l.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f18996c;
+    public static a f19005c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a.InterfaceC0689a f18997b;
+    public final a.InterfaceC0687a f19006b;
 
     /* renamed from: c.a.r0.h2.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0918a implements a.InterfaceC0689a {
+    public class C0916a implements a.InterfaceC0687a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0918a(a aVar) {
+        public C0916a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,7 +50,7 @@ public class a extends c.a.q0.s.l.a {
             }
         }
 
-        @Override // c.a.q0.s.l.a.InterfaceC0689a
+        @Override // c.a.q0.s.l.a.InterfaceC0687a
         public void a(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) && i2 == 1) {
@@ -58,14 +58,14 @@ public class a extends c.a.q0.s.l.a {
             }
         }
 
-        @Override // c.a.q0.s.l.a.InterfaceC0689a
+        @Override // c.a.q0.s.l.a.InterfaceC0687a
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             }
         }
 
-        @Override // c.a.q0.s.l.a.InterfaceC0689a
+        @Override // c.a.q0.s.l.a.InterfaceC0687a
         public void c(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
@@ -102,26 +102,26 @@ public class a extends c.a.q0.s.l.a {
                 return;
             }
         }
-        this.f18997b = new C0918a(this);
+        this.f19006b = new C0916a(this);
     }
 
     public static a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f18996c == null) {
-                f18996c = new a();
+            if (f19005c == null) {
+                f19005c = new a();
             }
-            return f18996c;
+            return f19005c;
         }
         return (a) invokeV.objValue;
     }
 
     @Override // c.a.q0.s.l.a
-    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0689a interfaceC0689a) {
+    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0687a interfaceC0687a) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, interfaceC0689a)) == null) ? c.a.r0.y1.b.a(str, str2, str3, str4, interfaceC0689a) : (BdAsyncTask) invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, interfaceC0687a)) == null) ? c.a.r0.y1.b.a(str, str2, str3, str4, interfaceC0687a) : (BdAsyncTask) invokeLLLLL.objValue;
     }
 
     @Override // c.a.q0.s.l.a
@@ -142,9 +142,9 @@ public class a extends c.a.q0.s.l.a {
             }
             a.b bVar2 = new a.b();
             try {
-                bVar2.f14000a = split[0];
+                bVar2.f13997a = split[0];
                 if (split.length >= 2) {
-                    bVar2.f14001b = split[1];
+                    bVar2.f13998b = split[1];
                 }
                 return bVar2;
             } catch (Exception e2) {
@@ -166,7 +166,7 @@ public class a extends c.a.q0.s.l.a {
             if (currentAccountObj != null) {
                 a.b d2 = d(currentAccountObj.getBDUSS());
                 if (d2 != null) {
-                    c.a.r0.y1.b.a(currentAccountObj.getAccount(), d2.f14000a, d2.f14001b, currentAccountObj.getStoken(), this.f18997b);
+                    c.a.r0.y1.b.a(currentAccountObj.getAccount(), d2.f13997a, d2.f13998b, currentAccountObj.getStoken(), this.f19006b);
                     return;
                 }
                 return;

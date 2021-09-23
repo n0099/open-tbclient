@@ -24,7 +24,7 @@ public class c implements SoUtils.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6563a;
+    public static final boolean f6571a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class c implements SoUtils.a {
                 return;
             }
         }
-        f6563a = k.f7077a;
+        f6571a = k.f7085a;
     }
 
     public c() {
@@ -75,7 +75,7 @@ public class c implements SoUtils.a {
         }
         String[] strArr = {Build.CPU_ABI, Build.CPU_ABI2};
         String str3 = Arrays.toString(strArr) + StringUtils.LF + l.a() + StringUtils.LF + a("v8.engine") + StringUtils.LF + a("zeusv8") + StringUtils.LF + str2;
-        if (f6563a) {
+        if (f6571a) {
             String str4 = "reportSoLoadInfo: " + str3;
         }
         c.b bVar = new c.b(10007);

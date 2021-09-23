@@ -6,7 +6,7 @@ public interface a {
 
     /* renamed from: c.a.r0.f0.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0856a {
+    public interface InterfaceC0854a {
         void a();
 
         void b();

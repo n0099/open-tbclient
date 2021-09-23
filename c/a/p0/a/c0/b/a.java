@@ -30,35 +30,35 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f4644h;
+    public static final boolean f4652h;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.c0.e.a f4645a;
+    public c.a.p0.a.c0.e.a f4653a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public V f4646b;
+    public V f4654b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public M f4647c;
+    public M f4655c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public M f4648d;
+    public M f4656d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public SwanAppComponentContainerView f4649e;
+    public SwanAppComponentContainerView f4657e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public j f4650f;
+    public j f4658f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4651g;
+    public int f4659g;
 
     /* renamed from: c.a.p0.a.c0.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -67,10 +67,10 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f4652e;
+        public final /* synthetic */ String f4660e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f4653f;
+        public final /* synthetic */ a f4661f;
 
         public C0124a(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -87,8 +87,8 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
                     return;
                 }
             }
-            this.f4653f = aVar;
-            this.f4652e = str;
+            this.f4661f = aVar;
+            this.f4660e = str;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: c.a.p0.a.c0.b.a */
@@ -98,15 +98,15 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a aVar = this.f4653f;
-                aVar.f4646b = aVar.v(aVar.f4645a.b());
-                a aVar2 = this.f4653f;
-                aVar2.B(aVar2.f4646b);
-                this.f4653f.f4649e.setTargetView(this.f4653f.f4646b, 0);
-                a aVar3 = this.f4653f;
-                aVar3.D(aVar3.f4646b, this.f4653f.f4647c, new c.a.p0.a.c0.f.b(true));
-                if (a.f4644h) {
-                    String str = this.f4652e + " insert delayed（view）: success";
+                a aVar = this.f4661f;
+                aVar.f4654b = aVar.v(aVar.f4653a.b());
+                a aVar2 = this.f4661f;
+                aVar2.B(aVar2.f4654b);
+                this.f4661f.f4657e.setTargetView(this.f4661f.f4654b, 0);
+                a aVar3 = this.f4661f;
+                aVar3.D(aVar3.f4654b, this.f4661f.f4655c, new c.a.p0.a.c0.f.b(true));
+                if (a.f4652h) {
+                    String str = this.f4660e + " insert delayed（view）: success";
                 }
             }
         }
@@ -115,11 +115,11 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                d.l("Component-Base", this.f4652e + " insert delayed（view）: fail");
-                if (a.f4644h && th != null && TextUtils.equals(th.getMessage(), "save subscriber and return subscriber: nolinear !")) {
+                d.l("Component-Base", this.f4660e + " insert delayed（view）: fail");
+                if (a.f4652h && th != null && TextUtils.equals(th.getMessage(), "save subscriber and return subscriber: nolinear !")) {
                     throw new RuntimeException("save subscriber and return subscriber: nolinear !");
                 }
-                this.f4653f.C();
+                this.f4661f.C();
             }
         }
 
@@ -127,7 +127,7 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
         public void onNext(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                d.l("Component-Base", this.f4652e + " success should call onCompleted");
+                d.l("Component-Base", this.f4660e + " success should call onCompleted");
             }
         }
     }
@@ -138,10 +138,10 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f4654e;
+        public final /* synthetic */ long f4662e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f4655f;
+        public final /* synthetic */ a f4663f;
 
         public b(a aVar, long j2) {
             Interceptable interceptable = $ic;
@@ -158,8 +158,8 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
                     return;
                 }
             }
-            this.f4655f = aVar;
-            this.f4654e = j2;
+            this.f4663f = aVar;
+            this.f4662e = j2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -168,13 +168,13 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
         public void call(j<? super Object> jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                if (a.f4644h) {
+                if (a.f4652h) {
                     String str = "insert delayed => save thread: " + Thread.currentThread().getName();
                 }
-                if (this.f4654e != Thread.currentThread().getId()) {
+                if (this.f4662e != Thread.currentThread().getId()) {
                     c.a.p0.a.c0.g.a.a("Component-Base", "save subscriber and return subscriber: nolinear !");
                 }
-                this.f4655f.f4650f = jVar;
+                this.f4663f.f4658f = jVar;
             }
         }
     }
@@ -228,7 +228,7 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
                 return;
             }
         }
-        f4644h = k.f7077a;
+        f4652h = k.f7085a;
     }
 
     public a(@Nullable Context context, @NonNull M m) {
@@ -247,9 +247,9 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
             }
         }
         M j2 = j(m);
-        this.f4647c = j2;
+        this.f4655c = j2;
         c.a.p0.a.c0.e.a c2 = c.a.p0.a.c0.d.a.c(j2);
-        this.f4645a = c2;
+        this.f4653a = c2;
         if (c2 != null) {
             if (context != null) {
                 c2.d(context);
@@ -281,14 +281,14 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             String o = o();
-            if (f4644h) {
+            if (f4652h) {
                 String str = "=====================" + o + " start remove=====================";
             }
-            c.a.p0.a.c0.e.a aVar = this.f4645a;
+            c.a.p0.a.c0.e.a aVar = this.f4653a;
             if (aVar == null) {
                 c.a.p0.a.c0.g.a.a("Component-Base", o + " remove with a null component context!");
                 return new c.a.p0.a.c0.b.c(202, "component context is null");
-            } else if (this.f4649e == null) {
+            } else if (this.f4657e == null) {
                 c.a.p0.a.e0.d.b("Component-Base", o + " remove must after insert");
                 return new c.a.p0.a.c0.b.c(202, "component remove must after insert");
             } else if (!aVar.a().e(this)) {
@@ -297,7 +297,7 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
                 return new c.a.p0.a.c0.b.c(1001, str2);
             } else {
                 A();
-                if (f4644h) {
+                if (f4652h) {
                     String str3 = o + " remove: success";
                 }
                 return new c.a.p0.a.c0.b.c(0, "success");
@@ -318,15 +318,15 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
     public final void E(@NonNull M m, @NonNull c.a.p0.a.c0.f.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, m, bVar) == null) {
-            if (this.f4649e == null) {
+            if (this.f4657e == null) {
                 c.a.p0.a.c0.g.a.a("Component-Base", "renderContainerView with a null container view");
                 return;
             }
             if (bVar.a(1)) {
-                this.f4649e.setHidden(m.f4661j);
+                this.f4657e.setHidden(m.f4669j);
             }
             if (bVar.a(2)) {
-                r(this.f4649e, m);
+                r(this.f4657e, m);
             }
         }
     }
@@ -334,10 +334,10 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
     public final void F() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (jVar = this.f4650f) == null || jVar.isUnsubscribed()) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (jVar = this.f4658f) == null || jVar.isUnsubscribed()) {
             return;
         }
-        this.f4650f.unsubscribe();
+        this.f4658f.unsubscribe();
     }
 
     @NonNull
@@ -349,44 +349,44 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
             String o = o();
             c.a.p0.a.c0.b.c i2 = i(m);
             if (!i2.a()) {
-                c.a.p0.a.e0.d.b("Component-Base", o + " update with a invalid model => " + i2.f4663b);
+                c.a.p0.a.e0.d.b("Component-Base", o + " update with a invalid model => " + i2.f4671b);
                 return i2;
             }
-            if (f4644h) {
+            if (f4652h) {
                 String str = "=====================" + o + " start update=====================";
             }
-            M m2 = this.f4647c;
+            M m2 = this.f4655c;
             if (m2 == m) {
                 String str2 = o + " update with the same model";
                 c.a.p0.a.c0.g.a.a("Component-Base", str2);
                 return new c.a.p0.a.c0.b.c(202, str2);
-            } else if (!TextUtils.equals(m2.f4657f, m.f4657f)) {
-                String str3 = o + " update with different id: " + this.f4647c.f4657f + StringUtil.ARRAY_ELEMENT_SEPARATOR + m.f4657f;
+            } else if (!TextUtils.equals(m2.f4665f, m.f4665f)) {
+                String str3 = o + " update with different id: " + this.f4655c.f4665f + StringUtil.ARRAY_ELEMENT_SEPARATOR + m.f4665f;
                 c.a.p0.a.c0.g.a.a("Component-Base", str3);
                 return new c.a.p0.a.c0.b.c(202, str3);
-            } else if (!TextUtils.equals(this.f4647c.f4658g, m.f4658g)) {
-                String str4 = o + " update with different slave id: " + this.f4647c.f4658g + StringUtil.ARRAY_ELEMENT_SEPARATOR + m.f4658g;
+            } else if (!TextUtils.equals(this.f4655c.f4666g, m.f4666g)) {
+                String str4 = o + " update with different slave id: " + this.f4655c.f4666g + StringUtil.ARRAY_ELEMENT_SEPARATOR + m.f4666g;
                 c.a.p0.a.c0.g.a.a("Component-Base", str4);
                 return new c.a.p0.a.c0.b.c(202, str4);
-            } else if (this.f4646b != null && this.f4649e != null) {
-                if (this.f4645a == null) {
+            } else if (this.f4654b != null && this.f4657e != null) {
+                if (this.f4653a == null) {
                     c.a.p0.a.c0.g.a.a("Component-Base", o + " update with a null component context!");
                     return new c.a.p0.a.c0.b.c(202, "component context is null");
                 }
-                M m3 = this.f4647c;
-                this.f4648d = m3;
+                M m3 = this.f4655c;
+                this.f4656d = m3;
                 c.a.p0.a.c0.f.b k = k(m3, m);
                 M j2 = j(m);
-                this.f4647c = j2;
-                D(this.f4646b, j2, k);
-                boolean f2 = this.f4645a.a().f(this, k);
-                this.f4648d = null;
+                this.f4655c = j2;
+                D(this.f4654b, j2, k);
+                boolean f2 = this.f4653a.a().f(this, k);
+                this.f4656d = null;
                 if (!f2) {
                     String str5 = o + " update component fail";
                     c.a.p0.a.e0.d.b("Component-Base", str5);
                     return new c.a.p0.a.c0.b.c(1001, str5);
                 }
-                if (f4644h) {
+                if (f4652h) {
                     String str6 = o + " component update: success";
                 }
                 return new c.a.p0.a.c0.b.c(0, "success");
@@ -404,7 +404,7 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            this.f4651g = i2 | this.f4651g;
+            this.f4659g = i2 | this.f4659g;
             return this;
         }
         return (a) invokeI.objValue;
@@ -429,7 +429,7 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
             if (m == null) {
                 return new c.a.p0.a.c0.b.c(202, "model is null");
             }
-            if (TextUtils.isEmpty(m.f4658g)) {
+            if (TextUtils.isEmpty(m.f4666g)) {
                 return new c.a.p0.a.c0.b.c(202, "slave id is empty");
             }
             if (!m.isValid()) {
@@ -486,7 +486,7 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
             if (aVar != null && aVar.e(m.l)) {
                 bVar.b(3);
             }
-            if (m.f4661j != m2.f4661j) {
+            if (m.f4669j != m2.f4669j) {
                 bVar.b(1);
             }
             if (m.k != m2.k) {
@@ -501,21 +501,21 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
     public final M l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? j(this.f4647c) : (M) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? j(this.f4655c) : (M) invokeV.objValue;
     }
 
     @Nullable
     public final SwanAppComponentContainerView m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f4649e : (SwanAppComponentContainerView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f4657e : (SwanAppComponentContainerView) invokeV.objValue;
     }
 
     @NonNull
     public final M n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f4647c : (M) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f4655c : (M) invokeV.objValue;
     }
 
     @NonNull
@@ -523,11 +523,11 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            c.a.p0.a.c0.b.c i2 = i(this.f4647c);
+            c.a.p0.a.c0.b.c i2 = i(this.f4655c);
             if (i2.a()) {
-                return this.f4647c.f();
+                return this.f4655c.f();
             }
-            return "【illegal component#" + i2.f4663b + "】";
+            return "【illegal component#" + i2.f4671b + "】";
         }
         return (String) invokeV.objValue;
     }
@@ -536,34 +536,34 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
     public final M p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f4648d : (M) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f4656d : (M) invokeV.objValue;
     }
 
     @Nullable
     public final V q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f4646b : (V) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f4654b : (V) invokeV.objValue;
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
     public void r(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull M m) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, swanAppComponentContainerView, m) == null) {
-            swanAppComponentContainerView.setOnTouchListener(new c(this, m.f4658g, m.f4657f, m.f4656e, m.k));
+            swanAppComponentContainerView.setOnTouchListener(new c(this, m.f4666g, m.f4665f, m.f4664e, m.k));
         }
     }
 
     public final boolean s(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) ? (this.f4651g & i2) == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) ? (this.f4659g & i2) == i2 : invokeI.booleanValue;
     }
 
     public final boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f4648d != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f4656d != null : invokeV.booleanValue;
     }
 
     @NonNull
@@ -583,32 +583,32 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             String o = o();
-            c.a.p0.a.c0.b.c i2 = i(this.f4647c);
+            c.a.p0.a.c0.b.c i2 = i(this.f4655c);
             if (!i2.a()) {
-                c.a.p0.a.e0.d.b("Component-Base", o + " insert with a invalid model => " + i2.f4663b);
+                c.a.p0.a.e0.d.b("Component-Base", o + " insert with a invalid model => " + i2.f4671b);
                 return i2;
             }
-            if (f4644h) {
+            if (f4652h) {
                 String str = "=====================" + o + " start insert=====================";
             }
-            c.a.p0.a.c0.e.a aVar = this.f4645a;
+            c.a.p0.a.c0.e.a aVar = this.f4653a;
             if (aVar == null) {
                 c.a.p0.a.e0.d.b("Component-Base", o + " insert with a null component context!");
                 return new c.a.p0.a.c0.b.c(202, "component context is null");
             }
             Context b2 = aVar.b();
-            if (this.f4649e != null || this.f4646b != null) {
+            if (this.f4657e != null || this.f4654b != null) {
                 c.a.p0.a.e0.d.l("Component-Base", o + " repeat insert");
             }
-            V v = v(this.f4645a.b());
-            this.f4646b = v;
+            V v = v(this.f4653a.b());
+            this.f4654b = v;
             B(v);
             SwanAppComponentContainerView u = u(b2);
-            this.f4649e = u;
-            u.setTargetView(this.f4646b);
-            D(this.f4646b, this.f4647c, new c.a.p0.a.c0.f.b(true));
-            if (h(this.f4645a)) {
-                if (f4644h) {
+            this.f4657e = u;
+            u.setTargetView(this.f4654b);
+            D(this.f4654b, this.f4655c, new c.a.p0.a.c0.f.b(true));
+            if (h(this.f4653a)) {
+                if (f4652h) {
                     r0 = o + " insert: success";
                 }
                 return new c.a.p0.a.c0.b.c(0, "success");
@@ -627,34 +627,34 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             String o = o();
-            if (!i(this.f4647c).a()) {
-                c.a.p0.a.e0.d.b("Component-Base", o + " insert delayed with a invalid model => " + i2.f4663b);
+            if (!i(this.f4655c).a()) {
+                c.a.p0.a.e0.d.b("Component-Base", o + " insert delayed with a invalid model => " + i2.f4671b);
                 return null;
             }
-            if (f4644h) {
+            if (f4652h) {
                 String str = "=====================" + o + " start insertDelayed=====================";
             }
-            if (this.f4645a == null) {
+            if (this.f4653a == null) {
                 c.a.p0.a.c0.g.a.a("Component-Base", o + " insert delayed with a null component context!");
                 return null;
             }
-            if (this.f4649e != null) {
+            if (this.f4657e != null) {
                 c.a.p0.a.e0.d.l("Component-Base", o + " repeat insert delayed: container view repeat");
             }
-            j jVar = this.f4650f;
+            j jVar = this.f4658f;
             if (jVar != null && !jVar.isUnsubscribed()) {
-                this.f4650f.unsubscribe();
-                this.f4650f = null;
+                this.f4658f.unsubscribe();
+                this.f4658f = null;
                 c.a.p0.a.e0.d.l("Component-Base", o + " insert delayed repeat: subscriber repeat");
             }
-            this.f4649e = u(this.f4645a.b());
-            E(this.f4647c, new c.a.p0.a.c0.f.b(true));
-            if (h(this.f4645a)) {
-                if (f4644h) {
+            this.f4657e = u(this.f4653a.b());
+            E(this.f4655c, new c.a.p0.a.c0.f.b(true));
+            if (h(this.f4653a)) {
+                if (f4652h) {
                     r0 = o + " insert delayed（container view）: success";
                 }
                 i.d.b(new b(this, Thread.currentThread().getId())).z(new C0124a(this, o));
-                return this.f4650f;
+                return this.f4658f;
             }
             c.a.p0.a.e0.d.b("Component-Base", o + " insert delayed: attach fail");
             return null;
@@ -672,7 +672,7 @@ public abstract class a<V extends View, M extends c.a.p0.a.c0.b.b> {
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            if (f4644h) {
+            if (f4652h) {
                 String str = o() + " onDestroy";
             }
             F();

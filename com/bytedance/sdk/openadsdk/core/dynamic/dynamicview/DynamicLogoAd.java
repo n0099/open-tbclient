@@ -47,11 +47,11 @@ public class DynamicLogoAd extends DynamicBaseWidgetImp {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.b();
             if (Build.VERSION.SDK_INT >= 17) {
-                this.n.setTextAlignment(this.f66371j.h());
+                this.n.setTextAlignment(this.f66682j.h());
             }
             ((TextView) this.n).setText("广告");
-            ((TextView) this.n).setTextColor(this.f66371j.g());
-            ((TextView) this.n).setTextSize(this.f66371j.e());
+            ((TextView) this.n).setTextColor(this.f66682j.g());
+            ((TextView) this.n).setTextSize(this.f66682j.e());
             return true;
         }
         return invokeV.booleanValue;

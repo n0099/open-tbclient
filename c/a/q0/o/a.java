@@ -11,25 +11,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13621a;
+    public int f13617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13622b;
+    public int f13618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13623c;
+    public int f13619c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13624d;
+    public int f13620d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13625e;
+    public int f13621e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13626f;
+    public int f13622f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13627g;
+    public boolean f13623g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,13 +44,13 @@ public class a {
                 return;
             }
         }
-        this.f13621a = 300;
-        this.f13622b = 5000;
-        this.f13623c = 10000;
-        this.f13624d = 1500;
-        this.f13625e = 3000;
-        this.f13626f = 6000;
-        this.f13627g = true;
+        this.f13617a = 300;
+        this.f13618b = 5000;
+        this.f13619c = 10000;
+        this.f13620d = 1500;
+        this.f13621e = 3000;
+        this.f13622f = 6000;
+        this.f13623g = true;
     }
 
     public void a(JSONObject jSONObject) {
@@ -61,33 +61,33 @@ public class a {
         try {
             int optInt = jSONObject.optInt("wifiSlow", -1);
             if (optInt > 0) {
-                this.f13621a = optInt;
+                this.f13617a = optInt;
             }
             int optInt2 = jSONObject.optInt("threeGSlow", -1);
             if (optInt2 > 0) {
-                this.f13622b = optInt2;
+                this.f13618b = optInt2;
             }
             int optInt3 = jSONObject.optInt("twoGSlow", -1);
             if (optInt3 > 0) {
-                this.f13623c = optInt3;
+                this.f13619c = optInt3;
             }
             int optInt4 = jSONObject.optInt("wifiLog", -1);
             if (optInt4 > 0) {
-                this.f13624d = optInt4;
+                this.f13620d = optInt4;
             }
             int optInt5 = jSONObject.optInt("threeGLog", -1);
             if (optInt5 > 0) {
-                this.f13625e = optInt5;
+                this.f13621e = optInt5;
             }
             int optInt6 = jSONObject.optInt("twoGLog", -1);
             if (optInt6 > 0) {
-                this.f13626f = optInt6;
+                this.f13622f = optInt6;
             }
             boolean z = true;
             if (jSONObject.optInt("mobile_cdn_switch", 1) != 1) {
                 z = false;
             }
-            this.f13627g = z;
+            this.f13623g = z;
         } catch (Exception unused) {
         }
     }

@@ -18,7 +18,7 @@ public class b implements Interceptor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f7621a;
+    public HashMap<String, String> f7629a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -33,17 +33,17 @@ public class b implements Interceptor {
                 return;
             }
         }
-        this.f7621a = new HashMap<>();
+        this.f7629a = new HashMap<>();
     }
 
     public void a(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.f7621a.clear();
+            this.f7629a.clear();
             if (hashMap == null || hashMap.size() < 1) {
                 return;
             }
-            this.f7621a = hashMap;
+            this.f7629a = hashMap;
         }
     }
 
@@ -52,10 +52,10 @@ public class b implements Interceptor {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
-            HashMap<String, String> hashMap = this.f7621a;
+            HashMap<String, String> hashMap = this.f7629a;
             if (hashMap != null && hashMap.size() >= 1) {
                 Request.Builder newBuilder = chain.request().newBuilder();
-                for (Map.Entry<String, String> entry : this.f7621a.entrySet()) {
+                for (Map.Entry<String, String> entry : this.f7629a.entrySet()) {
                     newBuilder.addHeader(entry.getKey(), entry.getValue());
                 }
                 return chain.proceed(newBuilder.build());

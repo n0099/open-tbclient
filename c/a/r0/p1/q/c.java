@@ -29,25 +29,25 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Animation f23682a;
+    public Animation f23698a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Animation f23683b;
+    public Animation f23699b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f23684c;
+    public View f23700c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f23685d;
+    public ViewGroup f23701d;
 
     /* renamed from: e  reason: collision with root package name */
-    public InterfaceC1104c f23686e;
+    public InterfaceC1102c f23702e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.p1.q.b f23687f;
+    public c.a.r0.p1.q.b f23703f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f23688g;
+    public boolean f23704g;
 
     /* loaded from: classes3.dex */
     public class a implements AdapterView.OnItemClickListener {
@@ -55,10 +55,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f23689e;
+        public final /* synthetic */ Context f23705e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f23690f;
+        public final /* synthetic */ c f23706f;
 
         public a(c cVar, Context context) {
             Interceptable interceptable = $ic;
@@ -75,18 +75,18 @@ public class c {
                     return;
                 }
             }
-            this.f23690f = cVar;
-            this.f23689e = context;
+            this.f23706f = cVar;
+            this.f23705e = context;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                e item = this.f23690f.f23687f.getItem(i2);
+                e item = this.f23706f.f23703f.getItem(i2);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016448));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, item));
-                this.f23690f.f(this.f23689e);
+                this.f23706f.f(this.f23705e);
             }
         }
     }
@@ -97,7 +97,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f23691a;
+        public final /* synthetic */ c f23707a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -114,25 +114,25 @@ public class c {
                     return;
                 }
             }
-            this.f23691a = cVar;
+            this.f23707a = cVar;
         }
 
         @Override // c.a.e.e.m.d, android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f23691a.f23688g = false;
-                if (this.f23691a.f23686e != null) {
-                    this.f23691a.f23686e.a();
+                this.f23707a.f23704g = false;
+                if (this.f23707a.f23702e != null) {
+                    this.f23707a.f23702e.a();
                 }
-                this.f23691a.f23685d.removeView(this.f23691a.f23684c);
+                this.f23707a.f23701d.removeView(this.f23707a.f23700c);
             }
         }
     }
 
     /* renamed from: c.a.r0.p1.q.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1104c {
+    public interface InterfaceC1102c {
         void a();
     }
 
@@ -151,14 +151,14 @@ public class c {
                 return;
             }
         }
-        this.f23688g = false;
-        this.f23685d = viewGroup;
+        this.f23704g = false;
+        this.f23701d = viewGroup;
     }
 
     public void f(Context context) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (view = this.f23684c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (view = this.f23700c) == null) {
             return;
         }
         view.startAnimation(i(context));
@@ -172,9 +172,9 @@ public class c {
             GridView gridView = (GridView) inflate.findViewById(R.id.scroll_fragment_more_content);
             gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
             c.a.r0.p1.q.b bVar = new c.a.r0.p1.q.b(context, i2);
-            this.f23687f = bVar;
+            this.f23703f = bVar;
             bVar.b(list);
-            gridView.setAdapter((ListAdapter) this.f23687f);
+            gridView.setAdapter((ListAdapter) this.f23703f);
             gridView.setOnItemClickListener(new a(this, context));
             return inflate;
         }
@@ -185,10 +185,10 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (this.f23682a == null) {
-                this.f23682a = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
+            if (this.f23698a == null) {
+                this.f23698a = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
             }
-            return this.f23682a;
+            return this.f23698a;
         }
         return (Animation) invokeL.objValue;
     }
@@ -197,11 +197,11 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (this.f23683b == null) {
-                this.f23683b = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
+            if (this.f23699b == null) {
+                this.f23699b = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
             }
-            this.f23683b.setAnimationListener(new b(this));
-            return this.f23683b;
+            this.f23699b.setAnimationListener(new b(this));
+            return this.f23699b;
         }
         return (Animation) invokeL.objValue;
     }
@@ -209,37 +209,37 @@ public class c {
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23688g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23704g : invokeV.booleanValue;
     }
 
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f23684c, R.color.CAM_X0111);
-            c.a.r0.p1.q.b bVar = this.f23687f;
+            SkinManager.setBackgroundColor(this.f23700c, R.color.CAM_X0111);
+            c.a.r0.p1.q.b bVar = this.f23703f;
             if (bVar != null) {
                 bVar.notifyDataSetChanged();
             }
         }
     }
 
-    public void l(InterfaceC1104c interfaceC1104c) {
+    public void l(InterfaceC1102c interfaceC1102c) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC1104c) == null) {
-            this.f23686e = interfaceC1104c;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC1102c) == null) {
+            this.f23702e = interfaceC1102c;
         }
     }
 
     public void m(Context context, List<e> list, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048583, this, context, list, i2) == null) || this.f23688g) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048583, this, context, list, i2) == null) || this.f23704g) {
             return;
         }
-        this.f23688g = true;
+        this.f23704g = true;
         View g2 = g(context, list, i2);
-        this.f23684c = g2;
-        this.f23685d.addView(g2);
-        SkinManager.setBackgroundColor(this.f23684c, R.color.CAM_X0111);
-        this.f23684c.startAnimation(h(context));
+        this.f23700c = g2;
+        this.f23701d.addView(g2);
+        SkinManager.setBackgroundColor(this.f23700c, R.color.CAM_X0111);
+        this.f23700c.startAnimation(h(context));
     }
 }

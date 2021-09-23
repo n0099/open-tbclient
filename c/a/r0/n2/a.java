@@ -16,7 +16,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<SmartApp> f22941a;
+    public List<SmartApp> f22957a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class a {
     public List<SmartApp> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22941a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22957a : (List) invokeV.objValue;
     }
 
     public void b(DataRes dataRes) {
@@ -43,6 +43,6 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f22941a = new ArrayList(dataRes.swan_list);
+        this.f22957a = new ArrayList(dataRes.swan_list);
     }
 }

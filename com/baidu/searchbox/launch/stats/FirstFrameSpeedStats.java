@@ -31,6 +31,11 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
     public static final String HOT_TOPIC_TAB_ON_CREATE_DURATION = "HotTopicTabFragmentOnCreate";
     public static final String HOT_TOPIC_TAB_ON_CREATE_VIEW_DURATION = "HotTopicTabFragmentOnCreateView";
     public static final String INIT = "init";
+    public static final String PERSONALIZE_TAB_ON_CREATE_DURATION = "PersonalizedTabFragmentOnCreate";
+    public static final String PERSONALIZE_TAB_ON_CREATE_VIEW_DURATION = "PersonalizedTabFragmentOnCreateView";
+    public static final String PERSONALIZE_TAB_ON_RESUME_DURATION = "PersonalizedTabFragmentOnResume";
+    public static final String SCROLL_FRAGMENT_TAB_HOST_LAYOUT_COUNT = "scrollLayoutCount";
+    public static final String SCROLL_FRAGMENT_TAB_HOST_MEASURE_COUNT = "scrollMeasureCount";
     public static final String SEARCHBOX_VIEW_ON_LAYOUT = "searchboxViewOnLayout";
     public static final String SEARCHBOX_VIEW_ON_LAYOUT_COUNT = "searchboxViewOnLayoutCount";
     public static final String SEARCHBOX_VIEW_ON_MEASURE = "searchboxViewOnMeasure";
@@ -80,6 +85,12 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
     public long mHotTopicTabFragmentOnCreateViewStartTimeStamp;
     public int mLayoutCount;
     public int mMeasureCount;
+    public long mPersonalizeFragmentOnCreateEndTimeStamp;
+    public long mPersonalizeFragmentOnCreateStartTimeStamp;
+    public long mPersonalizeFragmentOnCreateViewEndTimeStamp;
+    public long mPersonalizeFragmentOnCreateViewStartTimeStamp;
+    public long mPersonalizeFragmentOnResumeEndTimeStamp;
+    public long mPersonalizeFragmentOnResumeStartTimeStamp;
     public long mSearchBoxViewOnLayoutEndStamp;
     public long mSearchBoxViewOnLayoutStartStamp;
     public long mSearchBoxViewOnMeasureEndStamp;
@@ -185,6 +196,12 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
         this.mGameVideoFragmentOnCreateEndTimeStamp = -1L;
         this.mGameVideoFragmentOnCreateViewStartTimeStamp = -1L;
         this.mGameVideoFragmentOnCreateViewEndTimeStamp = -1L;
+        this.mPersonalizeFragmentOnCreateStartTimeStamp = -1L;
+        this.mPersonalizeFragmentOnCreateEndTimeStamp = -1L;
+        this.mPersonalizeFragmentOnCreateViewStartTimeStamp = -1L;
+        this.mPersonalizeFragmentOnCreateViewEndTimeStamp = -1L;
+        this.mPersonalizeFragmentOnResumeStartTimeStamp = -1L;
+        this.mPersonalizeFragmentOnResumeEndTimeStamp = -1L;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
@@ -312,6 +329,8 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
                 case 5021:
                 case SpeedStatsStampTable.HOT_TOPIC_TAB_START_STAMP_KEY /* 5026 */:
                 case 5027:
+                case SpeedStatsStampTable.PERSONALIZE_TAB_START_STAMP_KEY /* 5046 */:
+                case 5047:
                 default:
                     return;
                 case 5022:
@@ -380,6 +399,24 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
                 case 5045:
                     this.mGameVideoFragmentOnCreateViewEndTimeStamp = j2;
                     return;
+                case SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_START_STAMP_KEY /* 5048 */:
+                    this.mPersonalizeFragmentOnCreateStartTimeStamp = j2;
+                    return;
+                case SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_END_STAMP_KEY /* 5049 */:
+                    this.mPersonalizeFragmentOnCreateEndTimeStamp = j2;
+                    return;
+                case SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_VIEW_START_STAMP_KEY /* 5050 */:
+                    this.mPersonalizeFragmentOnCreateViewStartTimeStamp = j2;
+                    return;
+                case SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_VIEW_END_STAMP_KEY /* 5051 */:
+                    this.mPersonalizeFragmentOnCreateViewEndTimeStamp = j2;
+                    return;
+                case SpeedStatsStampTable.PERSONALIZE_TAB_ON_RESUME_START_STAMP_KEY /* 5052 */:
+                    this.mPersonalizeFragmentOnResumeStartTimeStamp = j2;
+                    return;
+                case SpeedStatsStampTable.PERSONALIZE_TAB_ON_RESUME_END_STAMP_KEY /* 5053 */:
+                    this.mPersonalizeFragmentOnResumeEndTimeStamp = j2;
+                    return;
             }
         }
     }
@@ -433,31 +470,34 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
             long j19 = this.mConcernTabFragmentOnResumeEndTimeStamp - this.mConcernTabFragmentOnResumeStartTimeStamp;
             long j20 = this.mHotTopicTabFragmentOnCreateEndTimeStamp - this.mHotTopicTabFragmentOnCreateStartTimeStamp;
             long j21 = this.mHotTopicTabFragmentOnCreateViewEndTimeStamp - this.mHotTopicTabFragmentOnCreateViewStartTimeStamp;
-            if (j4 < 0 || j4 > 60000 || j5 < 0 || j5 > 60000 || j6 < 0 || j6 > 60000 || j7 < 0 || j7 > 60000 || j8 < 0 || j8 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j15 < 0 || j15 > 60000 || j20 < 0 || j20 > 60000 || j21 < 0 || j21 > 60000 || j18 < 0 || j18 > 60000 || j19 < 0 || j19 > 60000 || j16 < 0 || j16 > 60000 || j17 < 0 || j17 > 60000) {
+            long j22 = this.mPersonalizeFragmentOnCreateEndTimeStamp - this.mPersonalizeFragmentOnCreateStartTimeStamp;
+            long j23 = this.mPersonalizeFragmentOnCreateViewEndTimeStamp - this.mPersonalizeFragmentOnCreateViewStartTimeStamp;
+            long j24 = this.mPersonalizeFragmentOnResumeEndTimeStamp - this.mPersonalizeFragmentOnResumeStartTimeStamp;
+            if (j4 < 0 || j4 > 60000 || j5 < 0 || j5 > 60000 || j6 < 0 || j6 > 60000 || j7 < 0 || j7 > 60000 || j8 < 0 || j8 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j15 < 0 || j15 > 60000 || j22 < 0 || j22 > 60000 || j23 < 0 || j23 > 60000 || j24 < 0 || j24 > 60000 || j20 < 0 || j20 > 60000 || j21 < 0 || j21 > 60000 || j18 < 0 || j18 > 60000 || j19 < 0 || j19 > 60000 || j16 < 0 || j16 > 60000 || j17 < 0 || j17 > 60000) {
                 return false;
             }
-            long j22 = this.mSearchboxViewOnMeasureTotal;
-            if (j22 < 0 || j22 > 60000) {
-                return false;
-            }
-            long j23 = this.mSearchboxViewOnLayoutTotal;
-            if (j23 < 0 || j23 > 60000) {
-                return false;
-            }
-            long j24 = this.mFeedTabLayoutOnMeasureTotal;
-            if (j24 < 0 || j24 > 60000) {
-                return false;
-            }
-            long j25 = this.mFeedTabLayoutOnLayoutTotal;
+            long j25 = this.mSearchboxViewOnMeasureTotal;
             if (j25 < 0 || j25 > 60000) {
                 return false;
             }
-            long j26 = this.mTabViewPagerOnMeasureTotal;
+            long j26 = this.mSearchboxViewOnLayoutTotal;
             if (j26 < 0 || j26 > 60000) {
                 return false;
             }
-            long j27 = this.mTabViewPagerOnLayoutTotal;
+            long j27 = this.mFeedTabLayoutOnMeasureTotal;
             if (j27 < 0 || j27 > 60000) {
+                return false;
+            }
+            long j28 = this.mFeedTabLayoutOnLayoutTotal;
+            if (j28 < 0 || j28 > 60000) {
+                return false;
+            }
+            long j29 = this.mTabViewPagerOnMeasureTotal;
+            if (j29 < 0 || j29 > 60000) {
+                return false;
+            }
+            long j30 = this.mTabViewPagerOnLayoutTotal;
+            if (j30 < 0 || j30 > 60000) {
                 return false;
             }
             HashMap hashMap = new HashMap();
@@ -484,6 +524,11 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
             hashMap.put(CONCERN_TAB_ON_RESUME_DURATION, String.valueOf(j19));
             hashMap.put(HOT_TOPIC_TAB_ON_CREATE_DURATION, String.valueOf(j20));
             hashMap.put(HOT_TOPIC_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j21));
+            hashMap.put(PERSONALIZE_TAB_ON_CREATE_DURATION, String.valueOf(j22));
+            hashMap.put(PERSONALIZE_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j23));
+            hashMap.put(PERSONALIZE_TAB_ON_RESUME_DURATION, String.valueOf(j24));
+            hashMap.put(SCROLL_FRAGMENT_TAB_HOST_MEASURE_COUNT, String.valueOf(this.mMeasureCount));
+            hashMap.put(SCROLL_FRAGMENT_TAB_HOST_LAYOUT_COUNT, String.valueOf(this.mLayoutCount));
             JSONObject jsonData = SpeedStatsUtils.getJsonData(j4, hashMap);
             if (jsonData != null) {
                 try {
@@ -563,6 +608,12 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
             this.mHotTopicTabFragmentOnCreateViewEndTimeStamp = -1L;
             this.mHotTopicTabFragmentOnCreateStartTimeStamp = -1L;
             this.mHotTopicTabFragmentOnCreateEndTimeStamp = -1L;
+            this.mPersonalizeFragmentOnCreateStartTimeStamp = -1L;
+            this.mPersonalizeFragmentOnCreateEndTimeStamp = -1L;
+            this.mPersonalizeFragmentOnCreateViewStartTimeStamp = -1L;
+            this.mPersonalizeFragmentOnCreateViewEndTimeStamp = -1L;
+            this.mPersonalizeFragmentOnResumeStartTimeStamp = -1L;
+            this.mPersonalizeFragmentOnResumeEndTimeStamp = -1L;
         }
     }
 }

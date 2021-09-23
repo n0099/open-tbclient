@@ -1,7 +1,11 @@
 package c.a.r0.j3;
-
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public interface t {
-    boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2);
+    void a(int i2);
+
+    void b();
+
+    void c(m mVar);
+
+    void d(int i2, boolean z, f fVar);
 }

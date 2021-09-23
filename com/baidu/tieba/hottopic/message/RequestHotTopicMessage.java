@@ -1,7 +1,7 @@
 package com.baidu.tieba.hottopic.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -20,7 +20,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public int call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f52705common;
+    public CommonReq f52818common;
     public Long fid;
     public String first_dir;
     public Integer q_type;
@@ -59,7 +59,7 @@ public class RequestHotTopicMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f79783common = getCommon();
+                builder.f80100common = getCommon();
                 builder.topic_id = getTopicId();
                 builder.topic_name = getTopicName();
                 builder.scr_w = getScrW();
@@ -73,7 +73,7 @@ public class RequestHotTopicMessage extends NetMessage {
                 builder.call_from = Integer.valueOf(getCall_from());
                 builder.topic_tid = Long.valueOf(getTopic_tid());
                 if (z) {
-                    x.a(builder, true);
+                    a0.a(builder, true);
                 }
                 HottopicReqIdl.Builder builder2 = new HottopicReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -94,7 +94,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52705common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52818common : (CommonReq) invokeV.objValue;
     }
 
     public Long getFid() {
@@ -173,7 +173,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, commonReq) == null) {
-            this.f52705common = commonReq;
+            this.f52818common = commonReq;
         }
     }
 

@@ -28,7 +28,7 @@ public class UpdateInfoService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdateInfoService f56625a;
+        public final /* synthetic */ UpdateInfoService f56742a;
 
         public a(UpdateInfoService updateInfoService) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class UpdateInfoService extends BdBaseService {
                     return;
                 }
             }
-            this.f56625a = updateInfoService;
+            this.f56742a = updateInfoService;
         }
 
         @Override // com.baidu.tieba.model.ReportUserInfoModel.b
@@ -59,7 +59,7 @@ public class UpdateInfoService extends BdBaseService {
                 } else if (i2 >= 32400) {
                     i2 = 32400;
                 }
-                this.f56625a.mModel.B(i2 * 1000);
+                this.f56742a.mModel.B(i2 * 1000);
             }
         }
 
@@ -68,7 +68,7 @@ public class UpdateInfoService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 BdLog.i("location_errorCode&errorCode=" + i2 + "&errorMsg" + str);
-                this.f56625a.mModel.B(600000L);
+                this.f56742a.mModel.B(600000L);
             }
         }
     }
@@ -79,7 +79,7 @@ public class UpdateInfoService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdateInfoService f56626a;
+        public final /* synthetic */ UpdateInfoService f56743a;
 
         public b(UpdateInfoService updateInfoService) {
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class UpdateInfoService extends BdBaseService {
                     return;
                 }
             }
-            this.f56626a = updateInfoService;
+            this.f56743a = updateInfoService;
         }
 
         @Override // c.a.e.e.i.a.c
@@ -108,9 +108,9 @@ public class UpdateInfoService extends BdBaseService {
                 c.a.r0.y2.j0.a.e().j(String.valueOf(longitude));
                 c.a.r0.y2.j0.a.e().i(String.valueOf(latitude));
                 c.a.r0.y2.j0.a.e().k(System.currentTimeMillis());
-                if (this.f56626a.mModel.x() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    this.f56626a.mModel.z(1, longitude, latitude);
-                    this.f56626a.mModel.A();
+                if (this.f56743a.mModel.x() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    this.f56743a.mModel.z(1, longitude, latitude);
+                    this.f56743a.mModel.A();
                 }
             }
         }

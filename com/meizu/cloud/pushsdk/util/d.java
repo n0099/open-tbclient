@@ -5,10 +5,11 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
-import com.baidu.fsg.base.statistics.f;
+import com.baidu.fsg.base.statistics.h;
 import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
 import com.kwad.sdk.api.core.RemoteViewBuilder;
 import com.meizu.cloud.pushsdk.PushManager;
+import com.meizu.cloud.pushsdk.c.b.f;
 import com.meizu.cloud.pushsdk.c.c.b;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -98,7 +99,7 @@ public class d {
 
     public static void a(Context context, boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
         HashMap hashMap = new HashMap();
-        hashMap.put(f.f39499a, str5);
+        hashMap.put(h.f39556a, str5);
         hashMap.put("ti", str3);
         hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, str2);
         if (TextUtils.isEmpty(str6)) {
@@ -122,7 +123,7 @@ public class d {
         if ("notification_service_message".equals(str)) {
             return;
         }
-        com.meizu.cloud.pushsdk.c.a.a(context, (com.meizu.cloud.pushsdk.c.b.f) null).a(((b.a) com.meizu.cloud.pushsdk.c.c.b.d().a(str).a(a(context)).a(Long.valueOf(map.get("ts")).longValue())).h(String.valueOf(System.currentTimeMillis() / 1000)).c(map.get(AppIconSetting.DEFAULT_LARGE_ICON)).e(map.get("pn")).d(map.get("pv")).b(map.get("ti")).f(TextUtils.isEmpty(map.get("si")) ? "" : map.get("si")).g(String.valueOf(b.j(context, map.get("pn")))).b(), z);
+        com.meizu.cloud.pushsdk.c.a.a(context, (f) null).a(((b.a) com.meizu.cloud.pushsdk.c.c.b.d().a(str).a(a(context)).a(Long.valueOf(map.get("ts")).longValue())).h(String.valueOf(System.currentTimeMillis() / 1000)).c(map.get(AppIconSetting.DEFAULT_LARGE_ICON)).e(map.get("pn")).d(map.get("pv")).b(map.get("ti")).f(TextUtils.isEmpty(map.get("si")) ? "" : map.get("si")).g(String.valueOf(b.j(context, map.get("pn")))).b(), z);
     }
 
     public static boolean a(Context context, Map<String, String> map) {

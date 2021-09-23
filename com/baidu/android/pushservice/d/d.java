@@ -15,7 +15,7 @@ public class d extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37156d;
+    public boolean f37204d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(i iVar, Context context) {
@@ -36,7 +36,7 @@ public class d extends c {
                 return;
             }
         }
-        this.f37156d = false;
+        this.f37204d = false;
     }
 
     @Override // com.baidu.android.pushservice.d.a
@@ -50,22 +50,22 @@ public class d extends c {
                     String optString = optJSONObject.optString("channel_id");
                     String optString2 = optJSONObject.optString("new_channel_id");
                     String optString3 = optJSONObject.optString(com.baidu.android.pushservice.h.f() ? "rsa_channel_token" : "channel_token");
-                    ((a) this).f37152b.f37172f = optJSONObject.optString("user_id");
-                    ((a) this).f37152b.f37171e = optJSONObject.optString("appid");
-                    com.baidu.android.pushservice.k.a(((a) this).f37151a).a(optString, optString3, optString2, optJSONObject.optString("new_channel_token"));
+                    ((a) this).f37200b.f37220f = optJSONObject.optString("user_id");
+                    ((a) this).f37200b.f37219e = optJSONObject.optString("appid");
+                    com.baidu.android.pushservice.k.a(((a) this).f37199a).a(optString, optString3, optString2, optJSONObject.optString("new_channel_token"));
                 }
             } catch (Exception e2) {
-                new b.c(((a) this).f37151a).a(Log.getStackTraceString(e2)).a();
+                new b.c(((a) this).f37199a).a(Log.getStackTraceString(e2)).a();
             }
-            if (!com.baidu.android.pushservice.b.d.q(((a) this).f37151a) || com.baidu.android.pushservice.b.d.c(((a) this).f37151a)) {
+            if (!com.baidu.android.pushservice.b.d.q(((a) this).f37199a) || com.baidu.android.pushservice.b.d.c(((a) this).f37199a)) {
                 com.baidu.android.pushservice.a.e eVar = new com.baidu.android.pushservice.a.e();
-                eVar.b(((a) this).f37152b.f37170d);
-                eVar.a(((a) this).f37152b.f37171e);
-                i iVar = ((a) this).f37152b;
-                eVar.f36876d = iVar.f37172f;
-                eVar.a(iVar.f37174h);
+                eVar.b(((a) this).f37200b.f37218d);
+                eVar.a(((a) this).f37200b.f37219e);
+                i iVar = ((a) this).f37200b;
+                eVar.f36924d = iVar.f37220f;
+                eVar.a(iVar.f37222h);
                 eVar.a(com.baidu.android.pushservice.a.a());
-                com.baidu.android.pushservice.a.b.a(((a) this).f37151a).a("r_v2", com.baidu.android.pushservice.a.b.a(((a) this).f37151a).a(eVar, this.f37156d));
+                com.baidu.android.pushservice.a.b.a(((a) this).f37199a).a("r_v2", com.baidu.android.pushservice.a.b.a(((a) this).f37199a).a(eVar, this.f37204d));
                 return str;
             }
             return str;

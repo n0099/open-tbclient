@@ -23,42 +23,42 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f23667a;
+    public ImageView f23683a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f23668b;
+    public View f23684b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f23669c;
+    public TextView f23685c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SlidingTabLayout f23670d;
+    public SlidingTabLayout f23686d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f23671e;
+    public Context f23687e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Animation f23672f;
+    public Animation f23688f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f23673g;
+    public Animation f23689g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f23674h;
+    public boolean f23690h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f23675i;
+    public d f23691i;
 
     /* renamed from: c.a.r0.p1.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1103a extends d {
+    public class C1101a extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f23676a;
+        public final /* synthetic */ a f23692a;
 
-        public C1103a(a aVar) {
+        public C1101a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,21 +73,21 @@ public class a {
                     return;
                 }
             }
-            this.f23676a = aVar;
+            this.f23692a = aVar;
         }
 
         @Override // c.a.e.e.m.d
         public void a(Animation animation) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.f23676a.f23669c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.f23692a.f23685c == null) {
                 return;
             }
-            if (animation == this.f23676a.f23672f) {
-                this.f23676a.f23669c.setVisibility(0);
-                this.f23676a.f23669c.setClickable(true);
-            } else if (animation == this.f23676a.f23673g) {
-                this.f23676a.f23669c.setVisibility(8);
-                this.f23676a.f23669c.setClickable(false);
+            if (animation == this.f23692a.f23688f) {
+                this.f23692a.f23685c.setVisibility(0);
+                this.f23692a.f23685c.setClickable(true);
+            } else if (animation == this.f23692a.f23689g) {
+                this.f23692a.f23685c.setVisibility(8);
+                this.f23692a.f23685c.setClickable(false);
             }
         }
     }
@@ -107,25 +107,25 @@ public class a {
                 return;
             }
         }
-        this.f23674h = true;
-        this.f23675i = new C1103a(this);
-        this.f23668b = view;
-        this.f23671e = context;
-        this.f23669c = (TextView) view.findViewById(R.id.tab_widget_switch);
-        this.f23667a = (ImageView) view.findViewById(R.id.tab_widget_more);
-        this.f23670d = (SlidingTabLayout) view.findViewById(R.id.tab_widget_sliding_tab);
+        this.f23690h = true;
+        this.f23691i = new C1101a(this);
+        this.f23684b = view;
+        this.f23687e = context;
+        this.f23685c = (TextView) view.findViewById(R.id.tab_widget_switch);
+        this.f23683a = (ImageView) view.findViewById(R.id.tab_widget_more);
+        this.f23686d = (SlidingTabLayout) view.findViewById(R.id.tab_widget_sliding_tab);
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f23674h = true;
-            TextView textView = this.f23669c;
+            this.f23690h = true;
+            TextView textView = this.f23685c;
             if (textView != null) {
                 textView.clearAnimation();
-                this.f23669c.startAnimation(f());
+                this.f23685c.startAnimation(f());
             }
-            SkinManager.setImageResource(this.f23667a, R.drawable.lego_icon_triangle_down_normal);
+            SkinManager.setImageResource(this.f23683a, R.drawable.lego_icon_triangle_down_normal);
         }
     }
 
@@ -133,12 +133,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f23672f == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.f23671e, R.anim.fade_in);
-                this.f23672f = loadAnimation;
-                loadAnimation.setAnimationListener(this.f23675i);
+            if (this.f23688f == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.f23687e, R.anim.fade_in);
+                this.f23688f = loadAnimation;
+                loadAnimation.setAnimationListener(this.f23691i);
             }
-            return this.f23672f;
+            return this.f23688f;
         }
         return (Animation) invokeV.objValue;
     }
@@ -147,12 +147,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f23673g == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.f23671e, R.anim.fade_out);
-                this.f23673g = loadAnimation;
-                loadAnimation.setAnimationListener(this.f23675i);
+            if (this.f23689g == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.f23687e, R.anim.fade_out);
+                this.f23689g = loadAnimation;
+                loadAnimation.setAnimationListener(this.f23691i);
             }
-            return this.f23673g;
+            return this.f23689g;
         }
         return (Animation) invokeV.objValue;
     }
@@ -160,16 +160,16 @@ public class a {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f23668b, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.f23669c, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.f23669c, R.color.CAM_X0106, 1);
-            if (this.f23674h) {
-                SkinManager.setImageResource(this.f23667a, R.drawable.lego_icon_triangle_down_normal);
+            SkinManager.setBackgroundColor(this.f23684b, R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(this.f23685c, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.f23685c, R.color.CAM_X0106, 1);
+            if (this.f23690h) {
+                SkinManager.setImageResource(this.f23683a, R.drawable.lego_icon_triangle_down_normal);
             } else {
-                SkinManager.setImageResource(this.f23667a, R.drawable.lego_icon_triangle_up_normal);
+                SkinManager.setImageResource(this.f23683a, R.drawable.lego_icon_triangle_up_normal);
             }
-            SkinManager.setBackgroundResource(this.f23667a, R.drawable.lego_btn_more_selector);
-            SlidingTabLayout slidingTabLayout = this.f23670d;
+            SkinManager.setBackgroundResource(this.f23683a, R.drawable.lego_btn_more_selector);
+            SlidingTabLayout slidingTabLayout = this.f23686d;
             if (slidingTabLayout != null) {
                 slidingTabLayout.onChangeSkinType(i2);
             }
@@ -179,7 +179,7 @@ public class a {
     public void h(View.OnClickListener onClickListener) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || (imageView = this.f23667a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || (imageView = this.f23683a) == null) {
             return;
         }
         imageView.setOnClickListener(onClickListener);
@@ -188,7 +188,7 @@ public class a {
     public void i(ViewPager viewPager, int i2) {
         SlidingTabLayout slidingTabLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, viewPager, i2) == null) || (slidingTabLayout = this.f23670d) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048581, this, viewPager, i2) == null) || (slidingTabLayout = this.f23686d) == null) {
             return;
         }
         slidingTabLayout.setViewPager(viewPager, i2);
@@ -197,14 +197,14 @@ public class a {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f23674h = false;
-            TextView textView = this.f23669c;
+            this.f23690h = false;
+            TextView textView = this.f23685c;
             if (textView != null) {
                 textView.clearAnimation();
-                this.f23669c.setVisibility(0);
-                this.f23669c.startAnimation(e());
+                this.f23685c.setVisibility(0);
+                this.f23685c.startAnimation(e());
             }
-            SkinManager.setImageResource(this.f23667a, R.drawable.lego_icon_triangle_up_normal);
+            SkinManager.setImageResource(this.f23683a, R.drawable.lego_icon_triangle_up_normal);
         }
     }
 }

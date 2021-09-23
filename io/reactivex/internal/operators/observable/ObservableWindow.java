@@ -16,7 +16,7 @@ import java.util.ArrayDeque;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ObservableWindow<T> extends AbstractObservableWithUpstream<T, Observable<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public final class ObservableWindow<T> extends AbstractObservableWithUpstream<T,
     public final long count;
     public final long skip;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class WindowExactObserver<T> extends AtomicInteger implements Observer<T>, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7481782523886138128L;
@@ -142,7 +142,7 @@ public final class ObservableWindow<T> extends AbstractObservableWithUpstream<T,
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class WindowSkipObserver<T> extends AtomicBoolean implements Observer<T>, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3366976432059579510L;

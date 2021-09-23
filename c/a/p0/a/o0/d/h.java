@@ -14,10 +14,10 @@ public class h extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f7816c;
+    public final String f7824c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f7817d;
+    public final String f7825d;
 
     public h(@Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class h extends a {
                 return;
             }
         }
-        this.f7816c = str;
-        this.f7817d = str2;
-        this.f7795a = "firstMeaningfulPainted";
+        this.f7824c = str;
+        this.f7825d = str2;
+        this.f7803a = "firstMeaningfulPainted";
     }
 
     @Override // c.a.p0.a.o0.d.a
@@ -45,8 +45,8 @@ public class h extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(c.a.p0.a.o0.a.c(str, PrefetchEvent.EVENT_DATA_WEBVIEW_ID, TextUtils.isEmpty(this.f7816c) ? "" : this.f7816c));
-            sb.append(c.a.p0.a.o0.a.c(str, "pageUrl", TextUtils.isEmpty(this.f7817d) ? "" : this.f7817d));
+            sb.append(c.a.p0.a.o0.a.c(str, PrefetchEvent.EVENT_DATA_WEBVIEW_ID, TextUtils.isEmpty(this.f7824c) ? "" : this.f7824c));
+            sb.append(c.a.p0.a.o0.a.c(str, "pageUrl", TextUtils.isEmpty(this.f7825d) ? "" : this.f7825d));
             return sb.toString();
         }
         return (String) invokeL.objValue;

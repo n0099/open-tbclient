@@ -78,11 +78,14 @@ public class y {
         this.f14360b = activityHead.obj_id;
         f(activityHead.head_imgs);
         d dVar = new d();
-        dVar.f14128a = activityHead.pull_down_pic_android;
-        dVar.f14129b = activityHead.pull_down_url;
-        dVar.f14130c = activityHead.pull_down_interval.intValue();
-        dVar.f14131d = activityHead.obj_id;
-        dVar.f14132e = j2;
+        dVar.f14125a = activityHead.pull_down_pic_android;
+        dVar.f14126b = activityHead.pull_down_url;
+        dVar.f14127c = activityHead.pull_down_interval.intValue();
+        dVar.f14128d = activityHead.pull_down_exposure_url;
+        dVar.f14129e = activityHead.pull_down_click_url;
+        dVar.f14130f = activityHead.is_ad.booleanValue();
+        dVar.f14131g = activityHead.obj_id;
+        dVar.f14132h = j2;
         this.f14361c = dVar;
     }
 

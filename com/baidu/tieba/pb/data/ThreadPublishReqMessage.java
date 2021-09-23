@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.data;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class ThreadPublishReqMessage extends NetMessage {
             builder.forum_id = Long.valueOf(this.fid);
             builder.thread_id = Long.valueOf(this.tid);
             if (z) {
-                x.a(builder, true);
+                a0.a(builder, true);
             }
             ThreadPublishReqIdl.Builder builder2 = new ThreadPublishReqIdl.Builder();
             builder2.data = builder.build(false);

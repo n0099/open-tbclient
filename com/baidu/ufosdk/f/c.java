@@ -15,7 +15,7 @@ public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f59593a = "UFO";
+    public static String f59724a = "UFO";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             if (com.baidu.ufosdk.b.o <= 1) {
-                return Log.d(f59593a, str);
+                return Log.d(f59724a, str);
             }
             return 0;
         }
@@ -50,7 +50,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, th)) == null) {
             if (com.baidu.ufosdk.b.o <= 4) {
-                return Log.w(f59593a, str, th);
+                return Log.w(f59724a, str, th);
             }
             return 0;
         }
@@ -62,7 +62,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (com.baidu.ufosdk.b.o <= 2) {
-                return Log.i(f59593a, str);
+                return Log.i(f59724a, str);
             }
             return 0;
         }
@@ -74,7 +74,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (com.baidu.ufosdk.b.o <= 3) {
-                return Log.w(f59593a, str);
+                return Log.w(f59724a, str);
             }
             return 0;
         }
@@ -86,7 +86,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
             if (com.baidu.ufosdk.b.o <= 4) {
-                return Log.e(f59593a, str);
+                return Log.e(f59724a, str);
             }
             return 0;
         }

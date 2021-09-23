@@ -110,15 +110,15 @@ public class k {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && c.a.p0.a.k2.g.h.a().getBoolean("swan_game_data_migration", true)) {
             c.a.p0.a.k2.g.h.a().putBoolean("swan_game_data_migration", false);
-            if (c.a.p0.a.b1.a.f4616a) {
+            if (c.a.p0.a.b1.a.f4624a) {
                 String str = "before migrate " + System.currentTimeMillis();
             }
             a();
-            if (c.a.p0.a.b1.a.f4616a) {
+            if (c.a.p0.a.b1.a.f4624a) {
                 String str2 = "in migrate " + System.currentTimeMillis();
             }
             b();
-            if (c.a.p0.a.b1.a.f4616a) {
+            if (c.a.p0.a.b1.a.f4624a) {
                 String str3 = "end migrate " + System.currentTimeMillis();
             }
         }

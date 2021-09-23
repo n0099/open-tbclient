@@ -37,22 +37,22 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.e2.h.e.a.a f54700e;
+    public c.a.r0.e2.h.e.a.a f54815e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f54701f;
+    public List<String> f54816f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<EmotionPackageData> f54702g;
+    public List<EmotionPackageData> f54817g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f54703h;
+    public TbPageContext<BaseFragmentActivity> f54818h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f54704i;
+    public CustomMessageListener f54819i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final HttpMessageListener f54705j;
+    public final HttpMessageListener f54820j;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -60,7 +60,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MyEmotionManagerModel f54706a;
+        public final /* synthetic */ MyEmotionManagerModel f54821a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MyEmotionManagerModel myEmotionManagerModel, int i2) {
@@ -80,7 +80,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
                     return;
                 }
             }
-            this.f54706a = myEmotionManagerModel;
+            this.f54821a = myEmotionManagerModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -89,7 +89,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Pair)) {
                 Pair pair = (Pair) customResponsedMessage.getData();
-                this.f54706a.M(((Integer) pair.first).intValue(), ((Integer) pair.second).intValue());
+                this.f54821a.M(((Integer) pair.first).intValue(), ((Integer) pair.second).intValue());
             }
         }
     }
@@ -100,7 +100,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MyEmotionManagerModel f54707a;
+        public final /* synthetic */ MyEmotionManagerModel f54822a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(MyEmotionManagerModel myEmotionManagerModel, int i2) {
@@ -120,7 +120,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
                     return;
                 }
             }
-            this.f54707a = myEmotionManagerModel;
+            this.f54822a = myEmotionManagerModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,17 +129,17 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003385 && (httpResponsedMessage instanceof EmotionManageResponseMessage)) {
                 EmotionManageResponseMessage emotionManageResponseMessage = (EmotionManageResponseMessage) httpResponsedMessage;
-                if (this.f54707a.f54700e != null) {
+                if (this.f54822a.f54815e != null) {
                     if (emotionManageResponseMessage.data != null) {
-                        this.f54707a.f54702g.clear();
+                        this.f54822a.f54817g.clear();
                         if (emotionManageResponseMessage.data.data != null) {
-                            this.f54707a.f54702g.addAll(emotionManageResponseMessage.data.data);
+                            this.f54822a.f54817g.addAll(emotionManageResponseMessage.data.data);
                         }
-                        Pair E = this.f54707a.E(emotionManageResponseMessage.data.data);
-                        this.f54707a.f54700e.onSuccess(new Pair(E.first, E.second));
+                        Pair E = this.f54822a.E(emotionManageResponseMessage.data.data);
+                        this.f54822a.f54815e.onSuccess(new Pair(E.first, E.second));
                         return;
                     }
-                    this.f54707a.f54700e.onFail();
+                    this.f54822a.f54815e.onFail();
                 }
             }
         }
@@ -151,7 +151,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MyEmotionManagerModel f54708e;
+        public final /* synthetic */ MyEmotionManagerModel f54823e;
 
         public c(MyEmotionManagerModel myEmotionManagerModel) {
             Interceptable interceptable = $ic;
@@ -168,25 +168,25 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
                     return;
                 }
             }
-            this.f54708e = myEmotionManagerModel;
+            this.f54823e = myEmotionManagerModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54708e.O();
+                this.f54823e.O();
                 List<MyEmotionGroupData> f2 = c.a.r0.e2.c.i().f();
                 JSONArray jSONArray = new JSONArray();
                 if (f2 != null && !f2.isEmpty()) {
                     for (MyEmotionGroupData myEmotionGroupData : f2) {
                         if (myEmotionGroupData != null) {
                             jSONArray.put(myEmotionGroupData.getGroupId());
-                            this.f54708e.Q(myEmotionGroupData.getGroupId());
+                            this.f54823e.Q(myEmotionGroupData.getGroupId());
                         }
                     }
                 }
-                MyEmotionManagerModel myEmotionManagerModel = this.f54708e;
+                MyEmotionManagerModel myEmotionManagerModel = this.f54823e;
                 c.a.e.e.m.e.a().post(new g(myEmotionManagerModel, myEmotionManagerModel, jSONArray));
             }
         }
@@ -198,7 +198,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MyEmotionManagerModel f54709e;
+        public final /* synthetic */ MyEmotionManagerModel f54824e;
 
         public d(MyEmotionManagerModel myEmotionManagerModel) {
             Interceptable interceptable = $ic;
@@ -215,28 +215,28 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
                     return;
                 }
             }
-            this.f54709e = myEmotionManagerModel;
+            this.f54824e = myEmotionManagerModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54709e.O();
+                this.f54824e.O();
                 List<MyEmotionGroupData> f2 = c.a.r0.e2.c.i().f();
                 JSONArray jSONArray = new JSONArray();
                 if (f2 != null && !f2.isEmpty()) {
                     for (MyEmotionGroupData myEmotionGroupData : f2) {
                         if (myEmotionGroupData != null) {
                             jSONArray.put(myEmotionGroupData.getGroupId());
-                            this.f54709e.Q(myEmotionGroupData.getGroupId());
+                            this.f54824e.Q(myEmotionGroupData.getGroupId());
                         }
                     }
                 }
-                if (this.f54709e.f54700e != null) {
-                    MyEmotionManagerModel myEmotionManagerModel = this.f54709e;
-                    Pair E = myEmotionManagerModel.E(myEmotionManagerModel.f54702g);
-                    this.f54709e.f54700e.onSuccess(new Pair(E.first, E.second));
+                if (this.f54824e.f54815e != null) {
+                    MyEmotionManagerModel myEmotionManagerModel = this.f54824e;
+                    Pair E = myEmotionManagerModel.E(myEmotionManagerModel.f54817g);
+                    this.f54824e.f54815e.onSuccess(new Pair(E.first, E.second));
                 }
             }
         }
@@ -248,7 +248,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MyEmotionManagerModel f54710e;
+        public final /* synthetic */ MyEmotionManagerModel f54825e;
 
         public e(MyEmotionManagerModel myEmotionManagerModel) {
             Interceptable interceptable = $ic;
@@ -265,20 +265,20 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
                     return;
                 }
             }
-            this.f54710e = myEmotionManagerModel;
+            this.f54825e = myEmotionManagerModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54710e.f54700e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54825e.f54815e == null) {
                 return;
             }
-            this.f54710e.f54700e.redraw();
+            this.f54825e.f54815e.redraw();
             if (c.a.r0.e2.h.a.b().a()) {
                 return;
             }
-            this.f54710e.L();
+            this.f54825e.L();
         }
     }
 
@@ -288,7 +288,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MyEmotionManagerModel f54711e;
+        public final /* synthetic */ MyEmotionManagerModel f54826e;
 
         public f(MyEmotionManagerModel myEmotionManagerModel) {
             Interceptable interceptable = $ic;
@@ -305,14 +305,14 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
                     return;
                 }
             }
-            this.f54711e = myEmotionManagerModel;
+            this.f54826e = myEmotionManagerModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.e2.c.i().j(this.f54711e.G(), true);
+                c.a.r0.e2.c.i().j(this.f54826e.G(), true);
             }
         }
     }
@@ -323,10 +323,10 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<MyEmotionManagerModel> f54712e;
+        public WeakReference<MyEmotionManagerModel> f54827e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONArray f54713f;
+        public JSONArray f54828f;
 
         public g(MyEmotionManagerModel myEmotionManagerModel, MyEmotionManagerModel myEmotionManagerModel2, JSONArray jSONArray) {
             Interceptable interceptable = $ic;
@@ -343,10 +343,10 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
                     return;
                 }
             }
-            this.f54712e = new WeakReference<>(myEmotionManagerModel2);
-            this.f54713f = jSONArray;
+            this.f54827e = new WeakReference<>(myEmotionManagerModel2);
+            this.f54828f = jSONArray;
             if (jSONArray == null) {
-                this.f54713f = new JSONArray();
+                this.f54828f = new JSONArray();
             }
         }
 
@@ -354,11 +354,11 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         public void run() {
             MyEmotionManagerModel myEmotionManagerModel;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (myEmotionManagerModel = this.f54712e.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (myEmotionManagerModel = this.f54827e.get()) == null) {
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_MINE_MANAGER);
-            httpMessage.addParam("ids", this.f54713f);
+            httpMessage.addParam("ids", this.f54828f);
             myEmotionManagerModel.sendMessage(httpMessage);
         }
     }
@@ -381,16 +381,16 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
                 return;
             }
         }
-        this.f54704i = new a(this, 2921312);
-        this.f54705j = new b(this, CmdConfigHttp.CMD_GET_EMOTION_MINE_MANAGER);
-        this.f54703h = tbPageContext;
-        this.f54701f = new ArrayList();
-        this.f54702g = new ArrayList();
+        this.f54819i = new a(this, 2921312);
+        this.f54820j = new b(this, CmdConfigHttp.CMD_GET_EMOTION_MINE_MANAGER);
+        this.f54818h = tbPageContext;
+        this.f54816f = new ArrayList();
+        this.f54817g = new ArrayList();
         registerTask();
-        this.f54705j.setTag(getUniqueId());
-        this.f54705j.setSelfListener(true);
-        registerListener(this.f54705j);
-        registerListener(this.f54704i);
+        this.f54820j.setTag(getUniqueId());
+        this.f54820j.setSelfListener(true);
+        registerListener(this.f54820j);
+        registerListener(this.f54819i);
     }
 
     public final Pair<List<EmotionPackageData>, Integer> E(List<EmotionPackageData> list) {
@@ -468,7 +468,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                arrayList = new ArrayList(this.f54701f);
+                arrayList = new ArrayList(this.f54816f);
             }
             return arrayList;
         }
@@ -509,11 +509,11 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
     public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f54705j != null) {
-                MessageManager.getInstance().unRegisterListener(this.f54705j);
+            if (this.f54820j != null) {
+                MessageManager.getInstance().unRegisterListener(this.f54820j);
             }
-            if (this.f54704i != null) {
-                MessageManager.getInstance().unRegisterListener(this.f54704i);
+            if (this.f54819i != null) {
+                MessageManager.getInstance().unRegisterListener(this.f54819i);
             }
         }
     }
@@ -522,7 +522,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (c.a.r0.e2.d.m().o()) {
-                l.L(this.f54703h.getPageActivity(), R.string.face_group_is_syncing);
+                l.L(this.f54818h.getPageActivity(), R.string.face_group_is_syncing);
             } else {
                 c.a.r0.e2.a.b().a(new f(this));
             }
@@ -545,7 +545,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
             synchronized (this) {
                 try {
-                    this.f54701f.add(i3, this.f54701f.remove(i2));
+                    this.f54816f.add(i3, this.f54816f.remove(i2));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -564,7 +564,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             synchronized (this) {
-                this.f54701f.clear();
+                this.f54816f.clear();
             }
         }
     }
@@ -572,7 +572,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
     public void P(c.a.r0.e2.h.e.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            this.f54700e = aVar;
+            this.f54815e = aVar;
         }
     }
 
@@ -580,7 +580,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             synchronized (this) {
-                this.f54701f.add(str);
+                this.f54816f.add(str);
             }
         }
     }

@@ -19,14 +19,14 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6407c;
+    public static final boolean f6415c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.h0.r.b f6408a;
+    public c.a.p0.a.h0.r.b f6416a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, c> f6409b;
+    public HashMap<String, c> f6417b;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -39,7 +39,7 @@ public class f {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final f f6410a;
+        public static final f f6418a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -55,7 +55,7 @@ public class f {
                     return;
                 }
             }
-            f6410a = new f(null);
+            f6418a = new f(null);
         }
     }
 
@@ -72,7 +72,7 @@ public class f {
                 return;
             }
         }
-        f6407c = k.f7077a;
+        f6415c = k.f7085a;
     }
 
     public /* synthetic */ f(a aVar) {
@@ -82,7 +82,7 @@ public class f {
     public static f b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f6410a : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f6418a : (f) invokeV.objValue;
     }
 
     public static boolean d() {
@@ -95,7 +95,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (f6407c && d()) {
+            if (f6415c && d()) {
                 return new e();
             }
             return new c.a.p0.a.h0.r.a();
@@ -108,7 +108,7 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, c> hashMap = this.f6409b;
+            HashMap<String, c> hashMap = this.f6417b;
             if (hashMap != null) {
                 return hashMap.get(str);
             }
@@ -120,7 +120,7 @@ public class f {
     public void e(c cVar, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, dVar) == null) {
-            this.f6408a.k(cVar, dVar);
+            this.f6416a.k(cVar, dVar);
         }
     }
 
@@ -139,9 +139,9 @@ public class f {
         }
         long currentTimeMillis = System.currentTimeMillis();
         c.a.p0.a.h0.r.b a2 = a();
-        this.f6408a = a2;
-        this.f6409b = a2.h();
-        if (f6407c) {
+        this.f6416a = a2;
+        this.f6417b = a2.h();
+        if (f6415c) {
             String str = "构造PresetMap耗时：" + (System.currentTimeMillis() - currentTimeMillis);
         }
     }

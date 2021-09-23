@@ -83,7 +83,12 @@ public class EditTextPasteFilterUtils {
                 String name = EditTextPasteFilterUtils.class.getPackage().getName();
                 for (String str2 : split) {
                     try {
-                        Object newInstance = Class.forName(name + "." + str2.trim()).newInstance();
+                        String trim = str2.trim();
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(name);
+                        sb.append(".");
+                        sb.append(trim);
+                        Object newInstance = Class.forName(sb.toString()).newInstance();
                         if (newInstance != null && (newInstance instanceof IEditTextPasteFilter)) {
                             arrayList.add((IEditTextPasteFilter) newInstance);
                         }

@@ -14,7 +14,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f11676a;
+    public c f11684a;
 
     public d(@NonNull c.a.p0.a.l0.a aVar) {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public class d {
                 return;
             }
         }
-        this.f11676a = new c(aVar);
+        this.f11684a = new c(aVar);
     }
 
     @JavascriptInterface
     public void removeUserCloudStorage(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
-            this.f11676a.removeUserCloudStorage(jsObject);
+            this.f11684a.removeUserCloudStorage(jsObject);
         }
     }
 
@@ -46,7 +46,7 @@ public class d {
     public void setUserCloudStorage(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
-            this.f11676a.setUserCloudStorage(jsObject);
+            this.f11684a.setUserCloudStorage(jsObject);
         }
     }
 }

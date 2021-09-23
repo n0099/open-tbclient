@@ -19,14 +19,14 @@ public class f implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f7117a;
+    public e f7125a;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f7118a;
+        public static final /* synthetic */ int[] f7126a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,17 +43,17 @@ public class f implements d {
                 }
             }
             int[] iArr = new int[PathType.values().length];
-            f7118a = iArr;
+            f7126a = iArr;
             try {
                 iArr[PathType.RELATIVE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f7118a[PathType.ERROR.ordinal()] = 2;
+                f7126a[PathType.ERROR.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f7118a[PathType.BD_FILE.ordinal()] = 3;
+                f7126a[PathType.BD_FILE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -97,7 +97,7 @@ public class f implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
-            return Q == null ? "" : c.a.p0.a.k2.b.n(Q.f4558f, str, null);
+            return Q == null ? "" : c.a.p0.a.k2.b.n(Q.f4566f, str, null);
         }
         return (String) invokeL.objValue;
     }
@@ -110,10 +110,10 @@ public class f implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                if (this.f7117a == null) {
-                    this.f7117a = new g();
+                if (this.f7125a == null) {
+                    this.f7125a = new g();
                 }
-                eVar = this.f7117a;
+                eVar = this.f7125a;
             }
             return eVar;
         }
@@ -140,7 +140,7 @@ public class f implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
-            return Q == null ? "" : c.a.p0.a.k2.b.z(Q.f4558f);
+            return Q == null ? "" : c.a.p0.a.k2.b.z(Q.f4566f);
         }
         return (String) invokeV.objValue;
     }
@@ -151,7 +151,7 @@ public class f implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
-            return Q == null ? str : c.a.p0.a.k2.b.I(str, Q.f4558f);
+            return Q == null ? str : c.a.p0.a.k2.b.I(str, Q.f4566f);
         }
         return (String) invokeL.objValue;
     }
@@ -179,7 +179,7 @@ public class f implements d {
             if (Q == null) {
                 return null;
             }
-            return c.a.p0.a.k2.b.M(str, Q.f4558f);
+            return c.a.p0.a.k2.b.M(str, Q.f4566f);
         }
         return (String) invokeL.objValue;
     }
@@ -207,7 +207,7 @@ public class f implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
-            return Q == null ? "" : c.a.p0.a.k2.b.x(Q.f4558f);
+            return Q == null ? "" : c.a.p0.a.k2.b.x(Q.f4566f);
         }
         return (String) invokeV.objValue;
     }
@@ -247,7 +247,7 @@ public class f implements d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, pathType)) == null) {
-            int i2 = a.f7118a[pathType.ordinal()];
+            int i2 = a.f7126a[pathType.ordinal()];
             if (i2 == 1) {
                 return n(str) ? PathType.ERROR : pathType;
             } else if (i2 != 2) {

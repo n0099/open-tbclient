@@ -833,13 +833,13 @@ public class HomeCfgResponse implements IBeanResponse {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f61258a;
+                public final /* synthetic */ Context f61371a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f61259b;
+                public final /* synthetic */ String f61372b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ HomeCfgResponse f61260c;
+                public final /* synthetic */ HomeCfgResponse f61373c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -856,16 +856,16 @@ public class HomeCfgResponse implements IBeanResponse {
                             return;
                         }
                     }
-                    this.f61260c = this;
-                    this.f61258a = context;
-                    this.f61259b = str;
+                    this.f61373c = this;
+                    this.f61371a = context;
+                    this.f61372b = str;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        HomeDataCacheManager.getInstance().saveResponseDataToCache(DxmApplicationContextImpl.getApplicationContext(this.f61258a), this.f61260c, this.f61259b);
+                        HomeDataCacheManager.getInstance().saveResponseDataToCache(DxmApplicationContextImpl.getApplicationContext(this.f61371a), this.f61373c, this.f61372b);
                     }
                 }
             }.start();

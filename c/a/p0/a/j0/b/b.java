@@ -25,14 +25,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f6921b;
+    public static final String f6929b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Uri f6922c;
+    public static final Uri f6930c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UriMatcher f6923a;
+    public UriMatcher f6931a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,8 +47,8 @@ public class b {
                 return;
             }
         }
-        f6921b = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
-        f6922c = Uri.parse("content://" + f6921b);
+        f6929b = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
+        f6930c = Uri.parse("content://" + f6929b);
     }
 
     public b() {
@@ -65,14 +65,14 @@ public class b {
             }
         }
         UriMatcher uriMatcher = new UriMatcher(-1);
-        this.f6923a = uriMatcher;
-        uriMatcher.addURI(f6921b, "favorite", 0);
-        this.f6923a.addURI(f6921b, "favorite_and_aps", 1);
-        this.f6923a.addURI(f6921b, "history", 2);
-        this.f6923a.addURI(f6921b, "history_with_app", 3);
-        this.f6923a.addURI(f6921b, "favorite_with_aps_pms", 4);
-        this.f6923a.addURI(f6921b, "history_with_aps_pms", 5);
-        this.f6923a.addURI(f6921b, "user_behavior", 6);
+        this.f6931a = uriMatcher;
+        uriMatcher.addURI(f6929b, "favorite", 0);
+        this.f6931a.addURI(f6929b, "favorite_and_aps", 1);
+        this.f6931a.addURI(f6929b, "history", 2);
+        this.f6931a.addURI(f6929b, "history_with_app", 3);
+        this.f6931a.addURI(f6929b, "favorite_with_aps_pms", 4);
+        this.f6931a.addURI(f6929b, "history_with_aps_pms", 5);
+        this.f6931a.addURI(f6929b, "user_behavior", 6);
     }
 
     public static void e() {
@@ -89,7 +89,7 @@ public class b {
         SQLiteDatabase e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
-            int match = this.f6923a.match(uri);
+            int match = this.f6931a.match(uri);
             if (match != 0) {
                 if (match != 2) {
                     if (match == 6 && (e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) != null) {
@@ -114,7 +114,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             if (i2 != 6) {
-                if (k.f7077a) {
+                if (k.f7085a) {
                     throw new NullPointerException("tableName must not Null");
                 }
                 return "";
@@ -140,13 +140,13 @@ public class b {
         SQLiteDatabase e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
-            int match = this.f6923a.match(uri);
+            int match = this.f6931a.match(uri);
             if (match == 0) {
                 long i2 = SwanAppDbControl.f(AppRuntime.getAppContext()).i(contentValues);
                 if (i2 < 0) {
                     return null;
                 }
-                return ContentUris.withAppendedId(f6922c.buildUpon().build(), i2);
+                return ContentUris.withAppendedId(f6930c.buildUpon().build(), i2);
             } else if (match != 2) {
                 if (match == 6 && (e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) != null) {
                     e2.insertWithOnConflict(b(match), null, contentValues, 5);
@@ -159,7 +159,7 @@ public class b {
                     return null;
                 }
                 e();
-                return ContentUris.withAppendedId(f6922c.buildUpon().build(), j2);
+                return ContentUris.withAppendedId(f6930c.buildUpon().build(), j2);
             }
         }
         return (Uri) invokeLL.objValue;
@@ -170,7 +170,7 @@ public class b {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, uri, strArr, str, strArr2, str2)) == null) {
-            int match = this.f6923a.match(uri);
+            int match = this.f6931a.match(uri);
             switch (match) {
                 case 0:
                     Cursor l = SwanAppDbControl.f(AppRuntime.getAppContext()).l(strArr, str, strArr2, str2);
@@ -197,7 +197,7 @@ public class b {
                     try {
                         i2 = Integer.valueOf(uri.getQueryParameter("query_limit")).intValue();
                     } catch (Exception e2) {
-                        if (k.f7077a) {
+                        if (k.f7085a) {
                             e2.printStackTrace();
                         }
                     }
@@ -226,7 +226,7 @@ public class b {
         SQLiteDatabase e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {
-            int match = this.f6923a.match(uri);
+            int match = this.f6931a.match(uri);
             if (match != 0) {
                 if (match != 2) {
                     if (match == 6 && (e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) != null) {

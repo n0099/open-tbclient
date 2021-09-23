@@ -11,7 +11,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f5517a;
+    public static int f5525a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,19 +27,19 @@ public class b {
                 return;
             }
         }
-        boolean z = k.f7077a;
-        f5517a = -1;
+        boolean z = k.f7085a;
+        f5525a = -1;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f5517a < 0) {
+            if (f5525a < 0) {
                 c.a.p0.a.c1.a.Z().getSwitch("swan_app_request_opendata_retry", 0);
-                f5517a = 0;
+                f5525a = 0;
             }
-            return f5517a;
+            return f5525a;
         }
         return invokeV.intValue;
     }

@@ -13,7 +13,7 @@ public final class f extends i.g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadFactory f78807a;
+    public final ThreadFactory f79126a;
 
     public f(ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
@@ -30,13 +30,13 @@ public final class f extends i.g {
                 return;
             }
         }
-        this.f78807a = threadFactory;
+        this.f79126a = threadFactory;
     }
 
     @Override // i.g
     public g.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new g(this.f78807a) : (g.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new g(this.f79126a) : (g.a) invokeV.objValue;
     }
 }

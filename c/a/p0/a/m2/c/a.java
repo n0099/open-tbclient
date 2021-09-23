@@ -14,10 +14,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7381a;
+    public static final boolean f7389a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f7382b;
+    public static JSONObject f7390b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class a {
                 return;
             }
         }
-        f7381a = k.f7077a;
+        f7389a = k.f7085a;
     }
 
     public static synchronized JSONObject a() {
@@ -41,17 +41,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (a.class) {
-                if (f7382b != null) {
-                    if (f7381a) {
-                        String str = "return cache obj : " + f7382b.toString();
+                if (f7390b != null) {
+                    if (f7389a) {
+                        String str = "return cache obj : " + f7390b.toString();
                     }
-                    return f7382b;
+                    return f7390b;
                 }
                 JSONObject rawSwitch = c.a.p0.a.c1.a.Z().getRawSwitch();
                 if (rawSwitch == null) {
-                    f7382b = new JSONObject();
-                    boolean z = f7381a;
-                    return f7382b;
+                    f7390b = new JSONObject();
+                    boolean z = f7389a;
+                    return f7390b;
                 }
                 Iterator<String> keys = rawSwitch.keys();
                 while (keys.hasNext()) {
@@ -59,11 +59,11 @@ public class a {
                         keys.remove();
                     }
                 }
-                f7382b = rawSwitch;
-                if (f7381a) {
-                    String str2 = "return new obj : " + f7382b.toString();
+                f7390b = rawSwitch;
+                if (f7389a) {
+                    String str2 = "return new obj : " + f7390b.toString();
                 }
-                return f7382b;
+                return f7390b;
             }
         }
         return (JSONObject) invokeV.objValue;
@@ -88,8 +88,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             synchronized (a.class) {
-                boolean z = f7381a;
-                f7382b = null;
+                boolean z = f7389a;
+                f7390b = null;
             }
         }
     }

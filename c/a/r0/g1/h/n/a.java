@@ -19,7 +19,7 @@ public class a extends c.a.l.a<c.a.q0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public HomePageAlaRecommendLayout f18395j;
+    public HomePageAlaRecommendLayout f18404j;
     public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -42,9 +42,9 @@ public class a extends c.a.l.a<c.a.q0.s.q.a> {
         }
         this.k = 3;
         if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14232c instanceof HomePageAlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14232c.getParent() == null) {
-            this.f18395j = (HomePageAlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14232c;
+            this.f18404j = (HomePageAlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14232c;
         } else {
-            this.f18395j = new HomePageAlaRecommendLayout(tbPageContext.getPageActivity());
+            this.f18404j = new HomePageAlaRecommendLayout(tbPageContext.getPageActivity());
         }
     }
 
@@ -52,7 +52,7 @@ public class a extends c.a.l.a<c.a.q0.s.q.a> {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18395j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18404j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +61,7 @@ public class a extends c.a.l.a<c.a.q0.s.q.a> {
     public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f18395j.setData((f) aVar);
+            this.f18404j.setData((f) aVar);
         }
     }
 
@@ -70,8 +70,8 @@ public class a extends c.a.l.a<c.a.q0.s.q.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
             if (this.k != i2) {
-                this.f18395j.onChangeSkinType(i2);
-                l(this.f18395j, 3);
+                this.f18404j.onChangeSkinType(i2);
+                l(this.f18404j, 3);
             }
             this.k = i2;
         }

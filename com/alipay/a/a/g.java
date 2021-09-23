@@ -28,9 +28,15 @@ public final class g implements i, j {
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0050  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0057 A[SYNTHETIC] */
     @Override // com.alipay.a.a.j
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final Object a(Object obj) {
         InterceptResult invokeL;
+        Object obj2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, obj)) != null) {
             return invokeL.objValue;
@@ -44,7 +50,6 @@ public final class g implements i, j {
             }
             if (declaredFields != null && declaredFields.length > 0) {
                 for (Field field : declaredFields) {
-                    Object obj2 = null;
                     if (field != null && obj != null && !"this$0".equals(field.getName())) {
                         boolean isAccessible = field.isAccessible();
                         field.setAccessible(true);
@@ -52,10 +57,13 @@ public final class g implements i, j {
                         if (obj3 != null) {
                             field.setAccessible(isAccessible);
                             obj2 = f.b(obj3);
+                            if (obj2 == null) {
+                                treeMap.put(field.getName(), obj2);
+                            }
                         }
                     }
-                    if (obj2 != null) {
-                        treeMap.put(field.getName(), obj2);
+                    obj2 = null;
+                    if (obj2 == null) {
                     }
                 }
             }

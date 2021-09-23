@@ -13,7 +13,7 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6998a;
+    public static final boolean f7006a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -22,7 +22,7 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.j2.p.e f6999e;
+        public final /* synthetic */ c.a.p0.a.j2.p.e f7007e;
 
         public a(c.a.p0.a.j2.p.e eVar) {
             Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public final class g {
                     return;
                 }
             }
-            this.f6999e = eVar;
+            this.f7007e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.k("1719", this.f6999e.f());
+                b.k("1719", this.f7007e.f());
             }
         }
     }
@@ -64,14 +64,14 @@ public final class g {
                 return;
             }
         }
-        f6998a = c.a.p0.a.k.f7077a;
+        f7006a = c.a.p0.a.k.f7085a;
     }
 
     public static void onEvent(c.a.p0.a.j2.p.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, eVar) == null) {
             if (eVar == null) {
-                boolean z = f6998a;
+                boolean z = f7006a;
             } else {
                 q.i(new a(eVar), "SwanAppPermissionDialogUbc");
             }

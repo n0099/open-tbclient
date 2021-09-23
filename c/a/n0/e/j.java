@@ -19,10 +19,10 @@ public class j extends i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f4216f;
+        public final /* synthetic */ int f4223f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ j f4217g;
+        public final /* synthetic */ j f4224g;
 
         public a(j jVar, int i2) {
             Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class j extends i {
                     return;
                 }
             }
-            this.f4217g = jVar;
-            this.f4216f = i2;
+            this.f4224g = jVar;
+            this.f4223f = i2;
         }
 
         @Override // c.a.n0.k.c
@@ -48,11 +48,11 @@ public class j extends i {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f4217g.b(this.f4216f);
+                    this.f4224g.b(this.f4223f);
                 } catch (Throwable th) {
                     c.a.n0.l.c.d(th);
-                    j jVar = this.f4217g;
-                    jVar.d(this.f4216f, 3, 2009, jVar.f4208c, "cu on getToken unknown error.");
+                    j jVar = this.f4224g;
+                    jVar.d(this.f4223f, 3, 2009, jVar.f4215c, "cu on getToken unknown error.");
                 }
             }
         }
@@ -64,10 +64,10 @@ public class j extends i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f4218f;
+        public final /* synthetic */ int f4225f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ j f4219g;
+        public final /* synthetic */ j f4226g;
 
         public b(j jVar, int i2) {
             Interceptable interceptable = $ic;
@@ -84,8 +84,8 @@ public class j extends i {
                     return;
                 }
             }
-            this.f4219g = jVar;
-            this.f4218f = i2;
+            this.f4226g = jVar;
+            this.f4225f = i2;
         }
 
         @Override // c.a.n0.k.c
@@ -93,11 +93,11 @@ public class j extends i {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f4219g.g(this.f4218f, this.f4219g.f4208c, this.f4219g.f4213h);
+                    this.f4226g.g(this.f4225f, this.f4226g.f4215c, this.f4226g.f4220h);
                 } catch (Throwable th) {
                     c.a.n0.l.c.d(th);
-                    j jVar = this.f4219g;
-                    jVar.m(this.f4218f, 3, 2009, jVar.f4208c, "cu on getToken unknown error.");
+                    j jVar = this.f4226g;
+                    jVar.m(this.f4225f, 3, 2009, jVar.f4215c, "cu on getToken unknown error.");
                 }
             }
         }
@@ -138,13 +138,13 @@ public class j extends i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.f4210e)) {
-                this.f4212g = null;
-                this.f4211f = 0L;
+            if (TextUtils.isEmpty(this.f4217e)) {
+                this.f4219g = null;
+                this.f4218f = 0L;
                 return true;
-            } else if (this.f4211f - System.currentTimeMillis() < c.a.n0.l.b.f4297a) {
-                this.f4212g = null;
-                this.f4211f = 0L;
+            } else if (this.f4218f - System.currentTimeMillis() < c.a.n0.l.b.f4304a) {
+                this.f4219g = null;
+                this.f4218f = 0L;
                 return true;
             } else {
                 return false;
@@ -168,11 +168,11 @@ public class j extends i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f4213h)) {
-                this.f4214i = 0L;
+            if (TextUtils.isEmpty(this.f4220h)) {
+                this.f4221i = 0L;
                 return true;
-            } else if (this.f4214i - System.currentTimeMillis() < c.a.n0.l.b.f4297a) {
-                this.f4214i = 0L;
+            } else if (this.f4221i - System.currentTimeMillis() < c.a.n0.l.b.f4304a) {
+                this.f4221i = 0L;
                 return true;
             } else {
                 return false;

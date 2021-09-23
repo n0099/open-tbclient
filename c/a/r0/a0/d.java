@@ -79,7 +79,7 @@ public class d extends b<c.a.r0.g0.a> {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f15548e != i2) {
+            if (this.f15557e != i2) {
                 SkinManager.setBackgroundResource(j(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.x, R.color.CAM_X0204);
                 c.a.r0.j3.o0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
@@ -93,7 +93,7 @@ public class d extends b<c.a.r0.g0.a> {
                 SkinManager.setViewTextColor(this.w, R.color.CAM_X0304, 1);
                 SkinManager.setViewTextColor(this.r, R.color.CAM_X0101, 1);
             }
-            this.f15548e = i2;
+            this.f15557e = i2;
         }
     }
 
@@ -103,7 +103,7 @@ public class d extends b<c.a.r0.g0.a> {
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             if (view == this.w) {
                 TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 4).param("fid", this.z));
-                FrsGameStrategyActivity.startActivity(this.f15549f.getPageActivity(), this.z, this.A);
+                FrsGameStrategyActivity.startActivity(this.f15558f.getPageActivity(), this.z, this.A);
             } else if (g() != null) {
                 g().a(j(), this.y);
             }
@@ -126,7 +126,7 @@ public class d extends b<c.a.r0.g0.a> {
             this.w = (TextView) view.findViewById(R.id.card_frs_game_thread_more_article);
             this.x = view.findViewById(R.id.card_frs_game_bottom_divider);
             this.p.setDefaultBgResource(R.drawable.icon_morenpic);
-            int dimensionPixelSize = c.a.e.e.p.l.p(this.f15550g)[0] - (this.f15550g.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
+            int dimensionPixelSize = c.a.e.e.p.l.p(this.f15559g)[0] - (this.f15559g.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
             layoutParams.width = dimensionPixelSize;
             layoutParams.height = (dimensionPixelSize * 9) / 21;
@@ -137,7 +137,7 @@ public class d extends b<c.a.r0.g0.a> {
             this.t.setIsRound(true);
             this.t.setDrawBorder(true);
             this.t.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.t.setBorderWidth(this.f15550g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.t.setBorderWidth(this.f15559g.getResources().getDimensionPixelSize(R.dimen.tbds1));
             j().setOnClickListener(this);
         }
     }

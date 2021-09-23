@@ -23,29 +23,29 @@ public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ boolean f64891c;
+    public static final /* synthetic */ boolean f65202c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Executor f64892d;
+    public static final Executor f65203d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.b.a.b.d f64893a;
+    public final com.bytedance.sdk.component.b.b.a.b.d f65204a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f64894b;
+    public boolean f65205b;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f64895e;
+    public final int f65206e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f64896f;
+    public final long f65207f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Runnable f64897g;
+    public final Runnable f65208g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Deque<com.bytedance.sdk.component.b.b.a.b.c> f64898h;
+    public final Deque<com.bytedance.sdk.component.b.b.a.b.c> f65209h;
 
     static {
         InterceptResult invokeClinit;
@@ -60,8 +60,8 @@ public final class j {
                 return;
             }
         }
-        f64891c = !j.class.desiredAssertionStatus();
-        f64892d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), com.bytedance.sdk.component.b.b.a.c.a("OkHttp ConnectionPool", true));
+        f65202c = !j.class.desiredAssertionStatus();
+        f65203d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), com.bytedance.sdk.component.b.b.a.c.a("OkHttp ConnectionPool", true));
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -87,8 +87,8 @@ public final class j {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, gVar, adVar)) == null) {
-            if (f64891c || Thread.holdsLock(this)) {
-                for (com.bytedance.sdk.component.b.b.a.b.c cVar : this.f64898h) {
+            if (f65202c || Thread.holdsLock(this)) {
+                for (com.bytedance.sdk.component.b.b.a.b.c cVar : this.f65209h) {
                     if (cVar.a(aVar, adVar)) {
                         gVar.a(cVar, true);
                         return cVar;
@@ -105,12 +105,12 @@ public final class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cVar)) == null) {
-            if (f64891c || Thread.holdsLock(this)) {
-                if (!cVar.f64510a && this.f64895e != 0) {
+            if (f65202c || Thread.holdsLock(this)) {
+                if (!cVar.f64821a && this.f65206e != 0) {
                     notifyAll();
                     return false;
                 }
-                this.f64898h.remove(cVar);
+                this.f65209h.remove(cVar);
                 return true;
             }
             throw new AssertionError();
@@ -133,12 +133,12 @@ public final class j {
                 return;
             }
         }
-        this.f64897g = new Runnable(this) { // from class: com.bytedance.sdk.component.b.b.j.1
+        this.f65208g = new Runnable(this) { // from class: com.bytedance.sdk.component.b.b.j.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ j f64899a;
+            public final /* synthetic */ j f65210a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -155,7 +155,7 @@ public final class j {
                         return;
                     }
                 }
-                this.f64899a = this;
+                this.f65210a = this;
             }
 
             @Override // java.lang.Runnable
@@ -165,16 +165,16 @@ public final class j {
                     return;
                 }
                 while (true) {
-                    long a2 = this.f64899a.a(System.nanoTime());
+                    long a2 = this.f65210a.a(System.nanoTime());
                     if (a2 == -1) {
                         return;
                     }
                     if (a2 > 0) {
                         long j3 = a2 / 1000000;
                         long j4 = a2 - (1000000 * j3);
-                        synchronized (this.f64899a) {
+                        synchronized (this.f65210a) {
                             try {
-                                this.f64899a.wait(j3, (int) j4);
+                                this.f65210a.wait(j3, (int) j4);
                             } catch (InterruptedException unused) {
                             }
                         }
@@ -182,10 +182,10 @@ public final class j {
                 }
             }
         };
-        this.f64898h = new ArrayDeque();
-        this.f64893a = new com.bytedance.sdk.component.b.b.a.b.d();
-        this.f64895e = i2;
-        this.f64896f = timeUnit.toNanos(j2);
+        this.f65209h = new ArrayDeque();
+        this.f65204a = new com.bytedance.sdk.component.b.b.a.b.d();
+        this.f65206e = i2;
+        this.f65207f = timeUnit.toNanos(j2);
         if (j2 > 0) {
             return;
         }
@@ -196,8 +196,8 @@ public final class j {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, gVar)) == null) {
-            if (f64891c || Thread.holdsLock(this)) {
-                for (com.bytedance.sdk.component.b.b.a.b.c cVar : this.f64898h) {
+            if (f65202c || Thread.holdsLock(this)) {
+                for (com.bytedance.sdk.component.b.b.a.b.c cVar : this.f65209h) {
                     if (cVar.a(aVar, null) && cVar.e() && cVar != gVar.b()) {
                         return gVar.a(cVar);
                     }
@@ -212,14 +212,14 @@ public final class j {
     public void a(com.bytedance.sdk.component.b.b.a.b.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            if (!f64891c && !Thread.holdsLock(this)) {
+            if (!f65202c && !Thread.holdsLock(this)) {
                 throw new AssertionError();
             }
-            if (!this.f64894b) {
-                this.f64894b = true;
-                f64892d.execute(this.f64897g);
+            if (!this.f65205b) {
+                this.f65205b = true;
+                f65203d.execute(this.f65208g);
             }
-            this.f64898h.add(cVar);
+            this.f65209h.add(cVar);
         }
     }
 
@@ -232,29 +232,29 @@ public final class j {
                 long j3 = Long.MIN_VALUE;
                 int i2 = 0;
                 int i3 = 0;
-                for (com.bytedance.sdk.component.b.b.a.b.c cVar2 : this.f64898h) {
+                for (com.bytedance.sdk.component.b.b.a.b.c cVar2 : this.f65209h) {
                     if (a(cVar2, j2) > 0) {
                         i3++;
                     } else {
                         i2++;
-                        long j4 = j2 - cVar2.f64514e;
+                        long j4 = j2 - cVar2.f64825e;
                         if (j4 > j3) {
                             cVar = cVar2;
                             j3 = j4;
                         }
                     }
                 }
-                if (j3 < this.f64896f && i2 <= this.f64895e) {
+                if (j3 < this.f65207f && i2 <= this.f65206e) {
                     if (i2 > 0) {
-                        return this.f64896f - j3;
+                        return this.f65207f - j3;
                     }
                     if (i3 > 0) {
-                        return this.f64896f;
+                        return this.f65207f;
                     }
-                    this.f64894b = false;
+                    this.f65205b = false;
                     return -1L;
                 }
-                this.f64898h.remove(cVar);
+                this.f65209h.remove(cVar);
                 com.bytedance.sdk.component.b.b.a.c.a(cVar.c());
                 return 0L;
             }
@@ -266,18 +266,18 @@ public final class j {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, this, cVar, j2)) == null) {
-            List<Reference<com.bytedance.sdk.component.b.b.a.b.g>> list = cVar.f64513d;
+            List<Reference<com.bytedance.sdk.component.b.b.a.b.g>> list = cVar.f64824d;
             int i2 = 0;
             while (i2 < list.size()) {
                 Reference<com.bytedance.sdk.component.b.b.a.b.g> reference = list.get(i2);
                 if (reference.get() != null) {
                     i2++;
                 } else {
-                    com.bytedance.sdk.component.b.b.a.g.e.b().a("A connection to " + cVar.a().a().a() + " was leaked. Did you forget to close a response body?", ((g.a) reference).f64542a);
+                    com.bytedance.sdk.component.b.b.a.g.e.b().a("A connection to " + cVar.a().a().a() + " was leaked. Did you forget to close a response body?", ((g.a) reference).f64853a);
                     list.remove(i2);
-                    cVar.f64510a = true;
+                    cVar.f64821a = true;
                     if (list.isEmpty()) {
-                        cVar.f64514e = j2 - this.f64896f;
+                        cVar.f64825e = j2 - this.f65207f;
                         return 0;
                     }
                 }

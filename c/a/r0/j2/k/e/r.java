@@ -85,7 +85,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ r f20202a;
+        public final /* synthetic */ r f20217a;
 
         public a(r rVar) {
             Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                     return;
                 }
             }
-            this.f20202a = rVar;
+            this.f20217a = rVar;
         }
 
         @Override // c.a.r0.j2.i.c.a
@@ -120,9 +120,9 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-                if (this.f20202a.A != null) {
-                    this.f20202a.A.a(view);
-                    this.f20202a.A.onSingleTapConfirmed(motionEvent);
+                if (this.f20217a.A != null) {
+                    this.f20217a.A.a(view);
+                    this.f20217a.A.onSingleTapConfirmed(motionEvent);
                     return true;
                 }
                 return true;
@@ -135,7 +135,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
-                if (c.a.q0.g1.b.e.d()) {
+                if (c.a.q0.g1.b.c.d()) {
                     return true;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004021, 2));
@@ -151,7 +151,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ r f20203b;
+        public final /* synthetic */ r f20218b;
 
         public b(r rVar) {
             Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                     return;
                 }
             }
-            this.f20203b = rVar;
+            this.f20218b = rVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -178,14 +178,14 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, aVar) == null) {
                 super.a(view, aVar);
-                if (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().x1 == null || this.f20203b.v == null) {
+                if (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().y1 == null || this.f20218b.v == null) {
                     return;
                 }
-                OriginalThreadInfo originalThreadInfo = aVar.getThreadData().x1;
-                String Q = this.f20203b.v.Q();
-                String str = originalThreadInfo.f47422f;
+                OriginalThreadInfo originalThreadInfo = aVar.getThreadData().y1;
+                String Q = this.f20218b.v.Q();
+                String str = originalThreadInfo.f47524f;
                 int i2 = 1;
-                int i3 = originalThreadInfo.f47417a;
+                int i3 = originalThreadInfo.f47519a;
                 if (i3 == 3) {
                     i2 = 2;
                 } else if (i3 == 4) {
@@ -205,7 +205,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ r f20204a;
+        public final /* synthetic */ r f20219a;
 
         public c(r rVar) {
             Interceptable interceptable = $ic;
@@ -222,20 +222,20 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                     return;
                 }
             }
-            this.f20204a = rVar;
+            this.f20219a = rVar;
         }
 
         @Override // c.a.l.a.InterfaceC0093a
         public void a(c.a.q0.s.q.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || aVar.getThreadData() == null || aVar.getThreadData().x1 == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || aVar.getThreadData() == null || aVar.getThreadData().y1 == null) {
                 return;
             }
-            OriginalThreadInfo originalThreadInfo = aVar.getThreadData().x1;
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f20204a.H);
-            pbActivityConfig.createNormalCfg(originalThreadInfo.f47422f, originalThreadInfo.n, null);
-            pbActivityConfig.setForumId(String.valueOf(originalThreadInfo.f47421e));
-            pbActivityConfig.setStartFrom(this.f20204a.I);
+            OriginalThreadInfo originalThreadInfo = aVar.getThreadData().y1;
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f20219a.H);
+            pbActivityConfig.createNormalCfg(originalThreadInfo.f47524f, originalThreadInfo.n, null);
+            pbActivityConfig.setForumId(String.valueOf(originalThreadInfo.f47523e));
+            pbActivityConfig.setStartFrom(this.f20219a.I);
             pbActivityConfig.setBjhData(originalThreadInfo.p);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
         }
@@ -247,19 +247,19 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFirstFloorViewHolder f20205a;
+        public final /* synthetic */ PbFirstFloorViewHolder f20220a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PostData f20206b;
+        public final /* synthetic */ PostData f20221b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ View f20207c;
+        public final /* synthetic */ View f20222c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f20208d;
+        public final /* synthetic */ int f20223d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f20209e;
+        public final /* synthetic */ r f20224e;
 
         public d(r rVar, PbFirstFloorViewHolder pbFirstFloorViewHolder, PostData postData, View view, int i2) {
             Interceptable interceptable = $ic;
@@ -276,25 +276,25 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                     return;
                 }
             }
-            this.f20209e = rVar;
-            this.f20205a = pbFirstFloorViewHolder;
-            this.f20206b = postData;
-            this.f20207c = view;
-            this.f20208d = i2;
+            this.f20224e = rVar;
+            this.f20220a = pbFirstFloorViewHolder;
+            this.f20221b = postData;
+            this.f20222c = view;
+            this.f20223d = i2;
         }
 
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.w
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f20205a.richText.getLayoutParams();
-                layoutParams.topMargin = this.f20209e.h0(R.dimen.ds16);
-                int h0 = this.f20209e.h0(R.dimen.ds34);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f20220a.richText.getLayoutParams();
+                layoutParams.topMargin = this.f20224e.h0(R.dimen.ds16);
+                int h0 = this.f20224e.h0(R.dimen.ds34);
                 layoutParams.bottomMargin = h0;
                 layoutParams.leftMargin = h0;
                 layoutParams.rightMargin = h0;
-                this.f20205a.richText.setLayoutParams(layoutParams);
-                this.f20209e.p0(this.f20205a, this.f20206b, this.f20207c, this.f20208d);
+                this.f20220a.richText.setLayoutParams(layoutParams);
+                this.f20224e.p0(this.f20220a, this.f20221b, this.f20222c, this.f20223d);
             }
         }
     }
@@ -369,7 +369,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         this.K = new b(this);
         this.L = new c(this);
         if (pbFragment != null && pbFragment.getPbModel() != null) {
-            this.I = pbFragment.getPbModel().N0();
+            this.I = pbFragment.getPbModel().O0();
         }
         this.H = pbFragment.getContext();
     }
@@ -416,7 +416,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             pbFirstFloorViewHolder.richText.setOnImageClickListener(this.z);
             pbFirstFloorViewHolder.richText.setOnImageTouchListener(this.J);
             pbFirstFloorViewHolder.richText.setmGridEmptyClickListener(new e(this));
-            pbFirstFloorViewHolder.richText.setOnEmotionClickListener(aVar.f19948e);
+            pbFirstFloorViewHolder.richText.setOnEmotionClickListener(aVar.f19963e);
             pbFirstFloorViewHolder.mTailContent.setOnClickListener(this.y);
             pbFirstFloorViewHolder.mForumEnterButtonContainer.setAfterItemClickListener(this.y);
             pbFirstFloorViewHolder.mPbBusinessPromotionContainer.setAfterItemClickListener(this.y);
@@ -559,15 +559,15 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:155:0x03a4  */
-    /* JADX WARN: Removed duplicated region for block: B:159:0x03b6  */
-    /* JADX WARN: Removed duplicated region for block: B:162:0x03bf  */
-    /* JADX WARN: Removed duplicated region for block: B:165:0x03cb  */
-    /* JADX WARN: Removed duplicated region for block: B:171:0x0411  */
-    /* JADX WARN: Removed duplicated region for block: B:173:0x041a  */
-    /* JADX WARN: Removed duplicated region for block: B:182:0x047e  */
-    /* JADX WARN: Removed duplicated region for block: B:184:0x0487  */
-    /* JADX WARN: Removed duplicated region for block: B:187:0x04c4  */
+    /* JADX WARN: Removed duplicated region for block: B:161:0x03b0  */
+    /* JADX WARN: Removed duplicated region for block: B:165:0x03c2  */
+    /* JADX WARN: Removed duplicated region for block: B:168:0x03cb  */
+    /* JADX WARN: Removed duplicated region for block: B:171:0x03d7  */
+    /* JADX WARN: Removed duplicated region for block: B:177:0x041d  */
+    /* JADX WARN: Removed duplicated region for block: B:179:0x0426  */
+    /* JADX WARN: Removed duplicated region for block: B:188:0x048a  */
+    /* JADX WARN: Removed duplicated region for block: B:190:0x0493  */
+    /* JADX WARN: Removed duplicated region for block: B:193:0x04d0  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -647,8 +647,8 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         sparseArray.put(R.id.tag_load_sub_view, view);
         sparseArray.put(R.id.tag_pb_floor_postion, Integer.valueOf(i2));
         sparseArray.put(R.id.tag_pb_floor_number, Integer.valueOf(postData.A()));
-        boolean W = postData.W();
-        if (W) {
+        boolean z5 = postData.Y() || postData.X(false);
+        if (z5) {
             if (this.w == null) {
                 c.a.r0.j2.k.g.b bVar = new c.a.r0.j2.k.g.b(this.H);
                 this.w = bVar;
@@ -674,7 +674,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             r0(pbFirstFloorViewHolder, this.v.O().B0());
         }
         c.a.r0.j2.h.e eVar6 = this.v;
-        if ((eVar6 == null || eVar6.O() == null || !this.v.O().y1 || postData.J() == null) ? false : true) {
+        if ((eVar6 == null || eVar6.O() == null || !this.v.O().z1 || postData.J() == null) ? false : true) {
             if (postData.J().B != null) {
                 pbFirstFloorViewHolder.richText.getLayoutStrategy().m(u0(R.dimen.tbds24));
             } else {
@@ -707,7 +707,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             pbFirstFloorViewHolder.richText.setText(tbRichText, false, this.C, false, true);
         }
         t0(pbFirstFloorViewHolder, postData, tbRichText);
-        boolean z5 = !StringUtils.isNull(postData.t().getVirtualUserUrl());
+        boolean z6 = !StringUtils.isNull(postData.t().getVirtualUserUrl());
         c.a.r0.j2.h.e eVar9 = this.v;
         if (eVar9 == null || eVar9.V() == 0) {
             z = false;
@@ -743,7 +743,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                         z2 = true;
                         z4 = true;
                     }
-                    if (z5) {
+                    if (z6) {
                         z = false;
                         z2 = false;
                         z3 = false;
@@ -782,7 +782,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                     }
                     if (z2) {
                         sparseArray.put(R.id.tag_should_delete_visible, Boolean.TRUE);
-                        sparseArray.put(R.id.tag_has_sub_post, Boolean.valueOf(W));
+                        sparseArray.put(R.id.tag_has_sub_post, Boolean.valueOf(z5));
                         sparseArray.put(R.id.tag_del_post_is_self, Boolean.valueOf(z4));
                         sparseArray.put(R.id.tag_del_post_type, Integer.valueOf(i3));
                         sparseArray.put(R.id.tag_del_post_id, postData.E());
@@ -802,7 +802,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                     z2 = true;
                     z4 = true;
                 }
-                if (z5) {
+                if (z6) {
                 }
                 if (postData.A() == 1) {
                 }
@@ -820,7 +820,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         z4 = false;
         if (postData.t() != null) {
         }
-        if (z5) {
+        if (z6) {
         }
         if (postData.A() == 1) {
         }
@@ -915,13 +915,13 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         }
         J0();
         c.a.r0.j2.h.e eVar6 = this.v;
-        if (eVar6 != null && (kVar = eVar6.f19618h) != null) {
+        if (eVar6 != null && (kVar = eVar6.f19633h) != null) {
             if (pbFirstFloorViewHolder.mVoteTailTv != null) {
                 if (TextUtils.isEmpty(kVar.e())) {
                     pbFirstFloorViewHolder.mVoteTailTv.setVisibility(8);
                 } else {
                     pbFirstFloorViewHolder.mVoteTailTv.setVisibility(0);
-                    pbFirstFloorViewHolder.mVoteTailTv.setText(this.v.f19618h.e());
+                    pbFirstFloorViewHolder.mVoteTailTv.setText(this.v.f19633h.e());
                 }
             }
             if (pbFirstFloorViewHolder.mPbListContent != null && pbFirstFloorViewHolder.mManagerSelectView.h() == null) {
@@ -953,10 +953,10 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
         }
         c.a.r0.j2.h.e eVar7 = this.v;
         if (eVar7 != null && eVar7.O() != null && !x0(this.v.O()) && (!ListUtils.isEmpty(this.v.O().A0()) || !ListUtils.isEmpty(this.v.O().c0()))) {
-            c.a.q0.d1.o0 o0Var = new c.a.q0.d1.o0();
+            c.a.q0.d1.p0 p0Var = new c.a.q0.d1.p0();
             PbLinkGoodsRootView pbLinkGoodsRootView = new PbLinkGoodsRootView(this.H);
             c.a.r0.j2.h.e eVar8 = this.v;
-            pbLinkGoodsRootView.bindData(eVar8, o0Var.a(eVar8.O().A0(), this.v.O().c0()), this.v.o(), this.n, o0Var.b());
+            pbLinkGoodsRootView.bindData(eVar8, p0Var.a(eVar8.O().A0(), this.v.O().c0()), this.v.o(), this.n, p0Var.b());
             pbFirstFloorViewHolder.mLinkContainer.addView(pbLinkGoodsRootView);
             pbFirstFloorViewHolder.mLinkContainer.setVisibility(0);
             return;
@@ -1004,8 +1004,8 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
     public final void t0(PbFirstFloorViewHolder pbFirstFloorViewHolder, PostData postData, TbRichText tbRichText) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048601, this, pbFirstFloorViewHolder, postData, tbRichText) == null) {
-            if (postData != null && postData.O() != null) {
-                c.a.r0.j2.p.h.c(postData.O(), pbFirstFloorViewHolder.mTailContent, false, true, tbRichText != null && StringUtils.isNull(tbRichText.toString()) && StringUtils.isNull(postData.u()));
+            if (postData != null && postData.P() != null) {
+                c.a.r0.j2.p.g.c(postData.P(), pbFirstFloorViewHolder.mTailContent, false, true, tbRichText != null && StringUtils.isNull(tbRichText.toString()) && StringUtils.isNull(postData.u()));
             } else {
                 pbFirstFloorViewHolder.mTailContent.setVisibility(8);
             }
@@ -1036,8 +1036,8 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             if (postData.J().m) {
                 aVar = new c.a.r0.j2.k.e.d1.d(this.n.getPageContext(), this.I);
             } else if (item != null && item.item_id.longValue() != 0) {
-                if (postData.J().f47417a != 0 && postData.J().f47417a != 1) {
-                    if (postData.J().f47417a == 3) {
+                if (postData.J().f47519a != 0 && postData.J().f47519a != 1) {
+                    if (postData.J().f47519a == 3) {
                         aVar = new c.a.r0.j2.k.e.d1.g(this.n.getPageContext());
                     } else {
                         aVar = new c.a.r0.j2.k.e.d1.e(this.n.getPageContext());
@@ -1058,8 +1058,8 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                 } else {
                     aVar = new c.a.r0.j2.k.e.d1.i(this.n.getPageContext(), this.I);
                 }
-            } else if (postData.J().f47417a != 0 && postData.J().f47417a != 1) {
-                if (postData.J().f47417a == 3) {
+            } else if (postData.J().f47519a != 0 && postData.J().f47519a != 1) {
+                if (postData.J().f47519a == 3) {
                     aVar = new c.a.r0.j2.k.e.d1.i(this.n.getPageContext(), this.I);
                 }
             } else {
@@ -1109,7 +1109,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
             D0(pbFirstFloorViewHolder);
             PostData postData2 = (PostData) z(i2);
             if (postData2 != null) {
-                postData2.B0();
+                postData2.D0();
                 postData2.i0 = i2 + 1;
                 c.a.r0.j2.m.a.d(this.n.getUniqueId(), this.v, postData2, postData2.i0, 1);
                 q0(pbFirstFloorViewHolder, postData2, view, i2);
@@ -1118,7 +1118,7 @@ public class r extends n<PostData, PbFirstFloorViewHolder> {
                 this.E = true;
                 CompatibleUtile.getInstance().closeViewGpu(listView);
             }
-            pbFirstFloorViewHolder.mYoungsterTipTv.setVisibility(c.a.q0.g1.b.e.d() ? 0 : 8);
+            pbFirstFloorViewHolder.mYoungsterTipTv.setVisibility(c.a.q0.g1.b.c.d() ? 0 : 8);
             return view;
         }
         return (View) invokeCommon.objValue;

@@ -15,10 +15,10 @@ public class x implements m0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Bitmap.CompressFormat f77218a;
+    public final /* synthetic */ Bitmap.CompressFormat f77537a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f77219b;
+    public final /* synthetic */ PBSplash f77538b;
 
     public x(PBSplash pBSplash, Bitmap.CompressFormat compressFormat) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class x implements m0 {
                 return;
             }
         }
-        this.f77219b = pBSplash;
-        this.f77218a = compressFormat;
+        this.f77538b = pBSplash;
+        this.f77537a = compressFormat;
     }
 
     @Override // com.win.opensdk.m0
@@ -50,19 +50,19 @@ public class x implements m0 {
     public void a(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-            PBSplash pBSplash = this.f77219b;
-            if (!pBSplash.f76862j) {
-                PBSplashListener pBSplashListener = pBSplash.f76857e;
+            PBSplash pBSplash = this.f77538b;
+            if (!pBSplash.f77181j) {
+                PBSplashListener pBSplashListener = pBSplash.f77176e;
                 if (pBSplashListener != null) {
-                    pBSplash.f76855c = bitmap;
+                    pBSplash.f77174c = bitmap;
                     pBSplashListener.onLoaded();
-                    PBSplash.d(this.f77219b, true);
+                    PBSplash.d(this.f77538b, true);
                 }
             } else if (pBSplash.l.exists()) {
             } else {
-                File file = this.f77219b.l;
+                File file = this.f77538b.l;
                 w wVar = new w(this);
-                Bitmap.CompressFormat compressFormat = this.f77218a;
+                Bitmap.CompressFormat compressFormat = this.f77537a;
                 if (file.isDirectory()) {
                     new l0("the specified path points to a directory, should be a file");
                 } else if (file.exists()) {
@@ -92,10 +92,10 @@ public class x implements m0 {
         PBSplash pBSplash;
         PBSplashListener pBSplashListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l0Var) == null) || (pBSplashListener = (pBSplash = this.f77219b).f76857e) == null || pBSplash.f76862j) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l0Var) == null) || (pBSplashListener = (pBSplash = this.f77538b).f77176e) == null || pBSplash.f77181j) {
             return;
         }
         pBSplashListener.onFail(PBError.NO_RESUOURCE);
-        PBSplash.d(this.f77219b, true);
+        PBSplash.d(this.f77538b, true);
     }
 }

@@ -23,7 +23,7 @@ public class c implements c.a.p0.a.p.d.d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10315a;
+    public static final boolean f10323a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class c implements c.a.p0.a.p.d.d {
                 return;
             }
         }
-        f10315a = k.f7077a;
+        f10323a = k.f7085a;
     }
 
     public c() {
@@ -105,7 +105,7 @@ public class c implements c.a.p0.a.p.d.d {
             }
             String optString = optJSONObject.optString(LightappConstants.ACCESS_WALLET_SERVICE_PARAM_SERVICE);
             if (TextUtils.isEmpty(optString)) {
-                boolean z = f10315a;
+                boolean z = f10323a;
                 if (bVar != null) {
                     bVar.onCallback("serviceId is invalid");
                     return true;

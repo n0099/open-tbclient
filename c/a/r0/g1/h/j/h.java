@@ -19,20 +19,20 @@ public class h extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f18346i;
+    public static final BdUniqueId f18355i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18347e;
+    public int f18356e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18348f;
+    public int f18357f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18349g;
+    public String f18358g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f18350h;
+    public String f18359h;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class h extends BaseCardInfo {
                 return;
             }
         }
-        f18346i = BdUniqueId.gen();
+        f18355i = BdUniqueId.gen();
     }
 
     public h() {
@@ -69,17 +69,17 @@ public class h extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, liveAnswer) == null) || liveAnswer == null) {
             return;
         }
-        this.f18349g = liveAnswer.banner_url;
-        this.f18347e = liveAnswer.banner_high.intValue();
-        this.f18348f = liveAnswer.banner_width.intValue();
-        this.f18350h = liveAnswer.jump_url;
+        this.f18358g = liveAnswer.banner_url;
+        this.f18356e = liveAnswer.banner_high.intValue();
+        this.f18357f = liveAnswer.banner_width.intValue();
+        this.f18359h = liveAnswer.jump_url;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f18346i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f18355i : (BdUniqueId) invokeV.objValue;
     }
 
     public String toString() {
@@ -88,10 +88,10 @@ public class h extends BaseCardInfo {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("img_width", this.f18348f);
-                jSONObject.put(BigdayActivityConfig.IMG_URL, this.f18349g);
-                jSONObject.put("img_height", this.f18347e);
-                jSONObject.put("jump_url", this.f18350h);
+                jSONObject.put("img_width", this.f18357f);
+                jSONObject.put(BigdayActivityConfig.IMG_URL, this.f18358g);
+                jSONObject.put("img_height", this.f18356e);
+                jSONObject.put("jump_url", this.f18359h);
                 return jSONObject.toString();
             } catch (JSONException e2) {
                 e2.printStackTrace();

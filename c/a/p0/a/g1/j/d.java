@@ -14,7 +14,7 @@ public class d implements a {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.l0.a f5791a;
+    public c.a.p0.a.l0.a f5799a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class d implements a {
         c.a.p0.a.h0.l.a P;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.p0.a.l0.a aVar = this.f5791a;
+            c.a.p0.a.l0.a aVar = this.f5799a;
             if ((aVar == null || aVar.isDestroyed()) && (P = g.N().P()) != null && (P.g() instanceof c.a.p0.a.l0.a)) {
-                this.f5791a = (c.a.p0.a.l0.a) P.g();
+                this.f5799a = (c.a.p0.a.l0.a) P.g();
             }
         }
     }
@@ -46,7 +46,7 @@ public class d implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a();
-            c.a.p0.a.l0.a aVar = this.f5791a;
+            c.a.p0.a.l0.a aVar = this.f5799a;
             if (aVar != null) {
                 aVar.onPause();
             }
@@ -58,7 +58,7 @@ public class d implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             a();
-            c.a.p0.a.l0.a aVar = this.f5791a;
+            c.a.p0.a.l0.a aVar = this.f5799a;
             if (aVar != null) {
                 aVar.onResume();
             }

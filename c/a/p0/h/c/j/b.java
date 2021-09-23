@@ -25,29 +25,29 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f11084g;
+    public static final boolean f11092g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f11085h;
+    public static volatile b f11093h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.h.c.i.b f11086a;
+    public c.a.p0.h.c.i.b f11094a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Long> f11087b;
+    public HashMap<String, Long> f11095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11088c;
+    public String f11096c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HandlerThread f11089d;
+    public HandlerThread f11097d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f11090e;
+    public Handler f11098e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SwanAudioPlayer f11091f;
+    public SwanAudioPlayer f11099f;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -55,7 +55,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11092e;
+        public final /* synthetic */ b f11100e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -72,14 +72,14 @@ public class b {
                     return;
                 }
             }
-            this.f11092e = bVar;
+            this.f11100e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11092e.f11091f = SwanAudioPlayer.getInstance();
+                this.f11100e.f11099f = SwanAudioPlayer.getInstance();
                 SwanAudioPlayer.settingNativeAudioParameters(AppRuntime.getApplication());
             }
         }
@@ -92,7 +92,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11093e;
+        public final /* synthetic */ b f11101e;
 
         public RunnableC0560b(b bVar) {
             Interceptable interceptable = $ic;
@@ -109,14 +109,14 @@ public class b {
                     return;
                 }
             }
-            this.f11093e = bVar;
+            this.f11101e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11093e.f11091f.pauseAll();
+                this.f11101e.f11099f.pauseAll();
             }
         }
     }
@@ -127,7 +127,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11094e;
+        public final /* synthetic */ b f11102e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -144,14 +144,14 @@ public class b {
                     return;
                 }
             }
-            this.f11094e = bVar;
+            this.f11102e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11094e.f11091f.resume();
+                this.f11102e.f11099f.resume();
             }
         }
     }
@@ -169,7 +169,7 @@ public class b {
                 return;
             }
         }
-        f11084g = k.f7077a;
+        f11092g = k.f7085a;
         c.a.p0.a.h2.d.b();
     }
 
@@ -186,9 +186,9 @@ public class b {
                 return;
             }
         }
-        this.f11087b = new HashMap<>();
-        this.f11088c = f.g();
-        this.f11086a = new c.a.p0.h.c.i.b(this.f11088c);
+        this.f11095b = new HashMap<>();
+        this.f11096c = f.g();
+        this.f11094a = new c.a.p0.h.c.i.b(this.f11096c);
         c();
         e().post(new a(this));
     }
@@ -197,25 +197,25 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f11085h == null) {
+            if (f11093h == null) {
                 synchronized (b.class) {
-                    if (f11085h == null) {
-                        f11085h = new b();
+                    if (f11093h == null) {
+                        f11093h = new b();
                     }
                 }
             }
-            return f11085h;
+            return f11093h;
         }
         return (b) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f11089d == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f11097d == null) {
             HandlerThread handlerThread = new HandlerThread("audio_thread");
-            this.f11089d = handlerThread;
+            this.f11097d = handlerThread;
             handlerThread.start();
-            this.f11090e = new Handler(this.f11089d.getLooper());
+            this.f11098e = new Handler(this.f11097d.getLooper());
         }
     }
 
@@ -225,7 +225,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
             synchronized (this) {
-                if (f11084g) {
+                if (f11092g) {
                     String str2 = "create media player src = " + str;
                 }
                 dVar = new d();
@@ -238,15 +238,15 @@ public class b {
     public Handler e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11090e : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11098e : (Handler) invokeV.objValue;
     }
 
     public long f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (this.f11087b.containsKey(str)) {
-                return this.f11087b.get(str).longValue();
+            if (this.f11095b.containsKey(str)) {
+                return this.f11095b.get(str).longValue();
             }
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             try {
@@ -254,10 +254,10 @@ public class b {
                     mediaMetadataRetriever.setDataSource(str);
                     long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
                     mediaMetadataRetriever.release();
-                    this.f11087b.put(str, Long.valueOf(parseLong));
+                    this.f11095b.put(str, Long.valueOf(parseLong));
                     return parseLong;
                 } catch (Exception e2) {
-                    if (f11084g) {
+                    if (f11092g) {
                         e2.printStackTrace();
                     }
                     mediaMetadataRetriever.release();
@@ -274,7 +274,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return this.f11088c + f.d(str);
+            return this.f11096c + f.d(str);
         }
         return (String) invokeL.objValue;
     }
@@ -283,7 +283,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            SwanAudioPlayer swanAudioPlayer = this.f11091f;
+            SwanAudioPlayer swanAudioPlayer = this.f11099f;
             if (swanAudioPlayer != null) {
                 swanAudioPlayer.isAudioPlayer();
                 return false;
@@ -296,13 +296,13 @@ public class b {
     public void j(String str, c.a.p0.h.c.i.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, aVar) == null) {
-            this.f11086a.e(str, aVar);
+            this.f11094a.e(str, aVar);
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f11091f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f11099f == null) {
             return;
         }
         e().post(new c(this));
@@ -310,7 +310,7 @@ public class b {
 
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f11091f == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f11099f == null) {
             return;
         }
         e().postDelayed(new RunnableC0560b(this), 50L);

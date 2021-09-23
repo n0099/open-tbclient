@@ -14,7 +14,7 @@ public class SmartColorSDK {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile SmartColorSDK f45164a;
+    public static volatile SmartColorSDK f45226a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class SmartColorSDK {
             }
         }
         System.loadLibrary("native-bridge");
-        f45164a = null;
+        f45226a = null;
     }
 
     public SmartColorSDK() {
@@ -64,14 +64,14 @@ public class SmartColorSDK {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f45164a == null) {
+            if (f45226a == null) {
                 synchronized (SmartColorSDK.class) {
-                    if (f45164a == null) {
-                        f45164a = new SmartColorSDK();
+                    if (f45226a == null) {
+                        f45226a = new SmartColorSDK();
                     }
                 }
             }
-            return f45164a;
+            return f45226a;
         }
         return (SmartColorSDK) invokeV.objValue;
     }

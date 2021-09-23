@@ -64,11 +64,11 @@ public interface IBinderPool extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static IBinderPool f65354a;
+            public static IBinderPool f65665a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f65355b;
+            public IBinder f65666b;
 
             public a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -85,14 +85,14 @@ public interface IBinderPool extends IInterface {
                         return;
                     }
                 }
-                this.f65355b = iBinder;
+                this.f65666b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65355b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65666b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IBinderPool
@@ -105,7 +105,7 @@ public interface IBinderPool extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IBinderPool");
                         obtain.writeInt(i2);
-                        if (!this.f65355b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f65666b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             return Stub.getDefaultImpl().queryBinder(i2);
                         }
                         obtain2.readException();
@@ -154,17 +154,17 @@ public interface IBinderPool extends IInterface {
         public static IBinderPool getDefaultImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f65354a : (IBinderPool) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f65665a : (IBinderPool) invokeV.objValue;
         }
 
         public static boolean setDefaultImpl(IBinderPool iBinderPool) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iBinderPool)) == null) {
-                if (a.f65354a != null || iBinderPool == null) {
+                if (a.f65665a != null || iBinderPool == null) {
                     return false;
                 }
-                a.f65354a = iBinderPool;
+                a.f65665a = iBinderPool;
                 return true;
             }
             return invokeL.booleanValue;

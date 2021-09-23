@@ -22,16 +22,16 @@ public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object[] f39626a;
+    public static final Object[] f39683a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Class<?>[] f39627b;
+    public static final Class<?>[] f39684b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39628c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
+    public static final String f39685c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f39629d;
+    public static final Pattern f39686d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,9 +47,9 @@ public class Utils {
                 return;
             }
         }
-        f39626a = new Object[0];
-        f39627b = new Class[0];
-        f39629d = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
+        f39683a = new Object[0];
+        f39684b = new Class[0];
+        f39686d = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
     }
 
     public Utils() {
@@ -90,18 +90,24 @@ public class Utils {
     public static Class<?>[] a(Class<?>[] clsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, clsArr)) == null) ? (clsArr == null || clsArr.length == 0) ? f39627b : clsArr : (Class[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, clsArr)) == null) ? (clsArr == null || clsArr.length == 0) ? f39684b : clsArr : (Class[]) invokeL.objValue;
     }
 
-    public static Class<?>[] a(Object... objArr) {
+    public static Object[] a(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, objArr)) == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, objArr)) == null) ? (objArr == null || objArr.length == 0) ? f39683a : objArr : (Object[]) invokeL.objValue;
+    }
+
+    public static Class<?>[] b(Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, objArr)) == null) {
             if (objArr == null) {
                 return null;
             }
             if (objArr.length == 0) {
-                return f39627b;
+                return f39684b;
             }
             Class<?>[] clsArr = new Class[objArr.length];
             for (int i2 = 0; i2 < objArr.length; i2++) {
@@ -110,12 +116,6 @@ public class Utils {
             return clsArr;
         }
         return (Class[]) invokeL.objValue;
-    }
-
-    public static Object[] b(Object[] objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, objArr)) == null) ? (objArr == null || objArr.length == 0) ? f39626a : objArr : (Object[]) invokeL.objValue;
     }
 
     public static List<Class<?>> getAllInterfaces(Class<?> cls) {
@@ -132,8 +132,8 @@ public class Utils {
         return (List) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0048 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x004d  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0048 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x004d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -183,6 +183,6 @@ public class Utils {
     public static boolean validateJavaIdentifier(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f39629d.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f39686d.matcher(str).matches() : invokeL.booleanValue;
     }
 }

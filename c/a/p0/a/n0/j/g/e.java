@@ -35,11 +35,11 @@ public class e extends a {
     public void e() {
         ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (arrayList = this.f7516d.f7512b) == null || arrayList.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (arrayList = this.f7524d.f7520b) == null || arrayList.isEmpty()) {
             return;
         }
         c.a.p0.a.n0.d d2 = c.a.p0.a.n0.f.c().d();
-        ArrayList<String> arrayList2 = this.f7516d.f7512b;
+        ArrayList<String> arrayList2 = this.f7524d.f7520b;
         c.a.p0.a.n0.l.c l = c.a.p0.a.n0.l.c.l();
         l.i(15);
         d2.g(arrayList2, true, false, l.k());

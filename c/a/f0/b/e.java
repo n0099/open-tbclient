@@ -22,26 +22,26 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.j0.a.g.b f3377e;
+    public final c.a.j0.a.g.b f3378e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f3378f;
+    public ViewGroup f3379f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public final h f3379g;
+    public final h f3380g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.f0.b.g.b f3380h;
+    public final c.a.f0.b.g.b f3381h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public d f3381i;
+    public d f3382i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f3382j;
+    public long f3383j;
     public long k;
     public final long l;
     public long m;
@@ -54,7 +54,7 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f3383e;
+        public final /* synthetic */ e f3384e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -71,14 +71,14 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
                     return;
                 }
             }
-            this.f3383e = eVar;
+            this.f3384e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3383e.f3381i.b();
+                this.f3384e.f3382i.b();
             }
         }
     }
@@ -100,10 +100,10 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
         }
         this.n = true;
         this.l = System.currentTimeMillis();
-        this.f3377e = bVar;
-        this.f3378f = viewGroup;
-        this.f3379g = hVar;
-        this.f3380h = new c.a.f0.b.g.b(hVar);
+        this.f3378e = bVar;
+        this.f3379f = viewGroup;
+        this.f3380g = hVar;
+        this.f3381h = new c.a.f0.b.g.b(hVar);
         c.a.f0.b.g.c.b(hVar);
     }
 
@@ -113,7 +113,7 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
             c.a.b.f().e();
             if (this.n) {
                 this.n = false;
-                this.f3380h.d(str, this.m);
+                this.f3381h.d(str, this.m);
             }
         }
     }
@@ -122,7 +122,7 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
             this.o = dVar;
-            c.a.j0.a.g.b bVar = this.f3377e;
+            c.a.j0.a.g.b bVar = this.f3378e;
             if (bVar != null) {
                 dVar.j(bVar);
             }
@@ -132,7 +132,7 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
     public void d(@NonNull d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.f3381i = dVar;
+            this.f3382i = dVar;
         }
     }
 
@@ -141,15 +141,15 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
         Als.Area area;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c.a.f0.a.b.a.f3337a.get() != null) {
-                c.a.f0.c.d.a(c.a.f0.a.b.a.f3337a.get().p(), this.f3379g.o);
+            if (c.a.f0.a.b.a.f3338a.get() != null) {
+                c.a.f0.c.d.a(c.a.f0.a.b.a.f3338a.get().p(), this.f3380g.o);
             }
             b(Als.CloseType.CLICK_AD_AREA.value);
-            if (TextUtils.isEmpty(this.f3379g.e())) {
-                this.f3380h.a(Als.Area.UNKNOW, "");
+            if (TextUtils.isEmpty(this.f3380g.e())) {
+                this.f3381h.a(Als.Area.UNKNOW, "");
                 return;
             }
-            String e2 = this.f3379g.e();
+            String e2 = this.f3380g.e();
             char c2 = 65535;
             int hashCode = e2.hashCode();
             if (hashCode != 102340) {
@@ -172,8 +172,8 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
             } else {
                 area = Als.Area.GIF;
             }
-            this.f3380h.a(area, "");
-            d dVar = this.f3381i;
+            this.f3381h.a(area, "");
+            d dVar = this.f3382i;
             if (dVar != null) {
                 dVar.onAdClick();
             }
@@ -184,8 +184,8 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
     public void onAdError(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.m = System.currentTimeMillis() - this.f3382j;
-            d dVar = this.f3381i;
+            this.m = System.currentTimeMillis() - this.f3383j;
+            d dVar = this.f3382i;
             if (dVar != null) {
                 dVar.a(str);
             }
@@ -211,24 +211,24 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
     public void onAdStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f3382j = System.currentTimeMillis();
+            this.f3383j = System.currentTimeMillis();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("adShowScene", this.f3379g.C);
-                jSONObject.put("adSplashType", this.f3379g.f3417e);
-                if (this.f3379g.C == 1) {
+                jSONObject.put("adShowScene", this.f3380g.C);
+                jSONObject.put("adSplashType", this.f3380g.f3418e);
+                if (this.f3380g.C == 1) {
                     jSONObject.put("adLoadCostTime", this.k - this.l);
                 }
-                jSONObject.put("adRenderCostTime", this.f3382j - this.l);
+                jSONObject.put("adRenderCostTime", this.f3383j - this.l);
             } catch (JSONException e2) {
-                if (c.a.f0.a.a.a.f3335a) {
+                if (c.a.f0.a.a.a.f3336a) {
                     e2.printStackTrace();
                 }
             }
-            this.f3380h.b(jSONObject);
-            c.a.f0.b.g.f.y(this.f3379g);
-            j.c(this.f3379g);
-            d dVar = this.f3381i;
+            this.f3381h.b(jSONObject);
+            c.a.f0.b.g.f.y(this.f3380g);
+            j.c(this.f3380g);
+            d dVar = this.f3382i;
             if (dVar != null) {
                 dVar.onAdShow();
             }
@@ -239,7 +239,7 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
     public void onAdStop(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.m = System.currentTimeMillis() - this.f3382j;
+            this.m = System.currentTimeMillis() - this.f3383j;
             if ("time_end".equals(str)) {
                 b(Als.CloseType.COUNTDOWN_TIME_FINISH.value);
             } else if ("click_skip_button".equals(str)) {
@@ -249,7 +249,7 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
             } else {
                 b(Als.CloseType.OTHER.value);
             }
-            if (this.f3381i != null) {
+            if (this.f3382i != null) {
                 c.a.j0.a.k.a.a(new a(this));
             }
         }
@@ -273,7 +273,7 @@ public class e implements c.a.j0.a.g.a, c.a.j0.a.g.c {
     public void onSkipClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            d dVar = this.f3381i;
+            d dVar = this.f3382i;
             if (dVar != null) {
                 dVar.onSkip();
             }

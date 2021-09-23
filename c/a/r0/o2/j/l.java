@@ -18,7 +18,7 @@ public class l extends c.a.q0.g0.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f23342j;
+    public static final int f23358j;
     public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +35,7 @@ public class l extends c.a.q0.g0.c {
                 return;
             }
         }
-        f23342j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
+        f23358j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
         k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
     }
 
@@ -64,13 +64,13 @@ public class l extends c.a.q0.g0.c {
     public final void g() {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbImageView = this.f13391c) != null && (tbImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13391c.getLayoutParams();
-            int i2 = f23342j;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbImageView = this.f13408c) != null && (tbImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13408c.getLayoutParams();
+            int i2 = f23358j;
             layoutParams.width = i2;
             layoutParams.height = i2;
             layoutParams.topMargin = k;
-            this.f13391c.setLayoutParams(layoutParams);
+            this.f13408c.setLayoutParams(layoutParams);
         }
     }
 }

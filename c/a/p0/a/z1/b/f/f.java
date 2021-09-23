@@ -41,20 +41,20 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static WeakReference<View> f10072a;
+    public static WeakReference<View> f10080a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Runnable f10073b;
+    public static Runnable f10081b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e.b f10074c;
+    public static e.b f10082c;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: d  reason: collision with root package name */
-    public static View f10075d;
+    public static View f10083d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f10076e;
+    public static boolean f10084e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -63,10 +63,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f10077e;
+        public final /* synthetic */ View f10085e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f10078f;
+        public final /* synthetic */ View f10086f;
 
         /* renamed from: c.a.p0.a.z1.b.f.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -75,7 +75,7 @@ public class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f10079a;
+            public final /* synthetic */ a f10087a;
 
             /* renamed from: c.a.p0.a.z1.b.f.f$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
@@ -84,7 +84,7 @@ public class f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ animation.Animation$AnimationListenerC0487a f10080e;
+                public final /* synthetic */ animation.Animation$AnimationListenerC0487a f10088e;
 
                 public RunnableC0488a(animation.Animation$AnimationListenerC0487a animation_animation_animationlistenerc0487a) {
                     Interceptable interceptable = $ic;
@@ -101,16 +101,16 @@ public class f {
                             return;
                         }
                     }
-                    this.f10080e = animation_animation_animationlistenerc0487a;
+                    this.f10088e = animation_animation_animationlistenerc0487a;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f10080e.f10079a.f10077e.getParent() == null) {
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f10088e.f10087a.f10085e.getParent() == null) {
                         return;
                     }
-                    ((ViewGroup) this.f10080e.f10079a.f10077e.getParent()).removeView(this.f10080e.f10079a.f10077e);
+                    ((ViewGroup) this.f10088e.f10087a.f10085e.getParent()).removeView(this.f10088e.f10087a.f10085e);
                 }
             }
 
@@ -121,7 +121,7 @@ public class f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ animation.Animation$AnimationListenerC0487a f10081e;
+                public final /* synthetic */ animation.Animation$AnimationListenerC0487a f10089e;
 
                 public b(animation.Animation$AnimationListenerC0487a animation_animation_animationlistenerc0487a) {
                     Interceptable interceptable = $ic;
@@ -138,17 +138,17 @@ public class f {
                             return;
                         }
                     }
-                    this.f10081e = animation_animation_animationlistenerc0487a;
+                    this.f10089e = animation_animation_animationlistenerc0487a;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     View view;
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f10081e.f10079a.f10078f) == null || view.getParent() == null || !(this.f10081e.f10079a.f10078f.getParent() instanceof ViewGroup)) {
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f10089e.f10087a.f10086f) == null || view.getParent() == null || !(this.f10089e.f10087a.f10086f.getParent() instanceof ViewGroup)) {
                         return;
                     }
-                    ((ViewGroup) this.f10081e.f10079a.f10078f.getParent()).removeView(this.f10081e.f10079a.f10078f);
+                    ((ViewGroup) this.f10089e.f10087a.f10086f.getParent()).removeView(this.f10089e.f10087a.f10086f);
                 }
             }
 
@@ -167,17 +167,17 @@ public class f {
                         return;
                     }
                 }
-                this.f10079a = aVar;
+                this.f10087a = aVar;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                    if (this.f10079a.f10077e.getParent() instanceof ViewGroup) {
-                        this.f10079a.f10077e.post(new RunnableC0488a(this));
+                    if (this.f10087a.f10085e.getParent() instanceof ViewGroup) {
+                        this.f10087a.f10085e.post(new RunnableC0488a(this));
                     }
-                    View view = this.f10079a.f10078f;
+                    View view = this.f10087a.f10086f;
                     if (view != null) {
                         view.post(new b(this));
                     }
@@ -214,21 +214,21 @@ public class f {
                     return;
                 }
             }
-            this.f10077e = view;
-            this.f10078f = view2;
+            this.f10085e = view;
+            this.f10086f = view2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                WeakReference weakReference = new WeakReference(this.f10077e.getContext());
+                WeakReference weakReference = new WeakReference(this.f10085e.getContext());
                 if (weakReference.get() == null) {
                     return;
                 }
                 Animation loadAnimation = AnimationUtils.loadAnimation((Context) weakReference.get(), c.a.p0.a.a.aiapps_toast_exit);
                 loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0487a(this));
-                this.f10077e.startAnimation(loadAnimation);
+                this.f10085e.startAnimation(loadAnimation);
             }
         }
     }
@@ -239,7 +239,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f10082e;
+        public final /* synthetic */ e.c f10090e;
 
         public b(e.c cVar) {
             Interceptable interceptable = $ic;
@@ -256,14 +256,14 @@ public class f {
                     return;
                 }
             }
-            this.f10082e = cVar;
+            this.f10090e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e.c cVar = this.f10082e;
+                e.c cVar = this.f10090e;
                 if (cVar != null) {
                     cVar.a();
                 }
@@ -278,7 +278,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f10083e;
+        public final /* synthetic */ e.c f10091e;
 
         public c(e.c cVar) {
             Interceptable interceptable = $ic;
@@ -295,14 +295,14 @@ public class f {
                     return;
                 }
             }
-            this.f10083e = cVar;
+            this.f10091e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e.c cVar = this.f10083e;
+                e.c cVar = this.f10091e;
                 if (cVar != null) {
                     cVar.a();
                 }
@@ -317,19 +317,19 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f10084e;
+        public final /* synthetic */ View f10092e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f10085f;
+        public final /* synthetic */ Context f10093f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f10086g;
+        public final /* synthetic */ View f10094g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ FrameLayout.LayoutParams f10087h;
+        public final /* synthetic */ FrameLayout.LayoutParams f10095h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Animation f10088i;
+        public final /* synthetic */ Animation f10096i;
 
         public d(View view, Context context, View view2, FrameLayout.LayoutParams layoutParams, Animation animation) {
             Interceptable interceptable = $ic;
@@ -346,11 +346,11 @@ public class f {
                     return;
                 }
             }
-            this.f10084e = view;
-            this.f10085f = context;
-            this.f10086g = view2;
-            this.f10087h = layoutParams;
-            this.f10088i = animation;
+            this.f10092e = view;
+            this.f10093f = context;
+            this.f10094g = view2;
+            this.f10095h = layoutParams;
+            this.f10096i = animation;
         }
 
         @Override // java.lang.Runnable
@@ -358,34 +358,34 @@ public class f {
             View view;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (f.f10076e && this.f10084e != null) {
-                    if (f.f10075d != null && (f.f10075d.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) f.f10075d.getParent()).removeView(f.f10075d);
+                if (f.f10084e && this.f10092e != null) {
+                    if (f.f10083d != null && (f.f10083d.getParent() instanceof ViewGroup)) {
+                        ((ViewGroup) f.f10083d.getParent()).removeView(f.f10083d);
                     }
-                    Context context = this.f10085f;
+                    Context context = this.f10093f;
                     if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
                         return;
                     }
-                    FrameLayout frameLayout = new FrameLayout(this.f10085f);
+                    FrameLayout frameLayout = new FrameLayout(this.f10093f);
                     frameLayout.setClickable(true);
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                    layoutParams.topMargin = c.a.p0.a.z1.b.f.e.c(this.f10085f);
-                    View view2 = this.f10084e;
+                    layoutParams.topMargin = c.a.p0.a.z1.b.f.e.c(this.f10093f);
+                    View view2 = this.f10092e;
                     if (view2 instanceof ViewGroup) {
                         ((ViewGroup) view2).addView(frameLayout, layoutParams);
-                        View unused = f.f10075d = frameLayout;
+                        View unused = f.f10083d = frameLayout;
                     }
                 }
-                if (f.f10072a != null && (view = (View) f.f10072a.get()) != null && (view.getParent() instanceof ViewGroup)) {
+                if (f.f10080a != null && (view = (View) f.f10080a.get()) != null && (view.getParent() instanceof ViewGroup)) {
                     ((ViewGroup) view.getParent()).removeView(view);
                 }
-                Context context2 = this.f10085f;
+                Context context2 = this.f10093f;
                 if ((context2 instanceof Activity) && ((Activity) context2).isFinishing()) {
                     return;
                 }
-                ((ViewGroup) this.f10084e).addView(this.f10086g, this.f10087h);
-                this.f10086g.startAnimation(this.f10088i);
-                WeakReference unused2 = f.f10072a = new WeakReference(this.f10086g);
+                ((ViewGroup) this.f10092e).addView(this.f10094g, this.f10095h);
+                this.f10094g.startAnimation(this.f10096i);
+                WeakReference unused2 = f.f10080a = new WeakReference(this.f10094g);
             }
         }
     }
@@ -453,10 +453,10 @@ public class f {
         view2.setClickable(true);
         if (view instanceof ViewGroup) {
             view.post(new d(view, context, view2, layoutParams, animation));
-            if (f10073b == null) {
-                f10073b = new e();
+            if (f10081b == null) {
+                f10081b = new e();
             }
-            c.a.p0.a.a2.d.i().postDelayed(f10073b, i2 * 1000);
+            c.a.p0.a.a2.d.i().postDelayed(f10081b, i2 * 1000);
         }
     }
 
@@ -464,23 +464,23 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             synchronized (f.class) {
-                if (f10072a != null) {
-                    View view = f10072a.get();
+                if (f10080a != null) {
+                    View view = f10080a.get();
                     if (view != null) {
-                        view.post(new a(view, f10075d));
-                        if (f10073b != null) {
-                            view.removeCallbacks(f10073b);
+                        view.post(new a(view, f10083d));
+                        if (f10081b != null) {
+                            view.removeCallbacks(f10081b);
                         }
                     }
-                    if (f10073b != null) {
-                        c.a.p0.a.a2.d.i().removeCallbacks(f10073b);
+                    if (f10081b != null) {
+                        c.a.p0.a.a2.d.i().removeCallbacks(f10081b);
                     }
-                    f10073b = null;
-                    f10072a = null;
-                    f10075d = null;
-                    if (f10074c != null) {
-                        f10074c.onDismiss();
-                        f10074c = null;
+                    f10081b = null;
+                    f10080a = null;
+                    f10083d = null;
+                    if (f10082c != null) {
+                        f10082c.onDismiss();
+                        f10082c = null;
                     }
                 }
             }
@@ -516,7 +516,7 @@ public class f {
         View view;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            WeakReference<View> weakReference = f10072a;
+            WeakReference<View> weakReference = f10080a;
             return (weakReference == null || (view = weakReference.get()) == null || view.getParent() == null) ? false : true;
         }
         return invokeV.booleanValue;
@@ -525,7 +525,7 @@ public class f {
     public static void l(e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, bVar) == null) {
-            f10074c = bVar;
+            f10082c = bVar;
         }
     }
 
@@ -533,7 +533,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{activity, charSequence, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             Resources resources = c.a.p0.a.c1.a.b().getResources();
-            f10076e = z;
+            f10084e = z;
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(g.aiapps_toast_template_square_d20, (ViewGroup) null);
             linearLayout.setBackground(resources.getDrawable(c.a.p0.a.e.aiapps_toast_bg_d20));
             linearLayout.findViewById(c.a.p0.a.f.highlight_toast_imageView_d20).setVisibility(8);
@@ -555,7 +555,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{activity, charSequence, drawable, view, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             Resources resources = activity.getResources();
-            f10076e = z;
+            f10084e = z;
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(g.aiapps_toast_template_square_d20, (ViewGroup) null);
             linearLayout.setBackground(resources.getDrawable(c.a.p0.a.e.aiapps_toast_bg_d20));
             TextView textView = (TextView) linearLayout.findViewById(c.a.p0.a.f.highlight_toast_text_d20);
@@ -601,7 +601,7 @@ public class f {
         if (i3 == null) {
             return;
         }
-        f10076e = z;
+        f10084e = z;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(g.aiapps_toast_template_a_d20, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(c.a.p0.a.e.aiapps_toast_bg_d20));
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(c.a.p0.a.f.left_icon_fresco);
@@ -610,7 +610,7 @@ public class f {
         TextView textView2 = (TextView) linearLayout.findViewById(c.a.p0.a.f.right_toast_jump_text);
         View findViewById = linearLayout.findViewById(c.a.p0.a.f.right_toast_vertical_line);
         if (!TextUtils.isEmpty(charSequence)) {
-            textView.setTextColor(c.a.p0.a.z1.b.f.b.f10044a);
+            textView.setTextColor(c.a.p0.a.z1.b.f.b.f10052a);
             if (uri == null && drawable == null && view == null && TextUtils.isEmpty(charSequence2)) {
                 simpleDraweeView.setVisibility(8);
                 linearLayout2.setVisibility(8);
@@ -636,7 +636,7 @@ public class f {
                         toastLocation2 = ToastLocation.BOTTOM;
                         linearLayout2.setVisibility(0);
                         textView2.setText(charSequence2);
-                        textView2.setTextColor(c.a.p0.a.z1.b.f.b.f10044a);
+                        textView2.setTextColor(c.a.p0.a.z1.b.f.b.f10052a);
                         findViewById.setBackground(resources.getDrawable(c.a.p0.a.c.GC36));
                         if (linearLayout2 != null) {
                             linearLayout2.setOnClickListener(new b(cVar));
@@ -728,7 +728,7 @@ public class f {
                     textView2.setText(charSequence2);
                     textView.setVisibility(0);
                     textView2.setVisibility(0);
-                    textView.setTextColor(c.a.p0.a.z1.b.f.b.f10044a);
+                    textView.setTextColor(c.a.p0.a.z1.b.f.b.f10052a);
                     textView2.setTextColor(resources.getColor(c.a.p0.a.c.GC4));
                     textView3.setVisibility(8);
                 } else {
@@ -739,7 +739,7 @@ public class f {
                     textView.setVisibility(8);
                     textView2.setVisibility(8);
                     textView3.setVisibility(0);
-                    textView3.setTextColor(c.a.p0.a.z1.b.f.b.f10044a);
+                    textView3.setTextColor(c.a.p0.a.z1.b.f.b.f10052a);
                 }
                 FrameLayout frameLayout = (FrameLayout) linearLayout.findViewById(c.a.p0.a.f.btn_area);
                 LinearLayout linearLayout3 = (LinearLayout) linearLayout.findViewById(c.a.p0.a.f.jump_area);
@@ -758,7 +758,7 @@ public class f {
                         linearLayout3.setVisibility(0);
                         frameLayout.setVisibility(8);
                         textView5.setText(charSequence3);
-                        textView5.setTextColor(c.a.p0.a.z1.b.f.b.f10044a);
+                        textView5.setTextColor(c.a.p0.a.z1.b.f.b.f10052a);
                         imageView.setImageDrawable(resources.getDrawable(c.a.p0.a.e.aiapps_toast_right_jump_d20));
                         findViewById.setBackground(resources.getDrawable(c.a.p0.a.c.GC36));
                         frameLayout = linearLayout3;

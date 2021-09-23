@@ -40,7 +40,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GodSquareActivity f51976a;
+        public final /* synthetic */ GodSquareActivity f52090a;
 
         public a(GodSquareActivity godSquareActivity) {
             Interceptable interceptable = $ic;
@@ -57,41 +57,41 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                     return;
                 }
             }
-            this.f51976a = godSquareActivity;
+            this.f52090a = godSquareActivity;
         }
 
         @Override // c.a.r0.b1.c.b.c
         public void a(List<n> list, boolean z, boolean z2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                this.f51976a.mHasMore = z2;
-                this.f51976a.mView.a().completePullRefreshPostDelayed(0L);
-                this.f51976a.mView.b();
+                this.f52090a.mHasMore = z2;
+                this.f52090a.mView.a().completePullRefreshPostDelayed(0L);
+                this.f52090a.mView.b();
                 if (ListUtils.isEmpty(list)) {
-                    this.f51976a.mView.d();
-                    if (ListUtils.isEmpty(this.f51976a.mModel.f15931e)) {
-                        this.f51976a.mView.k(str);
+                    this.f52090a.mView.d();
+                    if (ListUtils.isEmpty(this.f52090a.mModel.f15941e)) {
+                        this.f52090a.mView.k(str);
                         return;
                     }
-                    this.f51976a.mHasMore = true;
+                    this.f52090a.mHasMore = true;
                     if (l.D()) {
-                        this.f51976a.showToast(str);
+                        this.f52090a.showToast(str);
                         return;
                     }
                     return;
                 }
-                this.f51976a.mView.c();
+                this.f52090a.mView.c();
                 if (z) {
-                    this.f51976a.mModel.f15931e = list;
-                    this.f51976a.mView.m(this.f51976a.mModel.f15931e);
+                    this.f52090a.mModel.f15941e = list;
+                    this.f52090a.mView.m(this.f52090a.mModel.f15941e);
                 } else {
-                    this.f51976a.mModel.f15931e.addAll(list);
-                    this.f51976a.mView.g();
+                    this.f52090a.mModel.f15941e.addAll(list);
+                    this.f52090a.mView.g();
                 }
                 if (z2) {
-                    this.f51976a.mView.f();
+                    this.f52090a.mView.f();
                 } else {
-                    this.f51976a.mView.e();
+                    this.f52090a.mView.e();
                 }
             }
         }
@@ -103,7 +103,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GodSquareActivity f51977a;
+        public final /* synthetic */ GodSquareActivity f52091a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(GodSquareActivity godSquareActivity, int i2) {
@@ -123,7 +123,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                     return;
                 }
             }
-            this.f51977a = godSquareActivity;
+            this.f52091a = godSquareActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -132,11 +132,11 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f48084c)) {
+                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f48192c)) {
                     return;
                 }
-                if (this.f51977a.mModel.g(c.a.e.e.m.b.g(updateAttentionMessage.getData().f48084c, 0L))) {
-                    this.f51977a.needRefreshView = true;
+                if (this.f52091a.mModel.g(c.a.e.e.m.b.g(updateAttentionMessage.getData().f48192c, 0L))) {
+                    this.f52091a.needRefreshView = true;
                 }
             }
         }
@@ -148,7 +148,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GodSquareActivity f51978e;
+        public final /* synthetic */ GodSquareActivity f52092e;
 
         public c(GodSquareActivity godSquareActivity) {
             Interceptable interceptable = $ic;
@@ -165,17 +165,17 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                     return;
                 }
             }
-            this.f51978e = godSquareActivity;
+            this.f52092e = godSquareActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                if (ListUtils.isEmpty(this.f51978e.mModel.f15931e)) {
-                    this.f51978e.loadFirstTime();
+                if (ListUtils.isEmpty(this.f52092e.mModel.f15941e)) {
+                    this.f52092e.loadFirstTime();
                 } else {
-                    this.f51978e.mView.l();
+                    this.f52092e.mView.l();
                 }
             }
         }

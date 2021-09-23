@@ -50,7 +50,7 @@ public class c implements c.a.r0.w0.n1.e.b {
         Iterator<n> it = threadList.iterator();
         while (it.hasNext()) {
             n next = it.next();
-            if (next.getType() == d2.Y2) {
+            if (next.getType() == d2.Z2) {
                 arrayList.add(next);
             }
         }

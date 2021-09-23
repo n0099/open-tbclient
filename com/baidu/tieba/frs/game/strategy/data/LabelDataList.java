@@ -38,8 +38,8 @@ public class LabelDataList extends ArrayList<a> {
             Iterator<a> it = iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next != null && next.f27758a == i2) {
-                    return next.f27759b;
+                if (next != null && next.f27778a == i2) {
+                    return next.f27779b;
                 }
             }
             return null;
@@ -54,14 +54,14 @@ public class LabelDataList extends ArrayList<a> {
             Iterator<a> it = iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next != null && next.f27760c) {
-                    return next.f27758a;
+                if (next != null && next.f27780c) {
+                    return next.f27778a;
                 }
             }
             a aVar = (a) ListUtils.getItem(this, 0);
             if (aVar != null) {
-                aVar.f27760c = true;
-                return aVar.f27758a;
+                aVar.f27780c = true;
+                return aVar.f27778a;
             }
             return 0;
         }
@@ -78,15 +78,15 @@ public class LabelDataList extends ArrayList<a> {
             for (ForumSubLabel forumSubLabel : list) {
                 if (forumSubLabel != null) {
                     a aVar = new a();
-                    aVar.f27758a = forumSubLabel.id.intValue();
-                    aVar.f27759b = forumSubLabel.sub_label_name;
+                    aVar.f27778a = forumSubLabel.id.intValue();
+                    aVar.f27779b = forumSubLabel.sub_label_name;
                     add(aVar);
                 }
             }
             if (isEmpty()) {
                 return;
             }
-            get(0).f27760c = true;
+            get(0).f27780c = true;
         }
     }
 
@@ -96,12 +96,12 @@ public class LabelDataList extends ArrayList<a> {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (aVar = (a) ListUtils.getItem(this, i2)) == null) {
             return;
         }
-        aVar.f27760c = true;
+        aVar.f27780c = true;
         Iterator<a> it = iterator();
         while (it.hasNext()) {
             a next = it.next();
             if (next != null && next != aVar) {
-                next.f27760c = false;
+                next.f27780c = false;
             }
         }
     }

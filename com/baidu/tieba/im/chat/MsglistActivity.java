@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.p;
+import c.a.q0.d1.s;
 import c.a.r0.k1.f.c;
 import c.a.r0.k1.f.h;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -76,7 +76,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             if (first(this)) {
                 loadDraft();
                 regReceiver();
-                h.f21235a = p.e();
+                h.f21249a = s.e();
             }
         }
     }

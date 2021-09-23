@@ -2,6 +2,7 @@ package com.baidu.sapi2.activity.social;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,6 +12,7 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.utils.ParamsUtil;
+import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.ThirdPartyUtil;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,6 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class WXLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
@@ -45,7 +48,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WXLoginActivity f44834a;
+        public final /* synthetic */ WXLoginActivity f44896a;
 
         public a(WXLoginActivity wXLoginActivity) {
             Interceptable interceptable = $ic;
@@ -62,15 +65,15 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            this.f44834a = wXLoginActivity;
+            this.f44896a = wXLoginActivity;
         }
 
         @Override // com.baidu.sapi2.activity.social.WXLoginActivity.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Toast.makeText(this.f44834a, "微信未安装", 1).show();
-                this.f44834a.a(WXLoginActivity.v);
+                Toast.makeText(this.f44896a, "微信未安装", 1).show();
+                this.f44896a.a(WXLoginActivity.v);
             }
         }
 
@@ -78,7 +81,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f44834a.finish();
+                this.f44896a.finish();
             }
         }
     }
@@ -131,31 +134,36 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            ((BaseSSOLoginActivity) this).f44810g = v;
-            ((BaseSSOLoginActivity) this).f44808e = w;
-            ((BaseSSOLoginActivity) this).f44809f = x;
+            ((BaseSSOLoginActivity) this).f44872g = v;
+            ((BaseSSOLoginActivity) this).f44870e = w;
+            ((BaseSSOLoginActivity) this).f44871f = x;
             w = null;
             x = false;
             this.o = getIntent().getStringExtra("code");
             this.n = getIntent().getStringExtra("state");
             int intExtra = getIntent().getIntExtra("error_code", -1);
             this.p = intExtra;
-            if (!((BaseSSOLoginActivity) this).f44809f) {
-                if (intExtra == 0) {
-                    a(ParamsUtil.getUrlWeixinBind(this.configuration, this.o, this.n, false), "授权微信帐号登录中");
-                    return;
-                } else {
-                    a(v);
+            if (((BaseSSOLoginActivity) this).f44871f) {
+                Intent intent = new Intent();
+                intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_AUTHORIZATION_CODE, this.o);
+                intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_TYPE_CODE, String.valueOf(SocialType.QQ_SSO.getType()));
+                intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_TYPE_NAME, ThirdPartyUtil.TYPE_WEIXIN);
+                intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, SapiAccountManager.getInstance().getConfignation().wxAppID);
+                a(3001, intent);
+                finish();
+            } else if (intExtra == 0) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("wxRespCode", this.o);
+                hashMap.put("wxRespState", this.n);
+                StatService.onEventAutoStat("third_login_wx_result", hashMap);
+                if (TextUtils.equals(ThirdPartyUtil.wxAuthCodeMap.get(this.o), this.n)) {
                     return;
                 }
+                ThirdPartyUtil.wxAuthCodeMap.put(this.o, this.n);
+                a(ParamsUtil.getUrlWeixinBind(this.configuration, this.o, this.n, false), "授权微信帐号登录中");
+            } else {
+                a(v);
             }
-            Intent intent = new Intent();
-            intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_AUTHORIZATION_CODE, this.o);
-            intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_TYPE_CODE, String.valueOf(SocialType.QQ_SSO.getType()));
-            intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_TYPE_NAME, ThirdPartyUtil.TYPE_WEIXIN);
-            intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, SapiAccountManager.getInstance().getConfignation().wxAppID);
-            a(3001, intent);
-            finish();
         }
     }
 
@@ -170,8 +178,8 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
             }
             if (!getIntent().getBooleanExtra(r, false)) {
                 v = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
-                w = ((BaseSSOLoginActivity) this).f44808e;
-                x = ((BaseSSOLoginActivity) this).f44809f;
+                w = ((BaseSSOLoginActivity) this).f44870e;
+                x = ((BaseSSOLoginActivity) this).f44871f;
                 a(new a(this));
                 return;
             }

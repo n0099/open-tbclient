@@ -48,22 +48,22 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38671e;
+    public int f38722e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f38672f;
+    public boolean f38723f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b0<c.a.q0.s.q.a> f38673g;
+    public b0<c.a.q0.s.q.a> f38724g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.q0.s.q.a f38674h;
+    public c.a.q0.s.q.a f38725h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f38675i;
+    public TbImageView f38726i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f38676j;
+    public LinearLayout f38727j;
     public ImageView k;
     public TextView l;
     public ArrayList<String> m;
@@ -79,7 +79,7 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InterviewLiveLayout f38677e;
+        public final /* synthetic */ InterviewLiveLayout f38728e;
 
         public a(InterviewLiveLayout interviewLiveLayout) {
             Interceptable interceptable = $ic;
@@ -96,20 +96,20 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
                     return;
                 }
             }
-            this.f38677e = interviewLiveLayout;
+            this.f38728e = interviewLiveLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || ListUtils.getCount(this.f38677e.m) <= 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || ListUtils.getCount(this.f38728e.m) <= 0) {
                 return;
             }
             if (TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                String str = (String) this.f38677e.m.get(0);
+                String str = (String) this.f38728e.m.get(0);
                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
                 ImageUrlData imageUrlData = new ImageUrlData();
-                imageUrlData.urlType = this.f38677e.f38672f ? 13 : 14;
+                imageUrlData.urlType = this.f38728e.f38723f ? 13 : 14;
                 imageUrlData.imageUrl = str;
                 imageUrlData.originalUrl = str;
                 imageUrlData.originalSize = 0L;
@@ -119,31 +119,31 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
                 imageUrlData.postId = 0L;
                 concurrentHashMap.put(str, imageUrlData);
                 ImageViewerConfig.b bVar = new ImageViewerConfig.b();
-                bVar.x(this.f38677e.m);
-                bVar.C(this.f38677e.f38672f);
+                bVar.x(this.f38728e.m);
+                bVar.C(this.f38728e.f38723f);
                 bVar.J(str);
                 bVar.F(false);
                 bVar.w(concurrentHashMap);
                 bVar.H(false);
-                bVar.N(this.f38677e.n);
+                bVar.N(this.f38728e.n);
                 bVar.I(false);
-                ImageViewerConfig v = bVar.v(this.f38677e.getContext());
+                ImageViewerConfig v = bVar.v(this.f38728e.getContext());
                 v.getIntent().putExtra("from", "frs");
                 Rect rect = new Rect();
                 view.getGlobalVisibleRect(rect);
                 v.getIntent().putExtra(IntentConfig.SOURCE_RECT_IN_SCREEN, rect);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2010000, v));
                 StatisticItem statisticItem = new StatisticItem("c13327");
-                statisticItem.param("fid", this.f38677e.o);
-                statisticItem.param("obj_id", this.f38677e.p);
+                statisticItem.param("fid", this.f38728e.o);
+                statisticItem.param("obj_id", this.f38728e.p);
                 TiebaStatic.log(statisticItem);
-                if (this.f38677e.f38673g != null) {
-                    this.f38677e.f38673g.a(this.f38677e.f38675i, this.f38677e.f38674h);
+                if (this.f38728e.f38724g != null) {
+                    this.f38728e.f38724g.a(this.f38728e.f38726i, this.f38728e.f38725h);
                     return;
                 }
                 return;
             }
-            l.L(this.f38677e.getContext(), R.string.plugin_image_viewer_install_error_tips);
+            l.L(this.f38728e.getContext(), R.string.plugin_image_viewer_install_error_tips);
         }
     }
 
@@ -153,7 +153,7 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InterviewLiveLayout f38678a;
+        public final /* synthetic */ InterviewLiveLayout f38729a;
 
         public b(InterviewLiveLayout interviewLiveLayout) {
             Interceptable interceptable = $ic;
@@ -170,7 +170,7 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
                     return;
                 }
             }
-            this.f38678a = interviewLiveLayout;
+            this.f38729a = interviewLiveLayout;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.h
@@ -192,7 +192,7 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            c.a.e.l.d.a m = c.k().m(d.h().g(tbImageView.getUrl(), this.f38678a.f38672f ? 13 : 14));
+            c.a.e.l.d.a m = c.k().m(d.h().g(tbImageView.getUrl(), this.f38729a.f38723f ? 13 : 14));
             int i3 = 0;
             if (m != null) {
                 i3 = m.r();
@@ -264,10 +264,10 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
             LayoutInflater.from(getContext()).inflate(R.layout.interview_live_layout, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             TbImageView tbImageView = (TbImageView) findViewById(R.id.img_interview_live);
-            this.f38675i = tbImageView;
+            this.f38726i = tbImageView;
             tbImageView.addCornerFlags(15);
-            this.f38675i.setPlaceHolder(3);
-            this.f38676j = (LinearLayout) findViewById(R.id.interview_live_tip_bg);
+            this.f38726i.setPlaceHolder(3);
+            this.f38727j = (LinearLayout) findViewById(R.id.interview_live_tip_bg);
             this.k = (ImageView) findViewById(R.id.interview_live_tip_img);
             this.l = (TextView) findViewById(R.id.interview_live_tip);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -276,25 +276,25 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 == this.f38671e) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 == this.f38722e) {
             return;
         }
         SkinManager.setViewTextColor(this.l, R.color.CAM_X0101);
         SkinManager.setImageResource(this.k, R.drawable.interview_live_circle_share);
-        SkinManager.setBackgroundResource(this.f38676j, R.drawable.interview_live_circle_bg_shape);
+        SkinManager.setBackgroundResource(this.f38727j, R.drawable.interview_live_circle_bg_shape);
     }
 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f38672f = z;
+            this.f38723f = z;
         }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) || (tbImageView = this.f38675i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) || (tbImageView = this.f38726i) == null) {
             return;
         }
         tbImageView.setPageId(bdUniqueId);
@@ -303,7 +303,7 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
     public void setSubClickListener(b0<c.a.q0.s.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, b0Var) == null) {
-            this.f38673g = b0Var;
+            this.f38724g = b0Var;
         }
     }
 
@@ -326,9 +326,9 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
                 return;
             }
         }
-        this.f38671e = 3;
-        this.f38672f = true;
-        this.f38674h = null;
+        this.f38722e = 3;
+        this.f38723f = true;
+        this.f38725h = null;
         this.m = new ArrayList<>();
         this.q = new a(this);
         this.r = new b(this);
@@ -340,8 +340,8 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
     public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f38674h = aVar;
-            if (aVar != null && this.f38675i != null) {
+            this.f38725h = aVar;
+            if (aVar != null && this.f38726i != null) {
                 d2 threadData = aVar.getThreadData();
                 b2 j1 = threadData.j1();
                 if (j1 == null) {
@@ -355,10 +355,10 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
                     this.m.clear();
                     this.m.add(j1.i());
                     setVisibility(0);
-                    this.f38675i.setSupportNoImage(true);
-                    this.f38675i.setScaleType(ImageView.ScaleType.MATRIX);
-                    this.f38675i.setOnDrawListener(this.r);
-                    this.f38675i.startLoad(j1.i(), this.f38672f ? 13 : 14, false);
+                    this.f38726i.setSupportNoImage(true);
+                    this.f38726i.setScaleType(ImageView.ScaleType.MATRIX);
+                    this.f38726i.setOnDrawListener(this.r);
+                    this.f38726i.startLoad(j1.i(), this.f38723f ? 13 : 14, false);
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
                     int k = l.k(getContext()) - l.g(getContext(), R.dimen.tbds88);
                     layoutParams.width = k;
@@ -367,7 +367,7 @@ public class InterviewLiveLayout extends FrameLayout implements p<c.a.q0.s.q.a> 
                 } else {
                     setVisibility(8);
                 }
-                this.f38675i.setOnClickListener(this.q);
+                this.f38726i.setOnClickListener(this.q);
                 return;
             }
             setVisibility(8);

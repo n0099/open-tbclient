@@ -18,22 +18,22 @@ public class o implements c.a.e.l.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f19315e;
+    public long f19330e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f19316f;
+    public String f19331f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19317g;
+    public String f19332g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f19318h;
+    public String f19333h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f19319i;
+    public int f19334i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f19320j;
+    public String f19335j;
 
     static {
         InterceptResult invokeClinit;
@@ -70,9 +70,9 @@ public class o implements c.a.e.l.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaTopic) == null) || mediaTopic == null) {
             return;
         }
-        this.f19315e = mediaTopic.topic_id.longValue();
-        this.f19316f = mediaTopic.topic_name;
-        this.f19317g = mediaTopic.pic_url;
+        this.f19330e = mediaTopic.topic_id.longValue();
+        this.f19331f = mediaTopic.topic_name;
+        this.f19332g = mediaTopic.pic_url;
         VideoInfo videoInfo = mediaTopic.video_info;
         if (videoInfo == null || videoInfo.video_duration.intValue() <= 0) {
             return;
@@ -84,11 +84,11 @@ public class o implements c.a.e.l.e.n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoInfo) == null) {
             String str = videoInfo.video_md5;
-            this.f19318h = videoInfo.video_url;
-            this.f19319i = videoInfo.video_duration.intValue();
+            this.f19333h = videoInfo.video_url;
+            this.f19334i = videoInfo.video_duration.intValue();
             videoInfo.video_width.intValue();
             videoInfo.video_height.intValue();
-            this.f19320j = videoInfo.thumbnail_url;
+            this.f19335j = videoInfo.thumbnail_url;
             videoInfo.thumbnail_width.intValue();
             videoInfo.thumbnail_height.intValue();
             videoInfo.video_length.intValue();

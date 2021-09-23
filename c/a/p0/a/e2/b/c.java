@@ -30,22 +30,22 @@ public class c extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5435e;
+        public final /* synthetic */ CallbackHandler f5443e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5436f;
+        public final /* synthetic */ String f5444f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Activity f5437g;
+        public final /* synthetic */ Activity f5445g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f5438h;
+        public final /* synthetic */ String f5446h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f5439i;
+        public final /* synthetic */ String f5447i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c f5440j;
+        public final /* synthetic */ c f5448j;
 
         public a(c cVar, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -62,12 +62,12 @@ public class c extends a0 {
                     return;
                 }
             }
-            this.f5440j = cVar;
-            this.f5435e = callbackHandler;
-            this.f5436f = str;
-            this.f5437g = activity;
-            this.f5438h = str2;
-            this.f5439i = str3;
+            this.f5448j = cVar;
+            this.f5443e = callbackHandler;
+            this.f5444f = str;
+            this.f5445g = activity;
+            this.f5446h = str2;
+            this.f5447i = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,13 +77,13 @@ public class c extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    boolean unused = a0.f4766b;
-                    this.f5440j.m(this.f5435e, this.f5436f, this.f5437g, this.f5438h, this.f5439i);
+                    boolean unused = a0.f4774b;
+                    this.f5448j.m(this.f5443e, this.f5444f, this.f5445g, this.f5446h, this.f5447i);
                     return;
                 }
                 c.a.p0.a.e0.d.h("SwanAppAction", "onCallback: no permission scope_mobile_api");
-                k.O(this.f5439i, com.baidu.pass.biometrics.face.liveness.b.a.g0, "onCallback: no permission ");
-                this.f5435e.handleSchemeDispatchCallback(this.f5436f, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                k.O(this.f5447i, com.baidu.pass.biometrics.face.liveness.b.a.g0, "onCallback: no permission ");
+                this.f5443e.handleSchemeDispatchCallback(this.f5444f, UnitedSchemeUtility.wrapCallbackParams(402).toString());
             }
         }
     }
@@ -94,22 +94,22 @@ public class c extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f5441e;
+        public final /* synthetic */ Activity f5449e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f5442f;
+        public final /* synthetic */ boolean f5450f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f5443g;
+        public final /* synthetic */ String f5451g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5444h;
+        public final /* synthetic */ CallbackHandler f5452h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f5445i;
+        public final /* synthetic */ String f5453i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f5446j;
+        public final /* synthetic */ String f5454j;
         public final /* synthetic */ c k;
 
         public b(c cVar, Activity activity, boolean z, String str, CallbackHandler callbackHandler, String str2, String str3) {
@@ -128,12 +128,12 @@ public class c extends a0 {
                 }
             }
             this.k = cVar;
-            this.f5441e = activity;
-            this.f5442f = z;
-            this.f5443g = str;
-            this.f5444h = callbackHandler;
-            this.f5445i = str2;
-            this.f5446j = str3;
+            this.f5449e = activity;
+            this.f5450f = z;
+            this.f5451g = str;
+            this.f5452h = callbackHandler;
+            this.f5453i = str2;
+            this.f5454j = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -145,20 +145,20 @@ public class c extends a0 {
                 c.a.p0.a.e0.d.a("OpenData", "onOpenDataCallback:: ", aVar);
                 c.a.p0.a.a2.e c2 = this.k.c();
                 if (!aVar.E()) {
-                    if (c2 != null && !c2.j().e(this.f5441e) && !this.f5442f) {
-                        k.M(com.baidu.pass.biometrics.face.liveness.b.a.g0, 2, this.f5443g);
+                    if (c2 != null && !c2.j().e(this.f5449e) && !this.f5450f) {
+                        k.M(com.baidu.pass.biometrics.face.liveness.b.a.g0, 2, this.f5451g);
                     }
-                    boolean unused = a0.f4766b;
-                    c.a.p0.a.e2.c.d.m(aVar, this.f5444h, this.f5445i);
-                    k.O(this.f5446j, com.baidu.pass.biometrics.face.liveness.b.a.g0, "onCallback: no open data");
+                    boolean unused = a0.f4774b;
+                    c.a.p0.a.e2.c.d.m(aVar, this.f5452h, this.f5453i);
+                    k.O(this.f5454j, com.baidu.pass.biometrics.face.liveness.b.a.g0, "onCallback: no open data");
                     return;
                 }
                 c.a.p0.a.e0.d.h("SwanAppAction", "onCallback: got open datamobile");
-                if (c2 != null && c2.j().e(this.f5441e) && !this.f5442f) {
-                    k.M("success", 2, this.f5443g);
+                if (c2 != null && c2.j().e(this.f5449e) && !this.f5450f) {
+                    k.M("success", 2, this.f5451g);
                 }
-                k.N(this.f5446j, "success");
-                this.f5444h.handleSchemeDispatchCallback(this.f5445i, UnitedSchemeUtility.wrapCallbackParams(aVar.f5618g, 0).toString());
+                k.N(this.f5454j, "success");
+                this.f5452h.handleSchemeDispatchCallback(this.f5453i, UnitedSchemeUtility.wrapCallbackParams(aVar.f5626g, 0).toString());
             }
         }
     }

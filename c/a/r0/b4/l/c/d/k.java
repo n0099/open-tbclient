@@ -50,30 +50,30 @@ public class k {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pVar, fVar)) == null) {
-            if (pVar == null || fVar == null || pVar.f16383e == null) {
+            if (pVar == null || fVar == null || pVar.f16393e == null) {
                 return null;
             }
-            long[] a2 = a(pVar.f16380b, pVar.f16379a);
-            MultiMediaData multiMediaData = pVar.f16383e;
+            long[] a2 = a(pVar.f16390b, pVar.f16389a);
+            MultiMediaData multiMediaData = pVar.f16393e;
             n nVar = new n();
-            nVar.f16372e = new ArrayList();
-            nVar.f16368a = multiMediaData.path;
-            nVar.f16370c = pVar.f16381c;
-            nVar.f16371d = pVar.f16382d;
-            nVar.f16369b = multiMediaData.rotation;
-            for (int i2 = 0; i2 < pVar.f16380b; i2++) {
+            nVar.f16382e = new ArrayList();
+            nVar.f16378a = multiMediaData.path;
+            nVar.f16380c = pVar.f16391c;
+            nVar.f16381d = pVar.f16392d;
+            nVar.f16379b = multiMediaData.rotation;
+            for (int i2 = 0; i2 < pVar.f16390b; i2++) {
                 long j2 = multiMediaData.start + a2[i2];
                 h hVar = new h();
-                hVar.f16349a = a.b(multiMediaData.path, j2, multiMediaData.type);
-                hVar.f16350b = multiMediaData.path;
-                hVar.f16354f = i2;
-                hVar.f16355g = multiMediaData.type;
-                hVar.f16356h = pVar.f16381c;
-                hVar.f16357i = pVar.f16382d;
-                hVar.f16358j = fVar;
-                hVar.f16352d = j2;
-                hVar.f16351c = multiMediaData.rotation;
-                nVar.f16372e.add(hVar);
+                hVar.f16359a = a.b(multiMediaData.path, j2, multiMediaData.type);
+                hVar.f16360b = multiMediaData.path;
+                hVar.f16364f = i2;
+                hVar.f16365g = multiMediaData.type;
+                hVar.f16366h = pVar.f16391c;
+                hVar.f16367i = pVar.f16392d;
+                hVar.f16368j = fVar;
+                hVar.f16362d = j2;
+                hVar.f16361c = multiMediaData.rotation;
+                nVar.f16382e.add(hVar);
             }
             return nVar;
         }
@@ -86,38 +86,38 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, oVar, fVar)) == null) {
             MultiMediaData multiMediaData = null;
-            if (oVar == null || fVar == null || oVar.f16374b <= 0 || c.a.x0.t.h.e(oVar.f16377e) || c.a.x0.t.h.e(oVar.f16378f)) {
+            if (oVar == null || fVar == null || oVar.f16384b <= 0 || c.a.x0.t.h.e(oVar.f16387e) || c.a.x0.t.h.e(oVar.f16388f)) {
                 return null;
             }
-            long[] a2 = a(oVar.f16374b, oVar.f16373a);
+            long[] a2 = a(oVar.f16384b, oVar.f16383a);
             ArrayList arrayList = new ArrayList();
             n nVar = null;
-            for (int i2 = 0; i2 < oVar.f16374b; i2++) {
+            for (int i2 = 0; i2 < oVar.f16384b; i2++) {
                 long j2 = ((float) a2[i2]) / 1000.0f;
-                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(oVar.f16377e, j2);
-                MultiMediaData multiMediaData2 = (MultiMediaData) c.a.x0.t.h.c(oVar.f16378f, findInputIndexInSegments);
+                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(oVar.f16387e, j2);
+                MultiMediaData multiMediaData2 = (MultiMediaData) c.a.x0.t.h.c(oVar.f16388f, findInputIndexInSegments);
                 if (multiMediaData2 != null) {
                     if (multiMediaData2 != multiMediaData) {
                         nVar = new n();
-                        nVar.f16372e = new ArrayList();
-                        nVar.f16368a = multiMediaData2.path;
-                        nVar.f16370c = oVar.f16375c;
-                        nVar.f16371d = oVar.f16376d;
-                        nVar.f16369b = multiMediaData2.rotation;
+                        nVar.f16382e = new ArrayList();
+                        nVar.f16378a = multiMediaData2.path;
+                        nVar.f16380c = oVar.f16385c;
+                        nVar.f16381d = oVar.f16386d;
+                        nVar.f16379b = multiMediaData2.rotation;
                         arrayList.add(nVar);
                     }
-                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) c.a.x0.t.h.c(oVar.f16377e, findInputIndexInSegments), j2) * 1000;
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) c.a.x0.t.h.c(oVar.f16387e, findInputIndexInSegments), j2) * 1000;
                     h hVar = new h();
-                    hVar.f16349a = a.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
-                    hVar.f16350b = multiMediaData2.path;
-                    hVar.f16354f = i2;
-                    hVar.f16355g = multiMediaData2.type;
-                    hVar.f16356h = oVar.f16375c;
-                    hVar.f16357i = oVar.f16376d;
-                    hVar.f16352d = multiMediaDataSeekTime;
-                    hVar.f16358j = fVar;
-                    hVar.f16351c = multiMediaData2.rotation;
-                    if (nVar != null && (list = nVar.f16372e) != null) {
+                    hVar.f16359a = a.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
+                    hVar.f16360b = multiMediaData2.path;
+                    hVar.f16364f = i2;
+                    hVar.f16365g = multiMediaData2.type;
+                    hVar.f16366h = oVar.f16385c;
+                    hVar.f16367i = oVar.f16386d;
+                    hVar.f16362d = multiMediaDataSeekTime;
+                    hVar.f16368j = fVar;
+                    hVar.f16361c = multiMediaData2.rotation;
+                    if (nVar != null && (list = nVar.f16382e) != null) {
                         list.add(hVar);
                     }
                     multiMediaData = multiMediaData2;

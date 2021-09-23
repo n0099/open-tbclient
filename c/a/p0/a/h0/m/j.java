@@ -12,10 +12,10 @@ public abstract class j extends c.a.p0.n.f.g implements c.a.p0.a.n0.l.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f6221e;
+    public final int f6229e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6222f;
+    public int f6230f;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -31,16 +31,16 @@ public abstract class j extends c.a.p0.n.f.g implements c.a.p0.a.n0.l.b {
             }
         }
         int J = J();
-        this.f6221e = J;
-        this.f6222f = J;
+        this.f6229e = J;
+        this.f6230f = J;
     }
 
     public int I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f6222f;
-            return i2 == 0 ? this.f6221e : i2;
+            int i2 = this.f6230f;
+            return i2 == 0 ? this.f6229e : i2;
         }
         return invokeV.intValue;
     }
@@ -58,9 +58,9 @@ public abstract class j extends c.a.p0.n.f.g implements c.a.p0.a.n0.l.b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            int i3 = this.f6222f;
-            if ((i3 == 0 || this.f6221e == i3) && i2 != 0 && i2 != this.f6222f) {
-                this.f6222f = i2;
+            int i3 = this.f6230f;
+            if ((i3 == 0 || this.f6229e == i3) && i2 != 0 && i2 != this.f6230f) {
+                this.f6230f = i2;
             }
             return this;
         }

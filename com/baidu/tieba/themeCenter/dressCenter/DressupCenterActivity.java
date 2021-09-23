@@ -27,7 +27,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DressupCenterActivity f57507a;
+        public final /* synthetic */ DressupCenterActivity f57624a;
 
         public a(DressupCenterActivity dressupCenterActivity) {
             Interceptable interceptable = $ic;
@@ -44,21 +44,21 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
                     return;
                 }
             }
-            this.f57507a = dressupCenterActivity;
+            this.f57624a = dressupCenterActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.b
         public void a(int i2, String str, List<c.a.r0.p3.h.a> list, e eVar, List<d> list2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, list, eVar, list2}) == null) {
-                DressupCenterActivity dressupCenterActivity = this.f57507a;
+                DressupCenterActivity dressupCenterActivity = this.f57624a;
                 dressupCenterActivity.hideLoadingView(dressupCenterActivity.mView.e());
                 if (i2 == 0) {
-                    this.f57507a.mView.m(list, eVar, list2, this.f57507a.mModel.D());
+                    this.f57624a.mView.m(list, eVar, list2, this.f57624a.mModel.D());
                     return;
                 }
-                this.f57507a.showToast(str);
-                this.f57507a.mView.l();
+                this.f57624a.showToast(str);
+                this.f57624a.mView.l();
             }
         }
     }
@@ -93,7 +93,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             c.a.q0.o0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f13628a = true;
+                pageStayDurationItem.f13624a = true;
             }
             return pageStayDurationItem;
         }

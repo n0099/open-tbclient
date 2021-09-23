@@ -13,22 +13,22 @@ public class HistoryTraceQueryOptions {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42002a;
+    public String f42064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42003b;
+    public int f42065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42004c;
+    public String f42066c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42005d;
+    public String f42067d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42006e;
+    public int f42068e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42007f;
+    public int f42069f;
 
     public HistoryTraceQueryOptions() {
         Interceptable interceptable = $ic;
@@ -43,55 +43,55 @@ public class HistoryTraceQueryOptions {
                 return;
             }
         }
-        this.f42002a = null;
-        this.f42003b = 0;
-        this.f42004c = null;
-        this.f42005d = null;
-        this.f42006e = 4;
-        this.f42007f = 5;
+        this.f42064a = null;
+        this.f42065b = 0;
+        this.f42066c = null;
+        this.f42067d = null;
+        this.f42068e = 4;
+        this.f42069f = 5;
     }
 
     public int getCurrentOrderState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42007f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42069f : invokeV.intValue;
     }
 
     public String getDriverId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42005d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42067d : (String) invokeV.objValue;
     }
 
     public String getOrderId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42002a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42064a : (String) invokeV.objValue;
     }
 
     public int getQueryOrderState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42006e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42068e : invokeV.intValue;
     }
 
     public int getRoleType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42003b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42065b : invokeV.intValue;
     }
 
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f42004c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f42066c : (String) invokeV.objValue;
     }
 
     public HistoryTraceQueryOptions setCurrentOrderState(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.f42007f = i2;
+            this.f42069f = i2;
             return this;
         }
         return (HistoryTraceQueryOptions) invokeI.objValue;
@@ -101,7 +101,7 @@ public class HistoryTraceQueryOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            this.f42005d = str;
+            this.f42067d = str;
             return this;
         }
         return (HistoryTraceQueryOptions) invokeL.objValue;
@@ -111,7 +111,7 @@ public class HistoryTraceQueryOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.f42002a = str;
+            this.f42064a = str;
             return this;
         }
         return (HistoryTraceQueryOptions) invokeL.objValue;
@@ -121,7 +121,7 @@ public class HistoryTraceQueryOptions {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            this.f42006e = i2;
+            this.f42068e = i2;
             return this;
         }
         return (HistoryTraceQueryOptions) invokeI.objValue;
@@ -131,7 +131,7 @@ public class HistoryTraceQueryOptions {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            this.f42003b = i2;
+            this.f42065b = i2;
             return this;
         }
         return (HistoryTraceQueryOptions) invokeI.objValue;
@@ -141,7 +141,7 @@ public class HistoryTraceQueryOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.f42004c = str;
+            this.f42066c = str;
             return this;
         }
         return (HistoryTraceQueryOptions) invokeL.objValue;

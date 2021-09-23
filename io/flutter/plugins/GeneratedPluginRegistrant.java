@@ -3,7 +3,7 @@ package io.flutter.plugins;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import c.a.p.a.a;
-import c.a.p.c.b;
+import c.a.p.d.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,6 +36,7 @@ public final class GeneratedPluginRegistrant {
         if (interceptable == null || interceptable.invokeL(65537, null, flutterEngine) == null) {
             flutterEngine.getPlugins().add(new a());
             flutterEngine.getPlugins().add(new c.a.p.b.a());
+            flutterEngine.getPlugins().add(new c.a.p.c.a());
             flutterEngine.getPlugins().add(new b());
             flutterEngine.getPlugins().add(new PathProviderPlugin());
             flutterEngine.getPlugins().add(new SharedPreferencesPlugin());

@@ -15,10 +15,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3653a;
+    public static final int f3654a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f3654b;
+    public static volatile b f3655b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class b {
                 return;
             }
         }
-        f3653a = e.f3656b ? 2 : 4;
-        f3654b = null;
+        f3654a = e.f3657b ? 2 : 4;
+        f3655b = null;
     }
 
     public b() {
@@ -56,14 +56,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f3654b == null) {
+            if (f3655b == null) {
                 synchronized (b.class) {
-                    if (f3654b == null) {
-                        f3654b = new b();
+                    if (f3655b == null) {
+                        f3655b = new b();
                     }
                 }
             }
-            return f3654b;
+            return f3655b;
         }
         return (b) invokeV.objValue;
     }
@@ -187,7 +187,7 @@ public class b {
     public boolean l(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i2)) == null) ? i2 >= f3653a : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i2)) == null) ? i2 >= f3654a : invokeLI.booleanValue;
     }
 
     public final String m(Object[] objArr) {

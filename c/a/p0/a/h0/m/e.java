@@ -32,7 +32,7 @@ public class e extends f {
                 return;
             }
         }
-        F = c.a.p0.a.k.f7077a;
+        F = c.a.p0.a.k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -64,7 +64,7 @@ public class e extends f {
                 String str = "swanAsyncUpdate :: onFetchError: " + aVar.toString();
             }
             E0("checkForUpdate", false);
-            j0(aVar.f11875a);
+            j0(aVar.f11883a);
             if (c.a.p0.a.h0.m.p.a.m(aVar)) {
                 c.a.p0.a.h0.m.p.a.c(this.r);
             }

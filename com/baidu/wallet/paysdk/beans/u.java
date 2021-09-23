@@ -2,56 +2,43 @@ package com.baidu.wallet.paysdk.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.controllers.PasswordController;
-import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
-import com.baidu.wallet.paysdk.datamodel.CalcPaymentResponse;
 import com.baidu.wallet.paysdk.datamodel.ErrorContentResponse;
-import com.baidu.wallet.paysdk.datamodel.PayRequest;
-import com.baidu.wallet.paysdk.datamodel.PayResponse;
 import com.baidu.wallet.paysdk.datamodel.PwdRequest;
-import com.baidu.wallet.paysdk.fingerprint.WalletFingerprint;
-import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.dxmpay.apollon.armor.SecurePay;
 import com.dxmpay.apollon.restnet.RestNameValuePair;
-import com.dxmpay.wallet.base.datamodel.UserData;
 import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
-import com.dxmpay.wallet.paysdk.PayUtils;
-import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class u extends BaseBean<PayResponse> {
+public class u extends BaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f62436a;
+    public PwdRequest f62709a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PwdRequest f62437b;
+    public String f62710b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayRequest f62438c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f62439d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f62440e;
+    public boolean f62711c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(Context context) {
+    public <T> u(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,364 +55,78 @@ public class u extends BaseBean<PayResponse> {
                 return;
             }
         }
-        this.f62436a = null;
-        this.f62437b = null;
-        this.f62438c = null;
-        this.f62439d = false;
-        this.f62440e = false;
-        this.f62436a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
-        this.f62437b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
-        this.f62438c = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+        this.f62709a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
-    private List<RestNameValuePair> a() {
-        InterceptResult invokeV;
+    private void a(List<RestNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            CardData.BondCard bondCard = this.f62438c.mBondCard;
-            StatHelper.cacheCardType(String.valueOf(bondCard.card_type));
-            StatHelper.cacheBankCode(bondCard.bank_code);
-            arrayList.add(new RestNameValuePair("card_type", String.valueOf(bondCard.card_type)));
-            arrayList.add(new RestNameValuePair("bind_flag", "1"));
-            arrayList.add(new RestNameValuePair("need_bind_card", "0"));
-            arrayList.add(new RestNameValuePair("reser", PayUtils.encrypt("phone_number", bondCard.mobile)));
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", bondCard.account_no)));
-            arrayList.add(new RestNameValuePair("true_name", bondCard.true_name));
-            arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
-            if (!TextUtils.isEmpty(this.f62438c.mSmsCode)) {
-                arrayList.add(new RestNameValuePair("message_vcode", this.f62438c.mSmsCode));
-                this.f62438c.mSmsCode = null;
-            }
-            if (!TextUtils.isEmpty(bondCard.account_bank_code)) {
-                arrayList.add(new RestNameValuePair("account_bank_code", bondCard.account_bank_code));
-            }
-            arrayList.add(new RestNameValuePair(StatHelper.BANK_CODE, this.f62438c.mChannelNo));
-            arrayList.add(new RestNameValuePair("sub_bank_code", bondCard.bank_code));
-            PwdRequest pwdRequest = this.f62437b;
-            if (pwdRequest != null && !TextUtils.isEmpty(pwdRequest.mPayPass)) {
-                String seed = PasswordController.getSeed();
-                arrayList.add(new RestNameValuePair("mobilepwd", PasswordController.handlePwd(this.f62437b.mPayPass, seed)));
-                arrayList.add(new RestNameValuePair("seed", SecurePay.getInstance().encryptProxy(seed)));
-            } else if (!PayDataCache.getInstance().isPassFree() && this.f62438c != null && !com.baidu.wallet.paysdk.a.b.a()) {
-                String generateOTPKey = WalletFingerprint.getInstance(this.mContext).generateOTPKey(this.f62438c.otp_seed);
-                String sn = WalletFingerprint.getInstance(this.mContext).getSN();
-                if (!TextUtils.isEmpty(generateOTPKey) && !TextUtils.isEmpty(sn)) {
-                    arrayList.add(new RestNameValuePair("f_token_code", SecurePay.getInstance().encrypt(generateOTPKey)));
-                    arrayList.add(new RestNameValuePair("f_serial_num", SecurePay.getInstance().encrypt(sn)));
+        if ((interceptable == null || interceptable.invokeL(65537, this, list) == null) && this.f62711c && !TextUtils.isEmpty(this.f62710b)) {
+            try {
+                JSONObject jSONObject = new JSONObject(this.f62710b);
+                jSONObject.remove("half_screen_pwd_verify");
+                Iterator<String> keys = jSONObject.keys();
+                if (keys != null) {
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        Object opt = jSONObject.opt(next);
+                        list.add(new RestNameValuePair(next, opt != null ? String.valueOf(opt) : ""));
+                    }
                 }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            return arrayList;
         }
-        return (List) invokeV.objValue;
-    }
-
-    private List<RestNameValuePair> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            CardData.BondCard bondCard = this.f62436a.mBondCard;
-            StatHelper.cacheCardType(String.valueOf(bondCard.card_type));
-            StatHelper.cacheBankCode(String.valueOf(bondCard.bank_code));
-            arrayList.add(new RestNameValuePair("card_type", String.valueOf(bondCard.card_type)));
-            arrayList.add(new RestNameValuePair("bind_flag", "1"));
-            arrayList.add(new RestNameValuePair("need_bind_card", "0"));
-            arrayList.add(new RestNameValuePair("reser", PayUtils.encrypt("phone_number", bondCard.mobile)));
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", bondCard.account_no)));
-            arrayList.add(new RestNameValuePair("true_name", bondCard.true_name));
-            arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
-            if (!TextUtils.isEmpty(this.f62436a.getmSmsVCode())) {
-                arrayList.add(new RestNameValuePair("message_vcode", this.f62436a.getmSmsVCode()));
-                this.f62436a.mSmsVCode = null;
-            }
-            if (!TextUtils.isEmpty(bondCard.account_bank_code)) {
-                arrayList.add(new RestNameValuePair("account_bank_code", bondCard.account_bank_code));
-            }
-            arrayList.add(new RestNameValuePair(StatHelper.BANK_CODE, this.f62436a.getChannelNo()));
-            arrayList.add(new RestNameValuePair("sub_bank_code", bondCard.bank_code));
-            if (this.f62437b == null) {
-                return arrayList;
-            }
-            a(arrayList);
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    private List<RestNameValuePair> c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            String valueOf = String.valueOf(z ? 1 : 2);
-            StatHelper.cacheCardType(valueOf);
-            StatHelper.cacheBankCode(this.f62436a.mBankNo);
-            arrayList.add(new RestNameValuePair("card_type", valueOf));
-            arrayList.add(new RestNameValuePair("bind_flag", "0"));
-            arrayList.add(new RestNameValuePair("need_bind_card", "1"));
-            if (!TextUtils.isEmpty(this.f62436a.mSmsVCode)) {
-                arrayList.add(new RestNameValuePair("message_vcode", this.f62436a.mSmsVCode));
-                this.f62436a.mSmsVCode = null;
-            }
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62436a.mBankCard)));
-            arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
-            if (!TextUtils.isEmpty(this.f62436a.getmName())) {
-                arrayList.add(new RestNameValuePair("true_name", this.f62436a.getmName()));
-            }
-            if (!TextUtils.isEmpty(this.f62436a.getCertificateType())) {
-                arrayList.add(new RestNameValuePair("identity_type", this.f62436a.getCertificateType()));
-            }
-            if (!TextUtils.isEmpty(this.f62436a.getmIdCard())) {
-                arrayList.add(new RestNameValuePair("identity_code", PayUtils.encrypt("identity_code", this.f62436a.getmIdCard())));
-            }
-            if (!TextUtils.isEmpty(this.f62436a.getmPhone())) {
-                arrayList.add(new RestNameValuePair("reser", PayUtils.encrypt("phone_number", this.f62436a.getmPhone())));
-            }
-            if (!TextUtils.isEmpty(this.f62436a.getmValidDate())) {
-                arrayList.add(new RestNameValuePair("valid_date", PayUtils.encrypt("valid_date", this.f62436a.getmValidDate())));
-            }
-            if (!TextUtils.isEmpty(this.f62436a.getmCvv())) {
-                arrayList.add(new RestNameValuePair("cvv2", PayUtils.encrypt("cvv2", this.f62436a.getmCvv())));
-            }
-            arrayList.add(new RestNameValuePair("account_bank_code", this.f62436a.getChannelNo()));
-            arrayList.add(new RestNameValuePair(StatHelper.BANK_CODE, this.f62436a.getChannelNo()));
-            arrayList.add(new RestNameValuePair("sub_bank_code", this.f62436a.mBankNo));
-            if (this.f62437b == null) {
-                return arrayList;
-            }
-            a(arrayList);
-            return arrayList;
-        }
-        return (List) invokeZ.objValue;
-    }
-
-    private List<RestNameValuePair> d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, this, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (PayDataCache.getInstance().hasMobilePwd()) {
-                arrayList.add(new RestNameValuePair("bind_flag", "1"));
-                arrayList.add(new RestNameValuePair("need_bind_card", "0"));
-            } else {
-                arrayList.add(new RestNameValuePair("bind_flag", "0"));
-                arrayList.add(new RestNameValuePair("need_bind_card", "1"));
-            }
-            BindFastRequest bindFastRequest = this.f62436a;
-            CardData.BondCard bondCard = bindFastRequest.mBondCard;
-            if (bondCard == null) {
-                return arrayList;
-            }
-            ErrorContentResponse errorContentResponse = bindFastRequest.mCardInfoUpdateContent;
-            if (!TextUtils.isEmpty(bondCard.need_true_name)) {
-                arrayList.add(new RestNameValuePair("need_true_name", bondCard.need_true_name));
-            }
-            if (!TextUtils.isEmpty(bondCard.need_identity_code)) {
-                arrayList.add(new RestNameValuePair("need_identity_code", bondCard.need_identity_code));
-            }
-            if (!TextUtils.isEmpty(bondCard.need_identity_type)) {
-                arrayList.add(new RestNameValuePair("need_identity_type", bondCard.need_identity_type));
-            }
-            if (errorContentResponse != null && errorContentResponse.isNeedPhoneNum()) {
-                arrayList.add(new RestNameValuePair("need_phone_num", errorContentResponse.need_phone_num));
-            } else if (!TextUtils.isEmpty(bondCard.need_phone_num)) {
-                arrayList.add(new RestNameValuePair("need_phone_num", bondCard.need_phone_num));
-            }
-            if (z) {
-                StatHelper.cacheCardType(String.valueOf(1));
-                arrayList.add(new RestNameValuePair("card_type", String.valueOf(1)));
-                if (errorContentResponse != null && errorContentResponse.isNeedValidCode()) {
-                    arrayList.add(new RestNameValuePair("need_cvv2", errorContentResponse.need_cvv2));
-                } else if (!TextUtils.isEmpty(bondCard.need_cvv2)) {
-                    arrayList.add(new RestNameValuePair("need_cvv2", bondCard.need_cvv2));
-                }
-                if (errorContentResponse != null && errorContentResponse.isNeedValidDate()) {
-                    arrayList.add(new RestNameValuePair("need_valid_date", errorContentResponse.need_valid_date));
-                } else if (!TextUtils.isEmpty(bondCard.need_valid_date)) {
-                    arrayList.add(new RestNameValuePair("need_valid_date", bondCard.need_valid_date));
-                }
-                if (!TextUtils.isEmpty(this.f62436a.getmValidDate())) {
-                    arrayList.add(new RestNameValuePair("valid_date", PayUtils.encrypt("valid_date", this.f62436a.getmValidDate())));
-                }
-                if (!TextUtils.isEmpty(this.f62436a.getmCvv())) {
-                    arrayList.add(new RestNameValuePair("cvv2", PayUtils.encrypt("cvv2", this.f62436a.getmCvv())));
-                }
-            } else {
-                StatHelper.cacheCardType(String.valueOf(2));
-                arrayList.add(new RestNameValuePair("card_type", String.valueOf(2)));
-            }
-            if (!TextUtils.isEmpty(this.f62436a.mSmsVCode)) {
-                arrayList.add(new RestNameValuePair("message_vcode", this.f62436a.mSmsVCode));
-                this.f62436a.mSmsVCode = null;
-            }
-            arrayList.add(new RestNameValuePair("reser", PayUtils.encrypt("phone_number", this.f62436a.getmPhone())));
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62436a.mBankCard)));
-            arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
-            if (!TextUtils.isEmpty(this.f62436a.getmName())) {
-                arrayList.add(new RestNameValuePair("true_name", this.f62436a.getmName()));
-            }
-            if (!TextUtils.isEmpty(this.f62436a.getCertificateType())) {
-                arrayList.add(new RestNameValuePair("identity_type", this.f62436a.getCertificateType()));
-            }
-            if (!TextUtils.isEmpty(this.f62436a.getmIdCard())) {
-                arrayList.add(new RestNameValuePair("identity_code", PayUtils.encrypt("identity_code", this.f62436a.getmIdCard())));
-            }
-            arrayList.add(new RestNameValuePair(StatHelper.BANK_CODE, this.f62436a.getChannelNo()));
-            arrayList.add(new RestNameValuePair("sub_bank_code", bondCard.bank_code));
-            StatHelper.cacheBankCode(bondCard.bank_code);
-            if (!TextUtils.isEmpty(bondCard.account_bank_code)) {
-                arrayList.add(new RestNameValuePair("account_bank_code", bondCard.account_bank_code));
-            }
-            if (this.f62437b == null) {
-                return arrayList;
-            }
-            a(arrayList);
-            return arrayList;
-        }
-        return (List) invokeZ.objValue;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.execBean(PayResponse.class, ErrorContentResponse.class);
+            super.execBean(String.class, ErrorContentResponse.class);
         }
     }
 
     @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
-        List<RestNameValuePair> c2;
-        CalcPaymentResponse calcPaymentResponse;
-        PayRequest payRequest;
-        ErrorContentResponse.MktSolution mktSolution;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = 1;
-            if (this.f62439d) {
-                c2 = a();
+            ArrayList arrayList = new ArrayList();
+            String seed = PasswordController.getSeed();
+            String encryptProxy = SecurePay.getInstance().encryptProxy(seed);
+            int i2 = this.f62709a.mRequestType;
+            if (i2 != 2 && i2 != 1) {
+                String encryptProxy2 = SecurePay.getInstance().encryptProxy(PasswordController.handlePwdSimple(this.f62709a.mConfirmPayPass));
+                String handlePwd = PasswordController.handlePwd(this.f62709a.mConfirmPayPass, seed);
+                String str = SecurePay.getInstance().getpwProxy();
+                arrayList.add(new RestNameValuePair("new_mobile_pwd", encryptProxy2));
+                arrayList.add(new RestNameValuePair("confirm_new_mobile_pwd", handlePwd));
+                arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f62709a.mConfirmPayPass)));
+                arrayList.add(new RestNameValuePair("key_no", str));
+                arrayList.add(new RestNameValuePair("sess_key", this.f62709a.mSessionKey));
             } else {
-                BindFastRequest bindFastRequest = this.f62436a;
-                if (bindFastRequest == null) {
-                    return new ArrayList();
+                if (!TextUtils.isEmpty(this.f62709a.mPayPass)) {
+                    String handlePwd2 = PasswordController.handlePwd(this.f62709a.mPayPass, seed);
+                    String str2 = SecurePay.getInstance().getpwProxy();
+                    arrayList.add(new RestNameValuePair("mobile_pwd", handlePwd2));
+                    arrayList.add(new RestNameValuePair("key", str2));
                 }
-                int i3 = bindFastRequest.mBindFrom;
-                if (i3 == 0 || i3 == 6) {
-                    c2 = c(this.f62436a.getCardType() == 1);
-                } else if (i3 == 2 || i3 == 7) {
-                    c2 = d(this.f62436a.getCardType() == 1);
-                } else if (i3 == 8) {
-                    c2 = b();
+                a(arrayList);
+            }
+            arrayList.add(new RestNameValuePair("seed", encryptProxy));
+            PwdRequest pwdRequest = this.f62709a;
+            if (pwdRequest.mRequestType == 2 && TextUtils.equals(pwdRequest.fromType, BeanConstants.FROM_BIND)) {
+                BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
+                arrayList.add(new RestNameValuePair("scenario", "bindcard"));
+                arrayList.add(new RestNameValuePair("source_flag", "3"));
+                if (bindFastRequest != null) {
+                    arrayList.add(new RestNameValuePair("request_type", bindFastRequest.getCardRequestType()));
                 } else {
-                    return new ArrayList();
+                    arrayList.add(new RestNameValuePair("request_type", BindFastRequest.getCardRequestType(1)));
                 }
+                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f62709a.serviceType));
             }
-            PayRequest payRequest2 = this.f62438c;
-            if (payRequest2 != null && !TextUtils.isEmpty(payRequest2.mUseVcodeToPay)) {
-                c2.add(new RestNameValuePair("use_vcode_to_pay", this.f62438c.mUseVcodeToPay));
-            }
-            PayRequest payRequest3 = this.f62438c;
-            if (payRequest3 != null && payRequest3.isPayByMktSolution && (mktSolution = payRequest3.mMktSolution) != null) {
-                if (!TextUtils.isEmpty(mktSolution.easypay_amount)) {
-                    c2.add(new RestNameValuePair("pay_amount", this.f62438c.mMktSolution.easypay_amount));
-                }
-                if (this.f62438c.getCalcPayment() != null) {
-                    String selectedDiscountIds = this.f62438c.getCalcPayment().getSelectedDiscountIds(this.f62438c.mMktSolution.activity_list);
-                    if (!TextUtils.isEmpty(selectedDiscountIds)) {
-                        c2.add(new RestNameValuePair("activity_id", selectedDiscountIds));
-                        i2 = 2;
-                    }
-                    String selectedCouponIds = this.f62438c.getCalcPayment().getSelectedCouponIds(this.f62438c.mMktSolution.coupon_list);
-                    if (!TextUtils.isEmpty(selectedCouponIds)) {
-                        i2++;
-                        c2.add(new RestNameValuePair("coupon_id", selectedCouponIds));
-                    }
-                }
-            } else {
-                StringBuilder sb = new StringBuilder();
-                if (this.f62439d && (payRequest = this.f62438c) != null) {
-                    calcPaymentResponse = payRequest.getCalcPayment() != null ? this.f62438c.getCalcPayment() : null;
-                    c2.add(new RestNameValuePair("pay_amount", this.f62438c.getEasyPayAmount()));
-                } else {
-                    BindFastRequest bindFastRequest2 = this.f62436a;
-                    if (bindFastRequest2 != null && bindFastRequest2.mBindFrom == 0) {
-                        calcPaymentResponse = bindFastRequest2.getCalcPaymentResponse();
-                        c2.add(new RestNameValuePair("pay_amount", this.f62436a.getEasyPayAmount()));
-                    } else {
-                        PayRequest payRequest4 = this.f62438c;
-                        if (payRequest4 != null) {
-                            calcPaymentResponse = payRequest4.getCalcPayment() != null ? this.f62438c.getCalcPayment() : null;
-                            c2.add(new RestNameValuePair("pay_amount", this.f62438c.getEasyPayAmount()));
-                        } else {
-                            calcPaymentResponse = null;
-                        }
-                    }
-                }
-                if (calcPaymentResponse != null) {
-                    if (!TextUtils.isEmpty(calcPaymentResponse.getSelectedDiscountIds())) {
-                        sb.append(calcPaymentResponse.getSelectedDiscountIds());
-                        i2 = 2;
-                    }
-                    if (!TextUtils.isEmpty(sb.toString())) {
-                        c2.add(new RestNameValuePair("activity_id", sb.toString()));
-                    }
-                    if (!TextUtils.isEmpty(calcPaymentResponse.getSelectedCouponIds())) {
-                        c2.add(new RestNameValuePair("coupon_id", calcPaymentResponse.getSelectedCouponIds()));
-                        i2++;
-                    }
-                }
-            }
-            if (i2 >= 2) {
-                c2.add(new RestNameValuePair("composite_flag", "1"));
-            } else {
-                c2.add(new RestNameValuePair("composite_flag", "0"));
-            }
-            c2.addAll(PayDataCache.getInstance().getPayPostInfo());
-            if (!TextUtils.isEmpty(PayDataCache.getInstance().getPaySessionInfo())) {
-                c2.add(new RestNameValuePair("session_info", PayDataCache.getInstance().getPaySessionInfo()));
-            }
-            PayRequest payRequest5 = this.f62438c;
-            if (payRequest5 != null && !TextUtils.isEmpty(payRequest5.withholding_auth)) {
-                c2.add(new RestNameValuePair("need_open_authorize", this.f62438c.withholding_auth));
-            }
-            PayRequest payRequest6 = this.f62438c;
-            if (payRequest6 != null && !TextUtils.isEmpty(payRequest6.mSecurityParams)) {
-                c2.add(new RestNameValuePair("security_sdk_param", this.f62438c.mSecurityParams));
-            }
-            UserData.UserModel userInfo = PayDataCache.getInstance().getUserInfo();
-            if (userInfo != null && !TextUtils.isEmpty(userInfo.getPassfreeMsg())) {
-                c2.add(new RestNameValuePair("need_open_passfree", String.valueOf(this.f62438c.getOpenPassFreeFlag())));
-            }
-            if (!TextUtils.isEmpty(this.f62438c.getmBankCardNumber())) {
-                c2.add(new RestNameValuePair("card_no_required", PayUtils.encrypt("card_no", this.f62438c.getmBankCardNumber())));
-            }
-            if (!TextUtils.isEmpty(this.f62438c.getmCvv2())) {
-                c2.add(new RestNameValuePair("verify_code_required", PayUtils.encrypt("cvv2", this.f62438c.getmCvv2())));
-            }
-            if (!TextUtils.isEmpty(this.f62438c.getmIdCard())) {
-                c2.add(new RestNameValuePair("certificate_code_required", PayUtils.encrypt("identity_code", this.f62438c.getmIdCard())));
-            }
-            this.f62438c.setmBankCardNumber("");
-            this.f62438c.setmCvv2("");
-            this.f62438c.setmIdCard("");
-            PayRequestCache.getInstance().addBeanRequestToCache(BeanConstants.REQUEST_ID_PAY, this.f62438c);
-            if (this.f62440e) {
-                c2.add(new RestNameValuePair("is_pay_sms", "1"));
-            }
-            PayRequest payRequest7 = this.f62438c;
-            if (payRequest7 != null && !TextUtils.isEmpty(payRequest7.mLivingKey)) {
-                c2.add(new RestNameValuePair("living_key", this.f62438c.mLivingKey));
-                this.f62438c.mLivingKey = null;
-            }
-            PayRequest payRequest8 = this.f62438c;
-            if (payRequest8 != null && !TextUtils.isEmpty(payRequest8.mLivingResultCode)) {
-                c2.add(new RestNameValuePair("living_result_code", this.f62438c.mLivingResultCode));
-                this.f62438c.mLivingResultCode = null;
-            }
-            PayDataCache.getInstance().setPrePayRequestParams(c2);
-            return c2;
+            return arrayList;
         }
         return (List) invokeV.objValue;
     }
@@ -435,86 +136,46 @@ public class u extends BaseBean<PayResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 13;
+            int i2 = this.f62709a.mRequestType;
+            if (i2 == 2) {
+                return 257;
+            }
+            return i2 == 3 ? 259 : 258;
         }
         return invokeV.intValue;
-    }
-
-    @Override // com.dxmpay.apollon.beans.ApollonBean
-    public String getEncode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "UTF-8" : (String) invokeV.objValue;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (com.baidu.wallet.paysdk.a.b.a()) {
-                return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_SIGN_CONTRACT_PAY;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i2 = this.f62709a.mRequestType;
+            if (i2 == 2) {
+                String str = PayRequestCache.getInstance().isPaying() ? BeanConstants.API_VERIFY_PAY_PWD : BeanConstants.API_VERIFY_MOBILE_PWD_NEW;
+                return DomainConfig.getInstance().getAppPayHost() + str;
+            } else if (i2 == 1) {
+                return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_CHECK_MOBILE_PWD;
+            } else if (i2 == 3) {
+                return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_MODIFY_MOBILE_PWD;
+            } else {
+                return "";
             }
-            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_DO_PAY;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.dxmpay.wallet.core.beans.BaseBean, com.dxmpay.wallet.core.beans.NetworkBean
-    public boolean needNonce() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f62710b = str;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f62440e = z;
-        }
-    }
-
-    private void a(List<RestNameValuePair> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, list) == null) || list == null || this.f62437b == null) {
-            return;
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append("mPwdRequest == null ");
-        sb.append(this.f62437b == null);
-        sb.toString();
-        if (!TextUtils.isEmpty(this.f62437b.mPayPass)) {
-            if (!TextUtils.isEmpty(this.f62437b.mConfirmPayPass)) {
-                list.add(new RestNameValuePair("mobilepwd", SecurePay.getInstance().encryptProxy(PasswordController.handlePwdSimple(this.f62437b.mPayPass))));
-            } else {
-                String seed = PasswordController.getSeed();
-                list.add(new RestNameValuePair("mobilepwd", PasswordController.handlePwd(this.f62437b.mPayPass, seed)));
-                list.add(new RestNameValuePair("seed", SecurePay.getInstance().encryptProxy(seed)));
-            }
-        } else if (!PayDataCache.getInstance().isPassFree() && this.f62438c != null && !com.baidu.wallet.paysdk.a.b.a()) {
-            String generateOTPKey = WalletFingerprint.getInstance(this.mContext).generateOTPKey(this.f62438c.otp_seed);
-            String sn = WalletFingerprint.getInstance(this.mContext).getSN();
-            if (!TextUtils.isEmpty(generateOTPKey) && !TextUtils.isEmpty(sn)) {
-                list.add(new RestNameValuePair("f_token_code", SecurePay.getInstance().encrypt(generateOTPKey)));
-                list.add(new RestNameValuePair("f_serial_num", SecurePay.getInstance().encrypt(sn)));
-            }
-        }
-        if (TextUtils.isEmpty(this.f62437b.mConfirmPayPass)) {
-            return;
-        }
-        String seed2 = PasswordController.getSeed();
-        list.add(new RestNameValuePair("confirm_mobilepwd", PasswordController.handlePwd(this.f62437b.mConfirmPayPass, seed2)));
-        list.add(new RestNameValuePair("seed", SecurePay.getInstance().encryptProxy(seed2)));
-        list.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f62437b.mConfirmPayPass)));
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f62439d = z;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.f62711c = z;
         }
     }
 }

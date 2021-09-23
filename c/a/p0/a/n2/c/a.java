@@ -22,10 +22,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7678a;
+        public int f7686a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f7679b;
+        public boolean f7687b;
 
         public C0322a() {
             Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public class a {
                 return null;
             }
             C0322a c0322a = new C0322a();
-            c0322a.f7678a = registerReceiver.getIntExtra("level", -1);
-            c0322a.f7679b = registerReceiver.getIntExtra("plugged", 0) != 0;
+            c0322a.f7686a = registerReceiver.getIntExtra("level", -1);
+            c0322a.f7687b = registerReceiver.getIntExtra("plugged", 0) != 0;
             return c0322a;
         }
         return (C0322a) invokeL.objValue;

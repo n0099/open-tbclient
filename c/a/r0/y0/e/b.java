@@ -48,13 +48,13 @@ public class b extends c.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f29262e;
+        public final /* synthetic */ o f29282e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FunAdNativeViewHolder f29263f;
+        public final /* synthetic */ FunAdNativeViewHolder f29283f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f29264g;
+        public final /* synthetic */ b f29284g;
 
         public a(b bVar, o oVar, FunAdNativeViewHolder funAdNativeViewHolder) {
             Interceptable interceptable = $ic;
@@ -71,18 +71,18 @@ public class b extends c.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
                     return;
                 }
             }
-            this.f29264g = bVar;
-            this.f29262e = oVar;
-            this.f29263f = funAdNativeViewHolder;
+            this.f29284g = bVar;
+            this.f29282e = oVar;
+            this.f29283f = funAdNativeViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f29262e.m(true);
-                this.f29264g.P();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f29263f.getFunAdNativeView().getPageType()).param(TiebaStatic.Params.RESOURCE_ID, this.f29264g.h0()).param("obj_locate", 0));
+                this.f29282e.m(true);
+                this.f29284g.P();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.f29283f.getFunAdNativeView().getPageType()).param(TiebaStatic.Params.RESOURCE_ID, this.f29284g.h0()).param("obj_locate", 0));
             }
         }
     }
@@ -113,7 +113,7 @@ public class b extends c.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
     public String h0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "pb".equals(this.p) ? this.f2960h == AdvertAppInfo.C4 ? "2" : "1" : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "pb".equals(this.p) ? this.f2961h == AdvertAppInfo.D4 ? "2" : "1" : "" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -124,15 +124,15 @@ public class b extends c.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
         FunAbsAdView funAdNativePbView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            BdUniqueId bdUniqueId = this.f2960h;
-            if (bdUniqueId == AdvertAppInfo.C4) {
+            BdUniqueId bdUniqueId = this.f2961h;
+            if (bdUniqueId == AdvertAppInfo.D4) {
                 funAdNativePbView = new FunAdNativeCommentView(this.m);
-            } else if (bdUniqueId == AdvertAppInfo.B4) {
+            } else if (bdUniqueId == AdvertAppInfo.C4) {
                 funAdNativePbView = new FunAdNativeFrsView(this.m);
             } else {
                 funAdNativePbView = new FunAdNativePbView(this.m);
             }
-            FunAdNativeViewHolder funAdNativeViewHolder = new FunAdNativeViewHolder(funAdNativePbView, this.m, this.f2960h);
+            FunAdNativeViewHolder funAdNativeViewHolder = new FunAdNativeViewHolder(funAdNativePbView, this.m, this.f2961h);
             funAdNativeViewHolder.setSid(this.n);
             funAdNativeViewHolder.setSceneKey(this.q);
             return funAdNativeViewHolder;
@@ -151,11 +151,11 @@ public class b extends c.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, nVar, funAdNativeViewHolder})) == null) {
             if (nVar instanceof c2) {
                 d2 d2Var = ((c2) nVar).w;
-                oVar = d2Var.J2;
+                oVar = d2Var.K2;
                 j2 = d2Var.T();
             } else if (nVar instanceof d2) {
                 d2 d2Var2 = (d2) nVar;
-                oVar = d2Var2.J2;
+                oVar = d2Var2.K2;
                 j2 = d2Var2.T();
             } else {
                 j2 = 0;
@@ -165,18 +165,18 @@ public class b extends c.a.e.l.e.a<n, FunAdNativeViewHolder> implements t, p {
                 funAdNativeViewHolder.getFunAdNativeView().hideOrShowView(8);
                 return funAdNativeViewHolder.getView();
             }
-            if (!"personalize".equals(this.p) && !AdvertAppInfo.C4.equals(this.f2960h)) {
+            if (!"personalize".equals(this.p) && !AdvertAppInfo.D4.equals(this.f2961h)) {
                 this.n = c.e().d(this.q);
             }
-            BdUniqueId bdUniqueId = this.f2960h;
-            if (bdUniqueId == AdvertAppInfo.B4) {
+            BdUniqueId bdUniqueId = this.f2961h;
+            if (bdUniqueId == AdvertAppInfo.C4) {
                 if ("frs".equals(this.p)) {
                     c.a.r0.x0.a.i().C(this.m, this.n, c.a.r0.x0.a.b(this.p, d.p() ? "1" : "0"), String.valueOf(j2));
                 } else if ("personalize".equals(this.p)) {
-                    c.a.r0.x0.a.i().B(this.m, this.n, c.a.r0.x0.a.b(this.p, d.G() ? "1" : "0"));
+                    c.a.r0.x0.a.i().B(this.m, this.n, c.a.r0.x0.a.b(this.p, d.I() ? "1" : "0"));
                 }
-            } else if (bdUniqueId == AdvertAppInfo.C4) {
-                c.a.r0.x0.a.i().D(this.m, this.n, c.a.r0.x0.a.b(this.p, d.D() ? "1" : "0"), oVar.e(), oVar.c());
+            } else if (bdUniqueId == AdvertAppInfo.D4) {
+                c.a.r0.x0.a.i().D(this.m, this.n, c.a.r0.x0.a.b(this.p, d.F() ? "1" : "0"), oVar.e(), oVar.c());
             }
             funAdNativeViewHolder.setFeedBackListener(new a(this, oVar, funAdNativeViewHolder));
             funAdNativeViewHolder.getFunAdNativeView().onChangedSkinType();

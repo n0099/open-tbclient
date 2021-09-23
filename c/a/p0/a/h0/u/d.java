@@ -21,34 +21,34 @@ public final class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6470a;
+    public String f6478a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6471b;
+    public String f6479b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6472c;
+    public String f6480c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6473d;
+    public String f6481d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f6474e;
+    public String f6482e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f6475f;
+    public String f6483f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f6476g;
+    public boolean f6484g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f6477h;
+    public String f6485h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f6478i;
+    public boolean f6486i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f6479j;
+    public String f6487j;
     public String k;
     public String l;
     public boolean m;
@@ -66,7 +66,7 @@ public final class d {
                 return;
             }
         }
-        n = k.f7077a;
+        n = k.f7085a;
     }
 
     public d() {
@@ -88,33 +88,33 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dVar)) == null) {
             TreeMap treeMap = new TreeMap();
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, dVar.f6470a);
-            treeMap.put("pagePath", dVar.f6471b);
-            treeMap.put("pageType", dVar.f6472c);
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, dVar.f6474e);
-            if (!TextUtils.isEmpty(dVar.f6475f)) {
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, dVar.f6478a);
+            treeMap.put("pagePath", dVar.f6479b);
+            treeMap.put("pageType", dVar.f6480c);
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, dVar.f6482e);
+            if (!TextUtils.isEmpty(dVar.f6483f)) {
                 if (n) {
-                    String str = "add initData: " + dVar.f6475f;
+                    String str = "add initData: " + dVar.f6483f;
                 }
-                treeMap.put("initData", dVar.f6475f);
+                treeMap.put("initData", dVar.f6483f);
             }
-            if (!TextUtils.isEmpty(dVar.f6473d)) {
-                treeMap.put("onReachBottomDistance", dVar.f6473d);
+            if (!TextUtils.isEmpty(dVar.f6481d)) {
+                treeMap.put("onReachBottomDistance", dVar.f6481d);
             }
-            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(dVar.f6476g));
-            if (!TextUtils.isEmpty(dVar.f6477h)) {
-                treeMap.put("routeId", dVar.f6477h);
+            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(dVar.f6484g));
+            if (!TextUtils.isEmpty(dVar.f6485h)) {
+                treeMap.put("routeId", dVar.f6485h);
             }
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(dVar.f6478i));
-            if (!TextUtils.isEmpty(dVar.f6479j)) {
-                treeMap.put("slavePreload", dVar.f6479j);
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(dVar.f6486i));
+            if (!TextUtils.isEmpty(dVar.f6487j)) {
+                treeMap.put("slavePreload", dVar.f6487j);
             }
             treeMap.put(PrefetchEvent.EVENT_DATA_ROOT_PATH, dVar.k);
             c.a.p0.a.t1.g.b.a(treeMap, "page ready event");
-            j.a(dVar.f6471b, treeMap);
-            String f2 = o0.f(j.b(dVar.f6471b));
+            j.a(dVar.f6479b, treeMap);
+            String f2 = o0.f(j.b(dVar.f6479b));
             c.a.p0.a.e0.d.h("PageReadyEvent", (String) treeMap.get("pagePath"));
-            String c2 = c.a.p0.a.a2.n.b.c(dVar.f6470a, f2);
+            String c2 = c.a.p0.a.a2.n.b.c(dVar.f6478a, f2);
             dVar.l = c2;
             if (!TextUtils.isEmpty(c2)) {
                 treeMap.put("pageConfig", dVar.l);
@@ -138,7 +138,7 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PageReadyEvent{appPath='" + this.f6470a + ExtendedMessageFormat.QUOTE + ", pagePath='" + this.f6471b + ExtendedMessageFormat.QUOTE + ", pageType='" + this.f6472c + ExtendedMessageFormat.QUOTE + ", onReachBottomDistance='" + this.f6473d + ExtendedMessageFormat.QUOTE + ", sConsole='" + this.f6474e + ExtendedMessageFormat.QUOTE + ", initData='" + this.f6475f + ExtendedMessageFormat.QUOTE + ", showPerformancePanel=" + this.f6476g + ", routeId='" + this.f6477h + ExtendedMessageFormat.QUOTE + ", isT7Available=" + this.f6478i + ", preloadFile='" + this.f6479j + ExtendedMessageFormat.QUOTE + ", rootPath='" + this.k + ExtendedMessageFormat.QUOTE + ", pageConfig='" + this.l + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PageReadyEvent{appPath='" + this.f6478a + ExtendedMessageFormat.QUOTE + ", pagePath='" + this.f6479b + ExtendedMessageFormat.QUOTE + ", pageType='" + this.f6480c + ExtendedMessageFormat.QUOTE + ", onReachBottomDistance='" + this.f6481d + ExtendedMessageFormat.QUOTE + ", sConsole='" + this.f6482e + ExtendedMessageFormat.QUOTE + ", initData='" + this.f6483f + ExtendedMessageFormat.QUOTE + ", showPerformancePanel=" + this.f6484g + ", routeId='" + this.f6485h + ExtendedMessageFormat.QUOTE + ", isT7Available=" + this.f6486i + ", preloadFile='" + this.f6487j + ExtendedMessageFormat.QUOTE + ", rootPath='" + this.k + ExtendedMessageFormat.QUOTE + ", pageConfig='" + this.l + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

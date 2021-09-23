@@ -49,34 +49,34 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Button f40092a;
+    public Button f40138a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f40093b;
+    public ImageView f40139b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f40094c;
+    public ImageView f40140c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f40095d;
+    public View f40141d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f40096e;
+    public View f40142e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LivenessRecogCallback f40097f;
+    public LivenessRecogCallback f40143f;
 
     /* renamed from: g  reason: collision with root package name */
-    public VideoGetPortraitModel f40098g;
+    public VideoGetPortraitModel f40144g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f40099h;
+    public View f40145h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f40100i;
+    public View f40146i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ViewPager f40101j;
+    public ViewPager f40147j;
     public List<View> k;
     public Handler l;
     public AtomicBoolean m;
@@ -87,10 +87,10 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LivenessVideoGuidActivity f40115a;
+        public final /* synthetic */ LivenessVideoGuidActivity f40161a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<View> f40116b;
+        public List<View> f40162b;
 
         public ViewPagerAdapter(LivenessVideoGuidActivity livenessVideoGuidActivity, List<View> list) {
             Interceptable interceptable = $ic;
@@ -107,15 +107,15 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                     return;
                 }
             }
-            this.f40115a = livenessVideoGuidActivity;
-            this.f40116b = list;
+            this.f40161a = livenessVideoGuidActivity;
+            this.f40162b = list;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) {
-                viewGroup.removeView(this.f40116b.get(i2));
+                viewGroup.removeView(this.f40162b.get(i2));
             }
         }
 
@@ -124,7 +124,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                List<View> list = this.f40116b;
+                List<View> list = this.f40162b;
                 if (list == null) {
                     return 0;
                 }
@@ -138,8 +138,8 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
-                viewGroup.addView(this.f40116b.get(i2));
-                return this.f40116b.get(i2);
+                viewGroup.addView(this.f40162b.get(i2));
+                return this.f40162b.get(i2);
             }
             return invokeLI.objValue;
         }
@@ -158,10 +158,10 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LivenessVideoGuidActivity f40117a;
+        public final /* synthetic */ LivenessVideoGuidActivity f40163a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40118b;
+        public int f40164b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(LivenessVideoGuidActivity livenessVideoGuidActivity, Context context) {
@@ -181,15 +181,15 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                     return;
                 }
             }
-            this.f40117a = livenessVideoGuidActivity;
-            this.f40118b = 300;
+            this.f40163a = livenessVideoGuidActivity;
+            this.f40164b = 300;
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i2, int i3, int i4, int i5, int i6) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-                super.startScroll(i2, i3, i4, i5, this.f40118b);
+                super.startScroll(i2, i3, i4, i5, this.f40164b);
             }
         }
 
@@ -197,7 +197,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         public void startScroll(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
-                super.startScroll(i2, i3, i4, i5, this.f40118b);
+                super.startScroll(i2, i3, i4, i5, this.f40164b);
             }
         }
 
@@ -220,8 +220,8 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                     return;
                 }
             }
-            this.f40117a = livenessVideoGuidActivity;
-            this.f40118b = 300;
+            this.f40163a = livenessVideoGuidActivity;
+            this.f40164b = 300;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -243,8 +243,8 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                     return;
                 }
             }
-            this.f40117a = livenessVideoGuidActivity;
-            this.f40118b = 300;
+            this.f40163a = livenessVideoGuidActivity;
+            this.f40164b = 300;
         }
     }
 
@@ -280,11 +280,11 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onBackPressed();
-            if (this.f40097f != null) {
+            if (this.f40143f != null) {
                 LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
                 livenessRecogResult.setResultMsg(com.baidu.fsg.face.base.c.a.ERROR_MSG_USER_CANCEL);
                 livenessRecogResult.setResultCode(-204);
-                this.f40097f.b(livenessRecogResult);
+                this.f40143f.b(livenessRecogResult);
             }
             RimStatisticsUtil.onEvent(d.R);
             RimStatisticsUtil.getInstance().triggerSending();
@@ -298,7 +298,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             if (getIntent().getExtras() != null && (serializable = getIntent().getExtras().getSerializable(LivenessVideoLoadingActivity.KEY_VIDEOGETPORTRAITMODEL)) != null && (serializable instanceof VideoGetPortraitModel)) {
-                this.f40098g = (VideoGetPortraitModel) serializable;
+                this.f40144g = (VideoGetPortraitModel) serializable;
             }
             setContentView(R.layout.layout_sapi_liveness_video_guide_page);
             d();
@@ -308,7 +308,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoGuidActivity f40102a;
+                public final /* synthetic */ LivenessVideoGuidActivity f40148a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -325,19 +325,19 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                             return;
                         }
                     }
-                    this.f40102a = this;
+                    this.f40148a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f40102a.f40095d.post(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.1.1
+                        this.f40148a.f40141d.post(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f40103a;
+                            public final /* synthetic */ AnonymousClass1 f40149a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -354,15 +354,15 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                                         return;
                                     }
                                 }
-                                this.f40103a = this;
+                                this.f40149a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
-                                if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && this.f40103a.f40102a.f40101j.getCurrentItem() == 0) {
-                                    this.f40103a.f40102a.m.set(true);
-                                    this.f40103a.f40102a.f40101j.setCurrentItem(1, true);
+                                if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && this.f40149a.f40148a.f40147j.getCurrentItem() == 0) {
+                                    this.f40149a.f40148a.m.set(true);
+                                    this.f40149a.f40148a.f40147j.setCurrentItem(1, true);
                                 }
                             }
                         });
@@ -372,7 +372,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
             try {
                 Field declaredField = ViewPager.class.getDeclaredField("mScroller");
                 declaredField.setAccessible(true);
-                declaredField.set(this.f40101j, new a(this, this.f40101j.getContext(), new LinearInterpolator()));
+                declaredField.set(this.f40147j, new a(this, this.f40147j.getContext(), new LinearInterpolator()));
             } catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException unused) {
             }
         }
@@ -381,13 +381,13 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.f40100i.findViewById(R.id.rim_face_guide_video_page2);
-            this.f40100i.findViewById(R.id.btn_start_photo).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.6
+            LinearLayout linearLayout = (LinearLayout) this.f40146i.findViewById(R.id.rim_face_guide_video_page2);
+            this.f40146i.findViewById(R.id.btn_start_photo).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoGuidActivity f40108a;
+                public final /* synthetic */ LivenessVideoGuidActivity f40154a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -404,7 +404,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                             return;
                         }
                     }
-                    this.f40108a = this;
+                    this.f40154a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -413,22 +413,22 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         RimStatisticsUtil.onEvent(d.M);
                         LogUtil.d("hello", "onEvent(StatServiceEvent.ENTERLIVENESS):  用户点击立即验证");
-                        this.f40108a.e();
+                        this.f40154a.e();
                     }
                 }
             });
-            linearLayout.post(new Runnable(this, linearLayout, (LinearLayout) this.f40100i.findViewById(R.id.rim_face_guide_indicator2_wrapper)) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.7
+            linearLayout.post(new Runnable(this, linearLayout, (LinearLayout) this.f40146i.findViewById(R.id.rim_face_guide_indicator2_wrapper)) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LinearLayout f40109a;
+                public final /* synthetic */ LinearLayout f40155a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LinearLayout f40110b;
+                public final /* synthetic */ LinearLayout f40156b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoGuidActivity f40111c;
+                public final /* synthetic */ LivenessVideoGuidActivity f40157c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -445,26 +445,26 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                             return;
                         }
                     }
-                    this.f40111c = this;
-                    this.f40109a = linearLayout;
-                    this.f40110b = r8;
+                    this.f40157c = this;
+                    this.f40155a = linearLayout;
+                    this.f40156b = r8;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.f40109a.getWidth(), (int) (this.f40109a.getHeight() * 0.68d));
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.f40155a.getWidth(), (int) (this.f40155a.getHeight() * 0.68d));
                         layoutParams.gravity = 17;
-                        this.f40110b.setLayoutParams(layoutParams);
+                        this.f40156b.setLayoutParams(layoutParams);
                     }
                 }
             });
-            TextView textView = (TextView) this.f40100i.findViewById(R.id.rim_face_guide_indicator2_content);
-            TextView textView2 = (TextView) this.f40100i.findViewById(R.id.rim_face_video_guide_indicator2_title_hint);
-            VideoGetPortraitModel videoGetPortraitModel = this.f40098g;
+            TextView textView = (TextView) this.f40146i.findViewById(R.id.rim_face_guide_indicator2_content);
+            TextView textView2 = (TextView) this.f40146i.findViewById(R.id.rim_face_video_guide_indicator2_title_hint);
+            VideoGetPortraitModel videoGetPortraitModel = this.f40144g;
             if (videoGetPortraitModel != null && !TextUtils.isEmpty(videoGetPortraitModel.guideContent)) {
-                textView.setText(this.f40098g.guideContent);
+                textView.setText(this.f40144g.guideContent);
             }
             String charSequence = textView2.getText().toString();
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(getResources().getColor(R.color.sapi_liveness_video_guide_tip_color));
@@ -480,19 +480,19 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.f40099h.findViewById(R.id.rim_face_guide_video_page1);
-            linearLayout.post(new Runnable(this, linearLayout, (LinearLayout) this.f40099h.findViewById(R.id.rim_face_guide_indicator1_wrapper)) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.8
+            LinearLayout linearLayout = (LinearLayout) this.f40145h.findViewById(R.id.rim_face_guide_video_page1);
+            linearLayout.post(new Runnable(this, linearLayout, (LinearLayout) this.f40145h.findViewById(R.id.rim_face_guide_indicator1_wrapper)) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LinearLayout f40112a;
+                public final /* synthetic */ LinearLayout f40158a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LinearLayout f40113b;
+                public final /* synthetic */ LinearLayout f40159b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoGuidActivity f40114c;
+                public final /* synthetic */ LivenessVideoGuidActivity f40160c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -509,30 +509,30 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                             return;
                         }
                     }
-                    this.f40114c = this;
-                    this.f40112a = linearLayout;
-                    this.f40113b = r8;
+                    this.f40160c = this;
+                    this.f40158a = linearLayout;
+                    this.f40159b = r8;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int width = this.f40112a.getWidth();
-                        int height = (int) (this.f40112a.getHeight() * 0.68d);
+                        int width = this.f40158a.getWidth();
+                        int height = (int) (this.f40158a.getHeight() * 0.68d);
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, height);
                         layoutParams.gravity = 17;
-                        this.f40113b.setLayoutParams(layoutParams);
-                        LivenessVideoGuidActivity livenessVideoGuidActivity = this.f40114c;
-                        livenessVideoGuidActivity.a(width, height, livenessVideoGuidActivity.f40094c);
+                        this.f40159b.setLayoutParams(layoutParams);
+                        LivenessVideoGuidActivity livenessVideoGuidActivity = this.f40160c;
+                        livenessVideoGuidActivity.a(width, height, livenessVideoGuidActivity.f40140c);
                     }
                 }
             });
-            TextView textView = (TextView) this.f40099h.findViewById(R.id.tv_name);
-            ImageView imageView = (ImageView) this.f40099h.findViewById(R.id.guide_imageview);
-            this.f40094c = imageView;
+            TextView textView = (TextView) this.f40145h.findViewById(R.id.tv_name);
+            ImageView imageView = (ImageView) this.f40145h.findViewById(R.id.guide_imageview);
+            this.f40140c = imageView;
             imageView.setImageDrawable(getResources().getDrawable(R.drawable.rim_face_loading_indicator1_bg));
-            VideoGetPortraitModel videoGetPortraitModel = this.f40098g;
+            VideoGetPortraitModel videoGetPortraitModel = this.f40144g;
             String str = videoGetPortraitModel != null ? videoGetPortraitModel.display_name : "";
             LivenessRecogDTO livenessRecogDTO = this.livenessRecogDTO;
             if (livenessRecogDTO != null && livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_CERTINFO && !TextUtils.isEmpty(livenessRecogDTO.realName)) {
@@ -557,12 +557,12 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.f40097f = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
+            this.f40143f = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
             this.k = new ArrayList();
-            this.f40099h = LayoutInflater.from(getActivity()).inflate(R.layout.rim_face_video_loading_indicator1, (ViewGroup) null);
-            this.f40100i = LayoutInflater.from(getActivity()).inflate(R.layout.rim_face_video_loading_indicator2, (ViewGroup) null);
-            this.k.add(this.f40099h);
-            this.k.add(this.f40100i);
+            this.f40145h = LayoutInflater.from(getActivity()).inflate(R.layout.rim_face_video_loading_indicator1, (ViewGroup) null);
+            this.f40146i = LayoutInflater.from(getActivity()).inflate(R.layout.rim_face_video_loading_indicator2, (ViewGroup) null);
+            this.k.add(this.f40145h);
+            this.k.add(this.f40146i);
             this.l = new Handler();
         }
     }
@@ -572,7 +572,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             Intent intent = new Intent(this, LivenessVideoActivity.class);
-            intent.putExtra(LivenessVideoLoadingActivity.KEY_VIDEOGETPORTRAITMODEL, this.f40098g);
+            intent.putExtra(LivenessVideoLoadingActivity.KEY_VIDEOGETPORTRAITMODEL, this.f40144g);
             startActivityForResult(intent, 1001);
             System.gc();
         }
@@ -583,14 +583,14 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             c();
             b();
-            this.f40095d = findViewById(R.id.rim_face_guide_indicator_1);
-            this.f40096e = findViewById(R.id.rim_face_guide_indicator_2);
-            this.f40095d.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.2
+            this.f40141d = findViewById(R.id.rim_face_guide_indicator_1);
+            this.f40142e = findViewById(R.id.rim_face_guide_indicator_2);
+            this.f40141d.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoGuidActivity f40104a;
+                public final /* synthetic */ LivenessVideoGuidActivity f40150a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -607,23 +607,23 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                             return;
                         }
                     }
-                    this.f40104a = this;
+                    this.f40150a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f40104a.f40101j.setCurrentItem(0);
+                        this.f40150a.f40147j.setCurrentItem(0);
                     }
                 }
             });
-            this.f40096e.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.3
+            this.f40142e.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoGuidActivity f40105a;
+                public final /* synthetic */ LivenessVideoGuidActivity f40151a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -640,25 +640,25 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                             return;
                         }
                     }
-                    this.f40105a = this;
+                    this.f40151a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f40105a.f40101j.setCurrentItem(1);
+                        this.f40151a.f40147j.setCurrentItem(1);
                     }
                 }
             });
             ImageView imageView = (ImageView) findViewById(R.id.sapi_bio_title_btn_left);
-            this.f40093b = imageView;
+            this.f40139b = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoGuidActivity f40106a;
+                public final /* synthetic */ LivenessVideoGuidActivity f40152a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -675,26 +675,26 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                             return;
                         }
                     }
-                    this.f40106a = this;
+                    this.f40152a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f40106a.onBackPressed();
+                        this.f40152a.onBackPressed();
                     }
                 }
             });
             ViewPager viewPager = (ViewPager) findViewById(R.id.rim_face_video_guide_vp);
-            this.f40101j = viewPager;
+            this.f40147j = viewPager;
             viewPager.setAdapter(new ViewPagerAdapter(this, this.k));
-            this.f40101j.addOnPageChangeListener(new ViewPager.OnPageChangeListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.5
+            this.f40147j.addOnPageChangeListener(new ViewPager.OnPageChangeListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessVideoGuidActivity.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoGuidActivity f40107a;
+                public final /* synthetic */ LivenessVideoGuidActivity f40153a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -711,7 +711,7 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                             return;
                         }
                     }
-                    this.f40107a = this;
+                    this.f40153a = this;
                 }
 
                 @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -732,19 +732,19 @@ public class LivenessVideoGuidActivity extends LivenessBaseActivity {
                 public void onPageSelected(int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                        if (this.f40107a.m.get()) {
+                        if (this.f40153a.m.get()) {
                             RimStatisticsUtil.onEvent(d.K);
-                            this.f40107a.m.set(false);
+                            this.f40153a.m.set(false);
                         } else {
                             RimStatisticsUtil.onEvent(d.L);
                         }
                         if (i2 == 0) {
-                            this.f40107a.f40095d.setBackgroundDrawable(this.f40107a.getResources().getDrawable(R.drawable.rim_face_indicator_circle_select));
-                            this.f40107a.f40096e.setBackgroundDrawable(this.f40107a.getResources().getDrawable(R.drawable.rim_face_indicator_circle_normal));
+                            this.f40153a.f40141d.setBackgroundDrawable(this.f40153a.getResources().getDrawable(R.drawable.rim_face_indicator_circle_select));
+                            this.f40153a.f40142e.setBackgroundDrawable(this.f40153a.getResources().getDrawable(R.drawable.rim_face_indicator_circle_normal));
                         } else if (i2 != 1) {
                         } else {
-                            this.f40107a.f40095d.setBackgroundDrawable(this.f40107a.getResources().getDrawable(R.drawable.rim_face_indicator_circle_normal));
-                            this.f40107a.f40096e.setBackgroundDrawable(this.f40107a.getResources().getDrawable(R.drawable.rim_face_indicator_circle_select));
+                            this.f40153a.f40141d.setBackgroundDrawable(this.f40153a.getResources().getDrawable(R.drawable.rim_face_indicator_circle_normal));
+                            this.f40153a.f40142e.setBackgroundDrawable(this.f40153a.getResources().getDrawable(R.drawable.rim_face_indicator_circle_select));
                         }
                     }
                 }

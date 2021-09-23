@@ -26,22 +26,22 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.r0.g1.e.c.a> f17955e;
+    public List<c.a.r0.g1.e.c.a> f17965e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f17956f;
+    public TbPageContext f17966f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17957g;
+    public int f17967g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17958h;
+    public int f17968h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdUniqueId f17959i;
+    public BdUniqueId f17969i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f17960j;
+    public boolean f17970j;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -51,20 +51,20 @@ public class b extends BaseAdapter {
 
     /* renamed from: c.a.r0.g1.e.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0874b {
+    public class C0872b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f17961a;
+        public TextView f17971a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BarImageView f17962b;
+        public BarImageView f17972b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f17963c;
+        public ImageView f17973c;
 
-        public C0874b(b bVar) {
+        public C0872b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,7 +80,7 @@ public class b extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ C0874b(b bVar, a aVar) {
+        public /* synthetic */ C0872b(b bVar, a aVar) {
             this(bVar);
         }
     }
@@ -100,43 +100,43 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f17957g = -1;
-        this.f17960j = false;
-        this.f17956f = tbPageContext;
-        this.f17959i = bdUniqueId;
-        this.f17958h = i2;
-        this.f17957g = c.a.q0.s.d0.b.j().k("key_game_video_tab_has_choosed_sub_class_id", -1);
+        this.f17967g = -1;
+        this.f17970j = false;
+        this.f17966f = tbPageContext;
+        this.f17969i = bdUniqueId;
+        this.f17968h = i2;
+        this.f17967g = c.a.q0.s.d0.b.j().k("key_game_video_tab_has_choosed_sub_class_id", -1);
     }
 
-    public final void a(C0874b c0874b) {
+    public final void a(C0872b c0872b) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, c0874b) == null) || c0874b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, c0872b) == null) || c0872b == null) {
             return;
         }
-        SkinManager.setViewTextColor(c0874b.f17961a, R.color.CAM_X0107);
-        SkinManager.setImageResource(c0874b.f17963c, R.drawable.icon_game_video_tab_choose_select);
+        SkinManager.setViewTextColor(c0872b.f17971a, R.color.CAM_X0107);
+        SkinManager.setImageResource(c0872b.f17973c, R.drawable.icon_game_video_tab_choose_select);
     }
 
     public void b(List<c.a.r0.g1.e.c.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f17955e = list;
-            if (this.f17960j || ListUtils.isEmpty(list)) {
+            this.f17965e = list;
+            if (this.f17970j || ListUtils.isEmpty(list)) {
                 return;
             }
             for (c.a.r0.g1.e.c.a aVar : list) {
-                if (!StringUtils.isNull(aVar.f18020c)) {
-                    c.a.e.e.l.d.h().m(aVar.f18020c, 10, null, this.f17959i);
+                if (!StringUtils.isNull(aVar.f18030c)) {
+                    c.a.e.e.l.d.h().m(aVar.f18030c, 10, null, this.f17969i);
                 }
             }
-            this.f17960j = true;
+            this.f17970j = true;
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f17957g = i2;
+            this.f17967g = i2;
         }
     }
 
@@ -144,14 +144,14 @@ public class b extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(this.f17955e) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(this.f17965e) : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? ListUtils.getItem(this.f17955e, i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? ListUtils.getItem(this.f17965e, i2) : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -168,40 +168,40 @@ public class b extends BaseAdapter {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         View view2;
-        C0874b c0874b;
+        C0872b c0872b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                c0874b = new C0874b(this, null);
-                view2 = LayoutInflater.from(this.f17956f.getPageActivity()).inflate(R.layout.game_video_choose_item_layout, (ViewGroup) null);
-                c0874b.f17961a = (TextView) view2.findViewById(R.id.id_game_video_choose_item_title);
-                c0874b.f17962b = (BarImageView) view2.findViewById(R.id.id_game_video_choose_item_photo);
-                c0874b.f17963c = (ImageView) view2.findViewById(R.id.id_game_video_choose_item_selected);
-                c0874b.f17962b.setShowOval(true);
-                c0874b.f17962b.setAutoChangeStyle(true);
-                c0874b.f17962b.setBorderColor(this.f17956f.getResources().getColor(R.color.black_alpha8));
-                c0874b.f17962b.setBorderWidth(this.f17956f.getResources().getDimensionPixelOffset(R.dimen.tbds3));
-                view2.setTag(c0874b);
+                c0872b = new C0872b(this, null);
+                view2 = LayoutInflater.from(this.f17966f.getPageActivity()).inflate(R.layout.game_video_choose_item_layout, (ViewGroup) null);
+                c0872b.f17971a = (TextView) view2.findViewById(R.id.id_game_video_choose_item_title);
+                c0872b.f17972b = (BarImageView) view2.findViewById(R.id.id_game_video_choose_item_photo);
+                c0872b.f17973c = (ImageView) view2.findViewById(R.id.id_game_video_choose_item_selected);
+                c0872b.f17972b.setShowOval(true);
+                c0872b.f17972b.setAutoChangeStyle(true);
+                c0872b.f17972b.setBorderColor(this.f17966f.getResources().getColor(R.color.black_alpha8));
+                c0872b.f17972b.setBorderWidth(this.f17966f.getResources().getDimensionPixelOffset(R.dimen.tbds3));
+                view2.setTag(c0872b);
             } else {
                 view2 = view;
-                c0874b = (C0874b) view.getTag();
+                c0872b = (C0872b) view.getTag();
             }
-            a(c0874b);
-            c.a.r0.g1.e.c.a aVar = (c.a.r0.g1.e.c.a) ListUtils.getItem(this.f17955e, i2);
+            a(c0872b);
+            c.a.r0.g1.e.c.a aVar = (c.a.r0.g1.e.c.a) ListUtils.getItem(this.f17965e, i2);
             if (aVar != null) {
-                c0874b.f17961a.setText(StringUtils.isNull(aVar.f18019b) ? "" : aVar.f18019b);
-                c0874b.f17962b.startLoad(aVar.f18020c, 10, false);
-                if (aVar.f18021d == 1) {
-                    c0874b.f17962b.setAlpha(1);
-                    c0874b.f17961a.setAlpha(1.0f);
+                c0872b.f17971a.setText(StringUtils.isNull(aVar.f18029b) ? "" : aVar.f18029b);
+                c0872b.f17972b.startLoad(aVar.f18030c, 10, false);
+                if (aVar.f18031d == 1) {
+                    c0872b.f17972b.setAlpha(1);
+                    c0872b.f17971a.setAlpha(1.0f);
                 } else {
-                    c0874b.f17962b.setAlpha(0.5f);
-                    c0874b.f17961a.setAlpha(0.5f);
+                    c0872b.f17972b.setAlpha(0.5f);
+                    c0872b.f17971a.setAlpha(0.5f);
                 }
-                if (aVar.f18018a == this.f17957g && this.f17958h != 101) {
-                    c0874b.f17963c.setVisibility(0);
+                if (aVar.f18028a == this.f17967g && this.f17968h != 101) {
+                    c0872b.f17973c.setVisibility(0);
                 } else {
-                    c0874b.f17963c.setVisibility(8);
+                    c0872b.f17973c.setVisibility(8);
                 }
             }
             return view2;

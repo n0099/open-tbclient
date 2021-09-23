@@ -80,7 +80,7 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitSelectAdapter f58816e;
+        public final /* synthetic */ TransmitSelectAdapter f58946e;
 
         public a(TransmitSelectAdapter transmitSelectAdapter) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
                     return;
                 }
             }
-            this.f58816e = transmitSelectAdapter;
+            this.f58946e = transmitSelectAdapter;
         }
 
         @Override // c.a.e.l.e.w
@@ -105,17 +105,17 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 if (!j.z()) {
-                    l.L(this.f58816e.f2957e, R.string.neterror);
+                    l.L(this.f58946e.f2958e, R.string.neterror);
                 }
                 TiebaStatic.log(new StatisticItem("c12053"));
-                if (!ListUtils.isEmpty(this.f58816e.n)) {
-                    this.f58816e.t0();
+                if (!ListUtils.isEmpty(this.f58946e.n)) {
+                    this.f58946e.t0();
                     return;
                 }
-                TransmitSelectAdapter transmitSelectAdapter = this.f58816e;
-                transmitSelectAdapter.m = new c.a.r0.r1.a(transmitSelectAdapter.f2961i);
-                this.f58816e.m.g(this.f58816e.q);
-                this.f58816e.m.f();
+                TransmitSelectAdapter transmitSelectAdapter = this.f58946e;
+                transmitSelectAdapter.m = new c.a.r0.r1.a(transmitSelectAdapter.f2962i);
+                this.f58946e.m.g(this.f58946e.q);
+                this.f58946e.m.f();
             }
         }
     }
@@ -126,7 +126,7 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitSelectAdapter f58817a;
+        public final /* synthetic */ TransmitSelectAdapter f58947a;
 
         public b(TransmitSelectAdapter transmitSelectAdapter) {
             Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
                     return;
                 }
             }
-            this.f58817a = transmitSelectAdapter;
+            this.f58947a = transmitSelectAdapter;
         }
 
         @Override // c.a.r0.r1.a.b
@@ -155,13 +155,13 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
                     int size = list.size();
                     for (int i3 = 0; i3 < size; i3++) {
                         ForumInfo forumInfo = list.get(i3);
-                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !this.f58817a.s0(forumInfo.forum_id.longValue())) {
+                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !this.f58947a.s0(forumInfo.forum_id.longValue())) {
                             arrayList.add(new HotTopicBussinessData(forumInfo.forum_id.longValue(), forumInfo.forum_name, forumInfo.avatar, null, forumInfo.thread_count.longValue(), 0L, 0L, false, null, 0));
                         }
                     }
-                    if (this.f58817a.n == null) {
-                        this.f58817a.n = arrayList;
-                        this.f58817a.t0();
+                    if (this.f58947a.n == null) {
+                        this.f58947a.n = arrayList;
+                        this.f58947a.t0();
                     }
                 }
             }
@@ -242,7 +242,7 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
     public final void t0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f2957e, 25005, this.n);
+            HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f2958e, 25005, this.n);
             hotTopicChangeActivityConfig.setUseOriginList(true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicChangeActivityConfig));
         }
@@ -254,7 +254,7 @@ public class TransmitSelectAdapter extends c.a.e.l.e.a<c, TransmitSelectViewHold
     public TransmitSelectViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) ? new TransmitSelectViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.transmit_select_layout, (ViewGroup) null)) : (TransmitSelectViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) ? new TransmitSelectViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.transmit_select_layout, (ViewGroup) null)) : (TransmitSelectViewHolder) invokeL.objValue;
     }
 
     public View v0(int i2, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {

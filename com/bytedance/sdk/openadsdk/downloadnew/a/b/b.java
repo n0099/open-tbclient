@@ -185,7 +185,7 @@ public class b {
         return (c.a) invokeLLL.objValue;
     }
 
-    public static a.C1520a a(m mVar) {
+    public static a.C1519a a(m mVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, mVar)) == null) {
@@ -194,19 +194,19 @@ public class b {
             if (mVar != null && !TextUtils.isEmpty(mVar.ax())) {
                 z = 2;
             }
-            a.C1520a c1520a = new a.C1520a();
-            c1520a.a(y);
-            c1520a.e(z);
-            c1520a.c(true);
-            c1520a.f(false);
-            c1520a.b(mVar);
+            a.C1519a c1519a = new a.C1519a();
+            c1519a.a(y);
+            c1519a.e(z);
+            c1519a.c(true);
+            c1519a.f(false);
+            c1519a.b(mVar);
             if (mVar != null && mVar.am() != null) {
-                c1520a.j(mVar.am().a());
-                c1520a.k(mVar.am().b());
+                c1519a.j(mVar.am().a());
+                c1519a.k(mVar.am().b());
             }
-            return c1520a;
+            return c1519a;
         }
-        return (a.C1520a) invokeL.objValue;
+        return (a.C1519a) invokeL.objValue;
     }
 
     public static b.a a(m mVar, String str) {

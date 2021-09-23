@@ -23,16 +23,16 @@ public class BankMsgInfoView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f63234a;
+    public NetImageView f63533a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f63235b;
+    public TextView f63534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BorderTipTextView f63236c;
+    public BorderTipTextView f63535c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f63237d;
+    public ViewGroup f63536d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BankMsgInfoView(Context context) {
@@ -59,17 +59,17 @@ public class BankMsgInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_cashdesk_bind_card_bankinfo_view"), this);
-            this.f63237d = (ViewGroup) findViewById(ResUtils.id(getContext(), "layout_entity"));
-            this.f63234a = (NetImageView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_logo"));
-            this.f63235b = (TextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_txt"));
-            this.f63236c = (BorderTipTextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_coupon_txt"));
+            this.f63536d = (ViewGroup) findViewById(ResUtils.id(getContext(), "layout_entity"));
+            this.f63533a = (NetImageView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_logo"));
+            this.f63534b = (TextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_txt"));
+            this.f63535c = (BorderTipTextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_coupon_txt"));
         }
     }
 
     public void hideCouponView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f63236c.setVisibility(8);
+            this.f63535c.setVisibility(8);
         }
     }
 
@@ -77,11 +77,11 @@ public class BankMsgInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, charSequence) == null) {
             if (!TextUtils.isEmpty(str)) {
-                this.f63234a.setImageResource(ResUtils.drawable(getContext(), "wallet_base_banklogo_defult"));
-                this.f63234a.setImageUrl(str);
-                this.f63234a.setVisibility(0);
+                this.f63533a.setImageResource(ResUtils.drawable(getContext(), "wallet_base_banklogo_defult"));
+                this.f63533a.setImageUrl(str);
+                this.f63533a.setVisibility(0);
             }
-            this.f63235b.setText(charSequence);
+            this.f63534b.setText(charSequence);
         }
     }
 
@@ -89,11 +89,11 @@ public class BankMsgInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
             if (!TextUtils.isEmpty(charSequence)) {
-                this.f63236c.setVisibility(0);
-                this.f63236c.setText(charSequence, true);
+                this.f63535c.setVisibility(0);
+                this.f63535c.setText(charSequence, true);
                 return;
             }
-            this.f63236c.setVisibility(8);
+            this.f63535c.setVisibility(8);
         }
     }
 
@@ -103,10 +103,10 @@ public class BankMsgInfoView extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             if (i2 == 0) {
                 super.setVisibility(0);
-                this.f63237d.setVisibility(0);
+                this.f63536d.setVisibility(0);
                 return;
             }
-            this.f63237d.setVisibility(4);
+            this.f63536d.setVisibility(4);
         }
     }
 

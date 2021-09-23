@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.q0.d1.n0;
+import c.a.q0.d1.o0;
 import c.a.r0.c4.k.d;
 import c.a.r0.c4.k.j;
 import c.a.r0.c4.t.a;
@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d, AbsListView.OnScrollListener {
+public class ImageListFragment extends BaseFragment implements d.InterfaceC0806d, AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.q0.s.f0.a A;
@@ -57,22 +57,22 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
     public j J;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseFragmentActivity f58724e;
+    public BaseFragmentActivity f58854e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.c4.k.e f58725f;
+    public c.a.r0.c4.k.e f58855f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.c4.k.c f58726g;
+    public c.a.r0.c4.k.c f58856g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.q0.f.f f58727h;
+    public c.a.q0.f.f f58857h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f58728i;
+    public View f58858i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RelativeLayout f58729j;
+    public RelativeLayout f58859j;
     public ImageView k;
     public TextView l;
     public TBSpecificationBtn m;
@@ -96,7 +96,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageListFragment f58730e;
+        public final /* synthetic */ ImageListFragment f58860e;
 
         public a(ImageListFragment imageListFragment) {
             Interceptable interceptable = $ic;
@@ -113,24 +113,24 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
                     return;
                 }
             }
-            this.f58730e = imageListFragment;
+            this.f58860e = imageListFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || n0.b() || this.f58730e.f58726g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || o0.b() || this.f58860e.f58856g == null) {
                 return;
             }
-            int l = this.f58730e.f58726g.l();
-            if (this.f58730e.f58726g.D() < l) {
-                if (this.f58730e.f58725f != null) {
-                    this.f58730e.f58725f.a0(this.f58730e.getPageContext());
+            int l = this.f58860e.f58856g.l();
+            if (this.f58860e.f58856g.D() < l) {
+                if (this.f58860e.f58855f != null) {
+                    this.f58860e.f58855f.a0(this.f58860e.getPageContext());
                     return;
                 }
                 return;
             }
-            ImageListFragment imageListFragment = this.f58730e;
+            ImageListFragment imageListFragment = this.f58860e;
             imageListFragment.showToast(String.format(imageListFragment.getPageContext().getString(R.string.max_choose_image_count), Integer.valueOf(l)));
         }
     }
@@ -141,7 +141,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageListFragment f58731e;
+        public final /* synthetic */ ImageListFragment f58861e;
 
         public b(ImageListFragment imageListFragment) {
             Interceptable interceptable = $ic;
@@ -158,23 +158,23 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
                     return;
                 }
             }
-            this.f58731e = imageListFragment;
+            this.f58861e = imageListFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f58731e.f58726g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f58861e.f58856g == null) {
                 return;
             }
-            if (this.f58731e.J == null || !this.f58731e.J.i()) {
-                if (view == this.f58731e.n) {
-                    this.f58731e.o.k(this.f58731e.f58726g.e(), this.f58731e.f58726g.h());
-                    this.f58731e.o.n(this.f58731e.t == null ? this.f58731e.s : this.f58731e.t);
-                    this.f58731e.n.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, null), (Drawable) null);
+            if (this.f58861e.J == null || !this.f58861e.J.i()) {
+                if (view == this.f58861e.n) {
+                    this.f58861e.o.k(this.f58861e.f58856g.e(), this.f58861e.f58856g.h());
+                    this.f58861e.o.n(this.f58861e.t == null ? this.f58861e.s : this.f58861e.t);
+                    this.f58861e.n.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, null), (Drawable) null);
                     return;
                 }
-                View unused = this.f58731e.u;
+                View unused = this.f58861e.u;
             }
         }
     }
@@ -185,7 +185,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageListFragment f58732a;
+        public final /* synthetic */ ImageListFragment f58862a;
 
         public c(ImageListFragment imageListFragment) {
             Interceptable interceptable = $ic;
@@ -202,14 +202,14 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
                     return;
                 }
             }
-            this.f58732a = imageListFragment;
+            this.f58862a = imageListFragment;
         }
 
         @Override // com.baidu.tieba.write.album.TbCameraView.i
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !PermissionUtil.requestWriteExternalStorgeAndCameraPermission(this.f58732a.getPageContext().getPageActivity(), 1) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !PermissionUtil.requestWriteExternalStorgeAndCameraPermission(this.f58862a.getPageContext().getPageActivity(), 1) : invokeV.booleanValue;
         }
     }
 
@@ -219,7 +219,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageListFragment f58733a;
+        public final /* synthetic */ ImageListFragment f58863a;
 
         public d(ImageListFragment imageListFragment) {
             Interceptable interceptable = $ic;
@@ -236,7 +236,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
                     return;
                 }
             }
-            this.f58733a = imageListFragment;
+            this.f58863a = imageListFragment;
         }
 
         @Override // com.baidu.tieba.write.album.TbCameraView.g
@@ -253,7 +253,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageListFragment f58734e;
+        public final /* synthetic */ ImageListFragment f58864e;
 
         public e(ImageListFragment imageListFragment) {
             Interceptable interceptable = $ic;
@@ -270,18 +270,18 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
                     return;
                 }
             }
-            this.f58734e = imageListFragment;
+            this.f58864e = imageListFragment;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f58734e.n != null && this.f58734e.isAdded()) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f58864e.n != null && this.f58864e.isAdded()) {
                 Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, null);
                 if (pureDrawable != null) {
                     pureDrawable.setBounds(0, 0, pureDrawable.getMinimumWidth(), pureDrawable.getMinimumHeight());
                 }
-                this.f58734e.n.setCompoundDrawables(null, null, pureDrawable, null);
+                this.f58864e.n.setCompoundDrawables(null, null, pureDrawable, null);
             }
         }
     }
@@ -292,7 +292,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageListFragment f58735a;
+        public final /* synthetic */ ImageListFragment f58865a;
 
         public f(ImageListFragment imageListFragment) {
             Interceptable interceptable = $ic;
@@ -309,32 +309,32 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
                     return;
                 }
             }
-            this.f58735a = imageListFragment;
+            this.f58865a = imageListFragment;
         }
 
         @Override // c.a.r0.c4.k.g
         public void a(int i2, MediaFileInfo mediaFileInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, mediaFileInfo) == null) {
-                if (!this.f58735a.z || this.f58735a.f58726g == null || this.f58735a.f58726g.l() != 1 || this.f58735a.I == null) {
-                    if (this.f58735a.f58726g == null || this.f58735a.f58726g.m() == null || !this.f58735a.f58726g.m().isFromQRCode() || !(mediaFileInfo instanceof ImageFileInfo)) {
-                        if (mediaFileInfo == null || this.f58735a.f58726g == null) {
+                if (!this.f58865a.z || this.f58865a.f58856g == null || this.f58865a.f58856g.l() != 1 || this.f58865a.I == null) {
+                    if (this.f58865a.f58856g == null || this.f58865a.f58856g.m() == null || !this.f58865a.f58856g.m().isFromQRCode() || !(mediaFileInfo instanceof ImageFileInfo)) {
+                        if (mediaFileInfo == null || this.f58865a.f58856g == null) {
                             return;
                         }
                         if (mediaFileInfo instanceof ImageFileInfo) {
-                            this.f58735a.f58726g.y((ImageFileInfo) mediaFileInfo);
-                            if (this.f58735a.f58725f != null) {
-                                this.f58735a.f58725f.W(1);
+                            this.f58865a.f58856g.y((ImageFileInfo) mediaFileInfo);
+                            if (this.f58865a.f58855f != null) {
+                                this.f58865a.f58855f.W(1);
                                 return;
                             }
                             return;
                         }
                         boolean z = mediaFileInfo instanceof VideoFileInfo;
-                    } else if (this.f58735a.f58725f != null) {
-                        this.f58735a.f58725f.m((ImageFileInfo) mediaFileInfo);
+                    } else if (this.f58865a.f58855f != null) {
+                        this.f58865a.f58855f.m((ImageFileInfo) mediaFileInfo);
                     }
-                } else if (this.f58735a.I.a(i2, mediaFileInfo)) {
-                    this.f58735a.f58725f.i();
+                } else if (this.f58865a.I.a(i2, mediaFileInfo)) {
+                    this.f58865a.f58855f.i();
                 }
             }
         }
@@ -346,7 +346,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageListFragment f58736a;
+        public final /* synthetic */ ImageListFragment f58866a;
 
         public g(ImageListFragment imageListFragment) {
             Interceptable interceptable = $ic;
@@ -363,25 +363,25 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
                     return;
                 }
             }
-            this.f58736a = imageListFragment;
+            this.f58866a = imageListFragment;
         }
 
         @Override // c.a.r0.c4.t.a.f
         public void onItemClick(int i2, c.a.q0.f.a aVar) {
             List<MediaFileInfo> d2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, aVar) == null) || this.f58736a.f58726g == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, aVar) == null) || this.f58866a.f58856g == null || aVar == null) {
                 return;
             }
             String b2 = aVar.b();
             String g2 = aVar.g();
-            if (b2 == null || b2.equals(this.f58736a.f58726g.h()) || (d2 = this.f58736a.f58726g.d(b2)) == null) {
+            if (b2 == null || b2.equals(this.f58866a.f58856g.h()) || (d2 = this.f58866a.f58856g.d(b2)) == null) {
                 return;
             }
-            this.f58736a.f58726g.x(b2);
-            this.f58736a.q.m(d2);
-            this.f58736a.n.setText(g2);
-            this.f58736a.p.smoothScrollToPosition(0);
+            this.f58866a.f58856g.x(b2);
+            this.f58866a.q.m(d2);
+            this.f58866a.n.setText(g2);
+            this.f58866a.p.smoothScrollToPosition(0);
         }
     }
 
@@ -391,7 +391,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageListFragment f58737a;
+        public final /* synthetic */ ImageListFragment f58867a;
 
         public h(ImageListFragment imageListFragment) {
             Interceptable interceptable = $ic;
@@ -408,7 +408,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
                     return;
                 }
             }
-            this.f58737a = imageListFragment;
+            this.f58867a = imageListFragment;
         }
 
         @Override // c.a.r0.c4.k.h
@@ -416,39 +416,39 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, mediaFileInfo)) == null) {
-                if (mediaFileInfo == null || this.f58737a.f58724e == null || this.f58737a.f58726g == null || this.f58737a.f58725f == null) {
+                if (mediaFileInfo == null || this.f58867a.f58854e == null || this.f58867a.f58856g == null || this.f58867a.f58855f == null) {
                     return true;
                 }
                 if (mediaFileInfo instanceof ImageFileInfo) {
                     ImageFileInfo imageFileInfo = (ImageFileInfo) mediaFileInfo;
                     if (c.a.r0.c4.r.a.a(imageFileInfo)) {
-                        this.f58737a.f58724e.showToast(R.string.album_choose_image_low_quality_tip);
+                        this.f58867a.f58854e.showToast(R.string.album_choose_image_low_quality_tip);
                         return false;
                     } else if (!c.a.r0.c4.r.a.b(imageFileInfo)) {
-                        if (this.f58737a.f58726g.n(imageFileInfo)) {
-                            this.f58737a.f58725f.j(imageFileInfo);
+                        if (this.f58867a.f58856g.n(imageFileInfo)) {
+                            this.f58867a.f58855f.j(imageFileInfo);
                         } else {
-                            this.f58737a.f58725f.c(imageFileInfo);
+                            this.f58867a.f58855f.c(imageFileInfo);
                         }
-                        this.f58737a.f58726g.w(null);
-                        this.f58737a.q.notifyDataSetChanged();
-                        this.f58737a.u();
+                        this.f58867a.f58856g.w(null);
+                        this.f58867a.q.notifyDataSetChanged();
+                        this.f58867a.u();
                         return true;
                     } else {
-                        this.f58737a.f58724e.showToast(String.format(this.f58737a.getString(R.string.album_choose_image_max_wh_tip), Integer.valueOf(c.a.q0.s.d0.b.j().k("key_upload_pic_max_width", 0)), Integer.valueOf(c.a.q0.s.d0.b.j().k("key_upload_pic_max_height", 0))));
+                        this.f58867a.f58854e.showToast(String.format(this.f58867a.getString(R.string.album_choose_image_max_wh_tip), Integer.valueOf(c.a.q0.s.d0.b.j().k("key_upload_pic_max_width", 0)), Integer.valueOf(c.a.q0.s.d0.b.j().k("key_upload_pic_max_height", 0))));
                         return false;
                     }
                 } else if (mediaFileInfo instanceof VideoFileInfo) {
-                    if (this.f58737a.f58726g.o()) {
-                        this.f58737a.f58724e.showToast(R.string.album_choose_switch_tip);
+                    if (this.f58867a.f58856g.o()) {
+                        this.f58867a.f58854e.showToast(R.string.album_choose_switch_tip);
                         return true;
                     }
                     VideoFileInfo videoFileInfo = (VideoFileInfo) mediaFileInfo;
-                    if (this.f58737a.s(videoFileInfo) && this.f58737a.r(videoFileInfo)) {
-                        this.f58737a.f58726g.w(videoFileInfo);
-                        this.f58737a.f58726g.b();
-                        this.f58737a.q.notifyDataSetChanged();
-                        this.f58737a.f58725f.i();
+                    if (this.f58867a.s(videoFileInfo) && this.f58867a.r(videoFileInfo)) {
+                        this.f58867a.f58856g.w(videoFileInfo);
+                        this.f58867a.f58856g.b();
+                        this.f58867a.q.notifyDataSetChanged();
+                        this.f58867a.f58855f.i();
                     }
                     return true;
                 } else {
@@ -465,7 +465,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageListFragment f58738a;
+        public final /* synthetic */ ImageListFragment f58868a;
 
         public i(ImageListFragment imageListFragment) {
             Interceptable interceptable = $ic;
@@ -482,31 +482,31 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
                     return;
                 }
             }
-            this.f58738a = imageListFragment;
+            this.f58868a = imageListFragment;
         }
 
         @Override // c.a.q0.f.e
         public void a(c.a.q0.f.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) {
-                if (this.f58738a.A != null) {
-                    this.f58738a.A.h(false);
+                if (this.f58868a.A != null) {
+                    this.f58868a.A.h(false);
                 }
                 if (gVar == null) {
                     gVar = new c.a.q0.f.g();
                 }
-                if (this.f58738a.f58726g != null && this.f58738a.q != null) {
-                    this.f58738a.f58726g.z(gVar);
-                    String h2 = this.f58738a.f58726g.h();
-                    this.f58738a.f58726g.x(h2);
-                    this.f58738a.q.m(this.f58738a.f58726g.d(h2));
-                    if (this.f58738a.p != null) {
-                        this.f58738a.p.smoothScrollToPosition(0);
+                if (this.f58868a.f58856g != null && this.f58868a.q != null) {
+                    this.f58868a.f58856g.z(gVar);
+                    String h2 = this.f58868a.f58856g.h();
+                    this.f58868a.f58856g.x(h2);
+                    this.f58868a.q.m(this.f58868a.f58856g.d(h2));
+                    if (this.f58868a.p != null) {
+                        this.f58868a.p.smoothScrollToPosition(0);
                     }
-                    this.f58738a.u();
+                    this.f58868a.u();
                 }
-                if (this.f58738a.p != null) {
-                    this.f58738a.p.smoothScroll();
+                if (this.f58868a.p != null) {
+                    this.f58868a.p.smoothScroll();
                 }
             }
         }
@@ -549,7 +549,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.r0.c4.k.e eVar = this.f58725f;
+            c.a.r0.c4.k.e eVar = this.f58855f;
             return (eVar == null || eVar.p() != 1) ? this.l : this.k;
         }
         return (View) invokeV.objValue;
@@ -590,26 +590,26 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.f58727h == null) {
-                this.f58727h = new c.a.q0.f.f(getPageContext().getPageActivity());
+            if (this.f58857h == null) {
+                this.f58857h = new c.a.q0.f.f(getPageContext().getPageActivity());
             }
-            c.a.r0.c4.k.e eVar = this.f58725f;
+            c.a.r0.c4.k.e eVar = this.f58855f;
             if (eVar == null) {
                 return;
             }
             if (eVar.g()) {
-                i2 = this.f58725f.f() ? 1 : 0;
+                i2 = this.f58855f.f() ? 1 : 0;
             } else {
-                i2 = this.f58725f.e() ? 2 : 3;
+                i2 = this.f58855f.e() ? 2 : 3;
             }
-            this.f58727h.h(i2, new i(this));
+            this.f58857h.h(i2, new i(this));
         }
     }
 
     public void notifyDataSetChanged() {
         c.a.r0.c4.k.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (cVar = this.f58726g) == null || cVar.r()) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (cVar = this.f58856g) == null || cVar.r()) {
             return;
         }
         this.q.notifyDataSetChanged();
@@ -620,11 +620,11 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.q0.w0.a.a(getPageContext(), this.f58728i);
+            c.a.q0.w0.a.a(getPageContext(), this.f58858i);
             SkinManager.setBackgroundColor(this.w, R.color.CAM_X0204, i2);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0105, i2);
             if (this.l != null && this.k != null) {
-                c.a.r0.c4.k.e eVar = this.f58725f;
+                c.a.r0.c4.k.e eVar = this.f58855f;
                 if (eVar != null && eVar.p() == 1) {
                     SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0105, null);
                     this.l.setVisibility(8);
@@ -644,7 +644,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
             if (noDataView != null) {
                 noDataView.onChangeSkinType(getPageContext(), i2);
             }
-            c.a.r0.c4.k.c cVar = this.f58726g;
+            c.a.r0.c4.k.c cVar = this.f58856g;
             if (cVar != null) {
                 selectOriginalImg(cVar.s());
             }
@@ -657,23 +657,23 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
-            this.f58724e = baseFragmentActivity;
-            if (this.f58725f == null) {
+            this.f58854e = baseFragmentActivity;
+            if (this.f58855f == null) {
                 if (baseFragmentActivity instanceof AlbumFloatActivity) {
-                    this.f58725f = ((AlbumFloatActivity) baseFragmentActivity).albumView;
+                    this.f58855f = ((AlbumFloatActivity) baseFragmentActivity).albumView;
                 } else if (baseFragmentActivity instanceof AlbumActivity) {
-                    this.f58725f = ((AlbumActivity) baseFragmentActivity).albumView;
+                    this.f58855f = ((AlbumActivity) baseFragmentActivity).albumView;
                 }
             }
-            c.a.r0.c4.k.e eVar = this.f58725f;
+            c.a.r0.c4.k.e eVar = this.f58855f;
             if (eVar != null) {
-                this.f58726g = eVar.q();
-                this.y = this.f58725f.v();
-                this.z = this.f58725f.u();
+                this.f58856g = eVar.q();
+                this.y = this.f58855f.v();
+                this.z = this.f58855f.u();
             }
             c.a.r0.c4.k.d.f().d(this);
-            this.f58727h = new c.a.q0.f.f(this.f58724e);
-            c.a.r0.c4.t.a aVar = new c.a.r0.c4.t.a(this.f58724e);
+            this.f58857h = new c.a.q0.f.f(this.f58854e);
+            c.a.r0.c4.t.a aVar = new c.a.r0.c4.t.a(this.f58854e);
             this.o = aVar;
             aVar.setOnDismissListener(this.F);
             this.o.l(this.H);
@@ -686,48 +686,48 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
-            this.f58724e = baseFragmentActivity;
-            if (this.f58725f == null) {
+            this.f58854e = baseFragmentActivity;
+            if (this.f58855f == null) {
                 if (baseFragmentActivity instanceof AlbumFloatActivity) {
-                    this.f58725f = ((AlbumFloatActivity) baseFragmentActivity).albumView;
+                    this.f58855f = ((AlbumFloatActivity) baseFragmentActivity).albumView;
                 } else if (baseFragmentActivity instanceof AlbumActivity) {
-                    this.f58725f = ((AlbumActivity) baseFragmentActivity).albumView;
+                    this.f58855f = ((AlbumActivity) baseFragmentActivity).albumView;
                 }
             }
-            c.a.r0.c4.k.e eVar = this.f58725f;
+            c.a.r0.c4.k.e eVar = this.f58855f;
             if (eVar != null) {
-                this.f58726g = eVar.q();
+                this.f58856g = eVar.q();
             }
             View inflate = layoutInflater.inflate(R.layout.album_image_list_view, (ViewGroup) null);
-            this.f58728i = inflate;
-            this.f58729j = (RelativeLayout) inflate.findViewById(R.id.album_image_list_root);
-            this.s = this.f58728i.findViewById(R.id.layout_title);
-            this.n = (TextView) this.f58728i.findViewById(R.id.album_title);
-            this.k = (ImageView) this.f58728i.findViewById(R.id.img_close);
-            this.l = (TextView) this.f58728i.findViewById(R.id.img_close_text);
-            this.w = this.f58728i.findViewById(R.id.navi_line);
-            this.u = this.f58728i.findViewById(R.id.layout_bottom);
-            this.v = (TextView) this.f58728i.findViewById(R.id.original_select_btn);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f58728i.findViewById(R.id.next_step);
+            this.f58858i = inflate;
+            this.f58859j = (RelativeLayout) inflate.findViewById(R.id.album_image_list_root);
+            this.s = this.f58858i.findViewById(R.id.layout_title);
+            this.n = (TextView) this.f58858i.findViewById(R.id.album_title);
+            this.k = (ImageView) this.f58858i.findViewById(R.id.img_close);
+            this.l = (TextView) this.f58858i.findViewById(R.id.img_close_text);
+            this.w = this.f58858i.findViewById(R.id.navi_line);
+            this.u = this.f58858i.findViewById(R.id.layout_bottom);
+            this.v = (TextView) this.f58858i.findViewById(R.id.original_select_btn);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f58858i.findViewById(R.id.next_step);
             this.m = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            this.m.getStyleConfig().k(l.g(this.f58724e, R.dimen.tbds25));
-            this.f58726g.x(c.a.q0.f.a.f13033f);
-            this.n.setText(this.f58724e.getPageContext().getString(R.string.album_all_media));
-            if (this.f58726g.m() != null) {
-                this.v.setVisibility(this.f58726g.m().isEnableChooseOriginalImg() ? 0 : 4);
+            this.m.getStyleConfig().k(l.g(this.f58854e, R.dimen.tbds25));
+            this.f58856g.x(c.a.q0.f.a.f13050f);
+            this.n.setText(this.f58854e.getPageContext().getString(R.string.album_all_media));
+            if (this.f58856g.m() != null) {
+                this.v.setVisibility(this.f58856g.m().isEnableChooseOriginalImg() ? 0 : 4);
             }
-            if (this.f58726g.m() != null && this.f58726g.m().isFromQRCode()) {
+            if (this.f58856g.m() != null && this.f58856g.m().isFromQRCode()) {
                 this.u.setVisibility(8);
             }
-            this.r = NoDataViewFactory.a(this.f58724e.getPageContext().getPageActivity(), this.f58729j, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.b(R.string.album_list_no_data, R.string.album_list_no_data_1), null);
-            TransparentHeadGridView transparentHeadGridView = (TransparentHeadGridView) this.f58728i.findViewById(R.id.gv_image_list);
+            this.r = NoDataViewFactory.a(this.f58854e.getPageContext().getPageActivity(), this.f58859j, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.b(R.string.album_list_no_data, R.string.album_list_no_data_1), null);
+            TransparentHeadGridView transparentHeadGridView = (TransparentHeadGridView) this.f58858i.findViewById(R.id.gv_image_list);
             this.p = transparentHeadGridView;
             transparentHeadGridView.setSelector(R.color.transparent);
-            c.a.r0.c4.k.i iVar = new c.a.r0.c4.k.i(this.f58724e, this.f58726g);
+            c.a.r0.c4.k.i iVar = new c.a.r0.c4.k.i(this.f58854e, this.f58856g);
             this.q = iVar;
             if (this.y) {
-                if (this.f58726g.m() != null && this.f58726g.m().isFromQRCode()) {
+                if (this.f58856g.m() != null && this.f58856g.m().isFromQRCode()) {
                     this.q.v(false);
                 } else {
                     this.q.v(true);
@@ -735,7 +735,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
             } else {
                 iVar.v(false);
             }
-            if (this.z && this.f58726g.l() == 1) {
+            if (this.z && this.f58856g.l() == 1) {
                 this.q.w(false);
             } else {
                 this.q.w(true);
@@ -747,10 +747,10 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
             this.q.q(this.B);
             this.q.o(this.E);
             this.q.p(this.D);
-            this.m.setOnClickListener(this.f58724e);
-            this.k.setOnClickListener(this.f58724e);
-            this.l.setOnClickListener(this.f58724e);
-            this.v.setOnClickListener(this.f58724e);
+            this.m.setOnClickListener(this.f58854e);
+            this.k.setOnClickListener(this.f58854e);
+            this.l.setOnClickListener(this.f58854e);
+            this.v.setOnClickListener(this.f58854e);
             this.n.setOnClickListener(this.C);
             this.u.setOnClickListener(this.C);
             u();
@@ -763,7 +763,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
                 this.s.setVisibility(8);
                 this.t.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, this.n, (View.OnClickListener) null);
             }
-            return this.f58728i;
+            return this.f58858i;
         }
         return (View) invokeLLL.objValue;
     }
@@ -773,11 +773,11 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            c.a.q0.f.f fVar = this.f58727h;
+            c.a.q0.f.f fVar = this.f58857h;
             if (fVar != null) {
                 fVar.c();
             }
-            BaseFragmentActivity baseFragmentActivity = this.f58724e;
+            BaseFragmentActivity baseFragmentActivity = this.f58854e;
             if (baseFragmentActivity != null) {
                 baseFragmentActivity.closeLoadingDialog();
             }
@@ -801,7 +801,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         }
     }
 
-    @Override // c.a.r0.c4.k.d.InterfaceC0808d
+    @Override // c.a.r0.c4.k.d.InterfaceC0806d
     public void onImageRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
@@ -873,7 +873,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, videoFileInfo)) == null) {
             VideoFileInfo e2 = j.e(videoFileInfo.videoPath);
             if (e2 != null && Math.max(e2.videoWidth, e2.videoHeight) > 3000) {
-                this.f58724e.showToast(R.string.album_choose_video_resolution_tip);
+                this.f58854e.showToast(R.string.album_choose_video_resolution_tip);
                 return false;
             }
             return true;
@@ -912,7 +912,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, videoFileInfo)) == null) {
             int i2 = videoFileInfo != null ? videoFileInfo.videoDuration : 0;
             if (i2 < 3000 || i2 > 600000) {
-                this.f58724e.showToast(R.string.album_choose_video_time_tip);
+                this.f58854e.showToast(R.string.album_choose_video_time_tip);
                 return false;
             }
             return true;
@@ -923,7 +923,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
     public void selectOriginalImg(boolean z) {
         BaseFragmentActivity baseFragmentActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048600, this, z) == null) || (baseFragmentActivity = this.f58724e) == null || this.v == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048600, this, z) == null) || (baseFragmentActivity = this.f58854e) == null || this.v == null) {
             return;
         }
         this.v.setText(baseFragmentActivity.getResources().getString(R.string.original_img));
@@ -939,7 +939,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
     public void setAlbumView(c.a.r0.c4.k.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, eVar) == null) {
-            this.f58725f = eVar;
+            this.f58855f = eVar;
         }
     }
 
@@ -973,10 +973,10 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         c.a.r0.c4.k.e eVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            if (this.f58726g == null && (eVar = this.f58725f) != null) {
-                this.f58726g = eVar.q();
+            if (this.f58856g == null && (eVar = this.f58855f) != null) {
+                this.f58856g = eVar.q();
             }
-            c.a.r0.c4.k.c cVar = this.f58726g;
+            c.a.r0.c4.k.c cVar = this.f58856g;
             if (cVar == null) {
                 return;
             }
@@ -985,7 +985,7 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
             } else {
                 loadAlbumMediaList();
             }
-            selectOriginalImg(this.f58726g.s());
+            selectOriginalImg(this.f58856g.s());
         }
     }
 
@@ -995,16 +995,16 @@ public class ImageListFragment extends BaseFragment implements d.InterfaceC0808d
         String string;
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || (cVar = this.f58726g) == null || this.m == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || (cVar = this.f58856g) == null || this.m == null) {
             return;
         }
         if (cVar.p()) {
-            ?? p = this.f58726g.p();
-            string = this.f58724e.getString(R.string.image_selected_list_count_max, new Object[]{Integer.valueOf((int) p), 1});
+            ?? p = this.f58856g.p();
+            string = this.f58854e.getString(R.string.image_selected_list_count_max, new Object[]{Integer.valueOf((int) p), 1});
             i2 = p;
         } else {
-            int count = ListUtils.getCount(this.f58726g.g());
-            string = this.f58724e.getString(R.string.image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.f58726g.l())});
+            int count = ListUtils.getCount(this.f58856g.g());
+            string = this.f58854e.getString(R.string.image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.f58856g.l())});
             i2 = count;
         }
         this.m.setText(string);

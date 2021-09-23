@@ -19,34 +19,34 @@ public class l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f17122a;
+    public TbPageContext<?> f17132a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f17123b;
+    public BdUniqueId f17133b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeRecyclerView f17124c;
+    public BdTypeRecyclerView f17134c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j f17125d;
+    public j f17135d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f17126e;
+    public c f17136e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f17127f;
+    public e f17137f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f17128g;
+    public d f17138g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f17129h;
+    public f f17139h;
 
     /* renamed from: i  reason: collision with root package name */
-    public k f17130i;
+    public k f17140i;
 
     /* renamed from: j  reason: collision with root package name */
-    public g f17131j;
+    public g f17141j;
     public h k;
     public b l;
     public m m;
@@ -69,59 +69,59 @@ public class l {
             }
         }
         this.o = new LinkedList();
-        this.f17122a = tbPageContext;
-        this.f17123b = bdUniqueId;
-        this.f17124c = bdTypeRecyclerView;
+        this.f17132a = tbPageContext;
+        this.f17133b = bdUniqueId;
+        this.f17134c = bdTypeRecyclerView;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j jVar = new j(this.f17122a, d2.f3, this.f17123b);
-            this.f17125d = jVar;
-            jVar.o0(this.f17124c);
-            this.o.add(this.f17125d);
-            c cVar = new c(this.f17122a, d2.k3, this.f17123b);
-            this.f17126e = cVar;
-            cVar.p0(this.f17124c);
-            this.o.add(this.f17126e);
-            e eVar = new e(this.f17122a, d2.i3, this.f17123b);
-            this.f17127f = eVar;
-            eVar.o0(this.f17124c);
-            this.o.add(this.f17127f);
-            d dVar = new d(this.f17122a, d2.j3, this.f17123b);
-            this.f17128g = dVar;
-            dVar.o0(this.f17124c);
-            this.o.add(this.f17128g);
-            f fVar = new f(this.f17122a, d2.g3, this.f17123b);
-            this.f17129h = fVar;
-            fVar.o0(this.f17124c);
-            this.o.add(this.f17129h);
-            k kVar = new k(this.f17122a, d2.w3, this.f17123b);
-            this.f17130i = kVar;
-            kVar.r0(this.f17124c);
-            this.o.add(this.f17130i);
-            g gVar = new g(this.f17122a, d2.p3, this.f17123b);
-            this.f17131j = gVar;
-            gVar.o0(this.f17124c);
-            this.o.add(this.f17131j);
-            h hVar = new h(this.f17122a, d2.l3, this.f17123b);
+            j jVar = new j(this.f17132a, d2.g3, this.f17133b);
+            this.f17135d = jVar;
+            jVar.o0(this.f17134c);
+            this.o.add(this.f17135d);
+            c cVar = new c(this.f17132a, d2.l3, this.f17133b);
+            this.f17136e = cVar;
+            cVar.p0(this.f17134c);
+            this.o.add(this.f17136e);
+            e eVar = new e(this.f17132a, d2.j3, this.f17133b);
+            this.f17137f = eVar;
+            eVar.o0(this.f17134c);
+            this.o.add(this.f17137f);
+            d dVar = new d(this.f17132a, d2.k3, this.f17133b);
+            this.f17138g = dVar;
+            dVar.o0(this.f17134c);
+            this.o.add(this.f17138g);
+            f fVar = new f(this.f17132a, d2.h3, this.f17133b);
+            this.f17139h = fVar;
+            fVar.o0(this.f17134c);
+            this.o.add(this.f17139h);
+            k kVar = new k(this.f17132a, d2.x3, this.f17133b);
+            this.f17140i = kVar;
+            kVar.r0(this.f17134c);
+            this.o.add(this.f17140i);
+            g gVar = new g(this.f17132a, d2.q3, this.f17133b);
+            this.f17141j = gVar;
+            gVar.o0(this.f17134c);
+            this.o.add(this.f17141j);
+            h hVar = new h(this.f17132a, d2.m3, this.f17133b);
             this.k = hVar;
-            hVar.o0(this.f17124c);
+            hVar.o0(this.f17134c);
             this.o.add(this.k);
-            b bVar = new b(this.f17122a, d2.o3, this.f17123b);
+            b bVar = new b(this.f17132a, d2.p3, this.f17133b);
             this.l = bVar;
-            bVar.p0(this.f17124c);
+            bVar.p0(this.f17134c);
             this.o.add(this.l);
-            m mVar = new m(this.f17122a, x.f14342f);
+            m mVar = new m(this.f17132a, x.f14342f);
             this.m = mVar;
-            mVar.n0(this.f17124c);
+            mVar.n0(this.f17134c);
             this.o.add(this.m);
-            i iVar = new i(this.f17122a, c.a.r0.a0.d0.k.v0);
+            i iVar = new i(this.f17132a, c.a.r0.a0.d0.k.v0);
             this.n = iVar;
             this.o.add(iVar);
-            this.f17124c.addAdapters(this.o);
+            this.f17134c.addAdapters(this.o);
         }
     }
 
@@ -139,14 +139,14 @@ public class l {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f17124c.getAdapter().notifyDataSetChanged();
+            this.f17134c.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void d(List<? extends n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f17124c.setData(list);
+            this.f17134c.setData(list);
         }
     }
 }

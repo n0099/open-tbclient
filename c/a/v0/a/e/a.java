@@ -19,18 +19,18 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f30301c;
+    public static final a f30322c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<InterfaceC1403a> f30302a;
+    public final Set<InterfaceC1401a> f30323a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30303b;
+    public boolean f30324b;
 
     /* renamed from: c.a.v0.a.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1403a {
+    public interface InterfaceC1401a {
         void a();
 
         void a(Activity activity);
@@ -53,7 +53,7 @@ public final class a {
                 return;
             }
         }
-        f30301c = new a();
+        f30322c = new a();
     }
 
     public a() {
@@ -69,42 +69,42 @@ public final class a {
                 return;
             }
         }
-        this.f30302a = new LinkedHashSet();
+        this.f30323a = new LinkedHashSet();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f30301c : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f30322c : (a) invokeV.objValue;
     }
 
-    public final Set<InterfaceC1403a> b() {
+    public final Set<InterfaceC1401a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30302a : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30323a : (Set) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.f30302a) {
-                this.f30302a.clear();
+            synchronized (this.f30323a) {
+                this.f30323a.clear();
             }
         }
     }
 
-    public final void d(InterfaceC1403a interfaceC1403a) {
+    public final void d(InterfaceC1401a interfaceC1401a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1403a) == null) {
-            synchronized (this.f30302a) {
-                this.f30302a.add(interfaceC1403a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1401a) == null) {
+            synchronized (this.f30323a) {
+                this.f30323a.add(interfaceC1401a);
             }
         }
     }
 
     public final void e(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, context) == null) || this.f30303b || Build.VERSION.SDK_INT < 14) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, context) == null) || this.f30324b || Build.VERSION.SDK_INT < 14) {
             return;
         }
         try {
@@ -112,6 +112,6 @@ public final class a {
         } catch (Exception unused) {
             c.a.v0.a.f.i.b("registerActivityLifecycleCallbacks encounter exception");
         }
-        this.f30303b = true;
+        this.f30324b = true;
     }
 }

@@ -26,7 +26,7 @@ public class i extends c.a.e.l.e.a<v, NoDataItemViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), v.f3061g);
+        super(tbPageContext.getPageActivity(), v.f3062g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,7 @@ public class i extends c.a.e.l.e.a<v, NoDataItemViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f2957e).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false);
+            View inflate = LayoutInflater.from(this.f2958e).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false);
             inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
             return new NoDataItemViewHolder(inflate);
         }
@@ -71,9 +71,9 @@ public class i extends c.a.e.l.e.a<v, NoDataItemViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, vVar, noDataItemViewHolder})) == null) {
-            noDataItemViewHolder.mTextView.setText(vVar.f3062e);
+            noDataItemViewHolder.mTextView.setText(vVar.f3063e);
             if (this.m != TbadkCoreApplication.getInst().getSkinType()) {
-                SkinManager.setImageResource(noDataItemViewHolder.mImageView, vVar.f3063f);
+                SkinManager.setImageResource(noDataItemViewHolder.mImageView, vVar.f3064f);
                 SkinManager.setViewTextColor(noDataItemViewHolder.mTextView, R.color.CAM_X0109);
                 this.m = TbadkCoreApplication.getInst().getSkinType();
             }

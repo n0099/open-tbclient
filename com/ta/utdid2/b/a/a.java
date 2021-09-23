@@ -28,7 +28,7 @@ public class a implements XmlSerializer {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f76046a = "xmlpull.org/v1/doc/features.html#indent-output";
+    public static String f76365a = "xmlpull.org/v1/doc/features.html#indent-output";
 
     /* renamed from: a  reason: collision with other field name */
     public static final String[] f9a;
@@ -50,7 +50,7 @@ public class a implements XmlSerializer {
     public final char[] f14a;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f76047e;
+    public boolean f76366e;
     public int mPos;
 
     static {
@@ -125,7 +125,7 @@ public class a implements XmlSerializer {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return "http://" + f76046a;
+            return "http://" + f76365a;
         }
         return (String) invokeV.objValue;
     }
@@ -186,7 +186,7 @@ public class a implements XmlSerializer {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (this.f76047e) {
+            if (this.f76366e) {
                 append(" />\n");
             } else {
                 append("</");
@@ -197,7 +197,7 @@ public class a implements XmlSerializer {
                 append(str2);
                 append(">\n");
             }
-            this.f76047e = false;
+            this.f76366e = false;
             return this;
         }
         return (XmlSerializer) invokeLL.objValue;
@@ -373,7 +373,7 @@ public class a implements XmlSerializer {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, str, str2)) == null) {
-            if (this.f76047e) {
+            if (this.f76366e) {
                 append(">\n");
             }
             append(Typography.less);
@@ -382,7 +382,7 @@ public class a implements XmlSerializer {
                 append(':');
             }
             append(str2);
-            this.f76047e = true;
+            this.f76366e = true;
             return this;
         }
         return (XmlSerializer) invokeLL.objValue;
@@ -393,9 +393,9 @@ public class a implements XmlSerializer {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048600, this, cArr, i2, i3)) == null) {
-            if (this.f76047e) {
+            if (this.f76366e) {
                 append(">");
-                this.f76047e = false;
+                this.f76366e = false;
             }
             a(cArr, i2, i3);
             return this;
@@ -408,9 +408,9 @@ public class a implements XmlSerializer {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            if (this.f76047e) {
+            if (this.f76366e) {
                 append(">");
-                this.f76047e = false;
+                this.f76366e = false;
             }
             a(str);
             return this;

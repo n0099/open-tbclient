@@ -56,7 +56,7 @@ public class AuthActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f54821a;
+        public final /* synthetic */ AuthActivity f54936a;
 
         public a(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -73,14 +73,14 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54821a = authActivity;
+            this.f54936a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
         public void onBack() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54821a.goBack();
+                this.f54936a.goBack();
             }
         }
     }
@@ -91,7 +91,7 @@ public class AuthActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f54822a;
+        public final /* synthetic */ AuthActivity f54937a;
 
         public b(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -108,14 +108,14 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54822a = authActivity;
+            this.f54937a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54822a.onClose();
+                this.f54937a.onClose();
             }
         }
     }
@@ -126,7 +126,7 @@ public class AuthActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f54823a;
+        public final /* synthetic */ AuthActivity f54938a;
 
         public c(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54823a = authActivity;
+            this.f54938a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
@@ -161,7 +161,7 @@ public class AuthActivity extends BaseActivity {
                 if (TextUtils.isEmpty(queryParameter)) {
                     return;
                 }
-                this.f54823a.finishActivity(true, queryParameter);
+                this.f54938a.finishActivity(true, queryParameter);
             }
         }
 
@@ -179,7 +179,7 @@ public class AuthActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f54824a;
+        public final /* synthetic */ AuthActivity f54939a;
 
         public d(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -196,14 +196,14 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54824a = authActivity;
+            this.f54939a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54824a.finishActivity(true, null);
+                this.f54939a.finishActivity(true, null);
             }
         }
     }

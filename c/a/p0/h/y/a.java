@@ -36,24 +36,24 @@ public class a extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f11586i;
+    public static final boolean f11594i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Set<String> f11587j;
+    public static final Set<String> f11595j;
     public static final Set<String> k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11588e;
+    public int f11596e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.p0.a.y.b.a f11589f;
+    public c.a.p0.a.y.b.a f11597f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11590g;
+    public String f11598g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.p0.a.l0.c f11591h;
+    public c.a.p0.a.l0.c f11599h;
 
     /* renamed from: c.a.p0.h.y.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -62,10 +62,10 @@ public class a extends EventTargetImpl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSEvent f11592e;
+        public final /* synthetic */ JSEvent f11600e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11593f;
+        public final /* synthetic */ a f11601f;
 
         public RunnableC0602a(a aVar, JSEvent jSEvent) {
             Interceptable interceptable = $ic;
@@ -82,15 +82,15 @@ public class a extends EventTargetImpl {
                     return;
                 }
             }
-            this.f11593f = aVar;
-            this.f11592e = jSEvent;
+            this.f11601f = aVar;
+            this.f11600e = jSEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.super.dispatchEvent(this.f11592e);
+                a.super.dispatchEvent(this.f11600e);
             }
         }
     }
@@ -101,10 +101,10 @@ public class a extends EventTargetImpl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Object f11594e;
+        public final /* synthetic */ Object f11602e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11595f;
+        public final /* synthetic */ a f11603f;
 
         public b(a aVar, Object obj) {
             Interceptable interceptable = $ic;
@@ -121,15 +121,15 @@ public class a extends EventTargetImpl {
                     return;
                 }
             }
-            this.f11595f = aVar;
-            this.f11594e = obj;
+            this.f11603f = aVar;
+            this.f11602e = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.h.m0.c.a(this.f11595f.f11589f, true, this.f11594e);
+                c.a.p0.h.m0.c.a(this.f11603f.f11597f, true, this.f11602e);
             }
         }
     }
@@ -140,13 +140,13 @@ public class a extends EventTargetImpl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11596e;
+        public final /* synthetic */ String f11604e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f11597f;
+        public final /* synthetic */ int f11605f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f11598g;
+        public final /* synthetic */ a f11606g;
 
         public c(a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -163,9 +163,9 @@ public class a extends EventTargetImpl {
                     return;
                 }
             }
-            this.f11598g = aVar;
-            this.f11596e = str;
-            this.f11597f = i2;
+            this.f11606g = aVar;
+            this.f11604e = str;
+            this.f11605f = i2;
         }
 
         @Override // java.lang.Runnable
@@ -173,9 +173,9 @@ public class a extends EventTargetImpl {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.p0.h.y.f.b bVar = new c.a.p0.h.y.f.b();
-                bVar.errMsg = this.f11596e;
-                bVar.statusCode = this.f11597f;
-                c.a.p0.h.m0.c.a(this.f11598g.f11589f, false, bVar);
+                bVar.errMsg = this.f11604e;
+                bVar.statusCode = this.f11605f;
+                c.a.p0.h.m0.c.a(this.f11606g.f11597f, false, bVar);
             }
         }
     }
@@ -193,8 +193,8 @@ public class a extends EventTargetImpl {
                 return;
             }
         }
-        f11586i = k.f7077a;
-        f11587j = Sets.newHashSet("REFERER", "USER-AGENT");
+        f11594i = k.f7085a;
+        f11595j = Sets.newHashSet("REFERER", "USER-AGENT");
         k = Sets.newHashSet("localhost", "127.0.0.1");
     }
 
@@ -216,10 +216,10 @@ public class a extends EventTargetImpl {
                 return;
             }
         }
-        this.f11588e = 0;
-        this.f11591h = cVar;
-        this.f11590g = y();
-        this.f11589f = aVar;
+        this.f11596e = 0;
+        this.f11599h = cVar;
+        this.f11598g = y();
+        this.f11597f = aVar;
     }
 
     public static void F(@NonNull Request.Builder builder, c.a.p0.a.y.b.a aVar, Map<String, String> map) {
@@ -228,7 +228,7 @@ public class a extends EventTargetImpl {
             return;
         }
         for (String str : aVar.k()) {
-            if (!TextUtils.isEmpty(str) && !f11587j.contains(str.toUpperCase(Locale.US))) {
+            if (!TextUtils.isEmpty(str) && !f11595j.contains(str.toUpperCase(Locale.US))) {
                 String f2 = q0.f(aVar.I(str));
                 if (!TextUtils.isEmpty(f2)) {
                     if (map != null) {
@@ -259,14 +259,14 @@ public class a extends EventTargetImpl {
     public void C(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i2, str2) == null) {
-            this.f11591h.postOnJSThread(new c(this, str2, i2));
+            this.f11599h.postOnJSThread(new c(this, str2, i2));
         }
     }
 
     public void D(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            this.f11591h.postOnJSThread(new b(this, obj));
+            this.f11599h.postOnJSThread(new b(this, obj));
         }
     }
 
@@ -280,7 +280,7 @@ public class a extends EventTargetImpl {
                     return parse;
                 }
                 return null;
-            } else if ((f11586i && c.a.p0.a.u1.a.a.o()) || A(parse)) {
+            } else if ((f11594i && c.a.p0.a.u1.a.a.o()) || A(parse)) {
                 return parse;
             } else {
                 return null;
@@ -302,12 +302,12 @@ public class a extends EventTargetImpl {
     public void H(c.a.p0.a.y.b.a aVar) {
         c.a.p0.a.y.b.a aVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null || (aVar2 = this.f11589f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null || (aVar2 = this.f11597f) == null) {
             return;
         }
         aVar2.H("success", aVar.v("success"));
-        this.f11589f.H(com.baidu.pass.biometrics.face.liveness.b.a.g0, aVar.v(com.baidu.pass.biometrics.face.liveness.b.a.g0));
-        this.f11589f.H(XAdRemoteEvent.COMPLETE, aVar.v(XAdRemoteEvent.COMPLETE));
+        this.f11597f.H(com.baidu.pass.biometrics.face.liveness.b.a.g0, aVar.v(com.baidu.pass.biometrics.face.liveness.b.a.g0));
+        this.f11597f.H(XAdRemoteEvent.COMPLETE, aVar.v(XAdRemoteEvent.COMPLETE));
     }
 
     public JSONObject I(Headers headers) throws JSONException {
@@ -341,10 +341,10 @@ public class a extends EventTargetImpl {
     @JavascriptInterface
     public void abort() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f11589f == null || e.i() == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f11597f == null || e.i() == null) {
             return;
         }
-        e.i().X().cancelTag(this.f11590g);
+        e.i().X().cancelTag(this.f11598g);
     }
 
     @Override // com.baidu.searchbox.v8engine.event.EventTargetImpl, com.baidu.searchbox.v8engine.event.EventTarget
@@ -352,7 +352,7 @@ public class a extends EventTargetImpl {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, jSEvent)) == null) {
-            this.f11591h.postOnJSThread(new RunnableC0602a(this, jSEvent));
+            this.f11599h.postOnJSThread(new RunnableC0602a(this, jSEvent));
             return true;
         }
         return invokeL.booleanValue;
@@ -375,8 +375,8 @@ public class a extends EventTargetImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            String C = this.f11589f.C("url");
-            if (this.f11589f != null && !TextUtils.isEmpty(this.f11590g)) {
+            String C = this.f11597f.C("url");
+            if (this.f11597f != null && !TextUtils.isEmpty(this.f11598g)) {
                 if (TextUtils.isEmpty(C)) {
                     C("", -1, "request:url is invalid");
                     return null;

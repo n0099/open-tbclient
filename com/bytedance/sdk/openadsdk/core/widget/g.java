@@ -28,39 +28,39 @@ public class g extends Drawable {
     @ColorInt
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67364a;
+    public int f67675a;
     @ColorInt
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67365b;
+    public int f67676b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f67366c;
+    public int[] f67677c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public float[] f67367d;
+    public float[] f67678d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearGradient f67368e;
+    public LinearGradient f67679e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67369f;
+    public int f67680f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f67370g;
+    public int f67681g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f67371h;
+    public int f67682h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f67372i;
+    public int f67683i;
     @Nullable
 
     /* renamed from: j  reason: collision with root package name */
-    public RectF f67373j;
+    public RectF f67684j;
     @Nullable
     public Paint k;
 
@@ -71,33 +71,33 @@ public class g extends Drawable {
         @ColorInt
 
         /* renamed from: a  reason: collision with root package name */
-        public int f67374a;
+        public int f67685a;
         @ColorInt
 
         /* renamed from: b  reason: collision with root package name */
-        public int f67375b;
+        public int f67686b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int[] f67376c;
+        public int[] f67687c;
         @Nullable
 
         /* renamed from: d  reason: collision with root package name */
-        public float[] f67377d;
+        public float[] f67688d;
 
         /* renamed from: e  reason: collision with root package name */
-        public LinearGradient f67378e;
+        public LinearGradient f67689e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f67379f;
+        public int f67690f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f67380g;
+        public int f67691g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f67381h;
+        public int f67692h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f67382i;
+        public int f67693i;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -112,21 +112,21 @@ public class g extends Drawable {
                     return;
                 }
             }
-            this.f67381h = 0;
-            this.f67382i = 0;
-            this.f67374a = t.j(o.a(), "tt_ssxinmian8");
-            this.f67375b = t.j(o.a(), "tt_ssxinxian3");
-            this.f67379f = 10;
-            this.f67380g = 16;
-            this.f67381h = 0;
-            this.f67382i = 0;
+            this.f67692h = 0;
+            this.f67693i = 0;
+            this.f67685a = t.j(o.a(), "tt_ssxinmian8");
+            this.f67686b = t.j(o.a(), "tt_ssxinxian3");
+            this.f67690f = 10;
+            this.f67691g = 16;
+            this.f67692h = 0;
+            this.f67693i = 0;
         }
 
         public a a(@ColorInt int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f67374a = i2;
+                this.f67685a = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -136,7 +136,7 @@ public class g extends Drawable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                this.f67375b = i2;
+                this.f67686b = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -146,7 +146,7 @@ public class g extends Drawable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.f67379f = i2;
+                this.f67690f = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -156,7 +156,7 @@ public class g extends Drawable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.f67381h = i2;
+                this.f67692h = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -166,7 +166,7 @@ public class g extends Drawable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.f67382i = i2;
+                this.f67693i = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -176,7 +176,7 @@ public class g extends Drawable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr)) == null) {
-                this.f67376c = iArr;
+                this.f67687c = iArr;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -185,7 +185,7 @@ public class g extends Drawable {
         public g a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new g(this.f67374a, this.f67376c, this.f67377d, this.f67375b, this.f67378e, this.f67379f, this.f67380g, this.f67381h, this.f67382i) : (g) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new g(this.f67685a, this.f67687c, this.f67688d, this.f67686b, this.f67689e, this.f67690f, this.f67691g, this.f67692h, this.f67693i) : (g) invokeV.objValue;
         }
     }
 
@@ -204,15 +204,15 @@ public class g extends Drawable {
                 return;
             }
         }
-        this.f67364a = i2;
-        this.f67366c = iArr;
-        this.f67367d = fArr;
-        this.f67365b = i3;
-        this.f67368e = linearGradient;
-        this.f67369f = i4;
-        this.f67370g = i5;
-        this.f67371h = i6;
-        this.f67372i = i7;
+        this.f67675a = i2;
+        this.f67677c = iArr;
+        this.f67678d = fArr;
+        this.f67676b = i3;
+        this.f67679e = linearGradient;
+        this.f67680f = i4;
+        this.f67681g = i5;
+        this.f67682h = i6;
+        this.f67683i = i7;
     }
 
     private void a() {
@@ -223,20 +223,20 @@ public class g extends Drawable {
             this.k = paint;
             boolean z = true;
             paint.setAntiAlias(true);
-            this.k.setShadowLayer(this.f67370g, this.f67371h, this.f67372i, this.f67365b);
-            if (this.f67373j != null && (iArr = this.f67366c) != null && iArr.length > 1) {
-                float[] fArr = this.f67367d;
+            this.k.setShadowLayer(this.f67681g, this.f67682h, this.f67683i, this.f67676b);
+            if (this.f67684j != null && (iArr = this.f67677c) != null && iArr.length > 1) {
+                float[] fArr = this.f67678d;
                 z = (fArr == null || fArr.length <= 0 || fArr.length != iArr.length) ? false : false;
                 Paint paint2 = this.k;
-                LinearGradient linearGradient = this.f67368e;
+                LinearGradient linearGradient = this.f67679e;
                 if (linearGradient == null) {
-                    RectF rectF = this.f67373j;
-                    linearGradient = new LinearGradient(rectF.left, 0.0f, rectF.right, 0.0f, this.f67366c, z ? this.f67367d : null, Shader.TileMode.CLAMP);
+                    RectF rectF = this.f67684j;
+                    linearGradient = new LinearGradient(rectF.left, 0.0f, rectF.right, 0.0f, this.f67677c, z ? this.f67678d : null, Shader.TileMode.CLAMP);
                 }
                 paint2.setShader(linearGradient);
                 return;
             }
-            this.k.setColor(this.f67364a);
+            this.k.setColor(this.f67675a);
         }
     }
 
@@ -244,19 +244,19 @@ public class g extends Drawable {
     public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            if (this.f67373j == null) {
+            if (this.f67684j == null) {
                 Rect bounds = getBounds();
                 int i2 = bounds.left;
-                int i3 = this.f67370g;
-                int i4 = this.f67371h;
-                int i5 = this.f67372i;
-                this.f67373j = new RectF((i2 + i3) - i4, (bounds.top + i3) - i5, (bounds.right - i3) - i4, (bounds.bottom - i3) - i5);
+                int i3 = this.f67681g;
+                int i4 = this.f67682h;
+                int i5 = this.f67683i;
+                this.f67684j = new RectF((i2 + i3) - i4, (bounds.top + i3) - i5, (bounds.right - i3) - i4, (bounds.bottom - i3) - i5);
             }
             if (this.k == null) {
                 a();
             }
-            RectF rectF = this.f67373j;
-            int i6 = this.f67369f;
+            RectF rectF = this.f67684j;
+            int i6 = this.f67680f;
             canvas.drawRoundRect(rectF, i6, i6, this.k);
         }
     }

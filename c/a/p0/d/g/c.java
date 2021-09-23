@@ -25,14 +25,14 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f10385c;
+    public static volatile c f10393c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f10386a;
+    public a f10394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f10387b;
+    public volatile boolean f10395b;
 
     /* loaded from: classes.dex */
     public static class a extends j {
@@ -71,22 +71,22 @@ public class c {
                 return;
             }
         }
-        this.f10387b = false;
-        this.f10386a = new a();
+        this.f10395b = false;
+        this.f10394a = new a();
     }
 
     public static c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f10385c == null) {
+            if (f10393c == null) {
                 synchronized (c.class) {
-                    if (f10385c == null) {
-                        f10385c = new c();
+                    if (f10393c == null) {
+                        f10393c = new c();
                     }
                 }
             }
-            return f10385c;
+            return f10393c;
         }
         return (c) invokeV.objValue;
     }
@@ -95,12 +95,12 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Set<String> stringSet = this.f10386a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+            Set<String> stringSet = this.f10394a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
             if (stringSet != null) {
                 return stringSet;
             }
             if (h()) {
-                return this.f10386a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+                return this.f10394a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
             }
             return null;
         }
@@ -113,7 +113,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String c2 = c("appKey");
             if (TextUtils.isEmpty(c2)) {
-                if (c.a.p0.d.c.f10384a) {
+                if (c.a.p0.d.c.f10392a) {
                     throw new IllegalStateException("获取 host app key 失败");
                 }
                 return "";
@@ -130,10 +130,10 @@ public class c {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String string = this.f10386a.getString(str, "");
+            String string = this.f10394a.getString(str, "");
             if (TextUtils.isEmpty(string)) {
                 if (h()) {
-                    String string2 = this.f10386a.getString(str, "");
+                    String string2 = this.f10394a.getString(str, "");
                     if (!TextUtils.isEmpty(string2)) {
                         return string2;
                     }
@@ -151,7 +151,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String c2 = c("hostName");
             if (TextUtils.isEmpty(c2)) {
-                if (c.a.p0.d.c.f10384a) {
+                if (c.a.p0.d.c.f10392a) {
                     throw new IllegalStateException("获取 HostName-宿主名称 失败");
                 }
                 return "";
@@ -167,7 +167,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             String c2 = c("schemeHead");
             if (TextUtils.isEmpty(c2)) {
-                if (c.a.p0.d.c.f10384a) {
+                if (c.a.p0.d.c.f10392a) {
                     throw new IllegalStateException("获取 SchemeHead-协议头 失败");
                 }
                 return "";
@@ -199,7 +199,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                if (this.f10387b) {
+                if (this.f10395b) {
                     return true;
                 }
                 String C = d.C(AppRuntime.getAppContext(), "config/union-cfg.json");
@@ -226,10 +226,10 @@ public class c {
                         }
                     }
                     i(optString, optString2, optString3, optString4, optInt, hashSet);
-                    this.f10387b = true;
+                    this.f10395b = true;
                     return true;
                 } catch (JSONException e2) {
-                    if (c.a.p0.d.c.f10384a) {
+                    if (c.a.p0.d.c.f10392a) {
                         e2.printStackTrace();
                     }
                     return false;
@@ -244,7 +244,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i2), set}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i2 < 0) {
             return;
         }
-        SharedPreferences.Editor putInt = this.f10386a.edit().putString("hostName", str).putString("schemeHead", str2).putString("appKey", str3).putString("shareCallBackUrl", str4).putInt("version", i2);
+        SharedPreferences.Editor putInt = this.f10394a.edit().putString("hostName", str).putString("schemeHead", str2).putString("appKey", str3).putString("shareCallBackUrl", str4).putInt("version", i2);
         if (set != null && !set.isEmpty()) {
             putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
         }

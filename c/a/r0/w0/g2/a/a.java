@@ -1,6 +1,6 @@
 package c.a.r0.w0.g2.a;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import c.a.q0.k0.b.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,19 +17,19 @@ public class a implements g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26762e;
+    public int f26782e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f26763f;
+    public long f26783f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26764g;
+    public String f26784g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f26765h;
+    public int f26785h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f26766i;
+    public int f26786i;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class a implements g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            x.c(builder, true, false, true);
-            builder.forum_id = Long.valueOf(c.a.e.e.m.b.g(this.f26764g, 0L));
-            builder.thread_id = Long.valueOf(this.f26763f);
-            builder.req_type = Integer.valueOf(this.f26765h == 1 ? 2 : 1);
+            a0.c(builder, true, false, true);
+            builder.forum_id = Long.valueOf(c.a.e.e.m.b.g(this.f26784g, 0L));
+            builder.thread_id = Long.valueOf(this.f26783f);
+            builder.req_type = Integer.valueOf(this.f26785h == 1 ? 2 : 1);
             ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

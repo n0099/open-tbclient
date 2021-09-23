@@ -41,23 +41,23 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f38738g;
+    public static final int f38789g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f38739h;
+    public static final int f38790h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f38740i;
+    public static final int f38791i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f38741j;
+    public static final int f38792j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f38742e;
+    public boolean f38793e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b0<a> f38743f;
+    public b0<a> f38794f;
     public ImageView mPlayIcon;
     public TextView mTitle;
     public TbImageView singalImg;
@@ -75,12 +75,12 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
                 return;
             }
         }
-        f38738g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+        f38789g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds88);
         int k = l.k(TbadkCoreApplication.getInst());
-        f38739h = k;
-        int i2 = k - f38738g;
-        f38740i = i2;
-        f38741j = i2 / 2;
+        f38790h = k;
+        int i2 = k - f38789g;
+        f38791i = i2;
+        f38792j = i2 / 2;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -158,7 +158,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.multi_image_single_h_layout, (ViewGroup) this, true);
             setOrientation(1);
-            setLayoutParams(new ViewGroup.LayoutParams(-1, f38741j));
+            setLayoutParams(new ViewGroup.LayoutParams(-1, f38792j));
             TextView textView = (TextView) findViewById(R.id.thread_card_title);
             this.mTitle = textView;
             b.m(textView, R.dimen.tbds7, R.dimen.tbds10);
@@ -173,7 +173,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{mediaData, tbImageView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i2)}) == null) {
             String a2 = a(mediaData);
-            int i3 = this.f38742e ? 46 : 47;
+            int i3 = this.f38793e ? 46 : 47;
             if (!StringHelper.equals(a2, tbImageView.getUrl())) {
                 tbImageView.reset();
             }
@@ -192,7 +192,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public b0<a> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38743f : (b0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38794f : (b0) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -206,7 +206,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f38742e = z;
+            this.f38793e = z;
         }
     }
 
@@ -230,7 +230,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public void setSubClickListener(b0<a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, b0Var) == null) {
-            this.f38743f = b0Var;
+            this.f38794f = b0Var;
         }
     }
 
@@ -253,7 +253,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
                 return;
             }
         }
-        this.f38742e = true;
+        this.f38793e = true;
         b();
     }
 

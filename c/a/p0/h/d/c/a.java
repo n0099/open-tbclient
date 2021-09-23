@@ -14,13 +14,13 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JsFunction f11137a;
+    public JsFunction f11145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JsFunction f11138b;
+    public JsFunction f11146b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JsFunction f11139c;
+    public JsFunction f11147c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public final class a {
                 return null;
             }
             a aVar2 = new a();
-            aVar2.f11137a = aVar.v("success");
-            aVar2.f11138b = aVar.v(com.baidu.pass.biometrics.face.liveness.b.a.g0);
-            aVar2.f11139c = aVar.v(XAdRemoteEvent.COMPLETE);
+            aVar2.f11145a = aVar.v("success");
+            aVar2.f11146b = aVar.v(com.baidu.pass.biometrics.face.liveness.b.a.g0);
+            aVar2.f11147c = aVar.v(XAdRemoteEvent.COMPLETE);
             return aVar2;
         }
         return (a) invokeL.objValue;
@@ -55,60 +55,60 @@ public final class a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            JsFunction jsFunction = this.f11138b;
+            JsFunction jsFunction = this.f11146b;
             if (jsFunction != null) {
                 jsFunction.call();
             }
-            JsFunction jsFunction2 = this.f11139c;
+            JsFunction jsFunction2 = this.f11147c;
             if (jsFunction2 != null) {
                 jsFunction2.call();
             }
-            f(this.f11137a);
+            f(this.f11145a);
         }
     }
 
     public void b(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            JsFunction jsFunction = this.f11138b;
+            JsFunction jsFunction = this.f11146b;
             if (jsFunction != null) {
                 jsFunction.call(obj);
             }
-            JsFunction jsFunction2 = this.f11139c;
+            JsFunction jsFunction2 = this.f11147c;
             if (jsFunction2 != null) {
                 jsFunction2.call(obj);
             }
-            f(this.f11137a);
+            f(this.f11145a);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            JsFunction jsFunction = this.f11137a;
+            JsFunction jsFunction = this.f11145a;
             if (jsFunction != null) {
                 jsFunction.call();
             }
-            JsFunction jsFunction2 = this.f11139c;
+            JsFunction jsFunction2 = this.f11147c;
             if (jsFunction2 != null) {
                 jsFunction2.call();
             }
-            f(this.f11138b);
+            f(this.f11146b);
         }
     }
 
     public void d(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            JsFunction jsFunction = this.f11137a;
+            JsFunction jsFunction = this.f11145a;
             if (jsFunction != null) {
                 jsFunction.call(obj);
             }
-            JsFunction jsFunction2 = this.f11139c;
+            JsFunction jsFunction2 = this.f11147c;
             if (jsFunction2 != null) {
                 jsFunction2.call(obj);
             }
-            f(this.f11138b);
+            f(this.f11146b);
         }
     }
 

@@ -24,13 +24,13 @@ public class c extends c.a.r0.j2.k.e.d1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public OriginalThreadCardView f19995f;
+    public OriginalThreadCardView f20010f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19996g;
+    public int f20011g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19997h;
+    public int f20012h;
 
     /* loaded from: classes3.dex */
     public class a implements OriginalThreadCardView.b {
@@ -38,18 +38,18 @@ public class c extends c.a.r0.j2.k.e.d1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f19998a;
+        public final /* synthetic */ c f20013a;
 
         /* renamed from: c.a.r0.j2.k.e.d1.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0958a extends c.a.q0.s.q.a {
+        public class C0956a extends c.a.q0.s.q.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f19999e;
+            public final /* synthetic */ a f20014e;
 
-            public C0958a(a aVar) {
+            public C0956a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +64,7 @@ public class c extends c.a.r0.j2.k.e.d1.a {
                         return;
                     }
                 }
-                this.f19999e = aVar;
+                this.f20014e = aVar;
             }
 
             @Override // c.a.q0.s.q.a
@@ -82,7 +82,7 @@ public class c extends c.a.r0.j2.k.e.d1.a {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    OriginalThreadInfo originalThreadInfo = this.f19999e.f19998a.f19986d;
+                    OriginalThreadInfo originalThreadInfo = this.f20014e.f20013a.f20001d;
                     if (originalThreadInfo != null) {
                         return originalThreadInfo.a();
                     }
@@ -117,7 +117,7 @@ public class c extends c.a.r0.j2.k.e.d1.a {
                     return;
                 }
             }
-            this.f19998a = cVar;
+            this.f20013a = cVar;
         }
 
         @Override // com.baidu.tieba.card.OriginalThreadCardView.b
@@ -125,10 +125,10 @@ public class c extends c.a.r0.j2.k.e.d1.a {
             c cVar;
             b0 b0Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || (b0Var = (cVar = this.f19998a).f19984b) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || (b0Var = (cVar = this.f20013a).f19999b) == null) {
                 return;
             }
-            b0Var.a(cVar.f19995f, new C0958a(this));
+            b0Var.a(cVar.f20010f, new C0956a(this));
         }
     }
 
@@ -150,8 +150,8 @@ public class c extends c.a.r0.j2.k.e.d1.a {
                 return;
             }
         }
-        this.f19997h = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
-        this.f19996g = i2;
+        this.f20012h = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
+        this.f20011g = i2;
     }
 
     @Override // c.a.r0.j2.k.e.d1.a
@@ -159,20 +159,20 @@ public class c extends c.a.r0.j2.k.e.d1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f19995f == null) {
-                OriginalThreadCardView originalThreadCardView = new OriginalThreadCardView(this.f19983a.getPageActivity());
-                this.f19995f = originalThreadCardView;
-                originalThreadCardView.sourceFormForPb = this.f19996g;
+            if (this.f20010f == null) {
+                OriginalThreadCardView originalThreadCardView = new OriginalThreadCardView(this.f19998a.getPageActivity());
+                this.f20010f = originalThreadCardView;
+                originalThreadCardView.sourceFormForPb = this.f20011g;
                 originalThreadCardView.setSubClickListener(new a(this));
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-                int i2 = this.f19997h;
+                int i2 = this.f20012h;
                 layoutParams.bottomMargin = i2;
                 layoutParams.leftMargin = i2;
                 layoutParams.rightMargin = i2;
-                this.f19995f.setLayoutParams(layoutParams);
-                this.f19995f.onChangeSkinType();
+                this.f20010f.setLayoutParams(layoutParams);
+                this.f20010f.onChangeSkinType();
             }
-            return this.f19995f;
+            return this.f20010f;
         }
         return (View) invokeV.objValue;
     }
@@ -180,11 +180,11 @@ public class c extends c.a.r0.j2.k.e.d1.a {
     @Override // c.a.r0.j2.k.e.d1.a
     public void b(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) || this.f19987e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) || this.f20002e == i2) {
             return;
         }
-        this.f19987e = i2;
-        OriginalThreadCardView originalThreadCardView = this.f19995f;
+        this.f20002e = i2;
+        OriginalThreadCardView originalThreadCardView = this.f20010f;
         if (originalThreadCardView != null) {
             originalThreadCardView.onChangeSkinType();
         }
@@ -194,8 +194,8 @@ public class c extends c.a.r0.j2.k.e.d1.a {
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.f19986d = originalThreadInfo;
-            OriginalThreadCardView originalThreadCardView = this.f19995f;
+            this.f20001d = originalThreadInfo;
+            OriginalThreadCardView originalThreadCardView = this.f20010f;
             if (originalThreadCardView != null) {
                 originalThreadCardView.fillData(originalThreadInfo);
             }

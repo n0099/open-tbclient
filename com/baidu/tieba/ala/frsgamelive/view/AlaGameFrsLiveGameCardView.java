@@ -4,8 +4,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import c.a.q0.s.q.d2;
 import c.a.r0.a0.b;
-import c.a.r0.v.e.b.c;
-import c.a.r0.v.e.d.a;
+import c.a.r0.v.e;
+import c.a.r0.v.g.b.c;
+import c.a.r0.v.g.d.a;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -111,18 +112,18 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
         d2 d2Var;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (d2Var = cVar.f25949e) == null || (aVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (d2Var = cVar.f25972e) == null || (aVar = this.n) == null) {
             return;
         }
         aVar.d(d2Var);
     }
 
-    public void s(c.a.r0.v.c cVar) {
+    public void s(e eVar) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) || (aVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) || (aVar = this.n) == null) {
             return;
         }
-        aVar.g(cVar);
+        aVar.g(eVar);
     }
 }

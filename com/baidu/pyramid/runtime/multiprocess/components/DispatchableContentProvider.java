@@ -46,10 +46,10 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f44466a;
+        public int f44528a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f44467b;
+        public int f44529b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2) {
@@ -74,8 +74,8 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         public final void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (i2 < this.f44467b || i2 > this.f44466a) {
-                    throw new IllegalArgumentException("The minCode is : " + this.f44467b + "The maxCode is : " + this.f44466a + "The error code is : " + i2);
+                if (i2 < this.f44529b || i2 > this.f44528a) {
+                    throw new IllegalArgumentException("The minCode is : " + this.f44529b + "The maxCode is : " + this.f44528a + "The error code is : " + i2);
                 }
             }
         }
@@ -149,8 +149,8 @@ public abstract class DispatchableContentProvider extends ContentProvider {
                 if (contentProviderDelegates != null) {
                     for (c.a.h0.b.a.i.a aVar : contentProviderDelegates) {
                         insertContentProviderDelegate(aVar);
-                        this.mUriMatcher.f44467b = aVar.l();
-                        this.mUriMatcher.f44466a = aVar.k();
+                        this.mUriMatcher.f44529b = aVar.l();
+                        this.mUriMatcher.f44528a = aVar.k();
                         aVar.h(this.mUriMatcher, this.mAuthority);
                     }
                 }

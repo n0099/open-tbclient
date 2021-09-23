@@ -22,17 +22,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f4621d;
+    public static final boolean f4629d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.d f4622a;
+    public c.d f4630a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.d f4623b;
+    public c.d f4631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, c.d> f4624c;
+    public Map<String, c.d> f4632c;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class a {
                 return;
             }
         }
-        f4621d = k.f7077a;
+        f4629d = k.f7085a;
     }
 
     public a() {
@@ -63,7 +63,7 @@ public class a {
                 return;
             }
         }
-        this.f4624c = new ConcurrentHashMap();
+        this.f4632c = new ConcurrentHashMap();
     }
 
     public static boolean a(c.d dVar, String str) {
@@ -71,9 +71,9 @@ public class a {
         List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dVar, str)) == null) {
-            if ((dVar == null || (list = dVar.f4636b) == null || list.isEmpty()) ? false : true) {
+            if ((dVar == null || (list = dVar.f4644b) == null || list.isEmpty()) ? false : true) {
                 File file = new File(str);
-                if (file.exists() && file.lastModified() == dVar.f4637c) {
+                if (file.exists() && file.lastModified() == dVar.f4645c) {
                     return true;
                 }
             }
@@ -92,9 +92,9 @@ public class a {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z)) == null) {
-            c.d dVar = this.f4624c.get(str2);
+            c.d dVar = this.f4632c.get(str2);
             if (a(dVar, c.i(str))) {
-                d.h("SwanAppWebSafe", "read from cache: serverDomains.data=" + dVar.f4636b);
+                d.h("SwanAppWebSafe", "read from cache: serverDomains.data=" + dVar.f4644b);
                 return dVar;
             }
             if (dVar != null) {
@@ -103,7 +103,7 @@ public class a {
                 dVar = new c.d();
             }
             c.h(z, str, str2, dVar);
-            this.f4624c.put(str2, dVar);
+            this.f4632c.put(str2, dVar);
             return dVar;
         }
         return (c.d) invokeLLZ.objValue;
@@ -113,18 +113,18 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            if (a(this.f4623b, c.j())) {
-                d.h("SwanAppWebSafe", "read from cache: webActions.data=" + this.f4623b.f4636b);
-                return this.f4623b.f4636b;
+            if (a(this.f4631b, c.j())) {
+                d.h("SwanAppWebSafe", "read from cache: webActions.data=" + this.f4631b.f4644b);
+                return this.f4631b.f4644b;
             }
-            c.d dVar = this.f4623b;
+            c.d dVar = this.f4631b;
             if (dVar != null) {
                 dVar.c();
             } else {
-                this.f4623b = new c.d();
+                this.f4631b = new c.d();
             }
-            c.k(z, this.f4623b);
-            return this.f4623b.f4636b;
+            c.k(z, this.f4631b);
+            return this.f4631b.f4644b;
         }
         return (List) invokeZ.objValue;
     }
@@ -133,18 +133,18 @@ public class a {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-            if (a(this.f4622a, c.m(str))) {
-                d.h("SwanAppWebSafe", "read from cache: webDomains.data=" + this.f4622a.f4636b);
-                return this.f4622a.f4636b;
+            if (a(this.f4630a, c.m(str))) {
+                d.h("SwanAppWebSafe", "read from cache: webDomains.data=" + this.f4630a.f4644b);
+                return this.f4630a.f4644b;
             }
-            c.d dVar = this.f4622a;
+            c.d dVar = this.f4630a;
             if (dVar != null) {
                 dVar.c();
             } else {
-                this.f4622a = new c.d();
+                this.f4630a = new c.d();
             }
-            c.l(z, str, this.f4622a);
-            return this.f4622a.f4636b;
+            c.l(z, str, this.f4630a);
+            return this.f4630a.f4644b;
         }
         return (List) invokeLZ.objValue;
     }
@@ -153,7 +153,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                if (f4621d) {
+                if (f4629d) {
                     throw new RuntimeException("appId can not be empty");
                 }
                 return;
@@ -166,15 +166,15 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.d dVar = this.f4622a;
+            c.d dVar = this.f4630a;
             if (dVar != null) {
                 dVar.c();
-                this.f4622a = null;
+                this.f4630a = null;
             }
-            c.d dVar2 = this.f4623b;
+            c.d dVar2 = this.f4631b;
             if (dVar2 != null) {
                 dVar2.c();
-                this.f4623b = null;
+                this.f4631b = null;
             }
             d.h("SwanAppWebSafe", "release cache done");
         }

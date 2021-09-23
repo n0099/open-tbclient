@@ -18,32 +18,32 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static b f15338i;
+    public static b f15347i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread f15339a;
+    public Thread f15348a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f15340b;
+    public AtomicInteger f15349b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f15341c;
+    public c f15350c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r.f.a.k.b f15342d;
+    public c.a.r.f.a.k.b f15351d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, String> f15343e;
+    public HashMap<String, String> f15352e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, String> f15344f;
+    public HashMap<String, String> f15353f;
 
     /* renamed from: g  reason: collision with root package name */
-    public j f15345g;
+    public j f15354g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f15346h;
+    public Context f15355h;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -51,7 +51,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15347e;
+        public final /* synthetic */ b f15356e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class b {
                     return;
                 }
             }
-            this.f15347e = bVar;
+            this.f15356e = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -76,33 +76,33 @@ public class b {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b bVar = this.f15347e;
-                bVar.f15341c = new g(bVar.f15346h);
-                if (this.f15347e.f15345g != null) {
-                    this.f15347e.f15345g.a(this.f15347e.f15341c.a());
-                    z = this.f15347e.f15345g.a();
+                b bVar = this.f15356e;
+                bVar.f15350c = new g(bVar.f15355h);
+                if (this.f15356e.f15354g != null) {
+                    this.f15356e.f15354g.a(this.f15356e.f15350c.a());
+                    z = this.f15356e.f15354g.a();
                 } else {
                     z = false;
                 }
-                if (z && this.f15347e.k()) {
-                    this.f15347e.m();
-                    this.f15347e.o();
+                if (z && this.f15356e.k()) {
+                    this.f15356e.m();
+                    this.f15356e.o();
                 }
-                this.f15347e.f15339a = null;
+                this.f15356e.f15348a = null;
             }
         }
     }
 
     /* renamed from: c.a.r.f.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0735b {
+    public static class C0733b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static C0735b f15348a;
+        public static C0733b f15357a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0735b(Context context) {
+        public C0733b(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,38 +120,38 @@ public class b {
             if (context == null) {
                 throw new NullPointerException("context should not be null");
             }
-            if (b.f15338i == null) {
+            if (b.f15347i == null) {
                 synchronized (b.class) {
-                    if (b.f15338i == null) {
-                        b unused = b.f15338i = new b(context.getApplicationContext(), null);
+                    if (b.f15347i == null) {
+                        b unused = b.f15347i = new b(context.getApplicationContext(), null);
                     }
                 }
             }
         }
 
-        public static C0735b c(Context context) {
+        public static C0733b c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-                if (f15348a == null) {
+                if (f15357a == null) {
                     synchronized (b.class) {
-                        if (f15348a == null) {
-                            f15348a = new C0735b(context);
+                        if (f15357a == null) {
+                            f15357a = new C0733b(context);
                         }
                     }
                 }
-                return f15348a;
+                return f15357a;
             }
-            return (C0735b) invokeL.objValue;
+            return (C0733b) invokeL.objValue;
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.f15338i.f15343e = new HashMap();
-                b.f15338i.f15343e.put(BOSTokenRequest.CHARSET, "utf-8");
-                b.f15338i.f15343e.put("Content-type", "application/json");
-                b.f15338i.f15342d = new c.a.r.f.a.r.a();
+                b.f15347i.f15352e = new HashMap();
+                b.f15347i.f15352e.put(BOSTokenRequest.CHARSET, "utf-8");
+                b.f15347i.f15352e.put("Content-type", "application/json");
+                b.f15347i.f15351d = new c.a.r.f.a.r.a();
             }
         }
 
@@ -159,10 +159,10 @@ public class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (b.f15338i.f15342d == null) {
+                if (b.f15347i.f15351d == null) {
                     a();
                 }
-                return b.f15338i;
+                return b.f15347i;
             }
             return (b) invokeV.objValue;
         }
@@ -183,10 +183,10 @@ public class b {
                 return;
             }
         }
-        this.f15340b = new AtomicInteger(0);
+        this.f15349b = new AtomicInteger(0);
         new AtomicBoolean(false);
-        this.f15346h = context;
-        this.f15345g = new o(context);
+        this.f15355h = context;
+        this.f15354g = new o(context);
     }
 
     public /* synthetic */ b(Context context, c.a.r.f.a.a aVar) {
@@ -200,7 +200,7 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 throw new NullPointerException("url should not be empty");
             }
-            HashMap<String, String> hashMap = this.f15344f;
+            HashMap<String, String> hashMap = this.f15353f;
             return hashMap == null ? str : q.b(str, hashMap);
         }
         return (String) invokeL.objValue;
@@ -218,8 +218,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             String e2 = e("https://mbd.baidu.com/store");
-            c.a.r.f.a.k.b bVar = this.f15342d;
-            JSONObject a3 = n.a((bVar == null || (a2 = bVar.a()) == null) ? null : a2.a(e2, "POST", this.f15343e, this.f15341c.a()));
+            c.a.r.f.a.k.b bVar = this.f15351d;
+            JSONObject a3 = n.a((bVar == null || (a2 = bVar.a()) == null) ? null : a2.a(e2, "POST", this.f15352e, this.f15350c.a()));
             return a3 != null && a3.optInt("errno", -1) == 0;
         }
         return invokeV.booleanValue;
@@ -228,16 +228,16 @@ public class b {
     public final void m() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (jVar = this.f15345g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (jVar = this.f15354g) == null) {
             return;
         }
-        jVar.b(this.f15341c.a());
+        jVar.b(this.f15350c.a());
     }
 
     public final void o() {
         AtomicInteger atomicInteger;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (atomicInteger = this.f15340b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (atomicInteger = this.f15349b) == null) {
             return;
         }
         atomicInteger.set(2);
@@ -247,15 +247,15 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (b.class) {
-                if (this.f15340b.get() == 0) {
-                    if (this.f15346h == null) {
+                if (this.f15349b.get() == 0) {
+                    if (this.f15355h == null) {
                         throw new NullPointerException("context should not be null");
                     }
-                    this.f15340b.set(1);
-                    if (this.f15339a == null) {
-                        this.f15339a = new Thread(h());
+                    this.f15349b.set(1);
+                    if (this.f15348a == null) {
+                        this.f15348a = new Thread(h());
                     }
-                    this.f15339a.start();
+                    this.f15348a.start();
                 }
             }
         }

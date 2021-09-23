@@ -22,30 +22,30 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f23416a;
+    public b f23432a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.p0.a.b f23417b;
+    public c.a.r0.p0.a.b f23433b;
 
     /* renamed from: c.a.r0.p0.a.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1093a extends BdAsyncTask<Void, Integer, String> {
+    public class C1091a extends BdAsyncTask<Void, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f23418a;
+        public final /* synthetic */ Bitmap f23434a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f23419b;
+        public final /* synthetic */ String f23435b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f23420c;
+        public final /* synthetic */ String f23436c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f23421d;
+        public final /* synthetic */ a f23437d;
 
-        public C1093a(a aVar, Bitmap bitmap, String str, String str2) {
+        public C1091a(a aVar, Bitmap bitmap, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,10 +60,10 @@ public class a {
                     return;
                 }
             }
-            this.f23421d = aVar;
-            this.f23418a = bitmap;
-            this.f23419b = str;
-            this.f23420c = str2;
+            this.f23437d = aVar;
+            this.f23434a = bitmap;
+            this.f23435b = str;
+            this.f23436c = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,8 +73,8 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                File c2 = this.f23421d.c(this.f23418a, this.f23419b, this.f23420c);
-                this.f23418a.recycle();
+                File c2 = this.f23437d.c(this.f23434a, this.f23435b, this.f23436c);
+                this.f23434a.recycle();
                 return c2.getAbsolutePath();
             }
             return (String) invokeL.objValue;
@@ -85,9 +85,9 @@ public class a {
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                super.onPostExecute((C1093a) str);
-                if (this.f23421d.f23417b != null) {
-                    this.f23421d.f23417b.onCoverPathCallBack(str);
+                super.onPostExecute((C1091a) str);
+                if (this.f23437d.f23433b != null) {
+                    this.f23437d.f23433b.onCoverPathCallBack(str);
                 }
             }
         }
@@ -99,13 +99,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f23422a;
+        public String f23438a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f23423b;
+        public long f23439b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f23424c;
+        public final /* synthetic */ a f23440c;
 
         public b(a aVar, String str, long j2) {
             Interceptable interceptable = $ic;
@@ -122,9 +122,9 @@ public class a {
                     return;
                 }
             }
-            this.f23424c = aVar;
-            this.f23422a = str;
-            this.f23423b = j2;
+            this.f23440c = aVar;
+            this.f23438a = str;
+            this.f23439b = j2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -134,13 +134,13 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 Bitmap bitmap = null;
-                if (TextUtils.isEmpty(this.f23422a)) {
+                if (TextUtils.isEmpty(this.f23438a)) {
                     return null;
                 }
                 try {
                     MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                    mediaMetadataRetriever.setDataSource(this.f23422a);
-                    bitmap = mediaMetadataRetriever.getFrameAtTime(this.f23423b * 1000);
+                    mediaMetadataRetriever.setDataSource(this.f23438a);
+                    bitmap = mediaMetadataRetriever.getFrameAtTime(this.f23439b * 1000);
                     mediaMetadataRetriever.release();
                     return bitmap;
                 } catch (Exception e2) {
@@ -160,8 +160,8 @@ public class a {
                 if (bitmap == null || bitmap.isRecycled()) {
                     return;
                 }
-                a aVar = this.f23424c;
-                String str = c.a.r0.x3.c.f28883d;
+                a aVar = this.f23440c;
+                String str = c.a.r0.x3.c.f28903d;
                 aVar.b(bitmap, str, System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX);
             }
         }
@@ -186,7 +186,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLL(1048576, this, bitmap, str, str2) == null) || bitmap == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        new C1093a(this, bitmap, str, str2).execute(new Void[0]);
+        new C1091a(this, bitmap, str, str2).execute(new Void[0]);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0057 */
@@ -260,9 +260,9 @@ public class a {
     public void d(String str, long j2, c.a.r0.p0.a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j2), bVar}) == null) {
-            this.f23417b = bVar;
+            this.f23433b = bVar;
             b bVar2 = new b(this, str, j2);
-            this.f23416a = bVar2;
+            this.f23432a = bVar2;
             bVar2.execute(new Void[0]);
         }
     }

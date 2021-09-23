@@ -12,7 +12,7 @@ public class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f68701a;
+    public com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f69012a;
 
     public b(com.bytedance.sdk.openadsdk.preload.geckox.buffer.a aVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class b extends c {
                 return;
             }
         }
-        this.f68701a = aVar;
+        this.f69012a = aVar;
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -51,7 +51,7 @@ public class b extends c {
     public void write(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f68701a.a(i2);
+            this.f69012a.a(i2);
         }
     }
 
@@ -59,7 +59,7 @@ public class b extends c {
     public void write(byte[] bArr) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            this.f68701a.a(bArr);
+            this.f69012a.a(bArr);
         }
     }
 
@@ -67,7 +67,7 @@ public class b extends c {
     public void write(byte[] bArr, int i2, int i3) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i2, i3) == null) {
-            this.f68701a.a(bArr, i2, i3);
+            this.f69012a.a(bArr, i2, i3);
         }
     }
 }

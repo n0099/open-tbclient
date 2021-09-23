@@ -15,7 +15,7 @@ public class d implements ZeusPluginFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9767a;
+    public String f9775a;
 
     public d(@NonNull String str) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class d implements ZeusPluginFactory {
                 return;
             }
         }
-        this.f9767a = str;
+        this.f9775a = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -40,7 +40,7 @@ public class d implements ZeusPluginFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            c.a.p0.a.y0.g.h.b a2 = c.a.p0.a.c1.a.z().a(invoker, this.f9767a);
+            c.a.p0.a.y0.g.h.b a2 = c.a.p0.a.c1.a.z().a(invoker, this.f9775a);
             c.a.p0.a.e0.d.g("【RtcRoomPluginFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline RtcRoom「Hash:" + a2.hashCode() + "」");
             return new b(a2);
         }

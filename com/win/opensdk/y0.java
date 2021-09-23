@@ -12,7 +12,7 @@ public class y0 implements n1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ E0 f77222a;
+    public final /* synthetic */ E0 f77541a;
 
     public y0(E0 e0) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class y0 implements n1 {
                 return;
             }
         }
-        this.f77222a = e0;
+        this.f77541a = e0;
     }
 
     @Override // com.win.opensdk.n1
@@ -45,12 +45,12 @@ public class y0 implements n1 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             Info info = (Info) obj;
             try {
-                this.f77222a.f76783c = info;
-                if (this.f77222a.f76786f != null) {
+                this.f77541a.f77102c = info;
+                if (this.f77541a.f77105f != null) {
                     if (info == null || info.getType() != 11) {
-                        this.f77222a.f76786f.onFail(PBError.PID_TYPE_ERROR);
-                    } else if (this.f77222a.b()) {
-                        this.f77222a.f76786f.onLoaded();
+                        this.f77541a.f77105f.onFail(PBError.PID_TYPE_ERROR);
+                    } else if (this.f77541a.b()) {
+                        this.f77541a.f77105f.onLoaded();
                     }
                 }
             } catch (Exception unused) {
@@ -62,7 +62,7 @@ public class y0 implements n1 {
     public void onFail(PBError pBError) {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.f77222a.f76786f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.f77541a.f77105f) == null) {
             return;
         }
         pBNativeListener.onFail(pBError);

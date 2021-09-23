@@ -34,34 +34,34 @@ public class a implements b<String, String> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39412a = "Host";
+    public static final String f39469a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39413b = "Accept";
+    public static final String f39470b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39414c = "Accept-Charset";
+    public static final String f39471c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39415d = "Accept-Encoding";
+    public static final String f39472d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39416e = "Accept-Language";
+    public static final String f39473e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39417f = "Allow";
+    public static final String f39474f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39418g = "Cache-Control";
+    public static final String f39475g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39419h = "Content-Disposition";
+    public static final String f39476h = "Content-Disposition";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39420i = "Content-Encoding";
+    public static final String f39477i = "Content-Encoding";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f39421j = "Content-Length";
+    public static final String f39478j = "Content-Length";
     public static final String k = "Content-Type";
     public static final String l = "Date";
     public static final String m = "ETag";
@@ -175,7 +175,7 @@ public class a implements b<String, String> {
         if (interceptable == null || interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, this, str, j2) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(v[0], Locale.US);
             simpleDateFormat.setTimeZone(w);
-            a(str, simpleDateFormat.format(new Date(j2)));
+            set(str, simpleDateFormat.format(new Date(j2)));
         }
     }
 
@@ -183,19 +183,19 @@ public class a implements b<String, String> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
-            String c2 = c(str);
-            if (c2 == null) {
+            String first = getFirst(str);
+            if (first == null) {
                 return -1L;
             }
             for (String str2 : v) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat(str2, Locale.US);
                 simpleDateFormat.setTimeZone(w);
                 try {
-                    return simpleDateFormat.parse(c2).getTime();
+                    return simpleDateFormat.parse(first).getTime();
                 } catch (ParseException unused) {
                 }
             }
-            throw new IllegalArgumentException("Cannot parse date value \"" + c2 + "\" for \"" + str + "\" header");
+            throw new IllegalArgumentException("Cannot parse date value \"" + first + "\" for \"" + str + "\" header");
         }
         return invokeL.longValue;
     }
@@ -203,16 +203,23 @@ public class a implements b<String, String> {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c("Accept") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getFirst("Accept") : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Map
+    @Override // com.baidu.fsg.base.restnet.http.b
     /* renamed from: a */
-    public List<String> get(Object obj) {
+    public String getFirst(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.x.get(obj) : (List) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            List<String> list = this.x.get(str);
+            if (list != null) {
+                return list.get(0);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -227,46 +234,35 @@ public class a implements b<String, String> {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            a("Content-Length", Long.toString(j2));
+            set("Content-Length", Long.toString(j2));
         }
     }
 
-    public void a(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.fsg.base.restnet.http.b
+    /* renamed from: a */
+    public void add(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            a("Accept", str);
-        }
-    }
-
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public void a2(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-            if (str == null) {
-                throw new IllegalArgumentException("'name' must not be null");
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            List<String> list = this.x.get(str);
+            if (list == null) {
+                list = new LinkedList<>();
+                this.x.put(str, list);
             }
-            StringBuilder sb = new StringBuilder("form-data; name=\"");
-            sb.append(str);
-            sb.append('\"');
-            if (str2 != null) {
-                sb.append("; filename=\"");
-                sb.append(str2);
-                sb.append('\"');
-            }
-            a("Content-Disposition", sb.toString());
+            list.add(str2);
         }
     }
 
     public void a(URI uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, uri) == null) {
-            a("Location", uri.toASCIIString());
+        if (interceptable == null || interceptable.invokeL(1048581, this, uri) == null) {
+            set("Location", uri.toASCIIString());
         }
     }
 
     public void a(List<Charset> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             StringBuilder sb = new StringBuilder();
             Iterator<Charset> it = list.iterator();
             while (it.hasNext()) {
@@ -275,35 +271,25 @@ public class a implements b<String, String> {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
             }
-            a("Accept-Charset", sb.toString());
-        }
-    }
-
-    @Override // com.baidu.fsg.base.restnet.http.b
-    public void a(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                a(entry.getKey(), entry.getValue());
-            }
+            set("Accept-Charset", sb.toString());
         }
     }
 
     public void a(Set<HttpDefines.HttpMethod> set) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, set) == null) {
-            a("Allow", a(set, ",", "", ""));
+        if (interceptable == null || interceptable.invokeL(1048583, this, set) == null) {
+            set("Allow", a(set, ",", "", ""));
         }
     }
 
     public List<Charset> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            String c2 = c("Accept-Charset");
-            if (c2 != null) {
-                String[] split = c2.split(",\\s*");
+            String first = getFirst("Accept-Charset");
+            if (first != null) {
+                String[] split = first.split(",\\s*");
                 int length = split.length;
                 for (int i2 = 0; i2 < length; i2++) {
                     String str = split[i2];
@@ -321,46 +307,35 @@ public class a implements b<String, String> {
         return (List) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Map
-    /* renamed from: b */
-    public List<String> remove(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) ? this.x.remove(obj) : (List) invokeL.objValue;
-    }
-
     public void b(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
             a("Date", j2);
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            a("Accept-Encoding", str);
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            set("Accept", str);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.fsg.base.restnet.http.b
-    public void b(String str, String str2) {
+    /* renamed from: b */
+    public void set(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, str, str2) == null) {
-            List<String> list = this.x.get(str);
-            if (list == null) {
-                list = new LinkedList<>();
-                this.x.put(str, list);
-            }
-            list.add(str2);
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(str2);
+            this.x.put(str, linkedList);
         }
     }
 
     public void b(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
             StringBuilder sb = new StringBuilder();
             Iterator<String> it = list.iterator();
             while (it.hasNext()) {
@@ -369,47 +344,52 @@ public class a implements b<String, String> {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
             }
-            a("If-None-Match", sb.toString());
+            set("If-None-Match", sb.toString());
         }
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? c("Accept-Encoding") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? getFirst("Accept-Encoding") : (String) invokeV.objValue;
     }
 
     public void c(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
             a("Expires", j2);
         }
     }
 
-    /* renamed from: c  reason: avoid collision after fix types in other method */
-    public void c2(String str) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            a("Accept-Language", str);
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            set("Accept-Encoding", str);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.fsg.base.restnet.http.b
-    /* renamed from: c */
-    public void a(String str, String str2) {
+    public void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, str, str2) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(str2);
-            this.x.put(str, linkedList);
+        if (interceptable == null || interceptable.invokeLL(1048593, this, str, str2) == null) {
+            if (str == null) {
+                throw new IllegalArgumentException("'name' must not be null");
+            }
+            StringBuilder sb = new StringBuilder("form-data; name=\"");
+            sb.append(str);
+            sb.append('\"');
+            if (str2 != null) {
+                sb.append("; filename=\"");
+                sb.append(str2);
+                sb.append('\"');
+            }
+            set("Content-Disposition", sb.toString());
         }
     }
 
     @Override // java.util.Map
     public void clear() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.x.clear();
         }
     }
@@ -418,44 +398,44 @@ public class a implements b<String, String> {
     public boolean containsKey(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, obj)) == null) ? this.x.containsKey(obj) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, obj)) == null) ? this.x.containsKey(obj) : invokeL.booleanValue;
     }
 
     @Override // java.util.Map
     public boolean containsValue(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, obj)) == null) ? this.x.containsValue(obj) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, obj)) == null) ? this.x.containsValue(obj) : invokeL.booleanValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? c("Accept-Language") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? getFirst("Accept-Language") : (String) invokeV.objValue;
     }
 
     public void d(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048603, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
             a("If-Modified-Since", j2);
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
-            a("Cache-Control", str);
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            set("Accept-Language", str);
         }
     }
 
     public Set<HttpDefines.HttpMethod> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            String c2 = c("Allow");
-            if (c2 != null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            String first = getFirst("Allow");
+            if (first != null) {
                 ArrayList arrayList = new ArrayList(5);
-                for (String str : c2.split(",\\s*")) {
+                for (String str : first.split(",\\s*")) {
                     arrayList.add(HttpDefines.HttpMethod.valueOf(str));
                 }
                 return EnumSet.copyOf((Collection) arrayList);
@@ -467,15 +447,15 @@ public class a implements b<String, String> {
 
     public void e(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048606, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
             a("Last-Modified", j2);
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
-            a("Content-Encoding", str);
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            set("Cache-Control", str);
         }
     }
 
@@ -483,14 +463,14 @@ public class a implements b<String, String> {
     public Set<Map.Entry<String, List<String>>> entrySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.x.entrySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.x.entrySet() : (Set) invokeV.objValue;
     }
 
     @Override // java.util.Map
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
@@ -505,23 +485,51 @@ public class a implements b<String, String> {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? c("Cache-Control") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? getFirst("Cache-Control") : (String) invokeV.objValue;
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
-            a("Content-Type", str.toString());
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+            set("Content-Encoding", str);
         }
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? c("Content-Encoding") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            List<String> list = this.x.get("Content-Type");
+            if (list == null || list.size() <= 1) {
+                return null;
+            }
+            return list.get(1);
+        }
+        return (String) invokeV.objValue;
     }
 
     public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
+            set("Content-Type", str.toString());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Map
+    public List<String> get(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, obj)) == null) ? this.x.get(obj) : (List) invokeL.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? getFirst("Content-Encoding") : (String) invokeV.objValue;
+    }
+
+    public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
             if (str != null) {
@@ -532,18 +540,25 @@ public class a implements b<String, String> {
                     throw new IllegalArgumentException("Invalid eTag, does not end with \"");
                 }
             }
-            a("ETag", str);
+            set("ETag", str);
         }
     }
 
-    public long h() {
+    @Override // java.util.Map
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.x.hashCode() : invokeV.intValue;
+    }
+
+    public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            String c2 = c("Content-Length");
-            if (c2 != null) {
+            String first = getFirst("Content-Length");
+            if (first != null) {
                 try {
-                    return Long.parseLong(c2);
+                    return Long.parseLong(first);
                 } catch (NumberFormatException unused) {
                     return -1L;
                 }
@@ -553,30 +568,10 @@ public class a implements b<String, String> {
         return invokeV.longValue;
     }
 
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
-            a("If-None-Match", str);
-        }
-    }
-
-    @Override // java.util.Map
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.x.hashCode() : invokeV.intValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? c("Content-Type") : (String) invokeV.objValue;
-    }
-
     public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
-            a("Pragma", str);
+        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
+            set("If-None-Match", str);
         }
     }
 
@@ -584,84 +579,68 @@ public class a implements b<String, String> {
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.x.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.x.isEmpty() : invokeV.booleanValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            List<String> list = this.x.get("Content-Type");
-            if (list == null || list.size() <= 1) {
-                return null;
-            }
-            return list.get(1);
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? getFirst("Content-Type") : (String) invokeV.objValue;
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
-            a("User-Agent", str);
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
+            set("Pragma", str);
         }
     }
 
     public long k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? l("Date") : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? l("Date") : invokeV.longValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.fsg.base.restnet.http.b
-    /* renamed from: k */
-    public String c(String str) {
-        InterceptResult invokeL;
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, str)) == null) {
-            List<String> list = this.x.get(str);
-            if (list != null) {
-                return list.get(0);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
+            set("User-Agent", str);
         }
-        return (String) invokeL.objValue;
     }
 
     @Override // java.util.Map
     public Set<String> keySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.x.keySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.x.keySet() : (Set) invokeV.objValue;
     }
 
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? c("ETag") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? getFirst("ETag") : (String) invokeV.objValue;
     }
 
     public long m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? l("Expires") : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? l("Expires") : invokeV.longValue;
     }
 
-    public long n() {
+    public String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? l("If-Modified-Since") : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? getFirst("Host") : (String) invokeV.objValue;
     }
 
     public List<String> o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            String c2 = c("If-None-Match");
-            if (c2 != null) {
-                for (String str : c2.split(",\\s*")) {
+            String first = getFirst("If-None-Match");
+            if (first != null) {
+                for (String str : first.split(",\\s*")) {
                     arrayList.add(str);
                 }
             }
@@ -673,40 +652,58 @@ public class a implements b<String, String> {
     public long p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? l("Last-Modified") : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? l("If-Modified-Since") : invokeV.longValue;
     }
 
     @Override // java.util.Map
     public void putAll(Map<? extends String, ? extends List<String>> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(1048629, this, map) == null) {
             this.x.putAll(map);
         }
     }
 
-    public URI q() {
+    public long q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
-            String c2 = c("Location");
-            if (c2 != null) {
-                return URI.create(c2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? l("Last-Modified") : invokeV.longValue;
+    }
+
+    public URI r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+            String first = getFirst("Location");
+            if (first != null) {
+                return URI.create(first);
             }
             return null;
         }
         return (URI) invokeV.objValue;
     }
 
-    public String r() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Map
+    public List<String> remove(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? c("Pragma") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, obj)) == null) ? this.x.remove(obj) : (List) invokeL.objValue;
     }
 
     public String s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? c("User-Agent") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? getFirst("Pragma") : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.fsg.base.restnet.http.b
+    public void setAll(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048636, this, map) == null) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                set(entry.getKey(), entry.getValue());
+            }
+        }
     }
 
     @Override // java.util.Map
@@ -716,11 +713,17 @@ public class a implements b<String, String> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.x.size() : invokeV.intValue;
     }
 
-    @Override // com.baidu.fsg.base.restnet.http.b
-    public Map<String, String> t() {
+    public String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? getFirst("X-BFB-RT") : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.fsg.base.restnet.http.b
+    public Map<String, String> toSingleValueMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
             LinkedHashMap linkedHashMap = new LinkedHashMap(this.x.size());
             for (Map.Entry<String, List<String>> entry : this.x.entrySet()) {
                 linkedHashMap.put(entry.getKey(), entry.getValue().get(0));
@@ -733,19 +736,13 @@ public class a implements b<String, String> {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? this.x.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.x.toString() : (String) invokeV.objValue;
     }
 
     public String u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? c("X-BFB-RT") : (String) invokeV.objValue;
-    }
-
-    public String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? c("Host") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? getFirst("User-Agent") : (String) invokeV.objValue;
     }
 
     @Override // java.util.Map

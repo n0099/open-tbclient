@@ -17,7 +17,7 @@ public class KPSwitchRootFrameLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f48317e;
+    public c f48425e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchRootFrameLayout(Context context) {
@@ -43,7 +43,7 @@ public class KPSwitchRootFrameLayout extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f48317e = new c(this);
+            this.f48425e = new c(this);
         }
     }
 
@@ -51,7 +51,7 @@ public class KPSwitchRootFrameLayout extends FrameLayout {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            this.f48317e.b(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
+            this.f48425e.b(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
             super.onMeasure(i2, i3);
         }
     }

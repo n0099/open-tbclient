@@ -41,7 +41,7 @@ public class o extends c.a.r0.w0.k<c2, FrsCardVideoViewHolder<c.a.r0.w0.n1.g.b>>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ o f27214b;
+        public final /* synthetic */ o f27234b;
 
         public a(o oVar) {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class o extends c.a.r0.w0.k<c2, FrsCardVideoViewHolder<c.a.r0.w0.n1.g.b>>
                     return;
                 }
             }
-            this.f27214b = oVar;
+            this.f27234b = oVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,39 +70,39 @@ public class o extends c.a.r0.w0.k<c2, FrsCardVideoViewHolder<c.a.r0.w0.n1.g.b>>
                 return;
             }
             if (view.getId() == R.id.frame_video) {
-                this.f27214b.J0(d2Var, "c11718");
+                this.f27234b.J0(d2Var, "c11718");
             } else if (view.getId() == R.id.layout_root) {
-                this.f27214b.J0(d2Var, TbadkCoreStatisticKey.FRS_PHOTO_LIVE_VIEW_PAGER_ITEM);
+                this.f27234b.J0(d2Var, TbadkCoreStatisticKey.FRS_PHOTO_LIVE_VIEW_PAGER_ITEM);
             } else if (view.getId() == R.id.image_user || view.getId() == R.id.pendant_image_user) {
-                this.f27214b.J0(d2Var, "c10241");
+                this.f27234b.J0(d2Var, "c10241");
             } else if (view.getId() == R.id.card_divider_tv) {
-                c.a.r0.w0.n2.l.a(this.f27214b.z, d2Var.getRecomReason());
+                c.a.r0.w0.n2.l.a(this.f27234b.z, d2Var.getRecomReason());
             }
             if (view.getId() != R.id.card_home_page_normal_thread_user_name && !(view instanceof HeadImageView) && !(view instanceof HeadPendantView)) {
                 if (view.getId() == R.id.frame_video) {
-                    c.a.r0.w0.k2.a.e(d2Var, 4, this.f27214b.f2961i, this.f27214b.z, this.f27214b.i0());
-                    if (this.f27214b.n == null || this.f27214b.n.getForum() == null) {
+                    c.a.r0.w0.k2.a.e(d2Var, 4, this.f27234b.f2962i, this.f27234b.z, this.f27234b.i0());
+                    if (this.f27234b.n == null || this.f27234b.n.getForum() == null) {
                         return;
                     }
-                    c.a.r0.w0.k2.a.c(d2Var, this.f27214b.n.getForum().getId());
+                    c.a.r0.w0.k2.a.c(d2Var, this.f27234b.n.getForum().getId());
                     return;
                 } else if (view.getId() == R.id.thread_info_commont_container) {
-                    c.a.r0.w0.k2.a.e(d2Var, 5, this.f27214b.f2961i, this.f27214b.z, this.f27214b.i0());
-                    if (this.f27214b.n == null || this.f27214b.n.getForum() == null) {
+                    c.a.r0.w0.k2.a.e(d2Var, 5, this.f27234b.f2962i, this.f27234b.z, this.f27234b.i0());
+                    if (this.f27234b.n == null || this.f27234b.n.getForum() == null) {
                         return;
                     }
-                    c.a.r0.w0.k2.a.c(d2Var, this.f27214b.n.getForum().getId());
+                    c.a.r0.w0.k2.a.c(d2Var, this.f27234b.n.getForum().getId());
                     return;
                 } else {
-                    c.a.r0.w0.k2.a.e(d2Var, 1, this.f27214b.f2961i, this.f27214b.z, this.f27214b.i0());
-                    if (this.f27214b.n == null || this.f27214b.n.getForum() == null) {
+                    c.a.r0.w0.k2.a.e(d2Var, 1, this.f27234b.f2962i, this.f27234b.z, this.f27234b.i0());
+                    if (this.f27234b.n == null || this.f27234b.n.getForum() == null) {
                         return;
                     }
-                    c.a.r0.w0.k2.a.c(d2Var, this.f27214b.n.getForum().getId());
+                    c.a.r0.w0.k2.a.c(d2Var, this.f27234b.n.getForum().getId());
                     return;
                 }
             }
-            c.a.r0.w0.k2.a.e(d2Var, 2, this.f27214b.f2961i, this.f27214b.z, this.f27214b.i0());
+            c.a.r0.w0.k2.a.e(d2Var, 2, this.f27234b.f2962i, this.f27234b.z, this.f27234b.i0());
         }
     }
 
@@ -170,14 +170,14 @@ public class o extends c.a.r0.w0.k<c2, FrsCardVideoViewHolder<c.a.r0.w0.n1.g.b>>
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var)) == null) {
             if (d2Var != null) {
                 c.a.r0.p2.o oVar = new c.a.r0.p2.o();
-                oVar.f23806a = K0(d2Var.h0());
-                oVar.f23809d = this.z.f26941c;
-                oVar.f23808c = d2Var.s1();
-                oVar.l = d2Var.Y0;
+                oVar.f23822a = K0(d2Var.h0());
+                oVar.f23825d = this.z.f26961c;
+                oVar.f23824c = d2Var.s1();
+                oVar.l = d2Var.Z0;
                 if (d2Var.q1() != null) {
                     oVar.m = d2Var.q1().video_md5;
                 }
-                d2Var.N4();
+                d2Var.M4();
                 return oVar;
             }
             return null;
@@ -192,8 +192,8 @@ public class o extends c.a.r0.w0.k<c2, FrsCardVideoViewHolder<c.a.r0.w0.n1.g.b>>
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            c.a.r0.w0.n1.g.b bVar = new c.a.r0.w0.n1.g.b(this.x, this.f2961i);
-            bVar.a0(this.f2961i);
+            c.a.r0.w0.n1.g.b bVar = new c.a.r0.w0.n1.g.b(this.x, this.f2962i);
+            bVar.a0(this.f2962i);
             bVar.a(this.y);
             return new FrsCardVideoViewHolder(bVar);
         }
@@ -213,7 +213,7 @@ public class o extends c.a.r0.w0.k<c2, FrsCardVideoViewHolder<c.a.r0.w0.n1.g.b>>
             frsCardVideoViewHolder.getCardView().g0(L0(c2Var.w));
             frsCardVideoViewHolder.getCardView().k(c2Var.w);
             frsCardVideoViewHolder.getCardView().m(this.A);
-            c.a.r0.w0.k2.a.m(c2Var.w, this.f2961i, this.z, i0());
+            c.a.r0.w0.k2.a.m(c2Var.w, this.f2962i, this.z, i0());
             FrsViewData frsViewData = this.n;
             if (frsViewData != null && frsViewData.getForum() != null) {
                 c.a.r0.w0.k2.a.l(c2Var.w, this.n.getForum().getId());

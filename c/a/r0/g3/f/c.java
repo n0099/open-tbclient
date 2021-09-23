@@ -18,25 +18,25 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<n> f18673a;
+    public List<n> f18682a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RecommendForumInfo> f18674b;
+    public List<RecommendForumInfo> f18683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Page f18675c;
+    public Page f18684c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f18676d;
+    public boolean f18685d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18677e;
+    public int f18686e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18678f;
+    public int f18687f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18679g;
+    public int f18688g;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -51,37 +51,37 @@ public class c {
                 return;
             }
         }
-        this.f18673a = new ArrayList();
-        this.f18676d = true;
-        this.f18677e = 0;
-        this.f18678f = 0;
-        this.f18679g = 0;
+        this.f18682a = new ArrayList();
+        this.f18685d = true;
+        this.f18686e = 0;
+        this.f18687f = 0;
+        this.f18688g = 0;
     }
 
     public List<n> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18673a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18682a : (List) invokeV.objValue;
     }
 
     public void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            String str = dVar.f18683d;
-            this.f18675c = dVar.f18682c;
-            List<RecommendForumInfo> list = dVar.f18680a;
-            this.f18674b = list;
+            String str = dVar.f18692d;
+            this.f18684c = dVar.f18691c;
+            List<RecommendForumInfo> list = dVar.f18689a;
+            this.f18683b = list;
             if (!ListUtils.isEmpty(list)) {
-                for (RecommendForumInfo recommendForumInfo : this.f18674b) {
+                for (RecommendForumInfo recommendForumInfo : this.f18683b) {
                     b bVar = new b();
                     bVar.t(recommendForumInfo);
-                    this.f18673a.add(bVar);
+                    this.f18682a.add(bVar);
                 }
             }
-            Page page = this.f18675c;
+            Page page = this.f18684c;
             if (page != null) {
-                this.f18676d = page.has_more.intValue() == 1;
-                this.f18677e = this.f18675c.current_page.intValue();
+                this.f18685d = page.has_more.intValue() == 1;
+                this.f18686e = this.f18684c.current_page.intValue();
             }
         }
     }

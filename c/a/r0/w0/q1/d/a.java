@@ -27,22 +27,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f27605a;
+    public Context f27625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f27606b;
+    public View f27626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f27607c;
+    public RelativeLayout f27627c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EMTextView f27608d;
+    public EMTextView f27628d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EMTextView f27609e;
+    public EMTextView f27629e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f27610f;
+    public final int f27630f;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -59,35 +59,35 @@ public class a {
                 return;
             }
         }
-        this.f27610f = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds21);
-        this.f27605a = context;
+        this.f27630f = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds21);
+        this.f27625a = context;
         b(context);
     }
 
     public void a(BdTypeRecyclerView bdTypeRecyclerView) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || (relativeLayout = this.f27607c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || (relativeLayout = this.f27627c) == null) {
             return;
         }
         relativeLayout.setVisibility(0);
-        bdTypeRecyclerView.addHeaderView(this.f27607c);
+        bdTypeRecyclerView.addHeaderView(this.f27627c);
     }
 
     public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && this.f27606b == null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && this.f27626b == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.forum_rules_unaudited, (ViewGroup) null);
-            this.f27606b = inflate;
-            this.f27607c = (RelativeLayout) inflate.findViewById(R.id.unaudited);
-            this.f27608d = (EMTextView) this.f27606b.findViewById(R.id.unaudited_title);
+            this.f27626b = inflate;
+            this.f27627c = (RelativeLayout) inflate.findViewById(R.id.unaudited);
+            this.f27628d = (EMTextView) this.f27626b.findViewById(R.id.unaudited_title);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(context.getResources().getString(R.string.forum_rules_unaudited_alert));
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_barrules_careful12, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.a(l.g(context, R.dimen.tbds0));
             eMRichTextAnyIconSpan.c(l.g(context, R.dimen.M_W_X002));
             spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
-            this.f27608d.setText(spannableStringBuilder);
-            this.f27609e = (EMTextView) this.f27606b.findViewById(R.id.unaudited_content);
+            this.f27628d.setText(spannableStringBuilder);
+            this.f27629e = (EMTextView) this.f27626b.findViewById(R.id.unaudited_content);
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -95,9 +95,9 @@ public class a {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            DrawableSelector radius = DrawableSelector.make().setShape(0).radius(this.f27610f);
+            DrawableSelector radius = DrawableSelector.make().setShape(0).radius(this.f27630f);
             int i3 = R.color.CAM_X0212;
-            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{radius.gradientLinear(DrawableSelector.TL_BR, i3, i3).build(), DrawableSelector.make().setShape(0).radius(this.f27610f).defaultColor("#4D000000").build()});
+            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{radius.gradientLinear(DrawableSelector.TL_BR, i3, i3).build(), DrawableSelector.make().setShape(0).radius(this.f27630f).defaultColor("#4D000000").build()});
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 if (layerDrawable.getDrawable(1) != null) {
                     layerDrawable.getDrawable(1).setAlpha(255);
@@ -105,26 +105,26 @@ public class a {
             } else if (layerDrawable.getDrawable(1) != null) {
                 layerDrawable.getDrawable(1).setAlpha(0);
             }
-            this.f27607c.setBackgroundDrawable(layerDrawable);
-            c.d(this.f27608d).w(R.color.CAM_X0109);
-            c.d(this.f27609e).w(R.color.CAM_X0109);
+            this.f27627c.setBackgroundDrawable(layerDrawable);
+            c.d(this.f27628d).w(R.color.CAM_X0109);
+            c.d(this.f27629e).w(R.color.CAM_X0109);
         }
     }
 
     public void d(BdTypeRecyclerView bdTypeRecyclerView) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || (relativeLayout = this.f27607c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || (relativeLayout = this.f27627c) == null) {
             return;
         }
         relativeLayout.setVisibility(8);
-        bdTypeRecyclerView.removeHeaderView(this.f27607c);
+        bdTypeRecyclerView.removeHeaderView(this.f27627c);
     }
 
     public void e(String str) {
         EMTextView eMTextView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (eMTextView = this.f27609e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (eMTextView = this.f27629e) == null) {
             return;
         }
         eMTextView.setText(str);

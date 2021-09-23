@@ -35,7 +35,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
     public static a cL;
-    public static ConcurrentHashMap<String, C1620a> cO;
+    public static ConcurrentHashMap<String, C1624a> cO;
     public static HandlerThread cP;
     public static Handler cQ;
     public static b cR;
@@ -52,13 +52,13 @@ public final class a {
 
     /* renamed from: com.baidu.ar.arplay.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1620a {
+    public static class C1624a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public MediaPlayer df;
         public com.baidu.ar.arplay.a.a.b dg;
 
-        public C1620a() {
+        public C1624a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -335,15 +335,15 @@ public final class a {
         return invokeLL.intValue;
     }
 
-    private C1620a a(MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
+    private C1624a a(MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, onCompletionListener, onErrorListener)) == null) {
             com.baidu.ar.arplay.c.b.b(TAG, "initMediaPlayerInMsg start()");
             try {
-                C1620a c1620a = new C1620a();
+                C1624a c1624a = new C1624a();
                 MediaPlayer mediaPlayer = new MediaPlayer();
-                c1620a.df = mediaPlayer;
+                c1624a.df = mediaPlayer;
                 mediaPlayer.setAudioStreamType(3);
                 if (onCompletionListener == null) {
                     onCompletionListener = new MediaPlayer.OnCompletionListener(this) { // from class: com.baidu.ar.arplay.a.a.9
@@ -383,18 +383,18 @@ public final class a {
                 }
                 mediaPlayer.setOnCompletionListener(onCompletionListener);
                 if (onErrorListener == null) {
-                    onErrorListener = new MediaPlayer.OnErrorListener(this, c1620a) { // from class: com.baidu.ar.arplay.a.a.10
+                    onErrorListener = new MediaPlayer.OnErrorListener(this, c1624a) { // from class: com.baidu.ar.arplay.a.a.10
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ a da;
-                        public final /* synthetic */ C1620a db;
+                        public final /* synthetic */ C1624a db;
 
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, c1620a};
+                                Object[] objArr = {this, c1624a};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i2 = newInitContext.flag;
                                 if ((i2 & 1) != 0) {
@@ -405,7 +405,7 @@ public final class a {
                                 }
                             }
                             this.da = this;
-                            this.db = c1620a;
+                            this.db = c1624a;
                         }
 
                         @Override // android.media.MediaPlayer.OnErrorListener
@@ -415,11 +415,11 @@ public final class a {
                             if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i2, i3)) == null) {
                                 String str = a.TAG;
                                 com.baidu.ar.arplay.c.b.b(str, "onError: " + i2);
-                                C1620a c1620a2 = this.db;
-                                com.baidu.ar.arplay.a.a.b bVar = c1620a2.dg;
+                                C1624a c1624a2 = this.db;
+                                com.baidu.ar.arplay.a.a.b bVar = c1624a2.dg;
                                 bVar.dX = "ERROR";
                                 bVar.dY = i2;
-                                a.a(c1620a2);
+                                a.a(c1624a2);
                                 this.da.b(new b(this) { // from class: com.baidu.ar.arplay.a.a.10.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
@@ -465,27 +465,27 @@ public final class a {
                     };
                 }
                 mediaPlayer.setOnErrorListener(onErrorListener);
-                return c1620a;
+                return c1624a;
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (C1620a) invokeLL.objValue;
+        return (C1624a) invokeLL.objValue;
     }
 
-    public static C1620a a(C1620a c1620a, String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, int i2, String str3, long j2) {
+    public static C1624a a(C1624a c1624a, String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, int i2, String str3, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{c1620a, str, str2, assetFileDescriptor, onCompletionListener, Integer.valueOf(i2), str3, Long.valueOf(j2)})) == null) {
-            if ((TextUtils.isEmpty(str2) && assetFileDescriptor == null) || c1620a == null) {
-                return c1620a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{c1624a, str, str2, assetFileDescriptor, onCompletionListener, Integer.valueOf(i2), str3, Long.valueOf(j2)})) == null) {
+            if ((TextUtils.isEmpty(str2) && assetFileDescriptor == null) || c1624a == null) {
+                return c1624a;
             }
-            c1620a.dg.dT = com.baidu.ar.arplay.c.c.a((Object) str, 0L);
-            com.baidu.ar.arplay.a.a.b bVar = c1620a.dg;
+            c1624a.dg.dT = com.baidu.ar.arplay.c.c.a((Object) str, 0L);
+            com.baidu.ar.arplay.a.a.b bVar = c1624a.dg;
             bVar.dW = str;
             bVar.dU = str3;
-            MediaPlayer mediaPlayer = c1620a.df;
+            MediaPlayer mediaPlayer = c1624a.df;
             if (onCompletionListener != null) {
                 mediaPlayer.setOnCompletionListener(onCompletionListener);
             }
@@ -504,10 +504,10 @@ public final class a {
                 mediaPlayer.prepareAsync();
                 mediaPlayer.setLooping(false);
                 com.baidu.ar.arplay.c.b.b(TAG, "wrapper.mMediaPlayer.prepareAsync()");
-                mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener(c1620a, str, j2) { // from class: com.baidu.ar.arplay.a.a.11
+                mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener(c1624a, str, j2) { // from class: com.baidu.ar.arplay.a.a.11
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ C1620a db;
+                    public final /* synthetic */ C1624a db;
                     public final /* synthetic */ String dd;
                     public final /* synthetic */ long de;
 
@@ -516,7 +516,7 @@ public final class a {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c1620a, str, Long.valueOf(j2)};
+                            Object[] objArr = {c1624a, str, Long.valueOf(j2)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i3 = newInitContext.flag;
                             if ((i3 & 1) != 0) {
@@ -526,7 +526,7 @@ public final class a {
                                 return;
                             }
                         }
-                        this.db = c1620a;
+                        this.db = c1624a;
                         this.dd = str;
                         this.de = j2;
                     }
@@ -536,11 +536,11 @@ public final class a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, mediaPlayer2) == null) {
                             com.baidu.ar.arplay.c.b.b(a.TAG, "mMediaPlayer onPrepared");
-                            C1620a c1620a2 = this.db;
-                            com.baidu.ar.arplay.a.a.b bVar2 = c1620a2.dg;
+                            C1624a c1624a2 = this.db;
+                            com.baidu.ar.arplay.a.a.b bVar2 = c1624a2.dg;
                             bVar2.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
                             bVar2.dZ = DpStatConstants.KEY_PREPARED;
-                            a.a(c1620a2);
+                            a.a(c1624a2);
                             if (ARPEngine.getInstance().isPaused() || a.cT == null || a.cT.get(this.dd) == null) {
                                 return;
                             }
@@ -564,17 +564,17 @@ public final class a {
                         }
                     }
                 });
-                c1620a.df.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener(c1620a) { // from class: com.baidu.ar.arplay.a.a.12
+                c1624a.df.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener(c1624a) { // from class: com.baidu.ar.arplay.a.a.12
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ C1620a db;
+                    public final /* synthetic */ C1624a db;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c1620a};
+                            Object[] objArr = {c1624a};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i3 = newInitContext.flag;
                             if ((i3 & 1) != 0) {
@@ -584,32 +584,32 @@ public final class a {
                                 return;
                             }
                         }
-                        this.db = c1620a;
+                        this.db = c1624a;
                     }
 
                     @Override // android.media.MediaPlayer.OnBufferingUpdateListener
                     public void onBufferingUpdate(MediaPlayer mediaPlayer2, int i3) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLI(1048576, this, mediaPlayer2, i3) == null) {
-                            C1620a c1620a2 = this.db;
-                            com.baidu.ar.arplay.a.a.b bVar2 = c1620a2.dg;
+                            C1624a c1624a2 = this.db;
+                            com.baidu.ar.arplay.a.a.b bVar2 = c1624a2.dg;
                             bVar2.dX = "INFO";
                             bVar2.eb = i3;
-                            a.a(c1620a2);
+                            a.a(c1624a2);
                         }
                     }
                 });
-                c1620a.df.setOnInfoListener(new MediaPlayer.OnInfoListener(c1620a) { // from class: com.baidu.ar.arplay.a.a.13
+                c1624a.df.setOnInfoListener(new MediaPlayer.OnInfoListener(c1624a) { // from class: com.baidu.ar.arplay.a.a.13
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ C1620a db;
+                    public final /* synthetic */ C1624a db;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c1620a};
+                            Object[] objArr = {c1624a};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i3 = newInitContext.flag;
                             if ((i3 & 1) != 0) {
@@ -619,7 +619,7 @@ public final class a {
                                 return;
                             }
                         }
-                        this.db = c1620a;
+                        this.db = c1624a;
                     }
 
                     @Override // android.media.MediaPlayer.OnInfoListener
@@ -628,8 +628,8 @@ public final class a {
                         String str4;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i3, i4)) == null) {
-                            C1620a c1620a2 = this.db;
-                            com.baidu.ar.arplay.a.a.b bVar2 = c1620a2.dg;
+                            C1624a c1624a2 = this.db;
+                            com.baidu.ar.arplay.a.a.b bVar2 = c1624a2.dg;
                             bVar2.dX = "INFO";
                             if (i3 == 701) {
                                 str4 = "buffer_start";
@@ -639,7 +639,7 @@ public final class a {
                                 str4 = "buffer_end";
                             }
                             bVar2.ea = str4;
-                            a.a(c1620a2);
+                            a.a(c1624a2);
                             return false;
                         }
                         return invokeLII.booleanValue;
@@ -654,9 +654,9 @@ public final class a {
             } catch (SecurityException e5) {
                 e5.printStackTrace();
             }
-            return c1620a;
+            return c1624a;
         }
-        return (C1620a) invokeCommon.objValue;
+        return (C1624a) invokeCommon.objValue;
     }
 
     public static void a(MediaPlayer mediaPlayer) {
@@ -674,14 +674,14 @@ public final class a {
         }
     }
 
-    public static void a(C1620a c1620a) {
+    public static void a(C1624a c1624a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, c1620a) == null) || c1620a == null) {
+        if (!(interceptable == null || interceptable.invokeL(65545, null, c1624a) == null) || c1624a == null) {
             return;
         }
-        b(c1620a);
-        a(c1620a.dg);
-        com.baidu.ar.arplay.a.a.b bVar = c1620a.dg;
+        b(c1624a);
+        a(c1624a.dg);
+        com.baidu.ar.arplay.a.a.b bVar = c1624a.dg;
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", Integer.valueOf((int) ARPMessageType.MSG_TYPE_AUDIO));
         HashMap hashMap2 = new HashMap();
@@ -703,7 +703,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{bVar, str, str2, assetFileDescriptor, onCompletionListener, onErrorListener, Integer.valueOf(i2), str3, Long.valueOf(j2)}) == null) {
             try {
-                C1620a a2 = a(str, onCompletionListener, onErrorListener);
+                C1624a a2 = a(str, onCompletionListener, onErrorListener);
                 if (a2 != null) {
                     a(a2, str, str2, assetFileDescriptor, onCompletionListener, i2, str3, j2);
                 }
@@ -712,14 +712,14 @@ public final class a {
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
-                C1620a z = z(str);
+                C1624a z = z(str);
                 A(str);
                 try {
                     if (z.df != null) {
                         z.df.release();
                     }
                     try {
-                        C1620a a3 = aA().a(str, onCompletionListener, onErrorListener);
+                        C1624a a3 = aA().a(str, onCompletionListener, onErrorListener);
                         if (a3 != null) {
                             a(a3, str, str2, assetFileDescriptor, onCompletionListener, i2, str3, j2);
                         }
@@ -802,15 +802,15 @@ public final class a {
 
                         @Override // java.util.TimerTask, java.lang.Runnable
                         public void run() {
-                            C1620a c1620a;
+                            C1624a c1624a;
                             com.baidu.ar.arplay.a.a.b bVar;
                             Interceptable interceptable2 = $ic;
                             if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || a.cO == null) {
                                 return;
                             }
                             for (Map.Entry entry : a.cO.entrySet()) {
-                                if (entry != null && (c1620a = (C1620a) entry.getValue()) != null && (bVar = c1620a.dg) != null && bVar.dZ == "playing") {
-                                    a.a((C1620a) entry.getValue());
+                                if (entry != null && (c1624a = (C1624a) entry.getValue()) != null && (bVar = c1624a.dg) != null && bVar.dZ == "playing") {
+                                    a.a((C1624a) entry.getValue());
                                 }
                             }
                         }
@@ -823,21 +823,21 @@ public final class a {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x0040 -> B:33:0x0043). Please submit an issue!!! */
-    public static void b(C1620a c1620a) {
+    public static void b(C1624a c1624a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65556, null, c1620a) == null) || c1620a == null || c1620a.df == null) {
+        if (!(interceptable == null || interceptable.invokeL(65556, null, c1624a) == null) || c1624a == null || c1624a.df == null) {
             return;
         }
-        com.baidu.ar.arplay.a.a.b bVar = c1620a.dg;
+        com.baidu.ar.arplay.a.a.b bVar = c1624a.dg;
         String str = bVar.dZ;
         if (str == "playing" || str == "paused") {
             try {
-                int duration = c1620a.df.getDuration();
+                int duration = c1624a.df.getDuration();
                 bVar.dV = duration;
                 if (duration <= 0) {
                     bVar.ec = 0.0f;
                 } else {
-                    bVar.ec = (c1620a.df.getCurrentPosition() * 1.0f) / bVar.dV;
+                    bVar.ec = (c1624a.df.getCurrentPosition() * 1.0f) / bVar.dV;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -856,7 +856,7 @@ public final class a {
     private void b(b bVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2, String str3, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{bVar, str, str2, onCompletionListener, Integer.valueOf(i2), str3, Long.valueOf(j2)}) == null) {
-            C1620a z = z(str);
+            C1624a z = z(str);
             A(str);
             if (z != null) {
                 try {
@@ -873,7 +873,7 @@ public final class a {
                 }
             }
             try {
-                C1620a a2 = a(str, onCompletionListener, null);
+                C1624a a2 = a(str, onCompletionListener, null);
                 if (a2 != null) {
                     a(a2, str, str2, null, onCompletionListener, i2, str3, j2);
                 }
@@ -897,16 +897,16 @@ public final class a {
         cO.remove(str);
     }
 
-    public C1620a a(String str, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
+    public C1624a a(String str, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, onCompletionListener, onErrorListener)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            ConcurrentHashMap<String, C1620a> concurrentHashMap = cO;
+            ConcurrentHashMap<String, C1624a> concurrentHashMap = cO;
             if (concurrentHashMap == null || !concurrentHashMap.containsKey(str)) {
-                C1620a a2 = a(onCompletionListener, onErrorListener);
+                C1624a a2 = a(onCompletionListener, onErrorListener);
                 if (a2 == null) {
                     return null;
                 }
@@ -918,7 +918,7 @@ public final class a {
             }
             return cO.get(str);
         }
-        return (C1620a) invokeLLL.objValue;
+        return (C1624a) invokeLLL.objValue;
     }
 
     public void a(Message message) {
@@ -1042,7 +1042,7 @@ public final class a {
                         if (this.da.cS == null) {
                             return;
                         }
-                        C1620a z = this.da.z(this.cY.getId());
+                        C1624a z = this.da.z(this.cY.getId());
                         if (z == null || z.dg.dZ != "paused") {
                             if (z != null) {
                                 com.baidu.ar.arplay.a.a.b bVar = z.dg;
@@ -1088,18 +1088,18 @@ public final class a {
             if (map != null) {
                 map.clear();
             }
-            ConcurrentHashMap<String, C1620a> concurrentHashMap = cO;
+            ConcurrentHashMap<String, C1624a> concurrentHashMap = cO;
             if (concurrentHashMap != null) {
                 try {
-                    for (C1620a c1620a : concurrentHashMap.values()) {
-                        c1620a.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
-                        c1620a.dg.dZ = "unstarted";
-                        a(c1620a.df);
+                    for (C1624a c1624a : concurrentHashMap.values()) {
+                        c1624a.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
+                        c1624a.dg.dZ = "unstarted";
+                        a(c1624a.df);
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                ConcurrentHashMap<String, C1620a> concurrentHashMap2 = cO;
+                ConcurrentHashMap<String, C1624a> concurrentHashMap2 = cO;
                 if (concurrentHashMap2 != null) {
                     concurrentHashMap2.clear();
                 }
@@ -1118,7 +1118,7 @@ public final class a {
             b bVar = (b) objArr[0];
             String str = (String) objArr[1];
             cT.put(str, 3005);
-            C1620a z = z(str);
+            C1624a z = z(str);
             if (z != null) {
                 try {
                     z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
@@ -1214,7 +1214,7 @@ public final class a {
             String str = (String) objArr[1];
             cT.put(str, 3006);
             try {
-                C1620a z = z(str);
+                C1624a z = z(str);
                 if (z.df != null && z.dg.dZ != "unstarted" && z.df.isPlaying()) {
                     z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
                     z.dg.dZ = "paused";
@@ -1320,7 +1320,7 @@ public final class a {
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, mediaPlayer) == null) || this.da.cS == null) {
                         return;
                     }
-                    C1620a z = this.da.z(this.cY.getId());
+                    C1624a z = this.da.z(this.cY.getId());
                     if (z != null) {
                         com.baidu.ar.arplay.a.a.b bVar = z.dg;
                         bVar.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
@@ -1355,7 +1355,7 @@ public final class a {
             String str = (String) objArr[1];
             cT.put(str, Integer.valueOf((int) SpeedStatsStampTable.REG_RECEIVER_END_STAMP_KEY));
             try {
-                C1620a z = z(str);
+                C1624a z = z(str);
                 if (z == null || z.dg.dZ == "unstarted") {
                     return;
                 }
@@ -1441,7 +1441,7 @@ public final class a {
         }
         cT.put(str2, Integer.valueOf((int) SpeedStatsStampTable.CHECK_PLUGIN_ENTRANCE_STATE_END_STAMP_KEY));
         try {
-            C1620a z = z(str2);
+            C1624a z = z(str2);
             if (z != null && !z.df.isPlaying() && z.dg.dZ != "unstarted") {
                 z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
                 z.dg.dZ = "playing";
@@ -1512,12 +1512,12 @@ public final class a {
             b bVar = (b) ((Object[]) message.obj)[0];
             this.cN = false;
             this.cM = 0;
-            ConcurrentHashMap<String, C1620a> concurrentHashMap = cO;
+            ConcurrentHashMap<String, C1624a> concurrentHashMap = cO;
             if (concurrentHashMap != null) {
                 try {
-                    for (C1620a c1620a : concurrentHashMap.values()) {
-                        if (c1620a != null) {
-                            c1620a.df.release();
+                    for (C1624a c1624a : concurrentHashMap.values()) {
+                        if (c1624a != null) {
+                            c1624a.df.release();
                         }
                     }
                 } catch (Exception e2) {
@@ -1531,7 +1531,7 @@ public final class a {
         }
     }
 
-    public C1620a z(String str) {
+    public C1624a z(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
@@ -1540,6 +1540,6 @@ public final class a {
             }
             return cO.get(str);
         }
-        return (C1620a) invokeL.objValue;
+        return (C1624a) invokeL.objValue;
     }
 }

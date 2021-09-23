@@ -54,7 +54,7 @@ public class a extends k<b, ManitoHeaderItemViewHolder> {
     public ManitoHeaderItemViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ManitoHeaderItemViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.manito_item_header, (ViewGroup) null)) : (ManitoHeaderItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ManitoHeaderItemViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.manito_item_header, (ViewGroup) null)) : (ManitoHeaderItemViewHolder) invokeL.objValue;
     }
 
     public View v0(int i2, View view, ViewGroup viewGroup, b bVar, ManitoHeaderItemViewHolder manitoHeaderItemViewHolder) {
@@ -66,7 +66,7 @@ public class a extends k<b, ManitoHeaderItemViewHolder> {
                 SkinManager.setBackgroundColor(manitoHeaderItemViewHolder.getView(), R.color.CAM_X0201);
                 SkinManager.setViewTextColor(manitoHeaderItemViewHolder.title, R.color.CAM_X0105, 1);
             }
-            manitoHeaderItemViewHolder.title.setText(String.format(this.f2957e.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.b())));
+            manitoHeaderItemViewHolder.title.setText(String.format(this.f2958e.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.b())));
             manitoHeaderItemViewHolder.mSkinType = this.r;
             return view;
         }

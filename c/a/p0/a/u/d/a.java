@@ -32,10 +32,10 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f8733a;
+        public final /* synthetic */ String f8741a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f8734b;
+        public final /* synthetic */ a f8742b;
 
         public C0383a(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public class a extends d {
                     return;
                 }
             }
-            this.f8734b = aVar;
-            this.f8733a = str;
+            this.f8742b = aVar;
+            this.f8741a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,21 +63,21 @@ public class a extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
                 if (jSONObject == null) {
-                    this.f8734b.d(this.f8733a, new b(1001, "server response fail"));
+                    this.f8742b.d(this.f8741a, new b(1001, "server response fail"));
                     return;
                 }
                 int optInt = jSONObject.optInt("errno", 10002);
                 String optString = jSONObject.optString("errmsg", SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR);
                 if (optInt != 0) {
-                    this.f8734b.d(this.f8733a, new b(optInt, optString));
+                    this.f8742b.d(this.f8741a, new b(optInt, optString));
                     return;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject == null) {
-                    this.f8734b.d(this.f8733a, new b(optInt, optString));
+                    this.f8742b.d(this.f8741a, new b(optInt, optString));
                     return;
                 }
-                this.f8734b.d(this.f8733a, new b(0, optString, optJSONObject));
+                this.f8742b.d(this.f8741a, new b(0, optString, optJSONObject));
             }
         }
 
@@ -101,8 +101,8 @@ public class a extends d {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                a aVar = this.f8734b;
-                String str = this.f8733a;
+                a aVar = this.f8742b;
+                String str = this.f8741a;
                 aVar.d(str, new b(1001, "operation fail, msg = " + exc.getMessage()));
             }
         }
@@ -132,7 +132,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (d.f8727c) {
+            if (d.f8735c) {
                 String str2 = "handle: " + str;
             }
             e Q = e.Q();
@@ -212,7 +212,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (d.f8727c) {
+            if (d.f8735c) {
                 String str2 = "handle: " + str;
             }
             e Q = e.Q();
@@ -251,9 +251,9 @@ public class a extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, eVar) == null) {
             c.a.p0.a.j2.p.e eVar2 = new c.a.p0.a.j2.p.e();
-            eVar2.f7063a = "swan";
-            eVar2.f7064b = str;
-            eVar2.f7068f = eVar.D();
+            eVar2.f7071a = "swan";
+            eVar2.f7072b = str;
+            eVar2.f7076f = eVar.D();
             eVar2.a("host_app", c.a.p0.a.c1.a.m().a());
             c.a.p0.a.j2.b.i("2267", "83", eVar2.f());
         }
@@ -263,16 +263,16 @@ public class a extends d {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, builder, str2)) == null) {
-            c.a.p0.a.n1.d a2 = c.a.p0.a.n1.d.a(builder.build(), f.f7581b);
+            c.a.p0.a.n1.d a2 = c.a.p0.a.n1.d.a(builder.build(), f.f7589b);
             String s = s(str);
             if (TextUtils.isEmpty(s)) {
                 return new b(202);
             }
             c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(s, a2, new C0383a(this, str2));
             if (c.a.p0.m.e.a.g().c()) {
-                aVar.f11845f = true;
+                aVar.f11853f = true;
             }
-            aVar.f11846g = true;
+            aVar.f11854g = true;
             c.a.p0.m.e.a.g().e(aVar);
             return new b(0);
         }
@@ -283,7 +283,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (d.f8727c) {
+            if (d.f8735c) {
                 String str2 = "handle: " + str;
             }
             e Q = e.Q();

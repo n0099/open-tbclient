@@ -17,14 +17,14 @@ public class e implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f71779a;
+    public static e f72098a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f71780b;
+    public double f72099b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f71781c;
+    public double f72100c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -44,18 +44,18 @@ public class e implements com.kwad.sdk.core.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            e eVar = f71779a;
+            e eVar = f72098a;
             if (eVar != null) {
                 return eVar;
             }
             Location a2 = o.a(KsAdSDKImpl.get().getContext());
             if (a2 != null) {
                 e eVar2 = new e();
-                f71779a = eVar2;
-                eVar2.f71780b = a2.getLatitude();
-                f71779a.f71781c = a2.getLongitude();
+                f72098a = eVar2;
+                eVar2.f72099b = a2.getLatitude();
+                f72098a.f72100c = a2.getLongitude();
             }
-            return f71779a;
+            return f72098a;
         }
         return (e) invokeV.objValue;
     }
@@ -73,8 +73,8 @@ public class e implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "latitude", this.f71780b);
-            q.a(jSONObject, "longitude", this.f71781c);
+            q.a(jSONObject, "latitude", this.f72099b);
+            q.a(jSONObject, "longitude", this.f72100c);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import c.a.q0.d1.i0;
-import c.a.q0.d1.l0;
+import c.a.q0.d1.j0;
+import c.a.q0.d1.m0;
 import c.a.u.a.h.f;
 import com.baidu.android.imrtc.BIMRtcClient;
 import com.baidu.android.imsdk.BIMManager;
@@ -28,43 +28,43 @@ public class a implements ILoginListener {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile a f24746h = null;
+    public static volatile a f24762h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f24747i = true;
+    public static boolean f24763i = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f24748e;
+    public boolean f24764e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f24749f;
+    public b f24765f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BroadcastReceiver f24750g;
+    public BroadcastReceiver f24766g;
 
     /* renamed from: c.a.r0.s1.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1143a extends BroadcastReceiver {
+    public class C1141a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a this$0;
 
         /* renamed from: c.a.r0.s1.j.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1144a extends i0<Object> {
+        public class C1142a extends j0<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ C1143a f24751a;
+            public final /* synthetic */ C1141a f24767a;
 
-            public C1144a(C1143a c1143a) {
+            public C1142a(C1141a c1141a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1143a};
+                    Object[] objArr = {c1141a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -74,22 +74,22 @@ public class a implements ILoginListener {
                         return;
                     }
                 }
-                this.f24751a = c1143a;
+                this.f24767a = c1141a;
             }
 
-            @Override // c.a.q0.d1.i0
+            @Override // c.a.q0.d1.j0
             public Object doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    this.f24751a.this$0.d(null);
+                    this.f24767a.this$0.d(null);
                     return null;
                 }
                 return invokeV.objValue;
             }
         }
 
-        public C1143a(a aVar) {
+        public C1141a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public class a implements ILoginListener {
                 String str2 = "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive connect=" + z;
                 String str3 = "registerConnectListener connect ：" + intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1);
                 if (z) {
-                    l0.b(new C1144a(this), null);
+                    m0.b(new C1142a(this), null);
                 }
             }
         }
@@ -158,21 +158,21 @@ public class a implements ILoginListener {
                 return;
             }
         }
-        this.f24750g = new C1143a(this);
+        this.f24766g = new C1141a(this);
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f24746h == null) {
+            if (f24762h == null) {
                 synchronized (a.class) {
-                    if (f24746h == null) {
-                        f24746h = new a();
+                    if (f24762h == null) {
+                        f24762h = new a();
                     }
                 }
             }
-            return f24746h;
+            return f24762h;
         }
         return (a) invokeV.objValue;
     }
@@ -196,11 +196,11 @@ public class a implements ILoginListener {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             String str = "@@ updateImsdk ImSdkManager.init context=" + context;
             int i2 = 0;
-            this.f24748e = false;
+            this.f24764e = false;
             String version = TbConfig.getVersion();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
-            LocalBroadcastManager.getInstance(context).registerReceiver(this.f24750g, intentFilter);
+            LocalBroadcastManager.getInstance(context).registerReceiver(this.f24766g, intentFilter);
             f.y(context, true);
             BIMManager.setProductLine(context, 3, version);
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
@@ -222,7 +222,7 @@ public class a implements ILoginListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             String str = "@@ updateImsdk ImSdkManager.loginToIM listener=" + bVar;
-            this.f24749f = bVar;
+            this.f24765f = bVar;
             String from = TbConfig.getFrom();
             String currentFrom = TbConfig.getCurrentFrom();
             if (TbadkCoreApplication.isLogin()) {
@@ -242,8 +242,8 @@ public class a implements ILoginListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             String str = "@@ updateImsdk ImSdkManager.loginToLCP context=" + context;
-            int i2 = f24747i ? 1 : 2;
-            f24747i = false;
+            int i2 = f24763i ? 1 : 2;
+            f24763i = false;
             c.a.u.a.b.a.a(context, "10773430", TbadkCoreApplication.getInst().getCuidGalaxy2(), i2);
         }
     }
@@ -253,10 +253,10 @@ public class a implements ILoginListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
             String str2 = "@@ updateImsdk ImSdkManager.onLoginResult errno=" + i2 + ", errMsg=" + str;
-            b bVar = this.f24749f;
+            b bVar = this.f24765f;
             if (bVar != null) {
                 bVar.a(i2, str);
-                this.f24749f = null;
+                this.f24765f = null;
             }
         }
     }
@@ -266,7 +266,7 @@ public class a implements ILoginListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
             String str2 = "@@ updateImsdk ImSdkManager.onLogoutResult errno=" + i2 + ", errMsg=" + str + ", type=" + i3;
-            if (this.f24748e) {
+            if (this.f24764e) {
                 return;
             }
             d(null);

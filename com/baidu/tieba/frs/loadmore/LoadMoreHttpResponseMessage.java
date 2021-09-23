@@ -117,10 +117,10 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             ThreadInfo threadInfo = list2.get(i4);
                             d2 d2Var = new d2();
                             SpecHotTopicHelper.setSpecTopicIcon(j2, d2Var);
-                            d2Var.E4(this.userMap);
+                            d2Var.D4(this.userMap);
                             d2Var.Y2(threadInfo);
                             d2Var.c3();
-                            d2Var.J1 = z;
+                            d2Var.K1 = z;
                             if (!TextUtils.isEmpty(d2Var.y0())) {
                                 p0 p0Var = new p0();
                                 p0Var.k(d2Var.y0());

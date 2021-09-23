@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.alipay.apmobilesecuritysdk.face.APSecuritySdk;
 import com.alipay.sdk.util.c;
-import com.alipay.sdk.util.k;
+import com.alipay.sdk.util.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -31,27 +31,113 @@ import java.util.concurrent.TimeUnit;
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f35969a = "virtualImeiAndImsi";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f35970b = "virtual_imei";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f35971c = "virtual_imsi";
-
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f35972d;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final String f36003d = "virtualImeiAndImsi";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35973e;
+    public static final String f36004e = "virtual_imei";
 
     /* renamed from: f  reason: collision with root package name */
-    public String f35974f;
+    public static final String f36005f = "virtual_imsi";
 
     /* renamed from: g  reason: collision with root package name */
-    public String f35975g;
+    public static volatile b f36006g;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f36007a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f36008b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f36009c;
+
+    /* loaded from: classes4.dex */
+    public static class a implements APSecuritySdk.InitResultListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ String[] f36010a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ ConditionVariable f36011b;
+
+        public a(String[] strArr, ConditionVariable conditionVariable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {strArr, conditionVariable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f36010a = strArr;
+            this.f36011b = conditionVariable;
+        }
+
+        @Override // com.alipay.apmobilesecuritysdk.face.APSecuritySdk.InitResultListener
+        public void onResult(APSecuritySdk.TokenResult tokenResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, tokenResult) == null) {
+                if (tokenResult != null) {
+                    this.f36010a[0] = tokenResult.apdidToken;
+                }
+                this.f36011b.open();
+            }
+        }
+    }
+
+    /* renamed from: com.alipay.sdk.data.b$b  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public static class CallableC1564b implements Callable<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ com.alipay.sdk.sys.a f36012a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ Context f36013b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ HashMap f36014c;
+
+        public CallableC1564b(com.alipay.sdk.sys.a aVar, Context context, HashMap hashMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, context, hashMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f36012a = aVar;
+            this.f36013b = context;
+            this.f36014c = hashMap;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        public String call() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b.c(this.f36012a, this.f36013b, this.f36014c) : (String) invokeV.objValue;
+        }
+    }
 
     public b() {
         Interceptable interceptable = $ic;
@@ -66,12 +152,12 @@ public class b {
                 return;
             }
         }
-        this.f35974f = "sdk-and-lite";
+        this.f36008b = "sdk-and-lite";
         String a2 = com.alipay.sdk.app.a.a();
         if (com.alipay.sdk.app.a.b()) {
             return;
         }
-        this.f35974f += '_' + a2;
+        this.f36008b += '_' + a2;
     }
 
     public static synchronized b b() {
@@ -80,10 +166,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (b.class) {
-                if (f35972d == null) {
-                    f35972d = new b();
+                if (f36006g == null) {
+                    f36006g = new b();
                 }
-                bVar = f35972d;
+                bVar = f36006g;
             }
             return bVar;
         }
@@ -92,53 +178,29 @@ public class b {
 
     public static String c() {
         InterceptResult invokeV;
-        String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            Context b3 = com.alipay.sdk.sys.b.a().b();
-            SharedPreferences sharedPreferences = b3.getSharedPreferences(f35969a, 0);
-            String string = sharedPreferences.getString(f35970b, null);
-            if (TextUtils.isEmpty(string)) {
-                if (TextUtils.isEmpty(com.alipay.sdk.tid.a.a(b3).a())) {
-                    b2 = g();
-                } else {
-                    b2 = com.alipay.sdk.util.a.a(b3).b();
-                }
-                String str = b2;
-                sharedPreferences.edit().putString(f35970b, str).apply();
-                return str;
-            }
-            return string;
+            String hexString = Long.toHexString(System.currentTimeMillis());
+            Random random = new Random();
+            return hexString + (random.nextInt(9000) + 1000);
         }
         return (String) invokeV.objValue;
     }
 
     public static String d() {
         InterceptResult invokeV;
-        String a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            Context b2 = com.alipay.sdk.sys.b.a().b();
-            SharedPreferences sharedPreferences = b2.getSharedPreferences(f35969a, 0);
-            String string = sharedPreferences.getString(f35971c, null);
-            if (TextUtils.isEmpty(string)) {
-                if (TextUtils.isEmpty(com.alipay.sdk.tid.a.a(b2).a())) {
-                    String e2 = com.alipay.sdk.sys.b.a().e();
-                    if (!TextUtils.isEmpty(e2) && e2.length() >= 18) {
-                        a2 = e2.substring(3, 18);
-                    } else {
-                        a2 = g();
-                    }
-                } else {
-                    a2 = com.alipay.sdk.util.a.a(b2).a();
-                }
-                String str = a2;
-                sharedPreferences.edit().putString(f35971c, str).apply();
-                return str;
-            }
-            return string;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? "-1;-1" : (String) invokeV.objValue;
+    }
+
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
+            return connectionInfo != null ? connectionInfo.getSSID() : "-1";
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
     public static String e() {
@@ -149,17 +211,51 @@ public class b {
 
     public static String f() {
         InterceptResult invokeV;
+        String b2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? "-1;-1" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            Context b3 = com.alipay.sdk.sys.b.d().b();
+            SharedPreferences sharedPreferences = b3.getSharedPreferences(f36003d, 0);
+            String string = sharedPreferences.getString(f36004e, null);
+            if (TextUtils.isEmpty(string)) {
+                if (TextUtils.isEmpty(com.alipay.sdk.tid.a.a(b3).d())) {
+                    b2 = c();
+                } else {
+                    b2 = com.alipay.sdk.util.a.b(b3).b();
+                }
+                String str = b2;
+                sharedPreferences.edit().putString(f36004e, str).apply();
+                return str;
+            }
+            return string;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String g() {
         InterceptResult invokeV;
+        String c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            String hexString = Long.toHexString(System.currentTimeMillis());
-            Random random = new Random();
-            return hexString + (random.nextInt(9000) + 1000);
+            Context b2 = com.alipay.sdk.sys.b.d().b();
+            SharedPreferences sharedPreferences = b2.getSharedPreferences(f36003d, 0);
+            String string = sharedPreferences.getString(f36005f, null);
+            if (TextUtils.isEmpty(string)) {
+                if (TextUtils.isEmpty(com.alipay.sdk.tid.a.a(b2).d())) {
+                    String c3 = com.alipay.sdk.sys.b.d().c();
+                    if (!TextUtils.isEmpty(c3) && c3.length() >= 18) {
+                        c2 = c3.substring(3, 18);
+                    } else {
+                        c2 = c();
+                    }
+                } else {
+                    c2 = com.alipay.sdk.util.a.b(b2).c();
+                }
+                String str = c2;
+                sharedPreferences.edit().putString(f36005f, str).apply();
+                return str;
+            }
+            return string;
         }
         return (String) invokeV.objValue;
     }
@@ -167,7 +263,7 @@ public class b {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35975g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36009c : (String) invokeV.objValue;
     }
 
     public static synchronized void a(String str) {
@@ -177,76 +273,22 @@ public class b {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                PreferenceManager.getDefaultSharedPreferences(com.alipay.sdk.sys.b.a().b()).edit().putString(com.alipay.sdk.cons.b.f35941i, str).apply();
-                com.alipay.sdk.cons.a.f35927e = str;
+                PreferenceManager.getDefaultSharedPreferences(com.alipay.sdk.sys.b.d().b()).edit().putString(com.alipay.sdk.cons.b.f35975i, str).apply();
+                com.alipay.sdk.cons.a.f35961e = str;
             }
         }
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? Float.toString(new TextView(context).getTextSize()) : (String) invokeL.objValue;
     }
 
     public static String b(com.alipay.sdk.sys.a aVar, Context context, HashMap<String, String> hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, aVar, context, hashMap)) == null) {
-            String[] strArr = {""};
             try {
-                APSecuritySdk aPSecuritySdk = APSecuritySdk.getInstance(context);
-                ConditionVariable conditionVariable = new ConditionVariable();
-                aPSecuritySdk.initToken(0, hashMap, new APSecuritySdk.InitResultListener(strArr, conditionVariable) { // from class: com.alipay.sdk.data.b.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String[] f35976a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ConditionVariable f35977b;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {strArr, conditionVariable};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f35976a = strArr;
-                        this.f35977b = conditionVariable;
-                    }
-
-                    @Override // com.alipay.apmobilesecuritysdk.face.APSecuritySdk.InitResultListener
-                    public void onResult(APSecuritySdk.TokenResult tokenResult) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, tokenResult) == null) {
-                            if (tokenResult != null) {
-                                this.f35976a[0] = tokenResult.apdidToken;
-                            }
-                            this.f35977b.open();
-                        }
-                    }
-                });
-                conditionVariable.block(3000L);
+                return (String) Executors.newFixedThreadPool(2).submit(new CallableC1564b(aVar, context, hashMap)).get(3000L, TimeUnit.MILLISECONDS);
             } catch (Throwable th) {
-                c.a(th);
-                com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.f35917e, com.alipay.sdk.app.statistic.b.f35921i, th);
+                com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.o, com.alipay.sdk.app.statistic.b.u, th);
+                return "";
             }
-            if (TextUtils.isEmpty(strArr[0])) {
-                com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.f35917e, com.alipay.sdk.app.statistic.b.f35922j, "missing token");
-            }
-            c.a(com.alipay.sdk.cons.a.x, "ap:" + strArr[0]);
-            return strArr[0];
         }
         return (String) invokeLLL.objValue;
     }
@@ -256,161 +298,21 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
-            return connectionInfo != null ? connectionInfo.getSSID() : "-1";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String a(com.alipay.sdk.sys.a aVar, com.alipay.sdk.tid.a aVar2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, aVar2)) == null) {
-            Context b2 = com.alipay.sdk.sys.b.a().b();
-            com.alipay.sdk.util.a a2 = com.alipay.sdk.util.a.a(b2);
-            if (TextUtils.isEmpty(this.f35973e)) {
-                String b3 = k.b();
-                String c2 = k.c();
-                String d2 = k.d(b2);
-                String f2 = k.f(b2);
-                String e2 = k.e(b2);
-                String b4 = b(b2);
-                this.f35973e = "Msp/15.7.7 (" + b3 + ";" + c2 + ";" + d2 + ";" + f2 + ";" + e2 + ";" + b4;
-            }
-            String b5 = com.alipay.sdk.util.a.b(b2).b();
-            String g2 = k.g(b2);
-            String e3 = e();
-            String a3 = a2.a();
-            String b6 = a2.b();
-            String d3 = d();
-            String c3 = c();
-            if (aVar2 != null) {
-                this.f35975g = aVar2.b();
-            }
-            String replace = Build.MANUFACTURER.replace(";", " ");
-            String replace2 = Build.MODEL.replace(";", " ");
-            boolean d4 = com.alipay.sdk.sys.b.d();
-            String d5 = a2.d();
-            String c4 = c(b2);
-            String d6 = d(b2);
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.f35973e);
-            sb.append(";");
-            sb.append(b5);
-            sb.append(";");
-            sb.append(g2);
-            sb.append(";");
-            sb.append(e3);
-            sb.append(";");
-            sb.append(a3);
-            sb.append(";");
-            sb.append(b6);
-            sb.append(";");
-            sb.append(this.f35975g);
-            sb.append(";");
-            sb.append(replace);
-            sb.append(";");
-            sb.append(replace2);
-            sb.append(";");
-            sb.append(d4);
-            sb.append(";");
-            sb.append(d5);
-            sb.append(";");
-            sb.append(f());
-            sb.append(";");
-            sb.append(this.f35974f);
-            sb.append(";");
-            sb.append(d3);
-            sb.append(";");
-            sb.append(c3);
-            sb.append(";");
-            sb.append(c4);
-            sb.append(";");
-            sb.append(d6);
-            if (aVar2 != null) {
-                HashMap hashMap = new HashMap();
-                hashMap.put("tid", com.alipay.sdk.tid.a.a(b2).a());
-                hashMap.put(com.alipay.sdk.cons.b.f35939g, com.alipay.sdk.sys.b.a().e());
-                String c5 = c(aVar, b2, hashMap);
-                if (!TextUtils.isEmpty(c5)) {
-                    sb.append(";;;");
-                    sb.append(c5);
-                }
-            }
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
             return connectionInfo != null ? connectionInfo.getBSSID() : "00";
         }
         return (String) invokeL.objValue;
     }
 
-    public static String c(com.alipay.sdk.sys.a aVar, Context context, HashMap<String, String> hashMap) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, aVar, context, hashMap)) == null) {
-            try {
-                return (String) Executors.newFixedThreadPool(2).submit(new Callable<String>(aVar, context, hashMap) { // from class: com.alipay.sdk.data.b.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ com.alipay.sdk.sys.a f35978a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Context f35979b;
-
-                    /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ HashMap f35980c;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {aVar, context, hashMap};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f35978a = aVar;
-                        this.f35979b = context;
-                        this.f35980c = hashMap;
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // java.util.concurrent.Callable
-                    /* renamed from: a */
-                    public String call() throws Exception {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? b.b(this.f35978a, this.f35979b, this.f35980c) : (String) invokeV.objValue;
-                    }
-                }).get(3000L, TimeUnit.MILLISECONDS);
-            } catch (Throwable th) {
-                com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.f35917e, com.alipay.sdk.app.statistic.b.k, th);
-                return "";
-            }
-        }
-        return (String) invokeLLL.objValue;
-    }
-
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? Float.toString(new TextView(context).getTextSize()) : (String) invokeL.objValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
             if (context != null) {
                 try {
                     StringBuilder sb = new StringBuilder();
@@ -429,5 +331,109 @@ public class b {
             return "";
         }
         return (String) invokeL.objValue;
+    }
+
+    public static String c(com.alipay.sdk.sys.a aVar, Context context, HashMap<String, String> hashMap) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, aVar, context, hashMap)) == null) {
+            String[] strArr = {""};
+            try {
+                APSecuritySdk aPSecuritySdk = APSecuritySdk.getInstance(context);
+                ConditionVariable conditionVariable = new ConditionVariable();
+                aPSecuritySdk.initToken(0, hashMap, new a(strArr, conditionVariable));
+                conditionVariable.block(3000L);
+            } catch (Throwable th) {
+                c.a(th);
+                com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.o, com.alipay.sdk.app.statistic.b.s, th);
+            }
+            if (TextUtils.isEmpty(strArr[0])) {
+                com.alipay.sdk.app.statistic.a.b(aVar, com.alipay.sdk.app.statistic.b.o, com.alipay.sdk.app.statistic.b.t, "missing token");
+            }
+            c.b(com.alipay.sdk.cons.a.x, "ap:" + strArr[0]);
+            return strArr[0];
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public String a(com.alipay.sdk.sys.a aVar, com.alipay.sdk.tid.a aVar2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, aVar2)) == null) {
+            Context b2 = com.alipay.sdk.sys.b.d().b();
+            com.alipay.sdk.util.a b3 = com.alipay.sdk.util.a.b(b2);
+            if (TextUtils.isEmpty(this.f36007a)) {
+                String e2 = l.e();
+                String d2 = l.d();
+                String c2 = l.c(b2);
+                String e3 = l.e(b2);
+                String f2 = l.f(b2);
+                String a2 = a(b2);
+                this.f36007a = "Msp/15.8.02 (" + e2 + ";" + d2 + ";" + c2 + ";" + e3 + ";" + f2 + ";" + a2;
+            }
+            String b4 = com.alipay.sdk.util.a.d(b2).b();
+            String b5 = l.b(b2);
+            String e4 = e();
+            String c3 = b3.c();
+            String b6 = b3.b();
+            String g2 = g();
+            String f3 = f();
+            if (aVar2 != null) {
+                this.f36009c = aVar2.c();
+            }
+            String replace = Build.MANUFACTURER.replace(";", " ");
+            String replace2 = Build.MODEL.replace(";", " ");
+            boolean e5 = com.alipay.sdk.sys.b.e();
+            String d3 = b3.d();
+            String d4 = d(b2);
+            String c4 = c(b2);
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.f36007a);
+            sb.append(";");
+            sb.append(b4);
+            sb.append(";");
+            sb.append(b5);
+            sb.append(";");
+            sb.append(e4);
+            sb.append(";");
+            sb.append(c3);
+            sb.append(";");
+            sb.append(b6);
+            sb.append(";");
+            sb.append(this.f36009c);
+            sb.append(";");
+            sb.append(replace);
+            sb.append(";");
+            sb.append(replace2);
+            sb.append(";");
+            sb.append(e5);
+            sb.append(";");
+            sb.append(d3);
+            sb.append(";");
+            sb.append(d());
+            sb.append(";");
+            sb.append(this.f36008b);
+            sb.append(";");
+            sb.append(g2);
+            sb.append(";");
+            sb.append(f3);
+            sb.append(";");
+            sb.append(d4);
+            sb.append(";");
+            sb.append(c4);
+            if (aVar2 != null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("tid", com.alipay.sdk.tid.a.a(b2).d());
+                hashMap.put(com.alipay.sdk.cons.b.f35973g, com.alipay.sdk.sys.b.d().c());
+                String b7 = b(aVar, b2, hashMap);
+                if (!TextUtils.isEmpty(b7)) {
+                    sb.append(";;;");
+                    sb.append(b7);
+                }
+            }
+            sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
     }
 }

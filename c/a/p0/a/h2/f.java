@@ -13,13 +13,13 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f6569a;
+    public final boolean f6577a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f6570b;
+    public final boolean f6578b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f6571c;
+    public final boolean f6579c;
 
     public f(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class f {
                 return;
             }
         }
-        this.f6569a = true;
-        this.f6570b = z;
-        this.f6571c = z2;
+        this.f6577a = true;
+        this.f6578b = z;
+        this.f6579c = z2;
     }
 
     public static f c(boolean z) {
@@ -62,13 +62,13 @@ public class f {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f6569a && this.f6570b) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f6577a && this.f6578b) ? false : true : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6569a ? this.f6570b && this.f6571c : this.f6571c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6577a ? this.f6578b && this.f6579c : this.f6579c : invokeV.booleanValue;
     }
 
     public f(boolean z) {
@@ -86,8 +86,8 @@ public class f {
                 return;
             }
         }
-        this.f6569a = false;
-        this.f6570b = true;
-        this.f6571c = z;
+        this.f6577a = false;
+        this.f6578b = true;
+        this.f6579c = z;
     }
 }

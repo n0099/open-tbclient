@@ -10,13 +10,13 @@ import io.reactivex.CompletableObserver;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
 import io.reactivex.disposables.Disposable;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class CompletableFromSingle<T> extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SingleSource<T> single;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class CompletableFromSingleObserver<T> implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

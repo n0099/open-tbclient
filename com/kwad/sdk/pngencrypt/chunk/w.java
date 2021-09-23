@@ -12,13 +12,13 @@ public class w extends aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f73184h;
+    public int f73503h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f73185i;
+    public int f73504i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f73186j;
+    public int f73505j;
     public int k;
     public int l;
 
@@ -47,8 +47,8 @@ public class w extends aa {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            int i2 = this.f73119e.f73217f ? 1 : 3;
-            return this.f73119e.f73216e ? i2 + 1 : i2;
+            int i2 = this.f73438e.f73536f ? 1 : 3;
+            return this.f73438e.f73535e ? i2 + 1 : i2;
         }
         return invokeV.intValue;
     }
@@ -58,25 +58,25 @@ public class w extends aa {
         int a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (dVar.f73140a != c()) {
+            if (dVar.f73459a != c()) {
                 throw new PngjException("bad chunk length " + dVar);
             }
-            if (this.f73119e.f73217f) {
-                this.f73184h = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, 0);
-                if (!this.f73119e.f73216e) {
+            if (this.f73438e.f73536f) {
+                this.f73503h = com.kwad.sdk.pngencrypt.n.a(dVar.f73462d, 0);
+                if (!this.f73438e.f73535e) {
                     return;
                 }
-                a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, 1);
+                a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f73462d, 1);
             } else {
-                this.f73186j = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, 0);
-                this.k = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, 1);
-                this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, 2);
-                if (!this.f73119e.f73216e) {
+                this.f73505j = com.kwad.sdk.pngencrypt.n.a(dVar.f73462d, 0);
+                this.k = com.kwad.sdk.pngencrypt.n.a(dVar.f73462d, 1);
+                this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f73462d, 2);
+                if (!this.f73438e.f73535e) {
                     return;
                 }
-                a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, 3);
+                a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f73462d, 3);
             }
-            this.f73185i = a2;
+            this.f73504i = a2;
         }
     }
 }

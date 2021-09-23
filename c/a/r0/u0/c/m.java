@@ -38,7 +38,7 @@ public class m extends c.a.r0.w0.k<n, PrivateMgrApplyViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f25261e;
+        public final /* synthetic */ m f25282e;
 
         public a(m mVar) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class m extends c.a.r0.w0.k<n, PrivateMgrApplyViewHolder> {
                     return;
                 }
             }
-            this.f25261e = mVar;
+            this.f25282e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -67,10 +67,10 @@ public class m extends c.a.r0.w0.k<n, PrivateMgrApplyViewHolder> {
                     if (tag == null || tag.toString().equals("")) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink((TbPageContext) c.a.e.a.j.a(this.f25261e.f2957e), new String[]{tag.toString()});
+                    UrlManager.getInstance().dealOneLink((TbPageContext) c.a.e.a.j.a(this.f25282e.f2958e), new String[]{tag.toString()});
                     return;
                 }
-                this.f25261e.z0(TbadkCoreApplication.getCurrentAccountInfo());
+                this.f25282e.z0(TbadkCoreApplication.getCurrentAccountInfo());
             }
         }
     }
@@ -134,7 +134,7 @@ public class m extends c.a.r0.w0.k<n, PrivateMgrApplyViewHolder> {
     public PrivateMgrApplyViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new PrivateMgrApplyViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.private_member_apply, (ViewGroup) null)) : (PrivateMgrApplyViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new PrivateMgrApplyViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.private_member_apply, (ViewGroup) null)) : (PrivateMgrApplyViewHolder) invokeL.objValue;
     }
 
     public View y0(int i2, View view, ViewGroup viewGroup, n nVar, PrivateMgrApplyViewHolder privateMgrApplyViewHolder) {
@@ -155,12 +155,12 @@ public class m extends c.a.r0.w0.k<n, PrivateMgrApplyViewHolder> {
                     SkinManager.setBackgroundResource(privateMgrApplyViewHolder.mAssistApplyLayout, R.drawable.frs_member_manito_bg);
                 }
                 int b2 = nVar.b();
-                String string = this.f2957e.getResources().getString(R.string.tbtitle_quota_is_full);
+                String string = this.f2958e.getResources().getString(R.string.tbtitle_quota_is_full);
                 if (b2 == -1) {
                     int d2 = nVar.d();
                     String numberUniformFormat = StringHelper.numberUniformFormat(d2);
                     if (d2 > 0) {
-                        string = String.format(this.f2957e.getResources().getString(R.string.tbtitle_apply_assist_left_num_tip), numberUniformFormat);
+                        string = String.format(this.f2958e.getResources().getString(R.string.tbtitle_apply_assist_left_num_tip), numberUniformFormat);
                         privateMgrApplyViewHolder.mAssistApplyLayout.setOnClickListener(this.y);
                         privateMgrApplyViewHolder.mAssistRemainNum.setText(string);
                         privateMgrApplyViewHolder.mAssistApplyLayout.setTag(z, nVar.c());
@@ -179,12 +179,12 @@ public class m extends c.a.r0.w0.k<n, PrivateMgrApplyViewHolder> {
                     privateMgrApplyViewHolder.mSkinType = this.r;
                 } else {
                     if (b2 == 0) {
-                        string = this.f2957e.getResources().getString(R.string.tbtitle_is_assist);
+                        string = this.f2958e.getResources().getString(R.string.tbtitle_is_assist);
                     } else if (b2 == 1) {
-                        string = this.f2957e.getResources().getString(R.string.tbtitle_assist_applying);
+                        string = this.f2958e.getResources().getString(R.string.tbtitle_assist_applying);
                     } else {
                         if (b2 == 2) {
-                            string = this.f2957e.getResources().getString(R.string.tbtitle_assist_apply_failed);
+                            string = this.f2958e.getResources().getString(R.string.tbtitle_assist_apply_failed);
                         }
                         z2 = false;
                     }
@@ -205,7 +205,7 @@ public class m extends c.a.r0.w0.k<n, PrivateMgrApplyViewHolder> {
     public final void z0(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, accountData) == null) {
-            c.a.e.a.f<?> a2 = c.a.e.a.j.a(this.f2957e);
+            c.a.e.a.f<?> a2 = c.a.e.a.j.a(this.f2958e);
             Activity pageActivity = a2 instanceof TbPageContext ? ((TbPageContext) a2).getPageActivity() : null;
             if (this.x == null) {
                 this.x = new c.a.q0.t.i.b(pageActivity);

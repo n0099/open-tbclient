@@ -12,20 +12,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class JdkPattern extends e implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public final Pattern pattern;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class a extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Matcher f70279a;
+        public final Matcher f70598a;
 
         public a(Matcher matcher) {
             Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public final class JdkPattern extends e implements Serializable {
                 }
             }
             n.p(matcher);
-            this.f70279a = matcher;
+            this.f70598a = matcher;
         }
 
         @Override // c.i.d.a.d
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70279a.find() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70598a.find() : invokeV.booleanValue;
         }
     }
 

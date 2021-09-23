@@ -25,22 +25,22 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f56755e;
+    public ImageView f56872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f56756f;
+    public TextView f56873f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f56757g;
+    public TextView f56874g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f56758h;
+    public TextView f56875h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f56759i;
+    public TextView f56876i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f56760j;
+    public TextView f56877j;
     public TBSpecificationBtn k;
     public int l;
 
@@ -69,12 +69,12 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.youngster_introduce, this);
-            this.f56755e = (ImageView) findViewById(R.id.img_youngster_introduce);
-            this.f56756f = (TextView) findViewById(R.id.txt_youngster_introduce_title);
-            this.f56757g = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
-            this.f56758h = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
-            this.f56759i = (TextView) findViewById(R.id.txt_youngster_introduce_content3);
-            this.f56760j = (TextView) findViewById(R.id.txt_youngster_introduce_content4);
+            this.f56872e = (ImageView) findViewById(R.id.img_youngster_introduce);
+            this.f56873f = (TextView) findViewById(R.id.txt_youngster_introduce_title);
+            this.f56874g = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
+            this.f56875h = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
+            this.f56876i = (TextView) findViewById(R.id.txt_youngster_introduce_content3);
+            this.f56877j = (TextView) findViewById(R.id.txt_youngster_introduce_content4);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.btn_youngster_open);
             this.k = tBSpecificationBtn;
             tBSpecificationBtn.setConfig(new a());
@@ -87,12 +87,12 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f56755e.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
-            SkinManager.setViewTextColor(this.f56756f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f56757g, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f56758h, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f56759i, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f56760j, R.color.CAM_X0107);
+            this.f56872e.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setViewTextColor(this.f56873f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f56874g, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f56875h, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f56876i, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f56877j, R.color.CAM_X0107);
             this.k.changeSkinType();
         }
     }

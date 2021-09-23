@@ -17,19 +17,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f18659a;
+    public TbPageContext<?> f18668a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f18660b;
+    public BdTypeRecyclerView f18669b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f18661c;
+    public b f18670c;
 
     /* renamed from: d  reason: collision with root package name */
-    public u f18662d;
+    public u f18671d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.e.l.e.a> f18663e;
+    public List<c.a.e.l.e.a> f18672e;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
@@ -46,36 +46,36 @@ public class a {
                 return;
             }
         }
-        this.f18663e = new LinkedList();
-        this.f18659a = tbPageContext;
-        this.f18660b = bdTypeRecyclerView;
+        this.f18672e = new LinkedList();
+        this.f18668a = tbPageContext;
+        this.f18669b = bdTypeRecyclerView;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b bVar = new b(this.f18659a);
-            this.f18661c = bVar;
-            this.f18663e.add(bVar);
-            u uVar = new u(this.f18659a);
-            this.f18662d = uVar;
-            this.f18663e.add(uVar);
-            this.f18660b.addAdapters(this.f18663e);
+            b bVar = new b(this.f18668a);
+            this.f18670c = bVar;
+            this.f18672e.add(bVar);
+            u uVar = new u(this.f18668a);
+            this.f18671d = uVar;
+            this.f18672e.add(uVar);
+            this.f18669b.addAdapters(this.f18672e);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f18660b.getAdapter().notifyDataSetChanged();
+            this.f18669b.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void c(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f18660b.setData(list);
+            this.f18669b.setData(list);
         }
     }
 }

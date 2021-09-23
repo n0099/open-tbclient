@@ -13,13 +13,13 @@ public class b extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f13673b;
+    public a f13669b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f13674c;
+    public boolean f13670c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f13675d;
+    public boolean f13671d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class b extends g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar = this.f13673b;
+            a aVar = this.f13669b;
             if (aVar != null) {
                 return aVar.b();
             }
@@ -52,22 +52,22 @@ public class b extends g {
         a aVar;
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f13675d || (aVar = this.f13673b) == null || aVar.b() < 0 || (mVar = (m) k.d().e(this.f13687a)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f13671d || (aVar = this.f13669b) == null || aVar.b() < 0 || (mVar = (m) k.d().e(this.f13683a)) == null) {
             return;
         }
         mVar.e(this);
-        this.f13675d = true;
+        this.f13671d = true;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.f13674c && k.d().g()) {
-            this.f13674c = true;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.f13670c && k.d().g()) {
+            this.f13670c = true;
             if (Build.VERSION.SDK_INT >= 16) {
-                if (this.f13673b == null) {
-                    this.f13673b = new a();
+                if (this.f13669b == null) {
+                    this.f13669b = new a();
                 }
-                this.f13673b.c();
+                this.f13669b.c();
             }
         }
     }
@@ -75,7 +75,7 @@ public class b extends g {
     public void e() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || Build.VERSION.SDK_INT < 16 || (aVar = this.f13673b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || Build.VERSION.SDK_INT < 16 || (aVar = this.f13669b) == null) {
             return;
         }
         aVar.d();

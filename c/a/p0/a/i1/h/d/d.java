@@ -31,7 +31,7 @@ public class d extends c {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,7 +59,7 @@ public class d extends c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{aVar, cVar, context, unitedSchemeEntity, callbackHandler, eVar})) == null) {
-            c.a.p0.a.e0.d.g("vrvideo", "remove, video id:" + cVar.n + " slave id: " + cVar.f4658g);
+            c.a.p0.a.e0.d.g("vrvideo", "remove, video id:" + cVar.n + " slave id: " + cVar.f4666g);
             d(aVar, cVar, unitedSchemeEntity, callbackHandler);
             return true;
         }

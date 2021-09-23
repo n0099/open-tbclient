@@ -639,7 +639,7 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
                     XAdRemoteSDKCountly.getInstance().onAPKDownloadComplete(this.mContext, this.mExtraInfo);
                     if (localApkFileInfo != null && !TextUtils.isEmpty(localApkFileInfo.packageName) && XAdSDKRemoteExp.LiteInc.mPkgName.equals(localApkFileInfo.packageName)) {
                         FileUtils.copyFile(str3, this.mExtraInfo.outputFolder + EncryptUtils.getMD5(XAdSDKRemoteExp.LiteInc.mPkgName) + ".apk");
-                        SendLogUtil.Builder.create(this.mContext).appendType(1026).appendAppSid(this.mExtraInfo.getAppsid()).append(XAdRemoteAPKDownloadExtraInfo.QK, this.mExtraInfo.queryKey).append(XAdRemoteAPKDownloadExtraInfo.ADID, this.mExtraInfo.mAdid).append("act", "0").append(XAdRemoteAPKDownloadExtraInfo.BUYER, this.mExtraInfo.mBuyer).append("lastPath", !TextUtils.isEmpty(this.mExtraInfo.mUrl) ? Uri.parse(this.mExtraInfo.mUrl).getLastPathSegment() : "").append("evt", b.f35915c).send();
+                        SendLogUtil.Builder.create(this.mContext).appendType(1026).appendAppSid(this.mExtraInfo.getAppsid()).append(XAdRemoteAPKDownloadExtraInfo.QK, this.mExtraInfo.queryKey).append(XAdRemoteAPKDownloadExtraInfo.ADID, this.mExtraInfo.mAdid).append("act", "0").append(XAdRemoteAPKDownloadExtraInfo.BUYER, this.mExtraInfo.mBuyer).append("lastPath", !TextUtils.isEmpty(this.mExtraInfo.mUrl) ? Uri.parse(this.mExtraInfo.mUrl).getLastPathSegment() : "").append("evt", b.m).send();
                     }
                 } else if (downloadStatus == IDownloader.DownloadStatus.ERROR) {
                     xAdRemoteAPKDownloadExtraInfo3.targetUrl = iDownloader.getTargetURL();

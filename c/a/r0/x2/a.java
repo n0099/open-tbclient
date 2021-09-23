@@ -26,28 +26,28 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f28858c;
+    public static a f28878c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28859a;
+    public int f28879a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PersonInfoMoreDialog f28860b;
+    public PersonInfoMoreDialog f28880b;
 
     /* renamed from: c.a.r0.x2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1349a implements g.InterfaceC0774g {
+    public class C1347a implements g.InterfaceC0772g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f28861a;
+        public final /* synthetic */ TbPageContext f28881a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f28862b;
+        public final /* synthetic */ a f28882b;
 
-        public C1349a(a aVar, TbPageContext tbPageContext) {
+        public C1347a(a aVar, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,21 +62,21 @@ public class a {
                     return;
                 }
             }
-            this.f28862b = aVar;
-            this.f28861a = tbPageContext;
+            this.f28882b = aVar;
+            this.f28881a = tbPageContext;
         }
 
-        @Override // c.a.r0.b4.g.InterfaceC0774g
+        @Override // c.a.r0.b4.g.InterfaceC0772g
         public void onClick(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f28862b.f28860b == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f28882b.f28880b == null) {
                 return;
             }
-            this.f28862b.f28860b.dismiss();
-            this.f28862b.f28860b = null;
-            this.f28862b.f28859a = i2;
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_CLICK_STAR).param("obj_type", this.f28862b.f28859a));
-            this.f28862b.o(this.f28861a);
+            this.f28882b.f28880b.dismiss();
+            this.f28882b.f28880b = null;
+            this.f28882b.f28879a = i2;
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_CLICK_STAR).param("obj_type", this.f28882b.f28879a));
+            this.f28882b.o(this.f28881a);
         }
     }
 
@@ -86,10 +86,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f28863a;
+        public final /* synthetic */ TbPageContext f28883a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f28864b;
+        public final /* synthetic */ a f28884b;
 
         public b(a aVar, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -106,24 +106,24 @@ public class a {
                     return;
                 }
             }
-            this.f28864b = aVar;
-            this.f28863a = tbPageContext;
+            this.f28884b = aVar;
+            this.f28883a = tbPageContext;
         }
 
         @Override // c.a.r0.b4.g.e
         public void onClick() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f28864b.f28860b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f28884b.f28880b == null) {
                 return;
             }
-            this.f28864b.f28860b.dismiss();
-            this.f28864b.f28860b = null;
-            if (this.f28864b.f28859a == 1 || this.f28864b.f28859a == 2) {
-                this.f28864b.h(this.f28863a);
+            this.f28884b.f28880b.dismiss();
+            this.f28884b.f28880b = null;
+            if (this.f28884b.f28879a == 1 || this.f28884b.f28879a == 2) {
+                this.f28884b.h(this.f28883a);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_CLICK_FEEDBACK));
                 return;
             }
-            this.f28864b.i(this.f28863a);
+            this.f28884b.i(this.f28883a);
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_SCORE));
         }
     }
@@ -134,7 +134,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28865a;
+        public final /* synthetic */ a f28885a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -151,18 +151,18 @@ public class a {
                     return;
                 }
             }
-            this.f28865a = aVar;
+            this.f28885a = aVar;
         }
 
         @Override // c.a.r0.b4.g.d
         public void onClick() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f28865a.f28860b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f28885a.f28880b == null) {
                 return;
             }
-            this.f28865a.f28860b.dismiss();
-            this.f28865a.f28860b = null;
-            if (this.f28865a.f28859a != 1 && this.f28865a.f28859a != 2) {
+            this.f28885a.f28880b.dismiss();
+            this.f28885a.f28880b = null;
+            if (this.f28885a.f28879a != 1 && this.f28885a.f28879a != 2) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_CLICK_CANCEL));
             } else {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FEEDBACK_CLICK_CANCEL));
@@ -183,21 +183,21 @@ public class a {
                 return;
             }
         }
-        this.f28859a = 0;
+        this.f28879a = 0;
     }
 
     public static a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f28858c == null) {
+            if (f28878c == null) {
                 synchronized (a.class) {
-                    if (f28858c == null) {
-                        f28858c = new a();
+                    if (f28878c == null) {
+                        f28878c = new a();
                     }
                 }
             }
-            return f28858c;
+            return f28878c;
         }
         return (a) invokeV.objValue;
     }
@@ -310,11 +310,11 @@ public class a {
         gVar.w(0, g2, 0, g4);
         gVar.q(0, 0, 0, g3);
         gVar.p(true);
-        gVar.v(new C1349a(this, tbPageContext));
+        gVar.v(new C1347a(this, tbPageContext));
         PersonInfoMoreDialog personInfoMoreDialog = new PersonInfoMoreDialog(tbPageContext.getContext(), gVar.j());
-        this.f28860b = personInfoMoreDialog;
+        this.f28880b = personInfoMoreDialog;
         personInfoMoreDialog.setWindowDimAmount(0.7f);
-        c.a.e.e.m.g.j(this.f28860b, tbPageContext);
+        c.a.e.e.m.g.j(this.f28880b, tbPageContext);
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_DIALOG_SHOW));
     }
 
@@ -325,7 +325,7 @@ public class a {
             return;
         }
         g gVar = new g(tbPageContext.getContext());
-        int i2 = this.f28859a;
+        int i2 = this.f28879a;
         if (i2 != 1 && i2 != 2) {
             gVar.y(tbPageContext.getContext().getString(R.string.go_shop_give_me_comment));
             cVar = new g.c(tbPageContext.getContext().getString(R.string.go_score), gVar);
@@ -335,7 +335,7 @@ public class a {
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(cVar);
-        gVar.r(this.f28859a);
+        gVar.r(this.f28879a);
         gVar.s(0);
         gVar.o(0);
         gVar.p(false);
@@ -348,10 +348,10 @@ public class a {
         gVar.u(new c(this));
         gVar.t(arrayList);
         PersonInfoMoreDialog personInfoMoreDialog = new PersonInfoMoreDialog(tbPageContext.getContext(), gVar.j());
-        this.f28860b = personInfoMoreDialog;
+        this.f28880b = personInfoMoreDialog;
         personInfoMoreDialog.setWindowDimAmount(0.7f);
-        c.a.e.e.m.g.j(this.f28860b, tbPageContext);
-        int i3 = this.f28859a;
+        c.a.e.e.m.g.j(this.f28880b, tbPageContext);
+        int i3 = this.f28879a;
         if (i3 != 1 && i3 != 2) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_DIALOG_SHOW));
         } else {

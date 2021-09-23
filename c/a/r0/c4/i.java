@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.j;
 import c.a.q0.s.s.a;
 import c.a.q0.s.s.i;
-import c.a.r0.j3.y;
+import c.a.r0.j3.z;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -54,13 +54,13 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16669a;
+        public final /* synthetic */ TbPageContext f16679a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f16670b;
+        public final /* synthetic */ String f16680b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ForumWriteData f16671c;
+        public final /* synthetic */ ForumWriteData f16681c;
 
         public a(TbPageContext tbPageContext, String str, ForumWriteData forumWriteData) {
             Interceptable interceptable = $ic;
@@ -77,16 +77,16 @@ public class i {
                     return;
                 }
             }
-            this.f16669a = tbPageContext;
-            this.f16670b = str;
-            this.f16671c = forumWriteData;
+            this.f16679a = tbPageContext;
+            this.f16680b = str;
+            this.f16681c = forumWriteData;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                i.i(this.f16669a, this.f16670b, this.f16671c);
+                i.i(this.f16679a, this.f16680b, this.f16681c);
             }
         }
     }
@@ -97,13 +97,13 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16672e;
+        public final /* synthetic */ TbPageContext f16682e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForumWriteData f16673f;
+        public final /* synthetic */ ForumWriteData f16683f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PluginNetConfigInfos.PluginConfig f16674g;
+        public final /* synthetic */ PluginNetConfigInfos.PluginConfig f16684g;
 
         public b(TbPageContext tbPageContext, ForumWriteData forumWriteData, PluginNetConfigInfos.PluginConfig pluginConfig) {
             Interceptable interceptable = $ic;
@@ -120,9 +120,9 @@ public class i {
                     return;
                 }
             }
-            this.f16672e = tbPageContext;
-            this.f16673f = forumWriteData;
-            this.f16674g = pluginConfig;
+            this.f16682e = tbPageContext;
+            this.f16683f = forumWriteData;
+            this.f16684g = pluginConfig;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -130,11 +130,11 @@ public class i {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                g gVar = new g(this.f16672e, this.f16673f, i.m(this.f16672e));
+                g gVar = new g(this.f16682e, this.f16683f, i.m(this.f16682e));
                 if (PluginPackageManager.O().Z(XiaoyingUtil.PKG_NAME_VIDEO)) {
                     PluginPackageManager.O().u0(gVar);
                 } else {
-                    PluginPackageManager.O().x0(this.f16674g, gVar);
+                    PluginPackageManager.O().x0(this.f16684g, gVar);
                 }
             }
         }
@@ -202,22 +202,22 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f16675e;
+        public final /* synthetic */ String f16685e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f16676f;
+        public final /* synthetic */ String f16686f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f16677g;
+        public final /* synthetic */ String f16687g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f16678h;
+        public final /* synthetic */ String f16688h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f16679i;
+        public final /* synthetic */ int f16689i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ Boolean f16680j;
+        public final /* synthetic */ Boolean f16690j;
         public final /* synthetic */ PopupDialog k;
 
         public e(String str, String str2, String str3, String str4, int i2, Boolean bool, PopupDialog popupDialog) {
@@ -235,12 +235,12 @@ public class i {
                     return;
                 }
             }
-            this.f16675e = str;
-            this.f16676f = str2;
-            this.f16677g = str3;
-            this.f16678h = str4;
-            this.f16679i = i2;
-            this.f16680j = bool;
+            this.f16685e = str;
+            this.f16686f = str2;
+            this.f16687g = str3;
+            this.f16688h = str4;
+            this.f16689i = i2;
+            this.f16690j = bool;
             this.k = popupDialog;
         }
 
@@ -249,9 +249,9 @@ public class i {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
                 if (i2 == 0) {
-                    i.k(true, true, this.f16675e, this.f16676f, this.f16677g, this.f16678h, this.f16679i, this.f16680j);
+                    i.k(true, true, this.f16685e, this.f16686f, this.f16687g, this.f16688h, this.f16689i, this.f16690j);
                 } else if (i2 == 1) {
-                    i.k(true, false, this.f16675e, this.f16676f, this.f16677g, this.f16678h, this.f16679i, this.f16680j);
+                    i.k(true, false, this.f16685e, this.f16686f, this.f16687g, this.f16688h, this.f16689i, this.f16690j);
                 }
                 PopupDialog popupDialog = this.k;
                 if (popupDialog != null) {
@@ -267,7 +267,7 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f16681a;
+        public final /* synthetic */ PopupDialog f16691a;
 
         public f(PopupDialog popupDialog) {
             Interceptable interceptable = $ic;
@@ -284,14 +284,14 @@ public class i {
                     return;
                 }
             }
-            this.f16681a = popupDialog;
+            this.f16691a = popupDialog;
         }
 
         @Override // c.a.q0.s.s.i.c
         public void onClick() {
             PopupDialog popupDialog;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (popupDialog = this.f16681a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (popupDialog = this.f16691a) == null) {
                 return;
             }
             popupDialog.dismiss();
@@ -304,13 +304,13 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbPageContext f16682a;
+        public TbPageContext f16692a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ForumWriteData f16683b;
+        public ForumWriteData f16693b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BdProgressDialog f16684c;
+        public BdProgressDialog f16694c;
 
         public g(TbPageContext tbPageContext, ForumWriteData forumWriteData, BdProgressDialog bdProgressDialog) {
             Interceptable interceptable = $ic;
@@ -327,21 +327,21 @@ public class i {
                     return;
                 }
             }
-            this.f16682a = null;
-            this.f16682a = tbPageContext;
-            this.f16683b = forumWriteData;
-            this.f16684c = bdProgressDialog;
+            this.f16692a = null;
+            this.f16692a = tbPageContext;
+            this.f16693b = forumWriteData;
+            this.f16694c = bdProgressDialog;
         }
 
         @Override // c.a.e.h.j.d
         public void a(BdFileDownloadData bdFileDownloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bdFileDownloadData) == null) {
-                BdProgressDialog bdProgressDialog = this.f16684c;
+                BdProgressDialog bdProgressDialog = this.f16694c;
                 if (bdProgressDialog != null) {
-                    c.a.e.e.m.g.b(bdProgressDialog, this.f16682a);
+                    c.a.e.e.m.g.b(bdProgressDialog, this.f16692a);
                 }
-                this.f16682a.showToast(R.string.plugin_video_installing);
+                this.f16692a.showToast(R.string.plugin_video_installing);
             }
         }
 
@@ -350,11 +350,11 @@ public class i {
             TbPageContext tbPageContext;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdFileDownloadData) == null) {
-                BdProgressDialog bdProgressDialog = this.f16684c;
+                BdProgressDialog bdProgressDialog = this.f16694c;
                 if (bdProgressDialog != null) {
-                    c.a.e.e.m.g.b(bdProgressDialog, this.f16682a);
+                    c.a.e.e.m.g.b(bdProgressDialog, this.f16692a);
                 }
-                if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && (tbPageContext = this.f16682a) != null) {
+                if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && (tbPageContext = this.f16692a) != null) {
                     tbPageContext.showToast(bdFileDownloadData.getStatusMsg());
                 }
                 PluginPackageManager.O().u0(null);
@@ -365,15 +365,15 @@ public class i {
         public void c(BdFileDownloadData bdFileDownloadData, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, bdFileDownloadData, i2, str) == null) {
-                BdProgressDialog bdProgressDialog = this.f16684c;
+                BdProgressDialog bdProgressDialog = this.f16694c;
                 if (bdProgressDialog != null) {
-                    c.a.e.e.m.g.b(bdProgressDialog, this.f16682a);
+                    c.a.e.e.m.g.b(bdProgressDialog, this.f16692a);
                 }
                 if (i2 == 0) {
-                    i.j(this.f16682a, "", this.f16683b);
+                    i.j(this.f16692a, "", this.f16693b);
                 } else {
-                    TbPageContext tbPageContext = this.f16682a;
-                    tbPageContext.showToast(this.f16682a.getString(R.string.install_failed) + str);
+                    TbPageContext tbPageContext = this.f16692a;
+                    tbPageContext.showToast(this.f16692a.getString(R.string.install_failed) + str);
                 }
                 PluginPackageManager.O().u0(null);
             }
@@ -383,7 +383,7 @@ public class i {
         public void d(BdFileDownloadData bdFileDownloadData) {
             BdProgressDialog bdProgressDialog;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, bdFileDownloadData) == null) || bdFileDownloadData == null || !bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) || (bdProgressDialog = this.f16684c) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, bdFileDownloadData) == null) || bdFileDownloadData == null || !bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) || (bdProgressDialog = this.f16694c) == null) {
                 return;
             }
             bdProgressDialog.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
@@ -399,7 +399,7 @@ public class i {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? !TextUtils.isEmpty(y.w()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? !TextUtils.isEmpty(z.w()) : invokeV.booleanValue;
     }
 
     public static boolean d(int i2) {
@@ -538,10 +538,10 @@ public class i {
             } else if (z2) {
                 i3 = 2;
             } else {
-                y.r("");
+                z.r("");
                 i3 = 1;
             }
-            c.a.q0.s.m.c.f14024f.c(i3, TbadkCoreApplication.getInst().getCurrentActivity(), str, str2, str3, str4, Integer.valueOf(i2), bool.booleanValue());
+            c.a.q0.s.m.c.f14021f.c(i3, TbadkCoreApplication.getInst().getCurrentActivity(), str, str2, str3, str4, Integer.valueOf(i2), bool.booleanValue());
         }
     }
 

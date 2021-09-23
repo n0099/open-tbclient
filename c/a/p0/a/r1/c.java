@@ -14,7 +14,7 @@ public class c extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f8340a = -1;
+    public static long f8348a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,13 +50,13 @@ public class c extends ProviderDelegation {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            long j2 = f8340a;
+            long j2 = f8348a;
             if (j2 >= 0) {
                 return j2;
             }
             Bundle a2 = c.a.p0.a.v1.b.d.a(c.class, null);
             long j3 = a2 != null ? a2.getLong("result", 0L) : 0L;
-            f8340a = j3;
+            f8348a = j3;
             return j3;
         }
         return invokeV.longValue;

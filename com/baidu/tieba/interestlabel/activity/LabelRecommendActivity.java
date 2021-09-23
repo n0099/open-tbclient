@@ -35,7 +35,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LabelRecommendActivity f53687e;
+        public final /* synthetic */ LabelRecommendActivity f53802e;
 
         public a(LabelRecommendActivity labelRecommendActivity) {
             Interceptable interceptable = $ic;
@@ -52,32 +52,32 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                     return;
                 }
             }
-            this.f53687e = labelRecommendActivity;
+            this.f53802e = labelRecommendActivity;
         }
 
         @Override // c.a.r0.n1.c.a
         public void callback(LabelRequestEnum labelRequestEnum, c.a.r0.n1.b.b bVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, bVar, i2) == null) {
-                int i3 = b.f53688a[labelRequestEnum.ordinal()];
+                int i3 = b.f53803a[labelRequestEnum.ordinal()];
                 if (i3 != 1) {
                     if (i3 == 2 && i2 == 0) {
                         c.a.q0.s.d0.b.j().t("set_recommend_label", true);
-                        this.f53687e.statisticSubSuccess();
-                        this.f53687e.finish();
+                        this.f53802e.statisticSubSuccess();
+                        this.f53802e.finish();
                         return;
                     }
                     return;
                 }
-                LabelRecommendActivity labelRecommendActivity = this.f53687e;
+                LabelRecommendActivity labelRecommendActivity = this.f53802e;
                 labelRecommendActivity.hideLoadingView(labelRecommendActivity.mView.c());
                 if (bVar != null && !ListUtils.isEmpty(bVar.c()) && !ListUtils.isEmpty(bVar.b())) {
-                    LabelRecommendActivity labelRecommendActivity2 = this.f53687e;
+                    LabelRecommendActivity labelRecommendActivity2 = this.f53802e;
                     labelRecommendActivity2.hideNetRefreshView(labelRecommendActivity2.mView.c());
-                    this.f53687e.mView.j(bVar);
+                    this.f53802e.mView.j(bVar);
                     return;
                 }
-                LabelRecommendActivity labelRecommendActivity3 = this.f53687e;
+                LabelRecommendActivity labelRecommendActivity3 = this.f53802e;
                 labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.mView.c(), TbadkCoreApplication.getInst().getString(R.string.neterror), true);
             }
         }
@@ -102,7 +102,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f53688a;
+        public static final /* synthetic */ int[] f53803a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -119,13 +119,13 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 }
             }
             int[] iArr = new int[LabelRequestEnum.values().length];
-            f53688a = iArr;
+            f53803a = iArr;
             try {
                 iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f53688a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                f53803a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }

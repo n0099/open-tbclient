@@ -44,34 +44,34 @@ public class e extends c.a.e.a.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f29043a;
+    public View f29063a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HorizontalListView f29044b;
+    public HorizontalListView f29064b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Resources f29045c;
+    public Resources f29065c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.x3.i.h.a f29046d;
+    public c.a.r0.x3.i.h.a f29066d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.x3.i.c.c f29047e;
+    public c.a.r0.x3.i.c.c f29067e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f29048f;
+    public LinearLayout f29068f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f29049g;
+    public ImageView f29069g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f29050h;
+    public TextView f29070h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f29051i;
+    public boolean f29071i;
 
     /* renamed from: j  reason: collision with root package name */
-    public MediaPlayer f29052j;
+    public MediaPlayer f29072j;
     public String k;
     public int l;
     public int m;
@@ -89,7 +89,7 @@ public class e extends c.a.e.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f29053e;
+        public final /* synthetic */ e f29073e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -106,16 +106,16 @@ public class e extends c.a.e.a.d {
                     return;
                 }
             }
-            this.f29053e = eVar;
+            this.f29073e = eVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                if (this.f29053e.f29047e.b() != i2 || i2 == this.f29053e.l) {
-                    this.f29053e.m = i2;
-                    this.f29053e.q(i2, view);
+                if (this.f29073e.f29067e.b() != i2 || i2 == this.f29073e.l) {
+                    this.f29073e.m = i2;
+                    this.f29073e.q(i2, view);
                 }
             }
         }
@@ -127,13 +127,13 @@ public class e extends c.a.e.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a f29054a;
+        public final /* synthetic */ c.a f29074a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f29055b;
+        public final /* synthetic */ int f29075b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f29056c;
+        public final /* synthetic */ e f29076c;
 
         public b(e eVar, c.a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -150,19 +150,19 @@ public class e extends c.a.e.a.d {
                     return;
                 }
             }
-            this.f29056c = eVar;
-            this.f29054a = aVar;
-            this.f29055b = i2;
+            this.f29076c = eVar;
+            this.f29074a = aVar;
+            this.f29075b = i2;
         }
 
         @Override // c.a.r0.x3.i.f.a.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f29054a.f28934b.setVisibility(4);
-                l.M(this.f29056c.mContext.getPageActivity(), str);
-                if (this.f29056c.r != null) {
-                    this.f29056c.r.a(206, str);
+                this.f29074a.f28954b.setVisibility(4);
+                l.M(this.f29076c.mContext.getPageActivity(), str);
+                if (this.f29076c.r != null) {
+                    this.f29076c.r.a(206, str);
                 }
             }
         }
@@ -171,7 +171,7 @@ public class e extends c.a.e.a.d {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f29054a.f28934b.setVisibility(4);
+                this.f29074a.f28954b.setVisibility(4);
             }
         }
 
@@ -182,8 +182,8 @@ public class e extends c.a.e.a.d {
                 if (!TextUtils.isEmpty(str2)) {
                     str = str2;
                 }
-                this.f29054a.f28934b.setVisibility(4);
-                this.f29056c.B(str, this.f29055b);
+                this.f29074a.f28954b.setVisibility(4);
+                this.f29076c.B(str, this.f29075b);
             }
         }
     }
@@ -194,10 +194,10 @@ public class e extends c.a.e.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f29057a;
+        public final /* synthetic */ int f29077a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f29058b;
+        public final /* synthetic */ e f29078b;
 
         public c(e eVar, int i2) {
             Interceptable interceptable = $ic;
@@ -214,17 +214,17 @@ public class e extends c.a.e.a.d {
                     return;
                 }
             }
-            this.f29058b = eVar;
-            this.f29057a = i2;
+            this.f29078b = eVar;
+            this.f29077a = i2;
         }
 
         @Override // c.a.r0.x3.i.f.a.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                l.M(this.f29058b.mContext.getPageActivity(), str);
-                if (this.f29058b.r != null) {
-                    this.f29058b.r.a(206, str);
+                l.M(this.f29078b.mContext.getPageActivity(), str);
+                if (this.f29078b.r != null) {
+                    this.f29078b.r.a(206, str);
                 }
             }
         }
@@ -243,7 +243,7 @@ public class e extends c.a.e.a.d {
                 if (!TextUtils.isEmpty(str2)) {
                     str = str2;
                 }
-                this.f29058b.B(str, this.f29057a);
+                this.f29078b.B(str, this.f29077a);
             }
         }
     }
@@ -254,10 +254,10 @@ public class e extends c.a.e.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f29059e;
+        public final /* synthetic */ int f29079e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f29060f;
+        public final /* synthetic */ e f29080f;
 
         public d(e eVar, int i2) {
             Interceptable interceptable = $ic;
@@ -274,30 +274,30 @@ public class e extends c.a.e.a.d {
                     return;
                 }
             }
-            this.f29060f = eVar;
-            this.f29059e = i2;
+            this.f29080f = eVar;
+            this.f29079e = i2;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f29060f.f29047e.d(this.f29059e);
-                this.f29060f.f29052j.setLooping(true);
+                this.f29080f.f29067e.d(this.f29079e);
+                this.f29080f.f29072j.setLooping(true);
             }
         }
     }
 
     /* renamed from: c.a.r0.x3.i.h.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1359e implements MediaPlayer.OnErrorListener {
+    public class C1357e implements MediaPlayer.OnErrorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f29061e;
+        public final /* synthetic */ e f29081e;
 
-        public C1359e(e eVar) {
+        public C1357e(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -312,7 +312,7 @@ public class e extends c.a.e.a.d {
                     return;
                 }
             }
-            this.f29061e = eVar;
+            this.f29081e = eVar;
         }
 
         @Override // android.media.MediaPlayer.OnErrorListener
@@ -320,8 +320,8 @@ public class e extends c.a.e.a.d {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3)) == null) {
-                if (this.f29061e.r != null) {
-                    c.a.r0.z1.g gVar = this.f29061e.r;
+                if (this.f29081e.r != null) {
+                    c.a.r0.z1.g gVar = this.f29081e.r;
                     gVar.a(207, "what-->" + i2 + "  extra-->" + i3);
                     return false;
                 }
@@ -337,10 +337,10 @@ public class e extends c.a.e.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f29062e;
+        public final /* synthetic */ int f29082e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f29063f;
+        public final /* synthetic */ e f29083f;
 
         public f(e eVar, int i2) {
             Interceptable interceptable = $ic;
@@ -357,18 +357,18 @@ public class e extends c.a.e.a.d {
                     return;
                 }
             }
-            this.f29063f = eVar;
-            this.f29062e = i2;
+            this.f29083f = eVar;
+            this.f29082e = i2;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f29063f.f29047e.d(this.f29062e);
-                this.f29063f.f29052j.setLooping(true);
-                this.f29063f.f29052j.start();
-                this.f29063f.f29046d.R();
+                this.f29083f.f29067e.d(this.f29082e);
+                this.f29083f.f29072j.setLooping(true);
+                this.f29083f.f29072j.start();
+                this.f29083f.f29066d.R();
             }
         }
     }
@@ -379,7 +379,7 @@ public class e extends c.a.e.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f29064e;
+        public final /* synthetic */ e f29084e;
 
         public g(e eVar) {
             Interceptable interceptable = $ic;
@@ -396,7 +396,7 @@ public class e extends c.a.e.a.d {
                     return;
                 }
             }
-            this.f29064e = eVar;
+            this.f29084e = eVar;
         }
 
         @Override // android.media.MediaPlayer.OnErrorListener
@@ -404,8 +404,8 @@ public class e extends c.a.e.a.d {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3)) == null) {
-                if (this.f29064e.r != null) {
-                    c.a.r0.z1.g gVar = this.f29064e.r;
+                if (this.f29084e.r != null) {
+                    c.a.r0.z1.g gVar = this.f29084e.r;
                     gVar.a(207, "what-->" + i2 + "  extra-->" + i3);
                     return false;
                 }
@@ -421,7 +421,7 @@ public class e extends c.a.e.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f29065e;
+        public final /* synthetic */ e f29085e;
 
         public h(e eVar) {
             Interceptable interceptable = $ic;
@@ -438,19 +438,19 @@ public class e extends c.a.e.a.d {
                     return;
                 }
             }
-            this.f29065e = eVar;
+            this.f29085e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f29065e;
-                eVar.P(!eVar.f29051i);
-                this.f29065e.f29046d.X(!this.f29065e.f29051i);
-                this.f29065e.L();
+                e eVar = this.f29085e;
+                eVar.P(!eVar.f29071i);
+                this.f29085e.f29066d.X(!this.f29085e.f29071i);
+                this.f29085e.L();
                 StatisticItem statisticItem = new StatisticItem("c12423");
-                statisticItem.param("obj_type", !this.f29065e.f29051i ? 1 : 0);
+                statisticItem.param("obj_type", !this.f29085e.f29071i ? 1 : 0);
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -462,7 +462,7 @@ public class e extends c.a.e.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f29066e;
+        public final /* synthetic */ e f29086e;
 
         public i(e eVar) {
             Interceptable interceptable = $ic;
@@ -479,15 +479,15 @@ public class e extends c.a.e.a.d {
                     return;
                 }
             }
-            this.f29066e = eVar;
+            this.f29086e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29066e.f29044b.setSelection(this.f29066e.n);
-                this.f29066e.f29044b.scrollTo(this.f29066e.m * l.g(this.f29066e.getPageContext().getContext(), R.dimen.ds122));
+                this.f29086e.f29064b.setSelection(this.f29086e.n);
+                this.f29086e.f29064b.scrollTo(this.f29086e.m * l.g(this.f29086e.getPageContext().getContext(), R.dimen.ds122));
             }
         }
     }
@@ -510,13 +510,13 @@ public class e extends c.a.e.a.d {
                 return;
             }
         }
-        this.f29051i = true;
+        this.f29071i = true;
         this.l = 1;
-        this.f29046d = aVar;
+        this.f29066d = aVar;
         this.r = gVar;
         View inflate = LayoutInflater.from(fVar.getPageActivity()).inflate(R.layout.edit_music_layout, (ViewGroup) null);
-        this.f29043a = inflate;
-        this.f29045c = inflate.getResources();
+        this.f29063a = inflate;
+        this.f29065c = inflate.getResources();
         v();
     }
 
@@ -524,8 +524,8 @@ public class e extends c.a.e.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                this.f29048f.setVisibility(0);
-                if (this.q && this.f29052j == null && !TextUtils.isEmpty(this.k)) {
+                this.f29068f.setVisibility(0);
+                if (this.q && this.f29072j == null && !TextUtils.isEmpty(this.k)) {
                     B(this.k, this.n);
                     this.q = false;
                     if (this.n > 4) {
@@ -537,7 +537,7 @@ public class e extends c.a.e.a.d {
                 L();
                 return;
             }
-            this.f29048f.setVisibility(8);
+            this.f29068f.setVisibility(8);
             y();
         }
     }
@@ -547,18 +547,18 @@ public class e extends c.a.e.a.d {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
             this.n = i2;
             if (this.m == i2 && !this.o) {
-                if (this.f29052j == null) {
+                if (this.f29072j == null) {
                     MediaPlayer mediaPlayer = new MediaPlayer();
-                    this.f29052j = mediaPlayer;
+                    this.f29072j = mediaPlayer;
                     mediaPlayer.setAudioStreamType(3);
                 }
                 try {
                     this.k = str;
-                    this.f29052j.reset();
-                    this.f29052j.setDataSource(str);
-                    this.f29052j.prepare();
-                    this.f29052j.setOnPreparedListener(new f(this, i2));
-                    this.f29052j.setOnErrorListener(new g(this));
+                    this.f29072j.reset();
+                    this.f29072j.setDataSource(str);
+                    this.f29072j.prepare();
+                    this.f29072j.setOnPreparedListener(new f(this, i2));
+                    this.f29072j.setOnErrorListener(new g(this));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     N(str, i2);
@@ -577,13 +577,13 @@ public class e extends c.a.e.a.d {
             return;
         }
         this.p = musicData.id;
-        this.f29046d.p();
+        this.f29066d.p();
         String f2 = c.a.r0.x3.i.f.a.g().f(musicData.resource);
         if (!TextUtils.isEmpty(f2)) {
             B(f2, i2);
         } else if (view != null) {
             c.a aVar = (c.a) view.getTag();
-            aVar.f28934b.setVisibility(0);
+            aVar.f28954b.setVisibility(0);
             c.a.r0.x3.i.f.a.g().e(musicData.id, musicData.resource, new b(this, aVar, i2));
         } else {
             c.a.r0.x3.i.f.a.g().e(musicData.id, musicData.resource, new c(this, i2));
@@ -596,20 +596,20 @@ public class e extends c.a.e.a.d {
             return;
         }
         this.n = i2;
-        if (this.f29052j == null) {
+        if (this.f29072j == null) {
             MediaPlayer mediaPlayer = new MediaPlayer();
-            this.f29052j = mediaPlayer;
+            this.f29072j = mediaPlayer;
             mediaPlayer.setAudioStreamType(3);
         }
         try {
             try {
                 this.p = this.t;
                 this.k = this.s;
-                this.f29052j.reset();
-                this.f29052j.setDataSource(this.s);
-                this.f29052j.prepare();
-                this.f29052j.setOnPreparedListener(new d(this, i2));
-                this.f29052j.setOnErrorListener(new C1359e(this));
+                this.f29072j.reset();
+                this.f29072j.setDataSource(this.s);
+                this.f29072j.prepare();
+                this.f29072j.setOnPreparedListener(new d(this, i2));
+                this.f29072j.setOnErrorListener(new C1357e(this));
             } catch (Exception e2) {
                 e2.printStackTrace();
                 N(this.k, i2);
@@ -626,13 +626,13 @@ public class e extends c.a.e.a.d {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MediaPlayer mediaPlayer = this.f29052j;
+            MediaPlayer mediaPlayer = this.f29072j;
             if (mediaPlayer != null) {
                 if (mediaPlayer.isPlaying()) {
-                    this.f29052j.stop();
+                    this.f29072j.stop();
                 }
-                this.f29052j.release();
-                this.f29052j = null;
+                this.f29072j.release();
+                this.f29072j = null;
             }
             this.k = null;
             this.p = null;
@@ -643,14 +643,14 @@ public class e extends c.a.e.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.o = false;
-            MediaPlayer mediaPlayer = this.f29052j;
+            MediaPlayer mediaPlayer = this.f29072j;
             if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                this.f29052j.pause();
+                this.f29072j.pause();
             }
-            MediaPlayer mediaPlayer2 = this.f29052j;
+            MediaPlayer mediaPlayer2 = this.f29072j;
             if (mediaPlayer2 != null) {
                 mediaPlayer2.start();
-                this.f29052j.seekTo(0);
+                this.f29072j.seekTo(0);
             }
         }
     }
@@ -667,15 +667,15 @@ public class e extends c.a.e.a.d {
                 }
                 c.a.r0.x3.i.f.a.g().d();
             }
-            D(i2, this.f29044b.getChildCount() > i2 ? this.f29044b.getChildAt(i2) : null, (MusicData) this.f29047e.getItem(i2));
+            D(i2, this.f29064b.getChildCount() > i2 ? this.f29064b.getChildAt(i2) : null, (MusicData) this.f29067e.getItem(i2));
         }
     }
 
     public void O(List<MusicData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.f29047e.f(list);
-            c.a.r0.x3.i.c.c cVar = this.f29047e;
+            this.f29067e.f(list);
+            c.a.r0.x3.i.c.c cVar = this.f29067e;
             if (cVar != null) {
                 int b2 = cVar.b();
                 this.n = b2;
@@ -688,14 +688,14 @@ public class e extends c.a.e.a.d {
     public void P(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f29051i = z;
+            this.f29071i = z;
             if (z) {
-                this.f29049g.setSelected(false);
-                this.f29050h.setText(this.f29045c.getString(R.string.video_voice_open));
+                this.f29069g.setSelected(false);
+                this.f29070h.setText(this.f29065c.getString(R.string.video_voice_open));
                 return;
             }
-            this.f29049g.setSelected(true);
-            this.f29050h.setText(this.f29045c.getString(R.string.video_voice_close));
+            this.f29069g.setSelected(true);
+            this.f29070h.setText(this.f29065c.getString(R.string.video_voice_close));
         }
     }
 
@@ -707,10 +707,10 @@ public class e extends c.a.e.a.d {
         this.q = true;
         this.p = intent.getStringExtra(EditVideoActivityConfig.MUSIC_ID_KEY);
         this.k = intent.getStringExtra(EditVideoActivityConfig.LOCAL_PATH_KEY);
-        c.a.r0.x3.i.c.c cVar = this.f29047e;
+        c.a.r0.x3.i.c.c cVar = this.f29067e;
         if (cVar != null) {
             cVar.e(this.p);
-            int b2 = this.f29047e.b();
+            int b2 = this.f29067e.b();
             this.n = b2;
             this.l = b2;
             this.m = b2;
@@ -731,7 +731,7 @@ public class e extends c.a.e.a.d {
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || k.isEmpty(this.t) || k.isEmpty(this.s)) {
             return;
         }
-        List<MusicData> c2 = this.f29047e.c();
+        List<MusicData> c2 = this.f29067e.c();
         if (ListUtils.isEmpty(c2)) {
             return;
         }
@@ -747,7 +747,7 @@ public class e extends c.a.e.a.d {
     public final void q(int i2, View view) {
         MusicData musicData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048588, this, i2, view) == null) || (musicData = (MusicData) this.f29047e.getItem(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048588, this, i2, view) == null) || (musicData = (MusicData) this.f29067e.getItem(i2)) == null) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c12423");
@@ -759,9 +759,9 @@ public class e extends c.a.e.a.d {
         if (i3 == 0) {
             D(i2, view, musicData);
         } else if (i3 == 1) {
-            this.f29047e.d(i2);
+            this.f29067e.d(i2);
             K();
-            this.f29046d.R();
+            this.f29066d.R();
         } else if (i3 != 2) {
         } else {
             this.l = i2;
@@ -784,37 +784,37 @@ public class e extends c.a.e.a.d {
     public View t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f29043a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f29063a : (View) invokeV.objValue;
     }
 
     public void u(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, view) == null) {
-            this.f29048f = (LinearLayout) view.findViewById(R.id.video_voice_layout);
-            this.f29049g = (ImageView) view.findViewById(R.id.video_voice_img);
-            this.f29050h = (TextView) view.findViewById(R.id.video_voice_text);
-            this.f29048f.setVisibility(8);
-            this.f29048f.setOnClickListener(new h(this));
-            P(this.f29051i);
-            this.f29046d.X(!this.f29051i);
+            this.f29068f = (LinearLayout) view.findViewById(R.id.video_voice_layout);
+            this.f29069g = (ImageView) view.findViewById(R.id.video_voice_img);
+            this.f29070h = (TextView) view.findViewById(R.id.video_voice_text);
+            this.f29068f.setVisibility(8);
+            this.f29068f.setOnClickListener(new h(this));
+            P(this.f29071i);
+            this.f29066d.X(!this.f29071i);
         }
     }
 
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f29044b = (HorizontalListView) this.f29043a.findViewById(R.id.horizontal_list);
+            this.f29064b = (HorizontalListView) this.f29063a.findViewById(R.id.horizontal_list);
             c.a.r0.x3.i.c.c cVar = new c.a.r0.x3.i.c.c(this.mContext);
-            this.f29047e = cVar;
-            this.f29044b.setAdapter((ListAdapter) cVar);
-            this.f29044b.setOnItemClickListener(new a(this));
+            this.f29067e = cVar;
+            this.f29064b.setAdapter((ListAdapter) cVar);
+            this.f29064b.setOnItemClickListener(new a(this));
         }
     }
 
     public void w(c.a.e.a.f fVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048594, this, fVar, i2) == null) {
-            SkinManager.setBackgroundColor(this.f29043a, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f29063a, R.color.CAM_X0201);
         }
     }
 
@@ -833,11 +833,11 @@ public class e extends c.a.e.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             this.o = true;
-            MediaPlayer mediaPlayer = this.f29052j;
+            MediaPlayer mediaPlayer = this.f29072j;
             if (mediaPlayer == null || !mediaPlayer.isPlaying()) {
                 return;
             }
-            this.f29052j.pause();
+            this.f29072j.pause();
         }
     }
 
@@ -845,12 +845,12 @@ public class e extends c.a.e.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             this.o = false;
-            MediaPlayer mediaPlayer = this.f29052j;
-            if (mediaPlayer == null || this.f29046d.l != 2) {
+            MediaPlayer mediaPlayer = this.f29072j;
+            if (mediaPlayer == null || this.f29066d.l != 2) {
                 return;
             }
             mediaPlayer.start();
-            this.f29052j.seekTo(0);
+            this.f29072j.seekTo(0);
         }
     }
 }

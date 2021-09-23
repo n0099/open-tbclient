@@ -31,22 +31,22 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f51185e;
+    public View f51300e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51186f;
+    public int f51301f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51187g;
+    public int f51302g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51188h;
+    public boolean f51303h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.w0.s1.a.e.a f51189i;
+    public c.a.r0.w0.s1.a.e.a f51304i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f51190j;
+    public a f51305j;
     public int k;
     public Drawable l;
 
@@ -90,9 +90,9 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
                 return;
             }
         }
-        this.f51186f = 0;
-        this.f51187g = 0;
-        this.f51188h = true;
+        this.f51301f = 0;
+        this.f51302g = 0;
+        this.f51303h = true;
         this.k = 0;
         a();
     }
@@ -108,12 +108,12 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f51188h = !this.f51188h;
-            configUI(this.f51185e);
-            c.a.r0.w0.s1.a.e.a aVar = this.f51189i;
+            this.f51303h = !this.f51303h;
+            configUI(this.f51300e);
+            c.a.r0.w0.s1.a.e.a aVar = this.f51304i;
             if (aVar != null) {
-                aVar.k(this.f51188h);
-                this.f51189i.notifyDataSetChanged();
+                aVar.k(this.f51303h);
+                this.f51304i.notifyDataSetChanged();
                 invalidate();
             }
         }
@@ -128,10 +128,10 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
                 return;
             }
             ImageView imageView = (ImageView) frameLayout.getChildAt(0);
-            if (this.f51188h) {
-                imageView.setImageDrawable(SkinManager.getDrawable(this.f51186f));
+            if (this.f51303h) {
+                imageView.setImageDrawable(SkinManager.getDrawable(this.f51301f));
             } else {
-                imageView.setImageDrawable(SkinManager.getDrawable(this.f51187g));
+                imageView.setImageDrawable(SkinManager.getDrawable(this.f51302g));
             }
         }
     }
@@ -143,7 +143,7 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.dispatchDraw(canvas);
             int height = getHeight();
-            if (this.f51188h || (drawable = this.l) == null) {
+            if (this.f51303h || (drawable = this.l) == null) {
                 return;
             }
             drawable.setBounds(0, (height - m) - getPaddingBottom(), getWidth(), height - getPaddingBottom());
@@ -169,15 +169,15 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f51185e == null) {
+            if (this.f51300e == null) {
                 FrameLayout frameLayout = new FrameLayout(getContext());
                 ImageView imageView = new ImageView(getContext());
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 21;
                 frameLayout.addView(imageView, layoutParams);
-                this.f51185e = frameLayout;
+                this.f51300e = frameLayout;
             }
-            return this.f51185e;
+            return this.f51300e;
         }
         return (View) invokeV.objValue;
     }
@@ -192,7 +192,7 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            View view = this.f51185e;
+            View view = this.f51300e;
             if (view != null) {
                 configUI(view);
             }
@@ -208,17 +208,17 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
         c.a.r0.w0.s1.a.e.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            if (view == this.f51185e) {
-                c.a.r0.w0.s1.a.e.a aVar2 = this.f51189i;
+            if (view == this.f51300e) {
+                c.a.r0.w0.s1.a.e.a aVar2 = this.f51304i;
                 if (aVar2 == null || !aVar2.h()) {
                     return;
                 }
                 b();
-            } else if (this.f51190j == null || (aVar = this.f51189i) == null) {
+            } else if (this.f51305j == null || (aVar = this.f51304i) == null) {
             } else {
                 int f2 = aVar.f(i2);
-                this.f51189i.j(f2);
-                this.f51190j.a(f2, this.f51189i.getItem(i2));
+                this.f51304i.j(f2);
+                this.f51305j.a(f2, this.f51304i.getItem(i2));
             }
         }
     }
@@ -226,8 +226,8 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
     public void setArrowResouceId(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
-            this.f51186f = i2;
-            this.f51187g = i3;
+            this.f51301f = i2;
+            this.f51302g = i3;
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -247,7 +247,7 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
     public void setFoldAdapter(c.a.r0.w0.s1.a.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            this.f51189i = aVar;
+            this.f51304i = aVar;
             if (aVar != null) {
                 aVar.i(this);
             }
@@ -258,7 +258,7 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
     public void setFoldGridViewOnItemClickListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            this.f51190j = aVar;
+            this.f51305j = aVar;
         }
     }
 
@@ -281,9 +281,9 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
                 return;
             }
         }
-        this.f51186f = 0;
-        this.f51187g = 0;
-        this.f51188h = true;
+        this.f51301f = 0;
+        this.f51302g = 0;
+        this.f51303h = true;
         this.k = 0;
         a();
     }
@@ -306,9 +306,9 @@ public class FoldedGridView extends BdGridView implements e, AdapterView.OnItemC
                 return;
             }
         }
-        this.f51186f = 0;
-        this.f51187g = 0;
-        this.f51188h = true;
+        this.f51301f = 0;
+        this.f51302g = 0;
+        this.f51303h = true;
         this.k = 0;
         a();
     }

@@ -34,16 +34,16 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f31262a;
+    public static e f31283a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31263b;
+    public static String f31284b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f31264c;
+    public static String f31285c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f31265d;
+    public static final Set<String> f31286d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -52,7 +52,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f31266e;
+        public final /* synthetic */ e f31287e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class e {
                     return;
                 }
             }
-            this.f31266e = eVar;
+            this.f31287e = eVar;
         }
 
         @Override // java.lang.Runnable
@@ -78,11 +78,11 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    for (File file : new File(e.f31264c).listFiles()) {
+                    for (File file : new File(e.f31285c).listFiles()) {
                         if (file.isFile()) {
-                            this.f31266e.h(file);
-                        } else if (file.getName().equals(e.f31263b)) {
-                            this.f31266e.n(file);
+                            this.f31287e.h(file);
+                        } else if (file.getName().equals(e.f31284b)) {
+                            this.f31287e.n(file);
                         } else {
                             Utils.e(file);
                         }
@@ -106,7 +106,7 @@ public class e {
                 return;
             }
         }
-        f31265d = new LinkedHashSet();
+        f31286d = new LinkedHashSet();
     }
 
     public e() {
@@ -129,11 +129,11 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (e.class) {
-                if (f31262a == null) {
-                    f31263b = Utils.s();
-                    f31262a = new e();
+                if (f31283a == null) {
+                    f31284b = Utils.s();
+                    f31283a = new e();
                 }
-                eVar = f31262a;
+                eVar = f31283a;
             }
             return eVar;
         }
@@ -198,12 +198,12 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, dVar)) == null) {
             String str = null;
-            if (dVar.l() == d.a.f42632a) {
+            if (dVar.l() == d.a.f42694a) {
                 if (dVar.d().equals(d(dVar.a())) && c.a.z.b.a.e(context.getClassLoader())) {
                     return "apk_internal_jar";
                 }
-                return f31264c + File.separator + dVar.a() + "_" + dVar.d() + ".jar";
-            } else if (dVar.l() == d.a.f42633b) {
+                return f31285c + File.separator + dVar.a() + "_" + dVar.d() + ".jar";
+            } else if (dVar.l() == d.a.f42695b) {
                 if (dVar.d().equals(d(dVar.a())) && CyberCfgManager.getInstance().getCfgBoolValue("enable_libs_reuse", true)) {
                     str = ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a());
                 }
@@ -211,7 +211,7 @@ public class e {
                     dVar.i(true);
                     return str;
                 }
-                String str2 = f31264c + File.separator + f31263b + File.separator + dVar.a() + "_" + dVar.d() + File.separator + "lib" + dVar.a() + ".so";
+                String str2 = f31285c + File.separator + f31284b + File.separator + dVar.a() + "_" + dVar.d() + File.separator + "lib" + dVar.a() + ".so";
                 dVar.i(false);
                 return str2;
             } else {
@@ -325,16 +325,16 @@ public class e {
     public final void k(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, context, str) == null) {
-            f31264c = str + File.separator + "libs";
+            f31285c = str + File.separator + "libs";
             for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
                 String c2 = c(context, dVar);
                 dVar.e(c2);
-                if (dVar.l() == d.a.f42633b) {
+                if (dVar.l() == d.a.f42695b) {
                     File parentFile = new File(c2).getParentFile();
                     if (!parentFile.exists() || parentFile.isFile()) {
                         parentFile.mkdirs();
                     }
-                    f31265d.add(parentFile.getAbsolutePath());
+                    f31286d.add(parentFile.getAbsolutePath());
                 }
             }
         }
@@ -360,7 +360,7 @@ public class e {
         if (interceptable == null || interceptable.invokeL(1048592, this, file) == null) {
             try {
                 for (File file2 : file.listFiles()) {
-                    Iterator<String> it = f31265d.iterator();
+                    Iterator<String> it = f31286d.iterator();
                     while (true) {
                         if (it.hasNext()) {
                             if (it.next().contains(file2.getAbsolutePath())) {
@@ -385,7 +385,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            Set<String> set = f31265d;
+            Set<String> set = f31286d;
             return (String[]) set.toArray(new String[set.size()]);
         }
         return (String[]) invokeV.objValue;
@@ -394,7 +394,7 @@ public class e {
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? f31263b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? f31284b : (String) invokeV.objValue;
     }
 
     public String q(int i2) {
@@ -405,7 +405,7 @@ public class e {
             if (a2 == null) {
                 return null;
             }
-            return f31263b + "_" + a2.a() + "_" + a2.d() + ".zip";
+            return f31284b + "_" + a2.a() + "_" + a2.d() + ".zip";
         }
         return (String) invokeI.objValue;
     }
@@ -445,13 +445,13 @@ public class e {
 
     public final void t(com.baidu.media.duplayer.d dVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048598, this, dVar) == null) && dVar != null && dVar.l() == d.a.f42633b) {
+        if ((interceptable == null || interceptable.invokeL(1048598, this, dVar) == null) && dVar != null && dVar.l() == d.a.f42695b) {
             try {
                 File parentFile = new File(dVar.j()).getParentFile();
                 if (!parentFile.exists() || parentFile.isFile()) {
                     parentFile.mkdirs();
                 }
-                f31265d.add(parentFile.getAbsolutePath());
+                f31286d.add(parentFile.getAbsolutePath());
             } catch (Exception unused) {
             }
         }

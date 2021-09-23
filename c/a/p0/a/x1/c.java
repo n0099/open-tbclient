@@ -22,13 +22,13 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f9703a;
+    public static a f9711a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f9704b;
+    public static boolean f9712b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f9705c;
+    public static final c f9713c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -43,7 +43,7 @@ public final class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f9706e;
+        public static final b f9714e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -59,7 +59,7 @@ public final class c {
                     return;
                 }
             }
-            f9706e = new b();
+            f9714e = new b();
         }
 
         public b() {
@@ -84,13 +84,13 @@ public final class c {
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 Intrinsics.checkNotNullExpressionValue(it, "it");
                 if (it.c()) {
-                    JSONObject jSONObject = it.f5582a;
+                    JSONObject jSONObject = it.f5590a;
                     JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                    a b2 = c.f9705c.b();
+                    a b2 = c.f9713c.b();
                     if (optJSONObject != null) {
                         String openId = optJSONObject.optString("openid");
                         if (b2 == null || !ProcessUtils.isMainProcess()) {
-                            c.f9705c.d(null, openId);
+                            c.f9713c.d(null, openId);
                             return;
                         }
                         Intrinsics.checkNotNullExpressionValue(openId, "openId");
@@ -112,7 +112,7 @@ public final class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final C0457c f9707e;
+        public static final C0457c f9715e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -128,7 +128,7 @@ public final class c {
                     return;
                 }
             }
-            f9707e = new C0457c();
+            f9715e = new C0457c();
         }
 
         public C0457c() {
@@ -153,13 +153,13 @@ public final class c {
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 Intrinsics.checkNotNullExpressionValue(it, "it");
                 if (it.c()) {
-                    JSONObject jSONObject = it.f5582a;
+                    JSONObject jSONObject = it.f5590a;
                     JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                    a b2 = c.f9705c.b();
+                    a b2 = c.f9713c.b();
                     if (optJSONObject != null) {
                         String swanId = optJSONObject.optString("swanid");
                         if (b2 == null || !ProcessUtils.isMainProcess()) {
-                            c.f9705c.d(swanId, null);
+                            c.f9713c.d(swanId, null);
                             return;
                         }
                         Intrinsics.checkNotNullExpressionValue(swanId, "swanId");
@@ -188,7 +188,7 @@ public final class c {
                 return;
             }
         }
-        f9705c = new c();
+        f9713c = new c();
     }
 
     public c() {
@@ -208,13 +208,13 @@ public final class c {
     public final a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f9703a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f9711a : (a) invokeV.objValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f9704b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f9712b : invokeV.booleanValue;
     }
 
     public final void d(String str, String str2) {
@@ -246,7 +246,7 @@ public final class c {
             c.a.p0.a.p.a y = g2.y();
             Intrinsics.checkNotNullExpressionValue(y, "Swan.get().adaptationProducer");
             c.a.p0.a.e2.c.j.d f2 = y.a().b().f(d.g());
-            f2.p(b.f9706e);
+            f2.p(b.f9714e);
             f2.a();
         }
     }
@@ -259,7 +259,7 @@ public final class c {
             c.a.p0.a.p.a y = g2.y();
             Intrinsics.checkNotNullExpressionValue(y, "Swan.get().adaptationProducer");
             e e2 = y.a().b().e(d.g());
-            e2.p(C0457c.f9707e);
+            e2.p(C0457c.f9715e);
             e2.a();
         }
     }

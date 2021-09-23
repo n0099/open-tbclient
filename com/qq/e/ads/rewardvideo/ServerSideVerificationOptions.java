@@ -13,10 +13,10 @@ public class ServerSideVerificationOptions {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f75257a;
+    public String f75576a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f75258b;
+    public String f75577b;
 
     /* renamed from: com.qq.e.ads.rewardvideo.ServerSideVerificationOptions$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -31,10 +31,10 @@ public class ServerSideVerificationOptions {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f75259a;
+        public String f75578a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f75260b;
+        public String f75579b;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class ServerSideVerificationOptions {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f75259a = str;
+                this.f75578a = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -70,7 +70,7 @@ public class ServerSideVerificationOptions {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f75260b = str;
+                this.f75579b = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -92,8 +92,8 @@ public class ServerSideVerificationOptions {
                 return;
             }
         }
-        this.f75257a = builder.f75259a;
-        this.f75258b = builder.f75260b;
+        this.f75576a = builder.f75578a;
+        this.f75577b = builder.f75579b;
     }
 
     public /* synthetic */ ServerSideVerificationOptions(Builder builder, byte b2) {
@@ -103,12 +103,12 @@ public class ServerSideVerificationOptions {
     public String getCustomData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75257a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75576a : (String) invokeV.objValue;
     }
 
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75258b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75577b : (String) invokeV.objValue;
     }
 }

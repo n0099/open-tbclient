@@ -23,25 +23,25 @@ public class l {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f68857a = false;
+    public static boolean f69168a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f68858b = false;
+    public static boolean f69169b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final CharSequence f68859c;
+    public static final CharSequence f69170c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final CharSequence f68860d;
+    public static final CharSequence f69171d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CharSequence f68861e;
+    public static final CharSequence f69172e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f68862f = null;
+    public static String f69173f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f68863g = Integer.MAX_VALUE;
+    public static int f69174g = Integer.MAX_VALUE;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -50,7 +50,7 @@ public class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f68865a;
+        public String f69176a;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class l {
                     return;
                 }
             }
-            this.f68865a = str;
+            this.f69176a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public class l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                String c2 = l.c(this.f68865a);
+                String c2 = l.c(this.f69176a);
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                 com.bytedance.sdk.component.utils.k.b("RomUtils", "property:" + c2 + ",getSystemProperty use time :" + currentTimeMillis2);
                 if (!TextUtils.isEmpty(c2)) {
@@ -112,26 +112,26 @@ public class l {
                 return;
             }
         }
-        f68859c = "sony";
-        f68860d = "amigo";
-        f68861e = "funtouch";
+        f69170c = "sony";
+        f69171d = "amigo";
+        f69172e = "funtouch";
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!TextUtils.isEmpty(f68862f)) {
-                return f68862f;
+            if (!TextUtils.isEmpty(f69173f)) {
+                return f69173f;
             }
             String a2 = com.bytedance.sdk.openadsdk.core.h.a("sdk_local_rom_info", 604800000L);
-            f68862f = a2;
+            f69173f = a2;
             if (TextUtils.isEmpty(a2)) {
                 String u = u();
-                f68862f = u;
+                f69173f = u;
                 com.bytedance.sdk.openadsdk.core.h.a("sdk_local_rom_info", u);
             }
-            return f68862f;
+            return f69173f;
         }
         return (String) invokeV.objValue;
     }
@@ -163,18 +163,18 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (!f68858b) {
+            if (!f69169b) {
                 try {
                     if (Class.forName("miui.os.Build") != null) {
-                        f68857a = true;
-                        f68858b = true;
+                        f69168a = true;
+                        f69169b = true;
                         return true;
                     }
                 } catch (Exception unused) {
                 }
-                f68858b = true;
+                f69169b = true;
             }
-            return f68857a;
+            return f69168a;
         }
         return invokeV.booleanValue;
     }
@@ -193,7 +193,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             String d2 = d("ro.vivo.os.build.display.id");
-            return !TextUtils.isEmpty(d2) && d2.toLowerCase().contains(f68861e);
+            return !TextUtils.isEmpty(d2) && d2.toLowerCase().contains(f69172e);
         }
         return invokeV.booleanValue;
     }
@@ -201,7 +201,7 @@ public class l {
     public static boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase().contains(f68860d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase().contains(f69171d) : invokeV.booleanValue;
     }
 
     public static String i() {
@@ -298,16 +298,16 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            if (f68863g == Integer.MAX_VALUE) {
+            if (f69174g == Integer.MAX_VALUE) {
                 String str = Build.MANUFACTURER;
                 String m = q.m("kllk");
                 if (!TextUtils.isEmpty(str) && str.toLowerCase().contains(m)) {
-                    f68863g = 1;
+                    f69174g = 1;
                 } else {
-                    f68863g = 0;
+                    f69174g = 0;
                 }
             }
-            return f68863g == 1;
+            return f69174g == 1;
         }
         return invokeV.booleanValue;
     }
@@ -485,7 +485,7 @@ public class l {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ com.bytedance.sdk.component.d.f f68864a;
+                            public final /* synthetic */ com.bytedance.sdk.component.d.f f69175a;
 
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                             {
@@ -505,14 +505,14 @@ public class l {
                                         return;
                                     }
                                 }
-                                this.f68864a = fVar;
+                                this.f69175a = fVar;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    this.f68864a.run();
+                                    this.f69175a.run();
                                 }
                             }
                         });

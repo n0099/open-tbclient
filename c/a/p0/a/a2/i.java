@@ -14,7 +14,7 @@ public abstract class i<SelfT extends i<SelfT>> extends c.a.p0.a.f1.e.f.c<SelfT>
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f4565f;
+    public final String f4573f;
 
     /* loaded from: classes.dex */
     public static final class a extends i<a> {
@@ -100,7 +100,7 @@ public abstract class i<SelfT extends i<SelfT>> extends c.a.p0.a.f1.e.f.c<SelfT>
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("Event(%s) Ext => %s", this.f4565f, super.toString()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("Event(%s) Ext => %s", this.f4573f, super.toString()) : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -121,6 +121,6 @@ public abstract class i<SelfT extends i<SelfT>> extends c.a.p0.a.f1.e.f.c<SelfT>
                 return;
             }
         }
-        this.f4565f = TextUtils.isEmpty(str) ? "" : str;
+        this.f4573f = TextUtils.isEmpty(str) ? "" : str;
     }
 }

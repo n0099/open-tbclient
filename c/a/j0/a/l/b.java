@@ -16,11 +16,11 @@ public abstract class b<T> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static HandlerC0089b f3661f;
+    public static HandlerC0089b f3662f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Future<T> f3662e;
+    public Future<T> f3663e;
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -28,10 +28,10 @@ public abstract class b<T> implements Runnable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f3663a;
+        public final b f3664a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f3664b;
+        public final T f3665b;
 
         public a(b bVar, T t) {
             Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public abstract class b<T> implements Runnable {
                     return;
                 }
             }
-            this.f3663a = bVar;
-            this.f3664b = t;
+            this.f3664a = bVar;
+            this.f3665b = t;
         }
     }
 
@@ -86,12 +86,12 @@ public abstract class b<T> implements Runnable {
                 a aVar = (a) message.obj;
                 int i2 = message.what;
                 if (i2 == 1) {
-                    aVar.f3663a.g(aVar.f3664b);
+                    aVar.f3664a.g(aVar.f3665b);
                 } else if (i2 == 2) {
-                    aVar.f3663a.f((Throwable) aVar.f3664b);
+                    aVar.f3664a.f((Throwable) aVar.f3665b);
                 } else if (i2 != 3) {
                 } else {
-                    aVar.f3663a.e();
+                    aVar.f3664a.e();
                 }
             }
         }
@@ -117,10 +117,10 @@ public abstract class b<T> implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (b.class) {
-                if (f3661f == null) {
-                    f3661f = new HandlerC0089b(Looper.getMainLooper());
+                if (f3662f == null) {
+                    f3662f = new HandlerC0089b(Looper.getMainLooper());
                 }
-                handlerC0089b = f3661f;
+                handlerC0089b = f3662f;
             }
             return handlerC0089b;
         }
@@ -130,7 +130,7 @@ public abstract class b<T> implements Runnable {
     public void a(boolean z) {
         Future<T> future;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (future = this.f3662e) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (future = this.f3663e) == null) {
             return;
         }
         future.cancel(z);
@@ -186,7 +186,7 @@ public abstract class b<T> implements Runnable {
     public void h(Future future) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, future) == null) {
-            this.f3662e = future;
+            this.f3663e = future;
         }
     }
 

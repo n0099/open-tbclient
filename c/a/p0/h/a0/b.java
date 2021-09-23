@@ -19,7 +19,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f10978a;
+    public static final b f10986a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -141,7 +141,7 @@ public final class b {
                 return;
             }
         }
-        f10978a = new b();
+        f10986a = new b();
     }
 
     public b() {

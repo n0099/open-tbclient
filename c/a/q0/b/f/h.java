@@ -2,6 +2,8 @@ package c.a.q0.b.f;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.tieba.debugtool.annotation.UbsTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,19 +12,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+@ModifyClass
 /* loaded from: classes3.dex */
 public class h extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BdUniqueId f12722c;
+    public static final BdUniqueId f12733c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<String> f12723a;
+    public final ArrayList<String> f12734a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.q0.b.e f12724b;
+    public c.a.q0.b.e f12735b;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +40,7 @@ public class h extends a {
                 return;
             }
         }
-        f12722c = BdUniqueId.gen();
+        f12733c = BdUniqueId.gen();
     }
 
     public h() {
@@ -54,37 +57,38 @@ public class h extends a {
             }
         }
         ArrayList<String> arrayList = new ArrayList<>(2);
-        this.f12723a = arrayList;
-        arrayList.add("12_2_frs_default_sort_a");
-        this.f12723a.add("12_2_frs_default_sort_b");
+        this.f12734a = arrayList;
+        arrayList.add("11_9_frs_page_guide");
+        this.f12734a.add("11_9_frs_page_guide_a");
     }
 
     @Override // c.a.q0.b.f.a
     public ArrayList<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12723a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12734a : (ArrayList) invokeV.objValue;
     }
 
     @Override // c.a.q0.b.f.a
+    @UbsTest(description = "frs引导弹窗的abtest，FRS页引导关注")
     public c.a.q0.b.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12724b : (c.a.q0.b.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12735b : (c.a.q0.b.e) invokeV.objValue;
     }
 
     @Override // c.a.q0.b.f.a
     public BdUniqueId c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f12722c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f12733c : (BdUniqueId) invokeV.objValue;
     }
 
     @Override // c.a.q0.b.f.a
     public void f(c.a.q0.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f12724b = eVar;
+            this.f12735b = eVar;
         }
     }
 }

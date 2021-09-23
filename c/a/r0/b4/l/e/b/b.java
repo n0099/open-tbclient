@@ -25,10 +25,10 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<QmStickerItem> f16394e;
+    public List<QmStickerItem> f16404e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecordEffectLayout.i f16395f;
+    public RecordEffectLayout.i f16405f;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -36,10 +36,10 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f16396e;
+        public final /* synthetic */ int f16406e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f16397f;
+        public final /* synthetic */ b f16407f;
 
         public a(b bVar, int i2) {
             Interceptable interceptable = $ic;
@@ -56,33 +56,33 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f16397f = bVar;
-            this.f16396e = i2;
+            this.f16407f = bVar;
+            this.f16406e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || ((QmStickerItem) this.f16397f.f16394e.get(this.f16396e * 2)).isSelect || this.f16397f.f16395f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || ((QmStickerItem) this.f16407f.f16404e.get(this.f16406e * 2)).isSelect || this.f16407f.f16405f == null) {
                 return;
             }
-            this.f16397f.f16395f.a((QmStickerItem) this.f16397f.f16394e.get(this.f16396e * 2));
+            this.f16407f.f16405f.a((QmStickerItem) this.f16407f.f16404e.get(this.f16406e * 2));
         }
     }
 
     /* renamed from: c.a.r0.b4.l.e.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0786b implements View.OnClickListener {
+    public class View$OnClickListenerC0784b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f16398e;
+        public final /* synthetic */ int f16408e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f16399f;
+        public final /* synthetic */ b f16409f;
 
-        public View$OnClickListenerC0786b(b bVar, int i2) {
+        public View$OnClickListenerC0784b(b bVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,17 +97,17 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f16399f = bVar;
-            this.f16398e = i2;
+            this.f16409f = bVar;
+            this.f16408e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || ((QmStickerItem) this.f16399f.f16394e.get((this.f16398e * 2) + 1)).isSelect || this.f16399f.f16395f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || ((QmStickerItem) this.f16409f.f16404e.get((this.f16408e * 2) + 1)).isSelect || this.f16409f.f16405f == null) {
                 return;
             }
-            this.f16399f.f16395f.a((QmStickerItem) this.f16399f.f16394e.get((this.f16398e * 2) + 1));
+            this.f16409f.f16405f.a((QmStickerItem) this.f16409f.f16404e.get((this.f16408e * 2) + 1));
         }
     }
 
@@ -117,31 +117,31 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public RelativeLayout f16400a;
+        public RelativeLayout f16410a;
 
         /* renamed from: b  reason: collision with root package name */
-        public RelativeLayout f16401b;
+        public RelativeLayout f16411b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbImageView f16402c;
+        public TbImageView f16412c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TbImageView f16403d;
+        public TbImageView f16413d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TbImageView f16404e;
+        public TbImageView f16414e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbImageView f16405f;
+        public TbImageView f16415f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ProgressBar f16406g;
+        public ProgressBar f16416g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ProgressBar f16407h;
+        public ProgressBar f16417h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ImageView f16408i;
+        public ImageView f16418i;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -180,13 +180,13 @@ public class b extends BaseAdapter {
     public QmStickerItem getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (QmStickerItem) ListUtils.getItem(this.f16394e, i2) : (QmStickerItem) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (QmStickerItem) ListUtils.getItem(this.f16404e, i2) : (QmStickerItem) invokeI.objValue;
     }
 
     public void d() {
         List<QmStickerItem> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.f16394e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.f16404e) == null) {
             return;
         }
         for (QmStickerItem qmStickerItem : list) {
@@ -202,14 +202,14 @@ public class b extends BaseAdapter {
     public void e(List<QmStickerItem> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f16394e = list;
+            this.f16404e = list;
         }
     }
 
     public void f(RecordEffectLayout.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, iVar) == null) {
-            this.f16395f = iVar;
+            this.f16405f = iVar;
         }
     }
 
@@ -218,10 +218,10 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (ListUtils.isEmpty(this.f16394e)) {
+            if (ListUtils.isEmpty(this.f16404e)) {
                 return 0;
             }
-            return (int) Math.ceil(this.f16394e.size() / 2.0d);
+            return (int) Math.ceil(this.f16404e.size() / 2.0d);
         }
         return invokeV.intValue;
     }
@@ -245,80 +245,80 @@ public class b extends BaseAdapter {
             if (view == null) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.capture_list_item_sticker, (ViewGroup) null);
                 cVar = new c(this);
-                cVar.f16402c = (TbImageView) view.findViewById(R.id.top_sticker);
-                cVar.f16403d = (TbImageView) view.findViewById(R.id.bottom_sticker);
-                cVar.f16400a = (RelativeLayout) view.findViewById(R.id.top_container);
-                cVar.f16408i = (ImageView) view.findViewById(R.id.no_sticker);
-                cVar.f16401b = (RelativeLayout) view.findViewById(R.id.bottom_container);
-                cVar.f16404e = (TbImageView) view.findViewById(R.id.top_need_download);
-                cVar.f16405f = (TbImageView) view.findViewById(R.id.bottom_need_download);
-                cVar.f16406g = (ProgressBar) view.findViewById(R.id.top_progressbar);
-                cVar.f16407h = (ProgressBar) view.findViewById(R.id.bottom_progressbar);
+                cVar.f16412c = (TbImageView) view.findViewById(R.id.top_sticker);
+                cVar.f16413d = (TbImageView) view.findViewById(R.id.bottom_sticker);
+                cVar.f16410a = (RelativeLayout) view.findViewById(R.id.top_container);
+                cVar.f16418i = (ImageView) view.findViewById(R.id.no_sticker);
+                cVar.f16411b = (RelativeLayout) view.findViewById(R.id.bottom_container);
+                cVar.f16414e = (TbImageView) view.findViewById(R.id.top_need_download);
+                cVar.f16415f = (TbImageView) view.findViewById(R.id.bottom_need_download);
+                cVar.f16416g = (ProgressBar) view.findViewById(R.id.top_progressbar);
+                cVar.f16417h = (ProgressBar) view.findViewById(R.id.bottom_progressbar);
                 view.setTag(cVar);
             } else {
                 cVar = (c) view.getTag();
             }
-            cVar.f16402c.setAutoChangeStyle(false);
-            cVar.f16403d.setAutoChangeStyle(false);
-            cVar.f16404e.setAutoChangeStyle(false);
-            cVar.f16405f.setAutoChangeStyle(false);
-            cVar.f16402c.setGifIconSupport(false);
-            cVar.f16403d.setGifIconSupport(false);
+            cVar.f16412c.setAutoChangeStyle(false);
+            cVar.f16413d.setAutoChangeStyle(false);
+            cVar.f16414e.setAutoChangeStyle(false);
+            cVar.f16415f.setAutoChangeStyle(false);
+            cVar.f16412c.setGifIconSupport(false);
+            cVar.f16413d.setGifIconSupport(false);
             int i3 = i2 * 2;
-            if (ListUtils.getItem(this.f16394e, i3) instanceof QmStickerItem) {
-                cVar.f16400a.setVisibility(0);
-                if (this.f16394e.get(i3).id == -1) {
-                    cVar.f16408i.setVisibility(0);
-                    cVar.f16402c.setVisibility(8);
-                    cVar.f16408i.setImageResource(R.drawable.icon_video_sticker_no);
+            if (ListUtils.getItem(this.f16404e, i3) instanceof QmStickerItem) {
+                cVar.f16410a.setVisibility(0);
+                if (this.f16404e.get(i3).id == -1) {
+                    cVar.f16418i.setVisibility(0);
+                    cVar.f16412c.setVisibility(8);
+                    cVar.f16418i.setImageResource(R.drawable.icon_video_sticker_no);
                 } else {
-                    cVar.f16408i.setVisibility(8);
-                    cVar.f16402c.setVisibility(0);
-                    cVar.f16402c.startLoad(this.f16394e.get(i3).bgurl, 10, true);
+                    cVar.f16418i.setVisibility(8);
+                    cVar.f16412c.setVisibility(0);
+                    cVar.f16412c.startLoad(this.f16404e.get(i3).bgurl, 10, true);
                 }
-                cVar.f16400a.setOnClickListener(new a(this, i2));
-                if (this.f16394e.get(i3).isDownLoading) {
-                    cVar.f16406g.setVisibility(0);
-                    cVar.f16404e.setVisibility(8);
+                cVar.f16410a.setOnClickListener(new a(this, i2));
+                if (this.f16404e.get(i3).isDownLoading) {
+                    cVar.f16416g.setVisibility(0);
+                    cVar.f16414e.setVisibility(8);
                 } else {
-                    cVar.f16406g.setVisibility(8);
-                    if (this.f16394e.get(i3).isLocalSource) {
-                        cVar.f16404e.setVisibility(8);
+                    cVar.f16416g.setVisibility(8);
+                    if (this.f16404e.get(i3).isLocalSource) {
+                        cVar.f16414e.setVisibility(8);
                     } else {
-                        cVar.f16404e.setVisibility(0);
+                        cVar.f16414e.setVisibility(0);
                     }
                 }
-                if (this.f16394e.get(i3).isSelect) {
-                    cVar.f16400a.setBackgroundResource(R.drawable.select_sticker_bg);
+                if (this.f16404e.get(i3).isSelect) {
+                    cVar.f16410a.setBackgroundResource(R.drawable.select_sticker_bg);
                 } else {
-                    cVar.f16400a.setBackgroundResource(R.color.transparent);
+                    cVar.f16410a.setBackgroundResource(R.color.transparent);
                 }
             } else {
-                cVar.f16400a.setVisibility(8);
+                cVar.f16410a.setVisibility(8);
             }
             int i4 = i3 + 1;
-            if (ListUtils.getItem(this.f16394e, i4) instanceof QmStickerItem) {
-                cVar.f16401b.setVisibility(0);
-                cVar.f16403d.startLoad(this.f16394e.get(i4).bgurl, 10, true);
-                cVar.f16401b.setOnClickListener(new View$OnClickListenerC0786b(this, i2));
-                if (this.f16394e.get(i4).isDownLoading) {
-                    cVar.f16407h.setVisibility(0);
-                    cVar.f16405f.setVisibility(8);
+            if (ListUtils.getItem(this.f16404e, i4) instanceof QmStickerItem) {
+                cVar.f16411b.setVisibility(0);
+                cVar.f16413d.startLoad(this.f16404e.get(i4).bgurl, 10, true);
+                cVar.f16411b.setOnClickListener(new View$OnClickListenerC0784b(this, i2));
+                if (this.f16404e.get(i4).isDownLoading) {
+                    cVar.f16417h.setVisibility(0);
+                    cVar.f16415f.setVisibility(8);
                 } else {
-                    cVar.f16407h.setVisibility(8);
-                    if (this.f16394e.get(i4).isLocalSource) {
-                        cVar.f16405f.setVisibility(8);
+                    cVar.f16417h.setVisibility(8);
+                    if (this.f16404e.get(i4).isLocalSource) {
+                        cVar.f16415f.setVisibility(8);
                     } else {
-                        cVar.f16405f.setVisibility(0);
+                        cVar.f16415f.setVisibility(0);
                     }
                 }
-                if (this.f16394e.get(i4).isSelect) {
-                    cVar.f16401b.setBackgroundResource(R.drawable.select_sticker_bg);
+                if (this.f16404e.get(i4).isSelect) {
+                    cVar.f16411b.setBackgroundResource(R.drawable.select_sticker_bg);
                 } else {
-                    cVar.f16401b.setBackgroundResource(R.color.transparent);
+                    cVar.f16411b.setBackgroundResource(R.color.transparent);
                 }
             } else {
-                cVar.f16401b.setVisibility(8);
+                cVar.f16411b.setVisibility(8);
             }
             return view;
         }

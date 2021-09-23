@@ -27,10 +27,10 @@ public class a extends c.a.p0.a.n1.q.c.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7634a;
+    public static final boolean f7642a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static LruCache<String, ArrayMap<String, f>> f7635b;
+    public static LruCache<String, ArrayMap<String, f>> f7643b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.n1.q.c.a$a  reason: collision with other inner class name */
@@ -40,7 +40,7 @@ public class a extends c.a.p0.a.n1.q.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f7636a;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f7644a;
 
         /* renamed from: c.a.p0.a.n1.q.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -49,7 +49,7 @@ public class a extends c.a.p0.a.n1.q.c.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ C0318a f7637a;
+            public final /* synthetic */ C0318a f7645a;
 
             public C0319a(C0318a c0318a) {
                 Interceptable interceptable = $ic;
@@ -66,15 +66,15 @@ public class a extends c.a.p0.a.n1.q.c.b {
                         return;
                     }
                 }
-                this.f7637a = c0318a;
+                this.f7645a = c0318a;
             }
 
             @Override // c.a.p0.a.n1.q.b.a
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    boolean unused = a.f7634a;
-                    this.f7637a.f7636a.onCallback(a.g(true));
+                    boolean unused = a.f7642a;
+                    this.f7645a.f7644a.onCallback(a.g(true));
                 }
             }
         }
@@ -94,7 +94,7 @@ public class a extends c.a.p0.a.n1.q.c.b {
                     return;
                 }
             }
-            this.f7636a = bVar;
+            this.f7644a = bVar;
         }
 
         @Override // c.a.p0.a.n1.q.b.a
@@ -103,8 +103,8 @@ public class a extends c.a.p0.a.n1.q.c.b {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Map<String, f> g2 = a.g(true);
                 if (g2.size() > 0) {
-                    this.f7636a.onCallback(g2);
-                    boolean unused = a.f7634a;
+                    this.f7644a.onCallback(g2);
+                    boolean unused = a.f7642a;
                     return;
                 }
                 c.a.p0.a.e0.d.h("SwanAppUpdateManager", "has not scope set，required request from server");
@@ -119,13 +119,13 @@ public class a extends c.a.p0.a.n1.q.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f7638a;
+        public final /* synthetic */ String f7646a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f7639b;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f7647b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f7640c;
+        public final /* synthetic */ String f7648c;
 
         public b(String str, c.a.p0.a.v2.e1.b bVar, String str2) {
             Interceptable interceptable = $ic;
@@ -142,17 +142,17 @@ public class a extends c.a.p0.a.n1.q.c.b {
                     return;
                 }
             }
-            this.f7638a = str;
-            this.f7639b = bVar;
-            this.f7640c = str2;
+            this.f7646a = str;
+            this.f7647b = bVar;
+            this.f7648c = str2;
         }
 
         @Override // c.a.p0.a.n1.q.b.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.a.n1.q.d.b.f().d(this.f7638a);
-                this.f7639b.onCallback(a.g(true).get(this.f7640c));
+                c.a.p0.a.n1.q.d.b.f().d(this.f7646a);
+                this.f7647b.onCallback(a.g(true).get(this.f7648c));
             }
         }
     }
@@ -170,8 +170,8 @@ public class a extends c.a.p0.a.n1.q.c.b {
                 return;
             }
         }
-        f7634a = k.f7077a;
-        f7635b = new LruCache<>(6);
+        f7642a = k.f7085a;
+        f7643b = new LruCache<>(6);
     }
 
     public a() {
@@ -231,13 +231,13 @@ public class a extends c.a.p0.a.n1.q.c.b {
             }
             try {
                 ArrayMap<String, f> m = m(new JSONObject(q));
-                if (f7634a) {
+                if (f7642a) {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     StringBuilder sb = new StringBuilder();
                     sb.append("getAccreditListData cost = ");
                     sb.append(currentTimeMillis2 - currentTimeMillis);
                     sb.append(" ; size = ");
-                    LruCache<String, ArrayMap<String, f>> lruCache = f7635b;
+                    LruCache<String, ArrayMap<String, f>> lruCache = f7643b;
                     sb.append(lruCache == null ? 0 : lruCache.size());
                     sb.toString();
                 }
@@ -254,7 +254,7 @@ public class a extends c.a.p0.a.n1.q.c.b {
     public static void h(@NonNull c.a.p0.a.v2.e1.b<Map<String, f>> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bVar) == null) {
-            boolean z = f7634a;
+            boolean z = f7642a;
             c.a.p0.a.n1.q.a.g().z(new C0318a(bVar));
         }
     }
@@ -273,7 +273,7 @@ public class a extends c.a.p0.a.n1.q.c.b {
             if (fVar != null) {
                 c.a.p0.a.n1.q.d.b.f().d(str2);
                 bVar.onCallback(fVar);
-                boolean z = f7634a;
+                boolean z = f7642a;
                 return;
             }
             c.a.p0.a.e0.d.h("SwanAppUpdateManager", "has not scope node，required request from server");
@@ -297,10 +297,10 @@ public class a extends c.a.p0.a.n1.q.c.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             e Q = e.Q();
-            if (Q == null || TextUtils.isEmpty(Q.f4558f)) {
+            if (Q == null || TextUtils.isEmpty(Q.f4566f)) {
                 return null;
             }
-            return f7635b.get(Q.f4558f);
+            return f7643b.get(Q.f4566f);
         }
         return (ArrayMap) invokeV.objValue;
     }
@@ -336,17 +336,17 @@ public class a extends c.a.p0.a.n1.q.c.b {
     public static void n(ArrayMap<String, f> arrayMap) {
         e Q;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, arrayMap) == null) || arrayMap == null || arrayMap.size() <= 0 || (Q = e.Q()) == null || TextUtils.isEmpty(Q.f4558f)) {
+        if (!(interceptable == null || interceptable.invokeL(65547, null, arrayMap) == null) || arrayMap == null || arrayMap.size() <= 0 || (Q = e.Q()) == null || TextUtils.isEmpty(Q.f4566f)) {
             return;
         }
-        f7635b.put(Q.f4558f, arrayMap);
+        f7643b.put(Q.f4566f, arrayMap);
     }
 
     public static void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, null) == null) {
             c.a.p0.a.e0.d.h("SwanAppUpdateManager", "resetCache");
-            f7635b.evictAll();
+            f7643b.evictAll();
         }
     }
 

@@ -17,19 +17,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3175a;
+    public String f3176a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f3176b;
+    public long f3177b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3177c;
+    public String f3178c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3178d;
+    public String f3179d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f3179e;
+    public JSONObject f3180e;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -46,35 +46,35 @@ public class b {
                 return;
             }
         }
-        this.f3175a = str;
-        this.f3176b = System.currentTimeMillis();
-        this.f3177c = f.d();
+        this.f3176a = str;
+        this.f3177b = System.currentTimeMillis();
+        this.f3178c = f.d();
     }
 
     public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f3175a)) {
+            if (TextUtils.isEmpty(this.f3176a)) {
                 c.a.e0.n.d.b("statistics action can not null");
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("a", this.f3175a);
-                jSONObject.put("t", this.f3176b);
-                jSONObject.put("ct", this.f3177c);
-                if (this.f3179e != null) {
-                    jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.f3179e);
-                } else if (!TextUtils.isEmpty(this.f3178d)) {
+                jSONObject.put("a", this.f3176a);
+                jSONObject.put("t", this.f3177b);
+                jSONObject.put("ct", this.f3178c);
+                if (this.f3180e != null) {
+                    jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.f3180e);
+                } else if (!TextUtils.isEmpty(this.f3179d)) {
                     try {
-                        jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, new JSONObject(this.f3178d));
+                        jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, new JSONObject(this.f3179d));
                     } catch (JSONException unused) {
-                        jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.f3178d);
+                        jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.f3179d);
                     }
                 }
             } catch (JSONException e2) {
-                if (c.a.e0.n.d.f3238d) {
+                if (c.a.e0.n.d.f3239d) {
                     e2.printStackTrace();
                 }
             }
@@ -87,7 +87,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            this.f3179e = jSONObject;
+            this.f3180e = jSONObject;
             return this;
         }
         return (b) invokeL.objValue;
@@ -97,7 +97,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f3178d = str;
+            this.f3179d = str;
             return this;
         }
         return (b) invokeL.objValue;

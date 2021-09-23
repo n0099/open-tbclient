@@ -19,10 +19,10 @@ public class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8421b;
+    public String f8429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<String> f8422c;
+    public Set<String> f8430c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class a implements c {
                 return;
             }
         }
-        this.f8421b = "boxjs.";
-        this.f8422c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
+        this.f8429b = "boxjs.";
+        this.f8430c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
     }
 
     @Override // c.a.p0.a.r1.k.j.c
@@ -71,7 +71,7 @@ public class a implements c {
                     aVar.i(optJSONArray.optLong(i2));
                     aVar.h(optJSONArray2.optLong(i2));
                     arrayList.add(aVar);
-                    if (c.f8423a) {
+                    if (c.f8431a) {
                         c(aVar.toString());
                     }
                 }
@@ -91,7 +91,7 @@ public class a implements c {
             if (TextUtils.isEmpty(a2)) {
                 return 0;
             }
-            return (a2.startsWith(this.f8421b) || this.f8422c.contains(a2)) ? 1 : 0;
+            return (a2.startsWith(this.f8429b) || this.f8430c.contains(a2)) ? 1 : 0;
         }
         return invokeL.intValue;
     }
@@ -99,7 +99,7 @@ public class a implements c {
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            boolean z = c.f8423a;
+            boolean z = c.f8431a;
         }
     }
 }

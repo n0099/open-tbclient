@@ -15,36 +15,36 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f19453a;
+    public float f19468a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f19454b;
+    public float f19469b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f19455c;
+    public float f19470c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f19456d;
+    public float f19471d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f19457e;
+    public b f19472e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler.Callback f19458f;
+    public Handler.Callback f19473f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f19459g;
+    public Handler f19474g;
 
     /* renamed from: c.a.r0.j0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0937a implements Handler.Callback {
+    public class C0935a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19460e;
+        public final /* synthetic */ a f19475e;
 
-        public C0937a(a aVar) {
+        public C0935a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public class a {
                     return;
                 }
             }
-            this.f19460e = aVar;
+            this.f19475e = aVar;
         }
 
         @Override // android.os.Handler.Callback
@@ -71,18 +71,18 @@ public class a {
                 int i3 = message.arg2;
                 int i4 = message.what;
                 if (i4 == 0) {
-                    this.f19460e.f19457e.a(i2, i3);
+                    this.f19475e.f19472e.a(i2, i3);
                     return true;
                 } else if (i4 == 1) {
-                    this.f19460e.f19457e.b(i2, i3);
+                    this.f19475e.f19472e.b(i2, i3);
                     return true;
                 } else if (i4 == 2) {
-                    this.f19460e.f19457e.d(i2, i3);
+                    this.f19475e.f19472e.d(i2, i3);
                     return true;
                 } else if (i4 != 3) {
                     return false;
                 } else {
-                    this.f19460e.f19457e.c(i2, i3);
+                    this.f19475e.f19472e.c(i2, i3);
                     return true;
                 }
             }
@@ -114,22 +114,22 @@ public class a {
                 return;
             }
         }
-        this.f19458f = new C0937a(this);
-        this.f19459g = new Handler(this.f19458f);
+        this.f19473f = new C0935a(this);
+        this.f19474g = new Handler(this.f19473f);
     }
 
     public final void b(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            this.f19459g.removeMessages(2);
-            if (this.f19459g.hasMessages(2)) {
+            this.f19474g.removeMessages(2);
+            if (this.f19474g.hasMessages(2)) {
                 return;
             }
             Message message = new Message();
             message.what = 2;
             message.arg1 = i2;
             message.arg2 = i3;
-            this.f19459g.sendMessageDelayed(message, 60L);
+            this.f19474g.sendMessageDelayed(message, 60L);
         }
     }
 
@@ -149,43 +149,43 @@ public class a {
                     if (action == 2) {
                         float rawX = motionEvent.getRawX();
                         float rawY = motionEvent.getRawY();
-                        if (this.f19455c == 0.0f || this.f19456d == 0.0f) {
-                            this.f19455c = motionEvent.getRawX();
+                        if (this.f19470c == 0.0f || this.f19471d == 0.0f) {
+                            this.f19470c = motionEvent.getRawX();
                             float rawY2 = motionEvent.getRawY();
-                            this.f19456d = rawY2;
-                            this.f19453a = this.f19455c;
-                            this.f19454b = rawY2;
+                            this.f19471d = rawY2;
+                            this.f19468a = this.f19470c;
+                            this.f19469b = rawY2;
                         }
-                        int i2 = (int) (rawY - this.f19454b);
-                        int i3 = (int) (rawY - this.f19456d);
-                        if (this.f19457e != null) {
+                        int i2 = (int) (rawY - this.f19469b);
+                        int i3 = (int) (rawY - this.f19471d);
+                        if (this.f19472e != null) {
                             if (i2 > 0) {
                                 e(i3, i2);
                             } else {
                                 g(i3, i2);
                             }
                         }
-                        this.f19453a = rawX;
-                        this.f19454b = rawY;
+                        this.f19468a = rawX;
+                        this.f19469b = rawY;
                     }
                 }
-                if (this.f19457e != null) {
-                    int i4 = (int) (this.f19453a - this.f19455c);
-                    int i5 = (int) (this.f19454b - this.f19456d);
+                if (this.f19472e != null) {
+                    int i4 = (int) (this.f19468a - this.f19470c);
+                    int i5 = (int) (this.f19469b - this.f19471d);
                     if (Math.abs(i4) >= Math.abs(i5)) {
-                        f(i4, (int) this.f19455c);
+                        f(i4, (int) this.f19470c);
                     } else {
                         b(i4, i5);
                     }
                 }
-                this.f19455c = 0.0f;
-                this.f19456d = 0.0f;
+                this.f19470c = 0.0f;
+                this.f19471d = 0.0f;
             } else {
-                this.f19455c = motionEvent.getRawX();
+                this.f19470c = motionEvent.getRawX();
                 float rawY3 = motionEvent.getRawY();
-                this.f19456d = rawY3;
-                this.f19453a = this.f19455c;
-                this.f19454b = rawY3;
+                this.f19471d = rawY3;
+                this.f19468a = this.f19470c;
+                this.f19469b = rawY3;
             }
             return true;
         }
@@ -195,52 +195,52 @@ public class a {
     public void d(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f19457e = bVar;
+            this.f19472e = bVar;
         }
     }
 
     public final void e(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            this.f19459g.removeMessages(0);
-            if (this.f19459g.hasMessages(1)) {
+            this.f19474g.removeMessages(0);
+            if (this.f19474g.hasMessages(1)) {
                 return;
             }
             Message message = new Message();
             message.what = 1;
             message.arg1 = i2;
             message.arg2 = i3;
-            this.f19459g.sendMessageDelayed(message, 60L);
+            this.f19474g.sendMessageDelayed(message, 60L);
         }
     }
 
     public final void f(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.f19459g.removeMessages(3);
-            if (this.f19459g.hasMessages(3)) {
+            this.f19474g.removeMessages(3);
+            if (this.f19474g.hasMessages(3)) {
                 return;
             }
             Message message = new Message();
             message.what = 3;
             message.arg1 = i2;
             message.arg2 = i3;
-            this.f19459g.sendMessageDelayed(message, 60L);
+            this.f19474g.sendMessageDelayed(message, 60L);
         }
     }
 
     public final void g(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            this.f19459g.removeMessages(1);
-            if (this.f19459g.hasMessages(0)) {
+            this.f19474g.removeMessages(1);
+            if (this.f19474g.hasMessages(0)) {
                 return;
             }
             Message message = new Message();
             message.what = 0;
             message.arg1 = i2;
             message.arg2 = i3;
-            this.f19459g.sendMessageDelayed(message, 60L);
+            this.f19474g.sendMessageDelayed(message, 60L);
         }
     }
 }

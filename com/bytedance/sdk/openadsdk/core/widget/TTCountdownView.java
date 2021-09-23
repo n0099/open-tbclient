@@ -32,34 +32,34 @@ public class TTCountdownView extends View {
     public AtomicBoolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67261a;
+    public int f67572a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67262b;
+    public int f67573b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67263c;
+    public int f67574c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67264d;
+    public int f67575d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f67265e;
+    public float f67576e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f67266f;
+    public float f67577f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f67267g;
+    public float f67578g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f67268h;
+    public int f67579h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f67269i;
+    public boolean f67580i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f67270j;
+    public float f67581j;
     public float k;
     public float l;
     public String m;
@@ -112,27 +112,27 @@ public class TTCountdownView extends View {
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             Paint paint = new Paint(1);
             this.o = paint;
-            paint.setColor(this.f67261a);
-            this.o.setStrokeWidth(this.f67265e);
+            paint.setColor(this.f67572a);
+            this.o.setStrokeWidth(this.f67576e);
             this.o.setAntiAlias(true);
             this.o.setStyle(Paint.Style.STROKE);
             Paint paint2 = new Paint(1);
             this.p = paint2;
-            paint2.setColor(this.f67263c);
+            paint2.setColor(this.f67574c);
             this.p.setAntiAlias(true);
-            this.p.setStrokeWidth(this.f67265e);
+            this.p.setStrokeWidth(this.f67576e);
             this.p.setStyle(Paint.Style.FILL);
             Paint paint3 = new Paint(1);
             this.q = paint3;
-            paint3.setColor(this.f67262b);
+            paint3.setColor(this.f67573b);
             this.q.setAntiAlias(true);
-            this.q.setStrokeWidth(this.f67265e / 2.0f);
+            this.q.setStrokeWidth(this.f67576e / 2.0f);
             this.q.setStyle(Paint.Style.STROKE);
             Paint paint4 = new Paint(1);
             this.r = paint4;
-            paint4.setColor(this.f67264d);
+            paint4.setColor(this.f67575d);
             this.q.setAntiAlias(true);
-            this.r.setTextSize(this.f67266f);
+            this.r.setTextSize(this.f67577f);
             this.r.setTextAlign(Paint.Align.CENTER);
         }
     }
@@ -140,7 +140,7 @@ public class TTCountdownView extends View {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            float f2 = this.f67267g;
+            float f2 = this.f67578g;
             this.u = new RectF(-f2, -f2, f2, f2);
         }
     }
@@ -148,7 +148,7 @@ public class TTCountdownView extends View {
     private int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? (int) ((((this.f67265e / 2.0f) + this.f67267g) * 2.0f) + a(4.0f)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? (int) ((((this.f67576e / 2.0f) + this.f67578g) * 2.0f) + a(4.0f)) : invokeV.intValue;
     }
 
     private ValueAnimator getArcAnim() {
@@ -163,13 +163,13 @@ public class TTCountdownView extends View {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(this.s, 0.0f);
             this.y = ofFloat;
             ofFloat.setInterpolator(new LinearInterpolator());
-            this.y.setDuration(a(this.s, this.f67270j) * 1000.0f);
+            this.y.setDuration(a(this.s, this.f67581j) * 1000.0f);
             this.y.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.TTCountdownView.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTCountdownView f67273a;
+                public final /* synthetic */ TTCountdownView f67584a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -186,15 +186,15 @@ public class TTCountdownView extends View {
                             return;
                         }
                     }
-                    this.f67273a = this;
+                    this.f67584a = this;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator2) == null) {
-                        this.f67273a.s = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
-                        this.f67273a.postInvalidate();
+                        this.f67584a.s = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
+                        this.f67584a.postInvalidate();
                     }
                 }
             });
@@ -221,7 +221,7 @@ public class TTCountdownView extends View {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTCountdownView f67272a;
+                public final /* synthetic */ TTCountdownView f67583a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -238,15 +238,15 @@ public class TTCountdownView extends View {
                             return;
                         }
                     }
-                    this.f67272a = this;
+                    this.f67583a = this;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator2) == null) {
-                        this.f67272a.t = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
-                        this.f67272a.postInvalidate();
+                        this.f67583a.t = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
+                        this.f67583a.postInvalidate();
                     }
                 }
             });
@@ -366,7 +366,7 @@ public class TTCountdownView extends View {
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             float f2 = i2;
             this.k = f2;
-            this.f67270j = f2;
+            this.f67581j = f2;
             b();
         }
     }
@@ -422,16 +422,16 @@ public class TTCountdownView extends View {
                 return;
             }
         }
-        this.f67261a = Color.parseColor("#fce8b6");
-        this.f67262b = Color.parseColor("#f0f0f0");
-        this.f67263c = Color.parseColor("#ffffff");
-        this.f67264d = Color.parseColor("#7c7c7c");
-        this.f67265e = 2.0f;
-        this.f67266f = 12.0f;
-        this.f67267g = 18.0f;
-        this.f67268h = 270;
-        this.f67269i = false;
-        this.f67270j = 5.0f;
+        this.f67572a = Color.parseColor("#fce8b6");
+        this.f67573b = Color.parseColor("#f0f0f0");
+        this.f67574c = Color.parseColor("#ffffff");
+        this.f67575d = Color.parseColor("#7c7c7c");
+        this.f67576e = 2.0f;
+        this.f67577f = 12.0f;
+        this.f67578g = 18.0f;
+        this.f67579h = 270;
+        this.f67580i = false;
+        this.f67581j = 5.0f;
         this.k = 5.0f;
         this.l = 0.8f;
         this.m = "跳过";
@@ -440,10 +440,10 @@ public class TTCountdownView extends View {
         this.t = 1.0f;
         this.A = false;
         this.B = new AtomicBoolean(true);
-        this.f67265e = a(2.0f);
-        this.f67267g = a(18.0f);
-        this.f67266f = b(12.0f);
-        this.f67268h %= 360;
+        this.f67576e = a(2.0f);
+        this.f67578g = a(18.0f);
+        this.f67577f = b(12.0f);
+        this.f67579h %= 360;
         e();
         f();
     }
@@ -454,13 +454,13 @@ public class TTCountdownView extends View {
         if (interceptable == null || interceptable.invokeL(65547, this, canvas) == null) {
             canvas.save();
             float a2 = a(this.s, 360);
-            if (this.f67269i) {
-                f2 = this.f67268h - a2;
+            if (this.f67580i) {
+                f2 = this.f67579h - a2;
             } else {
-                f2 = this.f67268h;
+                f2 = this.f67579h;
             }
-            canvas.drawCircle(0.0f, 0.0f, this.f67267g, this.p);
-            canvas.drawCircle(0.0f, 0.0f, this.f67267g, this.q);
+            canvas.drawCircle(0.0f, 0.0f, this.f67578g, this.p);
+            canvas.drawCircle(0.0f, 0.0f, this.f67578g, this.q);
             canvas.drawArc(this.u, f2, a2, false, this.o);
             canvas.restore();
         }
@@ -502,7 +502,7 @@ public class TTCountdownView extends View {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTCountdownView f67271a;
+                public final /* synthetic */ TTCountdownView f67582a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -519,14 +519,14 @@ public class TTCountdownView extends View {
                             return;
                         }
                     }
-                    this.f67271a = this;
+                    this.f67582a = this;
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        this.f67271a.A = true;
+                        this.f67582a.A = true;
                     }
                 }
 
@@ -534,14 +534,14 @@ public class TTCountdownView extends View {
                 public void onAnimationEnd(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                        if (!this.f67271a.A) {
-                            if (this.f67271a.v != null) {
-                                this.f67271a.v.b();
+                        if (!this.f67582a.A) {
+                            if (this.f67582a.v != null) {
+                                this.f67582a.v.b();
                                 return;
                             }
                             return;
                         }
-                        this.f67271a.A = false;
+                        this.f67582a.A = false;
                     }
                 }
 

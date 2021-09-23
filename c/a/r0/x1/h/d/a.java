@@ -24,14 +24,14 @@ public class a extends c.a.q0.x.z.a {
 
     /* renamed from: c.a.r0.x1.h.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1347a implements a.InterfaceC0720a {
+    public class C1345a implements a.InterfaceC0718a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28813a;
+        public final /* synthetic */ a f28833a;
 
-        public C1347a(a aVar) {
+        public C1345a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,15 +46,15 @@ public class a extends c.a.q0.x.z.a {
                     return;
                 }
             }
-            this.f28813a = aVar;
+            this.f28833a = aVar;
         }
 
-        @Override // c.a.q0.x.z.a.InterfaceC0720a
+        @Override // c.a.q0.x.z.a.InterfaceC0718a
         public View getView(int i2, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, view, viewGroup)) == null) {
-                DLauncher A = this.f28813a.A(i2);
+                DLauncher A = this.f28833a.A(i2);
                 if (A.getLayoutParams() == null) {
                     A.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                 }
@@ -124,7 +124,7 @@ public class a extends c.a.q0.x.z.a {
             q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
             t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
             u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            x(new C1347a(this));
+            x(new C1345a(this));
             h().b(this);
         }
     }

@@ -14,19 +14,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f11963a;
+    public f f11971a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<g> f11964b;
+    public List<g> f11972b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.p0.n.h.d f11965c;
+    public c.a.p0.n.h.d f11973c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PMSAppInfo f11966d;
+    public PMSAppInfo f11974d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.n.h.b f11967e;
+    public c.a.p0.n.h.b f11975e;
 
     public b() {
         Interceptable interceptable = $ic;

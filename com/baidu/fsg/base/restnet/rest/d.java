@@ -3,23 +3,23 @@ package com.baidu.fsg.base.restnet.rest;
 import com.baidu.fsg.base.restnet.http.HttpDefines;
 /* loaded from: classes5.dex */
 public interface d {
+    com.baidu.fsg.base.restnet.http.a a();
+
     void a(int i2);
 
-    com.baidu.fsg.base.restnet.http.a b();
+    void a(String str);
 
-    void b(String str);
+    String b();
 
-    HttpDefines.HttpMethod c();
+    String c();
 
-    String d();
+    void close();
 
-    e e() throws Exception;
+    int d();
 
-    String f();
+    e execute() throws Exception;
 
-    void g();
+    HttpDefines.HttpMethod getMethod();
 
-    int h();
-
-    String k();
+    String getUrl();
 }

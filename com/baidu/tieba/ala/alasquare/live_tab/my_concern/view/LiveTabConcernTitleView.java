@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.r0.a0.b;
-import c.a.r0.v.d.g.c.g;
+import c.a.r0.v.f.g.c.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -108,9 +108,9 @@ public class LiveTabConcernTitleView extends b<g> {
     public void k(g gVar) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f25801f) || (viewHolder = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f25824f) || (viewHolder = this.m) == null) {
             return;
         }
-        viewHolder.mTitle.setText(gVar.f25801f);
+        viewHolder.mTitle.setText(gVar.f25824f);
     }
 }

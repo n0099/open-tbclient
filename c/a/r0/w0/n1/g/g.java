@@ -40,7 +40,7 @@ public class g extends c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f27297a;
+        public final /* synthetic */ g f27317a;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -57,20 +57,20 @@ public class g extends c {
                     return;
                 }
             }
-            this.f27297a = gVar;
+            this.f27317a = gVar;
         }
 
         @Override // c.a.q0.f1.j.d
         public void a(View view, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                g gVar = this.f27297a;
+                g gVar = this.f27317a;
                 if (gVar.z == null || !gVar.T()) {
                     return;
                 }
                 UrlManager urlManager = UrlManager.getInstance();
-                g gVar2 = this.f27297a;
-                urlManager.dealOneLink(gVar2.f15549f, new String[]{gVar2.z.x()});
+                g gVar2 = this.f27317a;
+                urlManager.dealOneLink(gVar2.f15558f, new String[]{gVar2.z.x()});
             }
         }
     }
@@ -108,7 +108,7 @@ public class g extends c {
             if (TbadkCoreApplication.isLogin()) {
                 return true;
             }
-            ViewHelper.skipToLoginActivity(this.f15549f.getPageActivity());
+            ViewHelper.skipToLoginActivity(this.f15558f.getPageActivity());
             return false;
         }
         return invokeV.booleanValue;
@@ -140,7 +140,7 @@ public class g extends c {
     public void x(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.z != null && T()) {
-            UrlManager.getInstance().dealOneLink(this.f15549f, new String[]{this.z.x()});
+            UrlManager.getInstance().dealOneLink(this.f15558f, new String[]{this.z.x()});
         }
     }
 
@@ -155,7 +155,7 @@ public class g extends c {
         if (ListUtils.getCount(d2Var.E0()) > 1) {
             ArrayList<MediaData> arrayList = new ArrayList<>();
             arrayList.add(d2Var.E0().get(0));
-            d2Var.i4(arrayList);
+            d2Var.h4(arrayList);
         }
         super.y(d2Var);
         this.D.setImageClickListener(new a(this));

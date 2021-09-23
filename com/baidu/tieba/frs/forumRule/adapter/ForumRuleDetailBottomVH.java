@@ -28,7 +28,7 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f51124a;
+    public View f51239a;
     public BarImageView mBarManagementHeadView;
     public EMTextView mBarManagementRevise;
     public EMTextView mBarManagementTitle;
@@ -56,7 +56,7 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f51124a = view;
+        this.f51239a = view;
         BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_rules_bar_management_head_view);
         this.mBarManagementHeadView = barImageView;
         barImageView.setShowOval(true);
@@ -95,7 +95,7 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f51124a, R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(this.f51239a, R.color.CAM_X0205);
             c d2 = c.d(this.mBarManagementTitle);
             d2.B(R.string.F_X01);
             d2.w(R.color.CAM_X0105);

@@ -31,25 +31,25 @@ public class c implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetWork f21008a;
+    public NetWork f21021a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f21009b;
+    public boolean f21022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f21010c;
+    public final String f21023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f21011d;
+    public final int f21024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f21012e;
+    public final int f21025e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f21013f;
+    public e f21026f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f21014g;
+    public g f21027g;
 
     public c(String str, int i2, int i3, g gVar) {
         Interceptable interceptable = $ic;
@@ -66,18 +66,18 @@ public class c implements b {
                 return;
             }
         }
-        this.f21009b = false;
-        this.f21010c = str;
-        this.f21012e = i2;
-        this.f21011d = i3 / i2;
-        this.f21014g = gVar;
+        this.f21022b = false;
+        this.f21023c = str;
+        this.f21025e = i2;
+        this.f21024d = i3 / i2;
+        this.f21027g = gVar;
     }
 
     @Override // c.a.r0.j3.p0.d.b
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f21013f = eVar;
+            this.f21026f = eVar;
         }
     }
 
@@ -103,13 +103,13 @@ public class c implements b {
                 }
                 String str4 = b2;
                 c.a.r0.j3.p0.c c2 = c.a.r0.j3.p0.b.c(str4);
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42280a);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42342a);
                 long length = file.length();
-                int d2 = d(length, this.f21012e);
-                int d3 = d(d2, this.f21011d);
-                String str5 = c2 != null ? c2.f21001a : null;
-                int i4 = c2 != null ? c2.f21002b : 0;
-                if (i4 < d2 && randomAccessFile.skipBytes(this.f21012e * i4) < this.f21012e * i4) {
+                int d2 = d(length, this.f21025e);
+                int d3 = d(d2, this.f21024d);
+                String str5 = c2 != null ? c2.f21014a : null;
+                int i4 = c2 != null ? c2.f21015b : 0;
+                if (i4 < d2 && randomAccessFile.skipBytes(this.f21025e * i4) < this.f21025e * i4) {
                     randomAccessFile.close();
                     return null;
                 }
@@ -129,11 +129,11 @@ public class c implements b {
                     } else {
                         f(i7, d2, 40);
                         j2 = length;
-                        this.f21008a = e(str4, length, d3, str6);
+                        this.f21021a = e(str4, length, d3, str6);
                         f(i7, d2, 55);
                         if (i6 == d2) {
                             i3 = j(c3, i6, d3, d2);
-                        } else if (i6 % this.f21011d == 0) {
+                        } else if (i6 % this.f21024d == 0) {
                             VideoBlockUploadResult h2 = h(c3, i6, d3, d2);
                             str2 = h2.upload_id;
                             videoBlockUploadResult = h2;
@@ -141,7 +141,7 @@ public class c implements b {
                             if (videoBlockUploadResult == null && !videoBlockUploadResult.isSuccess()) {
                                 videoFinishResult.setUserMessage(videoBlockUploadResult.getErrorMessage());
                                 videoFinishResult.setErrorNo(videoBlockUploadResult.getErrorCode());
-                                g gVar = this.f21014g;
+                                g gVar = this.f21027g;
                                 if (gVar != null) {
                                     gVar.f(305, videoBlockUploadResult.getErrorCode(), videoBlockUploadResult.getErrorMessage());
                                 }
@@ -179,7 +179,7 @@ public class c implements b {
                 c.a.r0.j3.p0.b.b(str4);
                 videoFinishResult.setVideoMd5(str4);
                 randomAccessFile.close();
-                g gVar2 = this.f21014g;
+                g gVar2 = this.f21027g;
                 if (gVar2 != null) {
                     gVar2.j();
                 }
@@ -197,9 +197,9 @@ public class c implements b {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{randomAccessFile, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
             if (randomAccessFile != null && i2 >= 0) {
                 if (i2 == i3 - 1) {
-                    i4 = (int) (j2 - (i2 * this.f21012e));
+                    i4 = (int) (j2 - (i2 * this.f21025e));
                 } else {
-                    i4 = this.f21012e;
+                    i4 = this.f21025e;
                 }
                 byte[] bArr = new byte[i4];
                 boolean z = false;
@@ -220,8 +220,8 @@ public class c implements b {
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f21009b = true;
-            NetWork netWork = this.f21008a;
+            this.f21022b = true;
+            NetWork netWork = this.f21021a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -249,7 +249,7 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), str2})) == null) {
             NetWork netWork = new NetWork();
-            netWork.addPostData("forum_id", this.f21010c);
+            netWork.addPostData("forum_id", this.f21023c);
             netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
             netWork.addPostData("total_length", String.valueOf(j2));
             netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, str);
@@ -263,7 +263,7 @@ public class c implements b {
     public final void f(int i2, int i3, int i4) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(1048582, this, i2, i3, i4) == null) || (eVar = this.f21013f) == null) {
+        if (!(interceptable == null || interceptable.invokeIII(1048582, this, i2, i3, i4) == null) || (eVar = this.f21026f) == null) {
             return;
         }
         eVar.onProgressUpdate((i2 + (i4 / 100.0f)) / i3);
@@ -276,7 +276,7 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, netWork)) == null) {
             VideoBlockUploadResult videoBlockUploadResult = new VideoBlockUploadResult();
-            if (this.f21009b) {
+            if (this.f21022b) {
                 netErrorCode = netWork.getServerErrorCode();
                 errMsg = netWork.getErrorString();
             } else {
@@ -314,12 +314,12 @@ public class c implements b {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3, i4)) == null) {
-            int i5 = this.f21011d;
+            int i5 = this.f21024d;
             int i6 = i2 / i5;
-            k(this.f21008a, i5, bArr.length, i6 == i3 ? i4 - ((i6 - 1) * i5) : i5, i6, bArr);
-            NetWork netWork = this.f21008a;
+            k(this.f21021a, i5, bArr.length, i6 == i3 ? i4 - ((i6 - 1) * i5) : i5, i6, bArr);
+            NetWork netWork = this.f21021a;
             netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_BLOCK);
-            return g(this.f21008a);
+            return g(this.f21021a);
         }
         return (VideoBlockUploadResult) invokeLIII.objValue;
     }
@@ -328,17 +328,17 @@ public class c implements b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            int i5 = this.f21011d;
+            int i5 = this.f21024d;
             int i6 = i2 % i5;
             int length = bArr.length;
             int i7 = (i2 / i5) + 1;
             if (i7 == i3) {
                 i5 = i4 - ((i7 - 1) * i5);
             }
-            k(this.f21008a, i6, length, i5, i7, bArr);
-            NetWork netWork = this.f21008a;
+            k(this.f21021a, i6, length, i5, i7, bArr);
+            NetWork netWork = this.f21021a;
             netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_CHUNK);
-            return g(this.f21008a);
+            return g(this.f21021a);
         }
         return (VideoBlockUploadResult) invokeCommon.objValue;
     }
@@ -350,7 +350,7 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048586, this, bArr, i2, i3, i4)) == null) {
             int length = bArr.length;
-            int i7 = this.f21011d;
+            int i7 = this.f21024d;
             if (i2 % i7 == 0) {
                 i5 = i2 / i7;
             } else {
@@ -358,14 +358,14 @@ public class c implements b {
             }
             int i8 = i5;
             if (i8 == i3) {
-                i6 = i4 - ((i8 - 1) * this.f21011d);
+                i6 = i4 - ((i8 - 1) * this.f21024d);
             } else {
-                i6 = this.f21011d;
+                i6 = this.f21024d;
             }
-            k(this.f21008a, i6, length, i6, i8, bArr);
-            NetWork netWork = this.f21008a;
+            k(this.f21021a, i6, length, i6, i8, bArr);
+            NetWork netWork = this.f21021a;
             netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_FILE);
-            return g(this.f21008a);
+            return g(this.f21021a);
         }
         return (VideoBlockUploadResult) invokeLIII.objValue;
     }

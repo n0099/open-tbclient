@@ -15,11 +15,11 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10968b;
+    public static final boolean f10976b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.h.d.c.a f10969a;
+    public c.a.p0.h.d.c.a f10977a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public final class d {
                 return;
             }
         }
-        f10968b = k.f7077a;
+        f10976b = k.f7085a;
     }
 
     public d() {
@@ -59,7 +59,7 @@ public final class d {
                 return null;
             }
             d dVar = new d();
-            dVar.f10969a = c.a.p0.h.d.c.a.e(aVar);
+            dVar.f10977a = c.a.p0.h.d.c.a.e(aVar);
             return dVar;
         }
         return (d) invokeL.objValue;
@@ -75,7 +75,7 @@ public final class d {
                 jSONObject.put("errMsg", com.baidu.pass.biometrics.face.liveness.b.a.g0);
                 jSONObject.put("errDes", c.a.p0.f.i.r.b.a(str));
             } catch (Exception e2) {
-                if (f10968b) {
+                if (f10976b) {
                     e2.printStackTrace();
                 }
             }
@@ -88,7 +88,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             JSONObject a2 = a(str);
-            c.a.p0.h.d.c.a aVar = this.f10969a;
+            c.a.p0.h.d.c.a aVar = this.f10977a;
             if (aVar != null) {
                 aVar.b(a2);
             }
@@ -98,7 +98,7 @@ public final class d {
     public void c() {
         c.a.p0.h.d.c.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f10969a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f10977a) == null) {
             return;
         }
         aVar.c();

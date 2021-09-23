@@ -15,7 +15,7 @@ public class p0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9374a;
+    public static final boolean f9382a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,13 +31,13 @@ public class p0 {
                 return;
             }
         }
-        f9374a = c.a.p0.a.k.f7077a;
+        f9382a = c.a.p0.a.k.f7085a;
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.a.p0.a.a2.e.i() != null ? c.a.p0.a.a2.e.i().f4558f : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.a.p0.a.a2.e.i() != null ? c.a.p0.a.a2.e.i().f4566f : "" : (String) invokeV.objValue;
     }
 
     public static String b() {
@@ -64,7 +64,7 @@ public class p0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             String string = c.a.p0.a.k2.g.h.a().getString("dailyInfo", "");
-            if (f9374a) {
+            if (f9382a) {
                 String str2 = "dailyInfo:" + string;
             }
             JSONObject jSONObject = null;
@@ -80,7 +80,7 @@ public class p0 {
                     return jSONObject;
                 }
             } catch (JSONException e2) {
-                if (f9374a) {
+                if (f9382a) {
                     e2.getMessage();
                 }
             }
@@ -134,7 +134,7 @@ public class p0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, obj) == null) {
             String string = c.a.p0.a.k2.g.h.a().getString("dailyInfo", "");
-            if (f9374a) {
+            if (f9382a) {
                 TextUtils.isEmpty(string);
             }
             try {
@@ -151,7 +151,7 @@ public class p0 {
                 }
                 c.a.p0.a.k2.g.h.a().putString("dailyInfo", jSONObject.toString());
             } catch (JSONException e2) {
-                if (f9374a) {
+                if (f9382a) {
                     e2.getMessage();
                 }
             }

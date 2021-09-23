@@ -46,23 +46,23 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public CustomMessageListener customListener;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f54460e;
+    public boolean f54575e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f54461f;
+    public String f54576f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f54462g;
+    public int f54577g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f54463h;
+    public d f54578h;
     public HttpMessageListener httpListener;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f54464i;
+    public int f54579i;
 
     /* renamed from: j  reason: collision with root package name */
-    public PersonListActivity f54465j;
+    public PersonListActivity f54580j;
     public c.a.q0.t.e.a k;
     public int l;
     public int m;
@@ -76,7 +76,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonListModel f54466a;
+        public final /* synthetic */ PersonListModel f54581a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PersonListModel personListModel, int i2) {
@@ -96,7 +96,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                     return;
                 }
             }
-            this.f54466a = personListModel;
+            this.f54581a = personListModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -107,12 +107,12 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 if (statusCode == 200 && error == 0) {
-                    this.f54466a.K();
+                    this.f54581a.K();
                     return;
                 }
                 BdLog.e("follow switch request fail");
-                if (this.f54466a.f54463h != null) {
-                    this.f54466a.f54463h.b("follow switch request fail", false);
+                if (this.f54581a.f54578h != null) {
+                    this.f54581a.f54578h.b("follow switch request fail", false);
                 }
             }
         }
@@ -124,7 +124,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonListModel f54467a;
+        public final /* synthetic */ PersonListModel f54582a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PersonListModel personListModel, int i2) {
@@ -144,7 +144,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                     return;
                 }
             }
-            this.f54467a = personListModel;
+            this.f54582a = personListModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -153,19 +153,19 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             String errorString;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002004 && (httpResponsedMessage instanceof ResponseNetPersonListMessage)) {
-                if (this.f54467a.getUniqueId().getId() != Integer.parseInt((String) ((HashMap) httpResponsedMessage.getOrginalMessage().getExtra()).get("pageid"))) {
+                if (this.f54582a.getUniqueId().getId() != Integer.parseInt((String) ((HashMap) httpResponsedMessage.getOrginalMessage().getExtra()).get("pageid"))) {
                     return;
                 }
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 if (statusCode != 200 || error != 0) {
-                    if (this.f54467a.f54463h != null) {
+                    if (this.f54582a.f54578h != null) {
                         if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                            errorString = this.f54467a.f54465j.getResources().getString(R.string.neterror);
+                            errorString = this.f54582a.f54580j.getResources().getString(R.string.neterror);
                         } else {
                             errorString = httpResponsedMessage.getErrorString();
                         }
-                        this.f54467a.f54463h.b(errorString, false);
+                        this.f54582a.f54578h.b(errorString, false);
                         return;
                     }
                     return;
@@ -173,14 +173,14 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 i1 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                 if (data != null) {
                     if (!StringUtils.isNull(data.f14216g)) {
-                        this.f54467a.n = data.f14216g;
-                        this.f54467a.m = data.f14217h;
+                        this.f54582a.n = data.f14216g;
+                        this.f54582a.m = data.f14217h;
                     }
-                    data.f14217h = this.f54467a.m;
-                    data.f14216g = this.f54467a.n;
+                    data.f14217h = this.f54582a.m;
+                    data.f14216g = this.f54582a.n;
                 }
-                if (this.f54467a.f54463h != null) {
-                    this.f54467a.f54463h.a(data, false);
+                if (this.f54582a.f54578h != null) {
+                    this.f54582a.f54578h.a(data, false);
                 }
             }
         }
@@ -192,7 +192,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonListModel f54468a;
+        public final /* synthetic */ PersonListModel f54583a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PersonListModel personListModel, int i2) {
@@ -212,7 +212,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                     return;
                 }
             }
-            this.f54468a = personListModel;
+            this.f54583a = personListModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -222,20 +222,20 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
                 i1 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
                 if (data2 == null) {
-                    if (this.f54468a.f54463h != null) {
-                        this.f54468a.f54463h.b("", true);
+                    if (this.f54583a.f54578h != null) {
+                        this.f54583a.f54578h.b("", true);
                         return;
                     }
                     return;
                 }
                 if (!StringUtils.isNull(data2.f14216g)) {
-                    this.f54468a.n = data2.f14216g;
-                    this.f54468a.m = data2.f14217h;
+                    this.f54583a.n = data2.f14216g;
+                    this.f54583a.m = data2.f14217h;
                 }
-                data2.f14217h = this.f54468a.m;
-                data2.f14216g = this.f54468a.n;
-                if (this.f54468a.f54463h != null) {
-                    this.f54468a.f54463h.a(data2, true);
+                data2.f14217h = this.f54583a.m;
+                data2.f14216g = this.f54583a.n;
+                if (this.f54583a.f54578h != null) {
+                    this.f54583a.f54578h.a(data2, true);
                 }
             }
         }
@@ -254,7 +254,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f54469a;
+        public String f54584a;
 
         public e(String str) {
             Interceptable interceptable = $ic;
@@ -271,7 +271,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                     return;
                 }
             }
-            this.f54469a = str;
+            this.f54584a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -281,11 +281,11 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                if (this.f54469a == null) {
+                if (this.f54584a == null) {
                     return null;
                 }
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.FOLLOW_ERR_URL);
-                netWork.addPostData("portrait", this.f54469a);
+                netWork.addPostData("portrait", this.f54584a);
                 return netWork.postNetData();
             }
             return (String) invokeL.objValue;
@@ -327,25 +327,25 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 return;
             }
         }
-        this.f54464i = 0;
+        this.f54579i = 0;
         this.l = 0;
         this.o = 0;
         this.mFollowSwitchListener = new a(this, CmdConfigHttp.CMD_FOLLOW_SWITCH);
         this.httpListener = new b(this, CmdConfigHttp.PIC_PERSONAL_LIST);
         this.customListener = new c(this, 2001188);
-        this.f54465j = personListActivity;
+        this.f54580j = personListActivity;
         c.a.q0.t.e.a aVar = new c.a.q0.t.e.a(personListActivity.getPageContext());
         this.k = aVar;
         aVar.k(this.mLoadDataCallBack);
-        this.f54460e = true;
-        this.f54461f = null;
-        this.f54463h = dVar;
+        this.f54575e = true;
+        this.f54576f = null;
+        this.f54578h = dVar;
     }
 
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54460e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54575e : invokeV.booleanValue;
     }
 
     public int D() {
@@ -357,14 +357,14 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public int E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54464i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54579i : invokeV.intValue;
     }
 
     public void F(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             this.l = i2;
-            this.f54464i = 0;
+            this.f54579i = 0;
             K();
         }
     }
@@ -385,7 +385,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
-            if (this.f54460e) {
+            if (this.f54575e) {
                 str = TbConfig.SERVER_ADDRESS + "c/u/follow/followList";
             } else {
                 str = TbConfig.SERVER_ADDRESS + "c/u/fans/page";
@@ -421,25 +421,25 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_PERSONAL_LIST);
             HashMap hashMap = new HashMap();
-            if (this.f54460e) {
+            if (this.f54575e) {
                 httpMessage.setTag(FOLLOWME);
             } else {
                 httpMessage.setTag(MYFOLLOW);
             }
-            String str = this.f54461f;
+            String str = this.f54576f;
             if (str != null && !str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                httpMessage.addParam("uid", this.f54461f);
+                httpMessage.addParam("uid", this.f54576f);
             }
-            hashMap.put("id", String.valueOf(this.f54461f));
-            int i2 = this.f54464i;
+            hashMap.put("id", String.valueOf(this.f54576f));
+            int i2 = this.f54579i;
             if (i2 != 0) {
                 int i3 = i2 + 1;
-                this.f54464i = i3;
+                this.f54579i = i3;
                 httpMessage.addParam("pn", String.valueOf(i3));
             }
             httpMessage.addParam("tab", this.l);
             httpMessage.addParam("follow_list_switch", this.o);
-            hashMap.put("page", String.valueOf(this.f54464i));
+            hashMap.put("page", String.valueOf(this.f54579i));
             hashMap.put("pageid", String.valueOf(getUniqueId().getId()));
             httpMessage.setExtra(hashMap);
             sendMessage(httpMessage);
@@ -449,7 +449,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public void L(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f54461f = str;
+            this.f54576f = str;
         }
     }
 
@@ -466,14 +466,14 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public void M(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f54460e = z;
+            this.f54575e = z;
         }
     }
 
     public void N(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f54464i = i2;
+            this.f54579i = i2;
         }
     }
 
@@ -497,19 +497,19 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f54461f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f54576f : (String) invokeV.objValue;
     }
 
     public int getSex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f54462g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f54577g : invokeV.intValue;
     }
 
     public void setSex(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f54462g = i2;
+            this.f54577g = i2;
         }
     }
 }

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.q0.s.s.a;
 import c.a.r0.j3.g0;
-import c.a.r0.j3.w;
+import c.a.r0.j3.x;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -37,31 +37,31 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsFragment f27411a;
+    public FrsFragment f27431a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TBSpecificationBtn f27412b;
+    public TBSpecificationBtn f27432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LikeModel f27413c;
+    public LikeModel f27433c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g0 f27414d;
+    public g0 f27434d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f27415e;
+    public boolean f27435e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AntiHelper.k f27416f;
+    public AntiHelper.k f27436f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f27417g;
+    public CustomMessageListener f27437g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.e.a.e f27418h;
+    public c.a.e.a.e f27438h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g0.a f27419i;
+    public g0.a f27439i;
 
     /* loaded from: classes4.dex */
     public class a implements AntiHelper.k {
@@ -107,7 +107,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f27420a;
+        public final /* synthetic */ f f27440a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(f fVar, int i2) {
@@ -127,15 +127,15 @@ public class f {
                     return;
                 }
             }
-            this.f27420a = fVar;
+            this.f27440a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof w)) {
-                this.f27420a.f(customResponsedMessage.getData());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof x)) {
+                this.f27440a.f(customResponsedMessage.getData());
             }
         }
     }
@@ -146,7 +146,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f27421a;
+        public final /* synthetic */ f f27441a;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -163,14 +163,14 @@ public class f {
                     return;
                 }
             }
-            this.f27421a = fVar;
+            this.f27441a = fVar;
         }
 
         @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.f27421a.f(obj);
+                this.f27441a.f(obj);
             }
         }
     }
@@ -181,7 +181,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f27422a;
+        public final /* synthetic */ f f27442a;
 
         public d(f fVar) {
             Interceptable interceptable = $ic;
@@ -198,7 +198,7 @@ public class f {
                     return;
                 }
             }
-            this.f27422a = fVar;
+            this.f27442a = fVar;
         }
 
         @Override // c.a.r0.j3.g0.a
@@ -212,13 +212,13 @@ public class f {
         public void b(String str, long j2) {
             FrsViewData frsViewData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) || this.f27422a.f27411a == null || (frsViewData = this.f27422a.f27411a.getFrsViewData()) == null || frsViewData.getForum() == null) {
+            if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) || this.f27442a.f27431a == null || (frsViewData = this.f27442a.f27431a.getFrsViewData()) == null || frsViewData.getForum() == null) {
                 return;
             }
             String name = frsViewData.getForum().getName();
             String id = frsViewData.getForum().getId();
             if (j2 == c.a.e.e.m.b.g(id, 0L) && TextUtils.equals(name, str)) {
-                h headerVC = this.f27422a.f27411a.getHeaderVC();
+                h headerVC = this.f27442a.f27431a.getHeaderVC();
                 if (headerVC != null) {
                     headerVC.Y(str);
                 }
@@ -226,13 +226,13 @@ public class f {
                 if (headerVC != null) {
                     headerVC.T(0);
                 }
-                this.f27422a.f27411a.unlikeCallBack(Boolean.TRUE);
-                this.f27422a.l(false, id);
+                this.f27442a.f27431a.unlikeCallBack(Boolean.TRUE);
+                this.f27442a.l(false, id);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003004, id));
-                w wVar = new w();
-                wVar.v(0);
-                wVar.s(id);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
+                x xVar = new x();
+                xVar.v(0);
+                xVar.s(id);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, xVar));
             }
         }
     }
@@ -243,7 +243,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f27423e;
+        public final /* synthetic */ f f27443e;
 
         public e(f fVar) {
             Interceptable interceptable = $ic;
@@ -260,7 +260,7 @@ public class f {
                     return;
                 }
             }
-            this.f27423e = fVar;
+            this.f27443e = fVar;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -268,30 +268,30 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                if (this.f27423e.f27411a == null || this.f27423e.f27414d == null) {
+                if (this.f27443e.f27431a == null || this.f27443e.f27434d == null) {
                     return;
                 }
-                FrsViewData frsViewData = this.f27423e.f27411a.getFrsViewData();
+                FrsViewData frsViewData = this.f27443e.f27431a.getFrsViewData();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.length() > 0) {
                     if (frsViewData == null || frsViewData.getForum() == null) {
                         return;
                     }
-                    this.f27423e.f27414d.c(frsViewData.getForum().getName(), c.a.e.e.m.b.g(frsViewData.getForum().getId(), 0L));
+                    this.f27443e.f27434d.c(frsViewData.getForum().getName(), c.a.e.e.m.b.g(frsViewData.getForum().getId(), 0L));
                     return;
                 }
-                TbadkCoreApplication.getInst().login(this.f27423e.f27411a.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f27423e.f27411a.getActivity(), true, 11036)));
+                TbadkCoreApplication.getInst().login(this.f27443e.f27431a.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f27443e.f27431a.getActivity(), true, 11036)));
             }
         }
     }
 
     /* renamed from: c.a.r0.w0.o2.f$f  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1291f implements a.e {
+    public class C1289f implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1291f(f fVar) {
+        public C1289f(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -331,15 +331,15 @@ public class f {
                 return;
             }
         }
-        this.f27413c = null;
-        this.f27414d = null;
-        this.f27416f = new a(this);
-        this.f27417g = new b(this, 2921600);
-        this.f27418h = new c(this);
-        this.f27419i = new d(this);
-        this.f27411a = frsFragment;
+        this.f27433c = null;
+        this.f27434d = null;
+        this.f27436f = new a(this);
+        this.f27437g = new b(this, 2921600);
+        this.f27438h = new c(this);
+        this.f27439i = new d(this);
+        this.f27431a = frsFragment;
         if (frsFragment != null) {
-            frsFragment.registerListener(this.f27417g);
+            frsFragment.registerListener(this.f27437g);
         }
     }
 
@@ -347,7 +347,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             StatisticItem statisticItem = new StatisticItem("c13605");
-            FrsFragment frsFragment = this.f27411a;
+            FrsFragment frsFragment = this.f27431a;
             if (frsFragment != null) {
                 c.a.q0.n0.c.b(frsFragment.getContext(), statisticItem);
             }
@@ -359,11 +359,11 @@ public class f {
         FrsFragment frsFragment;
         FrsViewData frsViewData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || (frsFragment = this.f27411a) == null || (frsViewData = frsFragment.getFrsViewData()) == null || frsViewData.getForum() == null || obj == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || (frsFragment = this.f27431a) == null || (frsViewData = frsFragment.getFrsViewData()) == null || frsViewData.getForum() == null || obj == null) {
             return;
         }
-        if (AntiHelper.m(this.f27413c.getErrorCode(), this.f27413c.getErrorString())) {
-            if (AntiHelper.t(this.f27411a.getActivity(), this.f27413c.J(), this.f27416f) != null) {
+        if (AntiHelper.m(this.f27433c.getErrorCode(), this.f27433c.getErrorString())) {
+            if (AntiHelper.t(this.f27431a.getActivity(), this.f27433c.J(), this.f27436f) != null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
                 return;
             }
@@ -371,45 +371,45 @@ public class f {
         }
         String name = frsViewData.getForum().getName();
         String id = frsViewData.getForum().getId();
-        w wVar = obj instanceof w ? (w) obj : null;
-        boolean z = wVar != null && this.f27413c.getErrorCode() == 0;
-        if (wVar.d() == 3250013) {
-            BdToast.h(TbadkCoreApplication.getInst().getContext(), wVar.e(), R.drawable.icon_pure_toast_mistake40_svg, 3000, true).q();
+        x xVar = obj instanceof x ? (x) obj : null;
+        boolean z = xVar != null && this.f27433c.getErrorCode() == 0;
+        if (xVar.d() == 3250013) {
+            BdToast.h(TbadkCoreApplication.getInst().getContext(), xVar.e(), R.drawable.icon_pure_toast_mistake40_svg, 3000, true).q();
             z = false;
         }
-        if (wVar != null && z) {
-            h headerVC = this.f27411a.getHeaderVC();
+        if (xVar != null && z) {
+            h headerVC = this.f27431a.getHeaderVC();
             if (headerVC != null) {
                 headerVC.Y(name);
             }
-            wVar.v(1);
-            frsViewData.updateLikeData(wVar);
-            frsViewData.setLikeFeedForumDataList(wVar.f());
+            xVar.v(1);
+            frsViewData.updateLikeData(xVar);
+            frsViewData.setLikeFeedForumDataList(xVar.f());
             if (headerVC != null) {
-                headerVC.f0(frsViewData, this.f27415e);
+                headerVC.f0(frsViewData, this.f27435e);
             }
-            this.f27415e = true;
-            FrsFragment frsFragment2 = this.f27411a;
+            this.f27435e = true;
+            FrsFragment frsFragment2 = this.f27431a;
             frsFragment2.showToast(frsFragment2.getResources().getString(R.string.attention_success));
-            if (c.a.q0.t.h.a.e(this.f27411a.getContext(), 0)) {
-                c.a.q0.t.h.a.g(this.f27411a.getPageContext(), 4, 2000L);
+            if (c.a.q0.t.h.a.e(this.f27431a.getContext(), 0)) {
+                c.a.q0.t.h.a.g(this.f27431a.getPageContext(), 4, 2000L);
             }
             l(true, id);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, xVar));
             e();
-        } else if (this.f27413c.getErrorCode() == 22) {
-            FrsFragment frsFragment3 = this.f27411a;
+        } else if (this.f27433c.getErrorCode() == 22) {
+            FrsFragment frsFragment3 = this.f27431a;
             frsFragment3.showToast(frsFragment3.getString(R.string.had_liked_forum));
         } else {
-            this.f27411a.showToast(this.f27413c.getErrorString());
+            this.f27431a.showToast(this.f27433c.getErrorString());
         }
-        this.f27411a.likeCallBack(Boolean.valueOf(z));
+        this.f27431a.likeCallBack(Boolean.valueOf(z));
     }
 
     public void g(TBSpecificationBtn tBSpecificationBtn) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tBSpecificationBtn) == null) {
-            this.f27412b = tBSpecificationBtn;
+            this.f27432b = tBSpecificationBtn;
             m();
         }
     }
@@ -417,21 +417,21 @@ public class f {
     public final void h() {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (frsFragment = this.f27411a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (frsFragment = this.f27431a) == null) {
             return;
         }
         LikeModel likeModel = new LikeModel(frsFragment.getPageContext());
-        this.f27413c = likeModel;
-        likeModel.setLoadDataCallBack(this.f27418h);
+        this.f27433c = likeModel;
+        likeModel.setLoadDataCallBack(this.f27438h);
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             g0 g0Var = new g0();
-            this.f27414d = g0Var;
+            this.f27434d = g0Var;
             g0Var.a("from_frs");
-            this.f27414d.b(this.f27419i);
+            this.f27434d.b(this.f27439i);
         }
     }
 
@@ -446,7 +446,7 @@ public class f {
     public void k() {
         LikeModel likeModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (likeModel = this.f27413c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (likeModel = this.f27433c) == null) {
             return;
         }
         likeModel.I();
@@ -463,7 +463,7 @@ public class f {
     public void m() {
         TBSpecificationBtn tBSpecificationBtn;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (tBSpecificationBtn = this.f27412b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (tBSpecificationBtn = this.f27432b) == null) {
             return;
         }
         tBSpecificationBtn.changeSkinType();
@@ -472,7 +472,7 @@ public class f {
     public void n(String str, String str2) {
         LikeModel likeModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) || (likeModel = this.f27413c) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) || (likeModel = this.f27433c) == null) {
             return;
         }
         likeModel.M(str, str2, "FRS");
@@ -481,7 +481,7 @@ public class f {
     public void o(boolean z) {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (frsFragment = this.f27411a) == null || this.f27413c == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (frsFragment = this.f27431a) == null || this.f27433c == null) {
             return;
         }
         FrsViewData frsViewData = frsFragment.getFrsViewData();
@@ -490,44 +490,44 @@ public class f {
             if (frsViewData == null || frsViewData.getForum() == null) {
                 return;
             }
-            if (FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND.equals(this.f27411a.getFrom())) {
+            if (FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND.equals(this.f27431a.getFrom())) {
                 TiebaStatic.log(new StatisticItem("c10356").param("fid", frsViewData.getForum().getId()));
-            } else if (FrsActivityConfig.FRS_FROM_SQUARE_HOT.equals(this.f27411a.getFrom())) {
+            } else if (FrsActivityConfig.FRS_FROM_SQUARE_HOT.equals(this.f27431a.getFrom())) {
                 TiebaStatic.log(new StatisticItem("c10590").param("obj_type", 2).param("fid", frsViewData.getForum().getId()));
-            } else if (FrsActivityConfig.FRS_FROM_SQUARE_TOP.equals(this.f27411a.getFrom())) {
+            } else if (FrsActivityConfig.FRS_FROM_SQUARE_TOP.equals(this.f27431a.getFrom())) {
                 TiebaStatic.log(new StatisticItem("c10587").param("obj_type", 2).param("fid", frsViewData.getForum().getId()));
-            } else if (FrsActivityConfig.FRS_FROM_SQUARE_RECOMMEND.equals(this.f27411a.getFrom())) {
+            } else if (FrsActivityConfig.FRS_FROM_SQUARE_RECOMMEND.equals(this.f27431a.getFrom())) {
                 TiebaStatic.log(new StatisticItem("c10578").param("obj_type", 2).param("fid", frsViewData.getForum().getId()));
             }
-            this.f27413c.setFrom("recom_flist_like_frs");
-            if (FrsActivityConfig.FRS_FROM_SQUARE.equals(this.f27411a.getFrom())) {
-                TiebaStatic.eventStat(this.f27411a.getPageContext().getPageActivity(), "square_frs_focus", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
-            } else if (FrsActivityConfig.FRS_FROM_FOLLOWED_RECOMMEND.equals(this.f27411a.getFrom())) {
+            this.f27433c.setFrom("recom_flist_like_frs");
+            if (FrsActivityConfig.FRS_FROM_SQUARE.equals(this.f27431a.getFrom())) {
+                TiebaStatic.eventStat(this.f27431a.getPageContext().getPageActivity(), "square_frs_focus", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+            } else if (FrsActivityConfig.FRS_FROM_FOLLOWED_RECOMMEND.equals(this.f27431a.getFrom())) {
                 TiebaStatic.log(new StatisticItem("c10359").param("fid", frsViewData.getForum().getId()));
             }
-            this.f27413c.M(frsViewData.getForum().getName(), frsViewData.getForum().getId(), "FRS");
-            this.f27415e = z;
+            this.f27433c.M(frsViewData.getForum().getName(), frsViewData.getForum().getId(), "FRS");
+            this.f27435e = z;
             return;
         }
-        TbadkCoreApplication.getInst().login(this.f27411a.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f27411a.getActivity(), true, CyberPlayerManager.MEDIA_INFO_KERNEL_NET_TRAFFIC)));
+        TbadkCoreApplication.getInst().login(this.f27431a.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f27431a.getActivity(), true, CyberPlayerManager.MEDIA_INFO_KERNEL_NET_TRAFFIC)));
     }
 
     public void p() {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (frsFragment = this.f27411a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (frsFragment = this.f27431a) == null) {
             return;
         }
         c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(frsFragment.getActivity());
-        FrsViewData frsViewData = this.f27411a.getFrsViewData();
+        FrsViewData frsViewData = this.f27431a.getFrsViewData();
         String name = (frsViewData == null || frsViewData.getForum() == null || frsViewData.getForum().getName() == null) ? "" : frsViewData.getForum().getName();
         if (!StringUtils.isNull(name)) {
-            aVar.setMessage(String.format(this.f27411a.getString(R.string.attention_cancel_dialog_content), name));
+            aVar.setMessage(String.format(this.f27431a.getString(R.string.attention_cancel_dialog_content), name));
         } else {
-            aVar.setMessage(this.f27411a.getString(R.string.attention_cancel_dialog_content_default));
+            aVar.setMessage(this.f27431a.getString(R.string.attention_cancel_dialog_content_default));
         }
-        aVar.setPositiveButton(this.f27411a.getString(R.string.editor_dialog_yes), new e(this));
-        aVar.setNegativeButton(this.f27411a.getString(R.string.editor_dialog_no), new C1291f(this));
-        aVar.create(this.f27411a.getTbPageContext()).show();
+        aVar.setPositiveButton(this.f27431a.getString(R.string.editor_dialog_yes), new e(this));
+        aVar.setNegativeButton(this.f27431a.getString(R.string.editor_dialog_no), new C1289f(this));
+        aVar.create(this.f27431a.getTbPageContext()).show();
     }
 }

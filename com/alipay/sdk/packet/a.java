@@ -44,16 +44,16 @@ public class a {
             String str5 = null;
             for (String str6 : split) {
                 if (TextUtils.isEmpty(str2)) {
-                    str2 = b(str6);
+                    str2 = e(str6);
                 }
                 if (TextUtils.isEmpty(str3)) {
-                    str3 = c(str6);
+                    str3 = d(str6);
                 }
                 if (TextUtils.isEmpty(str4)) {
-                    str4 = d(str6);
+                    str4 = f(str6);
                 }
                 if (TextUtils.isEmpty(str5)) {
-                    str5 = f(str6);
+                    str5 = c(str6);
                 }
             }
             StringBuilder sb = new StringBuilder();
@@ -79,42 +79,6 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str.contains("biz_type")) {
-                return e(str);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str.contains("biz_no")) {
-                return e(str);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!str.contains(com.alipay.sdk.app.statistic.b.ar) || str.startsWith(com.alipay.sdk.app.statistic.b.aq)) {
-                return null;
-            }
-            return e(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
             String[] split = str.split("=");
             if (split.length > 1) {
                 String str2 = split[1];
@@ -125,14 +89,50 @@ public class a {
         return (String) invokeL.objValue;
     }
 
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str.contains("app_userid")) {
+                return b(str);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (str.contains("biz_no")) {
+                return b(str);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+            if (str.contains("biz_type")) {
+                return b(str);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            if (str.contains("app_userid")) {
-                return e(str);
+            if (!str.contains(com.alipay.sdk.app.statistic.b.H0) || str.startsWith(com.alipay.sdk.app.statistic.b.G0)) {
+                return null;
             }
-            return null;
+            return b(str);
         }
         return (String) invokeL.objValue;
     }

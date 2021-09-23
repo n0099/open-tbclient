@@ -21,13 +21,13 @@ public class e extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<List<DressItemData>> f23921e;
+    public List<List<DressItemData>> f23937e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f23922f;
+    public TbPageContext<?> f23938f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f23923g;
+    public d f23939g;
 
     /* loaded from: classes3.dex */
     public class a {
@@ -35,16 +35,16 @@ public class e extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f23924a;
+        public View f23940a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BackgroundItemView f23925b;
+        public BackgroundItemView f23941b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BackgroundItemView f23926c;
+        public BackgroundItemView f23942c;
 
         /* renamed from: d  reason: collision with root package name */
-        public BackgroundItemView f23927d;
+        public BackgroundItemView f23943d;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -78,8 +78,8 @@ public class e extends BaseAdapter {
                 return;
             }
         }
-        this.f23922f = tbPageContext;
-        this.f23923g = dVar;
+        this.f23938f = tbPageContext;
+        this.f23939g = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -89,11 +89,11 @@ public class e extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<List<DressItemData>> list = this.f23921e;
-            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f23921e.size()) {
+            List<List<DressItemData>> list = this.f23937e;
+            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f23937e.size()) {
                 return null;
             }
-            return this.f23921e.get(i2);
+            return this.f23937e.get(i2);
         }
         return (List) invokeI.objValue;
     }
@@ -101,7 +101,7 @@ public class e extends BaseAdapter {
     public void b(List<List<DressItemData>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f23921e = list;
+            this.f23937e = list;
         }
     }
 
@@ -110,7 +110,7 @@ public class e extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<List<DressItemData>> list = this.f23921e;
+            List<List<DressItemData>> list = this.f23937e;
             if (list != null) {
                 return list.size();
             }
@@ -139,37 +139,37 @@ public class e extends BaseAdapter {
             if (view != null) {
                 aVar = (a) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f23922f.getPageActivity()).inflate(R.layout.background_row, viewGroup, false);
+                view = LayoutInflater.from(this.f23938f.getPageActivity()).inflate(R.layout.background_row, viewGroup, false);
                 aVar = new a(this);
-                aVar.f23924a = view.findViewById(R.id.top_white_line);
-                aVar.f23925b = (BackgroundItemView) view.findViewById(R.id.bg_view1);
-                aVar.f23926c = (BackgroundItemView) view.findViewById(R.id.bg_view2);
-                aVar.f23927d = (BackgroundItemView) view.findViewById(R.id.bg_view3);
+                aVar.f23940a = view.findViewById(R.id.top_white_line);
+                aVar.f23941b = (BackgroundItemView) view.findViewById(R.id.bg_view1);
+                aVar.f23942c = (BackgroundItemView) view.findViewById(R.id.bg_view2);
+                aVar.f23943d = (BackgroundItemView) view.findViewById(R.id.bg_view3);
                 view.setTag(aVar);
             }
             if (item != null) {
                 if (i2 == 0) {
-                    aVar.f23924a.setVisibility(0);
+                    aVar.f23940a.setVisibility(0);
                 } else {
-                    aVar.f23924a.setVisibility(8);
+                    aVar.f23940a.setVisibility(8);
                 }
-                aVar.f23925b.fillView(item.get(0));
-                aVar.f23925b.setController(this.f23923g);
+                aVar.f23941b.fillView(item.get(0));
+                aVar.f23941b.setController(this.f23939g);
                 if (item.size() > 2) {
-                    aVar.f23926c.fillView(item.get(1));
-                    aVar.f23927d.fillView(item.get(2));
-                    aVar.f23926c.setController(this.f23923g);
-                    aVar.f23927d.setController(this.f23923g);
+                    aVar.f23942c.fillView(item.get(1));
+                    aVar.f23943d.fillView(item.get(2));
+                    aVar.f23942c.setController(this.f23939g);
+                    aVar.f23943d.setController(this.f23939g);
                 } else if (item.size() > 1) {
-                    aVar.f23926c.fillView(item.get(1));
-                    aVar.f23926c.setController(this.f23923g);
-                    aVar.f23927d.hide();
+                    aVar.f23942c.fillView(item.get(1));
+                    aVar.f23942c.setController(this.f23939g);
+                    aVar.f23943d.hide();
                 } else {
-                    aVar.f23926c.hide();
-                    aVar.f23927d.hide();
+                    aVar.f23942c.hide();
+                    aVar.f23943d.hide();
                 }
             }
-            this.f23922f.getLayoutMode().j(view);
+            this.f23938f.getLayoutMode().j(view);
             return view;
         }
         return (View) invokeILL.objValue;

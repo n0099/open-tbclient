@@ -12,13 +12,13 @@ public class a implements Comparable<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f74376a;
+    public String f74695a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f74377b;
+    public String f74696b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f74378c;
+    public boolean f74697c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,6 +40,6 @@ public class a implements Comparable<a> {
     public int compareTo(@NonNull a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar.f74377b.compareTo(this.f74377b) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar.f74696b.compareTo(this.f74696b) : invokeL.intValue;
     }
 }

@@ -38,7 +38,7 @@ public class b extends c.a.p0.a.u.c.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
             if (Q == null) {
                 return new c.a.p0.a.u.h.b(1001, "SwanApp is null");

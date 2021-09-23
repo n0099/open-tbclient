@@ -13,7 +13,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<n> f22095a;
+    public ArrayList<n> f22109a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class e {
     public void a(ArrayList<n> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.f22095a = arrayList;
+            this.f22109a = arrayList;
         }
     }
 

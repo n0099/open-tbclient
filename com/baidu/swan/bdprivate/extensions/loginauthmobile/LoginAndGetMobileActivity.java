@@ -40,7 +40,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoginAndGetMobileActivity f46734e;
+        public final /* synthetic */ LoginAndGetMobileActivity f46836e;
 
         public a(LoginAndGetMobileActivity loginAndGetMobileActivity) {
             Interceptable interceptable = $ic;
@@ -57,14 +57,14 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
                     return;
                 }
             }
-            this.f46734e = loginAndGetMobileActivity;
+            this.f46836e = loginAndGetMobileActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LoginAndGetMobileActivity loginAndGetMobileActivity = this.f46734e;
+                LoginAndGetMobileActivity loginAndGetMobileActivity = this.f46836e;
                 x.a(loginAndGetMobileActivity, loginAndGetMobileActivity.getWindow().getDecorView().getWindowToken());
             }
         }

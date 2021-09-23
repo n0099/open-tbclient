@@ -48,25 +48,25 @@ public class i extends a {
     public final void a() throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.i.b.a.h0.g b2 = this.f33143a.b(this.o);
+            c.i.b.a.h0.g b2 = this.f33166a.b(this.o);
             try {
-                c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.f33150h, b2.f33704c, this.f33150h.a(b2));
+                c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.f33173h, b2.f33727c, this.f33173h.a(b2));
                 if (this.o == 0) {
                     b h2 = h();
                     h2.c(this.m);
                     this.n.d(h2);
                 }
-                c.i.b.a.a0.e eVar = this.n.f33151e;
+                c.i.b.a.a0.e eVar = this.n.f33174e;
                 int i2 = 0;
                 while (i2 == 0 && !this.p) {
                     i2 = eVar.e(bVar, null);
                 }
                 c.i.b.a.i0.a.f(i2 != 1);
-                this.o = (int) (bVar.getPosition() - this.f33143a.f33704c);
-                v.h(this.f33150h);
+                this.o = (int) (bVar.getPosition() - this.f33166a.f33727c);
+                v.h(this.f33173h);
                 this.q = true;
             } catch (Throwable th) {
-                v.h(this.f33150h);
+                v.h(this.f33173h);
                 throw th;
             }
         }
@@ -98,7 +98,7 @@ public class i extends a {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33178i + this.l : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33201i + this.l : invokeV.intValue;
     }
 
     @Override // c.i.b.a.d0.u.l

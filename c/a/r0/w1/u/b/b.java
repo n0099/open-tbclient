@@ -27,11 +27,11 @@ public class b implements ThirdPartWxRechargeService {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f28126b;
+    public static BroadcastReceiver f28146b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IWXAPI f28127a;
+    public IWXAPI f28147a;
 
     /* loaded from: classes4.dex */
     public class a extends BroadcastReceiver {
@@ -123,8 +123,8 @@ public class b implements ThirdPartWxRechargeService {
     @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
     public void initWx() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f28127a == null) {
-            this.f28127a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f28147a == null) {
+            this.f28147a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
         }
     }
 
@@ -133,10 +133,10 @@ public class b implements ThirdPartWxRechargeService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f28127a == null) {
-                this.f28127a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+            if (this.f28147a == null) {
+                this.f28147a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
             }
-            return this.f28127a.isWXAppInstalled();
+            return this.f28147a.isWXAppInstalled();
         }
         return invokeV.booleanValue;
     }
@@ -146,25 +146,25 @@ public class b implements ThirdPartWxRechargeService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, wxPayType) == null) {
             try {
-                if (this.f28127a == null) {
-                    this.f28127a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+                if (this.f28147a == null) {
+                    this.f28147a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
                 }
                 PayReq a2 = a(new JSONObject(str));
-                this.f28127a.registerApp(a2.appId);
-                if (!this.f28127a.sendReq(a2)) {
+                this.f28147a.registerApp(a2.appId);
+                if (!this.f28147a.sendReq(a2)) {
                     String str2 = wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive ? "wx_pay_result" : "yy_wx_pay_result";
                     HashMap hashMap = new HashMap();
                     hashMap.put(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_CODE, 6);
                     hashMap.put(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_STR, "wx_start_failed");
                     LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
                 }
-                if (f28126b != null) {
-                    TbadkCoreApplication.getInst().unregisterReceiver(f28126b);
+                if (f28146b != null) {
+                    TbadkCoreApplication.getInst().unregisterReceiver(f28146b);
                 }
-                f28126b = new a(this, wxPayType);
+                f28146b = new a(this, wxPayType);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("WXPayResult");
-                TbadkCoreApplication.getInst().registerReceiver(f28126b, intentFilter);
+                TbadkCoreApplication.getInst().registerReceiver(f28146b, intentFilter);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

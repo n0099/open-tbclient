@@ -21,11 +21,11 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9230b;
+    public static final boolean f9238b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f9231a;
+    public c f9239a;
 
     /* renamed from: c.a.p0.a.v1.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -34,10 +34,10 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v1.c.c f9232e;
+        public final /* synthetic */ c.a.p0.a.v1.c.c f9240e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f9233f;
+        public final /* synthetic */ a f9241f;
 
         public RunnableC0430a(a aVar, c.a.p0.a.v1.c.c cVar) {
             Interceptable interceptable = $ic;
@@ -54,15 +54,15 @@ public final class a {
                     return;
                 }
             }
-            this.f9233f = aVar;
-            this.f9232e = cVar;
+            this.f9241f = aVar;
+            this.f9240e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9233f.g(this.f9232e);
+                this.f9241f.g(this.f9240e);
             }
         }
     }
@@ -72,7 +72,7 @@ public final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f9234a;
+        public static a f9242a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -88,7 +88,7 @@ public final class a {
                     return;
                 }
             }
-            f9234a = new a();
+            f9242a = new a();
         }
     }
 
@@ -116,7 +116,7 @@ public final class a {
                 return;
             }
         }
-        f9230b = k.f7077a;
+        f9238b = k.f7085a;
     }
 
     public a() {
@@ -136,20 +136,20 @@ public final class a {
     public static a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f9234a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f9242a : (a) invokeV.objValue;
     }
 
     public static void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            boolean z = f9230b;
+            boolean z = f9238b;
         }
     }
 
     public void b(String str) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (cVar = this.f9231a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (cVar = this.f9239a) == null) {
             return;
         }
         cVar.d(str);
@@ -158,7 +158,7 @@ public final class a {
     public void c() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f9231a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f9239a) == null) {
             return;
         }
         cVar.a();
@@ -167,7 +167,7 @@ public final class a {
     public void d(String str) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (cVar = this.f9231a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (cVar = this.f9239a) == null) {
             return;
         }
         cVar.c(str);
@@ -181,13 +181,13 @@ public final class a {
                 f("send: return by process check");
                 return;
             }
-            if (this.f9231a == null) {
-                this.f9231a = isMainProcess ? new d() : new c.a.p0.a.v1.c.e.b();
+            if (this.f9239a == null) {
+                this.f9239a = isMainProcess ? new d() : new c.a.p0.a.v1.c.e.b();
             }
-            f("send: sender=" + this.f9231a);
-            this.f9231a.a();
-            this.f9231a.b(cVar);
-            this.f9231a.a();
+            f("send: sender=" + this.f9239a);
+            this.f9239a.a();
+            this.f9239a.b(cVar);
+            this.f9239a.a();
         }
     }
 

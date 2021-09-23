@@ -38,6 +38,8 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
     public FollowUserDecorView t;
     public ForumEnterLayout u;
     public boolean v;
+    public boolean w;
+    public View x;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext tbPageContext) {
@@ -60,12 +62,54 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
         this.r = null;
         this.s = null;
         this.v = false;
+        this.w = false;
     }
 
-    public void A() {
+    public void A(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.l = i2;
+            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.p;
+            if (threadCommentAndPraiseInfoLayout != null) {
+                threadCommentAndPraiseInfoLayout.sourceFromForPb = i2;
+            }
+            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = this.q;
+            if (threadCommentAndPraiseInfoLayout2 != null) {
+                threadCommentAndPraiseInfoLayout2.sourceFromForPb = i2;
+            }
+        }
+    }
+
+    public void B(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
+            K(viewGroup, L(viewGroup));
+            N(viewGroup);
+            J();
+            if (t()) {
+                ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.p;
+                if (threadCommentAndPraiseInfoLayout != null) {
+                    threadCommentAndPraiseInfoLayout.setVisibility(8);
+                }
+                ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = this.q;
+                if (threadCommentAndPraiseInfoLayout2 != null) {
+                    threadCommentAndPraiseInfoLayout2.setVisibility(8);
+                }
+                View view = this.x;
+                if (view != null) {
+                    view.setVisibility(0);
+                }
+            } else {
+                D();
+            }
+            p();
+        }
+    }
+
+    public void D() {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (t = this.o) == null || t.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (t = this.o) == null || t.getThreadData() == null) {
             return;
         }
         d2 threadData = this.o.getThreadData();
@@ -73,10 +117,10 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
         this.q.setData(threadData);
     }
 
-    public final void B() {
+    public final void J() {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (t = this.o) == null || t.getThreadData() == null || this.u == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (t = this.o) == null || t.getThreadData() == null || this.u == null) {
             return;
         }
         if (this.o.showCardEnterFourm()) {
@@ -86,10 +130,10 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
         }
     }
 
-    public final void D(ViewGroup viewGroup, boolean z) {
+    public final void K(ViewGroup viewGroup, boolean z) {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, viewGroup, z) == null) || (t = this.o) == null || t.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, viewGroup, z) == null) || (t = this.o) == null || t.getThreadData() == null) {
             return;
         }
         if (this.t == null) {
@@ -97,14 +141,14 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
             this.t = followUserDecorView;
             viewGroup.addView(followUserDecorView);
         }
-        if (t()) {
+        if (u()) {
             this.t.setPageUniqueId(this.n);
             this.t.setSvgIconResId(0);
             int q = q(R.dimen.tbds166);
             int q2 = q(R.dimen.tbds78);
             int q3 = q(z ? R.dimen.tbds104 : R.dimen.tbds44);
             int q4 = q(R.dimen.tbds50);
-            if (c.a.q0.b.d.a0()) {
+            if (c.a.q0.b.d.h0()) {
                 q = q(R.dimen.tbds177);
                 q2 = q(R.dimen.tbds76);
                 q3 = q(z ? R.dimen.tbds126 : R.dimen.tbds44);
@@ -125,11 +169,11 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
         }
     }
 
-    public final boolean J(ViewGroup viewGroup) {
+    public final boolean L(ViewGroup viewGroup) {
         InterceptResult invokeL;
         SparseArray<String> sparseArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
             T t = this.o;
             if (t == null || t.getThreadData() == null) {
                 return false;
@@ -171,10 +215,10 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
         return invokeL.booleanValue;
     }
 
-    public final void K(ViewGroup viewGroup) {
+    public final void N(ViewGroup viewGroup) {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, viewGroup) == null) || (t = this.o) == null || t.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, viewGroup) == null) || (t = this.o) == null || t.getThreadData() == null) {
             return;
         }
         if (this.s == null) {
@@ -182,7 +226,7 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
             this.s = unfollowedDecorView;
             viewGroup.addView(unfollowedDecorView);
         }
-        if (this.o.getThreadData().a2 && !ThreadCardUtils.isSelf(this.o.getThreadData())) {
+        if (this.o.getThreadData().b2 && !ThreadCardUtils.isSelf(this.o.getThreadData())) {
             this.s.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
             int g2 = c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds90);
             int g3 = c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
@@ -206,27 +250,27 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
 
     public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             ForumEnterLayout forumEnterLayout = this.u;
-            if ((forumEnterLayout == null || forumEnterLayout.getVisibility() != 0) && !c.a.q0.b.d.a0()) {
-                w(this.p, q(R.dimen.tbds20));
-                w(this.q, q(R.dimen.tbds20));
+            if ((forumEnterLayout == null || forumEnterLayout.getVisibility() != 0) && !c.a.q0.b.d.h0()) {
+                y(this.p, q(R.dimen.tbds20));
+                y(this.q, q(R.dimen.tbds20));
                 return;
             }
-            w(this.p, 0);
-            w(this.q, 0);
+            y(this.p, 0);
+            y(this.q, 0);
         }
     }
 
     public int q(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), i2) : invokeI.intValue;
     }
 
     public void s(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, threadCommentAndPraiseInfoLayout) == null) || threadCommentAndPraiseInfoLayout == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, threadCommentAndPraiseInfoLayout) == null) || threadCommentAndPraiseInfoLayout == null) {
             return;
         }
         threadCommentAndPraiseInfoLayout.setOnClickListener(this);
@@ -248,10 +292,16 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
         threadCommentAndPraiseInfoLayout.setAgreeStatisticData(fVar);
     }
 
-    public final boolean t() {
+    public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.w : invokeV.booleanValue;
+    }
+
+    public final boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             T t = this.o;
             if (t == null || t.getThreadData() == null || this.o.getThreadData().J() == null) {
                 return false;
@@ -261,11 +311,11 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
                 return false;
             }
             boolean z = threadData.R1() || threadData.M1() || threadData.P1();
-            if ((!z || !threadData.Z1) && (!z || !threadData.b2 || threadData.J().hadConcerned())) {
+            if ((!z || !threadData.a2) && (!z || !threadData.c2 || threadData.J().hadConcerned())) {
                 if (threadData.l1() == null || !c.a.r0.a0.d0.j.Y(threadData)) {
                     return false;
                 }
-                if (!threadData.Z1 && !threadData.c2) {
+                if (!threadData.a2 && !threadData.d2) {
                     return false;
                 }
             }
@@ -274,9 +324,9 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
         return invokeV.booleanValue;
     }
 
-    public void u(TbPageContext<?> tbPageContext, int i2) {
+    public void v(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, tbPageContext, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048588, this, tbPageContext, i2) == null) {
             ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.p;
             if (threadCommentAndPraiseInfoLayout != null) {
                 threadCommentAndPraiseInfoLayout.onChangeSkinType();
@@ -304,9 +354,9 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
         }
     }
 
-    public void v(BdUniqueId bdUniqueId) {
+    public void w(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) || bdUniqueId == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, bdUniqueId) == null) || bdUniqueId == null) {
             return;
         }
         n(bdUniqueId);
@@ -320,9 +370,16 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
         }
     }
 
-    public void w(View view, int i2) {
+    public void x(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048587, this, view, i2) == null) && view != null && (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.w = z;
+        }
+    }
+
+    public void y(View view, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048591, this, view, i2) == null) && view != null && (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
             if (marginLayoutParams.topMargin != i2) {
                 marginLayoutParams.topMargin = i2;
@@ -331,38 +388,12 @@ public abstract class a<T extends c.a.q0.s.q.a> extends b<T> {
         }
     }
 
-    public void x(NEGFeedBackView.b bVar) {
+    public void z(NEGFeedBackView.b bVar) {
         NEGFeedBackView nEGFeedBackView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) || (nEGFeedBackView = this.r) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, bVar) == null) || (nEGFeedBackView = this.r) == null) {
             return;
         }
         nEGFeedBackView.setEventCallback(bVar);
-    }
-
-    public void y(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.l = i2;
-            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.p;
-            if (threadCommentAndPraiseInfoLayout != null) {
-                threadCommentAndPraiseInfoLayout.sourceFromForPb = i2;
-            }
-            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = this.q;
-            if (threadCommentAndPraiseInfoLayout2 != null) {
-                threadCommentAndPraiseInfoLayout2.sourceFromForPb = i2;
-            }
-        }
-    }
-
-    public void z(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, viewGroup) == null) {
-            D(viewGroup, J(viewGroup));
-            K(viewGroup);
-            B();
-            A();
-            p();
-        }
     }
 }

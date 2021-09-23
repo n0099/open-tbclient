@@ -50,13 +50,13 @@ public class d extends a {
                 unitedSchemeEntity.result = l(1001);
                 return false;
             } else {
-                String str = k.f4657f;
+                String str = k.f4665f;
                 c.a.p0.a.l1.e.a.a aVar = k.l;
                 if (!TextUtils.isEmpty(str) && aVar != null && aVar.k()) {
                     c.a.p0.a.c0.b.c w = new c.a.p0.a.c0.c.d.a(context, k).w();
                     boolean a2 = w.a();
                     if (!a2) {
-                        c.a.p0.a.e0.d.b("SwanAppCanvas", "insert canvas fail: " + w.f4663b);
+                        c.a.p0.a.e0.d.b("SwanAppCanvas", "insert canvas fail: " + w.f4671b);
                     }
                     j(unitedSchemeEntity, callbackHandler, a2);
                     return a2;

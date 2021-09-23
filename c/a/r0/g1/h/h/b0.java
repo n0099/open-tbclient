@@ -39,10 +39,10 @@ public class b0 extends c.a.e.l.e.a<c.a.r0.g1.h.j.h, CardViewHolder<b>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f18252e;
+        public final /* synthetic */ b f18261e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b0 f18253f;
+        public final /* synthetic */ b0 f18262f;
 
         public a(b0 b0Var, b bVar) {
             Interceptable interceptable = $ic;
@@ -59,19 +59,19 @@ public class b0 extends c.a.e.l.e.a<c.a.r0.g1.h.j.h, CardViewHolder<b>> {
                     return;
                 }
             }
-            this.f18253f = b0Var;
-            this.f18252e = bVar;
+            this.f18262f = b0Var;
+            this.f18261e = bVar;
         }
 
         @Override // c.a.e.l.e.w
         public void b(View view, c.a.e.l.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || view == null || (bVar = this.f18252e) == null || c.a.e.e.p.k.isEmpty(bVar.p)) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || view == null || (bVar = this.f18261e) == null || c.a.e.e.p.k.isEmpty(bVar.p)) {
                 return;
             }
             TiebaStatic.log(new StatisticItem("c12885"));
-            UrlManager.getInstance().dealOneLink(this.f18253f.m, new String[]{this.f18252e.p});
+            UrlManager.getInstance().dealOneLink(this.f18262f.m, new String[]{this.f18261e.p});
         }
     }
 
@@ -149,10 +149,10 @@ public class b0 extends c.a.e.l.e.a<c.a.r0.g1.h.j.h, CardViewHolder<b>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
                 if (hVar != null) {
-                    s(hVar.f18348f, hVar.f18347e);
+                    s(hVar.f18357f, hVar.f18356e);
                     this.m.setPlaceHolder(2);
-                    this.m.startLoad(hVar.f18349g, 10, false);
-                    this.p = hVar.f18350h;
+                    this.m.startLoad(hVar.f18358g, 10, false);
+                    this.p = hVar.f18359h;
                 }
                 l(i(), TbadkCoreApplication.getInst().getSkinType());
             }

@@ -13,17 +13,17 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile d f8470d;
+    public static volatile d f8478d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, e> f8471a;
+    public HashMap<String, e> f8479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, e> f8472b;
+    public HashMap<String, e> f8480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, e> f8473c;
+    public HashMap<String, e> f8481c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -45,14 +45,14 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f8470d == null) {
+            if (f8478d == null) {
                 synchronized (d.class) {
-                    if (f8470d == null) {
-                        f8470d = new d();
+                    if (f8478d == null) {
+                        f8478d = new d();
                     }
                 }
             }
-            return f8470d;
+            return f8478d;
         }
         return (d) invokeV.objValue;
     }
@@ -61,9 +61,9 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             synchronized (d.class) {
-                if (f8470d != null) {
-                    f8470d.e();
-                    f8470d = null;
+                if (f8478d != null) {
+                    f8478d.e();
+                    f8478d = null;
                 }
             }
         }
@@ -88,26 +88,26 @@ public final class d {
             c2 = 0;
         }
         if (c2 == 0) {
-            c.a.p0.a.q2.d.f8127d.d(Long.valueOf(j2));
+            c.a.p0.a.q2.d.f8135d.d(Long.valueOf(j2));
         } else if (c2 == 1) {
-            c.a.p0.a.q2.d.f8128e.d(Long.valueOf(j2));
+            c.a.p0.a.q2.d.f8136e.d(Long.valueOf(j2));
         } else if (c2 != 2) {
         } else {
-            c.a.p0.a.q2.d.f8129f.d(Long.valueOf(j2));
+            c.a.p0.a.q2.d.f8137f.d(Long.valueOf(j2));
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f8471a == null) {
-                this.f8471a = new HashMap<>();
+            if (this.f8479a == null) {
+                this.f8479a = new HashMap<>();
             }
-            if (this.f8472b == null) {
-                this.f8472b = new HashMap<>();
+            if (this.f8480b == null) {
+                this.f8480b = new HashMap<>();
             }
-            if (this.f8473c == null) {
-                this.f8473c = new HashMap<>();
+            if (this.f8481c == null) {
+                this.f8481c = new HashMap<>();
             }
         }
     }
@@ -167,15 +167,15 @@ public final class d {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            HashMap<String, e> hashMap = this.f8471a;
+            HashMap<String, e> hashMap = this.f8479a;
             if (hashMap != null) {
                 hashMap.clear();
             }
-            HashMap<String, e> hashMap2 = this.f8472b;
+            HashMap<String, e> hashMap2 = this.f8480b;
             if (hashMap2 != null) {
                 hashMap2.clear();
             }
-            HashMap<String, e> hashMap3 = this.f8473c;
+            HashMap<String, e> hashMap3 = this.f8481c;
             if (hashMap3 != null) {
                 hashMap3.clear();
             }
@@ -202,11 +202,11 @@ public final class d {
             c2 = 2;
         }
         if (c2 == 0) {
-            eVar = this.f8471a.remove(str);
+            eVar = this.f8479a.remove(str);
         } else if (c2 == 1) {
-            eVar = this.f8472b.remove(str);
+            eVar = this.f8480b.remove(str);
         } else if (c2 == 2) {
-            eVar = this.f8473c.remove(str);
+            eVar = this.f8481c.remove(str);
         }
         if (eVar == null) {
             return;
@@ -235,20 +235,20 @@ public final class d {
             c2 = 0;
         }
         if (c2 == 0) {
-            eVar = this.f8471a.get(str);
+            eVar = this.f8479a.get(str);
             if (eVar == null) {
                 eVar = new b();
-                this.f8471a.put(str, eVar);
+                this.f8479a.put(str, eVar);
             }
         } else if (c2 == 1) {
-            eVar = this.f8472b.get(str);
+            eVar = this.f8480b.get(str);
             if (eVar == null) {
                 eVar = new a();
-                this.f8472b.put(str, eVar);
+                this.f8480b.put(str, eVar);
             }
-        } else if (c2 == 2 && (eVar = this.f8473c.get(str)) == null) {
+        } else if (c2 == 2 && (eVar = this.f8481c.get(str)) == null) {
             eVar = new c();
-            this.f8473c.put(str, eVar);
+            this.f8481c.put(str, eVar);
         }
         if (eVar != null) {
             eVar.c(j2);

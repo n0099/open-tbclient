@@ -550,7 +550,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             if (!TextUtils.isEmpty(this.extra)) {
                 try {
                     return new JSONObject(this.extra).optString(str, str2);
-                } catch (JSONException e2) {
+                } catch (Exception e2) {
                     Log.e(e2);
                 }
             }

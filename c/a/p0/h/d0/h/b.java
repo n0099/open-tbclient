@@ -13,13 +13,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f11156a;
+    public long f11164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f11157b;
+    public long f11165b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f11158c;
+    public long f11166c;
 
     public b(long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class b {
                 return;
             }
         }
-        this.f11156a = j2;
-        this.f11157b = j3;
-        this.f11158c = j4;
+        this.f11164a = j2;
+        this.f11165b = j3;
+        this.f11166c = j4;
     }
 
     @NonNull
@@ -54,8 +54,8 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (c()) {
                 a aVar = new a();
-                aVar.f11154a = Math.max(this.f11156a - this.f11157b, 0L);
-                aVar.f11155b = this.f11156a + this.f11158c;
+                aVar.f11162a = Math.max(this.f11164a - this.f11165b, 0L);
+                aVar.f11163b = this.f11164a + this.f11166c;
                 return aVar;
             }
             return null;
@@ -67,11 +67,11 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.f11156a;
+            long j2 = this.f11164a;
             if (j2 >= 0) {
-                long j3 = this.f11157b;
+                long j3 = this.f11165b;
                 if (j3 >= 0) {
-                    long j4 = this.f11158c;
+                    long j4 = this.f11166c;
                     if (j4 >= 0 && j3 + j4 > 0 && j2 + j4 > 0) {
                         return true;
                     }
@@ -86,7 +86,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "[ mBaseline = " + this.f11156a + "; mLeftOffset = " + this.f11157b + "; mRightOffset = " + this.f11158c + " ]";
+            return "[ mBaseline = " + this.f11164a + "; mLeftOffset = " + this.f11165b + "; mRightOffset = " + this.f11166c + " ]";
         }
         return (String) invokeV.objValue;
     }

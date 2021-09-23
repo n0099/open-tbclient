@@ -17,23 +17,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f3770d = 1;
+    public static int f3771d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f3771e = 2;
+    public static int f3772e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f3772f = 3;
+    public static int f3773f = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f3773a;
+    public Map<String, String> f3774a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f3774b;
+    public Map<String, String> f3775b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f3775c;
+    public SharedPreferences f3776c;
 
     static {
         InterceptResult invokeClinit;
@@ -63,14 +63,14 @@ public class a {
                 return;
             }
         }
-        this.f3773a = new HashMap();
-        this.f3774b = new HashMap();
+        this.f3774a = new HashMap();
+        this.f3775b = new HashMap();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f3773a.clear();
+            this.f3774a.clear();
         }
     }
 
@@ -79,13 +79,13 @@ public class a {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str)) == null) {
-            if (i2 == f3770d) {
-                str2 = this.f3773a.get(str);
-            } else if (i2 == f3771e) {
-                str2 = this.f3774b.get(str);
+            if (i2 == f3771d) {
+                str2 = this.f3774a.get(str);
+            } else if (i2 == f3772e) {
+                str2 = this.f3775b.get(str);
             } else {
-                if (i2 == f3772f) {
-                    SharedPreferences sharedPreferences = this.f3775c;
+                if (i2 == f3773f) {
+                    SharedPreferences sharedPreferences = this.f3776c;
                     if (sharedPreferences != null) {
                         str2 = sharedPreferences.getString(str, "");
                     } else {
@@ -102,19 +102,19 @@ public class a {
     public void c(SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sharedPreferences) == null) {
-            this.f3775c = sharedPreferences;
+            this.f3776c = sharedPreferences;
         }
     }
 
     public void d(int i2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i2, str, str2) == null) {
-            if (i2 == f3770d) {
-                this.f3773a.put(str, str2);
-            } else if (i2 == f3771e) {
-                this.f3774b.put(str, str2);
-            } else if (i2 == f3772f) {
-                SharedPreferences sharedPreferences = this.f3775c;
+            if (i2 == f3771d) {
+                this.f3774a.put(str, str2);
+            } else if (i2 == f3772e) {
+                this.f3775b.put(str, str2);
+            } else if (i2 == f3773f) {
+                SharedPreferences sharedPreferences = this.f3776c;
                 if (sharedPreferences != null) {
                     sharedPreferences.edit().putString(str, str2).commit();
                 } else {

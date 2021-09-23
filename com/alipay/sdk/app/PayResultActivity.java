@@ -23,46 +23,81 @@ import java.util.HashMap;
 public final class PayResultActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f35859a = "{\"isLogin\":\"false\"}";
-
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<String, Object> f35860b;
+    public static final String f35891b = "{\"isLogin\":\"false\"}";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f35861c = "hk.alipay.wallet";
+    public static final HashMap<String, Object> f35892c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35862d = "phonecashier.pay.hash";
+    public static final String f35893d = "hk.alipay.wallet";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f35863e = "orderSuffix";
+    public static final String f35894e = "phonecashier.pay.hash";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f35864f = "externalPkgName";
+    public static final String f35895f = "orderSuffix";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f35865g = "phonecashier.pay.result";
+    public static final String f35896g = "externalPkgName";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f35866h = "phonecashier.pay.resultOrderHash";
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final String f35897h = "phonecashier.pay.result";
 
     /* renamed from: i  reason: collision with root package name */
-    public com.alipay.sdk.sys.a f35867i;
+    public static final String f35898i = "phonecashier.pay.resultOrderHash";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public com.alipay.sdk.sys.a f35899a;
 
     /* loaded from: classes4.dex */
-    public static final class a {
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ Activity f35900a;
+
+        public a(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f35900a = activity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f35900a.finish();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile String f35869a;
+        public static volatile String f35901a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static volatile String f35870b;
+        public static volatile String f35902b;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +125,7 @@ public final class PayResultActivity extends Activity {
                 return;
             }
         }
-        f35860b = new HashMap<>();
+        f35892c = new HashMap<>();
     }
 
     public PayResultActivity() {
@@ -106,7 +141,7 @@ public final class PayResultActivity extends Activity {
                 return;
             }
         }
-        this.f35867i = null;
+        this.f35899a = null;
     }
 
     public static void a(Activity activity, String str, String str2, String str3) {
@@ -116,7 +151,7 @@ public final class PayResultActivity extends Activity {
         }
         Intent intent = new Intent();
         try {
-            intent.setPackage(f35861c);
+            intent.setPackage(f35893d);
             intent.setData(Uri.parse("alipayhk://platformapi/startApp?appId=20000125&schemePaySession=" + URLEncoder.encode(str, "UTF-8") + "&orderSuffix=" + URLEncoder.encode(str2, "UTF-8") + "&packageName=" + URLEncoder.encode(str3, "UTF-8") + "&externalPkgName=" + URLEncoder.encode(str3, "UTF-8")));
         } catch (UnsupportedEncodingException e2) {
             com.alipay.sdk.util.c.a(e2);
@@ -137,37 +172,37 @@ public final class PayResultActivity extends Activity {
             super.onCreate(bundle);
             try {
                 Intent intent = getIntent();
-                if (!TextUtils.isEmpty(intent.getStringExtra(f35863e))) {
-                    a.f35869a = intent.getStringExtra(f35862d);
-                    String stringExtra = intent.getStringExtra(f35863e);
-                    String stringExtra2 = intent.getStringExtra(f35864f);
-                    com.alipay.sdk.sys.a a2 = a.C1565a.a(intent);
-                    this.f35867i = a2;
+                if (!TextUtils.isEmpty(intent.getStringExtra(f35895f))) {
+                    b.f35901a = intent.getStringExtra(f35894e);
+                    String stringExtra = intent.getStringExtra(f35895f);
+                    String stringExtra2 = intent.getStringExtra(f35896g);
+                    com.alipay.sdk.sys.a a2 = a.C1566a.a(intent);
+                    this.f35899a = a2;
                     if (a2 == null) {
                         finish();
                     }
-                    a(this, a.f35869a, stringExtra, stringExtra2);
+                    a(this, b.f35901a, stringExtra, stringExtra2);
                     a(this, 300);
                     return;
                 }
-                if (this.f35867i == null) {
+                if (this.f35899a == null) {
                     finish();
                 }
-                String stringExtra3 = intent.getStringExtra(f35865g);
-                int intExtra = intent.getIntExtra(f35866h, 0);
-                if (intExtra != 0 && TextUtils.equals(a.f35869a, String.valueOf(intExtra))) {
+                String stringExtra3 = intent.getStringExtra(f35897h);
+                int intExtra = intent.getIntExtra(f35898i, 0);
+                if (intExtra != 0 && TextUtils.equals(b.f35901a, String.valueOf(intExtra))) {
                     if (!TextUtils.isEmpty(stringExtra3)) {
-                        a(stringExtra3, a.f35869a);
+                        a(stringExtra3, b.f35901a);
                     } else {
-                        a(a.f35869a);
+                        a(b.f35901a);
                     }
-                    a.f35869a = "";
+                    b.f35901a = "";
                     a(this, 300);
                     return;
                 }
-                com.alipay.sdk.sys.a aVar = this.f35867i;
-                com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.af, "Expected " + a.f35869a + ", got " + intExtra);
-                a(a.f35869a);
+                com.alipay.sdk.sys.a aVar = this.f35899a;
+                com.alipay.sdk.app.statistic.a.b(aVar, "biz", com.alipay.sdk.app.statistic.b.p0, "Expected " + b.f35901a + ", got " + intExtra);
+                a(b.f35901a);
                 a(this, 300);
             } catch (Throwable unused) {
                 finish();
@@ -178,55 +213,23 @@ public final class PayResultActivity extends Activity {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a.f35870b = b.c();
-            a(f35860b, str);
+            b.f35902b = com.alipay.sdk.app.b.a();
+            a(f35892c, str);
         }
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
-            a.f35870b = str;
-            a(f35860b, str2);
+            b.f35902b = str;
+            a(f35892c, str2);
         }
     }
 
     public static void a(Activity activity, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, null, activity, i2) == null) {
-            new Handler().postDelayed(new Runnable(activity) { // from class: com.alipay.sdk.app.PayResultActivity.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f35868a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {activity};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f35868a = activity;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f35868a.finish();
-                    }
-                }
-            }, i2);
+            new Handler().postDelayed(new a(activity), i2);
         }
     }
 

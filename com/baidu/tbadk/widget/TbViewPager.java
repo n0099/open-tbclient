@@ -21,16 +21,16 @@ public class TbViewPager extends ViewPager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f48632e;
+    public boolean f48740e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f48633f;
+    public float f48741f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48634g;
+    public int f48742g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48635h;
+    public int f48743h;
 
     /* loaded from: classes6.dex */
     public class a extends Scroller {
@@ -38,7 +38,7 @@ public class TbViewPager extends ViewPager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbViewPager f48636a;
+        public final /* synthetic */ TbViewPager f48744a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(TbViewPager tbViewPager, Context context) {
@@ -58,7 +58,7 @@ public class TbViewPager extends ViewPager {
                     return;
                 }
             }
-            this.f48636a = tbViewPager;
+            this.f48744a = tbViewPager;
         }
 
         public void a(ViewPager viewPager) {
@@ -78,7 +78,7 @@ public class TbViewPager extends ViewPager {
         public void startScroll(int i2, int i3, int i4, int i5, int i6) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-                super.startScroll(i2, i3, i4, i5, this.f48636a.f48635h);
+                super.startScroll(i2, i3, i4, i5, this.f48744a.f48743h);
             }
         }
 
@@ -86,7 +86,7 @@ public class TbViewPager extends ViewPager {
         public void startScroll(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
-                super.startScroll(i2, i3, i4, i5, this.f48636a.f48635h);
+                super.startScroll(i2, i3, i4, i5, this.f48744a.f48743h);
             }
         }
     }
@@ -109,15 +109,15 @@ public class TbViewPager extends ViewPager {
                 return;
             }
         }
-        this.f48632e = false;
-        this.f48635h = 600;
+        this.f48740e = false;
+        this.f48743h = 600;
         b();
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f48634g = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
+            this.f48742g = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
         }
     }
 
@@ -139,7 +139,7 @@ public class TbViewPager extends ViewPager {
             if (c(motionEvent)) {
                 return true;
             }
-            if (motionEvent.getPointerCount() > 1 && this.f48632e) {
+            if (motionEvent.getPointerCount() > 1 && this.f48740e) {
                 requestDisallowInterceptTouchEvent(false);
                 boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
                 requestDisallowInterceptTouchEvent(true);
@@ -157,7 +157,7 @@ public class TbViewPager extends ViewPager {
     public int getScrollingDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48635h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48743h : invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
@@ -192,15 +192,15 @@ public class TbViewPager extends ViewPager {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    float x = motionEvent.getX() - this.f48633f;
+                    float x = motionEvent.getX() - this.f48741f;
                     if (getCurrentItem() == 0) {
-                        if (x >= this.f48634g) {
+                        if (x >= this.f48742g) {
                             requestParentInterceptTouchEvent(false);
                         } else {
                             requestParentInterceptTouchEvent(true);
                         }
                     } else if (getCurrentItem() == getAdapter().getCount() - 1) {
-                        if (x <= (-this.f48634g)) {
+                        if (x <= (-this.f48742g)) {
                             requestParentInterceptTouchEvent(false);
                         } else {
                             requestParentInterceptTouchEvent(true);
@@ -220,12 +220,12 @@ public class TbViewPager extends ViewPager {
                 }
             }
             requestParentInterceptTouchEvent(false);
-            this.f48633f = 0.0f;
+            this.f48741f = 0.0f;
             if (c(motionEvent)) {
             }
         }
         requestParentInterceptTouchEvent(true);
-        this.f48633f = motionEvent.getX();
+        this.f48741f = motionEvent.getX();
         if (c(motionEvent)) {
         }
     }
@@ -234,7 +234,7 @@ public class TbViewPager extends ViewPager {
     public void requestDisallowInterceptTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f48632e = z;
+            this.f48740e = z;
             super.requestDisallowInterceptTouchEvent(z);
         }
     }
@@ -250,7 +250,7 @@ public class TbViewPager extends ViewPager {
     public void setViewPagerScroll(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f48635h = i2;
+            this.f48743h = i2;
             new a(this, getContext()).a(this);
         }
     }
@@ -281,8 +281,8 @@ public class TbViewPager extends ViewPager {
                 return;
             }
         }
-        this.f48632e = false;
-        this.f48635h = 600;
+        this.f48740e = false;
+        this.f48743h = 600;
         b();
     }
 }

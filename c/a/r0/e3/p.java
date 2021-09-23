@@ -17,10 +17,10 @@ public class p implements PerfSampleManager.IPerfSampleCallback {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f17452a = "2301";
+    public static String f17462a = "2301";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f17453b = "1";
+    public static String f17463b = "1";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,7 +58,7 @@ public class p implements PerfSampleManager.IPerfSampleCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            return uBCManager != null ? f17453b.equals(uBCManager.getUploadType(f17452a)) ? f17452a : "" : "";
+            return uBCManager != null ? f17463b.equals(uBCManager.getUploadType(f17462a)) ? f17462a : "" : "";
         }
         return (String) invokeV.objValue;
     }

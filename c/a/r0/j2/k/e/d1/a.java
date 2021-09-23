@@ -15,19 +15,19 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f19983a;
+    public TbPageContext f19998a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b0 f19984b;
+    public b0 f19999b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.InterfaceC0093a f19985c;
+    public a.InterfaceC0093a f20000c;
 
     /* renamed from: d  reason: collision with root package name */
-    public OriginalThreadInfo f19986d;
+    public OriginalThreadInfo f20001d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19987e;
+    public int f20002e;
 
     public a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public abstract class a {
                 return;
             }
         }
-        this.f19987e = 3;
-        this.f19983a = tbPageContext;
+        this.f20002e = 3;
+        this.f19998a = tbPageContext;
     }
 
     public abstract View a();
@@ -57,14 +57,14 @@ public abstract class a {
     public void d(a.InterfaceC0093a interfaceC0093a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0093a) == null) {
-            this.f19985c = interfaceC0093a;
+            this.f20000c = interfaceC0093a;
         }
     }
 
     public void e(b0 b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, b0Var) == null) {
-            this.f19984b = b0Var;
+            this.f19999b = b0Var;
         }
     }
 }

@@ -80,17 +80,17 @@ public class ShareStatic {
                 return;
             }
             c.a.q0.s.m.a aVar = (c.a.q0.s.m.a) extra;
-            String replace = aVar.f14014a.r0.replace("TOKEN", commandShareHttpResMsg.token);
-            ShareItem shareItem = aVar.f14014a;
+            String replace = aVar.f14011a.r0.replace("TOKEN", commandShareHttpResMsg.token);
+            ShareItem shareItem = aVar.f14011a;
             shareItem.r0 = replace;
-            int i2 = aVar.f14016c;
+            int i2 = aVar.f14013c;
             if (i2 == 0) {
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(aVar.f14015b, aVar.f14014a, false);
-                shareDialogConfig.onCancelListener = aVar.f14017d;
+                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(aVar.f14012b, aVar.f14011a, false);
+                shareDialogConfig.onCancelListener = aVar.f14014d;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
                 return;
             }
-            c.a.q0.t.g.a.e(shareItem, aVar.f14015b, i2, aVar.f14017d);
+            c.a.q0.t.g.a.e(shareItem, aVar.f14012b, i2, aVar.f14014d);
         }
     }
 

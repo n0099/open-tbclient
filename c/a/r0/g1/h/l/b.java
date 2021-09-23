@@ -16,14 +16,14 @@ public class b extends BaseCardInfo implements p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f18389g;
+    public static final BdUniqueId f18398g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f18390e;
+    public long f18399e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f18391f;
+    public boolean f18400f;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class b extends BaseCardInfo implements p {
                 return;
             }
         }
-        f18389g = BdUniqueId.gen();
+        f18398g = BdUniqueId.gen();
     }
 
     public b() {
@@ -54,7 +54,7 @@ public class b extends BaseCardInfo implements p {
                 return;
             }
         }
-        this.f18391f = false;
+        this.f18400f = false;
     }
 
     @Override // c.a.r0.a0.d0.p
@@ -78,7 +78,7 @@ public class b extends BaseCardInfo implements p {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f18389g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f18398g : (BdUniqueId) invokeV.objValue;
     }
 
     @Override // c.a.r0.a0.d0.p

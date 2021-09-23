@@ -50,34 +50,34 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
     public TextView M;
 
     /* renamed from: a  reason: collision with root package name */
-    public MsgSettingItemView f16073a;
+    public MsgSettingItemView f16083a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f16074b;
+    public LinearLayout f16084b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MsgSettingItemView f16075c;
+    public MsgSettingItemView f16085c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MsgSettingItemView f16076d;
+    public MsgSettingItemView f16086d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MsgSettingItemView f16077e;
+    public MsgSettingItemView f16087e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MsgSettingItemView f16078f;
+    public MsgSettingItemView f16088f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MsgSettingItemView f16079g;
+    public MsgSettingItemView f16089g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MsgSettingItemView f16080h;
+    public MsgSettingItemView f16090h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MsgSettingItemView f16081i;
+    public MsgSettingItemView f16091i;
 
     /* renamed from: j  reason: collision with root package name */
-    public MsgSettingItemView f16082j;
+    public MsgSettingItemView f16092j;
     public MsgSettingItemView k;
     public MsgSettingItemView l;
     public MsgSettingItemView m;
@@ -101,7 +101,7 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f16083a;
+        public final /* synthetic */ g f16093a;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
                     return;
                 }
             }
-            this.f16083a = gVar;
+            this.f16093a = gVar;
         }
 
         @Override // com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.b
@@ -140,7 +140,7 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
                     }
                 }
                 if (c.a.q0.t.d.d.d().k() != z) {
-                    this.f16083a.K.setSwitchStateNoCallback(z);
+                    this.f16093a.K.setSwitchStateNoCallback(z);
                 }
             }
         }
@@ -180,7 +180,7 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
     public BdSwitchView B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16075c.getSwitchView() : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16085c.getSwitchView() : (BdSwitchView) invokeV.objValue;
     }
 
     public View D() {
@@ -204,7 +204,7 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
     public BdSwitchView L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16076d.getSwitchView() : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16086d.getSwitchView() : (BdSwitchView) invokeV.objValue;
     }
 
     public void N(MsgRemindActivity msgRemindActivity) {
@@ -253,14 +253,14 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, msgRemindActivity) == null) {
             this.u.setOnClickListener(msgRemindActivity);
-            this.f16075c.setOnSwitchStateChangeListener(msgRemindActivity);
-            this.f16077e.setOnSwitchStateChangeListener(msgRemindActivity);
-            this.f16076d.setOnSwitchStateChangeListener(msgRemindActivity);
-            this.f16078f.setOnSwitchStateChangeListener(msgRemindActivity);
-            this.f16079g.setOnSwitchStateChangeListener(msgRemindActivity);
-            this.f16080h.setOnSwitchStateChangeListener(msgRemindActivity);
-            this.f16081i.setOnSwitchStateChangeListener(msgRemindActivity);
-            this.f16082j.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.f16085c.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.f16087e.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.f16086d.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.f16088f.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.f16089g.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.f16090h.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.f16091i.setOnSwitchStateChangeListener(msgRemindActivity);
+            this.f16092j.setOnSwitchStateChangeListener(msgRemindActivity);
             this.k.setOnSwitchStateChangeListener(msgRemindActivity);
             this.l.setOnSwitchStateChangeListener(msgRemindActivity);
             this.m.setOnSwitchStateChangeListener(msgRemindActivity);
@@ -277,12 +277,12 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
     public final void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f16075c.setSwitchStateNoCallback(c.a.q0.t.d.d.d().t());
-            this.f16076d.setSwitchStateNoCallback(c.a.q0.t.d.d.d().w());
-            this.f16077e.setSwitchStateNoCallback(c.a.q0.t.d.d.d().o());
-            this.f16078f.setSwitchStateNoCallback(c.a.q0.t.d.d.d().r());
-            this.f16079g.setSwitchStateNoCallback(c.a.q0.t.d.d.d().p());
-            this.f16080h.setSwitchStateNoCallback(c.a.q0.t.d.d.d().n());
+            this.f16085c.setSwitchStateNoCallback(c.a.q0.t.d.d.d().t());
+            this.f16086d.setSwitchStateNoCallback(c.a.q0.t.d.d.d().w());
+            this.f16087e.setSwitchStateNoCallback(c.a.q0.t.d.d.d().o());
+            this.f16088f.setSwitchStateNoCallback(c.a.q0.t.d.d.d().r());
+            this.f16089g.setSwitchStateNoCallback(c.a.q0.t.d.d.d().p());
+            this.f16090h.setSwitchStateNoCallback(c.a.q0.t.d.d.d().n());
         }
     }
 
@@ -326,9 +326,9 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (c.a.q0.t.d.d.d().u()) {
-                this.f16082j.turnOnNoCallback();
+                this.f16092j.turnOnNoCallback();
             } else {
-                this.f16082j.turnOffNoCallback();
+                this.f16092j.turnOffNoCallback();
             }
             if (c.a.q0.t.d.d.d().v()) {
                 this.k.turnOnNoCallback();
@@ -355,36 +355,36 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
             this.v = (LinearLayout) msgRemindActivity.findViewById(R.id.front_container);
             this.w = (LinearLayout) msgRemindActivity.findViewById(R.id.back_container);
             MsgSettingItemView msgSettingItemView = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.receive_message_swtich);
-            this.f16073a = msgSettingItemView;
+            this.f16083a = msgSettingItemView;
             msgSettingItemView.setText(R.string.receive_msg_text);
-            this.f16073a.setLineVisibility(false);
-            this.f16074b = (LinearLayout) msgRemindActivity.findViewById(R.id.receive_message_container);
+            this.f16083a.setLineVisibility(false);
+            this.f16084b = (LinearLayout) msgRemindActivity.findViewById(R.id.receive_message_container);
             MsgSettingItemView msgSettingItemView2 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.reply_check_box);
-            this.f16075c = msgSettingItemView2;
+            this.f16085c = msgSettingItemView2;
             msgSettingItemView2.setText(R.string.reply);
             MsgSettingItemView msgSettingItemView3 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.zan_check_box);
-            this.f16076d = msgSettingItemView3;
+            this.f16086d = msgSettingItemView3;
             msgSettingItemView3.setVisibility(0);
-            this.f16076d.setText(R.string.action_praise_default);
+            this.f16086d.setText(R.string.action_praise_default);
             MsgSettingItemView msgSettingItemView4 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.at_me_check_box);
-            this.f16077e = msgSettingItemView4;
+            this.f16087e = msgSettingItemView4;
             msgSettingItemView4.setText(R.string.mention_atme);
             MsgSettingItemView msgSettingItemView5 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.new_fans_swtich);
-            this.f16078f = msgSettingItemView5;
+            this.f16088f = msgSettingItemView5;
             msgSettingItemView5.setText(R.string.new_fans);
             MsgSettingItemView msgSettingItemView6 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.chat_msg_swtich);
-            this.f16079g = msgSettingItemView6;
+            this.f16089g = msgSettingItemView6;
             msgSettingItemView6.setText(R.string.chat_msg_text);
             MsgSettingItemView msgSettingItemView7 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.group_chat_swtich);
-            this.f16080h = msgSettingItemView7;
+            this.f16090h = msgSettingItemView7;
             msgSettingItemView7.setLineVisibility(false);
-            this.f16080h.setText(R.string.group_chat_text);
+            this.f16090h.setText(R.string.group_chat_text);
             MsgSettingItemView msgSettingItemView8 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.screen_lock_swtich);
-            this.f16081i = msgSettingItemView8;
+            this.f16091i = msgSettingItemView8;
             msgSettingItemView8.setText(R.string.remind_screen_lock);
-            this.f16081i.setLineVisibility(false);
+            this.f16091i.setLineVisibility(false);
             MsgSettingItemView msgSettingItemView9 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.tone_remind_swtich);
-            this.f16082j = msgSettingItemView9;
+            this.f16092j = msgSettingItemView9;
             msgSettingItemView9.setText(R.string.remind_tone);
             MsgSettingItemView msgSettingItemView10 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.vibrate_remind_swtich);
             this.k = msgSettingItemView10;
@@ -482,20 +482,20 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             if (z) {
-                this.f16075c.getSwitchView().setEnabled(true);
-                this.f16076d.getSwitchView().setEnabled(true);
-                this.f16078f.getSwitchView().setEnabled(true);
-                this.f16077e.getSwitchView().setEnabled(true);
+                this.f16085c.getSwitchView().setEnabled(true);
+                this.f16086d.getSwitchView().setEnabled(true);
+                this.f16088f.getSwitchView().setEnabled(true);
+                this.f16087e.getSwitchView().setEnabled(true);
                 this.H.getSwitchView().setEnabled(true);
                 this.I.getSwitchView().setEnabled(true);
                 this.J.getSwitchView().setEnabled(true);
                 this.K.getSwitchView().setEnabled(true);
                 this.m.getSwitchView().setEnabled(true);
                 this.p.getSwitchView().setEnabled(true);
-                this.f16075c.getSwitchView().setAlpha(1.0f);
-                this.f16076d.getSwitchView().setAlpha(1.0f);
-                this.f16078f.getSwitchView().setAlpha(1.0f);
-                this.f16077e.getSwitchView().setAlpha(1.0f);
+                this.f16085c.getSwitchView().setAlpha(1.0f);
+                this.f16086d.getSwitchView().setAlpha(1.0f);
+                this.f16088f.getSwitchView().setAlpha(1.0f);
+                this.f16087e.getSwitchView().setAlpha(1.0f);
                 this.H.getSwitchView().setAlpha(1.0f);
                 this.I.getSwitchView().setAlpha(1.0f);
                 this.J.getSwitchView().setAlpha(1.0f);
@@ -504,20 +504,20 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
                 this.p.getSwitchView().setAlpha(1.0f);
                 return;
             }
-            this.f16075c.getSwitchView().setEnabled(false);
-            this.f16076d.getSwitchView().setEnabled(false);
-            this.f16078f.getSwitchView().setEnabled(false);
-            this.f16077e.getSwitchView().setEnabled(false);
+            this.f16085c.getSwitchView().setEnabled(false);
+            this.f16086d.getSwitchView().setEnabled(false);
+            this.f16088f.getSwitchView().setEnabled(false);
+            this.f16087e.getSwitchView().setEnabled(false);
             this.H.getSwitchView().setEnabled(false);
             this.I.getSwitchView().setEnabled(false);
             this.J.getSwitchView().setEnabled(false);
             this.K.getSwitchView().setEnabled(false);
             this.m.getSwitchView().setEnabled(false);
             this.p.getSwitchView().setEnabled(false);
-            this.f16075c.getSwitchView().setAlpha(0.3f);
-            this.f16076d.getSwitchView().setAlpha(0.3f);
-            this.f16078f.getSwitchView().setAlpha(0.3f);
-            this.f16077e.getSwitchView().setAlpha(0.3f);
+            this.f16085c.getSwitchView().setAlpha(0.3f);
+            this.f16086d.getSwitchView().setAlpha(0.3f);
+            this.f16088f.getSwitchView().setAlpha(0.3f);
+            this.f16087e.getSwitchView().setAlpha(0.3f);
             this.H.getSwitchView().setAlpha(0.3f);
             this.I.getSwitchView().setAlpha(0.3f);
             this.J.getSwitchView().setAlpha(0.3f);
@@ -558,14 +558,14 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
             if (currentAccount == null || currentAccount.length() <= 0) {
                 this.p.setVisibility(8);
                 this.q.setVisibility(8);
-                this.f16073a.setVisibility(8);
-                this.f16074b.setVisibility(8);
+                this.f16083a.setVisibility(8);
+                this.f16084b.setVisibility(8);
                 this.m.setVisibility(8);
                 this.n.setVisibility(8);
-                this.f16082j.setVisibility(8);
+                this.f16092j.setVisibility(8);
                 this.k.setVisibility(8);
                 this.l.setVisibility(8);
-                this.f16081i.setVisibility(8);
+                this.f16091i.setVisibility(8);
             }
         }
     }
@@ -579,7 +579,7 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.f16079g.setLineVisibility(TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class));
+            this.f16089g.setLineVisibility(TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class));
         }
     }
 
@@ -622,9 +622,9 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             if (!TbadkCoreApplication.getInst().isMIUIRom()) {
-                this.f16081i.setLineVisibility(true);
+                this.f16091i.setLineVisibility(true);
             } else {
-                this.f16081i.setLineVisibility(false);
+                this.f16091i.setLineVisibility(false);
             }
         }
     }
@@ -662,7 +662,7 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
     public BdSwitchView i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f16077e.getSwitchView() : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f16087e.getSwitchView() : (BdSwitchView) invokeV.objValue;
     }
 
     public void i0() {
@@ -720,15 +720,15 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
     public BdSwitchView k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f16079g.getSwitchView() : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f16089g.getSwitchView() : (BdSwitchView) invokeV.objValue;
     }
 
     public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            this.f16077e.setOnSwitchStateChangeListener(null);
-            this.f16077e.setSwitchStateNoCallback(c.a.q0.t.d.d.d().o());
-            this.f16077e.setOnSwitchStateChangeListener(this.C);
+            this.f16087e.setOnSwitchStateChangeListener(null);
+            this.f16087e.setSwitchStateNoCallback(c.a.q0.t.d.d.d().o());
+            this.f16087e.setOnSwitchStateChangeListener(this.C);
         }
     }
 
@@ -741,9 +741,9 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
     public void l0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            this.f16079g.setOnSwitchStateChangeListener(null);
-            this.f16079g.setSwitchStateNoCallback(c.a.q0.t.d.d.d().p());
-            this.f16079g.setOnSwitchStateChangeListener(this.C);
+            this.f16089g.setOnSwitchStateChangeListener(null);
+            this.f16089g.setSwitchStateNoCallback(c.a.q0.t.d.d.d().p());
+            this.f16089g.setOnSwitchStateChangeListener(this.C);
         }
     }
 
@@ -756,39 +756,39 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
     public void m0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            this.f16080h.setOnSwitchStateChangeListener(null);
-            this.f16080h.setSwitchStateNoCallback(c.a.q0.t.d.d.d().n());
-            this.f16080h.setOnSwitchStateChangeListener(this.C);
+            this.f16090h.setOnSwitchStateChangeListener(null);
+            this.f16090h.setSwitchStateNoCallback(c.a.q0.t.d.d.d().n());
+            this.f16090h.setOnSwitchStateChangeListener(this.C);
         }
     }
 
     public BdSwitchView n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.f16080h.getSwitchView() : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.f16090h.getSwitchView() : (BdSwitchView) invokeV.objValue;
     }
 
     public void n0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            this.f16078f.setOnSwitchStateChangeListener(null);
-            this.f16078f.setSwitchStateNoCallback(c.a.q0.t.d.d.d().r());
-            this.f16078f.setOnSwitchStateChangeListener(this.C);
+            this.f16088f.setOnSwitchStateChangeListener(null);
+            this.f16088f.setSwitchStateNoCallback(c.a.q0.t.d.d.d().r());
+            this.f16088f.setOnSwitchStateChangeListener(this.C);
         }
     }
 
     public BdSwitchView o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.f16073a.getSwitchView() : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.f16083a.getSwitchView() : (BdSwitchView) invokeV.objValue;
     }
 
     public void o0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            this.f16075c.setOnSwitchStateChangeListener(null);
-            this.f16075c.setSwitchStateNoCallback(c.a.q0.t.d.d.d().t());
-            this.f16075c.setOnSwitchStateChangeListener(this.C);
+            this.f16085c.setOnSwitchStateChangeListener(null);
+            this.f16085c.setSwitchStateNoCallback(c.a.q0.t.d.d.d().t());
+            this.f16085c.setOnSwitchStateChangeListener(this.C);
         }
     }
 
@@ -798,15 +798,15 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
             this.C.getLayoutMode().k(i2 == 1);
             this.C.getLayoutMode().j(this.s);
             this.t.onChangeSkinType(this.C.getPageContext(), i2);
-            this.f16073a.onChangeSkinType(this.C.getPageContext(), i2);
-            this.f16075c.onChangeSkinType(this.C.getPageContext(), i2);
-            this.f16076d.onChangeSkinType(this.C.getPageContext(), i2);
-            this.f16077e.onChangeSkinType(this.C.getPageContext(), i2);
-            this.f16078f.onChangeSkinType(this.C.getPageContext(), i2);
-            this.f16079g.onChangeSkinType(this.C.getPageContext(), i2);
-            this.f16080h.onChangeSkinType(this.C.getPageContext(), i2);
-            this.f16081i.onChangeSkinType(this.C.getPageContext(), i2);
-            this.f16082j.onChangeSkinType(this.C.getPageContext(), i2);
+            this.f16083a.onChangeSkinType(this.C.getPageContext(), i2);
+            this.f16085c.onChangeSkinType(this.C.getPageContext(), i2);
+            this.f16086d.onChangeSkinType(this.C.getPageContext(), i2);
+            this.f16087e.onChangeSkinType(this.C.getPageContext(), i2);
+            this.f16088f.onChangeSkinType(this.C.getPageContext(), i2);
+            this.f16089g.onChangeSkinType(this.C.getPageContext(), i2);
+            this.f16090h.onChangeSkinType(this.C.getPageContext(), i2);
+            this.f16091i.onChangeSkinType(this.C.getPageContext(), i2);
+            this.f16092j.onChangeSkinType(this.C.getPageContext(), i2);
             this.k.onChangeSkinType(this.C.getPageContext(), i2);
             this.l.onChangeSkinType(this.C.getPageContext(), i2);
             this.m.onChangeSkinType(this.C.getPageContext(), i2);
@@ -841,9 +841,9 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
     public void p0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
-            this.f16076d.setOnSwitchStateChangeListener(null);
-            this.f16076d.setSwitchStateNoCallback(c.a.q0.t.d.d.d().w());
-            this.f16076d.setOnSwitchStateChangeListener(this.C);
+            this.f16086d.setOnSwitchStateChangeListener(null);
+            this.f16086d.setSwitchStateNoCallback(c.a.q0.t.d.d.d().w());
+            this.f16086d.setOnSwitchStateChangeListener(this.C);
         }
     }
 
@@ -856,7 +856,7 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
     public BdSwitchView r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.f16078f.getSwitchView() : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.f16088f.getSwitchView() : (BdSwitchView) invokeV.objValue;
     }
 
     public LinearLayout s() {
@@ -898,12 +898,12 @@ public class g extends c.a.e.a.d<MsgRemindActivity> {
     public BdSwitchView y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.f16081i.getSwitchView() : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.f16091i.getSwitchView() : (BdSwitchView) invokeV.objValue;
     }
 
     public BdSwitchView z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.f16082j.getSwitchView() : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.f16092j.getSwitchView() : (BdSwitchView) invokeV.objValue;
     }
 }

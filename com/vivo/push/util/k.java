@@ -17,34 +17,34 @@ public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f76684a;
+    public static final boolean f77003a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f76685b;
+    public static final String f77004b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f76686c;
+    public static final boolean f77005c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f76687d;
+    public static final boolean f77006d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f76688e;
+    public static final boolean f77007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f76689f;
+    public static final boolean f77008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f76690g;
+    public static final boolean f77009g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f76691h;
+    public static final boolean f77010h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Method f76692i;
+    public static Method f77011i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f76693j;
+    public static String f77012j;
     public static String k;
     public static String l;
     public static String m;
@@ -64,20 +64,20 @@ public final class k {
                 return;
             }
         }
-        f76684a = z.b("ro.vivo.product.overseas", "no").equals("yes");
+        f77003a = z.b("ro.vivo.product.overseas", "no").equals("yes");
         if (Build.VERSION.SDK_INT >= 26) {
             b2 = z.b("ro.product.country.region", "N");
         } else {
             b2 = z.b("ro.product.customize.bbk", "N");
         }
-        f76685b = b2;
-        f76686c = "RU".equals(b2);
-        f76687d = "IN".equals(f76685b);
-        f76688e = b("rom_1.0");
-        f76689f = b("rom_2.0");
-        f76690g = b("rom_2.5");
-        f76691h = b("rom_3.0");
-        f76693j = null;
+        f77004b = b2;
+        f77005c = "RU".equals(b2);
+        f77006d = "IN".equals(f77004b);
+        f77007e = b("rom_1.0");
+        f77008f = b("rom_2.0");
+        f77009g = b("rom_2.5");
+        f77010h = b("rom_3.0");
+        f77012j = null;
         k = null;
         l = "";
         m = "";
@@ -88,19 +88,19 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (k.class) {
-                if (f76693j == null && k == null) {
+                if (f77012j == null && k == null) {
                     try {
                         Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
-                        f76692i = declaredMethod;
+                        f77011i = declaredMethod;
                         declaredMethod.setAccessible(true);
-                        f76693j = (String) f76692i.invoke(null, "ro.vivo.rom", "@><@");
-                        k = (String) f76692i.invoke(null, "ro.vivo.rom.version", "@><@");
+                        f77012j = (String) f77011i.invoke(null, "ro.vivo.rom", "@><@");
+                        k = (String) f77011i.invoke(null, "ro.vivo.rom.version", "@><@");
                     } catch (Exception unused) {
                         p.b("Device", "getRomCode error");
                     }
                 }
-                p.d("Device", "sRomProperty1 : " + f76693j + " ; sRomProperty2 : " + k);
-                String a2 = a(f76693j);
+                p.d("Device", "sRomProperty1 : " + f77012j + " ; sRomProperty2 : " + k);
+                String a2 = a(f77012j);
                 if (TextUtils.isEmpty(a2)) {
                     String a3 = a(k);
                     if (TextUtils.isEmpty(a3)) {

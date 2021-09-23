@@ -37,7 +37,7 @@ public class SwanAppLauncherActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppLauncherActivity f45522a;
+        public final /* synthetic */ SwanAppLauncherActivity f45624a;
 
         public a(SwanAppLauncherActivity swanAppLauncherActivity) {
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class SwanAppLauncherActivity extends Activity {
                     return;
                 }
             }
-            this.f45522a = swanAppLauncherActivity;
+            this.f45624a = swanAppLauncherActivity;
         }
     }
 
@@ -64,7 +64,7 @@ public class SwanAppLauncherActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppLauncherActivity f45523e;
+        public final /* synthetic */ SwanAppLauncherActivity f45625e;
 
         public b(SwanAppLauncherActivity swanAppLauncherActivity) {
             Interceptable interceptable = $ic;
@@ -81,14 +81,14 @@ public class SwanAppLauncherActivity extends Activity {
                     return;
                 }
             }
-            this.f45523e = swanAppLauncherActivity;
+            this.f45625e = swanAppLauncherActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45523e.finish();
+                this.f45625e.finish();
             }
         }
     }
@@ -106,7 +106,7 @@ public class SwanAppLauncherActivity extends Activity {
                 return;
             }
         }
-        DEBUG = k.f7077a;
+        DEBUG = k.f7085a;
     }
 
     public SwanAppLauncherActivity() {
@@ -144,7 +144,7 @@ public class SwanAppLauncherActivity extends Activity {
     public d getPermissionDialogIOC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.f8596a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.f8604a : (d) invokeV.objValue;
     }
 
     @Override // android.app.Activity

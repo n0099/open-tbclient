@@ -23,16 +23,16 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public EGLDisplay f28972a;
+    public EGLDisplay f28992a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EGLContext f28973b;
+    public EGLContext f28993b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EGLSurface f28974c;
+    public EGLSurface f28994c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Surface f28975d;
+    public Surface f28995d;
 
     public g(Surface surface) {
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class g {
             }
         }
         if (surface != null) {
-            this.f28975d = surface;
+            this.f28995d = surface;
             b();
             return;
         }
@@ -79,21 +79,21 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-            this.f28972a = eglGetDisplay;
+            this.f28992a = eglGetDisplay;
             if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
                 int[] iArr = new int[2];
                 if (!EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
-                    this.f28972a = null;
+                    this.f28992a = null;
                     throw new RuntimeException("unable to initialize EGL14");
                 }
                 EGLConfig[] eGLConfigArr = new EGLConfig[1];
-                if (EGL14.eglChooseConfig(this.f28972a, new int[]{ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 8, 12352, 4, 12610, 1, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                    this.f28973b = EGL14.eglCreateContext(this.f28972a, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                if (EGL14.eglChooseConfig(this.f28992a, new int[]{ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 8, 12352, 4, 12610, 1, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
+                    this.f28993b = EGL14.eglCreateContext(this.f28992a, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
                     a("eglCreateContext");
-                    if (this.f28973b != null) {
-                        this.f28974c = EGL14.eglCreateWindowSurface(this.f28972a, eGLConfigArr[0], this.f28975d, new int[]{ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                    if (this.f28993b != null) {
+                        this.f28994c = EGL14.eglCreateWindowSurface(this.f28992a, eGLConfigArr[0], this.f28995d, new int[]{ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
                         a("eglCreateWindowSurface");
-                        if (this.f28974c == null) {
+                        if (this.f28994c == null) {
                             throw new RuntimeException("surface was null");
                         }
                         return;
@@ -109,9 +109,9 @@ public class g {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            EGLDisplay eGLDisplay = this.f28972a;
-            EGLSurface eGLSurface = this.f28974c;
-            if (!EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.f28973b)) {
+            EGLDisplay eGLDisplay = this.f28992a;
+            EGLSurface eGLSurface = this.f28994c;
+            if (!EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.f28993b)) {
                 throw new RuntimeException("eglMakeCurrent failed");
             }
         }
@@ -120,31 +120,31 @@ public class g {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (EGL14.eglGetCurrentContext().equals(this.f28973b)) {
-                EGLDisplay eGLDisplay = this.f28972a;
+            if (EGL14.eglGetCurrentContext().equals(this.f28993b)) {
+                EGLDisplay eGLDisplay = this.f28992a;
                 EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
                 EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
             }
-            EGL14.eglDestroySurface(this.f28972a, this.f28974c);
-            EGL14.eglDestroyContext(this.f28972a, this.f28973b);
-            this.f28975d.release();
-            this.f28972a = null;
-            this.f28973b = null;
-            this.f28974c = null;
-            this.f28975d = null;
+            EGL14.eglDestroySurface(this.f28992a, this.f28994c);
+            EGL14.eglDestroyContext(this.f28992a, this.f28993b);
+            this.f28995d.release();
+            this.f28992a = null;
+            this.f28993b = null;
+            this.f28994c = null;
+            this.f28995d = null;
         }
     }
 
     public void e(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            EGLExt.eglPresentationTimeANDROID(this.f28972a, this.f28974c, j2);
+            EGLExt.eglPresentationTimeANDROID(this.f28992a, this.f28994c, j2);
         }
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EGL14.eglSwapBuffers(this.f28972a, this.f28974c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EGL14.eglSwapBuffers(this.f28992a, this.f28994c) : invokeV.booleanValue;
     }
 }

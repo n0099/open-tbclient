@@ -45,6 +45,7 @@ import java.util.ArrayList;
 public class IntentConfig extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AB_TAG = "ab_tag";
+    public static final String AT_SELECT_LIST_DATA = "at_select_list_data";
     public static final String CALL_FROM = "call_from";
     public static final String CARD_TYPE = "card_type";
     public static final String CLOSE = "close";
@@ -114,7 +115,7 @@ public class IntentConfig extends OrmObject {
     public static final String SHOW_KEYBOARD = "keyboard";
     public static final String SHOW_RECOMMEND = "show_recommend";
     public static final String SOURCE_RECT_IN_SCREEN = "source_rect_in_screen";
-    public static final String START = "start";
+    public static final String START_ACTION = "start";
     public static final String START_ONCE = "start_once";
     public static final String STOP = "stop";
     public static final String ST_TYPE = "st_type";
@@ -156,7 +157,7 @@ public class IntentConfig extends OrmObject {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f47544e;
+        public final /* synthetic */ IntentConfig f47646e;
 
         public a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -173,7 +174,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f47544e = intentConfig;
+            this.f47646e = intentConfig;
         }
 
         @Override // android.content.ServiceConnection
@@ -182,17 +183,17 @@ public class IntentConfig extends OrmObject {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) || iBinder == null) {
                 return;
             }
-            this.f47544e.mReplyMessenger = new Messenger(iBinder);
-            if (this.f47544e.mReplyMessenger != null) {
+            this.f47646e.mReplyMessenger = new Messenger(iBinder);
+            if (this.f47646e.mReplyMessenger != null) {
                 Message obtain = Message.obtain();
                 Bundle bundle = new Bundle();
-                if (this.f47544e.mComponentClass != null) {
-                    bundle.putString(DealIntentService.KEY_CLASS, this.f47544e.mComponentClass.getName());
+                if (this.f47646e.mComponentClass != null) {
+                    bundle.putString(DealIntentService.KEY_CLASS, this.f47646e.mComponentClass.getName());
                 }
                 obtain.setData(bundle);
-                obtain.replyTo = this.f47544e.mClientMessenger;
+                obtain.replyTo = this.f47646e.mClientMessenger;
                 try {
-                    this.f47544e.mReplyMessenger.send(obtain);
+                    this.f47646e.mReplyMessenger.send(obtain);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -213,7 +214,7 @@ public class IntentConfig extends OrmObject {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f47545a;
+        public final /* synthetic */ IntentConfig f47647a;
 
         public b(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -230,7 +231,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f47545a = intentConfig;
+            this.f47647a = intentConfig;
         }
 
         public final boolean a(Message message) {
@@ -242,19 +243,19 @@ public class IntentConfig extends OrmObject {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || this.f47545a.mContext == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || this.f47647a.mContext == null) {
                 return;
             }
             if (a(message)) {
-                if (this.f47545a.isForResult) {
-                    IntentConfig intentConfig = this.f47545a;
-                    intentConfig.startActivityForResult(intentConfig.mRequestCode, this.f47545a.mComponentClass);
+                if (this.f47647a.isForResult) {
+                    IntentConfig intentConfig = this.f47647a;
+                    intentConfig.startActivityForResult(intentConfig.mRequestCode, this.f47647a.mComponentClass);
                 } else {
-                    IntentConfig intentConfig2 = this.f47545a;
+                    IntentConfig intentConfig2 = this.f47647a;
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            f.e(this.f47545a.mContext, this.f47545a.mClientConnection);
+            f.e(this.f47647a.mContext, this.f47647a.mClientConnection);
         }
 
         public /* synthetic */ b(IntentConfig intentConfig, a aVar) {
@@ -575,7 +576,7 @@ public class IntentConfig extends OrmObject {
                 if (loadClass == null) {
                     return false;
                 }
-                if (!(this.mContext instanceof Activity)) {
+                if (this.mIntent != null && !(this.mContext instanceof Activity)) {
                     this.mIntent.addFlags(268435456);
                 }
                 this.mContext.startActivity(this.mIntent);

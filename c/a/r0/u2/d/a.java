@@ -15,16 +15,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25438a;
+    public String f25459a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25439b;
+    public String f25460b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f25440c;
+    public b f25461c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MetaData f25441d;
+    public MetaData f25462d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,25 +43,25 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25439b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25460b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25438a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25459a : (String) invokeV.objValue;
     }
 
     public b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25440c : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25461c : (b) invokeV.objValue;
     }
 
     public MetaData d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25441d : (MetaData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25462d : (MetaData) invokeV.objValue;
     }
 
     public void e(DataRes dataRes) {
@@ -69,14 +69,14 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f25438a = dataRes.publish_user;
-        this.f25439b = dataRes.publish_pic;
+        this.f25459a = dataRes.publish_user;
+        this.f25460b = dataRes.publish_pic;
         MetaData metaData = new MetaData();
-        this.f25441d = metaData;
+        this.f25462d = metaData;
         metaData.parserProtobuf(dataRes.author);
-        this.f25441d.setPendantData(null);
+        this.f25462d.setPendantData(null);
         b bVar = new b();
-        this.f25440c = bVar;
+        this.f25461c = bVar;
         bVar.e(TbadkCoreApplication.getInst(), dataRes.thread_info);
     }
 }

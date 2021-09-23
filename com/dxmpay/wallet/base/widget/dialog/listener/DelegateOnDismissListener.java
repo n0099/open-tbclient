@@ -11,7 +11,7 @@ public class DelegateOnDismissListener implements DialogInterface.OnDismissListe
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public DialogInterface.OnDismissListener f69754e;
+    public DialogInterface.OnDismissListener f70071e;
 
     public DelegateOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
         Interceptable interceptable = $ic;
@@ -28,17 +28,17 @@ public class DelegateOnDismissListener implements DialogInterface.OnDismissListe
                 return;
             }
         }
-        this.f69754e = onDismissListener;
+        this.f70071e = onDismissListener;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
         DialogInterface.OnDismissListener onDismissListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (onDismissListener = this.f69754e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (onDismissListener = this.f70071e) == null) {
             return;
         }
         onDismissListener.onDismiss(dialogInterface);
-        this.f69754e = null;
+        this.f70071e = null;
     }
 }

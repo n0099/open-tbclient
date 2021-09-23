@@ -41,36 +41,36 @@ public class b implements c.a.p0.a.q1.g.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f8066j;
+    public static final boolean f8074j;
     public static String[] k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.a2.e f8067a;
+    public c.a.p0.a.a2.e f8075a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UnitedSchemeEntity f8068b;
+    public UnitedSchemeEntity f8076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CallbackHandler f8069c;
+    public CallbackHandler f8077c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8070d;
+    public String f8078d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8071e;
+    public String f8079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f8072f;
+    public int f8080f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f8073g;
+    public String f8081g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d0.a f8074h;
+    public c.a.d0.a f8082h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f8075i;
+    public String f8083i;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.m.a {
@@ -78,16 +78,16 @@ public class b implements c.a.p0.a.q1.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f8076e;
+        public final /* synthetic */ boolean f8084e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8077f;
+        public final /* synthetic */ String f8085f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8078g;
+        public final /* synthetic */ String f8086g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f8079h;
+        public final /* synthetic */ b f8087h;
 
         public a(b bVar, boolean z, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -104,10 +104,10 @@ public class b implements c.a.p0.a.q1.g.a {
                     return;
                 }
             }
-            this.f8079h = bVar;
-            this.f8076e = z;
-            this.f8077f = str;
-            this.f8078g = str2;
+            this.f8087h = bVar;
+            this.f8084e = z;
+            this.f8085f = str;
+            this.f8086g = str2;
         }
 
         @Override // c.a.p0.a.m.a
@@ -115,18 +115,18 @@ public class b implements c.a.p0.a.q1.g.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    if (!this.f8076e) {
-                        k.M("success", 9, this.f8077f);
+                    if (!this.f8084e) {
+                        k.M("success", 9, this.f8085f);
                     }
-                    this.f8079h.B(this.f8078g);
+                    this.f8087h.B(this.f8086g);
                     return;
                 }
-                if (!this.f8076e) {
-                    k.M(com.baidu.pass.biometrics.face.liveness.b.a.g0, 9, this.f8077f);
+                if (!this.f8084e) {
+                    k.M(com.baidu.pass.biometrics.face.liveness.b.a.g0, 9, this.f8085f);
                 }
-                this.f8079h.f8072f = 5;
-                this.f8079h.f8073g = null;
-                this.f8079h.K(null);
+                this.f8087h.f8080f = 5;
+                this.f8087h.f8081g = null;
+                this.f8087h.K(null);
             }
         }
     }
@@ -138,7 +138,7 @@ public class b implements c.a.p0.a.q1.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f8080a;
+        public final /* synthetic */ b f8088a;
 
         public C0354b(b bVar) {
             Interceptable interceptable = $ic;
@@ -155,24 +155,24 @@ public class b implements c.a.p0.a.q1.g.a {
                     return;
                 }
             }
-            this.f8080a = bVar;
+            this.f8088a = bVar;
         }
 
         @Override // c.a.d0.e.a
         public void onPayResult(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                this.f8080a.f8072f = i2;
-                this.f8080a.f8073g = str;
-                if (b.f8066j) {
+                this.f8088a.f8080f = i2;
+                this.f8088a.f8081g = str;
+                if (b.f8074j) {
                     String str2 = "statusCode: " + i2 + " ,result:" + str;
                 }
-                this.f8080a.M(i2, "baiduqianbao", str);
+                this.f8088a.M(i2, "baiduqianbao", str);
                 k.F("baiduqianbao", "result", i2);
-                if (i2 != 0 || !TextUtils.equals(this.f8080a.f8070d, "2.0")) {
-                    this.f8080a.K(null);
+                if (i2 != 0 || !TextUtils.equals(this.f8088a.f8078d, "2.0")) {
+                    this.f8088a.K(null);
                 } else {
-                    c.a.p0.a.c1.a.R().e(this.f8080a.f8071e, this.f8080a);
+                    c.a.p0.a.c1.a.R().e(this.f8088a.f8079e, this.f8088a);
                 }
             }
         }
@@ -184,7 +184,7 @@ public class b implements c.a.p0.a.q1.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f8081a;
+        public final /* synthetic */ b f8089a;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -201,24 +201,24 @@ public class b implements c.a.p0.a.q1.g.a {
                     return;
                 }
             }
-            this.f8081a = bVar;
+            this.f8089a = bVar;
         }
 
         @Override // c.a.d0.e.a
         public void onPayResult(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                this.f8081a.f8072f = i2;
-                this.f8081a.f8073g = str;
-                c.a.p0.a.e0.d.h("SwanAppPaymentManager", "statusCode: " + this.f8081a.f8072f + " ,result:" + this.f8081a.f8073g);
-                this.f8081a.M(i2, LBSTransAuthPresenter.AUTH_CHANNEL_ALI, str);
+                this.f8089a.f8080f = i2;
+                this.f8089a.f8081g = str;
+                c.a.p0.a.e0.d.h("SwanAppPaymentManager", "statusCode: " + this.f8089a.f8080f + " ,result:" + this.f8089a.f8081g);
+                this.f8089a.M(i2, LBSTransAuthPresenter.AUTH_CHANNEL_ALI, str);
                 if (i2 != 1) {
                     k.F(LBSTransAuthPresenter.AUTH_CHANNEL_ALI, "result", i2);
                 }
-                if (i2 != 0 || !TextUtils.equals(this.f8081a.f8070d, "2.0")) {
-                    this.f8081a.K(null);
+                if (i2 != 0 || !TextUtils.equals(this.f8089a.f8078d, "2.0")) {
+                    this.f8089a.K(null);
                 } else {
-                    c.a.p0.a.c1.a.R().e(this.f8081a.f8071e, this.f8081a);
+                    c.a.p0.a.c1.a.R().e(this.f8089a.f8079e, this.f8089a);
                 }
             }
         }
@@ -230,22 +230,22 @@ public class b implements c.a.p0.a.q1.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8082e;
+        public final /* synthetic */ String f8090e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8083f;
+        public final /* synthetic */ String f8091f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String[] f8084g;
+        public final /* synthetic */ String[] f8092g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8085h;
+        public final /* synthetic */ JSONObject f8093h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ boolean f8086i;
+        public final /* synthetic */ boolean f8094i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ b f8087j;
+        public final /* synthetic */ b f8095j;
 
         public d(b bVar, String str, String str2, String[] strArr, JSONObject jSONObject, boolean z) {
             Interceptable interceptable = $ic;
@@ -262,12 +262,12 @@ public class b implements c.a.p0.a.q1.g.a {
                     return;
                 }
             }
-            this.f8087j = bVar;
-            this.f8082e = str;
-            this.f8083f = str2;
-            this.f8084g = strArr;
-            this.f8085h = jSONObject;
-            this.f8086i = z;
+            this.f8095j = bVar;
+            this.f8090e = str;
+            this.f8091f = str2;
+            this.f8092g = strArr;
+            this.f8093h = jSONObject;
+            this.f8094i = z;
         }
 
         @Override // c.a.p0.a.m.a
@@ -275,23 +275,23 @@ public class b implements c.a.p0.a.q1.g.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    k.M("success", 8, this.f8082e);
-                    if (this.f8087j.f8067a.m0()) {
-                        this.f8087j.F(this.f8083f, this.f8084g, this.f8085h, true, false);
+                    k.M("success", 8, this.f8090e);
+                    if (this.f8095j.f8075a.m0()) {
+                        this.f8095j.F(this.f8091f, this.f8092g, this.f8093h, true, false);
                         return;
                     } else {
-                        this.f8087j.C(this.f8083f, this.f8084g, this.f8085h, true, false);
+                        this.f8095j.C(this.f8091f, this.f8092g, this.f8093h, true, false);
                         return;
                     }
                 }
-                if (!this.f8086i) {
-                    k.M(com.baidu.pass.biometrics.face.liveness.b.a.g0, 8, this.f8082e);
+                if (!this.f8094i) {
+                    k.M(com.baidu.pass.biometrics.face.liveness.b.a.g0, 8, this.f8090e);
                     c.a.p0.a.e0.d.h("SwanAppPaymentManager", "login error");
                     k.D(false, "nuomi", c.a.p0.a.q1.a.c("", "login error"));
                 }
-                this.f8087j.f8072f = 5;
-                this.f8087j.f8073g = null;
-                this.f8087j.K(null);
+                this.f8095j.f8080f = 5;
+                this.f8095j.f8081g = null;
+                this.f8095j.K(null);
                 k.E("nuomi", false, false);
             }
         }
@@ -303,22 +303,22 @@ public class b implements c.a.p0.a.q1.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f8088a;
+        public final /* synthetic */ String f8096a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String[] f8089b;
+        public final /* synthetic */ String[] f8097b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8090c;
+        public final /* synthetic */ JSONObject f8098c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f8091d;
+        public final /* synthetic */ boolean f8099d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f8092e;
+        public final /* synthetic */ boolean f8100e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f8093f;
+        public final /* synthetic */ b f8101f;
 
         public e(b bVar, String str, String[] strArr, JSONObject jSONObject, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
@@ -335,30 +335,30 @@ public class b implements c.a.p0.a.q1.g.a {
                     return;
                 }
             }
-            this.f8093f = bVar;
-            this.f8088a = str;
-            this.f8089b = strArr;
-            this.f8090c = jSONObject;
-            this.f8091d = z;
-            this.f8092e = z2;
+            this.f8101f = bVar;
+            this.f8096a = str;
+            this.f8097b = strArr;
+            this.f8098c = jSONObject;
+            this.f8099d = z;
+            this.f8100e = z2;
         }
 
         @Override // c.a.p0.a.q1.b.j
         public void onFail(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(this.f8093f.f8075i)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(this.f8101f.f8083i)) {
                 return;
             }
-            CallbackHandler callbackHandler = this.f8093f.f8069c;
-            String str2 = this.f8093f.f8075i;
-            callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.f8093f.f8067a.x().getString(c.a.p0.a.h.swan_game_anti_addiction) + str).toString());
+            CallbackHandler callbackHandler = this.f8101f.f8077c;
+            String str2 = this.f8101f.f8083i;
+            callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.f8101f.f8075a.x().getString(c.a.p0.a.h.swan_game_anti_addiction) + str).toString());
         }
 
         @Override // c.a.p0.a.q1.b.j
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f8093f.C(this.f8088a, this.f8089b, this.f8090c, this.f8091d, this.f8092e);
+                this.f8101f.C(this.f8096a, this.f8097b, this.f8098c, this.f8099d, this.f8100e);
             }
         }
     }
@@ -369,19 +369,19 @@ public class b implements c.a.p0.a.q1.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8094e;
+        public final /* synthetic */ JSONObject f8102e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String[] f8095f;
+        public final /* synthetic */ String[] f8103f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8096g;
+        public final /* synthetic */ JSONObject f8104g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f8097h;
+        public final /* synthetic */ String f8105h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f8098i;
+        public final /* synthetic */ b f8106i;
 
         public f(b bVar, JSONObject jSONObject, String[] strArr, JSONObject jSONObject2, String str) {
             Interceptable interceptable = $ic;
@@ -398,11 +398,11 @@ public class b implements c.a.p0.a.q1.g.a {
                     return;
                 }
             }
-            this.f8098i = bVar;
-            this.f8094e = jSONObject;
-            this.f8095f = strArr;
-            this.f8096g = jSONObject2;
-            this.f8097h = str;
+            this.f8106i = bVar;
+            this.f8102e = jSONObject;
+            this.f8103f = strArr;
+            this.f8104g = jSONObject2;
+            this.f8105h = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -413,12 +413,12 @@ public class b implements c.a.p0.a.q1.g.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bool)) == null) {
                 if (bool.booleanValue()) {
-                    this.f8098i.D(this.f8094e, this.f8095f, this.f8096g);
+                    this.f8106i.D(this.f8102e, this.f8103f, this.f8104g);
                     return null;
                 }
-                c.a.p0.a.e0.d.h("SwanAppPaymentManager", "paykey invalid order info " + this.f8097h);
+                c.a.p0.a.e0.d.h("SwanAppPaymentManager", "paykey invalid order info " + this.f8105h);
                 k.D(false, "nuomi", c.a.p0.a.q1.a.c("", "paykey invalid"));
-                this.f8098i.L();
+                this.f8106i.L();
                 return null;
             }
             return (Unit) invokeL.objValue;
@@ -431,13 +431,13 @@ public class b implements c.a.p0.a.q1.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8099a;
+        public final /* synthetic */ JSONObject f8107a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8100b;
+        public final /* synthetic */ JSONObject f8108b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f8101c;
+        public final /* synthetic */ b f8109c;
 
         public g(b bVar, JSONObject jSONObject, JSONObject jSONObject2) {
             Interceptable interceptable = $ic;
@@ -454,16 +454,16 @@ public class b implements c.a.p0.a.q1.g.a {
                     return;
                 }
             }
-            this.f8101c = bVar;
-            this.f8099a = jSONObject;
-            this.f8100b = jSONObject2;
+            this.f8109c = bVar;
+            this.f8107a = jSONObject;
+            this.f8108b = jSONObject2;
         }
 
         @Override // c.a.p0.a.q1.d
         public void onPayResult(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                this.f8101c.J(i2, str, this.f8099a, this.f8100b);
+                this.f8109c.J(i2, str, this.f8107a, this.f8108b);
             }
         }
     }
@@ -474,13 +474,13 @@ public class b implements c.a.p0.a.q1.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8102a;
+        public final /* synthetic */ JSONObject f8110a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8103b;
+        public final /* synthetic */ JSONObject f8111b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f8104c;
+        public final /* synthetic */ b f8112c;
 
         public h(b bVar, JSONObject jSONObject, JSONObject jSONObject2) {
             Interceptable interceptable = $ic;
@@ -497,16 +497,16 @@ public class b implements c.a.p0.a.q1.g.a {
                     return;
                 }
             }
-            this.f8104c = bVar;
-            this.f8102a = jSONObject;
-            this.f8103b = jSONObject2;
+            this.f8112c = bVar;
+            this.f8110a = jSONObject;
+            this.f8111b = jSONObject2;
         }
 
         @Override // c.a.d0.e.a
         public void onPayResult(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                this.f8104c.J(i2, str, this.f8102a, this.f8103b);
+                this.f8112c.J(i2, str, this.f8110a, this.f8111b);
             }
         }
     }
@@ -517,16 +517,16 @@ public class b implements c.a.p0.a.q1.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8105e;
+        public final /* synthetic */ String f8113e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8106f;
+        public final /* synthetic */ String f8114f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8107g;
+        public final /* synthetic */ String f8115g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f8108h;
+        public final /* synthetic */ b f8116h;
 
         public i(b bVar, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -543,10 +543,10 @@ public class b implements c.a.p0.a.q1.g.a {
                     return;
                 }
             }
-            this.f8108h = bVar;
-            this.f8105e = str;
-            this.f8106f = str2;
-            this.f8107g = str3;
+            this.f8116h = bVar;
+            this.f8113e = str;
+            this.f8114f = str2;
+            this.f8115g = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -564,29 +564,29 @@ public class b implements c.a.p0.a.q1.g.a {
                 char c2 = 0;
                 if (!c.a.p0.a.e2.c.d.h(iVar)) {
                     String str = null;
-                    if (TextUtils.equals(this.f8108h.f8070d, "2.0")) {
+                    if (TextUtils.equals(this.f8116h.f8078d, "2.0")) {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("payId", "");
                         } catch (JSONException e2) {
-                            if (b.f8066j) {
+                            if (b.f8074j) {
                                 e2.printStackTrace();
                             }
                         }
                         str = String.valueOf(jSONObject);
                     }
-                    if (TextUtils.equals(this.f8105e, "mapp_request_duxiaoman")) {
+                    if (TextUtils.equals(this.f8113e, "mapp_request_duxiaoman")) {
                         k.D(false, "baiduqianbao", c.a.p0.a.q1.a.c("", "authorize fail"));
-                    } else if (TextUtils.equals(this.f8105e, "mapp_request_alipayment")) {
+                    } else if (TextUtils.equals(this.f8113e, "mapp_request_alipayment")) {
                         k.D(false, LBSTransAuthPresenter.AUTH_CHANNEL_ALI, c.a.p0.a.q1.a.c("", "authorize fail"));
-                    } else if (TextUtils.equals(this.f8105e, "mapp_request_wechatpayment")) {
+                    } else if (TextUtils.equals(this.f8113e, "mapp_request_wechatpayment")) {
                         k.D(false, "wechatH5Action", c.a.p0.a.q1.a.c("", "authorize fail"));
                     }
-                    c.a.p0.a.e0.d.h("SwanAppPaymentManager", "Error: authorized fail. scope = " + this.f8105e);
-                    this.f8108h.f8069c.handleSchemeDispatchCallback(this.f8108h.f8075i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(str, 1001, "authorize denied").toString());
+                    c.a.p0.a.e0.d.h("SwanAppPaymentManager", "Error: authorized fail. scope = " + this.f8113e);
+                    this.f8116h.f8077c.handleSchemeDispatchCallback(this.f8116h.f8083i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(str, 1001, "authorize denied").toString());
                     return;
                 }
-                String str2 = this.f8105e;
+                String str2 = this.f8113e;
                 int hashCode = str2.hashCode();
                 if (hashCode == -1689456891) {
                     if (str2.equals("mapp_request_wechatpayment")) {
@@ -600,12 +600,12 @@ public class b implements c.a.p0.a.q1.g.a {
                     c2 = 65535;
                 }
                 if (c2 == 0) {
-                    this.f8108h.z(this.f8106f, this.f8107g);
+                    this.f8116h.z(this.f8114f, this.f8115g);
                 } else if (c2 == 1) {
-                    this.f8108h.x(this.f8106f);
+                    this.f8116h.x(this.f8114f);
                 } else if (c2 != 2) {
                 } else {
-                    this.f8108h.N();
+                    this.f8116h.N();
                 }
             }
         }
@@ -631,7 +631,7 @@ public class b implements c.a.p0.a.q1.g.a {
                 return;
             }
         }
-        f8066j = c.a.p0.a.k.f7077a;
+        f8074j = c.a.p0.a.k.f7085a;
         k = new String[]{"duershow"};
     }
 
@@ -650,13 +650,13 @@ public class b implements c.a.p0.a.q1.g.a {
                 return;
             }
         }
-        this.f8067a = eVar;
-        this.f8068b = unitedSchemeEntity;
-        this.f8069c = callbackHandler;
-        this.f8070d = str;
-        this.f8071e = str2;
-        this.f8075i = str3;
-        this.f8074h = new c.a.d0.a();
+        this.f8075a = eVar;
+        this.f8076b = unitedSchemeEntity;
+        this.f8077c = callbackHandler;
+        this.f8078d = str;
+        this.f8079e = str2;
+        this.f8083i = str3;
+        this.f8082h = new c.a.d0.a();
     }
 
     public static String H(int i2) {
@@ -670,12 +670,12 @@ public class b implements c.a.p0.a.q1.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
             if (TextUtils.isEmpty(str2) && (str.equals("mapp_request_duxiaoman") || str.equals("mapp_request_alipayment"))) {
-                this.f8068b.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                this.f8076b.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 c.a.p0.a.e0.d.h("SwanAppPaymentManager", "Error: order info is null.");
                 return false;
             }
-            this.f8067a.T().g(this.f8067a.x(), str, new i(this, str, str2, str3));
-            UnitedSchemeUtility.callCallback(this.f8069c, this.f8068b, UnitedSchemeUtility.wrapCallbackParams(0));
+            this.f8075a.T().g(this.f8075a.x(), str, new i(this, str, str2, str3));
+            UnitedSchemeUtility.callCallback(this.f8077c, this.f8076b, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
         return invokeLLL.booleanValue;
@@ -685,7 +685,7 @@ public class b implements c.a.p0.a.q1.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             k.F("baiduqianbao", "intoPayment", 0);
-            this.f8074h.d(this.f8067a.k(), str, new C0354b(this));
+            this.f8082h.d(this.f8075a.k(), str, new C0354b(this));
         }
     }
 
@@ -702,7 +702,7 @@ public class b implements c.a.p0.a.q1.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, jSONObject, strArr, jSONObject2) == null) {
             try {
-                if (c.a.p0.a.s.a.f.f8492d.f()) {
+                if (c.a.p0.a.s.a.f.f8500d.f()) {
                     jSONObject.put("openBduss", c.a.p0.a.c1.a.a0().d(c.a.p0.a.c1.a.b()));
                     jSONObject.put("clientId", c.a.p0.a.c1.a.m().b());
                 } else {
@@ -711,7 +711,7 @@ public class b implements c.a.p0.a.q1.g.a {
                 jSONObject.put("cuid", c.a.p0.a.c1.a.a0().i(c.a.p0.a.c1.a.b()));
                 String optString = jSONObject.optString("bizInfo");
                 JSONObject jSONObject3 = TextUtils.isEmpty(optString) ? new JSONObject() : new JSONObject(optString);
-                jSONObject3.put("swanFrom", this.f8067a.L().T());
+                jSONObject3.put("swanFrom", this.f8075a.L().T());
                 jSONObject3.put("cuid", c.a.p0.a.c1.a.a0().i(c.a.p0.a.c1.a.b()));
                 jSONObject3.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, c.a.p0.a.a2.d.g().getAppId());
                 w(jSONObject3);
@@ -720,12 +720,12 @@ public class b implements c.a.p0.a.q1.g.a {
                 jSONObject.put("nativeAppId", c.a.p0.a.c1.a.m().a());
                 jSONObject.put("sceneSource", "swan");
                 jSONObject.put("swanNativeVersion", l.a());
-                y(jSONObject, this.f8067a.D());
-                if (f8066j) {
+                y(jSONObject, this.f8075a.D());
+                if (f8074j) {
                     jSONObject.toString();
                 }
             } catch (JSONException e2) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e2.printStackTrace();
                 }
             }
@@ -751,24 +751,24 @@ public class b implements c.a.p0.a.q1.g.a {
                 c.a.p0.a.q1.e.b(new g(this, jSONObject2, jSONObject));
                 c.a.p0.a.e0.d.h("SwanAppPaymentManager", "doPolymerPay Qr Code: " + jSONObject.toString());
             } else {
-                this.f8074h.i(this.f8067a.x(), jSONObject, strArr, new h(this, jSONObject2, jSONObject));
+                this.f8082h.i(this.f8075a.x(), jSONObject, strArr, new h(this, jSONObject2, jSONObject));
                 c.a.p0.a.e0.d.h("SwanAppPaymentManager", "doPolymerPay: " + jSONObject.toString());
             }
-            UnitedSchemeUtility.callCallback(this.f8069c, this.f8068b, UnitedSchemeUtility.wrapCallbackParams(0));
-            if (this.f8067a.z() != null) {
-                String valueOf = String.valueOf(this.f8067a.L().G());
-                String valueOf2 = String.valueOf(UnitedSchemeUtility.getParams(this.f8067a.L().W()).get("_baiduboxapp"));
+            UnitedSchemeUtility.callCallback(this.f8077c, this.f8076b, UnitedSchemeUtility.wrapCallbackParams(0));
+            if (this.f8075a.z() != null) {
+                String valueOf = String.valueOf(this.f8075a.L().G());
+                String valueOf2 = String.valueOf(UnitedSchemeUtility.getParams(this.f8075a.L().W()).get("_baiduboxapp"));
                 Bundle bundle = new Bundle();
                 bundle.putString("frameType", valueOf);
-                bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f8067a.L().H());
+                bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f8075a.L().H());
                 try {
                     bundle.putString("params", URLEncoder.encode(valueOf2, "UTF-8"));
                 } catch (UnsupportedEncodingException e3) {
-                    if (f8066j) {
+                    if (f8074j) {
                         throw new RuntimeException("This method requires UTF-8 encoding support", e3);
                     }
                 }
-                this.f8067a.z().N(7, bundle);
+                this.f8075a.z().N(7, bundle);
             }
         }
     }
@@ -782,7 +782,7 @@ public class b implements c.a.p0.a.q1.g.a {
             } catch (JSONException e2) {
                 L();
                 c.a.p0.a.e0.d.h("SwanAppPaymentManager", " doPolymerPayChecked error " + str);
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e2.printStackTrace();
                 }
             }
@@ -804,7 +804,7 @@ public class b implements c.a.p0.a.q1.g.a {
             try {
                 return new JSONObject(str).put("orderId", optString).toString();
             } catch (JSONException e2) {
-                if (f8066j) {
+                if (f8074j) {
                     e2.printStackTrace();
                 }
                 return str + " orderId = " + optString;
@@ -824,12 +824,12 @@ public class b implements c.a.p0.a.q1.g.a {
                 optString = RetrieveTaskManager.KEY;
             }
             String str2 = optString;
-            boolean e2 = this.f8067a.j().e(this.f8067a.x());
+            boolean e2 = this.f8075a.j().e(this.f8075a.x());
             if (!e2) {
                 k.M("show", 8, str2);
             }
             if (TextUtils.isEmpty(str)) {
-                this.f8068b.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                this.f8076b.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             String optString2 = jSONObject.optString("__plugin__");
@@ -837,14 +837,14 @@ public class b implements c.a.p0.a.q1.g.a {
             if (!TextUtils.isEmpty(optString2) && (opt = jSONObject.opt("error")) != null) {
                 String optString3 = jSONObject.optString("slaveId");
                 c.a.p0.a.t1.c.c.a aVar = new c.a.p0.a.t1.c.c.a(jSONObject.optString("componentId"));
-                aVar.f8675a = optString3;
-                aVar.f8677c = opt;
-                aVar.f8678d = false;
-                aVar.f8679e = null;
+                aVar.f8683a = optString3;
+                aVar.f8685c = opt;
+                aVar.f8686d = false;
+                aVar.f8687e = null;
                 aVar.b();
                 c.a.p0.a.e0.d.h("SwanAppPaymentManager", "Error: param check error - plugin pay contains custom error");
                 k.D(false, "nuomi", c.a.p0.a.q1.a.c("", "param check error - plugin pay contains custom error"));
-                this.f8068b.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                this.f8076b.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("bannedChannels");
@@ -858,23 +858,23 @@ public class b implements c.a.p0.a.q1.g.a {
                 strArr = null;
             }
             k.F("nuomi", "login", 0);
-            if (this.f8067a.x() == null) {
-                this.f8072f = 5;
-                this.f8073g = null;
+            if (this.f8075a.x() == null) {
+                this.f8080f = 5;
+                this.f8081g = null;
                 K(null);
-                if (f8066j) {
+                if (f8074j) {
                     throw new RuntimeException("swanApp getActivity returns null");
                 }
                 return true;
-            } else if (this.f8067a.j().e(this.f8067a.k())) {
-                if (this.f8067a.m0()) {
+            } else if (this.f8075a.j().e(this.f8075a.k())) {
+                if (this.f8075a.m0()) {
                     F(str, strArr, jSONObject, true, true);
                     return true;
                 }
                 C(str, strArr, jSONObject, true, true);
                 return true;
             } else {
-                this.f8067a.j().f(this.f8067a.k(), null, new d(this, str2, str, strArr, jSONObject, e2));
+                this.f8075a.j().f(this.f8075a.k(), null, new d(this, str2, str, strArr, jSONObject, e2));
                 return true;
             }
         }
@@ -885,10 +885,10 @@ public class b implements c.a.p0.a.q1.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), str, jSONObject, jSONObject2}) == null) {
             c.a.p0.a.g1.f.V().b();
-            c.a.p0.a.e0.d.g("SwanAppPaymentManager", "sendSecondCallback statusCode: " + this.f8072f + " params: " + this.f8073g + " payParams: " + jSONObject.toString() + " orderId: " + jSONObject2.optString("tpOrderId"));
+            c.a.p0.a.e0.d.g("SwanAppPaymentManager", "sendSecondCallback statusCode: " + this.f8080f + " params: " + this.f8081g + " payParams: " + jSONObject.toString() + " orderId: " + jSONObject2.optString("tpOrderId"));
             M(i2, "nuomi", G(str, jSONObject2));
-            this.f8072f = i2;
-            this.f8073g = str;
+            this.f8080f = i2;
+            this.f8081g = str;
             if (i2 != 1) {
                 k.F("nuomi", "result", i2);
             }
@@ -898,17 +898,17 @@ public class b implements c.a.p0.a.q1.g.a {
                 String optString2 = jSONObject.optString("componentId");
                 Object opt = jSONObject.opt("error");
                 c.a.p0.a.t1.c.c.a aVar = new c.a.p0.a.t1.c.c.a(optString2);
-                aVar.f8675a = optString;
-                aVar.f8677c = opt;
-                aVar.f8678d = i2 == 0;
-                aVar.f8679e = str;
+                aVar.f8683a = optString;
+                aVar.f8685c = opt;
+                aVar.f8686d = i2 == 0;
+                aVar.f8687e = str;
                 aVar.b();
                 c.a.p0.a.t1.g.b.j();
             }
-            if (this.f8072f != 0 || c.a.p0.a.x1.c.f9705c.c()) {
+            if (this.f8080f != 0 || c.a.p0.a.x1.c.f9713c.c()) {
                 return;
             }
-            c.a.p0.a.x1.c.f9705c.e();
+            c.a.p0.a.x1.c.f9713c.e();
         }
     }
 
@@ -916,23 +916,23 @@ public class b implements c.a.p0.a.q1.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             try {
-                if (TextUtils.equals(this.f8070d, "2.0")) {
+                if (TextUtils.equals(this.f8078d, "2.0")) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("payId", str);
-                    if (!TextUtils.isEmpty(this.f8073g)) {
-                        jSONObject.put("payResult", Base64.encodeToString(this.f8073g.getBytes("UTF-8"), 2));
+                    if (!TextUtils.isEmpty(this.f8081g)) {
+                        jSONObject.put("payResult", Base64.encodeToString(this.f8081g.getBytes("UTF-8"), 2));
                     }
-                    c.a.p0.a.e0.d.g("SwanAppPaymentManager", "Success: sendSecondCallback, data = " + jSONObject + " status code = " + this.f8072f);
-                    this.f8069c.handleSchemeDispatchCallback(this.f8075i, UnitedSchemeUtility.wrapCallbackParams(jSONObject, this.f8072f, H(this.f8072f)).toString());
+                    c.a.p0.a.e0.d.g("SwanAppPaymentManager", "Success: sendSecondCallback, data = " + jSONObject + " status code = " + this.f8080f);
+                    this.f8077c.handleSchemeDispatchCallback(this.f8083i, UnitedSchemeUtility.wrapCallbackParams(jSONObject, this.f8080f, H(this.f8080f)).toString());
                     return;
                 }
-                c.a.p0.a.e0.d.g("SwanAppPaymentManager", "Success: sendSecondCallback, result = " + this.f8073g + " status code = " + this.f8072f);
-                this.f8069c.handleSchemeDispatchCallback(this.f8075i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(this.f8073g, this.f8072f, H(this.f8072f)).toString());
+                c.a.p0.a.e0.d.g("SwanAppPaymentManager", "Success: sendSecondCallback, result = " + this.f8081g + " status code = " + this.f8080f);
+                this.f8077c.handleSchemeDispatchCallback(this.f8083i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(this.f8081g, this.f8080f, H(this.f8080f)).toString());
             } catch (UnsupportedEncodingException | JSONException e2) {
                 c.a.p0.a.e0.d.g("SwanAppPaymentManager", "Fail: sendSecondCallback exception , exception = " + e2.getMessage() + " stack trace = " + Arrays.toString(e2.getStackTrace()));
-                CallbackHandler callbackHandler = this.f8069c;
-                String str2 = this.f8075i;
-                int i2 = this.f8072f;
+                CallbackHandler callbackHandler = this.f8077c;
+                String str2 = this.f8083i;
+                int i2 = this.f8080f;
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, i2, H(i2)).toString());
             }
         }
@@ -941,14 +941,14 @@ public class b implements c.a.p0.a.q1.g.a {
     public final void L() {
         c.a.p0.a.a2.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (eVar = this.f8067a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (eVar = this.f8075a) == null) {
             return;
         }
         c.a.p0.a.z1.b.f.e.f(eVar.x(), c.a.p0.a.h.swanapp_payment_illegal).F();
-        if (TextUtils.isEmpty(this.f8075i)) {
+        if (TextUtils.isEmpty(this.f8083i)) {
             return;
         }
-        this.f8069c.handleSchemeDispatchCallback(this.f8075i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.f8067a.x().getString(c.a.p0.a.h.swanapp_payment_illegal)).toString());
+        this.f8077c.handleSchemeDispatchCallback(this.f8083i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.f8075a.x().getString(c.a.p0.a.h.swanapp_payment_illegal)).toString());
     }
 
     public final void M(int i2, String str, String str2) {
@@ -963,19 +963,19 @@ public class b implements c.a.p0.a.q1.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             c.a.p0.a.e0.d.g("SwanAppPaymentManager", "start UnitedSchemeWalletDispatcher ACTION_REQUEST_WECHAT_PAYMENT");
-            if (c.a.p0.a.q1.a.b().e(this.f8067a, this.f8069c, this.f8068b)) {
-                this.f8072f = 0;
-                this.f8073g = null;
-                if (TextUtils.equals(this.f8070d, "2.0")) {
-                    c.a.p0.a.c1.a.R().e(this.f8071e, this);
+            if (c.a.p0.a.q1.a.b().e(this.f8075a, this.f8077c, this.f8076b)) {
+                this.f8080f = 0;
+                this.f8081g = null;
+                if (TextUtils.equals(this.f8078d, "2.0")) {
+                    c.a.p0.a.c1.a.R().e(this.f8079e, this);
                 } else {
                     K(null);
                 }
                 k.C("wechatH5Action", null, null);
                 return true;
             }
-            c.a.p0.a.e0.d.h("SwanAppPaymentManager", "Error: open webview error.  entity = " + this.f8068b.toString());
-            this.f8069c.handleSchemeDispatchCallback(this.f8075i, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            c.a.p0.a.e0.d.h("SwanAppPaymentManager", "Error: open webview error.  entity = " + this.f8076b.toString());
+            this.f8077c.handleSchemeDispatchCallback(this.f8083i, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             return false;
         }
         return invokeV.booleanValue;
@@ -994,13 +994,13 @@ public class b implements c.a.p0.a.q1.g.a {
                 str = null;
             }
             K(str);
-            if (c.a.p0.a.x1.c.f9705c.c()) {
+            if (c.a.p0.a.x1.c.f9713c.c()) {
                 return;
             }
-            if (c.a.p0.a.c1.a.a0().e(this.f8067a)) {
-                c.a.p0.a.x1.c.f9705c.e();
+            if (c.a.p0.a.c1.a.a0().e(this.f8075a)) {
+                c.a.p0.a.x1.c.f9713c.e();
             } else {
-                c.a.p0.a.x1.c.f9705c.f();
+                c.a.p0.a.x1.c.f9713c.f();
             }
         }
     }
@@ -1019,8 +1019,8 @@ public class b implements c.a.p0.a.q1.g.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, jSONObject)) == null) {
-            if (this.f8067a.m0() && jSONObject != null) {
-                b.a L = this.f8067a.L();
+            if (this.f8075a.m0() && jSONObject != null) {
+                b.a L = this.f8075a.L();
                 if (L.M() == null) {
                     return jSONObject;
                 }
@@ -1032,7 +1032,7 @@ public class b implements c.a.p0.a.q1.g.a {
                         jSONObject.put(TiebaStatic.Params.LOGID, optString);
                         jSONObject.put("module_id", optString2);
                     } catch (JSONException e2) {
-                        if (f8066j) {
+                        if (f8074j) {
                             e2.printStackTrace();
                         }
                     }
@@ -1047,11 +1047,11 @@ public class b implements c.a.p0.a.q1.g.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            if (f8066j) {
+            if (f8074j) {
                 String str2 = "start UnitedSchemeWalletDispatcher ACTION_REQUEST_ALI_PAYMENT orderInfo: " + str;
             }
             k.F(LBSTransAuthPresenter.AUTH_CHANNEL_ALI, "intoPayment", 0);
-            this.f8074h.c(this.f8067a.k(), str, new c(this));
+            this.f8082h.c(this.f8075a.k(), str, new c(this));
             return true;
         }
         return invokeL.booleanValue;
@@ -1074,19 +1074,19 @@ public class b implements c.a.p0.a.q1.g.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, str, str2)) == null) {
-            if (this.f8067a.j().e(this.f8067a.k())) {
+            if (this.f8075a.j().e(this.f8075a.k())) {
                 B(str);
                 return true;
             }
-            c.a.p0.a.a2.e eVar = this.f8067a;
+            c.a.p0.a.a2.e eVar = this.f8075a;
             if (eVar == null) {
                 return false;
             }
-            boolean e2 = eVar.j().e(this.f8067a.x());
+            boolean e2 = eVar.j().e(this.f8075a.x());
             if (!e2) {
                 k.M("show", 9, str2);
             }
-            this.f8067a.j().f(this.f8067a.k(), null, new a(this, e2, str2, str));
+            this.f8075a.j().f(this.f8075a.k(), null, new a(this, e2, str2, str));
             return true;
         }
         return invokeLL.booleanValue;

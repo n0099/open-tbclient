@@ -13,7 +13,7 @@ public final class ResUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f44030a;
+    public static Context f44092a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +49,7 @@ public final class ResUtils {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            Context context = f44030a;
+            Context context = f44092a;
             return context != null ? context.getString(i2) : "";
         }
         return (String) invokeI.objValue;
@@ -60,6 +60,6 @@ public final class ResUtils {
         if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || context == null) {
             return;
         }
-        f44030a = context.getApplicationContext();
+        f44092a = context.getApplicationContext();
     }
 }

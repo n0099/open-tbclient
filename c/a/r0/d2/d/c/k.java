@@ -45,7 +45,7 @@ public class k extends c.a.r0.d2.d.c.a<c2, AutoVideoCardViewHolder<d2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ k f17118b;
+        public final /* synthetic */ k f17128b;
 
         public a(k kVar) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class k extends c.a.r0.d2.d.c.a<c2, AutoVideoCardViewHolder<d2>> {
                     return;
                 }
             }
-            this.f17118b = kVar;
+            this.f17128b = kVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,7 +72,7 @@ public class k extends c.a.r0.d2.d.c.a<c2, AutoVideoCardViewHolder<d2>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var) == null) {
                 t.b().d(true);
-                this.f17118b.o0(view, d2Var);
+                this.f17128b.o0(view, d2Var);
             }
         }
     }
@@ -83,10 +83,10 @@ public class k extends c.a.r0.d2.d.c.a<c2, AutoVideoCardViewHolder<d2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ t0 f17119a;
+        public final /* synthetic */ t0 f17129a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ k f17120b;
+        public final /* synthetic */ k f17130b;
 
         public b(k kVar, t0 t0Var) {
             Interceptable interceptable = $ic;
@@ -103,8 +103,8 @@ public class k extends c.a.r0.d2.d.c.a<c2, AutoVideoCardViewHolder<d2>> {
                     return;
                 }
             }
-            this.f17120b = kVar;
-            this.f17119a = t0Var;
+            this.f17130b = kVar;
+            this.f17129a = t0Var;
         }
 
         @Override // c.a.l.a.InterfaceC0093a
@@ -113,13 +113,13 @@ public class k extends c.a.r0.d2.d.c.a<c2, AutoVideoCardViewHolder<d2>> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
                 return;
             }
-            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f17119a.getVideoContainer());
+            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f17129a.getVideoContainer());
             if (!(aVar instanceof d2)) {
-                ThreadCardUtils.jumpToPB(aVar, this.f17120b.f2957e, 17, false, computeViewArea);
+                ThreadCardUtils.jumpToPB(aVar, this.f17130b.f2958e, 17, false, computeViewArea);
                 return;
             }
             aVar.objType = 5;
-            ThreadCardUtils.jumpToPB(aVar, this.f17120b.f2957e, 17, false, computeViewArea);
+            ThreadCardUtils.jumpToPB(aVar, this.f17130b.f2958e, 17, false, computeViewArea);
         }
     }
 
@@ -129,7 +129,7 @@ public class k extends c.a.r0.d2.d.c.a<c2, AutoVideoCardViewHolder<d2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f17121e;
+        public final /* synthetic */ k f17131e;
 
         public c(k kVar) {
             Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public class k extends c.a.r0.d2.d.c.a<c2, AutoVideoCardViewHolder<d2>> {
                     return;
                 }
             }
-            this.f17121e = kVar;
+            this.f17131e = kVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -156,8 +156,8 @@ public class k extends c.a.r0.d2.d.c.a<c2, AutoVideoCardViewHolder<d2>> {
                 AutoVideoCardViewHolder autoVideoCardViewHolder = (AutoVideoCardViewHolder) view.getTag();
                 d2 d2Var = ((c2) nVar).w;
                 d2Var.objType = 1;
-                if (this.f17121e.r != null) {
-                    this.f17121e.r.a(autoVideoCardViewHolder.getView(), d2Var);
+                if (this.f17131e.r != null) {
+                    this.f17131e.r.a(autoVideoCardViewHolder.getView(), d2Var);
                 }
                 ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) d2Var, view.getContext(), 17, false, c.a.l.e.a((s) viewGroup, view, i2));
                 autoVideoCardViewHolder.getCardView().o(new a.C0095a(1));
@@ -195,20 +195,20 @@ public class k extends c.a.r0.d2.d.c.a<c2, AutoVideoCardViewHolder<d2>> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var)) == null) {
             if (d2Var != null) {
                 o oVar = new o();
-                oVar.f23806a = "20";
-                oVar.f23808c = d2Var.D;
-                oVar.f23811f = d2Var.W0;
-                oVar.f23812g = d2Var.Y0;
-                oVar.f23813h = d2Var.X0;
-                oVar.f23814i = "14";
-                oVar.q = String.valueOf(d2Var.S1);
+                oVar.f23822a = "20";
+                oVar.f23824c = d2Var.E;
+                oVar.f23827f = d2Var.X0;
+                oVar.f23828g = d2Var.Z0;
+                oVar.f23829h = d2Var.Y0;
+                oVar.f23830i = "14";
+                oVar.q = String.valueOf(d2Var.T1);
                 if (d2Var.p1() != null) {
                     oVar.k = String.valueOf(d2Var.p1().f14249a);
                 }
                 d2Var.getThreadData();
                 if (d2Var != null) {
                     d2Var.getThreadData();
-                    oVar.f23809d = String.valueOf(d2Var.T());
+                    oVar.f23825d = String.valueOf(d2Var.T());
                     d2Var.getThreadData();
                     oVar.v = d2Var.F0();
                     d2Var.getThreadData();
@@ -219,7 +219,7 @@ public class k extends c.a.r0.d2.d.c.a<c2, AutoVideoCardViewHolder<d2>> {
                         oVar.p = String.valueOf(d2Var.q1().is_vertical);
                     }
                 }
-                oVar.f23810e = TbadkCoreApplication.getCurrentAccount();
+                oVar.f23826e = TbadkCoreApplication.getCurrentAccount();
                 d2Var.getThreadData();
                 if (d2Var != null) {
                     d2Var.getThreadData();
@@ -285,7 +285,7 @@ public class k extends c.a.r0.d2.d.c.a<c2, AutoVideoCardViewHolder<d2>> {
             if (autoVideoCardViewHolder == null) {
                 return null;
             }
-            c2Var.w.S1 = D(i2) + 1;
+            c2Var.w.T1 = D(i2) + 1;
             autoVideoCardViewHolder.getCardView().q(i2);
             autoVideoCardViewHolder.setVideoStatsData(n0(c2Var.w));
             autoVideoCardViewHolder.onBindDataToView(c2Var.w);

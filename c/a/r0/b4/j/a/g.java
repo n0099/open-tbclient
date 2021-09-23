@@ -16,13 +16,13 @@ public class g implements Comparable<g> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f16267e;
+    public final int f16277e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f16268f;
+    public final int f16278f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16269g;
+    public int f16279g;
 
     public g(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public class g implements Comparable<g> {
                 return;
             }
         }
-        this.f16269g = 30;
-        this.f16267e = i2;
-        this.f16268f = i3;
+        this.f16279g = 30;
+        this.f16277e = i2;
+        this.f16278f = i3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,12 +51,12 @@ public class g implements Comparable<g> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-            int i2 = this.f16267e;
-            int i3 = this.f16268f;
+            int i2 = this.f16277e;
+            int i3 = this.f16278f;
             int i4 = i2 * i3;
-            int i5 = gVar.f16267e;
-            int i6 = gVar.f16268f;
-            return i4 == i5 * i6 ? this.f16269g - gVar.f16269g : (i2 * i3) - (i5 * i6);
+            int i5 = gVar.f16277e;
+            int i6 = gVar.f16278f;
+            return i4 == i5 * i6 ? this.f16279g - gVar.f16279g : (i2 * i3) - (i5 * i6);
         }
         return invokeL.intValue;
     }
@@ -65,16 +65,16 @@ public class g implements Comparable<g> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f16267e == 720 && this.f16268f == 480) {
+            if (this.f16277e == 720 && this.f16278f == 480) {
                 return CamcorderProfile.get(4);
             }
-            if (this.f16267e == 1280 && this.f16268f == 720) {
+            if (this.f16277e == 1280 && this.f16278f == 720) {
                 return CamcorderProfile.get(5);
             }
-            if (this.f16267e == 1920 && this.f16268f == 1080) {
+            if (this.f16277e == 1920 && this.f16278f == 1080) {
                 return CamcorderProfile.get(6);
             }
-            if (this.f16267e == 3840 && this.f16268f == 2160) {
+            if (this.f16277e == 3840 && this.f16278f == 2160) {
                 return CamcorderProfile.get(8);
             }
             return CamcorderProfile.get(5);
@@ -85,19 +85,19 @@ public class g implements Comparable<g> {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16269g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16279g : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16268f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16278f : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16267e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16277e : invokeV.intValue;
     }
 
     public boolean equals(Object obj) {
@@ -112,7 +112,7 @@ public class g implements Comparable<g> {
             }
             if (obj instanceof g) {
                 g gVar = (g) obj;
-                return this.f16267e == gVar.f16267e && this.f16268f == gVar.f16268f && this.f16269g == gVar.f16269g;
+                return this.f16277e == gVar.f16277e && this.f16278f == gVar.f16278f && this.f16279g == gVar.f16279g;
             }
             return false;
         }
@@ -149,7 +149,7 @@ public class g implements Comparable<g> {
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f16269g = i2;
+            this.f16279g = i2;
         }
     }
 
@@ -163,7 +163,7 @@ public class g implements Comparable<g> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.f16267e + "x" + this.f16268f + " " + this.f16269g + "p";
+            return this.f16277e + "x" + this.f16278f + " " + this.f16279g + "p";
         }
         return (String) invokeV.objValue;
     }
@@ -183,9 +183,9 @@ public class g implements Comparable<g> {
                 return;
             }
         }
-        this.f16269g = 30;
-        this.f16267e = i2;
-        this.f16268f = i3;
-        this.f16269g = i4;
+        this.f16279g = 30;
+        this.f16277e = i2;
+        this.f16278f = i3;
+        this.f16279g = i4;
     }
 }

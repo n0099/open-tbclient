@@ -22,13 +22,13 @@ public class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7051a;
+    public static final boolean f7059a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f7052b;
+    public static volatile boolean f7060b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<a> f7053c;
+    public static final List<a> f7061c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -37,16 +37,16 @@ public class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final c.a.p0.a.j2.p.c f7054a;
+        public final c.a.p0.a.j2.p.c f7062a;
 
         /* renamed from: b  reason: collision with root package name */
-        public JSONObject f7055b;
+        public JSONObject f7063b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f7056c;
+        public final long f7064c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f7057d;
+        public final String f7065d;
 
         public a(@NonNull c.a.p0.a.j2.p.c cVar, @NonNull String str) {
             Interceptable interceptable = $ic;
@@ -63,12 +63,12 @@ public class n {
                     return;
                 }
             }
-            this.f7054a = cVar;
-            this.f7057d = str;
-            this.f7056c = cVar.l();
-            synchronized (n.f7053c) {
-                if (n.f7052b) {
-                    n.f7053c.add(this);
+            this.f7062a = cVar;
+            this.f7065d = str;
+            this.f7064c = cVar.l();
+            synchronized (n.f7061c) {
+                if (n.f7060b) {
+                    n.f7061c.add(this);
                 }
             }
         }
@@ -87,9 +87,9 @@ public class n {
                 return;
             }
         }
-        f7051a = c.a.p0.a.k.f7077a;
-        f7052b = false;
-        f7053c = new ArrayList();
+        f7059a = c.a.p0.a.k.f7085a;
+        f7060b = false;
+        f7061c = new ArrayList();
     }
 
     public static void c(@NonNull HybridUbcFlow hybridUbcFlow) {
@@ -101,30 +101,30 @@ public class n {
                 return;
             }
             long g2 = f2.g();
-            synchronized (f7053c) {
-                if (f7051a) {
-                    String str = "size=" + f7053c.size();
+            synchronized (f7061c) {
+                if (f7059a) {
+                    String str = "size=" + f7061c.size();
                 }
-                f7052b = false;
+                f7060b = false;
                 JSONArray jSONArray = new JSONArray();
-                for (a aVar : f7053c) {
-                    if (aVar.f7056c <= g2) {
+                for (a aVar : f7061c) {
+                    if (aVar.f7064c <= g2) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("type", aVar.f7057d);
-                            if (aVar.f7054a != null) {
-                                aVar.f7054a.o(jSONObject);
+                            jSONObject.put("type", aVar.f7065d);
+                            if (aVar.f7062a != null) {
+                                aVar.f7062a.o(jSONObject);
                             }
-                            if (aVar.f7055b != null) {
-                                Iterator<String> keys = aVar.f7055b.keys();
+                            if (aVar.f7063b != null) {
+                                Iterator<String> keys = aVar.f7063b.keys();
                                 while (keys.hasNext()) {
                                     String next = keys.next();
-                                    jSONObject.put(next, aVar.f7055b.get(next));
+                                    jSONObject.put(next, aVar.f7063b.get(next));
                                 }
                             }
                             jSONArray.put(jSONObject);
                         } catch (JSONException unused) {
-                            boolean z = f7051a;
+                            boolean z = f7059a;
                         }
                     }
                 }
@@ -138,9 +138,9 @@ public class n {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (f7053c) {
-                f7052b = true;
-                f7053c.clear();
+            synchronized (f7061c) {
+                f7060b = true;
+                f7061c.clear();
             }
         }
     }

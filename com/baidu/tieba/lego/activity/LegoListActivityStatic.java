@@ -70,7 +70,7 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        b.f23692a.set(new l());
+        b.f23708a.set(new l());
         TbConfig.setLegoLibVersion("3.0.0");
         c.a.r0.p1.o.b.h().g(d.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
@@ -81,9 +81,9 @@ public class LegoListActivityStatic {
         c.a.r0.p1.m.b.a().b(new e());
         c.a.r0.p1.m.a.a().b(new c());
         c.a.r0.p1.m.a.a().b(new c.a.r0.p1.m.d());
-        c.a.q0.c.c.f12783a.set(c.a.r0.p1.m.b.a());
-        c.a.q0.c.b.f12781a.set(c.a.r0.p1.m.a.a());
-        d2.N3.set(true);
+        c.a.q0.c.c.f12797a.set(c.a.r0.p1.m.b.a());
+        c.a.q0.c.b.f12795a.set(c.a.r0.p1.m.a.a());
+        d2.O3.set(true);
     }
 
     public LegoListActivityStatic() {

@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -23,7 +24,7 @@ public class b {
                 str3 = "statecode={" + i2 + "};order_no={" + str + "};notify={" + str2 + "}";
             }
             try {
-                jSONObject.put("statusCode", i2);
+                jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, i2);
                 jSONObject.put("statusMsg", str2);
                 jSONObject.put("responseData", str3);
             } catch (JSONException e2) {

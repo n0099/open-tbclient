@@ -22,7 +22,7 @@ public class d implements c.a.p0.a.p.d.t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.c f7852a;
+        public final /* synthetic */ a.c f7860a;
 
         public a(d dVar, a.c cVar) {
             Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class d implements c.a.p0.a.p.d.t {
                     return;
                 }
             }
-            this.f7852a = cVar;
+            this.f7860a = cVar;
         }
 
         @Override // c.a.p0.a.h0.s.b.c
         public void a() {
             a.c cVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f7852a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f7860a) == null) {
                 return;
             }
             cVar.a();

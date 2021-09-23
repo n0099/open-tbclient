@@ -66,7 +66,7 @@ public class e extends c.a.e.l.e.a<p, PbAppEmptyHolder> implements t {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, pVar, pbAppEmptyHolder})) == null) {
             AdvertAppInfo advertAppInfo = pVar.getAdvertAppInfo();
             if (advertAppInfo != null) {
-                c.a.q0.s.q.e.g(advertAppInfo.f4, pVar.getPosition(), advertAppInfo.Y3 == -1001);
+                c.a.q0.s.q.e.g(advertAppInfo.g4, pVar.getPosition(), advertAppInfo.Z3 == -1001);
             }
             return pbAppEmptyHolder.getView();
         }

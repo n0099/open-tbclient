@@ -28,22 +28,22 @@ public abstract class BdImageViewTouchBase extends ImageView {
     public final int DEFAULT_ANIMATION_DURATION;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f46811e;
+    public float f46913e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f46812f;
+    public float f46914f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f46813g;
+    public boolean f46915g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f46814h;
+    public boolean f46916h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46815i;
+    public int f46917i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f46816j;
+    public int f46918j;
     public PointF k;
     public boolean l;
     public boolean m;
@@ -132,19 +132,19 @@ public abstract class BdImageViewTouchBase extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Drawable f46817e;
+        public final /* synthetic */ Drawable f46919e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Matrix f46818f;
+        public final /* synthetic */ Matrix f46920f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ float f46819g;
+        public final /* synthetic */ float f46921g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ float f46820h;
+        public final /* synthetic */ float f46922h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ BdImageViewTouchBase f46821i;
+        public final /* synthetic */ BdImageViewTouchBase f46923i;
 
         public a(BdImageViewTouchBase bdImageViewTouchBase, Drawable drawable, Matrix matrix, float f2, float f3) {
             Interceptable interceptable = $ic;
@@ -161,18 +161,18 @@ public abstract class BdImageViewTouchBase extends ImageView {
                     return;
                 }
             }
-            this.f46821i = bdImageViewTouchBase;
-            this.f46817e = drawable;
-            this.f46818f = matrix;
-            this.f46819g = f2;
-            this.f46820h = f3;
+            this.f46923i = bdImageViewTouchBase;
+            this.f46919e = drawable;
+            this.f46920f = matrix;
+            this.f46921g = f2;
+            this.f46922h = f3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46821i.setImageDrawable(this.f46817e, this.f46818f, this.f46819g, this.f46820h);
+                this.f46923i.setImageDrawable(this.f46919e, this.f46920f, this.f46921g, this.f46922h);
             }
         }
     }
@@ -183,22 +183,22 @@ public abstract class BdImageViewTouchBase extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public double f46822e;
+        public double f46924e;
 
         /* renamed from: f  reason: collision with root package name */
-        public double f46823f;
+        public double f46925f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ double f46824g;
+        public final /* synthetic */ double f46926g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f46825h;
+        public final /* synthetic */ long f46927h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ double f46826i;
+        public final /* synthetic */ double f46928i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ double f46827j;
+        public final /* synthetic */ double f46929j;
         public final /* synthetic */ BdImageViewTouchBase k;
 
         public b(BdImageViewTouchBase bdImageViewTouchBase, double d2, long j2, double d3, double d4) {
@@ -217,25 +217,25 @@ public abstract class BdImageViewTouchBase extends ImageView {
                 }
             }
             this.k = bdImageViewTouchBase;
-            this.f46824g = d2;
-            this.f46825h = j2;
-            this.f46826i = d3;
-            this.f46827j = d4;
-            this.f46822e = 0.0d;
-            this.f46823f = 0.0d;
+            this.f46926g = d2;
+            this.f46927h = j2;
+            this.f46928i = d3;
+            this.f46929j = d4;
+            this.f46924e = 0.0d;
+            this.f46925f = 0.0d;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                double min = Math.min(this.f46824g, System.currentTimeMillis() - this.f46825h);
-                double a2 = this.k.mEasing.a(min, 0.0d, this.f46826i, this.f46824g);
-                double a3 = this.k.mEasing.a(min, 0.0d, this.f46827j, this.f46824g);
-                this.k.panBy(a2 - this.f46822e, a3 - this.f46823f);
-                this.f46822e = a2;
-                this.f46823f = a3;
-                if (min < this.f46824g) {
+                double min = Math.min(this.f46926g, System.currentTimeMillis() - this.f46927h);
+                double a2 = this.k.mEasing.a(min, 0.0d, this.f46928i, this.f46926g);
+                double a3 = this.k.mEasing.a(min, 0.0d, this.f46929j, this.f46926g);
+                this.k.panBy(a2 - this.f46924e, a3 - this.f46925f);
+                this.f46924e = a2;
+                this.f46925f = a3;
+                if (min < this.f46926g) {
                     this.k.mHandler.post(this);
                     return;
                 }
@@ -255,22 +255,22 @@ public abstract class BdImageViewTouchBase extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f46828e;
+        public final /* synthetic */ float f46930e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f46829f;
+        public final /* synthetic */ long f46931f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ float f46830g;
+        public final /* synthetic */ float f46932g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ float f46831h;
+        public final /* synthetic */ float f46933h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ float f46832i;
+        public final /* synthetic */ float f46934i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ float f46833j;
+        public final /* synthetic */ float f46935j;
         public final /* synthetic */ BdImageViewTouchBase k;
 
         public c(BdImageViewTouchBase bdImageViewTouchBase, float f2, long j2, float f3, float f4, float f5, float f6) {
@@ -289,21 +289,21 @@ public abstract class BdImageViewTouchBase extends ImageView {
                 }
             }
             this.k = bdImageViewTouchBase;
-            this.f46828e = f2;
-            this.f46829f = j2;
-            this.f46830g = f3;
-            this.f46831h = f4;
-            this.f46832i = f5;
-            this.f46833j = f6;
+            this.f46930e = f2;
+            this.f46931f = j2;
+            this.f46932g = f3;
+            this.f46933h = f4;
+            this.f46934i = f5;
+            this.f46935j = f6;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                float min = Math.min(this.f46828e, (float) (System.currentTimeMillis() - this.f46829f));
-                this.k.zoomTo(this.f46831h + ((float) this.k.mEasing.b(min, 0.0d, this.f46830g, this.f46828e)), this.f46832i, this.f46833j);
-                if (min < this.f46828e) {
+                float min = Math.min(this.f46930e, (float) (System.currentTimeMillis() - this.f46931f));
+                this.k.zoomTo(this.f46933h + ((float) this.k.mEasing.b(min, 0.0d, this.f46932g, this.f46930e)), this.f46934i, this.f46935j);
+                if (min < this.f46930e) {
                     this.k.mHandler.post(this);
                     return;
                 }
@@ -320,7 +320,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdImageViewTouchBase f46834a;
+        public final /* synthetic */ BdImageViewTouchBase f46936a;
 
         public d(BdImageViewTouchBase bdImageViewTouchBase) {
             Interceptable interceptable = $ic;
@@ -337,7 +337,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
                     return;
                 }
             }
-            this.f46834a = bdImageViewTouchBase;
+            this.f46936a = bdImageViewTouchBase;
         }
 
         @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase.e
@@ -435,7 +435,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
             if (drawable == null) {
                 return 1.0f;
             }
-            return Math.max(drawable.getIntrinsicWidth() / this.f46815i, drawable.getIntrinsicHeight() / this.f46816j) * 8.0f;
+            return Math.max(drawable.getIntrinsicWidth() / this.f46917i, drawable.getIntrinsicHeight() / this.f46918j) * 8.0f;
         }
         return invokeV.floatValue;
     }
@@ -464,15 +464,15 @@ public abstract class BdImageViewTouchBase extends ImageView {
             if (f2 != -1.0f && f3 != -1.0f) {
                 float min = Math.min(f2, f3);
                 float max = Math.max(min, f3);
-                this.f46812f = min;
-                this.f46811e = max;
-                this.f46814h = true;
-                this.f46813g = true;
+                this.f46914f = min;
+                this.f46913e = max;
+                this.f46916h = true;
+                this.f46915g = true;
             } else {
-                this.f46812f = -1.0f;
-                this.f46811e = -1.0f;
-                this.f46814h = false;
-                this.f46813g = false;
+                this.f46914f = -1.0f;
+                this.f46913e = -1.0f;
+                this.f46916h = false;
+                this.f46915g = false;
             }
             if (matrix != null) {
                 this.mNextMatrix = new Matrix(matrix);
@@ -528,7 +528,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
             float height = bitmapRect.height();
             float width = bitmapRect.width();
             if (z2) {
-                int i2 = this.f46816j;
+                int i2 = this.f46918j;
                 float f5 = i2;
                 if (height < f5) {
                     f2 = ((f5 - height) / 2.0f) - bitmapRect.top;
@@ -544,7 +544,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
                     }
                 }
                 if (z) {
-                    float f8 = this.f46815i;
+                    float f8 = this.f46917i;
                     if (width < f8) {
                         f8 = (f8 - width) / 2.0f;
                         f4 = bitmapRect.left;
@@ -613,10 +613,10 @@ public abstract class BdImageViewTouchBase extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.f46811e == -1.0f) {
-                this.f46811e = computeMaxZoom();
+            if (this.f46913e == -1.0f) {
+                this.f46913e = computeMaxZoom();
             }
-            return this.f46811e;
+            return this.f46913e;
         }
         return invokeV.floatValue;
     }
@@ -625,10 +625,10 @@ public abstract class BdImageViewTouchBase extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (this.f46812f == -1.0f) {
-                this.f46812f = computeMinZoom();
+            if (this.f46914f == -1.0f) {
+                this.f46914f = computeMinZoom();
             }
-            return this.f46812f;
+            return this.f46914f;
         }
         return invokeV.floatValue;
     }
@@ -636,8 +636,8 @@ public abstract class BdImageViewTouchBase extends ImageView {
     public void getProperBaseMatrix(Drawable drawable, Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, drawable, matrix) == null) {
-            float f2 = this.f46815i;
-            float f3 = this.f46816j;
+            float f2 = this.f46917i;
+            float f3 = this.f46918j;
             float intrinsicWidth = drawable.getIntrinsicWidth();
             float intrinsicHeight = drawable.getIntrinsicHeight();
             matrix.reset();
@@ -650,8 +650,8 @@ public abstract class BdImageViewTouchBase extends ImageView {
     public void getProperBaseMatrix2(Drawable drawable, Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, drawable, matrix) == null) {
-            float f2 = this.f46815i;
-            float f3 = this.f46816j;
+            float f2 = this.f46917i;
+            float f3 = this.f46918j;
             float intrinsicWidth = drawable.getIntrinsicWidth();
             float intrinsicHeight = drawable.getIntrinsicHeight();
             matrix.reset();
@@ -715,12 +715,12 @@ public abstract class BdImageViewTouchBase extends ImageView {
         if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                int i8 = this.f46815i;
-                int i9 = this.f46816j;
+                int i8 = this.f46917i;
+                int i9 = this.f46918j;
                 int i10 = i4 - i2;
-                this.f46815i = i10;
+                this.f46917i = i10;
                 int i11 = i5 - i3;
-                this.f46816j = i11;
+                this.f46918j = i11;
                 i6 = i10 - i8;
                 i7 = i11 - i9;
                 PointF pointF = this.k;
@@ -759,11 +759,11 @@ public abstract class BdImageViewTouchBase extends ImageView {
                             zoomTo(r12);
                         }
                     } else if (z) {
-                        if (!this.f46814h) {
-                            this.f46812f = -1.0f;
+                        if (!this.f46916h) {
+                            this.f46914f = -1.0f;
                         }
-                        if (!this.f46813g) {
-                            this.f46811e = -1.0f;
+                        if (!this.f46915g) {
+                            this.f46913e = -1.0f;
                         }
                         setImageMatrix(getImageViewMatrix());
                         postTranslate(-i6, -i7);
@@ -944,14 +944,14 @@ public abstract class BdImageViewTouchBase extends ImageView {
     public void setMaxScale(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048622, this, f2) == null) {
-            this.f46811e = f2;
+            this.f46913e = f2;
         }
     }
 
     public void setMinScale(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048623, this, f2) == null) {
-            this.f46812f = f2;
+            this.f46914f = f2;
         }
     }
 
@@ -982,18 +982,18 @@ public abstract class BdImageViewTouchBase extends ImageView {
         if (!(interceptable == null || interceptable.invokeLL(1048627, this, rectF, rectF2) == null) || rectF == null) {
             return;
         }
-        if (rectF.top >= 0.0f && rectF.bottom <= this.f46816j) {
+        if (rectF.top >= 0.0f && rectF.bottom <= this.f46918j) {
             rectF2.top = 0.0f;
         }
-        if (rectF.left >= 0.0f && rectF.right <= this.f46815i) {
+        if (rectF.left >= 0.0f && rectF.right <= this.f46917i) {
             rectF2.left = 0.0f;
         }
         float f2 = rectF.top;
-        if (rectF2.top + f2 >= 0.0f && rectF.bottom > this.f46816j) {
+        if (rectF2.top + f2 >= 0.0f && rectF.bottom > this.f46918j) {
             rectF2.top = (int) (0.0f - f2);
         }
         float f3 = rectF.bottom;
-        int i2 = this.f46816j;
+        int i2 = this.f46918j;
         if (rectF2.top + f3 <= i2 + 0 && rectF.top < 0.0f) {
             rectF2.top = (int) ((i2 + 0) - f3);
         }
@@ -1002,7 +1002,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
             rectF2.left = (int) (0.0f - f4);
         }
         float f5 = rectF.right;
-        int i3 = this.f46815i;
+        int i3 = this.f46917i;
         if (rectF2.left + f5 <= i3 + 0) {
             rectF2.left = (int) ((i3 + 0) - f5);
         }
@@ -1130,12 +1130,12 @@ public abstract class BdImageViewTouchBase extends ImageView {
         this.mHandler = new Handler();
         this.mLayoutRunnable = null;
         this.mUserScaled = false;
-        this.f46811e = -1.0f;
-        this.f46812f = -1.0f;
+        this.f46913e = -1.0f;
+        this.f46914f = -1.0f;
         this.mDisplayMatrix = new Matrix();
         this.mMatrixValues = new float[9];
-        this.f46815i = -1;
-        this.f46816j = -1;
+        this.f46917i = -1;
+        this.f46918j = -1;
         this.k = new PointF();
         this.mScaleType = DisplayType.NONE;
         this.DEFAULT_ANIMATION_DURATION = 200;

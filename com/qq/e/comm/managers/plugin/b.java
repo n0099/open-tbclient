@@ -35,17 +35,17 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f75337a;
+    public static final Pattern f75656a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f75338b;
+    public final Context f75657b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PM.a.b f75339c;
+    public PM.a.b f75658c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Executor f75340d;
+    public Executor f75659d;
 
     /* loaded from: classes10.dex */
     public class a implements NetworkCallBack {
@@ -53,13 +53,13 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f75341a;
+        public final String f75660a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f75342b;
+        public final int f75661b;
 
         /* renamed from: c  reason: collision with root package name */
-        public /* synthetic */ b f75343c;
+        public /* synthetic */ b f75662c;
 
         public a(b bVar, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -76,9 +76,9 @@ public final class b {
                     return;
                 }
             }
-            this.f75343c = bVar;
-            this.f75341a = str;
-            this.f75342b = i2;
+            this.f75662c = bVar;
+            this.f75660a = str;
+            this.f75661b = i2;
         }
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x003d */
@@ -174,10 +174,10 @@ public final class b {
 
         private void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f75343c.f75339c == null) {
+            if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f75662c.f75658c == null) {
                 return;
             }
-            this.f75343c.f75339c.b();
+            this.f75662c.f75658c.b();
         }
 
         private boolean a(File file) {
@@ -185,7 +185,7 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, file)) == null) {
                 try {
-                    StringUtil.writeTo(this.f75342b + "#####" + this.f75341a, file);
+                    StringUtil.writeTo(this.f75661b + "#####" + this.f75660a, file);
                     return true;
                 } catch (IOException unused) {
                     GDTLogger.d("IOException While Update Plugin");
@@ -220,26 +220,26 @@ public final class b {
                 }
                 try {
                     try {
-                        File c2 = d.c(this.f75343c.f75338b);
-                        File f2 = d.f(this.f75343c.f75338b);
+                        File c2 = d.c(this.f75662c.f75657b);
+                        File f2 = d.f(this.f75662c.f75657b);
                         String a2 = a(response, c2);
                         boolean z = true;
-                        if (com.qq.e.comm.util.a.a().b(this.f75341a, a2)) {
+                        if (com.qq.e.comm.util.a.a().b(this.f75660a, a2)) {
                             if (a(f2)) {
-                                if (FileUtil.renameTo(c2, d.d(this.f75343c.f75338b)) && FileUtil.renameTo(f2, d.g(this.f75343c.f75338b))) {
+                                if (FileUtil.renameTo(c2, d.d(this.f75662c.f75657b)) && FileUtil.renameTo(f2, d.g(this.f75662c.f75657b))) {
                                     GDTLogger.d("PluginUpdateSucc:" + z);
-                                    if (this.f75343c.f75339c != null) {
-                                        this.f75343c.f75339c.a();
+                                    if (this.f75662c.f75658c != null) {
+                                        this.f75662c.f75658c.a();
                                     }
                                 }
                             }
                             z = false;
                             GDTLogger.d("PluginUpdateSucc:" + z);
-                            if (this.f75343c.f75339c != null) {
+                            if (this.f75662c.f75658c != null) {
                             }
                         } else {
                             c2.delete();
-                            GDTLogger.d(String.format("Fail to update plugin while verifying,sig=%s,md5=%s", this.f75341a, a2));
+                            GDTLogger.d(String.format("Fail to update plugin while verifying,sig=%s,md5=%s", this.f75660a, a2));
                             a();
                         }
                         sb = new StringBuilder("TIMESTAMP_AFTER_DOWNPLUGIN:");
@@ -250,10 +250,10 @@ public final class b {
                     }
                     sb.append(System.nanoTime());
                     sb.append(";sig=");
-                    sb.append(this.f75341a);
+                    sb.append(this.f75660a);
                     GDTLogger.d(sb.toString());
                 } catch (Throwable th) {
-                    GDTLogger.d("TIMESTAMP_AFTER_DOWNPLUGIN:" + System.nanoTime() + ";sig=" + this.f75341a);
+                    GDTLogger.d("TIMESTAMP_AFTER_DOWNPLUGIN:" + System.nanoTime() + ";sig=" + this.f75660a);
                     throw th;
                 }
             }
@@ -273,7 +273,7 @@ public final class b {
                 return;
             }
         }
-        f75337a = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
+        f75656a = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
     }
 
     public b(Context context, Executor executor) {
@@ -291,14 +291,14 @@ public final class b {
                 return;
             }
         }
-        this.f75338b = context.getApplicationContext();
-        this.f75340d = executor;
+        this.f75657b = context.getApplicationContext();
+        this.f75659d = executor;
     }
 
     public final void a(PM.a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f75339c = bVar;
+            this.f75658c = bVar;
         }
     }
 
@@ -307,7 +307,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || StringUtil.isEmpty(str) || StringUtil.isEmpty(str2)) {
             return;
         }
-        Matcher matcher = f75337a.matcher(str2);
+        Matcher matcher = f75656a.matcher(str2);
         boolean z = true;
         int parseInteger = StringUtil.parseInteger(matcher.matches() ? matcher.group(1) : "0", 0);
         if (parseInteger < 1260) {
@@ -316,7 +316,7 @@ public final class b {
         }
         if (z) {
             GDTLogger.d("TIMESTAP_BEFORE_OWN_PLUGIN:" + System.nanoTime());
-            NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(this, str, parseInteger), this.f75340d);
+            NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(this, str, parseInteger), this.f75659d);
         }
     }
 }

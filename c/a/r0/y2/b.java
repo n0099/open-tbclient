@@ -19,7 +19,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f29286a;
+    public static String f29306a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class b {
                 return;
             }
         }
-        f29286a = TbadkCoreApplication.getInst().getApp().getExternalCacheDir() + "/nadDir";
+        f29306a = TbadkCoreApplication.getInst().getApp().getExternalCacheDir() + "/nadDir";
     }
 
     public static File a(@NonNull String str) {
@@ -120,7 +120,7 @@ public class b {
                 return sb.toString();
             }
             StringBuilder sb2 = new StringBuilder();
-            sb2.append(f29286a);
+            sb2.append(f29306a);
             File file2 = new File(sb2.toString());
             if (!file2.exists()) {
                 file2.mkdirs();

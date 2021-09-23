@@ -31,13 +31,13 @@ public class f extends g.f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.p0.n.h.e f4500h;
+    public final c.a.p0.n.h.e f4508h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.a.p0.n.f.d f4501i;
+    public final c.a.p0.n.f.d f4509i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.p0.a.n2.g.b f4502j;
+    public c.a.p0.a.n2.g.b f4510j;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -45,7 +45,7 @@ public class f extends g.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f4503e;
+        public final /* synthetic */ f f4511e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -62,14 +62,14 @@ public class f extends g.f {
                     return;
                 }
             }
-            this.f4503e = fVar;
+            this.f4511e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4503e.j();
+                this.f4511e.j();
             }
         }
     }
@@ -87,7 +87,7 @@ public class f extends g.f {
                 return;
             }
         }
-        k = k.f7077a;
+        k = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,8 +108,8 @@ public class f extends g.f {
                 return;
             }
         }
-        this.f4500h = eVar;
-        this.f4501i = dVar;
+        this.f4508h = eVar;
+        this.f4509i = dVar;
     }
 
     @Override // c.a.p0.a.a1.g.f
@@ -152,10 +152,10 @@ public class f extends g.f {
     public final void j() {
         c.a.p0.n.h.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (eVar = this.f4500h) == null || eVar.f11886h != 0 || e.w()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (eVar = this.f4508h) == null || eVar.f11894h != 0 || e.w()) {
             return;
         }
-        e.e(this.f4500h.f11885g + File.separator + this.f4500h.f11887i);
+        e.e(this.f4508h.f11893g + File.separator + this.f4508h.f11895i);
     }
 
     public final boolean k(InputStream inputStream, String str) {
@@ -212,9 +212,9 @@ public class f extends g.f {
             return;
         }
         boolean z = k;
-        if (this.f4502j == null) {
+        if (this.f4510j == null) {
             c.a.p0.a.n2.g.b bVar = new c.a.p0.a.n2.g.b(str);
-            this.f4502j = bVar;
+            this.f4510j = bVar;
             bVar.startWatching();
         }
     }
@@ -225,18 +225,18 @@ public class f extends g.f {
             return;
         }
         boolean z = k;
-        c.a.p0.a.n2.g.b bVar = this.f4502j;
+        c.a.p0.a.n2.g.b bVar = this.f4510j;
         if (bVar == null) {
             return;
         }
         bVar.stopWatching();
-        this.f4502j = null;
+        this.f4510j = null;
     }
 
     public final void p(String str, String str2) {
         c.a.p0.n.f.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || (dVar = this.f4501i) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || (dVar = this.f4509i) == null) {
             return;
         }
         dVar.n(str, str2);
@@ -249,7 +249,7 @@ public class f extends g.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, bufferedInputStream, str)) == null) {
             c.a.p0.a.f1.g.a d2 = c.a.p0.a.f1.g.a.d(str);
-            c.a.p0.n.h.e eVar = this.f4500h;
+            c.a.p0.n.h.e eVar = this.f4508h;
             if (eVar == null) {
                 c.a.p0.a.q2.a aVar = new c.a.p0.a.q2.a();
                 aVar.j(11L);
@@ -258,14 +258,14 @@ public class f extends g.f {
                 c.a.p0.a.q2.e.a().f(aVar);
                 return aVar;
             }
-            int i3 = eVar.f11886h;
+            int i3 = eVar.f11894h;
             boolean z = true;
             if (i3 == 1) {
                 c.a.p0.a.p.b.a.e g2 = c.a.p0.a.c1.b.g();
-                c.a.p0.n.h.e eVar2 = this.f4500h;
-                i2 = g2.a(eVar2.f11885g, String.valueOf(eVar2.f11887i));
+                c.a.p0.n.h.e eVar2 = this.f4508h;
+                i2 = g2.a(eVar2.f11893g, String.valueOf(eVar2.f11895i));
             } else if (i3 == 0) {
-                i2 = e.C0114e.i(eVar.f11885g, String.valueOf(eVar.f11887i));
+                i2 = e.C0114e.i(eVar.f11893g, String.valueOf(eVar.f11895i));
             } else {
                 c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();
                 aVar2.j(11L);
@@ -315,12 +315,12 @@ public class f extends g.f {
                 long currentTimeMillis = System.currentTimeMillis();
                 try {
                     a.b h2 = c.a.p0.a.a1.h.a.h(bufferedInputStream);
-                    int i4 = h2 == null ? -1 : h2.f4523b;
+                    int i4 = h2 == null ? -1 : h2.f4531b;
                     boolean z2 = i4 != -1;
                     m(z2);
                     if (z2) {
                         c0115a = c.a.p0.a.a1.h.a.c(bufferedInputStream, i2, i4);
-                        if (c0115a == null || !c0115a.f4520a) {
+                        if (c0115a == null || !c0115a.f4528a) {
                             z = false;
                         }
                     } else {
@@ -333,10 +333,10 @@ public class f extends g.f {
                     if (k) {
                         c.a.p0.a.a1.h.a.g((int) (currentTimeMillis2 - currentTimeMillis));
                     }
-                    if (this.f4501i != null) {
+                    if (this.f4509i != null) {
                         Bundle bundle = new Bundle();
                         bundle.putInt("download_package_type_id", i4);
-                        h.a(this.f4501i, bundle, "event_download_package_type");
+                        h.a(this.f4509i, bundle, "event_download_package_type");
                     }
                     o();
                     if (z) {
@@ -346,7 +346,7 @@ public class f extends g.f {
                     aVar6.j(11L);
                     if (z2) {
                         aVar6.h(2330L);
-                        aVar6.e("decrypt failed:" + c0115a.f4521b);
+                        aVar6.e("decrypt failed:" + c0115a.f4529b);
                     } else {
                         aVar6.h(2320L);
                         aVar6.e("unzip failed");

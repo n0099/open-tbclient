@@ -35,34 +35,34 @@ public class r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ActiveCenterData f12646a;
+    public ActiveCenterData f12654a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12647b;
+    public boolean f12655b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12648c;
+    public boolean f12656c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f12649d;
+    public boolean f12657d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f12650e;
+    public final f f12658e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g f12651f;
+    public final g f12659f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final i f12652g;
+    public final i f12660g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final b f12653h;
+    public final b f12661h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final h f12654i;
+    public final h f12662i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final d f12655j;
+    public final d f12663j;
     public final c k;
 
     /* loaded from: classes3.dex */
@@ -77,7 +77,7 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ r f12656c;
+        public final /* synthetic */ r f12664c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(r rVar, int i2) {
@@ -98,7 +98,7 @@ public class r {
                     return;
                 }
             }
-            this.f12656c = rVar;
+            this.f12664c = rVar;
         }
 
         @Override // c.a.q0.a.r.e
@@ -111,10 +111,10 @@ public class r {
         @Override // c.a.q0.a.r.e
         public void d(TbPageContext<?> tbPageContext) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) || this.f12656c.f12646a == null || this.f12656c.f12646a.mission == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) || this.f12664c.f12654a == null || this.f12664c.f12654a.mission == null) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f12656c.f12646a.mission.final_reward_url});
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f12664c.f12654a.mission.final_reward_url});
         }
     }
 
@@ -124,7 +124,7 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ r f12657c;
+        public final /* synthetic */ r f12665c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(r rVar, int i2) {
@@ -145,7 +145,7 @@ public class r {
                     return;
                 }
             }
-            this.f12657c = rVar;
+            this.f12665c = rVar;
         }
 
         @Override // c.a.q0.a.r.e
@@ -158,10 +158,10 @@ public class r {
         @Override // c.a.q0.a.r.e
         public void d(TbPageContext<?> tbPageContext) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) || this.f12657c.f12646a == null || this.f12657c.f12646a.mission == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) || this.f12665c.f12654a == null || this.f12665c.f12654a.mission == null) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f12657c.f12646a.mission.final_reward_url});
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f12665c.f12654a.mission.final_reward_url});
         }
     }
 
@@ -176,7 +176,7 @@ public class r {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TbPageContext f12658e;
+            public final /* synthetic */ TbPageContext f12666e;
 
             public a(d dVar, TbPageContext tbPageContext) {
                 Interceptable interceptable = $ic;
@@ -193,14 +193,14 @@ public class r {
                         return;
                     }
                 }
-                this.f12658e = tbPageContext;
+                this.f12666e = tbPageContext;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.q0.s.a0.b.e(this.f12658e.getPageActivity(), 1);
+                    c.a.q0.s.a0.b.e(this.f12666e.getPageActivity(), 1);
                 }
             }
         }
@@ -248,10 +248,10 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f12659a;
+        public int f12667a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ r f12660b;
+        public final /* synthetic */ r f12668b;
 
         public e(r rVar, int i2) {
             Interceptable interceptable = $ic;
@@ -268,8 +268,8 @@ public class r {
                     return;
                 }
             }
-            this.f12660b = rVar;
-            this.f12659a = i2;
+            this.f12668b = rVar;
+            this.f12667a = i2;
         }
 
         public abstract void a();
@@ -284,7 +284,7 @@ public class r {
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f12660b.f12646a == null || this.f12660b.f12646a.mission == null || this.f12660b.f12646a.getCurTaskType() != this.f12659a) ? false : true : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f12668b.f12654a == null || this.f12668b.f12654a.mission == null || this.f12668b.f12654a.getCurTaskType() != this.f12667a) ? false : true : invokeV.booleanValue;
         }
 
         public abstract void d(TbPageContext<?> tbPageContext);
@@ -303,10 +303,10 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public t f12661c;
+        public t f12669c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ r f12662d;
+        public final /* synthetic */ r f12670d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(r rVar, int i2) {
@@ -327,26 +327,26 @@ public class r {
                     return;
                 }
             }
-            this.f12662d = rVar;
-            this.f12661c = new t();
+            this.f12670d = rVar;
+            this.f12669c = new t();
         }
 
         @Override // c.a.q0.a.r.e
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f12661c == null || this.f12662d.f12646a == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f12669c == null || this.f12670d.f12654a == null) {
                 return;
             }
-            this.f12661c.a();
+            this.f12669c.a();
         }
 
         @Override // c.a.q0.a.r.e
         public void d(TbPageContext<?> tbPageContext) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) || this.f12661c == null || this.f12662d.f12646a == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) || this.f12669c == null || this.f12670d.f12654a == null) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f12662d.f12646a.mission.final_reward_url});
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f12670d.f12654a.mission.final_reward_url});
         }
     }
 
@@ -356,10 +356,10 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f12663c;
+        public boolean f12671c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ r f12664d;
+        public final /* synthetic */ r f12672d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(r rVar, int i2) {
@@ -380,16 +380,16 @@ public class r {
                     return;
                 }
             }
-            this.f12664d = rVar;
-            this.f12663c = false;
+            this.f12672d = rVar;
+            this.f12671c = false;
         }
 
         @Override // c.a.q0.a.r.e
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && f() && !this.f12663c) {
-                this.f12664d.t();
-                this.f12663c = true;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && f() && !this.f12671c) {
+                this.f12672d.t();
+                this.f12671c = true;
             }
         }
 
@@ -424,7 +424,7 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ r f12665c;
+        public final /* synthetic */ r f12673c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(r rVar, int i2) {
@@ -445,7 +445,7 @@ public class r {
                     return;
                 }
             }
-            this.f12665c = rVar;
+            this.f12673c = rVar;
         }
 
         @Override // c.a.q0.a.r.e
@@ -458,10 +458,10 @@ public class r {
         @Override // c.a.q0.a.r.e
         public void d(TbPageContext<?> tbPageContext) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) || this.f12665c.f12646a == null || this.f12665c.f12646a.mission == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) || this.f12673c.f12654a == null || this.f12673c.f12654a.mission == null) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f12665c.f12646a.mission.final_reward_url});
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f12673c.f12654a.mission.final_reward_url});
         }
     }
 
@@ -471,7 +471,7 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ r f12666c;
+        public final /* synthetic */ r f12674c;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
@@ -479,7 +479,7 @@ public class r {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TbPageContext f12667e;
+            public final /* synthetic */ TbPageContext f12675e;
 
             public a(i iVar, TbPageContext tbPageContext) {
                 Interceptable interceptable = $ic;
@@ -496,14 +496,14 @@ public class r {
                         return;
                     }
                 }
-                this.f12667e = tbPageContext;
+                this.f12675e = tbPageContext;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.q0.s.a0.b.e(this.f12667e.getPageActivity(), 1);
+                    c.a.q0.s.a0.b.e(this.f12675e.getPageActivity(), 1);
                 }
             }
         }
@@ -527,14 +527,14 @@ public class r {
                     return;
                 }
             }
-            this.f12666c = rVar;
+            this.f12674c = rVar;
         }
 
         @Override // c.a.q0.a.r.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f12666c.t();
+                this.f12674c.t();
             }
         }
 
@@ -552,7 +552,7 @@ public class r {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static r f12668a;
+        public static r f12676a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -568,7 +568,7 @@ public class r {
                     return;
                 }
             }
-            f12668a = new r(null);
+            f12676a = new r(null);
         }
     }
 
@@ -579,7 +579,7 @@ public class r {
     public static r g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? j.f12668a : (r) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? j.f12676a : (r) invokeV.objValue;
     }
 
     public final void b() {
@@ -592,13 +592,13 @@ public class r {
     public ActiveCenterData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12646a : (ActiveCenterData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12654a : (ActiveCenterData) invokeV.objValue;
     }
 
     public b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12653h : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12661h : (b) invokeV.objValue;
     }
 
     public c e() {
@@ -610,37 +610,37 @@ public class r {
     public d f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12655j : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12663j : (d) invokeV.objValue;
     }
 
     public f h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12650e : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12658e : (f) invokeV.objValue;
     }
 
     public g i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12651f : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12659f : (g) invokeV.objValue;
     }
 
     public h j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12654i : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12662i : (h) invokeV.objValue;
     }
 
     public i k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f12652g : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f12660g : (i) invokeV.objValue;
     }
 
     public void l(TbPageContext<?> tbPageContext) {
         ActiveCenterData activeCenterData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, tbPageContext) == null) || (activeCenterData = this.f12646a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, tbPageContext) == null) || (activeCenterData = this.f12654a) == null) {
             return;
         }
         int curTaskType = activeCenterData.getCurTaskType();
@@ -667,7 +667,7 @@ public class r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ActiveCenterData activeCenterData = this.f12646a;
+            ActiveCenterData activeCenterData = this.f12654a;
             return activeCenterData != null && activeCenterData.is_new_window;
         }
         return invokeV.booleanValue;
@@ -693,15 +693,15 @@ public class r {
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f12648c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f12656c : invokeV.booleanValue;
     }
 
     public final boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            ActiveCenterData activeCenterData = this.f12646a;
-            return (activeCenterData == null || activeCenterData.mission == null || !m() || n() || this.f12647b) ? false : true;
+            ActiveCenterData activeCenterData = this.f12654a;
+            return (activeCenterData == null || activeCenterData.mission == null || !m() || n() || this.f12655b) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -711,7 +711,7 @@ public class r {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, activeCenterData) == null) || activeCenterData == null) {
             return;
         }
-        this.f12646a = activeCenterData;
+        this.f12654a = activeCenterData;
         Activity b2 = c.a.e.a.b.f().b();
         if (b2 == null || !"MainTabActivity".equals(b2.getClass().getSimpleName())) {
             return;
@@ -731,8 +731,8 @@ public class r {
 
     public void s() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && !this.f12649d && c.a.q0.a.d.y().I()) {
-            this.f12649d = true;
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && !this.f12657d && c.a.q0.a.d.y().I()) {
+            this.f12657d = true;
         }
     }
 
@@ -740,7 +740,7 @@ public class r {
         ActiveCenterData activeCenterData;
         ActiveCenterData.ActiveCenterMissionData activeCenterMissionData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (activeCenterData = this.f12646a) == null || (activeCenterMissionData = activeCenterData.mission) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (activeCenterData = this.f12654a) == null || (activeCenterMissionData = activeCenterData.mission) == null) {
             return;
         }
         int i2 = activeCenterMissionData.active_id;
@@ -760,7 +760,7 @@ public class r {
     public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.f12647b = z;
+            this.f12655b = z;
         }
     }
 
@@ -777,21 +777,21 @@ public class r {
                 return;
             }
         }
-        this.f12647b = false;
-        this.f12648c = true;
-        this.f12649d = false;
-        this.f12650e = new f(this, 12);
-        this.f12651f = new g(this, 6);
-        this.f12652g = new i(this, 10);
-        this.f12653h = new b(this, 7);
-        this.f12654i = new h(this, 5);
-        this.f12655j = new d(this, 9);
+        this.f12655b = false;
+        this.f12656c = true;
+        this.f12657d = false;
+        this.f12658e = new f(this, 12);
+        this.f12659f = new g(this, 6);
+        this.f12660g = new i(this, 10);
+        this.f12661h = new b(this, 7);
+        this.f12662i = new h(this, 5);
+        this.f12663j = new d(this, 9);
         this.k = new c(this, 13);
         if (c.a.q0.a.d.y().s()) {
-            this.f12648c = c.a.q0.s.d0.b.j().g("key_delete_mission_home_entrance", true);
+            this.f12656c = c.a.q0.s.d0.b.j().g("key_delete_mission_home_entrance", true);
             return;
         }
-        this.f12648c = true;
+        this.f12656c = true;
         c.a.q0.s.d0.b.j().t("key_delete_mission_home_entrance", true);
     }
 }

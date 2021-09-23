@@ -17,10 +17,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f23872a;
+    public String f23888a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<DressItemData> f23873b;
+    public List<DressItemData> f23889b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -39,13 +39,13 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23872a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23888a : (String) invokeV.objValue;
     }
 
     public List<DressItemData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23873b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23889b : (List) invokeV.objValue;
     }
 
     public void c(ThemePendantInMain themePendantInMain) {
@@ -53,10 +53,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themePendantInMain) == null) || themePendantInMain == null) {
             return;
         }
-        this.f23872a = themePendantInMain.pendant_category;
-        this.f23873b = new ArrayList();
+        this.f23888a = themePendantInMain.pendant_category;
+        this.f23889b = new ArrayList();
         for (ThemeBgProp themeBgProp : themePendantInMain.props) {
-            this.f23873b.add(new DressItemData(themeBgProp));
+            this.f23889b.add(new DressItemData(themeBgProp));
         }
     }
 }

@@ -14,10 +14,10 @@ public final class B1 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ byte[] f76765a;
+    public final /* synthetic */ byte[] f77084a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f76766b;
+    public final /* synthetic */ String f77085b;
 
     public B1(byte[] bArr, String str) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class B1 implements Runnable {
                 return;
             }
         }
-        this.f76765a = bArr;
-        this.f76766b = str;
+        this.f77084a = bArr;
+        this.f77085b = str;
     }
 
     @Override // java.lang.Runnable
@@ -43,8 +43,8 @@ public final class B1 implements Runnable {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            byte[] bArr = this.f76765a;
-            String str = this.f76766b;
+            byte[] bArr = this.f77084a;
+            String str = this.f77085b;
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
             File file = new File(str);
             String substring = str.substring(0, str.lastIndexOf("/"));

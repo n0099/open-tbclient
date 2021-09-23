@@ -12,7 +12,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g[] f42723a;
+    public g[] f42785a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class a {
                 return;
             }
         }
-        this.f42723a = new g[]{new h(8, 0), new i(0, 1), new i(1, 1), new h(7, 1)};
+        this.f42785a = new g[]{new h(8, 0), new i(0, 1), new i(1, 1), new h(7, 1)};
     }
 
     public byte[] a(byte[] bArr) {
@@ -37,17 +37,17 @@ public class a {
             return (byte[]) invokeL.objValue;
         }
         f fVar = new f();
-        byte[] a2 = c.a(bArr, bArr.length + ((this.f42723a.length + 1) * f.f42729a));
+        byte[] a2 = c.a(bArr, bArr.length + ((this.f42785a.length + 1) * f.f42791a));
         c.a(a2, fVar.a(), bArr.length);
         int i2 = 0;
         while (true) {
-            g[] gVarArr = this.f42723a;
+            g[] gVarArr = this.f42785a;
             if (i2 >= gVarArr.length) {
-                return Arrays.copyOf(fVar.a(), f.f42729a);
+                return Arrays.copyOf(fVar.a(), f.f42791a);
             }
             g gVar = gVarArr[i2];
             i2++;
-            int length = bArr.length + (f.f42729a * i2);
+            int length = bArr.length + (f.f42791a * i2);
             fVar.a(gVar.a(a2, 0, length), gVar.a(), gVar.b(), gVar.c());
             c.a(a2, fVar.a(), length);
         }

@@ -16,13 +16,13 @@ public abstract class d extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ByteBuffer f34261a;
+    public final ByteBuffer f34284a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f34262b;
+    public final int f34285b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f34263c;
+    public final int f34286c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public d(int i2) {
@@ -63,10 +63,10 @@ public abstract class d extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             m();
-            this.f34261a.flip();
-            if (this.f34261a.remaining() > 0) {
-                p(this.f34261a);
-                ByteBuffer byteBuffer = this.f34261a;
+            this.f34284a.flip();
+            if (this.f34284a.remaining() > 0) {
+                p(this.f34284a);
+                ByteBuffer byteBuffer = this.f34284a;
                 byteBuffer.position(byteBuffer.limit());
             }
             return l();
@@ -107,7 +107,7 @@ public abstract class d extends c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Character.valueOf(c2)})) == null) {
-            this.f34261a.putChar(c2);
+            this.f34284a.putChar(c2);
             n();
             return this;
         }
@@ -119,17 +119,17 @@ public abstract class d extends c {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f34261a.flip();
-            while (this.f34261a.remaining() >= this.f34263c) {
-                o(this.f34261a);
+            this.f34284a.flip();
+            while (this.f34284a.remaining() >= this.f34286c) {
+                o(this.f34284a);
             }
-            this.f34261a.compact();
+            this.f34284a.compact();
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f34261a.remaining() >= 8) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f34284a.remaining() >= 8) {
             return;
         }
         m();
@@ -143,20 +143,20 @@ public abstract class d extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, byteBuffer)) == null) {
-            if (byteBuffer.remaining() <= this.f34261a.remaining()) {
-                this.f34261a.put(byteBuffer);
+            if (byteBuffer.remaining() <= this.f34284a.remaining()) {
+                this.f34284a.put(byteBuffer);
                 n();
                 return this;
             }
-            int position = this.f34262b - this.f34261a.position();
+            int position = this.f34285b - this.f34284a.position();
             for (int i2 = 0; i2 < position; i2++) {
-                this.f34261a.put(byteBuffer.get());
+                this.f34284a.put(byteBuffer.get());
             }
             m();
-            while (byteBuffer.remaining() >= this.f34263c) {
+            while (byteBuffer.remaining() >= this.f34286c) {
                 o(byteBuffer);
             }
-            this.f34261a.put(byteBuffer);
+            this.f34284a.put(byteBuffer);
             return this;
         }
         return (f) invokeL.objValue;
@@ -178,9 +178,9 @@ public abstract class d extends c {
             }
         }
         n.d(i3 % i2 == 0);
-        this.f34261a = ByteBuffer.allocate(i3 + 7).order(ByteOrder.LITTLE_ENDIAN);
-        this.f34262b = i3;
-        this.f34263c = i2;
+        this.f34284a = ByteBuffer.allocate(i3 + 7).order(ByteOrder.LITTLE_ENDIAN);
+        this.f34285b = i3;
+        this.f34286c = i2;
     }
 
     @Override // c.i.d.d.f, c.i.d.d.j
@@ -188,7 +188,7 @@ public abstract class d extends c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            this.f34261a.putInt(i2);
+            this.f34284a.putInt(i2);
             n();
             return this;
         }
@@ -200,7 +200,7 @@ public abstract class d extends c {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-            this.f34261a.putLong(j2);
+            this.f34284a.putLong(j2);
             n();
             return this;
         }

@@ -51,7 +51,7 @@ public class d extends a0 {
         int optInt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             String uuid = UUID.randomUUID().toString();
@@ -63,7 +63,7 @@ public class d extends a0 {
                 try {
                     optInt = new JSONObject(str2).optInt("delta", 1);
                 } catch (JSONException e2) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e2.printStackTrace();
                     }
                     c.a.p0.a.e0.d.b("navigateBack", "params parse fail");
@@ -78,7 +78,7 @@ public class d extends a0 {
                 return false;
             }
             int k = W.k();
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str3 = "back delta: " + optInt;
             }
             if (k == 1) {
@@ -89,7 +89,7 @@ public class d extends a0 {
             if (optInt >= k) {
                 optInt = k - 1;
             }
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str4 = "real back delta: " + optInt;
             }
             c.a.p0.a.h0.g.d j2 = W.j((k - optInt) - 1);
@@ -97,7 +97,7 @@ public class d extends a0 {
             c.a.p0.a.r1.i.c(1, uuid);
             c.a.p0.a.v2.g.a(W, context);
             g.b i2 = W.i("navigateBack");
-            i2.n(c.a.p0.a.h0.g.g.f5930i, c.a.p0.a.h0.g.g.f5929h);
+            i2.n(c.a.p0.a.h0.g.g.f5938i, c.a.p0.a.h0.g.g.f5937h);
             i2.h(optInt);
             i2.a();
             c.a.p0.a.h0.g.f o = W.o();

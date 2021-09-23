@@ -16,14 +16,14 @@ public class c implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9165b;
+    public static final boolean f9173b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f9166c;
+    public static volatile c f9174c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f9167a;
+    public List<a> f9175a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class c implements a {
                 return;
             }
         }
-        f9165b = k.f7077a;
+        f9173b = k.f7085a;
     }
 
     public c() {
@@ -55,7 +55,7 @@ public class c implements a {
             }
         }
         ArrayList arrayList = new ArrayList();
-        this.f9167a = arrayList;
+        this.f9175a = arrayList;
         arrayList.add(new b());
     }
 
@@ -63,14 +63,14 @@ public class c implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f9166c == null) {
+            if (f9174c == null) {
                 synchronized (c.class) {
-                    if (f9166c == null) {
-                        f9166c = new c();
+                    if (f9174c == null) {
+                        f9174c = new c();
                     }
                 }
             }
-            return f9166c;
+            return f9174c;
         }
         return (c) invokeV.objValue;
     }
@@ -79,11 +79,11 @@ public class c implements a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (f9165b) {
+            if (f9173b) {
                 String str2 = "markStart: " + str;
             }
-            for (int i2 = 0; i2 < this.f9167a.size(); i2++) {
-                this.f9167a.get(i2).a(str);
+            for (int i2 = 0; i2 < this.f9175a.size(); i2++) {
+                this.f9175a.get(i2).a(str);
             }
         }
     }
@@ -92,11 +92,11 @@ public class c implements a {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (f9165b) {
+            if (f9173b) {
                 String str2 = "markEnd: " + str;
             }
-            for (int i2 = 0; i2 < this.f9167a.size(); i2++) {
-                this.f9167a.get(i2).b(str);
+            for (int i2 = 0; i2 < this.f9175a.size(); i2++) {
+                this.f9175a.get(i2).b(str);
             }
         }
     }
@@ -105,11 +105,11 @@ public class c implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                boolean z = f9165b;
-                if (f9166c == null) {
+                boolean z = f9173b;
+                if (f9174c == null) {
                     return;
                 }
-                f9166c = null;
+                f9174c = null;
             }
         }
     }

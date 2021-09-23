@@ -37,7 +37,7 @@ public class a {
                         return Integer.valueOf(intValue);
                     }
                 } catch (Exception e2) {
-                    if (c.f11856a) {
+                    if (c.f11864a) {
                         e2.toString();
                         e2.printStackTrace();
                     }

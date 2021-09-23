@@ -16,7 +16,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9286a;
+    public static final boolean f9294a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class a {
                 return;
             }
         }
-        f9286a = c.a.p0.a.k.f7077a;
+        f9294a = c.a.p0.a.k.f7085a;
     }
 
     public static JSONObject a(String str, String str2, String str3) throws JSONException {
@@ -60,7 +60,7 @@ public class a {
                 jSONObject.put("type", CommonTbJsBridge.GET_APIS);
                 jSONObject.put("from", "swan");
             } catch (JSONException e2) {
-                if (f9286a) {
+                if (f9294a) {
                     e2.printStackTrace();
                 }
             }
@@ -76,7 +76,7 @@ public class a {
             try {
                 str2 = c.a.p0.a.h0.u.g.N().V().swanCoreVersionName;
             } catch (Exception e2) {
-                if (f9286a) {
+                if (f9294a) {
                     e2.printStackTrace();
                 }
                 str2 = "";
@@ -95,7 +95,7 @@ public class a {
             try {
                 str = c.a.p0.a.h0.u.g.N().V().swanCoreVersionName;
             } catch (Exception e2) {
-                if (f9286a) {
+                if (f9294a) {
                     e2.printStackTrace();
                 }
                 str = "";

@@ -18,7 +18,7 @@ public class b implements c.a.p0.a.f1.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Queue<c> f7790b;
+    public Queue<c> f7798b;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -32,7 +32,7 @@ public class b implements c.a.p0.a.f1.f.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f7791a;
+        public static final b f7799a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +48,7 @@ public class b implements c.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            f7791a = new b(null);
+            f7799a = new b(null);
         }
     }
 
@@ -59,14 +59,14 @@ public class b implements c.a.p0.a.f1.f.a {
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0334b.f7791a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0334b.f7799a : (b) invokeV.objValue;
     }
 
     public synchronized void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                this.f7790b.clear();
+                this.f7798b.clear();
             }
         }
     }
@@ -75,23 +75,23 @@ public class b implements c.a.p0.a.f1.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, str) == null) {
             synchronized (this) {
-                while (this.f7790b.size() > 0) {
-                    c peek = this.f7790b.peek();
+                while (this.f7798b.size() > 0) {
+                    c peek = this.f7798b.peek();
                     if (peek == null) {
-                        this.f7790b.remove();
+                        this.f7798b.remove();
                     } else if (peek.a()) {
                         break;
                     } else {
-                        this.f7790b.remove();
+                        this.f7798b.remove();
                     }
                 }
-                int size = this.f7790b.size();
+                int size = this.f7798b.size();
                 if (size == 0) {
-                    this.f7790b.offer(cVar);
+                    this.f7798b.offer(cVar);
                     q0.d0(cVar);
                 } else {
-                    c peek2 = this.f7790b.peek();
-                    this.f7790b.offer(cVar);
+                    c peek2 = this.f7798b.peek();
+                    this.f7798b.offer(cVar);
                     if (size == 1 && peek2 != null && peek2.b(str)) {
                         q0.d0(cVar);
                     } else {
@@ -115,6 +115,6 @@ public class b implements c.a.p0.a.f1.f.a {
                 return;
             }
         }
-        this.f7790b = new ConcurrentLinkedQueue();
+        this.f7798b = new ConcurrentLinkedQueue();
     }
 }

@@ -23,7 +23,7 @@ public abstract class a extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f11175c;
+    public final String f11183c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(e eVar, String str, String str2) {
@@ -44,7 +44,7 @@ public abstract class a extends a0 {
                 return;
             }
         }
-        this.f11175c = str2;
+        this.f11183c = str2;
     }
 
     @Override // c.a.p0.a.c2.f.a0
@@ -54,13 +54,13 @@ public abstract class a extends a0 {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             g W = f.V().W();
             if (W == null) {
-                d.b(this.f11175c, "fragment manager is null");
+                d.b(this.f11183c, "fragment manager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             c.a.p0.h.e0.a.b.b bVar = (c.a.p0.h.e0.a.b.b) W.n(c.a.p0.h.n.a.class);
             if (bVar == null) {
-                d.b(this.f11175c, "fragment is null");
+                d.b(this.f11183c, "fragment is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }

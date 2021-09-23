@@ -24,10 +24,10 @@ public class g0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f20800a;
+    public String f20812a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f20801b;
+    public a f20813b;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -42,25 +42,25 @@ public class g0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20802a;
+        public NetWork f20814a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f20803b;
+        public String f20815b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f20804c;
+        public long f20816c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f20805d;
+        public String f20817d;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<a> f20806e;
+        public WeakReference<a> f20818e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f20807f;
+        public int f20819f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f20808g;
+        public String f20820g;
 
         public b(String str, long j2, String str2, a aVar, g0 g0Var, String str3) {
             Interceptable interceptable = $ic;
@@ -77,16 +77,16 @@ public class g0 {
                     return;
                 }
             }
-            this.f20802a = null;
-            this.f20803b = null;
-            this.f20804c = 0L;
-            this.f20806e = null;
+            this.f20814a = null;
+            this.f20815b = null;
+            this.f20816c = 0L;
+            this.f20818e = null;
             new WeakReference(g0Var);
-            this.f20803b = str;
-            this.f20804c = j2;
-            this.f20806e = new WeakReference<>(aVar);
-            this.f20805d = str2;
-            this.f20808g = str3;
+            this.f20815b = str;
+            this.f20816c = j2;
+            this.f20818e = new WeakReference<>(aVar);
+            this.f20817d = str2;
+            this.f20820g = str3;
             setPriority(3);
         }
 
@@ -98,23 +98,23 @@ public class g0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
                 try {
-                    if (this.f20804c != 0 && this.f20803b != null) {
+                    if (this.f20816c != 0 && this.f20815b != null) {
                         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
-                        this.f20802a = netWork;
-                        netWork.addPostData("fid", String.valueOf(this.f20804c));
-                        this.f20802a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f20803b);
-                        this.f20802a.addPostData("favo_type", "1");
-                        this.f20802a.addPostData("st_type", this.f20805d);
-                        this.f20802a.addPostData("authsid", this.f20808g);
-                        this.f20802a.getNetContext().getRequest().mIsNeedTbs = true;
-                        String postNetData = this.f20802a.postNetData();
+                        this.f20814a = netWork;
+                        netWork.addPostData("fid", String.valueOf(this.f20816c));
+                        this.f20814a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f20815b);
+                        this.f20814a.addPostData("favo_type", "1");
+                        this.f20814a.addPostData("st_type", this.f20817d);
+                        this.f20814a.addPostData("authsid", this.f20820g);
+                        this.f20814a.getNetContext().getRequest().mIsNeedTbs = true;
+                        String postNetData = this.f20814a.postNetData();
                         if (!c.a.e.e.p.k.isEmpty(postNetData)) {
                             JSONObject jSONObject = new JSONObject(postNetData);
-                            this.f20807f = jSONObject.optInt("error_code");
+                            this.f20819f = jSONObject.optInt("error_code");
                             jSONObject.optString("error_msg");
                             AuthTokenData.parse(jSONObject);
                         }
-                        if (this.f20802a.getNetContext().getResponse().isRequestSuccess()) {
+                        if (this.f20814a.getNetContext().getResponse().isRequestSuccess()) {
                             return 1;
                         }
                     }
@@ -134,26 +134,26 @@ public class g0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
                 super.onPostExecute((b) num);
-                if (this.f20806e != null) {
+                if (this.f20818e != null) {
                     c.a.r0.j3.r0.k kVar = new c.a.r0.j3.r0.k();
-                    kVar.f21117a = this.f20804c;
-                    a aVar = this.f20806e.get();
+                    kVar.f21129a = this.f20816c;
+                    a aVar = this.f20818e.get();
                     if (aVar == null) {
                         return;
                     }
-                    if (num.intValue() == 1 && (netWork = this.f20802a) != null && netWork.getNetContext().getResponse().isRequestSuccess()) {
-                        TbadkCoreApplication.getInst().delLikeForum(this.f20803b);
-                        aVar.b(this.f20803b, this.f20804c);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.f20804c)));
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.f20803b));
-                        kVar.f21118b = true;
+                    if (num.intValue() == 1 && (netWork = this.f20814a) != null && netWork.getNetContext().getResponse().isRequestSuccess()) {
+                        TbadkCoreApplication.getInst().delLikeForum(this.f20815b);
+                        aVar.b(this.f20815b, this.f20816c);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.f20816c)));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.f20815b));
+                        kVar.f21130b = true;
                     } else {
-                        kVar.f21118b = false;
-                        NetWork netWork2 = this.f20802a;
+                        kVar.f21130b = false;
+                        NetWork netWork2 = this.f20814a;
                         if (netWork2 != null) {
-                            String errorString = netWork2.isNetSuccess() ? this.f20802a.getErrorString() : this.f20802a.getNetException();
-                            kVar.f21119c = errorString;
-                            aVar.a(errorString, this.f20807f);
+                            String errorString = netWork2.isNetSuccess() ? this.f20814a.getErrorString() : this.f20814a.getNetException();
+                            kVar.f21131c = errorString;
+                            aVar.a(errorString, this.f20819f);
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, kVar));
@@ -175,27 +175,27 @@ public class g0 {
                 return;
             }
         }
-        this.f20800a = BarDetailForDirSwitch.BAR_DETAIL_DIR;
+        this.f20812a = BarDetailForDirSwitch.BAR_DETAIL_DIR;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f20800a = str;
+            this.f20812a = str;
         }
     }
 
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f20801b = aVar;
+            this.f20813b = aVar;
         }
     }
 
     public void c(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2) == null) {
-            new b(str, j2, this.f20800a, this.f20801b, this, null).execute(new Integer[0]);
+            new b(str, j2, this.f20812a, this.f20813b, this, null).execute(new Integer[0]);
         }
     }
 }

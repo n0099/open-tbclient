@@ -15,7 +15,7 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f65234a;
+    public a f65545a;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -41,7 +41,7 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f65234a = aVar;
+            this.f65545a = aVar;
         }
     }
 
@@ -57,12 +57,12 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
             String stringExtra = intent.getStringExtra("reason");
             String str2 = "reason: " + stringExtra;
             if ("homekey".equals(stringExtra)) {
-                a aVar = this.f65234a;
+                a aVar = this.f65545a;
                 if (aVar != null) {
                     aVar.a();
                 }
             } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS.equals(stringExtra)) {
-                a aVar2 = this.f65234a;
+                a aVar2 = this.f65545a;
                 if (aVar2 != null) {
                     aVar2.b();
                 }

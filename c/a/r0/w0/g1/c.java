@@ -23,22 +23,22 @@ public class c extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26727e;
+    public String f26750e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f26728f;
+    public String f26751f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26729g;
+    public String f26752g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f26730h;
+    public String f26753h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<MediaData> f26731i;
+    public List<MediaData> f26754i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f26732j;
+    public int f26755j;
     public boolean k;
 
     static {
@@ -76,7 +76,7 @@ public class c extends BaseCardInfo {
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26729g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26752g : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
@@ -89,19 +89,19 @@ public class c extends BaseCardInfo {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26728f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26751f : (String) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26727e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26750e : (String) invokeV.objValue;
     }
 
     public String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26730h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26753h : (String) invokeV.objValue;
     }
 
     public boolean p() {
@@ -113,13 +113,13 @@ public class c extends BaseCardInfo {
     public List<MediaData> q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26731i : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26754i : (List) invokeV.objValue;
     }
 
     public int t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26732j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26755j : invokeV.intValue;
     }
 
     public void w(AdInfo adInfo) {
@@ -127,17 +127,17 @@ public class c extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, adInfo) == null) || adInfo == null) {
             return;
         }
-        this.f26727e = adInfo.portrait;
-        this.f26728f = adInfo.ad_name;
-        this.f26729g = adInfo.ad_desc;
-        this.f26730h = adInfo.ad_url;
-        this.f26732j = adInfo.show_rule.intValue();
+        this.f26750e = adInfo.portrait;
+        this.f26751f = adInfo.ad_name;
+        this.f26752g = adInfo.ad_desc;
+        this.f26753h = adInfo.ad_url;
+        this.f26755j = adInfo.show_rule.intValue();
         if (adInfo.media != null) {
-            this.f26731i = new ArrayList();
+            this.f26754i = new ArrayList();
             for (Media media : adInfo.media) {
                 MediaData mediaData = new MediaData();
                 mediaData.parserProtobuf(media);
-                this.f26731i.add(mediaData);
+                this.f26754i.add(mediaData);
             }
         }
     }

@@ -15,19 +15,19 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static UserData f26885a;
+    public static UserData f26905a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f26886b;
+    public static boolean f26906b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f26887c;
+    public static String f26907c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static UserData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f26885a : (UserData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f26905a : (UserData) invokeV.objValue;
     }
 
     public static UserData b(FrsViewData frsViewData) {
@@ -35,7 +35,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsViewData)) == null) {
             UserData userData = frsViewData != null ? frsViewData.getUserData() : null;
-            f26885a = userData;
+            f26905a = userData;
             return userData;
         }
         return (UserData) invokeL.objValue;
@@ -44,7 +44,7 @@ public class j {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f26887c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f26907c : (String) invokeV.objValue;
     }
 
     public static boolean d(UserData userData) {
@@ -83,7 +83,7 @@ public class j {
     public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f26886b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f26906b : invokeV.booleanValue;
     }
 
     public static boolean h() {
@@ -111,8 +111,8 @@ public class j {
             return;
         }
         if (frsViewData != null && frsViewData.getForum() != null) {
-            f26886b = frsViewData.getForum().isFrsMask();
-            f26887c = frsViewData.getForum().getId();
+            f26906b = frsViewData.getForum().isFrsMask();
+            f26907c = frsViewData.getForum().getId();
         }
         if (frsViewData != null && (d(b(frsViewData)) || h())) {
             aVar.a(4);
@@ -127,8 +127,8 @@ public class j {
             return;
         }
         if (frsViewData != null && frsViewData.getForum() != null) {
-            f26886b = frsViewData.getForum().isFrsMask();
-            f26887c = frsViewData.getForum().getId();
+            f26906b = frsViewData.getForum().isFrsMask();
+            f26907c = frsViewData.getForum().getId();
         }
         if (frsViewData != null && d(b(frsViewData))) {
             threadCommentAndPraiseInfoLayout.setManageVisible(true);

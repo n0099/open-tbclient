@@ -27,19 +27,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10283a;
+    public String f10291a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C0508a f10284b;
+    public C0508a f10292b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f10285c;
+    public c f10293c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f10286d;
+    public b f10294d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f10287e;
+    public JSONObject f10295e;
 
     /* renamed from: c.a.p0.b.p.i.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -48,31 +48,31 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f10288a;
+        public String f10296a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f10289b;
+        public String f10297b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f10290c;
+        public int f10298c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f10291d;
+        public int f10299d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f10292e;
+        public String f10300e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f10293f;
+        public String f10301f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f10294g;
+        public int f10302g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f10295h;
+        public int f10303h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f10296i;
+        public String f10304i;
 
         public C0508a() {
             Interceptable interceptable = $ic;
@@ -95,10 +95,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f10297a;
+        public int f10305a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f10298b;
+        public int f10306b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -121,13 +121,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f10299a;
+        public int f10307a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f10300b;
+        public double f10308b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f10301c;
+        public double f10309c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -164,30 +164,30 @@ public class a {
         b bVar = new b();
         String V = e.V();
         String str = "";
-        this.f10283a = TextUtils.isEmpty(V) ? "" : V;
-        this.f10284b = c0508a;
-        this.f10285c = cVar;
-        this.f10286d = bVar;
-        this.f10287e = jSONObject;
+        this.f10291a = TextUtils.isEmpty(V) ? "" : V;
+        this.f10292b = c0508a;
+        this.f10293c = cVar;
+        this.f10294d = bVar;
+        this.f10295e = jSONObject;
         String r = q0.r();
-        c0508a.f10288a = "0".equals(r) ? "" : r;
+        c0508a.f10296a = "0".equals(r) ? "" : r;
         String a2 = a();
-        c0508a.f10289b = "0".equals(a2) ? "" : a2;
-        c0508a.f10290c = 2;
-        c0508a.f10291d = c.a.p0.b.p.i.c.a.e(context) ? 3 : 2;
+        c0508a.f10297b = "0".equals(a2) ? "" : a2;
+        c0508a.f10298c = 2;
+        c0508a.f10299d = c.a.p0.b.p.i.c.a.e(context) ? 3 : 2;
         String i4 = c.a.p0.a.d0.c.i();
-        c0508a.f10292e = "NUL".equals(i4) ? "" : i4;
+        c0508a.f10300e = "NUL".equals(i4) ? "" : i4;
         String g2 = c.a.p0.a.d0.c.g();
-        c0508a.f10293f = "NUL".equals(g2) ? "" : g2;
-        c0508a.f10294g = n0.n(context);
-        c0508a.f10295h = n0.o(context);
+        c0508a.f10301f = "NUL".equals(g2) ? "" : g2;
+        c0508a.f10302g = n0.n(context);
+        c0508a.f10303h = n0.o(context);
         String b2 = b();
         if (!TextUtils.isEmpty(b2) && !"02:00:00:00:00:00".equals(b2)) {
             str = b2;
         }
-        c0508a.f10296i = str;
-        bVar.f10297a = c.a.p0.b.p.i.c.a.c();
-        bVar.f10298b = c.a.p0.b.p.i.c.a.d(context);
+        c0508a.f10304i = str;
+        bVar.f10305a = c.a.p0.b.p.i.c.a.c();
+        bVar.f10306b = c.a.p0.b.p.i.c.a.d(context);
     }
 
     public String a() {
@@ -225,25 +225,25 @@ public class a {
             JSONObject jSONObject3 = new JSONObject();
             JSONObject jSONObject4 = new JSONObject();
             try {
-                jSONObject.put("app_id", this.f10283a);
-                jSONObject2.put(DeviceUtils.KEY_OLD_NAME_STRING, this.f10284b.f10288a);
-                jSONObject2.put("androidid", this.f10284b.f10289b);
-                jSONObject2.put("os_type", this.f10284b.f10290c);
-                jSONObject2.put(HttpConstants.DEVICE_TYPE, this.f10284b.f10291d);
-                jSONObject2.put("device_vendor", this.f10284b.f10292e);
-                jSONObject2.put("device_model", this.f10284b.f10293f);
-                jSONObject2.put("screen_height", this.f10284b.f10294g);
-                jSONObject2.put("screen_width", this.f10284b.f10295h);
-                jSONObject2.put("mac", this.f10284b.f10296i);
+                jSONObject.put("app_id", this.f10291a);
+                jSONObject2.put(DeviceUtils.KEY_OLD_NAME_STRING, this.f10292b.f10296a);
+                jSONObject2.put("androidid", this.f10292b.f10297b);
+                jSONObject2.put("os_type", this.f10292b.f10298c);
+                jSONObject2.put(HttpConstants.DEVICE_TYPE, this.f10292b.f10299d);
+                jSONObject2.put("device_vendor", this.f10292b.f10300e);
+                jSONObject2.put("device_model", this.f10292b.f10301f);
+                jSONObject2.put("screen_height", this.f10292b.f10302g);
+                jSONObject2.put("screen_width", this.f10292b.f10303h);
+                jSONObject2.put("mac", this.f10292b.f10304i);
                 jSONObject.put("device", jSONObject2);
-                jSONObject3.put("coord_type", this.f10285c.f10299a);
-                jSONObject3.put("latitude", this.f10285c.f10300b);
-                jSONObject3.put("longitude", this.f10285c.f10301c);
+                jSONObject3.put("coord_type", this.f10293c.f10307a);
+                jSONObject3.put("latitude", this.f10293c.f10308b);
+                jSONObject3.put("longitude", this.f10293c.f10309c);
                 jSONObject.put(TableDefine.DB_TABLE_USERINFO, jSONObject3);
-                jSONObject4.put("network", this.f10286d.f10297a);
-                jSONObject4.put("operator", this.f10286d.f10298b);
+                jSONObject4.put("network", this.f10294d.f10305a);
+                jSONObject4.put("operator", this.f10294d.f10306b);
                 jSONObject.put("network", jSONObject4);
-                jSONObject.put("data", this.f10287e);
+                jSONObject.put("data", this.f10295e);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

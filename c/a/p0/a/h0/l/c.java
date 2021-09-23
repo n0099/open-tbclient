@@ -33,7 +33,7 @@ public class c extends SwanAppWebViewManager implements Object<NgWebView>, a {
                 return;
             }
         }
-        B = k.f7077a;
+        B = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -64,9 +64,9 @@ public class c extends SwanAppWebViewManager implements Object<NgWebView>, a {
             return;
         }
         if (B) {
-            String str = "pathList item: " + aVar.f6459b;
+            String str = "pathList item: " + aVar.f6467b;
         }
-        this.f45875f.getSettings().setCodeCacheSetting(c.a.p0.a.h0.d.b.a("appjs", aVar.f6459b));
+        this.f45977f.getSettings().setCodeCacheSetting(c.a.p0.a.h0.d.b.a("appjs", aVar.f6467b));
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager

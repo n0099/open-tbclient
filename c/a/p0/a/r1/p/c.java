@@ -15,10 +15,10 @@ public class c implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Long> f8468a;
+    public List<Long> f8476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8469b;
+    public long f8477b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class c implements e {
                 return;
             }
         }
-        this.f8468a = new ArrayList();
-        this.f8469b = -1L;
+        this.f8476a = new ArrayList();
+        this.f8477b = -1L;
     }
 
     @Override // c.a.p0.a.r1.p.e
@@ -42,11 +42,11 @@ public class c implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<Long> list = this.f8468a;
-            if (list == null || list.size() <= 0 || this.f8469b < 0) {
+            List<Long> list = this.f8476a;
+            if (list == null || list.size() <= 0 || this.f8477b < 0) {
                 return -1L;
             }
-            return this.f8469b - ((Long) Collections.min(this.f8468a)).longValue();
+            return this.f8477b - ((Long) Collections.min(this.f8476a)).longValue();
         }
         return invokeV.longValue;
     }
@@ -55,7 +55,7 @@ public class c implements e {
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f8469b = j2;
+            this.f8477b = j2;
         }
     }
 
@@ -63,7 +63,7 @@ public class c implements e {
     public void c(long j2) {
         List<Long> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) || (list = this.f8468a) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) || (list = this.f8476a) == null) {
             return;
         }
         list.add(Long.valueOf(j2));

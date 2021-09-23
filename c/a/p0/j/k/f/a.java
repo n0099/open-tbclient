@@ -30,10 +30,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.j.n.c f11716e;
+        public final /* synthetic */ c.a.p0.j.n.c f11724e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h1.c.h.d f11717f;
+        public final /* synthetic */ c.a.p0.a.h1.c.h.d f11725f;
 
         public View$OnClickListenerC0611a(c.a.p0.j.n.c cVar, c.a.p0.a.h1.c.h.d dVar) {
             Interceptable interceptable = $ic;
@@ -50,15 +50,15 @@ public class a {
                     return;
                 }
             }
-            this.f11716e = cVar;
-            this.f11717f = dVar;
+            this.f11724e = cVar;
+            this.f11725f = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.p0.j.l.a.a(this.f11716e, this.f11717f);
+                c.a.p0.j.l.a.a(this.f11724e, this.f11725f);
             }
         }
     }
@@ -71,16 +71,16 @@ public class a {
             Paint paint = new Paint();
             paint.setAntiAlias(true);
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint.setColor(dVar.m.f6546f);
-            paint.setTextSize(dVar.m.f6547g);
+            paint.setColor(dVar.m.f6554f);
+            paint.setTextSize(dVar.m.f6555g);
             d.b bVar = dVar.m;
-            float f2 = bVar.f6549i;
-            float f3 = bVar.f6543j;
+            float f2 = bVar.f6557i;
+            float f3 = bVar.f6551j;
             Paint paint2 = new Paint();
             paint2.setAntiAlias(true);
             paint2.setStyle(Paint.Style.FILL_AND_STROKE);
             paint2.setColor(dVar.m.l);
-            String str = dVar.m.f6545e;
+            String str = dVar.m.f6553e;
             int g2 = n0.g(6.0f);
             float f4 = f2 * 2.0f;
             float measureText = paint.measureText(str) + f4;

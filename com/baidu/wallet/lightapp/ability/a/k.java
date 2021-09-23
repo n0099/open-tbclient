@@ -54,13 +54,13 @@ public class k extends com.baidu.wallet.lightapp.ability.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ILightappInvokerCallback f61615a;
+            public final /* synthetic */ ILightappInvokerCallback f61728a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f61616b;
+            public final /* synthetic */ String f61729b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ k f61617c;
+            public final /* synthetic */ k f61730c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -77,9 +77,9 @@ public class k extends com.baidu.wallet.lightapp.ability.b {
                         return;
                     }
                 }
-                this.f61617c = this;
-                this.f61615a = iLightappInvokerCallback;
-                this.f61616b = str2;
+                this.f61730c = this;
+                this.f61728a = iLightappInvokerCallback;
+                this.f61729b = str2;
             }
 
             @Override // com.baidu.wallet.router.RouterCallback
@@ -96,9 +96,9 @@ public class k extends com.baidu.wallet.lightapp.ability.b {
                         }
                         try {
                             if (((Integer) new JSONObject(str3).get("result")).intValue() == 0) {
-                                this.f61615a.onResult(0, str3);
+                                this.f61728a.onResult(0, str3);
                             } else {
-                                this.f61615a.onResult(1, str3);
+                                this.f61728a.onResult(1, str3);
                             }
                             return;
                         } catch (JSONException e2) {
@@ -107,9 +107,9 @@ public class k extends com.baidu.wallet.lightapp.ability.b {
                         }
                     }
                     String str4 = (String) hashMap.get("errorMsg");
-                    k kVar = this.f61617c;
-                    ILightappInvokerCallback iLightappInvokerCallback2 = this.f61615a;
-                    String str5 = this.f61616b;
+                    k kVar = this.f61730c;
+                    ILightappInvokerCallback iLightappInvokerCallback2 = this.f61728a;
+                    String str5 = this.f61729b;
                     String num = Integer.toString(i2);
                     if (!TextUtils.isEmpty(str4)) {
                         str4 = LightappConstants.ROUTER_INVOKE_FAIL;

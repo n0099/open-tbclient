@@ -17,12 +17,12 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hVar)) == null) {
-            b.C0076b c0076b = new b.C0076b(hVar.e(), hVar.f3419g);
+            b.C0076b c0076b = new b.C0076b(hVar.e(), hVar.f3420g);
             c0076b.w("rsplash");
-            c0076b.l(hVar.f3418f == 1);
+            c0076b.l(hVar.f3419f == 1);
             c0076b.h(b());
             c0076b.p(c());
-            c0076b.r(hVar.f3418f == 1);
+            c0076b.r(hVar.f3419f == 1);
             c0076b.q(d(hVar.m));
             c0076b.E(hVar.n * 1000);
             c0076b.C(1);
@@ -55,10 +55,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c.a.f0.a.b.a.f3337a.get() == null || c.a.f0.a.b.a.f3337a.get().d() == 0) {
+            if (c.a.f0.a.b.a.f3338a.get() == null || c.a.f0.a.b.a.f3338a.get().d() == 0) {
                 return 120;
             }
-            return c.a.f0.a.b.a.f3337a.get().d();
+            return c.a.f0.a.b.a.f3338a.get().d();
         }
         return invokeV.intValue;
     }
@@ -68,10 +68,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c.a.f0.a.b.a.f3337a.get() == null) {
+            if (c.a.f0.a.b.a.f3338a.get() == null) {
                 return -1;
             }
-            return c.a.f0.a.b.a.f3337a.get().e();
+            return c.a.f0.a.b.a.f3338a.get().e();
         }
         return invokeV.intValue;
     }
@@ -81,13 +81,13 @@ public class e {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (c.a.f0.a.b.a.f3337a.get() == null) {
+            if (c.a.f0.a.b.a.f3338a.get() == null) {
                 return -1;
             }
             if (i2 == 1) {
-                return c.a.f0.a.b.a.f3337a.get().E();
+                return c.a.f0.a.b.a.f3338a.get().E();
             }
-            return c.a.f0.a.b.a.f3337a.get().B();
+            return c.a.f0.a.b.a.f3338a.get().B();
         }
         return invokeI.intValue;
     }

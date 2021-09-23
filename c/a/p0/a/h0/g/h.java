@@ -33,10 +33,10 @@ public class h extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f5942e;
+        public final /* synthetic */ JSONObject f5950e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f5943f;
+        public final /* synthetic */ h f5951f;
 
         public a(h hVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -53,16 +53,16 @@ public class h extends d {
                     return;
                 }
             }
-            this.f5943f = hVar;
-            this.f5942e = jSONObject;
+            this.f5951f = hVar;
+            this.f5950e = jSONObject;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.p0.a.g1.f.V().v(new c.a.p0.a.t1.c.c.b(this.f5943f.C0, this.f5942e.toString(), this.f5943f.D0.optString("slaveId")).a());
-                this.f5943f.E0 = false;
+                c.a.p0.a.g1.f.V().v(new c.a.p0.a.t1.c.c.b(this.f5951f.C0, this.f5950e.toString(), this.f5951f.D0.optString("slaveId")).a());
+                this.f5951f.E0 = false;
             }
         }
     }
@@ -141,7 +141,7 @@ public class h extends d {
                 return false;
             }
             c.a.p0.a.t1.c.c.a aVar = new c.a.p0.a.t1.c.c.a(jSONObject.optString("componentId"));
-            aVar.f8675a = this.D0.optString("slaveId");
+            aVar.f8683a = this.D0.optString("slaveId");
             aVar.b();
             return false;
         }

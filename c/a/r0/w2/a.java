@@ -32,40 +32,40 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WebView f28128a;
+    public final WebView f28148a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f28129b;
+    public BdUniqueId f28149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.j3.m0.a f28130c;
+    public c.a.r0.j3.m0.a f28150c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashSet<String> f28131d;
+    public HashSet<String> f28151d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, String> f28132e;
+    public HashMap<String, String> f28152e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, String> f28133f;
+    public HashMap<String, String> f28153f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28134g;
+    public String f28154g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f28135h;
+    public HttpMessageListener f28155h;
 
     /* renamed from: c.a.r0.w2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1326a extends HttpMessageListener {
+    public class C1324a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28136a;
+        public final /* synthetic */ a f28156a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1326a(a aVar, int i2) {
+        public C1324a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -82,7 +82,7 @@ public class a {
                     return;
                 }
             }
-            this.f28136a = aVar;
+            this.f28156a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -110,10 +110,10 @@ public class a {
                         str = quickWebViewHttpReqMsg.module;
                         String str7 = quickWebViewHttpReqMsg.jsCallbackMethod;
                         if (TextUtils.isEmpty(str7)) {
-                            str7 = (String) this.f28136a.f28132e.remove(str6);
+                            str7 = (String) this.f28156a.f28152e.remove(str6);
                             i2 = 1;
                         }
-                        this.f28136a.f28131d.remove(str6);
+                        this.f28156a.f28151d.remove(str6);
                         str5 = str7;
                         str2 = str6;
                     }
@@ -157,11 +157,11 @@ public class a {
                     LinkedHashMap linkedHashMap = new LinkedHashMap();
                     linkedHashMap.put("result", sb.toString().replace("\\\"", "\""));
                     linkedHashMap.put("NotificationKey", str2);
-                    this.f28136a.f28130c.h(this.f28136a.f28128a, "RequestByNativeToH5", linkedHashMap);
+                    this.f28156a.f28150c.h(this.f28156a.f28148a, "RequestByNativeToH5", linkedHashMap);
                 } else if (StringUtils.isNull(str5)) {
-                    this.f28136a.f28133f.put(str2, sb.toString());
+                    this.f28156a.f28153f.put(str2, sb.toString());
                 } else {
-                    this.f28136a.k(str5, sb.toString());
+                    this.f28156a.k(str5, sb.toString());
                 }
             }
         }
@@ -182,17 +182,17 @@ public class a {
                 return;
             }
         }
-        this.f28131d = new HashSet<>();
-        this.f28132e = new HashMap<>();
-        this.f28133f = new HashMap<>();
-        this.f28135h = new C1326a(this, CmdConfigHttp.CMD_WEB_HTTP_PROXY);
-        this.f28128a = webView;
-        this.f28134g = webView.getSettings().getUserAgentString();
+        this.f28151d = new HashSet<>();
+        this.f28152e = new HashMap<>();
+        this.f28153f = new HashMap<>();
+        this.f28155h = new C1324a(this, CmdConfigHttp.CMD_WEB_HTTP_PROXY);
+        this.f28148a = webView;
+        this.f28154g = webView.getSettings().getUserAgentString();
         BdUniqueId gen = BdUniqueId.gen();
-        this.f28129b = gen;
-        this.f28135h.setTag(gen);
-        this.f28135h.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f28135h);
+        this.f28149b = gen;
+        this.f28155h.setTag(gen);
+        this.f28155h.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f28155h);
     }
 
     public final void g(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z) {
@@ -200,28 +200,28 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, quickWebViewBridgeData, str, z) == null) || quickWebViewBridgeData == null || StringUtils.isNull(quickWebViewBridgeData.url) || StringUtils.isNull(quickWebViewBridgeData.type)) {
             return;
         }
-        String remove = this.f28133f.remove(quickWebViewBridgeData.url);
+        String remove = this.f28153f.remove(quickWebViewBridgeData.url);
         if (!StringUtils.isNull(remove) && str != null) {
             k(str, remove);
         } else if (!StringUtils.isNull(remove) && z) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("result", remove.replace("\\\"", "\""));
             linkedHashMap.put("NotificationKey", quickWebViewBridgeData.url);
-            this.f28130c.h(this.f28128a, "RequestByNativeToH5", linkedHashMap);
-        } else if (this.f28131d.contains(quickWebViewBridgeData.url) && !z) {
+            this.f28150c.h(this.f28148a, "RequestByNativeToH5", linkedHashMap);
+        } else if (this.f28151d.contains(quickWebViewBridgeData.url) && !z) {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f28132e.put(quickWebViewBridgeData.url, str);
+            this.f28152e.put(quickWebViewBridgeData.url, str);
         } else {
             QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = new QuickWebViewHttpReqMsg();
             quickWebViewHttpReqMsg.url = quickWebViewBridgeData.url;
             quickWebViewHttpReqMsg.module = quickWebViewBridgeData.module;
             quickWebViewHttpReqMsg.begin = quickWebViewBridgeData.begin;
             quickWebViewHttpReqMsg.jsCallbackMethod = str;
-            quickWebViewHttpReqMsg.setTag(this.f28129b);
+            quickWebViewHttpReqMsg.setTag(this.f28149b);
             quickWebViewHttpReqMsg.isFromRequestByNative = z;
-            CookieSyncManager.createInstance(this.f28128a.getContext());
+            CookieSyncManager.createInstance(this.f28148a.getContext());
             String cookie = CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME);
             if (!TextUtils.isEmpty(cookie)) {
                 HashMap<String, String> headers = quickWebViewHttpReqMsg.getHeaders();
@@ -235,7 +235,7 @@ public class a {
                     quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
                 }
             }
-            quickWebViewHttpReqMsg.setUserAgent(this.f28134g);
+            quickWebViewHttpReqMsg.setUserAgent(this.f28154g);
             quickWebViewHttpReqMsg.addCookie("cache_version", b.q().s(quickWebViewBridgeData.module));
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, quickWebViewBridgeData.url);
             tbHttpMessageTask.setResponsedClass(QuickWebViewHttpResMsg.class);
@@ -254,21 +254,21 @@ public class a {
                 tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             }
             MessageManager.getInstance().sendMessage(quickWebViewHttpReqMsg, tbHttpMessageTask);
-            this.f28131d.add(quickWebViewBridgeData.url);
+            this.f28151d.add(quickWebViewBridgeData.url);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f28129b);
-            MessageManager.getInstance().removeMessage(this.f28129b);
-            this.f28131d.clear();
-            this.f28131d = null;
-            this.f28132e.clear();
-            this.f28132e = null;
-            this.f28133f.clear();
-            this.f28133f = null;
+            MessageManager.getInstance().unRegisterListener(this.f28149b);
+            MessageManager.getInstance().removeMessage(this.f28149b);
+            this.f28151d.clear();
+            this.f28151d = null;
+            this.f28152e.clear();
+            this.f28152e = null;
+            this.f28153f.clear();
+            this.f28153f = null;
         }
     }
 
@@ -289,7 +289,7 @@ public class a {
     public final void k(String str, String str2) {
         WebView webView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) || (webView = this.f28128a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) || (webView = this.f28148a) == null) {
             return;
         }
         webView.loadUrl("javascript:window." + str + "('" + str2 + "')");
@@ -298,7 +298,7 @@ public class a {
     public void l(c.a.r0.j3.m0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f28130c = aVar;
+            this.f28150c = aVar;
         }
     }
 }

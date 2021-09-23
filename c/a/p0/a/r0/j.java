@@ -15,10 +15,10 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8312a;
+    public boolean f8320a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8313b;
+    public boolean f8321b;
     @V8JavascriptField
     public long lastAccessedTime;
     @V8JavascriptField
@@ -46,7 +46,7 @@ public class j {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f8312a = z;
+            this.f8320a = z;
         }
     }
 
@@ -54,7 +54,7 @@ public class j {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f8313b = z;
+            this.f8321b = z;
         }
     }
 
@@ -62,13 +62,13 @@ public class j {
     public boolean isDirectory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8312a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8320a : invokeV.booleanValue;
     }
 
     @JavascriptInterface
     public boolean isFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8313b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8321b : invokeV.booleanValue;
     }
 }

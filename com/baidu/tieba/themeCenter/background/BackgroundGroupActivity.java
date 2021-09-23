@@ -32,7 +32,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundGroupActivity f57413a;
+        public final /* synthetic */ BackgroundGroupActivity f57530a;
 
         public a(BackgroundGroupActivity backgroundGroupActivity) {
             Interceptable interceptable = $ic;
@@ -49,22 +49,22 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     return;
                 }
             }
-            this.f57413a = backgroundGroupActivity;
+            this.f57530a = backgroundGroupActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
         public void a(int i2, String str, e eVar, List<b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                BackgroundGroupActivity backgroundGroupActivity = this.f57413a;
+                BackgroundGroupActivity backgroundGroupActivity = this.f57530a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.mView.d());
-                this.f57413a.mView.i();
+                this.f57530a.mView.i();
                 if (i2 == 0) {
-                    this.f57413a.mView.k(eVar, list, this.f57413a.mModel.F());
+                    this.f57530a.mView.k(eVar, list, this.f57530a.mModel.F());
                     return;
                 }
-                this.f57413a.showToast(str);
-                this.f57413a.mView.j();
+                this.f57530a.showToast(str);
+                this.f57530a.mView.j();
             }
         }
     }
@@ -99,7 +99,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             c.a.q0.o0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f13628a = true;
+                pageStayDurationItem.f13624a = true;
             }
             return pageStayDurationItem;
         }

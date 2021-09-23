@@ -12,16 +12,16 @@ public final class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f33287a;
+    public final String[] f33310a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f33288b;
+    public final int[] f33311b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String[] f33289c;
+    public final String[] f33312c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f33290d;
+    public final int f33313d;
 
     public j(String[] strArr, int[] iArr, String[] strArr2, int i2) {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public final class j {
                 return;
             }
         }
-        this.f33287a = strArr;
-        this.f33288b = iArr;
-        this.f33289c = strArr2;
-        this.f33290d = i2;
+        this.f33310a = strArr;
+        this.f33311b = iArr;
+        this.f33312c = strArr2;
+        this.f33313d = i2;
     }
 
     public static j b(String str) {
@@ -135,22 +135,22 @@ public final class j {
         StringBuilder sb = new StringBuilder();
         int i4 = 0;
         while (true) {
-            int i5 = this.f33290d;
+            int i5 = this.f33313d;
             if (i4 < i5) {
-                sb.append(this.f33287a[i4]);
-                int[] iArr = this.f33288b;
+                sb.append(this.f33310a[i4]);
+                int[] iArr = this.f33311b;
                 if (iArr[i4] == 1) {
                     sb.append(str);
                 } else if (iArr[i4] == 2) {
-                    sb.append(String.format(Locale.US, this.f33289c[i4], Integer.valueOf(i2)));
+                    sb.append(String.format(Locale.US, this.f33312c[i4], Integer.valueOf(i2)));
                 } else if (iArr[i4] == 3) {
-                    sb.append(String.format(Locale.US, this.f33289c[i4], Integer.valueOf(i3)));
+                    sb.append(String.format(Locale.US, this.f33312c[i4], Integer.valueOf(i3)));
                 } else if (iArr[i4] == 4) {
-                    sb.append(String.format(Locale.US, this.f33289c[i4], Long.valueOf(j2)));
+                    sb.append(String.format(Locale.US, this.f33312c[i4], Long.valueOf(j2)));
                 }
                 i4++;
             } else {
-                sb.append(this.f33287a[i5]);
+                sb.append(this.f33310a[i5]);
                 return sb.toString();
             }
         }

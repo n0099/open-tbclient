@@ -13,7 +13,7 @@ public final class BuildConfig {
     public static final boolean IS_BUSINESS_VERSION = false;
     public static final String LIBRARY_PACKAGE_NAME = "com.baidu.walletsdk.core";
     public static final int VERSION_CODE = -1;
-    public static final String VERSION_NAME = "9.4.0.111";
+    public static final String VERSION_NAME = "9.5.5.109";
     public static final boolean hasSdkAsPlugin = false;
     public static final boolean isImmersive = true;
     public static final String sChannelId = "baiduapp";

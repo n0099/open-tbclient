@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.b;
 import c.a.q0.a.d;
 import c.a.q0.a.g;
@@ -37,6 +38,7 @@ import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageLightActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.ItemClickJumpUtil;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -63,7 +65,7 @@ public class SchemaRouteActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SchemaRouteActivity f57313a;
+        public final /* synthetic */ SchemaRouteActivity f57430a;
 
         public a(SchemaRouteActivity schemaRouteActivity) {
             Interceptable interceptable = $ic;
@@ -80,17 +82,17 @@ public class SchemaRouteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f57313a = schemaRouteActivity;
+            this.f57430a = schemaRouteActivity;
         }
 
         @Override // c.a.q0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.w) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f57313a.getActivity(), null, (String) hashMap.get(g.w), true);
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f57430a.getActivity(), null, (String) hashMap.get(g.w), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
                 tbWebViewActivityConfig.setUri((Uri) hashMap.get(g.K));
-                this.f57313a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+                this.f57430a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
         }
     }
@@ -124,6 +126,7 @@ public class SchemaRouteActivity extends BaseActivity {
             return;
         }
         clearClipBoardIfNeed(intent.getData());
+        parserWiseSampleId(intent.getData());
         String dataString = intent.getDataString();
         UtilHelper.clearClipBoardBySchemaParam(dataString);
         w.e(intent.getData());
@@ -136,7 +139,7 @@ public class SchemaRouteActivity extends BaseActivity {
             d.y().L(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbpb") || dataString.contains("unidispatch/pb"))) {
             if ("tbpb://tieba.baidu.com".equals(dataString)) {
-                if (b.f().i("MainTabActivity")) {
+                if (b.f().h("MainTabActivity")) {
                     return;
                 }
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
@@ -175,13 +178,13 @@ public class SchemaRouteActivity extends BaseActivity {
             sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
             d.y().L(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("unidispatch/openapp") || dataString.contains("donothing"))) {
-            if (!b.f().i("MainTabActivity")) {
+            if (!b.f().h("MainTabActivity")) {
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
             }
             d.y().L(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12602b + g.k)) {
+                if (dataString.contains(g.f12610b + g.k)) {
                     Uri parse = Uri.parse(dataString);
                     String queryParameter = parse.getQueryParameter(g.F);
                     String queryParameter2 = parse.getQueryParameter(g.G);
@@ -193,7 +196,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
             }
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12602b + g.l)) {
+                if (dataString.contains(g.f12610b + g.l)) {
                     String queryParameter3 = Uri.parse(dataString).getQueryParameter(g.H);
                     if (queryParameter3 != null) {
                         UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter3.getBytes(), 2))});
@@ -397,9 +400,17 @@ public class SchemaRouteActivity extends BaseActivity {
         }
     }
 
+    private void parserWiseSampleId(Uri uri) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, this, uri) == null) || uri == null) {
+            return;
+        }
+        c.a.q0.d1.g.d(uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID));
+    }
+
     private void setSearchSource(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, str) == null) || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
         String queryParameter = Uri.parse(str).getQueryParameter(g.U);
@@ -421,7 +432,7 @@ public class SchemaRouteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             if (TbadkCoreApplication.getInst().getStartType() == 2) {
-                c.a.q0.b0.a.f12778a = true;
+                c.a.q0.b0.a.f12792a = true;
             }
             super.onCreate(bundle);
             checkSchema(getIntent());

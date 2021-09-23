@@ -13,7 +13,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f10687a;
+    public static Handler f10695a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,20 +29,20 @@ public class d {
                 return;
             }
         }
-        f10687a = new Handler(Looper.getMainLooper());
+        f10695a = new Handler(Looper.getMainLooper());
     }
 
     public static void a(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65537, null, runnable, j2) == null) {
-            f10687a.postDelayed(runnable, j2);
+            f10695a.postDelayed(runnable, j2);
         }
     }
 
     public static void b(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            f10687a.removeCallbacks(runnable);
+            f10695a.removeCallbacks(runnable);
         }
     }
 
@@ -57,7 +57,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j2) == null) {
             if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                f10687a.postDelayed(runnable, j2);
+                f10695a.postDelayed(runnable, j2);
             } else {
                 runnable.run();
             }

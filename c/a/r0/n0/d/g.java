@@ -19,7 +19,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<f> f22503a;
+    public ArrayList<f> f22519a;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -34,13 +34,13 @@ public class g {
                 return;
             }
         }
-        this.f22503a = new ArrayList<>();
+        this.f22519a = new ArrayList<>();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<f> it = this.f22503a.iterator();
+            Iterator<f> it = this.f22519a.iterator();
             while (it.hasNext()) {
                 it.next().L(0);
             }
@@ -50,7 +50,7 @@ public class g {
     public ArrayList<f> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22503a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22519a : (ArrayList) invokeV.objValue;
     }
 
     public void c(List<?> list) {
@@ -75,7 +75,7 @@ public class g {
                 f fVar = new f();
                 fVar.I((LikeForum) list.get(i2));
                 if (!TextUtils.isEmpty(fVar.w())) {
-                    this.f22503a.add(fVar);
+                    this.f22519a.add(fVar);
                 }
             }
         } catch (Exception e2) {

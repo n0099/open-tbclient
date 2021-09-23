@@ -15,7 +15,7 @@ public class m0 extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Path f4449a;
+    public Path f4457a;
 
     public m0() {
         Interceptable interceptable = $ic;
@@ -34,13 +34,13 @@ public class m0 extends a {
     @Override // c.a.p0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || this.f4449a == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || this.f4457a == null) {
             return;
         }
-        int alpha = bVar.f4393g.getAlpha();
-        bVar.f(bVar.f4393g);
-        canvas.drawPath(this.f4449a, bVar.f4393g);
-        bVar.f4393g.setAlpha(alpha);
+        int alpha = bVar.f4401g.getAlpha();
+        bVar.f(bVar.f4401g);
+        canvas.drawPath(this.f4457a, bVar.f4401g);
+        bVar.f4401g.setAlpha(alpha);
     }
 
     @Override // c.a.p0.a.a0.a.j.a
@@ -54,11 +54,11 @@ public class m0 extends a {
                     int g4 = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(2));
                     int g5 = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(3));
                     Path path = new Path();
-                    this.f4449a = path;
+                    this.f4457a = path;
                     path.addRect(new RectF(g2, g3, g2 + g4, g3 + g5), Path.Direction.CW);
                 }
             } catch (Exception e2) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e2.printStackTrace();
                 }
             }

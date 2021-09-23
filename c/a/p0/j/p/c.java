@@ -17,13 +17,13 @@ public abstract class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11791a;
+    public String f11799a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11792b;
+    public String f11800b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f11793c;
+    public boolean f11801c;
 
     public c(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -40,34 +40,34 @@ public abstract class c {
                 return;
             }
         }
-        this.f11793c = false;
-        this.f11791a = str2;
-        this.f11792b = str3;
+        this.f11801c = false;
+        this.f11799a = str2;
+        this.f11800b = str3;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11791a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11799a : (String) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11793c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11801c : invokeV.booleanValue;
     }
 
     public boolean c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? q0.t(context.getApplicationContext(), this.f11792b) != null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? q0.t(context.getApplicationContext(), this.f11800b) != null : invokeL.booleanValue;
     }
 
     public void d(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, context, latLng, latLng2, str, str2) == null) {
-            if (!c(context) && this.f11793c) {
-                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + this.f11792b));
+            if (!c(context) && this.f11801c) {
+                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + this.f11800b));
                 intent.addFlags(268435456);
                 context.startActivity(intent);
                 return;

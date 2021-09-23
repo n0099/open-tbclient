@@ -38,22 +38,22 @@ public final class a implements i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f25154a;
+    public static final boolean f25175a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f25155b;
+    public static String f25176b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.u.b.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1176a implements g.b {
+    public static class C1174a implements g.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f25156a;
+        public final /* synthetic */ Context f25177a;
 
-        public C1176a(Context context) {
+        public C1174a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,14 +68,14 @@ public final class a implements i {
                     return;
                 }
             }
-            this.f25156a = context;
+            this.f25177a = context;
         }
 
         @Override // c.a.q0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(c.a.q0.a.g.w) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f25156a, null, (String) hashMap.get(c.a.q0.a.g.w), true);
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f25177a, null, (String) hashMap.get(c.a.q0.a.g.w), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
@@ -95,8 +95,8 @@ public final class a implements i {
                 return;
             }
         }
-        f25154a = k.f7077a;
-        f25155b = NewUrlSchemaHelper.SCHEME;
+        f25175a = k.f7085a;
+        f25176b = NewUrlSchemaHelper.SCHEME;
     }
 
     public a() {
@@ -144,7 +144,7 @@ public final class a implements i {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str5 + str4;
             }
-            String str7 = f25155b;
+            String str7 = f25176b;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;
@@ -160,7 +160,7 @@ public final class a implements i {
             }
             StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
             String str8 = str7 + "?" + ((Object) sb2);
-            if (f25154a) {
+            if (f25175a) {
                 String str9 = "encodeParams: " + ((Object) sb2);
             }
             return str8;
@@ -178,7 +178,7 @@ public final class a implements i {
             if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
                 Uri parse = Uri.parse(str);
                 if (c.a.q0.a.g.c(parse)) {
-                    c.a.q0.a.g.b().j(str, parse, new C1176a(context));
+                    c.a.q0.a.g.b().j(str, parse, new C1174a(context));
                 } else {
                     TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context);
                     tbWebViewActivityConfig.setUri(parse);
@@ -231,7 +231,7 @@ public final class a implements i {
                     jSONObject.put("launchMode", "standard");
                     String b2 = b(str, str2, str3, str4, jSONObject);
                     boolean d2 = d(context, b2);
-                    if (f25154a) {
+                    if (f25175a) {
                         String str6 = "result = " + d2 + org.apache.commons.lang3.StringUtils.LF + "拼接后的uri is: " + b2;
                     }
                     if (d2) {
@@ -241,7 +241,7 @@ public final class a implements i {
                     aVar3.e("invoke failed");
                     return aVar3;
                 } catch (JSONException e3) {
-                    if (f25154a) {
+                    if (f25175a) {
                         Log.getStackTraceString(e3);
                     }
                     return c(str5);

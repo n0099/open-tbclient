@@ -17,31 +17,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f12036a;
+    public final String f12044a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f12037b;
+    public final int f12045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f12038c;
+    public final int f12046c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f12039d;
+    public final String f12047d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f12040e;
+    public final String f12048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f12041f;
+    public final String f12049f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Set<String> f12042g;
+    public final Set<String> f12050g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f12043h;
+    public final String f12051h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Long f12044i;
+    public final Long f12052i;
 
     public a(String str, int i2, int i3, String str2, String str3, String str4, Set<String> set, String str5, Long l) {
         Interceptable interceptable = $ic;
@@ -58,15 +58,15 @@ public class a {
                 return;
             }
         }
-        this.f12036a = str;
-        this.f12038c = i3;
-        this.f12037b = i2;
-        this.f12039d = str2;
-        this.f12040e = str3;
-        this.f12041f = str4;
-        this.f12042g = set;
-        this.f12043h = str5;
-        this.f12044i = l;
+        this.f12044a = str;
+        this.f12046c = i3;
+        this.f12045b = i2;
+        this.f12047d = str2;
+        this.f12048e = str3;
+        this.f12049f = str4;
+        this.f12050g = set;
+        this.f12051h = str5;
+        this.f12052i = l;
     }
 
     public static a a(JSONObject jSONObject) {
@@ -74,7 +74,7 @@ public class a {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (c.a.p0.n.c.f11856a) {
+            if (c.a.p0.n.c.f11864a) {
                 String str = "host info " + jSONObject.toString();
             }
             try {

@@ -28,7 +28,7 @@ public class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Rect f12130a;
+        public final /* synthetic */ Rect f12138a;
 
         public a(Rect rect) {
             Interceptable interceptable = $ic;
@@ -45,14 +45,14 @@ public class o {
                     return;
                 }
             }
-            this.f12130a = rect;
+            this.f12138a = rect;
         }
 
         @Override // android.transition.Transition.EpicenterCallback
         public Rect onGetEpicenter(Transition transition) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, transition)) == null) ? this.f12130a : (Rect) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, transition)) == null) ? this.f12138a : (Rect) invokeL.objValue;
         }
     }
 
@@ -62,22 +62,22 @@ public class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f12131e;
+        public final /* synthetic */ View f12139e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Transition f12132f;
+        public final /* synthetic */ Transition f12140f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f12133g;
+        public final /* synthetic */ View f12141g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ f f12134h;
+        public final /* synthetic */ f f12142h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Map f12135i;
+        public final /* synthetic */ Map f12143i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ Map f12136j;
+        public final /* synthetic */ Map f12144j;
         public final /* synthetic */ ArrayList k;
 
         public b(View view, Transition transition, View view2, f fVar, Map map, Map map2, ArrayList arrayList) {
@@ -95,12 +95,12 @@ public class o {
                     return;
                 }
             }
-            this.f12131e = view;
-            this.f12132f = transition;
-            this.f12133g = view2;
-            this.f12134h = fVar;
-            this.f12135i = map;
-            this.f12136j = map2;
+            this.f12139e = view;
+            this.f12140f = transition;
+            this.f12141g = view2;
+            this.f12142h = fVar;
+            this.f12143i = map;
+            this.f12144j = map2;
             this.k = arrayList;
         }
 
@@ -109,28 +109,28 @@ public class o {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f12131e.getViewTreeObserver().removeOnPreDrawListener(this);
-                Transition transition = this.f12132f;
+                this.f12139e.getViewTreeObserver().removeOnPreDrawListener(this);
+                Transition transition = this.f12140f;
                 if (transition != null) {
-                    transition.removeTarget(this.f12133g);
+                    transition.removeTarget(this.f12141g);
                 }
-                View view = this.f12134h.getView();
+                View view = this.f12142h.getView();
                 if (view != null) {
-                    if (!this.f12135i.isEmpty()) {
-                        o.m(this.f12136j, view);
-                        this.f12136j.keySet().retainAll(this.f12135i.values());
-                        for (Map.Entry entry : this.f12135i.entrySet()) {
-                            View view2 = (View) this.f12136j.get((String) entry.getValue());
+                    if (!this.f12143i.isEmpty()) {
+                        o.m(this.f12144j, view);
+                        this.f12144j.keySet().retainAll(this.f12143i.values());
+                        for (Map.Entry entry : this.f12143i.entrySet()) {
+                            View view2 = (View) this.f12144j.get((String) entry.getValue());
                             if (view2 != null) {
                                 view2.setTransitionName((String) entry.getKey());
                             }
                         }
                     }
-                    if (this.f12132f != null) {
+                    if (this.f12140f != null) {
                         o.h(this.k, view);
-                        this.k.removeAll(this.f12136j.values());
-                        this.k.add(this.f12133g);
-                        o.c(this.f12132f, this.k);
+                        this.k.removeAll(this.f12144j.values());
+                        this.k.add(this.f12141g);
+                        o.c(this.f12140f, this.k);
                         return true;
                     }
                     return true;
@@ -147,10 +147,10 @@ public class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Rect f12137a;
+        public Rect f12145a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f12138b;
+        public final /* synthetic */ e f12146b;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -167,7 +167,7 @@ public class o {
                     return;
                 }
             }
-            this.f12138b = eVar;
+            this.f12146b = eVar;
         }
 
         @Override // android.transition.Transition.EpicenterCallback
@@ -176,10 +176,10 @@ public class o {
             View view;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, transition)) == null) {
-                if (this.f12137a == null && (view = this.f12138b.f12145a) != null) {
-                    this.f12137a = o.n(view);
+                if (this.f12145a == null && (view = this.f12146b.f12153a) != null) {
+                    this.f12145a = o.n(view);
                 }
-                return this.f12137a;
+                return this.f12145a;
             }
             return (Rect) invokeL.objValue;
         }
@@ -191,22 +191,22 @@ public class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f12139e;
+        public final /* synthetic */ View f12147e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Transition f12140f;
+        public final /* synthetic */ Transition f12148f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f12141g;
+        public final /* synthetic */ ArrayList f12149g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Transition f12142h;
+        public final /* synthetic */ Transition f12150h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f12143i;
+        public final /* synthetic */ ArrayList f12151i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ Transition f12144j;
+        public final /* synthetic */ Transition f12152j;
         public final /* synthetic */ ArrayList k;
         public final /* synthetic */ Map l;
         public final /* synthetic */ ArrayList m;
@@ -228,12 +228,12 @@ public class o {
                     return;
                 }
             }
-            this.f12139e = view;
-            this.f12140f = transition;
-            this.f12141g = arrayList;
-            this.f12142h = transition2;
-            this.f12143i = arrayList2;
-            this.f12144j = transition3;
+            this.f12147e = view;
+            this.f12148f = transition;
+            this.f12149g = arrayList;
+            this.f12150h = transition2;
+            this.f12151i = arrayList2;
+            this.f12152j = transition3;
             this.k = arrayList3;
             this.l = map;
             this.m = arrayList4;
@@ -246,16 +246,16 @@ public class o {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f12139e.getViewTreeObserver().removeOnPreDrawListener(this);
-                Transition transition = this.f12140f;
+                this.f12147e.getViewTreeObserver().removeOnPreDrawListener(this);
+                Transition transition = this.f12148f;
                 if (transition != null) {
-                    o.s(transition, this.f12141g);
+                    o.s(transition, this.f12149g);
                 }
-                Transition transition2 = this.f12142h;
+                Transition transition2 = this.f12150h;
                 if (transition2 != null) {
-                    o.s(transition2, this.f12143i);
+                    o.s(transition2, this.f12151i);
                 }
-                Transition transition3 = this.f12144j;
+                Transition transition3 = this.f12152j;
                 if (transition3 != null) {
                     o.s(transition3, this.k);
                 }
@@ -279,7 +279,7 @@ public class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f12145a;
+        public View f12153a;
 
         public e() {
             Interceptable interceptable = $ic;

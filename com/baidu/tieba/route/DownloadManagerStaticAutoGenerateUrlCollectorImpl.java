@@ -37,6 +37,8 @@ public final class DownloadManagerStaticAutoGenerateUrlCollectorImpl implements 
             HashMap hashMap = new HashMap();
             new ArrayList();
             hashMap.put("2002001", "com.baidu.tieba.downloadmanager.DownloadManagerStatic");
+            hashMap.put("2921626", "com.baidu.tieba.downloadmanager.DownloadManagerStatic");
+            hashMap.put("2921627", "com.baidu.tieba.downloadmanager.DownloadManagerStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;

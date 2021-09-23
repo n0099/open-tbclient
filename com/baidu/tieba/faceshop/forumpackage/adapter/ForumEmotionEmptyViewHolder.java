@@ -19,7 +19,7 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumEmotionEmptyView f50679a;
+    public ForumEmotionEmptyView f50792a;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -27,10 +27,10 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.r0.y.b.b f50680e;
+        public final /* synthetic */ c.a.r0.r0.y.b.b f50793e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.r0.y.a.a f50681f;
+        public final /* synthetic */ c.a.r0.r0.y.a.a f50794f;
 
         public a(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, c.a.r0.r0.y.b.b bVar, c.a.r0.r0.y.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -47,17 +47,17 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f50680e = bVar;
-            this.f50681f = aVar;
+            this.f50793e = bVar;
+            this.f50794f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.r0.r0.y.b.b bVar = this.f50680e;
+                c.a.r0.r0.y.b.b bVar = this.f50793e;
                 bVar.c(!bVar.b());
-                c.a.r0.r0.y.a.a aVar = this.f50681f;
+                c.a.r0.r0.y.a.a aVar = this.f50794f;
                 if (aVar != null) {
                     aVar.b();
                 }
@@ -71,10 +71,10 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.r0.y.b.b f50682e;
+        public final /* synthetic */ c.a.r0.r0.y.b.b f50795e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.r0.y.a.a f50683f;
+        public final /* synthetic */ c.a.r0.r0.y.a.a f50796f;
 
         public b(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, c.a.r0.r0.y.b.b bVar, c.a.r0.r0.y.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -91,19 +91,19 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f50682e = bVar;
-            this.f50683f = aVar;
+            this.f50795e = bVar;
+            this.f50796f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50682e.c(false);
-                this.f50682e.d(0);
-                c.a.r0.r0.y.a.a aVar = this.f50683f;
+                this.f50795e.c(false);
+                this.f50795e.d(0);
+                c.a.r0.r0.y.a.a aVar = this.f50796f;
                 if (aVar != null) {
-                    aVar.a(this.f50682e.a());
+                    aVar.a(this.f50795e.a());
                 }
             }
         }
@@ -115,10 +115,10 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.r0.y.b.b f50684e;
+        public final /* synthetic */ c.a.r0.r0.y.b.b f50797e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.r0.y.a.a f50685f;
+        public final /* synthetic */ c.a.r0.r0.y.a.a f50798f;
 
         public c(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, c.a.r0.r0.y.b.b bVar, c.a.r0.r0.y.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -135,19 +135,19 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f50684e = bVar;
-            this.f50685f = aVar;
+            this.f50797e = bVar;
+            this.f50798f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50684e.c(false);
-                this.f50684e.d(1);
-                c.a.r0.r0.y.a.a aVar = this.f50685f;
+                this.f50797e.c(false);
+                this.f50797e.d(1);
+                c.a.r0.r0.y.a.a aVar = this.f50798f;
                 if (aVar != null) {
-                    aVar.a(this.f50684e.a());
+                    aVar.a(this.f50797e.a());
                 }
             }
         }
@@ -171,17 +171,17 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f50679a = (ForumEmotionEmptyView) view;
+        this.f50792a = (ForumEmotionEmptyView) view;
     }
 
     public final void a(c.a.r0.r0.y.b.b bVar, c.a.r0.r0.y.a.a aVar) {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, aVar) == null) {
-            ViewGroup filterDropDownView = this.f50679a.getFilterDropDownView();
+            ViewGroup filterDropDownView = this.f50792a.getFilterDropDownView();
             if (bVar != null) {
-                Resources resources = this.f50679a.getResources();
-                TextView filterView = this.f50679a.getFilterView();
+                Resources resources = this.f50792a.getResources();
+                TextView filterView = this.f50792a.getFilterView();
                 filterDropDownView.setVisibility(0);
                 if (bVar.a() == 0) {
                     string = resources.getString(R.string.forum_emotion_filter_all_bar);

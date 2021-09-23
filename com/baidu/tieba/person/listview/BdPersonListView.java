@@ -61,10 +61,10 @@ public class BdPersonListView extends BdTypeListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f55794a;
+        public int f55913a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f55795b;
+        public int f55914b;
 
         public b(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -81,14 +81,14 @@ public class BdPersonListView extends BdTypeListView {
                     return;
                 }
             }
-            this.f55794a = i3;
-            this.f55795b = i5;
+            this.f55913a = i3;
+            this.f55914b = i5;
         }
 
         public int a(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) (this.f55794a + (f2 / 2.5f)) : invokeF.intValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) (this.f55913a + (f2 / 2.5f)) : invokeF.intValue;
         }
     }
 
@@ -188,7 +188,7 @@ public class BdPersonListView extends BdTypeListView {
                                 if (this.Q.getParent() == this && this.U != null && this.Q.isShown() && this.Q.getTop() >= 0 && Math.abs(f4) >= this.c0 && Math.abs(f3) < this.c0) {
                                     int a2 = this.U.a(this.T - this.S);
                                     b bVar = this.U;
-                                    if (a2 > bVar.f55794a && a2 <= bVar.f55795b) {
+                                    if (a2 > bVar.f55913a && a2 <= bVar.f55914b) {
                                         this.W = true;
                                         this.Q.setLayoutParams(new AbsListView.LayoutParams(this.Q.getWidth(), a2));
                                         if (this.R != null) {
@@ -199,12 +199,12 @@ public class BdPersonListView extends BdTypeListView {
                                                 this.R.setLayoutParams(layoutParams);
                                             }
                                         }
-                                        y(a2 - this.U.f55794a);
+                                        y(a2 - this.U.f55913a);
                                     } else {
                                         b bVar2 = this.U;
-                                        if (a2 <= bVar2.f55794a) {
+                                        if (a2 <= bVar2.f55913a) {
                                             this.W = false;
-                                        } else if (a2 > bVar2.f55795b) {
+                                        } else if (a2 > bVar2.f55914b) {
                                             this.W = true;
                                         } else {
                                             this.W = false;
@@ -286,13 +286,13 @@ public class BdPersonListView extends BdTypeListView {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.U == null) {
             return;
         }
-        if (this.Q.getHeight() >= this.U.f55795b - (this.i0 / 2)) {
+        if (this.Q.getHeight() >= this.U.f55914b - (this.i0 / 2)) {
             doRefresh();
         } else {
             this.mRefreshListener.b();
         }
-        this.O.startScroll(0, this.Q.getHeight(), 0, this.U.f55794a - this.Q.getHeight(), 200);
-        this.P.startScroll(0, this.R.getHeight(), 0, this.V.f55794a - this.R.getHeight(), 200);
+        this.O.startScroll(0, this.Q.getHeight(), 0, this.U.f55913a - this.Q.getHeight(), 200);
+        this.P.startScroll(0, this.R.getHeight(), 0, this.V.f55913a - this.R.getHeight(), 200);
         invalidate();
         this.W = false;
     }

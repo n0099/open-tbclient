@@ -28,7 +28,7 @@ public class b extends a {
                 return;
             }
         }
-        this.f7372a = d2;
+        this.f7380a = d2;
     }
 
     @Override // c.a.p0.a.m1.i.a
@@ -36,7 +36,7 @@ public class b extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            boolean z = a.f7371c;
+            boolean z = a.f7379c;
             if (bitmap == null) {
                 return false;
             }
@@ -45,7 +45,7 @@ public class b extends a {
             int height = rect2.height() - 2;
             int i2 = width / 3;
             int i3 = height / i2;
-            int ceil = (int) Math.ceil(i3 * 3 * this.f7372a);
+            int ceil = (int) Math.ceil(i3 * 3 * this.f7380a);
             int i4 = 0;
             int i5 = 0;
             while (i5 < 3) {
@@ -78,7 +78,7 @@ public class b extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
-            boolean z = a.f7371c;
+            boolean z = a.f7379c;
             if (bitmap == null) {
                 return 0.0d;
             }

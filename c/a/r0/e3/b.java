@@ -8,7 +8,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f17441a;
+    public static volatile a f17451a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static synchronized a a() {
@@ -17,10 +17,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             synchronized (b.class) {
-                if (f17441a == null) {
-                    f17441a = new a();
+                if (f17451a == null) {
+                    f17451a = new a();
                 }
-                aVar = f17441a;
+                aVar = f17451a;
             }
             return aVar;
         }

@@ -25,13 +25,13 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SharedPreferences f30157e;
+        public final /* synthetic */ SharedPreferences f30178e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f30158f;
+        public final /* synthetic */ String f30179f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Object f30159g;
+        public final /* synthetic */ Object f30180g;
 
         public a(SharedPreferences sharedPreferences, String str, Object obj) {
             Interceptable interceptable = $ic;
@@ -48,16 +48,16 @@ public class g {
                     return;
                 }
             }
-            this.f30157e = sharedPreferences;
-            this.f30158f = str;
-            this.f30159g = obj;
+            this.f30178e = sharedPreferences;
+            this.f30179f = str;
+            this.f30180g = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g.n(this.f30157e, this.f30158f, this.f30159g);
+                g.n(this.f30178e, this.f30179f, this.f30180g);
             }
         }
     }
@@ -68,13 +68,13 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f30160e;
+        public final /* synthetic */ Context f30181e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f30161f;
+        public final /* synthetic */ String f30182f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Set f30162g;
+        public final /* synthetic */ Set f30183g;
 
         public b(Context context, String str, Set set) {
             Interceptable interceptable = $ic;
@@ -91,16 +91,16 @@ public class g {
                     return;
                 }
             }
-            this.f30160e = context;
-            this.f30161f = str;
-            this.f30162g = set;
+            this.f30181e = context;
+            this.f30182f = str;
+            this.f30183g = set;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f30160e.getSharedPreferences("track_sp", 0).edit().putStringSet(this.f30161f, this.f30162g).apply();
+                this.f30181e.getSharedPreferences("track_sp", 0).edit().putStringSet(this.f30182f, this.f30183g).apply();
             }
         }
     }

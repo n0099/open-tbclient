@@ -34,13 +34,13 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f10058a;
+    public static boolean f10066a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f10059b;
+    public static String f10067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f10060c;
+    public static String f10068c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -95,9 +95,9 @@ public class d {
                 return;
             }
         }
-        f10058a = k.f7077a;
-        f10059b = null;
-        f10060c = null;
+        f10066a = k.f7085a;
+        f10067b = null;
+        f10068c = null;
     }
 
     public static boolean a() {
@@ -110,13 +110,13 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f10059b == null) {
-                f10059b = f("ro.miui.ui.version.name");
+            if (f10067b == null) {
+                f10067b = f("ro.miui.ui.version.name");
             }
-            if (f10058a) {
-                String str = "OsName = " + f10059b;
+            if (f10066a) {
+                String str = "OsName = " + f10067b;
             }
-            return !TextUtils.isEmpty(f10059b);
+            return !TextUtils.isEmpty(f10067b);
         }
         return invokeV.booleanValue;
     }
@@ -126,13 +126,13 @@ public class d {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f10060c == null) {
-                f10060c = f(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
+            if (f10068c == null) {
+                f10068c = f(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
             }
-            if (f10058a) {
-                String str = "sMiuiVersion = " + f10060c;
+            if (f10066a) {
+                String str = "sMiuiVersion = " + f10068c;
             }
-            if (!TextUtils.isEmpty(f10060c) && (split = f10060c.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
+            if (!TextUtils.isEmpty(f10068c) && (split = f10068c.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
                 String substring = split[0].substring(1);
                 if (!TextUtils.isEmpty(substring)) {
                     try {
@@ -225,7 +225,7 @@ public class d {
 
     public static void h(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && f10058a) {
+        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && f10066a) {
             Log.getStackTraceString(new Throwable(str));
         }
     }

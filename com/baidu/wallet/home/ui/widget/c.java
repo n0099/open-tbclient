@@ -24,19 +24,19 @@ public class c extends BdMenu {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HomeCfgResponse.TitleItemData[] f61350a;
+    public HomeCfgResponse.TitleItemData[] f61463a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61351b;
+    public String f61464b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f61352c;
+    public Context f61465c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f61353d;
+    public d f61466d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61354e;
+    public String f61467e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(View view) {
@@ -56,14 +56,14 @@ public class c extends BdMenu {
                 return;
             }
         }
-        this.f61352c = view.getContext();
+        this.f61465c = view.getContext();
         setDismissOnClick(true);
         setMenuItemClickListener(new BdMenuItem.OnItemClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f61355a;
+            public final /* synthetic */ c f61468a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -80,7 +80,7 @@ public class c extends BdMenu {
                         return;
                     }
                 }
-                this.f61355a = this;
+                this.f61468a = this;
             }
 
             @Override // com.baidu.wallet.base.widget.BdMenuItem.OnItemClickListener
@@ -97,13 +97,13 @@ public class c extends BdMenu {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, list) == null) {
             WalletHomeMenuView walletHomeMenuView = (WalletHomeMenuView) view;
-            walletHomeMenuView.layoutMenu(this.f61351b, this.f61350a);
+            walletHomeMenuView.layoutMenu(this.f61464b, this.f61463a);
             walletHomeMenuView.setMenuSelectListener(new WalletMenuLayout.a(this) { // from class: com.baidu.wallet.home.ui.widget.c.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f61356a;
+                public final /* synthetic */ c f61469a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -120,19 +120,19 @@ public class c extends BdMenu {
                             return;
                         }
                     }
-                    this.f61356a = this;
+                    this.f61469a = this;
                 }
 
                 @Override // com.baidu.wallet.home.ui.widget.WalletMenuLayout.a
                 public void a(HomeCfgResponse.TitleItemData titleItemData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, titleItemData) == null) {
-                        if (this.f61356a.f61353d != null && this.f61356a.f61353d.a(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr)) {
+                        if (this.f61469a.f61466d != null && this.f61469a.f61466d.a(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr)) {
                             DXMSdkSAUtils.onEventWithValues("clickHomeMenu", Arrays.asList(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr, HomeCfgResponse.getUserStatus()));
                         } else {
-                            com.baidu.wallet.home.a.a().a(this.f61356a.f61352c, titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr, titleItemData.getPrevlogin(), this.f61356a.f61354e);
+                            com.baidu.wallet.home.a.a().a(this.f61469a.f61465c, titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr, titleItemData.getPrevlogin(), this.f61469a.f61467e);
                         }
-                        this.f61356a.dismiss();
+                        this.f61469a.dismiss();
                     }
                 }
             });
@@ -164,21 +164,21 @@ public class c extends BdMenu {
         if (interceptable != null && interceptable.invokeLLL(1048576, this, str, titleItemDataArr, str2) != null) {
             return;
         }
-        this.f61354e = str2;
+        this.f61467e = str2;
         removeAllItem();
-        this.f61351b = str;
-        this.f61350a = titleItemDataArr;
+        this.f61464b = str;
+        this.f61463a = titleItemDataArr;
         if (titleItemDataArr == null || titleItemDataArr.length <= 0) {
             return;
         }
         int i2 = 0;
         while (true) {
-            HomeCfgResponse.TitleItemData[] titleItemDataArr2 = this.f61350a;
+            HomeCfgResponse.TitleItemData[] titleItemDataArr2 = this.f61463a;
             if (i2 >= titleItemDataArr2.length) {
                 return;
             }
             if (!TextUtils.isEmpty(titleItemDataArr2[i2].setting_name)) {
-                add(i2, this.f61350a[i2].setting_name);
+                add(i2, this.f61463a[i2].setting_name);
             }
             i2++;
         }

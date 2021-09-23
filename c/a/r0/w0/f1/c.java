@@ -23,34 +23,34 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f26595a;
+    public View f26618a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f26596b;
+    public TbPageContext f26619b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f26597c;
+    public TextView f26620c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f26598d;
+    public TextView f26621d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f26599e;
+    public TextView f26622e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBSpecificationBtn f26600f;
+    public TBSpecificationBtn f26623f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TBSpecificationBtn f26601g;
+    public TBSpecificationBtn f26624g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f26602h;
+    public View f26625h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f26603i;
+    public b f26626i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f26604j;
+    public View.OnClickListener f26627j;
     public View.OnClickListener k;
 
     /* loaded from: classes4.dex */
@@ -59,7 +59,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f26605e;
+        public final /* synthetic */ c f26628e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -76,23 +76,23 @@ public class c {
                     return;
                 }
             }
-            this.f26605e = cVar;
+            this.f26628e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() == this.f26605e.f26600f.getId()) {
-                    if (this.f26605e.f26596b.getPageActivity() != null) {
-                        this.f26605e.f26596b.getPageActivity().finish();
+                if (view.getId() == this.f26628e.f26623f.getId()) {
+                    if (this.f26628e.f26619b.getPageActivity() != null) {
+                        this.f26628e.f26619b.getPageActivity().finish();
                     }
-                    this.f26605e.f(2);
-                } else if (view.getId() == this.f26605e.f26601g.getId()) {
-                    if (this.f26605e.f26604j != null) {
-                        this.f26605e.f26604j.onClick(view);
+                    this.f26628e.f(2);
+                } else if (view.getId() == this.f26628e.f26624g.getId()) {
+                    if (this.f26628e.f26627j != null) {
+                        this.f26628e.f26627j.onClick(view);
                     }
-                    this.f26605e.f(1);
+                    this.f26628e.f(1);
                 }
             }
         }
@@ -114,75 +114,75 @@ public class c {
             }
         }
         this.k = new a(this);
-        this.f26596b = tbPageContext;
-        this.f26595a = view;
-        this.f26597c = (TextView) view.findViewById(R.id.to_user_name);
-        this.f26598d = (TextView) view.findViewById(R.id.content);
-        this.f26599e = (TextView) view.findViewById(R.id.sender);
-        this.f26600f = (TBSpecificationBtn) view.findViewById(R.id.btn_known);
+        this.f26619b = tbPageContext;
+        this.f26618a = view;
+        this.f26620c = (TextView) view.findViewById(R.id.to_user_name);
+        this.f26621d = (TextView) view.findViewById(R.id.content);
+        this.f26622e = (TextView) view.findViewById(R.id.sender);
+        this.f26623f = (TBSpecificationBtn) view.findViewById(R.id.btn_known);
         c.a.q0.s.f0.n.c cVar = new c.a.q0.s.f0.n.c();
         cVar.o(R.color.CAM_X0618);
-        this.f26600f.setConfig(cVar);
-        this.f26600f.setTextSize(R.dimen.tbds42);
-        this.f26600f.setText(tbPageContext.getString(R.string.guide_popup_window_known));
-        this.f26600f.setOnClickListener(this.k);
-        this.f26601g = (TBSpecificationBtn) view.findViewById(R.id.btn_share);
+        this.f26623f.setConfig(cVar);
+        this.f26623f.setTextSize(R.dimen.tbds42);
+        this.f26623f.setText(tbPageContext.getString(R.string.guide_popup_window_known));
+        this.f26623f.setOnClickListener(this.k);
+        this.f26624g = (TBSpecificationBtn) view.findViewById(R.id.btn_share);
         c.a.q0.s.f0.n.b bVar = new c.a.q0.s.f0.n.b();
         bVar.o(R.color.CAM_X0302, R.color.CAM_X0101);
-        this.f26601g.setConfig(bVar);
-        this.f26601g.setTextSize(R.dimen.tbds42);
-        this.f26601g.setText(tbPageContext.getString(R.string.go_to_share));
-        this.f26601g.setOnClickListener(this.k);
-        this.f26602h = view.findViewById(R.id.bottom_layout);
+        this.f26624g.setConfig(bVar);
+        this.f26624g.setTextSize(R.dimen.tbds42);
+        this.f26624g.setText(tbPageContext.getString(R.string.go_to_share));
+        this.f26624g.setOnClickListener(this.k);
+        this.f26625h = view.findViewById(R.id.bottom_layout);
         int i4 = 2;
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{tbPageContext.getResources().getColor(R.color.black_alpha100), tbPageContext.getResources().getColor(R.color.black_alpha0)});
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);
-        this.f26602h.setBackground(gradientDrawable);
+        this.f26625h.setBackground(gradientDrawable);
         b bVar2 = new b(tbPageContext);
-        this.f26603i = bVar2;
+        this.f26626i = bVar2;
         bVar2.k();
         i();
-        String str = this.f26603i.m;
+        String str = this.f26626i.m;
         if (str != null && str.equals("bazhu")) {
             i4 = 1;
         }
-        TiebaStatic.log(new StatisticItem("c13893").param("obj_source", i4).param("fid", this.f26603i.f26589e).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        TiebaStatic.log(new StatisticItem("c13893").param("obj_source", i4).param("fid", this.f26626i.f26612e).param("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
     public final void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            String str = this.f26603i.m;
-            TiebaStatic.log(new StatisticItem("c13892").param("obj_type", i2).param("obj_source", (str == null || !str.equals("bazhu")) ? 2 : 1).param("fid", this.f26603i.f26589e).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            String str = this.f26626i.m;
+            TiebaStatic.log(new StatisticItem("c13892").param("obj_type", i2).param("obj_source", (str == null || !str.equals("bazhu")) ? 2 : 1).param("fid", this.f26626i.f26612e).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f26597c, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f26598d, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f26599e, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f26620c, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f26621d, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f26622e, R.color.CAM_X0109);
         }
     }
 
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f26595a.setVisibility(z ? 0 : 8);
+            this.f26618a.setVisibility(z ? 0 : 8);
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TextView textView = this.f26597c;
-            textView.setText(this.f26603i.f26588d + ":");
-            this.f26598d.setText(this.f26603i.j());
+            TextView textView = this.f26620c;
+            textView.setText(this.f26626i.f26611d + ":");
+            this.f26621d.setText(this.f26626i.j());
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
             Date date = new Date(System.currentTimeMillis());
-            TextView textView2 = this.f26599e;
+            TextView textView2 = this.f26622e;
             textView2.setText("百度贴吧\n" + simpleDateFormat.format(date));
         }
     }
@@ -190,7 +190,7 @@ public class c {
     public void j(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f26604j = onClickListener;
+            this.f26627j = onClickListener;
         }
     }
 }

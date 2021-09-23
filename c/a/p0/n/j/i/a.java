@@ -15,19 +15,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f12005a;
+    public int f12013a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12006b;
+    public int f12014b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12007c;
+    public int f12015c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12008d;
+    public int f12016d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12009e;
+    public int f12017e;
 
     public a(int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
@@ -44,11 +44,11 @@ public class a {
                 return;
             }
         }
-        this.f12005a = i2;
-        this.f12006b = i3;
-        this.f12007c = i4;
-        this.f12008d = i6;
-        this.f12009e = i5;
+        this.f12013a = i2;
+        this.f12014b = i3;
+        this.f12015c = i4;
+        this.f12016d = i6;
+        this.f12017e = i5;
     }
 
     @NonNull
@@ -70,7 +70,7 @@ public class a {
                 JSONObject jSONObject = new JSONObject(str);
                 return new a(jSONObject.optInt("clean_check_hour", 24), jSONObject.optInt("hold_history_max_count", 70), jSONObject.optInt("history_force_clean_hour", 1440), jSONObject.optInt("force_clean_hour", 720), jSONObject.optInt("hold_max_count", 30));
             } catch (JSONException e2) {
-                if (c.a.p0.n.c.f11856a) {
+                if (c.a.p0.n.c.f11864a) {
                     e2.printStackTrace();
                 }
                 return a();

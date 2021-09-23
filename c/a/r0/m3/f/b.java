@@ -29,26 +29,26 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static b f22447g;
+    public static b f22463g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ClientConfigModel f22448a;
+    public ClientConfigModel f22464a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f22449b;
+    public d f22465b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f22450c;
+    public boolean f22466c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.q0.q.a f22451d;
+    public final c.a.q0.q.a f22467d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f22452e;
+    public CustomMessageListener f22468e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f22453f;
+    public CustomMessageListener f22469f;
 
     /* loaded from: classes3.dex */
     public class a implements c.a.q0.q.a {
@@ -56,7 +56,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f22454a;
+        public final /* synthetic */ b f22470a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -73,14 +73,14 @@ public class b {
                     return;
                 }
             }
-            this.f22454a = bVar;
+            this.f22470a = bVar;
         }
 
         @Override // c.a.q0.q.a
         public void a(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.f22454a.f22450c = false;
+                this.f22470a.f22466c = false;
                 if (obj == null || !(obj instanceof DataRes)) {
                     return;
                 }
@@ -90,11 +90,11 @@ public class b {
                     if (TextUtils.isEmpty(g2)) {
                         return;
                     }
-                    TbadkSettings.getInst().saveString(this.f22454a.h("remind_recommend_info"), g2);
-                    TbadkSettings.getInst().saveInt(this.f22454a.h("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
-                    TbadkSettings.getInst().saveString(this.f22454a.h("remind_recommend_dialog_time"), dataRes.local_dialog.time);
-                    this.f22454a.k(true);
-                    TbadkSettings.getInst().saveLong(this.f22454a.h("remind_recommend_data_time"), System.currentTimeMillis());
+                    TbadkSettings.getInst().saveString(this.f22470a.h("remind_recommend_info"), g2);
+                    TbadkSettings.getInst().saveInt(this.f22470a.h("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
+                    TbadkSettings.getInst().saveString(this.f22470a.h("remind_recommend_dialog_time"), dataRes.local_dialog.time);
+                    this.f22470a.k(true);
+                    TbadkSettings.getInst().saveLong(this.f22470a.h("remind_recommend_data_time"), System.currentTimeMillis());
                 }
             }
         }
@@ -103,22 +103,22 @@ public class b {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f22454a.f22450c = false;
+                this.f22470a.f22466c = false;
             }
         }
     }
 
     /* renamed from: c.a.r0.m3.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1049b extends CustomMessageListener {
+    public class C1047b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f22455a;
+        public final /* synthetic */ b f22471a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1049b(b bVar, int i2) {
+        public C1047b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -135,15 +135,15 @@ public class b {
                     return;
                 }
             }
-            this.f22455a = bVar;
+            this.f22471a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.z() && this.f22455a.f()) {
-                this.f22455a.g();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.z() && this.f22471a.f()) {
+                this.f22471a.g();
             }
         }
     }
@@ -154,7 +154,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f22456a;
+        public final /* synthetic */ b f22472a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(b bVar, int i2) {
@@ -174,16 +174,16 @@ public class b {
                     return;
                 }
             }
-            this.f22456a = bVar;
+            this.f22472a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && this.f22456a.f()) {
-                this.f22456a.k(true);
-                this.f22456a.g();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && this.f22472a.f()) {
+                this.f22472a.k(true);
+                this.f22472a.g();
             }
         }
     }
@@ -194,7 +194,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f22457a;
+        public final /* synthetic */ b f22473a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(b bVar) {
@@ -214,7 +214,7 @@ public class b {
                     return;
                 }
             }
-            this.f22457a = bVar;
+            this.f22473a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -226,9 +226,9 @@ public class b {
                 return;
             }
             c.a.q0.s.d0.b.j().w("tieba_last_active_time", System.currentTimeMillis());
-            if (this.f22457a.f()) {
-                this.f22457a.k(true);
-                this.f22457a.g();
+            if (this.f22473a.f()) {
+                this.f22473a.k(true);
+                this.f22473a.g();
             }
         }
     }
@@ -246,24 +246,24 @@ public class b {
                 return;
             }
         }
-        this.f22450c = false;
-        this.f22451d = new a(this);
-        this.f22452e = new C1049b(this, 2000994);
-        this.f22453f = new c(this, 2005016);
+        this.f22466c = false;
+        this.f22467d = new a(this);
+        this.f22468e = new C1047b(this, 2000994);
+        this.f22469f = new c(this, 2005016);
     }
 
     public static b i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f22447g == null) {
+            if (f22463g == null) {
                 synchronized (b.class) {
-                    if (f22447g == null) {
-                        f22447g = new b();
+                    if (f22463g == null) {
+                        f22463g = new b();
                     }
                 }
             }
-            return f22447g;
+            return f22463g;
         }
         return (b) invokeV.objValue;
     }
@@ -272,11 +272,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, baseFragmentActivity) == null) {
             d dVar = new d(this);
-            this.f22449b = dVar;
+            this.f22465b = dVar;
             baseFragmentActivity.registerListener(dVar);
-            baseFragmentActivity.registerListener(this.f22452e);
-            baseFragmentActivity.registerListener(this.f22453f);
-            this.f22448a = new ClientConfigModel(baseFragmentActivity, this.f22451d);
+            baseFragmentActivity.registerListener(this.f22468e);
+            baseFragmentActivity.registerListener(this.f22469f);
+            this.f22464a = new ClientConfigModel(baseFragmentActivity, this.f22467d);
             c.a.q0.s.d0.b.j().w("tieba_last_active_time", System.currentTimeMillis());
             if (f()) {
                 k(true);
@@ -327,10 +327,10 @@ public class b {
     public final void j() {
         ClientConfigModel clientConfigModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (clientConfigModel = this.f22448a) == null || this.f22450c) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (clientConfigModel = this.f22464a) == null || this.f22466c) {
             return;
         }
-        this.f22450c = true;
+        this.f22466c = true;
         clientConfigModel.B("local_dialog");
     }
 

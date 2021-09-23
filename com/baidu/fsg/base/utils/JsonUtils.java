@@ -36,7 +36,7 @@ public final class JsonUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f39576a;
+    public static final boolean f39633a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -184,11 +184,14 @@ public final class JsonUtils {
                         map.put(next, jSONObject.get(next));
                     }
                     if (LogUtil.DEBUG) {
-                        LogUtil.logd("map=" + map.toString());
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("map=");
+                        sb.append(map.toString());
+                        LogUtil.logd(sb.toString());
                     }
                     return map;
                 } catch (JSONException e2) {
-                    if (JsonUtils.f39576a) {
+                    if (JsonUtils.f39633a) {
                         e2.printStackTrace();
                         return null;
                     }
@@ -211,7 +214,7 @@ public final class JsonUtils {
                 }
                 field.set(obj, obj2);
             } catch (Exception e2) {
-                if (JsonUtils.f39576a) {
+                if (JsonUtils.f39633a) {
                     e2.printStackTrace();
                 }
             }
@@ -231,89 +234,88 @@ public final class JsonUtils {
             }
         }
 
-        /* JADX WARN: Can't wrap try/catch for region: R(6:11|(2:16|(4:22|23|19|20))|30|31|19|20) */
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x002a, code lost:
-            if (com.baidu.fsg.base.utils.JsonUtils.f39576a == false) goto L19;
+        /* JADX WARN: Can't wrap try/catch for region: R(6:11|(5:16|(4:22|23|19|20)|18|19|20)|30|31|19|20) */
+        /* JADX WARN: Code restructure failed: missing block: B:34:0x006c, code lost:
+            if (com.baidu.fsg.base.utils.JsonUtils.f39633a == false) goto L28;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:40:0x0081, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:38:0x0078, code lost:
             r4 = e;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:42:0x0086, code lost:
-            if (com.baidu.fsg.base.utils.JsonUtils.f39576a != false) goto L36;
+        /* JADX WARN: Code restructure failed: missing block: B:40:0x007d, code lost:
+            if (com.baidu.fsg.base.utils.JsonUtils.f39633a == false) goto L28;
          */
-        /* JADX WARN: Removed duplicated region for block: B:66:0x00db  */
-        /* JADX WARN: Removed duplicated region for block: B:80:? A[RETURN, SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public static void a(JSONObject jSONObject, Object obj, Field field) {
+            Object deserialize;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, jSONObject, obj, field) == null) {
                 Class<?> type = field.getType();
                 String name = field.getName();
-                Object obj2 = null;
                 try {
-                } catch (Exception e2) {
-                    if (JsonUtils.f39576a) {
-                    }
-                }
-                if (!DataType.isRaw(type)) {
-                    if (!DataType.isArray(type) && !DataType.isCollection(type)) {
-                        if (!DataType.isJSONObject(type)) {
-                            if (DataType.isObject(type)) {
-                                obj2 = deserialize(jSONObject.optJSONObject(name), type);
-                            } else if (!DataType.isMap(type)) {
-                                throw new Exception("unknow type!");
-                            } else {
-                                obj2 = a(new HashMap(), jSONObject.optJSONObject(name));
-                            }
-                            a(obj, field, obj2);
-                        }
-                    }
-                    obj2 = deserialize(jSONObject.optJSONArray(name), type);
-                    a(obj, field, obj2);
-                }
-                if (Integer.TYPE.isAssignableFrom(type)) {
-                    try {
-                        obj2 = Integer.valueOf(jSONObject.getInt(name));
-                    } catch (JSONException e3) {
-                        e = e3;
-                    }
-                    a(obj, field, obj2);
-                } else if (Long.TYPE.isAssignableFrom(type)) {
-                    try {
-                        obj2 = Long.valueOf(jSONObject.getLong(name));
-                    } catch (JSONException e4) {
-                        e = e4;
-                        if (JsonUtils.f39576a) {
-                            e.printStackTrace();
-                        }
-                    }
-                    a(obj, field, obj2);
-                } else {
-                    if (!Float.TYPE.isAssignableFrom(type) && !Double.TYPE.isAssignableFrom(type)) {
-                        if (DataType.isBoolean(type)) {
-                            try {
-                                obj2 = Boolean.valueOf(jSONObject.getBoolean(name));
-                            } catch (JSONException e5) {
-                                e = e5;
-                                if (JsonUtils.f39576a) {
-                                    e.printStackTrace();
+                    if (!DataType.isRaw(type)) {
+                        if (!DataType.isArray(type) && !DataType.isCollection(type)) {
+                            if (!DataType.isJSONObject(type)) {
+                                if (DataType.isObject(type)) {
+                                    deserialize = deserialize(jSONObject.optJSONObject(name), type);
+                                } else if (!DataType.isMap(type)) {
+                                    throw new Exception("unknow type!");
+                                } else {
+                                    deserialize = a(new HashMap(), jSONObject.optJSONObject(name));
                                 }
+                                a(obj, field, deserialize);
                             }
-                            a(obj, field, obj2);
+                            deserialize = jSONObject.opt(name);
+                            a(obj, field, deserialize);
                         }
+                        deserialize = deserialize(jSONObject.optJSONArray(name), type);
+                        a(obj, field, deserialize);
+                    } else if (Integer.TYPE.isAssignableFrom(type)) {
+                        try {
+                            deserialize = Integer.valueOf(jSONObject.getInt(name));
+                        } catch (JSONException e2) {
+                            e = e2;
+                            if (JsonUtils.f39633a) {
+                                e.printStackTrace();
+                            }
+                            deserialize = null;
+                            a(obj, field, deserialize);
+                        }
+                        a(obj, field, deserialize);
+                    } else if (Long.TYPE.isAssignableFrom(type)) {
+                        try {
+                            deserialize = Long.valueOf(jSONObject.getLong(name));
+                        } catch (JSONException e3) {
+                            e = e3;
+                            if (JsonUtils.f39633a) {
+                                e.printStackTrace();
+                            }
+                            deserialize = null;
+                            a(obj, field, deserialize);
+                        }
+                        a(obj, field, deserialize);
+                    } else {
+                        if (!Float.TYPE.isAssignableFrom(type) && !Double.TYPE.isAssignableFrom(type)) {
+                            if (DataType.isBoolean(type)) {
+                                try {
+                                    deserialize = Boolean.valueOf(jSONObject.getBoolean(name));
+                                } catch (JSONException e4) {
+                                    e = e4;
+                                }
+                                a(obj, field, deserialize);
+                            }
+                            deserialize = jSONObject.opt(name);
+                            a(obj, field, deserialize);
+                        }
+                        deserialize = Double.valueOf(jSONObject.getDouble(name));
+                        a(obj, field, deserialize);
                     }
-                    obj2 = Double.valueOf(jSONObject.getDouble(name));
-                    a(obj, field, obj2);
+                } catch (Exception e5) {
+                    if (JsonUtils.f39633a) {
+                        e5.printStackTrace();
+                    }
                 }
-                if (JsonUtils.f39576a) {
-                    return;
-                }
-                e2.printStackTrace();
-                return;
-                obj2 = jSONObject.opt(name);
-                a(obj, field, obj2);
             }
         }
 
@@ -333,7 +335,7 @@ public final class JsonUtils {
                     try {
                         tArr[i2] = a(jSONArray, i2, cls, z);
                     } catch (JSONException e2) {
-                        if (JsonUtils.f39576a) {
+                        if (JsonUtils.f39633a) {
                             e2.printStackTrace();
                         }
                     }
@@ -363,7 +365,7 @@ public final class JsonUtils {
                     try {
                         r5.add(a(jSONArray, i2, cls2, z));
                     } catch (JSONException e2) {
-                        if (JsonUtils.f39576a) {
+                        if (JsonUtils.f39633a) {
                             e2.printStackTrace();
                         }
                     }
@@ -431,13 +433,33 @@ public final class JsonUtils {
             }
         }
 
+        public static JSONStringer a(JSONStringer jSONStringer, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONStringer, obj)) == null) {
+                try {
+                    jSONStringer.array();
+                    for (int i2 = 0; i2 < Array.getLength(obj); i2++) {
+                        serialize(jSONStringer, Array.get(obj, i2));
+                    }
+                    jSONStringer.endArray();
+                } catch (Exception e2) {
+                    if (JsonUtils.f39633a) {
+                        e2.printStackTrace();
+                    }
+                }
+                return jSONStringer;
+            }
+            return (JSONStringer) invokeLL.objValue;
+        }
+
         public static void a(JSONStringer jSONStringer) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65537, null, jSONStringer) == null) {
+            if (interceptable == null || interceptable.invokeL(65538, null, jSONStringer) == null) {
                 try {
                     jSONStringer.value((Object) null);
                 } catch (JSONException e2) {
-                    if (JsonUtils.f39576a) {
+                    if (JsonUtils.f39633a) {
                         e2.printStackTrace();
                     }
                 }
@@ -447,7 +469,7 @@ public final class JsonUtils {
         public static void a(JSONStringer jSONStringer, Class<?> cls, Object obj) {
             Field[] declaredFields;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(65538, null, jSONStringer, cls, obj) == null) || cls == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(65539, null, jSONStringer, cls, obj) == null) || cls == null) {
                 return;
             }
             a(jSONStringer, cls.getSuperclass(), obj);
@@ -468,19 +490,6 @@ public final class JsonUtils {
             }
         }
 
-        public static void a(JSONStringer jSONStringer, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65539, null, jSONStringer, obj) == null) {
-                try {
-                    jSONStringer.value(obj);
-                } catch (JSONException e2) {
-                    if (JsonUtils.f39576a) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-        }
-
         public static void a(JSONStringer jSONStringer, Collection<?> collection) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONStringer, collection) == null) {
@@ -492,7 +501,7 @@ public final class JsonUtils {
                     }
                     jSONStringer.endArray();
                 } catch (Exception e2) {
-                    if (JsonUtils.f39576a) {
+                    if (JsonUtils.f39633a) {
                         e2.printStackTrace();
                     }
                 }
@@ -510,42 +519,35 @@ public final class JsonUtils {
                     }
                     jSONStringer.endObject();
                 } catch (Exception e2) {
-                    if (JsonUtils.f39576a) {
+                    if (JsonUtils.f39633a) {
                         e2.printStackTrace();
                     }
                 }
             }
         }
 
-        public static JSONStringer b(JSONStringer jSONStringer, Object obj) {
-            InterceptResult invokeLL;
+        public static void b(JSONStringer jSONStringer, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, jSONStringer, obj)) == null) {
+            if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, jSONStringer, obj) == null) {
                 try {
-                    jSONStringer.array();
-                    for (int i2 = 0; i2 < Array.getLength(obj); i2++) {
-                        serialize(jSONStringer, Array.get(obj, i2));
-                    }
-                    jSONStringer.endArray();
+                    jSONStringer.object();
+                    a(jSONStringer, obj.getClass(), obj);
+                    jSONStringer.endObject();
                 } catch (Exception e2) {
-                    if (JsonUtils.f39576a) {
+                    if (JsonUtils.f39633a) {
                         e2.printStackTrace();
                     }
                 }
-                return jSONStringer;
             }
-            return (JSONStringer) invokeLL.objValue;
         }
 
         public static void c(JSONStringer jSONStringer, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65543, null, jSONStringer, obj) == null) {
                 try {
-                    jSONStringer.object();
-                    a(jSONStringer, obj.getClass(), obj);
-                    jSONStringer.endObject();
-                } catch (Exception e2) {
-                    if (JsonUtils.f39576a) {
+                    jSONStringer.value(obj);
+                } catch (JSONException e2) {
+                    if (JsonUtils.f39633a) {
                         e2.printStackTrace();
                     }
                 }
@@ -561,15 +563,15 @@ public final class JsonUtils {
                 } else {
                     Class<?> cls = obj.getClass();
                     if (DataType.isRaw(cls)) {
-                        a(jSONStringer, obj);
+                        c(jSONStringer, obj);
                     } else if (DataType.isArray(cls)) {
-                        b(jSONStringer, obj);
+                        a(jSONStringer, obj);
                     } else if (DataType.isCollection(cls)) {
                         a(jSONStringer, (Collection<?>) obj);
                     } else if (DataType.isMap(cls)) {
                         a(jSONStringer, (Map<?, ?>) obj);
                     } else {
-                        c(jSONStringer, obj);
+                        b(jSONStringer, obj);
                     }
                 }
                 return jSONStringer;
@@ -591,7 +593,7 @@ public final class JsonUtils {
                 return;
             }
         }
-        f39576a = ApollonConstants.DEBUG & false;
+        f39633a = ApollonConstants.DEBUG & false;
     }
 
     public JsonUtils() {

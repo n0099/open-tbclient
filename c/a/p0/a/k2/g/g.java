@@ -20,7 +20,7 @@ public class g implements c.a.p0.t.b {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final c.a.p0.t.b f7153a;
+    public final c.a.p0.t.b f7161a;
 
     public g(String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -37,21 +37,21 @@ public class g implements c.a.p0.t.b {
                 return;
             }
         }
-        this.f7153a = c.a.p0.a.k2.h.d.j().k(c.a.p0.a.c1.a.b(), str, z);
+        this.f7161a = c.a.p0.a.k2.h.d.j().k(c.a.p0.a.c1.a.b(), str, z);
     }
 
     @Override // c.a.p0.t.b
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7153a.a() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7161a.a() : (Set) invokeV.objValue;
     }
 
     @Override // android.content.SharedPreferences.Editor
     public void apply() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f7153a.apply();
+            this.f7161a.apply();
         }
     }
 
@@ -59,7 +59,7 @@ public class g implements c.a.p0.t.b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7153a.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7161a.b() : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.t.b
@@ -67,41 +67,41 @@ public class g implements c.a.p0.t.b {
     public File c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7153a.c() : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7161a.c() : (File) invokeV.objValue;
     }
 
     public SharedPreferences.Editor clear() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7153a.clear() : (SharedPreferences.Editor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7161a.clear() : (SharedPreferences.Editor) invokeV.objValue;
     }
 
     @Override // android.content.SharedPreferences.Editor
     public boolean commit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7153a.commit() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7161a.commit() : invokeV.booleanValue;
     }
 
     @Override // android.content.SharedPreferences
     public boolean contains(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.f7153a.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.f7161a.contains(str) : invokeL.booleanValue;
     }
 
     @Override // c.a.p0.t.b
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f7153a.d() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f7161a.d() : invokeV.longValue;
     }
 
     @Override // android.content.SharedPreferences
     public SharedPreferences.Editor edit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f7153a.edit() : (SharedPreferences.Editor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f7161a.edit() : (SharedPreferences.Editor) invokeV.objValue;
     }
 
     @Override // c.a.p0.t.b, android.content.SharedPreferences
@@ -109,35 +109,35 @@ public class g implements c.a.p0.t.b {
     public Map<String, ?> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f7153a.getAll() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f7161a.getAll() : (Map) invokeV.objValue;
     }
 
     @Override // android.content.SharedPreferences
     public boolean getBoolean(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048586, this, str, z)) == null) ? this.f7153a.getBoolean(str, z) : invokeLZ.booleanValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048586, this, str, z)) == null) ? this.f7161a.getBoolean(str, z) : invokeLZ.booleanValue;
     }
 
     @Override // android.content.SharedPreferences
     public float getFloat(String str, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048587, this, str, f2)) == null) ? this.f7153a.getFloat(str, f2) : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048587, this, str, f2)) == null) ? this.f7161a.getFloat(str, f2) : invokeLF.floatValue;
     }
 
     @Override // android.content.SharedPreferences
     public int getInt(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i2)) == null) ? this.f7153a.getInt(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i2)) == null) ? this.f7161a.getInt(str, i2) : invokeLI.intValue;
     }
 
     @Override // android.content.SharedPreferences
     public long getLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, str, j2)) == null) ? this.f7153a.getLong(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, str, j2)) == null) ? this.f7161a.getLong(str, j2) : invokeLJ.longValue;
     }
 
     @Override // android.content.SharedPreferences
@@ -145,7 +145,7 @@ public class g implements c.a.p0.t.b {
     public String getString(String str, @Nullable String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) ? this.f7153a.getString(str, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) ? this.f7161a.getString(str, str2) : (String) invokeLL.objValue;
     }
 
     @Override // android.content.SharedPreferences
@@ -153,43 +153,43 @@ public class g implements c.a.p0.t.b {
     public Set<String> getStringSet(String str, @Nullable Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, set)) == null) ? this.f7153a.getStringSet(str, set) : (Set) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, set)) == null) ? this.f7161a.getStringSet(str, set) : (Set) invokeLL.objValue;
     }
 
     public SharedPreferences.Editor putBoolean(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048592, this, str, z)) == null) ? this.f7153a.putBoolean(str, z) : (SharedPreferences.Editor) invokeLZ.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048592, this, str, z)) == null) ? this.f7161a.putBoolean(str, z) : (SharedPreferences.Editor) invokeLZ.objValue;
     }
 
     public SharedPreferences.Editor putFloat(String str, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048593, this, str, f2)) == null) ? this.f7153a.putFloat(str, f2) : (SharedPreferences.Editor) invokeLF.objValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048593, this, str, f2)) == null) ? this.f7161a.putFloat(str, f2) : (SharedPreferences.Editor) invokeLF.objValue;
     }
 
     public SharedPreferences.Editor putInt(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, str, i2)) == null) ? this.f7153a.putInt(str, i2) : (SharedPreferences.Editor) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, str, i2)) == null) ? this.f7161a.putInt(str, i2) : (SharedPreferences.Editor) invokeLI.objValue;
     }
 
     public SharedPreferences.Editor putLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048595, this, str, j2)) == null) ? this.f7153a.putLong(str, j2) : (SharedPreferences.Editor) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048595, this, str, j2)) == null) ? this.f7161a.putLong(str, j2) : (SharedPreferences.Editor) invokeLJ.objValue;
     }
 
     public SharedPreferences.Editor putString(String str, @Nullable String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, str, str2)) == null) ? this.f7153a.putString(str, str2) : (SharedPreferences.Editor) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, str, str2)) == null) ? this.f7161a.putString(str, str2) : (SharedPreferences.Editor) invokeLL.objValue;
     }
 
     public SharedPreferences.Editor putStringSet(String str, @Nullable Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, str, set)) == null) ? this.f7153a.putStringSet(str, set) : (SharedPreferences.Editor) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, str, set)) == null) ? this.f7161a.putStringSet(str, set) : (SharedPreferences.Editor) invokeLL.objValue;
     }
 
     @Override // c.a.p0.t.b, android.content.SharedPreferences
@@ -197,14 +197,14 @@ public class g implements c.a.p0.t.b {
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, onSharedPreferenceChangeListener) == null) {
-            this.f7153a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+            this.f7161a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
     }
 
     public SharedPreferences.Editor remove(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) ? this.f7153a.remove(str) : (SharedPreferences.Editor) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) ? this.f7161a.remove(str) : (SharedPreferences.Editor) invokeL.objValue;
     }
 
     @Override // c.a.p0.t.b, android.content.SharedPreferences
@@ -212,7 +212,7 @@ public class g implements c.a.p0.t.b {
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, onSharedPreferenceChangeListener) == null) {
-            this.f7153a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+            this.f7161a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
     }
 

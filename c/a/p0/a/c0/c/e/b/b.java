@@ -21,10 +21,10 @@ public final class b extends c.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.p0.a.c0.c.e.b.a f4674i;
+    public c.a.p0.a.c0.c.e.b.a f4682i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SwanAppComponentContainerView f4675j;
+    public SwanAppComponentContainerView f4683j;
     public SimpleDraweeView k;
 
     /* loaded from: classes.dex */
@@ -33,13 +33,13 @@ public final class b extends c.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f4676a;
+        public final /* synthetic */ boolean f4684a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SimpleDraweeView f4677b;
+        public final /* synthetic */ SimpleDraweeView f4685b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f4678c;
+        public final /* synthetic */ b f4686c;
 
         public a(b bVar, boolean z, SimpleDraweeView simpleDraweeView) {
             Interceptable interceptable = $ic;
@@ -56,9 +56,9 @@ public final class b extends c.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
                     return;
                 }
             }
-            this.f4678c = bVar;
-            this.f4676a = z;
-            this.f4677b = simpleDraweeView;
+            this.f4686c = bVar;
+            this.f4684a = z;
+            this.f4685b = simpleDraweeView;
         }
 
         @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
@@ -66,10 +66,10 @@ public final class b extends c.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, th) == null) {
                 super.onFailure(str, th);
-                if (!this.f4676a || this.f4678c.f4674i == null) {
+                if (!this.f4684a || this.f4686c.f4682i == null) {
                     return;
                 }
-                this.f4678c.f4674i.a(0, this.f4677b, null);
+                this.f4686c.f4682i.a(0, this.f4685b, null);
             }
         }
 
@@ -79,10 +79,10 @@ public final class b extends c.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageInfo, animatable) == null) {
                 super.onFinalImageSet(str, (String) imageInfo, animatable);
-                if (!this.f4676a || this.f4678c.f4674i == null) {
+                if (!this.f4684a || this.f4686c.f4682i == null) {
                     return;
                 }
-                this.f4678c.f4674i.a(1, this.f4677b, null);
+                this.f4686c.f4682i.a(1, this.f4685b, null);
             }
         }
     }
@@ -107,7 +107,7 @@ public final class b extends c.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
             }
         }
         g(4);
-        this.f4675j = new SwanAppComponentContainerView(context);
+        this.f4683j = new SwanAppComponentContainerView(context);
         this.k = new SimpleDraweeView(context);
     }
 
@@ -178,7 +178,7 @@ public final class b extends c.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
     public void g0(c.a.p0.a.c0.c.e.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            this.f4674i = aVar;
+            this.f4682i = aVar;
         }
     }
 
@@ -187,6 +187,6 @@ public final class b extends c.a.p0.a.c0.a.b.a<SimpleDraweeView, c> {
     public SwanAppComponentContainerView u(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, context)) == null) ? this.f4675j : (SwanAppComponentContainerView) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, context)) == null) ? this.f4683j : (SwanAppComponentContainerView) invokeL.objValue;
     }
 }

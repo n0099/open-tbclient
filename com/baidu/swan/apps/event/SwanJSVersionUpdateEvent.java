@@ -37,7 +37,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        DEBUG = k.f7077a;
+        DEBUG = k.f7085a;
     }
 
     public SwanJSVersionUpdateEvent() {

@@ -17,10 +17,10 @@ public class d extends Presenter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.d f73801a;
+    public com.kwad.sdk.splashscreen.d f74120a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.c f73802b;
+    public com.kwad.sdk.core.download.b.c f74121b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -55,13 +55,13 @@ public class d extends Presenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f73801a = (com.kwad.sdk.splashscreen.d) l();
+            this.f74120a = (com.kwad.sdk.splashscreen.d) l();
             com.kwad.sdk.core.download.b.c cVar = new com.kwad.sdk.core.download.b.c(this) { // from class: com.kwad.sdk.splashscreen.a.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f73803b;
+                public final /* synthetic */ d f74122b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -78,7 +78,7 @@ public class d extends Presenter {
                             return;
                         }
                     }
-                    this.f73803b = this;
+                    this.f74122b = this;
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -101,9 +101,9 @@ public class d extends Presenter {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                         super.onDownloadStarted();
-                        Context m = this.f73803b.m();
-                        if (this.f73803b.m() instanceof ResContext) {
-                            m = ((ResContext) this.f73803b.m()).getDelegatedContext();
+                        Context m = this.f74122b.m();
+                        if (this.f74122b.m() instanceof ResContext) {
+                            m = ((ResContext) this.f74122b.m()).getDelegatedContext();
                         }
                         if (m != null) {
                             String b2 = d.b(m);
@@ -138,8 +138,8 @@ public class d extends Presenter {
                     }
                 }
             };
-            this.f73802b = cVar;
-            this.f73801a.f73869g.a(cVar);
+            this.f74121b = cVar;
+            this.f74120a.f74188g.a(cVar);
         }
     }
 
@@ -147,9 +147,9 @@ public class d extends Presenter {
     public void c() {
         com.kwad.sdk.core.download.b.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f73802b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f74121b) == null) {
             return;
         }
-        this.f73801a.f73869g.b(cVar);
+        this.f74120a.f74188g.b(cVar);
     }
 }

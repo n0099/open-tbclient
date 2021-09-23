@@ -24,34 +24,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f19716a;
+    public BdUniqueId f19731a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.j2.o.b f19717b;
+    public c.a.r0.j2.o.b f19732b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext<?> f19718c;
+    public TbPageContext<?> f19733c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c.a.e.l.e.a> f19719d;
+    public List<c.a.e.l.e.a> f19734d;
 
     /* renamed from: e  reason: collision with root package name */
-    public s f19720e;
+    public s f19735e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f19721f;
+    public c f19736f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f19722g;
+    public d f19737g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f19723h;
+    public e f19738h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f f19724i;
+    public f f19739i;
 
     /* renamed from: j  reason: collision with root package name */
-    public g f19725j;
+    public g f19740j;
     public h k;
     public PbRecomChildTitleAdapter l;
     public a0 m;
@@ -71,20 +71,20 @@ public class b {
                 return;
             }
         }
-        this.f19719d = new ArrayList();
-        this.f19720e = sVar;
-        this.f19716a = bdUniqueId;
-        this.f19717b = bVar;
-        this.f19718c = bVar.getPageContext();
+        this.f19734d = new ArrayList();
+        this.f19735e = sVar;
+        this.f19731a = bdUniqueId;
+        this.f19732b = bVar;
+        this.f19733c = bVar.getPageContext();
         c();
         g(sVar);
-        sVar.addAdapters(this.f19719d);
+        sVar.addAdapters(this.f19734d);
     }
 
     public List<c.a.e.l.e.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19719d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19734d : (List) invokeV.objValue;
     }
 
     public View b() {
@@ -103,32 +103,32 @@ public class b {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f19723h = new e(this.f19718c, k.E0);
-            this.f19722g = new d(this.f19718c, k.F0);
-            this.f19721f = new c(this.f19718c, k.G0);
-            this.f19724i = new f(this.f19718c, k.D0);
-            this.f19725j = new g(this.f19718c, k.I0);
-            this.k = new h(this.f19718c, l.X);
-            this.l = new PbRecomChildTitleAdapter(this.f19717b, c.a.r0.a0.e0.e.f15604f);
-            this.m = new a0(this.f19717b, j.f19632g, this.f19716a);
-            this.f19719d.add(this.f19723h);
-            this.f19719d.add(this.f19722g);
-            this.f19719d.add(this.f19721f);
-            this.f19719d.add(this.f19724i);
-            this.f19719d.add(this.f19725j);
-            this.f19719d.add(this.k);
-            this.f19719d.add(this.l);
-            this.f19719d.add(this.m);
+            this.f19738h = new e(this.f19733c, k.E0);
+            this.f19737g = new d(this.f19733c, k.F0);
+            this.f19736f = new c(this.f19733c, k.G0);
+            this.f19739i = new f(this.f19733c, k.D0);
+            this.f19740j = new g(this.f19733c, k.I0);
+            this.k = new h(this.f19733c, l.X);
+            this.l = new PbRecomChildTitleAdapter(this.f19732b, c.a.r0.a0.e0.e.f15613f);
+            this.m = new a0(this.f19732b, j.f19647g, this.f19731a);
+            this.f19734d.add(this.f19738h);
+            this.f19734d.add(this.f19737g);
+            this.f19734d.add(this.f19736f);
+            this.f19734d.add(this.f19739i);
+            this.f19734d.add(this.f19740j);
+            this.f19734d.add(this.k);
+            this.f19734d.add(this.l);
+            this.f19734d.add(this.m);
         }
     }
 
     public void d() {
         s sVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (sVar = this.f19720e) == null || sVar.getListAdapter() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (sVar = this.f19735e) == null || sVar.getListAdapter() == null) {
             return;
         }
-        this.f19720e.getListAdapter().notifyDataSetChanged();
+        this.f19735e.getListAdapter().notifyDataSetChanged();
     }
 
     public void e() {
@@ -147,11 +147,11 @@ public class b {
     public final void g(s sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, sVar) == null) {
-            this.f19723h.m0(sVar);
-            this.f19722g.m0(sVar);
-            this.f19721f.m0(sVar);
-            this.f19724i.m0(sVar);
-            this.f19725j.m0(sVar);
+            this.f19738h.m0(sVar);
+            this.f19737g.m0(sVar);
+            this.f19736f.m0(sVar);
+            this.f19739i.m0(sVar);
+            this.f19740j.m0(sVar);
             this.k.p0(sVar);
         }
     }
@@ -159,7 +159,7 @@ public class b {
     public void h(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.f19720e.setData(list);
+            this.f19735e.setData(list);
         }
     }
 }

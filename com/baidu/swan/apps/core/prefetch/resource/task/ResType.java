@@ -85,7 +85,7 @@ public final class ResType {
                 }
                 i2++;
             }
-            if (k.f7077a) {
+            if (k.f7085a) {
                 String str2 = "res type - " + resType.name();
             }
             return resType;

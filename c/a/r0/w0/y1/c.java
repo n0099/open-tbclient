@@ -35,8 +35,8 @@ public class c extends c.a.q0.h0.b {
             }
         }
         c.a.q0.h0.c cVar = this.mFragement;
-        cVar.f13471e = i2;
-        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) cVar.f13467a;
+        cVar.f13467e = i2;
+        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) cVar.f13463a;
         specialFrsWebFragment.setTabId(i2);
         if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
             if (str.contains("&ufanS=1")) {
@@ -54,9 +54,9 @@ public class c extends c.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c.a.q0.h0.c cVar = new c.a.q0.h0.c();
-            cVar.f13467a = new SpecialFrsWebFragment();
-            cVar.f13471e = 101;
-            cVar.f13475i = c.a.q0.h0.c.k;
+            cVar.f13463a = new SpecialFrsWebFragment();
+            cVar.f13467e = 101;
+            cVar.f13471i = c.a.q0.h0.c.k;
             return cVar;
         }
         return (c.a.q0.h0.c) invokeV.objValue;

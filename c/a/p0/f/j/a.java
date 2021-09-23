@@ -17,10 +17,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f10705a;
+    public static final String f10713a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f10706b;
+    public static a f10714b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,8 +36,8 @@ public class a {
                 return;
             }
         }
-        f10705a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
-        f10706b = new a();
+        f10713a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
+        f10714b = new a();
     }
 
     public a() {
@@ -57,7 +57,7 @@ public class a {
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f10706b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f10714b : (a) invokeV.objValue;
     }
 
     public synchronized void a(String str, String str2, long j2) {
@@ -66,9 +66,9 @@ public class a {
             synchronized (this) {
                 long elapsedRealtime = SystemClock.elapsedRealtime();
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j2 > elapsedRealtime) {
-                    File file = new File(f10705a);
+                    File file = new File(f10713a);
                     if (!file.exists() && !file.mkdirs()) {
-                        boolean z = c.a.p0.a.k.f7077a;
+                        boolean z = c.a.p0.a.k.f7085a;
                         return;
                     }
                     File[] listFiles = file.listFiles();
@@ -79,13 +79,13 @@ public class a {
                             }
                         }
                     }
-                    boolean M = c.a.p0.t.d.M(str2, new File(f10705a, b(str, j2)));
-                    if (c.a.p0.a.k.f7077a) {
+                    boolean M = c.a.p0.t.d.M(str2, new File(f10713a, b(str, j2)));
+                    if (c.a.p0.a.k.f7085a) {
                         String str3 = "缓存配置信息成功：  " + M;
                     }
                     return;
                 }
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     String str4 = "缓存失败，参数异常  appKey = " + str + ",  config = " + str2 + ",  expiration = " + j2 + ",  currentTime = " + elapsedRealtime;
                 }
             }
@@ -115,7 +115,7 @@ public class a {
                         return false;
                     }
                 } catch (Throwable th) {
-                    if (c.a.p0.a.k.f7077a) {
+                    if (c.a.p0.a.k.f7085a) {
                         th.printStackTrace();
                     }
                 }
@@ -131,12 +131,12 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             synchronized (this) {
                 if (TextUtils.isEmpty(str)) {
-                    boolean z = c.a.p0.a.k.f7077a;
+                    boolean z = c.a.p0.a.k.f7085a;
                     return null;
                 }
-                File file = new File(f10705a);
+                File file = new File(f10713a);
                 if (!file.exists()) {
-                    boolean z2 = c.a.p0.a.k.f7077a;
+                    boolean z2 = c.a.p0.a.k.f7085a;
                     return null;
                 }
                 File[] listFiles = file.listFiles();
@@ -154,7 +154,7 @@ public class a {
                     }
                     return c.a.p0.t.d.D(file2);
                 }
-                boolean z3 = c.a.p0.a.k.f7077a;
+                boolean z3 = c.a.p0.a.k.f7085a;
                 return null;
             }
         }

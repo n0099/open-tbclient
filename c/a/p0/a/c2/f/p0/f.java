@@ -37,19 +37,19 @@ public class f extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f5003a;
+        public final /* synthetic */ String f5011a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5004b;
+        public final /* synthetic */ CallbackHandler f5012b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f5005c;
+        public final /* synthetic */ c.a.p0.a.a2.e f5013c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f5006d;
+        public final /* synthetic */ String f5014d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f5007e;
+        public final /* synthetic */ f f5015e;
 
         public a(f fVar, String str, CallbackHandler callbackHandler, c.a.p0.a.a2.e eVar, String str2) {
             Interceptable interceptable = $ic;
@@ -66,19 +66,19 @@ public class f extends a0 {
                     return;
                 }
             }
-            this.f5007e = fVar;
-            this.f5003a = str;
-            this.f5004b = callbackHandler;
-            this.f5005c = eVar;
-            this.f5006d = str2;
+            this.f5015e = fVar;
+            this.f5011a = str;
+            this.f5012b = callbackHandler;
+            this.f5013c = eVar;
+            this.f5014d = str2;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f5004b.handleSchemeDispatchCallback(this.f5003a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
-                c.a.p0.a.j2.q.a.b(SwanInterfaceType.NAVIGATE, 2101, this.f5006d, null, exc.getMessage());
+                this.f5012b.handleSchemeDispatchCallback(this.f5011a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+                c.a.p0.a.j2.q.a.b(SwanInterfaceType.NAVIGATE, 2101, this.f5014d, null, exc.getMessage());
             }
         }
 
@@ -94,7 +94,7 @@ public class f extends a0 {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f5007e.n(response, this.f5003a, this.f5004b, this.f5005c);
+                this.f5015e.n(response, this.f5011a, this.f5012b, this.f5013c);
                 return response;
             }
             return invokeLI.objValue;
@@ -135,7 +135,7 @@ public class f extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } else if (eVar.d0()) {
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {
@@ -185,7 +185,7 @@ public class f extends a0 {
                 schemeHead = BaseWebViewActivity.SHOUBAI_SCHEME;
             }
             buildUpon.scheme(schemeHead);
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 buildUpon.build().toString();
             }
             return buildUpon.build();
@@ -205,12 +205,12 @@ public class f extends a0 {
                     jSONObject2.put("srcAppPage", e2);
                     jSONObject2.put("params", jSONObject);
                     Request build = new Request.Builder().url(c.a.p0.a.c1.a.n().F()).post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jSONObject2.toString())).build();
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         String str2 = "appId :" + str + "\nrequest params" + jSONObject2.toString();
                     }
                     return build;
                 } catch (Exception e3) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e3.printStackTrace();
                     }
                 }
@@ -225,9 +225,9 @@ public class f extends a0 {
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, requestBody, unitedSchemeEntity, str, callbackHandler, eVar) == null) {
             String F = c.a.p0.a.c1.a.n().F();
             c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(F, requestBody, new a(this, str, callbackHandler, eVar, F));
-            aVar.f11845f = true;
-            aVar.f11846g = false;
-            aVar.f11847h = true;
+            aVar.f11853f = true;
+            aVar.f11854g = false;
+            aVar.f11855h = true;
             c.a.p0.m.e.a.g().e(aVar);
             c.a.p0.a.j2.q.a.a(SwanInterfaceType.NAVIGATE);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -262,7 +262,7 @@ public class f extends a0 {
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(eVar.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
                 }
             } catch (Exception e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e2.getMessage();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());

@@ -28,22 +28,22 @@ public class d implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f26991e;
+    public boolean f27011e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, MetaData> f26992f;
+    public HashMap<String, MetaData> f27012f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<n> f26993g;
+    public ArrayList<n> f27013g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f26994h;
+    public int f27014h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f26995i;
+    public String f27015i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f26996j;
+    public String f27016j;
     public boolean k;
     public SportScheduleInfo l;
     public int m;
@@ -63,8 +63,8 @@ public class d implements h {
                 return;
             }
         }
-        this.f26992f = new HashMap<>();
-        this.f26993g = new ArrayList<>();
+        this.f27012f = new HashMap<>();
+        this.f27013g = new ArrayList<>();
         this.m = 1;
     }
 
@@ -73,7 +73,7 @@ public class d implements h {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f26991e = dataRes.has_more.intValue() == 1;
+        this.f27011e = dataRes.has_more.intValue() == 1;
         if (!ListUtils.isEmpty(dataRes.user_list)) {
             for (User user : dataRes.user_list) {
                 if (user != null) {
@@ -81,7 +81,7 @@ public class d implements h {
                     metaData.parserProtobuf(user);
                     String userId = metaData.getUserId();
                     if (userId != null && !"0".equals(userId)) {
-                        this.f26992f.put(userId, metaData);
+                        this.f27012f.put(userId, metaData);
                     }
                 }
             }
@@ -90,22 +90,22 @@ public class d implements h {
             for (ThreadInfo threadInfo : dataRes.general_list) {
                 if (threadInfo != null) {
                     d2 d2Var = new d2();
-                    d2Var.E4(this.f26992f);
-                    d2Var.H2 = true;
+                    d2Var.D4(this.f27012f);
+                    d2Var.I2 = true;
                     d2Var.Y2(threadInfo);
                     d2Var.c3();
                     d2Var.G1();
-                    this.f26993g.add(d2Var);
+                    this.f27013g.add(d2Var);
                 }
             }
         }
         this.o = dataRes.app_list;
-        c.a.q0.b.f.a.d(this.f26993g);
-        this.f26994h = dataRes.new_thread_num.intValue();
+        c.a.q0.b.f.a.d(this.f27013g);
+        this.f27014h = dataRes.new_thread_num.intValue();
         SportPageHeadInfo sportPageHeadInfo = dataRes.sport_head_info;
         if (sportPageHeadInfo != null) {
-            this.f26995i = sportPageHeadInfo.head_url;
-            this.f26996j = sportPageHeadInfo.jump_url;
+            this.f27015i = sportPageHeadInfo.head_url;
+            this.f27016j = sportPageHeadInfo.jump_url;
             this.k = sportPageHeadInfo.is_ad.intValue() == 1;
         }
         this.l = dataRes.sport_schedule_info;

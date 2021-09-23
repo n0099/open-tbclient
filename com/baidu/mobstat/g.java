@@ -13,36 +13,36 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f43859a;
+    public static final g f43921a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f43860b;
+    public static final g f43922b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f43861c;
+    public static final g f43923c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f43862d;
+    public static final g f43924d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final g f43863e;
+    public static final g f43925e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final g f43864f;
+    public static final g f43926f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final g f43865g;
+    public static final g f43927g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final g f43866h;
+    public static final g f43928h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final g f43867i;
+    public static final g f43929i;
     public static final /* synthetic */ g[] k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f43868j;
+    public long f43930j;
 
     static {
         InterceptResult invokeClinit;
@@ -57,17 +57,17 @@ public final class g {
                 return;
             }
         }
-        f43859a = new g("AP_LIST", 0);
-        f43860b = new g("APP_USER_LIST", 1);
-        f43861c = new g("APP_SYS_LIST", 2);
-        f43862d = new g("APP_TRACE_CURRENT", 3);
-        f43863e = new g("APP_TRACE_HIS", 4);
-        f43864f = new g("APP_CHANGE", 5);
-        f43865g = new g("APP_APK", 6);
-        f43866h = new g("LAST_SEND", 7);
+        f43921a = new g("AP_LIST", 0);
+        f43922b = new g("APP_USER_LIST", 1);
+        f43923c = new g("APP_SYS_LIST", 2);
+        f43924d = new g("APP_TRACE_CURRENT", 3);
+        f43925e = new g("APP_TRACE_HIS", 4);
+        f43926f = new g("APP_CHANGE", 5);
+        f43927g = new g("APP_APK", 6);
+        f43928h = new g("LAST_SEND", 7);
         g gVar = new g("LAST_UPDATE", 8);
-        f43867i = gVar;
-        k = new g[]{f43859a, f43860b, f43861c, f43862d, f43863e, f43864f, f43865g, f43866h, gVar};
+        f43929i = gVar;
+        k = new g[]{f43921a, f43922b, f43923c, f43924d, f43925e, f43926f, f43927g, f43928h, gVar};
     }
 
     public g(String str, int i2) {

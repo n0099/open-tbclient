@@ -24,7 +24,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4616a;
+    public static final boolean f4624a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class a {
                 return;
             }
         }
-        f4616a = k.f7077a;
+        f4624a = k.f7085a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:51:0x009d A[Catch: all -> 0x00c8, TryCatch #7 {, blocks: (B:6:0x0007, B:8:0x0012, B:12:0x0018, B:22:0x006a, B:23:0x006d, B:49:0x0095, B:51:0x009d, B:52:0x00b3, B:26:0x0072, B:57:0x00bc, B:58:0x00bf, B:62:0x00c7, B:61:0x00c4, B:44:0x008c, B:45:0x008f), top: B:76:0x0007, inners: #4 }] */
@@ -57,7 +57,7 @@ public class a {
             synchronized (a.class) {
                 long currentTimeMillis = System.currentTimeMillis();
                 FileLock fileLock = null;
-                if (TextUtils.isEmpty(str) && f4616a) {
+                if (TextUtils.isEmpty(str) && f4624a) {
                     return null;
                 }
                 StringBuffer stringBuffer = new StringBuffer();
@@ -85,14 +85,14 @@ public class a {
                                             e = e3;
                                             Log.getStackTraceString(e);
                                             long currentTimeMillis2 = System.currentTimeMillis();
-                                            if (f4616a) {
+                                            if (f4624a) {
                                             }
                                             return stringBuffer.toString();
                                         }
                                     }
                                     c.a.p0.t.d.d(bufferedReader);
                                     long currentTimeMillis22 = System.currentTimeMillis();
-                                    if (f4616a) {
+                                    if (f4624a) {
                                     }
                                     return stringBuffer.toString();
                                 } catch (Throwable th) {
@@ -117,7 +117,7 @@ public class a {
                                 throw th;
                             }
                         }
-                        if (f4616a) {
+                        if (f4624a) {
                             String str2 = "Read file: " + stringBuffer.toString();
                         }
                         if (lock != null) {
@@ -127,7 +127,7 @@ public class a {
                                 e = e5;
                                 Log.getStackTraceString(e);
                                 long currentTimeMillis222 = System.currentTimeMillis();
-                                if (f4616a) {
+                                if (f4624a) {
                                 }
                                 return stringBuffer.toString();
                             }
@@ -148,7 +148,7 @@ public class a {
                     bufferedReader = null;
                 }
                 long currentTimeMillis2222 = System.currentTimeMillis();
-                if (f4616a) {
+                if (f4624a) {
                     String str3 = "Read file done: cost time = " + (currentTimeMillis2222 - currentTimeMillis) + "ms";
                 }
                 return stringBuffer.toString();
@@ -172,7 +172,7 @@ public class a {
             synchronized (a.class) {
                 long currentTimeMillis = System.currentTimeMillis();
                 boolean z2 = false;
-                if (TextUtils.isEmpty(str) && f4616a) {
+                if (TextUtils.isEmpty(str) && f4624a) {
                     return false;
                 }
                 FileLock fileLock = null;
@@ -200,7 +200,7 @@ public class a {
                     }
                     channel.write(ByteBuffer.wrap(str2.getBytes()));
                     z2 = true;
-                    if (f4616a) {
+                    if (f4624a) {
                         String str3 = "Write file：" + str2;
                     }
                     if (fileLock != null) {
@@ -225,7 +225,7 @@ public class a {
                         }
                         c.a.p0.t.d.d(fileChannel);
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (f4616a) {
+                        if (f4624a) {
                         }
                         return z2;
                     } catch (Throwable th2) {
@@ -249,7 +249,7 @@ public class a {
                     throw th;
                 }
                 long currentTimeMillis22 = System.currentTimeMillis();
-                if (f4616a) {
+                if (f4624a) {
                     String str4 = "Write file done: cost time =" + (currentTimeMillis22 - currentTimeMillis) + "ms";
                 }
                 return z2;

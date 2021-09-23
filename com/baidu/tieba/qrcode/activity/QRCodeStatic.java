@@ -84,16 +84,16 @@ public class QRCodeStatic {
                     return null;
                 }
                 r data = customMessage.getData();
-                int i2 = data.f20881a;
+                int i2 = data.f20893a;
                 if (i2 == 0) {
-                    str = c.a.r0.v2.b.b.a.b(data.f20883c);
+                    str = c.a.r0.v2.b.b.a.b(data.f20895c);
                 } else if (i2 == 1) {
-                    str = c.a.r0.v2.b.b.a.c(data.f20884d);
+                    str = c.a.r0.v2.b.b.a.c(data.f20896d);
                 }
                 if (TextUtils.isEmpty(str)) {
-                    data.f20885e = "qr_none";
+                    data.f20897e = "qr_none";
                 } else {
-                    data.f20885e = str;
+                    data.f20897e = str;
                 }
                 return new CustomResponsedMessage<>(2921403, data);
             }

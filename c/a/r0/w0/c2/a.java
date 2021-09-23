@@ -65,7 +65,7 @@ public class a extends k<ICardInfo, LegoItemHolder> {
             if (a2 == null) {
                 return null;
             }
-            a2.registerListener(this.f2961i);
+            a2.registerListener(this.f2962i);
             return new LegoItemHolder(a2);
         }
         return (LegoItemHolder) invokeL.objValue;

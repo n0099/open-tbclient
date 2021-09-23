@@ -18,7 +18,7 @@ public class g extends t0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f20076c;
+    public TextView f20091c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(BaseFragmentActivity baseFragmentActivity, View view) {
@@ -39,15 +39,15 @@ public class g extends t0 {
                 return;
             }
         }
-        this.f20076c = null;
+        this.f20091c = null;
     }
 
     @Override // c.a.r0.j2.k.e.t0
     public void c(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            TextView textView = (TextView) this.f20305b.findViewById(R.id.icon_push);
-            this.f20076c = textView;
+            TextView textView = (TextView) this.f20320b.findViewById(R.id.icon_push);
+            this.f20091c = textView;
             textView.setVisibility(8);
         }
     }
@@ -55,7 +55,7 @@ public class g extends t0 {
     public TextView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20076c : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20091c : (TextView) invokeV.objValue;
     }
 
     public void f(d2 d2Var) {
@@ -74,20 +74,20 @@ public class g extends t0 {
     public void g(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.f20076c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.f20091c) == null) {
             return;
         }
         if (z) {
             textView.setText(R.string.push);
-            SkinManager.setViewTextColor(this.f20076c, R.drawable.push_text_selector);
-            SkinManager.setBackgroundResource(this.f20076c, R.drawable.push_bg_selector);
-            this.f20076c.setClickable(true);
+            SkinManager.setViewTextColor(this.f20091c, R.drawable.push_text_selector);
+            SkinManager.setBackgroundResource(this.f20091c, R.drawable.push_bg_selector);
+            this.f20091c.setClickable(true);
         } else {
             textView.setText(R.string.already_push);
-            SkinManager.setBackgroundResource(this.f20076c, R.drawable.label_bg_gray80);
-            SkinManager.setViewTextColor(this.f20076c, R.color.CAM_X0109);
-            this.f20076c.setClickable(false);
+            SkinManager.setBackgroundResource(this.f20091c, R.drawable.label_bg_gray80);
+            SkinManager.setViewTextColor(this.f20091c, R.color.CAM_X0109);
+            this.f20091c.setClickable(false);
         }
-        this.f20076c.setVisibility(0);
+        this.f20091c.setVisibility(0);
     }
 }

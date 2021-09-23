@@ -21,7 +21,7 @@ public class a implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f7888a;
+    public g f7896a;
 
     /* renamed from: c.a.p0.a.p.e.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -67,7 +67,7 @@ public class a implements i {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public a() {
@@ -83,7 +83,7 @@ public class a implements i {
                 return;
             }
         }
-        this.f7888a = new C0342a(this);
+        this.f7896a = new C0342a(this);
     }
 
     @Override // c.a.p0.a.p.e.i
@@ -97,6 +97,6 @@ public class a implements i {
     public g b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7888a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7896a : (g) invokeV.objValue;
     }
 }

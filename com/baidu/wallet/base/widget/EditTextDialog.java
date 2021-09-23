@@ -20,7 +20,7 @@ public class EditTextDialog extends BaseDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f60457a;
+    public TextView f60582a;
     public PluginEditText mContentEditText;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,7 +65,7 @@ public class EditTextDialog extends BaseDialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ EditTextDialog f60458a;
+                public final /* synthetic */ EditTextDialog f60583a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -82,16 +82,16 @@ public class EditTextDialog extends BaseDialog {
                             return;
                         }
                     }
-                    this.f60458a = this;
+                    this.f60583a = this;
                 }
 
                 @Override // android.text.TextWatcher
                 public void afterTextChanged(Editable editable) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) {
-                        EditTextDialog editTextDialog = this.f60458a;
+                        EditTextDialog editTextDialog = this.f60583a;
                         editTextDialog.setTextColor(ResUtils.getColor(editTextDialog.mContext, "wallet_nfc_gray_text"));
-                        EditTextDialog editTextDialog2 = this.f60458a;
+                        EditTextDialog editTextDialog2 = this.f60583a;
                         editTextDialog2.setTipsText(ResUtils.getString(editTextDialog2.mContext, "wallet_nfc_buscard_cardlists_modify_card_tips"));
                     }
                 }
@@ -110,7 +110,7 @@ public class EditTextDialog extends BaseDialog {
                     }
                 }
             });
-            this.f60457a = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_text_msg"));
+            this.f60582a = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_text_msg"));
         }
     }
 
@@ -138,14 +138,14 @@ public class EditTextDialog extends BaseDialog {
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f60457a.setTextColor(i2);
+            this.f60582a.setTextColor(i2);
         }
     }
 
     public void setTipsText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f60457a.setText(str);
+            this.f60582a.setText(str);
         }
     }
 
@@ -180,7 +180,7 @@ public class EditTextDialog extends BaseDialog {
     public void setTipsText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f60457a.setText(i2);
+            this.f60582a.setText(i2);
         }
     }
 }

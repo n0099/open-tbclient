@@ -135,6 +135,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_SMALL_EMOTION_NUM = "c13990";
     public static final String KEY_SMART_APP_HISTORY_DELETE_CLICK = "c13436";
     public static final String KEY_SMART_COLOR_FETCH_COLOR = "c14170";
+    public static final String KEY_SPLASH_GOTO_MAIN_TAB = "c14375";
     public static final String KEY_TASK_ENTRANCE = "c13422";
     public static final String KEY_THREAD_ACHIEVEMENT_SHARE = "c10898";
     public static final String KEY_THREAD_FIRE_CLICK = "c14266";

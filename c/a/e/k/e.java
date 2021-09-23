@@ -40,34 +40,34 @@ public final class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2901a;
+    public String f2902a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2902b;
+    public String f2903b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2903c;
+    public String f2904c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2904d;
+    public String f2905d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2905e;
+    public String f2906e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2906f;
+    public String f2907f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2907g;
+    public String f2908g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2908h;
+    public String f2909h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f2909i;
+    public String f2910i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f2910j;
+    public String f2911j;
     public String k;
     public SharedPreferences l;
     public String m;
@@ -88,7 +88,7 @@ public final class e {
                 return;
             }
         }
-        q = a.f2898a;
+        q = a.f2899a;
         HashMap<String, Integer> hashMap = new HashMap<>();
         s = hashMap;
         hashMap.put(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1);
@@ -297,7 +297,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            String str = this.f2907g + "_" + this.f2909i + "_" + Build.VERSION.SDK_INT + "_" + this.f2908h;
+            String str = this.f2908g + "_" + this.f2910i + "_" + Build.VERSION.SDK_INT + "_" + this.f2909h;
             if (q) {
                 String str2 = "device info : " + str;
             }
@@ -324,10 +324,10 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.f2906f == null) {
-                this.f2906f = r(this.n);
+            if (this.f2907f == null) {
+                this.f2907f = r(this.n);
             }
-            return this.f2906f;
+            return this.f2907f;
         }
         return (String) invokeV.objValue;
     }
@@ -361,10 +361,10 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (this.f2905e == null) {
-                this.f2905e = t(this.n);
+            if (this.f2906e == null) {
+                this.f2906e = t(this.n);
             }
-            return this.f2905e;
+            return this.f2906e;
         }
         return (String) invokeV.objValue;
     }
@@ -392,7 +392,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return "BaiduIdentityManager [mUid=" + this.f2901a + ", mEnUid=" + this.f2902b + ", mUa=" + this.f2903c + ", mEnUa=" + this.f2904d + ", mTn=" + s() + ", mLastTn=" + q() + ", mModel=" + this.f2907g + ", mManufacturer=" + this.f2908h + ", mOSVersion=" + this.f2909i + ", mDeviceInfo=" + this.f2910j + ", mEnDeviceInfo=" + this.k + ", mSettings=" + this.l + ", mVersionName=" + this.m + ", mCtv=" + this.o + ", mProcessedUa=" + PreferencesUtil.RIGHT_MOUNT;
+            return "BaiduIdentityManager [mUid=" + this.f2902a + ", mEnUid=" + this.f2903b + ", mUa=" + this.f2904c + ", mEnUa=" + this.f2905d + ", mTn=" + s() + ", mLastTn=" + q() + ", mModel=" + this.f2908g + ", mManufacturer=" + this.f2909h + ", mOSVersion=" + this.f2910i + ", mDeviceInfo=" + this.f2911j + ", mEnDeviceInfo=" + this.k + ", mSettings=" + this.l + ", mVersionName=" + this.m + ", mCtv=" + this.o + ", mProcessedUa=" + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }
@@ -451,33 +451,33 @@ public final class e {
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             this.l = this.n.getSharedPreferences("identity", 0);
             String v = v(this.n);
-            this.f2901a = v;
+            this.f2902a = v;
             if (!TextUtils.isEmpty(v)) {
-                this.f2902b = new String(Base64Encoder.B64Encode(this.f2901a.getBytes()));
+                this.f2903b = new String(Base64Encoder.B64Encode(this.f2902a.getBytes()));
             }
             String str = Build.MODEL;
-            this.f2907g = str;
+            this.f2908g = str;
             if (TextUtils.isEmpty(str)) {
-                this.f2907g = "NUL";
+                this.f2908g = "NUL";
             } else {
-                this.f2907g = this.f2907g.replace("_", "-");
+                this.f2908g = this.f2908g.replace("_", "-");
             }
             String str2 = Build.MANUFACTURER;
-            this.f2908h = str2;
+            this.f2909h = str2;
             if (TextUtils.isEmpty(str2)) {
-                this.f2908h = "NUL";
+                this.f2909h = "NUL";
             } else {
-                this.f2908h = this.f2908h.replace("_", "-");
+                this.f2909h = this.f2909h.replace("_", "-");
             }
             String str3 = Build.VERSION.RELEASE;
-            this.f2909i = str3;
+            this.f2910i = str3;
             if (TextUtils.isEmpty(str3)) {
-                this.f2909i = XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
+                this.f2910i = XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
             } else {
-                this.f2909i = this.f2909i.replace("_", "-");
+                this.f2910i = this.f2910i.replace("_", "-");
             }
-            this.f2910j = n();
-            this.k = new String(Base64Encoder.B64Encode(this.f2910j.getBytes()));
+            this.f2911j = n();
+            this.k = new String(Base64Encoder.B64Encode(this.f2911j.getBytes()));
             this.m = w(this.n);
             y();
             int B64GetVersion = Base64Encoder.B64GetVersion();
@@ -494,8 +494,8 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             synchronized (this) {
-                this.f2903c = u(this.n);
-                this.f2904d = new String(Base64Encoder.B64Encode(this.f2903c.getBytes()));
+                this.f2904c = u(this.n);
+                this.f2905d = new String(Base64Encoder.B64Encode(this.f2904c.getBytes()));
             }
         }
     }
@@ -508,7 +508,7 @@ public final class e {
                 if (!this.p) {
                     x();
                 }
-                return g(a(e(f(g(g(c(g(str, "uid", o(this.f2902b))), "ua", o(this.f2903c)), "ut", o(this.f2910j))), false)), SocialConstants.PARAM_TYPE_ID, "0");
+                return g(a(e(f(g(g(c(g(str, "uid", o(this.f2903b))), "ua", o(this.f2904c)), "ut", o(this.f2911j))), false)), SocialConstants.PARAM_TYPE_ID, "0");
             } catch (Throwable unused) {
                 return b(str);
             }

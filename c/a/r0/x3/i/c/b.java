@@ -24,10 +24,10 @@ public class b extends BaseAdapter implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.r0.x3.i.e.a> f28925e;
+    public List<c.a.r0.x3.i.e.a> f28945e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.x3.i.e.a f28926f;
+    public c.a.r0.x3.i.e.a f28946f;
 
     /* loaded from: classes4.dex */
     public class a {
@@ -35,10 +35,10 @@ public class b extends BaseAdapter implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f28927a;
+        public TbImageView f28947a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f28928b;
+        public TextView f28948b;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -70,25 +70,25 @@ public class b extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        this.f28925e = new ArrayList();
+        this.f28945e = new ArrayList();
     }
 
     public List<c.a.r0.x3.i.e.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28925e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28945e : (List) invokeV.objValue;
     }
 
     public void b(c.a.r0.x3.i.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             if (aVar == null) {
-                List<c.a.r0.x3.i.e.a> list = this.f28925e;
+                List<c.a.r0.x3.i.e.a> list = this.f28945e;
                 if (list != null) {
-                    this.f28926f = list.get(0);
+                    this.f28946f = list.get(0);
                 }
             } else {
-                this.f28926f = aVar;
+                this.f28946f = aVar;
             }
             notifyDataSetChanged();
         }
@@ -99,9 +99,9 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null) {
             return;
         }
-        this.f28925e = list;
+        this.f28945e = list;
         if (list.size() > 0) {
-            this.f28926f = this.f28925e.get(0);
+            this.f28946f = this.f28945e.get(0);
         }
     }
 
@@ -109,7 +109,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28925e.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28945e.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -117,10 +117,10 @@ public class b extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            if (i2 < 0 || i2 >= this.f28925e.size()) {
+            if (i2 < 0 || i2 >= this.f28945e.size()) {
                 return null;
             }
-            return this.f28925e.get(i2);
+            return this.f28945e.get(i2);
         }
         return invokeI.objValue;
     }
@@ -147,34 +147,34 @@ public class b extends BaseAdapter implements View.OnClickListener {
                 aVar = new a(this);
                 view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_filter, (ViewGroup) null);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.iv_effect);
-                aVar.f28927a = tbImageView;
+                aVar.f28947a = tbImageView;
                 tbImageView.setIsRound(true);
-                aVar.f28927a.setDrawerType(1);
-                aVar.f28927a.setDefaultBgResource(R.color.transparent);
-                aVar.f28927a.setBorderWidth(l.g(viewGroup.getContext(), R.dimen.ds4));
-                aVar.f28927a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-                aVar.f28927a.setConrers(15);
+                aVar.f28947a.setDrawerType(1);
+                aVar.f28947a.setDefaultBgResource(R.color.transparent);
+                aVar.f28947a.setBorderWidth(l.g(viewGroup.getContext(), R.dimen.ds4));
+                aVar.f28947a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
+                aVar.f28947a.setConrers(15);
                 TextView textView = (TextView) view2.findViewById(R.id.tv_name);
-                aVar.f28928b = textView;
+                aVar.f28948b = textView;
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0107);
-                aVar.f28928b = (TextView) view2.findViewById(R.id.tv_name);
+                aVar.f28948b = (TextView) view2.findViewById(R.id.tv_name);
                 view2.setTag(aVar);
             } else {
                 view2 = view;
                 aVar = (a) view.getTag();
             }
-            if (i2 >= 0 && i2 < this.f28925e.size()) {
-                c.a.r0.x3.i.e.a aVar3 = this.f28925e.get(i2);
+            if (i2 >= 0 && i2 < this.f28945e.size()) {
+                c.a.r0.x3.i.e.a aVar3 = this.f28945e.get(i2);
                 if (aVar3 != null) {
-                    aVar.f28927a.setTag(aVar3);
-                    aVar.f28927a.setOnClickListener(this);
-                    aVar.f28927a.startLoad(String.valueOf(aVar3.f28983b), 24, false);
-                    aVar.f28928b.setText(aVar3.f28982a);
+                    aVar.f28947a.setTag(aVar3);
+                    aVar.f28947a.setOnClickListener(this);
+                    aVar.f28947a.startLoad(String.valueOf(aVar3.f29003b), 24, false);
+                    aVar.f28948b.setText(aVar3.f29002a);
                 }
-                if (!TextUtils.isEmpty(aVar3.f28982a) && (aVar2 = this.f28926f) != null && TextUtils.equals(aVar3.f28982a, aVar2.f28982a)) {
-                    aVar.f28927a.setDrawBorder(true);
+                if (!TextUtils.isEmpty(aVar3.f29002a) && (aVar2 = this.f28946f) != null && TextUtils.equals(aVar3.f29002a, aVar2.f29002a)) {
+                    aVar.f28947a.setDrawBorder(true);
                 } else {
-                    aVar.f28927a.setDrawBorder(false);
+                    aVar.f28947a.setDrawBorder(false);
                 }
             }
             return view2;
@@ -186,7 +186,7 @@ public class b extends BaseAdapter implements View.OnClickListener {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, view) == null) && view.getId() == R.id.iv_effect && (view.getTag() instanceof c.a.r0.x3.i.e.a)) {
-            this.f28926f = (c.a.r0.x3.i.e.a) view.getTag();
+            this.f28946f = (c.a.r0.x3.i.e.a) view.getTag();
             notifyDataSetChanged();
         }
     }

@@ -1,5 +1,6 @@
 package com.baidu.wallet.core.domain;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,13 +14,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class DomainConfig implements com.baidu.wallet.core.domain.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: i  reason: collision with root package name */
-    public com.baidu.wallet.core.domain.a f60946i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public com.baidu.wallet.core.domain.a f60947j;
-    public com.baidu.wallet.core.domain.a k;
+    public com.baidu.wallet.core.domain.a m;
+    public com.baidu.wallet.core.domain.a n;
+    public com.baidu.wallet.core.domain.a o;
 
     /* renamed from: com.baidu.wallet.core.domain.DomainConfig$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -27,7 +24,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f60948a;
+        public static final /* synthetic */ int[] f61065a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,13 +41,13 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
                 }
             }
             int[] iArr = new int[DomainStrategyType.values().length];
-            f60948a = iArr;
+            f61065a = iArr;
             try {
                 iArr[DomainStrategyType.QA.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f60948a[DomainStrategyType.ONLINE.ordinal()] = 2;
+                f61065a[DomainStrategyType.ONLINE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -121,7 +118,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final DomainConfig f60949a;
+        public static final DomainConfig f61066a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -137,7 +134,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
                     return;
                 }
             }
-            f60949a = new DomainConfig(null);
+            f61066a = new DomainConfig(null);
         }
 
         public a() {
@@ -162,105 +159,126 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
     public static DomainConfig getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60949a : (DomainConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61066a : (DomainConfig) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getAppHost() {
-        InterceptResult invokeV;
+    public String getAppHost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60946i.getAppHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) ? this.m.getAppHost(boolArr) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getAppPayHost() {
-        InterceptResult invokeV;
+    public String getAppPayHost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60946i.getAppPayHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, boolArr)) == null) ? this.m.getAppPayHost(boolArr) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getCOHost() {
-        InterceptResult invokeV;
+    public String getCOHost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60946i.getCOHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, boolArr)) == null) ? this.m.getCOHost(boolArr) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getCometHost() {
-        InterceptResult invokeV;
+    public String getCometHost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60946i.getCometHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, boolArr)) == null) ? this.m.getCometHost(boolArr) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getCreditCardHost() {
-        InterceptResult invokeV;
+    public String getCreditCardHost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f60946i.getCreditCardHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, boolArr)) == null) ? this.m.getCreditCardHost(boolArr) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getInitHost(boolean z) {
-        InterceptResult invokeZ;
+    public String getHawkinghost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) ? this.f60946i.getInitHost(z) : (String) invokeZ.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, boolArr)) == null) ? this.m.getHawkinghost(boolArr) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getLifeHost() {
-        InterceptResult invokeV;
+    public String getInitHost(int i2, @NonNull Boolean[] boolArr) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f60946i.getLifeHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, boolArr)) == null) ? this.m.getInitHost(i2, boolArr) : (String) invokeIL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getMHost() {
-        InterceptResult invokeV;
+    public String getLifeHost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f60946i.getMHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, boolArr)) == null) ? this.m.getLifeHost(boolArr) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getMyHost() {
-        InterceptResult invokeV;
+    public String getMHost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60946i.getMyHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, boolArr)) == null) ? this.m.getMHost(boolArr) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getNfcHost() {
-        InterceptResult invokeV;
+    public String getMyHost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f60946i.getNfcHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, boolArr)) == null) ? this.m.getMyHost(boolArr) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getQianbaoHost() {
-        InterceptResult invokeV;
+    public String getNetcheckhost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f60946i.getQianbaoHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, boolArr)) == null) ? this.m.getNetcheckhost(boolArr) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getWebCacheHost() {
-        InterceptResult invokeV;
+    public String getNfcHost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f60946i.getWebCacheHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, boolArr)) == null) ? this.m.getNfcHost(boolArr) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getZhiFuHost() {
-        InterceptResult invokeV;
+    public String getQianbaoHost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f60946i.getZhiFuHost() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, boolArr)) == null) ? this.m.getQianbaoHost(boolArr) : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getSensorhost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, boolArr)) == null) ? this.m.getSensorhost(boolArr) : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getWebCacheHost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, boolArr)) == null) ? this.m.getWebCacheHost(boolArr) : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getZhiFuHost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, boolArr)) == null) ? this.m.getZhiFuHost(boolArr) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
     public void setDomainConfig(String str) {
         com.baidu.wallet.core.domain.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || (aVar = this.f60946i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, str) == null) || (aVar = this.m) == null) {
             return;
         }
         aVar.setDomainConfig(str);
@@ -268,13 +286,13 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
 
     public void setStrategy(DomainStrategyType domainStrategyType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, domainStrategyType) == null) {
-            int i2 = AnonymousClass1.f60948a[domainStrategyType.ordinal()];
+        if (interceptable == null || interceptable.invokeL(1048593, this, domainStrategyType) == null) {
+            int i2 = AnonymousClass1.f61065a[domainStrategyType.ordinal()];
             if (i2 == 1) {
-                this.f60946i = this.k;
+                this.m = this.o;
             } else if (i2 != 2) {
             } else {
-                this.f60946i = this.f60947j;
+                this.m = this.n;
             }
         }
     }
@@ -292,21 +310,21 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
                 return;
             }
         }
-        this.f60947j = new b();
-        this.k = c.a();
-        this.f60946i = this.f60947j;
+        this.n = new b();
+        this.o = c.a();
+        this.m = this.n;
     }
 
     public void setStrategy(DomainStrategyType domainStrategyType, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, domainStrategyType, str) == null) {
-            int i2 = AnonymousClass1.f60948a[domainStrategyType.ordinal()];
+        if (interceptable == null || interceptable.invokeLL(1048594, this, domainStrategyType, str) == null) {
+            int i2 = AnonymousClass1.f61065a[domainStrategyType.ordinal()];
             if (i2 == 1) {
-                this.f60946i = this.k;
+                this.m = this.o;
             } else if (i2 == 2) {
-                this.f60946i = this.f60947j;
+                this.m = this.n;
             }
-            this.f60946i.setDomainConfig(str);
+            this.m.setDomainConfig(str);
         }
     }
 }

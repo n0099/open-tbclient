@@ -15,7 +15,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5815a;
+    public static final boolean f5823a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public final class b {
                 return;
             }
         }
-        f5815a = k.f7077a;
+        f5823a = k.f7085a;
     }
 
     @NonNull
@@ -49,11 +49,11 @@ public final class b {
                 codeCacheSetting.sizeLimit = 102400;
             } else {
                 a.C0198a a2 = a.b.a();
-                codeCacheSetting.maxCount = a2.f5811a;
-                codeCacheSetting.sizeLimit = a2.f5812b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = a2.f5813c;
+                codeCacheSetting.maxCount = a2.f5819a;
+                codeCacheSetting.sizeLimit = a2.f5820b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = a2.f5821c;
             }
-            if (f5815a) {
+            if (f5823a) {
                 String str3 = "buildCacheSetting cacheType: " + str;
                 String str4 = "buildCacheSetting maxCount: " + codeCacheSetting.maxCount;
                 String str5 = "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit;

@@ -15,7 +15,7 @@ public abstract class a implements c.a.p0.a.g1.k.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7480a;
+    public static final boolean f7488a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public abstract class a implements c.a.p0.a.g1.k.a {
                 return;
             }
         }
-        f7480a = k.f7077a;
+        f7488a = k.f7085a;
     }
 
     public a() {
@@ -52,9 +52,9 @@ public abstract class a implements c.a.p0.a.g1.k.a {
     public void a(boolean z, Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) && c.a() && !z) {
-            long currentTimeMillis = f7480a ? System.currentTimeMillis() : 0L;
+            long currentTimeMillis = f7488a ? System.currentTimeMillis() : 0L;
             boolean C = n0.C();
-            if (f7480a) {
+            if (f7488a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str = "detect all process is on baground cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
             }

@@ -63,7 +63,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveListActivity f49673e;
+        public final /* synthetic */ AlaGameFrsLiveListActivity f49784e;
 
         public a(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity) {
             Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                     return;
                 }
             }
-            this.f49673e = alaGameFrsLiveListActivity;
+            this.f49784e = alaGameFrsLiveListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49673e.getPageContext().getPageActivity().finish();
+                this.f49784e.getPageContext().getPageActivity().finish();
             }
         }
     }
@@ -98,7 +98,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveListActivity f49674e;
+        public final /* synthetic */ AlaGameFrsLiveListActivity f49785e;
 
         public b(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity) {
             Interceptable interceptable = $ic;
@@ -115,16 +115,16 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                     return;
                 }
             }
-            this.f49674e = alaGameFrsLiveListActivity;
+            this.f49785e = alaGameFrsLiveListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || StringUtils.isNull(this.f49674e.forumId)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || StringUtils.isNull(this.f49785e.forumId)) {
                 return;
             }
-            this.f49674e.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.f49674e.getPageContext().getPageActivity(), this.f49674e.forumId, ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
+            this.f49785e.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.f49785e.getPageContext().getPageActivity(), this.f49785e.forumId, ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
         }
     }
 
@@ -134,7 +134,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveListActivity f49675a;
+        public final /* synthetic */ AlaGameFrsLiveListActivity f49786a;
 
         public c(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity) {
             Interceptable interceptable = $ic;
@@ -151,7 +151,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                     return;
                 }
             }
-            this.f49675a = alaGameFrsLiveListActivity;
+            this.f49786a = alaGameFrsLiveListActivity;
         }
 
         @Override // c.a.q0.o0.b
@@ -188,7 +188,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveListActivity f49676a;
+        public final /* synthetic */ AlaGameFrsLiveListActivity f49787a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity, int i2) {
@@ -208,7 +208,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                     return;
                 }
             }
-            this.f49676a = alaGameFrsLiveListActivity;
+            this.f49787a = alaGameFrsLiveListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -220,19 +220,19 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                 ArrayList arrayList = new ArrayList();
                 if (j0Var.e() != null) {
                     for (c.a.q0.h0.b bVar : j0Var.e()) {
-                        if (bVar.getFragmentTabStructure().f13467a != null) {
-                            arrayList.add(bVar.getFragmentTabStructure().f13467a);
+                        if (bVar.getFragmentTabStructure().f13463a != null) {
+                            arrayList.add(bVar.getFragmentTabStructure().f13463a);
                         }
                     }
                 }
-                this.f49676a.mFragmentAdapter.setFragments(arrayList);
-                int count = this.f49676a.mFragmentAdapter.getCount();
+                this.f49787a.mFragmentAdapter.setFragments(arrayList);
+                int count = this.f49787a.mFragmentAdapter.getCount();
                 for (int i2 = 0; i2 < count; i2++) {
-                    AlaGameFrsLiveListActivity alaGameFrsLiveListActivity = this.f49676a;
-                    alaGameFrsLiveListActivity.createAndAddTabSpec(alaGameFrsLiveListActivity.mFragmentAdapter.getItem(i2), i2, this.f49676a.getTabTextByIndex(i2));
+                    AlaGameFrsLiveListActivity alaGameFrsLiveListActivity = this.f49787a;
+                    alaGameFrsLiveListActivity.createAndAddTabSpec(alaGameFrsLiveListActivity.mFragmentAdapter.getItem(i2), i2, this.f49787a.getTabTextByIndex(i2));
                 }
-                this.f49676a.mTabHost.initViewPagerWithNoType();
-                this.f49676a.mTabHost.changeStyle(0);
+                this.f49787a.mTabHost.initViewPagerWithNoType();
+                this.f49787a.mTabHost.changeStyle(0);
             }
         }
     }
@@ -262,13 +262,13 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f47569c = fragment;
-        bVar.f47567a = i2;
+        bVar.f47671c = fragment;
+        bVar.f47669a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.dayTextColorResId = R.color.fragment_tab_host_indicator_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f47568b = fragmentTabIndicator;
+        bVar.f47670b = fragmentTabIndicator;
         this.mTabHost.addTabSpec(bVar);
     }
 

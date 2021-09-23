@@ -32,8 +32,8 @@ public class b extends m {
                 return;
             }
         }
-        this.f15088d = R.drawable.icon_pure_more_location40_svg;
-        this.f15091g = true;
+        this.f15095d = R.drawable.icon_pure_more_location40_svg;
+        this.f15098g = true;
         this.n = new int[]{18};
     }
 }

@@ -14,19 +14,19 @@ public final class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final t f33673a;
+    public final t f33696a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean[] f33674b;
+    public final boolean[] f33697b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final g f33675c;
+    public final g f33698c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f33676d;
+    public final Object f33699d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.i.b.a.t[] f33677e;
+    public final c.i.b.a.t[] f33700e;
 
     public i(t tVar, boolean[] zArr, g gVar, Object obj, c.i.b.a.t[] tVarArr) {
         Interceptable interceptable = $ic;
@@ -43,11 +43,11 @@ public final class i {
                 return;
             }
         }
-        this.f33673a = tVar;
-        this.f33674b = zArr;
-        this.f33675c = gVar;
-        this.f33676d = obj;
-        this.f33677e = tVarArr;
+        this.f33696a = tVar;
+        this.f33697b = zArr;
+        this.f33698c = gVar;
+        this.f33699d = obj;
+        this.f33700e = tVarArr;
     }
 
     public boolean a(i iVar) {
@@ -57,7 +57,7 @@ public final class i {
             if (iVar == null) {
                 return false;
             }
-            for (int i2 = 0; i2 < this.f33675c.f33670a; i2++) {
+            for (int i2 = 0; i2 < this.f33698c.f33693a; i2++) {
                 if (!b(iVar, i2)) {
                     return false;
                 }
@@ -70,6 +70,6 @@ public final class i {
     public boolean b(i iVar, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar, i2)) == null) ? iVar != null && this.f33674b[i2] == iVar.f33674b[i2] && v.a(this.f33675c.a(i2), iVar.f33675c.a(i2)) && v.a(this.f33677e[i2], iVar.f33677e[i2]) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar, i2)) == null) ? iVar != null && this.f33697b[i2] == iVar.f33697b[i2] && v.a(this.f33698c.a(i2), iVar.f33698c.a(i2)) && v.a(this.f33700e[i2], iVar.f33700e[i2]) : invokeLI.booleanValue;
     }
 }

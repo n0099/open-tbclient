@@ -15,10 +15,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f27298a;
+    public TbPageContext<BaseFragmentActivity> f27318a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Animation f27299b;
+    public Animation f27319b;
 
     public b(TbPageContext<BaseFragmentActivity> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class b {
                 return;
             }
         }
-        this.f27298a = tbPageContext;
-        this.f27299b = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), R.anim.frs_like);
+        this.f27318a = tbPageContext;
+        this.f27319b = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), R.anim.frs_like);
     }
 }

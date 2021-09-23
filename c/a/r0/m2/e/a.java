@@ -13,10 +13,10 @@ public class a implements c.a.q0.s.w.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f22331a;
+    public String f22347a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22332b;
+    public String f22348b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,20 +36,20 @@ public class a implements c.a.q0.s.w.b.a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22331a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22347a : (String) invokeV.objValue;
     }
 
     @Override // c.a.q0.s.w.b.a
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22332b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22348b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22332b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22348b : (String) invokeV.objValue;
     }
 
     public void d(BannerImage bannerImage) {
@@ -57,8 +57,8 @@ public class a implements c.a.q0.s.w.b.a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bannerImage) == null) || bannerImage == null) {
             return;
         }
-        this.f22331a = bannerImage.img_url;
-        this.f22332b = bannerImage.ahead_url;
+        this.f22347a = bannerImage.img_url;
+        this.f22348b = bannerImage.ahead_url;
         String str = bannerImage.title;
     }
 }

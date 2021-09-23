@@ -17,13 +17,13 @@ public class g extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f23938e;
+    public TbPageContext<?> f23954e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f23939f;
+    public h f23955f;
 
     /* renamed from: g  reason: collision with root package name */
-    public DressItemData f23940g;
+    public DressItemData f23956g;
 
     public g(TbPageContext<?> tbPageContext, DressItemData dressItemData) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class g extends BaseAdapter {
                 return;
             }
         }
-        this.f23938e = tbPageContext;
-        this.f23940g = dressItemData;
-        this.f23939f = new h(tbPageContext);
+        this.f23954e = tbPageContext;
+        this.f23956g = dressItemData;
+        this.f23955f = new h(tbPageContext);
     }
 
     @Override // android.widget.Adapter
@@ -80,9 +80,9 @@ public class g extends BaseAdapter {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
-            this.f23939f.d(this.f23940g);
-            this.f23938e.getLayoutMode().j(this.f23939f.a());
-            return this.f23939f.a();
+            this.f23955f.d(this.f23956g);
+            this.f23954e.getLayoutMode().j(this.f23955f.a());
+            return this.f23955f.a();
         }
         return (View) invokeILL.objValue;
     }

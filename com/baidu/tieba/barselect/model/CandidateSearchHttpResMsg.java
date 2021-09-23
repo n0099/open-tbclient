@@ -57,7 +57,7 @@ public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
                 if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                     return;
                 }
-                this.candidateData.f28229a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
+                this.candidateData.f28249a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
             }
         }
     }

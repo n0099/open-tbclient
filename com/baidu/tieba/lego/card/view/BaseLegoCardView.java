@@ -14,7 +14,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.r0.a0.m;
 import c.a.r0.a0.t;
-import c.a.r0.j3.v;
+import c.a.r0.j3.w;
 import c.a.r0.p1.o.a;
 import c.a.r0.p1.o.c;
 import c.a.r0.p1.o.k.b;
@@ -49,7 +49,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public c downloadAppCallback;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f53844e;
+    public boolean f53959e;
     public int mBusinessType;
     public TbPageContext mContext;
     public String mFrom;
@@ -81,7 +81,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             }
         }
         this.mSkinType = 3;
-        this.f53844e = true;
+        this.f53959e = true;
         this.mContext = tbPageContext;
         setOrientation(1);
     }
@@ -133,7 +133,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             initCardView();
             postInit();
-            this.f53844e = false;
+            this.f53959e = false;
         }
     }
 
@@ -368,7 +368,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public void openCardScheme(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, t) == null) {
-            int c2 = v.c(this.mContext, t.getScheme());
+            int c2 = w.c(this.mContext, t.getScheme());
             a aVar = this.afterClickSchemeListener;
             if (aVar != null) {
                 aVar.a(c2, null);
@@ -531,7 +531,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
         BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) updateCard;
         logShowStatistics(baseLegoCardInfo);
-        if (this.f53844e) {
+        if (this.f53959e) {
             b();
         }
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {

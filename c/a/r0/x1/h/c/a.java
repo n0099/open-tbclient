@@ -24,36 +24,36 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f28774e;
+    public TbPageContext<?> f28794e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.x1.h.c.d f28775f;
+    public c.a.r0.x1.h.c.d f28795f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Object> f28776g;
+    public List<Object> f28796g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f28777h;
+    public f f28797h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f28778i;
+    public View.OnClickListener f28798i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f28779j;
+    public View.OnClickListener f28799j;
     public View.OnClickListener k;
     public c.a.r0.x1.h.f.a<Void> l;
     public c.a.r0.x1.h.f.a<Integer> m;
 
     /* renamed from: c.a.r0.x1.h.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1346a implements View.OnClickListener {
+    public class View$OnClickListenerC1344a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f28780e;
+        public final /* synthetic */ a f28800e;
 
-        public View$OnClickListenerC1346a(a aVar) {
+        public View$OnClickListenerC1344a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,14 +68,14 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f28780e = aVar;
+            this.f28800e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f28780e.h();
+                this.f28800e.h();
             }
         }
     }
@@ -86,7 +86,7 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f28781e;
+        public final /* synthetic */ a f28801e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -103,17 +103,17 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f28781e = aVar;
+            this.f28801e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TailData c2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || view.getTag() == null || (c2 = ((c.a.r0.x1.h.c.c) view.getTag()).c()) == null || this.f28781e.f28775f.g()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || view.getTag() == null || (c2 = ((c.a.r0.x1.h.c.c) view.getTag()).c()) == null || this.f28801e.f28795f.g()) {
                 return;
             }
-            this.f28781e.i(c2.getId(), c2.getContent(), c2.getFontColor());
+            this.f28801e.i(c2.getId(), c2.getContent(), c2.getFontColor());
         }
     }
 
@@ -123,7 +123,7 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f28782e;
+        public final /* synthetic */ a f28802e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -140,7 +140,7 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f28782e = aVar;
+            this.f28802e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -150,7 +150,7 @@ public class a extends BaseAdapter {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || (cVar = (c.a.r0.x1.h.c.c) view.getTag()) == null || cVar.c() == null) {
                 return;
             }
-            this.f28782e.f28775f.e(cVar.c().getId());
+            this.f28802e.f28795f.e(cVar.c().getId());
         }
     }
 
@@ -160,7 +160,7 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28783a;
+        public final /* synthetic */ a f28803a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -177,7 +177,7 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f28783a = aVar;
+            this.f28803a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -187,11 +187,11 @@ public class a extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, r7}) == null) {
                 if (z) {
-                    this.f28783a.f28774e.showToast(str);
+                    this.f28803a.f28794e.showToast(str);
                     return;
                 }
-                a aVar = this.f28783a;
-                aVar.l(aVar.f28775f.h());
+                a aVar = this.f28803a;
+                aVar.l(aVar.f28795f.h());
             }
         }
     }
@@ -202,7 +202,7 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28784a;
+        public final /* synthetic */ a f28804a;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -219,7 +219,7 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f28784a = aVar;
+            this.f28804a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -229,7 +229,7 @@ public class a extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, num}) == null) {
                 if (z) {
-                    this.f28784a.f28774e.showToast(str);
+                    this.f28804a.f28794e.showToast(str);
                     return;
                 }
                 TailData tailData = new TailData();
@@ -259,17 +259,17 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f28778i = new View$OnClickListenerC1346a(this);
-        this.f28779j = new b(this);
+        this.f28798i = new View$OnClickListenerC1344a(this);
+        this.f28799j = new b(this);
         this.k = new c(this);
         this.l = new d(this);
         this.m = new e(this);
-        this.f28774e = tbPageContext;
-        this.f28775f = dVar;
-        this.f28776g = new ArrayList();
-        this.f28775f.m(this.l);
-        this.f28775f.k(this.m);
-        this.f28777h = fVar;
+        this.f28794e = tbPageContext;
+        this.f28795f = dVar;
+        this.f28796g = new ArrayList();
+        this.f28795f.m(this.l);
+        this.f28795f.k(this.m);
+        this.f28797h = fVar;
     }
 
     public final View f(View view) {
@@ -280,14 +280,14 @@ public class a extends BaseAdapter {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
             if (view == null) {
                 bVar = new c.a.r0.x1.h.c.b();
-                view2 = bVar.b(this.f28774e.getPageActivity());
-                bVar.c(this.f28778i);
-                bVar.a(this.f28774e);
+                view2 = bVar.b(this.f28794e.getPageActivity());
+                bVar.c(this.f28798i);
+                bVar.a(this.f28794e);
             } else {
                 view2 = view;
                 bVar = (c.a.r0.x1.h.c.b) view.getTag();
             }
-            bVar.d(this.f28775f.f());
+            bVar.d(this.f28795f.f());
             return view2;
         }
         return (View) invokeL.objValue;
@@ -305,16 +305,16 @@ public class a extends BaseAdapter {
             TailData tailData = (TailData) obj;
             if (view == null) {
                 cVar = new c.a.r0.x1.h.c.c();
-                view2 = cVar.b(this.f28774e.getPageActivity());
-                cVar.h(this.f28779j);
+                view2 = cVar.b(this.f28794e.getPageActivity());
+                cVar.h(this.f28799j);
                 cVar.f(this.k);
-                cVar.a(this.f28774e);
+                cVar.a(this.f28794e);
             } else {
                 view2 = view;
                 cVar = (c.a.r0.x1.h.c.c) view.getTag();
             }
             cVar.i(tailData);
-            cVar.g(Boolean.valueOf(this.f28775f.g()));
+            cVar.g(Boolean.valueOf(this.f28795f.g()));
             return view2;
         }
         return (View) invokeLL.objValue;
@@ -324,14 +324,14 @@ public class a extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28776g.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28796g.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f28776g.get(i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f28796g.get(i2) : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -346,7 +346,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            Object obj = this.f28776g.get(i2);
+            Object obj = this.f28796g.get(i2);
             if (obj instanceof TailData) {
                 return 0;
             }
@@ -384,14 +384,14 @@ public class a extends BaseAdapter {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f28774e.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f28774e.getPageActivity(), this.f28775f.h().isEmpty())));
+            this.f28794e.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f28794e.getPageActivity(), this.f28795f.h().isEmpty())));
         }
     }
 
     public final void i(int i2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048585, this, i2, str, str2) == null) {
-            this.f28774e.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f28774e.getPageActivity(), i2, str, str2)));
+            this.f28794e.sendMessage(new CustomMessage(2002001, new TailEditActivityConfig(this.f28794e.getPageActivity(), i2, str, str2)));
         }
     }
 
@@ -406,23 +406,23 @@ public class a extends BaseAdapter {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            f fVar = this.f28777h;
+            f fVar = this.f28797h;
             if (fVar != null) {
                 fVar.callback();
             }
-            this.f28776g.clear();
-            this.f28776g.addAll(this.f28775f.h());
-            if (this.f28775f.g()) {
+            this.f28796g.clear();
+            this.f28796g.addAll(this.f28795f.h());
+            if (this.f28795f.g()) {
                 return;
             }
-            this.f28776g.add(new c.a.r0.x1.h.a.a(this.f28775f.f()));
+            this.f28796g.add(new c.a.r0.x1.h.a.a(this.f28795f.f()));
         }
     }
 
     public final void l(List<TailData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.f28775f.n(list);
+            this.f28795f.n(list);
             j();
         }
     }

@@ -20,7 +20,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FullScreenFloatView f11533a;
+    public FullScreenFloatView f11541a;
 
     /* loaded from: classes3.dex */
     public class a implements FullScreenFloatView.c {
@@ -28,10 +28,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f11534a;
+        public final /* synthetic */ Activity f11542a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f11535b;
+        public final /* synthetic */ b f11543b;
 
         public a(b bVar, Activity activity) {
             Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class b {
                     return;
                 }
             }
-            this.f11535b = bVar;
-            this.f11534a = activity;
+            this.f11543b = bVar;
+            this.f11542a = activity;
         }
 
         @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
@@ -63,7 +63,7 @@ public class b {
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f11535b.d(this.f11534a);
+                this.f11543b.d(this.f11542a);
             }
         }
     }
@@ -86,20 +86,20 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
             FullScreenFloatView a2 = c.a.p0.a.z1.a.a.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
-            this.f11533a = a2;
+            this.f11541a = a2;
             a2.setFloatButtonText(activity.getString(g.aiapps_game_inspector_info_button));
-            this.f11533a.setFloatImageBackground(e.aiapps_float_view_button_shape);
-            this.f11533a.setAutoAttachEnable(false);
-            this.f11533a.setDragImageListener(new a(this, activity));
-            this.f11533a.setVisibility(0);
+            this.f11541a.setFloatImageBackground(e.aiapps_float_view_button_shape);
+            this.f11541a.setAutoAttachEnable(false);
+            this.f11541a.setDragImageListener(new a(this, activity));
+            this.f11541a.setVisibility(0);
         }
     }
 
     public void c(a.c cVar, Activity activity) {
         c.a.p0.h.c0.a.a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, activity) == null) && activity != null && this.f11533a == null) {
-            if (c.a.p0.h.r.a.f((cVar == null || (aVar = cVar.f11542c) == null) ? null : aVar.f11122f).b()) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, activity) == null) && activity != null && this.f11541a == null) {
+            if (c.a.p0.h.r.a.f((cVar == null || (aVar = cVar.f11550c) == null) ? null : aVar.f11130f).b()) {
                 b(activity);
             }
         }

@@ -23,31 +23,31 @@ public class d implements c.a.j0.a.g.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.j0.a.g.b f3393a;
+    public c.a.j0.a.g.b f3394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3394b;
+    public String f3395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f3395c;
+    public final Context f3396c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.f0.b.d f3396d;
+    public final c.a.f0.b.d f3397d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.InterfaceC0020b f3397e;
+    public b.InterfaceC0020b f3398e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3398f;
+    public int f3399f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3399g;
+    public int f3400g;
 
     /* renamed from: h  reason: collision with root package name */
-    public h f3400h;
+    public h f3401h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.a.f0.b.c f3401i;
+    public final c.a.f0.b.c f3402i;
 
     /* loaded from: classes.dex */
     public class a implements c.a.f0.b.c {
@@ -55,7 +55,7 @@ public class d implements c.a.j0.a.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f3402a;
+        public final /* synthetic */ d f3403a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -72,20 +72,20 @@ public class d implements c.a.j0.a.g.d {
                     return;
                 }
             }
-            this.f3402a = dVar;
+            this.f3403a = dVar;
         }
 
         @Override // c.a.f0.b.c
         public void a(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                if (c.a.f0.a.b.a.f3337a.get().t()) {
+                if (c.a.f0.a.b.a.f3338a.get().t()) {
                     String str = "onAdFailed: " + th.getMessage();
                 }
-                if (this.f3402a.f3397e != null) {
-                    this.f3402a.f3397e.onFailed();
-                } else if (this.f3402a.f3396d != null) {
-                    this.f3402a.f3396d.a(th == null ? "unKnow" : th.getMessage());
+                if (this.f3403a.f3398e != null) {
+                    this.f3403a.f3398e.onFailed();
+                } else if (this.f3403a.f3397d != null) {
+                    this.f3403a.f3397d.a(th == null ? "unKnow" : th.getMessage());
                 }
             }
         }
@@ -98,41 +98,41 @@ public class d implements c.a.j0.a.g.d {
                 return;
             }
             int e2 = f.e(hVar);
-            if (c.a.f0.a.b.a.f3337a.get().t()) {
+            if (c.a.f0.a.b.a.f3338a.get().t()) {
                 String str = "onAdSuccess, statusCode: " + e2;
             }
             if (e2 == 0) {
-                this.f3402a.f3400h = hVar;
-                c.a.j0.a.g.b a3 = new c.a.j0.a.a().a(this.f3402a.f3395c, e.a(hVar));
+                this.f3403a.f3401h = hVar;
+                c.a.j0.a.g.b a3 = new c.a.j0.a.a().a(this.f3403a.f3396c, e.a(hVar));
                 if (a3 != null) {
-                    this.f3402a.f3393a = a3;
-                    if (this.f3402a.f3396d != null) {
-                        c.a.f0.b.e eVar = new c.a.f0.b.e(a3, this.f3402a.f3396d.d(), hVar);
-                        eVar.d(this.f3402a.f3396d);
+                    this.f3403a.f3394a = a3;
+                    if (this.f3403a.f3397d != null) {
+                        c.a.f0.b.e eVar = new c.a.f0.b.e(a3, this.f3403a.f3397d.d(), hVar);
+                        eVar.d(this.f3403a.f3397d);
                         a3.d(eVar);
                         a3.b(eVar);
-                        eVar.c(this.f3402a);
-                        this.f3402a.i(!hVar.i());
-                        this.f3402a.k(!hVar.g());
-                        this.f3402a.f3396d.c(this.f3402a);
+                        eVar.c(this.f3403a);
+                        this.f3403a.i(!hVar.i());
+                        this.f3403a.k(!hVar.g());
+                        this.f3403a.f3397d.c(this.f3403a);
                     }
-                    if (this.f3402a.f3397e != null) {
-                        this.f3402a.f3397e.onSuccess();
+                    if (this.f3403a.f3398e != null) {
+                        this.f3403a.f3398e.onSuccess();
                         return;
                     }
                     return;
-                } else if (c.a.f0.a.b.a.f3337a.get().t()) {
+                } else if (c.a.f0.a.b.a.f3338a.get().t()) {
                     String str2 = "创建 AdContainer 失败，params: " + a2.a();
                     return;
                 } else {
                     return;
                 }
             }
-            c.a.f0.a.b.a.f3337a.get().t();
-            if (this.f3402a.f3397e != null) {
-                this.f3402a.f3397e.onFailed();
-            } else if (this.f3402a.f3396d != null) {
-                this.f3402a.f3396d.a("query 后物料效验失败: " + e2);
+            c.a.f0.a.b.a.f3338a.get().t();
+            if (this.f3403a.f3398e != null) {
+                this.f3403a.f3398e.onFailed();
+            } else if (this.f3403a.f3397d != null) {
+                this.f3403a.f3397d.a("query 后物料效验失败: " + e2);
             }
             b.f(e2);
         }
@@ -154,18 +154,18 @@ public class d implements c.a.j0.a.g.d {
             }
         }
         LoadState loadState = LoadState.INIT;
-        this.f3401i = new a(this);
-        this.f3395c = context;
-        this.f3394b = str;
-        this.f3396d = dVar;
+        this.f3402i = new a(this);
+        this.f3396c = context;
+        this.f3395b = str;
+        this.f3397d = dVar;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f3393a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f3394a == null) {
             return;
         }
-        this.f3393a = null;
+        this.f3394a = null;
     }
 
     public JSONObject g() {
@@ -174,12 +174,12 @@ public class d implements c.a.j0.a.g.d {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.f3400h != null) {
-                    jSONObject.put("source", this.f3400h.D);
-                    jSONObject.put(QuickPersistConfigConst.KEY_SPLASH_SORT, this.f3400h.E);
+                if (this.f3401h != null) {
+                    jSONObject.put("source", this.f3401h.D);
+                    jSONObject.put(QuickPersistConfigConst.KEY_SPLASH_SORT, this.f3401h.E);
                 }
-                jSONObject.put(TiebaStatic.Params.AD_TYPE, this.f3398f);
-                jSONObject.put("full_type", this.f3399g);
+                jSONObject.put(TiebaStatic.Params.AD_TYPE, this.f3399f);
+                jSONObject.put("full_type", this.f3400g);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -191,28 +191,28 @@ public class d implements c.a.j0.a.g.d {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            new c.a.f0.b.a().j(c.a.f0.a.b.a.f3337a.get(), this.f3394b, this.f3401i);
+            new c.a.f0.b.a().j(c.a.f0.a.b.a.f3338a.get(), this.f3395b, this.f3402i);
         }
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f3398f = i2;
+            this.f3399f = i2;
         }
     }
 
     public void j(c.a.j0.a.g.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f3393a = bVar;
+            this.f3394a = bVar;
         }
     }
 
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f3399g = i2;
+            this.f3400g = i2;
         }
     }
 
@@ -220,9 +220,9 @@ public class d implements c.a.j0.a.g.d {
         c.a.j0.a.g.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, viewGroup) == null) {
-            if (viewGroup != null && (bVar = this.f3393a) != null) {
+            if (viewGroup != null && (bVar = this.f3394a) != null) {
                 bVar.a();
-                View adView = this.f3393a.getAdView();
+                View adView = this.f3394a.getAdView();
                 if (adView != null && adView.getParent() == null) {
                     viewGroup.addView(adView);
                     return;

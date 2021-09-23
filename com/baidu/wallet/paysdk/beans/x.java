@@ -1,32 +1,31 @@
 package com.baidu.wallet.paysdk.beans;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.ui.widget.FeedbackDialog;
+import com.baidu.wallet.paysdk.datamodel.PayQueryRequest;
+import com.baidu.wallet.paysdk.datamodel.QueryPayResponse;
+import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.dxmpay.apollon.restnet.RestNameValuePair;
 import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class x extends BaseBean<Object> {
+public class x extends BaseBean<QueryPayResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62443a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public FeedbackDialog.c f62444b;
+    public List<RestNameValuePair> f62721a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(Context context) {
+    public <T> x(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,19 +44,11 @@ public class x extends BaseBean<Object> {
         }
     }
 
-    public void a(String str, FeedbackDialog.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.f62443a = str;
-            this.f62444b = cVar;
-        }
-    }
-
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.execBean(String.class);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.execBean(QueryPayResponse.class);
         }
     }
 
@@ -65,12 +56,23 @@ public class x extends BaseBean<Object> {
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<RestNameValuePair> list = this.f62721a;
+            if (list != null) {
+                return list;
+            }
+            PayQueryRequest payQueryRequest = (PayQueryRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY_QUERY);
+            if (payQueryRequest == null || !payQueryRequest.checkRequestValidity()) {
+                return null;
+            }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("trans_no", this.f62443a));
-            arrayList.add(new RestNameValuePair("score", "" + this.f62444b.f63265a));
-            FeedbackDialog.c cVar = this.f62444b;
-            arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f63266b : null)));
+            arrayList.add(new RestNameValuePair("name", payQueryRequest.mName));
+            arrayList.add(new RestNameValuePair("order_no", payQueryRequest.mOrderNo));
+            if (!TextUtils.isEmpty(payQueryRequest.mBankNo)) {
+                arrayList.add(new RestNameValuePair("bank_no", payQueryRequest.mBankNo));
+            }
+            arrayList.add(new RestNameValuePair("sign", payQueryRequest.getMd5Sign()));
+            this.f62721a = arrayList;
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -80,34 +82,29 @@ public class x extends BaseBean<Object> {
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? PayBeanFactory.BEAN_ID_SAVE_FEEDBACK : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 12;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.dxmpay.apollon.beans.ApollonBean
+    public int getHttpMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_SAVE_FEEDBACK;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_QUERY_TRANS_EASY;
         }
         return (String) invokeV.objValue;
-    }
-
-    public String a(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (strArr != null && strArr.length > 0) {
-                sb.append(strArr[0]);
-                for (int i2 = 1; i2 < strArr.length; i2++) {
-                    sb.append(",");
-                    sb.append(strArr[i2]);
-                }
-                sb = new StringBuilder(PreferencesUtil.LEFT_MOUNT + ((Object) sb) + PreferencesUtil.RIGHT_MOUNT);
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
     }
 }

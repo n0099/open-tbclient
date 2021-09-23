@@ -67,7 +67,7 @@ public class p0 extends c.a.q0.s.f0.t.c {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || view.getAlpha() < 0.4d) {
             return;
         }
-        c.a.q0.s.f0.t.a aVar = this.f13921e;
+        c.a.q0.s.f0.t.a aVar = this.f13918e;
         String userId = aVar != null ? aVar.getUserId() : "";
         TiebaStatic.log(new StatisticItem("c12408").param("obj_source", t()).param("obj_id", userId).param("tid", this.w));
         int i2 = this.u;
@@ -107,10 +107,10 @@ public class p0 extends c.a.q0.s.f0.t.c {
             if (this.y.L() != null && !c.a.e.e.p.k.isEmpty(this.y.L().oriUgcVid)) {
                 statisticItem2.param(TiebaStatic.Params.OBJ_PARAM6, this.y.L().oriUgcVid);
             }
-            statisticItem2.param("recom_source", this.y.W0);
-            statisticItem2.param("ab_tag", this.y.Y0);
-            statisticItem2.param("weight", this.y.X0);
-            statisticItem2.param("extra", this.y.Z0);
+            statisticItem2.param("recom_source", this.y.X0);
+            statisticItem2.param("ab_tag", this.y.Z0);
+            statisticItem2.param("weight", this.y.Y0);
+            statisticItem2.param("extra", this.y.a1);
         }
         TbPageContext tbPageContext = this.v;
         if (tbPageContext != null) {
@@ -118,10 +118,10 @@ public class p0 extends c.a.q0.s.f0.t.c {
         }
         TiebaStatic.log(statisticItem2);
         super.onClick(view);
-        if (this.s && this.f13921e != null) {
-            TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.f13921e.getUserId()));
+        if (this.s && this.f13918e != null) {
+            TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.f13918e.getUserId()));
         }
-        if (!this.t || this.f13921e == null) {
+        if (!this.t || this.f13918e == null) {
             return;
         }
         int i5 = this.u;
@@ -130,7 +130,7 @@ public class p0 extends c.a.q0.s.f0.t.c {
         } else if (i5 == 2) {
             i4 = 2;
         }
-        TiebaStatic.log(new StatisticItem("c12150").param("obj_locate", i4).param("obj_id", this.f13921e.getUserId()));
+        TiebaStatic.log(new StatisticItem("c12150").param("obj_locate", i4).param("obj_id", this.f13918e.getUserId()));
     }
 
     public final int t() {

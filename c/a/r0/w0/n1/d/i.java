@@ -52,7 +52,7 @@ public class i extends c.a.r0.w0.k<c.a.r0.w0.u, ReadProgressViewHolder> {
     public ReadProgressViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ReadProgressViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.frs_read_progress_item, viewGroup, false), this.o.getPageActivity()) : (ReadProgressViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ReadProgressViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.frs_read_progress_item, viewGroup, false), this.o.getPageActivity()) : (ReadProgressViewHolder) invokeL.objValue;
     }
 
     public View v0(int i2, View view, ViewGroup viewGroup, c.a.r0.w0.u uVar, ReadProgressViewHolder readProgressViewHolder) {

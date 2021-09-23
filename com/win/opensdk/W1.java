@@ -17,17 +17,17 @@ public class W1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final BlockingQueue f76924b;
+    public static final BlockingQueue f77243b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ThreadFactory f76925c;
+    public static final ThreadFactory f77244c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static W1 f76926d;
+    public static W1 f77245d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f76927a;
+    public ThreadPoolExecutor f77246a;
 
     static {
         InterceptResult invokeClinit;
@@ -42,8 +42,8 @@ public class W1 {
                 return;
             }
         }
-        f76924b = new LinkedBlockingQueue(210);
-        f76925c = new V1();
+        f77243b = new LinkedBlockingQueue(210);
+        f77244c = new V1();
     }
 
     public W1() {
@@ -59,7 +59,7 @@ public class W1 {
                 return;
             }
         }
-        this.f76927a = new ThreadPoolExecutor(5, 60, 1L, TimeUnit.SECONDS, f76924b, f76925c);
+        this.f77246a = new ThreadPoolExecutor(5, 60, 1L, TimeUnit.SECONDS, f77243b, f77244c);
     }
 
     public static synchronized W1 a() {
@@ -68,10 +68,10 @@ public class W1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (W1.class) {
-                if (f76926d == null) {
-                    f76926d = new W1();
+                if (f77245d == null) {
+                    f77245d = new W1();
                 }
-                w1 = f76926d;
+                w1 = f77245d;
             }
             return w1;
         }
@@ -81,7 +81,7 @@ public class W1 {
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            a().f76927a.execute(runnable);
+            a().f77246a.execute(runnable);
         }
     }
 }

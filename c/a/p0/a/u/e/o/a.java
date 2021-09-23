@@ -28,7 +28,7 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f9078a;
+        public final /* synthetic */ a f9086a;
 
         /* renamed from: c.a.p0.a.u.e.o.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -37,13 +37,13 @@ public class a extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f9079a;
+            public final /* synthetic */ String f9087a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ l f9080b;
+            public final /* synthetic */ l f9088b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ C0416a f9081c;
+            public final /* synthetic */ C0416a f9089c;
 
             public C0417a(C0416a c0416a, String str, l lVar) {
                 Interceptable interceptable = $ic;
@@ -60,9 +60,9 @@ public class a extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f9081c = c0416a;
-                this.f9079a = str;
-                this.f9080b = lVar;
+                this.f9089c = c0416a;
+                this.f9087a = str;
+                this.f9088b = lVar;
             }
 
             @Override // c.a.p0.a.n2.a.a.InterfaceC0320a
@@ -75,16 +75,16 @@ public class a extends c.a.p0.a.u.c.d {
                             jSONObject.put("x", dArr[0]);
                             jSONObject.put("y", dArr[1]);
                             jSONObject.put("z", dArr[2]);
-                            this.f9080b.d(this.f9081c.f9078a, jSONObject);
+                            this.f9088b.d(this.f9089c.f9086a, jSONObject);
                             return;
                         } catch (JSONException e2) {
                             c.a.p0.a.e0.d.b("Api-Accelerometer", "handle compass,json error，" + e2.toString());
-                            this.f9080b.f(this.f9081c.f9078a, "Json error");
+                            this.f9088b.f(this.f9089c.f9086a, "Json error");
                             return;
                         }
                     }
                     c.a.p0.a.e0.d.b("Api-Accelerometer", "illegal accelerometers");
-                    this.f9081c.f9078a.d(this.f9079a, new c.a.p0.a.u.h.b(1001));
+                    this.f9089c.f9086a.d(this.f9087a, new c.a.p0.a.u.h.b(1001));
                 }
             }
         }
@@ -104,7 +104,7 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9078a = aVar;
+            this.f9086a = aVar;
         }
 
         @Override // c.a.p0.a.u.c.d.b
@@ -115,10 +115,10 @@ public class a extends c.a.p0.a.u.c.d {
                 c.a.p0.a.e0.d.g("Api-Accelerometer", " init ");
                 l lVar = new l("accelerometerChange", jSONObject, str);
                 c.a.p0.a.n2.a.a a2 = c.a.p0.a.n2.a.a.a();
-                a2.b(this.f9078a.i(), b.a(jSONObject.optString("interval")));
+                a2.b(this.f9086a.i(), b.a(jSONObject.optString("interval")));
                 a2.e(new C0417a(this, str, lVar));
                 a2.f();
-                lVar.b(this.f9078a);
+                lVar.b(this.f9086a);
                 return new c.a.p0.a.u.h.b(0);
             }
             return (c.a.p0.a.u.h.b) invokeLLL.objValue;
@@ -130,7 +130,7 @@ public class a extends c.a.p0.a.u.c.d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static ArrayMap<String, Integer> f9082a;
+        public static ArrayMap<String, Integer> f9090a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -147,17 +147,17 @@ public class a extends c.a.p0.a.u.c.d {
                 }
             }
             ArrayMap<String, Integer> arrayMap = new ArrayMap<>(3);
-            f9082a = arrayMap;
+            f9090a = arrayMap;
             arrayMap.put(IMTrackDatabase.UiEnum.TABLE_NAME, 60);
-            f9082a.put("game", 20);
-            f9082a.put("normal", 200);
+            f9090a.put("game", 20);
+            f9090a.put("normal", 200);
         }
 
         public static int a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                Integer num = f9082a.get(str);
+                Integer num = f9090a.get(str);
                 if (num != null) {
                     return num.intValue();
                 }
@@ -191,7 +191,7 @@ public class a extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             return j(str, true, new C0416a(this));
         }
         return (c.a.p0.a.u.h.b) invokeL.objValue;
@@ -201,7 +201,7 @@ public class a extends c.a.p0.a.u.c.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             c.a.p0.a.e0.d.g("Api-Accelerometer", "stop listen accelerometer");
             c.a.p0.a.n2.a.a.a().g();
             return new c.a.p0.a.u.h.b(0);

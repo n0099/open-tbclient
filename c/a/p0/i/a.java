@@ -31,20 +31,20 @@ public class a implements d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f11682c;
+    public static final boolean f11690c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long f11683d;
+    public static final long f11691d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b f11684e;
+    public static final b f11692e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LocationClient f11685a;
+    public LocationClient f11693a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LocationClientOption f11686b;
+    public LocationClientOption f11694b;
 
     /* renamed from: c.a.p0.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -53,7 +53,7 @@ public class a implements d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11687e;
+        public final /* synthetic */ a f11695e;
 
         public RunnableC0610a(a aVar) {
             Interceptable interceptable = $ic;
@@ -70,14 +70,14 @@ public class a implements d {
                     return;
                 }
             }
-            this.f11687e = aVar;
+            this.f11695e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11687e.f11685a.requestLocation();
+                this.f11695e.f11693a.requestLocation();
             }
         }
     }
@@ -88,16 +88,16 @@ public class a implements d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LocationClient f11690a;
+        public LocationClient f11698a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a f11691b;
+        public d.a f11699b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f11692c;
+        public String f11700c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f11693d;
+        public boolean f11701d;
 
         public c(LocationClient locationClient, d.a aVar, String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -114,27 +114,27 @@ public class a implements d {
                     return;
                 }
             }
-            this.f11690a = locationClient;
-            this.f11691b = aVar;
-            this.f11692c = str;
-            this.f11693d = z;
+            this.f11698a = locationClient;
+            this.f11699b = aVar;
+            this.f11700c = str;
+            this.f11701d = z;
         }
 
         @Override // com.baidu.location.BDAbstractLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
-                this.f11690a.unRegisterLocationListener(this);
+                this.f11698a.unRegisterLocationListener(this);
                 int locType = bDLocation.getLocType();
                 if (a.p(locType)) {
-                    a.f11684e.e(bDLocation);
-                    if (this.f11693d) {
+                    a.f11692e.e(bDLocation);
+                    if (this.f11701d) {
                         return;
                     }
-                    this.f11691b.a(a.n(bDLocation, this.f11692c));
-                } else if (this.f11693d) {
+                    this.f11699b.a(a.n(bDLocation, this.f11700c));
+                } else if (this.f11701d) {
                 } else {
-                    this.f11691b.onFailed(locType);
+                    this.f11699b.onFailed(locType);
                 }
             }
         }
@@ -153,9 +153,9 @@ public class a implements d {
                 return;
             }
         }
-        f11682c = k.f7077a;
-        f11683d = TimeUnit.MINUTES.toMillis(3L);
-        f11684e = new b(null);
+        f11690c = k.f7085a;
+        f11691d = TimeUnit.MINUTES.toMillis(3L);
+        f11692e = new b(null);
     }
 
     public a() {
@@ -226,25 +226,25 @@ public class a implements d {
     public void b(String str, boolean z, boolean z2, d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), aVar}) == null) {
-            BDLocation c2 = f11684e.c(o());
+            BDLocation c2 = f11692e.c(o());
             boolean z3 = c2 != null;
             if (z3) {
                 aVar.a(n(c2, str));
             }
-            if (this.f11685a == null) {
-                this.f11685a = new LocationClient(AppRuntime.getAppContext());
+            if (this.f11693a == null) {
+                this.f11693a = new LocationClient(AppRuntime.getAppContext());
                 LocationClientOption locationClientOption = new LocationClientOption();
                 locationClientOption.setCoorType("gcj02");
                 locationClientOption.setScanSpan(0);
                 locationClientOption.setIgnoreKillProcess(true);
                 locationClientOption.setIsNeedAddress(true);
-                this.f11685a.setLocOption(locationClientOption);
-                this.f11686b = locationClientOption;
-                this.f11685a.start();
+                this.f11693a.setLocOption(locationClientOption);
+                this.f11694b = locationClientOption;
+                this.f11693a.start();
             }
-            this.f11685a.registerLocationListener(new c(this.f11685a, aVar, str, z3));
-            this.f11686b.setIsNeedAltitude(z2);
-            this.f11685a.setLocOption(this.f11686b);
+            this.f11693a.registerLocationListener(new c(this.f11693a, aVar, str, z3));
+            this.f11694b.setIsNeedAltitude(z2);
+            this.f11693a.setLocOption(this.f11694b);
             q0.X(new RunnableC0610a(this));
         }
     }
@@ -274,7 +274,7 @@ public class a implements d {
     public double[] f(@NonNull c.a.p0.a.c2.f.k0.b bVar, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bVar, str)) == null) ? m(bVar.f4950b, bVar.f4951c, bVar.f4949a, str) : (double[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bVar, str)) == null) ? m(bVar.f4958b, bVar.f4959c, bVar.f4957a, str) : (double[]) invokeLL.objValue;
     }
 
     @Override // c.a.p0.a.c1.d.d
@@ -282,7 +282,7 @@ public class a implements d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            BDLocation bDLocation = f11684e.f11689b;
+            BDLocation bDLocation = f11692e.f11697b;
             if (bDLocation == null) {
                 return null;
             }
@@ -319,7 +319,7 @@ public class a implements d {
     public final long o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? f11683d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? f11691d : invokeV.longValue;
     }
 
     /* loaded from: classes3.dex */
@@ -328,10 +328,10 @@ public class a implements d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f11688a;
+        public long f11696a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BDLocation f11689b;
+        public BDLocation f11697b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -346,7 +346,7 @@ public class a implements d {
                     return;
                 }
             }
-            this.f11688a = 0L;
+            this.f11696a = 0L;
         }
 
         public synchronized BDLocation c(long j2) {
@@ -355,7 +355,7 @@ public class a implements d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
                 synchronized (this) {
-                    bDLocation = d(j2) ? this.f11689b : null;
+                    bDLocation = d(j2) ? this.f11697b : null;
                 }
                 return bDLocation;
             }
@@ -368,11 +368,11 @@ public class a implements d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
                 synchronized (this) {
-                    long currentTimeMillis = System.currentTimeMillis() - this.f11688a;
-                    boolean z2 = this.f11689b != null;
+                    long currentTimeMillis = System.currentTimeMillis() - this.f11696a;
+                    boolean z2 = this.f11697b != null;
                     boolean z3 = currentTimeMillis < j2;
                     z = z2 && z3;
-                    if (a.f11682c) {
+                    if (a.f11690c) {
                         String.format("hitCache[%b] hasInfo[%b] isAgeOk[%b] cacheAge[%d] timeout[%d]", Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Long.valueOf(currentTimeMillis), Long.valueOf(j2));
                     }
                 }
@@ -385,8 +385,8 @@ public class a implements d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bDLocation) == null) {
                 synchronized (this) {
-                    this.f11689b = bDLocation;
-                    this.f11688a = System.currentTimeMillis();
+                    this.f11697b = bDLocation;
+                    this.f11696a = System.currentTimeMillis();
                 }
             }
         }

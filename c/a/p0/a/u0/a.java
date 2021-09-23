@@ -31,10 +31,10 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f9176a;
+        public String f9184a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f9177b;
+        public final /* synthetic */ a f9185b;
 
         public /* synthetic */ b(a aVar, String str, C0424a c0424a) {
             this(aVar, str);
@@ -44,7 +44,7 @@ public class a extends d {
         public void a(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f9177b.d(this.f9176a, jSONObject == null ? new c.a.p0.a.u.h.b(0) : new c.a.p0.a.u.h.b(0, jSONObject));
+                this.f9185b.d(this.f9184a, jSONObject == null ? new c.a.p0.a.u.h.b(0) : new c.a.p0.a.u.h.b(0, jSONObject));
             }
         }
 
@@ -52,8 +52,8 @@ public class a extends d {
         public void onFail(int i2, @Nullable String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                boolean z = d.f8727c;
-                this.f9177b.d(this.f9176a, str == null ? new c.a.p0.a.u.h.b(i2) : new c.a.p0.a.u.h.b(i2, str));
+                boolean z = d.f8735c;
+                this.f9185b.d(this.f9184a, str == null ? new c.a.p0.a.u.h.b(i2) : new c.a.p0.a.u.h.b(i2, str));
             }
         }
 
@@ -72,8 +72,8 @@ public class a extends d {
                     return;
                 }
             }
-            this.f9177b = aVar;
-            this.f9176a = str;
+            this.f9185b = aVar;
+            this.f9184a = str;
         }
     }
 
@@ -102,7 +102,7 @@ public class a extends d {
         public void a(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                boolean z = d.f8727c;
+                boolean z = d.f8735c;
             }
         }
 
@@ -110,7 +110,7 @@ public class a extends d {
         public void onFail(int i2, @Nullable String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                boolean z = d.f8727c;
+                boolean z = d.f8735c;
             }
         }
 
@@ -143,7 +143,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (d.f8727c) {
+            if (d.f8735c) {
                 String str2 = "postGameCenterMessage: " + str;
             }
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-GameCenterApi", str);
@@ -167,7 +167,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (d.f8727c) {
+            if (d.f8735c) {
                 String str2 = "postGameCenterMessageSync: " + str;
             }
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-GameCenterApi", str);

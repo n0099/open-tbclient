@@ -29,10 +29,10 @@ public class c extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10141e;
+        public final /* synthetic */ String f10149e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f10142f;
+        public final /* synthetic */ c f10150f;
 
         public a(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -49,8 +49,8 @@ public class c extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f10142f = cVar;
-            this.f10141e = str;
+            this.f10150f = cVar;
+            this.f10149e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,15 +60,15 @@ public class c extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    this.f10142f.w(this.f10141e);
+                    this.f10150f.w(this.f10149e);
                     return;
                 }
                 int b2 = iVar.b();
                 String f2 = c.a.p0.a.e2.c.d.f(b2);
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     String str = "quick login failed: auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX;
                 }
-                this.f10142f.d(this.f10141e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
+                this.f10150f.d(this.f10149e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
             }
         }
     }
@@ -79,10 +79,10 @@ public class c extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f10143a;
+        public final /* synthetic */ String f10151a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f10144b;
+        public final /* synthetic */ c f10152b;
 
         /* loaded from: classes.dex */
         public class a implements e {
@@ -90,7 +90,7 @@ public class c extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f10145a;
+            public final /* synthetic */ b f10153a;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class c extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f10145a = bVar;
+                this.f10153a = bVar;
             }
 
             @Override // c.a.p0.b.p.g.e
@@ -115,12 +115,12 @@ public class c extends c.a.p0.a.u.c.d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                     if (i2 == 0) {
-                        b bVar = this.f10145a;
-                        bVar.f10144b.d(bVar.f10143a, new c.a.p0.a.u.h.b(0));
+                        b bVar = this.f10153a;
+                        bVar.f10152b.d(bVar.f10151a, new c.a.p0.a.u.h.b(0));
                         return;
                     }
-                    b bVar2 = this.f10145a;
-                    bVar2.f10144b.d(bVar2.f10143a, new c.a.p0.a.u.h.b(10004, "user not logged in"));
+                    b bVar2 = this.f10153a;
+                    bVar2.f10152b.d(bVar2.f10151a, new c.a.p0.a.u.h.b(10004, "user not logged in"));
                 }
             }
         }
@@ -140,8 +140,8 @@ public class c extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f10144b = cVar;
-            this.f10143a = str;
+            this.f10152b = cVar;
+            this.f10151a = str;
         }
 
         @Override // c.a.p0.b.p.g.c
@@ -149,7 +149,7 @@ public class c extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
                 if (quickLoginInfo == null) {
-                    this.f10144b.d(this.f10143a, new c.a.p0.a.u.h.b(1001));
+                    this.f10152b.d(this.f10151a, new c.a.p0.a.u.h.b(1001));
                     return;
                 }
                 boolean z = quickLoginInfo.supportQuickLogin;
@@ -157,7 +157,7 @@ public class c extends c.a.p0.a.u.c.d {
                 if (z) {
                     f.e(c.a.p0.a.a2.d.g().x(), i2, new a(this));
                 } else {
-                    this.f10144b.d(this.f10143a, new c.a.p0.a.u.h.b(10004, "user not logged in"));
+                    this.f10152b.d(this.f10151a, new c.a.p0.a.u.h.b(10004, "user not logged in"));
                 }
             }
         }
@@ -170,10 +170,10 @@ public class c extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10146e;
+        public final /* synthetic */ String f10154e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f10147f;
+        public final /* synthetic */ c f10155f;
 
         public C0494c(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -190,8 +190,8 @@ public class c extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f10147f = cVar;
-            this.f10146e = str;
+            this.f10155f = cVar;
+            this.f10154e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -201,15 +201,15 @@ public class c extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    this.f10147f.v(this.f10146e);
+                    this.f10155f.v(this.f10154e);
                     return;
                 }
                 int b2 = iVar.b();
                 String f2 = c.a.p0.a.e2.c.d.f(b2);
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     String str = "query quick login info failed: auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX;
                 }
-                this.f10147f.d(this.f10146e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
+                this.f10155f.d(this.f10154e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
             }
         }
     }
@@ -220,10 +220,10 @@ public class c extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f10148a;
+        public final /* synthetic */ String f10156a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f10149b;
+        public final /* synthetic */ c f10157b;
 
         public d(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -240,8 +240,8 @@ public class c extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f10149b = cVar;
-            this.f10148a = str;
+            this.f10157b = cVar;
+            this.f10156a = str;
         }
 
         @Override // c.a.p0.b.p.g.c
@@ -249,9 +249,9 @@ public class c extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
                 if (quickLoginInfo == null) {
-                    this.f10149b.x(this.f10148a);
+                    this.f10157b.x(this.f10156a);
                 } else {
-                    this.f10149b.y(this.f10148a, quickLoginInfo);
+                    this.f10157b.y(this.f10156a, quickLoginInfo);
                 }
             }
         }
@@ -282,7 +282,7 @@ public class c extends c.a.p0.a.u.c.d {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-QuickLogin", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (bVar.isSuccess() && (obj = b2.second) != null) {
@@ -337,12 +337,12 @@ public class c extends c.a.p0.a.u.c.d {
                 jSONObject.put("encryptPhoneNum", quickLoginInfo.encryptPhoneNum);
                 jSONObject.put("serviceAgreement", quickLoginInfo.serviceAgreement);
                 jSONObject.put("hasHistory", quickLoginInfo.hasHistory);
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     String str2 = "query login info; data: " + jSONObject.toString();
                 }
                 d(str, new c.a.p0.a.u.h.b(0, jSONObject));
             } catch (JSONException e2) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     e2.printStackTrace();
                 }
                 d(str, new c.a.p0.a.u.h.b(1001));
@@ -355,7 +355,7 @@ public class c extends c.a.p0.a.u.c.d {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-QuickLogin", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (bVar.isSuccess() && (obj = b2.second) != null) {

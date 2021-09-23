@@ -32,7 +32,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f24242a;
+    public static g f24258a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +48,7 @@ public class g {
                 return;
             }
         }
-        f24242a = new g();
+        f24258a = new g();
     }
 
     public g() {
@@ -68,7 +68,7 @@ public class g {
     public static g k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f24242a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f24258a : (g) invokeV.objValue;
     }
 
     public boolean a(CollectEmotionData collectEmotionData) {

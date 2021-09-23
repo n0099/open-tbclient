@@ -21,7 +21,7 @@ public class a implements SwanAppAlertDialog.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f9665a;
+    public FrameLayout f9673a;
 
     /* renamed from: c.a.p0.a.w2.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -30,10 +30,10 @@ public class a implements SwanAppAlertDialog.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f9666e;
+        public final /* synthetic */ ViewGroup f9674e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f9667f;
+        public final /* synthetic */ a f9675f;
 
         public RunnableC0453a(a aVar, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -50,22 +50,22 @@ public class a implements SwanAppAlertDialog.c {
                     return;
                 }
             }
-            this.f9667f = aVar;
-            this.f9666e = viewGroup;
+            this.f9675f = aVar;
+            this.f9674e = viewGroup;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f9667f.f9665a == null) {
-                    this.f9667f.f9665a = new FrameLayout(this.f9666e.getContext());
-                    this.f9667f.f9665a.setBackgroundResource(c.a.p0.a.c.aiapps_night_mode_cover_layer);
+                if (this.f9675f.f9673a == null) {
+                    this.f9675f.f9673a = new FrameLayout(this.f9674e.getContext());
+                    this.f9675f.f9673a.setBackgroundResource(c.a.p0.a.c.aiapps_night_mode_cover_layer);
                 }
-                this.f9666e.removeView(this.f9667f.f9665a);
+                this.f9674e.removeView(this.f9675f.f9673a);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
                 layoutParams.gravity = 17;
-                this.f9666e.addView(this.f9667f.f9665a, layoutParams);
+                this.f9674e.addView(this.f9675f.f9673a, layoutParams);
             }
         }
     }
@@ -83,7 +83,7 @@ public class a implements SwanAppAlertDialog.c {
                 return;
             }
         }
-        this.f9665a = null;
+        this.f9673a = null;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.SwanAppAlertDialog.c
@@ -114,11 +114,11 @@ public class a implements SwanAppAlertDialog.c {
     public final void e(ViewGroup viewGroup) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.f9665a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.f9673a) == null) {
             return;
         }
         viewGroup.removeView(frameLayout);
-        this.f9665a = null;
+        this.f9673a = null;
     }
 
     public final void f(SwanAppAlertDialog swanAppAlertDialog) {

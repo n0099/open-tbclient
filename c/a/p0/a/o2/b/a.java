@@ -40,35 +40,35 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f7822j;
+    public static final boolean f7830j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f7823a;
+    public View f7831a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f7824b;
+    public LinearLayout f7832b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7825c;
+    public int f7833c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.a.h0.g.f f7826d;
+    public c.a.p0.a.h0.g.f f7834d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SwanAppConfigData.l f7827e;
+    public SwanAppConfigData.l f7835e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<SwanAppBottomTabIconView> f7828f;
+    public ArrayList<SwanAppBottomTabIconView> f7836f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<SwanAppConfigData.m> f7829g;
+    public List<SwanAppConfigData.m> f7837g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f7830h;
+    public String f7838h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f7831i;
+    public String f7839i;
 
     /* renamed from: c.a.p0.a.o2.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -77,10 +77,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f7832e;
+        public final /* synthetic */ int f7840e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f7833f;
+        public final /* synthetic */ a f7841f;
 
         public View$OnClickListenerC0336a(a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -97,15 +97,15 @@ public class a {
                     return;
                 }
             }
-            this.f7833f = aVar;
-            this.f7832e = i2;
+            this.f7841f = aVar;
+            this.f7840e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f7833f.g(this.f7832e);
+                this.f7841f.g(this.f7840e);
             }
         }
     }
@@ -116,13 +116,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppBottomTabIconView f7834e;
+        public final /* synthetic */ SwanAppBottomTabIconView f7842e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f7835f;
+        public final /* synthetic */ Bitmap f7843f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f7836g;
+        public final /* synthetic */ a f7844g;
 
         public b(a aVar, SwanAppBottomTabIconView swanAppBottomTabIconView, Bitmap bitmap) {
             Interceptable interceptable = $ic;
@@ -139,20 +139,20 @@ public class a {
                     return;
                 }
             }
-            this.f7836g = aVar;
-            this.f7834e = swanAppBottomTabIconView;
-            this.f7835f = bitmap;
+            this.f7844g = aVar;
+            this.f7842e = swanAppBottomTabIconView;
+            this.f7843f = bitmap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7834e.setIconView(this.f7835f);
-                if (this.f7836g.f7830h == null) {
-                    this.f7834e.setTextColor(this.f7836g.f7827e.f46598a);
+                this.f7842e.setIconView(this.f7843f);
+                if (this.f7844g.f7838h == null) {
+                    this.f7842e.setTextColor(this.f7844g.f7835e.f46700a);
                 } else {
-                    this.f7834e.setTextColor(SwanAppConfigData.s(this.f7836g.f7830h));
+                    this.f7842e.setTextColor(SwanAppConfigData.s(this.f7844g.f7838h));
                 }
             }
         }
@@ -164,13 +164,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppBottomTabIconView f7837e;
+        public final /* synthetic */ SwanAppBottomTabIconView f7845e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f7838f;
+        public final /* synthetic */ Bitmap f7846f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f7839g;
+        public final /* synthetic */ a f7847g;
 
         public c(a aVar, SwanAppBottomTabIconView swanAppBottomTabIconView, Bitmap bitmap) {
             Interceptable interceptable = $ic;
@@ -187,20 +187,20 @@ public class a {
                     return;
                 }
             }
-            this.f7839g = aVar;
-            this.f7837e = swanAppBottomTabIconView;
-            this.f7838f = bitmap;
+            this.f7847g = aVar;
+            this.f7845e = swanAppBottomTabIconView;
+            this.f7846f = bitmap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7837e.setIconView(this.f7838f);
-                if (this.f7839g.f7831i == null) {
-                    this.f7837e.setTextColor(this.f7839g.f7827e.f46599b);
+                this.f7845e.setIconView(this.f7846f);
+                if (this.f7847g.f7839i == null) {
+                    this.f7845e.setTextColor(this.f7847g.f7835e.f46701b);
                 } else {
-                    this.f7837e.setTextColor(SwanAppConfigData.s(this.f7839g.f7831i));
+                    this.f7845e.setTextColor(SwanAppConfigData.s(this.f7847g.f7839i));
                 }
             }
         }
@@ -212,7 +212,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f7840e;
+        public final /* synthetic */ a f7848e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -229,7 +229,7 @@ public class a {
                     return;
                 }
             }
-            this.f7840e = aVar;
+            this.f7848e = aVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -243,7 +243,7 @@ public class a {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f7840e.f7824b.setVisibility(8);
+                this.f7848e.f7832b.setVisibility(8);
             }
         }
 
@@ -268,10 +268,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppBottomTabIconView f7841e;
+        public final /* synthetic */ SwanAppBottomTabIconView f7849e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7842f;
+        public final /* synthetic */ String f7850f;
 
         public e(a aVar, SwanAppBottomTabIconView swanAppBottomTabIconView, String str) {
             Interceptable interceptable = $ic;
@@ -288,15 +288,15 @@ public class a {
                     return;
                 }
             }
-            this.f7841e = swanAppBottomTabIconView;
-            this.f7842f = str;
+            this.f7849e = swanAppBottomTabIconView;
+            this.f7850f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7841e.setTextView(this.f7842f);
+                this.f7849e.setTextView(this.f7850f);
             }
         }
     }
@@ -307,7 +307,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppBottomTabIconView f7843e;
+        public final /* synthetic */ SwanAppBottomTabIconView f7851e;
 
         public f(a aVar, SwanAppBottomTabIconView swanAppBottomTabIconView) {
             Interceptable interceptable = $ic;
@@ -324,14 +324,14 @@ public class a {
                     return;
                 }
             }
-            this.f7843e = swanAppBottomTabIconView;
+            this.f7851e = swanAppBottomTabIconView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7843e.setRedDotVisibleState(false);
+                this.f7851e.setRedDotVisibleState(false);
             }
         }
     }
@@ -349,7 +349,7 @@ public class a {
                 return;
             }
         }
-        f7822j = k.f7077a;
+        f7830j = k.f7085a;
     }
 
     public a(c.a.p0.a.h0.g.f fVar) {
@@ -367,8 +367,8 @@ public class a {
                 return;
             }
         }
-        this.f7825c = 0;
-        this.f7826d = fVar;
+        this.f7833c = 0;
+        this.f7834d = fVar;
     }
 
     public final boolean A(SwanAppBottomTabIconView swanAppBottomTabIconView, SwanAppConfigData.m mVar) {
@@ -383,7 +383,7 @@ public class a {
             if (TextUtils.isEmpty(l)) {
                 l = e.C0114e.i(n.H(), n.u1()).getPath();
             }
-            String str = l + File.separator + mVar.f46606b;
+            String str = l + File.separator + mVar.f46708b;
             if (c.a.p0.t.d.u(str)) {
                 swanAppBottomTabIconView.setmIsSelect(false);
                 q0.b0(new b(this, swanAppBottomTabIconView, BitmapFactory.decodeFile(str)));
@@ -397,7 +397,7 @@ public class a {
     public final void B(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f7830h = str;
+            this.f7838h = str;
         }
     }
 
@@ -413,7 +413,7 @@ public class a {
             if (TextUtils.isEmpty(l)) {
                 l = e.C0114e.i(n.H(), n.u1()).getPath();
             }
-            String str = l + File.separator + mVar.f46607c;
+            String str = l + File.separator + mVar.f46709c;
             if (c.a.p0.t.d.u(str)) {
                 swanAppBottomTabIconView.setmIsSelect(true);
                 q0.b0(new c(this, swanAppBottomTabIconView, BitmapFactory.decodeFile(str)));
@@ -427,17 +427,17 @@ public class a {
     public final void D(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f7831i = str;
+            this.f7839i = str;
         }
     }
 
     public void E(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            for (int i2 = 0; i2 < this.f7829g.size(); i2++) {
-                if (this.f7829g.get(i2).f46605a.equals(str)) {
+            for (int i2 = 0; i2 < this.f7837g.size(); i2++) {
+                if (this.f7837g.get(i2).f46707a.equals(str)) {
                     u(i2);
-                    this.f7825c = i2;
+                    this.f7833c = i2;
                     return;
                 }
             }
@@ -446,44 +446,44 @@ public class a {
 
     public void f(View view, Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, view, context, str) == null) && this.f7826d.X1()) {
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, view, context, str) == null) && this.f7834d.X1()) {
             SwanAppConfigData s = c.a.p0.a.g1.f.V().s();
             if (s == null) {
-                if (f7822j) {
+                if (f7830j) {
                     String str2 = "configData is null." + Log.getStackTraceString(new Exception());
                     return;
                 }
                 return;
             }
-            SwanAppConfigData.l lVar = s.f46558f;
-            this.f7827e = lVar;
-            List<SwanAppConfigData.m> list = lVar.f46602e;
-            this.f7829g = list;
+            SwanAppConfigData.l lVar = s.f46660f;
+            this.f7835e = lVar;
+            List<SwanAppConfigData.m> list = lVar.f46704e;
+            this.f7837g = list;
             int size = list.size();
-            this.f7828f = new ArrayList<>(size);
-            this.f7823a = view.findViewById(c.a.p0.a.f.bottom_bar_shadow);
-            y(this.f7827e.f46600c);
+            this.f7836f = new ArrayList<>(size);
+            this.f7831a = view.findViewById(c.a.p0.a.f.bottom_bar_shadow);
+            y(this.f7835e.f46702c);
             LinearLayout linearLayout = (LinearLayout) view.findViewById(c.a.p0.a.f.ai_apps_bottom_tab);
-            this.f7824b = linearLayout;
+            this.f7832b = linearLayout;
             linearLayout.setVisibility(0);
-            this.f7824b.setBackgroundColor(this.f7827e.f46601d);
+            this.f7832b.setBackgroundColor(this.f7835e.f46703d);
             boolean z = false;
             for (int i2 = 0; i2 < size; i2++) {
                 SwanAppBottomTabIconView swanAppBottomTabIconView = new SwanAppBottomTabIconView(context);
-                SwanAppConfigData.m mVar = this.f7829g.get(i2);
+                SwanAppConfigData.m mVar = this.f7837g.get(i2);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, size);
                 layoutParams.gravity = 1;
-                if (TextUtils.equals(mVar.f46605a, !TextUtils.isEmpty(str) ? str : c.a.p0.a.g1.f.V().f()) && !z) {
+                if (TextUtils.equals(mVar.f46707a, !TextUtils.isEmpty(str) ? str : c.a.p0.a.g1.f.V().f()) && !z) {
                     C(swanAppBottomTabIconView, mVar);
-                    this.f7825c = i2;
+                    this.f7833c = i2;
                     z = true;
                 } else {
                     A(swanAppBottomTabIconView, mVar);
                 }
-                swanAppBottomTabIconView.setTextView(mVar.f46608d);
+                swanAppBottomTabIconView.setTextView(mVar.f46710d);
                 swanAppBottomTabIconView.setOnClickListener(new View$OnClickListenerC0336a(this, i2));
-                this.f7828f.add(swanAppBottomTabIconView);
-                this.f7824b.addView(swanAppBottomTabIconView, layoutParams);
+                this.f7836f.add(swanAppBottomTabIconView);
+                this.f7832b.addView(swanAppBottomTabIconView, layoutParams);
             }
         }
     }
@@ -495,16 +495,16 @@ public class a {
             i.b(uuid);
             u(i2);
             v(i2);
-            if (this.f7825c == i2) {
+            if (this.f7833c == i2) {
                 return;
             }
-            this.f7825c = i2;
-            this.f7826d.pause();
-            c.a.p0.a.l1.b g2 = c.a.p0.a.l1.b.g(this.f7829g.get(i2).f46605a, c.a.p0.a.g1.f.V().A());
-            h.f(g2.f7236e, "5");
-            this.f7826d.W2(g2, uuid);
+            this.f7833c = i2;
+            this.f7834d.pause();
+            c.a.p0.a.l1.b g2 = c.a.p0.a.l1.b.g(this.f7837g.get(i2).f46707a, c.a.p0.a.g1.f.V().A());
+            h.f(g2.f7244e, "5");
+            this.f7834d.W2(g2, uuid);
             c.a.p0.a.h0.g.f.D3("switchTab");
-            this.f7826d.resume();
+            this.f7834d.resume();
         }
     }
 
@@ -512,14 +512,14 @@ public class a {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, str, str2, str3, str4)) == null) {
-            if (this.f7823a == null || this.f7824b == null) {
+            if (this.f7831a == null || this.f7832b == null) {
                 return false;
             }
             y(SwanAppConfigData.s(str4));
             z(str3);
             B(str);
             D(str2);
-            Iterator<SwanAppBottomTabIconView> it = this.f7828f.iterator();
+            Iterator<SwanAppBottomTabIconView> it = this.f7836f.iterator();
             while (it.hasNext()) {
                 SwanAppBottomTabIconView next = it.next();
                 if (next.ismIsSelect()) {
@@ -538,7 +538,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
             if (q(i2)) {
-                this.f7828f.get(i2).setBadgeVisibleState(false);
+                this.f7836f.get(i2).setBadgeVisibleState(false);
                 return true;
             }
             return false;
@@ -550,8 +550,8 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            View view = this.f7823a;
-            if (view == null || this.f7824b == null) {
+            View view = this.f7831a;
+            if (view == null || this.f7832b == null) {
                 return false;
             }
             view.setVisibility(8);
@@ -559,7 +559,7 @@ public class a {
                 l();
                 return true;
             }
-            this.f7824b.setVisibility(8);
+            this.f7832b.setVisibility(8);
             return true;
         }
         return invokeZ.booleanValue;
@@ -571,7 +571,7 @@ public class a {
         SwanAppBottomTabIconView swanAppBottomTabIconView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            if (q(i2) && (swanAppBottomTabIconView = this.f7828f.get(i2)) != null) {
+            if (q(i2) && (swanAppBottomTabIconView = this.f7836f.get(i2)) != null) {
                 q0.b0(new f(this, swanAppBottomTabIconView));
                 return true;
             }
@@ -583,7 +583,7 @@ public class a {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f7824b, "translationY", 0.0f, c.a.p0.a.c1.a.b().getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_bottom_tab_height));
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f7832b, "translationY", 0.0f, c.a.p0.a.c1.a.b().getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_bottom_tab_height));
             ofFloat.setDuration(240L);
             ofFloat.setInterpolator(new DecelerateInterpolator());
             ofFloat.addListener(new d(this));
@@ -594,7 +594,7 @@ public class a {
     public LinearLayout m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f7824b : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f7832b : (LinearLayout) invokeV.objValue;
     }
 
     public final c.a.p0.a.f1.e.b n() {
@@ -615,10 +615,10 @@ public class a {
         List<SwanAppConfigData.m> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (list = this.f7829g) != null && list.size() != 0) {
-                for (int i2 = 0; i2 < this.f7829g.size(); i2++) {
-                    SwanAppConfigData.m mVar = this.f7829g.get(i2);
-                    if (mVar != null && TextUtils.equals(mVar.f46605a, str)) {
+            if (!TextUtils.isEmpty(str) && (list = this.f7837g) != null && list.size() != 0) {
+                for (int i2 = 0; i2 < this.f7837g.size(); i2++) {
+                    SwanAppConfigData.m mVar = this.f7837g.get(i2);
+                    if (mVar != null && TextUtils.equals(mVar.f46707a, str)) {
                         return i2;
                     }
                 }
@@ -632,7 +632,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            LinearLayout linearLayout = this.f7824b;
+            LinearLayout linearLayout = this.f7832b;
             return linearLayout != null && linearLayout.getVisibility() == 0;
         }
         return invokeV.booleanValue;
@@ -642,7 +642,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            ArrayList<SwanAppBottomTabIconView> arrayList = this.f7828f;
+            ArrayList<SwanAppBottomTabIconView> arrayList = this.f7836f;
             return arrayList != null && i2 < arrayList.size() && i2 >= 0;
         }
         return invokeI.booleanValue;
@@ -652,12 +652,12 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
-            View view = this.f7823a;
-            if (view == null || this.f7824b == null) {
+            View view = this.f7831a;
+            if (view == null || this.f7832b == null) {
                 return false;
             }
             view.setVisibility(0);
-            this.f7824b.setVisibility(0);
+            this.f7832b.setVisibility(0);
             t(z);
             return true;
         }
@@ -669,7 +669,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
             if (q(i2)) {
-                this.f7828f.get(i2).setRedDotVisibleState(true);
+                this.f7836f.get(i2).setRedDotVisibleState(true);
                 return true;
             }
             return false;
@@ -680,7 +680,7 @@ public class a {
     public final void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f7824b, "translationY", c.a.p0.a.c1.a.b().getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_bottom_tab_height), 0.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f7832b, "translationY", c.a.p0.a.c1.a.b().getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_bottom_tab_height), 0.0f);
             ofFloat.setDuration(z ? 240L : 0L);
             ofFloat.start();
         }
@@ -689,8 +689,8 @@ public class a {
     public final void u(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            A(this.f7828f.get(this.f7825c), this.f7829g.get(this.f7825c));
-            C(this.f7828f.get(i2), this.f7829g.get(i2));
+            A(this.f7836f.get(this.f7833c), this.f7837g.get(this.f7833c));
+            C(this.f7836f.get(i2), this.f7837g.get(i2));
         }
     }
 
@@ -698,11 +698,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
             HashMap hashMap = new HashMap();
-            SwanAppConfigData.m mVar = this.f7829g.get(i2);
-            String h3 = this.f7826d.h3(c.a.p0.a.l1.b.g(mVar.f46605a, c.a.p0.a.g1.f.V().A()).f7236e);
+            SwanAppConfigData.m mVar = this.f7837g.get(i2);
+            String h3 = this.f7834d.h3(c.a.p0.a.l1.b.g(mVar.f46707a, c.a.p0.a.g1.f.V().A()).f7244e);
             hashMap.put("index", String.valueOf(i2));
-            hashMap.put("pagePath", mVar.f46605a);
-            hashMap.put("text", mVar.f46608d);
+            hashMap.put("pagePath", mVar.f46707a);
+            hashMap.put("text", mVar.f46710d);
             hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, h3);
             c.a.p0.a.g1.f.V().v(new c.a.p0.a.o0.d.b("onTabItemTap", hashMap));
         }
@@ -713,7 +713,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i2, str)) == null) {
             if (q(i2)) {
-                SwanAppBottomTabIconView swanAppBottomTabIconView = this.f7828f.get(i2);
+                SwanAppBottomTabIconView swanAppBottomTabIconView = this.f7836f.get(i2);
                 swanAppBottomTabIconView.setBadgeVisibleState(true);
                 swanAppBottomTabIconView.setBadgeText(str);
                 return true;
@@ -728,18 +728,18 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i2), str, str2, str3})) == null) {
             if (q(i2)) {
-                SwanAppBottomTabIconView swanAppBottomTabIconView = this.f7828f.get(i2);
+                SwanAppBottomTabIconView swanAppBottomTabIconView = this.f7836f.get(i2);
                 q0.b0(new e(this, swanAppBottomTabIconView, str));
                 if (!TextUtils.isEmpty(str2)) {
-                    this.f7829g.get(i2).f46606b = str2;
+                    this.f7837g.get(i2).f46708b = str2;
                 }
                 if (!TextUtils.isEmpty(str3)) {
-                    this.f7829g.get(i2).f46607c = str3;
+                    this.f7837g.get(i2).f46709c = str3;
                 }
                 if (swanAppBottomTabIconView.ismIsSelect()) {
-                    return C(swanAppBottomTabIconView, this.f7829g.get(i2));
+                    return C(swanAppBottomTabIconView, this.f7837g.get(i2));
                 }
-                return A(swanAppBottomTabIconView, this.f7829g.get(i2));
+                return A(swanAppBottomTabIconView, this.f7837g.get(i2));
             }
             return false;
         }
@@ -752,21 +752,21 @@ public class a {
             return;
         }
         if (-1 == i2) {
-            this.f7823a.setVisibility(0);
-            this.f7823a.setBackgroundColor(-1);
+            this.f7831a.setVisibility(0);
+            this.f7831a.setBackgroundColor(-1);
         } else if (-16777216 == i2) {
-            this.f7823a.setVisibility(0);
-            this.f7823a.setBackgroundColor(AppRuntime.getAppContext().getResources().getColor(c.a.p0.a.c.aiapps_tabbar_top_divider_color));
+            this.f7831a.setVisibility(0);
+            this.f7831a.setBackgroundColor(AppRuntime.getAppContext().getResources().getColor(c.a.p0.a.c.aiapps_tabbar_top_divider_color));
         } else {
-            this.f7823a.setVisibility(0);
-            this.f7823a.setBackgroundColor(-1);
+            this.f7831a.setVisibility(0);
+            this.f7831a.setBackgroundColor(-1);
         }
     }
 
     public final void z(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.f7824b.setBackgroundColor(SwanAppConfigData.s(str));
+            this.f7832b.setBackgroundColor(SwanAppConfigData.s(str));
         }
     }
 }

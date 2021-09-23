@@ -19,7 +19,7 @@ public abstract class a<W extends d> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9714a;
+    public static final boolean f9722a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public abstract class a<W extends d> {
                 return;
             }
         }
-        f9714a = k.f7077a;
+        f9722a = k.f7085a;
     }
 
     public a() {
@@ -65,7 +65,7 @@ public abstract class a<W extends d> {
 
     public void d(@NonNull W w, @Nullable String str, @Nullable String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{w, str, str2, Boolean.valueOf(z)}) == null) && f9714a) {
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{w, str, str2, Boolean.valueOf(z)}) == null) && f9722a) {
             String str3 = ("【" + w.j0() + "-" + w.hashCode() + "】\t") + "【" + str + "】";
             if (!TextUtils.isEmpty(str2)) {
                 str3 = str3 + "\t【" + str2 + "】";

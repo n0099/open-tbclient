@@ -15,22 +15,22 @@ public class b implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f18620e;
+    public long f18629e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18621f;
+    public int f18630f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18622g;
+    public String f18631g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f18623h;
+    public String f18632h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f18624i;
+    public long f18633i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f18625j;
+    public String f18634j;
     public int k;
 
     public b(@NonNull NewTopicList newTopicList, int i2) {
@@ -48,19 +48,19 @@ public class b implements n {
                 return;
             }
         }
-        this.f18621f = i2 + 1;
-        this.f18622g = newTopicList.topic_name;
-        this.f18623h = newTopicList.topic_desc;
-        this.f18624i = newTopicList.discuss_num.longValue();
-        this.f18625j = newTopicList.topic_image;
+        this.f18630f = i2 + 1;
+        this.f18631g = newTopicList.topic_name;
+        this.f18632h = newTopicList.topic_desc;
+        this.f18633i = newTopicList.discuss_num.longValue();
+        this.f18634j = newTopicList.topic_image;
         this.k = newTopicList.topic_tag.intValue();
-        this.f18620e = newTopicList.topic_id.longValue();
+        this.f18629e = newTopicList.topic_id.longValue();
     }
 
     @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f18619a : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f18628a : (BdUniqueId) invokeV.objValue;
     }
 }

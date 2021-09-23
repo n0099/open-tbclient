@@ -34,34 +34,34 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsFragment f27465a;
+    public FrsFragment f27485a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdvancedAdSlideLoadingLayout f27466b;
+    public AdvancedAdSlideLoadingLayout f27486b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AppBarLayout f27467c;
+    public AppBarLayout f27487c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdTypeRecyclerView f27468d;
+    public BdTypeRecyclerView f27488d;
 
     /* renamed from: e  reason: collision with root package name */
-    public r0 f27469e;
+    public r0 f27489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27470f;
+    public String f27490f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<String> f27471g;
+    public List<String> f27491g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27472h;
+    public int f27492h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.q0.s.f0.q.c f27473i;
+    public c.a.q0.s.f0.q.c f27493i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.q0.s.f0.q.b f27474j;
+    public c.a.q0.s.f0.q.b f27494j;
     public c.a.q0.s.f0.q.a k;
     public Runnable l;
 
@@ -100,7 +100,7 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f27475a;
+        public final /* synthetic */ k f27495a;
 
         public b(k kVar) {
             Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class k {
                     return;
                 }
             }
-            this.f27475a = kVar;
+            this.f27495a = kVar;
         }
 
         @Override // c.a.q0.s.f0.q.b
@@ -131,7 +131,7 @@ public class k {
         public void onLoadingStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f27475a.g();
+                this.f27495a.g();
             }
         }
     }
@@ -142,7 +142,7 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f27476a;
+        public final /* synthetic */ k f27496a;
 
         public c(k kVar) {
             Interceptable interceptable = $ic;
@@ -159,7 +159,7 @@ public class k {
                     return;
                 }
             }
-            this.f27476a = kVar;
+            this.f27496a = kVar;
         }
 
         @Override // c.a.q0.s.f0.q.a
@@ -186,10 +186,10 @@ public class k {
         @Override // c.a.q0.s.f0.q.a
         public void d(int i2, float f2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || this.f27476a.f27469e == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || this.f27496a.f27489e == null) {
                 return;
             }
-            this.f27476a.f27469e.onLoadingComplete();
+            this.f27496a.f27489e.onLoadingComplete();
         }
     }
 
@@ -199,7 +199,7 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f27477e;
+        public final /* synthetic */ k f27497e;
 
         public d(k kVar) {
             Interceptable interceptable = $ic;
@@ -216,14 +216,14 @@ public class k {
                     return;
                 }
             }
-            this.f27477e = kVar;
+            this.f27497e = kVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f27477e.f27466b.endLoading();
+                this.f27497e.f27486b.endLoading();
             }
         }
     }
@@ -265,36 +265,36 @@ public class k {
                 return;
             }
         }
-        this.f27470f = "999999";
-        this.f27473i = new a(this);
-        this.f27474j = new b(this);
+        this.f27490f = "999999";
+        this.f27493i = new a(this);
+        this.f27494j = new b(this);
         this.k = new c(this);
         this.l = new d(this);
-        this.f27465a = frsFragment;
+        this.f27485a = frsFragment;
         View rootView = frsFragment.getRootView();
         AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout = (AdvancedAdSlideLoadingLayout) rootView.findViewById(R.id.frs_content_layout);
-        this.f27466b = advancedAdSlideLoadingLayout;
-        advancedAdSlideLoadingLayout.addScrollListener(this.f27473i);
-        this.f27466b.addLoadingListener(this.f27474j);
-        this.f27466b.addAnimationListener(this.k);
-        this.f27466b.bringLoadViewToFront();
-        this.f27467c = (AppBarLayout) rootView.findViewById(R.id.frs_app_bar_layout);
-        this.f27468d = (BdTypeRecyclerView) rootView.findViewById(R.id.frs_lv_thread);
+        this.f27486b = advancedAdSlideLoadingLayout;
+        advancedAdSlideLoadingLayout.addScrollListener(this.f27493i);
+        this.f27486b.addLoadingListener(this.f27494j);
+        this.f27486b.addAnimationListener(this.k);
+        this.f27486b.bringLoadViewToFront();
+        this.f27487c = (AppBarLayout) rootView.findViewById(R.id.frs_app_bar_layout);
+        this.f27488d = (BdTypeRecyclerView) rootView.findViewById(R.id.frs_lv_thread);
     }
 
     public void d(c.a.q0.s.q.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (dVar != null && !c.a.e.e.p.k.isEmpty(dVar.f14129b) && !c.a.e.e.p.k.isEmpty(dVar.f14128a) && dVar.f14130c >= 0) {
-                if (this.f27466b.isLoading()) {
-                    this.f27466b.endLoading();
+            if (dVar != null && !c.a.e.e.p.k.isEmpty(dVar.f14126b) && !c.a.e.e.p.k.isEmpty(dVar.f14125a) && dVar.f14127c >= 0) {
+                if (this.f27486b.isLoading()) {
+                    this.f27486b.endLoading();
                 }
-                this.f27466b.bindAdData(dVar, (ViewGroup) this.f27465a.getActivity().getWindow().getDecorView());
-                this.f27466b.setAdvancedAdStyle(true);
-                this.f27466b.setNavigationBar((NavigationBar) this.f27465a.getActivity().findViewById(R.id.view_navigation_bar));
+                this.f27486b.bindAdData(dVar, (ViewGroup) this.f27485a.getActivity().getWindow().getDecorView());
+                this.f27486b.setAdvancedAdStyle(true);
+                this.f27486b.setNavigationBar((NavigationBar) this.f27485a.getActivity().findViewById(R.id.view_navigation_bar));
                 return;
             }
-            this.f27466b.setAdvancedAdStyle(false);
+            this.f27486b.setAdvancedAdStyle(false);
         }
     }
 
@@ -303,19 +303,19 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             boolean z = false;
-            if (this.f27466b.getData() != null && this.f27466b.isAdvancedAdStyle()) {
-                c.a.q0.s.q.d data = this.f27466b.getData();
+            if (this.f27486b.getData() != null && this.f27486b.isAdvancedAdStyle()) {
+                c.a.q0.s.q.d data = this.f27486b.getData();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount == null) {
-                    currentAccount = this.f27470f;
+                    currentAccount = this.f27490f;
                 }
-                String str = currentAccount + data.f14131d;
+                String str = currentAccount + data.f14131g;
                 List<String> list = (List) new Gson().fromJson(c.a.q0.s.d0.b.j().p("key_uid_adid", ""), new e(this).getType());
-                this.f27471g = list;
+                this.f27491g = list;
                 if (list == null) {
-                    this.f27471g = new ArrayList();
+                    this.f27491g = new ArrayList();
                 }
-                Iterator<String> it = this.f27471g.iterator();
+                Iterator<String> it = this.f27491g.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (!StringHelper.isTaday(c.a.q0.s.d0.b.j().l(next, 0L))) {
@@ -324,11 +324,11 @@ public class k {
                     }
                 }
                 if (!StringHelper.isTaday(c.a.q0.s.d0.b.j().l(str, 0L))) {
-                    this.f27471g.add(str);
+                    this.f27491g.add(str);
                     c.a.q0.s.d0.b.j().w(str, System.currentTimeMillis());
                     z = true;
                 }
-                c.a.q0.s.d0.b.j().x("key_uid_adid", this.f27471g.toString());
+                c.a.q0.s.d0.b.j().x("key_uid_adid", this.f27491g.toString());
             }
             return z;
         }
@@ -338,7 +338,7 @@ public class k {
     public void f() {
         AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (advancedAdSlideLoadingLayout = this.f27466b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (advancedAdSlideLoadingLayout = this.f27486b) == null) {
             return;
         }
         advancedAdSlideLoadingLayout.closeCompleteAd();
@@ -348,7 +348,7 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             c.a.e.e.m.e.a().postDelayed(this.l, 5000L);
-            r0 r0Var = this.f27469e;
+            r0 r0Var = this.f27489e;
             if (r0Var != null) {
                 r0Var.onPullRefresh();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
@@ -359,38 +359,38 @@ public class k {
     public r0 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27469e : (r0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27489e : (r0) invokeV.objValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27466b.getLoadingVewMaxHeight() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27486b.getLoadingVewMaxHeight() : invokeV.intValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27466b.isLoading() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27486b.isLoading() : invokeV.booleanValue;
     }
 
     public BaseSlideLoadingLayout k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27466b : (BaseSlideLoadingLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27486b : (BaseSlideLoadingLayout) invokeV.objValue;
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View findViewById = this.f27465a.getRootView().findViewById(R.id.head_top_bg_container);
-            TbImageView tbImageView = (TbImageView) this.f27465a.getActivity().findViewById(R.id.head_top_advanced_ad_bg);
+            View findViewById = this.f27485a.getRootView().findViewById(R.id.head_top_bg_container);
+            TbImageView tbImageView = (TbImageView) this.f27485a.getActivity().findViewById(R.id.head_top_advanced_ad_bg);
             if (findViewById == null) {
                 return;
             }
-            this.f27466b.setBgView(findViewById);
-            if (this.f27466b.getAdvancedAdView() == null) {
-                this.f27466b.setAdvancedAdView(tbImageView, findViewById.getLayoutParams().height, c.a.e.e.p.l.k(this.f27465a.getContext()));
+            this.f27486b.setBgView(findViewById);
+            if (this.f27486b.getAdvancedAdView() == null) {
+                this.f27486b.setAdvancedAdView(tbImageView, findViewById.getLayoutParams().height, c.a.e.e.p.l.k(this.f27485a.getContext()));
             }
         }
     }
@@ -398,14 +398,14 @@ public class k {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f27466b.addSyncHeightView(this.f27465a.getRootView().findViewById(R.id.frs_header_empty_view), 0);
+            this.f27486b.addSyncHeightView(this.f27485a.getRootView().findViewById(R.id.frs_header_empty_view), 0);
         }
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f27466b.endLoading();
+            this.f27486b.endLoading();
             c.a.e.e.m.e.a().removeCallbacks(this.l);
         }
     }
@@ -413,32 +413,32 @@ public class k {
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f27472h = i2;
+            this.f27492h = i2;
         }
     }
 
     public void p(r0 r0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, r0Var) == null) {
-            this.f27469e = r0Var;
+            this.f27489e = r0Var;
         }
     }
 
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f27466b.setEnableSlideLoading(z);
+            this.f27486b.setEnableSlideLoading(z);
         }
     }
 
     public void r(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && i2 == this.f27472h) {
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && i2 == this.f27492h) {
             if (z) {
                 u();
                 return;
             }
-            this.f27468d.getAdapter().notifyDataSetChanged();
+            this.f27488d.getAdapter().notifyDataSetChanged();
             v();
         }
     }
@@ -446,7 +446,7 @@ public class k {
     public void s(boolean z) {
         AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || (advancedAdSlideLoadingLayout = this.f27466b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || (advancedAdSlideLoadingLayout = this.f27486b) == null) {
             return;
         }
         advancedAdSlideLoadingLayout.setEnable(z);
@@ -455,32 +455,32 @@ public class k {
     public void t() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && e()) {
-            this.f27466b.showGuideAnim();
+            this.f27486b.showGuideAnim();
         }
     }
 
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout = this.f27466b;
+            AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout = this.f27486b;
             if (advancedAdSlideLoadingLayout != null || advancedAdSlideLoadingLayout.isEnable()) {
-                BdTypeRecyclerView bdTypeRecyclerView = this.f27468d;
+                BdTypeRecyclerView bdTypeRecyclerView = this.f27488d;
                 if (bdTypeRecyclerView != null) {
                     bdTypeRecyclerView.setSelection(0);
                 }
-                AppBarLayout appBarLayout = this.f27467c;
+                AppBarLayout appBarLayout = this.f27487c;
                 if (appBarLayout != null) {
                     appBarLayout.setExpanded(true);
                 }
-                this.f27466b.startLoading();
+                this.f27486b.startLoading();
             }
         }
     }
 
     public void v() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && this.f27466b.isLoading()) {
-            this.f27466b.endLoading();
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && this.f27486b.isLoading()) {
+            this.f27486b.endLoading();
             c.a.e.e.m.e.a().removeCallbacks(this.l);
         }
     }

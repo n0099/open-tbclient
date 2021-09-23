@@ -1328,7 +1328,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             permissionsDTO.isDarkMode = this.isDarkMode;
             permissionsDTO.permissions = new String[]{"android.permission.ACCESS_FINE_LOCATION"};
             permissionsDTO.dialogTitle = "定位权限";
-            permissionsDTO.dialogMsg = "如你选择通过地图选择收获地址，则请允许" + SapiUtils.getAppName(this) + "使用定位权限。你可以通过系统\"设置\"进行权限的管理";
+            permissionsDTO.dialogMsg = "如你选择通过地图选择收货地址，则请允许" + SapiUtils.getAppName(this) + "使用定位权限。你可以通过系统\"设置\"进行权限的管理";
             permissionsDTO.okBtnTxt = "去设置";
             PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.26
                 public static /* synthetic */ Interceptable $ic;

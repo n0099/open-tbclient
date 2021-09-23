@@ -19,16 +19,16 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static c.a.p0.a.m.a f8489a;
+    public static c.a.p0.a.m.a f8497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c.a.p0.a.m.c f8490b;
+    public static c.a.p0.a.m.c f8498b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f8491c;
+    public static boolean f8499c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final f f8492d;
+    public static final f f8500d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public final class f {
             }
         }
         f fVar = new f();
-        f8492d = fVar;
+        f8500d = fVar;
         Intrinsics.checkNotNullExpressionValue(fVar.getClass().getSimpleName(), "SwanAppAllianceLoginHelper.javaClass.simpleName");
     }
 
@@ -69,8 +69,8 @@ public final class f {
             Intrinsics.checkNotNullParameter(value, "value");
             Intrinsics.checkNotNullParameter(ceresId, "ceresId");
             c.a.p0.a.j2.p.e eVar = new c.a.p0.a.j2.p.e();
-            eVar.f7064b = g.h();
-            eVar.f7067e = value;
+            eVar.f7072b = g.h();
+            eVar.f7075e = value;
             c.a.p0.a.a2.d g2 = c.a.p0.a.a2.d.g();
             Intrinsics.checkNotNullExpressionValue(g2, "Swan.get()");
             eVar.a("appkey", g2.getAppId());
@@ -81,8 +81,8 @@ public final class f {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d.f8487a.b();
-            h.f8503b.d();
+            d.f8495a.b();
+            h.f8511b.d();
             j(false);
         }
     }
@@ -90,19 +90,19 @@ public final class f {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f8491c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f8499c : invokeV.booleanValue;
     }
 
     public final c.a.p0.a.m.a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f8489a : (c.a.p0.a.m.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f8497a : (c.a.p0.a.m.a) invokeV.objValue;
     }
 
     public final c.a.p0.a.m.c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f8490b : (c.a.p0.a.m.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f8498b : (c.a.p0.a.m.c) invokeV.objValue;
     }
 
     public final boolean f() {
@@ -127,9 +127,9 @@ public final class f {
                 k();
             }
             if (!Intrinsics.areEqual(g.i(), Boolean.FALSE)) {
-                String a2 = d.f8487a.a();
+                String a2 = d.f8495a.a();
                 if (!(a2 == null || StringsKt__StringsJVMKt.isBlank(a2))) {
-                    String a3 = h.f8503b.a();
+                    String a3 = h.f8511b.a();
                     if (!(a3 == null || StringsKt__StringsJVMKt.isBlank(a3))) {
                         return true;
                     }
@@ -176,8 +176,8 @@ public final class f {
             Intrinsics.checkNotNullExpressionValue(m2, "SwanAppRuntime.getConfig()");
             String a4 = c.a.p0.t.i.a(a3, "appKey", m2.b());
             c.a.p0.a.h0.g.k.O2("allianceLogin", c.a.p0.a.l1.b.g(a4, a4));
-            f8489a = listener;
-            f8491c = false;
+            f8497a = listener;
+            f8499c = false;
             a(g.e(), g.b());
         }
     }
@@ -208,14 +208,14 @@ public final class f {
     public final void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            f8491c = z;
+            f8499c = z;
         }
     }
 
     public final void m(c.a.p0.a.m.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            f8490b = cVar;
+            f8498b = cVar;
         }
     }
 }

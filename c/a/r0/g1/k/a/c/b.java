@@ -14,22 +14,22 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f18481a;
+    public long f18490a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18482b;
+    public String f18491b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18483c;
+    public String f18492c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18484d;
+    public String f18493d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.g1.k.b.c.b f18485e;
+    public c.a.r0.g1.k.b.c.b f18494e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f18486f;
+    public f f18495f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -50,11 +50,11 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, topicDetail) == null) || topicDetail == null) {
             return;
         }
-        this.f18481a = topicDetail.topic_id.longValue();
-        this.f18482b = topicDetail.topic_desc;
+        this.f18490a = topicDetail.topic_id.longValue();
+        this.f18491b = topicDetail.topic_desc;
         topicDetail.discuss_num.longValue();
-        this.f18483c = topicDetail.topic_image;
-        this.f18484d = topicDetail.bg_image;
+        this.f18492c = topicDetail.topic_image;
+        this.f18493d = topicDetail.bg_image;
     }
 
     public void b(PkModule pkModule) {
@@ -63,9 +63,9 @@ public class b {
             return;
         }
         c.a.r0.g1.k.b.c.b bVar = new c.a.r0.g1.k.b.c.b();
-        this.f18485e = bVar;
-        bVar.f18533a = this.f18481a;
-        bVar.f18538f = 2;
+        this.f18494e = bVar;
+        bVar.f18542a = this.f18490a;
+        bVar.f18547f = 2;
         bVar.a(pkModule);
     }
 
@@ -75,7 +75,7 @@ public class b {
             return;
         }
         f fVar = new f();
-        this.f18486f = fVar;
-        fVar.a(this.f18481a, timeLine);
+        this.f18495f = fVar;
+        fVar.a(this.f18490a, timeLine);
     }
 }

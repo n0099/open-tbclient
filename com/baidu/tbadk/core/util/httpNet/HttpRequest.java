@@ -98,7 +98,7 @@ public class HttpRequest {
             if (TextUtils.isEmpty(b2) || !this.mIsUseCurrentBDUSS) {
                 return;
             }
-            iNetWorkCore.addPostData("BDUSS", b2);
+            iNetWorkCore.addPostData(BDUSS, b2);
             String a2 = e.a(currentAccountInfo);
             if (StringUtils.isNull(a2)) {
                 return;
@@ -173,7 +173,7 @@ public class HttpRequest {
             iNetWorkCore.addPostData(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime()));
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData("cmode", PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
-            iNetWorkCore.addPostData("is_teenager", c.a.q0.g1.b.e.d() ? "1" : "0");
+            iNetWorkCore.addPostData("is_teenager", c.a.q0.g1.b.c.d() ? "1" : "0");
         }
     }
 

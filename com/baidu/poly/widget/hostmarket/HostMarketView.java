@@ -30,22 +30,22 @@ public class HostMarketView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f44394e;
+    public ImageView f44456e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44395f;
+    public TextView f44457f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44396g;
+    public TextView f44458g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44397h;
+    public TextView f44459h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SwitchButton f44398i;
+    public SwitchButton f44460i;
 
     /* renamed from: j  reason: collision with root package name */
-    public o f44399j;
+    public o f44461j;
     public a k;
     public boolean l;
 
@@ -62,7 +62,7 @@ public class HostMarketView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HostMarketView f44400e;
+        public final /* synthetic */ HostMarketView f44462e;
 
         public b(HostMarketView hostMarketView) {
             Interceptable interceptable = $ic;
@@ -79,14 +79,14 @@ public class HostMarketView extends FrameLayout {
                     return;
                 }
             }
-            this.f44400e = hostMarketView;
+            this.f44462e = hostMarketView;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
-                this.f44400e.g(z);
+                this.f44462e.g(z);
             }
         }
     }
@@ -97,7 +97,7 @@ public class HostMarketView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HostMarketView f44401a;
+        public final /* synthetic */ HostMarketView f44463a;
 
         public c(HostMarketView hostMarketView) {
             Interceptable interceptable = $ic;
@@ -114,28 +114,28 @@ public class HostMarketView extends FrameLayout {
                     return;
                 }
             }
-            this.f44401a = hostMarketView;
+            this.f44463a = hostMarketView;
         }
 
         @Override // c.a.e0.k.j.a
         public void a(a.C0062a c0062a) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, c0062a) == null) {
-                this.f44401a.k.b(c0062a);
+                this.f44463a.k.b(c0062a);
                 if (c0062a == null) {
                     return;
                 }
-                if (c0062a.f3224a == 0) {
-                    if (this.f44401a.f44398i.isChecked()) {
-                        this.f44401a.f44397h.setVisibility(0);
+                if (c0062a.f3225a == 0) {
+                    if (this.f44463a.f44460i.isChecked()) {
+                        this.f44463a.f44459h.setVisibility(0);
                     } else {
-                        this.f44401a.f44397h.setVisibility(4);
+                        this.f44463a.f44459h.setVisibility(4);
                     }
                 } else {
-                    this.f44401a.f44398i.o();
-                    Toast.makeText(this.f44401a.getContext(), this.f44401a.getResources().getString(h.host_market_calculate_error), 0).show();
+                    this.f44463a.f44460i.o();
+                    Toast.makeText(this.f44463a.getContext(), this.f44463a.getResources().getString(h.host_market_calculate_error), 0).show();
                 }
-                this.f44401a.f44399j.i(this.f44401a.f44398i.isChecked() ? 1 : 0);
+                this.f44463a.f44461j.i(this.f44463a.f44460i.isChecked() ? 1 : 0);
             }
         }
     }
@@ -171,12 +171,12 @@ public class HostMarketView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(g.hostmarket_item, (ViewGroup) this, true);
-            this.f44394e = (ImageView) findViewById(f.icon);
-            this.f44395f = (TextView) findViewById(f.title);
-            this.f44396g = (TextView) findViewById(f.subtitle);
-            this.f44397h = (TextView) findViewById(f.cut_text);
+            this.f44456e = (ImageView) findViewById(f.icon);
+            this.f44457f = (TextView) findViewById(f.title);
+            this.f44458g = (TextView) findViewById(f.subtitle);
+            this.f44459h = (TextView) findViewById(f.cut_text);
             SwitchButton switchButton = (SwitchButton) findViewById(f.switch_button);
-            this.f44398i = switchButton;
+            this.f44460i = switchButton;
             switchButton.setOnCheckedChangeListener(new b(this));
         }
     }
@@ -186,40 +186,40 @@ public class HostMarketView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.k == null) {
             return;
         }
-        this.f44399j.i(this.f44398i.isChecked() ? 1 : 0);
-        this.k.a(z, this.f44399j, new c(this));
+        this.f44461j.i(this.f44460i.isChecked() ? 1 : 0);
+        this.k.a(z, this.f44461j, new c(this));
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f44399j == null) {
+            if (this.f44461j == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            c.a.e0.k.d.b.c().b(this.f44394e, this.f44399j.getIcon());
-            this.f44395f.setText(this.f44399j.getDisplayName());
-            this.f44396g.setText(this.f44399j.S());
-            if (!TextUtils.isEmpty(this.f44399j.M())) {
+            c.a.e0.k.d.b.c().b(this.f44456e, this.f44461j.getIcon());
+            this.f44457f.setText(this.f44461j.getDisplayName());
+            this.f44458g.setText(this.f44461j.S());
+            if (!TextUtils.isEmpty(this.f44461j.M())) {
                 try {
-                    this.f44396g.setTextColor(Color.parseColor(this.f44399j.M()));
+                    this.f44458g.setTextColor(Color.parseColor(this.f44461j.M()));
                 } catch (Exception unused) {
                 }
             }
             if (this.l) {
-                this.f44398i.setVisibility(4);
-                this.f44397h.setVisibility(0);
-                TextView textView = this.f44397h;
-                textView.setText("-" + b(this.f44399j.L()) + "元");
+                this.f44460i.setVisibility(4);
+                this.f44459h.setVisibility(0);
+                TextView textView = this.f44459h;
+                textView.setText("-" + b(this.f44461j.L()) + "元");
                 return;
             }
-            this.f44398i.setVisibility(0);
-            this.f44397h.setVisibility(4);
-            if (this.f44399j.P() == 1) {
-                this.f44398i.setChecked(true);
+            this.f44460i.setVisibility(0);
+            this.f44459h.setVisibility(4);
+            if (this.f44461j.P() == 1) {
+                this.f44460i.setChecked(true);
             } else {
-                this.f44398i.setChecked(false);
+                this.f44460i.setChecked(false);
             }
         }
     }
@@ -255,7 +255,7 @@ public class HostMarketView extends FrameLayout {
     public void a(o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, oVar) == null) {
-            this.f44399j = oVar;
+            this.f44461j = oVar;
             if (oVar != null) {
                 this.l = oVar.P() == 1;
             }

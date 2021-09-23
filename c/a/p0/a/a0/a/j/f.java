@@ -17,13 +17,13 @@ public class f extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f4412a;
+    public Rect f4420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f4413b;
+    public Paint f4421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PorterDuffXfermode f4414c;
+    public PorterDuffXfermode f4422c;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -38,18 +38,18 @@ public class f extends a {
                 return;
             }
         }
-        this.f4413b = new Paint();
-        this.f4414c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.f4421b = new Paint();
+        this.f4422c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
     }
 
     @Override // c.a.p0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || this.f4412a == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || this.f4420a == null) {
             return;
         }
-        this.f4413b.setXfermode(this.f4414c);
-        canvas.drawRect(this.f4412a, this.f4413b);
+        this.f4421b.setXfermode(this.f4422c);
+        canvas.drawRect(this.f4420a, this.f4421b);
     }
 
     @Override // c.a.p0.a.a0.a.j.a
@@ -60,10 +60,10 @@ public class f extends a {
                 if (jSONArray.length() == 4) {
                     int g2 = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
                     int g3 = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
-                    this.f4412a = new Rect(g2, g3, c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(2)) + g2, c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(3)) + g3);
+                    this.f4420a = new Rect(g2, g3, c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(2)) + g2, c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(3)) + g3);
                 }
             } catch (Exception e2) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e2.printStackTrace();
                 }
             }

@@ -32,11 +32,11 @@ public class a {
 
     /* renamed from: c.a.q0.s.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class HandlerC0697a extends Handler {
+    public static class HandlerC0695a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public HandlerC0697a() {
+        public HandlerC0695a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,7 +115,7 @@ public class a {
                 return;
             }
         }
-        f14485b = new HandlerC0697a();
+        f14485b = new HandlerC0695a();
     }
 
     public static void d() {

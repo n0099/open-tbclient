@@ -26,10 +26,10 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicBoolean f20990a;
+    public static AtomicBoolean f21003a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<Integer> f20991b;
+    public static List<Integer> f21004b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -38,10 +38,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f20992e;
+        public final /* synthetic */ c.a.q0.s.s.a f21005e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ l f20993f;
+        public final /* synthetic */ l f21006f;
 
         public a(c.a.q0.s.s.a aVar, l lVar) {
             Interceptable interceptable = $ic;
@@ -58,16 +58,16 @@ public class f {
                     return;
                 }
             }
-            this.f20992e = aVar;
-            this.f20993f = lVar;
+            this.f21005e = aVar;
+            this.f21006f = lVar;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f20992e.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, this.f20993f));
+                this.f21005e.dismiss();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, this.f21006f));
             }
         }
     }
@@ -78,7 +78,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f20994e;
+        public final /* synthetic */ c.a.q0.s.s.a f21007e;
 
         public b(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -95,14 +95,14 @@ public class f {
                     return;
                 }
             }
-            this.f20994e = aVar;
+            this.f21007e = aVar;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f20994e.dismiss();
+                this.f21007e.dismiss();
             }
         }
     }
@@ -131,12 +131,12 @@ public class f {
         public void b(l.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-                if (cVar != null && cVar.f14692a) {
+                if (cVar != null && cVar.f14694a) {
                     if (cVar instanceof l.a) {
-                        a(((l.a) cVar).f14690b);
+                        a(((l.a) cVar).f14692b);
                         return;
                     } else if (cVar instanceof l.b) {
-                        c(((l.b) cVar).f14691b);
+                        c(((l.b) cVar).f14693b);
                         return;
                     } else {
                         e();
@@ -167,15 +167,15 @@ public class f {
                 return;
             }
         }
-        f20990a = new AtomicBoolean(false);
-        f20991b = Arrays.asList(Integer.valueOf((int) NetWorkErr.ERROR_UEG_IDENTITY_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_PHONE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_MODIFY_PWD), Integer.valueOf((int) NetWorkErr.ERROR_UEG_FACE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_DOUBLE_CHECK), Integer.valueOf((int) NetWorkErr.ERROR_UEG_BIND_MOBILE));
+        f21003a = new AtomicBoolean(false);
+        f21004b = Arrays.asList(Integer.valueOf((int) NetWorkErr.ERROR_UEG_IDENTITY_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_PHONE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_MODIFY_PWD), Integer.valueOf((int) NetWorkErr.ERROR_UEG_FACE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_DOUBLE_CHECK), Integer.valueOf((int) NetWorkErr.ERROR_UEG_BIND_MOBILE));
     }
 
     public static boolean a(int i2, AuthTokenData authTokenData, c cVar) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i2, authTokenData, cVar)) == null) {
-            if (f20991b.contains(Integer.valueOf(i2))) {
+            if (f21004b.contains(Integer.valueOf(i2))) {
                 if ((i2 == 3250020 || i2 == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken()))) {
                     return false;
                 }
@@ -190,7 +190,7 @@ public class f {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i2, str, cVar)) == null) {
-            if (f20991b.contains(Integer.valueOf(i2))) {
+            if (f21004b.contains(Integer.valueOf(i2))) {
                 if ((i2 == 3250020 || i2 == 3250021) && TextUtils.isEmpty(str)) {
                     return false;
                 }
@@ -206,7 +206,7 @@ public class f {
         l a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65539, null, i2, str, cVar)) == null) {
-            if (f20990a.compareAndSet(false, true)) {
+            if (f21003a.compareAndSet(false, true)) {
                 String.valueOf(System.currentTimeMillis());
                 if (i2 == 3250022) {
                     l d2 = l.d();
@@ -237,7 +237,7 @@ public class f {
                     a2.h(cVar);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921372, a2));
                 }
-                f20990a.set(false);
+                f21003a.set(false);
                 return true;
             }
             return false;

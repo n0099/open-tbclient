@@ -14,10 +14,10 @@ public class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f18250a = true;
+    public static boolean f18259a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, Integer> f18251b;
+    public static HashMap<String, Integer> f18260b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,20 +33,20 @@ public class g {
                 return;
             }
         }
-        f18251b = new HashMap<>();
+        f18260b = new HashMap<>();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            f18251b.clear();
+            f18260b.clear();
         }
     }
 
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f18251b.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f18260b.size() : invokeV.intValue;
     }
 
     public static void c(String str) {
@@ -54,23 +54,23 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        f18251b.put(str, 0);
+        f18260b.put(str, 0);
     }
 
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f18250a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f18259a : invokeV.booleanValue;
     }
 
     public static void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z) == null) {
-            f18250a = z;
+            f18259a = z;
             if (z) {
                 return;
             }
-            f18251b.clear();
+            f18260b.clear();
         }
     }
 }

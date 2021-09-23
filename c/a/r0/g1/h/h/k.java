@@ -55,8 +55,8 @@ public class k extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 boolean z = nVar instanceof c.a.r0.a0.d0.k;
-                if (z && (kVar = (c.a.r0.a0.d0.k) nVar) != null && kVar.y && (d2Var = kVar.f15562e) != null && d2Var.s0() != null) {
-                    ItemClickJumpUtil.itemClickJump(kVar.f15562e.s0().forum_name, String.valueOf(kVar.f15562e.s0().item_id), 1, 1);
+                if (z && (kVar = (c.a.r0.a0.d0.k) nVar) != null && kVar.y && (d2Var = kVar.f15571e) != null && d2Var.s0() != null) {
+                    ItemClickJumpUtil.itemClickJump(kVar.f15571e.s0().forum_name, String.valueOf(kVar.f15571e.s0().item_id), 1, 1);
                 } else if (z && (view.getTag() instanceof ThreadCardViewHolder)) {
                     c.a.r0.a0.d0.k kVar2 = (c.a.r0.a0.d0.k) nVar;
                     kVar2.k = 1;
@@ -119,11 +119,11 @@ public class k extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, threadCardViewHolder})) == null) {
-            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f15562e == null) {
+            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f15571e == null) {
                 return null;
             }
             kVar.K(kVar.position + 1);
-            kVar.f15562e.S1 = kVar.q();
+            kVar.f15571e.T1 = kVar.q();
             threadCardViewHolder.getCardView().q(i2);
             threadCardViewHolder.onBindDataToView(kVar);
             threadCardViewHolder.getCardView().onChangeSkinType(this.n, TbadkCoreApplication.getInst().getSkinType());

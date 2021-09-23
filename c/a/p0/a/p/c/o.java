@@ -88,17 +88,17 @@ public class o extends c.a.p0.a.c1.d.a {
                 return null;
             }
             HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
-            for (Map.Entry<String, String> entry : c.a.p0.a.d0.b.b().f5139d.entrySet()) {
+            for (Map.Entry<String, String> entry : c.a.p0.a.d0.b.b().f5147d.entrySet()) {
                 addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
             }
             HttpUrl build = addPathSegments.build();
             c.a.p0.m.d.a aVar = new c.a.p0.m.d.a();
-            aVar.f11841b = "POST";
-            aVar.f11840a = c.a.p0.a.d0.c.w(build.toString(), true);
-            aVar.f11843d = c.a.p0.a.e2.c.d.b(map);
-            aVar.f11845f = true;
-            aVar.f11846g = true;
-            aVar.f11847h = false;
+            aVar.f11849b = "POST";
+            aVar.f11848a = c.a.p0.a.d0.c.w(build.toString(), true);
+            aVar.f11851d = c.a.p0.a.e2.c.d.b(map);
+            aVar.f11853f = true;
+            aVar.f11854g = true;
+            aVar.f11855h = false;
             HttpRequestBuilder a2 = c.a.p0.m.e.b.a(aVar);
             c.a.p0.m.e.a.g().t(a2, aVar);
             return a2.build();
@@ -109,7 +109,7 @@ public class o extends c.a.p0.a.c1.d.a {
     public final String N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? c.a.p0.a.d0.c.f5140a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? c.a.p0.a.d0.c.f5148a : (String) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.p.d.a0

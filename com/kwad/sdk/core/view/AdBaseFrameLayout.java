@@ -23,11 +23,11 @@ public class AdBaseFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final v.a f72395b;
+    public static final v.a f72714b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnTouchListener f72396a;
+    public View.OnTouchListener f72715a;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class AdBaseFrameLayout extends FrameLayout {
                 return;
             }
         }
-        f72395b = new v.a();
+        f72714b = new v.a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,16 +132,16 @@ public class AdBaseFrameLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            View.OnTouchListener onTouchListener = this.f72396a;
+            View.OnTouchListener onTouchListener = this.f72715a;
             if (onTouchListener != null) {
                 onTouchListener.onTouch(this, motionEvent);
             }
             int action = motionEvent.getAction();
             if (action == 0) {
-                f72395b.a(getWidth(), getHeight());
-                f72395b.a(motionEvent.getX(), motionEvent.getY());
+                f72714b.a(getWidth(), getHeight());
+                f72714b.a(motionEvent.getX(), motionEvent.getY());
             } else if (action == 1) {
-                f72395b.b(motionEvent.getX(), motionEvent.getY());
+                f72714b.b(motionEvent.getX(), motionEvent.getY());
             }
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -152,7 +152,7 @@ public class AdBaseFrameLayout extends FrameLayout {
     public v.a getTouchCoords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f72395b : (v.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f72714b : (v.a) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -165,7 +165,7 @@ public class AdBaseFrameLayout extends FrameLayout {
     public void setDispatchTouchListener(View.OnTouchListener onTouchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onTouchListener) == null) {
-            this.f72396a = onTouchListener;
+            this.f72715a = onTouchListener;
         }
     }
 }

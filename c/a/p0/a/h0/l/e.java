@@ -26,23 +26,23 @@ public class e implements c.a.p0.a.h0.l.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f6070j;
+    public static final boolean f6078j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f6071e;
+    public d f6079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f6072f;
+    public String f6080f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f6073g;
+    public String f6081g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f6074h;
+    public boolean f6082h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f6075i;
+    public boolean f6083i;
 
     /* loaded from: classes.dex */
     public class a implements V8EngineConfiguration.JSCacheCallback {
@@ -50,10 +50,10 @@ public class e implements c.a.p0.a.h0.l.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f6076a;
+        public final /* synthetic */ String f6084a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f6077b;
+        public final /* synthetic */ e f6085b;
 
         public a(e eVar, String str) {
             Interceptable interceptable = $ic;
@@ -70,15 +70,15 @@ public class e implements c.a.p0.a.h0.l.a {
                     return;
                 }
             }
-            this.f6077b = eVar;
-            this.f6076a = str;
+            this.f6085b = eVar;
+            this.f6084a = str;
         }
 
         @Override // com.baidu.searchbox.v8engine.V8EngineConfiguration.JSCacheCallback
         public void onCacheResult(V8EngineConfiguration.CacheInfo cacheInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cacheInfo) == null) {
-                if (e.f6070j) {
+                if (e.f6078j) {
                     String str = "onCacheResult cached:" + cacheInfo.cached + " ,jsPath: " + cacheInfo.jsPath;
                 }
                 if (!cacheInfo.cached || TextUtils.isEmpty(cacheInfo.jsPath)) {
@@ -86,13 +86,13 @@ public class e implements c.a.p0.a.h0.l.a {
                 }
                 File file = new File(cacheInfo.jsPath);
                 try {
-                    if (file.getPath().startsWith(new File(this.f6076a).getCanonicalPath())) {
-                        this.f6077b.f6074h = true;
-                    } else if (!TextUtils.isEmpty(this.f6077b.f6073g) && file.getCanonicalPath().startsWith(new File(this.f6077b.f6073g).getCanonicalPath())) {
-                        this.f6077b.f6075i = true;
+                    if (file.getPath().startsWith(new File(this.f6084a).getCanonicalPath())) {
+                        this.f6085b.f6082h = true;
+                    } else if (!TextUtils.isEmpty(this.f6085b.f6081g) && file.getCanonicalPath().startsWith(new File(this.f6085b.f6081g).getCanonicalPath())) {
+                        this.f6085b.f6083i = true;
                     }
                 } catch (IOException e2) {
-                    if (e.f6070j) {
+                    if (e.f6078j) {
                         e2.printStackTrace();
                     }
                 }
@@ -106,10 +106,10 @@ public class e implements c.a.p0.a.h0.l.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.b f6078a;
+        public final /* synthetic */ c.a.p0.a.h0.b f6086a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f6079b;
+        public final /* synthetic */ e f6087b;
 
         public b(e eVar, c.a.p0.a.h0.b bVar) {
             Interceptable interceptable = $ic;
@@ -126,18 +126,18 @@ public class e implements c.a.p0.a.h0.l.a {
                     return;
                 }
             }
-            this.f6079b = eVar;
-            this.f6078a = bVar;
+            this.f6087b = eVar;
+            this.f6086a = bVar;
         }
 
         @Override // c.a.p0.a.l0.j
         public void a(c.a.p0.a.l0.a aVar) {
             c.a.p0.a.h0.b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (bVar = this.f6078a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (bVar = this.f6086a) == null) {
                 return;
             }
-            bVar.a(this.f6079b.f6072f);
+            bVar.a(this.f6087b.f6080f);
         }
     }
 
@@ -147,7 +147,7 @@ public class e implements c.a.p0.a.h0.l.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f6080e;
+        public final /* synthetic */ int f6088e;
 
         public c(e eVar, int i2) {
             Interceptable interceptable = $ic;
@@ -164,7 +164,7 @@ public class e implements c.a.p0.a.h0.l.a {
                     return;
                 }
             }
-            this.f6080e = i2;
+            this.f6088e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -172,7 +172,7 @@ public class e implements c.a.p0.a.h0.l.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    Process.setThreadPriority(this.f6080e);
+                    Process.setThreadPriority(this.f6088e);
                 } catch (Throwable th) {
                     c.a.p0.a.e0.d.b("V8MasterAdapter", th.getMessage());
                 }
@@ -193,7 +193,7 @@ public class e implements c.a.p0.a.h0.l.a {
                 return;
             }
         }
-        f6070j = k.f7077a;
+        f6078j = k.f7085a;
     }
 
     public e(Context context) {
@@ -218,12 +218,12 @@ public class e implements c.a.p0.a.h0.l.a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (f6070j) {
-            String str = "pathList item: " + aVar.f6459b;
+        if (f6078j) {
+            String str = "pathList item: " + aVar.f6467b;
         }
-        String str2 = aVar.f6459b;
-        this.f6073g = str2;
-        this.f6071e.j(c.a.p0.a.h0.d.a.a("appjs", str2));
+        String str2 = aVar.f6467b;
+        this.f6081g = str2;
+        this.f6079e.j(c.a.p0.a.h0.d.a.a("appjs", str2));
     }
 
     @Override // c.a.p0.a.h0.l.a
@@ -231,11 +231,11 @@ public class e implements c.a.p0.a.h0.l.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            d dVar = this.f6071e;
+            d dVar = this.f6079e;
             if (dVar != null) {
                 return dVar.g();
             }
-            if (f6070j) {
+            if (f6078j) {
                 Log.getStackTraceString(new Exception("illegal state"));
                 return "";
             }
@@ -248,7 +248,7 @@ public class e implements c.a.p0.a.h0.l.a {
     public void d(c.a.p0.a.h0.b bVar) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (dVar = this.f6071e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (dVar = this.f6079e) == null) {
             return;
         }
         dVar.k(new b(this, bVar));
@@ -258,7 +258,7 @@ public class e implements c.a.p0.a.h0.l.a {
     public void destroy() {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dVar = this.f6071e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dVar = this.f6079e) == null) {
             return;
         }
         dVar.f();
@@ -268,7 +268,7 @@ public class e implements c.a.p0.a.h0.l.a {
     public void f(Activity activity) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, activity) == null) || (dVar = this.f6071e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, activity) == null) || (dVar = this.f6079e) == null) {
             return;
         }
         dVar.d(activity);
@@ -278,7 +278,7 @@ public class e implements c.a.p0.a.h0.l.a {
     public c.a.p0.a.h0.f.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6071e.h() : (c.a.p0.a.h0.f.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6079e.h() : (c.a.p0.a.h0.f.a) invokeV.objValue;
     }
 
     public d j(String str) {
@@ -290,20 +290,20 @@ public class e implements c.a.p0.a.h0.l.a {
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? c.a.p0.a.h0.d.a.b(this.f6074h, this.f6075i) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? c.a.p0.a.h0.d.a.b(this.f6082h, this.f6083i) : invokeV.intValue;
     }
 
     @Override // c.a.p0.a.h0.l.a
     public void loadUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            if (this.f6071e == null) {
+            if (this.f6079e == null) {
                 String U = g.N().U();
                 d j2 = j(U);
-                this.f6071e = j2;
-                this.f6072f = str;
+                this.f6079e = j2;
+                this.f6080f = str;
                 j2.i(new a(this, U));
-            } else if (f6070j) {
+            } else if (f6078j) {
                 Log.getStackTraceString(new Exception("same instance loadUrl should not be call twice."));
             }
         }
@@ -315,7 +315,7 @@ public class e implements c.a.p0.a.h0.l.a {
         d dVar;
         c.a.p0.a.l0.a h2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (dVar = this.f6071e) == null || (h2 = dVar.h()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (dVar = this.f6079e) == null || (h2 = dVar.h()) == null) {
             return;
         }
         h2.runOnJSThread(new c(this, i2));

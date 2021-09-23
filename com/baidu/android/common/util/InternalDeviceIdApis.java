@@ -64,7 +64,7 @@ public class InternalDeviceIdApis {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             l.a a2 = a(context).a();
             if (a2 != null) {
-                return a2.n();
+                return a2.y();
             }
             return null;
         }
@@ -79,11 +79,11 @@ public class InternalDeviceIdApis {
             TargetPackageCuidV270Info targetPackageCuidV270Info = new TargetPackageCuidV270Info();
             l.a d2 = a2.d(str, "upc");
             if (d2 != null) {
-                targetPackageCuidV270Info.upcChannelCuid = d2.n();
+                targetPackageCuidV270Info.upcChannelCuid = d2.y();
             }
             l.a d3 = a2.d(str, "isc");
             if (d3 != null) {
-                targetPackageCuidV270Info.iscChannelCuid = d3.n();
+                targetPackageCuidV270Info.iscChannelCuid = d3.y();
             }
             return targetPackageCuidV270Info;
         }

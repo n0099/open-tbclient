@@ -42,22 +42,22 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumRulesShowActivity f27649e;
+    public ForumRulesShowActivity f27669e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27650f;
+    public int f27670f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27651g;
+    public String f27671g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f27652h;
+    public ViewGroup f27672h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NavigationBar f27653i;
+    public NavigationBar f27673i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f27654j;
+    public View f27674j;
     public ImageView k;
     public View l;
     public ImageView m;
@@ -78,10 +78,10 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f27655e;
+        public final /* synthetic */ ShareItem f27675e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f27656f;
+        public final /* synthetic */ c f27676f;
 
         public a(c cVar, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -98,16 +98,16 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
                     return;
                 }
             }
-            this.f27656f = cVar;
-            this.f27655e = shareItem;
+            this.f27676f = cVar;
+            this.f27675e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.e.e.p.a.a(this.f27655e.t);
-                l.M(this.f27656f.f27649e, this.f27656f.f27649e.getResources().getString(R.string.copy_pb_url_success));
+                c.a.e.e.p.a.a(this.f27675e.t);
+                l.M(this.f27676f.f27669e, this.f27676f.f27669e.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
@@ -130,12 +130,12 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
                 return;
             }
         }
-        this.f27650f = 3;
+        this.f27670f = 3;
         this.r = new ArrayList();
         this.u = 0;
         this.v = 0;
-        this.f27649e = forumRulesShowActivity;
-        this.f27651g = str;
+        this.f27669e = forumRulesShowActivity;
+        this.f27671g = str;
         forumRulesShowActivity.setContentView(R.layout.activity_forum_rules_show);
         this.o = new c.a.r0.w0.q1.d.b(forumRulesShowActivity);
         this.p = new c.a.r0.w0.q1.d.a(forumRulesShowActivity);
@@ -176,7 +176,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f27649e = null;
+            this.f27669e = null;
         }
     }
 
@@ -189,7 +189,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     public ViewGroup j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27652h : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27672h : (ViewGroup) invokeV.objValue;
     }
 
     public void k() {
@@ -231,10 +231,10 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     public final void o(NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, navigationBar) == null) {
-            View addSystemImageButton = this.f27653i.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
-            this.f27654j = addSystemImageButton;
+            View addSystemImageButton = this.f27673i.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
+            this.f27674j = addSystemImageButton;
             this.k = (ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button);
-            this.f27653i.setCenterTextTitle(this.f27649e.getResources().getString(R.string.forum_rules_local));
+            this.f27673i.setCenterTextTitle(this.f27669e.getResources().getString(R.string.forum_rules_local));
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_floor_more, this);
             this.l = addCustomView;
             this.m = (ImageView) addCustomView.findViewById(R.id.navigationBarBtnMore);
@@ -250,10 +250,10 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f27653i.onChangeSkinType(this.f27649e.getPageContext(), i2);
-            if (this.f27650f == i2) {
-                this.f27653i.getCenterText().setTextSize(R.dimen.L_X06);
-                TextView centerText = this.f27653i.getCenterText();
+            this.f27673i.onChangeSkinType(this.f27669e.getPageContext(), i2);
+            if (this.f27670f == i2) {
+                this.f27673i.getCenterText().setTextSize(R.dimen.L_X06);
+                TextView centerText = this.f27673i.getCenterText();
                 int i3 = R.color.CAM_X0611;
                 SkinManager.setNavbarTitleColor(centerText, i3, i3);
                 WebPManager.setPureDrawable(this.k, R.drawable.icon_pure_topbar_return40, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
@@ -261,7 +261,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
                 this.o.c(i2);
                 this.p.c(i2);
                 this.n.b(i2);
-                this.f27650f = i2;
+                this.f27670f = i2;
             }
         }
     }
@@ -270,7 +270,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     public void onClick(View view) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, view) == null) || this.f27649e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, view) == null) || this.f27669e == null) {
             return;
         }
         if (view.getId() == R.id.root_pb_more) {
@@ -287,7 +287,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
             String str2 = "http://tieba.baidu.com/mo/q/wise-bawu-core/forumRuleShare?fid=" + i2;
             ShareItem shareItem = new ShareItem();
             shareItem.r = o;
-            shareItem.s = String.format(this.f27649e.getResources().getString(R.string.forum_rules_share_text), str);
+            shareItem.s = String.format(this.f27669e.getResources().getString(R.string.forum_rules_share_text), str);
             shareItem.t = str2;
             shareItem.f0 = false;
             c.a.r0.w0.q1.c.b bVar3 = this.w;
@@ -297,24 +297,24 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
             }
             shareItem.P = o;
             shareItem.Q = str2;
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f27649e, shareItem, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f27669e, shareItem, true);
             shareDialogConfig.setIsCopyLink(true);
             shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
-            this.f27649e.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+            this.f27669e.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         } else if (view.getId() == R.id.navigationBarGoBack) {
-            this.f27649e.finish();
+            this.f27669e.finish();
         } else if (this.t == null || view.getId() != this.t.c().getId()) {
         } else {
-            this.f27649e.requestNet();
+            this.f27669e.requestNet();
         }
     }
 
     public final void p(ForumRulesShowActivity forumRulesShowActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, forumRulesShowActivity) == null) {
-            this.f27652h = (ViewGroup) forumRulesShowActivity.findViewById(R.id.forum_rule_rootview);
+            this.f27672h = (ViewGroup) forumRulesShowActivity.findViewById(R.id.forum_rule_rootview);
             NavigationBar navigationBar = (NavigationBar) forumRulesShowActivity.findViewById(R.id.navigationbar);
-            this.f27653i = navigationBar;
+            this.f27673i = navigationBar;
             o(navigationBar);
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) forumRulesShowActivity.findViewById(R.id.forum_rules_list_info);
             this.q = bdTypeRecyclerView;
@@ -353,7 +353,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     public void setFrom(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f27651g = str;
+            this.f27671g = str;
             c.a.r0.w0.q1.a.a aVar = this.n;
             if (aVar != null) {
                 aVar.d(str);
@@ -365,7 +365,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             HashMap<String, Integer> baseSwitchs = SwitchManager.getInstance().getBaseSwitchs();
-            if (((baseSwitchs == null || !baseSwitchs.containsKey("is_disable_forumrule_share")) ? -1 : baseSwitchs.get("is_disable_forumrule_share").intValue()) == 0 && !ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.f27651g)) {
+            if (((baseSwitchs == null || !baseSwitchs.containsKey("is_disable_forumrule_share")) ? -1 : baseSwitchs.get("is_disable_forumrule_share").intValue()) == 0 && !ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.f27671g)) {
                 this.l.setVisibility(0);
             } else {
                 this.l.setVisibility(8);

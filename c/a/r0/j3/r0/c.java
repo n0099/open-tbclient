@@ -24,34 +24,34 @@ public class c {
     public a H;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f21064a;
+    public long f21076a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f21065b;
+    public long f21077b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f21066c;
+    public long f21078c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f21067d;
+    public long f21079d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21068e;
+    public int f21080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21069f;
+    public String f21081f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f21070g;
+    public long f21082g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21071h;
+    public int f21083h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f21072i;
+    public int f21084i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f21073j;
+    public int f21085j;
     public int k;
     public String l;
     public float m;
@@ -87,15 +87,15 @@ public class c {
         if (writeData != null && writeData.startPublishTime() > 0) {
             c asyncPublishStatData = writeData.getAsyncPublishStatData();
             if (asyncPublishStatData != null) {
-                long j2 = asyncPublishStatData.f21065b;
+                long j2 = asyncPublishStatData.f21077b;
                 if (j2 > 0) {
-                    this.f21065b = j2;
+                    this.f21077b = j2;
                 } else {
-                    this.f21065b = asyncPublishStatData.f21064a;
+                    this.f21077b = asyncPublishStatData.f21076a;
                 }
             }
-            this.f21064a = writeData.startPublishTime();
-            this.f21066c = writeData.startPublishTime();
+            this.f21076a = writeData.startPublishTime();
+            this.f21078c = writeData.startPublishTime();
             return;
         }
         throw new RuntimeException("writeData must is async mode(has startPublishTime)");
@@ -106,9 +106,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("id", this.f21064a);
-            jSONObject.put("parentId", this.f21065b);
-            jSONObject.put("startTime", this.f21066c);
+            jSONObject.put("id", this.f21076a);
+            jSONObject.put("parentId", this.f21077b);
+            jSONObject.put("startTime", this.f21078c);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
@@ -119,16 +119,16 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("id", this.f21064a);
-            jSONObject.put("parentId", this.f21065b);
-            jSONObject.put("startTime", this.f21066c);
-            jSONObject.put("endTime", this.f21067d);
-            jSONObject.put("errorCode", this.f21068e);
-            jSONObject.put("errorMessage", this.f21069f);
-            jSONObject.put("sendThreadDuration", this.f21070g);
-            jSONObject.put("haveImage", this.f21071h);
-            jSONObject.put("haveVideo", this.f21072i);
-            jSONObject.put("haveVoice", this.f21073j);
+            jSONObject.put("id", this.f21076a);
+            jSONObject.put("parentId", this.f21077b);
+            jSONObject.put("startTime", this.f21078c);
+            jSONObject.put("endTime", this.f21079d);
+            jSONObject.put("errorCode", this.f21080e);
+            jSONObject.put("errorMessage", this.f21081f);
+            jSONObject.put("sendThreadDuration", this.f21082g);
+            jSONObject.put("haveImage", this.f21083h);
+            jSONObject.put("haveVideo", this.f21084i);
+            jSONObject.put("haveVoice", this.f21085j);
             b bVar = this.E;
             if (bVar != null) {
                 jSONObject.put("imagesData", bVar.a());

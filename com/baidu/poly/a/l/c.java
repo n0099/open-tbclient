@@ -24,16 +24,16 @@ public class c extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f44343e;
+    public ImageView f44405e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44344f;
+    public TextView f44406f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f44345g;
+    public Animation f44407g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f44346h;
+    public boolean f44408h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(Context context) {
@@ -60,9 +60,9 @@ public class c extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(g.view_toast_loading, (ViewGroup) this, true);
-            this.f44343e = (ImageView) findViewById(f.toast_loading_view);
-            this.f44344f = (TextView) findViewById(f.toast_text_view);
-            this.f44345g = AnimationUtils.loadAnimation(context, b.loading_rotate);
+            this.f44405e = (ImageView) findViewById(f.toast_loading_view);
+            this.f44406f = (TextView) findViewById(f.toast_text_view);
+            this.f44407g = AnimationUtils.loadAnimation(context, b.loading_rotate);
             setClickable(true);
         }
     }
@@ -83,20 +83,20 @@ public class c extends FrameLayout {
     public boolean getIsLoading() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44346h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44408h : invokeV.booleanValue;
     }
 
     public void setLoading(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             b();
-            this.f44346h = z;
+            this.f44408h = z;
             if (z) {
                 setVisibility(0);
-                this.f44343e.startAnimation(this.f44345g);
+                this.f44405e.startAnimation(this.f44407g);
                 return;
             }
-            this.f44343e.clearAnimation();
+            this.f44405e.clearAnimation();
             setVisibility(8);
         }
     }
@@ -104,7 +104,7 @@ public class c extends FrameLayout {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f44344f.setText(str);
+            this.f44406f.setText(str);
         }
     }
 

@@ -13,7 +13,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.l0.c f11563a;
+    public c.a.p0.a.l0.c f11571a;
 
     public b(c.a.p0.a.l0.c cVar) {
         Interceptable interceptable = $ic;
@@ -30,20 +30,20 @@ public class b {
                 return;
             }
         }
-        this.f11563a = cVar;
+        this.f11571a = cVar;
     }
 
     public final void a(String str, String str2) {
         c.a.p0.a.l0.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (cVar = this.f11563a) == null || cVar.o() == null || !this.f11563a.o().hasEventListener(str2)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (cVar = this.f11571a) == null || cVar.o() == null || !this.f11571a.o().hasEventListener(str2)) {
             return;
         }
         c.a.p0.h.u.d.a aVar = new c.a.p0.h.u.d.a();
         aVar.value = str;
         JSEvent jSEvent = new JSEvent(str2);
         jSEvent.data = aVar;
-        this.f11563a.o().dispatchEvent(jSEvent);
+        this.f11571a.o().dispatchEvent(jSEvent);
     }
 
     public void b(String str) {

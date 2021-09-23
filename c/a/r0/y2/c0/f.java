@@ -46,7 +46,7 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f29310a;
+        public final /* synthetic */ f f29330a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(f fVar, int i2) {
@@ -66,21 +66,21 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
                     return;
                 }
             }
-            this.f29310a = fVar;
+            this.f29330a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f29310a.k != null && this.f29310a.o) {
-                int playStatus = ((PbAppLegoViewHolder) this.f29310a.k).getPlayStatus();
-                if (((PbAppLegoViewHolder) this.f29310a.k).canPlay()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f29330a.k != null && this.f29330a.o) {
+                int playStatus = ((PbAppLegoViewHolder) this.f29330a.k).getPlayStatus();
+                if (((PbAppLegoViewHolder) this.f29330a.k).canPlay()) {
                     if (playStatus == -1) {
-                        ((PbAppLegoViewHolder) this.f29310a.k).autoPlay((int) TimeUnit.SECONDS.toSeconds(1L));
+                        ((PbAppLegoViewHolder) this.f29330a.k).autoPlay((int) TimeUnit.SECONDS.toSeconds(1L));
                     }
                 } else if (playStatus != -1) {
-                    ((PbAppLegoViewHolder) this.f29310a.k).stopPlay();
+                    ((PbAppLegoViewHolder) this.f29330a.k).stopPlay();
                 }
             }
         }
@@ -92,7 +92,7 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f29311a;
+        public final /* synthetic */ f f29331a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(f fVar, int i2) {
@@ -112,7 +112,7 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
                     return;
                 }
             }
-            this.f29311a = fVar;
+            this.f29331a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -120,7 +120,7 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f29311a.x0();
+                this.f29331a.x0();
             }
         }
     }
@@ -131,7 +131,7 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f29312a;
+        public final /* synthetic */ f f29332a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(f fVar, int i2) {
@@ -151,15 +151,15 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
                     return;
                 }
             }
-            this.f29312a = fVar;
+            this.f29332a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f29312a.k != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 2) {
-                ((PbAppLegoViewHolder) this.f29312a.k).stopPlay();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f29332a.k != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 2) {
+                ((PbAppLegoViewHolder) this.f29332a.k).stopPlay();
             }
         }
     }
@@ -170,13 +170,13 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdvertAppInfo f29313a;
+        public final /* synthetic */ AdvertAppInfo f29333a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f29314b;
+        public final /* synthetic */ int f29334b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f29315c;
+        public final /* synthetic */ String f29335c;
 
         public d(f fVar, AdvertAppInfo advertAppInfo, int i2, String str) {
             Interceptable interceptable = $ic;
@@ -193,9 +193,9 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
                     return;
                 }
             }
-            this.f29313a = advertAppInfo;
-            this.f29314b = i2;
-            this.f29315c = str;
+            this.f29333a = advertAppInfo;
+            this.f29334b = i2;
+            this.f29335c = str;
         }
 
         @Override // c.a.r0.p1.o.a
@@ -205,12 +205,12 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
                 return;
             }
             if (z.p(i2)) {
-                c.a.r0.y2.l0.d.g(this.f29313a, this.f29314b, hashMap, i2);
+                c.a.r0.y2.l0.d.g(this.f29333a, this.f29334b, hashMap, i2);
             } else {
-                c.a.r0.y2.l0.d.o(this.f29313a, this.f29314b, this.f29315c, null, hashMap);
+                c.a.r0.y2.l0.d.o(this.f29333a, this.f29334b, this.f29335c, null, hashMap);
             }
-            AdvertAppInfo advertAppInfo = this.f29313a;
-            if (advertAppInfo.b4) {
+            AdvertAppInfo advertAppInfo = this.f29333a;
+            if (advertAppInfo.c4) {
                 return;
             }
             c.a.r0.p1.o.h.c.h(c.a.r0.p1.o.h.c.e(advertAppInfo));
@@ -223,10 +223,10 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f29316a;
+        public final /* synthetic */ String f29336a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f29317b;
+        public final /* synthetic */ f f29337b;
 
         public e(f fVar, String str) {
             Interceptable interceptable = $ic;
@@ -243,15 +243,15 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
                     return;
                 }
             }
-            this.f29317b = fVar;
-            this.f29316a = str;
+            this.f29337b = fVar;
+            this.f29336a = str;
         }
 
         @Override // c.a.r0.p1.o.c
         public void a(AdvertAppInfo advertAppInfo, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, advertAppInfo, i2) == null) {
-                j.b(this.f29317b.m.getPageContext().getPageActivity(), advertAppInfo, i2, this.f29317b.q0(advertAppInfo, this.f29316a));
+                j.b(this.f29337b.m.getPageContext().getPageActivity(), advertAppInfo, i2, this.f29337b.q0(advertAppInfo, this.f29336a));
             }
         }
     }
@@ -342,9 +342,9 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
             DownloadStaticsData downloadStaticsData = new DownloadStaticsData();
             downloadStaticsData.setDa_page(r0(advertAppInfo));
             downloadStaticsData.setFid(str);
-            downloadStaticsData.setApk_name(advertAppInfo.o4);
-            downloadStaticsData.setAdPosition(advertAppInfo.c4);
-            downloadStaticsData.setExtensionInfo(advertAppInfo.d4);
+            downloadStaticsData.setApk_name(advertAppInfo.p4);
+            downloadStaticsData.setAdPosition(advertAppInfo.d4);
+            downloadStaticsData.setExtensionInfo(advertAppInfo.e4);
             return downloadStaticsData;
         }
         return (DownloadStaticsData) invokeLL.objValue;
@@ -353,7 +353,7 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
     public final String r0(AdvertAppInfo advertAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, advertAppInfo)) == null) ? TextUtils.isEmpty(advertAppInfo.g4) ? "PB" : advertAppInfo.g4 : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, advertAppInfo)) == null) ? TextUtils.isEmpty(advertAppInfo.h4) ? "PB" : advertAppInfo.h4 : (String) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -363,7 +363,7 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), view, viewGroup, pVar})) == null) {
-            if (pVar == null || pVar.F0() == null) {
+            if (pVar == null || pVar.H0() == null) {
                 return null;
             }
             if (t0(view, pVar)) {
@@ -393,10 +393,10 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
             if (view == null || view.getTag() == null || (v = this.k) == 0 || !((PbAppLegoViewHolder) v).getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(((PbAppLegoViewHolder) this.k).getClass())) {
                 return true;
             }
-            AdvertAppInfo.ILegoAdvert F0 = pVar.F0();
+            AdvertAppInfo.ILegoAdvert H0 = pVar.H0();
             Object tag = view.getTag(R.id.tag_first);
             if (tag instanceof AdvertAppInfo.ILegoAdvert) {
-                return !F0.isReusable((AdvertAppInfo.ILegoAdvert) tag);
+                return !H0.isReusable((AdvertAppInfo.ILegoAdvert) tag);
             }
             return true;
         }
@@ -419,7 +419,7 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, viewGroup, pVar)) == null) {
-            View view = (View) c.a.r0.p1.o.b.h().a(this.m.getPageContext(), pVar.F0(), 4);
+            View view = (View) c.a.r0.p1.o.b.h().a(this.m.getPageContext(), pVar.H0(), 4);
             if (view != null) {
                 PbAppLegoViewHolder pbAppLegoViewHolder = new PbAppLegoViewHolder((c.a.r0.p1.o.l.e) view);
                 pbAppLegoViewHolder.setIsRecyclable(false);
@@ -440,12 +440,12 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
             if (this.m == null) {
                 return null;
             }
-            if (pVar.F0() instanceof AdCard) {
-                ((AdCard) pVar.F0()).isPBBanner = pVar.E0;
+            if (pVar.H0() instanceof AdCard) {
+                ((AdCard) pVar.H0()).isPBBanner = pVar.E0;
             }
             pbAppLegoViewHolder.setIsRecyclable(false);
-            AdvertAppInfo.ILegoAdvert F0 = pVar.F0();
-            view.setTag(R.id.tag_first, F0);
+            AdvertAppInfo.ILegoAdvert H0 = pVar.H0();
+            view.setTag(R.id.tag_first, H0);
             this.m.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
             this.m.getLayoutMode().j(view);
             c.a.q0.s.q.e.f(pVar);
@@ -453,18 +453,18 @@ public class f extends c.a.e.l.e.a<p, PbAppLegoViewHolder> implements t, c.a.r0.
                 c.a.r0.q.f.a.i().k(c.a.r0.q.f.a.g(pVar.getAdvertAppInfo()));
             }
             AdvertAppInfo advertAppInfo = pVar.getAdvertAppInfo();
-            if (advertAppInfo.f4 == null) {
-                advertAppInfo.f4 = new c.a.q0.s.q.e();
+            if (advertAppInfo.g4 == null) {
+                advertAppInfo.g4 = new c.a.q0.s.q.e();
             }
-            c.a.q0.s.q.e eVar = advertAppInfo.f4;
+            c.a.q0.s.q.e eVar = advertAppInfo.g4;
             eVar.f14144b = pVar.J0;
-            eVar.f14143a = pVar.E0();
+            eVar.f14143a = pVar.G0();
             advertAppInfo.position = pVar.L0;
-            advertAppInfo.b4 = pVar.M0;
+            advertAppInfo.c4 = pVar.M0;
             c.a.r0.p1.o.l.e eVar2 = (c.a.r0.p1.o.l.e) view;
-            F0.setAdvertAppInfo(advertAppInfo);
+            H0.setAdvertAppInfo(advertAppInfo);
             eVar2.setFromCDN(this.n);
-            eVar2.update(F0);
+            eVar2.update(H0);
             int i3 = pVar.J0;
             String str = pVar.F0;
             eVar2.setAfterClickSchemeListener(new d(this, advertAppInfo, i3, str));

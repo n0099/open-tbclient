@@ -33,21 +33,21 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static h f29386c;
+    public static h f29406c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static DownloadData f29387d;
+    public static DownloadData f29407d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static List<DownloadData> f29388e;
+    public static List<DownloadData> f29408e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f29389a;
+    public b f29409a;
     @SuppressLint({"HandlerLeak"})
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f29390b;
+    public Handler f29410b;
 
     /* loaded from: classes4.dex */
     public class a extends Handler {
@@ -79,14 +79,14 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                if (message.what != 900002 || message.arg2 <= 0 || h.f29387d == null) {
+                if (message.what != 900002 || message.arg2 <= 0 || h.f29407d == null) {
                     return;
                 }
-                h.f29387d.setLength(message.arg1);
-                h.f29387d.setSize(message.arg2);
-                h.f29387d.setStatus(1);
-                if (h.f29387d.getCallback() != null) {
-                    h.f29387d.getCallback().onFileUpdateProgress(h.f29387d);
+                h.f29407d.setLength(message.arg1);
+                h.f29407d.setSize(message.arg2);
+                h.f29407d.setStatus(1);
+                if (h.f29407d.getCallback() != null) {
+                    h.f29407d.getCallback().onFileUpdateProgress(h.f29407d);
                 }
             }
         }
@@ -99,10 +99,10 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f29391a;
+        public NetWork f29411a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f29392b;
+        public final /* synthetic */ h f29412b;
 
         public b(h hVar) {
             Interceptable interceptable = $ic;
@@ -119,14 +119,14 @@ public class h {
                     return;
                 }
             }
-            this.f29392b = hVar;
-            this.f29391a = new NetWork();
+            this.f29412b = hVar;
+            this.f29411a = new NetWork();
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NetWork netWork = this.f29391a;
+                NetWork netWork = this.f29411a;
                 if (netWork != null) {
                     netWork.setCancel();
                 }
@@ -156,9 +156,9 @@ public class h {
                 file.delete();
             }
             if (!file.exists()) {
-                this.f29391a.setUrl(downloadDataArr[0].getUrl());
-                NetWork netWork = this.f29391a;
-                if (Boolean.valueOf(netWork.downloadFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp", this.f29392b.f29390b, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
+                this.f29411a.setUrl(downloadDataArr[0].getUrl());
+                NetWork netWork = this.f29411a;
+                if (Boolean.valueOf(netWork.downloadFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp", this.f29412b.f29410b, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
                     File GetFile = FileHelper.GetFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
                     if (GetFile == null) {
                         GetFile = FileHelper.GetFileInCache(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
@@ -251,17 +251,17 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 super.onCancelled();
-                this.f29391a.setCancel();
-                h.f29387d.setStatus(4);
-                h.f29387d.setStatusMsg(null);
-                if (h.f29387d.getCallback() != null) {
-                    h.f29387d.getCallback().onFileUpdateProgress(h.f29387d);
+                this.f29411a.setCancel();
+                h.f29407d.setStatus(4);
+                h.f29407d.setStatusMsg(null);
+                if (h.f29407d.getCallback() != null) {
+                    h.f29407d.getCallback().onFileUpdateProgress(h.f29407d);
                 }
-                if (!h.f29388e.isEmpty()) {
-                    h.f29388e.remove(0);
+                if (!h.f29408e.isEmpty()) {
+                    h.f29408e.remove(0);
                 }
-                DownloadData unused = h.f29387d = null;
-                this.f29392b.m();
+                DownloadData unused = h.f29407d = null;
+                this.f29412b.m();
             }
         }
 
@@ -276,12 +276,12 @@ public class h {
                     return;
                 }
                 if (num.intValue() == 0) {
-                    h.f29387d.setStatus(0);
-                    if (h.f29387d.getCallback() != null) {
-                        h.f29387d.getCallback().onFileUpdateProgress(h.f29387d);
+                    h.f29407d.setStatus(0);
+                    if (h.f29407d.getCallback() != null) {
+                        h.f29407d.getCallback().onFileUpdateProgress(h.f29407d);
                     }
-                    if (h.f29387d.getCallback() != null) {
-                        h.f29387d.getCallback().onFileDownloadSucceed(h.f29387d);
+                    if (h.f29407d.getCallback() != null) {
+                        h.f29407d.getCallback().onFileDownloadSucceed(h.f29407d);
                     }
                 } else {
                     int intValue = num.intValue();
@@ -298,22 +298,22 @@ public class h {
                     } else {
                         string = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
                     }
-                    h.f29387d.setStatusMsg(string);
-                    h.f29387d.setErrorCode(num.intValue());
-                    h.f29387d.setStatus(2);
-                    if (h.f29387d.getCallback() != null) {
-                        h.f29387d.getCallback().onFileUpdateProgress(h.f29387d);
+                    h.f29407d.setStatusMsg(string);
+                    h.f29407d.setErrorCode(num.intValue());
+                    h.f29407d.setStatus(2);
+                    if (h.f29407d.getCallback() != null) {
+                        h.f29407d.getCallback().onFileUpdateProgress(h.f29407d);
                     }
-                    if (h.f29387d.getCallback() != null) {
-                        h.f29387d.getCallback().onFileDownloadFailed(h.f29387d, num.intValue(), string);
+                    if (h.f29407d.getCallback() != null) {
+                        h.f29407d.getCallback().onFileDownloadFailed(h.f29407d, num.intValue(), string);
                     }
                 }
-                DownloadData unused = h.f29387d = null;
-                if (h.f29388e.isEmpty()) {
+                DownloadData unused = h.f29407d = null;
+                if (h.f29408e.isEmpty()) {
                     return;
                 }
-                h.f29388e.remove(0);
-                this.f29392b.m();
+                h.f29408e.remove(0);
+                this.f29412b.m();
             }
         }
     }
@@ -331,9 +331,9 @@ public class h {
                 return;
             }
         }
-        f29386c = new h();
-        f29387d = null;
-        f29388e = new LinkedList();
+        f29406c = new h();
+        f29407d = null;
+        f29408e = new LinkedList();
     }
 
     public h() {
@@ -349,14 +349,14 @@ public class h {
                 return;
             }
         }
-        this.f29389a = null;
-        this.f29390b = new a(this, Looper.getMainLooper());
+        this.f29409a = null;
+        this.f29410b = new a(this, Looper.getMainLooper());
     }
 
     public static h j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f29386c : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f29406c : (h) invokeV.objValue;
     }
 
     public void f(String str) {
@@ -369,18 +369,18 @@ public class h {
     public void g(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            DownloadData downloadData = f29387d;
+            DownloadData downloadData = f29407d;
             if (downloadData != null && downloadData.getUrl().equals(str)) {
                 if (z) {
-                    this.f29389a.b();
+                    this.f29409a.b();
                     return;
                 } else {
-                    this.f29389a.cancel(true);
+                    this.f29409a.cancel(true);
                     return;
                 }
             }
             LinkedList<DownloadData> linkedList = new LinkedList();
-            Iterator<DownloadData> it = f29388e.iterator();
+            Iterator<DownloadData> it = f29408e.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -395,7 +395,7 @@ public class h {
                 }
             }
             for (DownloadData downloadData2 : linkedList) {
-                f29388e.remove(downloadData2);
+                f29408e.remove(downloadData2);
             }
         }
     }
@@ -415,7 +415,7 @@ public class h {
     public List<DownloadData> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f29388e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f29408e : (List) invokeV.objValue;
     }
 
     public void k(DownloadData downloadData) {
@@ -434,8 +434,8 @@ public class h {
             }
             return;
         }
-        for (int i2 = 0; i2 < f29388e.size(); i2++) {
-            DownloadData downloadData2 = f29388e.get(i2);
+        for (int i2 = 0; i2 < f29408e.size(); i2++) {
+            DownloadData downloadData2 = f29408e.get(i2);
             if (downloadData2 != null && downloadData2.getUrl().equals(downloadData.getUrl()) && downloadData2.getId().equals(downloadData.getId())) {
                 return;
             }
@@ -444,7 +444,7 @@ public class h {
         if (downloadData.getCallback() != null) {
             downloadData.getCallback().onFileUpdateProgress(downloadData);
         }
-        f29388e.add(downloadData);
+        f29408e.add(downloadData);
         m();
     }
 
@@ -453,7 +453,7 @@ public class h {
         if (interceptable == null || interceptable.invokeLI(1048581, this, downloadData, i2) == null) {
             int type = downloadData.getType();
             int i3 = 0;
-            for (DownloadData downloadData2 : f29388e) {
+            for (DownloadData downloadData2 : f29408e) {
                 if (downloadData2.getType() == type) {
                     i3++;
                 }
@@ -473,13 +473,13 @@ public class h {
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && f29387d == null && !f29388e.isEmpty()) {
-            DownloadData downloadData = f29388e.get(0);
-            f29387d = downloadData;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && f29407d == null && !f29408e.isEmpty()) {
+            DownloadData downloadData = f29408e.get(0);
+            f29407d = downloadData;
             if (downloadData != null) {
                 b bVar = new b(this);
-                this.f29389a = bVar;
-                bVar.execute(f29387d);
+                this.f29409a = bVar;
+                bVar.execute(f29407d);
             }
         }
     }

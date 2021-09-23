@@ -25,37 +25,37 @@ public final class hf {
     public static final hf K;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hf f77762a;
+    public static final hf f78081a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hf[] f475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hf f77763b;
+    public static final hf f78082b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hf f77764c;
+    public static final hf f78083c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hf f77765d;
+    public static final hf f78084d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hf f77766e;
+    public static final hf f78085e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hf f77767f;
+    public static final hf f78086f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hf f77768g;
+    public static final hf f78087g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hf f77769h;
+    public static final hf f78088h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hf f77770i;
+    public static final hf f78089i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final hf f77771j;
+    public static final hf f78090j;
     public static final hf k;
     public static final hf l;
     public static final hf m;
@@ -90,16 +90,16 @@ public final class hf {
                 return;
             }
         }
-        f77762a = new hf("Registration", 0, 1);
-        f77763b = new hf("UnRegistration", 1, 2);
-        f77764c = new hf("Subscription", 2, 3);
-        f77765d = new hf("UnSubscription", 3, 4);
-        f77766e = new hf("SendMessage", 4, 5);
-        f77767f = new hf("AckMessage", 5, 6);
-        f77768g = new hf("SetConfig", 6, 7);
-        f77769h = new hf("ReportFeedback", 7, 8);
-        f77770i = new hf("Notification", 8, 9);
-        f77771j = new hf("Command", 9, 10);
+        f78081a = new hf("Registration", 0, 1);
+        f78082b = new hf("UnRegistration", 1, 2);
+        f78083c = new hf("Subscription", 2, 3);
+        f78084d = new hf("UnSubscription", 3, 4);
+        f78085e = new hf("SendMessage", 4, 5);
+        f78086f = new hf("AckMessage", 5, 6);
+        f78087g = new hf("SetConfig", 6, 7);
+        f78088h = new hf("ReportFeedback", 7, 8);
+        f78089i = new hf("Notification", 8, 9);
+        f78090j = new hf("Command", 9, 10);
         k = new hf("MultiConnectionBroadcast", 10, 11);
         l = new hf("MultiConnectionResult", 11, 12);
         m = new hf("ConnectionKick", 12, 13);
@@ -128,7 +128,7 @@ public final class hf {
         J = new hf("RevokeMessage", 35, 114);
         hf hfVar = new hf("SimulatorJob", 36, 200);
         K = hfVar;
-        f475a = new hf[]{f77762a, f77763b, f77764c, f77765d, f77766e, f77767f, f77768g, f77769h, f77770i, f77771j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hfVar};
+        f475a = new hf[]{f78081a, f78082b, f78083c, f78084d, f78085e, f78086f, f78087g, f78088h, f78089i, f78090j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hfVar};
     }
 
     public hf(String str, int i2, int i3) {
@@ -159,25 +159,25 @@ public final class hf {
             if (i2 != 200) {
                 switch (i2) {
                     case 1:
-                        return f77762a;
+                        return f78081a;
                     case 2:
-                        return f77763b;
+                        return f78082b;
                     case 3:
-                        return f77764c;
+                        return f78083c;
                     case 4:
-                        return f77765d;
+                        return f78084d;
                     case 5:
-                        return f77766e;
+                        return f78085e;
                     case 6:
-                        return f77767f;
+                        return f78086f;
                     case 7:
-                        return f77768g;
+                        return f78087g;
                     case 8:
-                        return f77769h;
+                        return f78088h;
                     case 9:
-                        return f77770i;
+                        return f78089i;
                     case 10:
-                        return f77771j;
+                        return f78090j;
                     case 11:
                         return k;
                     case 12:

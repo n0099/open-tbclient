@@ -39,14 +39,14 @@ public class a extends c.a.r0.a0.b<c.a.r0.g1.h.l.b> {
 
     /* renamed from: c.a.r0.g1.h.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0890a implements View.OnClickListener {
+    public class View$OnClickListenerC0888a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f18385e;
+        public final /* synthetic */ a f18394e;
 
-        public View$OnClickListenerC0890a(a aVar) {
+        public View$OnClickListenerC0888a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,16 +61,16 @@ public class a extends c.a.r0.a0.b<c.a.r0.g1.h.l.b> {
                     return;
                 }
             }
-            this.f18385e = aVar;
+            this.f18394e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f18385e.g() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f18394e.g() == null) {
                 return;
             }
-            this.f18385e.g().a(view, this.f18385e.r);
+            this.f18394e.g().a(view, this.f18394e.r);
         }
     }
 
@@ -80,10 +80,10 @@ public class a extends c.a.r0.a0.b<c.a.r0.g1.h.l.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f18386e;
+        public final /* synthetic */ ViewGroup.LayoutParams f18395e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f18387f;
+        public final /* synthetic */ a f18396f;
 
         public b(a aVar, ViewGroup.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
@@ -100,17 +100,17 @@ public class a extends c.a.r0.a0.b<c.a.r0.g1.h.l.b> {
                     return;
                 }
             }
-            this.f18387f = aVar;
-            this.f18386e = layoutParams;
+            this.f18396f = aVar;
+            this.f18395e = layoutParams;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f18387f.o.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.f18386e.height = (int) ((((Float) valueAnimator.getAnimatedValue()).floatValue() * (a.u - a.v)) + a.v);
-                this.f18387f.n.setLayoutParams(this.f18386e);
+                this.f18396f.o.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f18395e.height = (int) ((((Float) valueAnimator.getAnimatedValue()).floatValue() * (a.u - a.v)) + a.v);
+                this.f18396f.n.setLayoutParams(this.f18395e);
             }
         }
     }
@@ -121,7 +121,7 @@ public class a extends c.a.r0.a0.b<c.a.r0.g1.h.l.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f18388e;
+        public final /* synthetic */ a f18397e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -138,14 +138,14 @@ public class a extends c.a.r0.a0.b<c.a.r0.g1.h.l.b> {
                     return;
                 }
             }
-            this.f18388e = aVar;
+            this.f18397e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f18388e.x();
+                this.f18397e.x();
             }
         }
     }
@@ -198,7 +198,7 @@ public class a extends c.a.r0.a0.b<c.a.r0.g1.h.l.b> {
         int i4 = t;
         textView.setPadding(0, i4, 0, i4 - s);
         this.q = this.m.getResources().getString(R.string.home_read_here);
-        this.n.setOnClickListener(new View$OnClickListenerC0890a(this));
+        this.n.setOnClickListener(new View$OnClickListenerC0888a(this));
     }
 
     @Override // c.a.r0.a0.b
@@ -237,16 +237,16 @@ public class a extends c.a.r0.a0.b<c.a.r0.g1.h.l.b> {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || bVar == null || this.n.getLayoutParams() == null) {
             return;
         }
-        if (!bVar.f18391f) {
+        if (!bVar.f18400f) {
             this.n.getLayoutParams().height = v;
             this.n.requestLayout();
             this.o.setAlpha(0.0f);
         }
         if (this.n.getLayoutParams().height != u) {
-            bVar.f18391f = true;
+            bVar.f18400f = true;
             e.a().postDelayed(new c(this), 1600L);
         }
-        String formatTimeShort = StringHelper.getFormatTimeShort(bVar.f18390e);
+        String formatTimeShort = StringHelper.getFormatTimeShort(bVar.f18399e);
         TextView textView = this.o;
         textView.setText(formatTimeShort + this.q);
         l(this.m, TbadkCoreApplication.getInst().getSkinType());

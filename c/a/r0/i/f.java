@@ -24,13 +24,13 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HttpMessageListener f19077a;
+    public HttpMessageListener f19086a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f19078b;
+    public c f19087b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f19079c;
+    public CustomMessageListener f19088c;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -38,7 +38,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f19080a;
+        public final /* synthetic */ f f19089a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(f fVar, int i2) {
@@ -58,7 +58,7 @@ public class f {
                     return;
                 }
             }
-            this.f19080a = fVar;
+            this.f19089a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class f {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                this.f19080a.c((JSONObject) customResponsedMessage.getData());
+                this.f19089a.c((JSONObject) customResponsedMessage.getData());
             }
         }
     }
@@ -77,7 +77,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f19081a;
+        public final /* synthetic */ f f19090a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(f fVar, int i2) {
@@ -97,15 +97,15 @@ public class f {
                     return;
                 }
             }
-            this.f19081a = fVar;
+            this.f19090a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && this.f19081a.f19078b != null) {
-                this.f19081a.f19078b.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && this.f19090a.f19087b != null) {
+                this.f19090a.f19087b.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
             }
         }
     }
@@ -130,13 +130,13 @@ public class f {
                 return;
             }
         }
-        this.f19078b = null;
-        this.f19079c = new a(this, 2016489);
-        if (this.f19077a == null) {
-            this.f19077a = new b(this, CmdConfigHttp.CMD_NEG_DELETE_THREAD);
+        this.f19087b = null;
+        this.f19088c = new a(this, 2016489);
+        if (this.f19086a == null) {
+            this.f19086a = new b(this, CmdConfigHttp.CMD_NEG_DELETE_THREAD);
         }
-        MessageManager.getInstance().registerListener(this.f19077a);
-        MessageManager.getInstance().registerListener(this.f19079c);
+        MessageManager.getInstance().registerListener(this.f19086a);
+        MessageManager.getInstance().registerListener(this.f19088c);
     }
 
     public final void c(JSONObject jSONObject) {
@@ -165,23 +165,23 @@ public class f {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f19079c);
-            MessageManager.getInstance().unRegisterListener(this.f19077a);
+            MessageManager.getInstance().unRegisterListener(this.f19088c);
+            MessageManager.getInstance().unRegisterListener(this.f19086a);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.f19077a);
-            MessageManager.getInstance().registerListener(this.f19079c);
+            MessageManager.getInstance().registerListener(this.f19086a);
+            MessageManager.getInstance().registerListener(this.f19088c);
         }
     }
 
     public void f(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f19078b = cVar;
+            this.f19087b = cVar;
         }
     }
 }

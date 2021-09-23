@@ -1,12 +1,7 @@
 package com.alipay.sdk.util;
 
 import android.content.Context;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,126 +9,102 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class g {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36090a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final String f36121a = "pref_trade_token";
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1255002977, "Lcom/alipay/sdk/util/g;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1255002977, "Lcom/alipay/sdk/util/g;");
-        }
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f36122b = ";";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f36123c = "result={";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f36124d = "}";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f36125e = "trade_token=\"";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f36126f = "\"";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f36127g = "trade_token=";
+    public transient /* synthetic */ FieldHolder $fh;
 
     public g() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static synchronized boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        boolean z;
+    public static void a(com.alipay.sdk.sys.a aVar, Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            synchronized (g.class) {
-                try {
-                    z = PreferenceManager.getDefaultSharedPreferences(context).contains(str);
-                } catch (Throwable th) {
-                    c.a(th);
-                    z = false;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, aVar, context, str) == null) {
+            try {
+                String a2 = a(str);
+                c.b(com.alipay.sdk.cons.a.x, "trade token: " + a2);
+                if (TextUtils.isEmpty(a2)) {
+                    return;
                 }
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static synchronized void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str) == null) {
-            synchronized (g.class) {
-                try {
-                    PreferenceManager.getDefaultSharedPreferences(context).edit().remove(str).apply();
-                } catch (Throwable th) {
-                    c.a(th);
-                }
+                h.b(aVar, context, f36121a, a2);
+            } catch (Throwable th) {
+                com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.M, th);
+                c.a(th);
             }
         }
     }
 
-    public static synchronized void a(com.alipay.sdk.sys.a aVar, Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, aVar, context, str, str2) == null) {
-            synchronized (g.class) {
-                try {
-                    String a2 = com.alipay.sdk.encrypt.e.a(a(context), str2, str);
-                    if (!TextUtils.isEmpty(str2) && TextUtils.isEmpty(a2)) {
-                        com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.f35915c, com.alipay.sdk.app.statistic.b.A, String.format("%s,%s", str, str2));
-                    }
-                    PreferenceManager.getDefaultSharedPreferences(context).edit().putString(str, a2).apply();
-                } catch (Throwable th) {
-                    c.a(th);
-                }
-            }
-        }
-    }
-
-    public static synchronized String b(com.alipay.sdk.sys.a aVar, Context context, String str, String str2) {
-        InterceptResult invokeLLLL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, aVar, context, str, str2)) == null) {
-            synchronized (g.class) {
-                try {
-                    String string = PreferenceManager.getDefaultSharedPreferences(context).getString(str, str2);
-                    str3 = TextUtils.isEmpty(string) ? null : com.alipay.sdk.encrypt.e.b(a(context), string, str);
-                    if (!TextUtils.isEmpty(string) && TextUtils.isEmpty(str3)) {
-                        com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.f35915c, com.alipay.sdk.app.statistic.b.z, String.format("%s,%s", str, string));
-                    }
-                } catch (Exception e2) {
-                    c.a(e2);
-                }
-            }
-            return str3;
-        }
-        return (String) invokeLLLL.objValue;
-    }
-
-    public static String a(Context context) {
+    public static String a(String str) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f36090a)) {
-                try {
-                    str = context.getApplicationContext().getPackageName();
-                } catch (Throwable th) {
-                    c.a(th);
-                    str = "";
-                }
-                f36090a = (str + "0000000000000000000000000000").substring(0, 24);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String str2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return f36090a;
+            String[] split = str.split(";");
+            for (int i2 = 0; i2 < split.length; i2++) {
+                if (split[i2].startsWith(f36123c) && split[i2].endsWith("}")) {
+                    String[] split2 = split[i2].substring(8, split[i2].length() - 1).split("&");
+                    int i3 = 0;
+                    while (true) {
+                        if (i3 >= split2.length) {
+                            break;
+                        } else if (split2[i3].startsWith(f36125e) && split2[i3].endsWith("\"")) {
+                            str2 = split2[i3].substring(13, split2[i3].length() - 1);
+                            break;
+                        } else if (split2[i3].startsWith(f36127g)) {
+                            str2 = split2[i3].substring(12);
+                            break;
+                        } else {
+                            i3++;
+                        }
+                    }
+                }
+            }
+            return str2;
         }
         return (String) invokeL.objValue;
+    }
+
+    public static String a(com.alipay.sdk.sys.a aVar, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, aVar, context)) == null) {
+            String a2 = h.a(aVar, context, f36121a, "");
+            c.b(com.alipay.sdk.cons.a.x, "get trade token: " + a2);
+            return a2;
+        }
+        return (String) invokeLL.objValue;
     }
 }

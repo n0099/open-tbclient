@@ -45,21 +45,21 @@ public final class d implements ServiceConnection {
                 thread2 = b.v;
                 thread2.interrupt();
             }
-            unused = b.f42013c;
+            unused = b.f42075c;
             String str = "onServiceConnected " + componentName;
             try {
-                aVar2 = b.f42014d;
+                aVar2 = b.f42076d;
                 if (aVar2 != null) {
-                    com.baidu.mapframework.open.aidl.a unused3 = b.f42014d = null;
+                    com.baidu.mapframework.open.aidl.a unused3 = b.f42076d = null;
                 }
-                com.baidu.mapframework.open.aidl.a unused4 = b.f42014d = a.AbstractBinderC1666a.a(iBinder);
-                aVar3 = b.f42014d;
+                com.baidu.mapframework.open.aidl.a unused4 = b.f42076d = a.AbstractBinderC1668a.a(iBinder);
+                aVar3 = b.f42076d;
                 aVar3.a(new e(this));
             } catch (RemoteException unused5) {
-                unused2 = b.f42013c;
-                aVar = b.f42014d;
+                unused2 = b.f42075c;
+                aVar = b.f42076d;
                 if (aVar != null) {
-                    com.baidu.mapframework.open.aidl.a unused6 = b.f42014d = null;
+                    com.baidu.mapframework.open.aidl.a unused6 = b.f42076d = null;
                 }
             }
         }
@@ -71,11 +71,11 @@ public final class d implements ServiceConnection {
         String unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            unused = b.f42013c;
+            unused = b.f42075c;
             String str = "onServiceDisconnected " + componentName;
-            aVar = b.f42014d;
+            aVar = b.f42076d;
             if (aVar != null) {
-                com.baidu.mapframework.open.aidl.a unused2 = b.f42014d = null;
+                com.baidu.mapframework.open.aidl.a unused2 = b.f42076d = null;
                 boolean unused3 = b.u = false;
             }
         }

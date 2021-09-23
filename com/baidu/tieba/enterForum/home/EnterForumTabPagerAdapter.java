@@ -22,19 +22,19 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a> f50190e;
+    public List<a> f50303e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50191f;
+    public int f50304f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseFragment f50192g;
+    public BaseFragment f50305g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50193h;
+    public boolean f50306h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FragmentManager f50194i;
+    public FragmentManager f50307i;
 
     /* loaded from: classes7.dex */
     public static class a {
@@ -42,16 +42,16 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Fragment f50195a;
+        public Fragment f50308a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f50196b;
+        public String f50309b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f50197c;
+        public boolean f50310c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f50198d;
+        public String f50311d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -86,15 +86,15 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
                 return;
             }
         }
-        this.f50191f = -1;
-        this.f50194i = fragmentManager;
-        this.f50190e = new ArrayList();
+        this.f50304f = -1;
+        this.f50307i = fragmentManager;
+        this.f50303e = new ArrayList();
     }
 
     public void add(a aVar) {
         List<a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (list = this.f50190e) == null || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (list = this.f50303e) == null || aVar == null) {
             return;
         }
         list.add(aVar);
@@ -103,10 +103,10 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
 
     public void addAll(List<a> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || this.f50190e == null || list == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || this.f50303e == null || list == null || list.size() <= 0) {
             return;
         }
-        this.f50190e.addAll(list);
+        this.f50303e.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -115,7 +115,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<a> list = this.f50190e;
+            List<a> list = this.f50303e;
             if (list != null) {
                 return list.size();
             }
@@ -128,7 +128,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            BaseFragment baseFragment = this.f50192g;
+            BaseFragment baseFragment = this.f50305g;
             if (baseFragment instanceof BaseFragment) {
                 return baseFragment.getCurrentPageKey();
             }
@@ -142,11 +142,11 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            List<a> list = this.f50190e;
-            if (list == null || i2 < 0 || i2 >= list.size() || this.f50190e.get(i2) == null) {
+            List<a> list = this.f50303e;
+            if (list == null || i2 < 0 || i2 >= list.size() || this.f50303e.get(i2) == null) {
                 return null;
             }
-            return this.f50190e.get(i2).f50195a;
+            return this.f50303e.get(i2).f50308a;
         }
         return (Fragment) invokeI.objValue;
     }
@@ -156,9 +156,9 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            List<a> list = this.f50190e;
-            if (list != null && i2 >= 0 && i2 < list.size() && this.f50190e.get(i2) != null) {
-                return this.f50190e.get(i2).hashCode();
+            List<a> list = this.f50303e;
+            if (list != null && i2 >= 0 && i2 < list.size() && this.f50303e.get(i2) != null) {
+                return this.f50303e.get(i2).hashCode();
             }
             return super.getItemId(i2);
         }
@@ -169,7 +169,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     public int getItemPosition(@NonNull Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) ? this.f50194i.getFragments().contains(obj) ? -1 : -2 : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) ? this.f50307i.getFragments().contains(obj) ? -1 : -2 : invokeL.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -177,11 +177,11 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            List<a> list = this.f50190e;
-            if (list == null || i2 < 0 || i2 >= list.size() || this.f50190e.get(i2) == null) {
+            List<a> list = this.f50303e;
+            if (list == null || i2 < 0 || i2 >= list.size() || this.f50303e.get(i2) == null) {
                 return null;
             }
-            return this.f50190e.get(i2).f50196b;
+            return this.f50303e.get(i2).f50309b;
         }
         return (CharSequence) invokeI.objValue;
     }
@@ -189,7 +189,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     public void setPrimary(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f50193h = z;
+            this.f50306h = z;
         }
     }
 
@@ -199,17 +199,17 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048587, this, viewGroup, i2, obj) == null) {
             super.setPrimaryItem(viewGroup, i2, obj);
-            if (!this.f50193h || (i3 = this.f50191f) == i2) {
+            if (!this.f50306h || (i3 = this.f50304f) == i2) {
                 return;
             }
             if (i3 != -1) {
                 ((BaseFragment) getItem(i3)).setPrimary(false);
             }
-            this.f50191f = i2;
+            this.f50304f = i2;
             if (obj instanceof BaseFragment) {
                 BaseFragment baseFragment = (BaseFragment) obj;
                 baseFragment.setPrimary(true);
-                this.f50192g = baseFragment;
+                this.f50305g = baseFragment;
             }
         }
     }
@@ -219,11 +219,11 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            List<a> list = this.f50190e;
-            if (list == null || i2 < 0 || i2 >= list.size() || this.f50190e.get(i2) == null || !(this.f50190e.get(i2).f50195a instanceof EnterForumTabFeedFragment)) {
+            List<a> list = this.f50303e;
+            if (list == null || i2 < 0 || i2 >= list.size() || this.f50303e.get(i2) == null || !(this.f50303e.get(i2).f50308a instanceof EnterForumTabFeedFragment)) {
                 return false;
             }
-            return this.f50190e.get(i2).f50197c;
+            return this.f50303e.get(i2).f50310c;
         }
         return invokeI.booleanValue;
     }
@@ -231,19 +231,19 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     public void add(a aVar, int i2) {
         List<a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, i2) == null) || (list = this.f50190e) == null || aVar == null || i2 < 0 || i2 > list.size() || aVar.f50195a.isAdded()) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, i2) == null) || (list = this.f50303e) == null || aVar == null || i2 < 0 || i2 > list.size() || aVar.f50308a.isAdded()) {
             return;
         }
-        this.f50190e.add(i2, aVar);
+        this.f50303e.add(i2, aVar);
         notifyDataSetChanged();
     }
 
     public void addAll(List<a> list, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, list, i2) == null) || this.f50190e == null || list == null || list.size() <= 0 || i2 < 0 || i2 > this.f50190e.size()) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, list, i2) == null) || this.f50303e == null || list == null || list.size() <= 0 || i2 < 0 || i2 > this.f50303e.size()) {
             return;
         }
-        this.f50190e.addAll(i2, list);
+        this.f50303e.addAll(i2, list);
         notifyDataSetChanged();
     }
 
@@ -265,8 +265,8 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
                 return;
             }
         }
-        this.f50191f = -1;
-        this.f50194i = fragmentManager;
-        this.f50190e = list;
+        this.f50304f = -1;
+        this.f50307i = fragmentManager;
+        this.f50303e = list;
     }
 }

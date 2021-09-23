@@ -15,7 +15,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.armor.SecurePay;
 import com.dxmpay.apollon.utils.SharedPreferencesUtils;
 import com.dxmpay.wallet.api.WalletLoginHelper;
+import com.dxmpay.wallet.base.statistics.StatServiceEvent;
 import com.dxmpay.wallet.core.beans.BeanConstants;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -29,10 +31,10 @@ public final class OtpTokenUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f69549a = 0;
+    public static long f69860a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f69550b = 10;
+    public static int f69861b = 10;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -126,7 +128,21 @@ public final class OtpTokenUtils {
     public static String getEncryptTOtpCode(Context context, int i2, String str, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Integer.valueOf(i2), str, Integer.valueOf(i3)})) == null) ? !TextUtils.isEmpty(str) ? new c(str, i2, 0L, i3).a(context) : "" : (String) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Integer.valueOf(i2), str, Integer.valueOf(i3)})) == null) {
+            StatisticManager.onEvent(StatServiceEvent.EVENT_FP_GET_ENCRYPT_OTP_ENTER);
+            if (!TextUtils.isEmpty(str)) {
+                String a2 = new c(str, i2, 0L, i3).a(context);
+                if (TextUtils.isEmpty(a2)) {
+                    StatisticManager.onEvent(StatServiceEvent.EVENT_FP_GET_ENCRYPT_OTP_IS_NULL);
+                } else {
+                    StatisticManager.onEvent(StatServiceEvent.EVENT_FP_GET_ENCRYPT_OTP_SUCCESS);
+                }
+                return a2;
+            }
+            StatisticManager.onEvent(StatServiceEvent.EVENT_FP_GET_ENCRYPT_OTP_FAIL);
+            return "";
+        }
+        return (String) invokeCommon.objValue;
     }
 
     public static String getSN(String str) {
@@ -175,26 +191,29 @@ public final class OtpTokenUtils {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, context)) == null) {
+            StatisticManager.onEvent(StatServiceEvent.EVENT_FP_GET_SAVE_DATE_ENTER);
             String unionId = WalletLoginHelper.getInstance().getUnionId();
             String str2 = SecurePay.getInstance().tokenDecrypt(str);
-            if (TextUtils.isEmpty(str2)) {
-                return "";
-            }
-            try {
-                byte[] bytes = str2.getBytes("UTF-8");
-                if (bytes.length >= 1) {
-                    byte[] bArr = new byte[bytes.length - 1];
-                    System.arraycopy(bytes, 0, bArr, 0, bytes.length - 1);
-                    if (bytes[bytes.length - 1] == 1 && !TextUtils.isEmpty(unionId)) {
-                        bArr = xorArrayRepeat(bArr, unionId.getBytes("UTF-8"));
+            if (!TextUtils.isEmpty(str2)) {
+                try {
+                    byte[] bytes = str2.getBytes("UTF-8");
+                    if (bytes.length >= 1) {
+                        byte[] bArr = new byte[bytes.length - 1];
+                        System.arraycopy(bytes, 0, bArr, 0, bytes.length - 1);
+                        if (bytes[bytes.length - 1] == 1 && !TextUtils.isEmpty(unionId)) {
+                            bArr = xorArrayRepeat(bArr, unionId.getBytes("UTF-8"));
+                        }
+                        StatisticManager.onEvent(StatServiceEvent.EVENT_FP_GET_SAVE_DATE_SUCCESS);
+                        return new String(bArr, "UTF-8");
                     }
-                    return new String(bArr, "UTF-8");
+                    StatisticManager.onEvent(StatServiceEvent.EVENT_FP_GET_SAVE_DATE_FAIL);
+                } catch (UnsupportedEncodingException e2) {
+                    e2.printStackTrace();
+                    StatisticManager.onEventWithValue(StatServiceEvent.EVENT_FP_GET_SAVE_DATE_EXCEPTION, e2.toString());
                 }
-                return "";
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
-                return "";
             }
+            StatisticManager.onEvent(StatServiceEvent.EVENT_FP_GET_SAVE_DATE_IS_NULL);
+            return "";
         }
         return (String) invokeLL.objValue;
     }
@@ -202,13 +221,13 @@ public final class OtpTokenUtils {
     public static long getmSyncWithServerTime(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f60314b, 0L)).longValue() : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f60439b, 0L)).longValue() : invokeL.longValue;
     }
 
     public static void setmSyncWithServerTime(Context context, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65545, null, context, j2) == null) {
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f60314b, Long.valueOf(j2));
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f60439b, Long.valueOf(j2));
         }
     }
 
@@ -220,7 +239,7 @@ public final class OtpTokenUtils {
             HttpsURLConnection httpsURLConnection2 = null;
             try {
                 try {
-                    f69549a = 0L;
+                    f69860a = 0L;
                     httpsURLConnection = (HttpsURLConnection) new URL("https://www.baidu.com/").openConnection();
                 } catch (Throwable th) {
                     th = th;
@@ -232,10 +251,10 @@ public final class OtpTokenUtils {
                 httpsURLConnection.setDoOutput(true);
                 httpsURLConnection.setUseCaches(false);
                 httpsURLConnection.setRequestMethod("GET");
-                httpsURLConnection.setConnectTimeout(f69550b * 1000);
+                httpsURLConnection.setConnectTimeout(f69861b * 1000);
                 httpsURLConnection.setHostnameVerifier(new a());
                 httpsURLConnection.connect();
-                f69549a = httpsURLConnection.getDate() / 1000;
+                f69860a = httpsURLConnection.getDate() / 1000;
                 if (httpsURLConnection != null) {
                     try {
                         InputStream a2 = a(httpsURLConnection);
@@ -247,7 +266,7 @@ public final class OtpTokenUtils {
                     }
                     httpsURLConnection.disconnect();
                 }
-                return (System.currentTimeMillis() / 1000) - f69549a;
+                return (System.currentTimeMillis() / 1000) - f69860a;
             } catch (Exception e4) {
                 e = e4;
                 httpsURLConnection2 = httpsURLConnection;

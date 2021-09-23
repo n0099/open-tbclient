@@ -30,6 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -406,7 +407,7 @@ public class PaInfoDBManager extends DBBase {
                                         }
                                     }
                                 }
-                                this.val$listener.onResult(0, "ok", this.val$resultUsers);
+                                this.val$listener.onResult(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, this.val$resultUsers);
                                 this.this$0.updateAllShield(this.val$resultUsers);
                             }
                         }
@@ -603,7 +604,7 @@ public class PaInfoDBManager extends DBBase {
                     LogUtils.e(TAG, "getShieldUserByUids whereClause :" + str3 + ", update :" + arrayList.size() + ", user :" + list.size());
                     updateAllShield(arrayList);
                     if (list.size() <= 0) {
-                        iGetUserShieldListener.onResult(0, "ok", arrayList);
+                        iGetUserShieldListener.onResult(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, arrayList);
                     } else {
                         getPaInfo(list, arrayList, iGetUserShieldListener);
                     }

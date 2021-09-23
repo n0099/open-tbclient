@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.alasquare.special_forum.message;
 
 import c.a.q0.s.q.d2;
-import c.a.r0.v.d.g.c.b;
-import c.a.r0.v.d.g.c.c;
+import c.a.r0.v.f.g.c.b;
+import c.a.r0.v.f.g.c.c;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -69,8 +69,8 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
                 c cVar = this.mSpecialActivityListData;
-                if (cVar != null && cVar.f25790e == null) {
-                    cVar.f25790e = new ArrayList();
+                if (cVar != null && cVar.f25813e == null) {
+                    cVar.f25813e = new ArrayList();
                 }
                 if (optJSONArray2 != null) {
                     for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
@@ -78,7 +78,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                         if (optJSONObject3 != null) {
                             b bVar = new b();
                             bVar.g(optJSONObject3);
-                            this.mSpecialActivityListData.f25790e.add(bVar);
+                            this.mSpecialActivityListData.f25813e.add(bVar);
                         }
                     }
                 }

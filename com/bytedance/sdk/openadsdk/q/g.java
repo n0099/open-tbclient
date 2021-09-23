@@ -37,7 +37,7 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f68851a;
+                public final /* synthetic */ a f69162a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -54,7 +54,7 @@ public class g {
                             return;
                         }
                     }
-                    this.f68851a = aVar2;
+                    this.f69162a = aVar2;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.k.a.a.b
@@ -62,11 +62,11 @@ public class g {
                     a aVar3;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bVar) == null) {
-                        if (bVar.c() && (aVar3 = this.f68851a) != null) {
+                        if (bVar.c() && (aVar3 = this.f69162a) != null) {
                             aVar3.a(bVar);
                             return;
                         }
-                        a aVar4 = this.f68851a;
+                        a aVar4 = this.f69162a;
                         if (aVar4 != null) {
                             aVar4.a();
                         }
@@ -77,7 +77,7 @@ public class g {
                 public void a(int i3, String str, @Nullable Throwable th) {
                     a aVar3;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str, th) == null) || (aVar3 = this.f68851a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str, th) == null) || (aVar3 = this.f69162a) == null) {
                         return;
                     }
                     aVar3.a();
@@ -87,7 +87,7 @@ public class g {
                 public void a() {
                     a aVar3;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar3 = this.f68851a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar3 = this.f69162a) == null) {
                         return;
                     }
                     aVar3.b();

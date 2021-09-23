@@ -30,13 +30,13 @@ public class a extends EventTargetImpl {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.f.i.k.f.a f11259e;
+    public c.a.p0.f.i.k.f.a f11267e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.p0.a.y.b.a f11260f;
+    public c.a.p0.a.y.b.a f11268f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11261g;
+    public String f11269g;
 
     /* renamed from: c.a.p0.h.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -45,7 +45,7 @@ public class a extends EventTargetImpl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11262a;
+        public final /* synthetic */ a f11270a;
 
         public C0572a(a aVar) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class a extends EventTargetImpl {
                     return;
                 }
             }
-            this.f11262a = aVar;
+            this.f11270a = aVar;
         }
 
         @Override // c.a.p0.f.i.k.f.a
@@ -73,7 +73,7 @@ public class a extends EventTargetImpl {
                 bVar.progress = i2;
                 JSEvent jSEvent = new JSEvent("ProgressChange");
                 jSEvent.data = bVar;
-                this.f11262a.dispatchEvent(jSEvent);
+                this.f11270a.dispatchEvent(jSEvent);
             }
         }
 
@@ -92,7 +92,7 @@ public class a extends EventTargetImpl {
                 dVar.state = downloadState.value();
                 JSEvent jSEvent = new JSEvent("StateChange");
                 jSEvent.data = dVar;
-                this.f11262a.dispatchEvent(jSEvent);
+                this.f11270a.dispatchEvent(jSEvent);
             }
         }
 
@@ -107,7 +107,7 @@ public class a extends EventTargetImpl {
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11262a.f11261g : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11270a.f11269g : (String) invokeV.objValue;
         }
 
         @Override // c.a.p0.f.i.k.f.a
@@ -136,10 +136,10 @@ public class a extends EventTargetImpl {
                 return;
             }
         }
-        this.f11260f = aVar;
+        this.f11268f = aVar;
         if (y()) {
-            this.f11259e = new C0572a(this);
-            c.a.p0.h.t.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS, this.f11259e);
+            this.f11267e = new C0572a(this);
+            c.a.p0.h.t.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS, this.f11267e);
         }
     }
 
@@ -189,7 +189,7 @@ public class a extends EventTargetImpl {
     public void deleteDownload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.p0.h.t.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD, this.f11259e);
+            c.a.p0.h.t.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD, this.f11267e);
         }
     }
 
@@ -197,7 +197,7 @@ public class a extends EventTargetImpl {
     public void installApp() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.p0.h.t.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP, this.f11259e);
+            c.a.p0.h.t.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP, this.f11267e);
         }
     }
 
@@ -205,7 +205,7 @@ public class a extends EventTargetImpl {
     public void openApp() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            B(AppRuntime.getAppContext(), this.f11261g);
+            B(AppRuntime.getAppContext(), this.f11269g);
         }
     }
 
@@ -213,7 +213,7 @@ public class a extends EventTargetImpl {
     public void pauseDownload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.p0.h.t.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.f11259e);
+            c.a.p0.h.t.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.f11267e);
         }
     }
 
@@ -221,7 +221,7 @@ public class a extends EventTargetImpl {
     public void resumeDownload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.p0.h.t.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD, this.f11259e);
+            c.a.p0.h.t.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD, this.f11267e);
         }
     }
 
@@ -229,7 +229,7 @@ public class a extends EventTargetImpl {
     public void startDownload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            c.a.p0.h.t.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.f11259e);
+            c.a.p0.h.t.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.f11267e);
         }
     }
 
@@ -237,24 +237,24 @@ public class a extends EventTargetImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            this.f11261g = c.a.p0.h.t.a.f().getPackageName();
+            this.f11269g = c.a.p0.h.t.a.f().getPackageName();
             if (!c.a.p0.h.t.a.f().b()) {
                 c.a.p0.h.d.c.b bVar = new c.a.p0.h.d.c.b();
                 bVar.errMsg = "download url is empty";
-                c.a.p0.h.m0.c.a(this.f11260f, false, bVar);
-                z("reallyDownloadNull", this.f11261g);
+                c.a.p0.h.m0.c.a(this.f11268f, false, bVar);
+                z("reallyDownloadNull", this.f11269g);
                 return false;
-            } else if (A(AppRuntime.getAppContext(), this.f11261g)) {
+            } else if (A(AppRuntime.getAppContext(), this.f11269g)) {
                 c.a.p0.h.d.c.b bVar2 = new c.a.p0.h.d.c.b();
                 bVar2.errMsg = "apk has installed";
-                c.a.p0.h.m0.c.a(this.f11260f, false, bVar2);
-                z("reallyHasInstalled", this.f11261g);
+                c.a.p0.h.m0.c.a(this.f11268f, false, bVar2);
+                z("reallyHasInstalled", this.f11269g);
                 return false;
             } else {
                 c cVar = new c();
                 cVar.statusCode = 0;
-                cVar.packageName = this.f11261g;
-                c.a.p0.h.m0.c.a(this.f11260f, true, cVar);
+                cVar.packageName = this.f11269g;
+                c.a.p0.h.m0.c.a(this.f11268f, true, cVar);
                 return true;
             }
         }
@@ -265,8 +265,8 @@ public class a extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
             e eVar = new e();
-            eVar.f7064b = str;
-            eVar.f7063a = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
+            eVar.f7072b = str;
+            eVar.f7071a = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
             eVar.a("targetPackageName", str2);
             k.g(eVar);
         }

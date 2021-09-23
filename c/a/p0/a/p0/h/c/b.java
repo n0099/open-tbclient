@@ -16,7 +16,7 @@ public class b extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f7996e;
+    public static final boolean f8004e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class b extends a {
                 return;
             }
         }
-        f7996e = k.f7077a;
+        f8004e = k.f7085a;
     }
 
     public b() {
@@ -61,7 +61,7 @@ public class b extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            boolean z = f7996e;
+            boolean z = f8004e;
             return null;
         }
         return (Exception) invokeL.objValue;
@@ -105,7 +105,7 @@ public class b extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            boolean z = f7996e;
+            boolean z = f8004e;
             return false;
         }
         return invokeV.booleanValue;

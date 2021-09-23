@@ -23,19 +23,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Runnable f13737a;
+    public static Runnable f13733a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f13738b;
+    public static boolean f13734b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.q0.r0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC0677a implements Runnable {
+    public static class RunnableC0675a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC0677a() {
+        public RunnableC0675a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,13 +141,13 @@ public class a {
                 return;
             }
         }
-        f13737a = new RunnableC0677a();
+        f13733a = new RunnableC0675a();
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, null) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            e.a().post(f13737a);
+            e.a().post(f13733a);
             MessageManager.getInstance().registerListener(new b(2000993));
             MessageManager.getInstance().registerListener(new c(2000988));
         }
@@ -156,8 +156,8 @@ public class a {
     public static final void d() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            f13738b = false;
-            e.a().removeCallbacks(f13737a);
+            f13734b = false;
+            e.a().removeCallbacks(f13733a);
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApplicationContext(), 1000);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004602, new ArrayList()));
         }
@@ -166,12 +166,12 @@ public class a {
     public static final void e() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            e.a().removeCallbacks(f13737a);
-            e.a().postDelayed(f13737a, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
-            if (f13738b) {
+            e.a().removeCallbacks(f13733a);
+            e.a().postDelayed(f13733a, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
+            if (f13734b) {
                 return;
             }
-            f13738b = true;
+            f13734b = true;
             String string = TbadkCoreApplication.getInst().getResources().getString(R.string.plugin_tip_installing);
             NotificationHelper.showNotification(TbadkCoreApplication.getInst().getApplicationContext(), 1000, null, string, string, null, false);
         }

@@ -15,16 +15,16 @@ public class RestResponseEntity<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HttpStatus f38012a;
+    public final HttpStatus f38060a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.apollon.restnet.http.a f38013b;
+    public com.baidu.apollon.restnet.http.a f38061b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f38014c;
+    public T f38062c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38015d;
+    public String f38063d;
 
     public RestResponseEntity(HttpStatus httpStatus) {
         Interceptable interceptable = $ic;
@@ -41,32 +41,32 @@ public class RestResponseEntity<T> {
                 return;
             }
         }
-        this.f38012a = httpStatus;
+        this.f38060a = httpStatus;
     }
 
     public HttpStatus a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38012a : (HttpStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38060a : (HttpStatus) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38015d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38063d : (String) invokeV.objValue;
     }
 
     public T getBody() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38014c : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38062c : (T) invokeV.objValue;
     }
 
     public List<String> getHeaderValue(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            com.baidu.apollon.restnet.http.a aVar = this.f38013b;
+            com.baidu.apollon.restnet.http.a aVar = this.f38061b;
             if (aVar != null) {
                 return aVar.get((Object) str);
             }
@@ -80,12 +80,12 @@ public class RestResponseEntity<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             StringBuilder sb = new StringBuilder("<");
-            sb.append(this.f38012a.toString());
+            sb.append(this.f38060a.toString());
             sb.append(' ');
-            sb.append(this.f38012a.getReasonPhrase());
+            sb.append(this.f38060a.getReasonPhrase());
             sb.append(',');
             T body = getBody();
-            com.baidu.apollon.restnet.http.a aVar = this.f38013b;
+            com.baidu.apollon.restnet.http.a aVar = this.f38061b;
             if (body != null) {
                 sb.append(body);
                 if (aVar != null) {
@@ -105,7 +105,7 @@ public class RestResponseEntity<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            com.baidu.apollon.restnet.http.a aVar = this.f38013b;
+            com.baidu.apollon.restnet.http.a aVar = this.f38061b;
             return aVar != null ? aVar.c(str) : "";
         }
         return (String) invokeL.objValue;
@@ -114,7 +114,7 @@ public class RestResponseEntity<T> {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f38015d = str;
+            this.f38063d = str;
         }
     }
 
@@ -133,8 +133,8 @@ public class RestResponseEntity<T> {
                 return;
             }
         }
-        this.f38012a = httpStatus;
-        this.f38014c = t;
+        this.f38060a = httpStatus;
+        this.f38062c = t;
     }
 
     public RestResponseEntity(com.baidu.apollon.restnet.http.a aVar, HttpStatus httpStatus) {
@@ -152,8 +152,8 @@ public class RestResponseEntity<T> {
                 return;
             }
         }
-        this.f38013b = aVar;
-        this.f38012a = httpStatus;
+        this.f38061b = aVar;
+        this.f38060a = httpStatus;
     }
 
     public RestResponseEntity(T t, com.baidu.apollon.restnet.http.a aVar, HttpStatus httpStatus) {
@@ -171,8 +171,8 @@ public class RestResponseEntity<T> {
                 return;
             }
         }
-        this.f38013b = aVar;
-        this.f38014c = t;
-        this.f38012a = httpStatus;
+        this.f38061b = aVar;
+        this.f38062c = t;
+        this.f38060a = httpStatus;
     }
 }

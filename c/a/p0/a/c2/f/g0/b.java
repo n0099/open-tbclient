@@ -16,7 +16,7 @@ public class b extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f4850h;
+    public String f4858h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(h hVar) {
@@ -42,7 +42,7 @@ public class b extends a {
     public void e(String str) {
         String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && i() && (str2 = this.f4850h) != null && str2.equals(str)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && i() && (str2 = this.f4858h) != null && str2.equals(str)) {
             c.a.p0.a.a2.d g2 = c.a.p0.a.a2.d.g();
             if (g2.C()) {
                 if (g2.r().d0()) {
@@ -61,7 +61,7 @@ public class b extends a {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (e.Q() == null || this.f4848f == 0) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (e.Q() == null || this.f4856f == 0) ? false : true : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -71,8 +71,8 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             if (c.a.p0.a.v1.b.c.f(aVar.C(), "swan_forbidden_kill_on_client")) {
-                this.f4848f = aVar.j("ipc_forbidden_flag", 1);
-                this.f4850h = aVar.o("mAppId", c.a.p0.a.a2.d.g().getAppId());
+                this.f4856f = aVar.j("ipc_forbidden_flag", 1);
+                this.f4858h = aVar.o("mAppId", c.a.p0.a.a2.d.g().getAppId());
             }
             if (c.a.p0.a.v1.b.c.f(aVar.C(), "swan_kill_to_client")) {
                 c.a.p0.a.a2.d.g().o("flag_finish_activity", "flag_remove_task");

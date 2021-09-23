@@ -16,16 +16,16 @@ public final class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final x f64192a;
+    public static final x f64503a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final x f64193b;
+    public static final x f64504b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final x f64194c;
+    public static final x f64505c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ x[] f64195d;
+    public static final /* synthetic */ x[] f64506d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,11 +41,11 @@ public final class x {
                 return;
             }
         }
-        f64192a = new x("PUBLIC", 0);
-        f64193b = new x("PROTECTED", 1);
+        f64503a = new x("PUBLIC", 0);
+        f64504b = new x("PROTECTED", 1);
         x xVar = new x("PRIVATE", 2);
-        f64194c = xVar;
-        f64195d = new x[]{f64192a, f64193b, xVar};
+        f64505c = xVar;
+        f64506d = new x[]{f64503a, f64504b, xVar};
     }
 
     public x(String str, int i2) {
@@ -72,16 +72,16 @@ public final class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f64192a;
+                return f64503a;
             }
             String lowerCase = str.toLowerCase();
             if (TextUtils.equals("protected", lowerCase)) {
-                return f64193b;
+                return f64504b;
             }
             if (TextUtils.equals(PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE, lowerCase)) {
-                return f64194c;
+                return f64505c;
             }
-            return f64192a;
+            return f64503a;
         }
         return (x) invokeL.objValue;
     }
@@ -95,13 +95,13 @@ public final class x {
     public static x[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (x[]) f64195d.clone() : (x[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (x[]) f64506d.clone() : (x[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this == f64194c ? PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE : this == f64193b ? "protected" : "public" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this == f64505c ? PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE : this == f64504b ? "protected" : "public" : (String) invokeV.objValue;
     }
 }

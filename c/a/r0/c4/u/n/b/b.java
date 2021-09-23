@@ -19,13 +19,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f17010a;
+    public Context f17020a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f17011b;
+    public Bitmap f17021b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f17012c;
+    public Rect f17022c;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -42,21 +42,21 @@ public class b {
                 return;
             }
         }
-        this.f17010a = context;
-        this.f17012c = new Rect();
+        this.f17020a = context;
+        this.f17022c = new Rect();
     }
 
     public void a(Canvas canvas, float f2, float f3) {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3)}) == null) || (bitmap = this.f17011b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3)}) == null) || (bitmap = this.f17021b) == null) {
             return;
         }
-        this.f17012c.left = (int) (f2 - (bitmap.getWidth() / 2));
-        this.f17012c.right = (int) (f2 + (this.f17011b.getWidth() / 2));
-        this.f17012c.top = (int) (f3 - (this.f17011b.getHeight() / 2));
-        this.f17012c.bottom = (int) (f3 + (this.f17011b.getHeight() / 2));
-        canvas.drawBitmap(this.f17011b, (Rect) null, this.f17012c, (Paint) null);
+        this.f17022c.left = (int) (f2 - (bitmap.getWidth() / 2));
+        this.f17022c.right = (int) (f2 + (this.f17021b.getWidth() / 2));
+        this.f17022c.top = (int) (f3 - (this.f17021b.getHeight() / 2));
+        this.f17022c.bottom = (int) (f3 + (this.f17021b.getHeight() / 2));
+        canvas.drawBitmap(this.f17021b, (Rect) null, this.f17022c, (Paint) null);
     }
 
     public boolean b(MotionEvent motionEvent) {
@@ -66,7 +66,7 @@ public class b {
             if (motionEvent == null) {
                 return false;
             }
-            Rect rect = this.f17012c;
+            Rect rect = this.f17022c;
             return motionEvent.getX(0) >= ((float) rect.left) && motionEvent.getX(0) <= ((float) rect.right) && motionEvent.getY(0) >= ((float) rect.top) && motionEvent.getY(0) <= ((float) rect.bottom);
         }
         return invokeL.booleanValue;
@@ -75,7 +75,7 @@ public class b {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f17011b = BitmapHelper.getResBitmap(this.f17010a, i2);
+            this.f17021b = BitmapHelper.getResBitmap(this.f17020a, i2);
         }
     }
 }

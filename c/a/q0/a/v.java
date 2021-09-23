@@ -16,16 +16,16 @@ public class v {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f12674a;
+    public long f12682a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12675b;
+    public long f12683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<z> f12676c;
+    public ArrayList<z> f12684c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12677d;
+    public String f12685d;
 
     public v() {
         Interceptable interceptable = $ic;
@@ -44,25 +44,25 @@ public class v {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12675b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12683b : invokeV.longValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12674a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12682a : invokeV.longValue;
     }
 
     public ArrayList<z> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12676c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12684c : (ArrayList) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12677d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12685d : (String) invokeV.objValue;
     }
 
     public void e(String str) {
@@ -72,10 +72,10 @@ public class v {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f12674a = jSONObject.optLong("start_date", 0L) * 1000;
-            this.f12675b = jSONObject.optLong("end_date", 0L) * 1000;
-            this.f12677d = jSONObject.optString("ahead_url", "");
-            this.f12676c = new ArrayList<>();
+            this.f12682a = jSONObject.optLong("start_date", 0L) * 1000;
+            this.f12683b = jSONObject.optLong("end_date", 0L) * 1000;
+            this.f12685d = jSONObject.optString("ahead_url", "");
+            this.f12684c = new ArrayList<>();
             JSONArray optJSONArray = jSONObject.optJSONArray("time");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return;
@@ -84,7 +84,7 @@ public class v {
                 JSONArray optJSONArray2 = optJSONArray.optJSONArray(i2);
                 z zVar = new z();
                 zVar.c(optJSONArray2);
-                this.f12676c.add(zVar);
+                this.f12684c.add(zVar);
             }
         } catch (Exception e2) {
             BdLog.e(e2);

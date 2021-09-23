@@ -51,7 +51,7 @@ public class g0 extends PostData {
         }
     }
 
-    public boolean C0() {
+    public boolean E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

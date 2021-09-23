@@ -1,6 +1,5 @@
 package com.baidu.android.lbspay.channelpay.alipay;
 
-import com.alipay.sdk.util.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,6 +9,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class Result {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String ALIPAY_MEMO = "memo";
+    public static final String ALIPAY_RESULT = "result";
+    public static final String ALIPAY_RESULT_STATUS = "resultStatus";
     public static final String RESULT_CANCLE = "6001";
     public static final String RESULT_ERROR = "9999";
     public static final String RESULT_FAILED = "4000";
@@ -39,14 +41,14 @@ public class Result {
         }
         try {
             for (String str2 : str.split(";")) {
-                if (str2.startsWith(i.f36094a)) {
-                    this.resultStatus = gatValue(str2, i.f36094a);
+                if (str2.startsWith("resultStatus")) {
+                    this.resultStatus = gatValue(str2, "resultStatus");
                 }
                 if (str2.startsWith("result")) {
                     this.result = gatValue(str2, "result");
                 }
-                if (str2.startsWith(i.f36095b)) {
-                    this.memo = gatValue(str2, i.f36095b);
+                if (str2.startsWith("memo")) {
+                    this.memo = gatValue(str2, "memo");
                 }
             }
         } catch (Exception e2) {

@@ -2,49 +2,28 @@ package com.baidu.wallet.paysdk.beans;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.datamodel.ErrorContentResponse;
-import com.baidu.wallet.paysdk.datamodel.VerifyByBankResponse;
-import com.baidu.wallet.paysdk.storage.PayDataCache;
+import com.baidu.wallet.paysdk.ui.widget.FeedbackDialog;
 import com.dxmpay.apollon.restnet.RestNameValuePair;
 import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class z extends BaseBean<VerifyByBankResponse> {
+public class z extends BaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String[] f62445a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final List f62446b;
+    /* renamed from: a  reason: collision with root package name */
+    public String f62723a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1059364642, "Lcom/baidu/wallet/paysdk/beans/z;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1059364642, "Lcom/baidu/wallet/paysdk/beans/z;");
-                return;
-            }
-        }
-        f62445a = new String[]{"coupon_id", "activity_id", "stage_number", "need_bind_card", "sms_vcode", "seed", "mobile_pwd", "confirm_mobile_pwd", "mobile_pwd_psp", "open_passfree", "fp_code", "fp_num", "need_open_passfree", "need_open_authorize", "message_vcode", "is_pay_sms"};
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public FeedbackDialog.c f62724b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(Context context) {
@@ -54,24 +33,31 @@ public class z extends BaseBean<VerifyByBankResponse> {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f62446b = Arrays.asList(f62445a);
+    }
+
+    public void a(String str, FeedbackDialog.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
+            this.f62723a = str;
+            this.f62724b = cVar;
+        }
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.execBean(VerifyByBankResponse.class, ErrorContentResponse.class);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.execBean(String.class);
         }
     }
 
@@ -79,14 +65,12 @@ public class z extends BaseBean<VerifyByBankResponse> {
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList(PayDataCache.getInstance().getPrePayRequestParams());
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                if (this.f62446b.indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
-                    it.remove();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new RestNameValuePair("trans_no", this.f62723a));
+            arrayList.add(new RestNameValuePair("score", "" + this.f62724b.f63564a));
+            FeedbackDialog.c cVar = this.f62724b;
+            arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f63565b : null)));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -96,16 +80,34 @@ public class z extends BaseBean<VerifyByBankResponse> {
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PayBeanFactory.BEAN_ID_SEND_SMS_FOR_VERIFY_BY_BANK : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? PayBeanFactory.BEAN_ID_SAVE_FEEDBACK : invokeV.intValue;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_APPLY_VERIFY_SMS_BY_BANK;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_SAVE_FEEDBACK;
         }
         return (String) invokeV.objValue;
+    }
+
+    public String a(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (strArr != null && strArr.length > 0) {
+                sb.append(strArr[0]);
+                for (int i2 = 1; i2 < strArr.length; i2++) {
+                    sb.append(",");
+                    sb.append(strArr[i2]);
+                }
+                sb = new StringBuilder(PreferencesUtil.LEFT_MOUNT + ((Object) sb) + PreferencesUtil.RIGHT_MOUNT);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

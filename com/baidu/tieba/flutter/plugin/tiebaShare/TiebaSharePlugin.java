@@ -116,10 +116,10 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
             if (d2Var.N1()) {
                 return 7;
             }
-            if (d2Var.y1) {
+            if (d2Var.z1) {
                 return 6;
             }
-            int i2 = d2Var.c0;
+            int i2 = d2Var.i0;
             if (i2 == 0) {
                 return 1;
             }
@@ -157,7 +157,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
                 if (d2Var.O1()) {
                     return 8;
                 }
-                if (!d2Var.y1 || d2Var.x1 == null) {
+                if (!d2Var.z1 || d2Var.y1 == null) {
                     return d2Var.r2() ? 2 : 1;
                 }
                 return 9;
@@ -222,7 +222,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         }
         String valueOf = String.valueOf(d2Var.T());
         String Z = d2Var.Z();
-        OriginalForumInfo originalForumInfo = d2Var.I1;
+        OriginalForumInfo originalForumInfo = d2Var.J1;
         if (originalForumInfo != null) {
             valueOf = originalForumInfo.id;
             Z = originalForumInfo.ori_fname;
@@ -284,7 +284,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
             shareItem.J = str3;
             shareItem.p = str2;
             shareItem.K = str6;
-            shareItem.f48110f = true;
+            shareItem.f48218f = true;
             shareItem.o = 6;
             shareItem.E = 8;
             shareItem.M = stateThreadType;
@@ -338,7 +338,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         shareItem2.J = str3;
         shareItem2.p = str2;
         shareItem2.K = str6;
-        shareItem2.f48110f = true;
+        shareItem2.f48218f = true;
         shareItem2.o = 6;
         shareItem2.E = 8;
         shareItem2.M = stateThreadType2;

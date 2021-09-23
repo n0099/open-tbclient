@@ -19,10 +19,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<MetaData> f16787a;
+    public final ArrayList<MetaData> f16797a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f16788b;
+    public HashMap<String, String> f16798b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -37,14 +37,14 @@ public class b {
                 return;
             }
         }
-        this.f16787a = new ArrayList<>();
-        this.f16788b = null;
+        this.f16797a = new ArrayList<>();
+        this.f16798b = null;
     }
 
     public ArrayList<MetaData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16787a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16797a : (ArrayList) invokeV.objValue;
     }
 
     public void b(String str) {
@@ -65,8 +65,8 @@ public class b {
         }
         if (z) {
             try {
-                if (this.f16788b == null) {
-                    this.f16788b = new HashMap<>();
+                if (this.f16798b == null) {
+                    this.f16798b = new HashMap<>();
                 }
             } catch (Exception e2) {
                 BdLog.detailException(e2);
@@ -79,9 +79,9 @@ public class b {
                 MetaData metaData = new MetaData();
                 metaData.parserJson(optJSONArray.getJSONObject(i2));
                 if (!TextUtils.isEmpty(metaData.getName_show())) {
-                    this.f16787a.add(metaData);
+                    this.f16797a.add(metaData);
                     if (z) {
-                        this.f16788b.put(metaData.getName_show(), metaData.getPortrait());
+                        this.f16798b.put(metaData.getName_show(), metaData.getPortrait());
                     }
                 }
             }

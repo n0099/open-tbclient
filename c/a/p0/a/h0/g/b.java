@@ -13,10 +13,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f5872a = -1;
+    public static int f5880a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c.a.p0.a.k2.g.g f5873b;
+    public static c.a.p0.a.k2.g.g f5881b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,14 +52,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f5873b == null) {
+            if (f5881b == null) {
                 synchronized (b.class) {
-                    if (f5873b == null) {
-                        f5873b = new c.a.p0.a.k2.g.g("swan_about_page_sp", true);
+                    if (f5881b == null) {
+                        f5881b = new c.a.p0.a.k2.g.g("swan_about_page_sp", true);
                     }
                 }
             }
-            return f5873b;
+            return f5881b;
         }
         return (c.a.p0.a.k2.g.g) invokeV.objValue;
     }
@@ -84,10 +84,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f5872a == -1) {
-                f5872a = a().getInt(b(), 0);
+            if (f5880a == -1) {
+                f5880a = a().getInt(b(), 0);
             }
-            return f5872a == 1;
+            return f5880a == 1;
         }
         return invokeV.booleanValue;
     }

@@ -15,10 +15,10 @@ public final class j implements BaseNotifyLayoutAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Resources f76682a;
+    public Resources f77001a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f76683b;
+    public String f77002b;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class j implements BaseNotifyLayoutAdapter {
     public final int getNotificationLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76682a.getIdentifier("push_notify", "layout", this.f76683b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f77001a.getIdentifier("push_notify", "layout", this.f77002b) : invokeV.intValue;
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
@@ -49,17 +49,17 @@ public final class j implements BaseNotifyLayoutAdapter {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (k.f76690g) {
-                resources = this.f76682a;
-                str = this.f76683b;
+            if (k.f77009g) {
+                resources = this.f77001a;
+                str = this.f77002b;
                 str2 = "notify_icon_rom30";
-            } else if (k.f76689f) {
-                resources = this.f76682a;
-                str = this.f76683b;
+            } else if (k.f77008f) {
+                resources = this.f77001a;
+                str = this.f77002b;
                 str2 = "notify_icon_rom20";
             } else {
-                resources = this.f76682a;
-                str = this.f76683b;
+                resources = this.f77001a;
+                str = this.f77002b;
                 str2 = "notify_icon";
             }
             return resources.getIdentifier(str2, "id", str);
@@ -80,13 +80,13 @@ public final class j implements BaseNotifyLayoutAdapter {
                 i2 = 0;
             }
             if (i2 > 0) {
-                return this.f76682a.getColor(i2);
+                return this.f77001a.getColor(i2);
             }
-            if (k.f76690g) {
+            if (k.f77009g) {
                 return -1;
             }
-            if (k.f76689f) {
-                if (k.f76690g) {
+            if (k.f77008f) {
+                if (k.f77009g) {
                     return Color.parseColor("#ff999999");
                 }
                 return -1;
@@ -100,8 +100,8 @@ public final class j implements BaseNotifyLayoutAdapter {
     public final void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f76683b = context.getPackageName();
-            this.f76682a = context.getResources();
+            this.f77002b = context.getPackageName();
+            this.f77001a = context.getResources();
         }
     }
 }

@@ -13,7 +13,7 @@ public class x extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public i f4485a;
+    public i f4493a;
 
     public x() {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public class x extends a {
     public void a(b bVar, Canvas canvas) {
         i iVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) && (iVar = this.f4485a) != null && iVar.d()) {
-            if (this.f4485a.c()) {
-                bVar.f4392f.setShader(this.f4485a.b());
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) && (iVar = this.f4493a) != null && iVar.d()) {
+            if (this.f4493a.c()) {
+                bVar.f4400f.setShader(this.f4493a.b());
                 return;
             }
-            bVar.f4395i.setColor(this.f4485a.a());
-            bVar.f4392f.setColor(this.f4485a.a());
-            bVar.f4392f.setShader(null);
+            bVar.f4403i.setColor(this.f4493a.a());
+            bVar.f4400f.setColor(this.f4493a.a());
+            bVar.f4400f.setShader(null);
         }
     }
 
@@ -50,6 +50,6 @@ public class x extends a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
             return;
         }
-        this.f4485a = new i(jSONArray);
+        this.f4493a = new i(jSONArray);
     }
 }

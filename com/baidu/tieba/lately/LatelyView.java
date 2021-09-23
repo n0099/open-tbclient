@@ -34,22 +34,22 @@ public class LatelyView extends FrameLayout implements e<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53715e;
+    public int f53830e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f53716f;
+    public RecyclerView f53831f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SelectForumItemAdapter f53717g;
+    public SelectForumItemAdapter f53832g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayoutManager f53718h;
+    public LinearLayoutManager f53833h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f53719i;
+    public g f53834i;
 
     /* renamed from: j  reason: collision with root package name */
-    public h f53720j;
+    public h f53835j;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -57,7 +57,7 @@ public class LatelyView extends FrameLayout implements e<String> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LatelyView f53721e;
+        public final /* synthetic */ LatelyView f53836e;
 
         public a(LatelyView latelyView) {
             Interceptable interceptable = $ic;
@@ -74,14 +74,14 @@ public class LatelyView extends FrameLayout implements e<String> {
                     return;
                 }
             }
-            this.f53721e = latelyView;
+            this.f53836e = latelyView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && j.A()) {
-                this.f53721e.request((String) null);
+                this.f53836e.request((String) null);
             }
         }
     }
@@ -111,14 +111,14 @@ public class LatelyView extends FrameLayout implements e<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.select_forum_lately_layout, (ViewGroup) this, true);
-            this.f53716f = (RecyclerView) findViewById(R.id.select_forum_list);
+            this.f53831f = (RecyclerView) findViewById(R.id.select_forum_list);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
-            this.f53717g = selectForumItemAdapter;
+            this.f53832g = selectForumItemAdapter;
             selectForumItemAdapter.setType(1);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-            this.f53718h = linearLayoutManager;
-            this.f53716f.setLayoutManager(linearLayoutManager);
-            this.f53716f.setAdapter(this.f53717g);
+            this.f53833h = linearLayoutManager;
+            this.f53831f.setLayoutManager(linearLayoutManager);
+            this.f53831f.setAdapter(this.f53832g);
         }
     }
 
@@ -132,22 +132,22 @@ public class LatelyView extends FrameLayout implements e<String> {
     public void hideLoadingView() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gVar = this.f53719i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gVar = this.f53834i) == null) {
             return;
         }
         gVar.dettachView(this);
-        this.f53719i = null;
+        this.f53834i = null;
     }
 
     public void hideNetRefreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            h hVar = this.f53720j;
+            h hVar = this.f53835j;
             if (hVar != null) {
                 hVar.dettachView(this);
-                this.f53720j = null;
+                this.f53835j = null;
             }
-            this.f53716f.setVisibility(0);
+            this.f53831f.setVisibility(0);
         }
     }
 
@@ -155,7 +155,7 @@ public class LatelyView extends FrameLayout implements e<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            g gVar = this.f53719i;
+            g gVar = this.f53834i;
             if (gVar != null) {
                 return gVar.isViewAttached();
             }
@@ -168,7 +168,7 @@ public class LatelyView extends FrameLayout implements e<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            h hVar = this.f53720j;
+            h hVar = this.f53835j;
             if (hVar != null) {
                 return hVar.isViewAttached();
             }
@@ -181,19 +181,19 @@ public class LatelyView extends FrameLayout implements e<String> {
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f53715e) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f53830e) {
             return;
         }
-        this.f53715e = skinType;
-        g gVar = this.f53719i;
+        this.f53830e = skinType;
+        g gVar = this.f53834i;
         if (gVar != null) {
             gVar.onChangeSkinType();
         }
-        h hVar = this.f53720j;
+        h hVar = this.f53835j;
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
-        this.f53717g.notifyDataSetChanged();
+        this.f53832g.notifyDataSetChanged();
     }
 
     @Override // c.a.r0.e
@@ -209,12 +209,12 @@ public class LatelyView extends FrameLayout implements e<String> {
         if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || isLoadingViewShowing()) {
             return;
         }
-        if (this.f53719i == null) {
+        if (this.f53834i == null) {
             g gVar = new g(getContext());
-            this.f53719i = gVar;
+            this.f53834i = gVar;
             gVar.onChangeSkinType();
         }
-        this.f53719i.attachView(this, z);
+        this.f53834i.attachView(this, z);
     }
 
     public void showNetRefreshView(boolean z, boolean z2) {
@@ -222,19 +222,19 @@ public class LatelyView extends FrameLayout implements e<String> {
         if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || isRefreshViewShowing()) {
             return;
         }
-        if (this.f53720j == null) {
-            this.f53720j = new h(getContext(), new a(this));
+        if (this.f53835j == null) {
+            this.f53835j = new h(getContext(), new a(this));
         }
-        this.f53720j.j(getResources().getDimensionPixelSize(R.dimen.tbds380));
-        this.f53720j.attachView(this, z);
+        this.f53835j.j(getResources().getDimensionPixelSize(R.dimen.tbds380));
+        this.f53835j.attachView(this, z);
         if (z2) {
-            this.f53720j.o();
+            this.f53835j.o();
         } else {
-            this.f53720j.h(R.drawable.new_pic_emotion_01);
-            this.f53720j.e();
+            this.f53835j.h(R.drawable.new_pic_emotion_01);
+            this.f53835j.e();
         }
-        this.f53720j.n(getContext().getString(R.string.activity_select_forum_empty));
-        this.f53716f.setVisibility(8);
+        this.f53835j.n(getContext().getString(R.string.activity_select_forum_empty));
+        this.f53831f.setVisibility(8);
     }
 
     @Override // c.a.r0.e
@@ -288,26 +288,26 @@ public class LatelyView extends FrameLayout implements e<String> {
                 VisitedForumData next = it.next();
                 if (next != null) {
                     i iVar = new i();
-                    iVar.f15029a = next.getForumId();
-                    iVar.f15030b = next.y();
-                    iVar.f15031c = next.getForumName();
-                    iVar.f15032d = next.getLevel();
-                    iVar.f15033e = next.H();
-                    iVar.f15034f = next.G();
-                    iVar.f15035g = next.w();
-                    iVar.f15036h = next.C();
-                    iVar.f15037i = next.A();
-                    if (iVar.f15033e) {
+                    iVar.f15036a = next.getForumId();
+                    iVar.f15037b = next.y();
+                    iVar.f15038c = next.getForumName();
+                    iVar.f15039d = next.getLevel();
+                    iVar.f15040e = next.H();
+                    iVar.f15041f = next.G();
+                    iVar.f15042g = next.w();
+                    iVar.f15043h = next.C();
+                    iVar.f15044i = next.A();
+                    if (iVar.f15040e) {
                         arrayList2.add(iVar);
                     } else {
                         arrayList.add(iVar);
                     }
-                    iVar.f15038j = next.isForumBusinessAccount;
+                    iVar.f15045j = next.isForumBusinessAccount;
                 }
             }
             arrayList2.addAll(arrayList);
-            this.f53717g.setDataList(arrayList2);
-            this.f53717g.notifyDataSetChanged();
+            this.f53832g.setDataList(arrayList2);
+            this.f53832g.notifyDataSetChanged();
         }
     }
 
@@ -330,7 +330,7 @@ public class LatelyView extends FrameLayout implements e<String> {
                 return;
             }
         }
-        this.f53715e = 3;
+        this.f53830e = 3;
         a();
     }
 }

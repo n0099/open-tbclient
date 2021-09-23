@@ -23,12 +23,12 @@ public class k<T extends j> extends c.a.p0.n.f.b<c.a.p0.n.h.g> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f6223f;
+    public static final boolean f6231f;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final T f6224e;
+    public final T f6232e;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class k<T extends j> extends c.a.p0.n.f.b<c.a.p0.n.h.g> {
                 return;
             }
         }
-        f6223f = c.a.p0.a.k.f7077a;
+        f6231f = c.a.p0.a.k.f7085a;
     }
 
     public k(@NonNull T t) {
@@ -61,7 +61,7 @@ public class k<T extends j> extends c.a.p0.n.f.b<c.a.p0.n.h.g> {
                 return;
             }
         }
-        this.f6224e = t;
+        this.f6232e = t;
     }
 
     @Override // c.a.p0.n.f.b
@@ -88,7 +88,7 @@ public class k<T extends j> extends c.a.p0.n.f.b<c.a.p0.n.h.g> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bundle, set)) == null) {
             Bundle bundle2 = new Bundle();
             if (set.contains("event_performance_ubc")) {
-                this.f6224e.n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+                this.f6232e.n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
                 set.remove("event_performance_ubc");
             }
             return bundle2;
@@ -106,12 +106,12 @@ public class k<T extends j> extends c.a.p0.n.f.b<c.a.p0.n.h.g> {
             if (TextUtils.isEmpty(gVar.o)) {
                 gVar.o = l();
             }
-            int i2 = gVar.f11886h;
+            int i2 = gVar.f11894h;
             if (i2 == 0) {
-                return c.a.p0.a.h0.m.r.b.b(gVar.o, String.valueOf(gVar.f11887i));
+                return c.a.p0.a.h0.m.r.b.b(gVar.o, String.valueOf(gVar.f11895i));
             }
             if (i2 == 1) {
-                return c.a.p0.a.h0.m.r.b.d(gVar.o, String.valueOf(gVar.f11887i));
+                return c.a.p0.a.h0.m.r.b.d(gVar.o, String.valueOf(gVar.f11895i));
             }
             return null;
         }
@@ -130,9 +130,9 @@ public class k<T extends j> extends c.a.p0.n.f.b<c.a.p0.n.h.g> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gVar, aVar) == null) {
             super.e(gVar, aVar);
-            c.a.p0.a.e0.d.h("SwanPMSSubDownload", "PMSPkgSub#onDownloadError del:" + gVar.f11879a);
-            c.a.p0.t.d.L(gVar.f11879a);
-            if (f6223f) {
+            c.a.p0.a.e0.d.h("SwanPMSSubDownload", "PMSPkgSub#onDownloadError del:" + gVar.f11887a);
+            c.a.p0.t.d.L(gVar.f11887a);
+            if (f6231f) {
                 String str = "PMSPkgSub onDownloadError " + gVar + ", error=" + aVar;
             }
         }
@@ -146,7 +146,7 @@ public class k<T extends j> extends c.a.p0.n.f.b<c.a.p0.n.h.g> {
         if (interceptable == null || interceptable.invokeL(1048585, this, gVar) == null) {
             super.i(gVar);
             p(gVar, t(gVar));
-            if (f6223f) {
+            if (f6231f) {
                 String str = "PMSPkgSub onDownloadFinish " + gVar;
             }
         }
@@ -159,7 +159,7 @@ public class k<T extends j> extends c.a.p0.n.f.b<c.a.p0.n.h.g> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, gVar) == null) {
             super.c(gVar);
-            if (f6223f) {
+            if (f6231f) {
                 String str = "PMSPkgSub onDownloadStart " + gVar;
             }
         }
@@ -169,7 +169,7 @@ public class k<T extends j> extends c.a.p0.n.f.b<c.a.p0.n.h.g> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, gVar)) == null) {
-            if (!j0.a(new File(gVar.f11879a), gVar.m)) {
+            if (!j0.a(new File(gVar.f11887a), gVar.m)) {
                 c.a.p0.a.q2.a aVar = new c.a.p0.a.q2.a();
                 aVar.j(12L);
                 aVar.b(2300L);

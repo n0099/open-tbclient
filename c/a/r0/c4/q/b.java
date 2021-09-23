@@ -25,14 +25,14 @@ public class b extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f16823g = 3;
+    public static int f16833g = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f16824e;
+    public Context f16834e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<TransmitForumData> f16825f;
+    public List<TransmitForumData> f16835f;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -40,16 +40,16 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f16826a;
+        public TextView f16836a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BarImageView f16827b;
+        public BarImageView f16837b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f16828c;
+        public View f16838c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f16829d;
+        public int f16839d;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -66,25 +66,25 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f16829d = 3;
+            this.f16839d = 3;
             if (view == null) {
                 return;
             }
-            this.f16826a = (TextView) view.findViewById(R.id.transmit_forum_name);
+            this.f16836a = (TextView) view.findViewById(R.id.transmit_forum_name);
             BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
-            this.f16827b = barImageView;
+            this.f16837b = barImageView;
             barImageView.setShowOval(true);
-            this.f16828c = view.findViewById(R.id.divider_line);
+            this.f16838c = view.findViewById(R.id.divider_line);
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (b.f16823g != this.f16829d) {
-                    SkinManager.setViewTextColor(this.f16826a, R.color.CAM_X0105);
-                    SkinManager.setBackgroundColor(this.f16828c, R.color.CAM_X0204);
+                if (b.f16833g != this.f16839d) {
+                    SkinManager.setViewTextColor(this.f16836a, R.color.CAM_X0105);
+                    SkinManager.setBackgroundColor(this.f16838c, R.color.CAM_X0204);
                 }
-                this.f16829d = b.f16823g;
+                this.f16839d = b.f16833g;
             }
         }
 
@@ -93,8 +93,8 @@ public class b extends BaseAdapter {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transmitForumData) == null) || transmitForumData == null) {
                 return;
             }
-            this.f16826a.setText(transmitForumData.forumName);
-            this.f16827b.startLoad(transmitForumData.avatar, 10, false);
+            this.f16836a.setText(transmitForumData.forumName);
+            this.f16837b.startLoad(transmitForumData.avatar, 10, false);
         }
     }
 
@@ -128,15 +128,15 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f16825f = new ArrayList();
-        this.f16824e = context;
+        this.f16835f = new ArrayList();
+        this.f16834e = context;
     }
 
     public void b(List<TransmitForumData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f16825f.clear();
-            this.f16825f.addAll(list);
+            this.f16835f.clear();
+            this.f16835f.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -144,10 +144,10 @@ public class b extends BaseAdapter {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (f16823g != i2) {
+            if (f16833g != i2) {
                 notifyDataSetChanged();
             }
-            f16823g = i2;
+            f16833g = i2;
         }
     }
 
@@ -155,7 +155,7 @@ public class b extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16825f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16835f.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -185,7 +185,7 @@ public class b extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
             a aVar = null;
             if (view == null) {
-                view = LayoutInflater.from(this.f16824e).inflate(R.layout.layout_select_forum_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f16834e).inflate(R.layout.layout_select_forum_item, (ViewGroup) null);
                 aVar = new a(view);
                 view.setTag(R.id.key_select_forum_holder, aVar);
             } else {
@@ -196,7 +196,7 @@ public class b extends BaseAdapter {
             }
             if (aVar != null) {
                 aVar.a();
-                aVar.b(this.f16825f.get(i2));
+                aVar.b(this.f16835f.get(i2));
             }
             return view;
         }

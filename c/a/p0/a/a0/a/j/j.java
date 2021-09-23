@@ -23,17 +23,17 @@ public class j extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f4422d;
+    public static final boolean f4430d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f4423a;
+    public Bitmap f4431a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4424b;
+    public String f4432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Matrix f4425c;
+    public Matrix f4433c;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class j extends a {
                 return;
             }
         }
-        f4422d = c.a.p0.a.k.f7077a;
+        f4430d = c.a.p0.a.k.f7085a;
     }
 
     public j(String str) {
@@ -66,7 +66,7 @@ public class j extends a {
                 return;
             }
         }
-        this.f4424b = str;
+        this.f4432b = str;
     }
 
     @Override // c.a.p0.a.a0.a.j.a
@@ -74,10 +74,10 @@ public class j extends a {
         Bitmap bitmap;
         Matrix matrix;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (bitmap = this.f4423a) == null || (matrix = this.f4425c) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (bitmap = this.f4431a) == null || (matrix = this.f4433c) == null) {
             return;
         }
-        canvas.drawBitmap(bitmap, matrix, bVar.f4394h);
+        canvas.drawBitmap(bitmap, matrix, bVar.f4402h);
     }
 
     @Override // c.a.p0.a.a0.a.j.a
@@ -92,7 +92,7 @@ public class j extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                JSONObject jSONObject = new JSONObject(this.f4424b);
+                JSONObject jSONObject = new JSONObject(this.f4432b);
                 int g2 = c.a.p0.a.v2.n0.g((float) jSONObject.optDouble("x"));
                 int g3 = c.a.p0.a.v2.n0.g((float) jSONObject.optDouble("y"));
                 int optInt = jSONObject.optInt("width");
@@ -110,22 +110,22 @@ public class j extends a {
                     byte[] decode = Base64.decode(optString, 2);
                     int i2 = optInt * optInt2 * 4;
                     if (decode != null && decode.length == i2) {
-                        this.f4423a = e(d(decode, optInt, optInt2), g4, g5);
+                        this.f4431a = e(d(decode, optInt, optInt2), g4, g5);
                         Matrix matrix = new Matrix();
-                        this.f4425c = matrix;
+                        this.f4433c = matrix;
                         matrix.postTranslate(g2, g3);
                         return 0;
                     }
                     return 2001;
                 } catch (Exception e2) {
-                    if (f4422d) {
+                    if (f4430d) {
                         e2.printStackTrace();
                     }
                     c.a.p0.a.e0.d.b("canvasPutImageData", "canvasGetImageData meets exception in decoding bitmap");
                     return 1001;
                 }
             } catch (JSONException e3) {
-                if (f4422d) {
+                if (f4430d) {
                     e3.printStackTrace();
                 }
                 return 1001;

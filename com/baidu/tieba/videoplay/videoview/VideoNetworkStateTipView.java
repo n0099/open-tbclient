@@ -24,7 +24,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f58086h;
+    public TextView f58216h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoNetworkStateTipView(Context context) {
@@ -50,7 +50,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f58086h = (TextView) findViewById(R.id.video_net_tip_duration);
+            this.f58216h = (TextView) findViewById(R.id.video_net_tip_duration);
         }
     }
 
@@ -96,7 +96,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f58086h.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
+        this.f58216h.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

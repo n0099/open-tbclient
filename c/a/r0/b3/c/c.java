@@ -30,34 +30,34 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BrowseSettingActivity f16034a;
+    public BrowseSettingActivity f16044a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f16035b;
+    public View f16045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f16036c;
+    public NavigationBar f16046c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbSettingTextTipView f16037d;
+    public TbSettingTextTipView f16047d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbSettingTextTipView f16038e;
+    public TbSettingTextTipView f16048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbSettingTextTipView f16039f;
+    public TbSettingTextTipView f16049f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbSettingTextTipView f16040g;
+    public TbSettingTextTipView f16050g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MsgSettingItemView f16041h;
+    public MsgSettingItemView f16051h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.q0.s.s.c f16042i;
+    public c.a.q0.s.s.c f16052i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.q0.s.s.c f16043j;
+    public c.a.q0.s.s.c f16053j;
     public c.a.q0.s.s.c k;
     public c.a.q0.s.s.c l;
     public ArrayList<k> m;
@@ -113,7 +113,7 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f16044e;
+        public final /* synthetic */ c f16054e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -130,14 +130,14 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
                     return;
                 }
             }
-            this.f16044e = cVar;
+            this.f16054e = cVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                this.f16044e.f16042i.h(i2);
+                this.f16054e.f16052i.h(i2);
                 if (i2 == 0) {
                     c.a.q0.s.k.c().j(true);
                     c.a.q0.s.k.c().k(0);
@@ -152,22 +152,22 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
                 } else if (i2 == 3) {
                     c.a.q0.s.k.c().j(false);
                 }
-                this.f16044e.f16042i.d();
-                this.f16044e.B();
+                this.f16054e.f16052i.d();
+                this.f16054e.B();
             }
         }
     }
 
     /* renamed from: c.a.r0.b3.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0766c implements AdapterView.OnItemClickListener {
+    public class C0764c implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f16045e;
+        public final /* synthetic */ c f16055e;
 
-        public C0766c(c cVar) {
+        public C0764c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -182,14 +182,14 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
                     return;
                 }
             }
-            this.f16045e = cVar;
+            this.f16055e = cVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                this.f16045e.f16043j.h(i2);
+                this.f16055e.f16053j.h(i2);
                 int i3 = 0;
                 if (i2 == 0) {
                     TiebaStatic.log(new StatisticItem("c10411").param("obj_type", 1));
@@ -201,10 +201,10 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
                     TiebaStatic.log(new StatisticItem("c10411").param("obj_type", 3));
                 }
                 SetImageWatermarkTypeReqMsg setImageWatermarkTypeReqMsg = new SetImageWatermarkTypeReqMsg(i3);
-                setImageWatermarkTypeReqMsg.setTag(this.f16045e.f16034a.getUniqueId());
+                setImageWatermarkTypeReqMsg.setTag(this.f16055e.f16044a.getUniqueId());
                 MessageManager.getInstance().sendMessage(setImageWatermarkTypeReqMsg);
                 c.a.q0.s.k.c().i(i3);
-                this.f16045e.D(i3);
+                this.f16055e.D(i3);
             }
         }
     }
@@ -215,7 +215,7 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f16046e;
+        public final /* synthetic */ c f16056e;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -232,14 +232,14 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
                     return;
                 }
             }
-            this.f16046e = cVar;
+            this.f16056e = cVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                this.f16046e.k.h(i2);
+                this.f16056e.k.h(i2);
                 if (i2 == 0) {
                     TbadkCoreApplication.getInst().setFontSize(0);
                 } else if (i2 == 1) {
@@ -249,7 +249,7 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
                 } else if (i2 == 3) {
                     TbadkCoreApplication.getInst().setFontSize(3);
                 }
-                this.f16046e.A();
+                this.f16056e.A();
             }
         }
     }
@@ -260,7 +260,7 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f16047e;
+        public final /* synthetic */ c f16057e;
 
         public e(c cVar) {
             Interceptable interceptable = $ic;
@@ -277,14 +277,14 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
                     return;
                 }
             }
-            this.f16047e = cVar;
+            this.f16057e = cVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                this.f16047e.l.h(i2);
+                this.f16057e.l.h(i2);
                 if (i2 == 0) {
                     TbadkCoreApplication.getInst().setVideoAutoPlay(2);
                     TiebaStatic.log(new StatisticItem("c11281").param("obj_type", 2));
@@ -295,7 +295,7 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
                     TbadkCoreApplication.getInst().setVideoAutoPlay(1);
                     TiebaStatic.log(new StatisticItem("c11281").param("obj_type", 3));
                 }
-                this.f16047e.J();
+                this.f16057e.J();
             }
         }
     }
@@ -318,22 +318,22 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
                 return;
             }
         }
-        this.f16034a = null;
-        this.f16035b = null;
-        this.f16036c = null;
-        this.f16037d = null;
-        this.f16038e = null;
-        this.f16039f = null;
-        this.f16040g = null;
-        this.f16042i = null;
-        this.f16043j = null;
+        this.f16044a = null;
+        this.f16045b = null;
+        this.f16046c = null;
+        this.f16047d = null;
+        this.f16048e = null;
+        this.f16049f = null;
+        this.f16050g = null;
+        this.f16052i = null;
+        this.f16053j = null;
         this.k = null;
         this.l = null;
         this.r = new b(this);
-        this.s = new C0766c(this);
+        this.s = new C0764c(this);
         this.t = new d(this);
         this.u = new e(this);
-        this.f16034a = browseSettingActivity;
+        this.f16044a = browseSettingActivity;
         initUI();
         y();
         r();
@@ -343,13 +343,13 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (TbadkCoreApplication.getInst().getFontSize() == 0) {
-                this.f16039f.setTip(this.mContext.getString(R.string.font_size_xlarge));
+                this.f16049f.setTip(this.mContext.getString(R.string.font_size_xlarge));
             } else if (TbadkCoreApplication.getInst().getFontSize() == 1) {
-                this.f16039f.setTip(this.mContext.getString(R.string.font_size_big));
+                this.f16049f.setTip(this.mContext.getString(R.string.font_size_big));
             } else if (TbadkCoreApplication.getInst().getFontSize() == 2) {
-                this.f16039f.setTip(this.mContext.getString(R.string.font_size_mid));
+                this.f16049f.setTip(this.mContext.getString(R.string.font_size_mid));
             } else {
-                this.f16039f.setTip(this.mContext.getString(R.string.font_size_small));
+                this.f16049f.setTip(this.mContext.getString(R.string.font_size_small));
             }
         }
     }
@@ -358,13 +358,13 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!c.a.q0.s.k.c().g()) {
-                this.f16037d.setTip(this.mContext.getString(R.string.close));
+                this.f16047d.setTip(this.mContext.getString(R.string.close));
             } else if (c.a.q0.s.k.c().e() == 1) {
-                this.f16037d.setTip(this.mContext.getString(R.string.view_high));
+                this.f16047d.setTip(this.mContext.getString(R.string.view_high));
             } else if (c.a.q0.s.k.c().e() == 2) {
-                this.f16037d.setTip(this.mContext.getString(R.string.view_low));
+                this.f16047d.setTip(this.mContext.getString(R.string.view_low));
             } else {
-                this.f16037d.setTip(this.mContext.getString(R.string.view_image_quality_auto_menu));
+                this.f16047d.setTip(this.mContext.getString(R.string.view_image_quality_auto_menu));
             }
         }
     }
@@ -373,12 +373,12 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             if (i2 == 0) {
-                this.f16038e.setTip(this.mContext.getString(R.string.image_water_show_none));
+                this.f16048e.setTip(this.mContext.getString(R.string.image_water_show_none));
             } else if (i2 == 1) {
-                this.f16038e.setTip(this.mContext.getString(R.string.image_water_show_user_name));
+                this.f16048e.setTip(this.mContext.getString(R.string.image_water_show_user_name));
             } else if (i2 != 2) {
             } else {
-                this.f16038e.setTip(this.mContext.getString(R.string.image_water_show_forum_name));
+                this.f16048e.setTip(this.mContext.getString(R.string.image_water_show_forum_name));
             }
         }
     }
@@ -387,11 +387,11 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (TbadkCoreApplication.getInst().getHomePageAutoPlay() == 0) {
-                this.f16040g.setTip(this.mContext.getString(R.string.video_auto_play_in_wifi));
+                this.f16050g.setTip(this.mContext.getString(R.string.video_auto_play_in_wifi));
             } else if (TbadkCoreApplication.getInst().getHomePageAutoPlay() == 1) {
-                this.f16040g.setTip(this.mContext.getString(R.string.close));
+                this.f16050g.setTip(this.mContext.getString(R.string.close));
             } else if (TbadkCoreApplication.getInst().getHomePageAutoPlay() == 2) {
-                this.f16040g.setTip(this.mContext.getString(R.string.video_auto_play_always));
+                this.f16050g.setTip(this.mContext.getString(R.string.video_auto_play_always));
             }
         }
     }
@@ -399,34 +399,34 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f16034a.setContentView(R.layout.browse_setting_activity);
-            NavigationBar navigationBar = (NavigationBar) this.f16034a.findViewById(R.id.view_navigation_bar);
-            this.f16036c = navigationBar;
+            this.f16044a.setContentView(R.layout.browse_setting_activity);
+            NavigationBar navigationBar = (NavigationBar) this.f16044a.findViewById(R.id.view_navigation_bar);
+            this.f16046c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f16036c.setTitleText(this.f16034a.getPageContext().getString(R.string.browse_setting));
-            this.q = (TbSettingTextTipView) this.f16034a.findViewById(R.id.debug_tool_entrance);
-            this.f16037d = (TbSettingTextTipView) this.f16034a.findViewById(R.id.img_browser);
-            this.f16038e = (TbSettingTextTipView) this.f16034a.findViewById(R.id.add_img_water);
-            this.f16039f = (TbSettingTextTipView) this.f16034a.findViewById(R.id.font_size);
-            this.f16040g = (TbSettingTextTipView) this.f16034a.findViewById(R.id.video_auto_play);
+            this.f16046c.setTitleText(this.f16044a.getPageContext().getString(R.string.browse_setting));
+            this.q = (TbSettingTextTipView) this.f16044a.findViewById(R.id.debug_tool_entrance);
+            this.f16047d = (TbSettingTextTipView) this.f16044a.findViewById(R.id.img_browser);
+            this.f16048e = (TbSettingTextTipView) this.f16044a.findViewById(R.id.add_img_water);
+            this.f16049f = (TbSettingTextTipView) this.f16044a.findViewById(R.id.font_size);
+            this.f16050g = (TbSettingTextTipView) this.f16044a.findViewById(R.id.video_auto_play);
             if (RichTextGifViewSwitch.isOn()) {
-                this.f16040g.setText(R.string.video_gif_auto_play);
+                this.f16050g.setText(R.string.video_gif_auto_play);
             } else {
-                this.f16040g.setText(R.string.video_auto_play);
+                this.f16050g.setText(R.string.video_auto_play);
             }
-            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.f16034a.findViewById(R.id.slide_anim_switch);
-            this.f16041h = msgSettingItemView;
+            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.f16044a.findViewById(R.id.slide_anim_switch);
+            this.f16051h = msgSettingItemView;
             msgSettingItemView.setText(R.string.slide_anim_switch);
-            this.f16041h.setSwitchStateNoCallback(TbSingleton.getInstance().isSlideAnimLocalSwitchOn());
-            this.f16041h.setOnSwitchStateChangeListener(new a(this));
-            this.f16035b = this.f16034a.findViewById(R.id.parent);
+            this.f16051h.setSwitchStateNoCallback(TbSingleton.getInstance().isSlideAnimLocalSwitchOn());
+            this.f16051h.setOnSwitchStateChangeListener(new a(this));
+            this.f16045b = this.f16044a.findViewById(R.id.parent);
         }
     }
 
     public TbSettingTextTipView j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16038e : (TbSettingTextTipView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16048e : (TbSettingTextTipView) invokeV.objValue;
     }
 
     public TbSettingTextTipView k() {
@@ -438,19 +438,19 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
     public TbSettingTextTipView l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f16039f : (TbSettingTextTipView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f16049f : (TbSettingTextTipView) invokeV.objValue;
     }
 
     public TbSettingTextTipView m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f16037d : (TbSettingTextTipView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f16047d : (TbSettingTextTipView) invokeV.objValue;
     }
 
     public TbSettingTextTipView n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f16040g : (TbSettingTextTipView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f16050g : (TbSettingTextTipView) invokeV.objValue;
     }
 
     public final void o() {
@@ -458,12 +458,12 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.o = new ArrayList<>();
             int b2 = c.a.q0.s.k.c().b();
-            this.o.add(new k(this.f16034a.getPageContext().getString(R.string.image_water_show_user_name), (String) null, b2 == 1));
-            this.o.add(new k(this.f16034a.getPageContext().getString(R.string.image_water_show_forum_name), (String) null, b2 == 2));
-            this.o.add(new k(this.f16034a.getPageContext().getString(R.string.image_water_show_none), (String) null, b2 == 0));
-            c.a.q0.s.s.c cVar = new c.a.q0.s.s.c(this.f16034a.getPageContext());
+            this.o.add(new k(this.f16044a.getPageContext().getString(R.string.image_water_show_user_name), (String) null, b2 == 1));
+            this.o.add(new k(this.f16044a.getPageContext().getString(R.string.image_water_show_forum_name), (String) null, b2 == 2));
+            this.o.add(new k(this.f16044a.getPageContext().getString(R.string.image_water_show_none), (String) null, b2 == 0));
+            c.a.q0.s.s.c cVar = new c.a.q0.s.s.c(this.f16044a.getPageContext());
             cVar.l(R.string.add_image_water);
-            this.f16043j = cVar;
+            this.f16053j = cVar;
             cVar.k(this.o, this.s);
             cVar.c();
         }
@@ -472,15 +472,15 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f16034a.getLayoutMode().k(i2 == 1);
-            this.f16034a.getLayoutMode().j(this.f16035b);
-            this.f16036c.onChangeSkinType(getPageContext(), i2);
-            this.f16041h.onChangeSkinType(this.f16034a.getPageContext(), i2);
-            c.a.q0.s.s.c cVar = this.f16042i;
+            this.f16044a.getLayoutMode().k(i2 == 1);
+            this.f16044a.getLayoutMode().j(this.f16045b);
+            this.f16046c.onChangeSkinType(getPageContext(), i2);
+            this.f16051h.onChangeSkinType(this.f16044a.getPageContext(), i2);
+            c.a.q0.s.s.c cVar = this.f16052i;
             if (cVar != null) {
                 cVar.g();
             }
-            c.a.q0.s.s.c cVar2 = this.f16043j;
+            c.a.q0.s.s.c cVar2 = this.f16053j;
             if (cVar2 != null) {
                 cVar2.g();
             }
@@ -498,13 +498,13 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.k = new c.a.q0.s.s.c(this.f16034a.getPageContext());
+            this.k = new c.a.q0.s.s.c(this.f16044a.getPageContext());
             this.m = new ArrayList<>();
             int fontSize = TbadkCoreApplication.getInst().getFontSize();
-            this.m.add(new k(this.f16034a.getPageContext().getString(R.string.font_size_xlarge), (String) null, fontSize == 0));
-            this.m.add(new k(this.f16034a.getPageContext().getString(R.string.font_size_big), (String) null, fontSize == 1));
-            this.m.add(new k(this.f16034a.getPageContext().getString(R.string.font_size_mid), (String) null, fontSize == 2));
-            this.m.add(new k(this.f16034a.getPageContext().getString(R.string.font_size_small), (String) null, fontSize == 3));
+            this.m.add(new k(this.f16044a.getPageContext().getString(R.string.font_size_xlarge), (String) null, fontSize == 0));
+            this.m.add(new k(this.f16044a.getPageContext().getString(R.string.font_size_big), (String) null, fontSize == 1));
+            this.m.add(new k(this.f16044a.getPageContext().getString(R.string.font_size_mid), (String) null, fontSize == 2));
+            this.m.add(new k(this.f16044a.getPageContext().getString(R.string.font_size_small), (String) null, fontSize == 3));
             this.k.l(R.string.font_size);
             this.k.k(this.m, this.t);
             this.k.c();
@@ -518,19 +518,19 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
             int e2 = c.a.q0.s.k.c().e();
             boolean g2 = c.a.q0.s.k.c().g();
             boolean z = false;
-            this.n.add(new k(this.f16034a.getPageContext().getString(R.string.view_image_quality_auto_menu), this.f16034a.getPageContext().getString(R.string.view_image_quality_auto_menu_desc), g2 && e2 == 0));
-            this.n.add(new k(this.f16034a.getPageContext().getString(R.string.view_high), this.f16034a.getPageContext().getString(R.string.view_image_quality_high_menu_desc), g2 && e2 == 1));
+            this.n.add(new k(this.f16044a.getPageContext().getString(R.string.view_image_quality_auto_menu), this.f16044a.getPageContext().getString(R.string.view_image_quality_auto_menu_desc), g2 && e2 == 0));
+            this.n.add(new k(this.f16044a.getPageContext().getString(R.string.view_high), this.f16044a.getPageContext().getString(R.string.view_image_quality_high_menu_desc), g2 && e2 == 1));
             ArrayList<k> arrayList = this.n;
-            String string = this.f16034a.getPageContext().getString(R.string.view_low);
-            String string2 = this.f16034a.getPageContext().getString(R.string.view_image_quality_low_menu_desc);
+            String string = this.f16044a.getPageContext().getString(R.string.view_low);
+            String string2 = this.f16044a.getPageContext().getString(R.string.view_image_quality_low_menu_desc);
             if (g2 && e2 == 2) {
                 z = true;
             }
             arrayList.add(new k(string, string2, z));
-            c.a.q0.s.s.c cVar = new c.a.q0.s.s.c(this.f16034a.getPageContext());
-            this.f16042i = cVar;
+            c.a.q0.s.s.c cVar = new c.a.q0.s.s.c(this.f16044a.getPageContext());
+            this.f16052i = cVar;
             cVar.l(R.string.browser_image_quality);
-            c.a.q0.s.s.c cVar2 = this.f16042i;
+            c.a.q0.s.s.c cVar2 = this.f16052i;
             cVar2.k(this.n, this.r);
             cVar2.c();
         }
@@ -539,23 +539,23 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f16037d.setOnClickListener(this.f16034a);
-            this.f16038e.setOnClickListener(this.f16034a);
-            this.f16039f.setOnClickListener(this.f16034a);
-            this.f16040g.setOnClickListener(this.f16034a);
-            this.q.setOnClickListener(this.f16034a);
+            this.f16047d.setOnClickListener(this.f16044a);
+            this.f16048e.setOnClickListener(this.f16044a);
+            this.f16049f.setOnClickListener(this.f16044a);
+            this.f16050g.setOnClickListener(this.f16044a);
+            this.q.setOnClickListener(this.f16044a);
         }
     }
 
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.l = new c.a.q0.s.s.c(this.f16034a.getPageContext());
+            this.l = new c.a.q0.s.s.c(this.f16044a.getPageContext());
             this.p = new ArrayList<>();
             int homePageAutoPlay = TbadkCoreApplication.getInst().getHomePageAutoPlay();
-            this.p.add(new k(this.f16034a.getPageContext().getString(R.string.video_auto_play_always), (String) null, homePageAutoPlay == 2));
-            this.p.add(new k(this.f16034a.getPageContext().getString(R.string.video_auto_play_in_wifi), (String) null, homePageAutoPlay == 0));
-            this.p.add(new k(this.f16034a.getPageContext().getString(R.string.close), (String) null, homePageAutoPlay == 1));
+            this.p.add(new k(this.f16044a.getPageContext().getString(R.string.video_auto_play_always), (String) null, homePageAutoPlay == 2));
+            this.p.add(new k(this.f16044a.getPageContext().getString(R.string.video_auto_play_in_wifi), (String) null, homePageAutoPlay == 0));
+            this.p.add(new k(this.f16044a.getPageContext().getString(R.string.close), (String) null, homePageAutoPlay == 1));
             if (RichTextGifViewSwitch.isOn()) {
                 this.l.l(R.string.video_gif_auto_play);
             } else {
@@ -570,7 +570,7 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             o();
-            this.f16043j.n();
+            this.f16053j.n();
         }
     }
 
@@ -586,7 +586,7 @@ public class c extends c.a.e.a.d<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             q();
-            this.f16042i.n();
+            this.f16052i.n();
         }
     }
 

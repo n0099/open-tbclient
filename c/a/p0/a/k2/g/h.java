@@ -15,7 +15,7 @@ public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, b> f7154a;
+    public static final Map<String, b> f7162a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,8 +31,8 @@ public final class h {
                 return;
             }
         }
-        boolean z = k.f7077a;
-        f7154a = new HashMap();
+        boolean z = k.f7085a;
+        f7162a = new HashMap();
     }
 
     public h() {
@@ -59,13 +59,13 @@ public final class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            b bVar = f7154a.get(str);
+            b bVar = f7162a.get(str);
             if (bVar == null) {
                 synchronized (h.class) {
-                    bVar = f7154a.get(str);
+                    bVar = f7162a.get(str);
                     if (bVar == null) {
                         bVar = new b(str);
-                        f7154a.put(str, bVar);
+                        f7162a.put(str, bVar);
                     }
                 }
             }

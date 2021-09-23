@@ -19,7 +19,7 @@ public class b implements a<PMSAppInfo> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f11861a;
+    public static final int f11869a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class b implements a<PMSAppInfo> {
                 return;
             }
         }
-        f11861a = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
+        f11869a = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
     }
 
     public b() {
@@ -142,7 +142,7 @@ public class b implements a<PMSAppInfo> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
             try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD pay_protected INTEGER default " + f11861a + ";");
+                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD pay_protected INTEGER default " + f11869a + ";");
             } catch (SQLException unused) {
             }
         }

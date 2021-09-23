@@ -18,13 +18,13 @@ public final class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bdtls$ClientHello f10331a;
+    public Bdtls$ClientHello f10339a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bdtls$ServerHello f10332b;
+    public Bdtls$ServerHello f10340b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f10333c;
+    public byte[] f10341c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public d() {
@@ -60,15 +60,15 @@ public final class d {
                 return;
             }
         }
-        this.f10331a = bdtls$ClientHello;
-        this.f10332b = bdtls$ServerHello;
-        this.f10333c = bArr;
+        this.f10339a = bdtls$ClientHello;
+        this.f10340b = bdtls$ServerHello;
+        this.f10341c = bArr;
     }
 
     public final void a(Bdtls$ServerHello bdtls$ServerHello) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bdtls$ServerHello) == null) {
-            this.f10332b = bdtls$ServerHello;
+            this.f10340b = bdtls$ServerHello;
         }
     }
 
@@ -79,7 +79,7 @@ public final class d {
             if (this != obj) {
                 if (obj instanceof d) {
                     d dVar = (d) obj;
-                    return Intrinsics.areEqual(this.f10331a, dVar.f10331a) && Intrinsics.areEqual(this.f10332b, dVar.f10332b) && Intrinsics.areEqual(this.f10333c, dVar.f10333c);
+                    return Intrinsics.areEqual(this.f10339a, dVar.f10339a) && Intrinsics.areEqual(this.f10340b, dVar.f10340b) && Intrinsics.areEqual(this.f10341c, dVar.f10341c);
                 }
                 return false;
             }
@@ -92,11 +92,11 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Bdtls$ClientHello bdtls$ClientHello = this.f10331a;
+            Bdtls$ClientHello bdtls$ClientHello = this.f10339a;
             int hashCode = (bdtls$ClientHello != null ? bdtls$ClientHello.hashCode() : 0) * 31;
-            Bdtls$ServerHello bdtls$ServerHello = this.f10332b;
+            Bdtls$ServerHello bdtls$ServerHello = this.f10340b;
             int hashCode2 = (hashCode + (bdtls$ServerHello != null ? bdtls$ServerHello.hashCode() : 0)) * 31;
-            byte[] bArr = this.f10333c;
+            byte[] bArr = this.f10341c;
             return hashCode2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
@@ -106,7 +106,7 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "HandshakeParams(clientHello=" + this.f10331a + ", serverHello=" + this.f10332b + ", encodeDHPublicKey=" + Arrays.toString(this.f10333c) + SmallTailInfo.EMOTION_SUFFIX;
+            return "HandshakeParams(clientHello=" + this.f10339a + ", serverHello=" + this.f10340b + ", encodeDHPublicKey=" + Arrays.toString(this.f10341c) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

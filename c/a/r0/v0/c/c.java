@@ -17,16 +17,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SearchForum f26304a;
+    public SearchForum f26327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SearchForum> f26305b;
+    public List<SearchForum> f26328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<n> f26306c;
+    public ArrayList<n> f26329c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26307d;
+    public String f26330d;
 
     public c(String str) {
         Interceptable interceptable = $ic;
@@ -43,13 +43,13 @@ public class c {
                 return;
             }
         }
-        this.f26307d = str;
+        this.f26330d = str;
     }
 
     public ArrayList<n> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26306c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26329c : (ArrayList) invokeV.objValue;
     }
 
     public void b(DataRes dataRes) {
@@ -57,24 +57,24 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f26304a = dataRes.exact_match;
-        this.f26305b = dataRes.fuzzy_match;
-        this.f26306c = new ArrayList<>();
-        b bVar = new b(this.f26307d);
-        SearchForum searchForum = this.f26304a;
+        this.f26327a = dataRes.exact_match;
+        this.f26328b = dataRes.fuzzy_match;
+        this.f26329c = new ArrayList<>();
+        b bVar = new b(this.f26330d);
+        SearchForum searchForum = this.f26327a;
         if (searchForum != null) {
             bVar.w(searchForum);
-            this.f26306c.add(bVar);
+            this.f26329c.add(bVar);
         }
-        List<SearchForum> list = this.f26305b;
+        List<SearchForum> list = this.f26328b;
         if (list == null) {
             return;
         }
         for (SearchForum searchForum2 : list) {
             if (searchForum2 != null) {
-                b bVar2 = new b(this.f26307d);
+                b bVar2 = new b(this.f26330d);
                 bVar2.w(searchForum2);
-                this.f26306c.add(bVar2);
+                this.f26329c.add(bVar2);
             }
         }
     }

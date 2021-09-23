@@ -28,19 +28,19 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f53918f;
+    public LinearLayout f54033f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f53919g;
+    public TbImageView f54034g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f53920h;
+    public TextView f54035h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f53921i;
+    public TextView f54036i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbImageView f53922j;
+    public TbImageView f54037j;
     public TextView k;
     public TextView l;
     public HeadImageView m;
@@ -53,10 +53,10 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f53923e;
+        public final /* synthetic */ RankDetailTrendCard f54038e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCardView f53924f;
+        public final /* synthetic */ RankDetailTrendCardView f54039f;
 
         public a(RankDetailTrendCardView rankDetailTrendCardView, RankDetailTrendCard rankDetailTrendCard) {
             Interceptable interceptable = $ic;
@@ -73,16 +73,16 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                     return;
                 }
             }
-            this.f53924f = rankDetailTrendCardView;
-            this.f53923e = rankDetailTrendCard;
+            this.f54039f = rankDetailTrendCardView;
+            this.f54038e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f53924f.getContext())) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f54039f.getContext())) {
                 c.a.r0.p1.m.b a2 = c.a.r0.p1.m.b.a();
-                RankDetailTrendCard rankDetailTrendCard = this.f53923e;
+                RankDetailTrendCard rankDetailTrendCard = this.f54038e;
                 a2.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
             }
         }
@@ -94,10 +94,10 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f53925e;
+        public final /* synthetic */ RankDetailTrendCard f54040e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCardView f53926f;
+        public final /* synthetic */ RankDetailTrendCardView f54041f;
 
         public b(RankDetailTrendCardView rankDetailTrendCardView, RankDetailTrendCard rankDetailTrendCard) {
             Interceptable interceptable = $ic;
@@ -114,15 +114,15 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                     return;
                 }
             }
-            this.f53926f = rankDetailTrendCardView;
-            this.f53925e = rankDetailTrendCard;
+            this.f54041f = rankDetailTrendCardView;
+            this.f54040e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f53926f.handleClickEvent(this.f53925e);
+                this.f54041f.handleClickEvent(this.f54040e);
             }
         }
     }
@@ -163,17 +163,17 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_rank_trend, (ViewGroup) null);
-            this.f53918f = linearLayout;
-            this.f53919g = (TbImageView) findViewById(linearLayout, R.id.leftIcon);
-            this.f53920h = (TextView) findViewById(this.f53918f, R.id.item);
-            this.f53921i = (TextView) findViewById(this.f53918f, R.id.trend_title);
-            this.f53922j = (TbImageView) findViewById(this.f53918f, R.id.trend);
-            this.k = (TextView) findViewById(this.f53918f, R.id.trend_text);
-            this.l = (TextView) findViewById(this.f53918f, R.id.btn_post);
-            HeadImageView headImageView = (HeadImageView) findViewById(this.f53918f, R.id.head);
+            this.f54033f = linearLayout;
+            this.f54034g = (TbImageView) findViewById(linearLayout, R.id.leftIcon);
+            this.f54035h = (TextView) findViewById(this.f54033f, R.id.item);
+            this.f54036i = (TextView) findViewById(this.f54033f, R.id.trend_title);
+            this.f54037j = (TbImageView) findViewById(this.f54033f, R.id.trend);
+            this.k = (TextView) findViewById(this.f54033f, R.id.trend_text);
+            this.l = (TextView) findViewById(this.f54033f, R.id.btn_post);
+            HeadImageView headImageView = (HeadImageView) findViewById(this.f54033f, R.id.head);
             this.m = headImageView;
             headImageView.setIsRound(true);
-            return this.f53918f;
+            return this.f54033f;
         }
         return (View) invokeV.objValue;
     }
@@ -184,9 +184,9 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, rankDetailTrendCard, i2) == null) {
             c.a.q0.w0.a.a(this.mContext, getRootView());
-            SkinManager.setBackgroundResource(this.f53918f, R.drawable.addresslist_item_bg);
-            SkinManager.setViewTextColor(this.f53920h, R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.f53921i, R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.f54033f, R.drawable.addresslist_item_bg);
+            SkinManager.setViewTextColor(this.f54035h, R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.f54036i, R.color.CAM_X0105);
             setTrendTextColor(rankDetailTrendCard);
         }
     }
@@ -206,58 +206,58 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                 this.m.setLayoutParams(layoutParams2);
             }
             if (!TextUtils.isEmpty(rankDetailTrendCard.getIconUrl())) {
-                this.f53919g.setVisibility(0);
-                this.f53919g.setImageDrawable(null);
-                this.f53919g.startLoad(rankDetailTrendCard.getIconUrl(), 10, false);
-                this.f53920h.setVisibility(8);
+                this.f54034g.setVisibility(0);
+                this.f54034g.setImageDrawable(null);
+                this.f54034g.startLoad(rankDetailTrendCard.getIconUrl(), 10, false);
+                this.f54035h.setVisibility(8);
             } else if (rankDetailTrendCard.getRank() <= 0) {
-                this.f53919g.setVisibility(8);
-                this.f53920h.setVisibility(8);
+                this.f54034g.setVisibility(8);
+                this.f54035h.setVisibility(8);
             } else {
                 if (rankDetailTrendCard.getRank() <= 3) {
-                    this.f53919g.setVisibility(0);
-                    this.f53920h.setVisibility(8);
+                    this.f54034g.setVisibility(0);
+                    this.f54035h.setVisibility(8);
                     int rank = rankDetailTrendCard.getRank();
                     if (rank == 1) {
-                        SkinManager.setImageResource(this.f53919g, R.drawable.icon_grade_shaitu1);
+                        SkinManager.setImageResource(this.f54034g, R.drawable.icon_grade_shaitu1);
                     } else if (rank == 2) {
-                        SkinManager.setImageResource(this.f53919g, R.drawable.icon_grade_shaitu2);
+                        SkinManager.setImageResource(this.f54034g, R.drawable.icon_grade_shaitu2);
                     } else if (rank != 3) {
-                        this.f53919g.setVisibility(8);
-                        SkinManager.setImageResource(this.f53919g, R.drawable.icon_grade_shaitu1);
+                        this.f54034g.setVisibility(8);
+                        SkinManager.setImageResource(this.f54034g, R.drawable.icon_grade_shaitu1);
                     } else {
-                        SkinManager.setImageResource(this.f53919g, R.drawable.icon_grade_shaitu3);
+                        SkinManager.setImageResource(this.f54034g, R.drawable.icon_grade_shaitu3);
                     }
                 } else {
-                    this.f53919g.setVisibility(8);
-                    this.f53920h.setVisibility(0);
+                    this.f54034g.setVisibility(8);
+                    this.f54035h.setVisibility(0);
                 }
                 if (rankDetailTrendCard.getRank() <= 9) {
-                    TextView textView = this.f53920h;
+                    TextView textView = this.f54035h;
                     textView.setText("0" + rankDetailTrendCard.getRank() + "");
                 } else {
-                    TextView textView2 = this.f53920h;
+                    TextView textView2 = this.f54035h;
                     textView2.setText(rankDetailTrendCard.getRank() + "");
                 }
-                SkinManager.setViewTextColor(this.f53920h, R.color.CAM_X0108);
+                SkinManager.setViewTextColor(this.f54035h, R.color.CAM_X0108);
             }
             if (!TextUtils.isEmpty(rankDetailTrendCard.getPostUrl()) && !TextUtils.isEmpty(rankDetailTrendCard.getBtnText()) && !TextUtils.isEmpty(rankDetailTrendCard.getBtnDone())) {
                 this.l.setVisibility(0);
                 showIsDone(this.l, rankDetailTrendCard.isDone(), rankDetailTrendCard.getBtnText(), rankDetailTrendCard.getBtnDone());
                 this.l.setTag(rankDetailTrendCard.getPostUrl());
                 this.l.setOnClickListener(new a(this, rankDetailTrendCard));
-                this.f53922j.setVisibility(8);
+                this.f54037j.setVisibility(8);
                 this.k.setVisibility(8);
             } else {
                 this.l.setVisibility(8);
                 if (!TextUtils.isEmpty(rankDetailTrendCard.getPicTrendUrl())) {
-                    this.f53922j.setVisibility(0);
+                    this.f54037j.setVisibility(0);
                     this.k.setVisibility(8);
-                    this.f53922j.setImageDrawable(null);
-                    this.f53922j.startLoad(rankDetailTrendCard.getPicTrendUrl(), 10, false);
+                    this.f54037j.setImageDrawable(null);
+                    this.f54037j.startLoad(rankDetailTrendCard.getPicTrendUrl(), 10, false);
                 } else if (!TextUtils.isEmpty(rankDetailTrendCard.getTrendText())) {
                     this.k.setVisibility(0);
-                    this.f53922j.setVisibility(8);
+                    this.f54037j.setVisibility(8);
                     this.k.setText(rankDetailTrendCard.getTrendText());
                     setTrendTextColor(rankDetailTrendCard);
                     this.k.setMaxWidth((this.n - this.o) / 2);
@@ -265,21 +265,21 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                     this.k.setVisibility(8);
                     int picTrendType = rankDetailTrendCard.getPicTrendType();
                     if (picTrendType == 1) {
-                        this.f53922j.setVisibility(0);
-                        SkinManager.setImageResource(this.f53922j, R.drawable.icon_arrow_ranking_up);
+                        this.f54037j.setVisibility(0);
+                        SkinManager.setImageResource(this.f54037j, R.drawable.icon_arrow_ranking_up);
                     } else if (picTrendType == 2) {
-                        this.f53922j.setVisibility(0);
-                        SkinManager.setImageResource(this.f53922j, R.drawable.icon_arrow_ranking_keep);
+                        this.f54037j.setVisibility(0);
+                        SkinManager.setImageResource(this.f54037j, R.drawable.icon_arrow_ranking_keep);
                     } else if (picTrendType != 3) {
-                        this.f53922j.setVisibility(8);
+                        this.f54037j.setVisibility(8);
                     } else {
-                        this.f53922j.setVisibility(0);
-                        SkinManager.setImageResource(this.f53922j, R.drawable.icon_arrow_ranking_down);
+                        this.f54037j.setVisibility(0);
+                        SkinManager.setImageResource(this.f54037j, R.drawable.icon_arrow_ranking_down);
                     }
                 }
             }
-            SkinManager.setViewTextColor(this.f53921i, R.color.CAM_X0105);
-            this.f53921i.setText(rankDetailTrendCard.getCardTitle());
+            SkinManager.setViewTextColor(this.f54036i, R.color.CAM_X0105);
+            this.f54036i.setText(rankDetailTrendCard.getCardTitle());
             if (TextUtils.isEmpty(rankDetailTrendCard.getPicUrl())) {
                 this.m.setVisibility(8);
             } else {

@@ -256,7 +256,7 @@ public class a {
                 i("setResConfig " + file);
             }
             if (file != null) {
-                c.a.a0.a.b.u(new c.a.a0.a.c(file.getAbsolutePath()));
+                c.a.a0.a.b.t(new c.a.a0.a.c(file.getAbsolutePath()));
             }
             if (p()) {
                 i("initRecource costMS: " + (System.currentTimeMillis() - currentTimeMillis));

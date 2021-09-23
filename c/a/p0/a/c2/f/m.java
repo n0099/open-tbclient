@@ -76,7 +76,7 @@ public class m extends a0 {
         try {
             context.startActivity(intent);
         } catch (Exception e2) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 e2.printStackTrace();
             }
         }

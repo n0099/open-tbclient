@@ -47,22 +47,22 @@ public class a extends j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f26606h;
+    public d f26629h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final CustomMessageListener f26607i;
+    public final CustomMessageListener f26630i;
 
     /* renamed from: c.a.r0.w0.f2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1251a extends CustomMessageListener {
+    public class C1249a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f26608a;
+        public final /* synthetic */ a f26631a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1251a(a aVar, int i2) {
+        public C1249a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -79,7 +79,7 @@ public class a extends j {
                     return;
                 }
             }
-            this.f26608a = aVar;
+            this.f26631a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,13 +88,13 @@ public class a extends j {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
                 PostWriteCallBackData postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData();
-                if (this.f26608a.f26606h != null) {
-                    this.f26608a.f26606h.g(postWriteCallBackData);
+                if (this.f26631a.f26629h != null) {
+                    this.f26631a.f26629h.g(postWriteCallBackData);
                 }
-                if (!this.f26608a.k(postWriteCallBackData)) {
-                    this.f26608a.d(postWriteCallBackData);
+                if (!this.f26631a.k(postWriteCallBackData)) {
+                    this.f26631a.d(postWriteCallBackData);
                 } else {
-                    c.a.q0.t.h.b.a(this.f26608a.f26698b.getTbPageContext(), postWriteCallBackData);
+                    c.a.q0.t.h.b.a(this.f26631a.f26721b.getTbPageContext(), postWriteCallBackData);
                 }
             }
         }
@@ -106,22 +106,22 @@ public class a extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f26609e;
+        public final /* synthetic */ Thread2GroupShareView f26632e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f26610f;
+        public final /* synthetic */ long f26633f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f26611g;
+        public final /* synthetic */ String f26634g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f26612h;
+        public final /* synthetic */ String f26635h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f26613i;
+        public final /* synthetic */ String f26636i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ ShareFromPBMsgData f26614j;
+        public final /* synthetic */ ShareFromPBMsgData f26637j;
         public final /* synthetic */ a k;
 
         public b(a aVar, Thread2GroupShareView thread2GroupShareView, long j2, String str, String str2, String str3, ShareFromPBMsgData shareFromPBMsgData) {
@@ -140,21 +140,21 @@ public class a extends j {
                 }
             }
             this.k = aVar;
-            this.f26609e = thread2GroupShareView;
-            this.f26610f = j2;
-            this.f26611g = str;
-            this.f26612h = str2;
-            this.f26613i = str3;
-            this.f26614j = shareFromPBMsgData;
+            this.f26632e = thread2GroupShareView;
+            this.f26633f = j2;
+            this.f26634g = str;
+            this.f26635h = str2;
+            this.f26636i = str3;
+            this.f26637j = shareFromPBMsgData;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                InputMethodManager inputMethodManager = (InputMethodManager) this.k.f26698b.getActivity().getSystemService("input_method");
-                c.a.e.e.p.l.x(this.k.f26698b.getActivity(), this.f26609e.getChatMsgView());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.k.f26698b.getActivity(), this.f26610f, this.f26611g, this.f26612h, this.f26613i, 0, this.f26609e.getLeaveMsg(), this.f26614j.toChatMessageContent())));
+                InputMethodManager inputMethodManager = (InputMethodManager) this.k.f26721b.getActivity().getSystemService("input_method");
+                c.a.e.e.p.l.x(this.k.f26721b.getActivity(), this.f26632e.getChatMsgView());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.k.f26721b.getActivity(), this.f26633f, this.f26634g, this.f26635h, this.f26636i, 0, this.f26632e.getLeaveMsg(), this.f26637j.toChatMessageContent())));
                 aVar.dismiss();
                 ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                 if (shareItem == null || shareItem.e() == null) {
@@ -172,10 +172,10 @@ public class a extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f26615e;
+        public final /* synthetic */ Thread2GroupShareView f26638e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f26616f;
+        public final /* synthetic */ a f26639f;
 
         public c(a aVar, Thread2GroupShareView thread2GroupShareView) {
             Interceptable interceptable = $ic;
@@ -192,15 +192,15 @@ public class a extends j {
                     return;
                 }
             }
-            this.f26616f = aVar;
-            this.f26615e = thread2GroupShareView;
+            this.f26639f = aVar;
+            this.f26638e = thread2GroupShareView;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                c.a.e.e.p.l.x(this.f26616f.f26698b.getActivity(), this.f26615e.getChatMsgView());
+                c.a.e.e.p.l.x(this.f26639f.f26721b.getActivity(), this.f26638e.getChatMsgView());
                 aVar.dismiss();
             }
         }
@@ -224,11 +224,11 @@ public class a extends j {
                 return;
             }
         }
-        this.f26607i = new C1251a(this, 2001383);
-        this.f26606h = this.f26698b.getFrsPostController();
-        this.f26607i.setTag(this.f26698b.getPageContext().getUniqueId());
-        this.f26607i.setSelfListener(true);
-        this.f26698b.registerListener(this.f26607i);
+        this.f26630i = new C1249a(this, 2001383);
+        this.f26629h = this.f26721b.getFrsPostController();
+        this.f26630i.setTag(this.f26721b.getPageContext().getUniqueId());
+        this.f26630i.setSelfListener(true);
+        this.f26721b.registerListener(this.f26630i);
     }
 
     public static void p(String str, String str2) {
@@ -251,7 +251,7 @@ public class a extends j {
                 return false;
             }
             if (c.a.q0.s.d0.b.j().g(c.a.q0.s.d0.b.n(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.f26698b.getActivity()).createNormalConfig("from_frs", postWriteCallBackData.getVideoEasterEggData())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.f26721b.getActivity()).createNormalConfig("from_frs", postWriteCallBackData.getVideoEasterEggData())));
                 return true;
             }
             return false;
@@ -261,8 +261,8 @@ public class a extends j {
 
     public final void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f26606h == null) {
-            this.f26606h = this.f26698b.getFrsPostController();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f26629h == null) {
+            this.f26629h = this.f26721b.getFrsPostController();
         }
     }
 
@@ -290,21 +290,21 @@ public class a extends j {
     public final void g(FrsViewData frsViewData, Intent intent, String str) {
         ArrayList<c.a.e.l.e.n> e2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, frsViewData, intent, str) == null) || frsViewData == null || intent == null || TextUtils.isEmpty(str) || this.f26701e == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, frsViewData, intent, str) == null) || frsViewData == null || intent == null || TextUtils.isEmpty(str) || this.f26724e == null) {
             return;
         }
         int intExtra = intent.getIntExtra("KEY_SMART_FRS_POSITION", -1);
-        if (this.f26701e.u0()) {
+        if (this.f26724e.u0()) {
             Serializable serializableExtra = intent.getSerializableExtra("guess_like_data");
-            if (!(serializableExtra instanceof CardHListViewData) || (e2 = this.f26703g.e()) == null) {
+            if (!(serializableExtra instanceof CardHListViewData) || (e2 = this.f26726g.e()) == null) {
                 return;
             }
             CardHListViewData cardHListViewData = (CardHListViewData) serializableExtra;
             cardHListViewData.threadId = str;
             if (c.a.r0.w0.i2.b.a(e2, str, cardHListViewData, intExtra)) {
                 frsViewData.setThreadList(e2);
-                this.f26697a.B1(e2, frsViewData);
-                p(str, this.f26698b.getForumId());
+                this.f26720a.B1(e2, frsViewData);
+                p(str, this.f26721b.getForumId());
             }
         }
     }
@@ -323,45 +323,45 @@ public class a extends j {
         c.a.r0.w0.o2.d Y;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, intent) == null) {
-            FrsViewData frsViewData = this.f26698b.getFrsViewData();
+            FrsViewData frsViewData = this.f26721b.getFrsViewData();
             switch (i2) {
                 case CyberPlayerManager.MEDIA_INFO_DISABLE_FILECACHE /* 11001 */:
-                    this.f26698b.writeBlog(0);
+                    this.f26721b.writeBlog(0);
                     return;
                 case CyberPlayerManager.MEDIA_INFO_KERNEL_NET_TRAFFIC /* 11002 */:
-                    this.f26700d.s0(true);
+                    this.f26723d.s0(true);
                     return;
                 case 11011:
-                    FrsFragment frsFragment = this.f26698b;
+                    FrsFragment frsFragment = this.f26721b;
                     String threadId = frsFragment.getThreadId();
-                    FrsFragment frsFragment2 = this.f26698b;
+                    FrsFragment frsFragment2 = this.f26721b;
                     c.a.r0.w0.n2.m.f(frsFragment, threadId, frsFragment2.mThreadData, frsFragment2.isAds());
                     return;
                 case 11012:
-                    FrsFragment frsFragment3 = this.f26698b;
+                    FrsFragment frsFragment3 = this.f26721b;
                     String threadId2 = frsFragment3.getThreadId();
-                    FrsFragment frsFragment4 = this.f26698b;
+                    FrsFragment frsFragment4 = this.f26721b;
                     c.a.r0.w0.n2.m.g(frsFragment3, threadId2, frsFragment4.mThreadData, frsFragment4.isAds());
                     return;
                 case 11014:
-                    this.f26700d.t0();
+                    this.f26723d.t0();
                     return;
                 case 11016:
-                    this.f26697a.N1();
+                    this.f26720a.N1();
                     return;
                 case 11036:
-                    this.f26700d.u0();
+                    this.f26723d.u0();
                     return;
                 case 18003:
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
-                    this.f26697a.W().notifyDataSetChanged();
-                    c.a.r0.w0.o2.h hVar2 = this.f26700d;
+                    this.f26720a.W().notifyDataSetChanged();
+                    c.a.r0.w0.o2.h hVar2 = this.f26723d;
                     if (hVar2 != null) {
                         hVar2.X();
                     }
                     int intExtra = intent.getIntExtra("type", -1);
                     if (intExtra == 4) {
-                        this.f26698b.refresh(6);
+                        this.f26721b.refresh(6);
                         return;
                     }
                     String stringExtra = intent.getStringExtra("tid");
@@ -369,19 +369,19 @@ public class a extends j {
                         return;
                     }
                     if (intExtra == 2) {
-                        threadDataById.X3(intent.getIntExtra("good_data", 0));
+                        threadDataById.W3(intent.getIntExtra("good_data", 0));
                         threadDataById.c3();
                     }
                     g(frsViewData, intent, stringExtra);
                     return;
                 case 18004:
-                    c.a.r0.w0.n2.m.d(this.f26698b.getPageContext(), frsViewData);
+                    c.a.r0.w0.n2.m.d(this.f26721b.getPageContext(), frsViewData);
                     return;
                 case 23003:
                     if (intent == null || frsViewData == null) {
                         return;
                     }
-                    c.a.r0.w0.n2.i.b(this.f26698b, frsViewData, intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
+                    c.a.r0.w0.n2.i.b(this.f26721b, frsViewData, intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
                     return;
                 case 23007:
                     j(intent);
@@ -394,8 +394,8 @@ public class a extends j {
                     int intExtra3 = intent.getIntExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, 0);
                     int intExtra4 = intent.getIntExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, 0);
                     int intExtra5 = intent.getIntExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, 0);
-                    if (intExtra2 == c.a.e.e.m.b.e(this.f26698b.getForumId(), 0)) {
-                        this.f26700d.v0(intExtra3, intExtra4, intExtra5);
+                    if (intExtra2 == c.a.e.e.m.b.e(this.f26721b.getForumId(), 0)) {
+                        this.f26723d.v0(intExtra3, intExtra4, intExtra5);
                         return;
                     }
                     return;
@@ -409,27 +409,27 @@ public class a extends j {
                         TiebaStatic.log(statisticItem);
                     }
                     if (intExtra6 == 1) {
-                        this.f26698b.onShareSuccess(intent.getStringExtra("tid"));
+                        this.f26721b.onShareSuccess(intent.getStringExtra("tid"));
                         return;
                     }
                     return;
                 case 25041:
-                    this.f26699c.b(intent.getIntExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1));
+                    this.f26722c.b(intent.getIntExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1));
                     return;
                 case 25050:
-                    this.f26698b.refresh();
+                    this.f26721b.refresh();
                     return;
                 case 25052:
                     String stringExtra2 = intent.getStringExtra("group_name");
                     boolean booleanExtra = intent.getBooleanExtra("from", true);
-                    this.f26698b.showTopToastRule(stringExtra2);
-                    if (booleanExtra || (hVar = this.f26700d) == null) {
+                    this.f26721b.showTopToastRule(stringExtra2);
+                    if (booleanExtra || (hVar = this.f26723d) == null) {
                         return;
                     }
                     hVar.Q();
                     return;
                 case 25054:
-                    q frsView = this.f26698b.getFrsView();
+                    q frsView = this.f26721b.getFrsView();
                     if (frsView == null || (Y = frsView.Y()) == null) {
                         return;
                     }
@@ -460,20 +460,20 @@ public class a extends j {
     public void l(int i2) {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (frsFragment = this.f26698b) == null || frsFragment.getTabController() == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (frsFragment = this.f26721b) == null || frsFragment.getTabController() == null) {
             return;
         }
         if (i2 > 0) {
-            FrsTabViewController.o G = this.f26698b.getTabController().G(i2);
-            if (G == null || !(G.f51641b instanceof FrsCommonTabFragment)) {
+            FrsTabViewController.o G = this.f26721b.getTabController().G(i2);
+            if (G == null || !(G.f51755b instanceof FrsCommonTabFragment)) {
                 return;
             }
-            this.f26699c.b(i2);
+            this.f26722c.b(i2);
             return;
         }
-        int C = this.f26698b.getTabController().C();
-        if (this.f26698b.getTabController().G(C) != null) {
-            this.f26699c.b(C);
+        int C = this.f26721b.getTabController().C();
+        if (this.f26721b.getTabController().G(C) != null) {
+            this.f26722c.b(C);
         }
     }
 
@@ -492,7 +492,7 @@ public class a extends j {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f26607i);
+            MessageManager.getInstance().unRegisterListener(this.f26630i);
         }
     }
 
@@ -501,15 +501,15 @@ public class a extends j {
         if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{shareFromPBMsgData, Long.valueOf(j2), str, str2, str3}) == null) || shareFromPBMsgData == null) {
             return;
         }
-        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f26698b.getActivity());
-        Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(this.f26698b.getActivity());
+        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f26721b.getActivity());
+        Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(this.f26721b.getActivity());
         thread2GroupShareView.setData(shareFromPBMsgData);
         aVar.setContentViewSize(1);
         aVar.setContentView(thread2GroupShareView);
         aVar.setPositiveButton(R.string.share, new b(this, thread2GroupShareView, j2, str, str2, str3, shareFromPBMsgData));
         aVar.setNegativeButton(R.string.cancel, new c(this, thread2GroupShareView));
         aVar.setCanceledOnTouchOutside(true);
-        aVar.create(this.f26698b.getPageContext()).show();
+        aVar.create(this.f26721b.getPageContext()).show();
         if (c.a.e.e.p.k.isEmpty(shareFromPBMsgData.getImageUrl())) {
             return;
         }

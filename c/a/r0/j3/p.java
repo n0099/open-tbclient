@@ -8,21 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ForumRuleStatus;
 /* loaded from: classes3.dex */
 public class p implements c.a.e.l.e.n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumRuleStatus f20995e;
+    public ForumData f21008e;
 
-    public p(ForumData forumData, ForumRuleStatus forumRuleStatus) {
+    public p(ForumData forumData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumData, forumRuleStatus};
+            Object[] objArr = {forumData, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,20 +31,22 @@ public class p implements c.a.e.l.e.n {
                 return;
             }
         }
-        this.f20995e = forumRuleStatus;
+        this.f21008e = forumData;
     }
 
-    public ForumRuleStatus b() {
+    public ForumData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20995e : (ForumRuleStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21008e : (ForumData) invokeV.objValue;
     }
 
-    public void c(ForumRuleStatus forumRuleStatus) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumRuleStatus) == null) {
-            this.f20995e = forumRuleStatus;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
     @Override // c.a.e.l.e.n

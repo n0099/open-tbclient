@@ -17,7 +17,7 @@ public class Base64Utils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f39540a;
+    public static final Boolean f39597a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class Base64Utils {
                 return;
             }
         }
-        f39540a = Boolean.valueOf(Build.VERSION.SDK_INT >= 8);
+        f39597a = Boolean.valueOf(Build.VERSION.SDK_INT >= 8);
     }
 
     public Base64Utils() {
@@ -54,7 +54,7 @@ public class Base64Utils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (f39540a.booleanValue()) {
+            if (f39597a.booleanValue()) {
                 return Base64.decode(str, 2);
             }
             try {
@@ -70,7 +70,7 @@ public class Base64Utils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (f39540a.booleanValue()) {
+            if (f39597a.booleanValue()) {
                 return Base64.decode(bArr, 2);
             }
             try {
@@ -85,12 +85,12 @@ public class Base64Utils {
     public static byte[] encode(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? f39540a.booleanValue() ? Base64.encode(bArr, 2) : com.baidu.fsg.base.utils.support.Base64.encodeBytesToBytes(bArr) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? f39597a.booleanValue() ? Base64.encode(bArr, 2) : com.baidu.fsg.base.utils.support.Base64.encodeBytesToBytes(bArr) : (byte[]) invokeL.objValue;
     }
 
     public static String encodeToString(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) ? f39540a.booleanValue() ? Base64.encodeToString(bArr, 2) : com.baidu.fsg.base.utils.support.Base64.encodeBytes(bArr) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) ? f39597a.booleanValue() ? Base64.encodeToString(bArr, 2) : com.baidu.fsg.base.utils.support.Base64.encodeBytes(bArr) : (String) invokeL.objValue;
     }
 }

@@ -24,7 +24,7 @@ public class d {
     public static byte[] b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a(str, c.f30577a) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a(str, c.f30598a) : (byte[]) invokeL.objValue;
     }
 
     public static String c(byte[] bArr, Charset charset) {
@@ -42,6 +42,6 @@ public class d {
     public static String d(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? c(bArr, c.f30577a) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? c(bArr, c.f30598a) : (String) invokeL.objValue;
     }
 }

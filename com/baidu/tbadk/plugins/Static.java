@@ -26,7 +26,7 @@ public class Static {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f48469a;
+    public static final String[] f48577a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -101,7 +101,7 @@ public class Static {
                 return;
             }
             ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-            String[] strArr = Static.f48469a;
+            String[] strArr = Static.f48577a;
             int length = strArr.length;
             int i2 = 0;
             while (true) {
@@ -203,7 +203,7 @@ public class Static {
                 return;
             }
         }
-        f48469a = new String[]{"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+        f48577a = new String[]{"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
         MessageManager.getInstance().registerListener(new a(2001011));
         a();
         MessageManager.getInstance().registerListener(new b(2016301));

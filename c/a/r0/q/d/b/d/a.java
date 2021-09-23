@@ -28,18 +28,18 @@ public class a extends c.a.r0.q.e.g.a<b, AdDownloadData> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public PermissionJudgePolicy f24098c;
+    public PermissionJudgePolicy f24114c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d f24099d;
+    public final d f24115d;
 
     /* renamed from: c.a.r0.q.d.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C1120a {
+    public static /* synthetic */ class C1118a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f24100a;
+        public static final /* synthetic */ int[] f24116a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,25 +56,25 @@ public class a extends c.a.r0.q.e.g.a<b, AdDownloadData> {
                 }
             }
             int[] iArr = new int[DownloadStatus.values().length];
-            f24100a = iArr;
+            f24116a = iArr;
             try {
                 iArr[DownloadStatus.STATUS_NONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f24100a[DownloadStatus.STATUS_DOWNLOADING.ordinal()] = 2;
+                f24116a[DownloadStatus.STATUS_DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f24100a[DownloadStatus.STATUS_PAUSED.ordinal()] = 3;
+                f24116a[DownloadStatus.STATUS_PAUSED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f24100a[DownloadStatus.STATUS_SUCCESS.ordinal()] = 4;
+                f24116a[DownloadStatus.STATUS_SUCCESS.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f24100a[DownloadStatus.STATUS_INSTALL_SUCCESS.ordinal()] = 5;
+                f24116a[DownloadStatus.STATUS_INSTALL_SUCCESS.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -99,7 +99,7 @@ public class a extends c.a.r0.q.e.g.a<b, AdDownloadData> {
                 return;
             }
         }
-        this.f24099d = new d(this, adDownloadData);
+        this.f24115d = new d(this, adDownloadData);
     }
 
     @Override // c.a.r0.q.e.g.a
@@ -111,7 +111,7 @@ public class a extends c.a.r0.q.e.g.a<b, AdDownloadData> {
                 AdDownloadData c2 = c();
                 long j2 = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(c2.adId(), 0L);
                 c2.setContentLength(Math.max(c().getContentLength(), j2));
-                this.f24099d.d(j2);
+                this.f24115d.d(j2);
             }
         }
     }
@@ -135,12 +135,12 @@ public class a extends c.a.r0.q.e.g.a<b, AdDownloadData> {
             if (d() == null || !(d().getRealView().getContext() instanceof Activity) || c.a.r0.a.h().u()) {
                 return true;
             }
-            if (this.f24098c == null) {
-                this.f24098c = new PermissionJudgePolicy();
+            if (this.f24114c == null) {
+                this.f24114c = new PermissionJudgePolicy();
             }
-            this.f24098c.clearRequestPermissionList();
-            this.f24098c.appendRequestPermission((Activity) d().getRealView().getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            return !this.f24098c.startRequestPermission((Activity) d().getRealView().getContext());
+            this.f24114c.clearRequestPermissionList();
+            this.f24114c.appendRequestPermission((Activity) d().getRealView().getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
+            return !this.f24114c.startRequestPermission((Activity) d().getRealView().getContext());
         }
         return invokeV.booleanValue;
     }
@@ -149,7 +149,7 @@ public class a extends c.a.r0.q.e.g.a<b, AdDownloadData> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             i();
-            this.f24099d.a();
+            this.f24115d.a();
         }
     }
 
@@ -163,18 +163,18 @@ public class a extends c.a.r0.q.e.g.a<b, AdDownloadData> {
         }
         DownloadStatus currentState = adDownloadData.getCurrentState();
         DownloadCacheKey g2 = e.c().g(adDownloadData.adId());
-        int i2 = C1120a.f24100a[currentState.ordinal()];
+        int i2 = C1118a.f24116a[currentState.ordinal()];
         if (i2 == 1) {
             if (g2 != null && l()) {
                 e.c().l(g2, null);
-                this.f24099d.a();
+                this.f24115d.a();
             }
         } else if (i2 == 2) {
             e.c().e(adDownloadData.adId());
         } else if (i2 == 3) {
             if (l()) {
                 e.c().j(adDownloadData.adId());
-                this.f24099d.a();
+                this.f24115d.a();
             }
         } else if (i2 != 4) {
             if (i2 != 5) {

@@ -23,7 +23,7 @@ public class d extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f8858a;
+        public final /* synthetic */ d f8866a;
 
         /* renamed from: c.a.p0.a.u.e.g.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -32,13 +32,13 @@ public class d extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f8859e;
+            public final /* synthetic */ int f8867e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f8860f;
+            public final /* synthetic */ int f8868f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f8861g;
+            public final /* synthetic */ a f8869g;
 
             /* renamed from: c.a.p0.a.u.e.g.d$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
@@ -47,7 +47,7 @@ public class d extends c.a.p0.a.u.c.d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ c.a.p0.a.p.e.c f8862e;
+                public final /* synthetic */ c.a.p0.a.p.e.c f8870e;
 
                 public C0398a(RunnableC0397a runnableC0397a, c.a.p0.a.p.e.c cVar) {
                     Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public class d extends c.a.p0.a.u.c.d {
                             return;
                         }
                     }
-                    this.f8862e = cVar;
+                    this.f8870e = cVar;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                        this.f8862e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                        this.f8870e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                     }
                 }
             }
@@ -91,9 +91,9 @@ public class d extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8861g = aVar;
-                this.f8859e = i2;
-                this.f8860f = i3;
+                this.f8869g = aVar;
+                this.f8867e = i2;
+                this.f8868f = i3;
             }
 
             @Override // java.lang.Runnable
@@ -103,8 +103,8 @@ public class d extends c.a.p0.a.u.c.d {
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (h2 = c.a.p0.a.g1.f.V().h()) == null) {
                     return;
                 }
-                ValueAnimator ofInt = ValueAnimator.ofInt(h2.getWebViewScrollY(), d.s(h2, n0.f(this.f8861g.f8858a.i(), this.f8859e)));
-                ofInt.setDuration(this.f8860f);
+                ValueAnimator ofInt = ValueAnimator.ofInt(h2.getWebViewScrollY(), d.s(h2, n0.f(this.f8869g.f8866a.i(), this.f8867e)));
+                ofInt.setDuration(this.f8868f);
                 ofInt.addUpdateListener(new C0398a(this, h2));
                 ofInt.start();
             }
@@ -125,7 +125,7 @@ public class d extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8858a = dVar;
+            this.f8866a = dVar;
         }
 
         @Override // c.a.p0.a.u.c.d.b
@@ -183,7 +183,7 @@ public class d extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             return j(str, false, new a(this));
         }
         return (c.a.p0.a.u.h.b) invokeL.objValue;

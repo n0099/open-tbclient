@@ -22,7 +22,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11343a;
+    public static final boolean f11351a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -55,7 +55,7 @@ public class e {
                         return;
                     }
                     JSONObject jSONObject = new JSONObject(str);
-                    if (e.f11343a) {
+                    if (e.f11351a) {
                         jSONObject.optInt("errno");
                     }
                 } catch (JSONException unused) {
@@ -84,7 +84,7 @@ public class e {
                 return;
             }
         }
-        f11343a = k.f7077a;
+        f11351a = k.f7085a;
     }
 
     public static void b() {

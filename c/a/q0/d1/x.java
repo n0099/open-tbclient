@@ -1,124 +1,117 @@
 package c.a.q0.d1;
 
-import android.os.Build;
+import android.content.Context;
+import android.graphics.Rect;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
+import c.a.q0.s.q.d2;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.VideoClickTabData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Object obj, boolean z) {
+    public static void a(int i2, boolean z, Context context, d2 d2Var, int i3, Rect rect, String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, obj, z) == null) {
-            b(obj, z, false);
-        }
-    }
-
-    public static void b(Object obj, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            c(obj, z, z2, false);
-        }
-    }
-
-    public static void c(Object obj, boolean z, boolean z2, boolean z3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || obj == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), context, d2Var, Integer.valueOf(i3), rect, str, str2, str3, str4, str5}) == null) || d2Var == null) {
             return;
         }
-        try {
-            Field field = obj.getClass().getField("common");
-            int i2 = 1;
-            if (!field.isAccessible()) {
-                field.setAccessible(true);
+        d2Var.getThreadData();
+        c(true, context, d2Var, i3, rect, str, str2, str3, str4, str5, d2Var.n);
+    }
+
+    public static void b(int i2, Context context, d2 d2Var, int i3, Rect rect, String str, String str2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), context, d2Var, Integer.valueOf(i3), rect, str, str2, str3, str4, str5}) == null) || d2Var == null) {
+            return;
+        }
+        d2Var.getThreadData();
+        c(true, context, d2Var, i3, rect, str, str2, str3, str4, str5, d2Var.n);
+    }
+
+    public static void c(boolean z, Context context, d2 d2Var, int i2, Rect rect, String str, String str2, String str3, String str4, String str5, boolean z2) {
+        BaijiahaoData baijiahaoData;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), context, d2Var, Integer.valueOf(i2), rect, str, str2, str3, str4, str5, Boolean.valueOf(z2)}) == null) || d2Var == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        VideoItemData videoItemData = new VideoItemData();
+        if (z) {
+            videoItemData.buildWithOriginThreadData(d2Var.y1);
+        } else {
+            videoItemData.buildWithThreadData(d2Var);
+        }
+        arrayList.add(videoItemData);
+        OriginalThreadInfo originalThreadInfo = d2Var.y1;
+        boolean z3 = true;
+        if (originalThreadInfo != null && originalThreadInfo.r != null) {
+            d2Var.getThreadData();
+            if (d2Var.y1.r.is_vertical.intValue() != 1) {
+                z3 = false;
             }
-            CommonReq.Builder builder = new CommonReq.Builder();
-            builder._client_type = 2;
-            builder._client_version = TbConfig.getVersion();
-            builder._client_id = TbadkCoreApplication.getClientId();
-            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                builder.subapp_type = TbConfig.getSubappType();
+        }
+        String str6 = null;
+        OriginalThreadInfo originalThreadInfo2 = d2Var.y1;
+        if (originalThreadInfo2 != null && (baijiahaoData = originalThreadInfo2.p) != null) {
+            str6 = baijiahaoData.oriUgcNid;
+        }
+        d(context, arrayList, str6, z3, i2, rect, str, str2, str3, str4, str5, false, z2);
+    }
+
+    public static void d(Context context, List<VideoItemData> list, String str, boolean z, int i2, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3) {
+        String str7;
+        String str8;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i2), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(context, list, i2, rect, str2, str3, str4, str5, str6);
+            videoPlayActivityConfig.setParamIsVertail(z);
+            TbSingleton.getInstance().setIsNeedShowPbCommentFloat(z2);
+            if (str != null) {
+                videoPlayActivityConfig.setNid(str);
             }
-            if (!TbadkCoreApplication.getInst().isOfficial()) {
-                builder.apid = "sw";
-            }
-            builder._phone_imei = TbadkCoreApplication.getInst().getImei();
-            builder.from = TbadkCoreApplication.getFrom();
-            builder.cuid = TbadkCoreApplication.getInst().getCuid();
-            builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
-            builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
-            builder._timestamp = Long.valueOf(System.currentTimeMillis());
-            builder.model = Build.MODEL;
-            builder._os_version = Build.VERSION.RELEASE;
-            builder.brand = Build.BRAND;
-            if (z) {
-                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.BDUSS = c.a.q0.j0.f.b();
-                    if (!StringUtils.isNull(c.a.q0.j0.f.e())) {
-                        builder.stoken = c.a.q0.j0.f.e();
-                    }
+            if (c.a.q0.b.d.Z() && ("index".equals(str5) || "concern_tab".equals(str5))) {
+                VideoClickTabData videoClickTabData = new VideoClickTabData();
+                videoClickTabData.setVideoMiddleBundle(videoPlayActivityConfig.getIntent().getExtras());
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921610, videoClickTabData));
+            } else if (z3) {
+                if (ListUtils.getCount(list) <= 0 || list.get(0) == null || TextUtils.isEmpty(list.get(0).thread_id)) {
+                    str7 = "";
                 } else {
-                    AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                    if (currentAccountInfo != null) {
-                        builder.BDUSS = currentAccountInfo.getBDUSS();
-                        String a2 = c.a.q0.s.l.e.a(currentAccountInfo);
-                        if (!StringUtils.isNull(a2)) {
-                            builder.stoken = a2;
+                    String str9 = list.get(0).thread_id;
+                    str7 = list.get(0).forum_id;
+                    List<VideoItemData> videoTabListByFid = FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str7);
+                    int size = videoTabListByFid.size();
+                    for (int i4 = 0; i4 < size; i4++) {
+                        if (videoTabListByFid.get(i4) != null && str9.equals(videoTabListByFid.get(i4).thread_id)) {
+                            str8 = str7;
+                            i3 = i4;
+                            break;
                         }
                     }
                 }
-            }
-            if (z2) {
-                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.tbs = c.a.q0.j0.f.f();
-                } else {
-                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
-                }
-            }
-            if (z3) {
-                builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
-            }
-            builder.pversion = "1.0.3";
-            builder.lego_lib_version = TbConfig.getLegoLibVersion();
-            if (c.a.q0.s.d0.b.j().k("android_safe_sdk_open", 0) == 1) {
-                builder.z_id = TbadkCoreApplication.getInst().getZid();
-            }
-            builder.net_type = Integer.valueOf(c.a.e.e.p.j.I());
-            builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-            builder.sample_id = TbSingleton.getInstance().getSampleId();
-            builder.is_teenager = Integer.valueOf(c.a.q0.g1.b.e.d() ? 1 : 0);
-            builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
-            builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
-            builder.swan_game_ver = TbadkCoreApplication.getInst().getSwan_game_ver();
-            builder.q_type = Integer.valueOf(c.a.q0.s.k.c().e());
-            builder.scr_h = Integer.valueOf(c.a.e.e.p.l.i(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(c.a.e.e.p.l.k(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(c.a.e.e.p.l.h(TbadkCoreApplication.getInst()));
-            builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
-            builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
-            builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
-            builder.event_day = TbSingleton.getInstance().getData();
-            builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
-            if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                i2 = 2;
-            }
-            builder.cmode = Integer.valueOf(i2);
-            field.set(obj, builder.build(false));
-        } catch (Throwable th) {
-            if (BdLog.isDebugMode()) {
-                th.printStackTrace();
+                str8 = str7;
+                i3 = 0;
+                FrsVideoTabPlayActivityConfig frsVideoTabPlayActivityConfig = new FrsVideoTabPlayActivityConfig(context, null, i3, rect, str2, str3, str4, str5, str6);
+                frsVideoTabPlayActivityConfig.setIsShowPbCommentFloat(z2);
+                frsVideoTabPlayActivityConfig.setFid(str8);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, frsVideoTabPlayActivityConfig));
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
             }
         }
     }

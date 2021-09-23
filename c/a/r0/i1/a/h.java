@@ -41,7 +41,7 @@ public class h extends c.a.e.l.e.a<c.a.r0.a0.d0.k, CardViewHolder<v>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f19179b;
+        public final /* synthetic */ h f19194b;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class h extends c.a.e.l.e.a<c.a.r0.a0.d0.k, CardViewHolder<v>> {
                     return;
                 }
             }
-            this.f19179b = hVar;
+            this.f19194b = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,15 +68,15 @@ public class h extends c.a.e.l.e.a<c.a.r0.a0.d0.k, CardViewHolder<v>> {
             c.a.r0.a0.d0.k kVar;
             d2 d2Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, e2Var) == null) || (kVar = this.f19179b.o) == null || (d2Var = kVar.f15562e) == null || StringUtils.isNull(d2Var.s1())) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, e2Var) == null) || (kVar = this.f19194b.o) == null || (d2Var = kVar.f15571e) == null || StringUtils.isNull(d2Var.s1())) {
                 return;
             }
             int i2 = 1;
-            if ((this.f19179b.p.v() == null || view.getId() != this.f19179b.p.v().getId()) && (this.f19179b.p.w() == null || view.getId() != this.f19179b.p.w().getId())) {
-                i2 = (this.f19179b.p.q == null || view.getId() != this.f19179b.p.q.getId()) ? 2 : 3;
+            if ((this.f19194b.p.v() == null || view.getId() != this.f19194b.p.v().getId()) && (this.f19194b.p.w() == null || view.getId() != this.f19194b.p.w().getId())) {
+                i2 = (this.f19194b.p.q == null || view.getId() != this.f19194b.p.q.getId()) ? 2 : 3;
             }
-            String topicName = ((HotTopicActivity) this.f19179b.m.getOrignalPage()).getTopicName();
-            String hotTopicId = ((HotTopicActivity) this.f19179b.m.getOrignalPage()).getHotTopicId();
+            String topicName = ((HotTopicActivity) this.f19194b.m.getOrignalPage()).getTopicName();
+            String hotTopicId = ((HotTopicActivity) this.f19194b.m.getOrignalPage()).getHotTopicId();
             d2 threadData = kVar.getThreadData();
             TiebaStatic.log(new StatisticItem("c12941").param("obj_type", i2).param("tid", threadData.f0()));
             if ("c10814".equals(kVar.C())) {

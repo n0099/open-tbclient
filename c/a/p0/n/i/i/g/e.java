@@ -10,10 +10,10 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.n.h.a f11926a;
+    public c.a.p0.n.h.a f11934a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.n.h.e f11927b;
+    public c.a.p0.n.h.e f11935b;
 
     public e(c.a.p0.n.h.e eVar) {
         Interceptable interceptable = $ic;
@@ -30,6 +30,6 @@ public class e {
                 return;
             }
         }
-        this.f11927b = eVar;
+        this.f11935b = eVar;
     }
 }

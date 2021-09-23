@@ -24,17 +24,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f8001b;
+    public static final boolean f8009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f8002c;
+    public static volatile a f8010c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f8003d;
+    public static final String f8011d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b<SwanAppPageInfo> f8004a;
+    public b<SwanAppPageInfo> f8012a;
 
     static {
         InterceptResult invokeClinit;
@@ -49,8 +49,8 @@ public class a {
                 return;
             }
         }
-        f8001b = k.f7077a;
-        f8003d = c.a.p0.a.c1.a.m().a() + "_";
+        f8009b = k.f7085a;
+        f8011d = c.a.p0.a.c1.a.m().a() + "_";
     }
 
     public a() {
@@ -71,14 +71,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f8002c == null) {
+            if (f8010c == null) {
                 synchronized (a.class) {
-                    if (f8002c == null) {
-                        f8002c = new a();
+                    if (f8010c == null) {
+                        f8010c = new a();
                     }
                 }
             }
-            return f8002c;
+            return f8010c;
         }
         return (a) invokeV.objValue;
     }
@@ -100,7 +100,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             String optString = jSONObject.optString("type");
-            if (TextUtils.isEmpty(optString) || !optString.startsWith(f8003d)) {
+            if (TextUtils.isEmpty(optString) || !optString.startsWith(f8011d)) {
                 return;
             }
             c.a.p0.a.f1.e.b b2 = b();
@@ -110,13 +110,13 @@ public class a {
                     jSONObject.put("iconUrl", b2.Q());
                     jSONObject.put("appDesc", b2.c1());
                 } catch (JSONException e2) {
-                    if (f8001b) {
+                    if (f8009b) {
                         e2.printStackTrace();
                     }
                 }
             }
-            jSONObject.put("type", optString.substring(f8003d.length()));
-            b<SwanAppPageInfo> bVar = this.f8004a;
+            jSONObject.put("type", optString.substring(f8011d.length()));
+            b<SwanAppPageInfo> bVar = this.f8012a;
             if (bVar != null) {
                 bVar.onCallback(new SwanAppPageInfo(jSONObject));
             }
@@ -125,16 +125,16 @@ public class a {
                 Bundle bundle = new Bundle();
                 bundle.putString("page_info", jSONObject.toString());
                 c.a.p0.a.v1.c.a.e().h(new c(24, bundle));
-                boolean z = f8001b;
+                boolean z = f8009b;
             }
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f8004a == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f8012a == null) {
             return;
         }
-        this.f8004a = null;
+        this.f8012a = null;
     }
 }

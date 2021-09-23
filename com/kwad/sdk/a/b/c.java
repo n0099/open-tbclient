@@ -23,16 +23,16 @@ public class c extends com.kwad.sdk.core.video.videoview.a implements aw.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f71056b;
+    public View f71375b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final aw f71057c;
+    public final aw f71376c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f71058d;
+    public final AtomicBoolean f71377d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f71059e;
+    public boolean f71378e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context, AdTemplate adTemplate, @NonNull d dVar) {
@@ -53,17 +53,17 @@ public class c extends com.kwad.sdk.core.video.videoview.a implements aw.a {
                 return;
             }
         }
-        this.f71057c = new aw(this);
-        this.f71058d = new AtomicBoolean(true);
-        this.f71059e = false;
-        this.f71056b = this;
+        this.f71376c = new aw(this);
+        this.f71377d = new AtomicBoolean(true);
+        this.f71378e = false;
+        this.f71375b = this;
     }
 
     private void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.f71058d.getAndSet(false)) {
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.f71377d.getAndSet(false)) {
             com.kwad.sdk.core.d.a.c("InterstitialVideoPlayerController", "onViewAttached");
-            this.f71057c.sendEmptyMessage(1);
+            this.f71376c.sendEmptyMessage(1);
         }
     }
 
@@ -77,13 +77,13 @@ public class c extends com.kwad.sdk.core.video.videoview.a implements aw.a {
     @Override // com.kwad.sdk.utils.aw.a
     public void a(Message message) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && !this.f71059e && message.what == 1) {
-            if (av.a(this.f71056b, 30)) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && !this.f71378e && message.what == 1) {
+            if (av.a(this.f71375b, 30)) {
                 e();
             } else {
                 f();
             }
-            this.f71057c.sendEmptyMessageDelayed(1, 500L);
+            this.f71376c.sendEmptyMessageDelayed(1, 500L);
         }
     }
 
@@ -91,17 +91,17 @@ public class c extends com.kwad.sdk.core.video.videoview.a implements aw.a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f71059e = true;
+            this.f71378e = true;
         }
     }
 
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f71058d.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f71377d.getAndSet(true)) {
             return;
         }
         com.kwad.sdk.core.d.a.c("InterstitialVideoPlayerController", "onViewDetached");
-        this.f71057c.removeCallbacksAndMessages(null);
+        this.f71376c.removeCallbacksAndMessages(null);
         g();
     }
 

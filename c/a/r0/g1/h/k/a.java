@@ -52,43 +52,43 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f18361a;
+    public final c f18370a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f18362b;
+    public final int f18371b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f18363c;
+    public int f18372c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.g1.h.l.c f18364d;
+    public c.a.r0.g1.h.l.c f18373d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18365e;
+    public int f18374e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18366f;
+    public int f18375f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18367g;
+    public int f18376g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<ThreadInfo> f18368h;
+    public ArrayList<ThreadInfo> f18377h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<App> f18369i;
+    public ArrayList<App> f18378i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Long f18370j;
+    public Long f18379j;
     public List<n> k;
 
     /* renamed from: c.a.r0.g1.h.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0889a implements Comparator<p> {
+    public class C0887a implements Comparator<p> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0889a(a aVar) {
+        public C0887a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,14 +183,14 @@ public class a {
                 return;
             }
         }
-        this.f18363c = 0;
-        this.f18364d = new c.a.r0.g1.h.l.c();
-        this.f18365e = 0;
-        this.f18370j = 0L;
-        this.f18361a = new c();
-        this.f18362b = c.a.q0.s.d0.b.j().k("home_page_max_thread_count", 300);
-        this.f18368h = new ArrayList<>();
-        this.f18369i = new ArrayList<>();
+        this.f18372c = 0;
+        this.f18373d = new c.a.r0.g1.h.l.c();
+        this.f18374e = 0;
+        this.f18379j = 0L;
+        this.f18370a = new c();
+        this.f18371b = c.a.q0.s.d0.b.j().k("home_page_max_thread_count", 300);
+        this.f18377h = new ArrayList<>();
+        this.f18378i = new ArrayList<>();
         this.k = new ArrayList();
     }
 
@@ -198,9 +198,9 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c cVar = this.f18361a;
-            if (cVar != null && !ListUtils.isEmpty(cVar.f18371a)) {
-                for (n nVar : this.f18361a.f18371a) {
+            c cVar = this.f18370a;
+            if (cVar != null && !ListUtils.isEmpty(cVar.f18380a)) {
+                for (n nVar : this.f18370a.f18380a) {
                     if (nVar instanceof c.a.r0.g1.h.j.f) {
                         return (c.a.r0.g1.h.j.f) nVar;
                     }
@@ -215,9 +215,9 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c cVar = this.f18361a;
-            if (cVar != null && !ListUtils.isEmpty(cVar.f18371a)) {
-                for (n nVar : this.f18361a.f18371a) {
+            c cVar = this.f18370a;
+            if (cVar != null && !ListUtils.isEmpty(cVar.f18380a)) {
+                for (n nVar : this.f18370a.f18380a) {
                     if (nVar instanceof g) {
                         return (g) nVar;
                     }
@@ -242,18 +242,18 @@ public class a {
                 d.c(builder);
                 d.c(builder2);
                 n(z, builder, builder2, i2);
-                List<ThreadInfo> o = o(builder, i2, this.f18362b);
+                List<ThreadInfo> o = o(builder, i2, this.f18371b);
                 d.n(builder);
                 List<p> d2 = d.d(builder);
                 p(d2);
                 List<n> f2 = f(builder.thread_list, d2, builder2.user_follow_live, i2, 0, builder2);
                 List<n> f3 = f(o, new ArrayList(), builder2.user_follow_live, i2, 1, null);
-                this.f18364d.a(f2);
+                this.f18373d.a(f2);
                 c.a.r0.g1.h.k.b.c(builder, f2);
-                c cVar = this.f18361a;
-                cVar.f18371a = f2;
-                cVar.f18373c = f3 == null ? 0 : f3.size();
-                return this.f18361a;
+                c cVar = this.f18370a;
+                cVar.f18380a = f2;
+                cVar.f18382c = f3 == null ? 0 : f3.size();
+                return this.f18370a;
             }
             return null;
         }
@@ -263,13 +263,13 @@ public class a {
     public List<ThreadInfo> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18368h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18377h : (List) invokeV.objValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18362b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18371b : invokeV.intValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:127:0x02a6  */
@@ -306,14 +306,14 @@ public class a {
             if (builder != null && !ListUtils.isEmpty(builder.thread_list) && builder.active_center != null) {
                 ThreadInfo threadInfo = builder.thread_list.get(builder.thread_list.size() - 1);
                 if (threadInfo.id.longValue() > 0 && r.g().o()) {
-                    this.f18370j = threadInfo.id;
+                    this.f18379j = threadInfo.id;
                 }
             }
             List<n> arrayList = new ArrayList<>(ListUtils.getCount(list));
             for (ThreadInfo threadInfo2 : list) {
                 d2 d2Var = new d2();
                 c.a.q0.b.f.a.e(d2Var);
-                d2Var.Z1 = true;
+                d2Var.a2 = true;
                 d2Var.Y2(threadInfo2);
                 arrayList.add(d2Var);
             }
@@ -324,7 +324,7 @@ public class a {
                     g(cVar, cVar.floorPosition, arrayList);
                 }
             }
-            if (i3 == 0 && c.a.q0.b.d.G()) {
+            if (i3 == 0 && c.a.q0.b.d.I()) {
                 int c2 = c.a.q0.t.c.e.c();
                 int b2 = c.a.q0.t.c.e.b();
                 if (i2 == 0) {
@@ -382,7 +382,7 @@ public class a {
                                     linkedList.add(g7);
                                 }
                             } else {
-                                d2 d2Var3 = g7.f15562e;
+                                d2 d2Var3 = g7.f15571e;
                                 if (d2Var3 != null && d2Var3.Y() != null && !StringUtils.isNull(d2Var3.Y().f14374b)) {
                                     g7.l = d2Var2.s1();
                                     g7.position = i4;
@@ -411,12 +411,12 @@ public class a {
                                         }
                                     }
                                     if (e2 != null && e2.isValid()) {
-                                        e2.f15562e.G1();
+                                        e2.f15571e.G1();
                                         if (!d2Var2.D2() && d2Var2.J() != null && z) {
                                             String format = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), d2Var2.J().getName_show());
                                             SpannableString spannableString = new SpannableString(format);
                                             spannableString.setSpan(new b(this, 16, d2Var2.J().getUserId(), e2), 0, format.length() - 1, 33);
-                                            e2.f15562e.H1(spannableString);
+                                            e2.f15571e.H1(spannableString);
                                         }
                                         linkedList.add(e2);
                                     }
@@ -498,12 +498,12 @@ public class a {
                         if (e2 != null) {
                         }
                         if (e2 != null) {
-                            e2.f15562e.G1();
+                            e2.f15571e.G1();
                             if (!d2Var2.D2()) {
                                 String format2 = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), d2Var2.J().getName_show());
                                 SpannableString spannableString2 = new SpannableString(format2);
                                 spannableString2.setSpan(new b(this, 16, d2Var2.J().getUserId(), e2), 0, format2.length() - 1, 33);
-                                e2.f15562e.H1(spannableString2);
+                                e2.f15571e.H1(spannableString2);
                             }
                             linkedList.add(e2);
                         }
@@ -551,7 +551,7 @@ public class a {
                         }
                     }
                     long g9 = c.a.e.e.m.b.g(d2Var2.f0(), 0L);
-                    if (g9 != 0 && g9 == this.f18370j.longValue()) {
+                    if (g9 != 0 && g9 == this.f18379j.longValue()) {
                         if (builder.active_center != null) {
                             gVar = new g();
                             gVar.P(builder.active_center);
@@ -575,7 +575,7 @@ public class a {
                 }
                 i4++;
             }
-            if (!c.a.q0.b.d.G()) {
+            if (!c.a.q0.b.d.I()) {
                 int i5 = 0;
                 int i6 = 0;
                 for (int i7 = 0; i7 < ListUtils.getCount(list2); i7++) {
@@ -655,7 +655,7 @@ public class a {
                     d2 d2Var = new d2();
                     o oVar = new o();
                     oVar.k(true);
-                    d2Var.J2 = oVar;
+                    d2Var.K2 = oVar;
                     listIterator.add(d2Var);
                     this.k.add(d2Var);
                 }
@@ -670,7 +670,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ArrayList<ThreadInfo> arrayList = this.f18368h;
+            ArrayList<ThreadInfo> arrayList = this.f18377h;
             return (arrayList == null || ListUtils.isEmpty(arrayList)) ? false : true;
         }
         return invokeV.booleanValue;
@@ -679,13 +679,13 @@ public class a {
     public final boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f18365e > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f18374e > 0 : invokeV.booleanValue;
     }
 
     public final void k(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), builder, builder2, Integer.valueOf(i2)}) == null) {
-            d.k(z, builder, builder2, i2, this.f18363c, this.f18366f, this.f18367g);
+            d.k(z, builder, builder2, i2, this.f18372c, this.f18375f, this.f18376g);
         }
     }
 
@@ -701,14 +701,14 @@ public class a {
         if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), builder, builder2, Integer.valueOf(i2)}) == null) || builder == null || builder2 == null || (list = builder.thread_list) == null || (list2 = builder2.thread_list) == null) {
             return;
         }
-        this.f18366f = ListUtils.getCount(list);
+        this.f18375f = ListUtils.getCount(list);
         BannerList bannerList = builder.banner_list;
         if (bannerList != null) {
-            this.f18367g = ListUtils.getCount(bannerList.app);
+            this.f18376g = ListUtils.getCount(bannerList.app);
         } else {
-            this.f18367g = 0;
+            this.f18376g = 0;
         }
-        int count = ListUtils.getCount(list) + ListUtils.getCount(this.f18368h);
+        int count = ListUtils.getCount(list) + ListUtils.getCount(this.f18377h);
         HashSet hashSet = new HashSet();
         HashSet hashSet2 = new HashSet();
         ArrayList arrayList = new ArrayList();
@@ -721,7 +721,7 @@ public class a {
         }
         HashSet hashSet3 = new HashSet();
         HashSet hashSet4 = new HashSet();
-        Iterator<ThreadInfo> it = this.f18368h.iterator();
+        Iterator<ThreadInfo> it = this.f18377h.iterator();
         while (it.hasNext()) {
             ThreadInfo next = it.next();
             if (next != null && !TextUtils.isEmpty(next.lego_card)) {
@@ -732,7 +732,7 @@ public class a {
         }
         if (i2 == 1) {
             if (!ListUtils.isEmpty(list2)) {
-                this.f18364d.b((ThreadInfo) ListUtils.getItem(list2, 0));
+                this.f18373d.b((ThreadInfo) ListUtils.getItem(list2, 0));
             }
             for (ThreadInfo threadInfo2 : list2) {
                 if (threadInfo2 != null && !TextUtils.isEmpty(threadInfo2.lego_card)) {
@@ -748,27 +748,27 @@ public class a {
                 }
             }
         } else {
-            this.f18364d.c(z, list);
+            this.f18373d.c(z, list);
             if (j()) {
                 BannerList bannerList2 = builder.banner_list;
                 if (bannerList2 != null && !ListUtils.isEmpty(bannerList2.app)) {
-                    this.f18369i.addAll(0, builder.banner_list.app);
+                    this.f18378i.addAll(0, builder.banner_list.app);
                     BannerList.Builder builder3 = new BannerList.Builder(builder.banner_list);
                     builder3.app = new LinkedList();
                     builder.banner_list = builder3.build(false);
                 }
-                this.f18368h.addAll(0, list);
+                this.f18377h.addAll(0, list);
                 list.clear();
                 hashSet.clear();
                 hashSet2.clear();
-                if (ListUtils.getCount(this.f18368h) > this.f18362b) {
-                    for (int size = this.f18368h.size() - 1; size >= this.f18362b; size--) {
-                        this.f18368h.remove(size);
+                if (ListUtils.getCount(this.f18377h) > this.f18371b) {
+                    for (int size = this.f18377h.size() - 1; size >= this.f18371b; size--) {
+                        this.f18377h.remove(size);
                     }
                 }
                 hashSet3.clear();
                 hashSet4.clear();
-                Iterator<ThreadInfo> it2 = this.f18368h.iterator();
+                Iterator<ThreadInfo> it2 = this.f18377h.iterator();
                 while (it2.hasNext()) {
                     ThreadInfo next2 = it2.next();
                     if (next2 != null && !TextUtils.isEmpty(next2.lego_card)) {
@@ -794,34 +794,34 @@ public class a {
             }
         }
         if (j()) {
-            if (!ListUtils.isEmpty(this.f18369i) && builder2.banner_list != null) {
+            if (!ListUtils.isEmpty(this.f18378i) && builder2.banner_list != null) {
                 int count3 = ListUtils.getCount(list2) + ListUtils.getCount(builder2.banner_list.app);
-                for (int i3 = 0; i3 < this.f18369i.size(); i3++) {
-                    App app = this.f18369i.get(i3);
+                for (int i3 = 0; i3 < this.f18378i.size(); i3++) {
+                    App app = this.f18378i.get(i3);
                     if (app != null) {
                         App.Builder builder4 = new App.Builder(app);
                         c.a.r0.y2.c.c(builder4, count3);
                         App build = builder4.build(false);
-                        this.f18369i.remove(i3);
-                        this.f18369i.add(i3, build);
+                        this.f18378i.remove(i3);
+                        this.f18378i.add(i3, build);
                     }
                 }
             }
-            if (ListUtils.getCount(list) >= this.f18365e) {
-                list.addAll(this.f18368h);
-                this.f18368h.clear();
+            if (ListUtils.getCount(list) >= this.f18374e) {
+                list.addAll(this.f18377h);
+                this.f18377h.clear();
                 BannerList.Builder builder5 = new BannerList.Builder(builder.banner_list);
                 if (builder5.app == null) {
                     builder5.app = new LinkedList();
                 }
-                builder5.app.addAll(this.f18369i);
+                builder5.app.addAll(this.f18378i);
                 builder.banner_list = builder5.build(false);
-                this.f18369i.clear();
+                this.f18378i.clear();
             }
         }
-        int count4 = (ListUtils.getCount(list) + ListUtils.getCount(this.f18368h)) - count;
-        this.f18361a.f18372b = count4;
-        this.f18363c = count4;
+        int count4 = (ListUtils.getCount(list) + ListUtils.getCount(this.f18377h)) - count;
+        this.f18370a.f18381b = count4;
+        this.f18372c = count4;
         c.a.r0.y2.l0.b.f().h("NEWINDEX", arrayList);
     }
 
@@ -840,12 +840,12 @@ public class a {
         }
         Integer num = builder2.fresh_ctrl_num;
         int intValue = (num == null || num.intValue() <= 0) ? 0 : builder2.fresh_ctrl_num.intValue();
-        this.f18365e = intValue;
-        int i3 = this.f18362b;
+        this.f18374e = intValue;
+        int i3 = this.f18371b;
         if (intValue > i3) {
             intValue = i3;
         }
-        this.f18365e = intValue;
+        this.f18374e = intValue;
         l(z, builder, builder2, i2);
         k(z, builder, builder2, i2);
         m(builder.thread_personalized, builder2.thread_personalized);
@@ -880,6 +880,6 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048591, this, list) == null) || list == null) {
             return;
         }
-        Collections.sort(list, new C0889a(this));
+        Collections.sort(list, new C0887a(this));
     }
 }

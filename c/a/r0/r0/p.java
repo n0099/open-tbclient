@@ -15,7 +15,7 @@ public class p extends c.a.q0.x.p.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f24320e;
+    public final String f24336e;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.e.l.c<c.a.e.l.d.a> {
@@ -23,10 +23,10 @@ public class p extends c.a.q0.x.p.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f24321a;
+        public final /* synthetic */ b f24337a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ p f24322b;
+        public final /* synthetic */ p f24338b;
 
         public a(p pVar, b bVar) {
             Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class p extends c.a.q0.x.p.c {
                     return;
                 }
             }
-            this.f24322b = pVar;
-            this.f24321a = bVar;
+            this.f24338b = pVar;
+            this.f24337a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,10 +54,10 @@ public class p extends c.a.q0.x.p.c {
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((a) aVar, str, i2);
                 if (aVar != null) {
-                    this.f24322b.q(aVar);
-                    this.f24322b.r(aVar);
-                    if (this.f24322b.t()) {
-                        this.f24321a.a(this.f24322b);
+                    this.f24338b.q(aVar);
+                    this.f24338b.r(aVar);
+                    if (this.f24338b.t()) {
+                        this.f24337a.a(this.f24338b);
                     }
                 }
             }
@@ -84,7 +84,7 @@ public class p extends c.a.q0.x.p.c {
                 return;
             }
         }
-        this.f24320e = bVar.getGroupId();
+        this.f24336e = bVar.getGroupId();
         s(1);
         p(4);
     }
@@ -120,7 +120,7 @@ public class p extends c.a.q0.x.p.c {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24320e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24336e : (String) invokeV.objValue;
     }
 
     @Override // c.a.q0.x.p.c

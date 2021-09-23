@@ -13,7 +13,7 @@ public class m0 implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f9366e;
+    public View f9374e;
 
     public m0() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class m0 implements View.OnTouchListener {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                View view2 = this.f9366e;
+                View view2 = this.f9374e;
                 if (view2 == null) {
                     view.setAlpha(c.a.p0.a.c1.a.H().a() ? 0.5f : 0.2f);
                     return false;
@@ -44,7 +44,7 @@ public class m0 implements View.OnTouchListener {
                 view2.setAlpha(c.a.p0.a.c1.a.H().a() ? 0.5f : 0.2f);
                 return false;
             } else if (action != 2) {
-                View view3 = this.f9366e;
+                View view3 = this.f9374e;
                 if (view3 == null) {
                     view.setAlpha(1.0f);
                     return false;

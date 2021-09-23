@@ -13,14 +13,14 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile SQLiteDatabase f24552a;
+    public static volatile SQLiteDatabase f24568a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static synchronized void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
             synchronized (h.class) {
-                m.b(f24552a);
+                m.b(f24568a);
             }
         }
     }
@@ -37,11 +37,11 @@ public class h {
                 if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     return null;
                 }
-                if (f24552a != null && f24552a.isOpen()) {
-                    return f24552a;
+                if (f24568a != null && f24568a.isOpen()) {
+                    return f24568a;
                 }
-                f24552a = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
-                return f24552a;
+                f24568a = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
+                return f24568a;
             }
         }
         return (SQLiteDatabase) invokeV.objValue;

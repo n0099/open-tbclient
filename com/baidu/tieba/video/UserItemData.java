@@ -18,6 +18,7 @@ public class UserItemData implements Serializable, Parcelable {
     public static final Parcelable.Creator<UserItemData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String agree_num;
+    public String auth;
     public String bjhAvatar;
     public String fans_num;
     public String favor_num;
@@ -140,6 +141,7 @@ public class UserItemData implements Serializable, Parcelable {
             parcel.writeString(this.is_fans);
             parcel.writeString(this.is_follow);
             parcel.writeString(this.bjhAvatar);
+            parcel.writeString(this.auth);
         }
     }
 
@@ -172,5 +174,6 @@ public class UserItemData implements Serializable, Parcelable {
         this.is_fans = parcel.readString();
         this.is_follow = parcel.readString();
         this.bjhAvatar = parcel.readString();
+        this.auth = parcel.readString();
     }
 }

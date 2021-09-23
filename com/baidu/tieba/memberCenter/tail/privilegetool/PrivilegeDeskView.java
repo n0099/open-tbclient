@@ -44,7 +44,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PrivilegeDeskView f54374a;
+        public final /* synthetic */ PrivilegeDeskView f54489a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PrivilegeDeskView privilegeDeskView, int i2) {
@@ -64,7 +64,7 @@ public class PrivilegeDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f54374a = privilegeDeskView;
+            this.f54489a = privilegeDeskView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,11 +75,11 @@ public class PrivilegeDeskView extends CommonTabHost {
                 return;
             }
             if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.f54374a.s.displayNotice(" ");
+                this.f54489a.s.displayNotice(" ");
             } else {
-                this.f54374a.s.hideNotice();
+                this.f54489a.s.hideNotice();
             }
-            this.f54374a.t();
+            this.f54489a.t();
         }
     }
 
@@ -89,7 +89,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PrivilegeDeskView f54375a;
+        public final /* synthetic */ PrivilegeDeskView f54490a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PrivilegeDeskView privilegeDeskView, int i2) {
@@ -109,7 +109,7 @@ public class PrivilegeDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f54375a = privilegeDeskView;
+            this.f54490a = privilegeDeskView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,11 +118,11 @@ public class PrivilegeDeskView extends CommonTabHost {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    this.f54375a.t.displayNotice(" ");
+                    this.f54490a.t.displayNotice(" ");
                 } else {
-                    this.f54375a.t.hideNotice();
+                    this.f54490a.t.hideNotice();
                 }
-                this.f54375a.t();
+                this.f54490a.t();
             }
         }
     }
@@ -133,7 +133,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PrivilegeDeskView f54376e;
+        public final /* synthetic */ PrivilegeDeskView f54491e;
 
         public c(PrivilegeDeskView privilegeDeskView) {
             Interceptable interceptable = $ic;
@@ -150,15 +150,15 @@ public class PrivilegeDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f54376e = privilegeDeskView;
+            this.f54491e = privilegeDeskView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f54376e.hide();
-                this.f54376e.sendAction(new c.a.q0.x.a(1, 16, null));
+                this.f54491e.hide();
+                this.f54491e.sendAction(new c.a.q0.x.a(1, 16, null));
             }
         }
     }
@@ -169,7 +169,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PrivilegeDeskView f54377e;
+        public final /* synthetic */ PrivilegeDeskView f54492e;
 
         public d(PrivilegeDeskView privilegeDeskView) {
             Interceptable interceptable = $ic;
@@ -186,15 +186,15 @@ public class PrivilegeDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f54377e = privilegeDeskView;
+            this.f54492e = privilegeDeskView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f54377e.hide();
-                this.f54377e.sendAction(new c.a.q0.x.a(1, 12, null));
+                this.f54492e.hide();
+                this.f54492e.sendAction(new c.a.q0.x.a(1, 12, null));
             }
         }
     }
@@ -270,8 +270,8 @@ public class PrivilegeDeskView extends CommonTabHost {
             if (aVar == null) {
                 return;
             }
-            if (aVar.f15079a == 2) {
-                Object obj = aVar.f15081c;
+            if (aVar.f15086a == 2) {
+                Object obj = aVar.f15088c;
                 if (obj == null) {
                     this.r--;
                 } else if (obj instanceof String) {
@@ -290,7 +290,7 @@ public class PrivilegeDeskView extends CommonTabHost {
                     sendAction(new c.a.q0.x.a(2, 18, null));
                 }
             }
-            if (aVar.f15079a == 1) {
+            if (aVar.f15086a == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 2));
             }
         }

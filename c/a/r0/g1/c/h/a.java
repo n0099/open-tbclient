@@ -20,7 +20,7 @@ public class a extends c.a.l.a<v1> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public ConcernRecommendLayout f17924j;
+    public ConcernRecommendLayout f17933j;
     public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -43,16 +43,16 @@ public class a extends c.a.l.a<v1> {
         }
         this.k = 3;
         ConcernRecommendLayout concernRecommendLayout = new ConcernRecommendLayout(tbPageContext.getPageActivity());
-        this.f17924j = concernRecommendLayout;
+        this.f17933j = concernRecommendLayout;
         concernRecommendLayout.setPageContext(tbPageContext);
-        this.f17924j.setPageUniqueId(bdUniqueId);
+        this.f17933j.setPageUniqueId(bdUniqueId);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17924j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17933j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,14 +61,14 @@ public class a extends c.a.l.a<v1> {
     public void onBindDataToView(v1 v1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v1Var) == null) {
-            this.f17924j.setData(v1Var);
+            this.f17933j.setData(v1Var);
         }
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f17924j.setHasBorder(z);
+            this.f17933j.setHasBorder(z);
         }
     }
 
@@ -77,8 +77,8 @@ public class a extends c.a.l.a<v1> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
             if (this.k != i2) {
-                this.f17924j.onChangeSkinType(tbPageContext, i2);
-                l(this.f17924j, 3);
+                this.f17933j.onChangeSkinType(tbPageContext, i2);
+                l(this.f17933j, 3);
             }
             this.k = i2;
         }
@@ -87,7 +87,7 @@ public class a extends c.a.l.a<v1> {
     public void p(f<MetaData> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.f17924j.setOnItemCoverListener(fVar);
+            this.f17933j.setOnItemCoverListener(fVar);
         }
     }
 }

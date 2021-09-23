@@ -17,6 +17,7 @@ import c.a.r0.z1.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -26,11 +27,13 @@ import com.baidu.tbadk.core.atomData.WriteShareActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.EmotionUtil;
 import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
@@ -63,48 +66,48 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetWork f20890a;
+    public NetWork f20902a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ErrorData f20891b;
+    public ErrorData f20903b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f20892c;
+    public boolean f20904c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AntiData f20893d;
+    public AntiData f20905d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f20894e;
+    public f f20906e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.j3.p0.a f20895f;
+    public c.a.r0.j3.p0.a f20907f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f20896g;
+    public c f20908g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f20897h;
+    public g f20909h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SpanGroupManager f20898i;
+    public SpanGroupManager f20910i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f20899j;
+    public String f20911j;
 
     /* renamed from: c.a.r0.j3.j0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0986a implements f.b {
+    public class C0984a implements f.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteImagesInfo f20900a;
+        public final /* synthetic */ WriteImagesInfo f20912a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WriteData f20901b;
+        public final /* synthetic */ WriteData f20913b;
 
-        public C0986a(a aVar, WriteImagesInfo writeImagesInfo, WriteData writeData) {
+        public C0984a(a aVar, WriteImagesInfo writeImagesInfo, WriteData writeData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,8 +122,8 @@ public class a {
                     return;
                 }
             }
-            this.f20900a = writeImagesInfo;
-            this.f20901b = writeData;
+            this.f20912a = writeImagesInfo;
+            this.f20913b = writeData;
         }
 
         @Override // c.a.q0.d0.f.b
@@ -130,12 +133,12 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, obj, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
                 h.a("发帖：发送图片 进度 = " + i2 + "/" + i3 + " :" + j2 + "/" + j3 + "   ，" + str);
-                WriteImagesInfo writeImagesInfo = this.f20900a;
+                WriteImagesInfo writeImagesInfo = this.f20912a;
                 if (writeImagesInfo == null || (i4 = writeImagesInfo.hasUploadFileSize) <= 0 || (i5 = writeImagesInfo.allImageFileSize) <= 0) {
                     return;
                 }
                 float f2 = (i4 * 1.0f) / i5;
-                l1.h(this.f20901b, (int) ((f2 <= 1.0f ? f2 : 1.0f) * 90.0f)).f(true);
+                l1.h(this.f20913b, (int) ((f2 <= 1.0f ? f2 : 1.0f) * 90.0f)).f(true);
             }
         }
     }
@@ -146,13 +149,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f20902a;
+        public int f20914a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WriteData f20903b;
+        public final /* synthetic */ WriteData f20915b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f20904c;
+        public final /* synthetic */ a f20916c;
 
         public b(a aVar, WriteData writeData) {
             Interceptable interceptable = $ic;
@@ -169,9 +172,9 @@ public class a {
                     return;
                 }
             }
-            this.f20904c = aVar;
-            this.f20903b = writeData;
-            this.f20902a = 0;
+            this.f20916c = aVar;
+            this.f20915b = writeData;
+            this.f20914a = 0;
         }
 
         @Override // c.a.r0.j3.p0.d.e
@@ -180,10 +183,10 @@ public class a {
             if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
                 h.a("发帖：开始上传视频 percent = " + f2);
                 int i2 = (int) (f2 * 90.0f);
-                l1.h(this.f20903b, i2).f(true);
-                if (i2 != this.f20902a) {
-                    this.f20902a = i2;
-                    this.f20904c.f(i2);
+                l1.h(this.f20915b, i2).f(true);
+                if (i2 != this.f20914a) {
+                    this.f20914a = i2;
+                    this.f20916c.f(i2);
                 }
             }
         }
@@ -225,25 +228,25 @@ public class a {
                 return;
             }
         }
-        this.f20890a = null;
-        this.f20891b = null;
-        this.f20892c = false;
-        this.f20891b = new ErrorData();
+        this.f20902a = null;
+        this.f20903b = null;
+        this.f20904c = false;
+        this.f20903b = new ErrorData();
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f20892c = true;
-            NetWork netWork = this.f20890a;
+            this.f20904c = true;
+            NetWork netWork = this.f20902a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
-            f fVar = this.f20894e;
+            f fVar = this.f20906e;
             if (fVar != null) {
                 fVar.a();
             }
-            c.a.r0.j3.p0.a aVar = this.f20895f;
+            c.a.r0.j3.p0.a aVar = this.f20907f;
             if (aVar != null) {
                 aVar.a();
             }
@@ -253,20 +256,20 @@ public class a {
     public AntiData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20893d : (AntiData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20905d : (AntiData) invokeV.objValue;
     }
 
     public ErrorData d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20891b : (ErrorData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20903b : (ErrorData) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            NetWork netWork = this.f20890a;
+            NetWork netWork = this.f20902a;
             if (netWork == null) {
                 return false;
             }
@@ -278,7 +281,7 @@ public class a {
     public final void f(int i2) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (cVar = this.f20896g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (cVar = this.f20908g) == null) {
             return;
         }
         cVar.a(i2);
@@ -291,10 +294,10 @@ public class a {
             if (imageFileInfo == null) {
                 return null;
             }
-            if (this.f20894e == null) {
-                this.f20894e = new f("HTTPWriteService.postImageData");
+            if (this.f20906e == null) {
+                this.f20906e = new f("HTTPWriteService.postImageData");
             }
-            return this.f20894e.i(imageFileInfo, z);
+            return this.f20906e.i(imageFileInfo, z);
         }
         return (ImageUploadResult) invokeLZ.objValue;
     }
@@ -320,17 +323,17 @@ public class a {
             }
             h.a("发帖：postWriteData 开始");
             NetWork netWork = new NetWork();
-            this.f20890a = netWork;
+            this.f20902a = netWork;
             netWork.getNetContext().getRequest().mIsNeedTbs = true;
-            this.f20890a.setNeedSig(true);
-            this.f20890a.addPostData("authsid", writeData.getAuthSid());
-            if (!TextUtils.isEmpty(this.f20899j)) {
-                content = this.f20899j;
+            this.f20902a.setNeedSig(true);
+            this.f20902a.addPostData("authsid", writeData.getAuthSid());
+            if (!TextUtils.isEmpty(this.f20911j)) {
+                content = this.f20911j;
                 writeData.setSpanGroupString(content);
             } else {
-                SpanGroupManager spanGroupManager = this.f20898i;
+                SpanGroupManager spanGroupManager = this.f20910i;
                 if (spanGroupManager != null) {
-                    content = spanGroupManager.t();
+                    content = spanGroupManager.B();
                     writeData.setSpanGroupString(content);
                 } else if (!TextUtils.isEmpty(writeData.getSpanGroupString())) {
                     content = writeData.getSpanGroupString();
@@ -338,7 +341,9 @@ public class a {
                     content = writeData.getContent();
                 }
             }
-            if (writeData.getSubPbReplyPrefix() != null) {
+            if (writeData.getPortrait() != null && writeData.getName() != null && writeData.getSubPbReplyPrefix() != null) {
+                content = "回复 #(reply, " + writeData.getPortrait() + StringUtil.ARRAY_ELEMENT_SEPARATOR + writeData.getName() + ") :" + content;
+            } else if (writeData.getSubPbReplyPrefix() != null) {
                 content = writeData.getSubPbReplyPrefix() + content;
             }
             if (!TextUtils.isEmpty(writeData.getZhongcePrefix())) {
@@ -350,31 +355,31 @@ public class a {
             if (writeData.getType() == 3) {
                 h.a("发帖：SHARE_SDK：设置数据");
                 if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
-                    this.f20890a.addPostData("vcode", writeData.getVcode());
+                    this.f20902a.addPostData("vcode", writeData.getVcode());
                 }
                 if (TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() < 3) {
-                    this.f20890a.addPostData("tag", "11");
+                    this.f20902a.addPostData("tag", "11");
                 }
-                this.f20890a.addPostData("newVcode", "1");
-                this.f20890a.addPostData("content", str8);
-                this.f20890a.setUrl(m);
-                this.f20890a.addPostData("fname", writeData.getForumName());
+                this.f20902a.addPostData("newVcode", "1");
+                this.f20902a.addPostData("content", str8);
+                this.f20902a.setUrl(m);
+                this.f20902a.addPostData("fname", writeData.getForumName());
                 if (!TextUtils.isEmpty(writeData.getTitle())) {
-                    this.f20890a.addPostData("title", writeData.getTitle());
+                    this.f20902a.addPostData("title", writeData.getTitle());
                 }
                 if (!StringUtils.isNull(writeData.getPostPrefix())) {
-                    this.f20890a.addPostData("post_prefix", writeData.getPostPrefix());
+                    this.f20902a.addPostData("post_prefix", writeData.getPostPrefix());
                 }
-                this.f20890a.addPostData("apiKey", writeData.getShareApiKey());
-                this.f20890a.addPostData("appName", writeData.getShareAppName());
-                this.f20890a.addPostData("signKey", writeData.getShareSignKey());
-                this.f20890a.addPostData("summary_title", writeData.getShareSummaryTitle());
-                this.f20890a.addPostData("summary_content", writeData.getShareSummaryContent());
-                this.f20890a.addPostData("summary_img", writeData.getShareSummaryImg());
-                this.f20890a.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(writeData.getShareSummaryImgWidth()));
-                this.f20890a.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(writeData.getShareSummaryImgHeight()));
-                this.f20890a.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, writeData.getShareSummaryImgType());
-                this.f20890a.addPostData("referUrl", writeData.getShareReferUrl());
+                this.f20902a.addPostData("apiKey", writeData.getShareApiKey());
+                this.f20902a.addPostData("appName", writeData.getShareAppName());
+                this.f20902a.addPostData("signKey", writeData.getShareSignKey());
+                this.f20902a.addPostData("summary_title", writeData.getShareSummaryTitle());
+                this.f20902a.addPostData("summary_content", writeData.getShareSummaryContent());
+                this.f20902a.addPostData("summary_img", writeData.getShareSummaryImg());
+                this.f20902a.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(writeData.getShareSummaryImgWidth()));
+                this.f20902a.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(writeData.getShareSummaryImgHeight()));
+                this.f20902a.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, writeData.getShareSummaryImgType());
+                this.f20902a.addPostData("referUrl", writeData.getShareReferUrl());
                 str4 = str8;
             } else {
                 h.a("发帖：开始分段数据发送");
@@ -391,30 +396,30 @@ public class a {
                     }
                     d.n(writeData);
                     h.a("发帖：发送图片 开始");
-                    if (this.f20894e == null) {
+                    if (this.f20906e == null) {
                         f fVar = new f("HTTPWriteService.postWriteData");
-                        this.f20894e = fVar;
+                        this.f20906e = fVar;
                         fVar.h(writeData);
-                        this.f20894e.e(new C0986a(this, writeImagesInfo, writeData), writeData);
+                        this.f20906e.e(new C0984a(this, writeImagesInfo, writeData), writeData);
                     }
                     if (writeData.startPublishTime() > 0 && writeImagesInfo != null) {
                         if (writeImagesInfo.needImageParallel) {
-                            this.f20894e.b(104857600);
+                            this.f20906e.b(104857600);
                         } else {
                             int i2 = writeImagesInfo.imageChunkSize;
                             if (i2 > 9) {
-                                this.f20894e.b(i2 * 1024);
+                                this.f20906e.b(i2 * 1024);
                             } else {
-                                this.f20894e.b(512000);
+                                this.f20906e.b(512000);
                             }
                         }
                     }
                     if (writeData.getType() == 6) {
                         h.a("发帖：发送图片 上传图片 开始 1");
-                        ErrorData p = this.f20894e.p(writeData.getWriteImagesInfo(), true);
+                        ErrorData p = this.f20906e.p(writeData.getWriteImagesInfo(), true);
                         if (p != null) {
-                            this.f20891b.setError_code(p.getError_code());
-                            this.f20891b.setError_msg(p.getError_msg());
+                            this.f20903b.setError_code(p.getError_code());
+                            this.f20903b.setError_msg(p.getError_msg());
                             h.a("发帖：发送图片 上传图片 错误 1");
                             d.e(writeData, p);
                             return null;
@@ -422,11 +427,11 @@ public class a {
                         h.a("发帖：发送图片 上传图片 完成 1");
                     } else {
                         h.a("发帖：发送图片 上传图片 开始 2");
-                        this.f20894e.m = writeData.isBJHPost();
-                        ErrorData p2 = this.f20894e.p(writeData.getWriteImagesInfo(), true);
+                        this.f20906e.m = writeData.isBJHPost();
+                        ErrorData p2 = this.f20906e.p(writeData.getWriteImagesInfo(), true);
                         if (p2 != null) {
-                            this.f20891b.setError_code(p2.getError_code());
-                            this.f20891b.setError_msg(p2.getError_msg());
+                            this.f20903b.setError_code(p2.getError_code());
+                            this.f20903b.setError_msg(p2.getError_msg());
                             h.a("发帖：发送图片 上传图片 错误 2");
                             d.e(writeData, p2);
                             return null;
@@ -435,8 +440,8 @@ public class a {
                     }
                     d.e(writeData, null);
                 }
-                if (this.f20892c) {
-                    this.f20891b.setError_code(-54);
+                if (this.f20904c) {
+                    this.f20903b.setError_code(-54);
                     return null;
                 }
                 String voice = writeData.getVoice();
@@ -472,8 +477,8 @@ public class a {
                             fieldBuilder.append("ErrCode", Integer.valueOf(d2.b()));
                             fieldBuilder.append("ErrMsg", d2.c());
                             TiebaStatic.voiceError(TbErrInfo.ERR_VOI_SEND, "audioUploadData is null", fieldBuilder.toString());
-                            this.f20891b.setError_code(d2.b());
-                            this.f20891b.setError_msg(d2.c());
+                            this.f20903b.setError_code(d2.b());
+                            this.f20903b.setError_msg(d2.c());
                             h.a("发帖：发送声音 失败 1");
                             d.i(writeData, d2);
                             return null;
@@ -483,29 +488,29 @@ public class a {
                         fieldBuilder2.append("audioFile", storeFile);
                         TiebaStatic.voiceError(TbErrInfo.ERR_VOI_SEND, "uploadService.upload null or fail", fieldBuilder2.toString());
                         if (d2 != null) {
-                            this.f20891b.setError_code(d2.b());
-                            this.f20891b.setError_msg(d2.c());
+                            this.f20903b.setError_code(d2.b());
+                            this.f20903b.setError_msg(d2.c());
                         }
                         d.i(writeData, d2);
                         h.a("发帖：发送声音 失败 2");
                         return null;
                     }
                 }
-                if (this.f20892c) {
-                    this.f20891b.setError_code(-54);
+                if (this.f20904c) {
+                    this.f20903b.setError_code(-54);
                     return null;
                 }
                 VideoInfo videoInfo = writeData.getVideoInfo();
                 if (videoInfo != null) {
                     if (videoInfo.needUploadVideo()) {
                         d.p(writeData, videoInfo);
-                        this.f20895f = new c.a.r0.j3.p0.a(this.f20897h);
+                        this.f20907f = new c.a.r0.j3.p0.a(this.f20909h);
                         h.a("发帖：开始上传视频");
-                        VideoFinishResult e2 = this.f20895f.e(writeData.getForumId(), videoInfo.getVideoPath(), videoInfo.getVideoDuration(), new b(this, writeData));
+                        VideoFinishResult e2 = this.f20907f.e(writeData.getForumId(), videoInfo.getVideoPath(), videoInfo.getVideoDuration(), new b(this, writeData));
                         d.g(writeData, e2);
                         if (e2 == null) {
-                            this.f20891b.setError_code(-53);
-                            this.f20891b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
+                            this.f20903b.setError_code(-53);
+                            this.f20903b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
                             h.a("发帖：开始上传视频 失败 1");
                             return null;
                         } else if (e2.isSuccess()) {
@@ -513,21 +518,21 @@ public class a {
                             videoInfo.setVideoUrl(e2.getVideoUrl());
                             h.a("发帖：开始上传视频 成功 ");
                         } else {
-                            this.f20891b.setError_code(e2.getErrorNo());
-                            this.f20891b.setError_msg(e2.getUserMessage());
+                            this.f20903b.setError_code(e2.getErrorNo());
+                            this.f20903b.setError_msg(e2.getUserMessage());
                             h.a("发帖：开始上传视频 失败 2");
                             return null;
                         }
                     }
                     if (videoInfo.needUploadThunmb()) {
                         h.a("发帖：开始上传首帧图 开始 ");
-                        if (this.f20894e == null) {
+                        if (this.f20906e == null) {
                             f fVar2 = new f("HTTPWriteService.postWriteData");
-                            this.f20894e = fVar2;
+                            this.f20906e = fVar2;
                             fVar2.h(writeData);
                         }
                         d.q(writeData, videoInfo.getThumbPath());
-                        ImageUploadResult l2 = this.f20894e.l(videoInfo.getThumbPath(), false);
+                        ImageUploadResult l2 = this.f20906e.l(videoInfo.getThumbPath(), false);
                         d.h(writeData, l2);
                         if (l2 != null) {
                             videoInfo.setThumbId(l2.picId);
@@ -571,53 +576,53 @@ public class a {
                     } catch (JSONException e3) {
                         e3.printStackTrace();
                     }
-                    this.f20890a.addPostData("video_other", jSONObject.toString());
+                    this.f20902a.addPostData("video_other", jSONObject.toString());
                 }
                 h.a("发帖：上传视频结束 完全完成 ");
-                if (this.f20892c) {
-                    this.f20891b.setError_code(-54);
+                if (this.f20904c) {
+                    this.f20903b.setError_code(-54);
                     return null;
                 }
                 h.a("发帖：其他数据设置开始 ");
-                this.f20890a.addPostData("anonymous", "1");
-                this.f20890a.addPostData("can_no_forum", writeData.isCanNoForum() ? "1" : "0");
-                this.f20890a.addPostData("is_feedback", writeData.isUserFeedback() ? "1" : "0");
-                this.f20890a.addPostData("takephoto_num", String.valueOf(writeData.getTakePhotoNum()));
-                this.f20890a.addPostData("entrance_type", String.valueOf(writeData.getEntranceType()));
+                this.f20902a.addPostData("anonymous", "1");
+                this.f20902a.addPostData("can_no_forum", writeData.isCanNoForum() ? "1" : "0");
+                this.f20902a.addPostData("is_feedback", writeData.isUserFeedback() ? "1" : "0");
+                this.f20902a.addPostData("takephoto_num", String.valueOf(writeData.getTakePhotoNum()));
+                this.f20902a.addPostData("entrance_type", String.valueOf(writeData.getEntranceType()));
                 if (str != null) {
-                    this.f20890a.addPostData("voice_md5", str);
-                    this.f20890a.addPostData("during_time", String.valueOf(voiceDuringTime));
+                    this.f20902a.addPostData("voice_md5", str);
+                    this.f20902a.addPostData("during_time", String.valueOf(voiceDuringTime));
                 }
                 String imagesCodeForPost = writeData.getImagesCodeForPost();
                 if (writeData.getType() != 6) {
                     if (writeData.getType() == 7 && TextUtils.isEmpty(writeData.getTitle()) && TextUtils.isEmpty(str) && TextUtils.isEmpty(imagesCodeForPost) && TextUtils.isEmpty(str8) && writeData.getVideoInfo() == null) {
-                        this.f20891b.setError_code(-53);
-                        this.f20891b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
+                        this.f20903b.setError_code(-53);
+                        this.f20903b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
                         return null;
                     }
                     if ((!(writeData.getType() == 0 || writeData.getType() == 9) || TextUtils.isEmpty(writeData.getTitle())) && TextUtils.isEmpty(str) && TextUtils.isEmpty(imagesCodeForPost) && TextUtils.isEmpty(str8) && writeData.getVideoInfo() == null && writeData.getType() != 7 && !writeData.isLinkThread() && writeData.getWriteVoteData() == null) {
-                        this.f20891b.setError_code(-53);
-                        this.f20891b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
+                        this.f20903b.setError_code(-53);
+                        this.f20903b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
                         return null;
                     }
                 }
                 if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
-                    this.f20890a.addPostData("vcode", writeData.getVcode());
+                    this.f20902a.addPostData("vcode", writeData.getVcode());
                 }
                 if (!StringUtils.isNull(writeData.getVcodeMD5())) {
-                    this.f20890a.addPostData("vcode_md5", writeData.getVcodeMD5());
+                    this.f20902a.addPostData("vcode_md5", writeData.getVcodeMD5());
                 }
                 if (!StringUtils.isNull(writeData.getVcodeType())) {
-                    this.f20890a.addPostData("vcode_type", writeData.getVcodeType());
+                    this.f20902a.addPostData("vcode_type", writeData.getVcodeType());
                 }
                 if (TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() < 3) {
-                    this.f20890a.addPostData("vcode_tag", "12");
+                    this.f20902a.addPostData("vcode_tag", "12");
                 }
                 Address h2 = c.a.e.e.i.a.l().h(false);
                 if (!TextUtils.isEmpty(writeData.getTopicId())) {
-                    this.f20890a.addPostData("topic_id", writeData.getTopicId());
+                    this.f20902a.addPostData("topic_id", writeData.getTopicId());
                 }
-                this.f20890a.addPostData("new_vcode", "1");
+                this.f20902a.addPostData("new_vcode", "1");
                 if (writeData.getVideoInfo() != null && writeData.getVideoInfo().hasUpload()) {
                     String buildContent = writeData.getVideoInfo().buildContent();
                     title = writeData.getTitle();
@@ -638,22 +643,22 @@ public class a {
                 if (!TextUtils.isEmpty(str2)) {
                     str2 = c.a.r0.q0.a.b(str2);
                 }
-                this.f20890a.addPostData("content", b3);
-                this.f20890a.addPostData("reply_uid", writeData.getReplyId());
+                this.f20902a.addPostData("content", b3);
+                this.f20902a.addPostData("reply_uid", writeData.getReplyId());
                 if (!TextUtils.isEmpty(writeData.getMemeText())) {
-                    this.f20890a.addPostData("meme_text", writeData.getMemeText());
+                    this.f20902a.addPostData("meme_text", writeData.getMemeText());
                 }
                 if (!TextUtils.isEmpty(writeData.getMemeContSign())) {
-                    this.f20890a.addPostData("meme_cont_sign", writeData.getMemeContSign());
+                    this.f20902a.addPostData("meme_cont_sign", writeData.getMemeContSign());
                 }
                 if (!TextUtils.isEmpty(writeData.getItem_id())) {
-                    this.f20890a.addPostData("item_id", writeData.getItem_id());
+                    this.f20902a.addPostData("item_id", writeData.getItem_id());
                 }
                 if (!TextUtils.isEmpty(writeData.getComment_head())) {
-                    this.f20890a.addPostData("comment_head", writeData.getComment_head());
+                    this.f20902a.addPostData("comment_head", writeData.getComment_head());
                 }
                 if (writeData.getClassAndTagData() != null && !TextUtils.isEmpty(writeData.getClassAndTagData().toPostJson())) {
-                    this.f20890a.addPostData("works_tag", writeData.getClassAndTagData().toPostJson());
+                    this.f20902a.addPostData("works_tag", writeData.getClassAndTagData().toPostJson());
                 }
                 h.a("设置数据");
                 int type = writeData.getType();
@@ -663,111 +668,111 @@ public class a {
                     str6 = title;
                     str5 = "1";
                     if (type == 1) {
-                        this.f20890a.setUrl(l);
-                        this.f20890a.addPostData("fid", writeData.getForumId());
-                        this.f20890a.addPostData("from_fourm_id", writeData.getFromForumId());
-                        this.f20890a.addPostData("v_fid", writeData.getVForumId());
-                        this.f20890a.addPostData("v_fname", writeData.getVForumName());
-                        this.f20890a.addPostData("tid", writeData.getThreadId());
-                        this.f20890a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
-                        this.f20890a.addPostData("is_ad", writeData.getIsAd() ? str5 : "0");
-                        this.f20890a.addPostData("is_barrage", writeData.isBarrage() ? str5 : "0");
-                        this.f20890a.addPostData("barrage_time", String.valueOf(writeData.getBarrageTime()));
+                        this.f20902a.setUrl(l);
+                        this.f20902a.addPostData("fid", writeData.getForumId());
+                        this.f20902a.addPostData("from_fourm_id", writeData.getFromForumId());
+                        this.f20902a.addPostData("v_fid", writeData.getVForumId());
+                        this.f20902a.addPostData("v_fname", writeData.getVForumName());
+                        this.f20902a.addPostData("tid", writeData.getThreadId());
+                        this.f20902a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                        this.f20902a.addPostData("is_ad", writeData.getIsAd() ? str5 : "0");
+                        this.f20902a.addPostData("is_barrage", writeData.isBarrage() ? str5 : "0");
+                        this.f20902a.addPostData("barrage_time", String.valueOf(writeData.getBarrageTime()));
                         if (writeData.isFrsReply()) {
-                            this.f20890a.addPostData("st_param", "frs");
+                            this.f20902a.addPostData("st_param", "frs");
                         }
                         if (c.a.q0.x.w.a.a().b() == 1) {
-                            this.f20890a.addPostData("ptype", "4");
+                            this.f20902a.addPostData("ptype", "4");
                         }
                         if (!StringUtils.isNull(writeData.sourceFrom)) {
-                            this.f20890a.addPostData("post_from", writeData.sourceFrom);
+                            this.f20902a.addPostData("post_from", writeData.sourceFrom);
                         }
                         if (writeData.getBaijiahaoData() != null) {
-                            this.f20890a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
-                            this.f20890a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
-                            this.f20890a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
-                            this.f20890a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
+                            this.f20902a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
+                            this.f20902a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
+                            this.f20902a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
+                            this.f20902a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
                         }
-                        m.a(this.f20890a, writeData);
+                        m.a(this.f20902a, writeData);
                     } else if (type == 2) {
-                        this.f20890a.setUrl(l);
-                        this.f20890a.addPostData("fid", writeData.getForumId());
-                        this.f20890a.addPostData("from_fourm_id", writeData.getFromForumId());
-                        this.f20890a.addPostData("v_fid", writeData.getVForumId());
-                        this.f20890a.addPostData("v_fname", writeData.getVForumName());
-                        this.f20890a.addPostData("tid", writeData.getThreadId());
-                        this.f20890a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
-                        this.f20890a.addPostData("quote_id", String.valueOf(writeData.getFloor()));
-                        this.f20890a.addPostData("is_twzhibo_thread", String.valueOf(0));
-                        this.f20890a.addPostData("floor_num", String.valueOf(writeData.getFloorNum()));
+                        this.f20902a.setUrl(l);
+                        this.f20902a.addPostData("fid", writeData.getForumId());
+                        this.f20902a.addPostData("from_fourm_id", writeData.getFromForumId());
+                        this.f20902a.addPostData("v_fid", writeData.getVForumId());
+                        this.f20902a.addPostData("v_fname", writeData.getVForumName());
+                        this.f20902a.addPostData("tid", writeData.getThreadId());
+                        this.f20902a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                        this.f20902a.addPostData("quote_id", String.valueOf(writeData.getFloor()));
+                        this.f20902a.addPostData("is_twzhibo_thread", String.valueOf(0));
+                        this.f20902a.addPostData("floor_num", String.valueOf(writeData.getFloorNum()));
                         if (writeData.getRepostId() != null) {
-                            this.f20890a.addPostData("repostid", writeData.getRepostId());
+                            this.f20902a.addPostData("repostid", writeData.getRepostId());
                         }
-                        this.f20890a.addPostData("is_ad", writeData.getIsAd() ? str5 : "0");
-                        this.f20890a.addPostData("is_addition", writeData.isAddition() ? str5 : "0");
-                        this.f20890a.addPostData("is_giftpost", writeData.isGiftPost() ? str5 : "0");
-                        this.f20890a.addPostData("is_giftpost", writeData.isGiftPost() ? str5 : "0");
+                        this.f20902a.addPostData("is_ad", writeData.getIsAd() ? str5 : "0");
+                        this.f20902a.addPostData("is_addition", writeData.isAddition() ? str5 : "0");
+                        this.f20902a.addPostData("is_giftpost", writeData.isGiftPost() ? str5 : "0");
+                        this.f20902a.addPostData("is_giftpost", writeData.isGiftPost() ? str5 : "0");
                         if (writeData.isAddition()) {
-                            this.f20890a.addPostData("st_type", "conadd");
+                            this.f20902a.addPostData("st_type", "conadd");
                         }
                         if (!StringUtils.isNull(writeData.sourceFrom)) {
-                            this.f20890a.addPostData("post_from", writeData.sourceFrom);
+                            this.f20902a.addPostData("post_from", writeData.sourceFrom);
                         }
                         if (writeData.getBaijiahaoData() != null) {
-                            this.f20890a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
-                            this.f20890a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
-                            this.f20890a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
-                            this.f20890a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
+                            this.f20902a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
+                            this.f20902a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
+                            this.f20902a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
+                            this.f20902a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
                         }
                     } else if (type == 4) {
-                        this.f20890a.setUrl(k);
-                        this.f20890a.addPostData("fid", writeData.getForumId());
-                        this.f20890a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                        this.f20902a.setUrl(k);
+                        this.f20902a.addPostData("fid", writeData.getForumId());
+                        this.f20902a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
                         if (!TextUtils.isEmpty(writeData.getTitle())) {
-                            this.f20890a.addPostData("title", writeData.getTitle());
+                            this.f20902a.addPostData("title", writeData.getTitle());
                         }
                         if (!StringUtils.isNull(writeData.getPostPrefix())) {
-                            this.f20890a.addPostData("post_prefix", writeData.getPostPrefix());
+                            this.f20902a.addPostData("post_prefix", writeData.getPostPrefix());
                         }
-                        this.f20890a.addPostData("thread_type", EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL);
-                        m.a(this.f20890a, writeData);
+                        this.f20902a.addPostData("thread_type", EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL);
+                        m.a(this.f20902a, writeData);
                     } else if (type == 5) {
-                        this.f20890a.setUrl(l);
-                        this.f20890a.addPostData("fid", writeData.getForumId());
-                        this.f20890a.addPostData("tid", writeData.getThreadId());
-                        this.f20890a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
-                        this.f20890a.addPostData("is_twzhibo_thread", String.valueOf(1));
+                        this.f20902a.setUrl(l);
+                        this.f20902a.addPostData("fid", writeData.getForumId());
+                        this.f20902a.addPostData("tid", writeData.getThreadId());
+                        this.f20902a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                        this.f20902a.addPostData("is_twzhibo_thread", String.valueOf(1));
                         if (writeData.getBaijiahaoData() != null) {
-                            this.f20890a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
-                            this.f20890a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
-                            this.f20890a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
-                            this.f20890a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
+                            this.f20902a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
+                            this.f20902a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
+                            this.f20902a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
+                            this.f20902a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
                         }
-                        m.a(this.f20890a, writeData);
+                        m.a(this.f20902a, writeData);
                     } else if (type == 6) {
-                        this.f20890a.setUrl(k);
-                        this.f20890a.addPostData("fid", writeData.getForumId());
-                        this.f20890a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
-                        this.f20890a.addPostData("thread_type", String.valueOf(36));
+                        this.f20902a.setUrl(k);
+                        this.f20902a.addPostData("fid", writeData.getForumId());
+                        this.f20902a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                        this.f20902a.addPostData("thread_type", String.valueOf(36));
                         if (!TextUtils.isEmpty(writeData.getTitle())) {
-                            this.f20890a.addPostData("title", writeData.getTitle());
+                            this.f20902a.addPostData("title", writeData.getTitle());
                         }
                         if (!StringUtils.isNull(writeData.getPostPrefix())) {
-                            this.f20890a.addPostData("post_prefix", writeData.getPostPrefix());
+                            this.f20902a.addPostData("post_prefix", writeData.getPostPrefix());
                         }
-                        this.f20890a.addPostData("is_ntitle", writeData.isNoTitle() ? str5 : "0");
+                        this.f20902a.addPostData("is_ntitle", writeData.isNoTitle() ? str5 : "0");
                         if (writeData.isNoTitle()) {
-                            this.f20890a.addPostData("st_type", "notitle");
+                            this.f20902a.addPostData("st_type", "notitle");
                         }
-                        m.a(this.f20890a, writeData);
+                        m.a(this.f20902a, writeData);
                     } else if (type != 7 && type != 9) {
                         if (writeData.isCanNoForum()) {
-                            this.f20890a.addPostData("fid", "0");
-                            this.f20890a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, "");
-                            this.f20890a.addPostData("transform_forums", writeData.getTransmitForumData());
+                            this.f20902a.addPostData("fid", "0");
+                            this.f20902a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, "");
+                            this.f20902a.addPostData("transform_forums", writeData.getTransmitForumData());
                         } else {
-                            this.f20890a.addPostData("fid", writeData.getForumId());
-                            this.f20890a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                            this.f20902a.addPostData("fid", writeData.getForumId());
+                            this.f20902a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
                         }
                     }
                     str9 = str5;
@@ -776,131 +781,132 @@ public class a {
                     str5 = "1";
                     str6 = title;
                 }
-                this.f20890a.setUrl(k);
+                this.f20902a.setUrl(k);
+                m(writeData);
                 if (writeData.isCanNoForum()) {
-                    this.f20890a.addPostData("fid", "0");
-                    this.f20890a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, "");
-                    this.f20890a.addPostData("transform_forums", writeData.getTransmitForumData());
+                    this.f20902a.addPostData("fid", "0");
+                    this.f20902a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, "");
+                    this.f20902a.addPostData("transform_forums", writeData.getTransmitForumData());
                 } else {
-                    this.f20890a.addPostData("fid", writeData.getForumId());
-                    this.f20890a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+                    this.f20902a.addPostData("fid", writeData.getForumId());
+                    this.f20902a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
                 }
-                this.f20890a.addPostData("is_hide", writeData.isPrivacy() ? str5 : "0");
-                this.f20890a.addPostData("is_repost_to_dynamic", writeData.isToDynamic() ? str5 : "0");
+                this.f20902a.addPostData("is_hide", writeData.isPrivacy() ? str5 : "0");
+                this.f20902a.addPostData("is_repost_to_dynamic", writeData.isToDynamic() ? str5 : "0");
                 if (writeData.getVideoId() != null) {
-                    this.f20890a.addPostData("video_id", writeData.getVideoId());
+                    this.f20902a.addPostData("video_id", writeData.getVideoId());
                     if (writeData.getOriginalVideoCover() != null) {
-                        this.f20890a.addPostData("origin_video_cover", writeData.getOriginalVideoCover());
+                        this.f20902a.addPostData("origin_video_cover", writeData.getOriginalVideoCover());
                     }
                     if (writeData.getOriginalVideoTitle() != null) {
-                        this.f20890a.addPostData("origin_video_title", writeData.getOriginalVideoTitle());
+                        this.f20902a.addPostData("origin_video_title", writeData.getOriginalVideoTitle());
                     }
                 }
                 if (writeData.isShareThread()) {
                     str9 = str5;
-                    this.f20890a.addPostData("is_share", str9);
-                    this.f20890a.addPostData("from_tid", writeData.getOriginalThreadId());
+                    this.f20902a.addPostData("is_share", str9);
+                    this.f20902a.addPostData("from_tid", writeData.getOriginalThreadId());
                 } else {
                     str9 = str5;
                 }
                 if (writeData.getProZone() >= 0) {
-                    this.f20890a.addPostData(EditVideoActivityConfig.KEY_PRO_ZONE, String.valueOf(writeData.getProZone()));
+                    this.f20902a.addPostData(EditVideoActivityConfig.KEY_PRO_ZONE, String.valueOf(writeData.getProZone()));
                 }
-                this.f20890a.addPostData(IntentConfig.CALL_FROM, writeData.getStatisticFrom() + "");
+                this.f20902a.addPostData(IntentConfig.CALL_FROM, writeData.getStatisticFrom() + "");
                 if (!TextUtils.isEmpty(str6)) {
-                    this.f20890a.addPostData("title", str6);
+                    this.f20902a.addPostData("title", str6);
                 }
                 if (!TextUtils.isEmpty(str14)) {
-                    this.f20890a.addPostData(AlbumFloatActivityConfig.VIDEO_ABSTRACT, str14);
+                    this.f20902a.addPostData(AlbumFloatActivityConfig.VIDEO_ABSTRACT, str14);
                 }
                 if (!StringUtils.isNull(writeData.getPostPrefix())) {
-                    this.f20890a.addPostData("post_prefix", writeData.getPostPrefix());
+                    this.f20902a.addPostData("post_prefix", writeData.getPostPrefix());
                 }
-                this.f20890a.addPostData("is_ntitle", writeData.isNoTitle() ? str9 : "0");
+                this.f20902a.addPostData("is_ntitle", writeData.isNoTitle() ? str9 : "0");
                 if (writeData.isNoTitle()) {
-                    this.f20890a.addPostData("st_type", "notitle");
+                    this.f20902a.addPostData("st_type", "notitle");
                 }
                 if (h2 != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(writeData.getForumId())) {
-                    this.f20890a.addPostData("lbs", String.valueOf(h2.getLatitude()) + "," + String.valueOf(h2.getLongitude()));
+                    this.f20902a.addPostData("lbs", String.valueOf(h2.getLatitude()) + "," + String.valueOf(h2.getLongitude()));
                 }
-                m.a(this.f20890a, writeData);
+                m.a(this.f20902a, writeData);
                 if (writeData.getCategoryFrom() >= 0) {
-                    this.f20890a.addPostData("fromCategoryId", String.valueOf(writeData.getCategoryFrom()));
+                    this.f20902a.addPostData("fromCategoryId", String.valueOf(writeData.getCategoryFrom()));
                 }
                 if (writeData.getCategoryTo() >= 0) {
-                    this.f20890a.addPostData("toCategoryId", String.valueOf(writeData.getCategoryTo()));
+                    this.f20902a.addPostData("toCategoryId", String.valueOf(writeData.getCategoryTo()));
                 }
                 if (writeData.getType() == 7) {
-                    this.f20890a.addPostData("is_bottle", String.valueOf(1));
+                    this.f20902a.addPostData("is_bottle", String.valueOf(1));
                 }
                 if (writeData.getRecommendExt() != null) {
-                    this.f20890a.addPostData("recommend_ext", writeData.getRecommendExt());
+                    this.f20902a.addPostData("recommend_ext", writeData.getRecommendExt());
                 }
                 if (writeData.isLinkThread()) {
-                    this.f20890a.addPostData("link_url", writeData.getLinkUrl());
-                    this.f20890a.addPostData("link_url_code", writeData.getLinkUrlCode() == null ? "" : writeData.getLinkUrlCode());
+                    this.f20902a.addPostData("link_url", writeData.getLinkUrl());
+                    this.f20902a.addPostData("link_url_code", writeData.getLinkUrlCode() == null ? "" : writeData.getLinkUrlCode());
                 }
-                this.f20890a.addPostData("is_link_thread", writeData.isLinkThread() ? str9 : "0");
+                this.f20902a.addPostData("is_link_thread", writeData.isLinkThread() ? str9 : "0");
                 if (writeData.isShareThread()) {
                     if (writeData.getOriBaijiahaoData() != null) {
-                        this.f20890a.addPostData("ori_ugc_nid", writeData.getOriBaijiahaoData().oriUgcNid);
-                        this.f20890a.addPostData("ori_ugc_vid", writeData.getOriBaijiahaoData().oriUgcVid);
-                        this.f20890a.addPostData("ori_ugc_tid", writeData.getOriBaijiahaoData().oriUgcTid);
-                        this.f20890a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getOriBaijiahaoData().oriUgcType));
+                        this.f20902a.addPostData("ori_ugc_nid", writeData.getOriBaijiahaoData().oriUgcNid);
+                        this.f20902a.addPostData("ori_ugc_vid", writeData.getOriBaijiahaoData().oriUgcVid);
+                        this.f20902a.addPostData("ori_ugc_tid", writeData.getOriBaijiahaoData().oriUgcTid);
+                        this.f20902a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getOriBaijiahaoData().oriUgcType));
                     }
                 } else if (writeData.getBaijiahaoData() != null) {
-                    this.f20890a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
-                    this.f20890a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
-                    this.f20890a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
-                    this.f20890a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
+                    this.f20902a.addPostData("ori_ugc_nid", writeData.getBaijiahaoData().oriUgcNid);
+                    this.f20902a.addPostData("ori_ugc_vid", writeData.getBaijiahaoData().oriUgcVid);
+                    this.f20902a.addPostData("ori_ugc_tid", writeData.getBaijiahaoData().oriUgcTid);
+                    this.f20902a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(writeData.getBaijiahaoData().oriUgcType));
                 }
                 if (writeData.getTabId() > 0) {
-                    this.f20890a.addPostData("tab_name", writeData.getTabName());
-                    this.f20890a.addPostData("tab_id", String.valueOf(writeData.getTabId()));
-                    this.f20890a.addPostData(FrsCommonTabFragment.IS_GENERAL_TAB, String.valueOf(writeData.getIsGeneralTab()));
+                    this.f20902a.addPostData("tab_name", writeData.getTabName());
+                    this.f20902a.addPostData("tab_id", String.valueOf(writeData.getTabId()));
+                    this.f20902a.addPostData(FrsCommonTabFragment.IS_GENERAL_TAB, String.valueOf(writeData.getIsGeneralTab()));
                 }
-                this.f20890a.addPostData("is_forum_business_account", writeData.isForumBusinessAccount ? str9 : "0");
+                this.f20902a.addPostData("is_forum_business_account", writeData.isForumBusinessAccount ? str9 : "0");
                 str7 = imagesCodeForPost;
             }
             if (writeData.isPostLatLng()) {
                 String lat = writeData.getLat() == null ? "" : writeData.getLat();
                 String lng = writeData.getLng() != null ? writeData.getLng() : "";
-                this.f20890a.addPostData("real_lat", lat);
-                this.f20890a.addPostData("real_lng", lng);
+                this.f20902a.addPostData("real_lat", lat);
+                this.f20902a.addPostData("real_lng", lng);
             }
             if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-                this.f20890a.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                this.f20902a.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
             }
             if (writeData.isWork()) {
-                this.f20890a.addPostData("is_works", str9);
+                this.f20902a.addPostData("is_works", str9);
             }
             h.a("发帖：其他数据设置开始 发送");
             l1.h(writeData, 93).f(true);
-            String postNetData = this.f20890a.postNetData();
+            String postNetData = this.f20902a.postNetData();
             h.a("发帖：其他数据设置开始 结束 进度到 95");
             l1.h(writeData, 95).f(true);
             f(95);
-            if (this.f20890a.getNetContext().getResponse().isRequestSuccess()) {
-                this.f20891b.parserJson(postNetData);
+            if (this.f20902a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f20903b.parserJson(postNetData);
             } else {
-                this.f20891b.setError_code(this.f20890a.isNetSuccess() ? this.f20890a.getServerErrorCode() : this.f20890a.getNetErrorCode());
-                this.f20891b.setError_msg(this.f20890a.getErrorString());
+                this.f20903b.setError_code(this.f20902a.isNetSuccess() ? this.f20902a.getServerErrorCode() : this.f20902a.getNetErrorCode());
+                this.f20903b.setError_msg(this.f20902a.getErrorString());
             }
-            if (this.f20891b.error_code != 0 && !j.z()) {
-                this.f20891b.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
-            } else if (this.f20891b.error_code != 0 && writeData.isHasImages()) {
+            if (this.f20903b.error_code != 0 && !j.z()) {
+                this.f20903b.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
+            } else if (this.f20903b.error_code != 0 && writeData.isHasImages()) {
                 if (k.isEmpty(str4 + str7)) {
-                    this.f20891b.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.img_upload_error));
+                    this.f20903b.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.img_upload_error));
                 }
             }
             try {
                 AntiData antiData = new AntiData();
-                this.f20893d = antiData;
+                this.f20905d = antiData;
                 antiData.parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
             } catch (Exception unused) {
             }
-            if (this.f20893d.getBlock_stat() == 0 && this.f20891b.error_code == 0 && this.f20890a.getNetContext() != null && this.f20890a.getNetContext().getRequest() != null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921344, this.f20890a.getNetContext().getRequest().getNetWorkParam()));
+            if (this.f20905d.getBlock_stat() == 0 && this.f20903b.error_code == 0 && this.f20902a.getNetContext() != null && this.f20902a.getNetContext().getRequest() != null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921344, this.f20902a.getNetContext().getRequest().getNetWorkParam()));
             }
             f(100);
             h.a("发帖：处理整个 发帖过程 结束数据 完成 进度到 100");
@@ -912,28 +918,44 @@ public class a {
     public void i(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-            this.f20896g = cVar;
+            this.f20908g = cVar;
         }
     }
 
     public void j(SpanGroupManager spanGroupManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, spanGroupManager) == null) {
-            this.f20898i = spanGroupManager;
+            this.f20910i = spanGroupManager;
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f20899j = str;
+            this.f20911j = str;
         }
     }
 
     public void l(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, gVar) == null) {
-            this.f20897h = gVar;
+            this.f20909h = gVar;
         }
+    }
+
+    public void m(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, writeData) == null) || writeData == null) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_POST_THREAD_AT_USE_CONDITION);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        if (k.isEmpty(writeData.getAtUidListString())) {
+            statisticItem.param("obj_param1", "0");
+        } else {
+            statisticItem.param("obj_param1", "1");
+            statisticItem.param(TiebaStatic.Params.FRIEND_UID, writeData.getAtUidListString());
+        }
+        TiebaStatic.log(statisticItem);
     }
 }

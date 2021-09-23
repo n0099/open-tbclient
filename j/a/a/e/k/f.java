@@ -44,28 +44,28 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public j.a.a.e.k.c f79094a;
+    public j.a.a.e.k.c f79413a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayUIKitConfig f79095b;
+    public PayUIKitConfig f79414b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AppPayServiceListener f79096c;
+    public AppPayServiceListener f79415c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j.a.a.e.k.d f79097d;
+    public j.a.a.e.k.d f79416d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f79098e;
+    public String f79417e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PayFlowType f79099f;
+    public PayFlowType f79418f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f79100g;
+    public int f79419g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f79101h;
+    public int f79420h;
 
     /* loaded from: classes2.dex */
     public class a implements j.a.a.e.o.d.a {
@@ -73,10 +73,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AbsViewEventHandler f79102a;
+        public final /* synthetic */ AbsViewEventHandler f79421a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f79103b;
+        public final /* synthetic */ f f79422b;
 
         public a(f fVar, AbsViewEventHandler absViewEventHandler) {
             Interceptable interceptable = $ic;
@@ -93,8 +93,8 @@ public class f {
                     return;
                 }
             }
-            this.f79103b = fVar;
-            this.f79102a = absViewEventHandler;
+            this.f79422b = fVar;
+            this.f79421a = absViewEventHandler;
         }
 
         @Override // j.a.a.e.o.d.a
@@ -102,8 +102,8 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
                 RLog.info("YYPayDialogController", "dismissPayAmountDialog");
-                this.f79103b.q(cancelType, this.f79102a);
-                j.a.a.e.k.g.a(this.f79103b.f79100g, this.f79103b.f79101h, cancelType);
+                this.f79422b.q(cancelType, this.f79421a);
+                j.a.a.e.k.g.a(this.f79422b.f79419g, this.f79422b.f79420h, cancelType);
             }
         }
     }
@@ -114,22 +114,22 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Dialog f79104a;
+        public final /* synthetic */ Dialog f79423a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f79105b;
+        public final /* synthetic */ Activity f79424b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ IYYPayAmountView.ViewParams f79106c;
+        public final /* synthetic */ IYYPayAmountView.ViewParams f79425c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ IPayCallback f79107d;
+        public final /* synthetic */ IPayCallback f79426d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AbsViewEventHandler f79108e;
+        public final /* synthetic */ AbsViewEventHandler f79427e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f79109f;
+        public final /* synthetic */ f f79428f;
 
         public b(f fVar, Dialog dialog, Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback iPayCallback, AbsViewEventHandler absViewEventHandler) {
             Interceptable interceptable = $ic;
@@ -146,12 +146,12 @@ public class f {
                     return;
                 }
             }
-            this.f79109f = fVar;
-            this.f79104a = dialog;
-            this.f79105b = activity;
-            this.f79106c = viewParams;
-            this.f79107d = iPayCallback;
-            this.f79108e = absViewEventHandler;
+            this.f79428f = fVar;
+            this.f79423a = dialog;
+            this.f79424b = activity;
+            this.f79425c = viewParams;
+            this.f79426d = iPayCallback;
+            this.f79427e = absViewEventHandler;
         }
 
         @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
@@ -159,9 +159,9 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 RLog.error("YYPayDialogController", "showPayAmountDialog onFail code:" + i2 + " failReason:" + str, new Object[0]);
-                j.a.a.e.n.i.f79175a.b(this.f79104a);
+                j.a.a.e.n.i.f79494a.b(this.f79423a);
                 RLog.info("YYPayDialogController", "showPayAmountDialog onRefreshViewFail notifyViewStateChange");
-                this.f79109f.r(this.f79108e, PayDialogType.PAY_NONE_DIALOG);
+                this.f79428f.r(this.f79427e, PayDialogType.PAY_NONE_DIALOG);
             }
         }
 
@@ -170,8 +170,8 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, list) == null) {
                 RLog.info("YYPayDialogController", "showInputNumberDialog");
-                j.a.a.e.n.i.f79175a.b(this.f79104a);
-                this.f79109f.v(activity, list, this.f79106c, this.f79107d);
+                j.a.a.e.n.i.f79494a.b(this.f79423a);
+                this.f79428f.v(activity, list, this.f79425c, this.f79426d);
             }
         }
 
@@ -180,9 +180,9 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, list) == null) {
                 RLog.info("YYPayDialogController", "toPayWayDialog");
-                j.a.a.e.n.i.f79175a.b(this.f79104a);
-                this.f79109f.z(this.f79105b, aVar, list, this.f79106c, this.f79107d);
-                j.a.a.e.m.a.b(this.f79109f.f79100g, this.f79109f.f79101h, UiEventType.purchasegotopay);
+                j.a.a.e.n.i.f79494a.b(this.f79423a);
+                this.f79428f.z(this.f79424b, aVar, list, this.f79425c, this.f79426d);
+                j.a.a.e.m.a.b(this.f79428f.f79419g, this.f79428f.f79420h, UiEventType.purchasegotopay);
                 RLog.warn("YYPayDialogController", UiEventType.purchasegotopay);
             }
         }
@@ -194,22 +194,22 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AbsViewEventHandler f79110a;
+        public final /* synthetic */ AbsViewEventHandler f79429a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f79111b;
+        public final /* synthetic */ Activity f79430b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f79112c;
+        public final /* synthetic */ List f79431c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ IYYPayAmountView.ViewParams f79113d;
+        public final /* synthetic */ IYYPayAmountView.ViewParams f79432d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IPayCallback f79114e;
+        public final /* synthetic */ IPayCallback f79433e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f79115f;
+        public final /* synthetic */ f f79434f;
 
         public c(f fVar, AbsViewEventHandler absViewEventHandler, Activity activity, List list, IYYPayAmountView.ViewParams viewParams, IPayCallback iPayCallback) {
             Interceptable interceptable = $ic;
@@ -226,12 +226,12 @@ public class f {
                     return;
                 }
             }
-            this.f79115f = fVar;
-            this.f79110a = absViewEventHandler;
-            this.f79111b = activity;
-            this.f79112c = list;
-            this.f79113d = viewParams;
-            this.f79114e = iPayCallback;
+            this.f79434f = fVar;
+            this.f79429a = absViewEventHandler;
+            this.f79430b = activity;
+            this.f79431c = list;
+            this.f79432d = viewParams;
+            this.f79433e = iPayCallback;
         }
 
         @Override // j.a.a.e.o.d.b
@@ -239,7 +239,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
                 RLog.info("YYPayDialogController", "dismissInputDialog");
-                this.f79115f.q(cancelType, this.f79110a);
+                this.f79434f.q(cancelType, this.f79429a);
             }
         }
 
@@ -247,9 +247,9 @@ public class f {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                j.a.a.e.l.a o = this.f79115f.o((int) (i2 * 100.0d));
+                j.a.a.e.l.a o = this.f79434f.o((int) (i2 * 100.0d));
                 RLog.info("YYPayDialogController", "showPayWayDialog: mPayAmountCustom:%s", o);
-                this.f79115f.z(this.f79111b, o, this.f79112c, this.f79113d, this.f79114e);
+                this.f79434f.z(this.f79430b, o, this.f79431c, this.f79432d, this.f79433e);
             }
         }
     }
@@ -260,13 +260,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IAppPayService f79116a;
+        public final /* synthetic */ IAppPayService f79435a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AbsViewEventHandler f79117b;
+        public final /* synthetic */ AbsViewEventHandler f79436b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ f f79118c;
+        public final /* synthetic */ f f79437c;
 
         public d(f fVar, IAppPayService iAppPayService, AbsViewEventHandler absViewEventHandler) {
             Interceptable interceptable = $ic;
@@ -283,9 +283,9 @@ public class f {
                     return;
                 }
             }
-            this.f79118c = fVar;
-            this.f79116a = iAppPayService;
-            this.f79117b = absViewEventHandler;
+            this.f79437c = fVar;
+            this.f79435a = iAppPayService;
+            this.f79436b = absViewEventHandler;
         }
 
         @Override // j.a.a.e.o.d.a
@@ -293,14 +293,14 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
                 RLog.info("YYPayDialogController", "on payWayDialog cancel clickArea：" + cancelType.name());
-                if (this.f79118c.f79096c != null) {
+                if (this.f79437c.f79415c != null) {
                     RLog.debug("YYPayDialogController", "showPayWayDialog removePayListener");
-                    this.f79116a.removePayListener(this.f79118c.f79096c);
-                    this.f79118c.f79096c = null;
-                    this.f79118c.f79098e = null;
+                    this.f79435a.removePayListener(this.f79437c.f79415c);
+                    this.f79437c.f79415c = null;
+                    this.f79437c.f79417e = null;
                 }
-                this.f79118c.q(cancelType, this.f79117b);
-                j.a.a.e.k.g.b(this.f79118c.f79100g, this.f79118c.f79101h, cancelType);
+                this.f79437c.q(cancelType, this.f79436b);
+                j.a.a.e.k.g.b(this.f79437c.f79419g, this.f79437c.f79420h, cancelType);
                 RLog.info("YYPayDialogController", "dismissPayWayDialog");
             }
         }
@@ -312,25 +312,25 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f79119a;
+        public final /* synthetic */ Activity f79438a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Dialog f79120b;
+        public final /* synthetic */ Dialog f79439b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ IYYPayWayView f79121c;
+        public final /* synthetic */ IYYPayWayView f79440c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ IYYPayWayView.b f79122d;
+        public final /* synthetic */ IYYPayWayView.b f79441d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IPayCallback f79123e;
+        public final /* synthetic */ IPayCallback f79442e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbsViewEventHandler f79124f;
+        public final /* synthetic */ AbsViewEventHandler f79443f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f79125g;
+        public final /* synthetic */ f f79444g;
 
         public e(f fVar, Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar, IPayCallback iPayCallback, AbsViewEventHandler absViewEventHandler) {
             Interceptable interceptable = $ic;
@@ -347,20 +347,20 @@ public class f {
                     return;
                 }
             }
-            this.f79125g = fVar;
-            this.f79119a = activity;
-            this.f79120b = dialog;
-            this.f79121c = iYYPayWayView;
-            this.f79122d = bVar;
-            this.f79123e = iPayCallback;
-            this.f79124f = absViewEventHandler;
+            this.f79444g = fVar;
+            this.f79438a = activity;
+            this.f79439b = dialog;
+            this.f79440c = iYYPayWayView;
+            this.f79441d = bVar;
+            this.f79442e = iPayCallback;
+            this.f79443f = absViewEventHandler;
         }
 
         @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
         public void a(j.a.a.e.l.c cVar, j.a.a.e.l.a aVar, AppCustomExpand appCustomExpand) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, cVar, aVar, appCustomExpand) == null) {
-                this.f79125g.u(this.f79119a, cVar, aVar, this.f79120b, this.f79121c, appCustomExpand, this.f79122d, this.f79123e);
+                this.f79444g.u(this.f79438a, cVar, aVar, this.f79439b, this.f79440c, appCustomExpand, this.f79441d, this.f79442e);
             }
         }
 
@@ -368,41 +368,41 @@ public class f {
         public void onRefreshViewFail(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                Dialog dialog = this.f79120b;
+                Dialog dialog = this.f79439b;
                 if (dialog != null) {
                     dialog.dismiss();
                 }
                 RLog.info("YYPayDialogController", "showPayWayDialog onRefreshViewFail notifyViewStateChange");
-                this.f79125g.r(this.f79124f, PayDialogType.PAY_NONE_DIALOG);
+                this.f79444g.r(this.f79443f, PayDialogType.PAY_NONE_DIALOG);
             }
         }
     }
 
     /* renamed from: j.a.a.e.k.f$f  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C2146f extends AppPayServiceListener {
+    public class C2150f extends AppPayServiceListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f79126a;
+        public final /* synthetic */ Activity f79445a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ IYYPayWayView.b f79127b;
+        public final /* synthetic */ IYYPayWayView.b f79446b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Dialog f79128c;
+        public final /* synthetic */ Dialog f79447c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ IYYPayWayView f79129d;
+        public final /* synthetic */ IYYPayWayView f79448d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IPayCallback f79130e;
+        public final /* synthetic */ IPayCallback f79449e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f79131f;
+        public final /* synthetic */ f f79450f;
 
-        public C2146f(f fVar, Activity activity, IYYPayWayView.b bVar, Dialog dialog, IYYPayWayView iYYPayWayView, IPayCallback iPayCallback) {
+        public C2150f(f fVar, Activity activity, IYYPayWayView.b bVar, Dialog dialog, IYYPayWayView iYYPayWayView, IPayCallback iPayCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -417,12 +417,12 @@ public class f {
                     return;
                 }
             }
-            this.f79131f = fVar;
-            this.f79126a = activity;
-            this.f79127b = bVar;
-            this.f79128c = dialog;
-            this.f79129d = iYYPayWayView;
-            this.f79130e = iPayCallback;
+            this.f79450f = fVar;
+            this.f79445a = activity;
+            this.f79446b = bVar;
+            this.f79447c = dialog;
+            this.f79448d = iYYPayWayView;
+            this.f79449e = iPayCallback;
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.payapi.AppPayServiceListener, com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
@@ -432,24 +432,24 @@ public class f {
                 super.onCurrencyChargeMessage(currencyChargeMessage);
                 String traceid = currencyChargeMessage.reqParams.getTraceid();
                 RLog.info("YYPayDialogController", "onCurrencyChargeMessage messgaeTraceId:" + traceid + " message:" + currencyChargeMessage.toString());
-                if (!traceid.equals(this.f79131f.f79098e)) {
+                if (!traceid.equals(this.f79450f.f79417e)) {
                     RLog.warn("YYPayDialogController", "messgaeTraceId not equal mTraceId");
                     return;
                 }
                 boolean z = false;
                 boolean z2 = currencyChargeMessage.status == 1;
-                if (j.a.a.e.n.i.f79175a.a(this.f79126a)) {
+                if (j.a.a.e.n.i.f79494a.a(this.f79445a)) {
                     IYYPayResultView.b bVar = new IYYPayResultView.b(currencyChargeMessage.status == 1 ? IYYPayResultView.Result.PAY_SUUCESS : IYYPayResultView.Result.PAY_FAIL, currencyChargeMessage);
-                    IYYPayWayView.b bVar2 = this.f79127b;
-                    z = (z2 && (bVar2 != null && bVar2.f79944d)) ? true : true;
+                    IYYPayWayView.b bVar2 = this.f79446b;
+                    z = (z2 && (bVar2 != null && bVar2.f80261d)) ? true : true;
                     currencyChargeMessage.payMethod = currencyChargeMessage.reqParams.getPayMethod();
                     if (z) {
-                        this.f79131f.x(this.f79126a, currencyChargeMessage, this.f79128c, bVar, this.f79129d, this.f79127b);
+                        this.f79450f.x(this.f79445a, currencyChargeMessage, this.f79447c, bVar, this.f79448d, this.f79446b);
                     } else {
-                        j.a.a.e.n.i.f79175a.b(this.f79128c);
+                        j.a.a.e.n.i.f79494a.b(this.f79447c);
                     }
                 }
-                IPayCallback iPayCallback = this.f79130e;
+                IPayCallback iPayCallback = this.f79449e;
                 if (iPayCallback != null) {
                     if (z2) {
                         iPayCallback.onSuccess(currencyChargeMessage, null);
@@ -461,8 +461,8 @@ public class f {
                     int cid = currencyChargeMessage.reqParams.getCid();
                     String payChannel = currencyChargeMessage.reqParams.getPayChannel();
                     String payMethod = currencyChargeMessage.reqParams.getPayMethod();
-                    IYYPayWayView.b bVar3 = this.f79127b;
-                    j.a.a.e.m.a.d(this.f79131f.f79100g, currencyChargeMessage.usedChannel, (bVar3 == null || bVar3.f79946f != PaySource.WALLET) ? "7" : "14", payChannel, payMethod, String.valueOf(cid));
+                    IYYPayWayView.b bVar3 = this.f79446b;
+                    j.a.a.e.m.a.d(this.f79450f.f79419g, currencyChargeMessage.usedChannel, (bVar3 == null || bVar3.f80263f != PaySource.WALLET) ? "7" : "14", payChannel, payMethod, String.valueOf(cid));
                 }
             }
         }
@@ -474,25 +474,25 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IPayCallback f79132a;
+        public final /* synthetic */ IPayCallback f79451a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f79133b;
+        public final /* synthetic */ Activity f79452b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Dialog f79134c;
+        public final /* synthetic */ Dialog f79453c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ IYYPayWayView f79135d;
+        public final /* synthetic */ IYYPayWayView f79454d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j.a.a.e.l.c f79136e;
+        public final /* synthetic */ j.a.a.e.l.c f79455e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ IYYPayWayView.b f79137f;
+        public final /* synthetic */ IYYPayWayView.b f79456f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f79138g;
+        public final /* synthetic */ f f79457g;
 
         /* loaded from: classes2.dex */
         public class a implements Runnable {
@@ -500,7 +500,7 @@ public class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ g f79139e;
+            public final /* synthetic */ g f79458e;
 
             public a(g gVar) {
                 Interceptable interceptable = $ic;
@@ -517,15 +517,15 @@ public class f {
                         return;
                     }
                 }
-                this.f79139e = gVar;
+                this.f79458e = gVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    g gVar = this.f79139e;
-                    gVar.f79138g.t(gVar.f79134c, gVar.f79135d, true);
+                    g gVar = this.f79458e;
+                    gVar.f79457g.t(gVar.f79453c, gVar.f79454d, true);
                 }
             }
         }
@@ -536,7 +536,7 @@ public class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ g f79140e;
+            public final /* synthetic */ g f79459e;
 
             public b(g gVar) {
                 Interceptable interceptable = $ic;
@@ -553,15 +553,15 @@ public class f {
                         return;
                     }
                 }
-                this.f79140e = gVar;
+                this.f79459e = gVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    g gVar = this.f79140e;
-                    gVar.f79138g.t(gVar.f79134c, gVar.f79135d, false);
+                    g gVar = this.f79459e;
+                    gVar.f79457g.t(gVar.f79453c, gVar.f79454d, false);
                 }
             }
         }
@@ -572,7 +572,7 @@ public class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ g f79141e;
+            public final /* synthetic */ g f79460e;
 
             public c(g gVar) {
                 Interceptable interceptable = $ic;
@@ -589,16 +589,16 @@ public class f {
                         return;
                     }
                 }
-                this.f79141e = gVar;
+                this.f79460e = gVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (!j.a.a.e.n.f.a(this.f79141e.f79136e.f79166a) && !PayType.UNION_PAY.getChannel().equals(this.f79141e.f79136e.f79166a.getChannel()) && !PayType.MOCK_TEST_PAY.getChannel().equals(this.f79141e.f79136e.f79166a.getChannel())) {
-                        g gVar = this.f79141e;
-                        gVar.f79138g.t(gVar.f79134c, gVar.f79135d, true);
+                    if (!j.a.a.e.n.f.a(this.f79460e.f79455e.f79485a) && !PayType.UNION_PAY.getChannel().equals(this.f79460e.f79455e.f79485a.getChannel()) && !PayType.MOCK_TEST_PAY.getChannel().equals(this.f79460e.f79455e.f79485a.getChannel())) {
+                        g gVar = this.f79460e;
+                        gVar.f79457g.t(gVar.f79453c, gVar.f79454d, true);
                         return;
                     }
                     RLog.info("YYPayDialogController", "requestPayInternal onSuccess h5 not loadding");
@@ -612,7 +612,7 @@ public class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ g f79142e;
+            public final /* synthetic */ g f79461e;
 
             public d(g gVar) {
                 Interceptable interceptable = $ic;
@@ -629,15 +629,15 @@ public class f {
                         return;
                     }
                 }
-                this.f79142e = gVar;
+                this.f79461e = gVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    g gVar = this.f79142e;
-                    gVar.f79138g.t(gVar.f79134c, gVar.f79135d, false);
+                    g gVar = this.f79461e;
+                    gVar.f79457g.t(gVar.f79453c, gVar.f79454d, false);
                 }
             }
         }
@@ -648,7 +648,7 @@ public class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ g f79143e;
+            public final /* synthetic */ g f79462e;
 
             public e(g gVar) {
                 Interceptable interceptable = $ic;
@@ -665,7 +665,7 @@ public class f {
                         return;
                     }
                 }
-                this.f79143e = gVar;
+                this.f79462e = gVar;
             }
 
             @Override // java.lang.Runnable
@@ -673,15 +673,15 @@ public class f {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     IYYPayResultView.c cVar = new IYYPayResultView.c();
-                    cVar.f79939a = new IYYPayResultView.b(IYYPayResultView.Result.PAY_FAIL, null);
-                    IYYPayWayView.b bVar = this.f79143e.f79137f;
+                    cVar.f80256a = new IYYPayResultView.b(IYYPayResultView.Result.PAY_FAIL, null);
+                    IYYPayWayView.b bVar = this.f79462e.f79456f;
                     if (bVar != null) {
-                        cVar.f79940b = bVar.f79945e;
-                        PaySource paySource = bVar.f79946f;
+                        cVar.f80257b = bVar.f80262e;
+                        PaySource paySource = bVar.f80263f;
                     }
-                    g gVar = this.f79143e;
-                    gVar.f79138g.y(gVar.f79133b, cVar);
-                    j.a.a.e.n.i.f79175a.b(this.f79143e.f79134c);
+                    g gVar = this.f79462e;
+                    gVar.f79457g.y(gVar.f79452b, cVar);
+                    j.a.a.e.n.i.f79494a.b(this.f79462e.f79453c);
                 }
             }
         }
@@ -701,13 +701,13 @@ public class f {
                     return;
                 }
             }
-            this.f79138g = fVar;
-            this.f79132a = iPayCallback;
-            this.f79133b = activity;
-            this.f79134c = dialog;
-            this.f79135d = iYYPayWayView;
-            this.f79136e = cVar;
-            this.f79137f = bVar;
+            this.f79457g = fVar;
+            this.f79451a = iPayCallback;
+            this.f79452b = activity;
+            this.f79453c = dialog;
+            this.f79454d = iYYPayWayView;
+            this.f79455e = cVar;
+            this.f79456f = bVar;
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
@@ -715,18 +715,18 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, payCallBackBean) == null) {
                 RLog.info("YYPayDialogController", "requestPayInternal onFail code:" + i2 + " failReason:" + str);
-                IPayCallback iPayCallback = this.f79132a;
+                IPayCallback iPayCallback = this.f79451a;
                 if (iPayCallback != null) {
                     iPayCallback.onFail(i2, str, payCallBackBean);
                 }
-                this.f79138g.p(i2, str, payCallBackBean);
-                if (j.a.a.e.n.i.f79175a.a(this.f79133b)) {
+                this.f79457g.p(i2, str, payCallBackBean);
+                if (j.a.a.e.n.i.f79494a.a(this.f79452b)) {
                     if (i2 == PayStatus.CANCEL.getCode()) {
                         RLog.info("YYPayDialogController", "取消支付 code:" + i2);
-                        this.f79133b.runOnUiThread(new d(this));
+                        this.f79452b.runOnUiThread(new d(this));
                         return;
                     }
-                    this.f79133b.runOnUiThread(new e(this));
+                    this.f79452b.runOnUiThread(new e(this));
                 }
             }
         }
@@ -736,7 +736,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 RLog.info("YYPayDialogController", "requestPayInternal onPayStart");
-                IPayCallback iPayCallback = this.f79132a;
+                IPayCallback iPayCallback = this.f79451a;
                 if (iPayCallback != null) {
                     iPayCallback.onPayStart();
                 }
@@ -748,16 +748,16 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, purchaseStatus, payCallBackBean) == null) {
                 RLog.info("YYPayDialogController", "requestPayInternal onPayStatus code " + purchaseStatus.getCode() + " msg: " + purchaseStatus.getMessage());
-                IPayCallback iPayCallback = this.f79132a;
+                IPayCallback iPayCallback = this.f79451a;
                 if (iPayCallback != null) {
                     iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
                 }
-                if (j.a.a.e.n.i.f79175a.a(this.f79133b)) {
+                if (j.a.a.e.n.i.f79494a.a(this.f79452b)) {
                     if (purchaseStatus != null && purchaseStatus == PurchaseStatus.ORDER_START) {
-                        this.f79133b.runOnUiThread(new a(this));
+                        this.f79452b.runOnUiThread(new a(this));
                     } else if ((purchaseStatus == null || purchaseStatus != PurchaseStatus.ORDER_SUCCESS) && purchaseStatus != PurchaseStatus.ORDER_FAIL) {
                     } else {
-                        this.f79133b.runOnUiThread(new b(this));
+                        this.f79452b.runOnUiThread(new b(this));
                     }
                 }
             }
@@ -768,8 +768,8 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, obj, payCallBackBean) == null) {
                 RLog.info("YYPayDialogController", "requestPayInternal onSuccess");
-                if (j.a.a.e.n.i.f79175a.a(this.f79133b)) {
-                    this.f79133b.runOnUiThread(new c(this));
+                if (j.a.a.e.n.i.f79494a.a(this.f79452b)) {
+                    this.f79452b.runOnUiThread(new c(this));
                 }
             }
         }
@@ -781,10 +781,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AbsViewEventHandler f79144a;
+        public final /* synthetic */ AbsViewEventHandler f79463a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f79145b;
+        public final /* synthetic */ f f79464b;
 
         public h(f fVar, AbsViewEventHandler absViewEventHandler) {
             Interceptable interceptable = $ic;
@@ -801,8 +801,8 @@ public class f {
                     return;
                 }
             }
-            this.f79145b = fVar;
-            this.f79144a = absViewEventHandler;
+            this.f79464b = fVar;
+            this.f79463a = absViewEventHandler;
         }
 
         @Override // j.a.a.e.o.d.a
@@ -810,7 +810,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
                 RLog.info("YYPayDialogController", "dismissPayResultDialog");
-                this.f79145b.q(cancelType, this.f79144a);
+                this.f79464b.q(cancelType, this.f79463a);
             }
         }
     }
@@ -821,13 +821,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Dialog f79146a;
+        public final /* synthetic */ Dialog f79465a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AbsViewEventHandler f79147b;
+        public final /* synthetic */ AbsViewEventHandler f79466b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ f f79148c;
+        public final /* synthetic */ f f79467c;
 
         public i(f fVar, Dialog dialog, AbsViewEventHandler absViewEventHandler) {
             Interceptable interceptable = $ic;
@@ -844,21 +844,21 @@ public class f {
                     return;
                 }
             }
-            this.f79148c = fVar;
-            this.f79146a = dialog;
-            this.f79147b = absViewEventHandler;
+            this.f79467c = fVar;
+            this.f79465a = dialog;
+            this.f79466b = absViewEventHandler;
         }
 
         @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Dialog dialog = this.f79146a;
+                Dialog dialog = this.f79465a;
                 if (dialog != null) {
                     dialog.dismiss();
                 }
                 RLog.info("YYPayDialogController", "onBtnConfirm onPayFlowFinish");
-                this.f79148c.r(this.f79147b, PayDialogType.PAY_NONE_DIALOG);
+                this.f79467c.r(this.f79466b, PayDialogType.PAY_NONE_DIALOG);
             }
         }
     }
@@ -878,33 +878,33 @@ public class f {
                 return;
             }
         }
-        this.f79100g = i2;
-        this.f79101h = i3;
-        this.f79097d = dVar;
-        this.f79095b = dVar != null ? dVar.getPayUIKitConfig() : null;
-        this.f79094a = cVar;
-        this.f79099f = payFlowType;
+        this.f79419g = i2;
+        this.f79420h = i3;
+        this.f79416d = dVar;
+        this.f79414b = dVar != null ? dVar.getPayUIKitConfig() : null;
+        this.f79413a = cVar;
+        this.f79418f = payFlowType;
         RLog.info("YYPayDialogController", "new PayDialogController");
     }
 
     public void A(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, bVar, iPayCallback) == null) {
-            IAppPayService a2 = j.a.a.e.n.b.a(this.f79100g, this.f79101h);
+            IAppPayService a2 = j.a.a.e.n.b.a(this.f79419g, this.f79420h);
             if (a2 == null) {
                 RLog.error("YYPayDialogController", "showPayWayDialog null appPayService", new Object[0]);
                 return;
             }
-            IYYPayWayView b2 = this.f79094a.b(activity, bVar);
+            IYYPayWayView b2 = this.f79413a.b(activity, bVar);
             b2.refreshView();
-            AbsViewEventHandler absViewEventHandler = bVar != null ? bVar.f79945e : null;
+            AbsViewEventHandler absViewEventHandler = bVar != null ? bVar.f80262e : null;
             r(absViewEventHandler, PayDialogType.PAY_WAY_DIALOG);
             RLog.info("YYPayDialogController", "showPayWayDialog");
-            Dialog c2 = j.a.a.e.o.d.d.f79232b.c(activity, activity.getString(j.a.a.e.f.pay_ui_dialog_pay_title), b2.getContentView(), new d(this, a2, absViewEventHandler), absViewEventHandler, PayDialogType.PAY_WAY_DIALOG);
+            Dialog c2 = j.a.a.e.o.d.d.f79551b.c(activity, activity.getString(j.a.a.e.f.pay_ui_dialog_pay_title), b2.getContentView(), new d(this, a2, absViewEventHandler), absViewEventHandler, PayDialogType.PAY_WAY_DIALOG);
             b2.setCallback(new e(this, activity, c2, b2, bVar, iPayCallback, absViewEventHandler));
-            C2146f c2146f = new C2146f(this, activity, bVar, c2, b2, iPayCallback);
-            this.f79096c = c2146f;
-            a2.addPayListener(c2146f);
+            C2150f c2150f = new C2150f(this, activity, bVar, c2, b2, iPayCallback);
+            this.f79415c = c2150f;
+            a2.addPayListener(c2150f);
             RLog.debug("YYPayDialogController", "showPayWayDialog addPayListener");
         }
     }
@@ -919,7 +919,7 @@ public class f {
             productInfo.productId = "";
             productInfo.srcCurrencySymbol = "";
             productInfo.srcAmount = Double.valueOf(i2 / 100.0d);
-            PayUIKitConfig payUIKitConfig = this.f79095b;
+            PayUIKitConfig payUIKitConfig = this.f79414b;
             if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null && middleRevenueConfig.getCurrencyType() == 4) {
                 productInfo.destAmount = i2;
                 return new j.a.a.e.l.a(productInfo, 4);
@@ -933,7 +933,7 @@ public class f {
     public final void p(int i2, String str, PayCallBackBean payCallBackBean) {
         j.a.a.e.k.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, str, payCallBackBean) == null) || (dVar = this.f79097d) == null) {
+        if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, str, payCallBackBean) == null) || (dVar = this.f79416d) == null) {
             return;
         }
         dVar.notifyYYPayFailListener(i2, str, payCallBackBean);
@@ -968,13 +968,13 @@ public class f {
 
     public final void s() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f79097d == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f79416d == null) {
             return;
         }
         RLog.info("YYPayDialogController", "onPayFlowFinish");
         PayFlowType payFlowType = PayFlowType.DIOALOG_PAY_FLOW;
-        if (payFlowType == this.f79099f) {
-            this.f79097d.onPayFlowFinish(payFlowType);
+        if (payFlowType == this.f79418f) {
+            this.f79416d.onPayFlowFinish(payFlowType);
         }
     }
 
@@ -986,9 +986,9 @@ public class f {
                 iYYPayWayView.setViewState(payViewState);
             }
             if (z) {
-                j.a.a.e.o.d.d.f79232b.d(dialog);
+                j.a.a.e.o.d.d.f79551b.d(dialog);
             } else {
-                j.a.a.e.o.d.d.f79232b.b(dialog);
+                j.a.a.e.o.d.d.f79551b.b(dialog);
             }
         }
     }
@@ -998,9 +998,9 @@ public class f {
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{activity, cVar, aVar, dialog, iYYPayWayView, appCustomExpand, bVar, iPayCallback}) == null) {
             RLog.info("YYPayDialogController", " requestPayInternal");
             g gVar = new g(this, iPayCallback, activity, dialog, iYYPayWayView, cVar, bVar);
-            this.f79098e = TraceIdUtil.newTraceId();
-            RLog.info("YYPayDialogController", " requestPayInternal new mTraceId:" + this.f79098e);
-            this.f79094a.a(activity, cVar, aVar, appCustomExpand, gVar, this.f79098e);
+            this.f79417e = TraceIdUtil.newTraceId();
+            RLog.info("YYPayDialogController", " requestPayInternal new mTraceId:" + this.f79417e);
+            this.f79413a.a(activity, cVar, aVar, appCustomExpand, gVar, this.f79417e);
         }
     }
 
@@ -1010,7 +1010,7 @@ public class f {
             AbsViewEventHandler absViewEventHandler = viewParams != null ? viewParams.viewEventListener : null;
             r(absViewEventHandler, PayDialogType.PAY_INPUT_DIALOG);
             RLog.info("YYPayDialogController", "showInputDialog");
-            j.a.a.e.o.d.c.f79201a.f(activity, new c(this, absViewEventHandler, activity, list, viewParams, iPayCallback), absViewEventHandler, PayDialogType.PAY_INPUT_DIALOG, this.f79095b);
+            j.a.a.e.o.d.c.f79520a.f(activity, new c(this, absViewEventHandler, activity, list, viewParams, iPayCallback), absViewEventHandler, PayDialogType.PAY_INPUT_DIALOG, this.f79414b);
         }
     }
 
@@ -1030,7 +1030,7 @@ public class f {
                 z(activity, o(viewParams.targetAmount), null, viewParams, iPayCallback);
                 RLog.info("YYPayDialogController", "showPayAmountDialog targetAmount:" + viewParams.targetAmount);
             } else {
-                IYYPayAmountView i3 = this.f79094a.i(activity, viewParams);
+                IYYPayAmountView i3 = this.f79413a.i(activity, viewParams);
                 i3.refreshView();
                 String string = activity.getString(j.a.a.e.f.pay_ui_dialog_title);
                 if (viewParams != null && !TextUtils.isEmpty(viewParams.payAmountDialogTitle)) {
@@ -1038,7 +1038,7 @@ public class f {
                 }
                 RLog.info("YYPayDialogController", "showPayAmountDialog");
                 r(absViewEventHandler, PayDialogType.PAY_AMOUNT_DIALOG);
-                i3.setCallback(new b(this, j.a.a.e.o.d.d.f79232b.c(activity, string, i3.getContentView(), new a(this, absViewEventHandler), absViewEventHandler, PayDialogType.PAY_AMOUNT_DIALOG), activity, viewParams, iPayCallback, absViewEventHandler));
+                i3.setCallback(new b(this, j.a.a.e.o.d.d.f79551b.c(activity, string, i3.getContentView(), new a(this, absViewEventHandler), absViewEventHandler, PayDialogType.PAY_AMOUNT_DIALOG), activity, viewParams, iPayCallback, absViewEventHandler));
             }
         }
     }
@@ -1047,11 +1047,11 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{activity, currencyChargeMessage, dialog, bVar, iYYPayWayView, bVar2}) == null) {
             if (!j.a.a.e.n.f.b(currencyChargeMessage.payChannel, currencyChargeMessage.payMethod) && !PayType.MOCK_TEST_PAY.getChannel().equals(currencyChargeMessage.payChannel) && !PayType.UNION_PAY.getChannel().equals(currencyChargeMessage.payChannel)) {
-                j.a.a.e.n.i.f79175a.b(dialog);
+                j.a.a.e.n.i.f79494a.b(dialog);
                 IYYPayResultView.c cVar = new IYYPayResultView.c();
-                cVar.f79939a = bVar;
-                cVar.f79940b = bVar2.f79945e;
-                PaySource paySource = bVar2.f79946f;
+                cVar.f80256a = bVar;
+                cVar.f80257b = bVar2.f80262e;
+                PaySource paySource = bVar2.f80263f;
                 y(activity, cVar);
                 return;
             }
@@ -1062,11 +1062,11 @@ public class f {
     public final void y(Activity activity, IYYPayResultView.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, activity, cVar) == null) {
-            AbsViewEventHandler absViewEventHandler = cVar != null ? cVar.f79940b : null;
+            AbsViewEventHandler absViewEventHandler = cVar != null ? cVar.f80257b : null;
             r(absViewEventHandler, PayDialogType.PAY_RESULT_DIALOG);
-            IYYPayResultView c2 = this.f79094a.c(activity, cVar);
+            IYYPayResultView c2 = this.f79413a.c(activity, cVar);
             RLog.info("YYPayDialogController", "showPayResultDialog");
-            c2.setCallback(new i(this, j.a.a.e.o.d.d.f79232b.c(activity, activity.getString(j.a.a.e.f.pay_ui_dialog_pay_title), c2.getContentView(), new h(this, absViewEventHandler), absViewEventHandler, PayDialogType.PAY_RESULT_DIALOG), absViewEventHandler));
+            c2.setCallback(new i(this, j.a.a.e.o.d.d.f79551b.c(activity, activity.getString(j.a.a.e.f.pay_ui_dialog_pay_title), c2.getContentView(), new h(this, absViewEventHandler), absViewEventHandler, PayDialogType.PAY_RESULT_DIALOG), absViewEventHandler));
         }
     }
 
@@ -1074,12 +1074,12 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048588, this, activity, aVar, list, viewParams, iPayCallback) == null) {
             IYYPayWayView.b bVar = new IYYPayWayView.b();
-            bVar.f79942b = aVar;
-            bVar.f79941a = list;
+            bVar.f80259b = aVar;
+            bVar.f80258a = list;
             if (viewParams != null) {
-                bVar.f79943c = viewParams.appCustomExpand;
-                bVar.f79944d = viewParams.closeOnSuccess;
-                bVar.f79945e = viewParams.viewEventListener;
+                bVar.f80260c = viewParams.appCustomExpand;
+                bVar.f80261d = viewParams.closeOnSuccess;
+                bVar.f80262e = viewParams.viewEventListener;
             }
             A(activity, bVar, iPayCallback);
         }

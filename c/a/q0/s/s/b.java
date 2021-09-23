@@ -114,7 +114,7 @@ public class b {
 
     /* renamed from: c.a.q0.s.s.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C0696b {
+    public static final class C0694b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
@@ -387,7 +387,7 @@ public class b {
                 if (c.a.e.e.m.g.i(this.n, this.f14396d)) {
                     Window window = this.n.getWindow();
                     if (this.f14402j == -1) {
-                        this.f14402j = C0696b.f14406a;
+                        this.f14402j = C0694b.f14406a;
                     }
                     if (this.k == -1) {
                         this.k = 17;

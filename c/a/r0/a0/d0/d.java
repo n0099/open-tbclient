@@ -17,16 +17,16 @@ public class d extends BaseCardInfo implements p, o0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdvertAppInfo f15568e;
+    public AdvertAppInfo f15577e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15569f;
+    public String f15578f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15570g;
+    public int f15579g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f15571h;
+    public boolean f15580h;
 
     public d(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class d extends BaseCardInfo implements p, o0 {
                 return;
             }
         }
-        this.f15569f = "";
-        this.f15570g = 0;
-        this.f15571h = false;
-        this.f15568e = advertAppInfo;
+        this.f15578f = "";
+        this.f15579g = 0;
+        this.f15580h = false;
+        this.f15577e = advertAppInfo;
         this.position = advertAppInfo.position;
     }
 
@@ -61,7 +61,7 @@ public class d extends BaseCardInfo implements p, o0 {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15571h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15580h : invokeV.booleanValue;
     }
 
     @Override // c.a.q0.s.q.o0
@@ -74,7 +74,7 @@ public class d extends BaseCardInfo implements p, o0 {
     public AdvertAppInfo g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15568e : (AdvertAppInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15577e : (AdvertAppInfo) invokeV.objValue;
     }
 
     @Override // c.a.r0.a0.d0.p
@@ -82,8 +82,8 @@ public class d extends BaseCardInfo implements p, o0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.f15568e;
-            return c.a.e.e.m.b.e(advertAppInfo != null ? advertAppInfo.c4 : "-1", -1);
+            AdvertAppInfo advertAppInfo = this.f15577e;
+            return c.a.e.e.m.b.e(advertAppInfo != null ? advertAppInfo.d4 : "-1", -1);
         }
         return invokeV.intValue;
     }
@@ -94,15 +94,15 @@ public class d extends BaseCardInfo implements p, o0 {
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.f15568e;
-            if (advertAppInfo != null && advertAppInfo.getType() == AdvertAppInfo.q4) {
-                return AdvertAppInfo.s4;
+            AdvertAppInfo advertAppInfo = this.f15577e;
+            if (advertAppInfo != null && advertAppInfo.getType() == AdvertAppInfo.r4) {
+                return AdvertAppInfo.t4;
             }
-            AdvertAppInfo advertAppInfo2 = this.f15568e;
-            if (advertAppInfo2 == null || (iLegoAdvert = advertAppInfo2.e4) == null) {
+            AdvertAppInfo advertAppInfo2 = this.f15577e;
+            if (advertAppInfo2 == null || (iLegoAdvert = advertAppInfo2.f4) == null) {
                 return null;
             }
-            BdUniqueId bdUniqueId = AdvertAppInfo.t4;
+            BdUniqueId bdUniqueId = AdvertAppInfo.u4;
             int goodsStyle = iLegoAdvert.getGoodsStyle();
             if (goodsStyle != 2) {
                 if (goodsStyle != 6) {
@@ -110,9 +110,9 @@ public class d extends BaseCardInfo implements p, o0 {
                         if (goodsStyle != 8) {
                             switch (goodsStyle) {
                                 case 12:
-                                    return AdvertAppInfo.y4;
+                                    return AdvertAppInfo.z4;
                                 case 13:
-                                    return AdvertAppInfo.x4;
+                                    return AdvertAppInfo.y4;
                                 case 14:
                                     break;
                                 default:
@@ -120,11 +120,11 @@ public class d extends BaseCardInfo implements p, o0 {
                             }
                         }
                     }
-                    return AdvertAppInfo.w4;
+                    return AdvertAppInfo.x4;
                 }
-                return AdvertAppInfo.v4;
+                return AdvertAppInfo.w4;
             }
-            return AdvertAppInfo.u4;
+            return AdvertAppInfo.v4;
         }
         return (BdUniqueId) invokeV.objValue;
     }
@@ -143,7 +143,7 @@ public class d extends BaseCardInfo implements p, o0 {
     public AdvertAppInfo m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f15568e : (AdvertAppInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f15577e : (AdvertAppInfo) invokeV.objValue;
     }
 
     @Override // c.a.r0.a0.d0.p
@@ -158,8 +158,8 @@ public class d extends BaseCardInfo implements p, o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             this.position = i2;
-            this.f15568e.position = i2;
-            this.f15571h = true;
+            this.f15577e.position = i2;
+            this.f15580h = true;
         }
     }
 
@@ -176,10 +176,10 @@ public class d extends BaseCardInfo implements p, o0 {
                 return;
             }
         }
-        this.f15569f = "";
-        this.f15570g = 0;
-        this.f15571h = false;
-        this.f15568e = null;
+        this.f15578f = "";
+        this.f15579g = 0;
+        this.f15580h = false;
+        this.f15577e = null;
         this.position = -1;
     }
 }

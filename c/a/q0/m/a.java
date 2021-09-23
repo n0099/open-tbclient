@@ -36,7 +36,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f13562a;
+    public static String f13558a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(WebSettings webSettings) {
@@ -129,7 +129,7 @@ public class a {
             }
             String cookie = cookieManager.getCookie("*.baidu.com");
             if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-                cookie = f13562a;
+                cookie = f13558a;
             }
             if (cookie != null) {
                 for (String str : cookie.split(";")) {
@@ -231,7 +231,7 @@ public class a {
     public static void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            f13562a = str;
+            f13558a = str;
         }
     }
 

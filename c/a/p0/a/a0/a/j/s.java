@@ -15,7 +15,7 @@ public class s extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RectF f4481a;
+    public RectF f4489a;
 
     public s() {
         Interceptable interceptable = $ic;
@@ -35,10 +35,10 @@ public class s extends a {
     public void a(b bVar, Canvas canvas) {
         RectF rectF;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (rectF = this.f4481a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (rectF = this.f4489a) == null) {
             return;
         }
-        bVar.f4396j.addRect(rectF, Path.Direction.CW);
+        bVar.f4404j.addRect(rectF, Path.Direction.CW);
     }
 
     @Override // c.a.p0.a.a0.a.j.a
@@ -49,10 +49,10 @@ public class s extends a {
                 if (jSONArray.length() == 4) {
                     int g2 = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
                     int g3 = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
-                    this.f4481a = new RectF(g2, g3, g2 + c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(2)), g3 + c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(3)));
+                    this.f4489a = new RectF(g2, g3, g2 + c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(2)), g3 + c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(3)));
                 }
             } catch (Exception e2) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e2.printStackTrace();
                 }
             }

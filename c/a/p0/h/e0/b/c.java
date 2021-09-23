@@ -12,19 +12,19 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11184a;
+    public String f11192a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11185b;
+    public String f11193b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11186c;
+    public String f11194c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f11187d;
+    public JSONObject f11195d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f11188e;
+    public d f11196e;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "{ videoPath=" + this.f11184a + " , query=" + this.f11185b + " , title=" + this.f11186c + ", extra=" + this.f11187d + ", videoEditorParams=" + this.f11188e + " }";
+            return "{ videoPath=" + this.f11192a + " , query=" + this.f11193b + " , title=" + this.f11194c + ", extra=" + this.f11195d + ", videoEditorParams=" + this.f11196e + " }";
         }
         return (String) invokeV.objValue;
     }

@@ -23,7 +23,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.j.b f11724a;
+        public final /* synthetic */ c.a.p0.j.b f11732a;
 
         public a(c.a.p0.j.b bVar) {
             Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class f {
                     return;
                 }
             }
-            this.f11724a = bVar;
+            this.f11732a = bVar;
         }
 
         @Override // c.a.p0.j.k.f.d.c
@@ -55,7 +55,7 @@ public class f {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f11724a.q(true);
+                this.f11732a.q(true);
                 c.a.p0.a.e0.d.g("map", "location permission success");
             }
         }
@@ -92,7 +92,7 @@ public class f {
                 if (cVar3 != null && cVar3.isValid()) {
                     c.a.p0.a.e0.d.g("map", "initMapView coordinate is " + cVar2.n);
                     c.a.p0.a.h1.c.h.c cVar4 = cVar2.n;
-                    map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar4.f6533e, cVar4.f6534f)));
+                    map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar4.f6541e, cVar4.f6542f)));
                 }
                 map.animateMapStatus(MapStatusUpdateFactory.zoomTo((float) cVar2.o));
                 c.a.p0.a.e0.d.g("map", "initMapView scale is " + cVar2.o);

@@ -17,10 +17,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f15842a;
+    public boolean f15852a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<d> f15843b;
+    public ArrayList<d> f15853b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,20 +35,20 @@ public class a {
                 return;
             }
         }
-        this.f15842a = true;
-        this.f15843b = null;
+        this.f15852a = true;
+        this.f15853b = null;
     }
 
     public ArrayList<d> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15843b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15853b : (ArrayList) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15842a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15852a : invokeV.booleanValue;
     }
 
     public void c(DataRes dataRes) {
@@ -56,14 +56,14 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f15842a = dataRes.has_more.intValue() == 1;
+        this.f15852a = dataRes.has_more.intValue() == 1;
         List<MsgContent> list = dataRes.msg_content;
         if (list == null || list.size() <= 0) {
             return;
         }
-        this.f15843b = new ArrayList<>();
+        this.f15853b = new ArrayList<>();
         for (MsgContent msgContent : dataRes.msg_content) {
-            this.f15843b.add(new d(msgContent));
+            this.f15853b.add(new d(msgContent));
         }
     }
 }

@@ -14,7 +14,7 @@ public class b0<T extends BaseCardInfo> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f15554a;
+    public Object f15563a;
 
     public b0() {
         Interceptable interceptable = $ic;

@@ -35,17 +35,17 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f18998d;
+    public static volatile b f19007d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0919b f18999a;
+    public InterfaceC0917b f19008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f19000b;
+    public AtomicBoolean f19009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f19001c;
+    public AtomicBoolean f19010c;
 
     /* loaded from: classes3.dex */
     public static class a implements CustomMessageTask.CustomRunnable<l> {
@@ -98,17 +98,17 @@ public class b {
 
     /* renamed from: c.a.r0.h2.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0919b {
+    public interface InterfaceC0917b {
         void a(l.c cVar);
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements InterfaceC0919b {
+    public static class c implements InterfaceC0917b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public l f19002a;
+        public l f19011a;
 
         public c(l lVar) {
             Interceptable interceptable = $ic;
@@ -125,17 +125,17 @@ public class b {
                     return;
                 }
             }
-            this.f19002a = lVar;
+            this.f19011a = lVar;
         }
 
-        @Override // c.a.r0.h2.d.b.InterfaceC0919b
+        @Override // c.a.r0.h2.d.b.InterfaceC0917b
         public void a(l.c cVar) {
             l lVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || (lVar = this.f19002a) == null || lVar.f() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || (lVar = this.f19011a) == null || lVar.f() == null) {
                 return;
             }
-            this.f19002a.f().b(cVar);
+            this.f19011a.f().b(cVar);
         }
     }
 
@@ -152,22 +152,22 @@ public class b {
                 return;
             }
         }
-        this.f19000b = new AtomicBoolean(false);
-        this.f19001c = new AtomicBoolean(false);
+        this.f19009b = new AtomicBoolean(false);
+        this.f19010c = new AtomicBoolean(false);
     }
 
     public static b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f18998d == null) {
+            if (f19007d == null) {
                 synchronized (b.class) {
-                    if (f18998d == null) {
-                        f18998d = new b();
+                    if (f19007d == null) {
+                        f19007d = new b();
                     }
                 }
             }
-            return f18998d;
+            return f19007d;
         }
         return (b) invokeV.objValue;
     }
@@ -191,14 +191,14 @@ public class b {
     public void a(l.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            if (this.f18999a != null) {
+            if (this.f19008a != null) {
                 if (cVar == null) {
                     cVar = new l.c(false);
                 }
-                this.f18999a.a(cVar);
+                this.f19008a.a(cVar);
             }
-            this.f18999a = null;
-            this.f19000b.set(false);
+            this.f19008a = null;
+            this.f19009b.set(false);
         }
     }
 
@@ -270,10 +270,10 @@ public class b {
         return invokeV.booleanValue;
     }
 
-    public final void i(l lVar, InterfaceC0919b interfaceC0919b) {
+    public final void i(l lVar, InterfaceC0917b interfaceC0917b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, lVar, interfaceC0919b) == null) {
-            q(interfaceC0919b);
+        if (interceptable == null || interceptable.invokeLL(1048583, this, lVar, interfaceC0917b) == null) {
+            q(interfaceC0917b);
             SapiAccount session = SapiAccountManager.getInstance().getSession();
             if (lVar != null && session != null) {
                 if (lVar.g() == 0) {
@@ -363,31 +363,31 @@ public class b {
         }
     }
 
-    public void q(InterfaceC0919b interfaceC0919b) {
+    public void q(InterfaceC0917b interfaceC0917b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, interfaceC0919b) == null) {
-            this.f18999a = interfaceC0919b;
+        if (interceptable == null || interceptable.invokeL(1048589, this, interfaceC0917b) == null) {
+            this.f19008a = interfaceC0917b;
         }
     }
 
-    public void r(l lVar, InterfaceC0919b interfaceC0919b) {
+    public void r(l lVar, InterfaceC0917b interfaceC0917b) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, lVar, interfaceC0919b) == null) && this.f19001c.compareAndSet(false, true)) {
-            if (this.f19000b.compareAndSet(false, true)) {
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, lVar, interfaceC0917b) == null) && this.f19010c.compareAndSet(false, true)) {
+            if (this.f19009b.compareAndSet(false, true)) {
                 try {
-                    i(lVar, interfaceC0919b);
+                    i(lVar, interfaceC0917b);
                 } catch (Exception e2) {
                     BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e2.toString());
-                    this.f19000b.set(false);
+                    this.f19009b.set(false);
                 }
             } else if (!h()) {
                 try {
-                    i(lVar, interfaceC0919b);
+                    i(lVar, interfaceC0917b);
                 } catch (Exception unused) {
-                    this.f19000b.set(false);
+                    this.f19009b.set(false);
                 }
             }
-            this.f19001c.set(false);
+            this.f19010c.set(false);
         }
     }
 }

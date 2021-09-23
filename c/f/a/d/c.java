@@ -15,10 +15,10 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SharedPreferences f32271a;
+    public static SharedPreferences f32292a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences.Editor f32272b;
+    public static SharedPreferences.Editor f32293b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,10 +53,10 @@ public final class c {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f32271a == null) {
+        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f32292a == null) {
             SharedPreferences sharedPreferences = context.getSharedPreferences("DxmHeartBeatSP", 0);
-            f32271a = sharedPreferences;
-            f32272b = sharedPreferences.edit();
+            f32292a = sharedPreferences;
+            f32293b = sharedPreferences.edit();
         }
     }
 
@@ -64,8 +64,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
             a(context);
-            f32272b.putLong(str, j2);
-            f32272b.commit();
+            f32293b.putLong(str, j2);
+            f32293b.commit();
         }
     }
 
@@ -74,7 +74,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
             a(context);
-            return f32271a.getLong(str, j2);
+            return f32292a.getLong(str, j2);
         }
         return invokeCommon.longValue;
     }

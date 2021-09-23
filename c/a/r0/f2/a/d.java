@@ -39,16 +39,16 @@ public class d extends c.a.r0.f2.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.f2.c.b f17589e;
+        public final /* synthetic */ c.a.r0.f2.c.b f17599e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f17590f;
+        public final /* synthetic */ b f17600f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f17591g;
+        public final /* synthetic */ int f17601g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f17592h;
+        public final /* synthetic */ d f17602h;
 
         public a(d dVar, c.a.r0.f2.c.b bVar, b bVar2, int i2) {
             Interceptable interceptable = $ic;
@@ -65,30 +65,30 @@ public class d extends c.a.r0.f2.a.a {
                     return;
                 }
             }
-            this.f17592h = dVar;
-            this.f17589e = bVar;
-            this.f17590f = bVar2;
-            this.f17591g = i2;
+            this.f17602h = dVar;
+            this.f17599e = bVar;
+            this.f17600f = bVar2;
+            this.f17601g = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.r0.f2.c.b bVar = this.f17589e;
+                c.a.r0.f2.c.b bVar = this.f17599e;
                 bVar.l(!bVar.g());
-                this.f17592h.g(this.f17590f, this.f17589e);
-                this.f17592h.d(this.f17589e);
-                d dVar = this.f17592h;
-                a.InterfaceC0861a interfaceC0861a = dVar.f17572h;
-                if (interfaceC0861a != null) {
-                    interfaceC0861a.onSelectCountChanged(dVar.f17569e);
+                this.f17602h.g(this.f17600f, this.f17599e);
+                this.f17602h.d(this.f17599e);
+                d dVar = this.f17602h;
+                a.InterfaceC0859a interfaceC0859a = dVar.f17582h;
+                if (interfaceC0859a != null) {
+                    interfaceC0859a.onSelectCountChanged(dVar.f17579e);
                 }
-                if (this.f17589e.g()) {
+                if (this.f17599e.g()) {
                     StatisticItem statisticItem = new StatisticItem("c13682");
                     statisticItem.param("obj_type", 2);
                     statisticItem.param("obj_locate", 1);
-                    statisticItem.param("obj_source", this.f17591g);
+                    statisticItem.param("obj_source", this.f17601g);
                     TiebaStatic.log(statisticItem);
                 }
             }
@@ -101,13 +101,13 @@ public class d extends c.a.r0.f2.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f17593a;
+        public LinearLayout f17603a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f17594b;
+        public TbImageView f17604b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f17595c;
+        public TextView f17605c;
 
         public b(View view) {
             Interceptable interceptable = $ic;
@@ -124,13 +124,13 @@ public class d extends c.a.r0.f2.a.a {
                     return;
                 }
             }
-            this.f17593a = (LinearLayout) view.findViewById(R.id.interest_selection_rootview);
-            this.f17594b = (TbImageView) view.findViewById(R.id.interest_icon);
-            this.f17595c = (TextView) view.findViewById(R.id.interest_text);
+            this.f17603a = (LinearLayout) view.findViewById(R.id.interest_selection_rootview);
+            this.f17604b = (TbImageView) view.findViewById(R.id.interest_icon);
+            this.f17605c = (TextView) view.findViewById(R.id.interest_text);
             int k = (l.k(TbadkCoreApplication.getInst()) / 4) + l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-            this.f17593a.setLayoutParams(new LinearLayout.LayoutParams(k, k));
+            this.f17603a.setLayoutParams(new LinearLayout.LayoutParams(k, k));
             int i4 = k / 3;
-            this.f17594b.setLayoutParams(new LinearLayout.LayoutParams(i4, i4));
+            this.f17604b.setLayoutParams(new LinearLayout.LayoutParams(i4, i4));
         }
     }
 
@@ -176,23 +176,23 @@ public class d extends c.a.r0.f2.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, bVar2) == null) {
             if (bVar2.g()) {
-                TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0302).setShapeRadius(l.g(this.f17570f, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0807).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(this.f17570f, R.dimen.tbds20)).setOffsetX(0).setOffsetY(l.g(this.f17570f, R.dimen.tbds10)).into(bVar.f17593a);
-                c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(bVar.f17595c);
+                TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0302).setShapeRadius(l.g(this.f17580f, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0807).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(this.f17580f, R.dimen.tbds20)).setOffsetX(0).setOffsetY(l.g(this.f17580f, R.dimen.tbds10)).into(bVar.f17603a);
+                c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(bVar.f17605c);
                 d2.w(R.color.CAM_X0313);
                 d2.B(R.dimen.T_X06);
-                if (bVar.f17594b.getBdImage() == null || StringUtils.isNull(bVar.f17594b.getBdImage().q())) {
+                if (bVar.f17604b.getBdImage() == null || StringUtils.isNull(bVar.f17604b.getBdImage().q())) {
                     return;
                 }
-                bVar.f17594b.setImageBitmap(f(bVar.f17594b.getBdImage().p(), -1));
+                bVar.f17604b.setImageBitmap(f(bVar.f17604b.getBdImage().p(), -1));
                 return;
             }
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0201).setShapeRadius(l.g(this.f17570f, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(this.f17570f, R.dimen.tbds20)).setOffsetX(0).setOffsetY(l.g(this.f17570f, R.dimen.tbds10)).into(bVar.f17593a);
-            c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(bVar.f17595c);
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0201).setShapeRadius(l.g(this.f17580f, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(this.f17580f, R.dimen.tbds20)).setOffsetX(0).setOffsetY(l.g(this.f17580f, R.dimen.tbds10)).into(bVar.f17603a);
+            c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(bVar.f17605c);
             d3.w(R.color.CAM_X0105);
             d3.B(R.dimen.T_X06);
-            bVar.f17594b.setImageBitmap(null);
-            bVar.f17594b.setPlaceHolder(1);
-            bVar.f17594b.startLoad(bVar2.a(), 25, false);
+            bVar.f17604b.setImageBitmap(null);
+            bVar.f17604b.setPlaceHolder(1);
+            bVar.f17604b.startLoad(bVar2.a(), 25, false);
         }
     }
 
@@ -203,17 +203,17 @@ public class d extends c.a.r0.f2.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f17570f).inflate(R.layout.list_item_interest_selection_style_b, viewGroup, false);
+                view = LayoutInflater.from(this.f17580f).inflate(R.layout.list_item_interest_selection_style_b, viewGroup, false);
                 bVar = new b(view);
                 view.setTag(bVar);
             } else {
                 bVar = (b) view.getTag();
             }
-            c.a.r0.f2.c.b bVar2 = this.f17571g.get(i2);
+            c.a.r0.f2.c.b bVar2 = this.f17581g.get(i2);
             if (bVar2 == null) {
                 return view;
             }
-            bVar.f17595c.setText(bVar2.b());
+            bVar.f17605c.setText(bVar2.b());
             g(bVar, bVar2);
             view.setOnClickListener(new a(this, bVar2, bVar, i2));
             return view;

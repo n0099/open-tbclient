@@ -26,34 +26,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f20707a;
+    public View f20722a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f20708b;
+    public TextView f20723b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f20709c;
+    public TextView f20724c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SortSwitchButton f20710d;
+    public SortSwitchButton f20725d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SortSwitchButton.f f20711e;
+    public SortSwitchButton.f f20726e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20712f;
+    public int f20727f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f20713g;
+    public View.OnClickListener f20728g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20714h;
+    public int f20729h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20715i;
+    public int f20730i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SortSwitchButton.f f20716j;
+    public SortSwitchButton.f f20731j;
     public View.OnClickListener k;
 
     /* loaded from: classes3.dex */
@@ -62,7 +62,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f20717a;
+        public final /* synthetic */ b f20732a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class b {
                     return;
                 }
             }
-            this.f20717a = bVar;
+            this.f20732a = bVar;
         }
 
         @Override // com.baidu.tieba.view.SortSwitchButton.f
@@ -87,8 +87,8 @@ public class b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                if (this.f20717a.f20711e != null) {
-                    return this.f20717a.f20711e.a(i2);
+                if (this.f20732a.f20726e != null) {
+                    return this.f20732a.f20726e.a(i2);
                 }
                 return true;
             }
@@ -98,14 +98,14 @@ public class b {
 
     /* renamed from: c.a.r0.j2.o.k.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0983b implements View.OnClickListener {
+    public class View$OnClickListenerC0981b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f20718e;
+        public final /* synthetic */ b f20733e;
 
-        public View$OnClickListenerC0983b(b bVar) {
+        public View$OnClickListenerC0981b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,26 +120,26 @@ public class b {
                     return;
                 }
             }
-            this.f20718e = bVar;
+            this.f20733e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f20718e.f20713g != null) {
-                    this.f20718e.f20713g.onClick(view);
+                if (this.f20733e.f20728g != null) {
+                    this.f20733e.f20728g.onClick(view);
                 }
                 if (j.z()) {
                     if (view == null || !(view.getTag() instanceof Boolean) || ((Boolean) view.getTag()).booleanValue()) {
-                        if (view != this.f20718e.f20708b) {
-                            if (view == this.f20718e.f20709c) {
-                                this.f20718e.k(1);
+                        if (view != this.f20733e.f20723b) {
+                            if (view == this.f20733e.f20724c) {
+                                this.f20733e.k(1);
                                 return;
                             }
                             return;
                         }
-                        this.f20718e.k(0);
+                        this.f20733e.k(0);
                     }
                 }
             }
@@ -161,23 +161,23 @@ public class b {
                 return;
             }
         }
-        this.f20712f = 0;
-        this.f20716j = new a(this);
-        this.k = new View$OnClickListenerC0983b(this);
+        this.f20727f = 0;
+        this.f20731j = new a(this);
+        this.k = new View$OnClickListenerC0981b(this);
         if (view == null) {
             return;
         }
-        this.f20707a = view;
+        this.f20722a = view;
         TextView textView = (TextView) view.findViewById(R.id.all_reply);
-        this.f20708b = textView;
+        this.f20723b = textView;
         textView.setOnClickListener(this.k);
-        TextView textView2 = (TextView) this.f20707a.findViewById(R.id.owner_reply);
-        this.f20709c = textView2;
+        TextView textView2 = (TextView) this.f20722a.findViewById(R.id.owner_reply);
+        this.f20724c = textView2;
         textView2.setOnClickListener(this.k);
-        SortSwitchButton sortSwitchButton = (SortSwitchButton) this.f20707a.findViewById(R.id.video_pb_sort_switch_btn);
-        this.f20710d = sortSwitchButton;
-        sortSwitchButton.setOnSwitchChangeListener(this.f20716j);
-        this.f20710d.changeState(2);
+        SortSwitchButton sortSwitchButton = (SortSwitchButton) this.f20722a.findViewById(R.id.video_pb_sort_switch_btn);
+        this.f20725d = sortSwitchButton;
+        sortSwitchButton.setOnSwitchChangeListener(this.f20731j);
+        this.f20725d.changeState(2);
         h(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -187,26 +187,26 @@ public class b {
             return;
         }
         int i2 = 0;
-        if (oVar.f19651f == o.l) {
-            this.f20708b.setClickable(true);
-            this.f20708b.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
-            this.f20709c.setVisibility(0);
-            f(oVar.f19653h);
+        if (oVar.f19666f == o.l) {
+            this.f20723b.setClickable(true);
+            this.f20723b.setText(TbadkCoreApplication.getInst().getString(R.string.all_reply));
+            this.f20724c.setVisibility(0);
+            f(oVar.f19668h);
         }
-        if (oVar.f19654i) {
-            this.f20709c.setVisibility(8);
-            this.f20710d.setVisibility(8);
-        } else if (oVar.f19655j) {
-            this.f20709c.setVisibility(8);
+        if (oVar.f19669i) {
+            this.f20724c.setVisibility(8);
+            this.f20725d.setVisibility(8);
+        } else if (oVar.f19670j) {
+            this.f20724c.setVisibility(8);
         } else {
-            this.f20709c.setVisibility(0);
+            this.f20724c.setVisibility(0);
         }
-        if (!oVar.f19654i && oVar.k != null) {
-            this.f20710d.setVisibility(0);
+        if (!oVar.f19669i && oVar.k != null) {
+            this.f20725d.setVisibility(0);
             int i3 = 0;
             while (true) {
                 if (i3 < oVar.k.size()) {
-                    if (oVar.k.get(i3) != null && oVar.f19652g == oVar.k.get(i3).sort_type.intValue()) {
+                    if (oVar.k.get(i3) != null && oVar.f19667g == oVar.k.get(i3).sort_type.intValue()) {
                         i2 = i3;
                         break;
                     }
@@ -235,7 +235,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, list, i2) == null) {
             if (ListUtils.isEmpty(list)) {
-                this.f20710d.setVisibility(8);
+                this.f20725d.setVisibility(8);
                 return;
             }
             ArrayList arrayList = new ArrayList();
@@ -245,50 +245,50 @@ public class b {
                 sVar.d(pbSortType.sort_name);
                 arrayList.add(sVar);
             }
-            this.f20710d.setVisibility(0);
-            this.f20710d.setData(arrayList, i2);
+            this.f20725d.setVisibility(0);
+            this.f20725d.setData(arrayList, i2);
         }
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f20707a, R.color.CAM_X0205);
-            this.f20715i = SkinManager.getColor(R.color.CAM_X0105);
-            this.f20714h = SkinManager.getColor(R.color.CAM_X0107);
-            k(this.f20712f);
-            this.f20710d.onChangeSkinType();
+            SkinManager.setBackgroundColor(this.f20722a, R.color.CAM_X0205);
+            this.f20730i = SkinManager.getColor(R.color.CAM_X0105);
+            this.f20729h = SkinManager.getColor(R.color.CAM_X0107);
+            k(this.f20727f);
+            this.f20725d.onChangeSkinType();
         }
     }
 
     public void i(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f20713g = onClickListener;
+            this.f20728g = onClickListener;
         }
     }
 
     public void j(SortSwitchButton.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.f20711e = fVar;
+            this.f20726e = fVar;
         }
     }
 
     public void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f20712f = i2;
+            this.f20727f = i2;
             if (i2 == 0) {
-                this.f20708b.setTypeface(Typeface.defaultFromStyle(1));
-                this.f20709c.setTypeface(Typeface.defaultFromStyle(0));
-                this.f20708b.setTextColor(this.f20715i);
-                this.f20709c.setTextColor(this.f20714h);
+                this.f20723b.setTypeface(Typeface.defaultFromStyle(1));
+                this.f20724c.setTypeface(Typeface.defaultFromStyle(0));
+                this.f20723b.setTextColor(this.f20730i);
+                this.f20724c.setTextColor(this.f20729h);
             } else if (i2 == 1) {
-                this.f20708b.setTypeface(Typeface.defaultFromStyle(0));
-                this.f20709c.setTypeface(Typeface.defaultFromStyle(1));
-                this.f20708b.setTextColor(this.f20714h);
-                this.f20709c.setTextColor(this.f20715i);
+                this.f20723b.setTypeface(Typeface.defaultFromStyle(0));
+                this.f20724c.setTypeface(Typeface.defaultFromStyle(1));
+                this.f20723b.setTextColor(this.f20729h);
+                this.f20724c.setTextColor(this.f20730i);
             }
         }
     }

@@ -24,17 +24,17 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static j f21957d;
+    public static j f21971d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HttpMessageListener f21958a;
+    public final HttpMessageListener f21972a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f21959b;
+    public long f21973b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f21960c;
+    public final Handler f21974c;
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -92,7 +92,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ j f21961a;
+        public final /* synthetic */ j f21975a;
 
         public b(j jVar) {
             Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class j {
                     return;
                 }
             }
-            this.f21961a = jVar;
+            this.f21975a = jVar;
         }
 
         @Override // android.os.Handler
@@ -117,12 +117,12 @@ public class j {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                 int i2 = message.arg1;
-                this.f21961a.f21959b = System.currentTimeMillis();
+                this.f21975a.f21973b = System.currentTimeMillis();
                 boolean z = !MessageManager.getInstance().getSocketClient().v();
                 if (i2 == 2 || (z && c.a.e.e.p.j.z())) {
-                    this.f21961a.h();
+                    this.f21975a.h();
                 }
-                this.f21961a.g(1, 600000L);
+                this.f21975a.g(1, 600000L);
             }
         }
     }
@@ -159,10 +159,10 @@ public class j {
                 return;
             }
         }
-        this.f21958a = new a(this, CmdConfigHttp.MSG_REMINDER_CMD);
-        this.f21959b = 0L;
-        this.f21960c = new b(this);
-        MessageManager.getInstance().registerListener(this.f21958a);
+        this.f21972a = new a(this, CmdConfigHttp.MSG_REMINDER_CMD);
+        this.f21973b = 0L;
+        this.f21974c = new b(this);
+        MessageManager.getInstance().registerListener(this.f21972a);
     }
 
     public static synchronized j e() {
@@ -171,10 +171,10 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             synchronized (j.class) {
-                if (f21957d == null) {
-                    f21957d = new j();
+                if (f21971d == null) {
+                    f21971d = new j();
                 }
-                jVar = f21957d;
+                jVar = f21971d;
             }
             return jVar;
         }
@@ -184,14 +184,14 @@ public class j {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21960c.removeMessages(1);
+            this.f21974c.removeMessages(1);
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f21959b = 0L;
+            this.f21973b = 0L;
             d();
             i();
         }
@@ -200,9 +200,9 @@ public class j {
     public final void g(int i2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            Message obtainMessage = this.f21960c.obtainMessage(1);
+            Message obtainMessage = this.f21974c.obtainMessage(1);
             obtainMessage.arg1 = i2;
-            this.f21960c.sendMessageDelayed(obtainMessage, j2);
+            this.f21974c.sendMessageDelayed(obtainMessage, j2);
         }
     }
 
@@ -218,7 +218,7 @@ public class j {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.f21959b;
+            long currentTimeMillis = System.currentTimeMillis() - this.f21973b;
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = 0;
             }
@@ -230,7 +230,7 @@ public class j {
                 i2 = 1;
             }
             g(i2, j2);
-            this.f21959b = System.currentTimeMillis();
+            this.f21973b = System.currentTimeMillis();
         }
     }
 }

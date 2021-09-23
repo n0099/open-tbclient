@@ -21,19 +21,19 @@ public class b implements c.a.r0.x3.i.b, b.c, c.a.r0.e0.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity f29021e;
+    public BaseActivity f29041e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.x3.b f29022f;
+    public c.a.r0.x3.b f29042f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.x3.i.d.a f29023g;
+    public c.a.r0.x3.i.d.a f29043g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SelectMusicModel f29024h;
+    public SelectMusicModel f29044h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f29025i;
+    public String f29045i;
 
     public b(c.a.r0.x3.b bVar) {
         Interceptable interceptable = $ic;
@@ -50,26 +50,26 @@ public class b implements c.a.r0.x3.i.b, b.c, c.a.r0.e0.b {
                 return;
             }
         }
-        this.f29022f = bVar;
-        this.f29021e = bVar.f28872a;
+        this.f29042f = bVar;
+        this.f29041e = bVar.f28892a;
     }
 
     public final void a(String str) {
         c.a.r0.x3.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bVar = this.f29022f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bVar = this.f29042f) == null) {
             return;
         }
         if (bVar.b()) {
-            this.f29022f.c();
-            this.f29022f = null;
+            this.f29042f.c();
+            this.f29042f = null;
             return;
         }
-        this.f29025i = str;
+        this.f29045i = str;
         VideoInfo videoInfo = new VideoInfo();
-        videoInfo.setVideoPath(this.f29025i);
-        videoInfo.setThumbPath(this.f29022f.f28874c);
-        c.a.r0.x3.b bVar2 = this.f29022f;
+        videoInfo.setVideoPath(this.f29045i);
+        videoInfo.setThumbPath(this.f29042f.f28894c);
+        c.a.r0.x3.b bVar2 = this.f29042f;
         if (bVar2 != null) {
             bVar2.f(videoInfo);
         }
@@ -78,42 +78,42 @@ public class b implements c.a.r0.x3.i.b, b.c, c.a.r0.e0.b {
     public void b() {
         c.a.r0.x3.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f29022f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f29042f) == null) {
             return;
         }
         if (bVar.b()) {
-            this.f29022f.c();
-            this.f29022f = null;
+            this.f29042f.c();
+            this.f29042f = null;
             return;
         }
-        if (StringUtils.isNull(this.f29022f.f28875d)) {
-            c.a.r0.x3.b bVar2 = this.f29022f;
-            if (!bVar2.f28876e) {
-                onSaveMusicVideo(bVar2.f28873b, -4399, "");
+        if (StringUtils.isNull(this.f29042f.f28895d)) {
+            c.a.r0.x3.b bVar2 = this.f29042f;
+            if (!bVar2.f28896e) {
+                onSaveMusicVideo(bVar2.f28893b, -4399, "");
                 return;
             }
         }
-        if (this.f29024h == null) {
-            this.f29024h = new SelectMusicModel(this.f29021e.getPageContext(), this);
+        if (this.f29044h == null) {
+            this.f29044h = new SelectMusicModel(this.f29041e.getPageContext(), this);
         }
-        SelectMusicModel selectMusicModel = this.f29024h;
-        c.a.r0.x3.b bVar3 = this.f29022f;
-        selectMusicModel.z(bVar3.f28873b, bVar3.f28875d, c.a.r0.x3.c.f28885f + "video_" + System.currentTimeMillis() + ".mp4", !bVar3.f28876e);
+        SelectMusicModel selectMusicModel = this.f29044h;
+        c.a.r0.x3.b bVar3 = this.f29042f;
+        selectMusicModel.z(bVar3.f28893b, bVar3.f28895d, c.a.r0.x3.c.f28905f + "video_" + System.currentTimeMillis() + ".mp4", !bVar3.f28896e);
     }
 
     @Override // c.a.r0.e0.b
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.r0.x3.b bVar = this.f29022f;
+            c.a.r0.x3.b bVar = this.f29042f;
             if (bVar != null) {
                 bVar.i(true);
             }
-            c.a.r0.x3.i.d.a aVar = this.f29023g;
+            c.a.r0.x3.i.d.a aVar = this.f29043g;
             if (aVar == null || !aVar.f()) {
                 return;
             }
-            this.f29023g.e();
+            this.f29043g.e();
         }
     }
 
@@ -121,7 +121,7 @@ public class b implements c.a.r0.x3.i.b, b.c, c.a.r0.e0.b {
     public void onGenFilterVideoFail(int i2, String str) {
         c.a.r0.x3.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || (bVar = this.f29022f) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || (bVar = this.f29042f) == null) {
             return;
         }
         bVar.d(i2, str);
@@ -131,7 +131,7 @@ public class b implements c.a.r0.x3.i.b, b.c, c.a.r0.e0.b {
     public void onGenFilterVideoRecordError(int i2, String str) {
         c.a.r0.x3.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) || (bVar = this.f29022f) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) || (bVar = this.f29042f) == null) {
             return;
         }
         bVar.d(i2, str);
@@ -141,7 +141,7 @@ public class b implements c.a.r0.x3.i.b, b.c, c.a.r0.e0.b {
     public void onGenFilterVideoSuccess(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            c.a.r0.x3.b bVar = this.f29022f;
+            c.a.r0.x3.b bVar = this.f29042f;
             if (bVar != null) {
                 bVar.e();
             }
@@ -153,34 +153,34 @@ public class b implements c.a.r0.x3.i.b, b.c, c.a.r0.e0.b {
     public void onSaveMusicVideo(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048582, this, str, i2, str2) == null) {
-            c.a.r0.x3.b bVar = this.f29022f;
+            c.a.r0.x3.b bVar = this.f29042f;
             if (bVar != null && bVar.b()) {
-                this.f29022f.c();
-                this.f29022f = null;
+                this.f29042f.c();
+                this.f29042f = null;
             } else if (TextUtils.isEmpty(str)) {
-                this.f29021e.showToast(R.string.mixing_fail);
-                c.a.r0.x3.b bVar2 = this.f29022f;
+                this.f29041e.showToast(R.string.mixing_fail);
+                c.a.r0.x3.b bVar2 = this.f29042f;
                 if (bVar2 != null) {
                     bVar2.g(i2, str2);
                 }
             } else {
-                c.a.r0.x3.b bVar3 = this.f29022f;
+                c.a.r0.x3.b bVar3 = this.f29042f;
                 if (bVar3 != null) {
                     bVar3.h();
                 }
-                if (!StringUtils.isNull(this.f29022f.f28877f)) {
-                    if (!StringHelper.equals(str, this.f29022f.f28873b)) {
-                        this.f29022f.f28878g = str;
+                if (!StringUtils.isNull(this.f29042f.f28897f)) {
+                    if (!StringHelper.equals(str, this.f29042f.f28893b)) {
+                        this.f29042f.f28898g = str;
                     }
-                    if (this.f29023g == null) {
-                        c.a.r0.x3.i.d.a aVar = new c.a.r0.x3.i.d.a(this.f29021e.getActivity());
-                        this.f29023g = aVar;
+                    if (this.f29043g == null) {
+                        c.a.r0.x3.i.d.a aVar = new c.a.r0.x3.i.d.a(this.f29041e.getActivity());
+                        this.f29043g = aVar;
                         aVar.i(this);
                     }
-                    this.f29023g.g(str, this.f29022f.f28877f);
+                    this.f29043g.g(str, this.f29042f.f28897f);
                     return;
                 }
-                c.a.r0.x3.b bVar4 = this.f29022f;
+                c.a.r0.x3.b bVar4 = this.f29042f;
                 if (bVar4 != null) {
                     bVar4.e();
                 }

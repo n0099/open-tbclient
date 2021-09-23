@@ -11,10 +11,10 @@ public class e1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f26570a;
+    public int f26593a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<d1> f26571b;
+    public List<d1> f26594b;
 
     public e1() {
         Interceptable interceptable = $ic;

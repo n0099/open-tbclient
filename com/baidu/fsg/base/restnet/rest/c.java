@@ -17,35 +17,35 @@ public class c implements b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f39429a = 30000;
+    public static final int f39486a = 30000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39430b = 30000;
+    public static final int f39487b = 30000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f39431c = 10;
+    public static final int f39488c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f39432d = 10;
+    public static final int f39489d = 10;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f39433e = 8192;
+    public static final int f39490e = 8192;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f39434f = 3;
+    public static final int f39491f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f39435g = 1000;
+    public static final int f39492g = 1000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39436h = "RestHttpNetwork";
+    public static final String f39493h = "RestHttpNetwork";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final b f39437i;
+    public final b f39494i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final g f39438j;
+    public final g f39495j;
 
     public c(b bVar) {
         Interceptable interceptable = $ic;
@@ -62,8 +62,8 @@ public class c implements b {
                 return;
             }
         }
-        this.f39437i = bVar;
-        this.f39438j = new g(3, 1000);
+        this.f39494i = bVar;
+        this.f39495j = new g(3, 1000);
     }
 
     /*  JADX ERROR: IF instruction can be used only in fallback mode
@@ -101,7 +101,7 @@ public class c implements b {
         	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
         	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
         */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00b6 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00b7 A[SYNTHETIC] */
     @Override // com.baidu.fsg.base.restnet.rest.b
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -110,9 +110,9 @@ public class c implements b {
         /*
             r10 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.fsg.base.restnet.rest.c.$ic
-            if (r0 != 0) goto Le3
+            if (r0 != 0) goto Le4
         L4:
-            java.lang.String r0 = r11.k()
+            java.lang.String r0 = r11.c()
             com.baidu.fsg.base.restnet.RestRequestCallbacker$IRestRequestCallback r1 = com.baidu.fsg.base.restnet.RestRequestCallbacker.getRequestCallback()
             r2 = 0
             r3 = 1
@@ -120,25 +120,25 @@ public class c implements b {
             r5 = 1
             r6 = 0
         L11:
-            if (r5 == 0) goto Le2
-            com.baidu.fsg.base.restnet.rest.b r4 = r10.f39437i     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            if (r5 == 0) goto Le3
+            com.baidu.fsg.base.restnet.rest.b r4 = r10.f39494i     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
             com.baidu.fsg.base.restnet.rest.e r4 = r4.a(r11)     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
             if (r4 == 0) goto L30
-            com.baidu.fsg.base.restnet.http.HttpStatus r5 = r4.e()     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            com.baidu.fsg.base.restnet.http.HttpStatus r5 = r4.getStatusCode()     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
             com.baidu.fsg.base.restnet.http.HttpStatus r7 = com.baidu.fsg.base.restnet.http.HttpStatus.OK     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
             if (r5 != r7) goto L30
             if (r1 == 0) goto L30
-            java.lang.String r5 = r11.k()     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
-            java.lang.String r7 = r11.d()     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            java.lang.String r5 = r11.c()     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            java.lang.String r7 = r11.getUrl()     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
             r1.onSuccess(r5, r7)     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
         L30:
             return r4
         L31:
             r4 = move-exception
-            com.baidu.fsg.base.restnet.rest.g r5 = r10.f39438j
+            com.baidu.fsg.base.restnet.rest.g r5 = r10.f39495j
             int r6 = r6 + 1
             boolean r5 = r5.a(r4, r6)
-            goto Lb2
+            goto Lb3
         L3c:
             r4 = move-exception
             java.util.concurrent.TimeoutException r5 = new java.util.concurrent.TimeoutException
@@ -150,7 +150,7 @@ public class c implements b {
             r7.append(r8)
             java.lang.String r7 = r7.toString()
             r5.<init>(r7)
-            com.baidu.fsg.base.restnet.rest.g r7 = r10.f39438j
+            com.baidu.fsg.base.restnet.rest.g r7 = r10.f39495j
             int r6 = r6 + 1
             boolean r4 = r7.a(r4, r6)
             goto L83
@@ -165,14 +165,14 @@ public class c implements b {
             r7.append(r4)
             java.lang.String r4 = r7.toString()
             r5.<init>(r4)
-            com.baidu.fsg.base.restnet.rest.g r4 = r10.f39438j
+            com.baidu.fsg.base.restnet.rest.g r4 = r10.f39495j
             int r6 = r6 + 1
             boolean r4 = r4.a(r5, r6)
         L83:
             r9 = r5
             r5 = r4
             r4 = r9
-            goto Lb2
+            goto Lb3
         L87:
             r4 = move-exception
             java.net.UnknownHostException r5 = new java.net.UnknownHostException
@@ -184,21 +184,22 @@ public class c implements b {
             r7.append(r8)
             java.lang.String r7 = r7.toString()
             r5.<init>(r7)
-            if (r6 <= 0) goto Lb0
-            com.baidu.fsg.base.restnet.rest.g r7 = r10.f39438j
+            if (r6 <= 0) goto Lb1
+            com.baidu.fsg.base.restnet.rest.g r7 = r10.f39495j
             int r6 = r6 + 1
             boolean r4 = r7.a(r4, r6)
-            if (r4 == 0) goto Lb0
-            r4 = 1
-            goto L83
-        Lb0:
-            r4 = 0
-            goto L83
-        Lb2:
-            if (r5 == 0) goto Lb6
+            if (r4 == 0) goto Lb1
+            r4 = r5
+            r5 = 1
+            goto Lb3
+        Lb1:
+            r4 = r5
+            r5 = 0
+        Lb3:
+            if (r5 == 0) goto Lb7
             goto L11
-        Lb6:
-            if (r1 == 0) goto Le2
+        Lb7:
+            if (r1 == 0) goto Le3
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
             java.lang.String r2 = "RestHttpNetwork performRequest retry count:"
@@ -206,7 +207,7 @@ public class c implements b {
             r1.append(r6)
             java.lang.String r2 = " failure, url:"
             r1.append(r2)
-            java.lang.String r11 = r11.d()
+            java.lang.String r11 = r11.getUrl()
             r1.append(r11)
             java.lang.String r11 = ", origUrl:"
             r1.append(r11)
@@ -214,9 +215,9 @@ public class c implements b {
             java.lang.String r11 = r1.toString()
             java.lang.String r0 = "RestHttpNetwork"
             com.baidu.fsg.base.utils.LogUtil.errord(r0, r11)
-        Le2:
-            throw r4
         Le3:
+            throw r4
+        Le4:
             r8 = r0
             r9 = 1048576(0x100000, float:1.469368E-39)
             com.baidu.titan.sdk.runtime.InterceptResult r0 = r8.invokeL(r9, r10, r11)
@@ -229,10 +230,10 @@ public class c implements b {
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.b
-    public void a() {
+    public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f39437i.a();
+            this.f39494i.close();
         }
     }
 }

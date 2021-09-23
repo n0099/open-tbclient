@@ -14,13 +14,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PoiInfo f11763a;
+    public PoiInfo f11771a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f11764b;
+    public boolean f11772b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f11765c;
+    public boolean f11773c;
 
     public c(PoiInfo poiInfo, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -38,11 +38,11 @@ public class c {
             }
         }
         if (poiInfo == null) {
-            this.f11763a = new PoiInfo();
+            this.f11771a = new PoiInfo();
         }
-        this.f11763a = poiInfo;
-        this.f11764b = z;
-        this.f11765c = z2;
+        this.f11771a = poiInfo;
+        this.f11772b = z;
+        this.f11773c = z2;
     }
 
     public static List<c> a(List<PoiInfo> list) {

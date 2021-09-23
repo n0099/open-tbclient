@@ -33,19 +33,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static c.a.e.e.g.c f20811a;
+    public static c.a.e.e.g.c f20823a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.j3.h0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0984a implements a.e {
+    public static class C0982a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f20812e;
+        public final /* synthetic */ TbPageContext f20824e;
 
-        public C0984a(TbPageContext tbPageContext) {
+        public C0982a(TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,7 @@ public class a {
                     return;
                 }
             }
-            this.f20812e = tbPageContext;
+            this.f20824e = tbPageContext;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -68,7 +68,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f20812e.getPageActivity(), true, 23004, "remind");
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f20824e.getPageActivity(), true, 23004, "remind");
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
             }
@@ -110,27 +110,27 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f20813a;
+        public final /* synthetic */ TbPageContext f20825a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f20814b;
+        public final /* synthetic */ boolean f20826b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SpannableString f20815c;
+        public final /* synthetic */ SpannableString f20827c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f20816d;
+        public final /* synthetic */ int f20828d;
 
         /* renamed from: c.a.r0.j3.h0.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0985a implements View.OnClickListener {
+        public class View$OnClickListenerC0983a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f20817e;
+            public final /* synthetic */ c f20829e;
 
-            public View$OnClickListenerC0985a(c cVar) {
+            public View$OnClickListenerC0983a(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,17 +145,17 @@ public class a {
                         return;
                     }
                 }
-                this.f20817e = cVar;
+                this.f20829e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    if (a.f20811a != null) {
-                        a.f20811a.d();
+                    if (a.f20823a != null) {
+                        a.f20823a.d();
                     }
-                    MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f20817e.f20813a.getPageActivity(), true, 23004, "expiring");
+                    MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.f20829e.f20825a.getPageActivity(), true, 23004, "expiring");
                     memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
                 }
@@ -177,24 +177,24 @@ public class a {
                     return;
                 }
             }
-            this.f20813a = tbPageContext;
-            this.f20814b = z;
-            this.f20815c = spannableString;
-            this.f20816d = i2;
+            this.f20825a = tbPageContext;
+            this.f20826b = z;
+            this.f20827c = spannableString;
+            this.f20828d = i2;
         }
 
         @Override // c.a.e.e.g.b
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20814b ? 4 : 2 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20826b ? 4 : 2 : invokeV.intValue;
         }
 
         @Override // c.a.e.e.g.b
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20814b ? 32 : 16 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20826b ? 32 : 16 : invokeV.intValue;
         }
 
         @Override // c.a.e.e.g.b
@@ -202,24 +202,24 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
-                TextView textView = new TextView(this.f20813a.getPageActivity());
-                if (this.f20814b) {
+                TextView textView = new TextView(this.f20825a.getPageActivity());
+                if (this.f20826b) {
                     textView.setBackgroundResource(R.drawable.pop_float_top);
                 } else {
                     textView.setBackgroundResource(R.drawable.pop_float);
                 }
-                int dimensionPixelSize = this.f20813a.getResources().getDimensionPixelSize(R.dimen.ds32);
-                int dimensionPixelSize2 = this.f20813a.getResources().getDimensionPixelSize(R.dimen.ds22);
-                if (this.f20814b) {
+                int dimensionPixelSize = this.f20825a.getResources().getDimensionPixelSize(R.dimen.ds32);
+                int dimensionPixelSize2 = this.f20825a.getResources().getDimensionPixelSize(R.dimen.ds22);
+                if (this.f20826b) {
                     textView.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2);
                 } else {
                     textView.setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize);
                 }
                 textView.setGravity(17);
-                textView.setText(this.f20815c);
+                textView.setText(this.f20827c);
                 textView.setCompoundDrawablePadding(dimensionPixelSize);
-                textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(this.f20816d), (Drawable) null);
-                textView.setOnClickListener(new View$OnClickListenerC0985a(this));
+                textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(this.f20828d), (Drawable) null);
+                textView.setOnClickListener(new View$OnClickListenerC0983a(this));
                 return textView;
             }
             return (View) invokeL.objValue;
@@ -229,14 +229,14 @@ public class a {
         public int getXOffset() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20814b ? 0 : 4 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20826b ? 0 : 4 : invokeV.intValue;
         }
 
         @Override // c.a.e.e.g.b
         public int getYOffset() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20814b ? 5 : 30 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20826b ? 5 : 30 : invokeV.intValue;
         }
     }
 
@@ -246,10 +246,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f20818e;
+        public final /* synthetic */ TbPageContext f20830e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f20819f;
+        public final /* synthetic */ boolean f20831f;
 
         public d(TbPageContext tbPageContext, boolean z) {
             Interceptable interceptable = $ic;
@@ -266,15 +266,15 @@ public class a {
                     return;
                 }
             }
-            this.f20818e = tbPageContext;
-            this.f20819f = z;
+            this.f20830e = tbPageContext;
+            this.f20831f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.d(this.f20818e.getPageActivity(), this.f20819f);
+                a.d(this.f20830e.getPageActivity(), this.f20831f);
             }
         }
     }
@@ -301,10 +301,10 @@ public class a {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || a.f20811a == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || a.f20823a == null) {
                 return;
             }
-            a.f20811a.d();
+            a.f20823a.d();
         }
     }
 
@@ -347,7 +347,7 @@ public class a {
                 textView2.setText(tbPageContext.getPageActivity().getString(R.string.bubble_ended_tip2));
                 textView2.setTextSize(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.fontsize32));
                 aVar.setContentView(inflate);
-                aVar.setPositiveButton(R.string.open_now, new C0984a(tbPageContext));
+                aVar.setPositiveButton(R.string.open_now, new C0982a(tbPageContext));
                 aVar.setNegativeButton(R.string.group_create_private_isee, new b());
                 aVar.create(tbPageContext);
                 aVar.show();
@@ -389,7 +389,7 @@ public class a {
             dVar.a(new c(tbPageContext, z, spannableString, i5));
             dVar.d(true);
             dVar.h(r12);
-            f20811a = dVar.b();
+            f20823a = dVar.b();
             new Handler().postDelayed(new d(tbPageContext, z), 1000L);
             c.a.q0.s.d0.b.j().w("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
         }
@@ -398,7 +398,7 @@ public class a {
     public static void d(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, activity, z) == null) {
-            c.a.e.e.g.c cVar = f20811a;
+            c.a.e.e.g.c cVar = f20823a;
             if (cVar != null) {
                 cVar.m(activity);
             }

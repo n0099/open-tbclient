@@ -14,13 +14,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f65037a;
+    public int f65348a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65038b;
+    public int f65349b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f65039c;
+    public String f65350c;
 
     public b(int i2, String str) {
         Interceptable interceptable = $ic;
@@ -37,11 +37,11 @@ public class b {
                 return;
             }
         }
-        this.f65037a = e.f65054a;
-        this.f65038b = 0;
-        this.f65039c = "";
-        this.f65038b = i2;
-        this.f65039c = str;
+        this.f65348a = e.f65365a;
+        this.f65349b = 0;
+        this.f65350c = "";
+        this.f65349b = i2;
+        this.f65350c = str;
     }
 
     public JSONObject a() {
@@ -50,9 +50,9 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("cupCount", this.f65037a);
-                jSONObject.put("sdkThreadCount", this.f65038b);
-                jSONObject.put("sdkThreadNames", this.f65039c);
+                jSONObject.put("cupCount", this.f65348a);
+                jSONObject.put("sdkThreadCount", this.f65349b);
+                jSONObject.put("sdkThreadNames", this.f65350c);
                 return jSONObject;
             } catch (JSONException e2) {
                 e2.printStackTrace();

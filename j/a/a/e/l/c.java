@@ -12,13 +12,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayType f79166a;
+    public PayType f79485a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f79167b;
+    public String f79486b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f79168c;
+    public String f79487c;
 
     public c(PayType payType, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -35,15 +35,15 @@ public class c {
                 return;
             }
         }
-        this.f79167b = "";
-        this.f79166a = payType;
-        this.f79167b = str;
-        this.f79168c = str2;
+        this.f79486b = "";
+        this.f79485a = payType;
+        this.f79486b = str;
+        this.f79487c = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f79167b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f79486b : (String) invokeV.objValue;
     }
 }

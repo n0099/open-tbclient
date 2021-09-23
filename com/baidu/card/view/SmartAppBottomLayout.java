@@ -31,20 +31,20 @@ public class SmartAppBottomLayout extends LinearLayout implements p<a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f38799i;
+    public static final int f38850i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f38800e;
+    public View f38851e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f38801f;
+    public HeadImageView f38852f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f38802g;
+    public TextView f38853g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38803h;
+    public int f38854h;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +59,7 @@ public class SmartAppBottomLayout extends LinearLayout implements p<a> {
                 return;
             }
         }
-        f38799i = (l.k(TbadkCoreApplication.getInst()) - (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.tbds58);
+        f38850i = (l.k(TbadkCoreApplication.getInst()) - (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.tbds58);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -87,23 +87,23 @@ public class SmartAppBottomLayout extends LinearLayout implements p<a> {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f38800e = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
+            this.f38851e = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f38801f = (HeadImageView) this.f38800e.findViewById(R.id.ai_smart_app_icon);
-            this.f38802g = (TextView) this.f38800e.findViewById(R.id.ai_smart_app_text);
-            this.f38801f.setIsBigV(false);
-            this.f38801f.setIsGod(false);
-            this.f38801f.setShowV(false);
+            this.f38852f = (HeadImageView) this.f38851e.findViewById(R.id.ai_smart_app_icon);
+            this.f38853g = (TextView) this.f38851e.findViewById(R.id.ai_smart_app_text);
+            this.f38852f.setIsBigV(false);
+            this.f38852f.setIsGod(false);
+            this.f38852f.setShowV(false);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f38803h == TbadkCoreApplication.getInst().getSkinType()) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f38854h == TbadkCoreApplication.getInst().getSkinType()) {
             return;
         }
-        this.f38803h = TbadkCoreApplication.getInst().getSkinType();
-        SkinManager.setViewTextColor(this.f38802g, R.color.CAM_X0109);
+        this.f38854h = TbadkCoreApplication.getInst().getSkinType();
+        SkinManager.setViewTextColor(this.f38853g, R.color.CAM_X0109);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -115,14 +115,14 @@ public class SmartAppBottomLayout extends LinearLayout implements p<a> {
             return;
         }
         if (!TextUtils.isEmpty(threadData.e1().avatar)) {
-            this.f38801f.startLoad(threadData.e1().avatar, 10, false);
+            this.f38852f.startLoad(threadData.e1().avatar, 10, false);
         } else {
-            SkinManager.setImageResource(this.f38801f, R.drawable.icon_avatar_smallapp_tie);
+            SkinManager.setImageResource(this.f38852f, R.drawable.icon_avatar_smallapp_tie);
         }
         if (threadData.e1() != null && !TextUtils.isEmpty(threadData.e1().name)) {
-            ThreadCardUtils.cutAndSetTextByMaxLine(this.f38802g, threadData.e1().name, R.string.ai_smart_app, R.dimen.tbds0, 1, f38799i, false);
+            ThreadCardUtils.cutAndSetTextByMaxLine(this.f38853g, threadData.e1().name, R.string.ai_smart_app, R.dimen.tbds0, 1, f38850i, false);
         } else {
-            this.f38802g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
+            this.f38853g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
         }
     }
 
@@ -145,7 +145,7 @@ public class SmartAppBottomLayout extends LinearLayout implements p<a> {
                 return;
             }
         }
-        this.f38803h = 3;
+        this.f38854h = 3;
         a(context);
     }
 }

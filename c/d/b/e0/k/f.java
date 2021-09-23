@@ -27,20 +27,20 @@ public final class f implements Closeable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Logger f31968i;
+    public static final Logger f31989i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BufferedSource f31969e;
+    public final BufferedSource f31990e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final a f31970f;
+    public final a f31991f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f31971g;
+    public final boolean f31992g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final b.a f31972h;
+    public final b.a f31993h;
 
     /* loaded from: classes4.dex */
     public static final class a implements Source {
@@ -48,22 +48,22 @@ public final class f implements Closeable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final BufferedSource f31973e;
+        public final BufferedSource f31994e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f31974f;
+        public int f31995f;
 
         /* renamed from: g  reason: collision with root package name */
-        public byte f31975g;
+        public byte f31996g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f31976h;
+        public int f31997h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f31977i;
+        public int f31998i;
 
         /* renamed from: j  reason: collision with root package name */
-        public short f31978j;
+        public short f31999j;
 
         public a(BufferedSource bufferedSource) {
             Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public final class f implements Closeable {
                     return;
                 }
             }
-            this.f31973e = bufferedSource;
+            this.f31994e = bufferedSource;
         }
 
         @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
@@ -93,17 +93,17 @@ public final class f implements Closeable {
         public final void g() throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                int i2 = this.f31976h;
-                int h2 = f.h(this.f31973e);
-                this.f31977i = h2;
-                this.f31974f = h2;
-                byte readByte = (byte) (this.f31973e.readByte() & 255);
-                this.f31975g = (byte) (this.f31973e.readByte() & 255);
-                if (f.f31968i.isLoggable(Level.FINE)) {
-                    f.f31968i.fine(c.b(true, this.f31976h, this.f31974f, readByte, this.f31975g));
+                int i2 = this.f31997h;
+                int h2 = f.h(this.f31994e);
+                this.f31998i = h2;
+                this.f31995f = h2;
+                byte readByte = (byte) (this.f31994e.readByte() & 255);
+                this.f31996g = (byte) (this.f31994e.readByte() & 255);
+                if (f.f31989i.isLoggable(Level.FINE)) {
+                    f.f31989i.fine(c.b(true, this.f31997h, this.f31995f, readByte, this.f31996g));
                 }
-                int readInt = this.f31973e.readInt() & Integer.MAX_VALUE;
-                this.f31976h = readInt;
+                int readInt = this.f31994e.readInt() & Integer.MAX_VALUE;
+                this.f31997h = readInt;
                 if (readByte != 9) {
                     c.d("%s != TYPE_CONTINUATION", Byte.valueOf(readByte));
                     throw null;
@@ -123,20 +123,20 @@ public final class f implements Closeable {
                 return invokeLJ.longValue;
             }
             while (true) {
-                int i2 = this.f31977i;
+                int i2 = this.f31998i;
                 if (i2 == 0) {
-                    this.f31973e.skip(this.f31978j);
-                    this.f31978j = (short) 0;
-                    if ((this.f31975g & 4) != 0) {
+                    this.f31994e.skip(this.f31999j);
+                    this.f31999j = (short) 0;
+                    if ((this.f31996g & 4) != 0) {
                         return -1L;
                     }
                     g();
                 } else {
-                    long read = this.f31973e.read(buffer, Math.min(j2, i2));
+                    long read = this.f31994e.read(buffer, Math.min(j2, i2));
                     if (read == -1) {
                         return -1L;
                     }
-                    this.f31977i = (int) (this.f31977i - read);
+                    this.f31998i = (int) (this.f31998i - read);
                     return read;
                 }
             }
@@ -146,7 +146,7 @@ public final class f implements Closeable {
         public Timeout timeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31973e.timeout() : (Timeout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31994e.timeout() : (Timeout) invokeV.objValue;
         }
     }
 
@@ -186,7 +186,7 @@ public final class f implements Closeable {
                 return;
             }
         }
-        f31968i = Logger.getLogger(c.class.getName());
+        f31989i = Logger.getLogger(c.class.getName());
     }
 
     public f(BufferedSource bufferedSource, boolean z) {
@@ -204,11 +204,11 @@ public final class f implements Closeable {
                 return;
             }
         }
-        this.f31969e = bufferedSource;
-        this.f31971g = z;
+        this.f31990e = bufferedSource;
+        this.f31992g = z;
         a aVar = new a(bufferedSource);
-        this.f31970f = aVar;
-        this.f31972h = new b.a(4096, aVar);
+        this.f31991f = aVar;
+        this.f31993h = new b.a(4096, aVar);
     }
 
     public static int a(int i2, byte b2, short s) throws IOException {
@@ -238,21 +238,21 @@ public final class f implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, bVar)) == null) {
             try {
-                this.f31969e.require(9L);
-                int h2 = h(this.f31969e);
+                this.f31990e.require(9L);
+                int h2 = h(this.f31990e);
                 if (h2 < 0 || h2 > 16384) {
                     c.d("FRAME_SIZE_ERROR: %s", Integer.valueOf(h2));
                     throw null;
                 }
-                byte readByte = (byte) (this.f31969e.readByte() & 255);
+                byte readByte = (byte) (this.f31990e.readByte() & 255);
                 if (z && readByte != 4) {
                     c.d("Expected a SETTINGS frame but was %s", Byte.valueOf(readByte));
                     throw null;
                 }
-                byte readByte2 = (byte) (this.f31969e.readByte() & 255);
-                int readInt = this.f31969e.readInt() & Integer.MAX_VALUE;
-                if (f31968i.isLoggable(Level.FINE)) {
-                    f31968i.fine(c.b(true, readInt, h2, readByte, readByte2));
+                byte readByte2 = (byte) (this.f31990e.readByte() & 255);
+                int readInt = this.f31990e.readInt() & Integer.MAX_VALUE;
+                if (f31989i.isLoggable(Level.FINE)) {
+                    f31989i.fine(c.b(true, readInt, h2, readByte, readByte2));
                 }
                 switch (readByte) {
                     case 0:
@@ -283,7 +283,7 @@ public final class f implements Closeable {
                         o(bVar, h2, readByte2, readInt);
                         break;
                     default:
-                        this.f31969e.skip(h2);
+                        this.f31990e.skip(h2);
                         break;
                 }
                 return true;
@@ -297,18 +297,18 @@ public final class f implements Closeable {
     public void c(b bVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            if (this.f31971g) {
+            if (this.f31992g) {
                 if (b(true, bVar)) {
                     return;
                 }
                 c.d("Required SETTINGS preface not received", new Object[0]);
                 throw null;
             }
-            ByteString readByteString = this.f31969e.readByteString(c.f31904a.size());
-            if (f31968i.isLoggable(Level.FINE)) {
-                f31968i.fine(c.d.b.e0.e.q("<< CONNECTION %s", readByteString.hex()));
+            ByteString readByteString = this.f31990e.readByteString(c.f31925a.size());
+            if (f31989i.isLoggable(Level.FINE)) {
+                f31989i.fine(c.d.b.e0.e.q("<< CONNECTION %s", readByteString.hex()));
             }
-            if (c.f31904a.equals(readByteString)) {
+            if (c.f31925a.equals(readByteString)) {
                 return;
             }
             c.d("Expected a connection header but was %s", readByteString.utf8());
@@ -320,7 +320,7 @@ public final class f implements Closeable {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f31969e.close();
+            this.f31990e.close();
         }
     }
 
@@ -333,9 +333,9 @@ public final class f implements Closeable {
             }
             boolean z = (b2 & 1) != 0;
             if (!((b2 & 32) != 0)) {
-                short readByte = (b2 & 8) != 0 ? (short) (this.f31969e.readByte() & 255) : (short) 0;
-                bVar.data(z, i3, this.f31969e, a(i2, b2, readByte));
-                this.f31969e.skip(readByte);
+                short readByte = (b2 & 8) != 0 ? (short) (this.f31990e.readByte() & 255) : (short) 0;
+                bVar.data(z, i3, this.f31990e, a(i2, b2, readByte));
+                this.f31990e.skip(readByte);
                 return;
             }
             c.d("PROTOCOL_ERROR: FLAG_COMPRESSED without SETTINGS_COMPRESS_DATA", new Object[0]);
@@ -350,8 +350,8 @@ public final class f implements Closeable {
                 c.d("TYPE_GOAWAY length < 8: %s", Integer.valueOf(i2));
                 throw null;
             } else if (i3 == 0) {
-                int readInt = this.f31969e.readInt();
-                int readInt2 = this.f31969e.readInt();
+                int readInt = this.f31990e.readInt();
+                int readInt2 = this.f31990e.readInt();
                 int i4 = i2 - 8;
                 ErrorCode fromHttp2 = ErrorCode.fromHttp2(readInt2);
                 if (fromHttp2 == null) {
@@ -360,7 +360,7 @@ public final class f implements Closeable {
                 }
                 ByteString byteString = ByteString.EMPTY;
                 if (i4 > 0) {
-                    byteString = this.f31969e.readByteString(i4);
+                    byteString = this.f31990e.readByteString(i4);
                 }
                 bVar.b(readInt, fromHttp2, byteString);
             } else {
@@ -374,14 +374,14 @@ public final class f implements Closeable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Short.valueOf(s), Byte.valueOf(b2), Integer.valueOf(i3)})) == null) {
-            a aVar = this.f31970f;
-            aVar.f31977i = i2;
-            aVar.f31974f = i2;
-            aVar.f31978j = s;
-            aVar.f31975g = b2;
-            aVar.f31976h = i3;
-            this.f31972h.k();
-            return this.f31972h.e();
+            a aVar = this.f31991f;
+            aVar.f31998i = i2;
+            aVar.f31995f = i2;
+            aVar.f31999j = s;
+            aVar.f31996g = b2;
+            aVar.f31997h = i3;
+            this.f31993h.k();
+            return this.f31993h.e();
         }
         return (List) invokeCommon.objValue;
     }
@@ -391,7 +391,7 @@ public final class f implements Closeable {
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{bVar, Integer.valueOf(i2), Byte.valueOf(b2), Integer.valueOf(i3)}) == null) {
             if (i3 != 0) {
                 boolean z = (b2 & 1) != 0;
-                short readByte = (b2 & 8) != 0 ? (short) (this.f31969e.readByte() & 255) : (short) 0;
+                short readByte = (b2 & 8) != 0 ? (short) (this.f31990e.readByte() & 255) : (short) 0;
                 if ((b2 & 32) != 0) {
                     j(bVar, i3);
                     i2 -= 5;
@@ -411,7 +411,7 @@ public final class f implements Closeable {
                 c.d("TYPE_PING length != 8: %s", Integer.valueOf(i2));
                 throw null;
             } else if (i3 == 0) {
-                bVar.ping((b2 & 1) != 0, this.f31969e.readInt(), this.f31969e.readInt());
+                bVar.ping((b2 & 1) != 0, this.f31990e.readInt(), this.f31990e.readInt());
             } else {
                 c.d("TYPE_PING streamId != 0", new Object[0]);
                 throw null;
@@ -422,8 +422,8 @@ public final class f implements Closeable {
     public final void j(b bVar, int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar, i2) == null) {
-            int readInt = this.f31969e.readInt();
-            bVar.priority(i2, readInt & Integer.MAX_VALUE, (this.f31969e.readByte() & 255) + 1, (Integer.MIN_VALUE & readInt) != 0);
+            int readInt = this.f31990e.readInt();
+            bVar.priority(i2, readInt & Integer.MAX_VALUE, (this.f31990e.readByte() & 255) + 1, (Integer.MIN_VALUE & readInt) != 0);
         }
     }
 
@@ -446,8 +446,8 @@ public final class f implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{bVar, Integer.valueOf(i2), Byte.valueOf(b2), Integer.valueOf(i3)}) == null) {
             if (i3 != 0) {
-                short readByte = (b2 & 8) != 0 ? (short) (this.f31969e.readByte() & 255) : (short) 0;
-                bVar.pushPromise(i3, this.f31969e.readInt() & Integer.MAX_VALUE, f(a(i2 - 4, b2, readByte), readByte, b2, i3));
+                short readByte = (b2 & 8) != 0 ? (short) (this.f31990e.readByte() & 255) : (short) 0;
+                bVar.pushPromise(i3, this.f31990e.readInt() & Integer.MAX_VALUE, f(a(i2 - 4, b2, readByte), readByte, b2, i3));
                 return;
             }
             c.d("PROTOCOL_ERROR: TYPE_PUSH_PROMISE streamId == 0", new Object[0]);
@@ -462,7 +462,7 @@ public final class f implements Closeable {
                 c.d("TYPE_RST_STREAM length: %d != 4", Integer.valueOf(i2));
                 throw null;
             } else if (i3 != 0) {
-                int readInt = this.f31969e.readInt();
+                int readInt = this.f31990e.readInt();
                 ErrorCode fromHttp2 = ErrorCode.fromHttp2(readInt);
                 if (fromHttp2 != null) {
                     bVar.a(i3, fromHttp2);
@@ -496,8 +496,8 @@ public final class f implements Closeable {
             } else {
                 k kVar = new k();
                 for (int i4 = 0; i4 < i2; i4 += 6) {
-                    int readShort = this.f31969e.readShort() & UShort.MAX_VALUE;
-                    int readInt = this.f31969e.readInt();
+                    int readShort = this.f31990e.readShort() & UShort.MAX_VALUE;
+                    int readInt = this.f31990e.readInt();
                     if (readShort != 2) {
                         if (readShort == 3) {
                             readShort = 4;
@@ -529,7 +529,7 @@ public final class f implements Closeable {
                 c.d("TYPE_WINDOW_UPDATE length !=4: %s", Integer.valueOf(i2));
                 throw null;
             }
-            long readInt = this.f31969e.readInt() & 2147483647L;
+            long readInt = this.f31990e.readInt() & 2147483647L;
             if (readInt != 0) {
                 bVar.windowUpdate(i3, readInt);
             } else {

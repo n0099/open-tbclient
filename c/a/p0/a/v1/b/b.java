@@ -28,19 +28,19 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f9216f;
+    public final c f9224f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f9217g;
+    public final String f9225g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Set<c.a.p0.a.v2.e1.b<i.a>> f9218h;
+    public final Set<c.a.p0.a.v2.e1.b<i.a>> f9226h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Set<c.a.p0.a.v2.e1.b<b>> f9219i;
+    public final Set<c.a.p0.a.v2.e1.b<b>> f9227i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Set<String> f9220j;
+    public final Set<String> f9228j;
     public final Set<Integer> k;
     public Exception l;
     public long m;
@@ -53,7 +53,7 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f9221e;
+        public final /* synthetic */ b f9229e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -70,15 +70,15 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
                     return;
                 }
             }
-            this.f9221e = bVar;
+            this.f9229e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f9221e.f9216f) {
-                    this.f9221e.f9216f.P(this.f9221e, new TimeoutException("timeout"));
+                synchronized (this.f9229e.f9224f) {
+                    this.f9229e.f9224f.P(this.f9229e, new TimeoutException("timeout"));
                 }
             }
         }
@@ -97,7 +97,7 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
                 return;
             }
         }
-        p = k.f7077a;
+        p = k.f7085a;
     }
 
     public b(@NonNull c cVar, String str) {
@@ -115,18 +115,18 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
                 return;
             }
         }
-        this.f9218h = new HashSet();
-        this.f9219i = new HashSet();
-        this.f9220j = new HashSet();
+        this.f9226h = new HashSet();
+        this.f9227i = new HashSet();
+        this.f9228j = new HashSet();
         this.k = new HashSet();
         this.l = null;
         this.m = 0L;
         this.n = false;
         this.o = new a(this);
-        this.f9216f = cVar;
-        this.f9217g = TextUtils.isEmpty(str) ? UUID.randomUUID().toString() : str;
+        this.f9224f = cVar;
+        this.f9225g = TextUtils.isEmpty(str) ? UUID.randomUUID().toString() : str;
         if (p) {
-            V("IpcSession", "host=" + cVar + " id=" + str + " mId=" + this.f9217g);
+            V("IpcSession", "host=" + cVar + " id=" + str + " mId=" + this.f9225g);
         }
     }
 
@@ -134,7 +134,7 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-            H(this.f9219i, bVar);
+            H(this.f9227i, bVar);
             return this;
         }
         return (b) invokeL.objValue;
@@ -144,7 +144,7 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
-            H(this.f9218h, bVar);
+            H(this.f9226h, bVar);
             return this;
         }
         return (b) invokeL.objValue;
@@ -154,7 +154,7 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, set, callbackt)) == null) {
-            synchronized (this.f9216f) {
+            synchronized (this.f9224f) {
                 if (Z() && callbackt != null) {
                     set.add(callbackt);
                 }
@@ -168,7 +168,7 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            synchronized (this.f9216f) {
+            synchronized (this.f9224f) {
                 this.k.add(Integer.valueOf(i2));
                 Y();
             }
@@ -181,8 +181,8 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this.f9216f) {
-                this.f9220j.add(str);
+            synchronized (this.f9224f) {
+                this.f9228j.add(str);
                 Y();
             }
             return this;
@@ -194,7 +194,7 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            synchronized (this.f9216f) {
+            synchronized (this.f9224f) {
                 this.n = z;
                 Y();
             }
@@ -217,7 +217,7 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-            synchronized (this.f9216f) {
+            synchronized (this.f9224f) {
                 if (p) {
                     V(NotificationCompat.CATEGORY_CALL, "timeoutAtLeast=" + j2);
                 }
@@ -229,7 +229,7 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
                     c.a.p0.a.v1.c.a.e().h(N());
                     b();
                 } else {
-                    this.f9216f.P(this, new IllegalStateException("invalid session call"));
+                    this.f9224f.P(this, new IllegalStateException("invalid session call"));
                 }
                 Y();
             }
@@ -243,10 +243,10 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             Bundle C = C();
-            C.putString("ipc_session_id", this.f9217g);
+            C.putString("ipc_session_id", this.f9225g);
             C.putLong("ipc_session_timeout", this.m);
             C.putInt("ipc_session_repal", SwanAppProcessInfo.current().index);
-            C.putString("ipc_topic", this.f9216f.L(this));
+            C.putString("ipc_topic", this.f9224f.L(this));
             c.a.p0.a.v1.c.c cVar = new c.a.p0.a.v1.c.c(W(), C);
             cVar.p(true);
             cVar.f(!SwanAppProcessInfo.current().isSwanService || this.n);
@@ -256,7 +256,7 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
                     cVar.a(intValue);
                 }
             }
-            for (String str : this.f9220j) {
+            for (String str : this.f9228j) {
                 if (!TextUtils.isEmpty(str)) {
                     cVar.c(str);
                 }
@@ -273,18 +273,18 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, exc)) == null) {
-            synchronized (this.f9216f) {
+            synchronized (this.f9224f) {
                 if (!S()) {
                     c.a.p0.a.a2.d.i().removeCallbacks(this.o);
                     this.m = -1L;
                     this.l = exc;
-                    this.f9218h.clear();
-                    for (c.a.p0.a.v2.e1.b<b> bVar : this.f9219i) {
+                    this.f9226h.clear();
+                    for (c.a.p0.a.v2.e1.b<b> bVar : this.f9227i) {
                         bVar.onCallback(this);
                     }
-                    this.f9219i.clear();
+                    this.f9227i.clear();
                     this.n = false;
-                    this.f9220j.clear();
+                    this.f9228j.clear();
                     this.k.clear();
                     b();
                 }
@@ -309,7 +309,7 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
     public String R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f9217g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f9225g : (String) invokeV.objValue;
     }
 
     public boolean S() {
@@ -323,7 +323,7 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j2)) == null) {
-            synchronized (this.f9216f) {
+            synchronized (this.f9224f) {
                 if (Z()) {
                     this.m = Math.max(Math.max(j2, c.a.p0.a.v1.b.a.f0), this.m);
                     Handler i2 = c.a.p0.a.a2.d.i();
@@ -372,10 +372,10 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, aVar)) == null) {
-            synchronized (this.f9216f) {
-                z = (!Z() || this.f9218h.isEmpty() || aVar == null) ? false : true;
+            synchronized (this.f9224f) {
+                z = (!Z() || this.f9226h.isEmpty() || aVar == null) ? false : true;
                 if (z) {
-                    for (c.a.p0.a.v2.e1.b<i.a> bVar : this.f9218h) {
+                    for (c.a.p0.a.v2.e1.b<i.a> bVar : this.f9226h) {
                         bVar.onCallback(aVar);
                     }
                 }
@@ -396,10 +396,10 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            synchronized (this.f9216f) {
-                z = (S() || Q() || TextUtils.isEmpty(this.f9217g)) ? false : true;
+            synchronized (this.f9224f) {
+                z = (S() || Q() || TextUtils.isEmpty(this.f9225g)) ? false : true;
                 if (p) {
-                    V("valid", z + " isFinished=" + S() + " hasException=" + this.l + " id=" + this.f9217g);
+                    V("valid", z + " isFinished=" + S() + " hasException=" + this.l + " id=" + this.f9225g);
                 }
             }
             return z;
@@ -420,7 +420,7 @@ public final class b extends c.a.p0.a.f1.e.f.c<b> implements c.a.p0.a.v1.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             synchronized (this) {
-                str = "IpcSession: id=" + this.f9217g + " timeout=" + this.m;
+                str = "IpcSession: id=" + this.f9225g + " timeout=" + this.m;
             }
             return str;
         }

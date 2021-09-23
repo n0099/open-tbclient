@@ -22,7 +22,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f11721e;
+        public final /* synthetic */ c f11729e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class d {
                     return;
                 }
             }
-            this.f11721e = cVar;
+            this.f11729e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -49,9 +49,9 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    d.c(this.f11721e);
+                    d.c(this.f11729e);
                 } else {
-                    this.f11721e.onFail();
+                    this.f11729e.onFail();
                 }
             }
         }
@@ -63,7 +63,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f11722a;
+        public final /* synthetic */ c f11730a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public class d {
                     return;
                 }
             }
-            this.f11722a = cVar;
+            this.f11730a = cVar;
         }
 
         @Override // c.a.p0.a.s1.g.a
@@ -88,16 +88,16 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, strArr, iArr) == null) {
                 if (i2 != 0) {
-                    this.f11722a.onFail();
+                    this.f11730a.onFail();
                     return;
                 }
                 for (int i3 : iArr) {
                     if (i3 == -1) {
-                        this.f11722a.onFail();
+                        this.f11730a.onFail();
                         return;
                     }
                 }
-                this.f11722a.onSuccess();
+                this.f11730a.onSuccess();
             }
         }
     }

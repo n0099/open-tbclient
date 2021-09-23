@@ -27,7 +27,7 @@ public class b extends c.a.e.l.e.a<c.a.r0.o2.e.c, CardViewHolder<c.a.r0.o2.j.a>>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f23054a;
+        public final /* synthetic */ b f23070a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class b extends c.a.e.l.e.a<c.a.r0.o2.e.c, CardViewHolder<c.a.r0.o2.j.a>>
                     return;
                 }
             }
-            this.f23054a = bVar;
+            this.f23070a = bVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -88,7 +88,7 @@ public class b extends c.a.e.l.e.a<c.a.r0.o2.e.c, CardViewHolder<c.a.r0.o2.j.a>>
         public PersonCommonForumItemView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new PersonCommonForumItemView(this.f23054a.f2957e) : (PersonCommonForumItemView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new PersonCommonForumItemView(this.f23070a.f2958e) : (PersonCommonForumItemView) invokeV.objValue;
         }
 
         public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
@@ -100,7 +100,7 @@ public class b extends c.a.e.l.e.a<c.a.r0.o2.e.c, CardViewHolder<c.a.r0.o2.j.a>>
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.r0.o2.e.c.f23190f);
+        super(tbPageContext.getPageActivity(), c.a.r0.o2.e.c.f23206f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

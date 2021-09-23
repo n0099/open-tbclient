@@ -10,13 +10,13 @@ public class z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28044a;
+    public int f28064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public r0 f28045b;
+    public r0 f28065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28046c;
+    public boolean f28066c;
 
     public z() {
         Interceptable interceptable = $ic;
@@ -31,6 +31,6 @@ public class z {
                 return;
             }
         }
-        this.f28046c = true;
+        this.f28066c = true;
     }
 }

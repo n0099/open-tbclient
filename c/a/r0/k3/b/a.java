@@ -19,10 +19,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<b> f21761a;
+    public List<b> f21775a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f21762b;
+    public List<b> f21776b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,20 +46,20 @@ public class a {
         }
         JSONArray optJSONArray = optJSONObject.optJSONArray(ProgressInfo.JSON_KEY_CURRENT);
         if (optJSONArray != null) {
-            this.f21761a = new ArrayList();
+            this.f21775a = new ArrayList();
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 b bVar = new b();
                 bVar.d(optJSONArray.optJSONObject(i2));
-                this.f21761a.add(bVar);
+                this.f21775a.add(bVar);
             }
         }
         JSONArray optJSONArray2 = optJSONObject.optJSONArray(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
         if (optJSONArray != null) {
-            this.f21762b = new ArrayList();
+            this.f21776b = new ArrayList();
             for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                 b bVar2 = new b();
                 bVar2.d(optJSONArray2.optJSONObject(i3));
-                this.f21762b.add(bVar2);
+                this.f21776b.add(bVar2);
             }
         }
     }

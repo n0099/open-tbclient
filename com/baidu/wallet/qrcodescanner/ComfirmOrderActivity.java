@@ -20,6 +20,7 @@ import com.baidu.wallet.qrcodescanner.datamodel.QRCodeShortUrlResponse;
 import com.baidu.wallet.router.LocalRouter;
 import com.baidu.wallet.router.RouterCallback;
 import com.baidu.wallet.router.RouterRequest;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import java.io.Serializable;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
@@ -27,26 +28,26 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static a f63560g;
+    public static a f63871g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public QRCodeShortUrlResponse.OrderParam f63561a;
+    public QRCodeShortUrlResponse.OrderParam f63872a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Button f63562b;
+    public Button f63873b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f63563c;
+    public TextView f63874c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f63564d;
+    public TextView f63875d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f63565e;
+    public String f63876e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f63566f;
+    public TextView f63877f;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -73,7 +74,7 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65537, null, context, orderParam, str, aVar) == null) {
             Intent intent = new Intent();
-            f63560g = aVar;
+            f63871g = aVar;
             intent.setClass(context, ComfirmOrderActivity.class);
             intent.putExtra("orderinfo", orderParam);
             intent.putExtra(IMConstants.SERVICE_TYPE_ORDER, str);
@@ -83,19 +84,19 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f63561a == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f63872a == null) {
             return;
         }
-        TextView textView = this.f63563c;
-        textView.setText(ResUtils.getString(getActivity(), "wallet_base_unit") + StringUtils.fen2Yuan(this.f63561a.total_amount));
-        this.f63564d.setText(this.f63561a.goods_name);
-        this.f63566f.setText(this.f63561a.sp_name);
+        TextView textView = this.f63874c;
+        textView.setText(ResUtils.getString(getActivity(), "wallet_base_unit") + StringUtils.fen2Yuan(this.f63872a.total_amount));
+        this.f63875d.setText(this.f63872a.goods_name);
+        this.f63877f.setText(this.f63872a.sp_name);
     }
 
     public static void onOrderComfirm(boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65539, null, z) == null) || (aVar = f63560g) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65539, null, z) == null) || (aVar = f63871g) == null) {
             return;
         }
         if (!z) {
@@ -103,7 +104,7 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
         } else {
             aVar.a();
         }
-        f63560g = null;
+        f63871g = null;
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
@@ -125,13 +126,13 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this.f63562b) {
-            LocalRouter.getInstance(getActivity()).route(getActivity(), new RouterRequest().provider("dxmPay").action("enterDoPayWithParams").data("orderInfo", this.f63565e).data("showDialog", Boolean.TRUE), new RouterCallback(this) { // from class: com.baidu.wallet.qrcodescanner.ComfirmOrderActivity.1
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this.f63873b) {
+            LocalRouter.getInstance(getActivity()).route(getActivity(), new RouterRequest().provider("dxmPay").action("enterDoPayWithParams").data("orderInfo", this.f63876e).data("showDialog", Boolean.TRUE), new RouterCallback(this) { // from class: com.baidu.wallet.qrcodescanner.ComfirmOrderActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ComfirmOrderActivity f63567a;
+                public final /* synthetic */ ComfirmOrderActivity f63878a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,7 +149,7 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
                             return;
                         }
                     }
-                    this.f63567a = this;
+                    this.f63878a = this;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -159,14 +160,14 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
                             if (hashMap == null || hashMap.size() <= 0) {
                                 return;
                             }
-                            int intValue = ((Integer) hashMap.get("statusCode")).intValue();
+                            int intValue = ((Integer) hashMap.get(EnterDxmPayServiceAction.SERVICE_STATUS_CODE)).intValue();
                             String str = (String) hashMap.get("payDesc");
                             if (intValue == 0) {
-                                this.f63567a.finish();
+                                this.f63878a.finish();
                                 ComfirmOrderActivity.onOrderComfirm(true);
                                 return;
                             }
-                            this.f63567a.finish();
+                            this.f63878a.finish();
                             ComfirmOrderActivity.onOrderComfirm(false);
                             return;
                         }
@@ -193,21 +194,21 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
                 bundle2.setClassLoader(getClassLoader());
                 Serializable serializable = bundle2.getSerializable("orderinfo");
                 if (serializable != null && (serializable instanceof QRCodeShortUrlResponse.OrderParam)) {
-                    this.f63561a = (QRCodeShortUrlResponse.OrderParam) serializable;
+                    this.f63872a = (QRCodeShortUrlResponse.OrderParam) serializable;
                 }
-                this.f63565e = bundle.getString(IMConstants.SERVICE_TYPE_ORDER);
+                this.f63876e = bundle.getString(IMConstants.SERVICE_TYPE_ORDER);
             } else if (getIntent() != null) {
                 Serializable serializableExtra = getIntent().getSerializableExtra("orderinfo");
                 if (serializableExtra != null && (serializableExtra instanceof QRCodeShortUrlResponse.OrderParam)) {
-                    this.f63561a = (QRCodeShortUrlResponse.OrderParam) serializableExtra;
+                    this.f63872a = (QRCodeShortUrlResponse.OrderParam) serializableExtra;
                 }
-                this.f63565e = getIntent().getStringExtra(IMConstants.SERVICE_TYPE_ORDER);
+                this.f63876e = getIntent().getStringExtra(IMConstants.SERVICE_TYPE_ORDER);
             }
-            this.f63563c = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_price"));
-            this.f63564d = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_sp"));
-            this.f63566f = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_pay"));
+            this.f63874c = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_price"));
+            this.f63875d = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_sp"));
+            this.f63877f = (TextView) findViewById(ResUtils.id(getActivity(), "wallet_order_pay"));
             Button button = (Button) findViewById(ResUtils.id(getActivity(), "ebpay_to_pay"));
-            this.f63562b = button;
+            this.f63873b = button;
             button.setOnClickListener(this);
             a();
         }
@@ -218,8 +219,8 @@ public class ComfirmOrderActivity extends BeanActivity implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             Bundle bundle2 = new Bundle();
-            bundle2.putSerializable("orderinfo", this.f63561a);
-            bundle2.putString(IMConstants.SERVICE_TYPE_ORDER, this.f63565e);
+            bundle2.putSerializable("orderinfo", this.f63872a);
+            bundle2.putString(IMConstants.SERVICE_TYPE_ORDER, this.f63876e);
             bundle.putBundle("saveInfo", bundle2);
             super.onSaveInstanceState(bundle);
         }

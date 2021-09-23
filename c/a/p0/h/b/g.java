@@ -13,16 +13,16 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11011a;
+    public int f11019a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11012b;
+    public String f11020b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11013c;
+    public int f11021c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f11014d;
+    public long f11022d;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             g gVar = new g();
-            gVar.f11011a = jSONObject.optInt("state");
-            gVar.f11012b = jSONObject.optString("msg");
-            gVar.f11013c = jSONObject.optInt("switch_open");
-            gVar.f11014d = jSONObject.optLong("heartbeat_time");
+            gVar.f11019a = jSONObject.optInt("state");
+            gVar.f11020b = jSONObject.optString("msg");
+            gVar.f11021c = jSONObject.optInt("switch_open");
+            gVar.f11022d = jSONObject.optLong("heartbeat_time");
             return gVar;
         }
         return (g) invokeL.objValue;
@@ -56,7 +56,7 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UpUseTimeModel{state=" + this.f11011a + ", limit='" + this.f11012b + ExtendedMessageFormat.QUOTE + ", open=" + this.f11013c + ", interval=" + this.f11014d + ExtendedMessageFormat.END_FE;
+            return "UpUseTimeModel{state=" + this.f11019a + ", limit='" + this.f11020b + ExtendedMessageFormat.QUOTE + ", open=" + this.f11021c + ", interval=" + this.f11022d + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

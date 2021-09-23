@@ -29,10 +29,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6453a;
+    public static final boolean f6461a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6454b;
+    public static final boolean f6462b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,10 +48,10 @@ public class a {
                 return;
             }
         }
-        f6453a = k.f7077a;
+        f6461a = k.f7085a;
         c.a.p0.a.c1.a.Z().getSwitch("swan_next_page_res_load", 0);
-        f6454b = false;
-        d.h("SwanAppSlaveTopPages", "swan_top_page_res_load - " + f6454b);
+        f6462b = false;
+        d.h("SwanAppSlaveTopPages", "swan_top_page_res_load - " + f6462b);
         j();
     }
 
@@ -130,8 +130,8 @@ public class a {
     public static void h(c.a.p0.a.p.e.b<?> bVar) {
         PMSAppInfo f0;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, bVar) == null) && f6454b && bVar != null) {
-            long currentTimeMillis = f6453a ? System.currentTimeMillis() : 0L;
+        if ((interceptable == null || interceptable.invokeL(65544, null, bVar) == null) && f6462b && bVar != null) {
+            long currentTimeMillis = f6461a ? System.currentTimeMillis() : 0L;
             c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
             if (Q == null || (f0 = Q.L().f0()) == null) {
                 return;
@@ -144,7 +144,7 @@ public class a {
             if (d2 != null) {
                 g.N().I0(bVar.c(), d2);
             }
-            if (f6453a) {
+            if (f6461a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str = "sendTopPageMsg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
             }
@@ -166,7 +166,7 @@ public class a {
                     linkedHashSet.add(next);
                 }
             }
-            if (f6453a) {
+            if (f6461a) {
                 String str = "get top pages - " + linkedHashSet;
             }
             return linkedHashSet;
@@ -184,14 +184,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, pMSAppInfo)) == null) {
-            if (f6453a) {
+            if (f6461a) {
                 String str = "current page - " + b();
             }
             JSONObject f2 = f(pMSAppInfo);
             if (f2 == null || f2.length() <= 0) {
                 return null;
             }
-            if (f6453a) {
+            if (f6461a) {
                 String str2 = "pages info - " + f2;
             }
             return i(f2);

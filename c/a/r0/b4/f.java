@@ -13,7 +13,7 @@ public abstract class f extends ClickableSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f16195e;
+    public boolean f16205e;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public abstract class f extends ClickableSpan {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
             super.updateDrawState(textPaint);
-            a(textPaint, this.f16195e);
+            a(textPaint, this.f16205e);
             textPaint.setUnderlineText(false);
             textPaint.clearShadowLayer();
         }

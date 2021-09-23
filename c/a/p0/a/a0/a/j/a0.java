@@ -15,7 +15,7 @@ public class a0 extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint.Cap f4390a;
+    public Paint.Cap f4398a;
 
     public a0() {
         Interceptable interceptable = $ic;
@@ -35,10 +35,10 @@ public class a0 extends a {
     public void a(b bVar, Canvas canvas) {
         Paint.Cap cap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (cap = this.f4390a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (cap = this.f4398a) == null) {
             return;
         }
-        bVar.f4393g.setStrokeCap(cap);
+        bVar.f4401g.setStrokeCap(cap);
     }
 
     @Override // c.a.p0.a.a0.a.j.a
@@ -49,11 +49,11 @@ public class a0 extends a {
         }
         String optString = jSONArray.optString(0);
         if (TextUtils.equals(optString, "butt")) {
-            this.f4390a = Paint.Cap.BUTT;
+            this.f4398a = Paint.Cap.BUTT;
         } else if (TextUtils.equals(optString, "round")) {
-            this.f4390a = Paint.Cap.ROUND;
+            this.f4398a = Paint.Cap.ROUND;
         } else if (TextUtils.equals(optString, "square")) {
-            this.f4390a = Paint.Cap.SQUARE;
+            this.f4398a = Paint.Cap.SQUARE;
         }
     }
 }

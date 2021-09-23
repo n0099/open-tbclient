@@ -15,25 +15,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29692a;
+    public String f29712a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29693b;
+    public String f29713b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29694c;
+    public String f29714c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29695d;
+    public String f29715d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29696e;
+    public String f29716e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f29697f;
+    public String f29717f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f29698g;
+    public String f29718g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -52,43 +52,43 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29694c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29714c : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29697f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29717f : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29698g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29718g : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29693b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29713b : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29695d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29715d : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29696e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29716e : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29692a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29712a : (String) invokeV.objValue;
     }
 
     public void h(EsportRank esportRank) {
@@ -96,28 +96,28 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, esportRank) == null) || esportRank == null) {
             return;
         }
-        this.f29692a = esportRank.title;
-        this.f29693b = String.valueOf(esportRank.rank);
-        this.f29694c = esportRank.text;
-        this.f29698g = esportRank.url;
+        this.f29712a = esportRank.title;
+        this.f29713b = String.valueOf(esportRank.rank);
+        this.f29714c = esportRank.text;
+        this.f29718g = esportRank.url;
         EsportUser esportUser = esportRank.user;
         if (esportUser != null) {
-            this.f29695d = esportUser.steam_name;
-            this.f29696e = esportUser.steam_portrait;
+            this.f29715d = esportUser.steam_name;
+            this.f29716e = esportUser.steam_portrait;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f29697f = str;
+            this.f29717f = str;
         }
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f29698g = str;
+            this.f29718g = str;
         }
     }
 }

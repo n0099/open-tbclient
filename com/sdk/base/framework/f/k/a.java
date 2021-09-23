@@ -22,10 +22,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75604a;
+    public static final String f75923a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f75605b;
+    public static Boolean f75924b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,8 +42,8 @@ public class a {
             }
         }
         new TreeMap();
-        f75604a = a.class.getSimpleName();
-        f75605b = Boolean.valueOf(f.f75550b);
+        f75923a = a.class.getSimpleName();
+        f75924b = Boolean.valueOf(f.f75869b);
     }
 
     public a() {
@@ -66,12 +66,12 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                String a2 = com.sdk.base.framework.f.h.b.a(jSONObject.optString("aesKey"), com.sdk.base.framework.f.b.a.a(context, e.m));
+                String a2 = com.sdk.base.framework.f.h.b.a(jSONObject.optString("aesKey"), com.sdk.base.framework.f.b.a.a(context, e.o));
                 return com.sdk.base.framework.f.i.a.b(jSONObject.optString("data"), a2.substring(0, 16), a2.substring(16));
             } catch (Throwable th) {
                 com.sdk.base.framework.f.f.a.a(th.toString());
-                String str2 = f75604a;
-                c.b(str2, "SDK解密异常：" + th.toString(), f75605b);
+                String str2 = f75923a;
+                c.b(str2, "SDK解密异常：" + th.toString(), f75924b);
                 return null;
             }
         }
@@ -91,7 +91,7 @@ public class a {
                     dataInfo.putData("msg", str);
                     dataInfo.putData("obj", a2);
                     dataInfo.putData(IAdRequestParam.SEQ, str2);
-                    aVar.a(aVar.f75560c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f75509b);
+                    aVar.a(aVar.f75879c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f75828b);
                 } catch (Throwable unused) {
                 }
             }
@@ -105,8 +105,8 @@ public class a {
             try {
                 return new JSONObject(str).optLong("exp") < System.currentTimeMillis();
             } catch (Exception e2) {
-                String str2 = f75604a;
-                c.c(str2, "out data error" + e2, f75605b);
+                String str2 = f75923a;
+                c.c(str2, "out data error" + e2, f75924b);
                 return true;
             }
         }

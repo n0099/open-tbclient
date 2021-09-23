@@ -15,10 +15,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f22333a;
+    public int f22349a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f22334b;
+    public int f22350b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -33,20 +33,20 @@ public class b {
                 return;
             }
         }
-        this.f22333a = -1;
-        this.f22334b = 0;
+        this.f22349a = -1;
+        this.f22350b = 0;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22334b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22350b : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22333a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22349a : invokeV.intValue;
     }
 
     public void c(String str) {
@@ -56,11 +56,11 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f22333a = jSONObject.optInt("error_code", -1);
+            this.f22349a = jSONObject.optInt("error_code", -1);
             jSONObject.optString("error_msg", "");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.f22334b = optJSONObject.optInt("msg_count");
+                this.f22350b = optJSONObject.optInt("msg_count");
             }
         } catch (JSONException e2) {
             e2.printStackTrace();

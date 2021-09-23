@@ -25,17 +25,17 @@ public class a {
 
     /* renamed from: c.a.r0.w0.q1.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1296a extends ShapeDrawable {
+    public static class C1294a extends ShapeDrawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f27614a;
+        public int f27634a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27615b;
+        public int f27635b;
 
-        public C1296a(int i2, int i3, int i4, int i5) {
+        public C1294a(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,8 +50,8 @@ public class a {
                     return;
                 }
             }
-            this.f27614a = i4;
-            this.f27615b = i5;
+            this.f27634a = i4;
+            this.f27635b = i5;
             setDither(false);
             getPaint().setColor(i2);
             setIntrinsicWidth(i3);
@@ -61,7 +61,7 @@ public class a {
         public void setBounds(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
-                super.setBounds(i2, i3 + this.f27614a, i4, i5 + this.f27615b);
+                super.setBounds(i2, i3 + this.f27634a, i4, i5 + this.f27635b);
             }
         }
     }
@@ -108,8 +108,8 @@ public class a {
                 declaredField.setAccessible(true);
                 declaredField2.setAccessible(true);
                 Object obj = declaredField2.get(declaredField.get(editText));
-                Array.set(obj, 0, new C1296a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i2, i3));
-                Array.set(obj, 1, new C1296a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i2, i3));
+                Array.set(obj, 0, new C1294a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i2, i3));
+                Array.set(obj, 1, new C1294a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i2, i3));
             } catch (Exception unused) {
             }
         }

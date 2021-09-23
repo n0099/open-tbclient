@@ -19,20 +19,20 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f11162e;
+    public static final boolean f11170e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<c.a.p0.h.d0.h.a> f11163a;
+    public ArrayList<c.a.p0.h.d0.h.a> f11171a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11164b;
+    public String f11172b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11165c;
+    public String f11173c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f11166d;
+    public int f11174d;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -40,10 +40,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f11167e;
+        public final /* synthetic */ c f11175e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f11168f;
+        public final /* synthetic */ e f11176f;
 
         public a(e eVar, c cVar) {
             Interceptable interceptable = $ic;
@@ -60,20 +60,20 @@ public class e {
                     return;
                 }
             }
-            this.f11168f = eVar;
-            this.f11167e = cVar;
+            this.f11176f = eVar;
+            this.f11175e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ArrayList<long[]> e2 = this.f11168f.e();
+                ArrayList<long[]> e2 = this.f11176f.e();
                 d dVar = new d();
-                dVar.f11159a = this.f11168f.f11164b;
-                dVar.f11160b = e2;
-                dVar.f11161c = this.f11168f.f11165c;
-                c.a.p0.h.t.a.h().b(dVar, this.f11167e);
+                dVar.f11167a = this.f11176f.f11172b;
+                dVar.f11168b = e2;
+                dVar.f11169c = this.f11176f.f11173c;
+                c.a.p0.h.t.a.h().b(dVar, this.f11175e);
             }
         }
     }
@@ -91,7 +91,7 @@ public class e {
                 return;
             }
         }
-        f11162e = k.f7077a;
+        f11170e = k.f7085a;
     }
 
     public e(ArrayList<b> arrayList, String str, String str2) {
@@ -109,14 +109,14 @@ public class e {
                 return;
             }
         }
-        if (f11162e) {
+        if (f11170e) {
             String str3 = "videoPath=" + str + "clipList=" + arrayList;
         }
         ArrayList<c.a.p0.h.d0.h.a> d2 = d(arrayList);
-        this.f11163a = d2;
-        this.f11164b = str;
-        this.f11165c = str2;
-        this.f11166d = d2.size();
+        this.f11171a = d2;
+        this.f11172b = str;
+        this.f11173c = str2;
+        this.f11174d = d2.size();
     }
 
     public void c(c cVar) {
@@ -152,23 +152,23 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList<long[]> arrayList = new ArrayList<>();
-            if (this.f11166d == 0) {
+            if (this.f11174d == 0) {
                 return arrayList;
             }
-            if (f11162e) {
-                String str = "mergeRange mRangeList = " + this.f11163a;
+            if (f11170e) {
+                String str = "mergeRange mRangeList = " + this.f11171a;
             }
-            Collections.sort(this.f11163a, new a.C0566a());
-            c.a.p0.h.d0.h.a aVar = this.f11163a.get(0);
-            for (int i2 = 1; i2 < this.f11166d; i2++) {
-                c.a.p0.h.d0.h.a aVar2 = this.f11163a.get(i2);
+            Collections.sort(this.f11171a, new a.C0566a());
+            c.a.p0.h.d0.h.a aVar = this.f11171a.get(0);
+            for (int i2 = 1; i2 < this.f11174d; i2++) {
+                c.a.p0.h.d0.h.a aVar2 = this.f11171a.get(i2);
                 if (!aVar.b(aVar2)) {
                     arrayList.add(c.a.p0.h.d0.h.a.a(aVar));
                     aVar = aVar2;
                 }
             }
             arrayList.add(c.a.p0.h.d0.h.a.a(aVar));
-            if (f11162e) {
+            if (f11170e) {
                 String str2 = "mergeRange mergeList = " + arrayList;
             }
             return arrayList;

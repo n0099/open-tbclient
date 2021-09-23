@@ -41,24 +41,24 @@ public class g extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonPostModel.c f24777e;
+    public PersonPostModel.c f24793e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PersonPostModel f24778f;
+    public PersonPostModel f24794f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f24779g;
+    public final String f24795g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f24780h;
+    public BdUniqueId f24796h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f24781i;
+    public String f24797i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f24782j;
+    public TbPageContext<BaseFragmentActivity> f24798j;
     public final PersonPostModel.c k;
-    public final a.InterfaceC1147a l;
+    public final a.InterfaceC1145a l;
 
     /* loaded from: classes3.dex */
     public class a implements PersonPostModel.c {
@@ -66,7 +66,7 @@ public class g extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f24783e;
+        public final /* synthetic */ g f24799e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class g extends BaseAdapter {
                     return;
                 }
             }
-            this.f24783e = gVar;
+            this.f24799e = gVar;
         }
 
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
@@ -91,36 +91,36 @@ public class g extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) {
                 if (z) {
-                    this.f24783e.f24778f = personPostModel;
-                    Iterator<n> it = this.f24783e.f24778f.postList.iterator();
+                    this.f24799e.f24794f = personPostModel;
+                    Iterator<n> it = this.f24799e.f24794f.postList.iterator();
                     while (it.hasNext()) {
                         n next = it.next();
                         if (next != null && !(next instanceof PersonPostModel.PostInfoList)) {
                             it.remove();
                         }
                     }
-                } else if (this.f24783e.f24778f != null) {
+                } else if (this.f24799e.f24794f != null) {
                     for (int i2 = 0; i2 < personPostModel.postList.size(); i2++) {
                         if (personPostModel.postList.get(i2) instanceof PersonPostModel.PostInfoList) {
-                            this.f24783e.f24778f.postList.add(personPostModel.postList.get(i2));
+                            this.f24799e.f24794f.postList.add(personPostModel.postList.get(i2));
                         }
                     }
                 }
-                if (this.f24783e.f24777e != null) {
-                    this.f24783e.f24777e.onResult(personPostModel, z);
+                if (this.f24799e.f24793e != null) {
+                    this.f24799e.f24793e.onResult(personPostModel, z);
                 }
-                this.f24783e.notifyDataSetChanged();
+                this.f24799e.notifyDataSetChanged();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements a.InterfaceC1147a {
+    public class b implements a.InterfaceC1145a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f24784a;
+        public final /* synthetic */ g f24800a;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -137,27 +137,27 @@ public class g extends BaseAdapter {
                     return;
                 }
             }
-            this.f24784a = gVar;
+            this.f24800a = gVar;
         }
 
-        @Override // c.a.r0.s2.a.InterfaceC1147a
+        @Override // c.a.r0.s2.a.InterfaceC1145a
         public void a(View view) {
             String[] strArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 int id = view.getId();
                 if (id == R.id.portrait) {
-                    ((BaseFragmentActivity) this.f24784a.f24782j.getOrignalPage()).finish();
+                    ((BaseFragmentActivity) this.f24800a.f24798j.getOrignalPage()).finish();
                 } else if (id == R.id.username) {
-                    ((BaseFragmentActivity) this.f24784a.f24782j.getOrignalPage()).finish();
+                    ((BaseFragmentActivity) this.f24800a.f24798j.getOrignalPage()).finish();
                 } else if ((id == R.id.item_header || id == R.id.original_post_title || id == R.id.item_footer || id == R.id.reply_count) && (strArr = (String[]) view.getTag()) != null) {
                     if (!"0".equals(strArr[2]) && strArr[1] != null) {
-                        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.f24784a.f24782j.getPageActivity()).createSubPbActivityConfig(strArr[0], strArr[1], "person_post_reply", false);
+                        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.f24800a.f24798j.getPageActivity()).createSubPbActivityConfig(strArr[0], strArr[1], "person_post_reply", false);
                         createSubPbActivityConfig.setKeyPageStartFrom(4);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
                         return;
                     }
-                    PbActivityConfig createNormalCfg = new PbActivityConfig(this.f24784a.f24782j.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
+                    PbActivityConfig createNormalCfg = new PbActivityConfig(this.f24800a.f24798j.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
                     createNormalCfg.setStartFrom(4);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
                 }
@@ -231,15 +231,15 @@ public class g extends BaseAdapter {
         }
         this.k = new a(this);
         this.l = new b(this);
-        this.f24782j = tbPageContext;
-        this.f24779g = str;
-        this.f24780h = bdUniqueId;
+        this.f24798j = tbPageContext;
+        this.f24795g = str;
+        this.f24796h = bdUniqueId;
     }
 
     public void e() {
         PersonPostModel personPostModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (personPostModel = this.f24778f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (personPostModel = this.f24794f) == null) {
             return;
         }
         personPostModel.cancelLoadData();
@@ -248,12 +248,12 @@ public class g extends BaseAdapter {
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (this.f24778f == null) {
-                PersonPostModel personPostModel = new PersonPostModel(this.f24782j, this.f24780h, null, true, PersonPostModel.FROM_PERSON_POST);
-                this.f24778f = personPostModel;
-                personPostModel.setUniqueId(this.f24780h);
+            if (this.f24794f == null) {
+                PersonPostModel personPostModel = new PersonPostModel(this.f24798j, this.f24796h, null, true, PersonPostModel.FROM_PERSON_POST);
+                this.f24794f = personPostModel;
+                personPostModel.setUniqueId(this.f24796h);
             }
-            this.f24778f.fetchPost(this.f24782j, this.k, z, this.f24779g, false, true, false, null);
+            this.f24794f.fetchPost(this.f24798j, this.k, z, this.f24795g, false, true, false, null);
         }
     }
 
@@ -261,10 +261,10 @@ public class g extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, cVar, viewGroup) == null) {
             PersonPostModel.PostInfoList h2 = h(i2);
-            if (this.f24781i == null) {
-                this.f24781i = h2.user_portrait;
+            if (this.f24797i == null) {
+                this.f24797i = h2.user_portrait;
             }
-            cVar.d(h2, false, this.f24781i);
+            cVar.d(h2, false, this.f24797i);
             ArrayList<String[]> arrayList = new ArrayList<>();
             int length = h2.content.length;
             for (int i3 = 0; i3 < length; i3++) {
@@ -287,8 +287,8 @@ public class g extends BaseAdapter {
                 cVar.w.setText(h2.title);
             }
             OriginalThreadInfo originalThreadInfo = h2.originalThreadInfo;
-            if (originalThreadInfo != null && !StringUtils.isNull(originalThreadInfo.f47418b)) {
-                cVar.w.setText("分享：" + h2.originalThreadInfo.f47418b);
+            if (originalThreadInfo != null && !StringUtils.isNull(originalThreadInfo.f47520b)) {
+                cVar.w.setText("分享：" + h2.originalThreadInfo.f47520b);
             }
             cVar.w.setTag(new String[]{String.valueOf(h2.thread_id), null, null, String.valueOf(h2.thread_type)});
             if (h2.thread_type == 33) {
@@ -311,7 +311,7 @@ public class g extends BaseAdapter {
         ArrayList<n> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            PersonPostModel personPostModel = this.f24778f;
+            PersonPostModel personPostModel = this.f24794f;
             if (personPostModel == null || (arrayList = personPostModel.postList) == null) {
                 return 0;
             }
@@ -348,7 +348,7 @@ public class g extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_post_item_reply, viewGroup, false);
-                cVar = new c(view, this.f24782j);
+                cVar = new c(view, this.f24798j);
                 view.setTag(cVar);
             } else {
                 cVar = (c) view.getTag();
@@ -367,13 +367,13 @@ public class g extends BaseAdapter {
     public PersonPostModel.PostInfoList h(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? (PersonPostModel.PostInfoList) this.f24778f.postList.get(i2) : (PersonPostModel.PostInfoList) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? (PersonPostModel.PostInfoList) this.f24794f.postList.get(i2) : (PersonPostModel.PostInfoList) invokeI.objValue;
     }
 
     public void i(PersonPostModel.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.f24777e = cVar;
+            this.f24793e = cVar;
         }
     }
 }

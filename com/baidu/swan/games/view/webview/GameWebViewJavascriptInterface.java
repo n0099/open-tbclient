@@ -34,7 +34,7 @@ public class GameWebViewJavascriptInterface {
                 return;
             }
         }
-        DEBUG = k.f7077a;
+        DEBUG = k.f7085a;
     }
 
     public GameWebViewJavascriptInterface() {

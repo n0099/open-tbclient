@@ -12,10 +12,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f11154a;
+    public long f11162a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f11155b;
+    public long f11163b;
 
     /* renamed from: c.a.p0.h.d0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -43,7 +43,7 @@ public class a {
         public int compare(a aVar, a aVar2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) ? (int) (aVar.f11154a - aVar2.f11154a) : invokeLL.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) ? (int) (aVar.f11162a - aVar2.f11162a) : invokeLL.intValue;
         }
     }
 
@@ -68,7 +68,7 @@ public class a {
             if (aVar == null) {
                 return null;
             }
-            return new long[]{aVar.f11154a, aVar.f11155b};
+            return new long[]{aVar.f11162a, aVar.f11163b};
         }
         return (long[]) invokeL.objValue;
     }
@@ -77,15 +77,15 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            long j2 = this.f11154a;
-            if (j2 <= aVar.f11155b) {
-                long j3 = this.f11155b;
-                long j4 = aVar.f11154a;
+            long j2 = this.f11162a;
+            if (j2 <= aVar.f11163b) {
+                long j3 = this.f11163b;
+                long j4 = aVar.f11162a;
                 if (j3 < j4) {
                     return false;
                 }
-                this.f11154a = Math.min(j2, j4);
-                this.f11155b = Math.max(this.f11155b, aVar.f11155b);
+                this.f11162a = Math.min(j2, j4);
+                this.f11163b = Math.max(this.f11163b, aVar.f11163b);
                 return true;
             }
             return false;

@@ -25,13 +25,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f23297a;
+    public static final int f23313a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f23298b;
+    public static final int f23314b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f23299c;
+    public static final int f23315c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,9 +47,9 @@ public class a {
                 return;
             }
         }
-        f23297a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-        f23298b = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-        f23299c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+        f23313a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+        f23314b = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+        f23315c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
     }
 
     public static List<n> a(List<d2> list) {
@@ -83,10 +83,10 @@ public class a {
             ArrayList arrayList = new ArrayList();
             if (!ListUtils.isEmpty(list)) {
                 k kVar = new k();
-                kVar.f23226h = f23299c;
-                kVar.f23225g = f23298b;
-                kVar.f23224f = f23297a;
-                kVar.f23223e = R.string.person_center_tab_main_list_title;
+                kVar.f23242h = f23315c;
+                kVar.f23241g = f23314b;
+                kVar.f23240f = f23313a;
+                kVar.f23239e = R.string.person_center_tab_main_list_title;
                 arrayList.add(kVar);
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     d2 d2Var = list.get(i2);
@@ -138,11 +138,11 @@ public class a {
             if (d2Var == null) {
                 return null;
             }
-            d2Var.d2 = true;
+            d2Var.e2 = true;
             d2Var.G1();
-            if (d2Var.y1) {
+            if (d2Var.z1) {
                 bVar = new c.a.r0.a0.d0.k();
-                bVar.f15562e = d2Var;
+                bVar.f15571e = d2Var;
             } else if (e.Y(d2Var)) {
                 bVar = new e(d2Var);
             } else if (f.b0(d2Var)) {
@@ -156,7 +156,7 @@ public class a {
                 if (!d2Var.e2() && !d2Var.w2()) {
                     d2Var.Z1();
                 }
-                bVar.f15562e = d2Var;
+                bVar.f15571e = d2Var;
             }
             if (bVar != null) {
                 c.a.q0.b.f.a.e(bVar);
@@ -172,7 +172,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, nVar)) == null) {
             if (nVar != null && (nVar instanceof c.a.q0.s.q.a)) {
                 d2 threadData = ((c.a.q0.s.q.a) nVar).getThreadData();
-                threadData.d2 = true;
+                threadData.e2 = true;
                 c.a.q0.b.f.a.e(threadData);
                 return threadData;
             }

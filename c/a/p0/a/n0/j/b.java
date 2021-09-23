@@ -18,7 +18,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
-            int i2 = aVar.f7511a;
+            int i2 = aVar.f7519a;
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

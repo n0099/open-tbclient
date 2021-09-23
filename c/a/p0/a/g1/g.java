@@ -18,17 +18,17 @@ public class g implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f5778g;
+    public static final boolean f5786g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile g f5779h;
+    public static volatile g f5787h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f5780e;
+    public boolean f5788e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f5781f;
+    public int f5789f;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class g implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        f5778g = k.f7077a;
+        f5786g = k.f7085a;
     }
 
     public g() {
@@ -59,21 +59,21 @@ public class g implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f5780e = false;
+        this.f5788e = false;
     }
 
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f5779h == null) {
+            if (f5787h == null) {
                 synchronized (g.class) {
-                    if (f5779h == null) {
-                        f5779h = new g();
+                    if (f5787h == null) {
+                        f5787h = new g();
                     }
                 }
             }
-            return f5779h;
+            return f5787h;
         }
         return (g) invokeV.objValue;
     }
@@ -81,13 +81,13 @@ public class g implements Application.ActivityLifecycleCallbacks {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5780e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5788e : invokeV.booleanValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            boolean z = f5778g;
+            boolean z = f5786g;
             c.a.p0.a.c1.a.b().registerActivityLifecycleCallbacks(this);
         }
     }
@@ -95,22 +95,22 @@ public class g implements Application.ActivityLifecycleCallbacks {
     public void d(boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (z2 = this.f5780e) == z) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (z2 = this.f5788e) == z) {
             return;
         }
         if (z2) {
-            this.f5780e = false;
+            this.f5788e = false;
             c.a.p0.a.g1.k.d.a().e(null);
             return;
         }
-        this.f5780e = true;
+        this.f5788e = true;
         c.a.p0.a.g1.k.d.a().d(null);
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            boolean z = f5778g;
+            boolean z = f5786g;
             c.a.p0.a.c1.a.b().unregisterActivityLifecycleCallbacks(this);
         }
     }
@@ -139,10 +139,10 @@ public class g implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, activity) == null) || this.f5780e) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, activity) == null) || this.f5788e) {
             return;
         }
-        this.f5780e = true;
+        this.f5788e = true;
         c.a.p0.a.g1.k.d.a().d(activity);
     }
 
@@ -157,13 +157,13 @@ public class g implements Application.ActivityLifecycleCallbacks {
     public void onActivityStarted(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
-            int i2 = this.f5781f + 1;
-            this.f5781f = i2;
-            if (i2 != 1 || this.f5780e) {
+            int i2 = this.f5789f + 1;
+            this.f5789f = i2;
+            if (i2 != 1 || this.f5788e) {
                 return;
             }
-            boolean z = f5778g;
-            this.f5780e = true;
+            boolean z = f5786g;
+            this.f5788e = true;
             c.a.p0.a.g1.k.d.a().d(activity);
         }
     }
@@ -172,11 +172,11 @@ public class g implements Application.ActivityLifecycleCallbacks {
     public void onActivityStopped(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
-            int i2 = this.f5781f - 1;
-            this.f5781f = i2;
-            if (i2 == 0 && this.f5780e) {
-                boolean z = f5778g;
-                this.f5780e = false;
+            int i2 = this.f5789f - 1;
+            this.f5789f = i2;
+            if (i2 == 0 && this.f5788e) {
+                boolean z = f5786g;
+                this.f5788e = false;
                 c.a.p0.a.g1.k.d.a().e(activity);
             }
         }

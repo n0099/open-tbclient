@@ -21,14 +21,14 @@ public interface d extends IInterface {
 
         /* renamed from: com.baidu.sso.n.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C1722a implements d {
+        public static class C1725a implements d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f45492a;
+            public IBinder f45594a;
 
-            public C1722a(IBinder iBinder) {
+            public C1725a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +43,7 @@ public interface d extends IInterface {
                         return;
                     }
                 }
-                this.f45492a = iBinder;
+                this.f45594a = iBinder;
             }
 
             public String a() {
@@ -54,7 +54,7 @@ public interface d extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                        this.f45492a.transact(1, obtain, obtain2, 0);
+                        this.f45594a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -69,7 +69,7 @@ public interface d extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45492a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45594a : (IBinder) invokeV.objValue;
             }
         }
 
@@ -81,7 +81,7 @@ public interface d extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C1722a(iBinder) : (d) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C1725a(iBinder) : (d) queryLocalInterface;
             }
             return (d) invokeL.objValue;
         }

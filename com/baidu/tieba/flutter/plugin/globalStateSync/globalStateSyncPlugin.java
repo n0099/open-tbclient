@@ -6,8 +6,9 @@ import androidx.annotation.NonNull;
 import c.a.e.e.p.k;
 import c.a.q0.b.d;
 import c.a.q0.b.e;
-import c.a.q0.b.f.v;
-import c.a.q0.d1.s0;
+import c.a.q0.b.f.x;
+import c.a.q0.d1.t0;
+import c.a.q0.g1.b.c;
 import c.a.q0.s.d0.b;
 import c.a.q0.t.b.a;
 import c.a.r0.s0.a.b.g;
@@ -444,11 +445,11 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            e a2 = d.a(v.f12761c);
-            if (a2 == null || k.isEmpty(a2.f12703a)) {
+            e a2 = d.a(x.f12778c);
+            if (a2 == null || k.isEmpty(a2.f12711a)) {
                 return "";
             }
-            String str = a2.f12703a;
+            String str = a2.f12711a;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 1688589) {
@@ -515,7 +516,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             if (from != null && from.length() > 0) {
                 hashMap.put("appFrom", from);
             }
-            hashMap.put("isVideoAutoPlay", Boolean.valueOf(s0.d()));
+            hashMap.put("isVideoAutoPlay", Boolean.valueOf(t0.e()));
             hashMap.put("cuid", TbadkCoreApplication.getInst().getCuid());
             hashMap.put("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
             hashMap.put("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
@@ -523,7 +524,8 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap.put("z_id", TbadkCoreApplication.getInst().getZid());
             hashMap.put("hdid", TbadkCoreApplication.getInst().getHdid());
             hashMap.put("model", Build.MODEL);
-            hashMap.put("teenMode", Boolean.valueOf(c.a.q0.g1.b.e.d()));
+            c.d();
+            hashMap.put("teenMode", Boolean.FALSE);
             hashMap.put("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
             hashMap.put("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
             hashMap.put("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
@@ -623,11 +625,12 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap2.put("userBigPhotoHost", TbConfig.getBigPhotoAdress());
             hashMap2.put("isYYUser", TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
             hashMap2.put("videoWorksProgressBarWaitingTime", String.valueOf(b.j().k("key_video_works_progress_bar_waiting_time", 0)));
-            hashMap2.put("experimentPersonalVideoTabID", d.F() ? "12_10_zhuye_feed_b" : "");
+            hashMap2.put("experimentPersonalVideoTabID", d.H() ? "12_10_zhuye_feed_b" : "");
+            hashMap2.put("experimentNickNameID", d.D() ? "12_11_nick_name_a" : "");
             hashMap.put("syncData", hashMap2);
             if (TbSingleton.getInstance().getTiebaPlusConfigData() != null) {
-                hashMap3.put("heatingSwitchOpen", TbSingleton.getInstance().getTiebaPlusConfigData().e() ? "1" : "0");
-                hashMap3.put("heatingWeburl", TbSingleton.getInstance().getTiebaPlusConfigData().b());
+                hashMap3.put("heatingSwitchOpen", TbSingleton.getInstance().getTiebaPlusConfigData().f() ? "1" : "0");
+                hashMap3.put("heatingWeburl", TbSingleton.getInstance().getTiebaPlusConfigData().c());
             }
             hashMap.put("configInfo", hashMap3);
             hashMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, hashMap4);

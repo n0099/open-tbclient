@@ -30,7 +30,7 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f9075a;
+        public final /* synthetic */ a f9083a;
 
         public C0415a(a aVar) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class a extends d {
                     return;
                 }
             }
-            this.f9075a = aVar;
+            this.f9083a = aVar;
         }
 
         @Override // c.a.p0.a.u.c.d.b
         public c.a.p0.a.u.h.b a(e eVar, JSONObject jSONObject, String str) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, eVar, jSONObject, str)) == null) ? this.f9075a.y(eVar, jSONObject, str) : (c.a.p0.a.u.h.b) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, eVar, jSONObject, str)) == null) ? this.f9083a.y(eVar, jSONObject, str) : (c.a.p0.a.u.h.b) invokeLLL.objValue;
         }
     }
 
@@ -64,10 +64,10 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f9076a;
+        public final /* synthetic */ String f9084a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f9077b;
+        public final /* synthetic */ a f9085b;
 
         public b(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -84,15 +84,15 @@ public class a extends d {
                     return;
                 }
             }
-            this.f9077b = aVar;
-            this.f9076a = str;
+            this.f9085b = aVar;
+            this.f9084a = str;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f9077b.v(this.f9076a, exc == null ? "" : exc.getMessage());
+                this.f9085b.v(this.f9084a, exc == null ? "" : exc.getMessage());
             }
         }
 
@@ -108,7 +108,7 @@ public class a extends d {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f9077b.d(this.f9076a, this.f9077b.x(response));
+                this.f9085b.d(this.f9084a, this.f9085b.x(response));
                 return response;
             }
             return invokeLI.objValue;
@@ -152,10 +152,10 @@ public class a extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, str) == null) {
             c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(request.url().toString(), request.body(), new b(this, str));
-            aVar.f11848i = request.tag();
-            aVar.f11845f = true;
-            aVar.f11846g = true;
-            aVar.f11847h = true;
+            aVar.f11856i = request.tag();
+            aVar.f11853f = true;
+            aVar.f11854g = true;
+            aVar.f11855h = true;
             c.a.p0.m.e.a.g().e(aVar);
         }
     }
@@ -189,7 +189,7 @@ public class a extends d {
             if (response != null && response.body() != null) {
                 try {
                     String string = response.body().string();
-                    boolean z = d.f8727c;
+                    boolean z = d.f8735c;
                     JSONObject jSONObject = new JSONObject(string);
                     String optString = jSONObject.optString("errno");
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
@@ -198,7 +198,7 @@ public class a extends d {
                     }
                     return new c.a.p0.a.u.h.b(500106, "subscribe fail");
                 } catch (Exception e2) {
-                    if (d.f8727c) {
+                    if (d.f8735c) {
                         e2.printStackTrace();
                     }
                     return new c.a.p0.a.u.h.b(500106, Log.getStackTraceString(e2));
@@ -228,7 +228,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (d.f8727c) {
+            if (d.f8735c) {
                 String str2 = "subscribe with json string:  " + str;
             }
             return j(str, true, new C0415a(this));

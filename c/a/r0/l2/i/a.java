@@ -17,13 +17,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f22096a;
+    public d f22110a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f22097b;
+    public BdTypeListView f22111b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<c.a.e.l.e.a> f22098c;
+    public List<c.a.e.l.e.a> f22112c;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView, b0<h> b0Var) {
         Interceptable interceptable = $ic;
@@ -40,19 +40,19 @@ public class a {
                 return;
             }
         }
-        this.f22098c = new ArrayList();
-        this.f22097b = bdTypeListView;
+        this.f22112c = new ArrayList();
+        this.f22111b = bdTypeListView;
         d dVar = new d(tbPageContext, h.p);
-        this.f22096a = dVar;
+        this.f22110a = dVar;
         dVar.j0(b0Var);
-        this.f22098c.add(this.f22096a);
-        this.f22097b.addAdapters(this.f22098c);
+        this.f22112c.add(this.f22110a);
+        this.f22111b.addAdapters(this.f22112c);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f22096a.P();
+            this.f22110a.P();
         }
     }
 }

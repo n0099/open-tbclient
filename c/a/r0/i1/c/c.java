@@ -20,22 +20,22 @@ public class c implements c.a.e.l.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19263e;
+    public String f19278e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f19264f;
+    public String f19279f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19265g;
+    public String f19280g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19266h;
+    public int f19281h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f19267i;
+    public long f19282i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f19268j;
+    public String f19283j;
     public int k;
     public long l;
 
@@ -68,7 +68,7 @@ public class c implements c.a.e.l.e.n {
                 return;
             }
         }
-        this.f19266h = -1;
+        this.f19281h = -1;
     }
 
     public long b() {
@@ -80,19 +80,19 @@ public class c implements c.a.e.l.e.n {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19267i : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19282i : invokeV.longValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19263e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19278e : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19268j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19283j : (String) invokeV.objValue;
     }
 
     @Override // c.a.e.l.e.n
@@ -105,7 +105,7 @@ public class c implements c.a.e.l.e.n {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19265g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19280g : (String) invokeV.objValue;
     }
 
     public int i() {
@@ -117,13 +117,13 @@ public class c implements c.a.e.l.e.n {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f19264f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f19279f : (String) invokeV.objValue;
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19266h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19281h : invokeV.intValue;
     }
 
     public void n(TopicList topicList) {
@@ -131,8 +131,8 @@ public class c implements c.a.e.l.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, topicList) == null) || topicList == null) {
             return;
         }
-        this.f19267i = topicList.topic_id.longValue();
-        this.f19268j = topicList.topic_name;
+        this.f19282i = topicList.topic_id.longValue();
+        this.f19283j = topicList.topic_name;
         this.k = topicList.tag.intValue();
         this.l = topicList.discuss_num.longValue();
         String str = topicList.topic_desc;
@@ -143,9 +143,9 @@ public class c implements c.a.e.l.e.n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, topicListModule) == null) {
             try {
-                this.f19263e = topicListModule.module_title;
-                this.f19264f = topicListModule.tips;
-                this.f19265g = topicListModule.rule_jump_url;
+                this.f19278e = topicListModule.module_title;
+                this.f19279f = topicListModule.tips;
+                this.f19280g = topicListModule.rule_jump_url;
             } catch (Exception e2) {
                 BdLog.e(e2.toString());
             }
@@ -155,7 +155,7 @@ public class c implements c.a.e.l.e.n {
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f19266h = i2;
+            this.f19281h = i2;
         }
     }
 }

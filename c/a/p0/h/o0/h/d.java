@@ -14,7 +14,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11512a;
+    public static final boolean f11520a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class d {
                 return;
             }
         }
-        f11512a = k.f7077a;
+        f11520a = k.f7085a;
     }
 
     public static void a(@NonNull e eVar, @NonNull a.e eVar2) {
@@ -38,19 +38,19 @@ public class d {
         if (interceptable == null || interceptable.invokeLL(65537, null, eVar, eVar2) == null) {
             long l = eVar.L().l("launch_time", 0L);
             if (l <= 0) {
-                boolean z = f11512a;
+                boolean z = f11520a;
                 return;
             }
             c.a.p0.a.j2.p.e eVar3 = new c.a.p0.a.j2.p.e();
-            eVar3.f7063a = c.a.p0.a.j2.k.m(eVar.L().G());
-            eVar3.f7068f = eVar.getAppId();
-            eVar3.f7065c = eVar.L().T();
-            eVar3.f7064b = "startup";
-            eVar3.f7069g = eVar2.f11508a;
-            eVar3.f7067e = eVar2.f11509b;
+            eVar3.f7071a = c.a.p0.a.j2.k.m(eVar.L().G());
+            eVar3.f7076f = eVar.getAppId();
+            eVar3.f7073c = eVar.L().T();
+            eVar3.f7072b = "startup";
+            eVar3.f7077g = eVar2.f11516a;
+            eVar3.f7075e = eVar2.f11517b;
             eVar3.a("na_start", Long.valueOf(l));
-            eVar3.a("h5_start", Long.valueOf(eVar2.f11510c));
-            eVar3.a("h5_finish", Long.valueOf(eVar2.f11511d));
+            eVar3.a("h5_start", Long.valueOf(eVar2.f11518c));
+            eVar3.a("h5_finish", Long.valueOf(eVar2.f11519d));
             c.a.p0.a.j2.k.u("1235", eVar3);
         }
     }

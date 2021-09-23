@@ -17,20 +17,20 @@ public class e extends MediaPlayer implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Object f13985d;
+    public static Object f13982d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static e f13986e;
+    public static e f13983e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13987a;
+    public boolean f13984a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13988b;
+    public boolean f13985b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13989c;
+    public int f13986c;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class e extends MediaPlayer implements c {
                 return;
             }
         }
-        f13985d = new Object();
+        f13982d = new Object();
     }
 
     public e() {
@@ -61,23 +61,23 @@ public class e extends MediaPlayer implements c {
                 return;
             }
         }
-        this.f13987a = false;
-        this.f13988b = true;
-        this.f13989c = -1;
+        this.f13984a = false;
+        this.f13985b = true;
+        this.f13986c = -1;
     }
 
     public static e i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f13986e == null) {
-                synchronized (f13985d) {
-                    if (f13986e == null) {
-                        f13986e = new e();
+            if (f13983e == null) {
+                synchronized (f13982d) {
+                    if (f13983e == null) {
+                        f13983e = new e();
                     }
                 }
             }
-            return f13986e;
+            return f13983e;
         }
         return (e) invokeV.objValue;
     }
@@ -85,12 +85,12 @@ public class e extends MediaPlayer implements c {
     @Override // c.a.q0.s.g0.c.c
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13988b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13985b) {
             return;
         }
         stop();
-        this.f13988b = true;
-        this.f13987a = false;
+        this.f13985b = true;
+        this.f13984a = false;
     }
 
     @Override // c.a.q0.s.g0.c.c
@@ -98,9 +98,9 @@ public class e extends MediaPlayer implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f13989c = -1;
-            if (!this.f13987a) {
-                this.f13988b = true;
+            this.f13986c = -1;
+            if (!this.f13984a) {
+                this.f13985b = true;
                 reset();
                 try {
                     setDataSource(str);
@@ -109,24 +109,24 @@ public class e extends MediaPlayer implements c {
                         prepare();
                     } catch (IOException e2) {
                         e2.printStackTrace();
-                        this.f13989c = 2;
+                        this.f13986c = 2;
                         return false;
                     } catch (IllegalStateException unused) {
-                        this.f13989c = 1;
+                        this.f13986c = 1;
                         return false;
                     }
                 } catch (IOException unused2) {
-                    this.f13989c = 2;
+                    this.f13986c = 2;
                     return false;
                 } catch (IllegalArgumentException unused3) {
-                    this.f13989c = 0;
+                    this.f13986c = 0;
                     return false;
                 } catch (IllegalStateException unused4) {
-                    this.f13989c = 1;
+                    this.f13986c = 1;
                     return false;
                 }
             }
-            this.f13987a = true;
+            this.f13984a = true;
             return true;
         }
         return invokeL.booleanValue;
@@ -136,14 +136,14 @@ public class e extends MediaPlayer implements c {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13989c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13986c : invokeV.intValue;
     }
 
     @Override // c.a.q0.s.g0.c.c
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13987a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13984a : invokeV.booleanValue;
     }
 
     @Override // c.a.q0.s.g0.c.c
@@ -159,9 +159,9 @@ public class e extends MediaPlayer implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             reset();
-            this.f13987a = false;
-            this.f13988b = true;
-            this.f13989c = -1;
+            this.f13984a = false;
+            this.f13985b = true;
+            this.f13986c = -1;
         }
     }
 
@@ -177,7 +177,7 @@ public class e extends MediaPlayer implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             start();
-            this.f13988b = false;
+            this.f13985b = false;
         }
     }
 

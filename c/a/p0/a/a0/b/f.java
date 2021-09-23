@@ -61,7 +61,7 @@ public class f extends a {
             this.u = jSONObject.optString("fileType");
             this.v = (float) jSONObject.optDouble("quality");
         } catch (Exception e2) {
-            if (k.f7077a) {
+            if (k.f7085a) {
                 e2.printStackTrace();
             }
         }
@@ -326,11 +326,11 @@ public class f extends a {
                     c.a.p0.t.d.d(fileOutputStream2222222);
                     return true;
                 } catch (Exception e2) {
-                    if (k.f7077a) {
+                    if (k.f7085a) {
                         e2.printStackTrace();
                     }
                 } catch (OutOfMemoryError e3) {
-                    if (k.f7077a) {
+                    if (k.f7085a) {
                         e3.printStackTrace();
                     }
                 }

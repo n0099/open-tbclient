@@ -1,67 +1,123 @@
 package c.a.q0.d1;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.media.AudioManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.videoPreload.IVideoNeedPreload;
+import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes3.dex */
 public class t0 {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13006a;
-    @NonNull
+    public static boolean f13017a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Runnable f13007b;
-
-    public t0(@NonNull Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {runnable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1214560839, "Lc/a/q0/d1/t0;")) == null) {
+            return;
         }
-        this.f13006a = false;
-        this.f13007b = runnable;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1214560839, "Lc/a/q0/d1/t0;");
+        }
     }
 
-    public boolean a() {
+    public static boolean a(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
+            if (i2 == 2) {
+                int frsAutoPlay = TbadkCoreApplication.getInst().getFrsAutoPlay();
+                if ((frsAutoPlay == 1 || !c.a.e.e.p.j.H()) && (frsAutoPlay != 2 || !c.a.e.e.p.j.x())) {
+                    return false;
+                }
+            } else if (i2 == 3 || i2 == 4) {
+                return c.a.e.e.p.j.H();
+            } else {
+                if (i2 != 5) {
+                    int homePageAutoPlay = TbadkCoreApplication.getInst().getHomePageAutoPlay();
+                    if ((homePageAutoPlay == 1 || !c.a.e.e.p.j.H()) && (homePageAutoPlay != 2 || !c.a.e.e.p.j.x())) {
+                        return false;
+                    }
+                } else if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 2 && (!FrsHeadVideoAutoPlaySwitch.getIsOn() || !c.a.e.e.p.j.H() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 0)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean b(int i2, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i2, str)) == null) ? a(i2) : invokeIL.booleanValue;
+    }
+
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f13006a) {
-                return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f13017a : invokeV.booleanValue;
+    }
+
+    public static boolean d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? (context instanceof IVideoNeedPreload) && ((IVideoNeedPreload) context).videoNeedPreload() && c.a.q0.b.d.C() : invokeL.booleanValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            if (!c.a.e.e.p.j.H() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
+                return c.a.e.e.p.j.x() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
             }
-            this.f13006a = true;
-            this.f13007b.run();
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static boolean f(WeakReference<Context> weakReference, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f13006a) {
-                this.f13007b.run();
-                return true;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, weakReference, z)) == null) {
+            if (weakReference == null || weakReference.get() == null) {
+                return false;
             }
-            return false;
+            AudioManager audioManager = (AudioManager) weakReference.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            if (z) {
+                if (audioManager.requestAudioFocus(null, 3, 2) != 1) {
+                    return false;
+                }
+            } else if (audioManager.abandonAudioFocus(null) != 1) {
+                return false;
+            }
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeLZ.booleanValue;
+    }
+
+    public static void g(WeakReference<Context> weakReference) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, weakReference) == null) || weakReference == null || weakReference.get() == null) {
+            return;
+        }
+        f13017a = ((AudioManager) weakReference.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).isMusicActive();
     }
 }

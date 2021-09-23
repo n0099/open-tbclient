@@ -26,27 +26,27 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.l0.a f7194a;
+    public c.a.p0.a.l0.a f7202a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7195b;
+    public String f7203b;
 
     /* loaded from: classes.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final boolean f7196d;
+        public static final boolean f7204d;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public JSEvent f7197a;
+        public JSEvent f7205a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f7198b;
+        public String f7206b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f7199c;
+        public String f7207c;
 
         static {
             InterceptResult invokeClinit;
@@ -61,7 +61,7 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
                     return;
                 }
             }
-            f7196d = k.f7077a;
+            f7204d = k.f7085a;
         }
 
         public a() {
@@ -77,7 +77,7 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
                     return;
                 }
             }
-            this.f7197a = new JSEvent("error");
+            this.f7205a = new JSEvent("error");
         }
 
         public JSEvent a() {
@@ -86,17 +86,17 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("message", this.f7198b);
-                    jSONObject.put("stack", this.f7199c);
+                    jSONObject.put("message", this.f7206b);
+                    jSONObject.put("stack", this.f7207c);
                 } catch (JSONException e2) {
-                    if (f7196d) {
+                    if (f7204d) {
                         Log.getStackTraceString(e2);
                     }
                 }
                 if (jSONObject.length() > 0) {
-                    this.f7197a.data = jSONObject;
+                    this.f7205a.data = jSONObject;
                 }
-                return this.f7197a;
+                return this.f7205a;
             }
             return (JSEvent) invokeV.objValue;
         }
@@ -105,7 +105,7 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f7198b = str;
+                this.f7206b = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -115,7 +115,7 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f7199c = str;
+                this.f7207c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -135,7 +135,7 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public c(c.a.p0.a.l0.a aVar) {
@@ -153,16 +153,16 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
                 return;
             }
         }
-        this.f7195b = "";
-        this.f7194a = aVar;
+        this.f7203b = "";
+        this.f7202a = aVar;
     }
 
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || this.f7194a.o() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || this.f7202a.o() == null) {
             return;
         }
-        EventTarget o = this.f7194a.o();
+        EventTarget o = this.f7202a.o();
         a aVar = new a();
         aVar.b(str + StringUtils.LF + str2);
         aVar.c("");
@@ -178,12 +178,12 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
         }
         String str = TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg) ? "" : v8ExceptionInfo.exceptionMsg;
         String str2 = TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace) ? "" : v8ExceptionInfo.exceptionTrace;
-        String str3 = this.f7194a.m0() + "msg: " + str + " ,stack: " + str2;
-        this.f7194a.z().a(str);
-        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || this.f7195b.equals(str)) {
+        String str3 = this.f7202a.m0() + "msg: " + str + " ,stack: " + str2;
+        this.f7202a.z().a(str);
+        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || this.f7203b.equals(str)) {
             return;
         }
-        this.f7195b = str;
+        this.f7203b = str;
         a(str, str2);
         c.a.p0.a.c1.b.j().e(str + ";" + str2);
         l.b(v8ExceptionInfo);

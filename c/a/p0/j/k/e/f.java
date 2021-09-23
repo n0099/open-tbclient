@@ -30,7 +30,7 @@ public class f extends c.a.p0.j.k.a<c.a.p0.a.h1.c.e> {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public f() {
@@ -67,9 +67,9 @@ public class f extends c.a.p0.j.k.a<c.a.p0.a.h1.c.e> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
             Bundle bundle = new Bundle();
-            bundle.putString("slaveId", eVar.f4658g);
-            bundle.putDouble("latitude", eVar.n.f6533e);
-            bundle.putDouble("longitude", eVar.n.f6534f);
+            bundle.putString("slaveId", eVar.f4666g);
+            bundle.putDouble("latitude", eVar.n.f6541e);
+            bundle.putDouble("longitude", eVar.n.f6542f);
             bundle.putDouble("scale", eVar.o);
             bundle.putString("name", eVar.D);
             bundle.putString("address", eVar.E);

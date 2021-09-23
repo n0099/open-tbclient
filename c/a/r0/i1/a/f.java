@@ -44,7 +44,7 @@ public class f extends c.a.e.l.e.a<c.a.r0.a0.d0.k, d> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f19175a;
+        public final /* synthetic */ f f19190a;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class f extends c.a.e.l.e.a<c.a.r0.a0.d0.k, d> {
                     return;
                 }
             }
-            this.f19175a = fVar;
+            this.f19190a = fVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -104,7 +104,7 @@ public class f extends c.a.e.l.e.a<c.a.r0.a0.d0.k, d> {
         public ConstrainImageLayout d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f19175a.m.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f19190a.m.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
         }
 
         public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
@@ -120,7 +120,7 @@ public class f extends c.a.e.l.e.a<c.a.r0.a0.d0.k, d> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f19176a;
+        public final /* synthetic */ f f19191a;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public class f extends c.a.e.l.e.a<c.a.r0.a0.d0.k, d> {
                     return;
                 }
             }
-            this.f19176a = fVar;
+            this.f19191a = fVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -182,7 +182,7 @@ public class f extends c.a.e.l.e.a<c.a.r0.a0.d0.k, d> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.f19176a.m.getPageActivity());
+                TbImageView tbImageView = new TbImageView(this.f19191a.m.getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
@@ -209,7 +209,7 @@ public class f extends c.a.e.l.e.a<c.a.r0.a0.d0.k, d> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f19177b;
+        public final /* synthetic */ f f19192b;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -226,7 +226,7 @@ public class f extends c.a.e.l.e.a<c.a.r0.a0.d0.k, d> {
                     return;
                 }
             }
-            this.f19177b = fVar;
+            this.f19192b = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -237,10 +237,10 @@ public class f extends c.a.e.l.e.a<c.a.r0.a0.d0.k, d> {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, kVar) == null) || kVar == null || kVar.getThreadData() == null || StringUtils.isNull(kVar.getThreadData().s1()) || StringUtils.isNull(kVar.C())) {
                 return;
             }
-            String topicName = ((HotTopicActivity) this.f19177b.m.getOrignalPage()).getTopicName();
-            String hotTopicId = ((HotTopicActivity) this.f19177b.m.getOrignalPage()).getHotTopicId();
+            String topicName = ((HotTopicActivity) this.f19192b.m.getOrignalPage()).getTopicName();
+            String hotTopicId = ((HotTopicActivity) this.f19192b.m.getOrignalPage()).getHotTopicId();
             d2 threadData = kVar.getThreadData();
-            threadData.o4(5);
+            threadData.n4(5);
             if ("c10814".equals(kVar.C())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
                 TiebaStatic.log(new StatisticItem("c10814").param("tid", threadData.f0()).param("obj_name", topicName).param("topic_id", hotTopicId));
@@ -248,10 +248,10 @@ public class f extends c.a.e.l.e.a<c.a.r0.a0.d0.k, d> {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
                 TiebaStatic.log(new StatisticItem("c10816").param("post_id", threadData.s1()).param("obj_name", topicName).param("topic_id", hotTopicId));
             }
-            if (this.f19177b.m == null || !(this.f19177b.m.getOrignalPage() instanceof c.a.r0.i1.b.a)) {
+            if (this.f19192b.m == null || !(this.f19192b.m.getOrignalPage() instanceof c.a.r0.i1.b.a)) {
                 return;
             }
-            ((HotTopicActivity) this.f19177b.m.getOrignalPage()).businessStatisticForTopicClick(kVar);
+            ((HotTopicActivity) this.f19192b.m.getOrignalPage()).businessStatisticForTopicClick(kVar);
         }
     }
 
@@ -261,7 +261,7 @@ public class f extends c.a.e.l.e.a<c.a.r0.a0.d0.k, d> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public n f19178a;
+        public n f19193a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(f fVar, n nVar) {
@@ -281,7 +281,7 @@ public class f extends c.a.e.l.e.a<c.a.r0.a0.d0.k, d> {
                     return;
                 }
             }
-            this.f19178a = nVar;
+            this.f19193a = nVar;
         }
     }
 
@@ -342,9 +342,9 @@ public class f extends c.a.e.l.e.a<c.a.r0.a0.d0.k, d> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, dVar})) == null) {
-            dVar.f19178a.k(kVar);
-            dVar.f19178a.m(this.r);
-            dVar.f19178a.T(!(z(i2 + 1) instanceof c.a.r0.i1.c.n));
+            dVar.f19193a.k(kVar);
+            dVar.f19193a.m(this.r);
+            dVar.f19193a.T(!(z(i2 + 1) instanceof c.a.r0.i1.c.n));
             TbPageContext<HotTopicActivity> tbPageContext = this.m;
             if (tbPageContext != null && (tbPageContext.getOrignalPage() instanceof c.a.r0.i1.b.a)) {
                 this.m.getOrignalPage().businessStatisticForTopic(kVar);

@@ -18,10 +18,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Log.ISdkLogCallback f36058a = null;
+    public static Log.ISdkLogCallback f36092a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36059b = "alipaysdk";
+    public static final String f36093b = "alipaysdk";
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -40,52 +40,44 @@ public class c {
 
     public static void a(Log.ISdkLogCallback iSdkLogCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, iSdkLogCallback) == null) {
-            f36058a = iSdkLogCallback;
+        if (interceptable == null || interceptable.invokeL(65538, null, iSdkLogCallback) == null) {
+            f36092a = iSdkLogCallback;
         }
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
-            a(e(str, str2));
+            a(a(str, str2));
         }
     }
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            a(e(str, str2));
+            a(a(str, str2));
         }
     }
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            a(e(str, str2));
+            a(a(str, str2));
         }
     }
 
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            if (str2 == null) {
-                str2 = "";
-            }
-            return String.format("[%s][%s]", str, str2);
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
+            a(a(str, str2));
         }
-        return (String) invokeLL.objValue;
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             try {
-                Log.ISdkLogCallback iSdkLogCallback = f36058a;
+                Log.ISdkLogCallback iSdkLogCallback = f36092a;
                 if (iSdkLogCallback != null) {
                     iSdkLogCallback.onLogLine(String.format("[AlipaySDK] %s %s", new SimpleDateFormat("hh:mm:ss.SSS", Locale.getDefault()).format(new Date()), str));
                 }
@@ -105,18 +97,11 @@ public class c {
         return (String) invokeL.objValue;
     }
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            a(e(str, str2));
-        }
-    }
-
     public static void a(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
-            String e2 = e(str, str2);
-            a(e2 + " " + b(th));
+            String a2 = a(str, str2);
+            a(a2 + " " + b(th));
         }
     }
 
@@ -129,5 +114,20 @@ public class c {
             a(b(th));
         } catch (Throwable unused) {
         }
+    }
+
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            if (str2 == null) {
+                str2 = "";
+            }
+            return String.format("[%s][%s]", str, str2);
+        }
+        return (String) invokeLL.objValue;
     }
 }

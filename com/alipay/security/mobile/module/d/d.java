@@ -20,13 +20,13 @@ public final class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36181a = "";
+    public static String f36224a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36182b = "";
+    public static String f36225b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36183c = "";
+    public static String f36226c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,9 +59,9 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
             synchronized (d.class) {
-                f36181a = str;
-                f36182b = str2;
-                f36183c = str3;
+                f36224a = str;
+                f36225b = str2;
+                f36226c = str3;
             }
         }
     }
@@ -89,20 +89,20 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
             synchronized (d.class) {
-                if (!com.alipay.security.mobile.module.a.a.a(f36182b) && !com.alipay.security.mobile.module.a.a.a(f36183c)) {
+                if (!com.alipay.security.mobile.module.a.a.a(f36225b) && !com.alipay.security.mobile.module.a.a.a(f36226c)) {
                     StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append(f36183c);
+                    stringBuffer.append(f36226c);
                     Iterator<String> it = list.iterator();
                     while (it.hasNext()) {
                         stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + it.next());
                     }
                     stringBuffer.append(StringUtils.LF);
                     try {
-                        File file = new File(f36181a);
+                        File file = new File(f36224a);
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        File file2 = new File(f36181a, f36182b);
+                        File file2 = new File(f36224a, f36225b);
                         if (!file2.exists()) {
                             file2.createNewFile();
                         }

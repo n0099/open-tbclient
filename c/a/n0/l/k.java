@@ -20,13 +20,13 @@ public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4313a = "";
+    public static String f4320a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4314b = "";
+    public static String f4321b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4315c = "";
+    public static String f4322c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a(Context context) {
@@ -61,14 +61,14 @@ public class k {
                     return c(String.valueOf(-1000), z2);
                 }
                 if (z) {
-                    if (i2 == 3 && !TextUtils.isEmpty(f4313a)) {
-                        return f4313a;
+                    if (i2 == 3 && !TextUtils.isEmpty(f4320a)) {
+                        return f4320a;
                     }
-                    if (i2 == 1 && !TextUtils.isEmpty(f4315c)) {
-                        return f4315c;
+                    if (i2 == 1 && !TextUtils.isEmpty(f4322c)) {
+                        return f4322c;
                     }
-                    if (i2 == 2 && !TextUtils.isEmpty(f4314b)) {
-                        return f4314b;
+                    if (i2 == 2 && !TextUtils.isEmpty(f4321b)) {
+                        return f4321b;
                     }
                 }
                 if (!h.a(context, "android.permission.READ_PHONE_STATE")) {
@@ -90,11 +90,11 @@ public class k {
                     return c(String.valueOf(-1003), z2);
                 }
                 if (i2 == 3) {
-                    f4313a = str;
+                    f4320a = str;
                 } else if (i2 == 1) {
-                    f4315c = str;
+                    f4322c = str;
                 } else if (i2 == 2) {
-                    f4314b = str;
+                    f4321b = str;
                 }
                 return str;
             } catch (Throwable th) {

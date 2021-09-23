@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.q0.s.q.l1;
 import c.a.q0.s.q.o2;
 import c.a.q0.t.c.k0;
-import c.a.r0.j3.y;
+import c.a.r0.j3.z;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -34,31 +34,31 @@ public class g implements NewWriteModel.g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final NewWriteModel f21090a;
+    public final NewWriteModel f21102a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f21091b;
+    public boolean f21103b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f21092c;
+    public BdUniqueId f21104c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f21093d;
+    public boolean f21105d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21094e;
+    public String f21106e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21095f;
+    public String f21107f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21096g;
+    public String f21108g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21097h;
+    public String f21109h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NewWriteModel.g f21098i;
+    public NewWriteModel.g f21110i;
 
     /* loaded from: classes3.dex */
     public class a implements NewWriteModel.g {
@@ -66,24 +66,24 @@ public class g implements NewWriteModel.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f21099a;
+        public final /* synthetic */ g f21111a;
 
         /* renamed from: c.a.r0.j3.r0.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0990a implements Runnable {
+        public class RunnableC0988a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PostWriteCallBackData f21100e;
+            public final /* synthetic */ PostWriteCallBackData f21112e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ WriteData f21101f;
+            public final /* synthetic */ WriteData f21113f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f21102g;
+            public final /* synthetic */ a f21114g;
 
-            public RunnableC0990a(a aVar, PostWriteCallBackData postWriteCallBackData, WriteData writeData) {
+            public RunnableC0988a(a aVar, PostWriteCallBackData postWriteCallBackData, WriteData writeData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,29 +98,29 @@ public class g implements NewWriteModel.g {
                         return;
                     }
                 }
-                this.f21102g = aVar;
-                this.f21100e = postWriteCallBackData;
-                this.f21101f = writeData;
+                this.f21114g = aVar;
+                this.f21112e = postWriteCallBackData;
+                this.f21113f = writeData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if ((!c.a.e.e.p.k.isEmpty(this.f21100e.getVideoid()) && this.f21101f.getVideoInfo() != null) || (this.f21101f.getVideoInfo() != null && this.f21101f.getVideoInfo().hasUpload())) {
-                        i.n(this.f21100e);
+                    if ((!c.a.e.e.p.k.isEmpty(this.f21112e.getVideoid()) && this.f21113f.getVideoInfo() != null) || (this.f21113f.getVideoInfo() != null && this.f21113f.getVideoInfo().hasUpload())) {
+                        i.n(this.f21112e);
                     } else {
-                        i.m(this.f21100e);
+                        i.m(this.f21112e);
                     }
-                    this.f21102g.f21099a.f();
-                    this.f21102g.f21099a.g();
-                    if (!c.a.e.e.p.k.isEmpty(this.f21100e.getVideoid()) && this.f21101f.getVideoInfo() != null) {
-                        this.f21100e.mVideoMd5 = this.f21101f.getVideoInfo().getVideoMd5();
-                        if (!c.a.e.e.p.k.isEmpty(this.f21101f.getForumName())) {
-                            this.f21100e.mFrom = 2;
+                    this.f21114g.f21111a.f();
+                    this.f21114g.f21111a.g();
+                    if (!c.a.e.e.p.k.isEmpty(this.f21112e.getVideoid()) && this.f21113f.getVideoInfo() != null) {
+                        this.f21112e.mVideoMd5 = this.f21113f.getVideoInfo().getVideoMd5();
+                        if (!c.a.e.e.p.k.isEmpty(this.f21113f.getForumName())) {
+                            this.f21112e.mFrom = 2;
                         }
                     }
-                    this.f21102g.f21099a.s();
+                    this.f21114g.f21111a.s();
                 }
             }
         }
@@ -140,7 +140,7 @@ public class g implements NewWriteModel.g {
                     return;
                 }
             }
-            this.f21099a = gVar;
+            this.f21111a = gVar;
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
@@ -152,12 +152,12 @@ public class g implements NewWriteModel.g {
             if (z) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, o2.b(postWriteCallBackData.getVideoid())));
                 int k = c.a.q0.s.d0.b.j().k("key_video_works_progress_bar_waiting_time", 3);
-                c.a.e.e.m.e.a().postDelayed(new RunnableC0990a(this, postWriteCallBackData, writeData), ((k > 0 ? k : 3) + 1) * 1000);
+                c.a.e.e.m.e.a().postDelayed(new RunnableC0988a(this, postWriteCallBackData, writeData), ((k > 0 ? k : 3) + 1) * 1000);
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, o2.a(postWriteCallBackData.getErrorString())));
             i.l(postWriteCallBackData, k0Var, writeData, antiData);
-            this.f21099a.s();
+            this.f21111a.s();
         }
     }
 
@@ -166,7 +166,7 @@ public class g implements NewWriteModel.g {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final g f21103a;
+        public static final g f21115a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -182,7 +182,7 @@ public class g implements NewWriteModel.g {
                     return;
                 }
             }
-            f21103a = new g(null);
+            f21115a = new g(null);
         }
     }
 
@@ -195,7 +195,7 @@ public class g implements NewWriteModel.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             h.a("AsyncWriteHelper.getInstance()");
-            return b.f21103a;
+            return b.f21115a;
         }
         return (g) invokeV.objValue;
     }
@@ -203,7 +203,7 @@ public class g implements NewWriteModel.g {
     public void A(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f21094e = str;
+            this.f21106e = str;
         }
     }
 
@@ -211,8 +211,8 @@ public class g implements NewWriteModel.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, spanGroupManager) == null) {
             h.a("AsyncWriteHelper.setSpanGroupManager()");
-            this.f21090a.Y();
-            this.f21090a.setSpanGroupManager(spanGroupManager);
+            this.f21102a.Y();
+            this.f21102a.setSpanGroupManager(spanGroupManager);
         }
     }
 
@@ -223,11 +223,11 @@ public class g implements NewWriteModel.g {
             sb.append("AsyncWriteHelper.setWriteData = ");
             sb.append(writeData == null ? StringUtil.NULL_STRING : writeData.toDraftString());
             h.a(sb.toString());
-            this.f21090a.setWriteData(writeData);
-            if (writeData != null && writeData.isWork() && this.f21092c == null) {
-                this.f21090a.h0(this.f21098i);
+            this.f21102a.setWriteData(writeData);
+            if (writeData != null && writeData.isWork() && this.f21104c == null) {
+                this.f21102a.h0(this.f21110i);
             } else {
-                this.f21090a.h0(this);
+                this.f21102a.h0(this);
             }
         }
     }
@@ -237,9 +237,9 @@ public class g implements NewWriteModel.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             h.a("AsyncWriteHelper.startPostWrite()");
-            this.f21090a.Y();
-            boolean j0 = this.f21090a.j0();
-            this.f21091b = j0;
+            this.f21102a.Y();
+            boolean j0 = this.f21102a.j0();
+            this.f21103b = j0;
             return j0;
         }
         return invokeV.booleanValue;
@@ -272,18 +272,18 @@ public class g implements NewWriteModel.g {
             l1.h(writeData, 100).f(false);
             i.l(postWriteCallBackData, k0Var, writeData, antiData);
         }
-        NewWriteModel newWriteModel = this.f21090a;
+        NewWriteModel newWriteModel = this.f21102a;
         if (newWriteModel != null) {
             newWriteModel.setWriteData(null);
         }
-        this.f21091b = false;
+        this.f21103b = false;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             h.a("AsyncWriteHelper.cancelLoadData()");
-            this.f21090a.cancelLoadData();
+            this.f21102a.cancelLoadData();
         }
     }
 
@@ -291,8 +291,8 @@ public class g implements NewWriteModel.g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            h.a("AsyncWriteHelper.checkImageNum = " + this.f21090a.U());
-            return this.f21090a.U();
+            h.a("AsyncWriteHelper.checkImageNum = " + this.f21102a.U());
+            return this.f21102a.U();
         }
         return invokeV.booleanValue;
     }
@@ -305,53 +305,53 @@ public class g implements NewWriteModel.g {
         }
         if (n.getType() != 0 && n.getType() != 9 && n.getType() != 11) {
             if (n.getType() == 1) {
-                y.s(n.getThreadId(), null);
+                z.s(n.getThreadId(), null);
             }
         } else if (n.isEvaluate()) {
-            y.o(n.getItem_id(), null);
+            z.o(n.getItem_id(), null);
         } else if (TextUtils.isEmpty(n.getTopicId())) {
-            y.q(n.getForumId(), n, true);
+            z.q(n.getForumId(), n, true);
         } else {
-            y.u(n.getTopicId(), null);
+            z.u(n.getTopicId(), null);
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            FileHelper.deleteFileOrDir(new File(c.a.r0.x3.c.f28885f));
-            y.r("");
+            FileHelper.deleteFileOrDir(new File(c.a.r0.x3.c.f28905f));
+            z.r("");
         }
     }
 
     public BdUniqueId h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f21092c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f21104c : (BdUniqueId) invokeV.objValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f21095f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f21107f : (String) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f21096g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f21108g : (String) invokeV.objValue;
     }
 
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f21097h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f21109h : (String) invokeV.objValue;
     }
 
     public String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f21094e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f21106e : (String) invokeV.objValue;
     }
 
     public WriteData n() {
@@ -360,9 +360,9 @@ public class g implements NewWriteModel.g {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("AsyncWriteHelper.getWriteData = ");
-            sb.append(this.f21090a.X() == null ? StringUtil.NULL_STRING : this.f21090a.X().toDraftString());
+            sb.append(this.f21102a.X() == null ? StringUtil.NULL_STRING : this.f21102a.X().toDraftString());
             h.a(sb.toString());
-            return this.f21090a.X();
+            return this.f21102a.X();
         }
         return (WriteData) invokeV.objValue;
     }
@@ -371,41 +371,41 @@ public class g implements NewWriteModel.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, tbPageContextSupport) == null) {
             h.a("AsyncWriteHelper.initWriteStatus()");
-            this.f21090a.i0(tbPageContextSupport.getPageContext());
-            this.f21090a.setWriteData(null);
-            this.f21090a.d0(false);
+            this.f21102a.i0(tbPageContextSupport.getPageContext());
+            this.f21102a.setWriteData(null);
+            this.f21102a.d0(false);
         }
     }
 
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f21091b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f21103b : invokeV.booleanValue;
     }
 
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f21093d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f21105d : invokeV.booleanValue;
     }
 
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             h.a("AsyncWriteHelper.onWriteActClose()");
-            this.f21090a.i0(null);
-            this.f21090a.setSpanGroupManager(null);
+            this.f21102a.i0(null);
+            this.f21102a.setSpanGroupManager(null);
         }
     }
 
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            NewWriteModel newWriteModel = this.f21090a;
+            NewWriteModel newWriteModel = this.f21102a;
             if (newWriteModel != null) {
                 newWriteModel.setWriteData(null);
             }
-            this.f21091b = false;
+            this.f21103b = false;
         }
     }
 
@@ -419,14 +419,14 @@ public class g implements NewWriteModel.g {
     public void u(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, bdUniqueId) == null) {
-            this.f21092c = bdUniqueId;
+            this.f21104c = bdUniqueId;
         }
     }
 
     public void v(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.f21093d = z;
+            this.f21105d = z;
         }
     }
 
@@ -434,28 +434,28 @@ public class g implements NewWriteModel.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
             h.a("AsyncWriteHelper.setHasImage = " + z);
-            this.f21090a.d0(z);
+            this.f21102a.d0(z);
         }
     }
 
     public void x(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            this.f21095f = str;
+            this.f21107f = str;
         }
     }
 
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.f21096g = str;
+            this.f21108g = str;
         }
     }
 
     public void z(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.f21097h = str;
+            this.f21109h = str;
         }
     }
 
@@ -472,11 +472,11 @@ public class g implements NewWriteModel.g {
                 return;
             }
         }
-        this.f21091b = false;
-        this.f21092c = null;
-        this.f21098i = new a(this);
+        this.f21103b = false;
+        this.f21104c = null;
+        this.f21110i = new a(this);
         NewWriteModel newWriteModel = new NewWriteModel();
-        this.f21090a = newWriteModel;
+        this.f21102a = newWriteModel;
         newWriteModel.h0(this);
     }
 }

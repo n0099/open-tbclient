@@ -15,34 +15,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f21049a;
+    public long f21061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f21050b;
+    public long f21062b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f21051c;
+    public int f21063c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21052d;
+    public String f21064d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21053e;
+    public String f21065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f21054f;
+    public long f21066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f21055g;
+    public float f21067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21056h;
+    public String f21068h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f21057i;
+    public long f21069i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f21058j;
+    public int f21070j;
     public int k;
     public boolean l;
     public boolean m;
@@ -72,7 +72,7 @@ public class a {
         }
         long currentTimeMillis = System.currentTimeMillis();
         imageFileInfo.startUploadTime = currentTimeMillis;
-        this.f21049a = currentTimeMillis;
+        this.f21061a = currentTimeMillis;
     }
 
     public JSONObject a() throws JSONException {
@@ -80,15 +80,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("startTime", this.f21049a);
-            jSONObject.put("endTime", this.f21050b);
-            jSONObject.put("uploadRate", this.f21055g);
-            jSONObject.put("errorCode", this.f21051c);
-            jSONObject.put("errorMessage", this.f21052d);
-            jSONObject.put("picId", this.f21053e);
-            jSONObject.put("originPath", this.f21056h);
-            jSONObject.put("originSize", this.f21057i);
-            jSONObject.put("originWidth", this.f21058j);
+            jSONObject.put("startTime", this.f21061a);
+            jSONObject.put("endTime", this.f21062b);
+            jSONObject.put("uploadRate", this.f21067g);
+            jSONObject.put("errorCode", this.f21063c);
+            jSONObject.put("errorMessage", this.f21064d);
+            jSONObject.put("picId", this.f21065e);
+            jSONObject.put("originPath", this.f21068h);
+            jSONObject.put("originSize", this.f21069i);
+            jSONObject.put("originWidth", this.f21070j);
             jSONObject.put("originHeight", this.k);
             jSONObject.put("isLongImage", this.l);
             jSONObject.put("isHeifImage", this.m);
@@ -120,7 +120,7 @@ public class a {
                 return;
             }
         }
-        this.f21049a = System.currentTimeMillis();
-        this.f21056h = str;
+        this.f21061a = System.currentTimeMillis();
+        this.f21068h = str;
     }
 }

@@ -26,13 +26,13 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f54682e;
+    public f f54797e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SingleThreadEmotionModel f54683f;
+    public SingleThreadEmotionModel f54798f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f54684g;
+    public CustomMessageListener f54799g;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -40,7 +40,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SingleThreadEmotionFragment f54685a;
+        public final /* synthetic */ SingleThreadEmotionFragment f54800a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SingleThreadEmotionFragment singleThreadEmotionFragment, int i2) {
@@ -60,17 +60,17 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
                     return;
                 }
             }
-            this.f54685a = singleThreadEmotionFragment;
+            this.f54800a = singleThreadEmotionFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f54685a.f54683f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f54800a.f54798f == null) {
                 return;
             }
-            this.f54685a.f54683f.C();
+            this.f54800a.f54798f.C();
         }
     }
 
@@ -80,10 +80,10 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f54686e;
+        public final /* synthetic */ List f54801e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SingleThreadEmotionFragment f54687f;
+        public final /* synthetic */ SingleThreadEmotionFragment f54802f;
 
         public b(SingleThreadEmotionFragment singleThreadEmotionFragment, List list) {
             Interceptable interceptable = $ic;
@@ -100,18 +100,18 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
                     return;
                 }
             }
-            this.f54687f = singleThreadEmotionFragment;
-            this.f54686e = list;
+            this.f54802f = singleThreadEmotionFragment;
+            this.f54801e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54687f.f54682e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54802f.f54797e == null) {
                 return;
             }
-            this.f54687f.f54682e.i(this.f54686e);
-            this.f54687f.h();
+            this.f54802f.f54797e.i(this.f54801e);
+            this.f54802f.h();
         }
     }
 
@@ -121,7 +121,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SingleThreadEmotionFragment f54688e;
+        public final /* synthetic */ SingleThreadEmotionFragment f54803e;
 
         public c(SingleThreadEmotionFragment singleThreadEmotionFragment) {
             Interceptable interceptable = $ic;
@@ -138,16 +138,16 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
                     return;
                 }
             }
-            this.f54688e = singleThreadEmotionFragment;
+            this.f54803e = singleThreadEmotionFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54688e.f54682e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54803e.f54797e == null) {
                 return;
             }
-            this.f54688e.f54682e.h();
+            this.f54803e.f54797e.h();
         }
     }
 
@@ -164,13 +164,13 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
                 return;
             }
         }
-        this.f54684g = new a(this, 2921314);
+        this.f54799g = new a(this, 2921314);
     }
 
     public final void g() {
         SingleThreadEmotionModel singleThreadEmotionModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (singleThreadEmotionModel = this.f54683f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (singleThreadEmotionModel = this.f54798f) == null) {
             return;
         }
         singleThreadEmotionModel.C();
@@ -179,7 +179,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
     public final void h() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (fVar = this.f54682e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (fVar = this.f54797e) == null) {
             return;
         }
         fVar.b();
@@ -190,7 +190,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            f fVar = this.f54682e;
+            f fVar = this.f54797e;
             if (fVar != null) {
                 fVar.d(i2);
             }
@@ -202,13 +202,13 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.f54682e = new f(getPageContext());
+            this.f54797e = new f(getPageContext());
             SingleThreadEmotionModel singleThreadEmotionModel = new SingleThreadEmotionModel();
-            this.f54683f = singleThreadEmotionModel;
+            this.f54798f = singleThreadEmotionModel;
             singleThreadEmotionModel.F(this);
-            registerListener(this.f54684g);
+            registerListener(this.f54799g);
             g();
-            return this.f54682e.a();
+            return this.f54797e.a();
         }
         return (View) invokeLLL.objValue;
     }
@@ -218,10 +218,10 @@ public class SingleThreadEmotionFragment extends BaseFragment implements c.a.r0.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            if (this.f54684g != null) {
-                MessageManager.getInstance().unRegisterListener(this.f54684g);
+            if (this.f54799g != null) {
+                MessageManager.getInstance().unRegisterListener(this.f54799g);
             }
-            SingleThreadEmotionModel singleThreadEmotionModel = this.f54683f;
+            SingleThreadEmotionModel singleThreadEmotionModel = this.f54798f;
             if (singleThreadEmotionModel != null) {
                 singleThreadEmotionModel.D();
             }

@@ -43,54 +43,53 @@ public class e extends c.a.e.a.d<MoreActivity> {
     public View A;
     public View B;
     public View C;
-    public View D;
-    public RelativeLayout E;
-    public BdSwitchView F;
-    public RelativeLayout G;
-    public BdSwitchView H;
+    public RelativeLayout D;
+    public BdSwitchView E;
+    public RelativeLayout F;
+    public BdSwitchView G;
 
     /* renamed from: a  reason: collision with root package name */
-    public MoreActivity f16048a;
+    public MoreActivity f16058a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f16049b;
+    public d f16059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f16050c;
+    public NavigationBar f16060c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PopupDialog f16051d;
+    public PopupDialog f16061d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.s.s.i f16052e;
+    public c.a.q0.s.s.i f16062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f16053f;
+    public TextView f16063f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16054g;
+    public TextView f16064g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16055h;
+    public TextView f16065h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SettingTextNormalImageView f16056i;
+    public SettingTextNormalImageView f16066i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SettingTextImageView f16057j;
+    public SettingTextImageView f16067j;
     public TbSettingTextTipView k;
     public TbSettingTextTipView l;
     public TbSettingTextTipView m;
     public TbSettingTextTipView n;
     public TbSettingTextTipView o;
     public TbSettingTextTipView p;
-    public TbSettingTextTipView q;
-    public SettingTextVersionView r;
+    public SettingTextVersionView q;
+    public TbSettingTextTipView r;
     public TbSettingTextTipView s;
-    public TbSettingTextTipView t;
-    public TbSettingTextNewDotView u;
-    public TextView v;
-    public RelativeLayout w;
+    public TbSettingTextNewDotView t;
+    public TextView u;
+    public RelativeLayout v;
+    public View w;
     public View x;
     public View y;
     public View z;
@@ -101,10 +100,10 @@ public class e extends c.a.e.a.d<MoreActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.f f16058e;
+        public final /* synthetic */ c.a.q0.s.s.f f16068e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f16059f;
+        public final /* synthetic */ e f16069f;
 
         public a(e eVar, c.a.q0.s.s.f fVar) {
             Interceptable interceptable = $ic;
@@ -121,16 +120,16 @@ public class e extends c.a.e.a.d<MoreActivity> {
                     return;
                 }
             }
-            this.f16059f = eVar;
-            this.f16058e = fVar;
+            this.f16069f = eVar;
+            this.f16068e = fVar;
         }
 
         @Override // c.a.q0.s.s.i.e
         public void onItemClick(c.a.q0.s.s.i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) && i2 == this.f16058e.e()) {
-                this.f16059f.u();
-                this.f16059f.f16049b.a(12);
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) && i2 == this.f16068e.e()) {
+                this.f16069f.t();
+                this.f16069f.f16059b.a(12);
             }
         }
     }
@@ -141,7 +140,7 @@ public class e extends c.a.e.a.d<MoreActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f16060a;
+        public final /* synthetic */ e f16070a;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -158,14 +157,14 @@ public class e extends c.a.e.a.d<MoreActivity> {
                     return;
                 }
             }
-            this.f16060a = eVar;
+            this.f16070a = eVar;
         }
 
         @Override // c.a.q0.s.s.i.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f16060a.u();
+                this.f16070a.t();
             }
         }
     }
@@ -176,7 +175,7 @@ public class e extends c.a.e.a.d<MoreActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f16061e;
+        public final /* synthetic */ e f16071e;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -193,43 +192,41 @@ public class e extends c.a.e.a.d<MoreActivity> {
                     return;
                 }
             }
-            this.f16061e = eVar;
+            this.f16071e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f16061e.y) {
-                    this.f16061e.f16049b.a(0);
-                } else if (view == this.f16061e.f16057j) {
-                    this.f16061e.f16049b.a(1);
-                } else if (view == this.f16061e.k) {
-                    this.f16061e.f16049b.a(15);
-                } else if (view == this.f16061e.l) {
-                    this.f16061e.f16049b.a(2);
-                } else if (view == this.f16061e.m) {
-                    this.f16061e.f16049b.a(3);
-                } else if (view == this.f16061e.n) {
-                    this.f16061e.f16049b.a(17);
-                } else if (view == this.f16061e.p) {
-                    this.f16061e.f16049b.a(4);
-                } else if (view == this.f16061e.q) {
-                    this.f16061e.f16049b.a(9);
-                } else if (view == this.f16061e.r) {
-                    this.f16061e.f16049b.a(6);
-                } else if (view == this.f16061e.s) {
-                    this.f16061e.f16049b.a(7);
-                } else if (view == this.f16061e.t) {
-                    this.f16061e.f16049b.a(8);
-                } else if (view == this.f16061e.u) {
-                    this.f16061e.f16049b.a(5);
-                } else if (view == this.f16061e.v) {
-                    this.f16061e.f16049b.a(10);
-                } else if (view == this.f16061e.f16056i) {
-                    this.f16061e.f16049b.a(13);
-                } else if (view == this.f16061e.o) {
-                    this.f16061e.f16049b.a(16);
+                if (view == this.f16071e.x) {
+                    this.f16071e.f16059b.a(0);
+                } else if (view == this.f16071e.f16067j) {
+                    this.f16071e.f16059b.a(1);
+                } else if (view == this.f16071e.k) {
+                    this.f16071e.f16059b.a(15);
+                } else if (view == this.f16071e.l) {
+                    this.f16071e.f16059b.a(2);
+                } else if (view == this.f16071e.m) {
+                    this.f16071e.f16059b.a(3);
+                } else if (view == this.f16071e.o) {
+                    this.f16071e.f16059b.a(4);
+                } else if (view == this.f16071e.p) {
+                    this.f16071e.f16059b.a(9);
+                } else if (view == this.f16071e.q) {
+                    this.f16071e.f16059b.a(6);
+                } else if (view == this.f16071e.r) {
+                    this.f16071e.f16059b.a(7);
+                } else if (view == this.f16071e.s) {
+                    this.f16071e.f16059b.a(8);
+                } else if (view == this.f16071e.t) {
+                    this.f16071e.f16059b.a(5);
+                } else if (view == this.f16071e.u) {
+                    this.f16071e.f16059b.a(10);
+                } else if (view == this.f16071e.f16066i) {
+                    this.f16071e.f16059b.a(13);
+                } else if (view == this.f16071e.n) {
+                    this.f16071e.f16059b.a(16);
                 }
             }
         }
@@ -253,6 +250,7 @@ public class e extends c.a.e.a.d<MoreActivity> {
                 return;
             }
         }
+        this.y = null;
         this.z = null;
         this.A = null;
         this.B = null;
@@ -261,101 +259,36 @@ public class e extends c.a.e.a.d<MoreActivity> {
         this.E = null;
         this.F = null;
         this.G = null;
-        this.H = null;
-        this.f16048a = moreActivity;
-        this.f16049b = dVar;
+        this.f16058a = moreActivity;
+        this.f16059b = dVar;
         moreActivity.setContentView(R.layout.more_activity);
-        A();
-        Q();
+        z();
+        P();
     }
 
-    public final void A() {
+    public void A(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View.OnClickListener x = x();
-            this.w = (RelativeLayout) this.f16048a.findViewById(R.id.parent);
-            this.x = this.f16048a.findViewById(R.id.scroll);
-            this.f16048a.findViewById(R.id.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            NavigationBar navigationBar = (NavigationBar) this.f16048a.findViewById(R.id.view_navigation_bar);
-            this.f16050c = navigationBar;
-            this.y = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f16050c.setCenterTextTitle(this.f16048a.getPageContext().getString(R.string.setup));
-            this.f16050c.showBottomLine();
-            this.f16056i = (SettingTextNormalImageView) this.f16048a.findViewById(R.id.accountSafeSetting);
-            this.f16057j = (SettingTextImageView) this.f16048a.findViewById(R.id.personInfo);
-            this.k = (TbSettingTextTipView) this.f16048a.findViewById(R.id.interest_label_setting);
-            this.l = (TbSettingTextTipView) this.f16048a.findViewById(R.id.accountManager);
-            this.m = (TbSettingTextTipView) this.f16048a.findViewById(R.id.browseSetting);
-            this.n = (TbSettingTextTipView) this.f16048a.findViewById(R.id.youngsterSetting);
-            if (c.a.q0.g1.b.e.d()) {
-                this.n.setTip(this.f16048a.getString(R.string.youngster_settings_tip_open));
-            } else {
-                this.n.setTip(this.f16048a.getString(R.string.youngster_settings_tip_close));
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            if (str != null && str.length() > 0) {
+                this.f16067j.displayImage();
+                this.f16067j.setIcon(str, z);
+                return;
             }
-            this.o = (TbSettingTextTipView) this.f16048a.findViewById(R.id.adSetting);
-            this.p = (TbSettingTextTipView) this.f16048a.findViewById(R.id.messageSetting);
-            this.q = (TbSettingTextTipView) this.f16048a.findViewById(R.id.secretSetting);
-            this.r = (SettingTextVersionView) this.f16048a.findViewById(R.id.versionInfo);
-            this.s = (TbSettingTextTipView) this.f16048a.findViewById(R.id.feedBack);
-            this.t = (TbSettingTextTipView) this.f16048a.findViewById(R.id.recommend);
-            if (!TbadkCoreApplication.getInst().getIsAppOn()) {
-                this.t.setVisibility(8);
-            } else {
-                this.t.setVisibility(0);
-            }
-            this.u = (TbSettingTextNewDotView) this.f16048a.findViewById(R.id.systemhelpsetting);
-            this.v = (TextView) this.f16048a.findViewById(R.id.quit);
-            this.E = (RelativeLayout) this.f16048a.findViewById(R.id.eyeshield_mode);
-            this.F = (BdSwitchView) this.f16048a.findViewById(R.id.item_switch);
-            l.c(this.f16048a.getPageContext().getPageActivity(), this.F, 10, 10, 10, 10);
-            this.G = (RelativeLayout) this.f16048a.findViewById(R.id.follow_system_day_night_mode);
-            this.f16053f = (TextView) this.f16048a.findViewById(R.id.follow_system_item_name);
-            this.f16054g = (TextView) this.f16048a.findViewById(R.id.item_name);
-            this.f16055h = (TextView) this.f16048a.findViewById(R.id.follow_system_item_tip);
-            this.H = (BdSwitchView) this.f16048a.findViewById(R.id.follow_system_item_switch);
-            l.c(this.f16048a.getPageContext().getPageActivity(), this.H, 10, 10, 10, 10);
-            this.z = this.f16048a.findViewById(R.id.divide_view2);
-            this.A = this.f16048a.findViewById(R.id.divide_view1);
-            this.B = this.f16048a.findViewById(R.id.divide_view3);
-            this.C = this.f16048a.findViewById(R.id.divide_view4);
-            this.D = this.f16048a.findViewById(R.id.divide_view5);
-            K();
-            P();
-            this.f16057j.hideImage();
-            O(TbadkCoreApplication.getInst().getSkinType());
-            this.A.setVisibility(0);
-            this.B.setVisibility(0);
-            this.C.setVisibility(0);
-            this.D.setVisibility(0);
-            z(x);
-            if (!t()) {
-                this.m.setTip(this.f16048a.getResources().getString(R.string.browsing_settings_tip_no_night));
-                this.z.setVisibility(8);
-                this.E.setVisibility(8);
-            } else {
-                this.z.setVisibility(0);
-                this.E.setVisibility(0);
-            }
-            this.G.setVisibility(v() ? 0 : 8);
-            if (c.a.q0.s.d0.b.j().g("key_is_follow_system_mode", false)) {
-                this.H.turnOnNoCallback();
-            } else {
-                this.H.turnOffNoCallback();
+            SettingTextImageView settingTextImageView = this.f16067j;
+            if (settingTextImageView != null) {
+                settingTextImageView.hideImage();
             }
         }
     }
 
-    public void B(String str, boolean z) {
+    public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            if (str != null && str.length() > 0) {
-                this.f16057j.displayImage();
-                this.f16057j.setIcon(str, z);
-                return;
-            }
-            SettingTextImageView settingTextImageView = this.f16057j;
-            if (settingTextImageView != null) {
-                settingTextImageView.hideImage();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            boolean areNotificationsEnabled = NotificationManagerCompat.from(this.f16058a).areNotificationsEnabled();
+            TbSettingTextTipView tbSettingTextTipView = this.o;
+            if (tbSettingTextTipView != null) {
+                tbSettingTextTipView.setTipViewColor(R.color.CAM_X0105);
+                this.o.setTip(areNotificationsEnabled ? "" : this.f16058a.getString(R.string.may_lose_important_msg));
             }
         }
     }
@@ -363,48 +296,35 @@ public class e extends c.a.e.a.d<MoreActivity> {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            boolean areNotificationsEnabled = NotificationManagerCompat.from(this.f16048a).areNotificationsEnabled();
-            TbSettingTextTipView tbSettingTextTipView = this.p;
-            if (tbSettingTextTipView != null) {
-                tbSettingTextTipView.setTipViewColor(R.color.CAM_X0105);
-                this.p.setTip(areNotificationsEnabled ? "" : this.f16048a.getString(R.string.may_lose_important_msg));
-            }
+            this.f16067j.recycle();
+            this.k.recycle();
+            this.l.recycle();
+            this.m.recycle();
+            this.o.recycle();
+            this.p.recycle();
+            this.q.recycle();
+            this.r.recycle();
+            this.s.recycle();
         }
     }
 
     public void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f16057j.recycle();
-            this.k.recycle();
-            this.l.recycle();
-            this.m.recycle();
-            this.n.recycle();
-            this.p.recycle();
-            this.q.recycle();
-            this.r.recycle();
-            this.s.recycle();
-            this.t.recycle();
-        }
-    }
-
-    public void K() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SettingTextVersionView settingTextVersionView = this.r;
+            SettingTextVersionView settingTextVersionView = this.q;
             if (settingTextVersionView != null) {
                 settingTextVersionView.refresh();
             }
-            TbSettingTextNewDotView tbSettingTextNewDotView = this.u;
+            TbSettingTextNewDotView tbSettingTextNewDotView = this.t;
             if (tbSettingTextNewDotView != null) {
                 tbSettingTextNewDotView.refresh();
             }
         }
     }
 
-    public void L(int i2) {
+    public void K(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || TbadkCoreApplication.getInst().getSkinType() == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || TbadkCoreApplication.getInst().getSkinType() == i2) {
             return;
         }
         if (i2 == 1) {
@@ -420,35 +340,35 @@ public class e extends c.a.e.a.d<MoreActivity> {
         BitmapHelper.clearCashBitmap();
     }
 
-    public void N() {
+    public void L() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f16051d == null) {
-                s();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.f16061d == null) {
+                r();
             }
-            this.f16051d.showDialog();
+            this.f16061d.showDialog();
         }
     }
 
-    public void O(int i2) {
+    public void N(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            SkinManager.setBackgroundColor(this.v, R.color.CAM_X0201);
+            this.f16060c.onChangeSkinType(getPageContext(), i2);
+            this.f16058a.getLayoutMode().k(i2 == 1);
+            this.f16058a.getLayoutMode().j(this.v);
+            this.f16060c.onChangeSkinType(getPageContext(), i2);
+            J();
+            this.E.setBackgroundRes(SkinManager.getBitmap(R.drawable.bg_switch_open), SkinManager.getBitmap(R.drawable.bg_switch_close), SkinManager.getBitmap(R.drawable.btn_handle));
+            this.G.setBackgroundRes(SkinManager.getBitmap(R.drawable.bg_switch_open), SkinManager.getBitmap(R.drawable.bg_switch_close), SkinManager.getBitmap(R.drawable.btn_handle));
             SkinManager.setBackgroundColor(this.w, R.color.CAM_X0201);
-            this.f16050c.onChangeSkinType(getPageContext(), i2);
-            this.f16048a.getLayoutMode().k(i2 == 1);
-            this.f16048a.getLayoutMode().j(this.w);
-            this.f16050c.onChangeSkinType(getPageContext(), i2);
-            K();
-            this.F.setBackgroundRes(SkinManager.getBitmap(R.drawable.bg_switch_open), SkinManager.getBitmap(R.drawable.bg_switch_close), SkinManager.getBitmap(R.drawable.btn_handle));
-            this.H.setBackgroundRes(SkinManager.getBitmap(R.drawable.bg_switch_open), SkinManager.getBitmap(R.drawable.bg_switch_close), SkinManager.getBitmap(R.drawable.btn_handle));
-            SkinManager.setBackgroundColor(this.x, R.color.CAM_X0201);
-            this.f16056i.setLocalIcon(SkinManager.getResourceId(R.drawable.icon_mine_list_baidu));
-            c.a.q0.s.s.i iVar = this.f16052e;
+            this.f16066i.setLocalIcon(SkinManager.getResourceId(R.drawable.icon_mine_list_baidu));
+            c.a.q0.s.s.i iVar = this.f16062e;
             if (iVar != null) {
                 iVar.j();
             }
-            this.f16056i.switchSkinType(i2);
-            this.f16057j.switchSkinType(i2);
+            this.f16066i.switchSkinType(i2);
+            this.f16067j.switchSkinType(i2);
             this.k.onChangeSkinType(i2);
             this.l.onChangeSkinType(i2);
             this.m.onChangeSkinType(i2);
@@ -459,103 +379,102 @@ public class e extends c.a.e.a.d<MoreActivity> {
             this.r.onChangeSkinType(i2);
             this.s.onChangeSkinType(i2);
             this.t.onChangeSkinType(i2);
-            this.u.onChangeSkinType(i2);
+        }
+    }
+
+    public void O() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
+                this.f16067j.setVisibility(0);
+            } else {
+                this.f16067j.setVisibility(8);
+            }
         }
     }
 
     public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                this.f16057j.setVisibility(0);
-            } else {
-                this.f16057j.setVisibility(8);
-            }
-        }
-    }
-
-    public void Q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.F.turnOn();
+                this.E.turnOn();
             } else {
-                this.F.turnOff();
+                this.E.turnOff();
             }
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            O(i2);
-            if (this.f16052e != null) {
-                this.f16048a.getLayoutMode().k(i2 == 1);
-                this.f16048a.getLayoutMode().j(this.f16052e.g());
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            N(i2);
+            if (this.f16062e != null) {
+                this.f16058a.getLayoutMode().k(i2 == 1);
+                this.f16058a.getLayoutMode().j(this.f16062e.g());
             }
             if (i2 == 1) {
-                this.F.turnOnNoCallback();
+                this.E.turnOnNoCallback();
             } else {
-                this.F.turnOffNoCallback();
+                this.E.turnOffNoCallback();
             }
-            c.a.q0.s.u.c.d(this.f16053f).w(R.color.CAM_X0105);
-            c.a.q0.s.u.c.d(this.f16054g).w(R.color.CAM_X0105);
-            c.a.q0.s.u.c.d(this.f16055h).w(R.color.CAM_X0109);
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.v);
+            c.a.q0.s.u.c.d(this.f16063f).w(R.color.CAM_X0105);
+            c.a.q0.s.u.c.d(this.f16064g).w(R.color.CAM_X0105);
+            c.a.q0.s.u.c.d(this.f16065h).w(R.color.CAM_X0109);
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.u);
             d2.w(R.color.CAM_X0301);
             d2.f(R.color.CAM_X0205);
         }
     }
 
-    public final void s() {
+    public final void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             c.a.q0.s.s.i iVar = new c.a.q0.s.s.i(getPageContext().getPageActivity());
-            this.f16052e = iVar;
+            this.f16062e = iVar;
             iVar.q(getPageContext().getString(R.string.quit_account_tip));
             ArrayList arrayList = new ArrayList();
-            c.a.q0.s.s.f fVar = new c.a.q0.s.s.f(getPageContext().getString(R.string.quite_current_account), this.f16052e);
+            c.a.q0.s.s.f fVar = new c.a.q0.s.s.f(getPageContext().getString(R.string.quite_current_account), this.f16062e);
             fVar.o(R.color.CAM_X0301);
             arrayList.add(fVar);
-            this.f16048a.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f16048a.getLayoutMode().j(this.f16052e.g());
+            this.f16058a.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.f16058a.getLayoutMode().j(this.f16062e.g());
             a aVar = new a(this, fVar);
             b bVar = new b(this);
-            this.f16052e.k(arrayList);
-            this.f16052e.n(aVar);
-            this.f16052e.m(bVar);
+            this.f16062e.k(arrayList);
+            this.f16062e.n(aVar);
+            this.f16062e.m(bVar);
             PopupDialog popupDialog = new PopupDialog(this.mContext);
-            this.f16051d = popupDialog;
+            this.f16061d = popupDialog;
             popupDialog.setCanceledOnTouchOutside(true);
-            this.f16051d.setContentView(this.f16052e);
+            this.f16061d.setContentView(this.f16062e);
         }
     }
 
-    public final boolean t() {
+    public final boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001281, String.class);
             return (runTask == null || StringUtils.isNull((String) runTask.getData())) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
-    public void u() {
+    public void t() {
         PopupDialog popupDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (popupDialog = this.f16051d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (popupDialog = this.f16061d) == null) {
             return;
         }
         popupDialog.dismiss();
     }
 
-    public final boolean v() {
+    public final boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (t()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (s()) {
                 if (Build.VERSION.SDK_INT >= 29) {
                     return true;
                 }
@@ -566,30 +485,30 @@ public class e extends c.a.e.a.d<MoreActivity> {
         return invokeV.booleanValue;
     }
 
-    public BdSwitchView w() {
+    public BdSwitchView v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.F : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.E : (BdSwitchView) invokeV.objValue;
     }
 
-    public final View.OnClickListener x() {
+    public final View.OnClickListener w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? new c(this) : (View.OnClickListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? new c(this) : (View.OnClickListener) invokeV.objValue;
     }
 
-    public BdSwitchView y() {
+    public BdSwitchView x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.H : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.G : (BdSwitchView) invokeV.objValue;
     }
 
-    public final void z(View.OnClickListener onClickListener) {
+    public final void y(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onClickListener) == null) {
-            this.f16056i.setOnClickListener(onClickListener);
-            this.y.setOnClickListener(onClickListener);
-            this.f16057j.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
+            this.f16066i.setOnClickListener(onClickListener);
+            this.x.setOnClickListener(onClickListener);
+            this.f16067j.setOnClickListener(onClickListener);
             this.k.setOnClickListener(onClickListener);
             this.l.setOnClickListener(onClickListener);
             this.m.setOnClickListener(onClickListener);
@@ -601,9 +520,78 @@ public class e extends c.a.e.a.d<MoreActivity> {
             this.s.setOnClickListener(onClickListener);
             this.t.setOnClickListener(onClickListener);
             this.u.setOnClickListener(onClickListener);
-            this.v.setOnClickListener(onClickListener);
-            this.F.setOnSwitchStateChangeListener(this.f16048a);
-            this.H.setOnSwitchStateChangeListener(this.f16048a);
+            this.E.setOnSwitchStateChangeListener(this.f16058a);
+            this.G.setOnSwitchStateChangeListener(this.f16058a);
+        }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            View.OnClickListener w = w();
+            this.v = (RelativeLayout) this.f16058a.findViewById(R.id.parent);
+            this.w = this.f16058a.findViewById(R.id.scroll);
+            this.f16058a.findViewById(R.id.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            NavigationBar navigationBar = (NavigationBar) this.f16058a.findViewById(R.id.view_navigation_bar);
+            this.f16060c = navigationBar;
+            this.x = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.f16060c.setCenterTextTitle(this.f16058a.getPageContext().getString(R.string.setup));
+            this.f16060c.showBottomLine();
+            this.f16066i = (SettingTextNormalImageView) this.f16058a.findViewById(R.id.accountSafeSetting);
+            this.f16067j = (SettingTextImageView) this.f16058a.findViewById(R.id.personInfo);
+            this.k = (TbSettingTextTipView) this.f16058a.findViewById(R.id.interest_label_setting);
+            this.l = (TbSettingTextTipView) this.f16058a.findViewById(R.id.accountManager);
+            this.m = (TbSettingTextTipView) this.f16058a.findViewById(R.id.browseSetting);
+            this.n = (TbSettingTextTipView) this.f16058a.findViewById(R.id.adSetting);
+            this.o = (TbSettingTextTipView) this.f16058a.findViewById(R.id.messageSetting);
+            this.p = (TbSettingTextTipView) this.f16058a.findViewById(R.id.secretSetting);
+            this.q = (SettingTextVersionView) this.f16058a.findViewById(R.id.versionInfo);
+            this.r = (TbSettingTextTipView) this.f16058a.findViewById(R.id.feedBack);
+            this.s = (TbSettingTextTipView) this.f16058a.findViewById(R.id.recommend);
+            if (!TbadkCoreApplication.getInst().getIsAppOn()) {
+                this.s.setVisibility(8);
+            } else {
+                this.s.setVisibility(0);
+            }
+            this.t = (TbSettingTextNewDotView) this.f16058a.findViewById(R.id.systemhelpsetting);
+            this.u = (TextView) this.f16058a.findViewById(R.id.quit);
+            this.D = (RelativeLayout) this.f16058a.findViewById(R.id.eyeshield_mode);
+            this.E = (BdSwitchView) this.f16058a.findViewById(R.id.item_switch);
+            l.c(this.f16058a.getPageContext().getPageActivity(), this.E, 10, 10, 10, 10);
+            this.F = (RelativeLayout) this.f16058a.findViewById(R.id.follow_system_day_night_mode);
+            this.f16063f = (TextView) this.f16058a.findViewById(R.id.follow_system_item_name);
+            this.f16064g = (TextView) this.f16058a.findViewById(R.id.item_name);
+            this.f16065h = (TextView) this.f16058a.findViewById(R.id.follow_system_item_tip);
+            this.G = (BdSwitchView) this.f16058a.findViewById(R.id.follow_system_item_switch);
+            l.c(this.f16058a.getPageContext().getPageActivity(), this.G, 10, 10, 10, 10);
+            this.y = this.f16058a.findViewById(R.id.divide_view2);
+            this.z = this.f16058a.findViewById(R.id.divide_view1);
+            this.A = this.f16058a.findViewById(R.id.divide_view3);
+            this.B = this.f16058a.findViewById(R.id.divide_view4);
+            this.C = this.f16058a.findViewById(R.id.divide_view5);
+            J();
+            O();
+            this.f16067j.hideImage();
+            N(TbadkCoreApplication.getInst().getSkinType());
+            this.z.setVisibility(0);
+            this.A.setVisibility(0);
+            this.B.setVisibility(0);
+            this.C.setVisibility(0);
+            y(w);
+            if (!s()) {
+                this.m.setTip(this.f16058a.getResources().getString(R.string.browsing_settings_tip_no_night));
+                this.y.setVisibility(8);
+                this.D.setVisibility(8);
+            } else {
+                this.y.setVisibility(0);
+                this.D.setVisibility(0);
+            }
+            this.F.setVisibility(u() ? 0 : 8);
+            if (c.a.q0.s.d0.b.j().g("key_is_follow_system_mode", false)) {
+                this.G.turnOnNoCallback();
+            } else {
+                this.G.turnOffNoCallback();
+            }
         }
     }
 }

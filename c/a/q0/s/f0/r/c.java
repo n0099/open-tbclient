@@ -21,22 +21,22 @@ public class c extends ReplacementSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13894e;
+    public int f13890e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13895f;
+    public int f13891f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13896g;
+    public int f13892g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13897h;
+    public int f13893h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Drawable f13898i;
+    public Drawable f13894i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Drawable f13899j;
+    public Drawable f13895j;
     public int k;
     public int l;
     public int m;
@@ -62,10 +62,10 @@ public class c extends ReplacementSpan {
                 return;
             }
         }
-        this.f13894e = R.drawable.icon_pure_evaluation_star24_n;
-        this.f13895f = R.color.CAM_X0112;
-        this.f13896g = R.drawable.icon_pure_evaluation_star24_n;
-        this.f13897h = R.color.CAM_X0305;
+        this.f13890e = R.drawable.icon_pure_evaluation_star24_n;
+        this.f13891f = R.color.CAM_X0112;
+        this.f13892g = R.drawable.icon_pure_evaluation_star24_n;
+        this.f13893h = R.color.CAM_X0305;
         this.q = 5;
         this.r = i2;
         this.k = i3;
@@ -78,8 +78,8 @@ public class c extends ReplacementSpan {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f13898i = SvgManager.getInstance().getPureDrawable(this.f13894e, this.f13895f, null);
-            this.f13899j = SvgManager.getInstance().getPureDrawable(this.f13896g, this.f13897h, null);
+            this.f13894i = SvgManager.getInstance().getPureDrawable(this.f13890e, this.f13891f, null);
+            this.f13895j = SvgManager.getInstance().getPureDrawable(this.f13892g, this.f13893h, null);
         }
     }
 
@@ -106,21 +106,21 @@ public class c extends ReplacementSpan {
                 if (i9 >= i7) {
                     break;
                 }
-                Drawable drawable = this.f13899j;
+                Drawable drawable = this.f13895j;
                 if (drawable != null) {
                     int i10 = this.l;
                     drawable.setBounds(i8, max, i8 + i10, i10 + max);
-                    this.f13899j.draw(canvas);
+                    this.f13895j.draw(canvas);
                     i8 += this.k + this.l;
                 }
                 i9++;
             }
             while (i7 < this.q) {
-                Drawable drawable2 = this.f13898i;
+                Drawable drawable2 = this.f13894i;
                 if (drawable2 != null) {
                     int i11 = this.l;
                     drawable2.setBounds(i8, max, i8 + i11, i11 + max);
-                    this.f13898i.draw(canvas);
+                    this.f13894i.draw(canvas);
                     i8 += this.k + this.l;
                 }
                 i7++;

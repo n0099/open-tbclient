@@ -19,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -45,7 +46,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8137a;
+    public static final boolean f8145a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.r.a$a  reason: collision with other inner class name */
@@ -55,7 +56,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f8138a;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f8146a;
 
         public C0355a(c.a.p0.a.v2.e1.b bVar) {
             Interceptable interceptable = $ic;
@@ -72,14 +73,14 @@ public class a {
                     return;
                 }
             }
-            this.f8138a = bVar;
+            this.f8146a = bVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f8138a.onCallback(null);
+                this.f8146a.onCallback(null);
             }
         }
 
@@ -95,7 +96,7 @@ public class a {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                a.i(response, this.f8138a);
+                a.i(response, this.f8146a);
                 return response;
             }
             return invokeLI.objValue;
@@ -108,7 +109,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f8139a;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f8147a;
 
         public b(c.a.p0.a.v2.e1.b bVar) {
             Interceptable interceptable = $ic;
@@ -125,14 +126,14 @@ public class a {
                     return;
                 }
             }
-            this.f8139a = bVar;
+            this.f8147a = bVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f8139a.onCallback(null);
+                this.f8147a.onCallback(null);
             }
         }
 
@@ -148,7 +149,7 @@ public class a {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                a.g(response, this.f8139a);
+                a.g(response, this.f8147a);
                 return response;
             }
             return invokeLI.objValue;
@@ -168,7 +169,7 @@ public class a {
                 return;
             }
         }
-        f8137a = k.f7077a;
+        f8145a = k.f7085a;
     }
 
     @Nullable
@@ -300,12 +301,12 @@ public class a {
                 try {
                     jSONObject = new JSONObject(response.body().string());
                 } catch (IOException e2) {
-                    if (f8137a) {
+                    if (f8145a) {
                         e2.printStackTrace();
                     }
                     bVar.onCallback(null);
                 } catch (JSONException e3) {
-                    if (f8137a) {
+                    if (f8145a) {
                         e3.printStackTrace();
                     }
                     bVar.onCallback(null);
@@ -360,7 +361,7 @@ public class a {
             try {
                 return Integer.parseInt(str);
             } catch (NumberFormatException e2) {
-                if (f8137a) {
+                if (f8145a) {
                     e2.printStackTrace();
                 }
                 return 1001;
@@ -393,7 +394,7 @@ public class a {
                 jSONObject.put("service", "cloud");
                 jSONObject.put("stringMap", jSONObject2);
             } catch (JSONException e2) {
-                if (f8137a) {
+                if (f8145a) {
                     e2.printStackTrace();
                 }
             }
@@ -409,12 +410,12 @@ public class a {
             try {
                 return new JSONObject(response.body() != null ? response.body().string() : null);
             } catch (IOException e2) {
-                if (f8137a) {
+                if (f8145a) {
                     e2.printStackTrace();
                 }
                 return null;
             } catch (JSONException e3) {
-                if (f8137a) {
+                if (f8145a) {
                     e3.printStackTrace();
                 }
                 return null;
@@ -430,7 +431,7 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("errMsg", str3);
-                jSONObject.put("statusCode", 200);
+                jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, 200);
                 if (!TextUtils.isEmpty(str)) {
                     jSONObject.put("fileID", str);
                 }
@@ -438,7 +439,7 @@ public class a {
                     jSONObject.put("tempFilePath", str2);
                 }
             } catch (JSONException e2) {
-                if (f8137a) {
+                if (f8145a) {
                     e2.printStackTrace();
                 }
             }
@@ -457,9 +458,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65552, null, str, requestBody, responseCallback) == null) {
             c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(str, requestBody, responseCallback);
-            aVar.f11845f = true;
-            aVar.f11846g = true;
-            aVar.f11847h = true;
+            aVar.f11853f = true;
+            aVar.f11854g = true;
+            aVar.f11855h = true;
             c.a.p0.m.e.a.g().e(aVar);
         }
     }

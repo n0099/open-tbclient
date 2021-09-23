@@ -17,7 +17,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7901a;
+    public static final boolean f7909a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class b {
                 return;
             }
         }
-        f7901a = k.f7077a;
+        f7909a = k.f7085a;
     }
 
     public static void a() {
@@ -104,7 +104,7 @@ public class b {
             if (i2 == 1) {
                 c.a.p0.a.p0.d.b u = c.a.p0.a.c1.b.i().u();
                 if (u == null) {
-                    boolean z = k.f7077a;
+                    boolean z = k.f7085a;
                 }
                 return u;
             }
@@ -116,7 +116,7 @@ public class b {
     public static void g(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65543, null, i2, i3) == null) {
-            if (f7901a) {
+            if (f7909a) {
                 String str = "onAppUpgrade oldVersion: " + i2 + " ,newVersion: " + i3;
             }
             if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i2 != i3) {

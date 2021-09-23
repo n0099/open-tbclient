@@ -23,7 +23,7 @@ public class a extends c.a.l.a<c.a.r0.w0.b2.g.b> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f26506j;
+    public View f26529j;
     public EMTextView k;
     public ArrayList<f> l;
 
@@ -52,12 +52,12 @@ public class a extends c.a.l.a<c.a.r0.w0.b2.g.b> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f26506j == null) {
-                View inflate = LayoutInflater.from(this.f3782f).inflate(R.layout.card_item_detail_info, (ViewGroup) null, true);
-                this.f26506j = inflate;
+            if (this.f26529j == null) {
+                View inflate = LayoutInflater.from(this.f3783f).inflate(R.layout.card_item_detail_info, (ViewGroup) null, true);
+                this.f26529j = inflate;
                 this.k = (EMTextView) inflate.findViewById(R.id.item_detail_title);
             }
-            return this.f26506j;
+            return this.f26529j;
         }
         return (View) invokeV.objValue;
     }
@@ -73,7 +73,7 @@ public class a extends c.a.l.a<c.a.r0.w0.b2.g.b> {
             ArrayList<f> g2 = bVar.g();
             if (ListUtils.getCount(g2) != ListUtils.getCount(this.l)) {
                 if (ListUtils.getCount(this.l) > 0) {
-                    ((ViewGroup) this.f26506j).removeViews(1, ListUtils.getCount(this.l));
+                    ((ViewGroup) this.f26529j).removeViews(1, ListUtils.getCount(this.l));
                 }
                 z = true;
             } else {
@@ -82,17 +82,17 @@ public class a extends c.a.l.a<c.a.r0.w0.b2.g.b> {
             if (g2 != null) {
                 for (int i2 = 0; i2 < g2.size(); i2++) {
                     if (z) {
-                        childAt = new CardItemDetailListItemLayout(this.f3782f);
-                        ((ViewGroup) this.f26506j).addView(childAt, -1, -2);
+                        childAt = new CardItemDetailListItemLayout(this.f3783f);
+                        ((ViewGroup) this.f26529j).addView(childAt, -1, -2);
                     } else {
-                        childAt = ((ViewGroup) this.f26506j).getChildAt(i2 + 1);
+                        childAt = ((ViewGroup) this.f26529j).getChildAt(i2 + 1);
                     }
                     if (childAt instanceof CardItemDetailListItemLayout) {
                         ((CardItemDetailListItemLayout) childAt).setData(g2.get(i2));
                     }
                 }
             }
-            ViewGroup viewGroup = (ViewGroup) this.f26506j;
+            ViewGroup viewGroup = (ViewGroup) this.f26529j;
             int childCount = viewGroup.getChildCount() - 1;
             while (true) {
                 if (childCount <= 0) {
@@ -112,15 +112,15 @@ public class a extends c.a.l.a<c.a.r0.w0.b2.g.b> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f26506j);
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f26529j);
             d2.o(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
             c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(this.k);
             d3.B(R.string.F_X02);
             d3.w(R.color.CAM_X0105);
-            for (int i3 = 0; i3 < ((ViewGroup) this.f26506j).getChildCount(); i3++) {
-                if (((ViewGroup) this.f26506j).getChildAt(i3) instanceof CardItemDetailListItemLayout) {
-                    ((CardItemDetailListItemLayout) ((ViewGroup) this.f26506j).getChildAt(i3)).onChangeSkinType();
+            for (int i3 = 0; i3 < ((ViewGroup) this.f26529j).getChildCount(); i3++) {
+                if (((ViewGroup) this.f26529j).getChildAt(i3) instanceof CardItemDetailListItemLayout) {
+                    ((CardItemDetailListItemLayout) ((ViewGroup) this.f26529j).getChildAt(i3)).onChangeSkinType();
                 }
             }
         }

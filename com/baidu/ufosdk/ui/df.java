@@ -13,16 +13,16 @@ public final class df implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f59835a;
+    public final /* synthetic */ Context f59966a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f59836b;
+    public final /* synthetic */ String f59967b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f59837c;
+    public final /* synthetic */ String f59968c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f59838d;
+    public final /* synthetic */ FeedbackListActivity f59969d;
 
     public df(FeedbackListActivity feedbackListActivity, Context context, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public final class df implements View.OnClickListener {
                 return;
             }
         }
-        this.f59838d = feedbackListActivity;
-        this.f59835a = context;
-        this.f59836b = str;
-        this.f59837c = str2;
+        this.f59969d = feedbackListActivity;
+        this.f59966a = context;
+        this.f59967b = str;
+        this.f59968c = str2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -52,12 +52,12 @@ public final class df implements View.OnClickListener {
         PopupWindow popupWindow2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            view2 = this.f59838d.w;
+            view2 = this.f59969d.w;
             view2.setVisibility(0);
             new Thread(new dg(this)).start();
-            popupWindow = this.f59838d.z;
+            popupWindow = this.f59969d.z;
             if (popupWindow.isShowing()) {
-                popupWindow2 = this.f59838d.z;
+                popupWindow2 = this.f59969d.z;
                 popupWindow2.dismiss();
             }
         }

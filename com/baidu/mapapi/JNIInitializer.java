@@ -12,7 +12,7 @@ public class JNIInitializer {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f41305a;
+    public static Context f41367a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public JNIInitializer() {
@@ -32,7 +32,7 @@ public class JNIInitializer {
     public static Context getCachedContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f41305a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f41367a : (Context) invokeV.objValue;
     }
 
     public static void setContext(Application application) {
@@ -41,8 +41,8 @@ public class JNIInitializer {
             if (application == null) {
                 throw new RuntimeException();
             }
-            if (f41305a == null) {
-                f41305a = application;
+            if (f41367a == null) {
+                f41367a = application;
             }
         }
     }

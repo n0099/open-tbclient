@@ -12,13 +12,13 @@ public abstract class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f15390a;
+    public int f15399a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f15391b;
+    public int f15400b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f15392c;
+    public int f15401c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public abstract class d {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15391b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15400b : invokeV.intValue;
     }
 
     public abstract com.baidu.helios.common.cc.a b(byte[] bArr, int i2, int i3);
@@ -45,12 +45,12 @@ public abstract class d {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15390a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15399a : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15392c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15401c : invokeV.intValue;
     }
 }

@@ -23,10 +23,10 @@ public class h extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9093e;
+        public final /* synthetic */ String f9101e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f9094f;
+        public final /* synthetic */ h f9102f;
 
         public a(h hVar, String str) {
             Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class h extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9094f = hVar;
-            this.f9093e = str;
+            this.f9102f = hVar;
+            this.f9101e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,23 +54,23 @@ public class h extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    boolean a2 = c.a.p0.u.d.c.a(this.f9094f.i(), "android.permission.READ_CONTACTS");
+                    boolean a2 = c.a.p0.u.d.c.a(this.f9102f.i(), "android.permission.READ_CONTACTS");
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("isAuthorized", a2);
-                        this.f9094f.d(this.f9093e, new c.a.p0.a.u.h.b(0, jSONObject));
-                        this.f9094f.u(a2);
+                        this.f9102f.d(this.f9101e, new c.a.p0.a.u.h.b(0, jSONObject));
+                        this.f9102f.u(a2);
                         return;
                     } catch (JSONException e2) {
-                        if (c.a.p0.a.u.c.d.f8727c) {
+                        if (c.a.p0.a.u.c.d.f8735c) {
                             e2.printStackTrace();
                         }
-                        this.f9094f.d(this.f9093e, new c.a.p0.a.u.h.b(1001));
+                        this.f9102f.d(this.f9101e, new c.a.p0.a.u.h.b(1001));
                         return;
                     }
                 }
                 int b2 = iVar.b();
-                this.f9094f.d(this.f9093e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
+                this.f9102f.d(this.f9101e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
             }
         }
     }
@@ -124,7 +124,7 @@ public class h extends c.a.p0.a.u.c.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-            fVar.f7067e = String.valueOf(z);
+            fVar.f7075e = String.valueOf(z);
             fVar.a("appid", c.a.p0.a.a2.d.g().getAppId());
             fVar.a("appname", c.a.p0.a.a2.d.g().r().O());
             c.a.p0.a.j2.k.u("1717", fVar);

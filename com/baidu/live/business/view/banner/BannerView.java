@@ -50,22 +50,22 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40822e;
+    public int f40884e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40823f;
+    public int f40885f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f40824g;
+    public boolean f40886g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f40825h;
+    public String f40887h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LiveBannerStatusAnimView f40826i;
+    public LiveBannerStatusAnimView f40888i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<LiveBannerEntity> f40827j;
+    public List<LiveBannerEntity> f40889j;
     public float k;
     public boolean l;
     public h m;
@@ -89,7 +89,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BannerView f40828a;
+        public final /* synthetic */ BannerView f40890a;
 
         public a(BannerView bannerView) {
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
                     return;
                 }
             }
-            this.f40828a = bannerView;
+            this.f40890a = bannerView;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -121,10 +121,10 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f40828a.w == null || this.f40828a.w.mBannerList.size() == 0) {
+                if (this.f40890a.w == null || this.f40890a.w.mBannerList.size() == 0) {
                     return 0;
                 }
-                return this.f40828a.w.mBannerList.size() == 1 ? 1 : Integer.MAX_VALUE;
+                return this.f40890a.w.mBannerList.size() == 1 ? 1 : Integer.MAX_VALUE;
             }
             return invokeV.intValue;
         }
@@ -134,11 +134,11 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
-                int size = this.f40828a.w.mBannerList.size();
+                int size = this.f40890a.w.mBannerList.size();
                 if (size == 2) {
                     size = 4;
                 }
-                View view = (View) this.f40828a.q.get(i2 % size);
+                View view = (View) this.f40890a.q.get(i2 % size);
                 if (view.getParent() != null) {
                     ((ViewGroup) view.getParent()).removeView(view);
                 }
@@ -162,7 +162,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BannerView f40829e;
+        public final /* synthetic */ BannerView f40891e;
 
         public b(BannerView bannerView) {
             Interceptable interceptable = $ic;
@@ -179,20 +179,20 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
                     return;
                 }
             }
-            this.f40829e = bannerView;
+            this.f40891e = bannerView;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f40829e.w == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f40891e.w == null) {
                 return;
             }
             if (i2 == 1) {
-                this.f40829e.q();
+                this.f40891e.q();
             } else if (i2 != 2) {
             } else {
-                this.f40829e.r();
+                this.f40891e.r();
             }
         }
 
@@ -207,33 +207,33 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         public void onPageSelected(int i2) {
             Animatable animatable;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f40829e.w == null || this.f40829e.w.mBannerList == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f40891e.w == null || this.f40891e.w.mBannerList == null) {
                 return;
             }
-            if (this.f40829e.w.mBannerList.size() <= 0) {
-                this.f40829e.f40822e = 0;
+            if (this.f40891e.w.mBannerList.size() <= 0) {
+                this.f40891e.f40884e = 0;
             } else {
-                BannerView bannerView = this.f40829e;
-                bannerView.f40822e = i2 % bannerView.w.mBannerList.size();
+                BannerView bannerView = this.f40891e;
+                bannerView.f40884e = i2 % bannerView.w.mBannerList.size();
             }
-            this.f40829e.w.mSelected = i2;
-            for (int i3 = 0; i3 < this.f40829e.w.mBannerList.size(); i3++) {
-                if (this.f40829e.q.get(i3) != null && ((BannerWrapFrameView) this.f40829e.q.get(i3)).getSimpleDraweeView() != null && (animatable = ((BannerWrapFrameView) this.f40829e.q.get(i3)).getSimpleDraweeView().getController().getAnimatable()) != null) {
-                    if (i3 == this.f40829e.f40822e) {
+            this.f40891e.w.mSelected = i2;
+            for (int i3 = 0; i3 < this.f40891e.w.mBannerList.size(); i3++) {
+                if (this.f40891e.q.get(i3) != null && ((BannerWrapFrameView) this.f40891e.q.get(i3)).getSimpleDraweeView() != null && (animatable = ((BannerWrapFrameView) this.f40891e.q.get(i3)).getSimpleDraweeView().getController().getAnimatable()) != null) {
+                    if (i3 == this.f40891e.f40884e) {
                         animatable.start();
                     } else {
                         animatable.stop();
                     }
                 }
             }
-            BannerView bannerView2 = this.f40829e;
+            BannerView bannerView2 = this.f40891e;
             bannerView2.setIndicatorCurrentItem(bannerView2.w.mSelected);
-            this.f40829e.s(i2);
-            if (i2 < this.f40829e.w.mBannerList.size() && i2 >= 0) {
-                BannerView bannerView3 = this.f40829e;
-                bannerView3.p(bannerView3.w.mBannerList.get(this.f40829e.f40822e));
+            this.f40891e.s(i2);
+            if (i2 < this.f40891e.w.mBannerList.size() && i2 >= 0) {
+                BannerView bannerView3 = this.f40891e;
+                bannerView3.p(bannerView3.w.mBannerList.get(this.f40891e.f40884e));
             }
-            this.f40829e.getLogger().a(this.f40829e.f40822e);
+            this.f40891e.getLogger().a(this.f40891e.f40884e);
         }
     }
 
@@ -243,10 +243,10 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BannerWrapFrameView f40830e;
+        public final /* synthetic */ BannerWrapFrameView f40892e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BannerView f40831f;
+        public final /* synthetic */ BannerView f40893f;
 
         public c(BannerView bannerView, BannerWrapFrameView bannerWrapFrameView) {
             Interceptable interceptable = $ic;
@@ -263,17 +263,17 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
                     return;
                 }
             }
-            this.f40831f = bannerView;
-            this.f40830e = bannerWrapFrameView;
+            this.f40893f = bannerView;
+            this.f40892e = bannerWrapFrameView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f40831f.m == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f40893f.m == null) {
                 return;
             }
-            this.f40831f.m.a(this.f40830e.getLiveBannerEntity());
+            this.f40893f.m.a(this.f40892e.getLiveBannerEntity());
         }
     }
 
@@ -283,10 +283,10 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f40832a;
+        public final /* synthetic */ int f40894a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BannerView f40833b;
+        public final /* synthetic */ BannerView f40895b;
 
         public d(BannerView bannerView, int i2) {
             Interceptable interceptable = $ic;
@@ -303,8 +303,8 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
                     return;
                 }
             }
-            this.f40833b = bannerView;
-            this.f40832a = i2;
+            this.f40895b = bannerView;
+            this.f40894a = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -313,8 +313,8 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, imageInfo, animatable) == null) {
                 super.onFinalImageSet(str, (String) imageInfo, animatable);
-                if (this.f40832a == 0) {
-                    this.f40833b.getLogger().a(0);
+                if (this.f40894a == 0) {
+                    this.f40895b.getLogger().a(0);
                 }
             }
         }
@@ -326,10 +326,10 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f40834a;
+        public final /* synthetic */ int f40896a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BannerView f40835b;
+        public final /* synthetic */ BannerView f40897b;
 
         public e(BannerView bannerView, int i2) {
             Interceptable interceptable = $ic;
@@ -346,8 +346,8 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
                     return;
                 }
             }
-            this.f40835b = bannerView;
-            this.f40834a = i2;
+            this.f40897b = bannerView;
+            this.f40896a = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -356,8 +356,8 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, imageInfo, animatable) == null) {
                 super.onFinalImageSet(str, (String) imageInfo, animatable);
-                if (this.f40834a == 0) {
-                    this.f40835b.getLogger().a(0);
+                if (this.f40896a == 0) {
+                    this.f40897b.getLogger().a(0);
                 }
             }
         }
@@ -369,7 +369,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BannerView f40836a;
+        public final /* synthetic */ BannerView f40898a;
 
         public f(BannerView bannerView) {
             Interceptable interceptable = $ic;
@@ -386,7 +386,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
                     return;
                 }
             }
-            this.f40836a = bannerView;
+            this.f40898a = bannerView;
         }
 
         public void a(int i2) {
@@ -402,10 +402,10 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public BannerEntity f40837e;
+        public BannerEntity f40899e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BannerView f40838f;
+        public final /* synthetic */ BannerView f40900f;
 
         public g(BannerView bannerView, BannerEntity bannerEntity) {
             Interceptable interceptable = $ic;
@@ -422,16 +422,16 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
                     return;
                 }
             }
-            this.f40838f = bannerView;
-            this.f40837e = bannerEntity;
+            this.f40900f = bannerView;
+            this.f40899e = bannerEntity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f40838f.w == this.f40837e && this.f40838f.w != null) {
-                this.f40838f.w.mSelected = this.f40838f.n.getCurrentItem() + 1;
-                this.f40838f.n.setCurrentItem(this.f40838f.w.mSelected, true);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f40900f.w == this.f40899e && this.f40900f.w != null) {
+                this.f40900f.w.mSelected = this.f40900f.n.getCurrentItem() + 1;
+                this.f40900f.n.setCurrentItem(this.f40900f.w.mSelected, true);
             }
         }
     }
@@ -448,7 +448,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public float f40839a;
+        public float f40901a;
 
         public i(float f2) {
             Interceptable interceptable = $ic;
@@ -465,7 +465,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
                     return;
                 }
             }
-            this.f40839a = f2;
+            this.f40901a = f2;
         }
 
         @Override // android.view.ViewOutlineProvider
@@ -476,7 +476,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
                     int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                     view.measure(makeMeasureSpec, makeMeasureSpec);
                 }
-                outline.setRoundRect(new Rect(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight()), this.f40839a);
+                outline.setRoundRect(new Rect(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight()), this.f40901a);
             }
         }
     }
@@ -487,7 +487,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f40840a;
+        public View f40902a;
 
         public j(View view) {
             Interceptable interceptable = $ic;
@@ -504,15 +504,15 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
                     return;
                 }
             }
-            this.f40840a = view;
+            this.f40902a = view;
         }
 
         @RequiresApi(api = 21)
         public void a(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
-                this.f40840a.setClipToOutline(true);
-                this.f40840a.setOutlineProvider(new i(f2));
+                this.f40902a.setClipToOutline(true);
+                this.f40902a.setOutlineProvider(new i(f2));
             }
         }
     }
@@ -617,10 +617,10 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
             if (c.a.w.e.g.d.c(list)) {
                 return false;
             }
-            if (!c.a.w.e.g.d.c(this.f40827j) && c.a.w.e.g.d.a(list) == c.a.w.e.g.d.a(this.f40827j)) {
+            if (!c.a.w.e.g.d.c(this.f40889j) && c.a.w.e.g.d.a(list) == c.a.w.e.g.d.a(this.f40889j)) {
                 for (LiveBannerEntity liveBannerEntity : list) {
                     boolean z = false;
-                    for (LiveBannerEntity liveBannerEntity2 : this.f40827j) {
+                    for (LiveBannerEntity liveBannerEntity2 : this.f40889j) {
                         if (liveBannerEntity2 != null && !c.a.w.e.g.j.a(liveBannerEntity2.pic) && liveBannerEntity != null && !c.a.w.e.g.j.a(liveBannerEntity.pic) && liveBannerEntity2.pic.equals(liveBannerEntity.pic) && liveBannerEntity2.liveStatus == liveBannerEntity.liveStatus) {
                             z = true;
                         }
@@ -641,7 +641,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             BannerWrapFrameView bannerWrapFrameView = new BannerWrapFrameView(getContext());
-            bannerWrapFrameView.setIsImmersion(this.f40824g);
+            bannerWrapFrameView.setIsImmersion(this.f40886g);
             bannerWrapFrameView.setOnClickListener(new c(this, bannerWrapFrameView));
             return bannerWrapFrameView;
         }
@@ -692,9 +692,9 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
             try {
                 if (this.l) {
-                    RoundingParams fromCornersRadius = RoundingParams.fromCornersRadius(c.a.w.b.f.a.a(getContext(), this.f40823f));
+                    RoundingParams fromCornersRadius = RoundingParams.fromCornersRadius(c.a.w.b.f.a.a(getContext(), this.f40885f));
                     fromCornersRadius.setOverlayColor(-1);
-                    int j2 = c.a.w.i.f.e().j(this.f40824g);
+                    int j2 = c.a.w.i.f.e().j(this.f40886g);
                     GenericDraweeHierarchy build = new GenericDraweeHierarchyBuilder(getResources()).setFadeDuration(0).setRoundingParams(fromCornersRadius).setFailureImage(j2).setFailureImageScaleType(ScalingUtils.ScaleType.FIT_XY).setPlaceholderImage(j2).setPlaceholderImageScaleType(ScalingUtils.ScaleType.FIT_XY).build();
                     AbstractDraweeController build2 = Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setControllerListener(new d(this, i2)).setUri(this.w.mBannerList.get(i2).pic).build();
                     if (this.q.get(i3).getSimpleDraweeView() == null || this.q.get(i3).getSimpleDraweeView().getController() == null || (this.q.get(i3).getSimpleDraweeView().getController() != null && !this.q.get(i3).getSimpleDraweeView().getController().isSameImageRequest(build2))) {
@@ -707,7 +707,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
                     this.q.get(i3).setData(this.w.mBannerList.get(i2));
                     return;
                 }
-                int j3 = c.a.w.i.f.e().j(this.f40824g);
+                int j3 = c.a.w.i.f.e().j(this.f40886g);
                 GenericDraweeHierarchy build3 = new GenericDraweeHierarchyBuilder(getResources()).setFadeDuration(0).setFailureImage(j3).setFailureImageScaleType(ScalingUtils.ScaleType.FIT_XY).setPlaceholderImage(j3).setPlaceholderImageScaleType(ScalingUtils.ScaleType.FIT_XY).build();
                 AbstractDraweeController build4 = Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setControllerListener(new e(this, i2)).setUri(this.w.mBannerList.get(i2).pic).build();
                 if (this.q.get(i3).getSimpleDraweeView() == null || this.q.get(i3).getSimpleDraweeView().getController() == null || (this.q.get(i3).getSimpleDraweeView().getController() != null && !this.q.get(i3).getSimpleDraweeView().getController().isSameImageRequest(build4))) {
@@ -748,7 +748,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         while (it.hasNext()) {
             it.next().onDarkModeChange(str);
         }
-        LiveBannerStatusAnimView liveBannerStatusAnimView = this.f40826i;
+        LiveBannerStatusAnimView liveBannerStatusAnimView = this.f40888i;
         if (liveBannerStatusAnimView != null) {
             liveBannerStatusAnimView.onDarkModeChange(str);
         }
@@ -788,7 +788,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            getLogger().a(this.f40822e);
+            getLogger().a(this.f40884e);
             r();
         }
     }
@@ -810,7 +810,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048592, this, liveBannerEntity) == null) && liveBannerEntity != null && liveBannerEntity.needLogShow) {
             LiveHostInfo liveHostInfo = liveBannerEntity.hostInfo;
-            c.a.w.b.c.a.f(getContext(), this.f40825h, liveBannerEntity.position, liveBannerEntity.roomId, liveBannerEntity.nid, liveBannerEntity.bannerType, liveHostInfo == null ? "" : liveHostInfo.uk, this.f40824g ? "chenjinshi" : "zhibopindao", liveBannerEntity.statInfo);
+            c.a.w.b.c.a.f(getContext(), this.f40887h, liveBannerEntity.position, liveBannerEntity.roomId, liveBannerEntity.nid, liveBannerEntity.bannerType, liveHostInfo == null ? "" : liveHostInfo.uk, this.f40886g ? "chenjinshi" : "zhibopindao", liveBannerEntity.statInfo);
             liveBannerEntity.needLogShow = false;
         }
     }
@@ -888,33 +888,33 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
         int size2 = i2 % this.w.mBannerList.size();
         if (size >= 0 && size2 >= 0) {
             if (size2 < this.w.mBannerList.size() && size < this.q.size()) {
-                if (this.f40826i == null) {
+                if (this.f40888i == null) {
                     LiveBannerStatusAnimView liveBannerStatusAnimView = new LiveBannerStatusAnimView(getContext());
-                    this.f40826i = liveBannerStatusAnimView;
-                    liveBannerStatusAnimView.setIsImmersion(this.f40824g);
+                    this.f40888i = liveBannerStatusAnimView;
+                    liveBannerStatusAnimView.setIsImmersion(this.f40886g);
                 }
-                if (this.f40826i.getParent() != null) {
-                    ((ViewGroup) this.f40826i.getParent()).removeView(this.f40826i);
+                if (this.f40888i.getParent() != null) {
+                    ((ViewGroup) this.f40888i.getParent()).removeView(this.f40888i);
                 }
-                this.f40826i.setData(this.w.mBannerList.get(size2));
+                this.f40888i.setData(this.w.mBannerList.get(size2));
                 if (this.q.get(size).getStatusViewContainer() != null) {
-                    this.q.get(size).getStatusViewContainer().addView(this.f40826i);
+                    this.q.get(size).getStatusViewContainer().addView(this.f40888i);
                     return;
                 }
                 return;
             }
-            LiveBannerStatusAnimView liveBannerStatusAnimView2 = this.f40826i;
+            LiveBannerStatusAnimView liveBannerStatusAnimView2 = this.f40888i;
             if (liveBannerStatusAnimView2 == null || liveBannerStatusAnimView2.getParent() == null) {
                 return;
             }
-            ((ViewGroup) this.f40826i.getParent()).removeView(this.f40826i);
+            ((ViewGroup) this.f40888i.getParent()).removeView(this.f40888i);
             return;
         }
-        LiveBannerStatusAnimView liveBannerStatusAnimView3 = this.f40826i;
+        LiveBannerStatusAnimView liveBannerStatusAnimView3 = this.f40888i;
         if (liveBannerStatusAnimView3 == null || liveBannerStatusAnimView3.getParent() == null) {
             return;
         }
-        ((ViewGroup) this.f40826i.getParent()).removeView(this.f40826i);
+        ((ViewGroup) this.f40888i.getParent()).removeView(this.f40888i);
     }
 
     public void setAspectRatio(float f2) {
@@ -937,7 +937,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
                 i2++;
             }
             this.w = bannerEntity;
-            this.f40827j = (bannerEntity == null || c.a.w.e.g.d.c(bannerEntity.mBannerList)) ? null : this.w.mBannerList;
+            this.f40889j = (bannerEntity == null || c.a.w.e.g.d.c(bannerEntity.mBannerList)) ? null : this.w.mBannerList;
             refresh();
             if (bannerEntity == null || c.a.w.e.g.d.c(bannerEntity.mBannerList)) {
                 return;
@@ -992,7 +992,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
     public void setIsImmersion(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.f40824g = z;
+            this.f40886g = z;
         }
     }
 
@@ -1025,13 +1025,13 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
             this.l = z;
             if (z) {
                 if (i2 >= 0) {
-                    this.f40823f = i2;
+                    this.f40885f = i2;
                 } else {
-                    this.f40823f = 0;
+                    this.f40885f = 0;
                 }
                 if (Build.VERSION.SDK_INT >= 21) {
-                    new j(this).a(c.a.w.b.f.a.a(getContext(), this.f40823f));
-                    this.f40823f = 0;
+                    new j(this).a(c.a.w.b.f.a.a(getContext(), this.f40885f));
+                    this.f40885f = 0;
                 }
                 this.p.setImageResource(c.a.w.c.a.b.live_feed_page_banner_round_indicator_bg);
             }
@@ -1048,7 +1048,7 @@ public class BannerView extends FrameLayout implements c.a.w.b.g.a {
     public void setSource(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
-            this.f40825h = str;
+            this.f40887h = str;
         }
     }
 

@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 /* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +26,7 @@ public class a {
 
     /* renamed from: com.baidu.searchbox.dns.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1707a {
+    public static class C1709a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long A;
@@ -35,7 +36,7 @@ public class a {
         public final com.baidu.searchbox.dns.d.a x;
         public final com.baidu.searchbox.dns.d.a.a z;
 
-        public C1707a(long j2, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
+        public C1709a(long j2, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +73,7 @@ public class a {
                 if (TextUtils.isEmpty(this.C)) {
                     return new a(this.x, null, 1005, null);
                 }
-                if (this.C.equals("ok")) {
+                if (this.C.equals(NewBindCardEntry.BING_CARD_SUCCESS_MSG)) {
                     int i2 = this.B;
                     if (i2 >= 0) {
                         long j2 = this.D;

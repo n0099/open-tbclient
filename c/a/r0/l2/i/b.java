@@ -24,16 +24,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f22099a;
+    public c f22113a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f22100b;
+    public TbPageContext f22114b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<n> f22101c;
+    public List<n> f22115c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PersonMoreData f22102d;
+    public PersonMoreData f22116d;
 
     public b(TbPageContext tbPageContext, Bundle bundle, b0<h> b0Var) {
         Interceptable interceptable = $ic;
@@ -50,32 +50,32 @@ public class b {
                 return;
             }
         }
-        this.f22100b = tbPageContext;
+        this.f22114b = tbPageContext;
         c cVar = new c(tbPageContext);
-        this.f22099a = cVar;
+        this.f22113a = cVar;
         cVar.f(b0Var);
         if (bundle == null || !(OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
             return;
         }
-        this.f22102d = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+        this.f22116d = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f22101c = new ArrayList();
-            PersonMoreData personMoreData = this.f22102d;
+            this.f22115c = new ArrayList();
+            PersonMoreData personMoreData = this.f22116d;
             if (personMoreData == null || ListUtils.isEmpty(personMoreData.mUrlMaps)) {
                 return;
             }
-            for (PersonMoreItemData personMoreItemData : this.f22102d.mUrlMaps) {
+            for (PersonMoreItemData personMoreItemData : this.f22116d.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     h hVar = new h();
-                    hVar.f22362i = personMoreItemData.mName;
-                    hVar.f22358e = 36;
+                    hVar.f22378i = personMoreItemData.mName;
+                    hVar.f22374e = 36;
                     hVar.k = personMoreItemData.mUrl;
                     hVar.o = personMoreItemData.mId;
-                    this.f22101c.add(hVar);
+                    this.f22115c.add(hVar);
                 }
             }
         }
@@ -84,17 +84,17 @@ public class b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f22100b.getPageActivity().setContentView(R.layout.person_center_more_layout);
-            this.f22099a.c(this.f22100b.getPageActivity().findViewById(R.id.person_more_layout));
+            this.f22114b.getPageActivity().setContentView(R.layout.person_center_more_layout);
+            this.f22113a.c(this.f22114b.getPageActivity().findViewById(R.id.person_more_layout));
             a();
-            this.f22099a.e(this.f22101c);
+            this.f22113a.e(this.f22115c);
         }
     }
 
     public void c() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f22099a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f22113a) == null) {
             return;
         }
         cVar.d();

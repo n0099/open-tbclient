@@ -13,10 +13,10 @@ public abstract class t0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragmentActivity f20304a;
+    public BaseFragmentActivity f20319a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f20305b;
+    public View f20320b;
 
     public t0(BaseFragmentActivity baseFragmentActivity, View view) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public abstract class t0 {
                 return;
             }
         }
-        this.f20304a = baseFragmentActivity;
-        this.f20305b = view;
+        this.f20319a = baseFragmentActivity;
+        this.f20320b = view;
     }
 
     public void a() {
@@ -46,7 +46,7 @@ public abstract class t0 {
 
     public void b(f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) || this.f20304a == null || this.f20305b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) || this.f20319a == null || this.f20320b == null) {
             return;
         }
         c(fVar);

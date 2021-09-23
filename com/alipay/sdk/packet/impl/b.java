@@ -35,7 +35,7 @@ public class b extends com.alipay.sdk.packet.e {
     }
 
     @Override // com.alipay.sdk.packet.e
-    public String b() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "5.0.0" : (String) invokeV.objValue;

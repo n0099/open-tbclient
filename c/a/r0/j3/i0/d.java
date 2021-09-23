@@ -13,10 +13,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AbsDelegateAdapterList f20838a;
+    public AbsDelegateAdapterList f20850a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f20839b;
+    public Context f20851b;
 
     public d(Context context, AbsDelegateAdapterList absDelegateAdapterList) {
         Interceptable interceptable = $ic;
@@ -33,13 +33,13 @@ public class d {
                 return;
             }
         }
-        this.f20839b = context;
-        this.f20838a = absDelegateAdapterList;
+        this.f20851b = context;
+        this.f20850a = absDelegateAdapterList;
     }
 
     public AbsDelegateAdapterList a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20838a : (AbsDelegateAdapterList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20850a : (AbsDelegateAdapterList) invokeV.objValue;
     }
 }

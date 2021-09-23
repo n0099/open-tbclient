@@ -20,7 +20,7 @@ public class e {
     public LuaMsgListener cc;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f38412f;
+    public b f38463f;
     public c rN;
     public DefinedLuaListener sX;
 
@@ -42,7 +42,7 @@ public class e {
         if (bVar == null) {
             return;
         }
-        this.f38412f = bVar;
+        this.f38463f = bVar;
         fl();
         if (this.cc == null) {
             this.cc = new LuaMsgListener(this) { // from class: com.baidu.ar.lua.e.1
@@ -133,7 +133,7 @@ public class e {
                 }
             };
             this.rN = cVar;
-            this.f38412f.c(cVar);
+            this.f38463f.c(cVar);
         }
     }
 
@@ -150,7 +150,7 @@ public class e {
             String str3 = "swichCameraByEvent cameraFace = " + str2;
             if ("front".equals(str2)) {
                 this.sX.onRequireSwitchCamera(1);
-            } else if (com.alipay.sdk.widget.d.l.equals(str2)) {
+            } else if (com.alipay.sdk.widget.d.u.equals(str2)) {
                 this.sX.onRequireSwitchCamera(0);
             } else {
                 this.sX.onRequireSwitchCamera(-1);
@@ -179,7 +179,7 @@ public class e {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b bVar = this.f38412f;
+            b bVar = this.f38463f;
             if (bVar != null) {
                 if (this.cc != null) {
                     bVar.fk().removeLuaMsgListener(this.cc);
@@ -187,10 +187,10 @@ public class e {
                 }
                 c cVar = this.rN;
                 if (cVar != null) {
-                    this.f38412f.d(cVar);
+                    this.f38463f.d(cVar);
                     this.rN = null;
                 }
-                this.f38412f = null;
+                this.f38463f = null;
             }
             this.sX = null;
         }

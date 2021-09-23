@@ -50,7 +50,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberPrivilegeActivity f54351a;
+        public final /* synthetic */ MemberPrivilegeActivity f54466a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MemberPrivilegeActivity memberPrivilegeActivity, int i2) {
@@ -70,7 +70,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
                     return;
                 }
             }
-            this.f54351a = memberPrivilegeActivity;
+            this.f54466a = memberPrivilegeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,20 +78,20 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                MemberPrivilegeActivity memberPrivilegeActivity = this.f54351a;
+                MemberPrivilegeActivity memberPrivilegeActivity = this.f54466a;
                 memberPrivilegeActivity.hideLoadingView(memberPrivilegeActivity.mMemberPrivilegeView.e());
                 if ((httpResponsedMessage instanceof ResponseMemberPrivilegeMessage) && httpResponsedMessage.getCmd() == 1001531) {
                     int error = httpResponsedMessage.getError();
                     ResponseMemberPrivilegeMessage responseMemberPrivilegeMessage = (ResponseMemberPrivilegeMessage) httpResponsedMessage;
                     if (error != 0) {
-                        this.f54351a.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? this.f54351a.getResources().getString(R.string.neterror) : responseMemberPrivilegeMessage.getErrorString());
+                        this.f54466a.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? this.f54466a.getResources().getString(R.string.neterror) : responseMemberPrivilegeMessage.getErrorString());
                         return;
                     }
                     c.a.r0.x1.g.a aVar = responseMemberPrivilegeMessage.mData;
                     if (aVar != null) {
-                        this.f54351a.mMemberPrivilegeView.d().h(aVar);
+                        this.f54466a.mMemberPrivilegeView.d().h(aVar);
                     } else {
-                        this.f54351a.showToast(R.string.neterror);
+                        this.f54466a.showToast(R.string.neterror);
                     }
                 }
             }
@@ -104,7 +104,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberPrivilegeActivity f54352a;
+        public final /* synthetic */ MemberPrivilegeActivity f54467a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(MemberPrivilegeActivity memberPrivilegeActivity, int i2) {
@@ -124,7 +124,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
                     return;
                 }
             }
-            this.f54352a = memberPrivilegeActivity;
+            this.f54467a = memberPrivilegeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -134,7 +134,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || ((Integer) customResponsedMessage.getData()) == null) {
                 return;
             }
-            this.f54352a.requestMemberPrivilegeData();
+            this.f54467a.requestMemberPrivilegeData();
         }
     }
 
@@ -144,7 +144,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberPrivilegeActivity f54353a;
+        public final /* synthetic */ MemberPrivilegeActivity f54468a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(MemberPrivilegeActivity memberPrivilegeActivity, int i2) {
@@ -164,7 +164,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
                     return;
                 }
             }
-            this.f54353a = memberPrivilegeActivity;
+            this.f54468a = memberPrivilegeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -174,7 +174,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f54353a.requestMemberPrivilegeData();
+            this.f54468a.requestMemberPrivilegeData();
         }
     }
 
@@ -263,8 +263,8 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || i2 == 0 || 1 == this.mMemberPrivilegeView.d().getItemViewType(i2)) {
             return;
         }
-        String str = ((a.C1343a) this.mMemberPrivilegeView.d().getItem(i2)).f28695d;
-        String str2 = ((a.C1343a) this.mMemberPrivilegeView.d().getItem(i2)).f28693b;
+        String str = ((a.C1341a) this.mMemberPrivilegeView.d().getItem(i2)).f28715d;
+        String str2 = ((a.C1341a) this.mMemberPrivilegeView.d().getItem(i2)).f28713b;
         if (k.isEmpty(str)) {
             return;
         }

@@ -20,7 +20,7 @@ public class b extends c.a.p0.h.o0.d.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11424e;
+        public final /* synthetic */ b f11432e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class b extends c.a.p0.h.o0.d.a.b {
                     return;
                 }
             }
-            this.f11424e = bVar;
+            this.f11432e = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -46,13 +46,13 @@ public class b extends c.a.p0.h.o0.d.a.b {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || c.a.p0.h.o0.b.b() == null) {
                 return;
             }
-            this.f11424e.f11417e = new UserInfoButton(c.a.p0.h.o0.b.b(), this.f11424e);
-            this.f11424e.f11417e.setType(this.f11424e.type);
-            this.f11424e.f11417e.setButtonText(this.f11424e.text);
-            this.f11424e.f11417e.setImageUrl(this.f11424e.image);
-            this.f11424e.f11417e.setApiButtonStyle(this.f11424e.style);
-            this.f11424e.y();
-            this.f11424e.J();
+            this.f11432e.f11425e = new UserInfoButton(c.a.p0.h.o0.b.b(), this.f11432e);
+            this.f11432e.f11425e.setType(this.f11432e.type);
+            this.f11432e.f11425e.setButtonText(this.f11432e.text);
+            this.f11432e.f11425e.setImageUrl(this.f11432e.image);
+            this.f11432e.f11425e.setApiButtonStyle(this.f11432e.style);
+            this.f11432e.y();
+            this.f11432e.J();
         }
     }
 

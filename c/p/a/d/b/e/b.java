@@ -45,7 +45,7 @@ public class b {
             if (v.x()) {
                 return;
             }
-            v.f34623c.a(str);
+            v.f34646c.a(str);
             e.c.a().v("lp_app_dialog_click", v);
         }
     }

@@ -25,22 +25,22 @@ public class b extends d<UserMuteListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity<UserMuteListActivity> f16144a;
+    public BaseActivity<UserMuteListActivity> f16154a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NoNetworkView f16145b;
+    public NoNetworkView f16155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f16146c;
+    public NavigationBar f16156c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f16147d;
+    public View f16157d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f16148e;
+    public BdListView f16158e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoDataView f16149f;
+    public NoDataView f16159f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(BaseActivity<UserMuteListActivity> baseActivity, a aVar) {
@@ -60,7 +60,7 @@ public class b extends d<UserMuteListActivity> {
                 return;
             }
         }
-        this.f16144a = baseActivity;
+        this.f16154a = baseActivity;
         initUI();
     }
 
@@ -68,51 +68,51 @@ public class b extends d<UserMuteListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            this.f16144a.getLayoutMode().k(skinType == 1);
-            this.f16144a.getLayoutMode().j(this.f16147d);
-            this.f16146c.onChangeSkinType(this.f16144a.getPageContext(), skinType);
-            this.f16149f.onChangeSkinType(this.f16144a.getPageContext(), skinType);
-            this.f16145b.onChangeSkinType(this.f16144a.getPageContext(), skinType);
+            this.f16154a.getLayoutMode().k(skinType == 1);
+            this.f16154a.getLayoutMode().j(this.f16157d);
+            this.f16156c.onChangeSkinType(this.f16154a.getPageContext(), skinType);
+            this.f16159f.onChangeSkinType(this.f16154a.getPageContext(), skinType);
+            this.f16155b.onChangeSkinType(this.f16154a.getPageContext(), skinType);
         }
     }
 
     public BdListView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16148e : (BdListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16158e : (BdListView) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f16148e.setVisibility(8);
-            this.f16149f.setVisibility(0);
-            this.f16149f.setTextOption(NoDataViewFactory.e.a(R.string.user_mute_list_no_data_text));
+            this.f16158e.setVisibility(8);
+            this.f16159f.setVisibility(0);
+            this.f16159f.setTextOption(NoDataViewFactory.e.a(R.string.user_mute_list_no_data_text));
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f16148e.setVisibility(8);
-            this.f16149f.setVisibility(0);
-            this.f16149f.setTextOption(NoDataViewFactory.e.a(R.string.refresh_view_title_text));
+            this.f16158e.setVisibility(8);
+            this.f16159f.setVisibility(0);
+            this.f16159f.setTextOption(NoDataViewFactory.e.a(R.string.refresh_view_title_text));
         }
     }
 
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f16144a.setContentView(R.layout.user_mute_list_activity);
-            View findViewById = this.f16144a.findViewById(R.id.root_view);
-            this.f16147d = findViewById;
-            this.f16145b = (NoNetworkView) findViewById.findViewById(R.id.view_no_network);
-            NavigationBar navigationBar = (NavigationBar) this.f16147d.findViewById(R.id.view_navigation_bar);
-            this.f16146c = navigationBar;
+            this.f16154a.setContentView(R.layout.user_mute_list_activity);
+            View findViewById = this.f16154a.findViewById(R.id.root_view);
+            this.f16157d = findViewById;
+            this.f16155b = (NoNetworkView) findViewById.findViewById(R.id.view_no_network);
+            NavigationBar navigationBar = (NavigationBar) this.f16157d.findViewById(R.id.view_navigation_bar);
+            this.f16156c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f16146c.setTitleText(R.string.user_mute_list_text);
-            this.f16148e = (BdListView) this.f16147d.findViewById(R.id.mute_user_list);
-            this.f16149f = NoDataViewFactory.a(this.f16144a.getPageContext().getContext(), this.f16147d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.f48502a), NoDataViewFactory.e.a(R.string.user_mute_list_no_data_text), null);
+            this.f16156c.setTitleText(R.string.user_mute_list_text);
+            this.f16158e = (BdListView) this.f16157d.findViewById(R.id.mute_user_list);
+            this.f16159f = NoDataViewFactory.a(this.f16154a.getPageContext().getContext(), this.f16157d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.f48610a), NoDataViewFactory.e.a(R.string.user_mute_list_no_data_text), null);
             c();
         }
     }

@@ -13,11 +13,11 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static h f6110b;
+    public static h f6118b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f6111a;
+    public a f6119a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public class h {
                 return;
             }
         }
-        f6110b = new h();
+        f6118b = new h();
     }
 
     public h() {
@@ -52,26 +52,26 @@ public class h {
     public static h b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6110b : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6118b : (h) invokeV.objValue;
     }
 
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6111a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6119a : (a) invokeV.objValue;
     }
 
     public void c(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f6111a = aVar;
+            this.f6119a = aVar;
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f6111a = null;
+            this.f6119a = null;
         }
     }
 }

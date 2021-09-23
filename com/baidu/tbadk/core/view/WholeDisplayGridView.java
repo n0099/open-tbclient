@@ -16,7 +16,7 @@ public class WholeDisplayGridView extends BdGridView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f47923e;
+    public boolean f48030e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WholeDisplayGridView(Context context, AttributeSet attributeSet, int i2) {
@@ -37,7 +37,7 @@ public class WholeDisplayGridView extends BdGridView {
                 return;
             }
         }
-        this.f47923e = false;
+        this.f48030e = false;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -45,7 +45,7 @@ public class WholeDisplayGridView extends BdGridView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 2 && this.f47923e) {
+            if (motionEvent.getAction() == 2 && this.f48030e) {
                 return true;
             }
             return super.dispatchTouchEvent(motionEvent);
@@ -64,7 +64,7 @@ public class WholeDisplayGridView extends BdGridView {
     public void setForbidMove(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f47923e = z;
+            this.f48030e = z;
         }
     }
 
@@ -87,7 +87,7 @@ public class WholeDisplayGridView extends BdGridView {
                 return;
             }
         }
-        this.f47923e = false;
+        this.f48030e = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,6 +108,6 @@ public class WholeDisplayGridView extends BdGridView {
                 return;
             }
         }
-        this.f47923e = false;
+        this.f48030e = false;
     }
 }

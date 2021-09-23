@@ -12,13 +12,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17945a;
+    public int f17955a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f17946b;
+    public boolean f17956b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f17947c;
+    public boolean f17957c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -33,17 +33,17 @@ public class b {
                 return;
             }
         }
-        this.f17945a = -1;
-        this.f17946b = false;
-        this.f17947c = false;
+        this.f17955a = -1;
+        this.f17956b = false;
+        this.f17957c = false;
     }
 
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f17946b = true;
-            int i2 = this.f17945a;
-            if (i2 == -1 || !this.f17947c) {
+            this.f17956b = true;
+            int i2 = this.f17955a;
+            if (i2 == -1 || !this.f17957c) {
                 return;
             }
             eVar.a(i2);
@@ -53,8 +53,8 @@ public class b {
     public void b(int i2, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, eVar) == null) {
-            this.f17945a = i2;
-            if (this.f17946b && this.f17947c) {
+            this.f17955a = i2;
+            if (this.f17956b && this.f17957c) {
                 eVar.a(i2);
             }
         }

@@ -15,11 +15,11 @@ public class f0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f0 f26572b;
+    public static f0 f26595b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<String> f26573a;
+    public final SparseArray<String> f26596a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class f0 {
                 return;
             }
         }
-        f26572b = new f0();
+        f26595b = new f0();
     }
 
     public f0() {
@@ -50,13 +50,13 @@ public class f0 {
                 return;
             }
         }
-        this.f26573a = new SparseArray<>();
+        this.f26596a = new SparseArray<>();
     }
 
     public static f0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f26572b : (f0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f26595b : (f0) invokeV.objValue;
     }
 
     public boolean b(int i2) {
@@ -66,7 +66,7 @@ public class f0 {
             if (i2 > 100) {
                 i2 = 100;
             }
-            return !TextUtils.isEmpty(this.f26573a.get(i2));
+            return !TextUtils.isEmpty(this.f26596a.get(i2));
         }
         return invokeI.booleanValue;
     }
@@ -74,7 +74,7 @@ public class f0 {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f26573a.put(i2, "1");
+            this.f26596a.put(i2, "1");
         }
     }
 }

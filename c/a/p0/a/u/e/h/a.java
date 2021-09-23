@@ -25,13 +25,13 @@ public class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f8936d;
+    public View f8944d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f8937e;
+    public int f8945e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewTreeObserver.OnGlobalLayoutListener f8938f;
+    public ViewTreeObserver.OnGlobalLayoutListener f8946f;
 
     /* renamed from: c.a.p0.a.u.e.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -40,7 +40,7 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f8939e;
+        public final /* synthetic */ a f8947e;
 
         public ViewTreeObserver$OnGlobalLayoutListenerC0402a(a aVar) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f8939e = aVar;
+            this.f8947e = aVar;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -65,15 +65,15 @@ public class a extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Rect rect = new Rect();
-                this.f8939e.f8936d.getWindowVisibleDisplayFrame(rect);
+                this.f8947e.f8944d.getWindowVisibleDisplayFrame(rect);
                 int height = rect.height();
-                if (this.f8939e.f8937e == height) {
+                if (this.f8947e.f8945e == height) {
                     return;
                 }
-                if (this.f8939e.f8937e - height <= 180) {
-                    if (height - this.f8939e.f8937e > 180) {
-                        if (d.f8727c) {
-                            String str = "onKeyBoardHide: mRootViewVisibleHeight " + this.f8939e.f8937e + " visibleHeight " + height;
+                if (this.f8947e.f8945e - height <= 180) {
+                    if (height - this.f8947e.f8945e > 180) {
+                        if (d.f8735c) {
+                            String str = "onKeyBoardHide: mRootViewVisibleHeight " + this.f8947e.f8945e + " visibleHeight " + height;
                         }
                         HashMap hashMap = new HashMap();
                         JSONObject jSONObject = new JSONObject();
@@ -84,24 +84,24 @@ public class a extends d {
                         }
                         hashMap.put("data", jSONObject.toString());
                         f.V().v(new b("keyboardHeightChange", hashMap));
-                        this.f8939e.f8937e = height;
+                        this.f8947e.f8945e = height;
                         return;
                     }
                     return;
                 }
-                if (d.f8727c) {
-                    String str2 = "onKeyBoardShow: mRootViewVisibleHeight " + this.f8939e.f8937e + " visibleHeight " + height;
+                if (d.f8735c) {
+                    String str2 = "onKeyBoardShow: mRootViewVisibleHeight " + this.f8947e.f8945e + " visibleHeight " + height;
                 }
                 HashMap hashMap2 = new HashMap();
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    jSONObject2.put("height", n0.L(this.f8939e.f8937e - height));
+                    jSONObject2.put("height", n0.L(this.f8947e.f8945e - height));
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }
                 hashMap2.put("data", jSONObject2.toString());
                 f.V().v(new b("keyboardHeightChange", hashMap2));
-                this.f8939e.f8937e = height;
+                this.f8947e.f8945e = height;
             }
         }
     }
@@ -134,13 +134,13 @@ public class a extends d {
                 c.a.p0.a.e0.d.b("Api-GetKeyboardHeight", "activity is null");
                 return;
             }
-            this.f8936d = activity.getWindow().getDecorView();
+            this.f8944d = activity.getWindow().getDecorView();
             Rect rect = new Rect();
-            this.f8936d.getWindowVisibleDisplayFrame(rect);
-            this.f8937e = rect.height();
-            if (this.f8938f == null) {
-                this.f8938f = new ViewTreeObserver$OnGlobalLayoutListenerC0402a(this);
-                this.f8936d.getViewTreeObserver().addOnGlobalLayoutListener(this.f8938f);
+            this.f8944d.getWindowVisibleDisplayFrame(rect);
+            this.f8945e = rect.height();
+            if (this.f8946f == null) {
+                this.f8946f = new ViewTreeObserver$OnGlobalLayoutListenerC0402a(this);
+                this.f8944d.getViewTreeObserver().addOnGlobalLayoutListener(this.f8946f);
             }
         }
     }
@@ -148,11 +148,11 @@ public class a extends d {
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f8938f != null) {
-                this.f8936d.getViewTreeObserver().removeOnGlobalLayoutListener(this.f8938f);
+            if (this.f8946f != null) {
+                this.f8944d.getViewTreeObserver().removeOnGlobalLayoutListener(this.f8946f);
             }
-            this.f8938f = null;
-            this.f8937e = 0;
+            this.f8946f = null;
+            this.f8945e = 0;
         }
     }
 
@@ -160,7 +160,7 @@ public class a extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean z = d.f8727c;
+            boolean z = d.f8735c;
             if (e.Q() == null) {
                 return new c.a.p0.a.u.h.b(1001, "SwanApp is null");
             }
@@ -174,7 +174,7 @@ public class a extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            boolean z = d.f8727c;
+            boolean z = d.f8735c;
             if (e.Q() == null) {
                 return new c.a.p0.a.u.h.b(1001, "SwanApp is null");
             }

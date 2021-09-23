@@ -2,23 +2,19 @@ package c.a.e.j;
 
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.bean.DegradeData;
 import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.bean.ResultData;
+import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
-import com.baidu.searchbox.pms.callback.DefaultPackageCallback;
-import com.baidu.searchbox.pms.download.DownloadOptions;
-import com.baidu.searchbox.pms.init.PmsManager;
-import com.baidu.searchbox.pms.utils.DebugUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-public class f extends DefaultPackageCallback {
+public class f extends DefaultDownloadCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,38 +39,46 @@ public class f extends DefaultPackageCallback {
         this.f2897a = defaultDownloadCallback;
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onDegradeData(DegradeData degradeData) {
+    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, degradeData) == null) {
-            super.onDegradeData(degradeData);
-        }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onFetchError(ErrorInfo errorInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) || errorInfo == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) || errorInfo == null) {
             return;
         }
         BdLog.e(errorInfo.errorMsg);
+        DefaultDownloadCallback defaultDownloadCallback = this.f2897a;
+        if (defaultDownloadCallback != null) {
+            defaultDownloadCallback.onDownloadError(packageInfo, errorInfo);
+        }
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onResultData(ResultData resultData) {
+    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) || resultData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) || packageInfo == null || StringUtils.isNull(packageInfo.filePath) || StringUtils.isNull(packageInfo.name)) {
             return;
         }
-        DebugUtils.log(resultData);
-        ArrayList arrayList = new ArrayList();
-        arrayList.addAll(resultData.addList);
-        arrayList.addAll(resultData.updateList);
-        if (arrayList.isEmpty()) {
-            return;
+        File file = new File(packageInfo.filePath);
+        if (file.exists() && file.isFile()) {
+            String b2 = h.b(packageInfo.name);
+            File file2 = new File(b2);
+            if ((!file2.exists() || file2.delete()) && file.renameTo(file2)) {
+                if (b2.contains(".so")) {
+                    if (i.a(BdBaseApplication.getInst().getContext(), h.a(packageInfo.name))) {
+                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                        String str = packageInfo.name;
+                        resHashMap.put(str, h.a(str));
+                    }
+                } else {
+                    ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
+                    String str2 = packageInfo.name;
+                    resHashMap2.put(str2, h.a(str2));
+                }
+                DefaultDownloadCallback defaultDownloadCallback = this.f2897a;
+                if (defaultDownloadCallback != null) {
+                    defaultDownloadCallback.onDownloadSuccess(packageInfo, errorInfo);
+                }
+            }
         }
-        DownloadOptions downloadOptions = new DownloadOptions();
-        downloadOptions.fileDir = new File(BdBaseApplication.getInst().getFilesDir(), "so_cache").getAbsolutePath();
-        PmsManager.getInstance().download(arrayList, downloadOptions, new e(this.f2897a));
     }
 }

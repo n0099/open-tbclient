@@ -13,16 +13,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f7148a;
+    public final String f7156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f7149b;
+    public final int f7157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f7150c;
+    public final String f7158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f7151d;
+    public final String f7159d;
 
     public c(String str, int i2, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class c {
                 return;
             }
         }
-        this.f7148a = str;
-        this.f7149b = i2;
-        this.f7150c = str2;
-        this.f7151d = str3;
+        this.f7156a = str;
+        this.f7157b = i2;
+        this.f7158c = str2;
+        this.f7159d = str3;
     }
 
     public static Bundle a(String str, int i2, String str2, String str3) {
@@ -75,7 +75,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SpMethodInfo{mDataType=" + this.f7149b + ", mPrefName='" + this.f7150c + ExtendedMessageFormat.QUOTE + ", mDataValue='" + this.f7151d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SpMethodInfo{mDataType=" + this.f7157b + ", mPrefName='" + this.f7158c + ExtendedMessageFormat.QUOTE + ", mDataValue='" + this.f7159d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -39,6 +39,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static final String IS_KV_LOAD_SUCCESS = "isLoadKvOptSuccess";
     public static final String KV_INIT_DURATION = "kvInitDuration";
     public static final String KV_OPT_TYPE = "isEnableKvOpt";
+    public static final String LAUNCH_2_APP_ON_START = "launch2AppOnStart";
     public static final int STAT_PROCESS_START_TIME_INDEX = 21;
     public static final String TAG = "ZygoteSpeedStats";
     public static final String UNFIX_USER_PERCEPTION_COST = "unfixUserPerceptionCost";
@@ -242,15 +243,19 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             hashMap.put(APP_STARTED_COST, String.valueOf(appLaunchDuration));
             hashMap.put(ELAPSED_CPU_COST, String.valueOf(this.mElapsedCpuTimeEnd - this.mElapsedCpuTimeStart));
             calculate();
+            long j2 = this.mFixUserPerceptionCost - appLaunchDuration;
+            if (j2 > 50 && j2 < 60000) {
+                hashMap.put(LAUNCH_2_APP_ON_START, String.valueOf(j2));
+            }
             long splashActivityDuration = this.mFixUserPerceptionCost - SpeedStatsManager.getInstance().getSplashActivityDuration();
             if (splashActivityDuration > 50 && splashActivityDuration < 60000) {
                 hashMap.put(ELAPSED_NO_SPLASH_COST, String.valueOf(splashActivityDuration));
             }
             hashMap.put(ELAPSED_REALTIME_COST, String.valueOf(this.mElapsedRealtimeCost));
             hashMap.put(UNFIX_USER_PERCEPTION_COST, String.valueOf(this.mUnFixUserPerceptionCost));
-            long j2 = this.mFixUserPerceptionCost;
-            if (j2 > 50 && j2 < 60000) {
-                hashMap.put(FIX_USER_PERCEPTION_COST, String.valueOf(j2));
+            long j3 = this.mFixUserPerceptionCost;
+            if (j3 > 50 && j3 < 60000) {
+                hashMap.put(FIX_USER_PERCEPTION_COST, String.valueOf(j3));
             }
             long appLaunchEndTimeStamp = SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp() - SpeedStatsManager.getInstance().getMainTabActivityEndDuration();
             if (appLaunchEndTimeStamp > 50 && appLaunchEndTimeStamp < 60000) {

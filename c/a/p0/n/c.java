@@ -14,7 +14,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f11856a;
+    public static boolean f11864a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class c {
                 return;
             }
         }
-        f11856a = b().isDebug();
+        f11864a = b().isDebug();
     }
 
     @Inject

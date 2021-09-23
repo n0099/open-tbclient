@@ -15,7 +15,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11062a;
+    public static final boolean f11070a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class h {
                 return;
             }
         }
-        f11062a = k.f7077a;
+        f11070a = k.f7085a;
     }
 
     public h(JsObject jsObject) {
@@ -61,7 +61,7 @@ public class h {
         try {
             boolean n = G.n("mixWithOther", false);
             i4.J().h("key_audio_is_mix_with_other", Boolean.valueOf(n));
-            if (f11062a) {
+            if (f11070a) {
                 String str = "Audio Mix Changed to " + n;
             }
             a(G, true, "setInnerAudioOption:ok");

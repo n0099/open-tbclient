@@ -14,13 +14,13 @@ public class w implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public z f43897a;
+    public z f43959a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f43898b;
+    public Object f43960b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class<?> f43899c;
+    public Class<?> f43961c;
 
     public w(Object obj) {
         Interceptable interceptable = $ic;
@@ -37,11 +37,11 @@ public class w implements a {
                 return;
             }
         }
-        this.f43897a = z.f43914a;
+        this.f43959a = z.f43976a;
         if (obj != null) {
             if ("com.baidu.bottom.remote.BPStretegyController2".equals(obj.getClass().getName())) {
-                this.f43898b = obj;
-                this.f43899c = obj.getClass();
+                this.f43960b = obj;
+                this.f43961c = obj.getClass();
                 return;
             }
             throw new IllegalArgumentException("class isn't com.baidu.bottom.remote.BPStretegyController2");
@@ -57,7 +57,7 @@ public class w implements a {
                 a(new Object[]{context, jSONObject}, "startDataAnynalyze", new Class[]{Context.class, JSONObject.class});
             } catch (Exception e2) {
                 bb.c().b(e2);
-                this.f43897a.a(context, jSONObject);
+                this.f43959a.a(context, jSONObject);
             }
         }
     }
@@ -70,7 +70,7 @@ public class w implements a {
                 a(new Object[]{context, str}, "saveRemoteSign", new Class[]{Context.class, String.class});
             } catch (Exception e2) {
                 bb.c().b(e2);
-                this.f43897a.b(context, str);
+                this.f43959a.b(context, str);
             }
         }
     }
@@ -83,7 +83,7 @@ public class w implements a {
                 a(new Object[]{context, str}, "saveRemoteConfig2", new Class[]{Context.class, String.class});
             } catch (Exception e2) {
                 bb.c().b(e2);
-                this.f43897a.a(context, str);
+                this.f43959a.a(context, str);
             }
         }
     }
@@ -97,7 +97,7 @@ public class w implements a {
                 return ((Boolean) a(new Object[]{context}, "canStartService", new Class[]{Context.class})).booleanValue();
             } catch (Exception e2) {
                 bb.c().b(e2);
-                return this.f43897a.b(context);
+                return this.f43959a.b(context);
             }
         }
         return invokeL.booleanValue;
@@ -111,7 +111,7 @@ public class w implements a {
                 a(new Object[]{context, Long.valueOf(j2)}, "setLastUpdateTime", new Class[]{Context.class, Long.TYPE});
             } catch (Exception e2) {
                 bb.c().b(e2);
-                this.f43897a.a(context, j2);
+                this.f43959a.a(context, j2);
             }
         }
     }
@@ -125,7 +125,7 @@ public class w implements a {
                 return ((Boolean) a(new Object[]{context}, "needUpdate", new Class[]{Context.class})).booleanValue();
             } catch (Exception e2) {
                 bb.c().b(e2);
-                return this.f43897a.a(context);
+                return this.f43959a.a(context);
             }
         }
         return invokeL.booleanValue;
@@ -134,6 +134,6 @@ public class w implements a {
     private <T> T a(Object[] objArr, String str, Class<?>[] clsArr) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, objArr, str, clsArr)) == null) ? (T) this.f43899c.getMethod(str, clsArr).invoke(this.f43898b, objArr) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, objArr, str, clsArr)) == null) ? (T) this.f43961c.getMethod(str, clsArr).invoke(this.f43960b, objArr) : (T) invokeLLL.objValue;
     }
 }

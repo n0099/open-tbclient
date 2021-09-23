@@ -21,43 +21,43 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DownloadRectifyView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f49176e;
+    public ImageView f49286e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f49177f;
+    public TbImageView f49287f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49178g;
+    public TextView f49288g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49179h;
+    public TextView f49289h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f49180i;
+    public TextView f49290i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f49181j;
+    public TextView f49291j;
     public TextView k;
     public TextView l;
     public TextView m;
     public FrameLayout n;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.b f49182e;
+        public final /* synthetic */ c.b f49292e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadRectifyView f49183f;
+        public final /* synthetic */ DownloadRectifyView f49293f;
 
         public a(DownloadRectifyView downloadRectifyView, c.b bVar) {
             Interceptable interceptable = $ic;
@@ -74,29 +74,29 @@ public class DownloadRectifyView extends RelativeLayout {
                     return;
                 }
             }
-            this.f49183f = downloadRectifyView;
-            this.f49182e = bVar;
+            this.f49293f = downloadRectifyView;
+            this.f49292e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                z.d(this.f49183f.getContext(), this.f49182e.f14118b, null, null);
+                z.d(this.f49293f.getContext(), this.f49292e.f14115b, null, null);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a f49184e;
+        public final /* synthetic */ c.a f49294e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadRectifyView f49185f;
+        public final /* synthetic */ DownloadRectifyView f49295f;
 
         public b(DownloadRectifyView downloadRectifyView, c.a aVar) {
             Interceptable interceptable = $ic;
@@ -113,15 +113,15 @@ public class DownloadRectifyView extends RelativeLayout {
                     return;
                 }
             }
-            this.f49185f = downloadRectifyView;
-            this.f49184e = aVar;
+            this.f49295f = downloadRectifyView;
+            this.f49294e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                z.d(this.f49185f.getContext(), this.f49184e.f14116b, null, null);
+                z.d(this.f49295f.getContext(), this.f49294e.f14113b, null, null);
             }
         }
     }
@@ -151,15 +151,15 @@ public class DownloadRectifyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.webview_download_audit_view, this);
-            this.f49176e = (ImageView) inflate.findViewById(R.id.im_close);
+            this.f49286e = (ImageView) inflate.findViewById(R.id.im_close);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.iv_app_logo);
-            this.f49177f = tbImageView;
+            this.f49287f = tbImageView;
             tbImageView.setRadius(l.e(context, 9.0f));
-            this.f49177f.setConrers(15);
-            this.f49178g = (TextView) inflate.findViewById(R.id.tv_app_name);
-            this.f49179h = (TextView) inflate.findViewById(R.id.tv_app_size);
-            this.f49180i = (TextView) inflate.findViewById(R.id.tv_version);
-            this.f49181j = (TextView) inflate.findViewById(R.id.tv_company_name);
+            this.f49287f.setConrers(15);
+            this.f49288g = (TextView) inflate.findViewById(R.id.tv_app_name);
+            this.f49289h = (TextView) inflate.findViewById(R.id.tv_app_size);
+            this.f49290i = (TextView) inflate.findViewById(R.id.tv_version);
+            this.f49291j = (TextView) inflate.findViewById(R.id.tv_company_name);
             this.k = (TextView) inflate.findViewById(R.id.tv_privacy);
             this.l = (TextView) inflate.findViewById(R.id.tv_permission);
             this.m = (TextView) inflate.findViewById(R.id.tv_download_tip);
@@ -170,25 +170,25 @@ public class DownloadRectifyView extends RelativeLayout {
     public void bindData(c.a.r0.q.e.j.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (aVar != null && aVar.f24136b != null) {
-                this.m.setText(aVar.f24137c);
-                this.m.setVisibility(aVar.f24135a != 2 ? 0 : 8);
-                c cVar = aVar.f24136b;
-                this.f49177f.startLoad(cVar.f14106b, 30, false);
-                this.f49178g.setText(cVar.f14107c);
-                this.f49179h.setText(cVar.f14113i);
-                this.f49181j.setText(cVar.f14108d);
-                this.f49180i.setText(cVar.f14110f);
-                c.b bVar = cVar.f14111g;
-                if (bVar != null && !TextUtils.isEmpty(bVar.f14118b) && !TextUtils.isEmpty(bVar.f14117a)) {
-                    this.k.setText(bVar.f14117a);
+            if (aVar != null && aVar.f24152b != null) {
+                this.m.setText(aVar.f24153c);
+                this.m.setVisibility(aVar.f24151a != 2 ? 0 : 8);
+                c cVar = aVar.f24152b;
+                this.f49287f.startLoad(cVar.f14103b, 30, false);
+                this.f49288g.setText(cVar.f14104c);
+                this.f49289h.setText(cVar.f14110i);
+                this.f49291j.setText(cVar.f14105d);
+                this.f49290i.setText(cVar.f14107f);
+                c.b bVar = cVar.f14108g;
+                if (bVar != null && !TextUtils.isEmpty(bVar.f14115b) && !TextUtils.isEmpty(bVar.f14114a)) {
+                    this.k.setText(bVar.f14114a);
                     this.k.setOnClickListener(new a(this, bVar));
                 }
-                c.a aVar2 = cVar.f14112h;
-                if (aVar2 == null || TextUtils.isEmpty(aVar2.f14116b) || TextUtils.isEmpty(aVar2.f14115a)) {
+                c.a aVar2 = cVar.f14109h;
+                if (aVar2 == null || TextUtils.isEmpty(aVar2.f14113b) || TextUtils.isEmpty(aVar2.f14112a)) {
                     return;
                 }
-                this.l.setText(aVar2.f14115a);
+                this.l.setText(aVar2.f14112a);
                 this.l.setOnClickListener(new b(this, aVar2));
                 return;
             }
@@ -206,7 +206,7 @@ public class DownloadRectifyView extends RelativeLayout {
     public void setOnCloseClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f49176e.setOnClickListener(onClickListener);
+            this.f49286e.setOnClickListener(onClickListener);
         }
     }
 

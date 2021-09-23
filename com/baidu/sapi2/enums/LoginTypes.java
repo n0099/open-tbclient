@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class LoginTypes {
     public static final /* synthetic */ LoginTypes[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
+    public static final LoginTypes HISTORY;
     public static final LoginTypes ONE_KEY_LOGIN;
     public static final LoginTypes SHARE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +34,10 @@ public final class LoginTypes {
             }
         }
         ONE_KEY_LOGIN = new LoginTypes("ONE_KEY_LOGIN", 0, 1, "one_key_login");
-        LoginTypes loginTypes = new LoginTypes("SHARE", 1, 2, "share");
-        SHARE = loginTypes;
-        $VALUES = new LoginTypes[]{ONE_KEY_LOGIN, loginTypes};
+        SHARE = new LoginTypes("SHARE", 1, 2, "share");
+        LoginTypes loginTypes = new LoginTypes("HISTORY", 2, 3, "history");
+        HISTORY = loginTypes;
+        $VALUES = new LoginTypes[]{ONE_KEY_LOGIN, SHARE, loginTypes};
     }
 
     public LoginTypes(String str, int i2, int i3, String str2) {

@@ -10,34 +10,34 @@ public class e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f20036a;
+    public boolean f20051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f20037b;
+    public boolean f20052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f20038c;
+    public boolean f20053c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f20039d;
+    public boolean f20054d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f20040e;
+    public boolean f20055e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20041f;
+    public boolean f20056f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f20042g;
+    public boolean f20057g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f20043h;
+    public boolean f20058h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f20044i;
+    public boolean f20059i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f20045j;
+    public boolean f20060j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -65,15 +65,15 @@ public class e0 {
                 return;
             }
         }
-        this.f20036a = false;
-        this.f20037b = false;
-        this.f20039d = false;
-        this.f20040e = false;
-        this.f20041f = false;
-        this.f20042g = false;
-        this.f20043h = false;
-        this.f20044i = false;
-        this.f20045j = false;
+        this.f20051a = false;
+        this.f20052b = false;
+        this.f20054d = false;
+        this.f20055e = false;
+        this.f20056f = false;
+        this.f20057g = false;
+        this.f20058h = false;
+        this.f20059i = false;
+        this.f20060j = false;
         this.k = false;
         this.l = false;
         this.m = false;

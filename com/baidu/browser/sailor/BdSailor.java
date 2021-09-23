@@ -452,7 +452,7 @@ public class BdSailor implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, Boolean.valueOf(z), cls}) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            boolean z2 = BdWebkitManager.a.f38561a == BdSailorPlatform.getWebkitManager().getWebkitType();
+            boolean z2 = BdWebkitManager.a.f38612a == BdSailorPlatform.getWebkitManager().getWebkitType();
             ZeusPerformanceTiming.Stage stage = ZeusPerformanceTiming.Stage.Start;
             if (z2) {
                 ZeusPerformanceTiming.record(stage, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
@@ -692,7 +692,7 @@ public class BdSailor implements INoProGuard {
             this.mClient = bdSailorClient;
             WebKitFactory.setWebKitClient(bdSailorClient);
             setSailorFeatureListener();
-            BdSailorPlatform.getStatic().f3718a = this.mClient;
+            BdSailorPlatform.getStatic().f3719a = this.mClient;
         }
     }
 

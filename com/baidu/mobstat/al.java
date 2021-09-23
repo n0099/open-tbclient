@@ -26,10 +26,10 @@ public class al implements Window.Callback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Window.Callback f43200a;
+    public Window.Callback f43262a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f43201b;
+    public a f43263b;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -53,21 +53,21 @@ public class al implements Window.Callback {
                 return;
             }
         }
-        this.f43200a = callback;
-        this.f43201b = aVar;
+        this.f43262a = callback;
+        this.f43263b = aVar;
     }
 
     public Window.Callback a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43200a : (Window.Callback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43262a : (Window.Callback) invokeV.objValue;
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? this.f43200a.dispatchGenericMotionEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? this.f43262a.dispatchGenericMotionEvent(motionEvent) : invokeL.booleanValue;
     }
 
     @Override // android.view.Window.Callback
@@ -75,11 +75,11 @@ public class al implements Window.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, keyEvent)) == null) {
-            a aVar = this.f43201b;
+            a aVar = this.f43263b;
             if (aVar != null) {
                 aVar.a(keyEvent);
             }
-            return this.f43200a.dispatchKeyEvent(keyEvent);
+            return this.f43262a.dispatchKeyEvent(keyEvent);
         }
         return invokeL.booleanValue;
     }
@@ -88,14 +88,14 @@ public class al implements Window.Callback {
     public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, keyEvent)) == null) ? this.f43200a.dispatchKeyShortcutEvent(keyEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, keyEvent)) == null) ? this.f43262a.dispatchKeyShortcutEvent(keyEvent) : invokeL.booleanValue;
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, accessibilityEvent)) == null) ? this.f43200a.dispatchPopulateAccessibilityEvent(accessibilityEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, accessibilityEvent)) == null) ? this.f43262a.dispatchPopulateAccessibilityEvent(accessibilityEvent) : invokeL.booleanValue;
     }
 
     @Override // android.view.Window.Callback
@@ -103,11 +103,11 @@ public class al implements Window.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            a aVar = this.f43201b;
+            a aVar = this.f43263b;
             if (aVar != null) {
                 aVar.a(motionEvent);
             }
-            return this.f43200a.dispatchTouchEvent(motionEvent);
+            return this.f43262a.dispatchTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
@@ -116,14 +116,14 @@ public class al implements Window.Callback {
     public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) ? this.f43200a.dispatchTrackballEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) ? this.f43262a.dispatchTrackballEvent(motionEvent) : invokeL.booleanValue;
     }
 
     @Override // android.view.Window.Callback
     public void onActionModeFinished(ActionMode actionMode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, actionMode) == null) {
-            this.f43200a.onActionModeFinished(actionMode);
+            this.f43262a.onActionModeFinished(actionMode);
         }
     }
 
@@ -131,7 +131,7 @@ public class al implements Window.Callback {
     public void onActionModeStarted(ActionMode actionMode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, actionMode) == null) {
-            this.f43200a.onActionModeStarted(actionMode);
+            this.f43262a.onActionModeStarted(actionMode);
         }
     }
 
@@ -139,7 +139,7 @@ public class al implements Window.Callback {
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f43200a.onAttachedToWindow();
+            this.f43262a.onAttachedToWindow();
         }
     }
 
@@ -147,7 +147,7 @@ public class al implements Window.Callback {
     public void onContentChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f43200a.onContentChanged();
+            this.f43262a.onContentChanged();
         }
     }
 
@@ -155,21 +155,21 @@ public class al implements Window.Callback {
     public boolean onCreatePanelMenu(int i2, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i2, menu)) == null) ? this.f43200a.onCreatePanelMenu(i2, menu) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i2, menu)) == null) ? this.f43262a.onCreatePanelMenu(i2, menu) : invokeIL.booleanValue;
     }
 
     @Override // android.view.Window.Callback
     public View onCreatePanelView(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? this.f43200a.onCreatePanelView(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? this.f43262a.onCreatePanelView(i2) : (View) invokeI.objValue;
     }
 
     @Override // android.view.Window.Callback
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f43200a.onDetachedFromWindow();
+            this.f43262a.onDetachedFromWindow();
         }
     }
 
@@ -177,21 +177,21 @@ public class al implements Window.Callback {
     public boolean onMenuItemSelected(int i2, MenuItem menuItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i2, menuItem)) == null) ? this.f43200a.onMenuItemSelected(i2, menuItem) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i2, menuItem)) == null) ? this.f43262a.onMenuItemSelected(i2, menuItem) : invokeIL.booleanValue;
     }
 
     @Override // android.view.Window.Callback
     public boolean onMenuOpened(int i2, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i2, menu)) == null) ? this.f43200a.onMenuOpened(i2, menu) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i2, menu)) == null) ? this.f43262a.onMenuOpened(i2, menu) : invokeIL.booleanValue;
     }
 
     @Override // android.view.Window.Callback
     public void onPanelClosed(int i2, Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048592, this, i2, menu) == null) {
-            this.f43200a.onPanelClosed(i2, menu);
+            this.f43262a.onPanelClosed(i2, menu);
         }
     }
 
@@ -200,7 +200,7 @@ public class al implements Window.Callback {
     public void onPointerCaptureChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f43200a.onPointerCaptureChanged(z);
+            this.f43262a.onPointerCaptureChanged(z);
         }
     }
 
@@ -208,7 +208,7 @@ public class al implements Window.Callback {
     public boolean onPreparePanel(int i2, View view, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048594, this, i2, view, menu)) == null) ? this.f43200a.onPreparePanel(i2, view, menu) : invokeILL.booleanValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048594, this, i2, view, menu)) == null) ? this.f43262a.onPreparePanel(i2, view, menu) : invokeILL.booleanValue;
     }
 
     @Override // android.view.Window.Callback
@@ -216,7 +216,7 @@ public class al implements Window.Callback {
     public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048595, this, list, menu, i2) == null) {
-            this.f43200a.onProvideKeyboardShortcuts(list, menu, i2);
+            this.f43262a.onProvideKeyboardShortcuts(list, menu, i2);
         }
     }
 
@@ -224,14 +224,14 @@ public class al implements Window.Callback {
     public boolean onSearchRequested() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f43200a.onSearchRequested() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f43262a.onSearchRequested() : invokeV.booleanValue;
     }
 
     @Override // android.view.Window.Callback
     public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, layoutParams) == null) {
-            this.f43200a.onWindowAttributesChanged(layoutParams);
+            this.f43262a.onWindowAttributesChanged(layoutParams);
         }
     }
 
@@ -239,7 +239,7 @@ public class al implements Window.Callback {
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.f43200a.onWindowFocusChanged(z);
+            this.f43262a.onWindowFocusChanged(z);
         }
     }
 
@@ -247,7 +247,7 @@ public class al implements Window.Callback {
     public ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, callback)) == null) ? this.f43200a.onWindowStartingActionMode(callback) : (ActionMode) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, callback)) == null) ? this.f43262a.onWindowStartingActionMode(callback) : (ActionMode) invokeL.objValue;
     }
 
     @Override // android.view.Window.Callback
@@ -255,7 +255,7 @@ public class al implements Window.Callback {
     public boolean onSearchRequested(SearchEvent searchEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, searchEvent)) == null) ? this.f43200a.onSearchRequested(searchEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, searchEvent)) == null) ? this.f43262a.onSearchRequested(searchEvent) : invokeL.booleanValue;
     }
 
     @Override // android.view.Window.Callback
@@ -263,6 +263,6 @@ public class al implements Window.Callback {
     public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048601, this, callback, i2)) == null) ? this.f43200a.onWindowStartingActionMode(callback, i2) : (ActionMode) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048601, this, callback, i2)) == null) ? this.f43262a.onWindowStartingActionMode(callback, i2) : (ActionMode) invokeLI.objValue;
     }
 }

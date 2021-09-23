@@ -16,12 +16,12 @@ public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f13999a;
+    public static a f13996a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.q0.s.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0689a {
+    public interface InterfaceC0687a {
         void a(String str, int i2, String str2);
 
         void b(String str);
@@ -35,10 +35,10 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f14000a;
+        public String f13997a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f14001b;
+        public String f13998b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -53,8 +53,8 @@ public abstract class a {
                     return;
                 }
             }
-            this.f14000a = null;
-            this.f14001b = null;
+            this.f13997a = null;
+            this.f13998b = null;
         }
     }
 
@@ -90,19 +90,19 @@ public abstract class a {
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f13999a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f13996a : (a) invokeV.objValue;
     }
 
     public static void c() {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f13999a != null || (runTask = MessageManager.getInstance().runTask(2001293, a.class)) == null || runTask.getData() == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f13996a != null || (runTask = MessageManager.getInstance().runTask(2001293, a.class)) == null || runTask.getData() == null) {
             return;
         }
-        f13999a = (a) runTask.getData();
+        f13996a = (a) runTask.getData();
     }
 
-    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, InterfaceC0689a interfaceC0689a);
+    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, InterfaceC0687a interfaceC0687a);
 
     public abstract b d(String str);
 

@@ -67,10 +67,10 @@ public class b extends c.a.r0.a0.b<c> {
     @Override // c.a.r0.a0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f15548e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f15557e == i2) {
             return;
         }
-        this.f15548e = i2;
+        this.f15557e = i2;
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0109);
         SkinManager.setBackgroundResource(this.q, R.drawable.ad_list_item_bg);

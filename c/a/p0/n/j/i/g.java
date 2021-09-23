@@ -16,10 +16,10 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f12018a;
+    public static final boolean f12026a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile g f12019b;
+    public static volatile g f12027b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class g {
                 return;
             }
         }
-        f12018a = c.a.p0.n.c.f11856a;
+        f12026a = c.a.p0.n.c.f11864a;
     }
 
     public g() {
@@ -56,14 +56,14 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f12019b == null) {
+            if (f12027b == null) {
                 synchronized (g.class) {
-                    if (f12019b == null) {
-                        f12019b = new g();
+                    if (f12027b == null) {
+                        f12027b = new g();
                     }
                 }
             }
-            return f12019b;
+            return f12027b;
         }
         return (g) invokeV.objValue;
     }
@@ -80,7 +80,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (f12018a) {
+        if (f12026a) {
             String str = WebGLImageLoader.DATA_URL + jSONObject;
         }
         String optString = jSONObject.optString("version");

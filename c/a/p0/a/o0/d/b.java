@@ -18,7 +18,7 @@ public class b extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f7802c;
+    public final Map<String, String> f7810c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b(@NonNull String str) {
@@ -47,7 +47,7 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry<String, String> entry : this.f7802c.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f7810c.entrySet()) {
                 sb.append(c.a.p0.a.o0.a.c(str, entry.getKey(), entry.getValue()));
             }
             return sb.toString();
@@ -61,11 +61,11 @@ public class b extends a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                for (Map.Entry<String, String> entry : this.f7802c.entrySet()) {
+                for (Map.Entry<String, String> entry : this.f7810c.entrySet()) {
                     jSONObject.put(entry.getKey(), entry.getValue());
                 }
             } catch (JSONException e2) {
-                if (a.f7794b) {
+                if (a.f7802b) {
                     e2.printStackTrace();
                 }
             }
@@ -90,8 +90,8 @@ public class b extends a {
             }
         }
         HashMap hashMap = new HashMap();
-        this.f7802c = hashMap;
-        this.f7795a = str;
+        this.f7810c = hashMap;
+        this.f7803a = str;
         if (map != null) {
             hashMap.putAll(map);
         }

@@ -28,8 +28,8 @@ public class f extends m {
                 return;
             }
         }
-        this.f15088d = R.drawable.icon_pure_post_keyboard24_svg;
-        this.f15091g = true;
-        this.f15086b = TbadkCoreApplication.getInst().getString(R.string.switch_to_keyboard);
+        this.f15095d = R.drawable.icon_pure_post_keyboard24_svg;
+        this.f15098g = true;
+        this.f15093b = TbadkCoreApplication.getInst().getString(R.string.switch_to_keyboard);
     }
 }

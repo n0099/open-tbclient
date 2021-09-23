@@ -28,20 +28,20 @@ public class d extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f23888i = 16;
+    public static int f23904i = 16;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AvatarPendantActivity f23889e;
+    public AvatarPendantActivity f23905e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<c.a.r0.p3.d.a> f23890f;
+    public List<c.a.r0.p3.d.a> f23906f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.p3.d.b f23891g;
+    public c.a.r0.p3.d.b f23907g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a f23892h;
+    public c.a f23908h;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -55,13 +55,13 @@ public class d extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f23893a;
+        public TextView f23909a;
 
         /* renamed from: b  reason: collision with root package name */
-        public WholeDisplayGridView f23894b;
+        public WholeDisplayGridView f23910b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f23895c;
+        public View f23911c;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class d extends BaseAdapter {
                 return;
             }
         }
-        this.f23889e = avatarPendantActivity;
+        this.f23905e = avatarPendantActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -124,11 +124,11 @@ public class d extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<c.a.r0.p3.d.a> list = this.f23890f;
+            List<c.a.r0.p3.d.a> list = this.f23906f;
             if (list == null || list.size() <= 0 || i2 < 0 || i2 >= getCount()) {
                 return null;
             }
-            return this.f23890f.get(i2);
+            return this.f23906f.get(i2);
         }
         return (c.a.r0.p3.d.a) invokeI.objValue;
     }
@@ -136,14 +136,14 @@ public class d extends BaseAdapter {
     public void b(c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f23892h = aVar;
+            this.f23908h = aVar;
         }
     }
 
     public void c(List<c.a.r0.p3.d.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f23890f = list;
+            this.f23906f = list;
         }
     }
 
@@ -152,7 +152,7 @@ public class d extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<c.a.r0.p3.d.a> list = this.f23890f;
+            List<c.a.r0.p3.d.a> list = this.f23906f;
             if (list != null) {
                 return list.size();
             }
@@ -180,34 +180,34 @@ public class d extends BaseAdapter {
             if (view != null && (view.getTag() instanceof b)) {
                 bVar = (b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f23889e.getActivity()).inflate(R.layout.avatar_pendant_listiew_item, viewGroup, false);
+                view = LayoutInflater.from(this.f23905e.getActivity()).inflate(R.layout.avatar_pendant_listiew_item, viewGroup, false);
                 bVar = new b(this, null);
-                bVar.f23893a = (TextView) view.findViewById(R.id.category_name);
-                bVar.f23894b = (WholeDisplayGridView) view.findViewById(R.id.avatar_pedant_gridview);
-                bVar.f23895c = view.findViewById(R.id.line_divider);
+                bVar.f23909a = (TextView) view.findViewById(R.id.category_name);
+                bVar.f23910b = (WholeDisplayGridView) view.findViewById(R.id.avatar_pedant_gridview);
+                bVar.f23911c = view.findViewById(R.id.line_divider);
                 view.setTag(bVar);
             }
             c.a.r0.p3.d.a item = getItem(i2);
             if (StringUtils.isNull(item.a())) {
-                bVar.f23893a.setVisibility(8);
+                bVar.f23909a.setVisibility(8);
             } else {
-                bVar.f23893a.setVisibility(0);
-                bVar.f23893a.setText(k.cutString(item.a(), f23888i));
+                bVar.f23909a.setVisibility(0);
+                bVar.f23909a.setText(k.cutString(item.a(), f23904i));
             }
             if (item != null && !ListUtils.isEmpty(item.b())) {
-                c.a.r0.p3.d.b bVar2 = new c.a.r0.p3.d.b(this.f23889e);
-                this.f23891g = bVar2;
+                c.a.r0.p3.d.b bVar2 = new c.a.r0.p3.d.b(this.f23905e);
+                this.f23907g = bVar2;
                 bVar2.d(item.b());
-                bVar.f23894b.setAdapter((ListAdapter) this.f23891g);
-                this.f23891g.c(this.f23892h);
+                bVar.f23910b.setAdapter((ListAdapter) this.f23907g);
+                this.f23907g.c(this.f23908h);
             }
             if (i2 == getCount() - 1) {
-                bVar.f23895c.setVisibility(8);
+                bVar.f23911c.setVisibility(8);
             } else {
-                bVar.f23895c.setVisibility(0);
+                bVar.f23911c.setVisibility(0);
             }
-            SkinManager.setBackgroundColor(bVar.f23895c, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(bVar.f23893a, R.color.CAM_X0109);
+            SkinManager.setBackgroundColor(bVar.f23911c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.f23909a, R.color.CAM_X0109);
             return view;
         }
         return (View) invokeILL.objValue;

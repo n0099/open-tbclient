@@ -32,13 +32,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f28952a;
+        public int f28972a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f28953b;
+        public int f28973b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f28954c;
+        public int f28974c;
 
         public a(int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public class c {
                     return;
                 }
             }
-            this.f28952a = i2;
-            this.f28953b = i3;
+            this.f28972a = i2;
+            this.f28973b = i3;
         }
     }
 
@@ -71,8 +71,8 @@ public class c {
             Iterator<a> it = arrayList.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                int i2 = next.f28952a;
-                int i3 = next.f28953b;
+                int i2 = next.f28972a;
+                int i3 = next.f28973b;
                 if (i2 >= bitmap.getWidth() || i3 >= bitmap.getHeight()) {
                     return false;
                 }
@@ -80,7 +80,7 @@ public class c {
                 if (sparseArray.get(pixel) != null) {
                     return false;
                 }
-                next.f28954c = pixel;
+                next.f28974c = pixel;
                 sparseArray.put(pixel, next);
             }
             return true;

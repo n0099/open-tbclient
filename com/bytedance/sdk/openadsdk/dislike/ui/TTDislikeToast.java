@@ -23,10 +23,10 @@ public class TTDislikeToast extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f67558a;
+    public Handler f67869a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f67559b;
+    public TextView f67870b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TTDislikeToast(Context context) {
@@ -60,7 +60,7 @@ public class TTDislikeToast extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setVisibility(8);
-            this.f67558a.removeCallbacksAndMessages(null);
+            this.f67869a.removeCallbacksAndMessages(null);
         }
     }
 
@@ -89,24 +89,24 @@ public class TTDislikeToast extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             TextView textView = new TextView(context);
-            this.f67559b = textView;
+            this.f67870b = textView;
             textView.setClickable(false);
-            this.f67559b.setFocusable(false);
+            this.f67870b.setFocusable(false);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
             int a2 = com.bytedance.sdk.openadsdk.dislike.a.a.b().a(getContext(), 20.0f);
             int a3 = com.bytedance.sdk.openadsdk.dislike.a.a.b().a(getContext(), 12.0f);
-            this.f67559b.setPadding(a2, a3, a2, a3);
-            this.f67559b.setLayoutParams(layoutParams);
-            this.f67559b.setTextColor(-1);
-            this.f67559b.setTextSize(16.0f);
-            this.f67559b.setGravity(17);
+            this.f67870b.setPadding(a2, a3, a2, a3);
+            this.f67870b.setLayoutParams(layoutParams);
+            this.f67870b.setTextColor(-1);
+            this.f67870b.setTextSize(16.0f);
+            this.f67870b.setGravity(17);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
             gradientDrawable.setColor(Color.parseColor("#CC000000"));
             gradientDrawable.setCornerRadius(com.bytedance.sdk.openadsdk.dislike.a.a.b().a(getContext(), 6.0f));
-            this.f67559b.setBackgroundDrawable(gradientDrawable);
-            addView(this.f67559b);
+            this.f67870b.setBackgroundDrawable(gradientDrawable);
+            addView(this.f67870b);
         }
     }
 
@@ -129,7 +129,7 @@ public class TTDislikeToast extends FrameLayout {
                 return;
             }
         }
-        this.f67558a = new Handler(Looper.getMainLooper());
+        this.f67869a = new Handler(Looper.getMainLooper());
         setVisibility(8);
         setClickable(false);
         setFocusable(false);
@@ -141,16 +141,16 @@ public class TTDislikeToast extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f67558a.removeCallbacksAndMessages(null);
-        this.f67558a.post(new Runnable(this, str) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.TTDislikeToast.1
+        this.f67869a.removeCallbacksAndMessages(null);
+        this.f67869a.post(new Runnable(this, str) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.TTDislikeToast.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f67560a;
+            public final /* synthetic */ String f67871a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ TTDislikeToast f67561b;
+            public final /* synthetic */ TTDislikeToast f67872b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -167,27 +167,27 @@ public class TTDislikeToast extends FrameLayout {
                         return;
                     }
                 }
-                this.f67561b = this;
-                this.f67560a = str;
+                this.f67872b = this;
+                this.f67871a = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.f67561b.f67559b != null) {
-                        this.f67561b.f67559b.setText(String.valueOf(this.f67560a));
+                    if (this.f67872b.f67870b != null) {
+                        this.f67872b.f67870b.setText(String.valueOf(this.f67871a));
                     }
-                    this.f67561b.setVisibility(0);
+                    this.f67872b.setVisibility(0);
                 }
             }
         });
-        this.f67558a.postDelayed(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.TTDislikeToast.2
+        this.f67869a.postDelayed(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.TTDislikeToast.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TTDislikeToast f67562a;
+            public final /* synthetic */ TTDislikeToast f67873a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -204,14 +204,14 @@ public class TTDislikeToast extends FrameLayout {
                         return;
                     }
                 }
-                this.f67562a = this;
+                this.f67873a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f67562a.setVisibility(8);
+                    this.f67873a.setVisibility(8);
                 }
             }
         }, 2000L);

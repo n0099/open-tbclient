@@ -29,16 +29,16 @@ public class c extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f10176e;
+        public final /* synthetic */ Context f10184e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10177f;
+        public final /* synthetic */ CallbackHandler f10185f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10178g;
+        public final /* synthetic */ String f10186g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c f10179h;
+        public final /* synthetic */ c f10187h;
 
         public a(c cVar, Context context, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -55,10 +55,10 @@ public class c extends a0 {
                     return;
                 }
             }
-            this.f10179h = cVar;
-            this.f10176e = context;
-            this.f10177f = callbackHandler;
-            this.f10178g = str;
+            this.f10187h = cVar;
+            this.f10184e = context;
+            this.f10185f = callbackHandler;
+            this.f10186g = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,7 +67,7 @@ public class c extends a0 {
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f10179h.k(iVar, this.f10176e, this.f10177f, this.f10178g);
+                this.f10187h.k(iVar, this.f10184e, this.f10185f, this.f10186g);
             }
         }
     }
@@ -137,7 +137,7 @@ public class c extends a0 {
                 jSONObject.put("bduss", i2);
                 wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             } catch (JSONException e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e2.printStackTrace();
                 }
                 wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");

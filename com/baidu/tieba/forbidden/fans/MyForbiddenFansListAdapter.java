@@ -26,16 +26,16 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f50738a;
+    public Context f50851a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f50739b;
+    public ArrayList<a> f50852b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f50740c;
+    public View.OnClickListener f50853c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f50741d;
+    public View.OnClickListener f50854d;
 
     /* loaded from: classes7.dex */
     public static class FansViewHolder extends RecyclerView.ViewHolder {
@@ -92,9 +92,9 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
                 return;
             }
         }
-        this.f50740c = null;
-        this.f50741d = null;
-        this.f50738a = context;
+        this.f50853c = null;
+        this.f50854d = null;
+        this.f50851a = context;
     }
 
     public final void a(FansViewHolder fansViewHolder) {
@@ -110,19 +110,19 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     public final a b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (a) ListUtils.getItem(this.f50739b, i2) : (a) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (a) ListUtils.getItem(this.f50852b, i2) : (a) invokeI.objValue;
     }
 
     public boolean deleteRemovedUser(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-            if (j2 != 0 && !ListUtils.isEmpty(this.f50739b)) {
-                Iterator<a> it = this.f50739b.iterator();
+            if (j2 != 0 && !ListUtils.isEmpty(this.f50852b)) {
+                Iterator<a> it = this.f50852b.iterator();
                 while (it.hasNext()) {
                     a next = it.next();
-                    if (next != null && next.f24919a == j2) {
-                        this.f50739b.remove(next);
+                    if (next != null && next.f24940a == j2) {
+                        this.f50852b.remove(next);
                         return true;
                     }
                 }
@@ -135,40 +135,40 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     public ArrayList<a> getFansList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50739b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50852b : (ArrayList) invokeV.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f50739b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f50852b) : invokeV.intValue;
     }
 
     public boolean isListEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ListUtils.isEmpty(this.f50739b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ListUtils.isEmpty(this.f50852b) : invokeV.booleanValue;
     }
 
     public void setFansList(ArrayList<a> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
-            this.f50739b = arrayList;
+            this.f50852b = arrayList;
         }
     }
 
     public void setPersonClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
-            this.f50741d = onClickListener;
+            this.f50854d = onClickListener;
         }
     }
 
     public void setRemoveClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
-            this.f50740c = onClickListener;
+            this.f50853c = onClickListener;
         }
     }
 
@@ -180,11 +180,11 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         if (!(interceptable == null || interceptable.invokeLI(1048583, this, fansViewHolder, i2) == null) || fansViewHolder == null || (b2 = b(i2)) == null) {
             return;
         }
-        fansViewHolder.photoView.startLoad(b2.f24922d, 12, false);
-        fansViewHolder.nameView.setText(b2.f24921c);
-        fansViewHolder.removeView.setOnClickListener(this.f50740c);
+        fansViewHolder.photoView.startLoad(b2.f24943d, 12, false);
+        fansViewHolder.nameView.setText(b2.f24942c);
+        fansViewHolder.removeView.setOnClickListener(this.f50853c);
         fansViewHolder.removeView.setTag(b2);
-        fansViewHolder.containerView.setOnClickListener(this.f50741d);
+        fansViewHolder.containerView.setOnClickListener(this.f50854d);
         fansViewHolder.containerView.setTag(b2);
         a(fansViewHolder);
     }
@@ -194,6 +194,6 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     public FansViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i2)) == null) ? new FansViewHolder(LayoutInflater.from(this.f50738a).inflate(R.layout.forbidden_fans_item, (ViewGroup) null)) : (FansViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i2)) == null) ? new FansViewHolder(LayoutInflater.from(this.f50851a).inflate(R.layout.forbidden_fans_item, (ViewGroup) null)) : (FansViewHolder) invokeLI.objValue;
     }
 }

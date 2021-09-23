@@ -2,7 +2,7 @@ package com.baidu.fsg.base.restnet.beans;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.base.b.a;
+import com.baidu.fsg.base.b.d;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.RestResponseEntity;
 import com.baidu.fsg.base.restnet.RestTemplate;
@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import java.util.Objects;
 /* loaded from: classes5.dex */
 public abstract class ApollonBean {
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,7 +49,7 @@ public abstract class ApollonBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.mRspCallback = null;
-            a.a("BeanTaskManager").a("ApollonBeanTask", this.mTskKey);
+            d.b("BeanTaskManager").a("ApollonBeanTask", this.mTskKey);
             RestTemplate restTemplate = this.mRestTemplate;
             if (restTemplate != null) {
                 restTemplate.setRequestInterceptor(null);
@@ -121,10 +122,10 @@ public abstract class ApollonBean {
                 handleNetworkFailureError();
                 return;
             }
-            a a2 = a.a("BeanTaskManager");
+            d b2 = d.b("BeanTaskManager");
             this.mTskKey = "BeanTask_" + getBeanId() + "_" + System.currentTimeMillis();
-            a2.getClass();
-            a2.a(new a.c(a2, 0L, 0L, false, this.mTskKey, runnable), "ApollonBeanTask");
+            Objects.requireNonNull(b2);
+            b2.a(new d.c(b2, 0L, 0L, false, this.mTskKey, runnable), "ApollonBeanTask");
         }
     }
 

@@ -168,7 +168,7 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BeanActivity f60920a;
+            public final /* synthetic */ BeanActivity f61037a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -185,15 +185,15 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                         return;
                     }
                 }
-                this.f60920a = this;
+                this.f61037a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    GlobalUtils.hideKeyboard(this.f60920a.getActivity());
-                    this.f60920a.onBackPressed();
+                    GlobalUtils.hideKeyboard(this.f61037a.getActivity());
+                    this.f61037a.onBackPressed();
                 }
             }
         });
@@ -211,7 +211,7 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BeanActivity f60919a;
+            public final /* synthetic */ BeanActivity f61036a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -228,15 +228,15 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                         return;
                     }
                 }
-                this.f60919a = this;
+                this.f61036a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    GlobalUtils.hideKeyboard(this.f60919a.getActivity());
-                    this.f60919a.onBackPressed();
+                    GlobalUtils.hideKeyboard(this.f61036a.getActivity());
+                    this.f61036a.onBackPressed();
                 }
             }
         });
@@ -252,16 +252,16 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f60925a;
+                public final /* synthetic */ int f61042a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f60926b;
+                public final /* synthetic */ int f61043b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f60927c;
+                public final /* synthetic */ String f61044c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ BeanActivity f60928d;
+                public final /* synthetic */ BeanActivity f61045d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -278,19 +278,19 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                             return;
                         }
                     }
-                    this.f60928d = this;
-                    this.f60925a = i2;
-                    this.f60926b = i3;
-                    this.f60927c = str;
+                    this.f61045d = this;
+                    this.f61042a = i2;
+                    this.f61043b = i3;
+                    this.f61044c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        BeanActivity beanActivity = this.f60928d;
+                        BeanActivity beanActivity = this.f61045d;
                         if (beanActivity.mAct != null) {
-                            beanActivity.handleFailure(this.f60925a, this.f60926b, this.f60927c);
+                            beanActivity.handleFailure(this.f61042a, this.f61043b, this.f61044c);
                         }
                     }
                 }
@@ -314,16 +314,16 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f60921a;
+                public final /* synthetic */ int f61038a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f60922b;
+                public final /* synthetic */ Object f61039b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f60923c;
+                public final /* synthetic */ String f61040c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ BeanActivity f60924d;
+                public final /* synthetic */ BeanActivity f61041d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -340,19 +340,19 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                             return;
                         }
                     }
-                    this.f60924d = this;
-                    this.f60921a = i2;
-                    this.f60922b = obj;
-                    this.f60923c = str;
+                    this.f61041d = this;
+                    this.f61038a = i2;
+                    this.f61039b = obj;
+                    this.f61040c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        BeanActivity beanActivity = this.f60924d;
+                        BeanActivity beanActivity = this.f61041d;
                         if (beanActivity.mAct != null) {
-                            beanActivity.handleResponse(this.f60921a, this.f60922b, this.f60923c);
+                            beanActivity.handleResponse(this.f61038a, this.f61039b, this.f61040c);
                         }
                     }
                 }

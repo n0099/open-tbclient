@@ -19,10 +19,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f23025a;
+    public int f23041a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f23026b;
+    public boolean f23042b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class c {
                 return;
             }
         }
-        this.f23026b = false;
+        this.f23042b = false;
         i();
     }
 
@@ -48,7 +48,7 @@ public class c {
             if (i2 == 1) {
                 return d(i2);
             }
-            int i3 = this.f23025a;
+            int i3 = this.f23041a;
             if (i3 == 1) {
                 return c(i2);
             }
@@ -126,7 +126,7 @@ public class c {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23026b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23042b : invokeV.booleanValue;
     }
 
     public boolean h() {
@@ -158,20 +158,20 @@ public class c {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f23025a = c.a.q0.s.d0.b.j().k("key_abtest_channel", 0);
+            this.f23041a = c.a.q0.s.d0.b.j().k("key_abtest_channel", 0);
             j();
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.f23026b && this.f23025a == 1) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.f23042b && this.f23041a == 1) {
             boolean h2 = h();
-            this.f23026b = h2;
+            this.f23042b = h2;
             if (h2) {
                 return;
             }
-            this.f23025a = 0;
+            this.f23041a = 0;
         }
     }
 
@@ -179,8 +179,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
             if (i2 == 1 || i2 == 0) {
-                this.f23025a = i2;
-                c.a.q0.s.d0.b.j().v("key_abtest_channel", this.f23025a);
+                this.f23041a = i2;
+                c.a.q0.s.d0.b.j().v("key_abtest_channel", this.f23041a);
                 j();
             }
         }

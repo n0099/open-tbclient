@@ -34,34 +34,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public EditText f28754a;
+    public EditText f28774a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f28755b;
+    public ImageView f28775b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f28756c;
+    public TextView f28776c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f28757d;
+    public ViewGroup f28777d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f28758e;
+    public BaseActivity<?> f28778e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Window f28759f;
+    public Window f28779f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f28760g;
+    public ImageView f28780g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EditorTools f28761h;
+    public EditorTools f28781h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f28762i;
+    public FrameLayout f28782i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ProgressBar f28763j;
+    public ProgressBar f28783j;
 
     public b(BaseActivity<?> baseActivity, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
         Interceptable interceptable = $ic;
@@ -78,42 +78,42 @@ public class b {
                 return;
             }
         }
-        this.f28758e = baseActivity;
+        this.f28778e = baseActivity;
         Window window = baseActivity.getWindow();
-        this.f28759f = window;
-        this.f28757d = (ViewGroup) window.findViewById(R.id.tail_edit_root);
-        this.f28754a = (EditText) this.f28759f.findViewById(R.id.tail_edit_edittext);
-        ImageView imageView = (ImageView) this.f28759f.findViewById(R.id.tail_edit_submit);
-        this.f28755b = imageView;
+        this.f28779f = window;
+        this.f28777d = (ViewGroup) window.findViewById(R.id.tail_edit_root);
+        this.f28774a = (EditText) this.f28779f.findViewById(R.id.tail_edit_edittext);
+        ImageView imageView = (ImageView) this.f28779f.findViewById(R.id.tail_edit_submit);
+        this.f28775b = imageView;
         imageView.setOnClickListener(onClickListener);
-        ImageView imageView2 = (ImageView) this.f28759f.findViewById(R.id.tail_edit_cancel);
-        this.f28760g = imageView2;
+        ImageView imageView2 = (ImageView) this.f28779f.findViewById(R.id.tail_edit_cancel);
+        this.f28780g = imageView2;
         imageView2.setOnClickListener(onClickListener2);
-        this.f28756c = (TextView) this.f28759f.findViewById(R.id.tail_edit_text_number);
-        this.f28762i = (FrameLayout) this.f28759f.findViewById(R.id.tail_edit_editor);
-        this.f28763j = (ProgressBar) this.f28759f.findViewById(R.id.tail_edit_progress);
+        this.f28776c = (TextView) this.f28779f.findViewById(R.id.tail_edit_text_number);
+        this.f28782i = (FrameLayout) this.f28779f.findViewById(R.id.tail_edit_editor);
+        this.f28783j = (ProgressBar) this.f28779f.findViewById(R.id.tail_edit_progress);
     }
 
     public void a(c.a.q0.x.b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, str) == null) {
-            this.f28761h = new EditorTools(this.f28758e.getPageContext().getPageActivity());
+            this.f28781h = new EditorTools(this.f28778e.getPageContext().getPageActivity());
             d();
             c(bVar);
             b(bVar, str);
-            this.f28761h.build();
-            this.f28761h.sendAction(new c.a.q0.x.a(35, 5, Boolean.FALSE));
-            this.f28761h.display();
-            o(this.f28761h);
+            this.f28781h.build();
+            this.f28781h.sendAction(new c.a.q0.x.a(35, 5, Boolean.FALSE));
+            this.f28781h.display();
+            o(this.f28781h);
         }
     }
 
     public final void b(c.a.q0.x.b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, str) == null) {
-            this.f28761h.addTool(new d(this.f28758e.getPageContext(), 2, str));
-            this.f28761h.setActionListener(26, bVar);
-            this.f28761h.setActionListener(3, bVar);
+            this.f28781h.addTool(new d(this.f28778e.getPageContext(), 2, str));
+            this.f28781h.setActionListener(26, bVar);
+            this.f28781h.setActionListener(3, bVar);
         }
     }
 
@@ -122,45 +122,45 @@ public class b {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            this.f28761h.collect(arrayList);
-            m findToolById = this.f28761h.findToolById(5);
+            this.f28781h.collect(arrayList);
+            m findToolById = this.f28781h.findToolById(5);
             if (findToolById != null) {
-                findToolById.f15094j = 1;
+                findToolById.f15101j = 1;
                 findToolById.f(false);
             }
-            this.f28761h.setActionListener(24, bVar);
+            this.f28781h.setActionListener(24, bVar);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f28761h.setBarMaxLauCount(4);
-            this.f28761h.setBarLauncherType(1);
-            this.f28761h.showLinePositionBottom(true);
-            this.f28761h.setBackgroundColorId(R.color.CAM_X0201);
+            this.f28781h.setBarMaxLauCount(4);
+            this.f28781h.setBarLauncherType(1);
+            this.f28781h.showLinePositionBottom(true);
+            this.f28781h.setBackgroundColorId(R.color.CAM_X0201);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f28754a.getSelectionStart() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f28774a.getSelectionStart() <= 0) {
             return;
         }
-        String substring = this.f28754a.getText().toString().substring(0, this.f28754a.getSelectionStart());
+        String substring = this.f28774a.getText().toString().substring(0, this.f28774a.getSelectionStart());
         Matcher matcher = Pattern.compile("#\\([^#\\)\\(]+\\)$").matcher(substring);
         int i2 = 1;
         if (matcher.find()) {
             i2 = substring.length() - matcher.replaceFirst("").length();
         }
-        this.f28754a.getText().delete(this.f28754a.getSelectionStart() - i2, this.f28754a.getSelectionStart());
+        this.f28774a.getText().delete(this.f28774a.getSelectionStart() - i2, this.f28774a.getSelectionStart());
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f28758e.ShowSoftKeyPadDelay(this.f28754a);
-            EditText editText = this.f28754a;
+            this.f28778e.ShowSoftKeyPadDelay(this.f28774a);
+            EditText editText = this.f28774a;
             editText.setSelection(editText.length());
         }
     }
@@ -168,34 +168,34 @@ public class b {
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28754a.getText().toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28774a.getText().toString() : (String) invokeV.objValue;
     }
 
     public EditText h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28754a : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28774a : (EditText) invokeV.objValue;
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f28763j.setVisibility(8);
+            this.f28783j.setVisibility(8);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f28761h.hideTools();
-            this.f28761h.sendAction(new c.a.q0.x.a(5, -1, null));
+            this.f28781h.hideTools();
+            this.f28781h.sendAction(new c.a.q0.x.a(5, -1, null));
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            EditText editText = this.f28754a;
+            EditText editText = this.f28774a;
             editText.setSelection(editText.length());
         }
     }
@@ -203,57 +203,57 @@ public class b {
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f28758e.getLayoutMode().k(i2 == 1);
-            this.f28758e.getLayoutMode().j(this.f28757d);
-            this.f28761h.onChangeSkinType(i2);
+            this.f28778e.getLayoutMode().k(i2 == 1);
+            this.f28778e.getLayoutMode().j(this.f28777d);
+            this.f28781h.onChangeSkinType(i2);
         }
     }
 
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f28754a.setTextColor(c.a(str));
+            this.f28774a.setTextColor(c.a(str));
         }
     }
 
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f28754a.setText(TbFaceManager.e().l(this.f28758e.getPageContext().getPageActivity(), str, null));
+            this.f28774a.setText(TbFaceManager.e().l(this.f28778e.getPageContext().getPageActivity(), str, null));
         }
     }
 
     public void o(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, editorTools) == null) {
-            this.f28762i.addView(editorTools, new LinearLayout.LayoutParams(-1, -2));
+            this.f28782i.addView(editorTools, new LinearLayout.LayoutParams(-1, -2));
         }
     }
 
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f28755b.setEnabled(z);
+            this.f28775b.setEnabled(z);
         }
     }
 
     public void q(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) {
-            TextView textView = this.f28756c;
+            TextView textView = this.f28776c;
             textView.setText(i2 + "/" + i3);
             int i4 = R.color.CAM_X0109;
             if (i2 == i3) {
                 i4 = R.color.CAM_X0301;
             }
-            SkinManager.setViewTextColor(this.f28756c, i4, 1);
+            SkinManager.setViewTextColor(this.f28776c, i4, 1);
         }
     }
 
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f28763j.setVisibility(0);
+            this.f28783j.setVisibility(0);
         }
     }
 

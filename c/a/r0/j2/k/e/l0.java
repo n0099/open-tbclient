@@ -75,7 +75,7 @@ public class l0 extends n<c.a.r0.j2.h.o, PbReplyTitleViewHolder> {
             return;
         }
         c.a.r0.j2.h.e eVar2 = this.x;
-        if (eVar2.f19619i && !this.w) {
+        if (eVar2.f19634i && !this.w) {
             this.w = true;
             boolean isLike = eVar2.h().getIsLike();
             TiebaStatic.log(new StatisticItem("common_exp").param("page_type", "a005").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 9).param("obj_id", this.x.h().getForumId()).param("thread_type", this.x.O().o1()).param("tid", this.x.O().f0()));
@@ -99,7 +99,7 @@ public class l0 extends n<c.a.r0.j2.h.o, PbReplyTitleViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f2957e).inflate(R.layout.pb_reply_title_layout, viewGroup, false);
+            View inflate = LayoutInflater.from(this.f2958e).inflate(R.layout.pb_reply_title_layout, viewGroup, false);
             this.y = inflate;
             PbReplyTitleViewHolder pbReplyTitleViewHolder = new PbReplyTitleViewHolder(this.m.getPageContext(), inflate);
             PbFragment pbFragment = this.n;
@@ -126,7 +126,7 @@ public class l0 extends n<c.a.r0.j2.h.o, PbReplyTitleViewHolder> {
             super.a0(i2, view, viewGroup, oVar, pbReplyTitleViewHolder);
             if (pbReplyTitleViewHolder != null) {
                 j0();
-                oVar.k = this.x.f19616f;
+                oVar.k = this.x.f19631f;
                 pbReplyTitleViewHolder.bindDataToView(oVar);
             }
             return view;

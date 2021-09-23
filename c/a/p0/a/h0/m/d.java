@@ -34,16 +34,16 @@ public class d extends j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.p0.n.o.f f6173g;
+    public c.a.p0.n.o.f f6181g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.p0.a.h0.m.a f6174h;
+    public c.a.p0.a.h0.m.a f6182h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final List<c.a.p0.n.h.g> f6175i;
+    public final List<c.a.p0.n.h.g> f6183i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AtomicInteger f6176j;
+    public AtomicInteger f6184j;
     public boolean k;
     public final CopyOnWriteArraySet<String> l;
     public c.a.p0.n.f.a<a.C0623a> m;
@@ -55,7 +55,7 @@ public class d extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f6177e;
+        public final /* synthetic */ d f6185e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -72,24 +72,24 @@ public class d extends j {
                     return;
                 }
             }
-            this.f6177e = dVar;
+            this.f6185e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean b2 = c.a.p0.n.g.a.h().b(null, this.f6177e.f6175i, null, null, null);
+                boolean b2 = c.a.p0.n.g.a.h().b(null, this.f6185e.f6183i, null, null, null);
                 if (b2) {
-                    for (c.a.p0.n.h.g gVar : this.f6177e.f6175i) {
-                        if (this.f6177e.f6174h != null) {
-                            this.f6177e.f6174h.f(gVar);
+                    for (c.a.p0.n.h.g gVar : this.f6185e.f6183i) {
+                        if (this.f6185e.f6182h != null) {
+                            this.f6185e.f6182h.f(gVar);
                         }
-                        this.f6177e.W();
+                        this.f6185e.W();
                     }
                 }
                 if (d.o) {
-                    String str = "update subPkgList =" + b2 + ", size=" + this.f6177e.f6175i;
+                    String str = "update subPkgList =" + b2 + ", size=" + this.f6185e.f6183i;
                 }
             }
         }
@@ -101,7 +101,7 @@ public class d extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f6178e;
+        public final /* synthetic */ d f6186e;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -109,10 +109,10 @@ public class d extends j {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a.C0623a f6179e;
+            public final /* synthetic */ a.C0623a f6187e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f6180f;
+            public final /* synthetic */ b f6188f;
 
             public a(b bVar, a.C0623a c0623a) {
                 Interceptable interceptable = $ic;
@@ -129,22 +129,22 @@ public class d extends j {
                         return;
                     }
                 }
-                this.f6180f = bVar;
-                this.f6179e = c0623a;
+                this.f6188f = bVar;
+                this.f6187e = c0623a;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f6180f.f6178e.V(this.f6179e)) {
-                        this.f6180f.f6178e.W();
-                        if (this.f6180f.f6178e.f6174h != null) {
-                            this.f6180f.f6178e.f6174h.c(this.f6179e);
+                    if (this.f6188f.f6186e.V(this.f6187e)) {
+                        this.f6188f.f6186e.W();
+                        if (this.f6188f.f6186e.f6182h != null) {
+                            this.f6188f.f6186e.f6182h.c(this.f6187e);
                         }
-                        c.a.p0.a.h0.m.p.a.c(this.f6179e.f11961f.appId);
+                        c.a.p0.a.h0.m.p.a.c(this.f6187e.f11969f.appId);
                     }
-                    c.a.p0.a.n0.h.b.f(this.f6179e.f11957b);
+                    c.a.p0.a.n0.h.b.f(this.f6187e.f11965b);
                 }
             }
         }
@@ -164,7 +164,7 @@ public class d extends j {
                     return;
                 }
             }
-            this.f6178e = dVar;
+            this.f6186e = dVar;
         }
 
         @Override // c.a.p0.n.f.a
@@ -180,26 +180,26 @@ public class d extends j {
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bundle, set)) == null) ? this.f6178e.m(bundle, set) : (Bundle) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bundle, set)) == null) ? this.f6186e.m(bundle, set) : (Bundle) invokeLL.objValue;
         }
 
         @Override // c.a.p0.n.f.a
         public void o(a.C0623a c0623a, PMSAppInfo pMSAppInfo, c.a.p0.n.h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, c0623a, pMSAppInfo, aVar) == null) {
-                c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onSingleFetchError: " + aVar.f11875a + ",msg: " + aVar.f11876b);
-                if (this.f6178e.f6174h != null) {
-                    this.f6178e.f6174h.e(aVar);
+                c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onSingleFetchError: " + aVar.f11883a + ",msg: " + aVar.f11884b);
+                if (this.f6186e.f6182h != null) {
+                    this.f6186e.f6182h.e(aVar);
                 }
-                if (aVar.f11875a != 1010) {
-                    this.f6178e.k = true;
+                if (aVar.f11883a != 1010) {
+                    this.f6186e.k = true;
                     return;
                 }
-                PMSAppInfo pMSAppInfo2 = c0623a == null ? null : c0623a.f11961f;
+                PMSAppInfo pMSAppInfo2 = c0623a == null ? null : c0623a.f11969f;
                 if (pMSAppInfo2 == null) {
                     pMSAppInfo2 = pMSAppInfo;
                 }
-                this.f6178e.X(pMSAppInfo2, pMSAppInfo);
+                this.f6186e.X(pMSAppInfo2, pMSAppInfo);
                 if (!c.a.p0.a.h0.m.p.a.m(aVar) || pMSAppInfo2 == null) {
                     return;
                 }
@@ -214,7 +214,7 @@ public class d extends j {
                 if (pMSAppInfo != null && pMSAppInfo.isForbiddenApp()) {
                     c.a.p0.a.c2.f.g0.a.h(pMSAppInfo.appKey, pMSAppInfo.appStatus);
                 }
-                this.f6178e.X(pMSAppInfo, pMSAppInfo2);
+                this.f6186e.X(pMSAppInfo, pMSAppInfo2);
             }
         }
 
@@ -228,7 +228,7 @@ public class d extends j {
                 if (c0623a == null) {
                     return null;
                 }
-                int i2 = c0623a.f11958c;
+                int i2 = c0623a.f11966c;
                 if (i2 == 0) {
                     return c.a.p0.a.h0.m.r.a.g();
                 }
@@ -248,22 +248,22 @@ public class d extends j {
             if (interceptable == null || interceptable.invokeLL(1048587, this, c0623a, aVar) == null) {
                 super.e(c0623a, aVar);
                 c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onDownloadError：" + aVar.toString());
-                c.a.p0.a.n0.h.b.f(c0623a.f11957b);
+                c.a.p0.a.n0.h.b.f(c0623a.f11965b);
                 c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();
                 aVar2.j(11L);
-                aVar2.h(aVar.f11875a);
-                aVar2.c("批量下载，主包下载失败：" + c0623a.f11957b);
+                aVar2.h(aVar.f11883a);
+                aVar2.c("批量下载，主包下载失败：" + c0623a.f11965b);
                 aVar2.e(aVar.toString());
-                if (c0623a.f11956a != 0) {
+                if (c0623a.f11964a != 0) {
                     if (d.o) {
                         String str = "onDownloadError: " + aVar2.toString();
                     }
-                } else if (c0623a.f11959d == null) {
+                } else if (c0623a.f11967d == null) {
                 } else {
-                    this.f6178e.f6173g.j(c0623a.f11959d);
-                    c.a.p0.a.h0.m.c.c().a(c0623a.f11959d, PMSDownloadType.BATCH, aVar2);
-                    c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "#onDownloadError del: " + c0623a.f11959d.f11879a);
-                    c.a.p0.t.d.j(c0623a.f11959d.f11879a);
+                    this.f6186e.f6181g.j(c0623a.f11967d);
+                    c.a.p0.a.h0.m.c.c().a(c0623a.f11967d, PMSDownloadType.BATCH, aVar2);
+                    c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "#onDownloadError del: " + c0623a.f11967d.f11887a);
+                    c.a.p0.t.d.j(c0623a.f11967d.f11887a);
                 }
             }
         }
@@ -275,10 +275,10 @@ public class d extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, c0623a) == null) {
                 super.i(c0623a);
-                c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onFileDownloaded: " + c0623a.f11959d.f11887i);
-                this.f6178e.l.add(c0623a.f11957b);
+                c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onFileDownloaded: " + c0623a.f11967d.f11895i);
+                this.f6186e.l.add(c0623a.f11965b);
                 a aVar = new a(this, c0623a);
-                String str = c0623a.f11959d.f11885g + " 下载完成，执行签名校验-重命名-解压-DB";
+                String str = c0623a.f11967d.f11893g + " 下载完成，执行签名校验-重命名-解压-DB";
                 if (d.p) {
                     ExecutorUtilsExt.postOnSerial(aVar, str);
                 } else {
@@ -295,7 +295,7 @@ public class d extends j {
             if (interceptable == null || interceptable.invokeL(1048589, this, c0623a) == null) {
                 super.a(c0623a);
                 if (d.o) {
-                    String str = "onDownloadProgress: " + c0623a.f11959d.f11880b + "/" + c0623a.f11959d.k;
+                    String str = "onDownloadProgress: " + c0623a.f11967d.f11888b + "/" + c0623a.f11967d.k;
                 }
             }
         }
@@ -307,7 +307,7 @@ public class d extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048590, this, c0623a) == null) {
                 super.c(c0623a);
-                c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onDownloadStart: " + c0623a.f11957b);
+                c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onDownloadStart: " + c0623a.f11965b);
             }
         }
 
@@ -318,9 +318,9 @@ public class d extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048591, this, c0623a) == null) {
                 if (d.o) {
-                    String str = "onDownloading:" + c0623a.f11957b;
+                    String str = "onDownloading:" + c0623a.f11965b;
                 }
-                c.a.p0.a.n0.h.b.f(c0623a.f11957b);
+                c.a.p0.a.n0.h.b.f(c0623a.f11965b);
             }
         }
     }
@@ -331,13 +331,13 @@ public class d extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PMSAppInfo f6181e;
+        public final /* synthetic */ PMSAppInfo f6189e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PMSAppInfo f6182f;
+        public final /* synthetic */ PMSAppInfo f6190f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f6183g;
+        public final /* synthetic */ d f6191g;
 
         public c(d dVar, PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2) {
             Interceptable interceptable = $ic;
@@ -354,25 +354,25 @@ public class d extends j {
                     return;
                 }
             }
-            this.f6183g = dVar;
-            this.f6181e = pMSAppInfo;
-            this.f6182f = pMSAppInfo2;
+            this.f6191g = dVar;
+            this.f6189e = pMSAppInfo;
+            this.f6190f = pMSAppInfo2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PMSAppInfo pMSAppInfo = this.f6181e;
+                PMSAppInfo pMSAppInfo = this.f6189e;
                 if (pMSAppInfo != null) {
-                    pMSAppInfo.updateInstallSrc(this.f6183g.I());
-                    this.f6182f.copyLocalAppInfoData(this.f6181e);
+                    pMSAppInfo.updateInstallSrc(this.f6191g.I());
+                    this.f6190f.copyLocalAppInfoData(this.f6189e);
                 } else {
-                    this.f6182f.updateInstallSrc(this.f6183g.I());
+                    this.f6190f.updateInstallSrc(this.f6191g.I());
                 }
-                this.f6182f.initMaxAgeInfo();
-                if (c.a.p0.n.g.a.h().k(this.f6182f)) {
-                    c.a.p0.a.h0.m.r.a.n(this.f6182f);
+                this.f6190f.initMaxAgeInfo();
+                if (c.a.p0.n.g.a.h().k(this.f6190f)) {
+                    c.a.p0.a.h0.m.r.a.n(this.f6190f);
                 }
             }
         }
@@ -385,7 +385,7 @@ public class d extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f6184g;
+        public final /* synthetic */ d f6192g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public C0229d(d dVar, d dVar2) {
@@ -405,7 +405,7 @@ public class d extends j {
                     return;
                 }
             }
-            this.f6184g = dVar;
+            this.f6192g = dVar;
         }
 
         @Override // c.a.p0.a.h0.m.k
@@ -414,7 +414,7 @@ public class d extends j {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, gVar, aVar) == null) {
                 super.p(gVar, aVar);
                 if (aVar == null) {
-                    this.f6184g.f6175i.add(gVar);
+                    this.f6192g.f6183i.add(gVar);
                 } else if (d.o) {
                     String str = "onDownloadAndUnzipFinish " + gVar + StringUtil.ARRAY_ELEMENT_SEPARATOR + aVar;
                 }
@@ -458,7 +458,7 @@ public class d extends j {
                 return;
             }
         }
-        o = c.a.p0.a.k.f7077a;
+        o = c.a.p0.a.k.f7085a;
         c.a.p0.a.c1.a.Z().getSwitch("swan_pkg_download_finish_unzip_task_serial", false);
         p = false;
     }
@@ -487,9 +487,9 @@ public class d extends j {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.B(aVar);
             c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onFetchError: " + aVar.toString());
-            c.a.p0.a.h0.m.a aVar2 = this.f6174h;
+            c.a.p0.a.h0.m.a aVar2 = this.f6182h;
             if (aVar2 != null) {
-                aVar2.b(aVar.f11875a);
+                aVar2.b(aVar.f11883a);
             }
         }
     }
@@ -518,7 +518,7 @@ public class d extends j {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.E();
             c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onNoPackage");
-            c.a.p0.a.h0.m.a aVar = this.f6174h;
+            c.a.p0.a.h0.m.a aVar = this.f6182h;
             if (aVar != null) {
                 aVar.d();
             }
@@ -530,7 +530,7 @@ public class d extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             super.F(fVar);
-            this.f6173g = fVar;
+            this.f6181g = fVar;
             c.a.p0.a.n0.h.b.e(fVar);
             c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onPrepareDownload: " + fVar.l());
         }
@@ -550,39 +550,39 @@ public class d extends j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, c0623a)) == null) {
-            if (c0623a == null || c0623a.f11959d == null || c0623a.f11961f == null) {
+            if (c0623a == null || c0623a.f11967d == null || c0623a.f11969f == null) {
                 return false;
             }
-            if (!j0.a(new File(c0623a.f11959d.f11879a), c0623a.f11959d.m)) {
+            if (!j0.a(new File(c0623a.f11967d.f11887a), c0623a.f11967d.m)) {
                 c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onMainPkgDownload: 签名校验失败");
                 return false;
             }
-            c.a.p0.a.q2.a l = c.a.p0.a.h0.m.r.a.l(c0623a.f11959d, this);
+            c.a.p0.a.q2.a l = c.a.p0.a.h0.m.r.a.l(c0623a.f11967d, this);
             if (l != null) {
                 c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onMainPkgDownload: 解压失败，" + l);
                 return false;
             }
-            c0623a.f11961f.initMaxAgeInfo();
-            c.a.p0.a.h0.m.r.a.j(c0623a.f11961f, c0623a.f11959d);
-            c0623a.f11961f.updateInstallSrc(I());
-            if (!c.a.p0.n.g.a.h().a(c0623a.f11959d, c0623a.f11961f)) {
+            c0623a.f11969f.initMaxAgeInfo();
+            c.a.p0.a.h0.m.r.a.j(c0623a.f11969f, c0623a.f11967d);
+            c0623a.f11969f.updateInstallSrc(I());
+            if (!c.a.p0.n.g.a.h().a(c0623a.f11967d, c0623a.f11969f)) {
                 c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onMainPkgDownload: 存储DB失败");
                 return false;
             }
-            this.f6173g.k(c0623a.f11959d);
-            if (!c0623a.f11962g) {
-                c.a.p0.a.h0.m.r.a.n(c0623a.f11961f);
+            this.f6181g.k(c0623a.f11967d);
+            if (!c0623a.f11970g) {
+                c.a.p0.a.h0.m.r.a.n(c0623a.f11969f);
             }
-            c.a.p0.a.h0.m.r.a.b(c0623a.f11959d);
-            c.a.p0.n.h.f fVar = c0623a.f11959d;
+            c.a.p0.a.h0.m.r.a.b(c0623a.f11967d);
+            c.a.p0.n.h.f fVar = c0623a.f11967d;
             if (fVar != null) {
-                c.a.p0.a.a2.n.d.c(e.C0114e.i(fVar.f11885g, String.valueOf(fVar.f11887i)).getAbsolutePath(), true);
+                c.a.p0.a.a2.n.d.c(e.C0114e.i(fVar.f11893g, String.valueOf(fVar.f11895i)).getAbsolutePath(), true);
             }
-            c.a.p0.n.h.f fVar2 = c0623a.f11959d;
-            if (fVar2 != null && fVar2.f11886h == 0) {
+            c.a.p0.n.h.f fVar2 = c0623a.f11967d;
+            if (fVar2 != null && fVar2.f11894h == 0) {
                 c.a.p0.a.h0.l.g.n.a i2 = c.a.p0.a.h0.l.g.n.a.i();
-                c.a.p0.n.h.f fVar3 = c0623a.f11959d;
-                i2.f(fVar3.f11885g, fVar3.f11887i);
+                c.a.p0.n.h.f fVar3 = c0623a.f11967d;
+                i2.f(fVar3.f11893g, fVar3.f11895i);
             }
             return true;
         }
@@ -593,12 +593,12 @@ public class d extends j {
         c.a.p0.a.h0.m.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int incrementAndGet = this.f6176j.incrementAndGet();
-            int l = this.f6173g.l();
+            int incrementAndGet = this.f6184j.incrementAndGet();
+            int l = this.f6181g.l();
             if (o) {
                 String str = "batch download,total pkg num - " + l + ",success num - " + incrementAndGet;
             }
-            if (incrementAndGet != l || this.k || (aVar = this.f6174h) == null) {
+            if (incrementAndGet != l || this.k || (aVar = this.f6182h) == null) {
                 return;
             }
             aVar.a();
@@ -620,10 +620,10 @@ public class d extends j {
             super.b();
             c.a.p0.a.e0.d.h("SwanAppBatchDownloadCallback", "onTotalPkgDownloadFinish");
             boolean z = o;
-            if (!this.f6175i.isEmpty()) {
+            if (!this.f6183i.isEmpty()) {
                 q.j(new a(this), "SwanAppBatchDownloadCallback");
             }
-            c.a.p0.a.h0.m.a aVar = this.f6174h;
+            c.a.p0.a.h0.m.a aVar = this.f6182h;
             if (aVar != null) {
                 aVar.g();
             }
@@ -670,9 +670,9 @@ public class d extends j {
         }
         this.m = new b(this);
         this.n = new C0229d(this, this);
-        this.f6174h = aVar;
-        this.f6175i = new Vector();
-        this.f6176j = new AtomicInteger(0);
+        this.f6182h = aVar;
+        this.f6183i = new Vector();
+        this.f6184j = new AtomicInteger(0);
         this.l = new CopyOnWriteArraySet<>();
     }
 }

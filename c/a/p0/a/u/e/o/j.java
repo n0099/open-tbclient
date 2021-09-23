@@ -20,7 +20,7 @@ public class j extends c.a.p0.a.u.c.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9098d;
+    public int f9106d;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.v2.e1.b<c.a.p0.a.e2.c.i<b.e>> {
@@ -28,16 +28,16 @@ public class j extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9099e;
+        public final /* synthetic */ String f9107e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9100f;
+        public final /* synthetic */ String f9108f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f9101g;
+        public final /* synthetic */ String f9109g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ j f9102h;
+        public final /* synthetic */ j f9110h;
 
         public a(j jVar, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public class j extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9102h = jVar;
-            this.f9099e = str;
-            this.f9100f = str2;
-            this.f9101g = str3;
+            this.f9110h = jVar;
+            this.f9107e = str;
+            this.f9108f = str2;
+            this.f9109g = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,11 +68,11 @@ public class j extends c.a.p0.a.u.c.d {
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.p0.a.e2.c.d.h(iVar)) {
                     int b2 = iVar.b();
-                    this.f9102h.d(this.f9099e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
+                    this.f9110h.d(this.f9107e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
                     return;
                 }
-                this.f9102h.t(this.f9100f, this.f9101g);
-                this.f9102h.d(this.f9099e, new c.a.p0.a.u.h.b(0));
+                this.f9110h.t(this.f9108f, this.f9109g);
+                this.f9110h.d(this.f9107e, new c.a.p0.a.u.h.b(0));
             }
         }
     }
@@ -101,8 +101,8 @@ public class j extends c.a.p0.a.u.c.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-            fVar.f7064b = "sms_panel";
-            fVar.f7067e = String.valueOf(this.f9098d);
+            fVar.f7072b = "sms_panel";
+            fVar.f7075e = String.valueOf(this.f9106d);
             fVar.a("appid", c.a.p0.a.a2.d.g().getAppId());
             c.a.p0.a.j2.k.u("1639", fVar);
         }
@@ -116,14 +116,14 @@ public class j extends c.a.p0.a.u.c.d {
                 return null;
             }
             StringBuilder sb = new StringBuilder();
-            this.f9098d = jSONArray.length();
-            for (int i2 = 0; i2 < this.f9098d; i2++) {
+            this.f9106d = jSONArray.length();
+            for (int i2 = 0; i2 < this.f9106d; i2++) {
                 String optString = jSONArray.optString(i2);
                 if (TextUtils.isEmpty(optString)) {
                     return null;
                 }
                 sb.append(optString);
-                if (i2 != this.f9098d - 1) {
+                if (i2 != this.f9106d - 1) {
                     sb.append(";");
                 }
             }

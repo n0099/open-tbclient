@@ -1,6 +1,6 @@
 package com.baidu.tieba.pushdialog.data;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public class PullTidReqNetMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                x.c(builder, true, true, true);
+                a0.c(builder, true, true, true);
                 GetLockWindowTidReqIdl.Builder builder2 = new GetLockWindowTidReqIdl.Builder();
                 builder2.data = builder.build(true);
                 return builder2.build(true);

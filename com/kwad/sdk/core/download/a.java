@@ -11,34 +11,34 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f71611a;
+    public static final String f71930a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f71612b;
+    public static final String f71931b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f71613c;
+    public static final String f71932c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f71614d;
+    public static final String f71933d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f71615e;
+    public static final String f71934e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f71616f;
+    public static final String f71935f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f71617g;
+    public static final String f71936g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f71618h;
+    public static final String f71937h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f71619i;
+    public static final String f71938i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f71620j;
+    public static final String f71939j;
     public static final String k;
     public static final String l;
     public static final String m;
@@ -58,19 +58,19 @@ public class a {
                 return;
             }
         }
-        f71611a = KsAdSDKImpl.get().getAppId() + "3.3.11";
-        f71612b = f71611a + "ACTION_DOWNLOAD_ONDOWNLOAD";
-        f71613c = f71611a + "ACTION_DOWNLOAD_ONPROGRESSUPDATE";
-        f71614d = f71611a + "ACTION_DOWNLOAD_ONDOWNLOADFINISHED";
-        f71615e = f71611a + "ACTION_DOWNLOAD_ONDOWNLOADFAILED";
-        f71616f = f71611a + "ACTION_DOWNLOAD_ONDOWNLOADPAUSEED";
-        f71617g = f71611a + "ACTION_DOWNLOAD_ONDOWNLOADRESUMEED";
-        f71618h = f71611a + "ACTION_DOWNLOAD_ONDOWNLOADCANCELED";
-        f71619i = f71611a + "ACTION_DOWNLOAD_ONSTARTINSTALLAPK";
-        f71620j = f71611a + "ACTION_DOWNLOAD_ONINSTALLINGAPK";
-        k = f71611a + "ACTION_DOWNLOAD_ONAPKINSTALLED";
-        l = f71611a + "ACTION_DOWNLOAD_ONAPKINSTALLFAILED";
-        m = f71611a + "ACTION_DOWNLOAD_ONLOWSTORAGE";
-        n = f71611a + "ACTION_DOWNLOAD_TO_CANCEL";
+        f71930a = KsAdSDKImpl.get().getAppId() + "3.3.11";
+        f71931b = f71930a + "ACTION_DOWNLOAD_ONDOWNLOAD";
+        f71932c = f71930a + "ACTION_DOWNLOAD_ONPROGRESSUPDATE";
+        f71933d = f71930a + "ACTION_DOWNLOAD_ONDOWNLOADFINISHED";
+        f71934e = f71930a + "ACTION_DOWNLOAD_ONDOWNLOADFAILED";
+        f71935f = f71930a + "ACTION_DOWNLOAD_ONDOWNLOADPAUSEED";
+        f71936g = f71930a + "ACTION_DOWNLOAD_ONDOWNLOADRESUMEED";
+        f71937h = f71930a + "ACTION_DOWNLOAD_ONDOWNLOADCANCELED";
+        f71938i = f71930a + "ACTION_DOWNLOAD_ONSTARTINSTALLAPK";
+        f71939j = f71930a + "ACTION_DOWNLOAD_ONINSTALLINGAPK";
+        k = f71930a + "ACTION_DOWNLOAD_ONAPKINSTALLED";
+        l = f71930a + "ACTION_DOWNLOAD_ONAPKINSTALLFAILED";
+        m = f71930a + "ACTION_DOWNLOAD_ONLOWSTORAGE";
+        n = f71930a + "ACTION_DOWNLOAD_TO_CANCEL";
     }
 }

@@ -22,19 +22,19 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TbPageContext<?> f29548a;
+    public final TbPageContext<?> f29568a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final DragImageView.h f29549b;
+    public final DragImageView.h f29569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f29550c;
+    public final boolean f29570c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<AdvertAppInfo, b> f29551d;
+    public Map<AdvertAppInfo, b> f29571d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f29552e;
+    public b f29572e;
 
     /* loaded from: classes4.dex */
     public class a implements c.a.r0.p1.o.a {
@@ -42,7 +42,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f29553a;
+        public final /* synthetic */ b f29573a;
 
         public a(d dVar, b bVar) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public class d {
                     return;
                 }
             }
-            this.f29553a = bVar;
+            this.f29573a = bVar;
         }
 
         @Override // c.a.r0.p1.o.a
         public void a(int i2, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, hashMap) == null) {
-                AdvertAppInfo a2 = this.f29553a.a();
+                AdvertAppInfo a2 = this.f29573a.a();
                 if (i2 == 0 || a2 == null) {
                     return;
                 }
@@ -102,21 +102,21 @@ public class d {
                 return;
             }
         }
-        this.f29548a = tbPageContext;
-        this.f29550c = z;
-        this.f29549b = hVar;
-        this.f29551d = new HashMap();
+        this.f29568a = tbPageContext;
+        this.f29570c = z;
+        this.f29569b = hVar;
+        this.f29571d = new HashMap();
     }
 
     public b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b bVar = new b(this.f29548a);
+            b bVar = new b(this.f29568a);
             bVar.b();
             bVar.setBusinessType(99);
-            bVar.setFromCDN(this.f29550c);
-            bVar.D(this.f29549b);
+            bVar.setFromCDN(this.f29570c);
+            bVar.D(this.f29569b);
             bVar.setAfterClickSchemeListener(new a(this, bVar));
             return bVar;
         }
@@ -127,16 +127,16 @@ public class d {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{advertAppInfo, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (advertAppInfo == null || !(advertAppInfo.e4 instanceof AdCard)) {
+            if (advertAppInfo == null || !(advertAppInfo.f4 instanceof AdCard)) {
                 return null;
             }
-            b bVar = this.f29551d.get(advertAppInfo);
+            b bVar = this.f29571d.get(advertAppInfo);
             if (bVar == null) {
                 bVar = a();
-                this.f29551d.put(advertAppInfo, bVar);
+                this.f29571d.put(advertAppInfo, bVar);
             }
-            bVar.c((AdCard) advertAppInfo.e4);
-            this.f29552e = bVar;
+            bVar.c((AdCard) advertAppInfo.f4);
+            this.f29572e = bVar;
             if (z2) {
                 bVar.u();
             }
@@ -148,7 +148,7 @@ public class d {
     public void c() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f29552e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f29572e) == null) {
             return;
         }
         bVar.u();
@@ -157,7 +157,7 @@ public class d {
     public void d() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.f29552e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.f29572e) == null) {
             return;
         }
         bVar.z();
@@ -166,22 +166,22 @@ public class d {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (b bVar : this.f29551d.values()) {
+            for (b bVar : this.f29571d.values()) {
                 if (bVar != null) {
                     bVar.A();
                 }
             }
-            this.f29551d.clear();
+            this.f29571d.clear();
         }
     }
 
     public void f(AdvertAppInfo advertAppInfo) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) || advertAppInfo == null || (bVar = this.f29551d.get(advertAppInfo)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) || advertAppInfo == null || (bVar = this.f29571d.get(advertAppInfo)) == null) {
             return;
         }
         bVar.A();
-        this.f29551d.remove(advertAppInfo);
+        this.f29571d.remove(advertAppInfo);
     }
 }

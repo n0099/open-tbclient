@@ -24,7 +24,7 @@ public class b implements h, c.a.q0.k0.b.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<tinfo> f15912e;
+    public List<tinfo> f15922e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -44,12 +44,12 @@ public class b implements h, c.a.q0.k0.b.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<tinfo> list = this.f15912e;
+            List<tinfo> list = this.f15922e;
             if (list == null || list.size() <= 0) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (tinfo tinfoVar : this.f15912e) {
+            for (tinfo tinfoVar : this.f15922e) {
                 if (b(tinfoVar)) {
                     arrayList.add(tinfoVar);
                 }
@@ -111,7 +111,7 @@ public class b implements h, c.a.q0.k0.b.b {
         if ((interceptable == null || interceptable.invokeL(1048581, this, message) == null) && (message instanceof HotThreadResIdl)) {
             HotThreadResIdl hotThreadResIdl = (HotThreadResIdl) message;
             Error error = hotThreadResIdl.error;
-            this.f15912e = hotThreadResIdl.data.hot_thread;
+            this.f15922e = hotThreadResIdl.data.hot_thread;
         }
     }
 

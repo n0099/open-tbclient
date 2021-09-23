@@ -59,14 +59,14 @@ public class b {
 
     /* renamed from: com.baidu.helios.trusts.zone.verifier.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C1659b implements c {
+    public static final class C1661b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ByteBuffer f40593a;
+        public final ByteBuffer f40655a;
 
-        public C1659b(ByteBuffer byteBuffer) {
+        public C1661b(ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,14 +81,14 @@ public class b {
                     return;
                 }
             }
-            this.f40593a = byteBuffer.slice();
+            this.f40655a = byteBuffer.slice();
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.c
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40593a.capacity() : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40655a.capacity() : invokeV.longValue;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.c
@@ -96,11 +96,11 @@ public class b {
             ByteBuffer slice;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{messageDigestArr, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-                synchronized (this.f40593a) {
+                synchronized (this.f40655a) {
                     int i3 = (int) j2;
-                    this.f40593a.position(i3);
-                    this.f40593a.limit(i3 + i2);
-                    slice = this.f40593a.slice();
+                    this.f40655a.position(i3);
+                    this.f40655a.limit(i3 + i2);
+                    slice = this.f40655a.slice();
                 }
                 for (MessageDigest messageDigest : messageDigestArr) {
                     slice.position(0);
@@ -123,13 +123,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final FileChannel f40594a;
+        public final FileChannel f40656a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f40595b;
+        public final long f40657b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f40596c;
+        public final long f40658c;
 
         public d(FileChannel fileChannel, long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -146,23 +146,23 @@ public class b {
                     return;
                 }
             }
-            this.f40594a = fileChannel;
-            this.f40595b = j2;
-            this.f40596c = j3;
+            this.f40656a = fileChannel;
+            this.f40657b = j2;
+            this.f40658c = j3;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.c
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40596c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40658c : invokeV.longValue;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.c
         public void a(MessageDigest[] messageDigestArr, long j2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{messageDigestArr, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-                MappedByteBuffer map = this.f40594a.map(FileChannel.MapMode.READ_ONLY, this.f40595b + j2, i2);
+                MappedByteBuffer map = this.f40656a.map(FileChannel.MapMode.READ_ONLY, this.f40657b + j2, i2);
                 for (MessageDigest messageDigest : messageDigestArr) {
                     map.position(0);
                     messageDigest.update(map);
@@ -176,7 +176,7 @@ public class b {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final long f40597a = 1;
+        public static final long f40659a = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -227,7 +227,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f40598a;
+        public byte[] f40660a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(X509Certificate x509Certificate, byte[] bArr) {
@@ -247,14 +247,14 @@ public class b {
                     return;
                 }
             }
-            this.f40598a = bArr;
+            this.f40660a = bArr;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.g, java.security.cert.Certificate
         public byte[] getEncoded() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40598a : (byte[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40660a : (byte[]) invokeV.objValue;
         }
     }
 
@@ -264,7 +264,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final X509Certificate f40599a;
+        public final X509Certificate f40661a;
 
         public g(X509Certificate x509Certificate) {
             Interceptable interceptable = $ic;
@@ -281,14 +281,14 @@ public class b {
                     return;
                 }
             }
-            this.f40599a = x509Certificate;
+            this.f40661a = x509Certificate;
         }
 
         @Override // java.security.cert.X509Certificate
         public void checkValidity() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f40599a.checkValidity();
+                this.f40661a.checkValidity();
             }
         }
 
@@ -296,7 +296,7 @@ public class b {
         public void checkValidity(Date date) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, date) == null) {
-                this.f40599a.checkValidity(date);
+                this.f40661a.checkValidity(date);
             }
         }
 
@@ -304,161 +304,161 @@ public class b {
         public int getBasicConstraints() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40599a.getBasicConstraints() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40661a.getBasicConstraints() : invokeV.intValue;
         }
 
         @Override // java.security.cert.X509Extension
         public Set<String> getCriticalExtensionOIDs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40599a.getCriticalExtensionOIDs() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40661a.getCriticalExtensionOIDs() : (Set) invokeV.objValue;
         }
 
         @Override // java.security.cert.Certificate
         public byte[] getEncoded() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40599a.getEncoded() : (byte[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40661a.getEncoded() : (byte[]) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Extension
         public byte[] getExtensionValue(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f40599a.getExtensionValue(str) : (byte[]) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f40661a.getExtensionValue(str) : (byte[]) invokeL.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public Principal getIssuerDN() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40599a.getIssuerDN() : (Principal) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40661a.getIssuerDN() : (Principal) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public boolean[] getIssuerUniqueID() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f40599a.getIssuerUniqueID() : (boolean[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f40661a.getIssuerUniqueID() : (boolean[]) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public boolean[] getKeyUsage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40599a.getKeyUsage() : (boolean[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40661a.getKeyUsage() : (boolean[]) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Extension
         public Set<String> getNonCriticalExtensionOIDs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40599a.getNonCriticalExtensionOIDs() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40661a.getNonCriticalExtensionOIDs() : (Set) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public Date getNotAfter() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f40599a.getNotAfter() : (Date) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f40661a.getNotAfter() : (Date) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public Date getNotBefore() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f40599a.getNotBefore() : (Date) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f40661a.getNotBefore() : (Date) invokeV.objValue;
         }
 
         @Override // java.security.cert.Certificate
         public PublicKey getPublicKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f40599a.getPublicKey() : (PublicKey) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f40661a.getPublicKey() : (PublicKey) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public BigInteger getSerialNumber() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f40599a.getSerialNumber() : (BigInteger) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f40661a.getSerialNumber() : (BigInteger) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public String getSigAlgName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f40599a.getSigAlgName() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f40661a.getSigAlgName() : (String) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public String getSigAlgOID() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f40599a.getSigAlgOID() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f40661a.getSigAlgOID() : (String) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public byte[] getSigAlgParams() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f40599a.getSigAlgParams() : (byte[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f40661a.getSigAlgParams() : (byte[]) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public byte[] getSignature() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f40599a.getSignature() : (byte[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f40661a.getSignature() : (byte[]) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public Principal getSubjectDN() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f40599a.getSubjectDN() : (Principal) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f40661a.getSubjectDN() : (Principal) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public boolean[] getSubjectUniqueID() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f40599a.getSubjectUniqueID() : (boolean[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f40661a.getSubjectUniqueID() : (boolean[]) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public byte[] getTBSCertificate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f40599a.getTBSCertificate() : (byte[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f40661a.getTBSCertificate() : (byte[]) invokeV.objValue;
         }
 
         @Override // java.security.cert.X509Certificate
         public int getVersion() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f40599a.getVersion() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f40661a.getVersion() : invokeV.intValue;
         }
 
         @Override // java.security.cert.X509Extension
         public boolean hasUnsupportedCriticalExtension() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f40599a.hasUnsupportedCriticalExtension() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f40661a.hasUnsupportedCriticalExtension() : invokeV.booleanValue;
         }
 
         @Override // java.security.cert.Certificate
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f40599a.toString() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f40661a.toString() : (String) invokeV.objValue;
         }
 
         @Override // java.security.cert.Certificate
         public void verify(PublicKey publicKey) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048600, this, publicKey) == null) {
-                this.f40599a.verify(publicKey);
+                this.f40661a.verify(publicKey);
             }
         }
 
@@ -466,7 +466,7 @@ public class b {
         public void verify(PublicKey publicKey, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048601, this, publicKey, str) == null) {
-                this.f40599a.verify(publicKey, str);
+                this.f40661a.verify(publicKey, str);
             }
         }
     }
@@ -477,19 +477,19 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ByteBuffer f40600a;
+        public final ByteBuffer f40662a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f40601b;
+        public final long f40663b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f40602c;
+        public final long f40664c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long f40603d;
+        public final long f40665d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ByteBuffer f40604e;
+        public final ByteBuffer f40666e;
 
         public h(ByteBuffer byteBuffer, long j2, long j3, long j4, ByteBuffer byteBuffer2) {
             Interceptable interceptable = $ic;
@@ -506,11 +506,11 @@ public class b {
                     return;
                 }
             }
-            this.f40600a = byteBuffer;
-            this.f40601b = j2;
-            this.f40602c = j3;
-            this.f40603d = j4;
-            this.f40604e = byteBuffer2;
+            this.f40662a = byteBuffer;
+            this.f40663b = j2;
+            this.f40664c = j3;
+            this.f40665d = j4;
+            this.f40666e = byteBuffer2;
         }
 
         public /* synthetic */ h(ByteBuffer byteBuffer, long j2, long j3, long j4, ByteBuffer byteBuffer2, a aVar) {
@@ -670,29 +670,29 @@ public class b {
     }
 
     public static void i(Map<Integer, byte[]> map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j2, long j3, long j4, ByteBuffer byteBuffer) {
-        c c1659b;
-        c c1659b2;
+        c c1661b;
+        c c1661b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{map, randomAccessFile, fileDescriptor, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), byteBuffer}) == null) {
             if (map.isEmpty()) {
                 throw new SecurityException("No digests provided");
             }
             if (j2 > 1048576) {
-                c1659b = new d(randomAccessFile.getChannel(), 0L, j2);
-                c1659b2 = new d(randomAccessFile.getChannel(), j3, j4 - j3);
+                c1661b = new d(randomAccessFile.getChannel(), 0L, j2);
+                c1661b2 = new d(randomAccessFile.getChannel(), j3, j4 - j3);
             } else {
                 ByteBuffer allocate = ByteBuffer.allocate((int) j2);
                 allocate.order(ByteOrder.LITTLE_ENDIAN);
                 try {
                     randomAccessFile.seek(0L);
                     randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
-                    c1659b = new C1659b(allocate);
+                    c1661b = new C1661b(allocate);
                     ByteBuffer allocate2 = ByteBuffer.allocate((int) (j4 - j3));
                     allocate2.order(ByteOrder.LITTLE_ENDIAN);
                     try {
                         randomAccessFile.seek(j3);
                         randomAccessFile.readFully(allocate2.array(), allocate2.arrayOffset(), allocate2.capacity());
-                        c1659b2 = new C1659b(allocate2);
+                        c1661b2 = new C1661b(allocate2);
                     } catch (IOException e2) {
                         throw new SecurityException("Failed to get apk contents", e2);
                     }
@@ -703,7 +703,7 @@ public class b {
             ByteBuffer duplicate = byteBuffer.duplicate();
             duplicate.order(ByteOrder.LITTLE_ENDIAN);
             c.a.r.j.a.d.a.f(duplicate, j2);
-            C1659b c1659b3 = new C1659b(duplicate);
+            C1661b c1661b3 = new C1661b(duplicate);
             int size = map.size();
             int[] iArr = new int[size];
             int i2 = 0;
@@ -712,7 +712,7 @@ public class b {
                 i2++;
             }
             try {
-                byte[][] l = l(iArr, new c[]{c1659b, c1659b2, c1659b3});
+                byte[][] l = l(iArr, new c[]{c1661b, c1661b2, c1661b3});
                 for (int i3 = 0; i3 < size; i3++) {
                     int i4 = iArr[i3];
                     if (!MessageDigest.isEqual(map.get(Integer.valueOf(i4)), l[i3])) {
@@ -965,7 +965,7 @@ public class b {
             try {
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
                 try {
-                    ByteBuffer e2 = e(hVar.f40600a);
+                    ByteBuffer e2 = e(hVar.f40662a);
                     int i2 = 0;
                     while (e2.hasRemaining()) {
                         i2++;
@@ -979,7 +979,7 @@ public class b {
                         if (hashMap.isEmpty()) {
                             throw new SecurityException("No content digests found");
                         }
-                        i(hashMap, randomAccessFile, fileDescriptor, hVar.f40601b, hVar.f40602c, hVar.f40603d, hVar.f40604e);
+                        i(hashMap, randomAccessFile, fileDescriptor, hVar.f40663b, hVar.f40664c, hVar.f40665d, hVar.f40666e);
                         return (X509Certificate[][]) arrayList.toArray(new X509Certificate[arrayList.size()]);
                     }
                     throw new SecurityException("No signers found");
@@ -1085,7 +1085,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, file)) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42280a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42342a);
             try {
                 return m(randomAccessFile);
             } finally {

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import c.a.q0.g1.b.e;
+import c.a.q0.g1.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -65,8 +65,8 @@ public class SquareSearchActivityConfig extends IntentConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            if (e.d()) {
-                e.g(getContext());
+            if (c.d()) {
+                c.g(getContext());
                 return false;
             }
             return super.startActivity(cls);
@@ -78,8 +78,8 @@ public class SquareSearchActivityConfig extends IntentConfig {
     public void startActivityForResult(int i2, Class<?> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, cls) == null) {
-            if (e.d()) {
-                e.g(getContext());
+            if (c.d()) {
+                c.g(getContext());
             } else {
                 super.startActivityForResult(i2, cls);
             }

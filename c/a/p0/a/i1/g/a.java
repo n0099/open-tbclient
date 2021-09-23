@@ -21,29 +21,29 @@ public class a implements c.a.p0.a.i1.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f6837h;
+    public static final boolean f6845h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public j f6838a;
+    public j f6846a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6839b;
+    public String f6847b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.p0.a.i1.g.c f6840c;
+    public c.a.p0.a.i1.g.c f6848c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f6841d;
+    public boolean f6849d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f6842e;
+    public Context f6850e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f6843f;
+    public boolean f6851f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.p0.a.i1.g.b f6844g;
+    public c.a.p0.a.i1.g.b f6852g;
 
     /* renamed from: c.a.p0.a.i1.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -52,7 +52,7 @@ public class a implements c.a.p0.a.i1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f6845a;
+        public final /* synthetic */ a f6853a;
 
         public C0268a(a aVar) {
             Interceptable interceptable = $ic;
@@ -69,16 +69,16 @@ public class a implements c.a.p0.a.i1.a {
                     return;
                 }
             }
-            this.f6845a = aVar;
+            this.f6853a = aVar;
         }
 
         @Override // c.a.p0.a.c1.d.j.a
         public void b(j jVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) || this.f6845a.f6844g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) || this.f6853a.f6852g == null) {
                 return;
             }
-            this.f6845a.f6844g.b(jVar);
+            this.f6853a.f6852g.b(jVar);
         }
     }
 
@@ -88,7 +88,7 @@ public class a implements c.a.p0.a.i1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f6846a;
+        public final /* synthetic */ a f6854a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -105,14 +105,14 @@ public class a implements c.a.p0.a.i1.a {
                     return;
                 }
             }
-            this.f6846a = aVar;
+            this.f6854a = aVar;
         }
 
         @Override // c.a.p0.a.c1.d.j.b
         public boolean f(j jVar, int i2, int i3) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, jVar, i2, i3)) == null) ? this.f6846a.f6844g != null && this.f6846a.f6844g.f(jVar, i2, i3) : invokeLII.booleanValue;
+            return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, jVar, i2, i3)) == null) ? this.f6854a.f6852g != null && this.f6854a.f6852g.f(jVar, i2, i3) : invokeLII.booleanValue;
         }
     }
 
@@ -122,7 +122,7 @@ public class a implements c.a.p0.a.i1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f6847a;
+        public final /* synthetic */ a f6855a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -139,16 +139,16 @@ public class a implements c.a.p0.a.i1.a {
                     return;
                 }
             }
-            this.f6847a = aVar;
+            this.f6855a = aVar;
         }
 
         @Override // c.a.p0.a.c1.d.j.d
         public void e(j jVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) || this.f6847a.f6844g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) || this.f6855a.f6852g == null) {
                 return;
             }
-            this.f6847a.f6844g.e(jVar);
+            this.f6855a.f6852g.e(jVar);
         }
     }
 
@@ -158,7 +158,7 @@ public class a implements c.a.p0.a.i1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f6848a;
+        public final /* synthetic */ a f6856a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -175,16 +175,16 @@ public class a implements c.a.p0.a.i1.a {
                     return;
                 }
             }
-            this.f6848a = aVar;
+            this.f6856a = aVar;
         }
 
         @Override // c.a.p0.a.c1.d.j.e
         public void a(j jVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) || this.f6848a.f6844g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) || this.f6856a.f6852g == null) {
                 return;
             }
-            this.f6848a.f6844g.a(jVar);
+            this.f6856a.f6852g.a(jVar);
         }
     }
 
@@ -194,7 +194,7 @@ public class a implements c.a.p0.a.i1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f6849a;
+        public final /* synthetic */ a f6857a;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -211,16 +211,16 @@ public class a implements c.a.p0.a.i1.a {
                     return;
                 }
             }
-            this.f6849a = aVar;
+            this.f6857a = aVar;
         }
 
         @Override // c.a.p0.a.c1.d.j.f
         public void d(j jVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) || this.f6849a.f6844g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) || this.f6857a.f6852g == null) {
                 return;
             }
-            this.f6849a.f6844g.d(jVar);
+            this.f6857a.f6852g.d(jVar);
         }
     }
 
@@ -230,7 +230,7 @@ public class a implements c.a.p0.a.i1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f6850a;
+        public final /* synthetic */ a f6858a;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -247,16 +247,16 @@ public class a implements c.a.p0.a.i1.a {
                     return;
                 }
             }
-            this.f6850a = aVar;
+            this.f6858a = aVar;
         }
 
         @Override // c.a.p0.a.c1.d.j.c
         public void c(j jVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) || this.f6850a.f6844g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) || this.f6858a.f6852g == null) {
                 return;
             }
-            this.f6850a.f6844g.c(jVar);
+            this.f6858a.f6852g.c(jVar);
         }
     }
 
@@ -273,7 +273,7 @@ public class a implements c.a.p0.a.i1.a {
                 return;
             }
         }
-        f6837h = k.f7077a;
+        f6845h = k.f7085a;
     }
 
     public a(Context context, @NonNull c.a.p0.a.i1.g.c cVar) {
@@ -291,10 +291,10 @@ public class a implements c.a.p0.a.i1.a {
                 return;
             }
         }
-        this.f6843f = true;
-        this.f6842e = context;
-        this.f6840c = cVar;
-        this.f6839b = cVar.n;
+        this.f6851f = true;
+        this.f6850e = context;
+        this.f6848c = cVar;
+        this.f6847b = cVar.n;
         h();
         d();
     }
@@ -303,19 +303,19 @@ public class a implements c.a.p0.a.i1.a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6840c.f4658g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6848c.f4666g : (String) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.i1.a
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6839b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6847b : (String) invokeV.objValue;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || TextUtils.isEmpty(this.f6839b)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || TextUtils.isEmpty(this.f6847b)) {
             return;
         }
         c.a.p0.a.i1.b.a(this);
@@ -332,7 +332,7 @@ public class a implements c.a.p0.a.i1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.a.p0.a.i1.g.c cVar = this.f6840c;
+            c.a.p0.a.i1.g.c cVar = this.f6848c;
             return cVar != null ? cVar.D : "";
         }
         return (String) invokeV.objValue;
@@ -341,26 +341,26 @@ public class a implements c.a.p0.a.i1.a {
     public c.a.p0.a.i1.g.c g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6840c : (c.a.p0.a.i1.g.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6848c : (c.a.p0.a.i1.g.c) invokeV.objValue;
     }
 
     public j h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f6838a == null) {
+            if (this.f6846a == null) {
                 c.a.p0.a.e0.d.g("video", "create player");
                 j r0 = c.a.p0.a.c1.a.r0();
-                r0.e(this.f6842e, this.f6840c);
-                this.f6838a = r0;
+                r0.e(this.f6850e, this.f6848c);
+                this.f6846a = r0;
                 r0.g(new C0268a(this));
-                this.f6838a.p(new b(this));
-                this.f6838a.m(new c(this));
-                this.f6838a.j(new d(this));
-                this.f6838a.k(new e(this));
-                this.f6838a.q(new f(this));
+                this.f6846a.p(new b(this));
+                this.f6846a.m(new c(this));
+                this.f6846a.j(new d(this));
+                this.f6846a.k(new e(this));
+                this.f6846a.q(new f(this));
             }
-            return this.f6838a;
+            return this.f6846a;
         }
         return (j) invokeV.objValue;
     }
@@ -383,14 +383,14 @@ public class a implements c.a.p0.a.i1.a {
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f6843f = z;
+            this.f6851f = z;
             if (z) {
-                if (this.f6841d) {
+                if (this.f6849d) {
                     h().resume();
                 }
                 h().b();
-            } else if (this.f6838a != null) {
-                this.f6841d = h().isPlaying();
+            } else if (this.f6846a != null) {
+                this.f6849d = h().isPlaying();
                 h().pause();
                 h().c();
             }
@@ -400,7 +400,7 @@ public class a implements c.a.p0.a.i1.a {
     public void l() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (jVar = this.f6838a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (jVar = this.f6846a) == null) {
             return;
         }
         jVar.f();
@@ -410,7 +410,7 @@ public class a implements c.a.p0.a.i1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            j jVar = this.f6838a;
+            j jVar = this.f6846a;
             return jVar != null && jVar.isEnd();
         }
         return invokeV.booleanValue;
@@ -420,7 +420,7 @@ public class a implements c.a.p0.a.i1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            j jVar = this.f6838a;
+            j jVar = this.f6846a;
             return jVar != null && jVar.isPlaying();
         }
         return invokeV.booleanValue;
@@ -430,11 +430,11 @@ public class a implements c.a.p0.a.i1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, cVar) == null) {
             c.a.p0.a.e0.d.g("video", "Open Player " + cVar.n);
-            j jVar = this.f6838a;
+            j jVar = this.f6846a;
             if (jVar != null) {
                 jVar.o(cVar);
             }
-            this.f6840c = cVar;
+            this.f6848c = cVar;
         }
     }
 
@@ -444,7 +444,7 @@ public class a implements c.a.p0.a.i1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             c.a.p0.a.e0.d.g("video", "onBackPressed");
-            j jVar = this.f6838a;
+            j jVar = this.f6846a;
             return jVar != null && jVar.onBackPressed();
         }
         return invokeV.booleanValue;
@@ -455,10 +455,10 @@ public class a implements c.a.p0.a.i1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             c.a.p0.a.e0.d.g("video", MissionEvent.MESSAGE_DESTROY);
-            j jVar = this.f6838a;
+            j jVar = this.f6846a;
             if (jVar != null) {
                 jVar.stop();
-                this.f6838a = null;
+                this.f6846a = null;
             }
             c.a.p0.a.i1.b.j(this);
         }
@@ -474,7 +474,7 @@ public class a implements c.a.p0.a.i1.a {
     public void q(String str) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, str) == null) || (jVar = this.f6838a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, str) == null) || (jVar = this.f6846a) == null) {
             return;
         }
         jVar.i(str);
@@ -483,7 +483,7 @@ public class a implements c.a.p0.a.i1.a {
     public void r() {
         j jVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && z() && !n() && this.f6843f && (jVar = this.f6838a) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && z() && !n() && this.f6851f && (jVar = this.f6846a) != null) {
             jVar.resume();
         }
     }
@@ -491,7 +491,7 @@ public class a implements c.a.p0.a.i1.a {
     public void s(int i2) {
         j jVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048595, this, i2) == null) && z() && (jVar = this.f6838a) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048595, this, i2) == null) && z() && (jVar = this.f6846a) != null) {
             jVar.seekTo(i2);
         }
     }
@@ -499,7 +499,7 @@ public class a implements c.a.p0.a.i1.a {
     public void t(boolean z, int i2) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (jVar = this.f6838a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (jVar = this.f6846a) == null) {
             return;
         }
         jVar.l(z, i2);
@@ -508,14 +508,14 @@ public class a implements c.a.p0.a.i1.a {
     public void u(c.a.p0.a.i1.g.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, bVar) == null) {
-            this.f6844g = bVar;
+            this.f6852g = bVar;
         }
     }
 
     public void v(boolean z) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || (jVar = this.f6838a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || (jVar = this.f6846a) == null) {
             return;
         }
         jVar.d(z);
@@ -524,7 +524,7 @@ public class a implements c.a.p0.a.i1.a {
     public void w(FrameLayout frameLayout) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, frameLayout) == null) || (jVar = this.f6838a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048599, this, frameLayout) == null) || (jVar = this.f6846a) == null) {
             return;
         }
         jVar.a(frameLayout);
@@ -533,7 +533,7 @@ public class a implements c.a.p0.a.i1.a {
     public void x(c.a.p0.a.i1.g.c cVar) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, cVar) == null) || (jVar = this.f6838a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, cVar) == null) || (jVar = this.f6846a) == null) {
             return;
         }
         jVar.n(cVar);
@@ -542,12 +542,12 @@ public class a implements c.a.p0.a.i1.a {
     public void y(c.a.p0.a.i1.g.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, cVar) == null) {
-            boolean z = f6837h;
-            j jVar = this.f6838a;
+            boolean z = f6845h;
+            j jVar = this.f6846a;
             if (jVar != null) {
                 jVar.h(cVar, true);
             }
-            this.f6840c = cVar;
+            this.f6848c = cVar;
         }
     }
 
@@ -555,8 +555,8 @@ public class a implements c.a.p0.a.i1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            c.a.p0.a.i1.g.c cVar = this.f6840c;
-            return (cVar == null || TextUtils.isEmpty(cVar.C) || TextUtils.isEmpty(this.f6839b) || TextUtils.isEmpty(this.f6840c.f4657f)) ? false : true;
+            c.a.p0.a.i1.g.c cVar = this.f6848c;
+            return (cVar == null || TextUtils.isEmpty(cVar.C) || TextUtils.isEmpty(this.f6847b) || TextUtils.isEmpty(this.f6848c.f4665f)) ? false : true;
         }
         return invokeV.booleanValue;
     }

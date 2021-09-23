@@ -24,19 +24,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f17761a;
+    public boolean f17771a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<d2> f17762b;
+    public ArrayList<d2> f17772b;
 
     /* renamed from: c  reason: collision with root package name */
-    public n f17763c;
+    public n f17773c;
 
     /* renamed from: d  reason: collision with root package name */
-    public l0 f17764d;
+    public l0 f17774d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f17765e;
+    public b f17775e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -51,37 +51,37 @@ public class a {
                 return;
             }
         }
-        this.f17761a = true;
+        this.f17771a = true;
     }
 
     public n a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17763c : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17773c : (n) invokeV.objValue;
     }
 
     public l0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17764d : (l0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17774d : (l0) invokeV.objValue;
     }
 
     public b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17765e : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17775e : (b) invokeV.objValue;
     }
 
     public ArrayList<d2> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17762b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17772b : (ArrayList) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17761a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17771a : invokeV.booleanValue;
     }
 
     public void f(JSONObject jSONObject) {
@@ -93,20 +93,20 @@ public class a {
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
-                this.f17762b = new ArrayList<>(optJSONArray.length());
+                this.f17772b = new ArrayList<>(optJSONArray.length());
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
                     if (jSONObject2 != null) {
                         d2 d2Var = new d2();
                         d2Var.X2(jSONObject2);
                         d2Var.G1();
-                        this.f17762b.add(d2Var);
+                        this.f17772b.add(d2Var);
                     }
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("banner_list");
             if (optJSONArray2 != null) {
-                this.f17763c = new n();
+                this.f17773c = new n();
                 ArrayList arrayList = new ArrayList();
                 for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
                     JSONObject optJSONObject = optJSONArray2.optJSONObject(i4);
@@ -118,11 +118,11 @@ public class a {
                         arrayList.add(builder.build(true));
                     }
                 }
-                this.f17763c.parserProtobuf(arrayList);
+                this.f17773c.parserProtobuf(arrayList);
             }
             JSONArray optJSONArray3 = jSONObject.optJSONArray("grid");
             if (optJSONArray3 != null && optJSONArray3.length() >= 4) {
-                this.f17764d = new l0();
+                this.f17774d = new l0();
                 ArrayList arrayList2 = new ArrayList();
                 for (int i5 = 0; i5 < optJSONArray3.length(); i5++) {
                     JSONObject optJSONObject2 = optJSONArray3.optJSONObject(i5);
@@ -134,7 +134,7 @@ public class a {
                         arrayList2.add(builder2.build(true));
                     }
                 }
-                this.f17764d.parserProtobuf(arrayList2);
+                this.f17774d.parserProtobuf(arrayList2);
             }
             JSONArray optJSONArray4 = jSONObject.optJSONArray("module_list");
             JSONArray jSONArray = null;
@@ -170,7 +170,7 @@ public class a {
                     arrayList3.add(builder3.build(true));
                 }
                 b bVar = new b();
-                this.f17765e = bVar;
+                this.f17775e = bVar;
                 bVar.floorPosition = i2;
                 bVar.parserProtobuf(arrayList3);
             }

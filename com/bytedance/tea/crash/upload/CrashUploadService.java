@@ -54,10 +54,10 @@ public class CrashUploadService extends IntentService {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            if (cVar == c.f68909c) {
+            if (cVar == c.f69220c) {
                 return b.c(str, str2, str3);
             }
-            if (cVar == c.f68907a) {
+            if (cVar == c.f69218a) {
                 return b.b(str, str2);
             }
             return b.d(str, str2, b.g());
@@ -89,7 +89,7 @@ public class CrashUploadService extends IntentService {
         if (TextUtils.isEmpty(stringExtra2) || TextUtils.isEmpty(stringExtra) || c.b.c.b.c.b.a().d(stringExtra3) || !a(stringExtra, stringExtra2, stringExtra4, cVar).a()) {
             return;
         }
-        if (cVar == c.f68909c) {
+        if (cVar == c.f69220c) {
             if (l.e.g(new File(stringExtra3).getParentFile(), true)) {
                 return;
             }

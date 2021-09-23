@@ -14,19 +14,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int ERROR_CODE_BUILD_DATA_ERROR = -210;
+    public static final int ERROR_CODE_CAMERA_EXCEPTION = -211;
+    public static final int ERROR_CODE_MANY_CALL = -212;
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
     public static final int ERROR_CODE_NO_LOGIN = 101;
     public static final int ERROR_CODE_PARAM = -205;
     public static final int ERROR_CODE_SERVER_ERROR = -206;
     public static final int ERROR_CODE_SSL_PEER_UNVERIFIED = -203;
     public static final int ERROR_CODE_UNKNOWN = -202;
+    public static final int ERROR_CODE_UNTRUSTED_DEVICE = -209;
     public static final int ERROR_CODE_USER_CANCEL = -204;
+    public static final String ERROR_MSG_BUILD_DATA_ERROR = "构建数据异常";
+    public static final String ERROR_MSG_CAMERA_EXCEPTION = "摄像头异常";
+    public static final String ERROR_MSG_MANY_CALL = "频繁调用，请稍后再试";
     public static final String ERROR_MSG_NETWORK_UNAVAILABLE;
     public static final String ERROR_MSG_NO_LOGIN;
     public static final String ERROR_MSG_PARAM;
     public static final String ERROR_MSG_SERVER_ERROR;
     public static final String ERROR_MSG_SSL_PEER_UNVERIFIED;
     public static final String ERROR_MSG_UNKNOWN;
+    public static final String ERROR_MSG_UNTRUSTED_DEVICE = "风控验证失败";
     public static final String ERROR_MSG_USER_CANCEL;
     public static final int RESULT_CODE_SUCCESS = 0;
     public static final String RESULT_MSG_SUCCESS;
@@ -81,6 +89,10 @@ public class a {
         this.msgMap.put(-204, ERROR_MSG_USER_CANCEL);
         this.msgMap.put(-205, ERROR_MSG_PARAM);
         this.msgMap.put(-206, ERROR_MSG_SERVER_ERROR);
+        this.msgMap.put(ERROR_CODE_UNTRUSTED_DEVICE, ERROR_MSG_UNTRUSTED_DEVICE);
+        this.msgMap.put(ERROR_CODE_BUILD_DATA_ERROR, ERROR_MSG_BUILD_DATA_ERROR);
+        this.msgMap.put(ERROR_CODE_CAMERA_EXCEPTION, ERROR_MSG_CAMERA_EXCEPTION);
+        this.msgMap.put(ERROR_CODE_MANY_CALL, ERROR_MSG_MANY_CALL);
     }
 
     public int getResultCode() {

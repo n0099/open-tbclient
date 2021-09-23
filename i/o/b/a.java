@@ -16,30 +16,30 @@ public final class a implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f78745e;
+    public long f79064e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f78746f;
+    public f f79065f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f78747g;
+    public boolean f79066g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f78748h;
+    public long f79067h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f78749i;
+    public long f79068i;
 
     /* renamed from: j  reason: collision with root package name */
-    public f f78750j;
+    public f f79069j;
 
     /* renamed from: i.o.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C2124a implements f {
+    public static class C2128a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2124a() {
+        public C2128a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +74,7 @@ public final class a implements f {
                 return;
             }
         }
-        k = new C2124a();
+        k = new C2128a();
     }
 
     public a() {
@@ -98,27 +98,27 @@ public final class a implements f {
         }
         while (true) {
             synchronized (this) {
-                long j2 = this.f78748h;
-                long j3 = this.f78749i;
-                f fVar = this.f78750j;
+                long j2 = this.f79067h;
+                long j3 = this.f79068i;
+                f fVar = this.f79069j;
                 int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                 if (i2 == 0 && j3 == 0 && fVar == null) {
-                    this.f78747g = false;
+                    this.f79066g = false;
                     return;
                 }
-                this.f78748h = 0L;
-                this.f78749i = 0L;
-                this.f78750j = null;
-                long j4 = this.f78745e;
+                this.f79067h = 0L;
+                this.f79068i = 0L;
+                this.f79069j = null;
+                long j4 = this.f79064e;
                 if (j4 != Long.MAX_VALUE) {
                     long j5 = j4 + j2;
                     if (j5 < 0 || j5 == Long.MAX_VALUE) {
-                        this.f78745e = Long.MAX_VALUE;
+                        this.f79064e = Long.MAX_VALUE;
                         j4 = Long.MAX_VALUE;
                     } else {
                         j4 = j5 - j3;
                         if (j4 >= 0) {
-                            this.f78745e = j4;
+                            this.f79064e = j4;
                         } else {
                             throw new IllegalStateException("more produced than requested");
                         }
@@ -126,13 +126,13 @@ public final class a implements f {
                 }
                 if (fVar != null) {
                     if (fVar == k) {
-                        this.f78746f = null;
+                        this.f79065f = null;
                     } else {
-                        this.f78746f = fVar;
+                        this.f79065f = fVar;
                         fVar.request(j4);
                     }
                 } else {
-                    f fVar2 = this.f78746f;
+                    f fVar2 = this.f79065f;
                     if (fVar2 != null && i2 != 0) {
                         fVar2.request(j2);
                     }
@@ -147,17 +147,17 @@ public final class a implements f {
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
             if (j2 > 0) {
                 synchronized (this) {
-                    if (this.f78747g) {
-                        this.f78749i += j2;
+                    if (this.f79066g) {
+                        this.f79068i += j2;
                         return;
                     }
-                    this.f78747g = true;
+                    this.f79066g = true;
                     try {
-                        long j3 = this.f78745e;
+                        long j3 = this.f79064e;
                         if (j3 != Long.MAX_VALUE) {
                             long j4 = j3 - j2;
                             if (j4 >= 0) {
-                                this.f78745e = j4;
+                                this.f79064e = j4;
                             } else {
                                 throw new IllegalStateException("more items arrived than were requested");
                             }
@@ -166,7 +166,7 @@ public final class a implements f {
                         return;
                     } catch (Throwable th) {
                         synchronized (this) {
-                            this.f78747g = false;
+                            this.f79066g = false;
                             throw th;
                         }
                     }
@@ -181,23 +181,23 @@ public final class a implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
             synchronized (this) {
-                if (this.f78747g) {
+                if (this.f79066g) {
                     if (fVar == null) {
                         fVar = k;
                     }
-                    this.f78750j = fVar;
+                    this.f79069j = fVar;
                     return;
                 }
-                this.f78747g = true;
+                this.f79066g = true;
                 try {
-                    this.f78746f = fVar;
+                    this.f79065f = fVar;
                     if (fVar != null) {
-                        fVar.request(this.f78745e);
+                        fVar.request(this.f79064e);
                     }
                     a();
                 } catch (Throwable th) {
                     synchronized (this) {
-                        this.f78747g = false;
+                        this.f79066g = false;
                         throw th;
                     }
                 }
@@ -218,25 +218,25 @@ public final class a implements f {
                 return;
             }
             synchronized (this) {
-                if (this.f78747g) {
-                    this.f78748h += j2;
+                if (this.f79066g) {
+                    this.f79067h += j2;
                     return;
                 }
-                this.f78747g = true;
+                this.f79066g = true;
                 try {
-                    long j3 = this.f78745e + j2;
+                    long j3 = this.f79064e + j2;
                     if (j3 < 0) {
                         j3 = Long.MAX_VALUE;
                     }
-                    this.f78745e = j3;
-                    f fVar = this.f78746f;
+                    this.f79064e = j3;
+                    f fVar = this.f79065f;
                     if (fVar != null) {
                         fVar.request(j2);
                     }
                     a();
                 } catch (Throwable th) {
                     synchronized (this) {
-                        this.f78747g = false;
+                        this.f79066g = false;
                         throw th;
                     }
                 }

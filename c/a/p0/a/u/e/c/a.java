@@ -32,17 +32,17 @@ public class a extends c.a.p0.a.u.c.d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f8771e;
+    public static final String f8779e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f8772f;
+    public static final String[] f8780f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String[] f8773g;
+    public static final String[] f8781g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f8774d;
+    public int f8782d;
 
     /* renamed from: c.a.p0.a.u.e.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -51,13 +51,13 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8775e;
+        public final /* synthetic */ String f8783e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f8776f;
+        public final /* synthetic */ d f8784f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f8777g;
+        public final /* synthetic */ a f8785g;
 
         public C0387a(a aVar, String str, d dVar) {
             Interceptable interceptable = $ic;
@@ -74,9 +74,9 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8777g = aVar;
-            this.f8775e = str;
-            this.f8776f = dVar;
+            this.f8785g = aVar;
+            this.f8783e = str;
+            this.f8784f = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,9 +86,9 @@ public class a extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    this.f8777g.B(this.f8775e, this.f8776f);
+                    this.f8785g.B(this.f8783e, this.f8784f);
                 } else {
-                    this.f8777g.d(this.f8775e, new c.a.p0.a.u.h.b(iVar.b(), c.a.p0.a.e2.c.d.f(iVar.b())));
+                    this.f8785g.d(this.f8783e, new c.a.p0.a.u.h.b(iVar.b(), c.a.p0.a.e2.c.d.f(iVar.b())));
                 }
             }
         }
@@ -100,13 +100,13 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8778e;
+        public final /* synthetic */ String f8786e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f8779f;
+        public final /* synthetic */ d f8787f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f8780g;
+        public final /* synthetic */ a f8788g;
 
         public b(a aVar, String str, d dVar) {
             Interceptable interceptable = $ic;
@@ -123,9 +123,9 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8780g = aVar;
-            this.f8778e = str;
-            this.f8779f = dVar;
+            this.f8788g = aVar;
+            this.f8786e = str;
+            this.f8787f = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,9 +135,9 @@ public class a extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    this.f8780g.B(this.f8778e, this.f8779f);
+                    this.f8788g.B(this.f8786e, this.f8787f);
                 } else {
-                    this.f8780g.d(this.f8778e, new c.a.p0.a.u.h.b(iVar.b(), c.a.p0.a.e2.c.d.f(iVar.b())));
+                    this.f8788g.d(this.f8786e, new c.a.p0.a.u.h.b(iVar.b(), c.a.p0.a.e2.c.d.f(iVar.b())));
                 }
             }
         }
@@ -149,13 +149,13 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f8781a;
+        public final /* synthetic */ d f8789a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f8782b;
+        public final /* synthetic */ String f8790b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f8783c;
+        public final /* synthetic */ a f8791c;
 
         public c(a aVar, d dVar, String str) {
             Interceptable interceptable = $ic;
@@ -172,22 +172,22 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8783c = aVar;
-            this.f8781a = dVar;
-            this.f8782b = str;
+            this.f8791c = aVar;
+            this.f8789a = dVar;
+            this.f8790b = str;
         }
 
         @Override // c.a.p0.a.s1.f
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                d dVar = this.f8781a;
-                int i2 = dVar.f8791h;
+                d dVar = this.f8789a;
+                int i2 = dVar.f8799h;
                 if (i2 == 0) {
-                    this.f8783c.v(dVar, this.f8782b);
+                    this.f8791c.v(dVar, this.f8790b);
                 } else if (i2 != 1) {
                 } else {
-                    this.f8783c.y(dVar, this.f8782b);
+                    this.f8791c.y(dVar, this.f8790b);
                 }
             }
         }
@@ -196,7 +196,7 @@ public class a extends c.a.p0.a.u.c.d {
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f8783c.d(this.f8782b, new c.a.p0.a.u.h.b(i2, str));
+                this.f8791c.d(this.f8790b, new c.a.p0.a.u.h.b(i2, str));
             }
         }
     }
@@ -207,28 +207,28 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8784a;
+        public String f8792a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f8785b;
+        public long f8793b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f8786c;
+        public long f8794c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f8787d;
+        public String f8795d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f8788e;
+        public int f8796e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f8789f;
+        public long f8797f;
 
         /* renamed from: g  reason: collision with root package name */
-        public c.a.p0.a.u.h.b f8790g;
+        public c.a.p0.a.u.h.b f8798g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f8791h;
+        public int f8799h;
 
         public d(int i2) {
             Interceptable interceptable = $ic;
@@ -245,15 +245,15 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8791h = i2;
-            this.f8789f = -1L;
+            this.f8799h = i2;
+            this.f8797f = -1L;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.p0.a.u.h.b bVar = this.f8790g;
+                c.a.p0.a.u.h.b bVar = this.f8798g;
                 return bVar != null && bVar.isSuccess();
             }
             return invokeV.booleanValue;
@@ -273,9 +273,9 @@ public class a extends c.a.p0.a.u.c.d {
                 return;
             }
         }
-        f8771e = SchemeConfig.getSchemeHead() + "://swan/";
-        f8772f = new String[]{"_id", "account_name", "calendar_displayName"};
-        f8773g = new String[]{"_id", "calendar_id", "title", "dtstart", "dtend"};
+        f8779e = SchemeConfig.getSchemeHead() + "://swan/";
+        f8780f = new String[]{"_id", "account_name", "calendar_displayName"};
+        f8781g = new String[]{"_id", "calendar_id", "title", "dtstart", "dtend"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -296,7 +296,7 @@ public class a extends c.a.p0.a.u.c.d {
                 return;
             }
         }
-        this.f8774d = -1;
+        this.f8782d = -1;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, THROW, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION] complete} */
@@ -305,7 +305,7 @@ public class a extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
-            Cursor query = i().getContentResolver().query(CalendarContract.Events.CONTENT_URI, f8773g, "((account_name = ?))", new String[]{"智能小程序"}, null);
+            Cursor query = i().getContentResolver().query(CalendarContract.Events.CONTENT_URI, f8781g, "((account_name = ?))", new String[]{"智能小程序"}, null);
             if (query != null) {
                 try {
                     if (query.getCount() >= 1) {
@@ -315,7 +315,7 @@ public class a extends c.a.p0.a.u.c.d {
                             String string = query.getString(query.getColumnIndex("title"));
                             long j3 = query.getLong(query.getColumnIndex("dtstart"));
                             long j4 = query.getLong(query.getColumnIndex("dtend"));
-                            if (TextUtils.equals(dVar.f8784a, string) && j3 == dVar.f8785b && j4 == dVar.f8786c) {
+                            if (TextUtils.equals(dVar.f8792a, string) && j3 == dVar.f8793b && j4 == dVar.f8794c) {
                                 if (query != null) {
                                     query.close();
                                 }
@@ -352,7 +352,7 @@ public class a extends c.a.p0.a.u.c.d {
             try {
                 jSONObject.put(TbEnum.SystemMessage.KEY_EVENT_ID, j2 + "");
             } catch (JSONException e2) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     e2.printStackTrace();
                 }
             }
@@ -367,46 +367,46 @@ public class a extends c.a.p0.a.u.c.d {
             d dVar = new d(i2);
             if (i2 == 0) {
                 String optString = jSONObject.optString("title");
-                dVar.f8784a = optString;
+                dVar.f8792a = optString;
                 if (TextUtils.isEmpty(optString)) {
                     c.a.p0.a.e0.d.b("Api-CalendarApi", "addEventOnCalendar requires a valid title");
-                    dVar.f8790g = new c.a.p0.a.u.h.b(1001, "addEventOnCalendar requires a valid title");
+                    dVar.f8798g = new c.a.p0.a.u.h.b(1001, "addEventOnCalendar requires a valid title");
                     return dVar;
                 }
                 long optLong = jSONObject.optLong("startTime", -1L);
-                dVar.f8785b = optLong;
+                dVar.f8793b = optLong;
                 if (optLong == -1) {
                     c.a.p0.a.e0.d.b("Api-CalendarApi", "addEventOnCalendar requires a valid startTime");
-                    dVar.f8790g = new c.a.p0.a.u.h.b(1001, "addEventOnCalendar requires a valid startTime");
+                    dVar.f8798g = new c.a.p0.a.u.h.b(1001, "addEventOnCalendar requires a valid startTime");
                     return dVar;
                 }
                 long optLong2 = jSONObject.optLong("endTime", -1L);
-                dVar.f8786c = optLong2;
-                if (optLong2 < dVar.f8785b) {
+                dVar.f8794c = optLong2;
+                if (optLong2 < dVar.f8793b) {
                     c.a.p0.a.e0.d.b("Api-CalendarApi", "addEventOnCalendar requires a valid endTime");
-                    dVar.f8790g = new c.a.p0.a.u.h.b(1001, "addEventOnCalendar requires a valid endTime");
+                    dVar.f8798g = new c.a.p0.a.u.h.b(1001, "addEventOnCalendar requires a valid endTime");
                     return dVar;
                 }
-                dVar.f8788e = jSONObject.optInt("remindMinutesBefore", 10);
-                dVar.f8787d = jSONObject.optString("location");
+                dVar.f8796e = jSONObject.optInt("remindMinutesBefore", 10);
+                dVar.f8795d = jSONObject.optString("location");
                 String optString2 = jSONObject.optString("url");
                 if (!TextUtils.isEmpty(optString2)) {
-                    if (optString2.startsWith(f8771e)) {
-                        dVar.f8784a += " " + optString2;
+                    if (optString2.startsWith(f8779e)) {
+                        dVar.f8792a += " " + optString2;
                     } else {
-                        dVar.f8790g = new c.a.p0.a.u.h.b(2002, "invalid url");
+                        dVar.f8798g = new c.a.p0.a.u.h.b(2002, "invalid url");
                         return dVar;
                     }
                 }
-                dVar.f8790g = new c.a.p0.a.u.h.b(0);
+                dVar.f8798g = new c.a.p0.a.u.h.b(0);
             } else if (i2 == 1) {
                 long optLong3 = jSONObject.optLong(TbEnum.SystemMessage.KEY_EVENT_ID, -1L);
-                dVar.f8789f = optLong3;
+                dVar.f8797f = optLong3;
                 if (optLong3 == -1) {
                     c.a.p0.a.e0.d.b("Api-CalendarApi", "deleteEventOnCalendar requires a valid eventId");
-                    dVar.f8790g = new c.a.p0.a.u.h.b(1001, "deleteEventOnCalendar requires a valid eventId");
+                    dVar.f8798g = new c.a.p0.a.u.h.b(1001, "deleteEventOnCalendar requires a valid eventId");
                 } else {
-                    dVar.f8790g = new c.a.p0.a.u.h.b(0);
+                    dVar.f8798g = new c.a.p0.a.u.h.b(0);
                 }
             }
             return dVar;
@@ -420,7 +420,7 @@ public class a extends c.a.p0.a.u.c.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Context i2 = i();
-            Cursor query = i2.getContentResolver().query(CalendarContract.Calendars.CONTENT_URI, f8772f, "((account_name = ?) AND (calendar_displayName = ?))", new String[]{"智能小程序", "智能小程序"}, null);
+            Cursor query = i2.getContentResolver().query(CalendarContract.Calendars.CONTENT_URI, f8780f, "((account_name = ?) AND (calendar_displayName = ?))", new String[]{"智能小程序", "智能小程序"}, null);
             if (query != null) {
                 try {
                     if (query.getCount() >= 1) {
@@ -460,7 +460,7 @@ public class a extends c.a.p0.a.u.c.d {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             if (l()) {
                 c.a.p0.a.e0.d.b("Api-CalendarApi", "addEventOnCalendar does not supported when app is invisible.");
                 return new c.a.p0.a.u.h.b(1001, "addEventOnCalendar does not supported when app is invisible.");
@@ -471,7 +471,7 @@ public class a extends c.a.p0.a.u.c.d {
                 JSONObject jSONObject = (JSONObject) obj;
                 d D = D(jSONObject, 0);
                 if (!D.a()) {
-                    return D.f8790g;
+                    return D.f8798g;
                 }
                 String optString = jSONObject.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
@@ -506,11 +506,11 @@ public class a extends c.a.p0.a.u.c.d {
             contentValues.put("accessLevel", (Integer) 3);
             contentValues.put("eventTimezone", "Asia/Shanghai");
             contentValues.put("eventEndTimezone", "Asia/Shanghai");
-            contentValues.put("dtstart", Long.valueOf(dVar.f8785b));
-            contentValues.put("dtend", Long.valueOf(dVar.f8786c));
-            contentValues.put("title", dVar.f8784a);
-            if (!TextUtils.isEmpty(dVar.f8787d)) {
-                contentValues.put("eventLocation", dVar.f8787d);
+            contentValues.put("dtstart", Long.valueOf(dVar.f8793b));
+            contentValues.put("dtend", Long.valueOf(dVar.f8794c));
+            contentValues.put("title", dVar.f8792a);
+            if (!TextUtils.isEmpty(dVar.f8795d)) {
+                contentValues.put("eventLocation", dVar.f8795d);
             }
             ContentResolver contentResolver = i().getContentResolver();
             Uri insert = contentResolver.insert(CalendarContract.Events.CONTENT_URI, contentValues);
@@ -518,14 +518,14 @@ public class a extends c.a.p0.a.u.c.d {
                 try {
                     j2 = Long.parseLong(lastPathSegment);
                 } catch (NumberFormatException e2) {
-                    if (c.a.p0.a.u.c.d.f8727c) {
+                    if (c.a.p0.a.u.c.d.f8735c) {
                         e2.printStackTrace();
                     }
                     j2 = -1;
                 }
                 ContentValues contentValues2 = new ContentValues();
                 contentValues2.put("event_id", Long.valueOf(j2));
-                contentValues2.put("minutes", Integer.valueOf(dVar.f8788e));
+                contentValues2.put("minutes", Integer.valueOf(dVar.f8796e));
                 contentValues2.put("method", (Integer) 1);
                 Uri insert2 = contentResolver.insert(CalendarContract.Reminders.CONTENT_URI, contentValues2);
                 if (insert2 != null && ContentUris.parseId(insert2) != 0) {
@@ -567,7 +567,7 @@ public class a extends c.a.p0.a.u.c.d {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             if (l()) {
                 c.a.p0.a.e0.d.b("Api-CalendarApi", "deleteEventOnCalendar does not supported when app is invisible.");
                 return new c.a.p0.a.u.h.b(1001, "deleteEventOnCalendar does not supported when app is invisible.");
@@ -578,7 +578,7 @@ public class a extends c.a.p0.a.u.c.d {
                 JSONObject jSONObject = (JSONObject) obj;
                 d D = D(jSONObject, 1);
                 if (!D.a()) {
-                    return D.f8790g;
+                    return D.f8798g;
                 }
                 String optString = jSONObject.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
@@ -600,7 +600,7 @@ public class a extends c.a.p0.a.u.c.d {
                 d(str, new c.a.p0.a.u.h.b(2102, "deleteEventOnCalendar fail , system error"));
                 return;
             }
-            int delete = i().getContentResolver().delete(ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, dVar.f8789f), null, null);
+            int delete = i().getContentResolver().delete(ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, dVar.f8797f), null, null);
             if (delete < 0) {
                 d(str, new c.a.p0.a.u.h.b(2102, "deleteEventOnCalendar fail , system error"));
             } else if (delete == 0) {
@@ -615,10 +615,10 @@ public class a extends c.a.p0.a.u.c.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f8774d == -1) {
-                this.f8774d = E();
+            if (this.f8782d == -1) {
+                this.f8782d = E();
             }
-            return this.f8774d;
+            return this.f8782d;
         }
         return invokeV.intValue;
     }

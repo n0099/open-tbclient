@@ -39,7 +39,7 @@ public class AsInstallService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AsInstallService f56602e;
+        public final /* synthetic */ AsInstallService f56719e;
 
         public a(AsInstallService asInstallService) {
             Interceptable interceptable = $ic;
@@ -56,14 +56,14 @@ public class AsInstallService extends BdBaseService {
                     return;
                 }
             }
-            this.f56602e = asInstallService;
+            this.f56719e = asInstallService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56602e.stopSelf();
+                this.f56719e.stopSelf();
             }
         }
     }

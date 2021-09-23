@@ -26,10 +26,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10679a;
+    public Context f10687a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f10680b;
+    public JSONObject f10688b;
 
     /* loaded from: classes.dex */
     public class a extends ResponseCallback {
@@ -89,17 +89,17 @@ public class c {
                 return;
             }
         }
-        this.f10679a = context;
-        this.f10680b = jSONObject;
+        this.f10687a = context;
+        this.f10688b = jSONObject;
     }
 
     public final void a(@NonNull Request request) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, request) == null) {
             c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(request.url().toString(), new a(this));
-            aVar.f11845f = true;
-            aVar.f11846g = false;
-            aVar.f11847h = false;
+            aVar.f11853f = true;
+            aVar.f11854g = false;
+            aVar.f11855h = false;
             c.a.p0.m.e.a.g().d(aVar);
         }
     }
@@ -140,13 +140,13 @@ public class c {
             } else {
                 hashMap.put("da_page", "MINIAPP");
             }
-            hashMap.put("play_mode", String.valueOf((NetworkUtils.g(this.f10679a) && TextUtils.equals(str, "vstart")) ? 0 : 1));
-            JSONObject jSONObject = this.f10680b;
+            hashMap.put("play_mode", String.valueOf((NetworkUtils.g(this.f10687a) && TextUtils.equals(str, "vstart")) ? 0 : 1));
+            JSONObject jSONObject = this.f10688b;
             JSONArray optJSONArray = jSONObject != null ? jSONObject.optJSONArray(str) : null;
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     String optString = optJSONArray.optString(i2);
-                    if (NetworkUtils.f(this.f10679a) && !TextUtils.isEmpty(optString)) {
+                    if (NetworkUtils.f(this.f10687a) && !TextUtils.isEmpty(optString)) {
                         HttpUrl parse = HttpUrl.parse(b(optString, hashMap));
                         if (parse == null) {
                             return;
@@ -161,7 +161,7 @@ public class c {
     public void e(String str) {
         HttpUrl parse;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || !NetworkUtils.f(this.f10679a) || TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || !NetworkUtils.f(this.f10687a) || TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null) {
             return;
         }
         a(new Request.Builder().url(parse.newBuilder().build()).build());

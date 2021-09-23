@@ -31,10 +31,10 @@ public class b implements FollowStatusService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
             UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-            aVar.f48082a = true;
-            aVar.f48084c = str;
-            aVar.f48085d = z;
-            aVar.f48086e = true;
+            aVar.f48190a = true;
+            aVar.f48192c = str;
+            aVar.f48193d = z;
+            aVar.f48194e = true;
             MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
         }
     }

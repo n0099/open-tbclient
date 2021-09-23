@@ -11,16 +11,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ApplicationInfo f42747a;
+    public ApplicationInfo f42809a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42748b;
+    public int f42810b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42749c;
+    public boolean f42811c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f42750d;
+    public boolean f42812d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class b {
                 return;
             }
         }
-        this.f42748b = 0;
-        this.f42749c = false;
-        this.f42750d = false;
+        this.f42810b = 0;
+        this.f42811c = false;
+        this.f42812d = false;
     }
 }

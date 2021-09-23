@@ -19,17 +19,17 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SimpleDragSortListView f17384a;
+    public final SimpleDragSortListView f17394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final C0845a f17385b;
+    public final C0843a f17395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.q0.f1.e.a f17386c;
+    public final c.a.q0.f1.e.a f17396c;
 
     /* renamed from: c.a.r0.e2.h.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0845a extends b {
+    public static class C0843a extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int J;
@@ -37,7 +37,7 @@ public class a {
         public ListView L;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0845a(c.a.q0.f1.e.a aVar, ListView listView) {
+        public C0843a(c.a.q0.f1.e.a aVar, ListView listView) {
             super(aVar, listView, 0, 2, 0);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -133,36 +133,36 @@ public class a {
                 return;
             }
         }
-        this.f17384a = simpleDragSortListView;
+        this.f17394a = simpleDragSortListView;
         c.a.q0.f1.e.a aVar = new c.a.q0.f1.e.a(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
-        this.f17386c = aVar;
+        this.f17396c = aVar;
         simpleDragSortListView.setDragSortViewEventDelegate(aVar);
-        C0845a c0845a = new C0845a(this.f17386c, simpleDragSortListView);
-        this.f17385b = c0845a;
-        c0845a.d(-1);
-        this.f17386c.s0(this.f17385b);
-        this.f17386c.u0(this.f17385b);
-        simpleDragSortListView.setOnTouchListener(this.f17385b);
+        C0843a c0843a = new C0843a(this.f17396c, simpleDragSortListView);
+        this.f17395b = c0843a;
+        c0843a.d(-1);
+        this.f17396c.s0(this.f17395b);
+        this.f17396c.u0(this.f17395b);
+        simpleDragSortListView.setOnTouchListener(this.f17395b);
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f17386c.o0(z);
+            this.f17396c.o0(z);
         }
     }
 
     public void b(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            this.f17385b.y(i2, i3);
+            this.f17395b.y(i2, i3);
         }
     }
 
     public void c(a.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.f17386c.t0(iVar);
+            this.f17396c.t0(iVar);
         }
     }
 }

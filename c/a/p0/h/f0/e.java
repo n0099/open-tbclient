@@ -15,7 +15,7 @@ public class e {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65536, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
             c.a.p0.h.f0.i.d dVar = new c.a.p0.h.f0.i.d();
-            dVar.f11246a = str;
+            dVar.f11254a = str;
             b.c().a(new a(50000, dVar));
         }
     }
@@ -24,7 +24,7 @@ public class e {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65537, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
             c.a.p0.h.f0.i.d dVar = new c.a.p0.h.f0.i.d();
-            dVar.f11246a = str;
+            dVar.f11254a = str;
             b.c().a(new a(90000, dVar));
         }
     }
@@ -33,10 +33,10 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i2), str2, Boolean.valueOf(z)}) == null) {
             c.a.p0.h.f0.i.a aVar = new c.a.p0.h.f0.i.a();
-            aVar.f11240b = str;
-            aVar.f11241c = i2;
-            aVar.f11242d = z ? 1 : 0;
-            aVar.f11246a = str2;
+            aVar.f11248b = str;
+            aVar.f11249c = i2;
+            aVar.f11250d = z ? 1 : 0;
+            aVar.f11254a = str2;
             b.c().a(new a(100000, aVar));
         }
     }
@@ -45,7 +45,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             c.a.p0.h.f0.i.d dVar = new c.a.p0.h.f0.i.d();
-            dVar.f11246a = str;
+            dVar.f11254a = str;
             b.c().a(new a(20000, dVar));
         }
     }
@@ -54,7 +54,7 @@ public class e {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
             c.a.p0.h.f0.i.d dVar = new c.a.p0.h.f0.i.d();
-            dVar.f11246a = str;
+            dVar.f11254a = str;
             b.c().a(new a(60000, dVar));
         }
     }
@@ -63,7 +63,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
             c.a.p0.h.f0.i.d dVar = new c.a.p0.h.f0.i.d();
-            dVar.f11246a = str;
+            dVar.f11254a = str;
             b.c().a(new a(10000, dVar));
         }
     }
@@ -72,7 +72,7 @@ public class e {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
             c.a.p0.h.f0.i.d dVar = new c.a.p0.h.f0.i.d();
-            dVar.f11246a = str;
+            dVar.f11254a = str;
             b.c().a(new a(40000, dVar));
         }
     }
@@ -81,10 +81,10 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i2), str2, Boolean.valueOf(z)}) == null) {
             c.a.p0.h.f0.i.a aVar = new c.a.p0.h.f0.i.a();
-            aVar.f11240b = str;
-            aVar.f11241c = i2;
-            aVar.f11242d = z ? 1 : 0;
-            aVar.f11246a = str2;
+            aVar.f11248b = str;
+            aVar.f11249c = i2;
+            aVar.f11250d = z ? 1 : 0;
+            aVar.f11254a = str2;
             b.c().a(new a(70000, aVar));
         }
     }
@@ -93,8 +93,8 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
             c.a.p0.h.f0.i.b bVar = new c.a.p0.h.f0.i.b();
-            bVar.f11243b = str;
-            bVar.f11246a = str2;
+            bVar.f11251b = str;
+            bVar.f11254a = str2;
             b.c().a(new a(30000, bVar));
         }
     }
@@ -103,9 +103,9 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65545, null, str, i2, str2) == null) {
             c.a.p0.h.f0.i.c cVar = new c.a.p0.h.f0.i.c();
-            cVar.f11244b = str;
-            cVar.f11245c = i2;
-            cVar.f11246a = str2;
+            cVar.f11252b = str;
+            cVar.f11253c = i2;
+            cVar.f11254a = str2;
             b.c().a(new a(80000, cVar));
         }
     }
@@ -114,10 +114,10 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i2), str2, Boolean.valueOf(z)}) == null) {
             c.a.p0.h.f0.i.a aVar = new c.a.p0.h.f0.i.a();
-            aVar.f11240b = str;
-            aVar.f11241c = i2;
-            aVar.f11242d = z ? 1 : 0;
-            aVar.f11246a = str2;
+            aVar.f11248b = str;
+            aVar.f11249c = i2;
+            aVar.f11250d = z ? 1 : 0;
+            aVar.f11254a = str2;
             b.c().a(new a(110000, aVar));
         }
     }
@@ -126,7 +126,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
             c.a.p0.h.f0.i.d dVar = new c.a.p0.h.f0.i.d();
-            dVar.f11246a = str;
+            dVar.f11254a = str;
             b.c().a(new a(120000, dVar));
         }
     }

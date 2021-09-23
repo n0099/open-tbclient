@@ -27,11 +27,11 @@ public class s extends a0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f5093d;
+    public static final Set<String> f5101d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5094c;
+    public String f5102c;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.v2.e1.b<c.a.p0.a.e2.c.i<b.e>> {
@@ -39,22 +39,22 @@ public class s extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5095e;
+        public final /* synthetic */ CallbackHandler f5103e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f5096f;
+        public final /* synthetic */ Context f5104f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f5097g;
+        public final /* synthetic */ String f5105g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f5098h;
+        public final /* synthetic */ String f5106h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f5099i;
+        public final /* synthetic */ String f5107i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f5100j;
+        public final /* synthetic */ String f5108j;
         public final /* synthetic */ String k;
         public final /* synthetic */ s l;
 
@@ -74,12 +74,12 @@ public class s extends a0 {
                 }
             }
             this.l = sVar;
-            this.f5095e = callbackHandler;
-            this.f5096f = context;
-            this.f5097g = str;
-            this.f5098h = str2;
-            this.f5099i = str3;
-            this.f5100j = str4;
+            this.f5103e = callbackHandler;
+            this.f5104f = context;
+            this.f5105g = str;
+            this.f5106h = str2;
+            this.f5107i = str3;
+            this.f5108j = str4;
             this.k = str5;
         }
 
@@ -90,24 +90,24 @@ public class s extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.p0.a.e2.c.d.h(iVar)) {
-                    c.a.p0.a.e2.c.d.p(iVar, this.f5095e, this.l.f5094c);
+                    c.a.p0.a.e2.c.d.p(iVar, this.f5103e, this.l.f5102c);
                     return;
                 }
-                c.a.p0.a.q2.a a2 = c.a.p0.a.c1.a.B().a(this.f5096f, this.f5097g, this.f5098h, this.f5099i, this.f5100j, this.k);
+                c.a.p0.a.q2.a a2 = c.a.p0.a.c1.a.B().a(this.f5104f, this.f5105g, this.f5106h, this.f5107i, this.f5108j, this.k);
                 if (a2 != null) {
                     if (a2.g() != 0) {
                         c.a.p0.a.e0.d.b("PageTransitionAction", a2.f().toString());
-                        CallbackHandler callbackHandler = this.f5095e;
-                        String str = this.l.f5094c;
+                        CallbackHandler callbackHandler = this.f5103e;
+                        String str = this.l.f5102c;
                         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a2.a() + ":" + a2.f().toString()).toString());
                         return;
                     }
                     c.a.p0.a.e0.d.b("PageTransitionAction", "page transition fail");
-                    this.f5095e.handleSchemeDispatchCallback(this.l.f5094c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
+                    this.f5103e.handleSchemeDispatchCallback(this.l.f5102c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
                     return;
                 }
                 c.a.p0.a.e0.d.g("PageTransitionAction", "page transition success");
-                this.f5095e.handleSchemeDispatchCallback(this.l.f5094c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                this.f5103e.handleSchemeDispatchCallback(this.l.f5102c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
             }
         }
     }
@@ -126,13 +126,13 @@ public class s extends a0 {
             }
         }
         HashSet hashSet = new HashSet();
-        f5093d = hashSet;
+        f5101d = hashSet;
         hashSet.add("easybrowse");
-        f5093d.add("live");
-        f5093d.add("appTab");
-        f5093d.add("browser");
-        f5093d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_COMIC);
-        f5093d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL);
+        f5101d.add("live");
+        f5101d.add("appTab");
+        f5101d.add("browser");
+        f5101d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_COMIC);
+        f5101d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -166,7 +166,7 @@ public class s extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "null swanApp");
                 return false;
             } else if (eVar.d0()) {
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {
@@ -178,7 +178,7 @@ public class s extends a0 {
                 }
                 JSONObject d2 = c.a.p0.a.v2.w.d(param);
                 String optString = d2.optString("cb");
-                this.f5094c = optString;
+                this.f5102c = optString;
                 if (TextUtils.isEmpty(optString)) {
                     c.a.p0.a.e0.d.b("PageTransitionAction", "callback is null");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -197,15 +197,15 @@ public class s extends a0 {
                     if (a2 != null) {
                         if (a2.g() != 0) {
                             c.a.p0.a.e0.d.b("PageTransitionAction", a2.f().toString());
-                            String str = this.f5094c;
+                            String str = this.f5102c;
                             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a2.a() + ":" + a2.f().toString()).toString());
                         } else {
                             c.a.p0.a.e0.d.b("PageTransitionAction", "page transition fail");
-                            callbackHandler.handleSchemeDispatchCallback(this.f5094c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
+                            callbackHandler.handleSchemeDispatchCallback(this.f5102c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
                         }
                     } else {
                         c.a.p0.a.e0.d.g("PageTransitionAction", "page transition success");
-                        callbackHandler.handleSchemeDispatchCallback(this.f5094c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                        callbackHandler.handleSchemeDispatchCallback(this.f5102c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                     }
                 }
                 c.a.p0.a.e0.d.g("PageTransitionAction", "callback success");
@@ -220,16 +220,16 @@ public class s extends a0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, str) == null) {
             c.a.p0.a.j2.p.e eVar2 = new c.a.p0.a.j2.p.e();
-            eVar2.f7065c = eVar.L().T();
-            eVar2.f7063a = "swan";
+            eVar2.f7073c = eVar.L().T();
+            eVar2.f7071a = "swan";
             if (q0.G()) {
-                if (f5093d.contains(str)) {
-                    eVar2.f7064b = str.toLowerCase();
+                if (f5101d.contains(str)) {
+                    eVar2.f7072b = str.toLowerCase();
                 } else {
-                    eVar2.f7064b = "other";
+                    eVar2.f7072b = "other";
                 }
             } else {
-                eVar2.f7064b = "other";
+                eVar2.f7072b = "other";
             }
             eVar2.a(BaseHiidoContent.HOSTID, c.a.p0.a.c1.a.m().a());
             eVar2.a("appid", eVar.getAppId());

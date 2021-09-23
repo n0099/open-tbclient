@@ -19,34 +19,34 @@ public class o0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f77114a;
+    public int[] f77433a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f77115b;
+    public final int[] f77434b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ByteBuffer f77116c;
+    public ByteBuffer f77435c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f77117d;
+    public byte[] f77436d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f77118e;
+    public byte[] f77437e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f77119f;
+    public int f77438f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f77120g;
+    public int f77439g;
 
     /* renamed from: h  reason: collision with root package name */
-    public r0 f77121h;
+    public r0 f77440h;
 
     /* renamed from: i  reason: collision with root package name */
-    public short[] f77122i;
+    public short[] f77441i;
 
     /* renamed from: j  reason: collision with root package name */
-    public byte[] f77123j;
+    public byte[] f77442j;
     public byte[] k;
     public byte[] l;
     public int[] m;
@@ -76,9 +76,9 @@ public class o0 {
             }
         }
         x0 x0Var = new x0();
-        this.f77115b = new int[256];
-        this.f77119f = 0;
-        this.f77120g = 0;
+        this.f77434b = new int[256];
+        this.f77438f = 0;
+        this.f77439g = 0;
         this.q = x0Var;
         this.p = new q0();
     }
@@ -117,12 +117,12 @@ public class o0 {
     public final void a(int[] iArr, p0 p0Var, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048581, this, iArr, p0Var, i2) == null) {
-            int i3 = p0Var.f77131d;
+            int i3 = p0Var.f77450d;
             int i4 = this.u;
             int i5 = i3 / i4;
-            int i6 = p0Var.f77129b / i4;
-            int i7 = p0Var.f77130c / i4;
-            int i8 = p0Var.f77128a / i4;
+            int i6 = p0Var.f77448b / i4;
+            int i7 = p0Var.f77449c / i4;
+            int i8 = p0Var.f77447a / i4;
             int i9 = this.w;
             int i10 = (i6 * i9) + i8;
             int i11 = (i5 * i9) + i10;
@@ -162,41 +162,41 @@ public class o0 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
                 int i13 = 1;
-                if (this.p.f77143c <= 0 || this.n < 0) {
+                if (this.p.f77462c <= 0 || this.n < 0) {
                     this.t = 1;
                 }
                 int i14 = this.t;
                 if (i14 != 1 && i14 != 2) {
                     int i15 = 0;
                     this.t = 0;
-                    p0 p0Var = (p0) this.p.f77145e.get(this.n);
+                    p0 p0Var = (p0) this.p.f77464e.get(this.n);
                     int i16 = this.n - 1;
-                    p0 p0Var2 = i16 >= 0 ? (p0) this.p.f77145e.get(i16) : null;
+                    p0 p0Var2 = i16 >= 0 ? (p0) this.p.f77464e.get(i16) : null;
                     int[] iArr = p0Var.k;
                     if (iArr == null) {
-                        iArr = this.p.f77141a;
+                        iArr = this.p.f77460a;
                     }
-                    this.f77114a = iArr;
+                    this.f77433a = iArr;
                     if (iArr == null) {
                         this.t = 1;
                         return null;
                     }
-                    if (p0Var.f77133f) {
-                        System.arraycopy(iArr, 0, this.f77115b, 0, iArr.length);
-                        int[] iArr2 = this.f77115b;
-                        this.f77114a = iArr2;
-                        iArr2[p0Var.f77135h] = 0;
+                    if (p0Var.f77452f) {
+                        System.arraycopy(iArr, 0, this.f77434b, 0, iArr.length);
+                        int[] iArr2 = this.f77434b;
+                        this.f77433a = iArr2;
+                        iArr2[p0Var.f77454h] = 0;
                     }
                     int[] iArr3 = this.m;
                     if (p0Var2 == null) {
                         Arrays.fill(iArr3, 0);
                     }
-                    if (p0Var2 != null && (i11 = p0Var2.f77134g) > 0) {
+                    if (p0Var2 != null && (i11 = p0Var2.f77453g) > 0) {
                         if (i11 == 2) {
-                            if (!p0Var.f77133f) {
+                            if (!p0Var.f77452f) {
                                 q0 q0Var = this.p;
                                 i12 = q0Var.l;
-                                if (p0Var.k != null && q0Var.f77150j == p0Var.f77135h) {
+                                if (p0Var.k != null && q0Var.f77469j == p0Var.f77454h) {
                                 }
                                 a(iArr3, p0Var2, i12);
                             } else if (this.n == 0) {
@@ -209,29 +209,29 @@ public class o0 {
                             if (bitmap == null) {
                                 a(iArr3, p0Var2, 0);
                             } else {
-                                int i17 = p0Var2.f77131d;
+                                int i17 = p0Var2.f77450d;
                                 int i18 = this.u;
-                                int i19 = p0Var2.f77129b / i18;
-                                int i20 = p0Var2.f77130c / i18;
-                                int i21 = p0Var2.f77128a / i18;
+                                int i19 = p0Var2.f77448b / i18;
+                                int i20 = p0Var2.f77449c / i18;
+                                int i21 = p0Var2.f77447a / i18;
                                 int i22 = this.w;
                                 bitmap.getPixels(iArr3, (i19 * i22) + i21, i22, i21, i19, i20, i17 / i18);
                             }
                         }
                     }
-                    this.f77119f = 0;
-                    this.f77120g = 0;
-                    this.f77116c.position(p0Var.f77137j);
-                    int i23 = p0Var.f77130c * p0Var.f77131d;
+                    this.f77438f = 0;
+                    this.f77439g = 0;
+                    this.f77435c.position(p0Var.f77456j);
+                    int i23 = p0Var.f77449c * p0Var.f77450d;
                     byte[] bArr = this.l;
                     if (bArr == null || bArr.length < i23) {
                         this.l = this.q.a(i23);
                     }
-                    if (this.f77122i == null) {
-                        this.f77122i = new short[4096];
+                    if (this.f77441i == null) {
+                        this.f77441i = new short[4096];
                     }
-                    if (this.f77123j == null) {
-                        this.f77123j = new byte[4096];
+                    if (this.f77442j == null) {
+                        this.f77442j = new byte[4096];
                     }
                     if (this.k == null) {
                         this.k = new byte[4097];
@@ -243,8 +243,8 @@ public class o0 {
                     int i27 = c2 + 1;
                     int i28 = (1 << i27) - 1;
                     for (int i29 = 0; i29 < i24; i29++) {
-                        this.f77122i[i29] = 0;
-                        this.f77123j[i29] = (byte) i29;
+                        this.f77441i[i29] = 0;
+                        this.f77442j[i29] = (byte) i29;
                     }
                     int i30 = i27;
                     int i31 = i26;
@@ -266,21 +266,21 @@ public class o0 {
                             i34 = c();
                             if (i34 > 0) {
                                 try {
-                                    if (this.f77117d == null) {
-                                        this.f77117d = this.q.a(255);
+                                    if (this.f77436d == null) {
+                                        this.f77436d = this.q.a(255);
                                     }
-                                    int i42 = this.f77119f - this.f77120g;
+                                    int i42 = this.f77438f - this.f77439g;
                                     if (i42 >= i34) {
-                                        System.arraycopy(this.f77118e, this.f77120g, this.f77117d, i15, i34);
-                                        i10 = this.f77120g + i34;
-                                    } else if (this.f77116c.remaining() + i42 >= i34) {
+                                        System.arraycopy(this.f77437e, this.f77439g, this.f77436d, i15, i34);
+                                        i10 = this.f77439g + i34;
+                                    } else if (this.f77435c.remaining() + i42 >= i34) {
                                         try {
-                                            System.arraycopy(this.f77118e, this.f77120g, this.f77117d, i15, i42);
-                                            this.f77120g = this.f77119f;
+                                            System.arraycopy(this.f77437e, this.f77439g, this.f77436d, i15, i42);
+                                            this.f77439g = this.f77438f;
                                             d();
                                             int i43 = i34 - i42;
-                                            System.arraycopy(this.f77118e, i15, this.f77117d, i42, i43);
-                                            i10 = this.f77120g + i43;
+                                            System.arraycopy(this.f77437e, i15, this.f77436d, i42, i43);
+                                            i10 = this.f77439g + i43;
                                         } catch (Exception unused) {
                                             i13 = 1;
                                             this.t = i13;
@@ -290,7 +290,7 @@ public class o0 {
                                     } else {
                                         this.t = i13;
                                     }
-                                    this.f77120g = i10;
+                                    this.f77439g = i10;
                                 } catch (Exception unused2) {
                                 }
                             }
@@ -300,7 +300,7 @@ public class o0 {
                             }
                             i36 = 0;
                         }
-                        i35 += (this.f77117d[i36] & 255) << i37;
+                        i35 += (this.f77436d[i36] & 255) << i37;
                         i36++;
                         i34--;
                         int i44 = i37 + 8;
@@ -321,7 +321,7 @@ public class o0 {
                                     i9 = i44;
                                     if (i50 != i25) {
                                         if (i48 == -1) {
-                                            this.k[i40] = this.f77123j[i50];
+                                            this.k[i40] = this.f77442j[i50];
                                             i40++;
                                             i48 = i50;
                                             i45 = i48;
@@ -336,20 +336,20 @@ public class o0 {
                                                 s = i50;
                                             }
                                             while (s >= i24) {
-                                                this.k[i40] = this.f77123j[s];
-                                                s = this.f77122i[s];
+                                                this.k[i40] = this.f77442j[s];
+                                                s = this.f77441i[s];
                                                 i40++;
                                                 i50 = i50;
                                             }
                                             int i51 = i50;
-                                            byte[] bArr2 = this.f77123j;
+                                            byte[] bArr2 = this.f77442j;
                                             int i52 = bArr2[s] & 255;
                                             int i53 = i40 + 1;
                                             int i54 = i24;
                                             byte b2 = (byte) i52;
                                             this.k[i40] = b2;
                                             if (i46 < 4096) {
-                                                this.f77122i[i46] = (short) i48;
+                                                this.f77441i[i46] = (short) i48;
                                                 bArr2[i46] = b2;
                                                 i46++;
                                                 if ((i46 & i32) == 0 && i46 < 4096) {
@@ -399,19 +399,19 @@ public class o0 {
                     for (int i55 = i38; i55 < i23; i55++) {
                         this.l[i55] = 0;
                     }
-                    int i56 = p0Var.f77131d;
+                    int i56 = p0Var.f77450d;
                     int i57 = this.u;
                     int i58 = i56 / i57;
-                    int i59 = p0Var.f77129b / i57;
-                    int i60 = p0Var.f77130c / i57;
-                    int i61 = p0Var.f77128a / i57;
+                    int i59 = p0Var.f77448b / i57;
+                    int i60 = p0Var.f77449c / i57;
+                    int i61 = p0Var.f77447a / i57;
                     boolean z = this.n == 0;
                     int i62 = 0;
                     int i63 = 1;
                     int i64 = 0;
                     int i65 = 8;
                     while (i64 < i58) {
-                        if (p0Var.f77132e) {
+                        if (p0Var.f77451e) {
                             if (i62 >= i58) {
                                 i63++;
                                 if (i63 == 2) {
@@ -440,19 +440,19 @@ public class o0 {
                                 i70 = i71;
                             }
                             int i72 = this.u;
-                            int i73 = i64 * i72 * p0Var.f77130c;
+                            int i73 = i64 * i72 * p0Var.f77449c;
                             int i74 = ((i70 - i69) * i72) + i73;
                             int i75 = i69;
                             while (i75 < i70) {
                                 int i76 = i58;
                                 int i77 = i59;
                                 if (this.u == 1) {
-                                    i7 = this.f77114a[this.l[i73] & 255];
+                                    i7 = this.f77433a[this.l[i73] & 255];
                                     i4 = i60;
                                     i5 = i61;
                                     i6 = i63;
                                 } else {
-                                    int i78 = p0Var.f77130c;
+                                    int i78 = p0Var.f77449c;
                                     i4 = i60;
                                     int i79 = i73;
                                     int i80 = 0;
@@ -470,7 +470,7 @@ public class o0 {
                                         if (i79 >= bArr3.length || i79 >= i74) {
                                             break;
                                         }
-                                        int i85 = this.f77114a[bArr3[i79] & 255];
+                                        int i85 = this.f77433a[bArr3[i79] & 255];
                                         if (i85 != 0) {
                                             i8 = i63;
                                             i83 += (i85 >> 24) & 255;
@@ -492,7 +492,7 @@ public class o0 {
                                         if (i87 >= bArr4.length || i87 >= i74) {
                                             break;
                                         }
-                                        int i88 = this.f77114a[bArr4[i87] & 255];
+                                        int i88 = this.f77433a[bArr4[i87] & 255];
                                         if (i88 != 0) {
                                             i83 += (i88 >> 24) & 255;
                                             i82 += (i88 >> 16) & 255;
@@ -525,7 +525,7 @@ public class o0 {
                         i61 = i61;
                         i63 = i63;
                     }
-                    if (this.s && ((i2 = p0Var.f77134g) == 0 || i2 == 1)) {
+                    if (this.s && ((i2 = p0Var.f77453g) == 0 || i2 == 1)) {
                         if (this.r == null) {
                             this.r = a();
                         }
@@ -550,9 +550,9 @@ public class o0 {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             try {
                 d();
-                byte[] bArr = this.f77118e;
-                int i2 = this.f77120g;
-                this.f77120g = i2 + 1;
+                byte[] bArr = this.f77437e;
+                int i2 = this.f77439g;
+                this.f77439g = i2 + 1;
                 return bArr[i2] & 255;
             } catch (Exception unused) {
                 this.t = 1;
@@ -564,16 +564,16 @@ public class o0 {
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f77119f > this.f77120g) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f77438f > this.f77439g) {
             return;
         }
-        if (this.f77118e == null) {
-            this.f77118e = this.q.a(16384);
+        if (this.f77437e == null) {
+            this.f77437e = this.q.a(16384);
         }
-        this.f77120g = 0;
-        int min = Math.min(this.f77116c.remaining(), 16384);
-        this.f77119f = min;
-        this.f77116c.get(this.f77118e, 0, min);
+        this.f77439g = 0;
+        int min = Math.min(this.f77435c.remaining(), 16384);
+        this.f77438f = min;
+        this.f77435c.get(this.f77437e, 0, min);
     }
 
     public synchronized int a(byte[] bArr) {
@@ -582,79 +582,79 @@ public class o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             synchronized (this) {
-                if (this.f77121h == null) {
-                    this.f77121h = new r0();
+                if (this.f77440h == null) {
+                    this.f77440h = new r0();
                 }
-                r0 a2 = this.f77121h.a(bArr);
-                if (a2.f77153b != null) {
+                r0 a2 = this.f77440h.a(bArr);
+                if (a2.f77472b != null) {
                     if (!a2.a()) {
                         String str = "";
                         for (int i3 = 0; i3 < 6; i3++) {
                             str = str + ((char) a2.b());
                         }
                         if (str.startsWith("GIF")) {
-                            a2.f77154c.f77146f = a2.f77153b.getShort();
-                            a2.f77154c.f77147g = a2.f77153b.getShort();
+                            a2.f77473c.f77465f = a2.f77472b.getShort();
+                            a2.f77473c.f77466g = a2.f77472b.getShort();
                             int b2 = a2.b();
-                            a2.f77154c.f77148h = (b2 & 128) != 0;
-                            q0 q0Var = a2.f77154c;
-                            q0Var.f77149i = 2 << (b2 & 7);
-                            q0Var.f77150j = a2.b();
-                            a2.f77154c.k = a2.b();
-                            if (a2.f77154c.f77148h && !a2.a()) {
-                                q0 q0Var2 = a2.f77154c;
-                                q0Var2.f77141a = a2.a(q0Var2.f77149i);
-                                q0 q0Var3 = a2.f77154c;
-                                q0Var3.l = q0Var3.f77141a[q0Var3.f77150j];
+                            a2.f77473c.f77467h = (b2 & 128) != 0;
+                            q0 q0Var = a2.f77473c;
+                            q0Var.f77468i = 2 << (b2 & 7);
+                            q0Var.f77469j = a2.b();
+                            a2.f77473c.k = a2.b();
+                            if (a2.f77473c.f77467h && !a2.a()) {
+                                q0 q0Var2 = a2.f77473c;
+                                q0Var2.f77460a = a2.a(q0Var2.f77468i);
+                                q0 q0Var3 = a2.f77473c;
+                                q0Var3.l = q0Var3.f77460a[q0Var3.f77469j];
                             }
                         } else {
-                            a2.f77154c.f77142b = 1;
+                            a2.f77473c.f77461b = 1;
                         }
                         if (!a2.a()) {
                             boolean z = false;
-                            while (!z && !a2.a() && a2.f77154c.f77143c <= Integer.MAX_VALUE) {
+                            while (!z && !a2.a() && a2.f77473c.f77462c <= Integer.MAX_VALUE) {
                                 int b3 = a2.b();
                                 if (b3 == 33) {
                                     int b4 = a2.b();
                                     if (b4 != 1) {
                                         if (b4 == 249) {
-                                            a2.f77154c.f77144d = new p0();
+                                            a2.f77473c.f77463d = new p0();
                                             a2.b();
                                             int b5 = a2.b();
-                                            p0 p0Var = a2.f77154c.f77144d;
+                                            p0 p0Var = a2.f77473c.f77463d;
                                             int i4 = (b5 & 28) >> 2;
-                                            p0Var.f77134g = i4;
+                                            p0Var.f77453g = i4;
                                             if (i4 == 0) {
-                                                p0Var.f77134g = 1;
+                                                p0Var.f77453g = 1;
                                             }
-                                            a2.f77154c.f77144d.f77133f = (b5 & 1) != 0;
-                                            short s = a2.f77153b.getShort();
+                                            a2.f77473c.f77463d.f77452f = (b5 & 1) != 0;
+                                            short s = a2.f77472b.getShort();
                                             if (s < 2) {
                                                 s = 10;
                                             }
-                                            p0 p0Var2 = a2.f77154c.f77144d;
-                                            p0Var2.f77136i = s * 10;
-                                            p0Var2.f77135h = a2.b();
+                                            p0 p0Var2 = a2.f77473c.f77463d;
+                                            p0Var2.f77455i = s * 10;
+                                            p0Var2.f77454h = a2.b();
                                             a2.b();
                                         } else if (b4 != 254 && b4 == 255) {
                                             a2.c();
                                             String str2 = "";
                                             for (int i5 = 0; i5 < 11; i5++) {
-                                                str2 = str2 + ((char) a2.f77152a[i5]);
+                                                str2 = str2 + ((char) a2.f77471a[i5]);
                                             }
                                             if (str2.equals("NETSCAPE2.0")) {
                                                 do {
                                                     a2.c();
-                                                    byte[] bArr2 = a2.f77152a;
+                                                    byte[] bArr2 = a2.f77471a;
                                                     if (bArr2[0] == 1) {
-                                                        q0 q0Var4 = a2.f77154c;
+                                                        q0 q0Var4 = a2.f77473c;
                                                         int i6 = ((bArr2[2] & 255) << 8) | (bArr2[1] & 255);
                                                         q0Var4.m = i6;
                                                         if (i6 == 0) {
                                                             q0Var4.m = -1;
                                                         }
                                                     }
-                                                    if (a2.f77155d > 0) {
+                                                    if (a2.f77474d > 0) {
                                                     }
                                                 } while (!a2.a());
                                             }
@@ -662,44 +662,44 @@ public class o0 {
                                     }
                                     a2.d();
                                 } else if (b3 == 44) {
-                                    q0 q0Var5 = a2.f77154c;
-                                    if (q0Var5.f77144d == null) {
-                                        q0Var5.f77144d = new p0();
+                                    q0 q0Var5 = a2.f77473c;
+                                    if (q0Var5.f77463d == null) {
+                                        q0Var5.f77463d = new p0();
                                     }
-                                    a2.f77154c.f77144d.f77128a = a2.f77153b.getShort();
-                                    a2.f77154c.f77144d.f77129b = a2.f77153b.getShort();
-                                    a2.f77154c.f77144d.f77130c = a2.f77153b.getShort();
-                                    a2.f77154c.f77144d.f77131d = a2.f77153b.getShort();
+                                    a2.f77473c.f77463d.f77447a = a2.f77472b.getShort();
+                                    a2.f77473c.f77463d.f77448b = a2.f77472b.getShort();
+                                    a2.f77473c.f77463d.f77449c = a2.f77472b.getShort();
+                                    a2.f77473c.f77463d.f77450d = a2.f77472b.getShort();
                                     int b6 = a2.b();
                                     boolean z2 = (b6 & 128) != 0;
                                     int pow = (int) Math.pow(2.0d, (b6 & 7) + 1);
-                                    a2.f77154c.f77144d.f77132e = (b6 & 64) != 0;
+                                    a2.f77473c.f77463d.f77451e = (b6 & 64) != 0;
                                     if (z2) {
-                                        a2.f77154c.f77144d.k = a2.a(pow);
+                                        a2.f77473c.f77463d.k = a2.a(pow);
                                     } else {
-                                        a2.f77154c.f77144d.k = null;
+                                        a2.f77473c.f77463d.k = null;
                                     }
-                                    a2.f77154c.f77144d.f77137j = a2.f77153b.position();
+                                    a2.f77473c.f77463d.f77456j = a2.f77472b.position();
                                     a2.b();
                                     a2.d();
                                     if (!a2.a()) {
-                                        q0 q0Var6 = a2.f77154c;
-                                        q0Var6.f77143c++;
-                                        q0Var6.f77145e.add(q0Var6.f77144d);
+                                        q0 q0Var6 = a2.f77473c;
+                                        q0Var6.f77462c++;
+                                        q0Var6.f77464e.add(q0Var6.f77463d);
                                     }
                                 } else if (b3 != 59) {
-                                    a2.f77154c.f77142b = 1;
+                                    a2.f77473c.f77461b = 1;
                                 } else {
                                     z = true;
                                 }
                             }
-                            q0 q0Var7 = a2.f77154c;
-                            if (q0Var7.f77143c < 0) {
-                                q0Var7.f77142b = 1;
+                            q0 q0Var7 = a2.f77473c;
+                            if (q0Var7.f77462c < 0) {
+                                q0Var7.f77461b = 1;
                             }
                         }
                     }
-                    q0 q0Var8 = a2.f77154c;
+                    q0 q0Var8 = a2.f77473c;
                     this.p = q0Var8;
                     if (bArr != null) {
                         a(q0Var8, bArr);
@@ -728,23 +728,23 @@ public class o0 {
                 this.n = -1;
                 this.o = 0;
                 ByteBuffer asReadOnlyBuffer = byteBuffer.asReadOnlyBuffer();
-                this.f77116c = asReadOnlyBuffer;
+                this.f77435c = asReadOnlyBuffer;
                 asReadOnlyBuffer.position(0);
-                this.f77116c.order(ByteOrder.LITTLE_ENDIAN);
+                this.f77435c.order(ByteOrder.LITTLE_ENDIAN);
                 this.s = false;
-                Iterator it = q0Var.f77145e.iterator();
+                Iterator it = q0Var.f77464e.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
-                    } else if (((p0) it.next()).f77134g == 3) {
+                    } else if (((p0) it.next()).f77453g == 3) {
                         this.s = true;
                         break;
                     }
                 }
                 this.u = highestOneBit;
-                int i3 = q0Var.f77146f;
+                int i3 = q0Var.f77465f;
                 this.w = i3 / highestOneBit;
-                int i4 = q0Var.f77147g;
+                int i4 = q0Var.f77466g;
                 this.v = i4 / highestOneBit;
                 this.l = this.q.a(i3 * i4);
                 this.m = this.q.b(this.w * this.v);
@@ -756,7 +756,7 @@ public class o0 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (i2 < -1 || i2 >= this.p.f77143c) {
+            if (i2 < -1 || i2 >= this.p.f77462c) {
                 return false;
             }
             this.n = i2;

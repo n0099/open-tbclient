@@ -21,22 +21,22 @@ public class b extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f26298e;
+    public long f26321e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f26299f;
+    public String f26322f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26300g;
+    public String f26323g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f26301h;
+    public String f26324h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f26302i;
+    public String f26325i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f26303j;
+    public String f26326j;
     public List<FrsTabInfo> k;
 
     static {
@@ -70,13 +70,13 @@ public class b extends BaseCardInfo {
                 return;
             }
         }
-        this.f26303j = str;
+        this.f26326j = str;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26300g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26323g : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
@@ -89,19 +89,19 @@ public class b extends BaseCardInfo {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26302i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26325i : (String) invokeV.objValue;
     }
 
     public long k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26298e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26321e : invokeV.longValue;
     }
 
     public String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26299f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26322f : (String) invokeV.objValue;
     }
 
     public List<FrsTabInfo> p() {
@@ -113,13 +113,13 @@ public class b extends BaseCardInfo {
     public String q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26301h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26324h : (String) invokeV.objValue;
     }
 
     public String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26303j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26326j : (String) invokeV.objValue;
     }
 
     public void w(SearchForum searchForum) {
@@ -127,11 +127,11 @@ public class b extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, searchForum) == null) || searchForum == null) {
             return;
         }
-        this.f26298e = searchForum.forum_id.longValue();
-        this.f26299f = searchForum.forum_name;
-        this.f26300g = searchForum.avatar;
-        this.f26301h = searchForum.post_num;
-        this.f26302i = searchForum.concern_num;
+        this.f26321e = searchForum.forum_id.longValue();
+        this.f26322f = searchForum.forum_name;
+        this.f26323g = searchForum.avatar;
+        this.f26324h = searchForum.post_num;
+        this.f26325i = searchForum.concern_num;
         String str = searchForum.slogan;
         String str2 = searchForum.intro;
         searchForum.has_concerned.intValue();

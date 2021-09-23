@@ -14,7 +14,7 @@ public class a extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f35088c;
+    public static volatile a f35111c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class a extends d {
             }
         }
         e.L(new v());
-        f35088c = null;
+        f35111c = null;
     }
 
     public a() {
@@ -52,15 +52,15 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f35088c == null) {
+            if (f35111c == null) {
                 synchronized (a.class) {
-                    if (f35088c == null) {
+                    if (f35111c == null) {
                         e.C(context);
-                        f35088c = new a();
+                        f35111c = new a();
                     }
                 }
             }
-            return f35088c;
+            return f35111c;
         }
         return (a) invokeL.objValue;
     }
@@ -72,8 +72,8 @@ public class a extends d {
                 if (bVar == null) {
                     return;
                 }
-                if (f35088c == null) {
-                    f35088c = bVar.b();
+                if (f35111c == null) {
+                    f35111c = bVar.b();
                 } else if (!e.r()) {
                     e.K(bVar);
                 } else if (z) {

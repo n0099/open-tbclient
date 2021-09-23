@@ -15,38 +15,38 @@ public interface a {
 
     /* renamed from: com.bytedance.sdk.component.adnet.face.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1882a {
+    public static class C1886a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f64383a;
+        public int f64694a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f64384b;
+        public byte[] f64695b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f64385c;
+        public String f64696c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f64386d;
+        public long f64697d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f64387e;
+        public long f64698e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f64388f;
+        public long f64699f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f64389g;
+        public long f64700g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Map<String, String> f64390h;
+        public Map<String, String> f64701h;
 
         /* renamed from: i  reason: collision with root package name */
-        public List<Header> f64391i;
+        public List<Header> f64702i;
 
-        public C1882a() {
+        public C1886a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,25 +59,25 @@ public interface a {
                     return;
                 }
             }
-            this.f64390h = Collections.emptyMap();
+            this.f64701h = Collections.emptyMap();
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64388f < System.currentTimeMillis() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64699f < System.currentTimeMillis() : invokeV.booleanValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64389g < System.currentTimeMillis() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64700g < System.currentTimeMillis() : invokeV.booleanValue;
         }
     }
 
-    C1882a a(String str);
+    C1886a a(String str);
 
     void a();
 
-    void a(String str, C1882a c1882a);
+    void a(String str, C1886a c1886a);
 }

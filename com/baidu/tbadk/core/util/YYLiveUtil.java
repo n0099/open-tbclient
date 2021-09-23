@@ -37,6 +37,7 @@ public class YYLiveUtil {
     public static final String SOURCE_HOME_LIVE_TAB_FOLLOW_HEAD = "my_concern_live_head";
     public static final String SOURCE_HOME_LIVE_TAB_RECOMMEND = "home_live_tab_recommend";
     public static final String SOURCE_HOME_LIVE_TAB_STAGE = "home_live_tab_wutai";
+    public static final String SOURCE_HOME_RECOMMEND_AUTO_PLAY = "home_recommend_auto_play";
     public static final String SOURCE_HOME_RECOMMEND_HEAD = "home_recommend_head";
     public static final String SOURCE_HOME_RECOMMEND_LIVE_HEAD = "home_recommend_live_head";
     public static final String SOURCE_HOME_RECOMMEND_PLAY = "home_recommend_play";

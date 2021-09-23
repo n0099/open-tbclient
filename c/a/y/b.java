@@ -18,14 +18,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f31190c;
+    public static String f31211c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f31191a;
+    public SharedPreferences f31212a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f31192b;
+    public Set<String> f31213b;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -35,11 +35,11 @@ public class b {
 
     /* renamed from: c.a.y.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1439b {
+    public static class C1437b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f31193a;
+        public static b f31214a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -55,7 +55,7 @@ public class b {
                     return;
                 }
             }
-            f31193a = new b(null);
+            f31214a = new b(null);
         }
     }
 
@@ -72,7 +72,7 @@ public class b {
                 return;
             }
         }
-        f31190c = c.a.q0.s.d0.b.n("advert_hide_list");
+        f31211c = c.a.q0.s.d0.b.n("advert_hide_list");
     }
 
     public /* synthetic */ b(a aVar) {
@@ -82,7 +82,7 @@ public class b {
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1439b.f31193a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1437b.f31214a : (b) invokeV.objValue;
     }
 
     public boolean a(String str) {
@@ -92,10 +92,10 @@ public class b {
             if (StringUtils.isNull(str)) {
                 return false;
             }
-            if (this.f31192b == null) {
-                this.f31192b = this.f31191a.getStringSet(f31190c, null);
+            if (this.f31213b == null) {
+                this.f31213b = this.f31212a.getStringSet(f31211c, null);
             }
-            Set<String> set = this.f31192b;
+            Set<String> set = this.f31213b;
             if (set == null) {
                 return false;
             }
@@ -109,13 +109,13 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        Set<String> stringSet = this.f31191a.getStringSet(f31190c, null);
-        this.f31192b = stringSet;
+        Set<String> stringSet = this.f31212a.getStringSet(f31211c, null);
+        this.f31213b = stringSet;
         if (stringSet == null) {
-            this.f31192b = new HashSet();
+            this.f31213b = new HashSet();
         }
-        this.f31192b.add(str);
-        this.f31191a.edit().putStringSet(f31190c, this.f31192b).commit();
+        this.f31213b.add(str);
+        this.f31212a.edit().putStringSet(f31211c, this.f31213b).commit();
     }
 
     public b() {
@@ -131,6 +131,6 @@ public class b {
                 return;
             }
         }
-        this.f31191a = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
+        this.f31212a = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 }

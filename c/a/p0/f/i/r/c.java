@@ -20,10 +20,10 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f10685a;
+    public static volatile d f10693a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final i.n.b f10686b;
+    public static final i.n.b f10694b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -88,7 +88,7 @@ public final class c {
         public i.d<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? i.h.g(pair).h(Schedulers.io()).f(c.f10686b).l() : (i.d) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? i.h.g(pair).h(Schedulers.io()).f(c.f10694b).l() : (i.d) invokeL.objValue;
         }
     }
 
@@ -153,7 +153,7 @@ public final class c {
                 return;
             }
         }
-        f10686b = new a();
+        f10694b = new a();
     }
 
     public c() {
@@ -174,15 +174,15 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f10685a == null) {
+            if (f10693a == null) {
                 synchronized (c.class) {
-                    if (f10685a == null) {
-                        f10685a = new d(PublishSubject.K());
-                        f10685a.s().g(new b()).x().y();
+                    if (f10693a == null) {
+                        f10693a = new d(PublishSubject.K());
+                        f10693a.s().g(new b()).x().y();
                     }
                 }
             }
-            return f10685a;
+            return f10693a;
         }
         return (InterfaceExecutorC0533c) invokeV.objValue;
     }

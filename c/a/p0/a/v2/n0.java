@@ -42,16 +42,16 @@ public class n0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9367a;
+    public static final boolean f9375a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DisplayMetrics f9368b;
+    public static DisplayMetrics f9376b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final DisplayMetrics f9369c;
+    public static final DisplayMetrics f9377c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final float f9370d;
+    public static final float f9378d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,10 +67,10 @@ public class n0 {
                 return;
             }
         }
-        f9367a = c.a.p0.a.k.f7077a;
+        f9375a = c.a.p0.a.k.f7085a;
         DisplayMetrics displayMetrics = c.a.p0.a.c1.a.b().getResources().getDisplayMetrics();
-        f9369c = displayMetrics;
-        f9370d = displayMetrics.density;
+        f9377c = displayMetrics;
+        f9378d = displayMetrics.density;
     }
 
     @UiThread
@@ -93,7 +93,7 @@ public class n0 {
 
     public static void B(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f9368b == null) {
+        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f9376b == null) {
             Application b2 = c.a.p0.a.c1.a.b();
             if (b2 != null) {
                 context = b2;
@@ -101,7 +101,7 @@ public class n0 {
             if (context == null) {
                 return;
             }
-            f9368b = context.getResources().getDisplayMetrics();
+            f9376b = context.getResources().getDisplayMetrics();
         }
     }
 
@@ -155,7 +155,7 @@ public class n0 {
     public static boolean F(@NonNull c.a.p0.a.a2.n.g gVar, Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, gVar, context)) == null) ? c.a.p0.a.w2.d.b.f9596i && (TextUtils.equals(gVar.f4612j, SchedulerSupport.CUSTOM) || !f0.h(context)) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, gVar, context)) == null) ? c.a.p0.a.w2.d.b.f9604i && (TextUtils.equals(gVar.f4620j, SchedulerSupport.CUSTOM) || !f0.h(context)) : invokeLL.booleanValue;
     }
 
     public static boolean G() {
@@ -225,14 +225,14 @@ public class n0 {
 
     public static void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65550, null, activity) == null) && activity != null && c.a.p0.a.w2.d.b.f9596i) {
+        if ((interceptable == null || interceptable.invokeL(65550, null, activity) == null) && activity != null && c.a.p0.a.w2.d.b.f9604i) {
             new c.a.p0.a.w2.d.b(activity).n(-1, false, true, true);
         }
     }
 
     public static void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65551, null, activity) == null) && activity != null && c.a.p0.a.w2.d.b.f9596i) {
+        if ((interceptable == null || interceptable.invokeL(65551, null, activity) == null) && activity != null && c.a.p0.a.w2.d.b.f9604i) {
             new c.a.p0.a.w2.d.b(activity).n(-1, true, false, true);
         }
     }
@@ -278,7 +278,7 @@ public class n0 {
                             i5 += appContext.getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_bottom_tab_shadow_height);
                         } catch (Resources.NotFoundException e2) {
                             e = e2;
-                            if (f9367a) {
+                            if (f9375a) {
                                 e.printStackTrace();
                             }
                             if (TextUtils.isEmpty(str)) {
@@ -291,14 +291,14 @@ public class n0 {
                             }
                             if (z2) {
                             }
-                            if (f9367a) {
+                            if (f9375a) {
                             }
                             return Math.max(r9, 0);
                         }
                     } catch (Resources.NotFoundException e3) {
                         e = e3;
                         i5 = 0;
-                        if (f9367a) {
+                        if (f9375a) {
                         }
                         if (TextUtils.isEmpty(str)) {
                         }
@@ -310,7 +310,7 @@ public class n0 {
                         }
                         if (z2) {
                         }
-                        if (f9367a) {
+                        if (f9375a) {
                         }
                         return Math.max(r9, 0);
                     }
@@ -318,7 +318,7 @@ public class n0 {
                     e = e4;
                     i4 = 0;
                     i5 = 0;
-                    if (f9367a) {
+                    if (f9375a) {
                     }
                     if (TextUtils.isEmpty(str)) {
                     }
@@ -330,7 +330,7 @@ public class n0 {
                     }
                     if (z2) {
                     }
-                    if (f9367a) {
+                    if (f9375a) {
                     }
                     return Math.max(r9, 0);
                 }
@@ -355,7 +355,7 @@ public class n0 {
                     z4 = false;
                 }
                 z = q0.E(b2);
-                z2 = d2.f4608f;
+                z2 = d2.f4616f;
             } else {
                 z = false;
                 z2 = false;
@@ -372,7 +372,7 @@ public class n0 {
             if (z2) {
                 i6 -= (int) (h(50.0f) + 0.5f);
             }
-            if (f9367a) {
+            if (f9375a) {
                 String str2 = "screenHeight:" + i2 + ",notchHeight:" + f0.e(appContext) + ",navHeight:" + g0.c() + ",preGuessWebViewHeight:" + i6 + ",pageUrl:" + str + ",hasTab:" + z + ",bottomBarHeight:" + i5 + ",isTransparentBar:" + z3 + ",actionBarHeight:" + i4 + ",isOccupyStatusBar:" + z4 + ",statusBarHeight:" + i3 + ",canPullToRefresh:" + z2;
             }
             return Math.max(i6, 0);
@@ -385,7 +385,7 @@ public class n0 {
         Pair<Integer, Integer> y;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
-            long currentTimeMillis = f9367a ? System.currentTimeMillis() : 0L;
+            long currentTimeMillis = f9375a ? System.currentTimeMillis() : 0L;
             if (c.a.p0.a.a2.d.g().x() == null) {
                 y = (Pair) c.a.p0.a.f1.c.b.c().b("screenSize");
                 if (y == null) {
@@ -396,7 +396,7 @@ public class n0 {
             }
             int intValue = ((Integer) y.first).intValue();
             int d2 = d(((Integer) y.second).intValue(), str);
-            if (f9367a) {
+            if (f9375a) {
                 String str2 = "preGuessWebViewSize cost - " + (System.currentTimeMillis() - currentTimeMillis) + "ms";
             }
             return new Pair<>(Integer.valueOf(intValue), Integer.valueOf(d2));
@@ -454,7 +454,7 @@ public class n0 {
                 int dimensionPixelSize = context.getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_bottom_tab_shadow_height);
                 return dimensionPixelSize > 0 ? i2 + dimensionPixelSize : i2;
             } catch (Resources.NotFoundException e2) {
-                if (f9367a) {
+                if (f9375a) {
                     e2.printStackTrace();
                     return i2;
                 }
@@ -469,7 +469,7 @@ public class n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
             B(c.a.p0.a.c1.a.b());
-            DisplayMetrics displayMetrics = f9368b;
+            DisplayMetrics displayMetrics = f9376b;
             if (displayMetrics != null) {
                 return displayMetrics.density;
             }
@@ -483,7 +483,7 @@ public class n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
             B(c.a.p0.a.c1.a.b());
-            DisplayMetrics displayMetrics = f9368b;
+            DisplayMetrics displayMetrics = f9376b;
             if (displayMetrics != null) {
                 return displayMetrics.densityDpi;
             }
@@ -497,7 +497,7 @@ public class n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
             B(c.a.p0.a.c1.a.b());
-            DisplayMetrics displayMetrics = f9368b;
+            DisplayMetrics displayMetrics = f9376b;
             if (displayMetrics != null) {
                 return displayMetrics.heightPixels;
             }
@@ -511,7 +511,7 @@ public class n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
             B(c.a.p0.a.c1.a.b());
-            DisplayMetrics displayMetrics = f9368b;
+            DisplayMetrics displayMetrics = f9376b;
             if (displayMetrics != null) {
                 return displayMetrics.widthPixels;
             }
@@ -544,7 +544,7 @@ public class n0 {
                     }
                     findViewById.setDrawingCacheEnabled(false);
                 } catch (NullPointerException | OutOfMemoryError e2) {
-                    if (f9367a) {
+                    if (f9375a) {
                         e2.printStackTrace();
                     }
                 }
@@ -603,7 +603,7 @@ public class n0 {
                 } catch (Exception unused) {
                 }
             }
-            return i2 == 0 ? (int) (f9370d * 25.0f) : i2;
+            return i2 == 0 ? (int) (f9378d * 25.0f) : i2;
         }
         return invokeV.intValue;
     }
@@ -623,7 +623,7 @@ public class n0 {
             try {
                 i2 = context.getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_normal_base_action_bar_height);
             } catch (Resources.NotFoundException e2) {
-                if (f9367a) {
+                if (f9375a) {
                     e2.printStackTrace();
                 }
                 i2 = 0;

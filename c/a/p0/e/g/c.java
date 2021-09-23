@@ -46,10 +46,10 @@ public class c extends v {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ o f10393a;
+        public final /* synthetic */ o f10401a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f10394b;
+        public final /* synthetic */ c f10402b;
 
         public a(c cVar, o oVar) {
             Interceptable interceptable = $ic;
@@ -66,15 +66,15 @@ public class c extends v {
                     return;
                 }
             }
-            this.f10394b = cVar;
-            this.f10393a = oVar;
+            this.f10402b = cVar;
+            this.f10401a = oVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f10394b.r();
+                this.f10402b.r();
             }
         }
 
@@ -90,7 +90,7 @@ public class c extends v {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f10394b.t(response, this.f10393a);
+                this.f10402b.t(response, this.f10401a);
                 return response;
             }
             return invokeLI.objValue;
@@ -196,9 +196,9 @@ public class c extends v {
         w.f(jSONObject, "params", jSONObject2);
         String F = c.a.p0.a.c1.a.n().F();
         c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(F, new Request.Builder().url(F).post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jSONObject.toString())).build().body(), new a(this, oVar));
-        aVar.f11845f = true;
-        aVar.f11846g = false;
-        aVar.f11847h = true;
+        aVar.f11853f = true;
+        aVar.f11854g = false;
+        aVar.f11855h = true;
         c.a.p0.m.e.a.g().e(aVar);
     }
 
@@ -219,7 +219,7 @@ public class c extends v {
             w.f(jSONObject, "iconUrl", f0.iconUrl);
             w.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, f0.appKey);
             w.f(jSONObject, com.alipay.sdk.cons.b.k, f0.paNumber);
-            w.f(jSONObject, "isBaiduSeries", Boolean.valueOf(f.f8492d.h()));
+            w.f(jSONObject, "isBaiduSeries", Boolean.valueOf(f.f8500d.h()));
             w.f(jSONObject, "isOpenCustomerService", Boolean.valueOf(q0.P()));
             return jSONObject;
         }

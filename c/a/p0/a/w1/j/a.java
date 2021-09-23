@@ -21,7 +21,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9551a;
+    public static final boolean f9559a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,14 +37,14 @@ public class a {
                 return;
             }
         }
-        f9551a = k.f7077a;
+        f9559a = k.f7085a;
     }
 
     public static JSONObject a(List<String> list, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, list, f2)) == null) {
-            boolean z = f9551a;
+            boolean z = f9559a;
             ArrayList arrayList = new ArrayList();
             c.a.p0.a.a2.e i2 = c.a.p0.a.a2.e.i();
             if (i2 == null) {
@@ -81,9 +81,9 @@ public class a {
                         if (m0) {
                             J = n.V(next.getAbsolutePath());
                         } else {
-                            J = c.a.p0.a.k2.b.J(next.getAbsolutePath(), eVar.f4558f);
+                            J = c.a.p0.a.k2.b.J(next.getAbsolutePath(), eVar.f4566f);
                         }
-                        if (f9551a) {
+                        if (f9559a) {
                             String str = "isSwanGame: " + m0 + "; path: " + J;
                         }
                         jSONArray.put(J);
@@ -96,11 +96,11 @@ public class a {
                 jSONObject.put("tempFilePaths", jSONArray);
                 jSONObject.put("tempFiles", jSONArray2);
             } catch (JSONException e2) {
-                if (f9551a) {
+                if (f9559a) {
                     e2.printStackTrace();
                 }
             }
-            if (f9551a) {
+            if (f9559a) {
                 jSONObject.toString();
             }
             return jSONObject;

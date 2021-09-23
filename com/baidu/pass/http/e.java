@@ -14,13 +14,13 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f44248a = "e";
+    public static final String f44310a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f44249b;
+    public static final Pattern f44311b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f44250c;
+    public static boolean f44312c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,8 +36,8 @@ public class e {
                 return;
             }
         }
-        f44249b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
-        f44250c = false;
+        f44311b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f44312c = false;
     }
 
     public e() {
@@ -57,20 +57,20 @@ public class e {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            boolean z = f44250c;
+            boolean z = f44312c;
         }
     }
 
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f44249b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f44311b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a(f44248a, str);
+            a(f44310a, str);
         }
     }
 }

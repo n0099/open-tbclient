@@ -10,7 +10,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f10731a = "com.baidu.gamenow";
+    public static String f10739a = "com.baidu.gamenow";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

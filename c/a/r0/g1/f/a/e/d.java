@@ -19,7 +19,7 @@ public class d extends c.a.q0.s.q.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c> f18102e;
+    public List<c> f18112e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class d extends c.a.q0.s.q.a {
     public List<c> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18102e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18112e : (List) invokeV.objValue;
     }
 
     @Override // c.a.q0.s.q.a
@@ -65,13 +65,13 @@ public class d extends c.a.q0.s.q.a {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.f18093a : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.f18103a : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(List<c> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f18102e = list;
+            this.f18112e = list;
         }
     }
 
@@ -90,11 +90,11 @@ public class d extends c.a.q0.s.q.a {
                 return;
             }
         }
-        this.f18102e = new ArrayList();
+        this.f18112e = new ArrayList();
         int size = list.size();
         for (int i4 = 0; i4 < size; i4++) {
-            this.f18102e.add(new c(list.get(i4), i4));
+            this.f18112e.add(new c(list.get(i4), i4));
         }
-        this.f18102e.add(new c());
+        this.f18112e.add(new c());
     }
 }

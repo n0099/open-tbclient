@@ -53,22 +53,22 @@ public class h implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBarCoverTip f17221e;
+    public NavigationBarCoverTip f17231e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ShadowLinearLayout f17222f;
+    public ShadowLinearLayout f17232f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17223g;
+    public TextView f17233g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17224h;
+    public TextView f17234h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f17225i;
+    public TBSpecificationBtn f17235i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.q0.s.f0.a f17226j;
+    public c.a.q0.s.f0.a f17236j;
     public long k;
     public long l;
     public d2 m;
@@ -84,7 +84,7 @@ public class h implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f17227a;
+        public final /* synthetic */ h f17237a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(h hVar, int i2, int i3) {
@@ -105,20 +105,20 @@ public class h implements View.OnClickListener {
                     return;
                 }
             }
-            this.f17227a = hVar;
+            this.f17237a = hVar;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f17227a.g();
+                this.f17237a.g();
                 if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                     GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
-                    this.f17227a.f(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
+                    this.f17237a.f(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
                 } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                     GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
-                    this.f17227a.f(getMyPostSocketResponseMessage.getError(), getMyPostSocketResponseMessage.getResponseData());
+                    this.f17237a.f(getMyPostSocketResponseMessage.getError(), getMyPostSocketResponseMessage.getResponseData());
                 }
             }
         }
@@ -144,7 +144,7 @@ public class h implements View.OnClickListener {
         this.r = new a(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
         this.n = tbPageContext.getPageActivity();
         this.o = tbPageContext;
-        this.f17221e = navigationBarCoverTip;
+        this.f17231e = navigationBarCoverTip;
         this.r.setTag(tbPageContext.getUniqueId());
         this.r.getHttpMessageListener().setSelfListener(true);
         this.r.getSocketMessageListener().setSelfListener(true);
@@ -221,7 +221,7 @@ public class h implements View.OnClickListener {
     public final void g() {
         c.a.q0.s.f0.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f17226j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f17236j) == null) {
             return;
         }
         aVar.h(false);
@@ -230,7 +230,7 @@ public class h implements View.OnClickListener {
     public void h() {
         NavigationBarCoverTip navigationBarCoverTip;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (navigationBarCoverTip = this.f17221e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (navigationBarCoverTip = this.f17231e) == null) {
             return;
         }
         navigationBarCoverTip.onDestroy();
@@ -253,10 +253,10 @@ public class h implements View.OnClickListener {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.f17226j == null) {
-                this.f17226j = new c.a.q0.s.f0.a(this.o);
+            if (this.f17236j == null) {
+                this.f17236j = new c.a.q0.s.f0.a(this.o);
             }
-            this.f17226j.h(true);
+            this.f17236j.h(true);
         }
     }
 
@@ -290,7 +290,7 @@ public class h implements View.OnClickListener {
         shareItem.J = valueOf;
         shareItem.p = Z;
         shareItem.K = s1;
-        shareItem.f48110f = true;
+        shareItem.f48218f = true;
         shareItem.E = d();
         shareItem.M = e(this.m);
         if (parse != null) {
@@ -312,7 +312,7 @@ public class h implements View.OnClickListener {
 
     public void l(PostWriteCallBackData postWriteCallBackData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, postWriteCallBackData) == null) || postWriteCallBackData == null || this.f17221e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, postWriteCallBackData) == null) || postWriteCallBackData == null || this.f17231e == null) {
             return;
         }
         this.k = c.a.e.e.m.b.g(postWriteCallBackData.getPostId(), 0L);
@@ -322,24 +322,24 @@ public class h implements View.OnClickListener {
             return;
         }
         this.q = false;
-        if (this.f17222f == null) {
+        if (this.f17232f == null) {
             ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(this.n).inflate(R.layout.tb_top_toast_layout, (ViewGroup) null, false).findViewById(R.id.tb_top_toast_group);
-            this.f17222f = shadowLinearLayout;
-            this.f17223g = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
-            this.f17224h = (TextView) this.f17222f.findViewById(R.id.tb_top_toast_content);
-            this.f17225i = (TBSpecificationBtn) this.f17222f.findViewById(R.id.tb_top_toast_btn);
-            this.f17223g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_title));
-            this.f17224h.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content));
-            this.f17225i.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.share_at_once));
-            this.f17225i.setConfig(new c.a.q0.s.f0.n.a());
+            this.f17232f = shadowLinearLayout;
+            this.f17233g = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
+            this.f17234h = (TextView) this.f17232f.findViewById(R.id.tb_top_toast_content);
+            this.f17235i = (TBSpecificationBtn) this.f17232f.findViewById(R.id.tb_top_toast_btn);
+            this.f17233g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_title));
+            this.f17234h.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content));
+            this.f17235i.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.share_at_once));
+            this.f17235i.setConfig(new c.a.q0.s.f0.n.a());
         }
-        SkinManager.setViewTextColor(this.f17223g, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.f17224h, R.color.CAM_X0302);
-        this.f17225i.changeSkinType();
-        this.f17222f.onChangeSkinType();
-        this.f17225i.setOnClickListener(this);
-        this.f17221e.setBackgroundColor(0);
-        this.f17221e.showTip(this.n, this.f17222f, 5000);
+        SkinManager.setViewTextColor(this.f17233g, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.f17234h, R.color.CAM_X0302);
+        this.f17235i.changeSkinType();
+        this.f17232f.onChangeSkinType();
+        this.f17235i.setOnClickListener(this);
+        this.f17231e.setBackgroundColor(0);
+        this.f17231e.showTip(this.n, this.f17232f, 5000);
     }
 
     @Override // android.view.View.OnClickListener
@@ -351,7 +351,7 @@ public class h implements View.OnClickListener {
         this.q = true;
         if (!j.z()) {
             this.o.showToast(R.string.neterror);
-            this.f17221e.hideTip();
+            this.f17231e.hideTip();
             return;
         }
         int k = l.k(TbadkCoreApplication.getInst());
@@ -363,7 +363,7 @@ public class h implements View.OnClickListener {
         requestGetMyPostNetMessage.setParams(this.l, this.k, 0L, k, i2, f2, i3);
         MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         j();
-        this.f17221e.hideTip();
+        this.f17231e.hideTip();
         i();
     }
 }

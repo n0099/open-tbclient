@@ -22,16 +22,16 @@ public class CHLifeGridItem extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f61409a;
+    public NetImageView f61522a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f61410b;
+    public MaskTextView f61523b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f61411c;
+    public NetImageView f61524c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f61412d;
+    public MaskTextView f61525d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHLifeGridItem(Context context) {
@@ -58,10 +58,10 @@ public class CHLifeGridItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             removeAllViews();
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_life_item_view"), this);
-            this.f61409a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_life_item_icon"));
-            this.f61410b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_life_item_title"));
-            this.f61411c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_life_item_star"));
-            this.f61412d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_life_item_corner"));
+            this.f61522a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_life_item_icon"));
+            this.f61523b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_life_item_title"));
+            this.f61524c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_life_item_star"));
+            this.f61525d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_life_item_corner"));
         }
     }
 
@@ -71,8 +71,8 @@ public class CHLifeGridItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             boolean isShowRedDot = isShowRedDot();
-            this.f61411c.setVisibility(isShowRedDot ? 0 : 8);
-            this.f61411c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
+            this.f61524c.setVisibility(isShowRedDot ? 0 : 8);
+            this.f61524c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
             return isShowRedDot;
         }
         return invokeV.booleanValue;
@@ -83,14 +83,14 @@ public class CHLifeGridItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || getData() == null) {
             return;
         }
-        this.f61410b.setMaskText(getData().name);
-        setNetImageViewUrl(this.f61409a, getData().getPicAddr());
+        this.f61523b.setMaskText(getData().name);
+        setNetImageViewUrl(this.f61522a, getData().getPicAddr());
         if (!handlePoint() && !TextUtils.isEmpty(getData().desc)) {
-            this.f61412d.setVisibility(0);
-            this.f61412d.setMaskText(getData().desc);
+            this.f61525d.setVisibility(0);
+            this.f61525d.setMaskText(getData().desc);
             return;
         }
-        this.f61412d.setVisibility(8);
+        this.f61525d.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView

@@ -26,7 +26,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8711a;
+    public static final boolean f8719a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class a {
                 return;
             }
         }
-        f8711a = k.f7077a;
+        f8719a = k.f7085a;
     }
 
     public static String a(String str, long j2, String str2) {
@@ -59,7 +59,7 @@ public class a {
             try {
                 return o.c("SHA-1", sb.toString().getBytes(), false);
             } catch (NoSuchAlgorithmException unused) {
-                boolean z = f8711a;
+                boolean z = f8719a;
                 return "";
             }
         }

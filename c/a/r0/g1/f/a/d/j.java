@@ -26,7 +26,7 @@ public class j extends c.a.r0.g1.f.a.d.a<c.a.r0.g1.f.a.e.e, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HotTopicTabThreadItem f18087a;
+        public HotTopicTabThreadItem f18097a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HotTopicTabThreadItem hotTopicTabThreadItem) {
@@ -46,7 +46,7 @@ public class j extends c.a.r0.g1.f.a.d.a<c.a.r0.g1.f.a.e.e, a> {
                     return;
                 }
             }
-            this.f18087a = hotTopicTabThreadItem;
+            this.f18097a = hotTopicTabThreadItem;
         }
 
         public void a(c.a.r0.g1.f.a.e.e eVar) {
@@ -54,20 +54,20 @@ public class j extends c.a.r0.g1.f.a.d.a<c.a.r0.g1.f.a.e.e, a> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || eVar == null) {
                 return;
             }
-            this.f18087a.bindData(eVar);
+            this.f18097a.bindData(eVar);
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f18087a.onChangeSkinType(i2);
+                this.f18097a.onChangeSkinType(i2);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.r0.g1.f.a.e.a.f18094b);
+        super(tbPageContext.getPageActivity(), c.a.r0.g1.f.a.e.a.f18104b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

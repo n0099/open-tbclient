@@ -77,8 +77,8 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mHttpContent : (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: java.lang.Class<E> */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.baidu.apollon.restnet.RestResponseEntity<? extends com.baidu.apollon.beans.BeanResponseBase> */
+    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.lang.Class<E> */
+    /* JADX DEBUG: Multi-variable search result rejected for r9v0, resolved type: com.baidu.apollon.restnet.RestResponseEntity<? extends com.baidu.apollon.beans.BeanResponseBase> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.apollon.beans.ApollonBean
     public <T, E> void handleResponse(Class<T> cls, Class<E> cls2, RestResponseEntity<? extends BeanResponseBase> restResponseEntity) {
@@ -112,6 +112,11 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                     }
                     LogUtil.d("BeasBean", "execBean. ret       . rsp class = " + cls);
                     this.mHttpContent = beanResponseBase.getRealResponseContent();
+                    if (checkSignSame(beanResponseBase.contentSign)) {
+                        this.mRspCallback.onBeanExecSuccess(getBeanId(), null, beanResponseBase.getRealResponseMsg());
+                        LogUtil.i("BeasBean", "checkSignSame is true,call onBeanExecSuccess directly!!");
+                        return;
+                    }
                     try {
                         str = new JSONObject(restResponseEntity.b()).getString(beanResponseBase.getNameOfRealResponseContent());
                         if ((needVerifySignature() || beanResponseBase.needVerifySignature()) && !VerSig.verify(beanResponseBase.signature, str, beanResponseBase.mdAlgorithm)) {
@@ -126,11 +131,13 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                     if (beanResponseBase.needDecryption() && !TextUtils.isEmpty(str)) {
                         this.mHttpContent = SafePay.getInstance().decryptProxy(str);
                     }
+                    LogUtil.d("BeasBean", "execBean. ret ok. after  mHttpContent text = " + this.mHttpContent);
                     if (cls != null) {
                         if (JsonUtils.DataType.isString(cls)) {
                             this.mRspCallback.onBeanExecSuccess(getBeanId(), null, this.mHttpContent);
                             return;
                         }
+                        LogUtil.d("BeasBean", "execBean. ret ok. real response  text = " + this.mHttpContent);
                         T extractRealResponse = extractRealResponse(this.mHttpContent, cls);
                         LogUtil.d("BeasBean", "execBean. ret ok. real response = " + extractRealResponse);
                         if (extractRealResponse != null) {
@@ -190,7 +197,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                 ebpayHttpRequestInterceptor = new EbpayHttpRequestInterceptor();
             }
             arrayList.add(ebpayHttpRequestInterceptor);
-            arrayList.add(new a());
+            arrayList.add(new a(this.tag[0].booleanValue()));
             this.mRestTemplate.setRequestInterceptor(arrayList);
             this.mRestTemplate.setMessageConverter(new GsonHttpMessageConverter());
         }

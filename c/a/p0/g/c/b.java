@@ -16,7 +16,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile HashMap<String, List<c.a.p0.g.c.f.b>> f10842a;
+    public volatile HashMap<String, List<c.a.p0.g.c.f.b>> f10850a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class b {
                 return;
             }
         }
-        this.f10842a = new HashMap<>();
+        this.f10850a = new HashMap<>();
     }
 
     public synchronized void a(String str, c.a.p0.g.c.f.b bVar) {
@@ -45,8 +45,8 @@ public class b {
                 if (!c2.contains(bVar)) {
                     c2.add(bVar);
                 }
-                if (!this.f10842a.containsKey(str)) {
-                    this.f10842a.put(str, c2);
+                if (!this.f10850a.containsKey(str)) {
+                    this.f10850a.put(str, c2);
                 }
             }
         }
@@ -72,7 +72,7 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 return new ArrayList();
             }
-            List<c.a.p0.g.c.f.b> list = this.f10842a.get(str);
+            List<c.a.p0.g.c.f.b> list = this.f10850a.get(str);
             return list == null ? new ArrayList() : list;
         }
         return (List) invokeL.objValue;
@@ -87,7 +87,7 @@ public class b {
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
-                List<c.a.p0.g.c.f.b> list = this.f10842a.get(str);
+                List<c.a.p0.g.c.f.b> list = this.f10850a.get(str);
                 if (list != null) {
                     if (!list.isEmpty()) {
                         z = true;
@@ -122,14 +122,14 @@ public class b {
                     return;
                 }
                 if (bVar == null) {
-                    this.f10842a.remove(str);
+                    this.f10850a.remove(str);
                     return;
                 }
                 List<c.a.p0.g.c.f.b> c2 = c(str);
                 if (c2.contains(bVar)) {
                     c2.remove(bVar);
                     if (c2.isEmpty()) {
-                        this.f10842a.remove(str);
+                        this.f10850a.remove(str);
                     }
                 }
             }

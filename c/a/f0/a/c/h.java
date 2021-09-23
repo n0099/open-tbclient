@@ -31,7 +31,7 @@ public class h {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            c.a.f0.d.a.f fVar = new c.a.f0.d.a.f(c.a.f0.a.b.a.f3337a.get().p());
+            c.a.f0.d.a.f fVar = new c.a.f0.d.a.f(c.a.f0.a.b.a.f3338a.get().p());
             if (fVar.b()) {
                 return true;
             }

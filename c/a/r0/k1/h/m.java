@@ -19,10 +19,10 @@ public class m extends a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f21371d = null;
+    public static a f21385d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f21372e = "tb_private_msg_";
+    public static String f21386e = "tb_private_msg_";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,10 +65,10 @@ public class m extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (m.class) {
-                if (f21371d == null) {
-                    f21371d = new m();
+                if (f21385d == null) {
+                    f21385d = new m();
                 }
-                mVar = (m) f21371d;
+                mVar = (m) f21385d;
             }
             return mVar;
         }
@@ -88,7 +88,7 @@ public class m extends a {
             }
             try {
                 try {
-                    cursor = h.e().h("select * from " + (f21372e + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i2)});
+                    cursor = h.e().h("select * from " + (f21386e + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i2)});
                     try {
                         CommonMsgPojo commonMsgPojo = new CommonMsgPojo();
                         if (cursor != null && cursor.moveToNext()) {

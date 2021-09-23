@@ -12,10 +12,10 @@ public class e extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f7369e;
+    public final boolean f7377e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.p0.a.p.e.e f7370f;
+    public final c.a.p0.a.p.e.e f7378f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(c.a.p0.a.p.e.e eVar, boolean z) {
@@ -35,8 +35,8 @@ public class e extends c {
                 return;
             }
         }
-        this.f7369e = z;
-        this.f7370f = eVar;
+        this.f7377e = z;
+        this.f7378f = eVar;
     }
 
     @Override // c.a.p0.a.m1.h.c
@@ -45,11 +45,11 @@ public class e extends c {
         c.a.p0.a.c2.f.r0.d params;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.p0.a.p.e.e eVar = this.f7370f;
+            c.a.p0.a.p.e.e eVar = this.f7378f;
             if (eVar == null || (params = eVar.getParams()) == null) {
                 return null;
             }
-            return params.f4658g;
+            return params.f4666g;
         }
         return (String) invokeV.objValue;
     }
@@ -57,6 +57,6 @@ public class e extends c {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7369e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7377e : invokeV.booleanValue;
     }
 }

@@ -14,7 +14,7 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.d1.b.a f9708a;
+    public c.a.p0.a.d1.b.a f9716a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,13 +29,13 @@ public final class a {
                 return;
             }
         }
-        this.f9708a = new c.a.p0.a.d1.b.a();
+        this.f9716a = new c.a.p0.a.d1.b.a();
     }
 
     public void a(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.f9708a.a(activity);
+            this.f9716a.a(activity);
         }
     }
 
@@ -43,7 +43,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, context) == null) {
             UnitedSchemeMainDispatcher unitedSchemeMainDispatcher = new UnitedSchemeMainDispatcher();
-            this.f9708a.e(aVar, context, aVar, unitedSchemeMainDispatcher);
+            this.f9716a.e(aVar, context, aVar, unitedSchemeMainDispatcher);
             c.a.p0.a.c2.a.a(unitedSchemeMainDispatcher);
         }
     }

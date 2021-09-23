@@ -17,7 +17,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f10979a;
+        public final /* synthetic */ d f10987a;
 
         public C0554a(d dVar) {
             Interceptable interceptable = $ic;
@@ -34,14 +34,14 @@ public class a {
                     return;
                 }
             }
-            this.f10979a = dVar;
+            this.f10987a = dVar;
         }
 
         @Override // c.a.p0.h.b.a.d
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f10979a.onFail(str);
+                this.f10987a.onFail(str);
             }
         }
 
@@ -49,7 +49,7 @@ public class a {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f10979a.onSuccess();
+                this.f10987a.onSuccess();
             }
         }
     }
@@ -60,7 +60,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f10980e;
+        public final /* synthetic */ d f10988e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class a {
                     return;
                 }
             }
-            this.f10980e = dVar;
+            this.f10988e = dVar;
         }
 
         @Override // c.a.p0.a.m.a
@@ -85,9 +85,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    this.f10980e.onSuccess();
+                    this.f10988e.onSuccess();
                 } else {
-                    this.f10980e.onFail("login error");
+                    this.f10988e.onFail("login error");
                 }
             }
         }
@@ -99,7 +99,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f10981a;
+        public final /* synthetic */ d f10989a;
 
         /* renamed from: c.a.p0.h.b.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
@@ -108,7 +108,7 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f10982a;
+            public final /* synthetic */ c f10990a;
 
             public C0555a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -125,14 +125,14 @@ public class a {
                         return;
                     }
                 }
-                this.f10982a = cVar;
+                this.f10990a = cVar;
             }
 
             @Override // c.a.p0.h.b.a.d
             public void onFail(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    this.f10982a.f10981a.onFail(str);
+                    this.f10990a.f10989a.onFail(str);
                 }
             }
 
@@ -140,7 +140,7 @@ public class a {
             public void onSuccess() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f10982a.f10981a.onSuccess();
+                    this.f10990a.f10989a.onSuccess();
                 }
             }
         }
@@ -160,14 +160,14 @@ public class a {
                     return;
                 }
             }
-            this.f10981a = dVar;
+            this.f10989a = dVar;
         }
 
         @Override // c.a.p0.h.b.a.d
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f10981a.onFail(str);
+                this.f10989a.onFail(str);
             }
         }
 

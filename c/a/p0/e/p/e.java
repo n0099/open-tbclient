@@ -71,7 +71,7 @@ public class e extends UnitedSchemeBaseDispatcher {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SwanAppPickerDialog f10442a;
+    public static SwanAppPickerDialog f10450a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -80,13 +80,13 @@ public class e extends UnitedSchemeBaseDispatcher {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f10443e;
+        public final /* synthetic */ List f10451e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f10444f;
+        public final /* synthetic */ Context f10452f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f10445g;
+        public final /* synthetic */ int f10453g;
 
         public a(e eVar, List list, Context context, int i2) {
             Interceptable interceptable = $ic;
@@ -103,9 +103,9 @@ public class e extends UnitedSchemeBaseDispatcher {
                     return;
                 }
             }
-            this.f10443e = list;
-            this.f10444f = context;
-            this.f10445g = i2;
+            this.f10451e = list;
+            this.f10452f = context;
+            this.f10453g = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -114,14 +114,14 @@ public class e extends UnitedSchemeBaseDispatcher {
         public String getItem(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (String) this.f10443e.get(i2) : (String) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (String) this.f10451e.get(i2) : (String) invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10443e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10451e.size() : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -137,10 +137,10 @@ public class e extends UnitedSchemeBaseDispatcher {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
                 if (view == null) {
-                    view = View.inflate(this.f10444f, c.a.p0.a.g.aiapps_scheme_utils_show_action_sheet_item, null);
+                    view = View.inflate(this.f10452f, c.a.p0.a.g.aiapps_scheme_utils_show_action_sheet_item, null);
                 }
                 TextView textView = (TextView) view.findViewById(c.a.p0.a.f.text);
-                textView.setTextColor(this.f10445g);
+                textView.setTextColor(this.f10453g);
                 textView.setText(getItem(i2));
                 return view;
             }
@@ -154,13 +154,13 @@ public class e extends UnitedSchemeBaseDispatcher {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10446e;
+        public final /* synthetic */ CallbackHandler f10454e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f10447f;
+        public final /* synthetic */ UnitedSchemeEntity f10455f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAlertDialog f10448g;
+        public final /* synthetic */ SwanAppAlertDialog f10456g;
 
         public b(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, SwanAppAlertDialog swanAppAlertDialog) {
             Interceptable interceptable = $ic;
@@ -177,9 +177,9 @@ public class e extends UnitedSchemeBaseDispatcher {
                     return;
                 }
             }
-            this.f10446e = callbackHandler;
-            this.f10447f = unitedSchemeEntity;
-            this.f10448g = swanAppAlertDialog;
+            this.f10454e = callbackHandler;
+            this.f10455f = unitedSchemeEntity;
+            this.f10456g = swanAppAlertDialog;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -189,10 +189,10 @@ public class e extends UnitedSchemeBaseDispatcher {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("tapIndex", i2);
-                    UnitedSchemeUtility.callCallback(this.f10446e, this.f10447f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    this.f10448g.dismiss();
+                    UnitedSchemeUtility.callCallback(this.f10454e, this.f10455f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    this.f10456g.dismiss();
                 } catch (JSONException unused) {
-                    UnitedSchemeUtility.callCallback(this.f10446e, this.f10447f, UnitedSchemeUtility.wrapCallbackParams(201));
+                    UnitedSchemeUtility.callCallback(this.f10454e, this.f10455f, UnitedSchemeUtility.wrapCallbackParams(201));
                 }
             }
         }
@@ -234,22 +234,22 @@ public class e extends UnitedSchemeBaseDispatcher {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10449e;
+        public final /* synthetic */ String f10457e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f10450f;
+        public final /* synthetic */ Context f10458f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10451g;
+        public final /* synthetic */ String f10459g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f10452h;
+        public final /* synthetic */ int f10460h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10453i;
+        public final /* synthetic */ CallbackHandler f10461i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f10454j;
+        public final /* synthetic */ UnitedSchemeEntity f10462j;
         public final /* synthetic */ JSONObject k;
         public final /* synthetic */ String l;
 
@@ -259,7 +259,7 @@ public class e extends UnitedSchemeBaseDispatcher {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f10455a;
+            public final /* synthetic */ d f10463a;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -276,15 +276,15 @@ public class e extends UnitedSchemeBaseDispatcher {
                         return;
                     }
                 }
-                this.f10455a = dVar;
+                this.f10463a = dVar;
             }
 
             @Override // c.a.p0.a.z1.b.f.e.c
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    d dVar = this.f10455a;
-                    dVar.f10453i.handleSchemeDispatchCallback(dVar.l, "");
+                    d dVar = this.f10463a;
+                    dVar.f10461i.handleSchemeDispatchCallback(dVar.l, "");
                 }
             }
         }
@@ -295,7 +295,7 @@ public class e extends UnitedSchemeBaseDispatcher {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f10456a;
+            public final /* synthetic */ d f10464a;
 
             public b(d dVar) {
                 Interceptable interceptable = $ic;
@@ -312,15 +312,15 @@ public class e extends UnitedSchemeBaseDispatcher {
                         return;
                     }
                 }
-                this.f10456a = dVar;
+                this.f10464a = dVar;
             }
 
             @Override // c.a.p0.a.z1.b.f.e.c
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    d dVar = this.f10456a;
-                    dVar.f10453i.handleSchemeDispatchCallback(dVar.l, "");
+                    d dVar = this.f10464a;
+                    dVar.f10461i.handleSchemeDispatchCallback(dVar.l, "");
                 }
             }
         }
@@ -340,12 +340,12 @@ public class e extends UnitedSchemeBaseDispatcher {
                     return;
                 }
             }
-            this.f10449e = str;
-            this.f10450f = context;
-            this.f10451g = str2;
-            this.f10452h = i2;
-            this.f10453i = callbackHandler;
-            this.f10454j = unitedSchemeEntity;
+            this.f10457e = str;
+            this.f10458f = context;
+            this.f10459g = str2;
+            this.f10460h = i2;
+            this.f10461i = callbackHandler;
+            this.f10462j = unitedSchemeEntity;
             this.k = jSONObject;
             this.l = str3;
         }
@@ -356,7 +356,7 @@ public class e extends UnitedSchemeBaseDispatcher {
             char c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = this.f10449e;
+                String str = this.f10457e;
                 switch (str.hashCode()) {
                     case 49:
                         if (str.equals("1")) {
@@ -384,21 +384,21 @@ public class e extends UnitedSchemeBaseDispatcher {
                         break;
                 }
                 if (c2 == 0) {
-                    c.a.p0.a.z1.b.f.e g2 = c.a.p0.a.z1.b.f.e.g(this.f10450f, this.f10451g);
-                    g2.l(this.f10452h);
+                    c.a.p0.a.z1.b.f.e g2 = c.a.p0.a.z1.b.f.e.g(this.f10458f, this.f10459g);
+                    g2.l(this.f10460h);
                     g2.F();
-                    UnitedSchemeUtility.callCallback(this.f10453i, this.f10454j, UnitedSchemeUtility.wrapCallbackParams(0));
+                    UnitedSchemeUtility.callCallback(this.f10461i, this.f10462j, UnitedSchemeUtility.wrapCallbackParams(0));
                     return;
                 }
                 Uri uri = null;
                 if (c2 == 1) {
-                    c.a.p0.a.z1.b.f.e g3 = c.a.p0.a.z1.b.f.e.g(this.f10450f, this.f10451g);
+                    c.a.p0.a.z1.b.f.e g3 = c.a.p0.a.z1.b.f.e.g(this.f10458f, this.f10459g);
                     g3.n(null);
-                    g3.l(this.f10452h);
+                    g3.l(this.f10460h);
                     g3.A();
-                    UnitedSchemeUtility.callCallback(this.f10453i, this.f10454j, UnitedSchemeUtility.wrapCallbackParams(0));
+                    UnitedSchemeUtility.callCallback(this.f10461i, this.f10462j, UnitedSchemeUtility.wrapCallbackParams(0));
                 } else if (c2 != 2) {
-                    this.f10454j.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    this.f10462j.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 } else {
                     String optString = this.k.optString("icon");
                     if (!TextUtils.isEmpty(optString)) {
@@ -413,33 +413,33 @@ public class e extends UnitedSchemeBaseDispatcher {
                     String optString4 = this.k.optString("style");
                     int i3 = "2".equals(this.k.optString("bottomShowAnimationType")) ? 2 : 1;
                     if (TextUtils.isEmpty(this.l)) {
-                        this.f10454j.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                        this.f10462j.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     } else if (!TextUtils.equals(optString4, "2") && !TextUtils.equals(optString4, "3")) {
-                        c.a.p0.a.z1.b.f.e e2 = c.a.p0.a.z1.b.f.e.e(this.f10450f);
+                        c.a.p0.a.z1.b.f.e e2 = c.a.p0.a.z1.b.f.e.e(this.f10458f);
                         e2.o(uri);
                         e2.h(i2);
                         e2.s(optString2);
-                        e2.q(this.f10451g);
+                        e2.q(this.f10459g);
                         e2.k(optString3);
                         e2.j(1);
                         e2.i(i3);
-                        e2.l(this.f10452h);
+                        e2.l(this.f10460h);
                         e2.t(new b(this));
                         e2.C();
-                        UnitedSchemeUtility.callCallback(this.f10453i, this.f10454j, UnitedSchemeUtility.wrapCallbackParams(0));
+                        UnitedSchemeUtility.callCallback(this.f10461i, this.f10462j, UnitedSchemeUtility.wrapCallbackParams(0));
                     } else {
-                        c.a.p0.a.z1.b.f.e e3 = c.a.p0.a.z1.b.f.e.e(this.f10450f);
+                        c.a.p0.a.z1.b.f.e e3 = c.a.p0.a.z1.b.f.e.e(this.f10458f);
                         e3.o(uri);
                         e3.h(i2);
                         e3.s(optString2);
-                        e3.q(this.f10451g);
+                        e3.q(this.f10459g);
                         e3.k(optString3);
                         e3.j(2);
                         e3.i(i3);
-                        e3.l(this.f10452h);
+                        e3.l(this.f10460h);
                         e3.t(new a(this));
                         e3.C();
-                        UnitedSchemeUtility.callCallback(this.f10453i, this.f10454j, UnitedSchemeUtility.wrapCallbackParams(0));
+                        UnitedSchemeUtility.callCallback(this.f10461i, this.f10462j, UnitedSchemeUtility.wrapCallbackParams(0));
                     }
                 }
             }
@@ -453,10 +453,10 @@ public class e extends UnitedSchemeBaseDispatcher {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10457e;
+        public final /* synthetic */ CallbackHandler f10465e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f10458f;
+        public final /* synthetic */ UnitedSchemeEntity f10466f;
 
         public DialogInterface$OnClickListenerC0520e(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -473,8 +473,8 @@ public class e extends UnitedSchemeBaseDispatcher {
                     return;
                 }
             }
-            this.f10457e = callbackHandler;
-            this.f10458f = unitedSchemeEntity;
+            this.f10465e = callbackHandler;
+            this.f10466f = unitedSchemeEntity;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -482,8 +482,8 @@ public class e extends UnitedSchemeBaseDispatcher {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
                 dialogInterface.dismiss();
-                SwanAppPickerDialog unused = e.f10442a = null;
-                UnitedSchemeUtility.callCallback(this.f10457e, this.f10458f, 0);
+                SwanAppPickerDialog unused = e.f10450a = null;
+                UnitedSchemeUtility.callCallback(this.f10465e, this.f10466f, 0);
             }
         }
     }
@@ -494,13 +494,13 @@ public class e extends UnitedSchemeBaseDispatcher {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f10459e;
+        public final /* synthetic */ boolean f10467e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10460f;
+        public final /* synthetic */ CallbackHandler f10468f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f10461g;
+        public final /* synthetic */ UnitedSchemeEntity f10469g;
 
         public f(e eVar, boolean z, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -517,9 +517,9 @@ public class e extends UnitedSchemeBaseDispatcher {
                     return;
                 }
             }
-            this.f10459e = z;
-            this.f10460f = callbackHandler;
-            this.f10461g = unitedSchemeEntity;
+            this.f10467e = z;
+            this.f10468f = callbackHandler;
+            this.f10469g = unitedSchemeEntity;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -527,18 +527,18 @@ public class e extends UnitedSchemeBaseDispatcher {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
                 dialogInterface.dismiss();
-                SwanAppPickerDialog unused = e.f10442a = null;
+                SwanAppPickerDialog unused = e.f10450a = null;
                 try {
                     JSONArray currentIndex = ((MultiPickerDialog) dialogInterface).getCurrentIndex();
                     JSONObject jSONObject = new JSONObject();
                     if (currentIndex != null && currentIndex.length() > 0) {
-                        if (this.f10459e) {
+                        if (this.f10467e) {
                             jSONObject.put("value", currentIndex.optInt(0));
                         } else {
                             jSONObject.put("value", currentIndex);
                         }
                     }
-                    UnitedSchemeUtility.callCallback(this.f10460f, this.f10461g, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    UnitedSchemeUtility.callCallback(this.f10468f, this.f10469g, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -552,10 +552,10 @@ public class e extends UnitedSchemeBaseDispatcher {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f10462a;
+        public final /* synthetic */ UnitedSchemeEntity f10470a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10463b;
+        public final /* synthetic */ CallbackHandler f10471b;
 
         public g(e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -572,19 +572,19 @@ public class e extends UnitedSchemeBaseDispatcher {
                     return;
                 }
             }
-            this.f10462a = unitedSchemeEntity;
-            this.f10463b = callbackHandler;
+            this.f10470a = unitedSchemeEntity;
+            this.f10471b = callbackHandler;
         }
 
         @Override // com.baidu.swan.apps.res.ui.BdMultiPicker.b
         public void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, bdMultiPicker, jSONObject) == null) {
-                String optString = UnitedSchemeUtility.optParamsAsJo(this.f10462a).optString("cb");
+                String optString = UnitedSchemeUtility.optParamsAsJo(this.f10470a).optString("cb");
                 if (TextUtils.isEmpty(optString)) {
                     return;
                 }
-                this.f10463b.handleSchemeDispatchCallback(optString, jSONObject.toString());
+                this.f10471b.handleSchemeDispatchCallback(optString, jSONObject.toString());
             }
         }
     }
@@ -595,197 +595,12 @@ public class e extends UnitedSchemeBaseDispatcher {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10464e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f10465f;
-
-        public h(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, callbackHandler, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f10464e = callbackHandler;
-            this.f10465f = unitedSchemeEntity;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                UnitedSchemeUtility.callCallback(this.f10464e, this.f10465f, 0);
-                dialogInterface.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class i implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10466e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f10467f;
-
-        public i(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, callbackHandler, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f10466e = callbackHandler;
-            this.f10467f = unitedSchemeEntity;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                dialogInterface.dismiss();
-                TimePickerDialog timePickerDialog = (TimePickerDialog) dialogInterface;
-                String format = String.format("%02d:%02d", Integer.valueOf(timePickerDialog.getHour()), Integer.valueOf(timePickerDialog.getMinute()));
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("value", format);
-                    JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                    if (c.a.p0.a.k.f7077a) {
-                        String str = "handleShowDatePicker params = " + wrapCallbackParams.toString();
-                    }
-                    UnitedSchemeUtility.callCallback(this.f10466e, this.f10467f, wrapCallbackParams);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class j implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10468e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f10469f;
-
-        public j(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, callbackHandler, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f10468e = callbackHandler;
-            this.f10469f = unitedSchemeEntity;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                UnitedSchemeUtility.callCallback(this.f10468e, this.f10469f, 0);
-                dialogInterface.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class k implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10470e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f10471f;
-
-        public k(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, callbackHandler, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f10470e = callbackHandler;
-            this.f10471f = unitedSchemeEntity;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                dialogInterface.dismiss();
-                if (dialogInterface instanceof DatePickerDialog) {
-                    String selectedDate = ((DatePickerDialog) dialogInterface).getSelectedDate();
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("value", selectedDate);
-                        JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                        if (c.a.p0.a.k.f7077a) {
-                            String str = "handleShowDatePicker params = " + wrapCallbackParams.toString();
-                        }
-                        UnitedSchemeUtility.callCallback(this.f10470e, this.f10471f, wrapCallbackParams);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class l implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ CallbackHandler f10472e;
 
         /* renamed from: f  reason: collision with root package name */
         public final /* synthetic */ UnitedSchemeEntity f10473f;
 
-        public l(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+        public h(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -808,19 +623,14 @@ public class e extends UnitedSchemeBaseDispatcher {
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("type", QueryResponse.Options.CANCEL);
-                    UnitedSchemeUtility.callCallback(this.f10472e, this.f10473f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                } catch (JSONException unused) {
-                    UnitedSchemeUtility.callCallback(this.f10472e, this.f10473f, UnitedSchemeUtility.wrapCallbackParams(201));
-                }
+                UnitedSchemeUtility.callCallback(this.f10472e, this.f10473f, 0);
+                dialogInterface.dismiss();
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class m implements DialogInterface.OnCancelListener {
+    public class i implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -830,7 +640,7 @@ public class e extends UnitedSchemeBaseDispatcher {
         /* renamed from: f  reason: collision with root package name */
         public final /* synthetic */ UnitedSchemeEntity f10475f;
 
-        public m(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+        public i(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -849,23 +659,30 @@ public class e extends UnitedSchemeBaseDispatcher {
             this.f10475f = unitedSchemeEntity;
         }
 
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                dialogInterface.dismiss();
+                TimePickerDialog timePickerDialog = (TimePickerDialog) dialogInterface;
+                String format = String.format("%02d:%02d", Integer.valueOf(timePickerDialog.getHour()), Integer.valueOf(timePickerDialog.getMinute()));
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("type", QueryResponse.Options.CANCEL);
-                    UnitedSchemeUtility.callCallback(this.f10474e, this.f10475f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                } catch (JSONException unused) {
-                    UnitedSchemeUtility.callCallback(this.f10474e, this.f10475f, UnitedSchemeUtility.wrapCallbackParams(201));
+                    jSONObject.put("value", format);
+                    JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                    if (c.a.p0.a.k.f7085a) {
+                        String str = "handleShowDatePicker params = " + wrapCallbackParams.toString();
+                    }
+                    UnitedSchemeUtility.callCallback(this.f10474e, this.f10475f, wrapCallbackParams);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class n implements DialogInterface.OnClickListener {
+    public class j implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -875,7 +692,7 @@ public class e extends UnitedSchemeBaseDispatcher {
         /* renamed from: f  reason: collision with root package name */
         public final /* synthetic */ UnitedSchemeEntity f10477f;
 
-        public n(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+        public j(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -898,19 +715,14 @@ public class e extends UnitedSchemeBaseDispatcher {
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("type", "confirm");
-                    UnitedSchemeUtility.callCallback(this.f10476e, this.f10477f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                } catch (JSONException unused) {
-                    UnitedSchemeUtility.callCallback(this.f10476e, this.f10477f, UnitedSchemeUtility.wrapCallbackParams(201));
-                }
+                UnitedSchemeUtility.callCallback(this.f10476e, this.f10477f, 0);
+                dialogInterface.dismiss();
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class o implements DialogInterface.OnCancelListener {
+    public class k implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -920,7 +732,7 @@ public class e extends UnitedSchemeBaseDispatcher {
         /* renamed from: f  reason: collision with root package name */
         public final /* synthetic */ UnitedSchemeEntity f10479f;
 
-        public o(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+        public k(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -939,17 +751,31 @@ public class e extends UnitedSchemeBaseDispatcher {
             this.f10479f = unitedSchemeEntity;
         }
 
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                UnitedSchemeUtility.callCallback(this.f10478e, this.f10479f, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                dialogInterface.dismiss();
+                if (dialogInterface instanceof DatePickerDialog) {
+                    String selectedDate = ((DatePickerDialog) dialogInterface).getSelectedDate();
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("value", selectedDate);
+                        JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                        if (c.a.p0.a.k.f7085a) {
+                            String str = "handleShowDatePicker params = " + wrapCallbackParams.toString();
+                        }
+                        UnitedSchemeUtility.callCallback(this.f10478e, this.f10479f, wrapCallbackParams);
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                }
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class p implements DialogInterface.OnClickListener {
+    public class l implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -959,7 +785,7 @@ public class e extends UnitedSchemeBaseDispatcher {
         /* renamed from: f  reason: collision with root package name */
         public final /* synthetic */ UnitedSchemeEntity f10481f;
 
-        public p(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+        public l(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -982,7 +808,181 @@ public class e extends UnitedSchemeBaseDispatcher {
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                UnitedSchemeUtility.callCallback(this.f10480e, this.f10481f, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", QueryResponse.Options.CANCEL);
+                    UnitedSchemeUtility.callCallback(this.f10480e, this.f10481f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                } catch (JSONException unused) {
+                    UnitedSchemeUtility.callCallback(this.f10480e, this.f10481f, UnitedSchemeUtility.wrapCallbackParams(201));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class m implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CallbackHandler f10482e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ UnitedSchemeEntity f10483f;
+
+        public m(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, callbackHandler, unitedSchemeEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f10482e = callbackHandler;
+            this.f10483f = unitedSchemeEntity;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", QueryResponse.Options.CANCEL);
+                    UnitedSchemeUtility.callCallback(this.f10482e, this.f10483f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                } catch (JSONException unused) {
+                    UnitedSchemeUtility.callCallback(this.f10482e, this.f10483f, UnitedSchemeUtility.wrapCallbackParams(201));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class n implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CallbackHandler f10484e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ UnitedSchemeEntity f10485f;
+
+        public n(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, callbackHandler, unitedSchemeEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f10484e = callbackHandler;
+            this.f10485f = unitedSchemeEntity;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", "confirm");
+                    UnitedSchemeUtility.callCallback(this.f10484e, this.f10485f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                } catch (JSONException unused) {
+                    UnitedSchemeUtility.callCallback(this.f10484e, this.f10485f, UnitedSchemeUtility.wrapCallbackParams(201));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class o implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CallbackHandler f10486e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ UnitedSchemeEntity f10487f;
+
+        public o(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, callbackHandler, unitedSchemeEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f10486e = callbackHandler;
+            this.f10487f = unitedSchemeEntity;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                UnitedSchemeUtility.callCallback(this.f10486e, this.f10487f, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class p implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CallbackHandler f10488e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ UnitedSchemeEntity f10489f;
+
+        public p(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, callbackHandler, unitedSchemeEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f10488e = callbackHandler;
+            this.f10489f = unitedSchemeEntity;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                UnitedSchemeUtility.callCallback(this.f10488e, this.f10489f, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
             }
         }
     }
@@ -1090,7 +1090,7 @@ public class e extends UnitedSchemeBaseDispatcher {
             if (TextUtils.isEmpty(param)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            } else if (f10442a == null) {
+            } else if (f10450a == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
@@ -1100,13 +1100,13 @@ public class e extends UnitedSchemeBaseDispatcher {
                     JSONArray optJSONArray = jSONObject.optJSONArray("array");
                     int i3 = jSONObject.getInt(ProgressInfo.JSON_KEY_CURRENT);
                     if (optJSONArray != null) {
-                        ((MultiPickerDialog) f10442a).updateWheel(i2, optJSONArray, i3);
+                        ((MultiPickerDialog) f10450a).updateWheel(i2, optJSONArray, i3);
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                         return true;
                     }
                     return true;
                 } catch (JSONException e2) {
-                    if (c.a.p0.a.k.f7077a) {
+                    if (c.a.p0.a.k.f7085a) {
                         e2.printStackTrace();
                     }
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -1669,7 +1669,7 @@ public class e extends UnitedSchemeBaseDispatcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{context, unitedSchemeEntity, callbackHandler, Boolean.valueOf(z)})) == null) {
             String param = unitedSchemeEntity.getParam("params");
-            if (f10442a != null) {
+            if (f10450a != null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
@@ -1691,10 +1691,10 @@ public class e extends UnitedSchemeBaseDispatcher {
                 aVar.n(new g(this, unitedSchemeEntity, callbackHandler));
                 aVar.h(c.a.p0.a.h.aiapps_confirm, new f(this, z, callbackHandler, unitedSchemeEntity));
                 aVar.d(c.a.p0.a.h.aiapps_cancel, new DialogInterface$OnClickListenerC0520e(this, callbackHandler, unitedSchemeEntity));
-                f10442a = aVar.k();
+                f10450a = aVar.k();
                 return false;
             } catch (JSONException e2) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e2.printStackTrace();
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -1767,7 +1767,7 @@ public class e extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } catch (JSONException e2) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e2.printStackTrace();
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -2037,13 +2037,13 @@ public class e extends UnitedSchemeBaseDispatcher {
         c.a.p0.a.a2.e i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, jSONArray)) == null) {
-            if (jSONArray != null && jSONArray.length() > 0 && (i2 = c.a.p0.a.a2.e.i()) != null && !TextUtils.isEmpty(i2.f4558f) && !TextUtils.isEmpty(i2.Z())) {
+            if (jSONArray != null && jSONArray.length() > 0 && (i2 = c.a.p0.a.a2.e.i()) != null && !TextUtils.isEmpty(i2.f4566f) && !TextUtils.isEmpty(i2.Z())) {
                 for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                     try {
                         String string = jSONArray.getString(i3);
                         PathType s = c.a.p0.a.k2.b.s(string);
                         if (s == PathType.BD_FILE) {
-                            string = c.a.p0.a.k2.b.M(string, i2.f4558f);
+                            string = c.a.p0.a.k2.b.M(string, i2.f4566f);
                         } else if (s == PathType.RELATIVE) {
                             string = c.a.p0.a.k2.b.L(string, i2, i2.Z());
                         }

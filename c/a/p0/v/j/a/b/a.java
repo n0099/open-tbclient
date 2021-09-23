@@ -16,13 +16,13 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f12436a;
+    public static final boolean f12444a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SparseArray<Integer> f12437b;
+    public static final SparseArray<Integer> f12445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SparseArray<String> f12438c;
+    public static final SparseArray<String> f12446c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,58 +38,58 @@ public final class a {
                 return;
             }
         }
-        f12436a = k.f7077a;
+        f12444a = k.f7085a;
         SparseArray<Integer> sparseArray = new SparseArray<>(32);
-        f12437b = sparseArray;
+        f12445b = sparseArray;
         sparseArray.put(CyberPlayerManager.MEDIA_INFO_CONNECTED_SERVER, 2001);
-        f12437b.put(CyberPlayerManager.MEDIA_INFO_START_PULL_STREAM, 2002);
-        f12437b.put(904, 2003);
-        f12437b.put(CyberPlayerManager.MEDIA_INFO_START_PLAY, 2004);
-        f12437b.put(10004, 2006);
-        f12437b.put(701, 2007);
-        f12437b.put(10005, 2008);
-        f12437b.put(10006, 2009);
-        f12437b.put(10007, -2301);
-        f12437b.put(10008, 2101);
-        f12437b.put(923, 2103);
-        f12437b.put(10009, 2105);
-        f12437b.put(10010, 2106);
-        f12437b.put(10003, 2107);
-        f12437b.put(10011, 2108);
-        f12437b.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, 3001);
-        f12437b.put(3002, 3002);
-        f12437b.put(3003, 3003);
-        f12437b.put(3004, 3005);
+        f12445b.put(CyberPlayerManager.MEDIA_INFO_START_PULL_STREAM, 2002);
+        f12445b.put(904, 2003);
+        f12445b.put(CyberPlayerManager.MEDIA_INFO_START_PLAY, 2004);
+        f12445b.put(10004, 2006);
+        f12445b.put(701, 2007);
+        f12445b.put(10005, 2008);
+        f12445b.put(10006, 2009);
+        f12445b.put(10007, -2301);
+        f12445b.put(10008, 2101);
+        f12445b.put(923, 2103);
+        f12445b.put(10009, 2105);
+        f12445b.put(10010, 2106);
+        f12445b.put(10003, 2107);
+        f12445b.put(10011, 2108);
+        f12445b.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, 3001);
+        f12445b.put(3002, 3002);
+        f12445b.put(3003, 3003);
+        f12445b.put(3004, 3005);
         SparseArray<String> sparseArray2 = new SparseArray<>();
-        f12438c = sparseArray2;
+        f12446c = sparseArray2;
         sparseArray2.put(10007, "MEDIA_ERR_NETWORK");
-        f12438c.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, "MEDIA_ERR_NETWORK");
-        f12438c.put(3002, "MEDIA_ERR_NETWORK");
-        f12438c.put(3003, "MEDIA_ERR_NETWORK");
-        f12438c.put(3004, "MEDIA_ERR_NETWORK");
-        f12438c.put(-2022, "MEDIA_ERR_NETWORK");
-        f12438c.put(-111, "MEDIA_ERR_NETWORK");
-        f12438c.put(10008, "MEDIA_ERR_DECODE");
+        f12446c.put(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION, "MEDIA_ERR_NETWORK");
+        f12446c.put(3002, "MEDIA_ERR_NETWORK");
+        f12446c.put(3003, "MEDIA_ERR_NETWORK");
+        f12446c.put(3004, "MEDIA_ERR_NETWORK");
+        f12446c.put(-2022, "MEDIA_ERR_NETWORK");
+        f12446c.put(-111, "MEDIA_ERR_NETWORK");
+        f12446c.put(10008, "MEDIA_ERR_DECODE");
     }
 
     public static String a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? f12438c.get(i2, "MEDIA_ERR_SRC_NOT_SUPPORTED") : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? f12446c.get(i2, "MEDIA_ERR_SRC_NOT_SUPPORTED") : (String) invokeI.objValue;
     }
 
     public static int b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (f12437b.indexOfKey(i2) < 0) {
-                if (f12436a) {
+            if (f12445b.indexOfKey(i2) < 0) {
+                if (f12444a) {
                     String str = "Please check sStatusCodeMap already putted correct K,V pair. what: " + i2;
                     return 100;
                 }
                 return 100;
             }
-            return f12437b.get(i2).intValue();
+            return f12445b.get(i2).intValue();
         }
         return invokeI.intValue;
     }

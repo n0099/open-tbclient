@@ -10,19 +10,19 @@ public class b extends com.kwad.sdk.core.response.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f72235a;
+    public long f72554a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f72236b;
+    public int f72555b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f72237c;
+    public boolean f72556c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f72238d;
+    public long f72557d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f72239e;
+    public int f72558e;
 
     public b() {
         Interceptable interceptable = $ic;

@@ -84,7 +84,7 @@ public class h {
             }
         }
         f2027b = (-100000000) - 200;
-        f2028c = (-100000000) - 211;
+        f2028c = (-100000000) + com.baidu.fsg.face.base.c.a.ERROR_CODE_CAMERA_EXCEPTION;
         f2029d = (-100000000) - 213;
         f2030e = (-100000000) - 214;
         f2031f = (-100000000) - 221;

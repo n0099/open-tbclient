@@ -37,7 +37,7 @@ public class e extends c.a.e.l.e.a<c.a.r0.f2.c.d, InterestedForumStyleAForumView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f17596e;
+        public final /* synthetic */ e f17606e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class e extends c.a.e.l.e.a<c.a.r0.f2.c.d, InterestedForumStyleAForumView
                     return;
                 }
             }
-            this.f17596e = eVar;
+            this.f17606e = eVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -65,13 +65,13 @@ public class e extends c.a.e.l.e.a<c.a.r0.f2.c.d, InterestedForumStyleAForumView
                 dVar.u(!dVar.l());
                 InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder = (InterestedForumStyleAForumViewHolder) view.getTag();
                 if (interestedForumStyleAForumViewHolder != null) {
-                    this.f17596e.q0(interestedForumStyleAForumViewHolder.mInterestedForumSelect, dVar.l());
+                    this.f17606e.q0(interestedForumStyleAForumViewHolder.mInterestedForumSelect, dVar.l());
                 }
-                if (this.f17596e.m != null) {
-                    this.f17596e.m.a();
+                if (this.f17606e.m != null) {
+                    this.f17606e.m.a();
                 }
                 if (dVar.l()) {
-                    this.f17596e.k0(dVar);
+                    this.f17606e.k0(dVar);
                 }
             }
         }
@@ -96,8 +96,8 @@ public class e extends c.a.e.l.e.a<c.a.r0.f2.c.d, InterestedForumStyleAForumView
                 return;
             }
         }
-        this.f2957e = context;
-        this.f2960h = bdUniqueId;
+        this.f2958e = context;
+        this.f2961h = bdUniqueId;
         d0(new a(this));
     }
 
@@ -128,9 +128,9 @@ public class e extends c.a.e.l.e.a<c.a.r0.f2.c.d, InterestedForumStyleAForumView
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             if (c.a.q0.b.d.z()) {
-                inflate = LayoutInflater.from(this.f2957e).inflate(R.layout.item_interested_forum_style_a_forum, viewGroup, false);
+                inflate = LayoutInflater.from(this.f2958e).inflate(R.layout.item_interested_forum_style_a_forum, viewGroup, false);
             } else {
-                inflate = c.a.q0.b.d.B() ? LayoutInflater.from(this.f2957e).inflate(R.layout.item_interested_forum_style_b_forum, viewGroup, false) : null;
+                inflate = c.a.q0.b.d.B() ? LayoutInflater.from(this.f2958e).inflate(R.layout.item_interested_forum_style_b_forum, viewGroup, false) : null;
             }
             return new InterestedForumStyleAForumViewHolder(inflate);
         }
@@ -161,14 +161,14 @@ public class e extends c.a.e.l.e.a<c.a.r0.f2.c.d, InterestedForumStyleAForumView
             interestedForumStyleAForumViewHolder.mInterestedForumIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
             interestedForumStyleAForumViewHolder.mInterestedForumIcon.setPlaceHolder(1);
             interestedForumStyleAForumViewHolder.mInterestedForumIcon.startLoad(dVar.b(), 10, false);
-            interestedForumStyleAForumViewHolder.mInterestedForumTitle.setText(dVar.g() + this.f2957e.getString(R.string.forum));
+            interestedForumStyleAForumViewHolder.mInterestedForumTitle.setText(dVar.g() + this.f2958e.getString(R.string.forum));
             if (!StringUtils.isNull(dVar.i())) {
-                interestedForumStyleAForumViewHolder.mInterestedForumIntroduce.setText(this.f2957e.getString(R.string.interested_forum_introduce, dVar.i()));
+                interestedForumStyleAForumViewHolder.mInterestedForumIntroduce.setText(this.f2958e.getString(R.string.interested_forum_introduce, dVar.i()));
             } else {
-                interestedForumStyleAForumViewHolder.mInterestedForumIntroduce.setText(this.f2957e.getString(R.string.interested_forum_no_introduce_content));
+                interestedForumStyleAForumViewHolder.mInterestedForumIntroduce.setText(this.f2958e.getString(R.string.interested_forum_no_introduce_content));
             }
-            interestedForumStyleAForumViewHolder.mInterestedForumAttentionContent.setText(String.format(this.f2957e.getString(R.string.concern), StringHelper.numberUniformFormatExtraWithRoundInt(dVar.h())));
-            interestedForumStyleAForumViewHolder.mInterestedForumPbContent.setText(String.format(this.f2957e.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(dVar.k())));
+            interestedForumStyleAForumViewHolder.mInterestedForumAttentionContent.setText(String.format(this.f2958e.getString(R.string.concern), StringHelper.numberUniformFormatExtraWithRoundInt(dVar.h())));
+            interestedForumStyleAForumViewHolder.mInterestedForumPbContent.setText(String.format(this.f2958e.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(dVar.k())));
             q0(interestedForumStyleAForumViewHolder.mInterestedForumSelect, dVar.l());
         }
     }

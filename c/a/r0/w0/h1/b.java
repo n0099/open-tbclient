@@ -81,7 +81,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f26785a;
+        public final /* synthetic */ b f26805a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -98,14 +98,14 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
                     return;
                 }
             }
-            this.f26785a = bVar;
+            this.f26805a = bVar;
         }
 
         @Override // c.a.r0.p2.c.x
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f26785a.C.T0()) {
-                this.f26785a.p.setVisibility(8);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f26805a.C.T0()) {
+                this.f26805a.p.setVisibility(8);
             }
         }
 
@@ -113,11 +113,11 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.f26785a.C.T0()) {
-                    this.f26785a.p.setVisibility(8);
+                if (this.f26805a.C.T0()) {
+                    this.f26805a.p.setVisibility(8);
                 }
-                if (this.f26785a.M) {
-                    this.f26785a.C.k2();
+                if (this.f26805a.M) {
+                    this.f26805a.C.k2();
                 }
             }
         }
@@ -125,14 +125,14 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
 
     /* renamed from: c.a.r0.w0.h1.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1257b implements c.g0 {
+    public class C1255b implements c.g0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f26786a;
+        public final /* synthetic */ b f26806a;
 
-        public C1257b(b bVar) {
+        public C1255b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,15 +147,15 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
                     return;
                 }
             }
-            this.f26786a = bVar;
+            this.f26806a = bVar;
         }
 
         @Override // c.a.r0.p2.c.g0
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f26786a.p.setVisibility(8);
-                b bVar = this.f26786a;
+                this.f26806a.p.setVisibility(8);
+                b bVar = this.f26806a;
                 bVar.onClick(bVar.m);
             }
         }
@@ -164,11 +164,11 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f26786a.M = false;
-                this.f26786a.p.setVisibility(8);
-                b bVar = this.f26786a;
+                this.f26806a.M = false;
+                this.f26806a.p.setVisibility(8);
+                b bVar = this.f26806a;
                 bVar.O(bVar.Q ? "1" : "2");
-                b bVar2 = this.f26786a;
+                b bVar2 = this.f26806a;
                 bVar2.onClick(bVar2.n);
             }
         }
@@ -180,7 +180,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f26787a;
+        public final /* synthetic */ b f26807a;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -197,7 +197,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
                     return;
                 }
             }
-            this.f26787a = bVar;
+            this.f26807a = bVar;
         }
 
         @Override // c.a.r0.p2.c.a0
@@ -205,17 +205,17 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    this.f26787a.D.showToast(this.f26787a.r.getText().toString());
-                    b bVar = this.f26787a;
+                    this.f26807a.D.showToast(this.f26807a.r.getText().toString());
+                    b bVar = this.f26807a;
                     c.a.r0.p2.c cVar = bVar.C;
                     c.a.r0.w0.h1.g gVar = bVar.E;
-                    cVar.d2(gVar.z.f26832d, gVar.f26804f);
-                    this.f26787a.p.setVisibility(8);
-                    this.f26787a.O("2");
+                    cVar.d2(gVar.z.f26852d, gVar.f26824f);
+                    this.f26807a.p.setVisibility(8);
+                    this.f26807a.O("2");
                 } else {
-                    this.f26787a.q.setVisibility(0);
+                    this.f26807a.q.setVisibility(0);
                 }
-                b bVar2 = this.f26787a;
+                b bVar2 = this.f26807a;
                 bVar2.onClick(bVar2.n);
             }
         }
@@ -227,7 +227,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f26788a;
+        public final /* synthetic */ b f26808a;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -244,24 +244,24 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
                     return;
                 }
             }
-            this.f26788a = bVar;
+            this.f26808a = bVar;
         }
 
         @Override // c.a.r0.p2.c.y
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (!this.f26788a.C.T0()) {
-                    this.f26788a.o.setVisibility(0);
+                if (!this.f26808a.C.T0()) {
+                    this.f26808a.o.setVisibility(0);
                 } else if (z) {
-                    if (this.f26788a.o.getVisibility() == 0) {
-                        this.f26788a.o.setVisibility(8);
-                        b bVar = this.f26788a;
+                    if (this.f26808a.o.getVisibility() == 0) {
+                        this.f26808a.o.setVisibility(8);
+                        b bVar = this.f26808a;
                         bVar.o.startAnimation(bVar.N);
                     }
-                } else if (this.f26788a.o.getVisibility() == 8) {
-                    this.f26788a.o.setVisibility(0);
-                    b bVar2 = this.f26788a;
+                } else if (this.f26808a.o.getVisibility() == 8) {
+                    this.f26808a.o.setVisibility(0);
+                    b bVar2 = this.f26808a;
                     bVar2.o.startAnimation(bVar2.O);
                 }
             }
@@ -271,11 +271,11 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (!this.f26788a.C.T0()) {
-                    this.f26788a.o.setVisibility(0);
-                } else if (this.f26788a.o.getVisibility() == 0) {
-                    this.f26788a.o.setVisibility(8);
-                    b bVar = this.f26788a;
+                if (!this.f26808a.C.T0()) {
+                    this.f26808a.o.setVisibility(0);
+                } else if (this.f26808a.o.getVisibility() == 0) {
+                    this.f26808a.o.setVisibility(8);
+                    b bVar = this.f26808a;
                     bVar.o.startAnimation(bVar.N);
                 }
             }
@@ -288,13 +288,13 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.w0.h1.a f26789e;
+        public final /* synthetic */ c.a.r0.w0.h1.a f26809e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f26790f;
+        public final /* synthetic */ int f26810f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f26791g;
+        public final /* synthetic */ b f26811g;
 
         public e(b bVar, c.a.r0.w0.h1.a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -311,24 +311,24 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
                     return;
                 }
             }
-            this.f26791g = bVar;
-            this.f26789e = aVar;
-            this.f26790f = i2;
+            this.f26811g = bVar;
+            this.f26809e = aVar;
+            this.f26810f = i2;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f26791g.L) {
-                    this.f26791g.M = true;
-                    this.f26791g.K = false;
+                if (this.f26811g.L) {
+                    this.f26811g.M = true;
+                    this.f26811g.K = false;
                 }
-                if (this.f26789e == null || this.f26791g.L) {
+                if (this.f26809e == null || this.f26811g.L) {
                     return;
                 }
-                this.f26789e.a(this.f26790f);
-                this.f26791g.C.a1();
+                this.f26809e.a(this.f26810f);
+                this.f26811g.C.a1();
             }
         }
     }
@@ -339,10 +339,10 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.w0.h1.a f26792e;
+        public final /* synthetic */ c.a.r0.w0.h1.a f26812e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f26793f;
+        public final /* synthetic */ b f26813f;
 
         public f(b bVar, c.a.r0.w0.h1.a aVar) {
             Interceptable interceptable = $ic;
@@ -359,8 +359,8 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
                     return;
                 }
             }
-            this.f26793f = bVar;
-            this.f26792e = aVar;
+            this.f26813f = bVar;
+            this.f26812e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
@@ -368,11 +368,11 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
-                c.a.r0.w0.h1.g gVar = this.f26793f.E;
+                c.a.r0.w0.h1.g gVar = this.f26813f.E;
                 if (gVar != null && gVar.z != null) {
-                    BdStatisticsManager.getInstance().newDebug("videoplay", 0L, null, "verrno", Integer.valueOf(i2), "extra", Integer.valueOf(i3), "url", this.f26793f.E.z.f26832d);
+                    BdStatisticsManager.getInstance().newDebug("videoplay", 0L, null, "verrno", Integer.valueOf(i2), "extra", Integer.valueOf(i3), "url", this.f26813f.E.z.f26852d);
                 }
-                c.a.r0.w0.h1.a aVar = this.f26792e;
+                c.a.r0.w0.h1.a aVar = this.f26812e;
                 if (aVar != null) {
                     aVar.cancel();
                 }
@@ -388,7 +388,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f26794a;
+        public final /* synthetic */ b f26814a;
 
         public g(b bVar) {
             Interceptable interceptable = $ic;
@@ -405,14 +405,14 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
                     return;
                 }
             }
-            this.f26794a = bVar;
+            this.f26814a = bVar;
         }
 
         @Override // c.a.r0.p2.c.d0
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f26794a.p.setVisibility(8);
+                this.f26814a.p.setVisibility(8);
             }
         }
     }
@@ -486,49 +486,49 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         this.C.s1(true);
         this.C.v1(false);
         this.C.y1(new a(this));
-        this.C.G1(new C1257b(this));
+        this.C.G1(new C1255b(this));
         this.C.A1(new c(this));
         this.C.o1(false);
         o oVar = new o();
         this.H = oVar;
-        oVar.f23808c = gVar.f26804f;
-        oVar.f23809d = gVar.f26803e;
-        oVar.f23810e = TbadkCoreApplication.getCurrentAccount();
+        oVar.f23824c = gVar.f26824f;
+        oVar.f23825d = gVar.f26823e;
+        oVar.f23826e = TbadkCoreApplication.getCurrentAccount();
         o oVar2 = new o();
         this.I = oVar2;
-        oVar2.f23808c = gVar.f26804f;
-        oVar2.f23809d = gVar.f26803e;
-        oVar2.f23810e = TbadkCoreApplication.getCurrentAccount();
+        oVar2.f23824c = gVar.f26824f;
+        oVar2.f23825d = gVar.f26823e;
+        oVar2.f23826e = TbadkCoreApplication.getCurrentAccount();
         if (this.R) {
             StatisticItem statisticItem = new StatisticItem("c12590");
-            statisticItem.param("tid", gVar.f26804f);
-            statisticItem.param("nid", gVar.f26805g);
+            statisticItem.param("tid", gVar.f26824f);
+            statisticItem.param("nid", gVar.f26825g);
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, gVar.o());
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", gVar.f26803e);
+            statisticItem.param("fid", gVar.f26823e);
             statisticItem.param("obj_locate", i2);
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
             TiebaStatic.log(statisticItem);
             o oVar3 = this.H;
-            oVar3.f23812g = "auto_midpage";
-            oVar3.f23806a = "13";
-            oVar3.f23814i = "1";
+            oVar3.f23828g = "auto_midpage";
+            oVar3.f23822a = "13";
+            oVar3.f23830i = "1";
             o oVar4 = this.I;
-            oVar4.f23812g = "auto_midpage";
-            oVar4.f23806a = "auto_midpage";
-            oVar4.f23814i = "1";
+            oVar4.f23828g = "auto_midpage";
+            oVar4.f23822a = "auto_midpage";
+            oVar4.f23830i = "1";
         } else {
             o oVar5 = this.H;
-            oVar5.f23814i = "frs_bavideotab";
-            oVar5.f23806a = "12";
+            oVar5.f23830i = "frs_bavideotab";
+            oVar5.f23822a = "12";
             o oVar6 = this.I;
-            oVar6.f23814i = "frs_bavideotab";
-            oVar6.f23806a = "frs_bavideotab";
+            oVar6.f23830i = "frs_bavideotab";
+            oVar6.f23822a = "frs_bavideotab";
         }
         g.c cVar = gVar.z;
         if (cVar != null) {
             o oVar7 = this.H;
-            String str = cVar.f26831c;
+            String str = cVar.f26851c;
             oVar7.m = str;
             this.I.m = str;
         }
@@ -537,8 +537,8 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         this.C.z1(new d(this));
         this.C.I1(new e(this, aVar, i2));
         this.C.J1(new f(this, aVar));
-        this.C.S1(gVar.z.f26838j);
-        this.C.Y1(gVar.z.f26832d, gVar.f26804f);
+        this.C.S1(gVar.z.f26858j);
+        this.C.Y1(gVar.z.f26852d, gVar.f26824f);
         this.C.X1(gVar.x);
         this.C.D1(new g(this));
         this.C.a1();
@@ -546,7 +546,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         if (gVar.F) {
             onClick(this.n);
             this.M = false;
-            this.C.i2(gVar.z.f26832d, gVar.f26804f, null, new Object[0]);
+            this.C.i2(gVar.z.f26852d, gVar.f26824f, null, new Object[0]);
         }
         this.M = false;
     }
@@ -571,8 +571,8 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         this.o.setVisibility(0);
         this.o.setText(gVar.x);
         this.p.setVisibility(0);
-        this.p.setText(StringHelper.stringForVideoTime(gVar.z.f26833e * 1000));
-        long j2 = gVar.z.f26836h;
+        this.p.setText(StringHelper.stringForVideoTime(gVar.z.f26853e * 1000));
+        long j2 = gVar.z.f26856h;
         if (j2 == 0) {
             format = this.D.getString(R.string.video_mobile_play_tips);
         } else {
@@ -671,7 +671,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
             return;
         }
         if ("1".equals(str) || "2".equals(str)) {
-            c.a.r0.p2.h.e(this.E.z.f26831c, "", str, this.I, this.C.I0().getPcdnState());
+            c.a.r0.p2.h.e(this.E.z.f26851c, "", str, this.I, this.C.I0().getPcdnState());
         }
     }
 
@@ -680,12 +680,12 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gVar) == null) || gVar == null || gVar.y == null) {
             return;
         }
-        if (TbadkCoreApplication.isLogin() && !TextUtils.isEmpty(gVar.y.f26815a) && TbadkCoreApplication.getCurrentAccount().equals(gVar.y.f26815a)) {
+        if (TbadkCoreApplication.isLogin() && !TextUtils.isEmpty(gVar.y.f26835a) && TbadkCoreApplication.getCurrentAccount().equals(gVar.y.f26835a)) {
             this.v.setVisibility(8);
         } else {
             this.v.setVisibility(0);
         }
-        if (gVar.y.f26819e) {
+        if (gVar.y.f26839e) {
             SkinManager.setViewTextColor(this.v, R.color.CAM_X0109);
             this.v.setCompoundDrawables(null, null, null, null);
             this.v.setText(this.D.getString(R.string.relate_forum_is_followed));
@@ -693,7 +693,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         }
         SkinManager.setViewTextColor(this.v, R.color.CAM_X0302);
         Drawable drawable = SkinManager.getDrawable(R.drawable.video_aggregation_attention_selector);
-        drawable.setBounds(0, 0, l.g(this.f15550g, R.dimen.ds20), l.g(this.f15550g, R.dimen.ds20));
+        drawable.setBounds(0, 0, l.g(this.f15559g, R.dimen.ds20), l.g(this.f15559g, R.dimen.ds20));
         this.v.setCompoundDrawables(drawable, null, null, null);
         this.v.setText(this.D.getString(R.string.attention));
     }
@@ -704,10 +704,10 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, gVar) == null) || gVar == null || (bVar = gVar.y) == null) {
             return;
         }
-        this.u.setText(TextUtils.isEmpty(bVar.f26817c) ? gVar.y.f26816b : gVar.y.f26817c);
-        this.t.startLoad(gVar.y.f26818d, 12, false);
-        this.t.setShowV(gVar.y.f26820f);
-        this.t.setIsBigV(gVar.y.f26820f);
+        this.u.setText(TextUtils.isEmpty(bVar.f26837c) ? gVar.y.f26836b : gVar.y.f26837c);
+        this.t.startLoad(gVar.y.f26838d, 12, false);
+        this.t.setShowV(gVar.y.f26840f);
+        this.t.setIsBigV(gVar.y.f26840f);
         P(gVar);
         S(gVar);
         R(gVar);
@@ -789,7 +789,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || (gVar = this.E) == null || (bVar = gVar.y) == null) {
             return;
         }
-        bVar.f26819e = z;
+        bVar.f26839e = z;
         P(gVar);
     }
 
@@ -811,19 +811,19 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
         g.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048595, this, tbPageContext, i2) == null) {
-            if (this.f15548e != i2) {
+            if (this.f15557e != i2) {
                 tbPageContext.getLayoutMode().k(i2 == 1);
                 tbPageContext.getLayoutMode().j(j());
                 SkinManager.setBackgroundColor(j(), R.color.CAM_X0201);
                 c.a.r0.w0.h1.g gVar = this.E;
                 if (gVar != null && (bVar = gVar.y) != null) {
-                    if (bVar.f26819e) {
+                    if (bVar.f26839e) {
                         SkinManager.setViewTextColor(this.v, R.color.CAM_X0109);
                         this.v.setCompoundDrawables(null, null, null, null);
                     } else {
                         SkinManager.setViewTextColor(this.v, R.color.CAM_X0302);
                         Drawable drawable = SkinManager.getDrawable(R.drawable.video_aggregation_attention_selector);
-                        drawable.setBounds(0, 0, l.g(this.f15550g, R.dimen.ds20), l.g(this.f15550g, R.dimen.ds20));
+                        drawable.setBounds(0, 0, l.g(this.f15559g, R.dimen.ds20), l.g(this.f15559g, R.dimen.ds20));
                         this.v.setCompoundDrawables(drawable, null, null, null);
                     }
                 }
@@ -840,7 +840,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
                 SkinManager.setViewTextColor(this.w, R.color.CAM_X0106);
                 this.y.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_home_card_comment));
             }
-            this.f15548e = i2;
+            this.f15557e = i2;
         }
     }
 
@@ -864,12 +864,12 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
                         this.C.j1();
                         c.a.r0.p2.c cVar = this.C;
                         c.a.r0.w0.h1.g gVar2 = this.E;
-                        cVar.d2(gVar2.z.f26832d, gVar2.f26804f);
+                        cVar.d2(gVar2.z.f26852d, gVar2.f26824f);
                         O("2");
                         return;
                     } else if (view == this.v) {
                         c.a.r0.w0.h1.g gVar3 = this.E;
-                        if (gVar3.y.f26819e) {
+                        if (gVar3.y.f26839e) {
                             return;
                         }
                         this.G.c(gVar3);
@@ -887,8 +887,8 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
                 } else if (this.E == null) {
                     return;
                 } else {
-                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f15550g);
-                    pbActivityConfig.createNormalCfg(this.E.f26804f, null, null);
+                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f15559g);
+                    pbActivityConfig.createNormalCfg(this.E.f26824f, null, null);
                     if (!this.R) {
                         pbActivityConfig.setVideo_source("bavideotab");
                     } else {
@@ -900,13 +900,13 @@ public class b extends c.a.r0.a0.b<c.a.r0.w0.h1.g> implements c.a.r0.w0.h1.c {
             }
             boolean z = false;
             c.a.r0.w0.h1.g gVar4 = this.E;
-            if (gVar4 == null || (bVar = gVar4.y) == null || TextUtils.isEmpty(bVar.f26815a)) {
+            if (gVar4 == null || (bVar = gVar4.y) == null || TextUtils.isEmpty(bVar.f26835a)) {
                 return;
             }
-            if (TbadkCoreApplication.isLogin() && this.E.y.f26815a.equals(TbadkCoreApplication.getCurrentAccount())) {
+            if (TbadkCoreApplication.isLogin() && this.E.y.f26835a.equals(TbadkCoreApplication.getCurrentAccount())) {
                 z = true;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.D.getPageActivity()).createNormalConfig(c.a.e.e.m.b.g(this.E.y.f26815a, 0L), z, this.E.y.f26820f)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.D.getPageActivity()).createNormalConfig(c.a.e.e.m.b.g(this.E.y.f26835a, 0L), z, this.E.y.f26840f)));
         }
     }
 

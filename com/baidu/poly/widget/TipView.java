@@ -24,13 +24,13 @@ public class TipView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f44364e;
+    public ImageView f44426e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44365f;
+    public TextView f44427f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f44366g;
+    public Animation f44428g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TipView(Context context) {
@@ -57,17 +57,17 @@ public class TipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             setVisibility(0);
-            if (this.f44366g == null) {
-                this.f44366g = AnimationUtils.loadAnimation(getContext(), b.loading_rotate);
+            if (this.f44428g == null) {
+                this.f44428g = AnimationUtils.loadAnimation(getContext(), b.loading_rotate);
             }
-            this.f44365f.setText(str);
-            ViewGroup.LayoutParams layoutParams = this.f44364e.getLayoutParams();
+            this.f44427f.setText(str);
+            ViewGroup.LayoutParams layoutParams = this.f44426e.getLayoutParams();
             if (layoutParams != null) {
                 int dimensionPixelOffset = getResources().getDimensionPixelOffset(d.channel_loading_icon_size);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            this.f44364e.startAnimation(this.f44366g);
+            this.f44426e.startAnimation(this.f44428g);
         }
     }
 
@@ -75,15 +75,15 @@ public class TipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             setVisibility(0);
-            this.f44364e.clearAnimation();
-            ViewGroup.LayoutParams layoutParams = this.f44364e.getLayoutParams();
+            this.f44426e.clearAnimation();
+            ViewGroup.LayoutParams layoutParams = this.f44426e.getLayoutParams();
             if (layoutParams != null) {
                 int dimensionPixelOffset = getResources().getDimensionPixelOffset(d.pay_loading_icon_size);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            c.a.e0.k.d.b.c().b(this.f44364e, str);
-            this.f44365f.setText(str2);
+            c.a.e0.k.d.b.c().b(this.f44426e, str);
+            this.f44427f.setText(str2);
         }
     }
 
@@ -93,8 +93,8 @@ public class TipView extends LinearLayout {
             setOrientation(1);
             setGravity(17);
             LayoutInflater.from(context).inflate(g.view_tip, (ViewGroup) this, true);
-            this.f44364e = (ImageView) findViewById(f.tip_loading_view);
-            this.f44365f = (TextView) findViewById(f.tip_text_view);
+            this.f44426e = (ImageView) findViewById(f.tip_loading_view);
+            this.f44427f = (TextView) findViewById(f.tip_text_view);
         }
     }
 
@@ -102,7 +102,7 @@ public class TipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setVisibility(8);
-            this.f44364e.clearAnimation();
+            this.f44426e.clearAnimation();
         }
     }
 

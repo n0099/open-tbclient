@@ -16,7 +16,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.e.e.d.l<byte[]> f25234a;
+    public c.a.e.e.d.l<byte[]> f25255a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class c {
                 return null;
             }
             String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
-            c.a.e.e.d.l<byte[]> lVar = this.f25234a;
+            c.a.e.e.d.l<byte[]> lVar = this.f25255a;
             l.b<byte[]> h2 = lVar != null ? lVar.h(str2) : null;
             if (h2 == null || (bArr = h2.f2224b) == null) {
                 return null;
@@ -55,9 +55,9 @@ public class c {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f25234a == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f25255a == null) {
             c.a.q0.s.r.a.f();
-            this.f25234a = c.a.q0.s.r.a.d("tb.forum_member_info");
+            this.f25255a = c.a.q0.s.r.a.d("tb.forum_member_info");
         }
     }
 
@@ -69,7 +69,7 @@ public class c {
                 return;
             }
             b();
-            c.a.e.e.d.l<byte[]> lVar = this.f25234a;
+            c.a.e.e.d.l<byte[]> lVar = this.f25255a;
             lVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
     }

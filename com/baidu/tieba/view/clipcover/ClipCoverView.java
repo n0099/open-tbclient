@@ -25,22 +25,22 @@ public class ClipCoverView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f58399e;
+    public Paint f58529e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f58400f;
+    public Paint f58530f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Path f58401g;
+    public Path f58531g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f58402h;
+    public float f58532h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Xfermode f58403i;
+    public Xfermode f58533i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f58404j;
+    public Context f58534j;
     public int k;
     public int l;
 
@@ -68,7 +68,7 @@ public class ClipCoverView extends View {
     public final void a(@NonNull Canvas canvas, Path path) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, path) == null) {
-            canvas.drawPath(path, this.f58400f);
+            canvas.drawPath(path, this.f58530f);
         }
     }
 
@@ -76,11 +76,11 @@ public class ClipCoverView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Paint paint = new Paint();
-            this.f58400f = paint;
+            this.f58530f = paint;
             paint.setAntiAlias(true);
-            this.f58400f.setStyle(Paint.Style.STROKE);
-            this.f58400f.setStrokeWidth(this.f58402h);
-            this.f58400f.setColor(getResources().getColor(R.color.CAM_X0402));
+            this.f58530f.setStyle(Paint.Style.STROKE);
+            this.f58530f.setStrokeWidth(this.f58532h);
+            this.f58530f.setColor(getResources().getColor(R.color.CAM_X0402));
         }
     }
 
@@ -105,15 +105,15 @@ public class ClipCoverView extends View {
             super.onDraw(canvas);
             canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
             canvas.drawColor(getResources().getColor(R.color.CAM_X0608));
-            this.f58399e.setXfermode(this.f58403i);
+            this.f58529e.setXfermode(this.f58533i);
             RectF clipCoverRect = getClipCoverRect();
-            if (this.f58401g == null) {
-                this.f58401g = new Path();
+            if (this.f58531g == null) {
+                this.f58531g = new Path();
             }
-            this.f58401g.reset();
-            this.f58401g.addRoundRect(clipCoverRect, a.A(R.string.J_X05), Path.Direction.CW);
-            canvas.drawPath(this.f58401g, this.f58399e);
-            a(canvas, this.f58401g);
+            this.f58531g.reset();
+            this.f58531g.addRoundRect(clipCoverRect, a.A(R.string.J_X05), Path.Direction.CW);
+            canvas.drawPath(this.f58531g, this.f58529e);
+            a(canvas, this.f58531g);
             canvas.restore();
         }
     }
@@ -121,8 +121,8 @@ public class ClipCoverView extends View {
     public void setClipBorderWidth(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            this.f58402h = f2;
-            this.f58400f.setStrokeWidth(f2);
+            this.f58532h = f2;
+            this.f58530f.setStrokeWidth(f2);
             invalidate();
         }
     }
@@ -182,11 +182,11 @@ public class ClipCoverView extends View {
             }
         }
         Paint paint = new Paint();
-        this.f58399e = paint;
+        this.f58529e = paint;
         paint.setAntiAlias(true);
-        this.f58399e.setStyle(Paint.Style.FILL);
-        this.f58403i = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
-        this.f58404j = context;
+        this.f58529e.setStyle(Paint.Style.FILL);
+        this.f58533i = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
+        this.f58534j = context;
         b();
     }
 }

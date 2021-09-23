@@ -16,7 +16,7 @@ public class c implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PublicKey f30556a;
+    public PublicKey f30577a;
 
     public c(String str) throws Exception {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class c implements a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (!c.a.w0.c.a.a(str)) {
                 Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, this.f30556a);
+                cipher.init(1, this.f30577a);
                 return c.a.w0.b.a.r(cipher.doFinal(str.getBytes()));
             }
             throw new Exception("Plaintext can not be blank.");
@@ -55,7 +55,7 @@ public class c implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             if (!c.a.w0.c.a.a(str)) {
-                this.f30556a = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(c.a.w0.b.a.n(str.replaceAll("-----BEGIN PUBLIC KEY-----", "").replaceAll("-----END PUBLIC KEY-----", ""))));
+                this.f30577a = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(c.a.w0.b.a.n(str.replaceAll("-----BEGIN PUBLIC KEY-----", "").replaceAll("-----END PUBLIC KEY-----", ""))));
                 return;
             }
             throw new Exception("PubKey can not be blank.");

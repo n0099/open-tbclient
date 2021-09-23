@@ -22,16 +22,16 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f26288a;
+    public TbPageContext f26311a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BdUniqueId f26289b;
+    public final BdUniqueId f26312b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f26290c;
+    public b f26313c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.e.c.g.a f26291d;
+    public c.a.e.c.g.a f26314d;
 
     /* loaded from: classes4.dex */
     public class a extends c.a.e.c.g.a {
@@ -39,7 +39,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f26292a;
+        public final /* synthetic */ d f26315a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2, int i3) {
@@ -60,16 +60,16 @@ public class d {
                     return;
                 }
             }
-            this.f26292a = dVar;
+            this.f26315a = dVar;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.f26292a.f26289b) {
-                    if (this.f26292a.f26290c != null) {
-                        this.f26292a.f26290c.a(false, null);
+                if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.f26315a.f26312b) {
+                    if (this.f26315a.f26313c != null) {
+                        this.f26315a.f26313c.a(false, null);
                         return;
                     }
                     return;
@@ -78,8 +78,8 @@ public class d {
                 if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                     searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
                 }
-                if (this.f26292a.f26290c != null) {
-                    this.f26292a.f26290c.a(searchData != null, searchData);
+                if (this.f26315a.f26313c != null) {
+                    this.f26315a.f26313c.a(searchData != null, searchData);
                 }
             }
         }
@@ -106,17 +106,17 @@ public class d {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466);
-        this.f26291d = aVar;
-        this.f26288a = tbPageContext;
-        this.f26289b = bdUniqueId;
+        this.f26314d = aVar;
+        this.f26311a = tbPageContext;
+        this.f26312b = bdUniqueId;
         aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f26291d);
+        MessageManager.getInstance().registerListener(this.f26314d);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f26289b);
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f26312b);
         }
     }
 
@@ -126,13 +126,13 @@ public class d {
             return;
         }
         if (!l.D()) {
-            this.f26288a.showToast(R.string.neterror);
+            this.f26311a.showToast(R.string.neterror);
             return;
         }
         c();
-        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f26289b);
+        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f26312b);
         SearchPostForumRequestMessage searchPostForumRequestMessage = new SearchPostForumRequestMessage();
-        searchPostForumRequestMessage.setTag(this.f26289b);
+        searchPostForumRequestMessage.setTag(this.f26312b);
         searchPostForumRequestMessage.set_word(str);
         MessageManager.getInstance().sendMessage(searchPostForumRequestMessage);
     }
@@ -140,7 +140,7 @@ public class d {
     public void e(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f26290c = bVar;
+            this.f26313c = bVar;
         }
     }
 }

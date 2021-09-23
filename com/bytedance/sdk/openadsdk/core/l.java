@@ -25,31 +25,31 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f66739a;
+    public static volatile boolean f67050a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile TTCustomController f66740b;
+    public static volatile TTCustomController f67051b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f66741c;
+    public static volatile boolean f67052c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f66742d;
+    public static int f67053d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static AtomicBoolean f66743e;
+    public static AtomicBoolean f67054e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static AtomicBoolean f66744f;
+    public static AtomicBoolean f67055f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile HandlerThread f66745g;
+    public static volatile HandlerThread f67056g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile Handler f66746h;
+    public static volatile Handler f67057h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile Handler f66747i;
+    public static volatile Handler f67058i;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,13 +65,13 @@ public class l {
                 return;
             }
         }
-        f66745g = new HandlerThread("tt_pangle_thread_init", 10);
-        f66745g.start();
-        f66747i = new Handler(f66745g.getLooper());
-        f66741c = false;
-        f66742d = -1;
-        f66743e = new AtomicBoolean(false);
-        f66744f = new AtomicBoolean(false);
+        f67056g = new HandlerThread("tt_pangle_thread_init", 10);
+        f67056g.start();
+        f67058i = new Handler(f67056g.getLooper());
+        f67052c = false;
+        f67053d = -1;
+        f67054e = new AtomicBoolean(false);
+        f67055f = new AtomicBoolean(false);
     }
 
     public l() {
@@ -92,8 +92,8 @@ public class l {
         Context a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            f66743e.set(true);
-            f66744f.set(true);
+            f67054e.set(true);
+            f67055f.set(true);
             if (o.h().e() && (a2 = o.a()) != null) {
                 try {
                     com.bytedance.sdk.openadsdk.k.d.b().c().tryInitTTAdNet(a2, com.bytedance.sdk.openadsdk.multipro.b.b(), true, new com.bytedance.sdk.openadsdk.k.c(a2));
@@ -129,14 +129,14 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f66746h == null) {
+            if (f67057h == null) {
                 synchronized (l.class) {
-                    if (f66746h == null) {
-                        f66746h = new Handler(Looper.getMainLooper());
+                    if (f67057h == null) {
+                        f67057h = new Handler(Looper.getMainLooper());
                     }
                 }
             }
-            return f66746h;
+            return f67057h;
         }
         return (Handler) invokeV.objValue;
     }
@@ -163,16 +163,16 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f66745g == null || !f66745g.isAlive()) {
+            if (f67056g == null || !f67056g.isAlive()) {
                 synchronized (l.class) {
-                    if (f66745g == null || !f66745g.isAlive()) {
-                        f66745g = new HandlerThread("tt_pangle_thread_init", 10);
-                        f66745g.start();
-                        f66747i = new Handler(f66745g.getLooper());
+                    if (f67056g == null || !f67056g.isAlive()) {
+                        f67056g = new HandlerThread("tt_pangle_thread_init", 10);
+                        f67056g.start();
+                        f67058i = new Handler(f67056g.getLooper());
                     }
                 }
             }
-            return f66747i;
+            return f67058i;
         }
         return (Handler) invokeV.objValue;
     }

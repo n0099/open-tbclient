@@ -15,11 +15,11 @@ public class c implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f24436f;
+    public static final BdUniqueId f24452f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ForumEmotionPackageData f24437e;
+    public ForumEmotionPackageData f24453e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class c implements n {
                 return;
             }
         }
-        f24436f = BdUniqueId.gen();
+        f24452f = BdUniqueId.gen();
     }
 
     public c() {
@@ -55,6 +55,6 @@ public class c implements n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f24436f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f24452f : (BdUniqueId) invokeV.objValue;
     }
 }

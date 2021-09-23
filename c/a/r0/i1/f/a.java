@@ -124,10 +124,10 @@ public class a extends c.a.r0.a0.c<n> {
                     boolean z = relateForumItemData.isLiked;
                     if (j2 >= 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                         c.a.q0.f1.g.a aVar = new c.a.q0.f1.g.a();
-                        aVar.f13151b = str2;
-                        aVar.f13153d = j2;
-                        aVar.f13152c = str;
-                        aVar.f13154e = z;
+                        aVar.f13168b = str2;
+                        aVar.f13170d = j2;
+                        aVar.f13169c = str;
+                        aVar.f13171e = z;
                         arrayList.add(aVar);
                     }
                 }
@@ -149,7 +149,7 @@ public class a extends c.a.r0.a0.c<n> {
                 return;
             }
             this.y.clear();
-            List<c.a.e.l.e.n> list = nVar.f19313e;
+            List<c.a.e.l.e.n> list = nVar.f19328e;
             if (list != null) {
                 this.y.addAll(list);
             }

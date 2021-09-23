@@ -30,13 +30,13 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9252a;
+    public static final boolean f9260a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f9253b;
+    public static String f9261b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f9254c;
+    public static boolean f9262c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -45,13 +45,13 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f9255a;
+        public final /* synthetic */ Context f9263a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v1.c.f.c f9256b;
+        public final /* synthetic */ c.a.p0.a.v1.c.f.c f9264b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Bundle f9257c;
+        public final /* synthetic */ Bundle f9265c;
 
         public a(Context context, c.a.p0.a.v1.c.f.c cVar, Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -68,16 +68,16 @@ public final class b {
                     return;
                 }
             }
-            this.f9255a = context;
-            this.f9256b = cVar;
-            this.f9257c = bundle;
+            this.f9263a = context;
+            this.f9264b = cVar;
+            this.f9265c = bundle;
         }
 
         @Override // c.a.p0.a.h0.s.c
         public void onFail() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = b.f9252a;
+                boolean unused = b.f9260a;
             }
         }
 
@@ -85,8 +85,8 @@ public final class b {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                boolean unused = b.f9252a;
-                b.i(this.f9255a, this.f9256b, this.f9257c);
+                boolean unused = b.f9260a;
+                b.i(this.f9263a, this.f9264b, this.f9265c);
             }
         }
     }
@@ -98,13 +98,13 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f9258a;
+        public final /* synthetic */ Context f9266a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v1.c.f.c f9259b;
+        public final /* synthetic */ c.a.p0.a.v1.c.f.c f9267b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Bundle f9260c;
+        public final /* synthetic */ Bundle f9268c;
 
         public C0433b(Context context, c.a.p0.a.v1.c.f.c cVar, Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -121,17 +121,17 @@ public final class b {
                     return;
                 }
             }
-            this.f9258a = context;
-            this.f9259b = cVar;
-            this.f9260c = bundle;
+            this.f9266a = context;
+            this.f9267b = cVar;
+            this.f9268c = bundle;
         }
 
         @Override // c.a.p0.a.h0.f.d.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = b.f9254c = true;
-                b.h(this.f9258a, this.f9259b, this.f9260c);
+                boolean unused = b.f9262c = true;
+                b.h(this.f9266a, this.f9267b, this.f9268c);
             }
         }
     }
@@ -142,13 +142,13 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f9261e;
+        public final /* synthetic */ Context f9269e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v1.c.f.c f9262f;
+        public final /* synthetic */ c.a.p0.a.v1.c.f.c f9270f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Bundle f9263g;
+        public final /* synthetic */ Bundle f9271g;
 
         public c(Context context, c.a.p0.a.v1.c.f.c cVar, Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -165,9 +165,9 @@ public final class b {
                     return;
                 }
             }
-            this.f9261e = context;
-            this.f9262f = cVar;
-            this.f9263g = bundle;
+            this.f9269e = context;
+            this.f9270f = cVar;
+            this.f9271g = bundle;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -176,7 +176,7 @@ public final class b {
         public void onCallback(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                b.g(this.f9261e, this.f9262f, this.f9263g);
+                b.g(this.f9269e, this.f9270f, this.f9271g);
             }
         }
     }
@@ -194,8 +194,8 @@ public final class b {
                 return;
             }
         }
-        f9252a = k.f7077a;
-        f9254c = false;
+        f9260a = k.f7085a;
+        f9262c = false;
     }
 
     public static String f() {
@@ -207,12 +207,12 @@ public final class b {
                 jSONObject.put("master", g.N().b0());
                 jSONObject.put("slave", g.N().d0());
             } catch (JSONException e2) {
-                if (f9252a) {
+                if (f9260a) {
                     throw new RuntimeException(e2);
                 }
             }
             String jSONObject2 = jSONObject.toString();
-            if (f9252a) {
+            if (f9260a) {
                 String str = "createPreloadStatus -- preloadStatus : " + jSONObject2;
             }
             return TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2;
@@ -228,12 +228,12 @@ public final class b {
             String str = isMainProcess ? FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT : "aiapp";
             long currentTimeMillis = System.currentTimeMillis();
             if (w) {
-                if (isMainProcess && TextUtils.isEmpty(f9253b)) {
+                if (isMainProcess && TextUtils.isEmpty(f9261b)) {
                     try {
-                        f9253b = new WebView(context).getSettings().getUserAgentString();
+                        f9261b = new WebView(context).getSettings().getUserAgentString();
                     } catch (Exception e2) {
-                        f9253b = "exception::" + e2.toString();
-                        if (f9252a) {
+                        f9261b = "exception::" + e2.toString();
+                        if (f9260a) {
                             e2.printStackTrace();
                         }
                     }
@@ -241,10 +241,10 @@ public final class b {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("time", currentTimeMillis);
-                    jSONObject.put("process", cVar.f9264f.index);
-                    jSONObject.put("ua", f9253b);
+                    jSONObject.put("process", cVar.f9272f.index);
+                    jSONObject.put("ua", f9261b);
                 } catch (JSONException e3) {
-                    if (f9252a) {
+                    if (f9260a) {
                         e3.printStackTrace();
                     }
                 }
@@ -260,10 +260,10 @@ public final class b {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.put("time", currentTimeMillis2);
-                    jSONObject2.put("process", cVar.f9264f.index);
+                    jSONObject2.put("process", cVar.f9272f.index);
                     jSONObject2.put("cost", currentTimeMillis2 - currentTimeMillis);
                 } catch (JSONException e4) {
-                    if (f9252a) {
+                    if (f9260a) {
                         e4.printStackTrace();
                     }
                 }
@@ -287,7 +287,7 @@ public final class b {
             bundle.putBoolean("bundle_key_v8_ab", c.a.p0.a.c1.a.Z().A());
             bundle.putLong("bundle_key_preload_swan_updated_time", currentTimeMillis2);
             bundle.putString("bundle_key_preload_src", str);
-            bundle.putInt("bundle_key_process", cVar.f9264f.index);
+            bundle.putInt("bundle_key_process", cVar.f9272f.index);
             bundle.setClassLoader(SwanCoreVersion.class.getClassLoader());
             cVar.b0(context, bundle);
         }
@@ -305,7 +305,7 @@ public final class b {
         if (interceptable == null || interceptable.invokeLLL(65545, null, context, cVar, bundle) == null) {
             if (c.a.p0.a.h0.s.e.a()) {
                 h(context, cVar, bundle);
-            } else if (f9254c) {
+            } else if (f9262c) {
                 h(context, cVar, bundle);
             } else {
                 c.a.p0.a.p.e.j.c.a().b().a().b(new C0433b(context, cVar, bundle));
@@ -331,7 +331,7 @@ public final class b {
             try {
                 context.startService(intent);
             } catch (Exception e2) {
-                if (f9252a) {
+                if (f9260a) {
                     e2.printStackTrace();
                 }
             }
@@ -348,17 +348,17 @@ public final class b {
     public static void m(Context context, c.a.p0.a.v1.c.f.c cVar, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65549, null, context, cVar, bundle) == null) {
-            if (f9252a) {
+            if (f9260a) {
                 e.k().u("b4 tryPreload client=" + cVar);
             }
-            if (!ProcessUtils.isMainProcess() || cVar == null || !cVar.f9264f.isSwanAppProcess() || cVar.C()) {
+            if (!ProcessUtils.isMainProcess() || cVar == null || !cVar.f9272f.isSwanAppProcess() || cVar.C()) {
                 return;
             }
             String string = bundle == null ? "" : bundle.getString("bundle_key_preload_preload_scene");
             if (TextUtils.isEmpty(string)) {
                 string = "0";
             }
-            if (f9252a) {
+            if (f9260a) {
                 String str = "SwanSailor：preloadScene:" + string;
             }
             if (c.a.p0.a.c1.a.n0().c()) {
@@ -366,7 +366,7 @@ public final class b {
                 return;
             }
             c.a.p0.a.h0.s.e eVar = new c.a.p0.a.h0.s.e();
-            eVar.f6428a = TextUtils.equals(string, "0") ? "by_host_launch" : "by_preload";
+            eVar.f6436a = TextUtils.equals(string, "0") ? "by_host_launch" : "by_preload";
             c.a.p0.a.c1.a.n0().b(eVar, new a(context, cVar, bundle));
         }
     }

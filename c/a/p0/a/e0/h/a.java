@@ -18,17 +18,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f5343d;
+    public static int f5351d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f5344a;
+    public Context f5352a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f5345b;
+    public b f5353b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f5346c;
+    public c f5354c;
 
     /* renamed from: c.a.p0.a.e0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -37,7 +37,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f5347e;
+        public final /* synthetic */ a f5355e;
 
         public RunnableC0157a(a aVar) {
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class a {
                     return;
                 }
             }
-            this.f5347e = aVar;
+            this.f5355e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -62,14 +62,14 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (c.a.p0.a.e0.f.b.e() || a.e() != 0) {
-                    this.f5347e.f5346c = new c.a.p0.a.e0.h.c.c(String.format("v8in%s_devtools_remote", this.f5347e.f5344a.getPackageName()), this.f5347e.f5345b);
+                    this.f5355e.f5354c = new c.a.p0.a.e0.h.c.c(String.format("v8in%s_devtools_remote", this.f5355e.f5352a.getPackageName()), this.f5355e.f5353b);
                 } else if (c.a.p0.a.e0.f.b.f()) {
-                    this.f5347e.f5346c = new c.a.p0.a.e0.h.c.b(d.e(), this.f5347e.f5345b);
+                    this.f5355e.f5354c = new c.a.p0.a.e0.h.c.b(d.e(), this.f5355e.f5353b);
                 } else {
                     c.a.p0.a.e0.d.b("V8Inspector", "Unknown inspect mode");
                     return;
                 }
-                this.f5347e.f5346c.start();
+                this.f5355e.f5354c.start();
             }
         }
     }
@@ -99,7 +99,7 @@ public class a {
                 return;
             }
         }
-        f5343d = h.a().getBoolean("Inspector", false) ? 2 : 0;
+        f5351d = h.a().getBoolean("Inspector", false) ? 2 : 0;
     }
 
     public a(Context context) {
@@ -117,27 +117,27 @@ public class a {
                 return;
             }
         }
-        this.f5344a = context;
+        this.f5352a = context;
     }
 
     public static int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f5343d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f5351d : invokeV.intValue;
     }
 
     public static void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i2) == null) {
             h.a().putBoolean("Inspector", i2 == 2);
-            f5343d = i2;
+            f5351d = i2;
         }
     }
 
     public void f(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f5345b = bVar;
+            this.f5353b = bVar;
         }
     }
 
@@ -151,10 +151,10 @@ public class a {
     public void i() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f5346c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f5354c) == null) {
             return;
         }
         cVar.stop();
-        this.f5346c = null;
+        this.f5354c = null;
     }
 }

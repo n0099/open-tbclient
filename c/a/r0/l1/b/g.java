@@ -27,8 +27,8 @@ public class g extends k implements c.a.q0.k0.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
             a().addAll(kVar.a());
-            this.f21963f = kVar.f21963f;
-            this.f21964g = kVar.f21964g;
+            this.f21977f = kVar.f21977f;
+            this.f21978g = kVar.f21978g;
         }
     }
 }

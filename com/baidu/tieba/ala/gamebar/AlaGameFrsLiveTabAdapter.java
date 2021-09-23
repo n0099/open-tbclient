@@ -16,10 +16,10 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f49658a;
+    public int[] f49769a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Fragment> f49659b;
+    public List<Fragment> f49770b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameFrsLiveTabAdapter(FragmentManager fragmentManager) {
@@ -39,7 +39,7 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f49658a = new int[]{0, 1};
+        this.f49769a = new int[]{0, 1};
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -47,7 +47,7 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<Fragment> list = this.f49659b;
+            List<Fragment> list = this.f49770b;
             if (list != null) {
                 return list.size();
             }
@@ -61,8 +61,8 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f49659b.size() > i2) {
-                return this.f49659b.get(i2);
+            if (this.f49770b.size() > i2) {
+                return this.f49770b.get(i2);
             }
             return null;
         }
@@ -72,13 +72,13 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
     public int getItemPageType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f49658a[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f49769a[i2] : invokeI.intValue;
     }
 
     public void setFragments(List<Fragment> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f49659b = list;
+            this.f49770b = list;
         }
     }
 }

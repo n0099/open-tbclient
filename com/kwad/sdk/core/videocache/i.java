@@ -20,17 +20,17 @@ public class i extends ProxySelector {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<Proxy> f72379a;
+    public static final List<Proxy> f72698a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ProxySelector f72380b;
+    public final ProxySelector f72699b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f72381c;
+    public final String f72700c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f72382d;
+    public final int f72701d;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class i extends ProxySelector {
                 return;
             }
         }
-        f72379a = Arrays.asList(Proxy.NO_PROXY);
+        f72698a = Arrays.asList(Proxy.NO_PROXY);
     }
 
     public i(ProxySelector proxySelector, String str, int i2) {
@@ -63,9 +63,9 @@ public class i extends ProxySelector {
                 return;
             }
         }
-        this.f72380b = (ProxySelector) j.a(proxySelector);
-        this.f72381c = (String) j.a(str);
-        this.f72382d = i2;
+        this.f72699b = (ProxySelector) j.a(proxySelector);
+        this.f72700c = (String) j.a(str);
+        this.f72701d = i2;
     }
 
     public static void a(String str, int i2) {
@@ -79,7 +79,7 @@ public class i extends ProxySelector {
     public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, uri, socketAddress, iOException) == null) {
-            this.f72380b.connectFailed(uri, socketAddress, iOException);
+            this.f72699b.connectFailed(uri, socketAddress, iOException);
         }
     }
 
@@ -88,7 +88,7 @@ public class i extends ProxySelector {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            return this.f72381c.equals(uri.getHost()) && this.f72382d == uri.getPort() ? f72379a : this.f72380b.select(uri);
+            return this.f72700c.equals(uri.getHost()) && this.f72701d == uri.getPort() ? f72698a : this.f72699b.select(uri);
         }
         return (List) invokeL.objValue;
     }

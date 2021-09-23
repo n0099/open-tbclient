@@ -5,6 +5,7 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public interface IWalletLoginListener extends IWalletHostListener2 {
     public static final String KEY_LOGIN_TYPE = "loginType";
+    @Deprecated
     public static final String KEY_PASS_BDUSS = "pass_bduss";
     public static final String KEY_PASS_DISPLAY_NAME = "pass_display_name";
     public static final String KEY_PASS_OPEN_BDUSS = "pass_open_bduss";
@@ -23,6 +24,7 @@ public interface IWalletLoginListener extends IWalletHostListener2 {
 
     String getLoginStoken(String str);
 
+    @Deprecated
     String getLoginToken();
 
     @Deprecated

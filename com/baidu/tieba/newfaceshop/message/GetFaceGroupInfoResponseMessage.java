@@ -71,19 +71,19 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
             }
             a aVar = new a();
             String optString = jSONObject.optString("id");
-            aVar.f17277a = optString;
+            aVar.f17287a = optString;
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
-            aVar.f17278b = jSONObject.optString("name");
+            aVar.f17288b = jSONObject.optString("name");
             jSONObject.optInt("type");
             jSONObject.optString("owner");
             jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
             jSONObject.optString("timestamp");
             jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            aVar.f17279c = jSONObject.optString("covername");
-            aVar.f17280d = jSONObject.optString("url");
-            aVar.f17281e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+            aVar.f17289c = jSONObject.optString("covername");
+            aVar.f17290d = jSONObject.optString("url");
+            aVar.f17291e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -101,13 +101,13 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     b bVar = new b();
-                    bVar.f17283f = jSONObject.optString("id");
+                    bVar.f17293f = jSONObject.optString("id");
                     jSONObject.optString("url");
                     jSONObject.optString("thumbnail");
-                    bVar.f17284g = jSONObject.optString("name");
-                    bVar.f17285h = jSONObject.optString("thumbname");
-                    bVar.f17287j = jSONObject.optInt("width");
-                    bVar.f17286i = jSONObject.optInt("height");
+                    bVar.f17294g = jSONObject.optString("name");
+                    bVar.f17295h = jSONObject.optString("thumbname");
+                    bVar.f17297j = jSONObject.optInt("width");
+                    bVar.f17296i = jSONObject.optInt("height");
                     arrayList.add(bVar);
                 } catch (JSONException e2) {
                     e2.printStackTrace();

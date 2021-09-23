@@ -26,7 +26,7 @@ public class b extends c.a.p0.a.u.c.d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f9123d;
+    public static final boolean f9131d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -35,13 +35,13 @@ public class b extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9124e;
+        public final /* synthetic */ String f9132e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f9125f;
+        public final /* synthetic */ c.a.p0.a.a2.e f9133f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f9126g;
+        public final /* synthetic */ b f9134g;
 
         public a(b bVar, String str, c.a.p0.a.a2.e eVar) {
             Interceptable interceptable = $ic;
@@ -58,9 +58,9 @@ public class b extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9126g = bVar;
-            this.f9124e = str;
-            this.f9125f = eVar;
+            this.f9134g = bVar;
+            this.f9132e = str;
+            this.f9133f = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,13 +70,13 @@ public class b extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    boolean unused = b.f9123d;
-                    this.f9126g.u(this.f9125f.x(), this.f9125f);
-                    this.f9126g.d(this.f9124e, new c.a.p0.a.u.h.b(0));
+                    boolean unused = b.f9131d;
+                    this.f9134g.u(this.f9133f.x(), this.f9133f);
+                    this.f9134g.d(this.f9132e, new c.a.p0.a.u.h.b(0));
                     return;
                 }
                 int b2 = iVar.b();
-                this.f9126g.d(this.f9124e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
+                this.f9134g.d(this.f9132e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
             }
         }
     }
@@ -125,7 +125,7 @@ public class b extends c.a.p0.a.u.c.d {
                 return;
             }
         }
-        f9123d = k.f7077a;
+        f9131d = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -155,13 +155,13 @@ public class b extends c.a.p0.a.u.c.d {
             c.a.p0.a.a2.d g2 = c.a.p0.a.a2.d.g();
             String appId = g2.getAppId();
             String m = c.a.p0.a.j2.k.m(g2.l());
-            fVar.f7068f = appId;
-            fVar.f7064b = RetrieveTaskManager.KEY;
-            fVar.f7063a = m;
-            fVar.f7067e = "addshortcut";
+            fVar.f7076f = appId;
+            fVar.f7072b = RetrieveTaskManager.KEY;
+            fVar.f7071a = m;
+            fVar.f7075e = "addshortcut";
             b.a L = g2.r().L();
             if (L != null) {
-                fVar.f7065c = L.T();
+                fVar.f7073c = L.T();
             }
             fVar.a("appid", appId);
             fVar.a("resultstate", Integer.valueOf(i2));
@@ -182,7 +182,7 @@ public class b extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (f9123d) {
+            if (f9131d) {
                 String str2 = "start addToDesktop action, params = " + str;
             }
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-AddToDesktop", str);
@@ -191,7 +191,7 @@ public class b extends c.a.p0.a.u.c.d {
                 return (c.a.p0.a.u.h.b) b2.first;
             }
             String optString = ((JSONObject) b2.second).optString("cb");
-            if (f9123d) {
+            if (f9131d) {
                 String str3 = "cb: " + optString;
             }
             if (TextUtils.isEmpty(optString)) {

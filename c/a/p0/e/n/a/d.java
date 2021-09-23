@@ -25,7 +25,7 @@ public class d extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10422a;
+    public static final boolean f10430a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class d extends a {
                 return;
             }
         }
-        f10422a = k.f7077a;
+        f10430a = k.f7085a;
     }
 
     public d() {
@@ -65,11 +65,11 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, uri, strArr, str, strArr2, str2)) == null) {
             String f2 = f();
-            if (f10422a) {
+            if (f10430a) {
                 String str3 = "params: " + f2;
             }
             String g2 = g(f2);
-            if (f10422a) {
+            if (f10430a) {
                 String str4 = "encryption params: " + g2;
             }
             return e(g2);

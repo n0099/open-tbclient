@@ -22,7 +22,7 @@ public final class a extends c.a.p0.a.c0.b.a<CanvasView, c.a.p0.a.a0.b.a> {
     @NonNull
 
     /* renamed from: i  reason: collision with root package name */
-    public CanvasView f4669i;
+    public CanvasView f4677i;
 
     /* renamed from: c.a.p0.a.c0.c.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -31,7 +31,7 @@ public final class a extends c.a.p0.a.c0.b.a<CanvasView, c.a.p0.a.a0.b.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CanvasView.c f4670e;
+        public final /* synthetic */ CanvasView.c f4678e;
 
         public RunnableC0125a(a aVar, CanvasView.c cVar) {
             Interceptable interceptable = $ic;
@@ -48,14 +48,14 @@ public final class a extends c.a.p0.a.c0.b.a<CanvasView, c.a.p0.a.a0.b.a> {
                     return;
                 }
             }
-            this.f4670e = cVar;
+            this.f4678e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             CanvasView.c cVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f4670e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f4678e) == null) {
                 return;
             }
             cVar.a();
@@ -118,12 +118,12 @@ public final class a extends c.a.p0.a.c0.b.a<CanvasView, c.a.p0.a.a0.b.a> {
             }
         }
         CanvasView canvasView = new CanvasView(context);
-        this.f4669i = canvasView;
+        this.f4677i = canvasView;
         canvasView.setInterceptTouchEvent(aVar.n);
-        this.f4669i.setHide(aVar.f4661j);
-        this.f4669i.setGesture(aVar.k);
+        this.f4677i.setHide(aVar.f4669j);
+        this.f4677i.setGesture(aVar.k);
         if (aVar.k) {
-            this.f4669i.setInterceptTouchEvent(false);
+            this.f4677i.setInterceptTouchEvent(false);
         }
     }
 
@@ -132,7 +132,7 @@ public final class a extends c.a.p0.a.c0.b.a<CanvasView, c.a.p0.a.a0.b.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.A();
-            this.f4669i.onRelease();
+            this.f4677i.onRelease();
         }
     }
 
@@ -142,13 +142,13 @@ public final class a extends c.a.p0.a.c0.b.a<CanvasView, c.a.p0.a.a0.b.a> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, cVar)) == null) {
             if (aVar != null && (aVar instanceof c.a.p0.a.a0.b.b)) {
                 c.a.p0.a.a0.b.a n = n();
-                if (!TextUtils.equals(n.f4657f, aVar.f4657f) || !TextUtils.equals(n.f4658g, aVar.f4658g)) {
+                if (!TextUtils.equals(n.f4665f, aVar.f4665f) || !TextUtils.equals(n.f4666g, aVar.f4666g)) {
                     c.a.p0.a.c0.g.a.a("Component-Canvas", "drawCanvas with illegal ids!");
                 }
                 c.a.p0.a.a0.b.b bVar = (c.a.p0.a.a0.b.b) aVar;
-                this.f4669i.addDrawActionList(bVar.j(), bVar.k());
-                this.f4669i.postInvalidate();
-                this.f4669i.post(new RunnableC0125a(this, cVar));
+                this.f4677i.addDrawActionList(bVar.j(), bVar.k());
+                this.f4677i.postInvalidate();
+                this.f4677i.post(new RunnableC0125a(this, cVar));
                 return true;
             }
             d.b("Component-Canvas", "some params is invalid");
@@ -164,7 +164,7 @@ public final class a extends c.a.p0.a.c0.b.a<CanvasView, c.a.p0.a.a0.b.a> {
     public void r(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull c.a.p0.a.a0.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, swanAppComponentContainerView, aVar) == null) {
-            swanAppComponentContainerView.setOnTouchListener(new b(this, aVar.f4658g, aVar.f4657f, aVar.f4656e, aVar.k));
+            swanAppComponentContainerView.setOnTouchListener(new b(this, aVar.f4666g, aVar.f4665f, aVar.f4664e, aVar.k));
         }
     }
 
@@ -175,6 +175,6 @@ public final class a extends c.a.p0.a.c0.b.a<CanvasView, c.a.p0.a.a0.b.a> {
     public CanvasView v(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? this.f4669i : (CanvasView) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? this.f4677i : (CanvasView) invokeL.objValue;
     }
 }

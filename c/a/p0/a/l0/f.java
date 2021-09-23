@@ -13,7 +13,7 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7187a;
+    public static final boolean f7195a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public final class f {
                 return;
             }
         }
-        f7187a = k.f7077a;
+        f7195a = k.f7085a;
     }
 
     public static a a(g gVar, c.a.p0.a.l0.n.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
@@ -53,7 +53,7 @@ public final class f {
             if (b2 != 1) {
                 if (b2 != 2) {
                     if (b2 != 3) {
-                        if (!f7187a) {
+                        if (!f7195a) {
                             return new c.a.p0.a.m0.a();
                         }
                         throw new IllegalArgumentException("invalid model object:" + gVar);

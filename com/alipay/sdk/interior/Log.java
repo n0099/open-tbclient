@@ -17,7 +17,7 @@ public class Log {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f35993a;
+    public static long f36027a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -59,12 +59,12 @@ public class Log {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                b.a().a(context);
+                b.d().a(context);
                 long elapsedRealtime = SystemClock.elapsedRealtime() / 1000;
-                if (elapsedRealtime - f35993a < 600) {
+                if (elapsedRealtime - f36027a < 600) {
                     return false;
                 }
-                f35993a = elapsedRealtime;
+                f36027a = elapsedRealtime;
                 a.a(context);
                 return true;
             } catch (Exception e2) {

@@ -29,7 +29,7 @@ public class b implements c.a.p0.a.c1.d.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.n.c.b f10309a;
+        public final /* synthetic */ c.a.p0.a.n.c.b f10317a;
 
         public a(b bVar, c.a.p0.a.n.c.b bVar2) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class b implements c.a.p0.a.c1.d.b {
                     return;
                 }
             }
-            this.f10309a = bVar2;
+            this.f10317a = bVar2;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
@@ -55,14 +55,14 @@ public class b implements c.a.p0.a.c1.d.b {
             if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
                 Bundle bundle = delegateResult.mResult;
                 if (bundle == null) {
-                    this.f10309a.a(0);
+                    this.f10317a.a(0);
                     return;
                 }
                 String string = bundle.getString("invoiceInfo");
                 if (TextUtils.isEmpty(string)) {
-                    this.f10309a.a(0);
+                    this.f10317a.a(0);
                 } else {
-                    this.f10309a.b(w.d(string));
+                    this.f10317a.b(w.d(string));
                 }
             }
         }

@@ -25,10 +25,10 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11737e;
+    public int f11745e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f11738f;
+    public c f11746f;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public b(@NonNull c cVar) {
@@ -61,15 +61,15 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
                 return;
             }
         }
-        this.f11737e = 0;
-        this.f11738f = cVar;
+        this.f11745e = 0;
+        this.f11746f = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            a.b(view, this.f11738f);
+            a.b(view, this.f11746f);
             d.g("map", "Control View click");
         }
     }
@@ -78,7 +78,7 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
     public void onMapClick(LatLng latLng) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng) == null) {
-            a.d(this.f11738f, latLng);
+            a.d(this.f11746f, latLng);
             d.g("map", "onMapClick LatLng " + latLng);
         }
     }
@@ -96,7 +96,7 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mapPoi)) == null) {
-            a.c(this.f11738f, mapPoi);
+            a.c(this.f11746f, mapPoi);
             d.g("map", "onMapPoiClick MapPoi " + mapPoi.getPosition());
             return true;
         }
@@ -107,7 +107,7 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
     public void onMapRenderFinished() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a.e(this.f11738f);
+            a.e(this.f11746f);
             d.g("map", "onMapRenderFinished");
         }
     }
@@ -124,7 +124,7 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
     public void onMapStatusChangeFinish(MapStatus mapStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, mapStatus) == null) {
-            a.g(this.f11738f, mapStatus, this.f11737e);
+            a.g(this.f11746f, mapStatus, this.f11745e);
             d.g("map", "onMapStatusChangeFinish");
         }
     }
@@ -140,7 +140,7 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
     public void onMapStatusChangeStart(MapStatus mapStatus, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, mapStatus, i2) == null) {
-            this.f11737e = i2;
+            this.f11745e = i2;
         }
     }
 
@@ -149,10 +149,10 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, marker)) == null) {
-            c.a.p0.j.n.b J = this.f11738f.J(marker);
+            c.a.p0.j.n.b J = this.f11746f.J(marker);
             if (J != null) {
-                a.f(marker, this.f11738f);
-                J.b(this.f11738f);
+                a.f(marker, this.f11746f);
+                J.b(this.f11746f);
                 d.g("map", "onMarkerClick marker id " + marker.getId());
                 return true;
             }

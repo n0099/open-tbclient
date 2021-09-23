@@ -20,11 +20,11 @@ public class c implements c.a.p0.h.t.c.b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f10723b = "hasDownloadApk";
+    public static String f10731b = "hasDownloadApk";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10724a;
+    public String f10732a;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public class c implements c.a.p0.h.t.c.b {
                 return;
             }
         }
-        this.f10724a = "com.baidu.gamenow";
+        this.f10732a = "com.baidu.gamenow";
     }
 
     @Override // c.a.p0.h.t.c.b
@@ -64,7 +64,7 @@ public class c implements c.a.p0.h.t.c.b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj instanceof Download) {
                 Download download = (Download) obj;
-                if (TextUtils.equals(c.a.p0.f.j.m.c.f10731a, download.getKeyByUser())) {
+                if (TextUtils.equals(c.a.p0.f.j.m.c.f10739a, download.getKeyByUser())) {
                     return true;
                 }
                 return TextUtils.isEmpty(w.d(download.getFromParam()).optString("apk_id"));
@@ -90,8 +90,8 @@ public class c implements c.a.p0.h.t.c.b {
             Download download = (Download) obj;
             c.a.p0.f.j.n.a aVar = new c.a.p0.f.j.n.a(download);
             c.a.p0.f.j.r.b.n().f("statusInstalled", new c.a.p0.f.j.r.a(), download.getKeyByUser(), aVar.h(), aVar.j());
-            if (TextUtils.equals(aVar.k(), this.f10724a)) {
-                c.a.p0.a.k2.g.h.a().putBoolean(f10723b, true);
+            if (TextUtils.equals(aVar.k(), this.f10732a)) {
+                c.a.p0.a.k2.g.h.a().putBoolean(f10731b, true);
                 c.a.p0.f.j.r.b.n().p(13, aVar.k(), aVar.f(), aVar.j());
             }
         }

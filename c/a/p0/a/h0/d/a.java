@@ -17,7 +17,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5810a;
+    public static final boolean f5818a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.h0.d.a$a  reason: collision with other inner class name */
@@ -27,13 +27,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f5811a;
+        public int f5819a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f5812b;
+        public int f5820b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f5813c;
+        public long f5821c;
 
         public C0198a() {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f5814a;
+        public static final boolean f5822a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -71,7 +71,7 @@ public final class a {
                     return;
                 }
             }
-            f5814a = k.f7077a;
+            f5822a = k.f7085a;
         }
 
         public static C0198a a() {
@@ -79,11 +79,11 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 C0198a c0198a = new C0198a();
-                c0198a.f5811a = c();
-                c0198a.f5812b = d();
-                c0198a.f5813c = b();
-                if (f5814a) {
-                    String str = "getCodeCacheConfig() maxCount: " + c0198a.f5811a + " ,sizeLimit: " + c0198a.f5812b + " ,diskSizeThreshold: " + c0198a.f5813c;
+                c0198a.f5819a = c();
+                c0198a.f5820b = d();
+                c0198a.f5821c = b();
+                if (f5822a) {
+                    String str = "getCodeCacheConfig() maxCount: " + c0198a.f5819a + " ,sizeLimit: " + c0198a.f5820b + " ,diskSizeThreshold: " + c0198a.f5821c;
                 }
                 return c0198a;
             }
@@ -131,7 +131,7 @@ public final class a {
                 return;
             }
         }
-        f5810a = k.f7077a;
+        f5818a = k.f7085a;
     }
 
     @NonNull
@@ -149,11 +149,11 @@ public final class a {
                 codeCacheSetting.sizeLimit = 102400;
             } else {
                 C0198a a2 = b.a();
-                codeCacheSetting.maxCount = a2.f5811a;
-                codeCacheSetting.sizeLimit = a2.f5812b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = a2.f5813c;
+                codeCacheSetting.maxCount = a2.f5819a;
+                codeCacheSetting.sizeLimit = a2.f5820b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = a2.f5821c;
             }
-            if (f5810a) {
+            if (f5818a) {
                 String str3 = "buildCacheSetting cacheType: " + str;
                 String str4 = "buildCacheSetting maxCount: " + codeCacheSetting.maxCount;
                 String str5 = "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit;

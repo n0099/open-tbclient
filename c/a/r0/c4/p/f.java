@@ -33,13 +33,13 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f16819a;
+    public String f16829a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f16820b;
+    public BdUniqueId f16830b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f16821c;
+    public e f16831c;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -53,7 +53,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f16822a;
+        public final /* synthetic */ f f16832a;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class f {
                     return;
                 }
             }
-            this.f16822a = fVar;
+            this.f16832a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,7 +86,7 @@ public class f {
                 if (cVarArr.length == 0 || (cVar = cVarArr[0]) == null) {
                     return null;
                 }
-                c.a.e.e.a.f.c cVar2 = new c.a.e.e.a.f.c("images", TbMd5.getNameMd5FromUrl(cVar.f16814i + 42), DiskFileOperate.Action.READ);
+                c.a.e.e.a.f.c cVar2 = new c.a.e.e.a.f.c("images", TbMd5.getNameMd5FromUrl(cVar.f16824i + 42), DiskFileOperate.Action.READ);
                 cVar2.setSubFolder(true);
                 cVar2.setIsFormatData(false);
                 ImageUploadResult m = new c.a.q0.d0.f(null).m(c(cVar2.buildPath(), cVar2.getName()), true, false);
@@ -107,7 +107,7 @@ public class f {
                     }
                 }
                 if (StringUtils.isNull(str)) {
-                    str = cVar.f16815j;
+                    str = cVar.f16825j;
                 }
                 NetWork netWork = new NetWork();
                 netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
@@ -120,8 +120,8 @@ public class f {
                 }
                 netWork.addPostData("new_vcode", "1");
                 netWork.addPostData("content", cVar.m);
-                netWork.addPostData("fid", cVar.f16810e);
-                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, cVar.f16811f);
+                netWork.addPostData("fid", cVar.f16820e);
+                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, cVar.f16821f);
                 netWork.addPostData("is_hide", "0");
                 netWork.addPostData(IntentConfig.CALL_FROM, "2");
                 netWork.addPostData("title", cVar.m);
@@ -129,7 +129,7 @@ public class f {
                 netWork.addPostData("st_type", "notitle");
                 netWork.addPostData("is_location", "2");
                 Address h2 = c.a.e.e.i.a.l().h(false);
-                if (h2 != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(cVar.f16810e)) {
+                if (h2 != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(cVar.f16820e)) {
                     netWork.addPostData("lbs", String.valueOf(h2.getLatitude()) + "," + String.valueOf(h2.getLongitude()));
                     netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(h2.getLatitude()));
                     netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(h2.getLongitude()));
@@ -143,13 +143,13 @@ public class f {
                 if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
                     netWork.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
                 }
-                netWork.addPostData("tbopen_app_key", cVar.f16806a);
-                netWork.addPostData("tbopen_app_icon", cVar.f16809d);
-                netWork.addPostData("tbopen_app_name", cVar.f16808c);
-                netWork.addPostData("share_abstract", cVar.f16813h);
+                netWork.addPostData("tbopen_app_key", cVar.f16816a);
+                netWork.addPostData("tbopen_app_icon", cVar.f16819d);
+                netWork.addPostData("tbopen_app_name", cVar.f16818c);
+                netWork.addPostData("share_abstract", cVar.f16823h);
                 netWork.addPostData("share_image", str);
                 netWork.addPostData("share_h5_url", cVar.k);
-                netWork.addPostData("share_swan_app_key", cVar.f16807b);
+                netWork.addPostData("share_swan_app_key", cVar.f16817b);
                 netWork.addPostData("share_swan_path", cVar.l);
                 String postNetData = netWork.postNetData();
                 d dVar = new d();
@@ -157,8 +157,8 @@ public class f {
                     JSONObject jSONObject = new JSONObject(postNetData);
                     jSONObject.optString("msg");
                     jSONObject.optString("pre_msg");
-                    dVar.f16817b = cVar.f16810e;
-                    dVar.f16818c = jSONObject.optString("tid");
+                    dVar.f16827b = cVar.f16820e;
+                    dVar.f16828c = jSONObject.optString("tid");
                     jSONObject.optString("pid");
                     jSONObject.optString("video_id");
                 } catch (Exception unused) {
@@ -173,7 +173,7 @@ public class f {
                 if (errorData.error_code != 0 && !j.z()) {
                     errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
                 }
-                dVar.f16816a = errorData;
+                dVar.f16826a = errorData;
                 try {
                     new AntiData().parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
                 } catch (Exception unused2) {
@@ -187,9 +187,9 @@ public class f {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                String str3 = this.f16822a.f16819a + str2;
+                String str3 = this.f16832a.f16829a + str2;
                 if (str != null) {
-                    return this.f16822a.f16819a + str + "/" + str2;
+                    return this.f16832a.f16829a + str + "/" + str2;
                 }
                 return str3;
             }
@@ -201,10 +201,10 @@ public class f {
         /* renamed from: d */
         public void onPostExecute(d dVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) || this.f16822a.f16821c == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) || this.f16832a.f16831c == null) {
                 return;
             }
-            this.f16822a.f16821c.a(dVar);
+            this.f16832a.f16831c.a(dVar);
         }
 
         public /* synthetic */ b(f fVar, a aVar) {
@@ -227,14 +227,14 @@ public class f {
                 return;
             }
         }
-        this.f16819a = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
-        this.f16820b = bdUniqueId;
+        this.f16829a = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+        this.f16830b = bdUniqueId;
     }
 
     public void c(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f16821c = eVar;
+            this.f16831c = eVar;
         }
     }
 
@@ -242,7 +242,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             b bVar = new b(this, null);
-            bVar.setTag(this.f16820b);
+            bVar.setTag(this.f16830b);
             bVar.execute(cVar);
         }
     }

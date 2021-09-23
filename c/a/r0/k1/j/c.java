@@ -26,34 +26,34 @@ public class c extends d<UpdatesActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f21443a;
+    public View f21457a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f21444b;
+    public View f21458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public UpdatesActivity f21445c;
+    public UpdatesActivity f21459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdListView f21446d;
+    public BdListView f21460d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f21447e;
+    public a f21461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressBar f21448f;
+    public ProgressBar f21462f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f21449g;
+    public Button f21463g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f21450h;
+    public Button f21464h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Button f21451i;
+    public Button f21465i;
 
     /* renamed from: j  reason: collision with root package name */
-    public NavigationBar f21452j;
+    public NavigationBar f21466j;
     public View k;
     public View l;
 
@@ -75,20 +75,20 @@ public class c extends d<UpdatesActivity> {
                 return;
             }
         }
-        this.f21445c = updatesActivity;
+        this.f21459c = updatesActivity;
         k();
-        a aVar = new a(this.f21445c);
-        this.f21447e = aVar;
-        this.f21446d.setAdapter((ListAdapter) aVar);
-        this.f21446d.setOnScrollListener(this.f21445c);
+        a aVar = new a(this.f21459c);
+        this.f21461e = aVar;
+        this.f21460d.setAdapter((ListAdapter) aVar);
+        this.f21460d.setOnScrollListener(this.f21459c);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21449g.setVisibility(0);
-            this.f21444b.setVisibility(0);
-            this.f21450h.setVisibility(8);
+            this.f21463g.setVisibility(0);
+            this.f21458b.setVisibility(0);
+            this.f21464h.setVisibility(8);
             this.k.setVisibility(8);
             n(0);
             l();
@@ -98,9 +98,9 @@ public class c extends d<UpdatesActivity> {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f21449g.setVisibility(8);
-            this.f21444b.setVisibility(8);
-            this.f21450h.setVisibility(0);
+            this.f21463g.setVisibility(8);
+            this.f21458b.setVisibility(8);
+            this.f21464h.setVisibility(0);
             this.k.setVisibility(0);
             l();
         }
@@ -111,75 +111,75 @@ public class c extends d<UpdatesActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.destroy();
-            a aVar = this.f21447e;
+            a aVar = this.f21461e;
             if (aVar != null) {
                 aVar.a();
-                this.f21447e = null;
+                this.f21461e = null;
             }
-            this.f21445c = null;
+            this.f21459c = null;
         }
     }
 
     public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21444b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21458b : (View) invokeV.objValue;
     }
 
     public Button f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21450h : (Button) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21464h : (Button) invokeV.objValue;
     }
 
     public Button g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21451i : (Button) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21465i : (Button) invokeV.objValue;
     }
 
     public Button h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21449g : (Button) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21463g : (Button) invokeV.objValue;
     }
 
     public a i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f21447e : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f21461e : (a) invokeV.objValue;
     }
 
     public BdListView j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f21446d : (BdListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f21460d : (BdListView) invokeV.objValue;
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            View inflate = View.inflate(this.f21445c.getPageContext().getPageActivity(), R.layout.updates_activity, null);
-            this.f21443a = inflate;
-            this.f21445c.setContentView(inflate);
-            NavigationBar navigationBar = (NavigationBar) this.f21445c.findViewById(R.id.view_navigation_bar);
-            this.f21452j = navigationBar;
-            this.f21444b = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f21452j.setTitleText(this.f21445c.getPageContext().getString(R.string.updates_activity_title));
-            this.k = this.f21452j.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.updates_activity_nav_left, (View.OnClickListener) null);
-            this.l = this.f21452j.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.updates_activity_nav_right, (View.OnClickListener) null);
+            View inflate = View.inflate(this.f21459c.getPageContext().getPageActivity(), R.layout.updates_activity, null);
+            this.f21457a = inflate;
+            this.f21459c.setContentView(inflate);
+            NavigationBar navigationBar = (NavigationBar) this.f21459c.findViewById(R.id.view_navigation_bar);
+            this.f21466j = navigationBar;
+            this.f21458b = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.f21466j.setTitleText(this.f21459c.getPageContext().getString(R.string.updates_activity_title));
+            this.k = this.f21466j.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.updates_activity_nav_left, (View.OnClickListener) null);
+            this.l = this.f21466j.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.updates_activity_nav_right, (View.OnClickListener) null);
             Button button = (Button) this.k.findViewById(R.id.btn_delete);
-            this.f21451i = button;
-            button.setOnClickListener(this.f21445c);
-            this.f21444b.setOnClickListener(this.f21445c);
-            this.f21446d = (BdListView) this.f21443a.findViewById(R.id.updates_list);
-            this.f21448f = (ProgressBar) this.f21443a.findViewById(R.id.pro_load);
+            this.f21465i = button;
+            button.setOnClickListener(this.f21459c);
+            this.f21458b.setOnClickListener(this.f21459c);
+            this.f21460d = (BdListView) this.f21457a.findViewById(R.id.updates_list);
+            this.f21462f = (ProgressBar) this.f21457a.findViewById(R.id.pro_load);
             Button button2 = (Button) this.l.findViewById(R.id.btn_edit);
-            this.f21449g = button2;
-            button2.setOnClickListener(this.f21445c);
+            this.f21463g = button2;
+            button2.setOnClickListener(this.f21459c);
             Button button3 = (Button) this.l.findViewById(R.id.btn_cancel);
-            this.f21450h = button3;
-            button3.setOnClickListener(this.f21445c);
+            this.f21464h = button3;
+            button3.setOnClickListener(this.f21459c);
             n(0);
             o(false);
         }
@@ -188,7 +188,7 @@ public class c extends d<UpdatesActivity> {
     public void l() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (aVar = this.f21447e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (aVar = this.f21461e) == null) {
             return;
         }
         aVar.notifyDataSetChanged();
@@ -197,7 +197,7 @@ public class c extends d<UpdatesActivity> {
     public void m(List<UpdatesItemData> list) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, list) == null) || (aVar = this.f21447e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, list) == null) || (aVar = this.f21461e) == null) {
             return;
         }
         aVar.c(list);
@@ -207,31 +207,31 @@ public class c extends d<UpdatesActivity> {
         Button button;
         UpdatesActivity updatesActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (button = this.f21451i) == null || (updatesActivity = this.f21445c) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (button = this.f21465i) == null || (updatesActivity = this.f21459c) == null) {
             return;
         }
         button.setText(String.format(updatesActivity.getPageContext().getString(R.string.del_count), Integer.valueOf(i2)));
         if (i2 == 0) {
-            this.f21451i.setEnabled(false);
+            this.f21465i.setEnabled(false);
         } else {
-            this.f21451i.setEnabled(true);
+            this.f21465i.setEnabled(true);
         }
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f21448f.setVisibility(z ? 0 : 8);
+            this.f21462f.setVisibility(z ? 0 : 8);
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f21445c.getLayoutMode().k(i2 == 1);
-            this.f21445c.getLayoutMode().j(this.f21443a);
-            this.f21452j.onChangeSkinType(this.f21445c.getPageContext(), i2);
-            SkinManager.setBackgroundResource(this.f21451i, R.drawable.btn_delete_groupupdates);
+            this.f21459c.getLayoutMode().k(i2 == 1);
+            this.f21459c.getLayoutMode().j(this.f21457a);
+            this.f21466j.onChangeSkinType(this.f21459c.getPageContext(), i2);
+            SkinManager.setBackgroundResource(this.f21465i, R.drawable.btn_delete_groupupdates);
         }
     }
 }

@@ -31,23 +31,23 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f8356e;
+    public static final boolean f8364e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static j f8357f;
+    public static j f8365f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, JSONArray> f8358a;
+    public Map<String, JSONArray> f8366a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String[] f8359b;
+    public String[] f8367b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8360c;
+    public String f8368c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f8361d;
+    public Map<String, String> f8369d;
 
     /* loaded from: classes.dex */
     public static abstract class a {
@@ -86,19 +86,19 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AtomicInteger f8362a;
+        public AtomicInteger f8370a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f8363b;
+        public boolean f8371b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f8364c;
+        public int f8372c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f8365d;
+        public a f8373d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f8366e;
+        public final /* synthetic */ j f8374e;
 
         public b(j jVar, int i2, a aVar) {
             Interceptable interceptable = $ic;
@@ -115,17 +115,17 @@ public class j {
                     return;
                 }
             }
-            this.f8366e = jVar;
-            this.f8362a = new AtomicInteger(0);
-            this.f8364c = i2;
-            this.f8365d = aVar;
+            this.f8374e = jVar;
+            this.f8370a = new AtomicInteger(0);
+            this.f8372c = i2;
+            this.f8373d = aVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, exc) == null) || this.f8363b || this.f8362a.incrementAndGet() < this.f8364c || (aVar = this.f8365d) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, exc) == null) || this.f8371b || this.f8370a.incrementAndGet() < this.f8372c || (aVar = this.f8373d) == null) {
                 return;
             }
             aVar.b(c.a.p0.a.h.aiapps_debug_report_fail);
@@ -135,9 +135,9 @@ public class j {
         public void onSuccess(Object obj, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i2) == null) {
-                this.f8363b = true;
-                this.f8366e.f8358a = new ArrayMap();
-                a aVar = this.f8365d;
+                this.f8371b = true;
+                this.f8374e.f8366a = new ArrayMap();
+                a aVar = this.f8373d;
                 if (aVar != null) {
                     aVar.b(c.a.p0.a.h.aiapps_debug_report_success);
                 }
@@ -153,7 +153,7 @@ public class j {
                     try {
                         return response.body().string();
                     } catch (IOException unused) {
-                        boolean unused2 = j.f8356e;
+                        boolean unused2 = j.f8364e;
                     }
                 }
                 return null;
@@ -175,7 +175,7 @@ public class j {
                 return;
             }
         }
-        f8356e = k.f7077a;
+        f8364e = k.f7085a;
     }
 
     public j() {
@@ -191,37 +191,37 @@ public class j {
                 return;
             }
         }
-        this.f8358a = new ArrayMap();
-        this.f8360c = "";
-        this.f8361d = new HashMap();
+        this.f8366a = new ArrayMap();
+        this.f8368c = "";
+        this.f8369d = new HashMap();
     }
 
     public static j e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f8357f == null) {
+            if (f8365f == null) {
                 synchronized (j.class) {
-                    if (f8357f == null) {
-                        f8357f = new j();
+                    if (f8365f == null) {
+                        f8365f = new j();
                     }
                 }
             }
-            return f8357f;
+            return f8365f;
         }
         return (j) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || this.f8358a == null || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || this.f8366a == null || jSONObject == null) {
             return;
         }
         String U = c.a.p0.a.g1.f.V().U();
-        JSONArray jSONArray = this.f8358a.get(U);
+        JSONArray jSONArray = this.f8366a.get(U);
         if (jSONArray == null) {
             jSONArray = new JSONArray();
-            this.f8358a.put(U, jSONArray);
+            this.f8366a.put(U, jSONArray);
         }
         jSONArray.put(jSONObject);
     }
@@ -230,17 +230,17 @@ public class j {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (!f() || i2 >= this.f8359b.length) {
+            if (!f() || i2 >= this.f8367b.length) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
             sb.append("http://");
-            sb.append(this.f8359b[i2]);
+            sb.append(this.f8367b[i2]);
             sb.append(":");
-            sb.append(this.f8360c);
+            sb.append(this.f8368c);
             sb.append("/uploadTraceData");
             sb.append("?");
-            for (Map.Entry<String, String> entry : this.f8361d.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f8369d.entrySet()) {
                 sb.append(entry.getKey());
                 sb.append("=");
                 sb.append(entry.getValue());
@@ -254,8 +254,8 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String[] strArr = this.f8359b;
-            return (strArr == null || strArr.length <= 0 || TextUtils.isEmpty(this.f8360c)) ? false : true;
+            String[] strArr = this.f8367b;
+            return (strArr == null || strArr.length <= 0 || TextUtils.isEmpty(this.f8368c)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -267,23 +267,23 @@ public class j {
                 c.a.p0.a.z1.b.f.e.f(c.a.p0.a.a2.d.g().x(), c.a.p0.a.h.aiapps_debug_report_invalid_params).F();
                 return;
             }
-            Map<String, JSONArray> map = this.f8358a;
+            Map<String, JSONArray> map = this.f8366a;
             if (map != null && map.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
                 try {
-                    for (Map.Entry<String, JSONArray> entry : this.f8358a.entrySet()) {
+                    for (Map.Entry<String, JSONArray> entry : this.f8366a.entrySet()) {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.putOpt("path", entry.getKey());
                         jSONObject.putOpt("data", entry.getValue().toString());
                         jSONArray.put(jSONObject);
                     }
                 } catch (JSONException unused) {
-                    boolean z = f8356e;
+                    boolean z = f8364e;
                 }
                 c.a.p0.m.c.f postRequest = c.a.p0.m.e.a.g().postRequest();
                 postRequest.requestBody(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jSONArray.toString()));
                 postRequest.connectionTimeout(3000);
-                int min = Math.min(this.f8359b.length, 4);
+                int min = Math.min(this.f8367b.length, 4);
                 b bVar = new b(this, min, aVar);
                 for (int i2 = 0; i2 < min; i2++) {
                     postRequest.url(d(i2));
@@ -309,16 +309,16 @@ public class j {
         String string2 = bundle.getString("tool_port");
         String string3 = bundle.getString("projectId");
         if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
-            if (f8356e) {
+            if (f8364e) {
                 String str = "IP : " + string;
                 String str2 = "Port : " + string2;
                 String str3 = "Project ID : " + string3;
             }
-            this.f8359b = string.split("_");
-            this.f8360c = string2;
-            this.f8361d.put("projectId", string3);
+            this.f8367b = string.split("_");
+            this.f8368c = string2;
+            this.f8369d.put("projectId", string3);
             return;
         }
-        boolean z = f8356e;
+        boolean z = f8364e;
     }
 }

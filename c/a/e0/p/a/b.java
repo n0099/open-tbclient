@@ -24,10 +24,10 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a.C0065a> f3252e;
+    public List<a.C0065a> f3253e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f3253f;
+    public Context f3254f;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -35,13 +35,13 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f3254a;
+        public TextView f3255a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f3255b;
+        public TextView f3256b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f3256c;
+        public ImageView f3257c;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -58,9 +58,9 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f3254a = (TextView) view.findViewById(f.coupon_title);
-            this.f3255b = (TextView) view.findViewById(f.coupon_subtitle);
-            this.f3256c = (ImageView) view.findViewById(f.select_icon);
+            this.f3255a = (TextView) view.findViewById(f.coupon_title);
+            this.f3256b = (TextView) view.findViewById(f.coupon_subtitle);
+            this.f3257c = (ImageView) view.findViewById(f.select_icon);
         }
     }
 
@@ -79,13 +79,13 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f3253f = context;
+        this.f3254f = context;
     }
 
     public void a(List<a.C0065a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f3252e = list;
+            this.f3253e = list;
             notifyDataSetChanged();
         }
     }
@@ -97,8 +97,8 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 < this.f3252e.size()) {
-                return this.f3252e.get(i2);
+            if (i2 < this.f3253e.size()) {
+                return this.f3253e.get(i2);
             }
             return null;
         }
@@ -110,7 +110,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<a.C0065a> list = this.f3252e;
+            List<a.C0065a> list = this.f3253e;
             if (list == null) {
                 return 0;
             }
@@ -139,19 +139,19 @@ public class b extends BaseAdapter {
                 return view;
             }
             if (view == null) {
-                view = LayoutInflater.from(this.f3253f).inflate(g.coupon_list_item, (ViewGroup) null, false);
+                view = LayoutInflater.from(this.f3254f).inflate(g.coupon_list_item, (ViewGroup) null, false);
                 view.setTag(new a(view));
             }
             if (view.getTag() != null && (view.getTag() instanceof a)) {
                 a aVar = (a) view.getTag();
-                aVar.f3254a.setText(item.f3246c);
-                if (TextUtils.isEmpty(item.f3247d)) {
-                    aVar.f3255b.setVisibility(8);
+                aVar.f3255a.setText(item.f3247c);
+                if (TextUtils.isEmpty(item.f3248d)) {
+                    aVar.f3256b.setVisibility(8);
                 } else {
-                    aVar.f3255b.setVisibility(0);
-                    aVar.f3255b.setText(item.f3247d);
+                    aVar.f3256b.setVisibility(0);
+                    aVar.f3256b.setText(item.f3248d);
                 }
-                aVar.f3256c.setSelected(item.f3250g == 1);
+                aVar.f3257c.setSelected(item.f3251g == 1);
             }
             return view;
         }

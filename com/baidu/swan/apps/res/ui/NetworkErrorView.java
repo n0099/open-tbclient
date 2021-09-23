@@ -26,7 +26,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46288e;
+    public int f46390e;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -34,7 +34,7 @@ public class NetworkErrorView extends CommonEmptyView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f46289a;
+        public Object f46391a;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class NetworkErrorView extends CommonEmptyView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, view) == null) {
             a aVar = new a(1);
-            aVar.f46289a = view;
+            aVar.f46391a = view;
             BdEventBus.Companion.getDefault().post(aVar);
         }
     }
@@ -94,7 +94,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public boolean isNight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46288e == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46390e == 2 : invokeV.booleanValue;
     }
 
     public void setBottomLayout(View.OnClickListener onClickListener, View view, RelativeLayout.LayoutParams layoutParams) {
@@ -155,7 +155,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public void updateUI(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f46288e = i2;
+            this.f46390e = i2;
             if (i2 == 2) {
                 setBackgroundColor(-16777216);
                 this.mIcon.setAlpha(0.5f);

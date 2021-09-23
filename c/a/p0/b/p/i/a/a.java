@@ -20,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import i.d;
 import i.j;
 import java.util.concurrent.TimeUnit;
@@ -40,19 +41,19 @@ public abstract class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.b.p.i.b.a f10269e;
+        public final /* synthetic */ c.a.p0.b.p.i.b.a f10277e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f10270f;
+        public final /* synthetic */ Context f10278f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10271g;
+        public final /* synthetic */ CallbackHandler f10279g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f10272h;
+        public final /* synthetic */ String f10280h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f10273i;
+        public final /* synthetic */ a f10281i;
 
         public C0506a(a aVar, c.a.p0.b.p.i.b.a aVar2, Context context, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -69,11 +70,11 @@ public abstract class a extends a0 {
                     return;
                 }
             }
-            this.f10273i = aVar;
-            this.f10269e = aVar2;
-            this.f10270f = context;
-            this.f10271g = callbackHandler;
-            this.f10272h = str;
+            this.f10281i = aVar;
+            this.f10277e = aVar2;
+            this.f10278f = context;
+            this.f10279g = callbackHandler;
+            this.f10280h = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,8 +83,8 @@ public abstract class a extends a0 {
         public void call(c.a.p0.b.p.i.b.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                c.a.p0.b.p.i.c.a.b(this.f10269e, bVar);
-                this.f10273i.t(this.f10270f, this.f10271g, this.f10272h, this.f10269e);
+                c.a.p0.b.p.i.c.a.b(this.f10277e, bVar);
+                this.f10281i.t(this.f10278f, this.f10279g, this.f10280h, this.f10277e);
             }
         }
     }
@@ -94,19 +95,19 @@ public abstract class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f10274e;
+        public final /* synthetic */ Context f10282e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10275f;
+        public final /* synthetic */ CallbackHandler f10283f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10276g;
+        public final /* synthetic */ String f10284g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.b.p.i.b.a f10277h;
+        public final /* synthetic */ c.a.p0.b.p.i.b.a f10285h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f10278i;
+        public final /* synthetic */ a f10286i;
 
         public b(a aVar, Context context, CallbackHandler callbackHandler, String str, c.a.p0.b.p.i.b.a aVar2) {
             Interceptable interceptable = $ic;
@@ -123,11 +124,11 @@ public abstract class a extends a0 {
                     return;
                 }
             }
-            this.f10278i = aVar;
-            this.f10274e = context;
-            this.f10275f = callbackHandler;
-            this.f10276g = str;
-            this.f10277h = aVar2;
+            this.f10286i = aVar;
+            this.f10282e = context;
+            this.f10283f = callbackHandler;
+            this.f10284g = str;
+            this.f10285h = aVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,7 +138,7 @@ public abstract class a extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
                 c.a.p0.a.e0.d.l("recommend", "get param(l) info fail: " + th.getMessage());
-                this.f10278i.t(this.f10274e, this.f10275f, this.f10276g, this.f10277h);
+                this.f10286i.t(this.f10282e, this.f10283f, this.f10284g, this.f10285h);
             }
         }
     }
@@ -154,7 +155,7 @@ public abstract class a extends a0 {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ j f10279a;
+            public final /* synthetic */ j f10287a;
 
             public C0507a(c cVar, j jVar) {
                 Interceptable interceptable = $ic;
@@ -171,7 +172,7 @@ public abstract class a extends a0 {
                         return;
                     }
                 }
-                this.f10279a = jVar;
+                this.f10287a = jVar;
             }
 
             @Override // c.a.p0.a.c1.d.d.a
@@ -179,15 +180,15 @@ public abstract class a extends a0 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                     c.a.p0.b.p.i.b.b bVar2 = new c.a.p0.b.p.i.b.b();
-                    if (bVar != null && !TextUtils.isEmpty(bVar.f4949a)) {
-                        bVar2.f10302a = bVar.f4949a;
-                        bVar2.f10303b = bVar.f4951c;
-                        bVar2.f10304c = bVar.f4950b;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.f4957a)) {
+                        bVar2.f10310a = bVar.f4957a;
+                        bVar2.f10311b = bVar.f4959c;
+                        bVar2.f10312c = bVar.f4958b;
                     } else {
-                        bVar2.f10302a = "unknown";
+                        bVar2.f10310a = "unknown";
                     }
-                    this.f10279a.onNext(bVar2);
-                    this.f10279a.onCompleted();
+                    this.f10287a.onNext(bVar2);
+                    this.f10287a.onCompleted();
                 }
             }
 
@@ -195,7 +196,7 @@ public abstract class a extends a0 {
             public void onFailed(int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                    this.f10279a.onError(new Throwable());
+                    this.f10287a.onError(new Throwable());
                 }
             }
         }
@@ -233,10 +234,10 @@ public abstract class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10280e;
+        public final /* synthetic */ CallbackHandler f10288e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10281f;
+        public final /* synthetic */ String f10289f;
 
         public d(a aVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -253,8 +254,8 @@ public abstract class a extends a0 {
                     return;
                 }
             }
-            this.f10280e = callbackHandler;
-            this.f10281f = str;
+            this.f10288e = callbackHandler;
+            this.f10289f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -265,11 +266,11 @@ public abstract class a extends a0 {
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 if (jSONObject == null) {
                     c.a.p0.a.e0.d.b("recommend", "response is null");
-                    this.f10280e.handleSchemeDispatchCallback(this.f10281f, UnitedSchemeUtility.wrapCallbackParams(1001, "response is null").toString());
+                    this.f10288e.handleSchemeDispatchCallback(this.f10289f, UnitedSchemeUtility.wrapCallbackParams(1001, "response is null").toString());
                     return;
                 }
                 c.a.p0.a.e0.d.g("recommend", "recommend action execute success");
-                this.f10280e.handleSchemeDispatchCallback(this.f10281f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                this.f10288e.handleSchemeDispatchCallback(this.f10289f, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             }
         }
     }
@@ -280,7 +281,7 @@ public abstract class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f10282a;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f10290a;
 
         public e(a aVar, c.a.p0.a.v2.e1.b bVar) {
             Interceptable interceptable = $ic;
@@ -297,7 +298,7 @@ public abstract class a extends a0 {
                     return;
                 }
             }
-            this.f10282a = bVar;
+            this.f10290a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -310,15 +311,15 @@ public abstract class a extends a0 {
                     JSONObject jSONObject2 = new JSONObject();
                     try {
                         jSONObject2.put("info", "on success but jsonObject is null");
-                        jSONObject2.put("statusCode", i2);
+                        jSONObject2.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, i2);
                     } catch (JSONException e2) {
-                        if (a0.f4766b) {
+                        if (a0.f4774b) {
                             e2.printStackTrace();
                         }
                     }
                     c.a.p0.b.p.i.c.a.f(jSONObject2.toString());
                 }
-                this.f10282a.onCallback(jSONObject);
+                this.f10290a.onCallback(jSONObject);
             }
         }
 
@@ -343,7 +344,7 @@ public abstract class a extends a0 {
                             }
                             jSONObject.put("response body", str);
                         } catch (JSONException e2) {
-                            if (a0.f4766b) {
+                            if (a0.f4774b) {
                                 e2.printStackTrace();
                             }
                         }
@@ -366,7 +367,7 @@ public abstract class a extends a0 {
                         }
                     }
                 } catch (JSONException e3) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e3.printStackTrace();
                     }
                 }
@@ -381,12 +382,12 @@ public abstract class a extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
                 c.a.p0.a.e0.d.c("recommend", "http response with exception:", exc);
-                this.f10282a.onCallback(null);
+                this.f10290a.onCallback(null);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("info", "http request fail with exception : " + exc.getMessage());
                 } catch (JSONException e2) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e2.printStackTrace();
                     }
                 }
@@ -421,7 +422,7 @@ public abstract class a extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             if (eVar == null) {
@@ -519,7 +520,7 @@ public abstract class a extends a0 {
                 try {
                     jSONObject.put("info", "encrypt request param fail");
                 } catch (JSONException e2) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e2.printStackTrace();
                     }
                 }

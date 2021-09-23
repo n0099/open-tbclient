@@ -14,7 +14,7 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f4311a;
+    public static final String[] f4318a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public final class g {
                 return;
             }
         }
-        f4311a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+        f4318a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
@@ -45,7 +45,7 @@ public final class g {
             if (b2 < 0) {
                 b2 += 256;
             }
-            return f4311a[b2 / 16] + f4311a[b2 % 16];
+            return f4318a[b2 / 16] + f4318a[b2 % 16];
         }
         return (String) invokeB.objValue;
     }

@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.base.statistics.f;
+import com.baidu.fsg.base.statistics.h;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -48,7 +48,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
             }
         }
         sEmptyList = new Locale[0];
-        LOCALE_EN_XA = new Locale(f.f39499a, "XA");
+        LOCALE_EN_XA = new Locale(h.f39556a, "XA");
         LOCALE_AR_XB = new Locale("ar", "XB");
         EN_LATN = LocaleListCompat.forLanguageTagCompat("en-Latn");
     }

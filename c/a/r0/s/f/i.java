@@ -14,7 +14,7 @@ public class i extends BdAsyncTask<Void, Void, Void> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f24553a;
+    public a f24569a;
 
     public i(a aVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class i extends BdAsyncTask<Void, Void, Void> {
                 return;
             }
         }
-        this.f24553a = aVar;
+        this.f24569a = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class i extends BdAsyncTask<Void, Void, Void> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (f.f().b(this.f24553a)) {
+            if (f.f().b(this.f24569a)) {
                 return null;
             }
             c.a.q0.s.d0.b j2 = c.a.q0.s.d0.b.j();

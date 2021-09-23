@@ -27,11 +27,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f29914b;
+    public static final boolean f29935b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29915a;
+    public Context f29936a;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class b {
                 return;
             }
         }
-        f29914b = AppConfig.isDebug();
+        f29935b = AppConfig.isDebug();
     }
 
     public b(Context context) {
@@ -64,7 +64,7 @@ public class b {
                 return;
             }
         }
-        this.f29915a = context;
+        this.f29936a = context;
     }
 
     public final boolean a(j0 j0Var) {
@@ -73,7 +73,7 @@ public class b {
         Throwable th;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, j0Var)) == null) {
-            File file = new File(this.f29915a.getFilesDir() + File.separator + "ubcdir", "proc");
+            File file = new File(this.f29936a.getFilesDir() + File.separator + "ubcdir", "proc");
             if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
                 return false;
             }
@@ -104,7 +104,7 @@ public class b {
                                         j3 = j4;
                                     }
                                 }
-                                if (f29914b) {
+                                if (f29935b) {
                                     jSONObject.toString();
                                 }
                                 j0Var.b(jSONObject);
@@ -133,7 +133,7 @@ public class b {
                             }
                         }
                         j0Var.I(j2, j3);
-                        if (f29914b) {
+                        if (f29935b) {
                             String str = "line num " + i2 + " delete file ";
                         }
                         try {
@@ -157,7 +157,7 @@ public class b {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            File file = new File(this.f29915a.getFilesDir(), "ubcdir");
+            File file = new File(this.f29936a.getFilesDir(), "ubcdir");
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -177,7 +177,7 @@ public class b {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            File file = new File(this.f29915a.getFilesDir(), "ubcdir");
+            File file = new File(this.f29936a.getFilesDir(), "ubcdir");
             if (file.exists()) {
                 File file2 = new File(file, z ? "filereal" : "filedata");
                 if (file2.exists()) {
@@ -221,11 +221,11 @@ public class b {
                 }
                 jSONObject.put(Constant.ID_TYPE, g.n().v(nVar.j()));
             } catch (JSONException e2) {
-                if (f29914b) {
+                if (f29935b) {
                     e2.getMessage();
                 }
             }
-            if (f29914b) {
+            if (f29935b) {
                 String str = "saveEvent:" + jSONObject.toString();
             }
             byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -287,7 +287,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, j0Var)) == null) {
-            File file = new File(this.f29915a.getFilesDir(), "ubcdir");
+            File file = new File(this.f29936a.getFilesDir(), "ubcdir");
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -323,12 +323,12 @@ public class b {
                                 z = true;
                             } catch (Exception unused) {
                                 bufferedReader = bufferedReader2;
-                                boolean z2 = f29914b;
+                                boolean z2 = f29935b;
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
                                     } catch (Exception unused2) {
-                                        boolean z3 = f29914b;
+                                        boolean z3 = f29935b;
                                     }
                                 }
                                 if (z) {
@@ -341,7 +341,7 @@ public class b {
                                     try {
                                         bufferedReader.close();
                                     } catch (Exception unused3) {
-                                        boolean z4 = f29914b;
+                                        boolean z4 = f29935b;
                                     }
                                 }
                                 if (z && file2.exists()) {
@@ -354,7 +354,7 @@ public class b {
                         try {
                             bufferedReader2.close();
                         } catch (Exception unused4) {
-                            boolean z5 = f29914b;
+                            boolean z5 = f29935b;
                         }
                         if (z) {
                         }
@@ -407,7 +407,7 @@ public class b {
                                     a2 = true;
                                 } catch (Exception unused) {
                                     bufferedReader = bufferedReader2;
-                                    boolean z2 = f29914b;
+                                    boolean z2 = f29935b;
                                     if (bufferedReader != null) {
                                         bufferedReader.close();
                                     }
@@ -419,7 +419,7 @@ public class b {
                                         try {
                                             bufferedReader.close();
                                         } catch (Exception unused2) {
-                                            boolean z3 = f29914b;
+                                            boolean z3 = f29935b;
                                         }
                                     }
                                     throw th;
@@ -433,7 +433,7 @@ public class b {
                         th = th2;
                     }
                 } catch (Exception unused4) {
-                    boolean z4 = f29914b;
+                    boolean z4 = f29935b;
                 }
             }
             return a2;
@@ -458,7 +458,7 @@ public class b {
     public void i(n nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nVar) == null) {
-            File file = new File(this.f29915a.getFilesDir(), "ubcdir");
+            File file = new File(this.f29936a.getFilesDir(), "ubcdir");
             if (!file.exists()) {
                 file.mkdirs();
             }

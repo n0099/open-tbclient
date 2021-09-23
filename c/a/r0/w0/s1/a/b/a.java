@@ -32,11 +32,11 @@ public class a {
             for (GameForumSubTab gameForumSubTab : list) {
                 e eVar = new e();
                 if (gameForumSubTab != null) {
-                    eVar.f27796a = gameForumSubTab.id.intValue();
-                    eVar.f27797b = gameForumSubTab.sub_tab_name;
+                    eVar.f27816a = gameForumSubTab.id.intValue();
+                    eVar.f27817b = gameForumSubTab.sub_tab_name;
                     LabelDataList labelDataList = new LabelDataList();
                     labelDataList.parseProtu(gameForumSubTab.sub_label_list);
-                    eVar.f27798c = labelDataList;
+                    eVar.f27818c = labelDataList;
                     arrayList.add(eVar);
                 }
             }

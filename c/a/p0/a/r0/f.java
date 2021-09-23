@@ -19,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -36,20 +37,20 @@ public class f extends c.a.p0.a.k2.f.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static List<String> f8295e;
+    public static List<String> f8303e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8296a;
+    public Context f8304a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8297b;
+    public String f8305b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.p0.a.k2.f.d f8298c;
+    public final c.a.p0.a.k2.f.d f8306c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.p0.a.k2.f.e f8299d;
+    public final c.a.p0.a.k2.f.e f8307d;
 
     static {
         InterceptResult invokeClinit;
@@ -65,18 +66,18 @@ public class f extends c.a.p0.a.k2.f.c {
             }
         }
         ArrayList arrayList = new ArrayList();
-        f8295e = arrayList;
+        f8303e = arrayList;
         arrayList.add("ascii");
-        f8295e.add("base64");
-        f8295e.add("binary");
-        f8295e.add("hex");
-        f8295e.add("utf-8");
-        f8295e.add("utf8");
-        f8295e.add("latin1");
-        f8295e.add("ucs2");
-        f8295e.add("ucs-2");
-        f8295e.add("utf16le");
-        f8295e.add("utf-16le");
+        f8303e.add("base64");
+        f8303e.add("binary");
+        f8303e.add("hex");
+        f8303e.add("utf-8");
+        f8303e.add("utf8");
+        f8303e.add("latin1");
+        f8303e.add("ucs2");
+        f8303e.add("ucs-2");
+        f8303e.add("utf16le");
+        f8303e.add("utf-16le");
     }
 
     public f(Context context, String str, @NonNull c.a.p0.a.k2.f.d dVar) {
@@ -94,10 +95,10 @@ public class f extends c.a.p0.a.k2.f.c {
                 return;
             }
         }
-        this.f8296a = context;
-        this.f8297b = str;
-        this.f8298c = dVar;
-        this.f8299d = dVar.d();
+        this.f8304a = context;
+        this.f8305b = str;
+        this.f8306c = dVar;
+        this.f8307d = dVar.d();
     }
 
     public c A(String str, String str2) {
@@ -116,7 +117,7 @@ public class f extends c.a.p0.a.k2.f.c {
                 return d(-1, "fail permission denied, open " + str2);
             }
             String I = n.I(str);
-            if (!this.f8298c.j(I, true)) {
+            if (!this.f8306c.j(I, true)) {
                 return d(-4, n.D("fail no such file or directory ", ZeusPerformanceTiming.KEY_UNZIP, str, str2, true));
             }
             if (!n.R(str2)) {
@@ -163,13 +164,13 @@ public class f extends c.a.p0.a.k2.f.c {
                         j2 += n.x(str3);
                     }
                 }
-                if (this.f8299d.a(j2)) {
+                if (this.f8307d.a(j2)) {
                     n.g(arrayList);
                     return d(-1, p());
                 }
-                this.f8299d.b(j2);
+                this.f8307d.b(j2);
             }
-            return d(0, "ok");
+            return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
         }
         return (c) invokeLL.objValue;
     }
@@ -233,7 +234,7 @@ public class f extends c.a.p0.a.k2.f.c {
             if (equals) {
                 str6 = "latin1";
             }
-            boolean contains = f8295e.contains(str6.toLowerCase());
+            boolean contains = f8303e.contains(str6.toLowerCase());
             r14 = str6;
             if (!contains) {
                 return d(-1, "fail invalid encoding \"" + str6 + "\"");
@@ -253,7 +254,7 @@ public class f extends c.a.p0.a.k2.f.c {
             if (!TextUtils.isEmpty(str7)) {
                 length = str7.getBytes().length;
                 j2 = length;
-                if (!this.f8298c.d().a(j2)) {
+                if (!this.f8306c.d().a(j2)) {
                     return d(-1, p());
                 }
                 File file = new File(g2);
@@ -261,7 +262,7 @@ public class f extends c.a.p0.a.k2.f.c {
                     return d(-1, " fail illegal operation on a directory, open " + str);
                 }
                 long length3 = file.length();
-                c d2 = d(0, "ok");
+                c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
                 BufferedWriter bufferedWriter2 = null;
                 try {
                     try {
@@ -316,10 +317,10 @@ public class f extends c.a.p0.a.k2.f.c {
                                 fileOutputStream2 = fileOutputStream4;
                             }
                             if (z) {
-                                this.f8299d.b(j2);
+                                this.f8307d.b(j2);
                                 fileOutputStream = fileOutputStream2;
                             } else {
-                                this.f8299d.b(j2 - length3);
+                                this.f8307d.b(j2 - length3);
                                 fileOutputStream = fileOutputStream2;
                             }
                         } catch (Exception unused2) {
@@ -342,7 +343,7 @@ public class f extends c.a.p0.a.k2.f.c {
             length = ((byte[]) obj).length;
             j2 = length;
         }
-        if (!this.f8298c.d().a(j2)) {
+        if (!this.f8306c.d().a(j2)) {
         }
     }
 
@@ -371,7 +372,7 @@ public class f extends c.a.p0.a.k2.f.c {
                 return v;
             }
             String I = n.I(str);
-            if (!this.f8298c.j(I, true)) {
+            if (!this.f8306c.j(I, true)) {
                 return d(-4, n.C("fail no such file or directory ", "access", str, null));
             }
             String g2 = g(I);
@@ -380,7 +381,7 @@ public class f extends c.a.p0.a.k2.f.c {
             } else if (!new File(g2).exists()) {
                 return d(-1, n.C("fail no such file or directory ", "access", str, null));
             } else {
-                return d(0, "ok");
+                return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
             }
         }
         return (c) invokeLZ.objValue;
@@ -435,7 +436,7 @@ public class f extends c.a.p0.a.k2.f.c {
             }
             String I = n.I(str);
             boolean z2 = true;
-            if (!this.f8298c.j(I, true)) {
+            if (!this.f8306c.j(I, true)) {
                 return d(-4, n.C("fail no such file or directory ", "copyFile", str, null));
             }
             String I2 = n.I(str2);
@@ -454,7 +455,7 @@ public class f extends c.a.p0.a.k2.f.c {
             if (file.exists() && file.isFile()) {
                 c h2 = h(I2, false);
                 if (h2 != null) {
-                    h2.f8166b = n.C("fail no such file or directory ", "copyFile", str2, null);
+                    h2.f8174b = n.C("fail no such file or directory ", "copyFile", str2, null);
                     return h2;
                 } else if (I2.endsWith(File.separator)) {
                     return d(-1, n.C("fail permission denied, ", "copyFile", str, str2));
@@ -476,12 +477,12 @@ public class f extends c.a.p0.a.k2.f.c {
                     }
                     long x = n.x(g2);
                     z2 = (I.equals(I2) || I.startsWith(a.USER_DATA_PATH)) ? false : false;
-                    if (z2 && this.f8299d.a(x)) {
+                    if (z2 && this.f8307d.a(x)) {
                         return d(-1, p());
                     }
-                    c w = !I.equals(I2) ? w(I, I2) : d(0, "ok");
-                    if (z2 && w != null && w.f8165a == 0) {
-                        this.f8299d.b(x);
+                    c w = !I.equals(I2) ? w(I, I2) : d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+                    if (z2 && w != null && w.f8173a == 0) {
+                        this.f8307d.b(x);
                     }
                     return w;
                 }
@@ -496,8 +497,8 @@ public class f extends c.a.p0.a.k2.f.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, str)) == null) {
             c cVar = new c();
-            cVar.f8165a = i2;
-            cVar.f8166b = str;
+            cVar.f8173a = i2;
+            cVar.f8174b = str;
             return cVar;
         }
         return (c) invokeIL.objValue;
@@ -512,7 +513,7 @@ public class f extends c.a.p0.a.k2.f.c {
                 return v;
             }
             String I = n.I(str);
-            if (!this.f8298c.j(I, true)) {
+            if (!this.f8306c.j(I, true)) {
                 return d(-4, "fail file not exist");
             }
             String g2 = g(I);
@@ -526,9 +527,9 @@ public class f extends c.a.p0.a.k2.f.c {
             if (file.isDirectory()) {
                 return d(-1, "fail " + str + " is directory");
             }
-            c d2 = d(0, "ok");
-            d2.f8169e = file.exists() ? file.length() : 0L;
-            d2.f8171g = file.exists() ? c.a.p0.t.f.b(file, false) : null;
+            c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+            d2.f8177e = file.exists() ? file.length() : 0L;
+            d2.f8179g = file.exists() ? c.a.p0.t.f.b(file, false) : null;
             return d2;
         }
         return (c) invokeL.objValue;
@@ -540,29 +541,29 @@ public class f extends c.a.p0.a.k2.f.c {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
             if (TextUtils.isEmpty(str)) {
                 c cVar = new c();
-                cVar.f8165a = -1;
-                cVar.f8166b = "fail no such file or directory " + str;
+                cVar.f8173a = -1;
+                cVar.f8174b = "fail no such file or directory " + str;
                 return cVar;
             }
             String g2 = g(str);
             if (TextUtils.isEmpty(str)) {
                 c cVar2 = new c();
-                cVar2.f8165a = -1;
-                cVar2.f8166b = "fail no such file or directory " + str;
+                cVar2.f8173a = -1;
+                cVar2.f8174b = "fail no such file or directory " + str;
                 return cVar2;
             }
             File file = new File(g2);
             if (!file.exists()) {
                 c cVar3 = new c();
-                cVar3.f8165a = -1;
-                cVar3.f8166b = "fail no such file or directory " + str;
+                cVar3.f8173a = -1;
+                cVar3.f8174b = "fail no such file or directory " + str;
                 return cVar3;
             } else if (!z || file.isFile()) {
                 return null;
             } else {
                 c cVar4 = new c();
-                cVar4.f8165a = -1;
-                cVar4.f8166b = "fail no such file or directory " + str;
+                cVar4.f8173a = -1;
+                cVar4.f8174b = "fail no such file or directory " + str;
                 return cVar4;
             }
         }
@@ -578,16 +579,16 @@ public class f extends c.a.p0.a.k2.f.c {
                 return "";
             }
             if (!str.startsWith("bdfile://code")) {
-                return str.startsWith(WebGLImageLoader.BDFILE) ? this.f8298c.i(str) : "";
+                return str.startsWith(WebGLImageLoader.BDFILE) ? this.f8306c.i(str) : "";
             }
-            if (this.f8297b.endsWith(File.separator)) {
-                String str3 = this.f8297b;
+            if (this.f8305b.endsWith(File.separator)) {
+                String str3 = this.f8305b;
                 str2 = str3.substring(0, str3.length() - 1);
             } else {
-                str2 = this.f8297b;
+                str2 = this.f8305b;
             }
-            this.f8297b = str2;
-            return this.f8297b + str.substring(13);
+            this.f8305b = str2;
+            return this.f8305b + str.substring(13);
         }
         return (String) invokeL.objValue;
     }
@@ -622,7 +623,7 @@ public class f extends c.a.p0.a.k2.f.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            String f2 = this.f8298c.f();
+            String f2 = this.f8306c.f();
             String g2 = g(a.USER_DATA_PATH);
             if (TextUtils.isEmpty(g2)) {
                 return d(-1, "path must be a string");
@@ -635,7 +636,7 @@ public class f extends c.a.p0.a.k2.f.c {
                 dVar.createTime = file.exists() ? file.lastModified() : 0L;
                 String absolutePath = file.getAbsolutePath();
                 if (file.exists() && !TextUtils.isEmpty(absolutePath) && !TextUtils.isEmpty(f2) && absolutePath.startsWith(f2)) {
-                    dVar.filePath = this.f8298c.g(absolutePath);
+                    dVar.filePath = this.f8306c.g(absolutePath);
                 }
                 if (file.exists()) {
                     j2 = file.length();
@@ -643,8 +644,8 @@ public class f extends c.a.p0.a.k2.f.c {
                 dVar.size = j2;
                 arrayList.add(dVar);
             }
-            c d2 = d(0, "ok");
-            d2.f8170f = arrayList;
+            c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+            d2.f8178f = arrayList;
             return d2;
         }
         return (c) invokeV.objValue;
@@ -702,9 +703,9 @@ public class f extends c.a.p0.a.k2.f.c {
                     return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
                 }
             }
-            c d2 = d(0, "ok");
-            d2.f8168d = jVar;
-            d2.f8166b = "ok";
+            c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+            d2.f8176d = jVar;
+            d2.f8174b = NewBindCardEntry.BING_CARD_SUCCESS_MSG;
             return d2;
         }
         return (c) invokeLL.objValue;
@@ -800,7 +801,7 @@ public class f extends c.a.p0.a.k2.f.c {
                 if (!mkdir) {
                     return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
                 }
-                return d(0, "ok");
+                return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
             } catch (Exception unused) {
                 return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
             }
@@ -812,7 +813,7 @@ public class f extends c.a.p0.a.k2.f.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            String l = c.a.p0.t.d.l(this.f8299d.getMaxSize());
+            String l = c.a.p0.t.d.l(this.f8307d.getMaxSize());
             return String.format("fail file size over %s", (TextUtils.isEmpty(l) || TextUtils.equals(l, FileUtils.UNKNOW)) ? "" : "");
         }
         return (String) invokeV.objValue;
@@ -827,12 +828,12 @@ public class f extends c.a.p0.a.k2.f.c {
                 return v;
             }
             String I = n.I(str);
-            if (!this.f8298c.j(I, true)) {
+            if (!this.f8306c.j(I, true)) {
                 return d(-1, "fail permission denied, open " + str);
             }
             c f2 = f(I, true);
             if (f2 != null) {
-                f2.f8166b = n.C("fail no such file or directory ", "open", str, null);
+                f2.f8174b = n.C("fail no such file or directory ", "open", str, null);
                 return f2;
             }
             boolean isEmpty = TextUtils.isEmpty(str2);
@@ -842,7 +843,7 @@ public class f extends c.a.p0.a.k2.f.c {
                     str2 = "latin1";
                 }
             }
-            if (!isEmpty && !f8295e.contains(str2)) {
+            if (!isEmpty && !f8303e.contains(str2)) {
                 return d(-1, "fail Error: Unknown encoding: " + str2);
             }
             String g2 = g(I);
@@ -851,7 +852,7 @@ public class f extends c.a.p0.a.k2.f.c {
             }
             File file = new File(g2);
             byte[] bArr = new byte[0];
-            c d2 = d(0, "ok");
+            c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
             try {
                 String str3 = "";
                 if (TextUtils.isEmpty(str2)) {
@@ -867,11 +868,11 @@ public class f extends c.a.p0.a.k2.f.c {
                     str3 = r(new FileInputStream(file), str2);
                 }
                 if (TextUtils.isEmpty(str2)) {
-                    d2.f8172h = bArr;
+                    d2.f8180h = bArr;
                 } else {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(str3);
-                    d2.f8167c = arrayList;
+                    d2.f8175c = arrayList;
                 }
                 return d2;
             } catch (Exception e2) {
@@ -942,8 +943,8 @@ public class f extends c.a.p0.a.k2.f.c {
                         }
                     }
                 }
-                c d2 = d(0, "ok");
-                d2.f8167c = arrayList;
+                c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+                d2.f8175c = arrayList;
                 return d2;
             }
         }
@@ -972,8 +973,8 @@ public class f extends c.a.p0.a.k2.f.c {
                     if (!file.delete()) {
                         return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
                     }
-                    this.f8299d.b(-x);
-                    return d(0, "ok");
+                    this.f8307d.b(-x);
+                    return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
                 } catch (Exception unused) {
                     return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
                 }
@@ -998,23 +999,23 @@ public class f extends c.a.p0.a.k2.f.c {
             String I = n.I(str);
             c n = n(I);
             if (n != null) {
-                n.f8166b = n.C("fail permission denied, ", "rename", str, str2);
+                n.f8174b = n.C("fail permission denied, ", "rename", str, str2);
                 return n;
             }
             String I2 = n.I(str2);
             c n2 = n(I2);
             if (n2 != null) {
-                n2.f8166b = n.C("fail permission denied, ", "rename", str, str2);
+                n2.f8174b = n.C("fail permission denied, ", "rename", str, str2);
                 return n2;
             }
             c f2 = f(I, false);
             if (f2 != null) {
-                f2.f8166b = n.C("fail no such file or directory ", "rename", str, str2);
+                f2.f8174b = n.C("fail no such file or directory ", "rename", str, str2);
                 return f2;
             } else if (n.R(I) && n.R(I2)) {
                 c h2 = h(I2, false);
                 if (h2 != null) {
-                    h2.f8166b = n.C("fail no such file or directory ", "rename", str, str2);
+                    h2.f8174b = n.C("fail no such file or directory ", "rename", str, str2);
                     return h2;
                 }
                 String g2 = g(I);
@@ -1033,7 +1034,7 @@ public class f extends c.a.p0.a.k2.f.c {
                         if ((file2.isDirectory() && file2.listFiles() != null && file2.listFiles().length > 0) || !file.renameTo(file2)) {
                             return d(-1, "fail rename failed");
                         }
-                        return d(0, "ok");
+                        return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
                     } catch (Exception unused) {
                         return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
                     }
@@ -1085,7 +1086,7 @@ public class f extends c.a.p0.a.k2.f.c {
                         if (!i2) {
                             return d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
                         }
-                        return d(0, "ok");
+                        return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
                     }
                     return d(-1, "fail directory not empty ");
                 } catch (Exception unused) {
@@ -1117,7 +1118,7 @@ public class f extends c.a.p0.a.k2.f.c {
             if (TextUtils.isEmpty(g3)) {
                 return d(-1, n.C("fail no such file or directory ", null, str2, null));
             }
-            c d2 = d(0, "ok");
+            c d2 = d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
             try {
                 File file = new File(g3);
                 fileInputStream = new FileInputStream(new File(g2));
@@ -1152,10 +1153,10 @@ public class f extends c.a.p0.a.k2.f.c {
                 if (!TextUtils.isEmpty(str2)) {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(str2);
-                    d2.f8167c = arrayList;
+                    d2.f8175c = arrayList;
                 } else {
-                    d2.f8166b = com.baidu.pass.biometrics.face.liveness.b.a.g0;
-                    d2.f8165a = -1;
+                    d2.f8174b = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+                    d2.f8173a = -1;
                 }
                 return d2;
             } catch (IOException e4) {
@@ -1169,10 +1170,10 @@ public class f extends c.a.p0.a.k2.f.c {
                     if (!TextUtils.isEmpty("")) {
                         ArrayList arrayList2 = new ArrayList();
                         arrayList2.add(str2);
-                        d2.f8167c = arrayList2;
+                        d2.f8175c = arrayList2;
                     } else {
-                        d2.f8166b = com.baidu.pass.biometrics.face.liveness.b.a.g0;
-                        d2.f8165a = -1;
+                        d2.f8174b = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+                        d2.f8173a = -1;
                     }
                     return d3;
                 } catch (Throwable th3) {
@@ -1182,10 +1183,10 @@ public class f extends c.a.p0.a.k2.f.c {
                     if (TextUtils.isEmpty("")) {
                         ArrayList arrayList3 = new ArrayList();
                         arrayList3.add(str2);
-                        d2.f8167c = arrayList3;
+                        d2.f8175c = arrayList3;
                     } else {
-                        d2.f8166b = com.baidu.pass.biometrics.face.liveness.b.a.g0;
-                        d2.f8165a = -1;
+                        d2.f8174b = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+                        d2.f8173a = -1;
                     }
                     throw th;
                 }
@@ -1217,7 +1218,7 @@ public class f extends c.a.p0.a.k2.f.c {
             if (!I.startsWith(a.USER_DATA_PATH)) {
                 return d(-1, n.C("fail permission denied, open ", null, str2, null));
             }
-            if (!this.f8298c.l(str)) {
+            if (!this.f8306c.l(str)) {
                 return d(-4, "fail it is not a tempFilePath");
             }
             c h2 = h(I, false);
@@ -1236,7 +1237,7 @@ public class f extends c.a.p0.a.k2.f.c {
             if (!a.USER_DATA_PATH.equals(I) && (!file.exists() || !file.isDirectory())) {
                 c f2 = f(str, true);
                 if (f2 != null) {
-                    f2.f8166b = "fail no such file or directory ";
+                    f2.f8174b = "fail no such file or directory ";
                     return f2;
                 }
                 String g3 = g(str);
@@ -1244,7 +1245,7 @@ public class f extends c.a.p0.a.k2.f.c {
                     return d(-1, "fail no such file or directory " + str);
                 }
                 long x = n.x(g3);
-                if (this.f8299d.a(x)) {
+                if (this.f8307d.a(x)) {
                     return d(-1, p());
                 }
                 if (I.startsWith(a.USER_DATA_PATH) && !n.O(I) && !n.O(str)) {
@@ -1257,8 +1258,8 @@ public class f extends c.a.p0.a.k2.f.c {
                         return n;
                     }
                     c w = w(str, I);
-                    if (w != null && w.f8165a == 0) {
-                        this.f8299d.b(x);
+                    if (w != null && w.f8173a == 0) {
+                        this.f8307d.b(x);
                         if (TextUtils.isEmpty(str)) {
                             return d(-1, n.C("fail no such file or directory ", null, str, null));
                         }
@@ -1268,8 +1269,8 @@ public class f extends c.a.p0.a.k2.f.c {
                         }
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(I);
-                        w.f8167c = arrayList;
-                        w.f8166b = "ok";
+                        w.f8175c = arrayList;
+                        w.f8174b = NewBindCardEntry.BING_CARD_SUCCESS_MSG;
                     }
                     return w;
                 }
@@ -1288,7 +1289,7 @@ public class f extends c.a.p0.a.k2.f.c {
             if (v != null) {
                 return v;
             }
-            if (!this.f8298c.l(str) && !this.f8298c.b(str)) {
+            if (!this.f8306c.l(str) && !this.f8306c.b(str)) {
                 return d(-1, "fail permission denied, open " + str);
             }
             c f2 = f(str, false);
@@ -1338,8 +1339,8 @@ public class f extends c.a.p0.a.k2.f.c {
             long x = n.x(g2);
             try {
                 if (file.delete()) {
-                    this.f8299d.b(-x);
-                    return d(0, "ok");
+                    this.f8307d.b(-x);
+                    return d(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
                 }
                 return d(-1, n.C(com.baidu.pass.biometrics.face.liveness.b.a.g0, null, str, null));
             } catch (Exception unused) {

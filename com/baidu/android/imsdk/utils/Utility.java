@@ -32,7 +32,6 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.down.utils.Utils;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.task.item.StrictModeTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -658,7 +657,10 @@ public final class Utility {
     public static long getPaSyncDelay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) ? StrictModeTask.CLEAN_FILE_INTERVAL : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) {
+            return 172800000L;
+        }
+        return invokeV.longValue;
     }
 
     public static long getPaid(Context context) {

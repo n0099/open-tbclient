@@ -11,7 +11,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7485a;
+    public static final boolean f7493a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,14 +27,14 @@ public class c {
                 return;
             }
         }
-        boolean z = k.f7077a;
-        f7485a = b("swan_clean_pkg_opt", 0);
+        boolean z = k.f7085a;
+        f7493a = b("swan_clean_pkg_opt", 0);
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f7485a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f7493a : invokeV.booleanValue;
     }
 
     public static boolean b(String str, int i2) {

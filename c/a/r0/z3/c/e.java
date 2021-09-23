@@ -17,10 +17,13 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Set<String> f29779a;
+    public static Set<String> f29799a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Set<String> f29780b;
+    public static Set<String> f29800b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static Set<String> f29801c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,21 +39,22 @@ public class e {
                 return;
             }
         }
-        f29779a = new HashSet();
-        f29780b = new HashSet();
+        f29799a = new HashSet();
+        f29800b = new HashSet();
+        f29801c = new HashSet();
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            f29780b.add(str);
+            f29800b.add(str);
         }
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            f29779a.add(str);
+            f29799a.add(str);
         }
     }
 
@@ -67,19 +71,28 @@ public class e {
 
     public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || f29780b.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || f29800b.size() == 0) {
             return;
         }
-        c(str, f29780b);
-        f29780b.clear();
+        c(str, f29800b);
+        f29800b.clear();
     }
 
     public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) || f29779a.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) || f29801c.size() == 0) {
             return;
         }
-        c(str, f29779a);
-        f29779a.clear();
+        c(str, f29801c);
+        f29801c.clear();
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) || f29799a.size() == 0) {
+            return;
+        }
+        c(str, f29799a);
+        f29799a.clear();
     }
 }

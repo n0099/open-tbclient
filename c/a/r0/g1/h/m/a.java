@@ -32,7 +32,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLII(65537, null, d2Var, str, i2, i3) == null) || d2Var == null) {
             return;
         }
-        if (d2Var.Q2) {
+        if (d2Var.R2) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_HEATING_THREAD_CLICK);
             statisticItem.addParam("obj_locate", 1);
             if (d2Var.F2()) {
@@ -46,12 +46,12 @@ public class a {
             statisticItem.addParam("tid", d2Var.s1());
             statisticItem.addParam(TiebaStatic.Params.FID_1, d2Var.T());
             TiebaStatic.log(statisticItem);
-            c.a.q0.d.a.a(c.a.q0.d.a.f12811e, c.a.q0.d.a.f12807a, d2Var.R2, d2Var.S2, d2Var.T2, i2);
+            c.a.q0.d.a.a(c.a.q0.d.a.f12825e, c.a.q0.d.a.f12821a, d2Var.S2, d2Var.T2, d2Var.U2, i2);
         }
         if (str == null || !str.startsWith("manual")) {
             return;
         }
-        c.a.q0.d.a.a(c.a.q0.d.a.l, c.a.q0.d.a.f12807a, str, d2Var.S2, d2Var.T2, i2);
+        c.a.q0.d.a.a(c.a.q0.d.a.l, c.a.q0.d.a.f12821a, str, d2Var.T2, d2Var.U2, i2);
     }
 
     public static void c(d2 d2Var, BdUniqueId bdUniqueId, int i2, int i3) {
@@ -62,8 +62,8 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLII(65538, null, d2Var, bdUniqueId, i2, i3) == null) || d2Var == null) {
             return;
         }
-        if (d2Var.p2) {
-            str = d2Var.q2;
+        if (d2Var.q2) {
+            str = d2Var.r2;
             z = true;
             i4 = 20;
         } else {
@@ -90,7 +90,7 @@ public class a {
         } else {
             e2.param(TiebaStatic.Params.GUA_TYPE, 0);
         }
-        if (d2Var.p2) {
+        if (d2Var.q2) {
             e2.delete("thread_type");
             e2.param("thread_type", d2Var.o1());
         }
@@ -116,7 +116,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, d2Var, str, i2) == null) || d2Var == null) {
             return;
         }
-        if (d2Var.Q2) {
+        if (d2Var.R2) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_HEATING_THREAD_EXPOSE);
             statisticItem.addParam("obj_locate", 1);
             if (d2Var.F2()) {
@@ -129,12 +129,12 @@ public class a {
             statisticItem.addParam("tid", d2Var.s1());
             statisticItem.addParam(TiebaStatic.Params.FID_1, d2Var.T());
             TiebaStatic.log(statisticItem);
-            c.a.q0.d.a.a(c.a.q0.d.a.f12810d, c.a.q0.d.a.f12807a, d2Var.R2, d2Var.S2, d2Var.T2, i2);
+            c.a.q0.d.a.a(c.a.q0.d.a.f12824d, c.a.q0.d.a.f12821a, d2Var.S2, d2Var.T2, d2Var.U2, i2);
         }
         if (str == null || !str.startsWith("manual")) {
             return;
         }
-        c.a.q0.d.a.a(c.a.q0.d.a.k, c.a.q0.d.a.f12807a, str, d2Var.S2, d2Var.T2, i2);
+        c.a.q0.d.a.a(c.a.q0.d.a.k, c.a.q0.d.a.f12821a, str, d2Var.T2, d2Var.U2, i2);
     }
 
     public static void f(d2 d2Var, BdUniqueId bdUniqueId, int i2) {
@@ -145,8 +145,8 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, d2Var, bdUniqueId, i2) == null) || d2Var == null) {
             return;
         }
-        if (d2Var.p2) {
-            str = d2Var.q2;
+        if (d2Var.q2) {
+            str = d2Var.r2;
             z = true;
             i3 = 20;
         } else {
@@ -159,7 +159,7 @@ public class a {
         if (g2 == null) {
             return;
         }
-        if (d2Var.p2) {
+        if (d2Var.q2) {
             g2.delete("thread_type");
             g2.param("thread_type", d2Var.o1());
         }

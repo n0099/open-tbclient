@@ -19,7 +19,7 @@ public class a extends c {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(@NonNull Context context) {
-        super(BaiduMap.f41364e, context.getString(g.openlocation_bottommenu_baidumap), "com.baidu.BaiduMap");
+        super(BaiduMap.f41426e, context.getString(g.openlocation_bottommenu_baidumap), "com.baidu.BaiduMap");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,7 +36,7 @@ public class a extends c {
                 return;
             }
         }
-        this.f11793c = true;
+        this.f11801c = true;
     }
 
     @Override // c.a.p0.j.p.c

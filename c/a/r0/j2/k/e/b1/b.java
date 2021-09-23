@@ -21,13 +21,13 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<EmotionImageData> f19873e;
+    public List<EmotionImageData> f19888e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterfaceC0951b f19874f;
+    public InterfaceC0949b f19889f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EmotionView.c f19875g;
+    public EmotionView.c f19890g;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -35,7 +35,7 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f19876e;
+        public final /* synthetic */ b f19891e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -52,21 +52,21 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f19876e = bVar;
+            this.f19891e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f19876e.f19874f != null && (view instanceof EmotionView)) {
-                this.f19876e.f19874f.b(((EmotionView) view).getData());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f19891e.f19889f != null && (view instanceof EmotionView)) {
+                this.f19891e.f19889f.b(((EmotionView) view).getData());
             }
         }
     }
 
     /* renamed from: c.a.r0.j2.k.e.b1.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0951b {
+    public interface InterfaceC0949b {
         void b(EmotionImageData emotionImageData);
     }
 
@@ -76,7 +76,7 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public EmotionView f19877a;
+        public EmotionView f19892a;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -110,21 +110,21 @@ public class b extends BaseAdapter {
     public void b(List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f19873e = list;
+            this.f19888e = list;
         }
     }
 
     public void c(EmotionView.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f19875g = cVar;
+            this.f19890g = cVar;
         }
     }
 
-    public void d(InterfaceC0951b interfaceC0951b) {
+    public void d(InterfaceC0949b interfaceC0949b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0951b) == null) {
-            this.f19874f = interfaceC0951b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0949b) == null) {
+            this.f19889f = interfaceC0949b;
         }
     }
 
@@ -133,10 +133,10 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.isEmpty(this.f19873e)) {
+            if (ListUtils.isEmpty(this.f19888e)) {
                 return 0;
             }
-            return this.f19873e.size();
+            return this.f19888e.size();
         }
         return invokeV.intValue;
     }
@@ -172,18 +172,18 @@ public class b extends BaseAdapter {
                 cVar = new c();
                 view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_sug_emotion, (ViewGroup) null);
                 EmotionView emotionView = (EmotionView) view2.findViewById(R.id.emotion_view);
-                cVar.f19877a = emotionView;
+                cVar.f19892a = emotionView;
                 emotionView.enablePreview();
-                cVar.f19877a.setController(this.f19875g);
-                cVar.f19877a.setOnClickListener(new a(this));
+                cVar.f19892a.setController(this.f19890g);
+                cVar.f19892a.setOnClickListener(new a(this));
                 view2.setTag(cVar);
             } else {
                 view2 = view;
                 cVar = (c) view.getTag();
             }
-            List<EmotionImageData> list = this.f19873e;
+            List<EmotionImageData> list = this.f19888e;
             if (list != null && i2 >= 0 && i2 < list.size()) {
-                cVar.f19877a.loadData(this.f19873e.get(i2));
+                cVar.f19892a.loadData(this.f19888e.get(i2));
             }
             return view2;
         }

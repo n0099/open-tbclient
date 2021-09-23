@@ -19,7 +19,7 @@ public class SystemStrategyImpl implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f45919a;
+    public final List<String> f46021a;
 
     public SystemStrategyImpl() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class SystemStrategyImpl implements a {
                 return;
             }
         }
-        this.f45919a = new ArrayList<String>(this) { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.SystemStrategyImpl.1
+        this.f46021a = new ArrayList<String>(this) { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.SystemStrategyImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SystemStrategyImpl this$0;
@@ -72,7 +72,7 @@ public class SystemStrategyImpl implements a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(gVar.d());
             gVar.a(MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl));
-            return this.f45919a.contains(fileExtensionFromUrl);
+            return this.f46021a.contains(fileExtensionFromUrl);
         }
         return invokeL.booleanValue;
     }

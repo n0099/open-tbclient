@@ -24,20 +24,20 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f7209e;
+    public static final boolean f7217e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HttpManager f7210a;
+    public HttpManager f7218a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7211b;
+    public String f7219b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7212c;
+    public String f7220c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.a.l0.m.a f7213d;
+    public c.a.p0.a.l0.m.a f7221d;
 
     /* loaded from: classes.dex */
     public class a implements Callback {
@@ -45,7 +45,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f7214a;
+        public final /* synthetic */ c f7222a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -62,19 +62,19 @@ public class c {
                     return;
                 }
             }
-            this.f7214a = cVar;
+            this.f7222a = cVar;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (c.f7209e) {
-                    String str = this.f7214a.f7211b + " load failed";
+                if (c.f7217e) {
+                    String str = this.f7222a.f7219b + " load failed";
                     iOException.printStackTrace();
                 }
-                if (this.f7214a.f7213d != null) {
-                    this.f7214a.f7213d.fail(-1, this.f7214a.f7211b);
+                if (this.f7222a.f7221d != null) {
+                    this.f7222a.f7221d.fail(-1, this.f7222a.f7219b);
                 }
             }
         }
@@ -87,8 +87,8 @@ public class c {
             String c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                if (TextUtils.isEmpty(this.f7214a.f7212c)) {
-                    boolean z = k.f7077a;
+                if (TextUtils.isEmpty(this.f7222a.f7220c)) {
+                    boolean z = k.f7085a;
                     return;
                 }
                 byte[] bArr = new byte[2048];
@@ -97,7 +97,7 @@ public class c {
                     byteStream = response.body().byteStream();
                     try {
                         try {
-                            c2 = c.a.p0.a.c1.b.f().c(this.f7214a.f7211b);
+                            c2 = c.a.p0.a.c1.b.f().c(this.f7222a.f7219b);
                         } catch (Exception unused) {
                             file = null;
                             fileOutputStream = null;
@@ -114,13 +114,13 @@ public class c {
                     fileOutputStream = null;
                 }
                 if (TextUtils.isEmpty(c2)) {
-                    boolean z2 = k.f7077a;
+                    boolean z2 = k.f7085a;
                     c.a.p0.t.d.d(byteStream);
                     c.a.p0.t.d.d(null);
                     c.a.p0.t.d.d(response);
                     return;
                 }
-                String str = this.f7214a.f7212c + c2.substring(0, c2.lastIndexOf("/"));
+                String str = this.f7222a.f7220c + c2.substring(0, c2.lastIndexOf("/"));
                 File file2 = new File(str);
                 if (!file2.exists() || !file2.isDirectory()) {
                     file2.mkdirs();
@@ -139,14 +139,14 @@ public class c {
                         } catch (Exception unused3) {
                             inputStream = byteStream;
                             try {
-                                if (c.f7209e) {
-                                    String str2 = this.f7214a.f7211b + " load failed";
+                                if (c.f7217e) {
+                                    String str2 = this.f7222a.f7219b + " load failed";
                                 }
                                 if (file != null) {
                                     file.delete();
                                 }
-                                if (this.f7214a.f7213d != null) {
-                                    this.f7214a.f7213d.fail(-1, this.f7214a.f7211b);
+                                if (this.f7222a.f7221d != null) {
+                                    this.f7222a.f7221d.fail(-1, this.f7222a.f7219b);
                                 }
                                 c.a.p0.t.d.d(inputStream);
                                 c.a.p0.t.d.d(fileOutputStream);
@@ -174,19 +174,19 @@ public class c {
                     }
                     String absolutePath = file3.getAbsolutePath();
                     if (file.renameTo(file3)) {
-                        if (c.f7209e) {
-                            String str3 = this.f7214a.f7211b + " load rename success path = " + absolutePath;
+                        if (c.f7217e) {
+                            String str3 = this.f7222a.f7219b + " load rename success path = " + absolutePath;
                         }
-                        if (this.f7214a.f7213d != null) {
-                            this.f7214a.f7213d.a(this.f7214a.f7211b, absolutePath);
+                        if (this.f7222a.f7221d != null) {
+                            this.f7222a.f7221d.a(this.f7222a.f7219b, absolutePath);
                         }
                     } else {
-                        if (c.f7209e) {
-                            String str4 = this.f7214a.f7211b + " load rename error path = " + absolutePath;
+                        if (c.f7217e) {
+                            String str4 = this.f7222a.f7219b + " load rename error path = " + absolutePath;
                         }
                         file.delete();
-                        if (this.f7214a.f7213d != null) {
-                            this.f7214a.f7213d.fail(-1, absolutePath);
+                        if (this.f7222a.f7221d != null) {
+                            this.f7222a.f7221d.fail(-1, absolutePath);
                         }
                     }
                     c.a.p0.t.d.d(byteStream);
@@ -212,7 +212,7 @@ public class c {
                 return;
             }
         }
-        f7209e = k.f7077a;
+        f7217e = k.f7085a;
     }
 
     public c(HttpManager httpManager, String str, String str2, c.a.p0.a.l0.m.a aVar) {
@@ -230,18 +230,18 @@ public class c {
                 return;
             }
         }
-        this.f7211b = "";
-        this.f7212c = "";
-        this.f7210a = httpManager;
-        this.f7212c = str;
-        this.f7211b = str2;
-        this.f7213d = aVar;
+        this.f7219b = "";
+        this.f7220c = "";
+        this.f7218a = httpManager;
+        this.f7220c = str;
+        this.f7219b = str2;
+        this.f7221d = aVar;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.p0.a.c1.b.l().a(this.f7210a, new Request.Builder().url(this.f7211b).build(), new a(this));
+            c.a.p0.a.c1.b.l().a(this.f7218a, new Request.Builder().url(this.f7219b).build(), new a(this));
         }
     }
 }

@@ -17,11 +17,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f23370b;
+    public static c f23386b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f23371a;
+    public a f23387a;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -45,21 +45,21 @@ public class c {
                 return;
             }
         }
-        this.f23371a = c();
+        this.f23387a = c();
     }
 
     public static c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f23370b == null) {
+            if (f23386b == null) {
                 synchronized (c.class) {
-                    if (f23370b == null) {
-                        f23370b = new c();
+                    if (f23386b == null) {
+                        f23386b = new c();
                     }
                 }
             }
-            return f23370b;
+            return f23386b;
         }
         return (c) invokeV.objValue;
     }
@@ -67,7 +67,7 @@ public class c {
     public void a(Context context) {
         a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f23371a) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f23387a) != null) {
             aVar.a(context);
         }
     }
@@ -94,7 +94,7 @@ public class c {
     public void e(Context context, String str, boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048579, this, context, str, z) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f23371a) != null) {
+        if ((interceptable == null || interceptable.invokeLLZ(1048579, this, context, str, z) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f23387a) != null) {
             aVar.c(context, str, z);
         }
     }
@@ -102,7 +102,7 @@ public class c {
     public void f(Context context, WebView webView, WebChromeClient webChromeClient) {
         a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048580, this, context, webView, webChromeClient) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f23371a) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(1048580, this, context, webView, webChromeClient) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.f23387a) != null) {
             aVar.b(context, webView, webChromeClient);
         }
     }

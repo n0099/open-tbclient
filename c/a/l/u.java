@@ -32,10 +32,10 @@ public class u extends c implements q, p<d2> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final RelativeLayout f3869i;
+    public final RelativeLayout f3870i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final LinearLayout f3870j;
+    public final LinearLayout f3871j;
     public View k;
     public View l;
     public View m;
@@ -52,7 +52,7 @@ public class u extends c implements q, p<d2> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ u f3871a;
+        public final /* synthetic */ u f3872a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(u uVar, int i2) {
@@ -72,15 +72,15 @@ public class u extends c implements q, p<d2> {
                     return;
                 }
             }
-            this.f3871a = uVar;
+            this.f3872a = uVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof d2) && ((d2) customResponsedMessage.getData()) == this.f3871a.p) {
-                this.f3871a.q();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof d2) && ((d2) customResponsedMessage.getData()) == this.f3872a.p) {
+                this.f3872a.q();
             }
         }
     }
@@ -91,7 +91,7 @@ public class u extends c implements q, p<d2> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ u f3872e;
+        public final /* synthetic */ u f3873e;
 
         public b(u uVar) {
             Interceptable interceptable = $ic;
@@ -108,29 +108,29 @@ public class u extends c implements q, p<d2> {
                     return;
                 }
             }
-            this.f3872e = uVar;
+            this.f3873e = uVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3872e.n == null || this.f3872e.p == null || this.f3872e.o == null || this.f3872e.p.C2() || !this.f3872e.r) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3873e.n == null || this.f3873e.p == null || this.f3873e.o == null || this.f3873e.p.C2() || !this.f3873e.r) {
                 return;
             }
-            if (this.f3872e.p.j2() || !c.a.r0.w0.b.f().i()) {
-                if (this.f3872e.p.k2() || !c.a.r0.w0.a.h().j()) {
-                    c.a.r0.w0.b.f().l(this.f3872e.p);
-                    this.f3872e.p.g4(false);
-                    c.a.r0.w0.a.h().l(this.f3872e.p);
-                    this.f3872e.p.h4(false);
-                } else if (c.a.r0.w0.a.h().a(this.f3872e.p)) {
-                    this.f3872e.p.h4(true);
+            if (this.f3873e.p.j2() || !c.a.r0.w0.b.f().i()) {
+                if (this.f3873e.p.k2() || !c.a.r0.w0.a.h().j()) {
+                    c.a.r0.w0.b.f().l(this.f3873e.p);
+                    this.f3873e.p.f4(false);
+                    c.a.r0.w0.a.h().l(this.f3873e.p);
+                    this.f3873e.p.g4(false);
+                } else if (c.a.r0.w0.a.h().a(this.f3873e.p)) {
+                    this.f3873e.p.g4(true);
                 }
-            } else if (c.a.r0.w0.b.f().a(this.f3872e.p)) {
-                this.f3872e.p.g4(true);
+            } else if (c.a.r0.w0.b.f().a(this.f3873e.p)) {
+                this.f3873e.p.f4(true);
             }
-            this.f3872e.q();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921402, this.f3872e.p));
+            this.f3873e.q();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921402, this.f3873e.p));
         }
     }
 
@@ -155,13 +155,13 @@ public class u extends c implements q, p<d2> {
         View inflate = LayoutInflater.from(context).inflate(R.layout.multi_del_decor_layout, (ViewGroup) null);
         this.k = inflate;
         this.l = inflate.findViewById(R.id.multi_del_mask_top_view);
-        this.f3870j = (LinearLayout) this.k.findViewById(R.id.multi_del_bottom_layout);
+        this.f3871j = (LinearLayout) this.k.findViewById(R.id.multi_del_bottom_layout);
         this.l.setAlpha(0.5f);
         View findViewById = this.k.findViewById(R.id.multi_del_mask_bottom_view);
         this.m = findViewById;
         findViewById.setAlpha(0.5f);
         this.n = (ImageView) this.k.findViewById(R.id.manage_select_img);
-        this.f3869i = (RelativeLayout) this.k.findViewById(R.id.multi_del_bottom_root);
+        this.f3870i = (RelativeLayout) this.k.findViewById(R.id.multi_del_bottom_root);
         this.o = (TextView) this.k.findViewById(R.id.manage_select_txt);
         f(this.k);
         this.k.setFocusable(true);
@@ -195,14 +195,14 @@ public class u extends c implements q, p<d2> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) {
             this.p = d2Var;
-            this.r = d2Var.getType() != d2.P3 && (d2Var == null || d2Var.J() == null || !d2Var.J().isForumBusinessAccount() || d2Var.isSelf()) && d2Var != null && (!d2Var.z2() || d2Var.isSelf());
+            this.r = d2Var.getType() != d2.Q3 && (d2Var == null || d2Var.J() == null || !d2Var.J().isForumBusinessAccount() || d2Var.isSelf()) && d2Var != null && (!d2Var.z2() || d2Var.isSelf());
             if (!c.a.r0.w0.b.f().i() && !c.a.r0.w0.a.h().j()) {
-                this.f3794h.o(new a.C0095a(4, Boolean.TRUE));
+                this.f3795h.o(new a.C0095a(4, Boolean.TRUE));
                 this.k.setVisibility(8);
                 return;
             }
             this.k.setVisibility(0);
-            this.f3794h.o(new a.C0095a(4, Boolean.FALSE));
+            this.f3795h.o(new a.C0095a(4, Boolean.FALSE));
             q();
         }
     }
@@ -246,7 +246,7 @@ public class u extends c implements q, p<d2> {
         this.l.setVisibility((d2Var.j2() || this.p.k2() || !this.r) ? 0 : 4);
         this.m.setVisibility((this.p.j2() || this.p.k2()) ? 0 : 0);
         if (this.q) {
-            this.f3869i.setVisibility(0);
+            this.f3870i.setVisibility(0);
             if (this.r) {
                 this.n.setVisibility(0);
                 this.o.setVisibility(0);
@@ -262,7 +262,7 @@ public class u extends c implements q, p<d2> {
             this.o.setVisibility(8);
             return;
         }
-        this.f3869i.setVisibility(8);
+        this.f3870i.setVisibility(8);
         this.n.setVisibility(8);
         this.o.setVisibility(8);
     }
@@ -276,9 +276,9 @@ public class u extends c implements q, p<d2> {
     public void s(int i2, m0 m0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, m0Var) == null) {
-            this.f3870j.setWeightSum(i2);
-            if (this.f3870j.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.f3870j.getLayoutParams()).setMargins(m0Var.f3840f, m0Var.f3838d, m0Var.f3841g, m0Var.f3839e);
+            this.f3871j.setWeightSum(i2);
+            if (this.f3871j.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.f3871j.getLayoutParams()).setMargins(m0Var.f3841f, m0Var.f3839d, m0Var.f3842g, m0Var.f3840e);
             }
         }
     }

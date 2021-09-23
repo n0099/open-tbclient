@@ -15,7 +15,7 @@ public class b implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsTabInfoData f18096e;
+    public FrsTabInfoData f18106e;
 
     public b(FrsTabInfoData frsTabInfoData) {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public class b implements n {
                 return;
             }
         }
-        this.f18096e = frsTabInfoData;
+        this.f18106e = frsTabInfoData;
     }
 
     public FrsTabInfoData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18096e : (FrsTabInfoData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18106e : (FrsTabInfoData) invokeV.objValue;
     }
 
     @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a.f18095c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a.f18105c : (BdUniqueId) invokeV.objValue;
     }
 }

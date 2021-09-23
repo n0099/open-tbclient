@@ -20,13 +20,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ViewGroup f9998a;
+    public final ViewGroup f10006a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9999b;
+    public int f10007b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f10000c;
+    public boolean f10008c;
 
     /* renamed from: c.a.p0.a.z1.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -49,8 +49,8 @@ public class a {
                 return;
             }
         }
-        this.f9998a = viewGroup;
-        this.f9999b = i2;
+        this.f10006a = viewGroup;
+        this.f10007b = i2;
     }
 
     @Nullable
@@ -58,9 +58,9 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this.f9998a) {
-                for (int i2 = 0; i2 < this.f9998a.getChildCount(); i2++) {
-                    View childAt = this.f9998a.getChildAt(i2);
+            synchronized (this.f10006a) {
+                for (int i2 = 0; i2 < this.f10006a.getChildCount(); i2++) {
+                    View childAt = this.f10006a.getChildAt(i2);
                     if (childAt instanceof Container) {
                         return (Container) childAt;
                     }
@@ -77,23 +77,23 @@ public class a {
         Container a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this.f9998a) {
+            synchronized (this.f10006a) {
                 a2 = a();
                 if (a2 == null) {
                     a2 = new Container(c());
-                    int height = this.f9998a.getHeight() - this.f9999b;
-                    int i2 = this.f9998a instanceof LinearLayout ? -height : this.f9999b;
+                    int height = this.f10006a.getHeight() - this.f10007b;
+                    int i2 = this.f10006a instanceof LinearLayout ? -height : this.f10007b;
                     if (height <= 0) {
                         height = -1;
                         i2 = 0;
                     }
-                    if (!(this.f9998a instanceof LinearLayout) && this.f9999b == 0) {
+                    if (!(this.f10006a instanceof LinearLayout) && this.f10007b == 0) {
                         height = -1;
                     }
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, height);
                     layoutParams.setMargins(0, i2, 0, 0);
                     a2.setLayoutParams(layoutParams);
-                    this.f9998a.addView(a2);
+                    this.f10006a.addView(a2);
                 }
             }
             return a2;
@@ -104,13 +104,13 @@ public class a {
     public final Context c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9998a.getContext() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10006a.getContext() : (Context) invokeV.objValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10000c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10008c : invokeV.booleanValue;
     }
 
     @Nullable
@@ -157,11 +157,11 @@ public class a {
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            synchronized (this.f9998a) {
+            synchronized (this.f10006a) {
                 Container a2 = a();
                 if (!z || a2 == null || a2.getChildCount() <= 0) {
                     if (a2 != null) {
-                        this.f9998a.removeView(a2);
+                        this.f10006a.removeView(a2);
                     }
                 }
             }
@@ -180,8 +180,8 @@ public class a {
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f10000c = z;
-            this.f9999b = 0;
+            this.f10008c = z;
+            this.f10007b = 0;
         }
     }
 

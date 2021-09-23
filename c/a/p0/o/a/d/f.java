@@ -18,7 +18,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final k f12198a;
+    public static final k f12206a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -286,9 +286,9 @@ public class f {
             }
         }
         if (Build.VERSION.SDK_INT >= 21) {
-            f12198a = new j();
+            f12206a = new j();
         } else {
-            f12198a = new i();
+            f12206a = new i();
         }
     }
 
@@ -309,32 +309,32 @@ public class f {
     public static boolean a(View view, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, view, i2)) == null) ? f12198a.b(view, i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, view, i2)) == null) ? f12206a.b(view, i2) : invokeLI.booleanValue;
     }
 
     public static int b(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view)) == null) ? f12198a.a(view) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view)) == null) ? f12206a.a(view) : invokeL.intValue;
     }
 
     public static boolean c(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) ? f12198a.e(view) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) ? f12206a.e(view) : invokeL.booleanValue;
     }
 
     public static void d(View view, int i2, Paint paint) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, null, view, i2, paint) == null) {
-            f12198a.c(view, i2, paint);
+            f12206a.c(view, i2, paint);
         }
     }
 
     public static void e(View view, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, view, z) == null) {
-            f12198a.d(view, z);
+            f12206a.d(view, z);
         }
     }
 }

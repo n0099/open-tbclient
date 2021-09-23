@@ -25,13 +25,13 @@ public class e extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7945e;
+        public final /* synthetic */ CallbackHandler f7953e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7946f;
+        public final /* synthetic */ UnitedSchemeEntity f7954f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f7947g;
+        public final /* synthetic */ JSONObject f7955g;
 
         public a(e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class e extends a0 {
                     return;
                 }
             }
-            this.f7945e = callbackHandler;
-            this.f7946f = unitedSchemeEntity;
-            this.f7947g = jSONObject;
+            this.f7953e = callbackHandler;
+            this.f7954f = unitedSchemeEntity;
+            this.f7955g = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,35 +60,35 @@ public class e extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.p0.a.e2.c.d.h(iVar)) {
-                    c.a.p0.a.e2.c.d.o(iVar, this.f7945e, this.f7946f);
+                    c.a.p0.a.e2.c.d.o(iVar, this.f7953e, this.f7954f);
                     return;
                 }
-                if (this.f7947g.has("emitLive")) {
-                    c.a.p0.a.u1.a.a.P(c.a.p0.a.p0.f.a.b(this.f7947g.optInt("emitLive")));
+                if (this.f7955g.has("emitLive")) {
+                    c.a.p0.a.u1.a.a.P(c.a.p0.a.p0.f.a.b(this.f7955g.optInt("emitLive")));
                 }
-                if (this.f7947g.has("emitHttps")) {
-                    c.a.p0.a.u1.a.a.M(c.a.p0.a.p0.f.a.b(this.f7947g.optInt("emitHttps")));
+                if (this.f7955g.has("emitHttps")) {
+                    c.a.p0.a.u1.a.a.M(c.a.p0.a.p0.f.a.b(this.f7955g.optInt("emitHttps")));
                 }
-                if (this.f7947g.has("emitDomain")) {
-                    c.a.p0.a.u1.a.a.R(!c.a.p0.a.p0.f.a.b(this.f7947g.optInt("emitDomain")));
-                    c.a.p0.a.u1.a.a.U(!c.a.p0.a.p0.f.a.b(this.f7947g.optInt("emitDomain")));
+                if (this.f7955g.has("emitDomain")) {
+                    c.a.p0.a.u1.a.a.R(!c.a.p0.a.p0.f.a.b(this.f7955g.optInt("emitDomain")));
+                    c.a.p0.a.u1.a.a.U(!c.a.p0.a.p0.f.a.b(this.f7955g.optInt("emitDomain")));
                 }
-                if (this.f7947g.has("emitWss")) {
-                    c.a.p0.a.u1.a.a.O(c.a.p0.a.p0.f.a.b(this.f7947g.optInt("emitWss")));
+                if (this.f7955g.has("emitWss")) {
+                    c.a.p0.a.u1.a.a.O(c.a.p0.a.p0.f.a.b(this.f7955g.optInt("emitWss")));
                 }
-                if (this.f7947g.has("emitLaunchMode")) {
-                    c.a.p0.a.u1.a.a.S(c.a.p0.a.p0.f.a.b(this.f7947g.optInt("emitLaunchMode")));
+                if (this.f7955g.has("emitLaunchMode")) {
+                    c.a.p0.a.u1.a.a.S(c.a.p0.a.p0.f.a.b(this.f7955g.optInt("emitLaunchMode")));
                 }
-                if (this.f7947g.has("debugEnvData")) {
-                    c.a.p0.a.u1.a.a.J(this.f7947g.optString("debugEnvData"));
+                if (this.f7955g.has("debugEnvData")) {
+                    c.a.p0.a.u1.a.a.J(this.f7955g.optString("debugEnvData"));
                 }
-                if (this.f7947g.has("emitReplaceJsNative")) {
-                    c.a.p0.a.u1.a.a.N(c.a.p0.a.p0.f.a.b(this.f7947g.optInt("emitReplaceJsNative")));
+                if (this.f7955g.has("emitReplaceJsNative")) {
+                    c.a.p0.a.u1.a.a.N(c.a.p0.a.p0.f.a.b(this.f7955g.optInt("emitReplaceJsNative")));
                 }
-                if (this.f7947g.has("emitReplaceV8Core")) {
-                    g.t.e(g.t.b(this.f7947g.optInt("emitReplaceV8Core")));
+                if (this.f7955g.has("emitReplaceV8Core")) {
+                    g.t.e(g.t.b(this.f7955g.optInt("emitReplaceV8Core")));
                 }
-                UnitedSchemeUtility.callCallback(this.f7945e, this.f7946f, UnitedSchemeUtility.wrapCallbackParams(0));
+                UnitedSchemeUtility.callCallback(this.f7953e, this.f7954f, UnitedSchemeUtility.wrapCallbackParams(0));
                 c.a.p0.a.u1.a.a.X();
             }
         }
@@ -135,7 +135,7 @@ public class e extends a0 {
             if (c.a.p0.a.a2.d.g().l() == 0) {
                 eVar.T().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, optJSONObject));
             } else if (c.a.p0.a.a2.d.g().l() == 1) {
-                if (!a0.f4766b) {
+                if (!a0.f4774b) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
                     return false;
                 } else if (!a2.optString("category").equals("swanGame")) {

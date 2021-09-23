@@ -8,6 +8,4 @@ public interface e {
     void a(LivenessTypeEnum livenessTypeEnum);
 
     void a(FaceExtInfo faceExtInfo);
-
-    void b();
 }

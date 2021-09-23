@@ -24,17 +24,17 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f59598c;
+    public static String f59729c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f59599d;
+    public static f f59730d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f59600a;
+    public final int f59731a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f59601b;
+    public final String f59732b;
 
     static {
         InterceptResult invokeClinit;
@@ -49,8 +49,8 @@ public final class f {
                 return;
             }
         }
-        f59598c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
-        f59599d = null;
+        f59729c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
+        f59730d = null;
     }
 
     public f() {
@@ -66,8 +66,8 @@ public final class f {
                 return;
             }
         }
-        this.f59601b = "ufo";
-        this.f59600a = 1209600000;
+        this.f59732b = "ufo";
+        this.f59731a = 1209600000;
     }
 
     public static Bitmap a(String str) {
@@ -77,7 +77,7 @@ public final class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             String b2 = b(str);
             if (new File(b2).exists() && (decodeFile = BitmapFactory.decodeFile(b2, null)) != null) {
-                new File(f59598c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
+                new File(f59729c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
                 return decodeFile;
             }
             return null;
@@ -89,10 +89,10 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f59599d == null) {
-                f59599d = new f();
+            if (f59730d == null) {
+                f59730d = new f();
             }
-            return f59599d;
+            return f59730d;
         }
         return (f) invokeV.objValue;
     }
@@ -101,7 +101,7 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return f59598c + "/cache/image/" + str;
+            return f59729c + "/cache/image/" + str;
         }
         return (String) invokeL.objValue;
     }
@@ -109,7 +109,7 @@ public final class f {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            String str = f59598c + "/cache/image/";
+            String str = f59729c + "/cache/image/";
             File[] listFiles = new File(str).listFiles();
             if (listFiles == null) {
                 return;
@@ -166,11 +166,11 @@ public final class f {
                         c.c("ufo ->Low free space onsd, do not cache");
                         return;
                     }
-                    c(f59598c + "/cache/image/");
+                    c(f59729c + "/cache/image/");
                     if (equals) {
-                        File file2 = new File(f59598c);
-                        File file3 = new File(f59598c + "/cache");
-                        File file4 = new File(f59598c + "/cache/image");
+                        File file2 = new File(f59729c);
+                        File file3 = new File(f59729c + "/cache");
+                        File file4 = new File(f59729c + "/cache/image");
                         if (!file2.exists()) {
                             file2.mkdir();
                         }

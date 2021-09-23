@@ -68,7 +68,7 @@ public class HomePageAlaFriendRoomAdapter extends c.a.e.l.e.a<j, HomePageAlaLive
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageAlaFriendRoomAdapter f52331b;
+        public final /* synthetic */ HomePageAlaFriendRoomAdapter f52448b;
 
         public a(HomePageAlaFriendRoomAdapter homePageAlaFriendRoomAdapter) {
             Interceptable interceptable = $ic;
@@ -85,15 +85,15 @@ public class HomePageAlaFriendRoomAdapter extends c.a.e.l.e.a<j, HomePageAlaLive
                     return;
                 }
             }
-            this.f52331b = homePageAlaFriendRoomAdapter;
+            this.f52448b = homePageAlaFriendRoomAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:16:0x0058, code lost:
-            if (r5.getId() == r4.f52331b.o.N().getId()) goto L6;
+            if (r5.getId() == r4.f52448b.o.P().getId()) goto L6;
          */
         /* JADX WARN: Code restructure failed: missing block: B:21:0x0079, code lost:
-            if (r5.getId() == r4.f52331b.o.O().getId()) goto L6;
+            if (r5.getId() == r4.f52448b.o.Q().getId()) goto L6;
          */
         @Override // c.a.r0.a0.b0
         /* renamed from: d */
@@ -104,24 +104,24 @@ public class HomePageAlaFriendRoomAdapter extends c.a.e.l.e.a<j, HomePageAlaLive
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) {
                 int i2 = 2;
-                if (this.f52331b.o.x == view) {
+                if (this.f52448b.o.z == view) {
                     i2 = 1;
-                } else if (view == this.f52331b.o.p.getCommentContainer()) {
-                    this.f52331b.j0(jVar, view);
+                } else if (view == this.f52448b.o.p.getCommentContainer()) {
+                    this.f52448b.j0(jVar, view);
                     i2 = 5;
                 } else {
-                    if (view == this.f52331b.o.q.getCommentContainer()) {
-                        this.f52331b.j0(jVar, view);
+                    if (view == this.f52448b.o.q.getCommentContainer()) {
+                        this.f52448b.j0(jVar, view);
                     } else {
-                        if (this.f52331b.o.N() != null) {
+                        if (this.f52448b.o.P() != null) {
                         }
-                        if (this.f52331b.o.O() != null) {
+                        if (this.f52448b.o.Q() != null) {
                         }
                     }
                     i2 = 0;
                 }
                 if (i2 != 0) {
-                    c.a.r0.g1.h.m.a.c(jVar.f15562e, this.f52331b.m, jVar.q(), i2);
+                    c.a.r0.g1.h.m.a.c(jVar.f15571e, this.f52448b.m, jVar.q(), i2);
                 }
             }
         }
@@ -196,10 +196,10 @@ public class HomePageAlaFriendRoomAdapter extends c.a.e.l.e.a<j, HomePageAlaLive
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
             c.a.r0.a0.j jVar = new c.a.r0.a0.j(this.n, this.m);
             this.o = jVar;
-            jVar.y(2);
+            jVar.A(2);
             BdUniqueId bdUniqueId = this.m;
             if (bdUniqueId != null) {
-                this.o.U(bdUniqueId);
+                this.o.W(bdUniqueId);
             }
             return new HomePageAlaLiveThreadViewHolder(this.o);
         }
@@ -214,16 +214,16 @@ public class HomePageAlaFriendRoomAdapter extends c.a.e.l.e.a<j, HomePageAlaLive
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, jVar, homePageAlaLiveThreadViewHolder})) == null) {
             jVar.K(jVar.position + 1);
-            jVar.f15562e.S1 = jVar.q();
+            jVar.f15571e.T1 = jVar.q();
             c.a.r0.a0.j jVar2 = homePageAlaLiveThreadViewHolder.mView;
             if (jVar2 instanceof e) {
                 jVar2.setPage(this.q);
             }
-            homePageAlaLiveThreadViewHolder.mView.W(i2 + 1);
+            homePageAlaLiveThreadViewHolder.mView.Y(i2 + 1);
             homePageAlaLiveThreadViewHolder.mView.k(jVar);
             homePageAlaLiveThreadViewHolder.mView.m(this.r);
-            homePageAlaLiveThreadViewHolder.mView.x(this.p);
-            c.a.r0.g1.h.m.a.f(jVar.f15562e, this.m, jVar.q());
+            homePageAlaLiveThreadViewHolder.mView.z(this.p);
+            c.a.r0.g1.h.m.a.f(jVar.f15571e, this.m, jVar.q());
             if (jVar.getThreadData() != null && jVar.getThreadData().l1() != null) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.ALA_FRIEND_ROOM_CARD_SHOW);
                 statisticItem.param("obj_locate", 1);

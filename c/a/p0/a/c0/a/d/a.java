@@ -41,13 +41,13 @@ public abstract class a<V extends View, M extends b> extends c.a.p0.a.c0.b.a<V, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppComponentContainerView f4641e;
+        public final /* synthetic */ SwanAppComponentContainerView f4649e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f4642f;
+        public final /* synthetic */ boolean f4650f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f4643g;
+        public final /* synthetic */ b f4651g;
 
         public C0123a(a aVar, SwanAppComponentContainerView swanAppComponentContainerView, boolean z, b bVar) {
             Interceptable interceptable = $ic;
@@ -64,26 +64,26 @@ public abstract class a<V extends View, M extends b> extends c.a.p0.a.c0.b.a<V, 
                     return;
                 }
             }
-            this.f4641e = swanAppComponentContainerView;
-            this.f4642f = z;
-            this.f4643g = bVar;
+            this.f4649e = swanAppComponentContainerView;
+            this.f4650f = z;
+            this.f4651g = bVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                ViewGroup.LayoutParams layoutParams = this.f4641e.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.f4649e.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                    if (this.f4642f) {
+                    if (this.f4650f) {
                         marginLayoutParams.leftMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                     } else {
                         marginLayoutParams.topMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                     }
-                    this.f4643g.l.o(marginLayoutParams.leftMargin);
-                    this.f4643g.l.p(marginLayoutParams.topMargin);
-                    this.f4641e.setLayoutParams(marginLayoutParams);
+                    this.f4651g.l.o(marginLayoutParams.leftMargin);
+                    this.f4651g.l.p(marginLayoutParams.topMargin);
+                    this.f4649e.setLayoutParams(marginLayoutParams);
                 }
             }
         }
@@ -321,9 +321,9 @@ public abstract class a<V extends View, M extends b> extends c.a.p0.a.c0.b.a<V, 
         if (!(interceptable == null || interceptable.invokeLL(1048587, this, view, m) == null) || m.n == null) {
             return;
         }
-        boolean z = c.a.p0.a.c0.b.a.f4644h;
+        boolean z = c.a.p0.a.c0.b.a.f4652h;
         if (L()) {
-            boolean z2 = c.a.p0.a.c0.b.a.f4644h;
+            boolean z2 = c.a.p0.a.c0.b.a.f4652h;
             if (N()) {
                 return;
             }
@@ -343,7 +343,7 @@ public abstract class a<V extends View, M extends b> extends c.a.p0.a.c0.b.a<V, 
         if (!(interceptable == null || interceptable.invokeLL(1048588, this, v, m) == null) || m.n == null) {
             return;
         }
-        boolean z = c.a.p0.a.c0.b.a.f4644h;
+        boolean z = c.a.p0.a.c0.b.a.f4652h;
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(m.o);
         gradientDrawable.setCornerRadius(m.r);
@@ -356,7 +356,7 @@ public abstract class a<V extends View, M extends b> extends c.a.p0.a.c0.b.a<V, 
         if (!(interceptable == null || interceptable.invokeLL(1048589, this, v, m) == null) || m.n == null) {
             return;
         }
-        boolean z = c.a.p0.a.c0.b.a.f4644h;
+        boolean z = c.a.p0.a.c0.b.a.f4652h;
         JSONArray jSONArray = m.s;
         if (jSONArray == null) {
             return;

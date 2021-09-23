@@ -1766,12 +1766,13 @@ public final class R$styleable {
     public static final int[] SwitchMaterial;
     public static final int SwitchMaterial_useMaterialThemeColors = 0;
     public static final int[] TBProgressButton;
-    public static final int TBProgressButton_btnBackgroundColor = 0;
-    public static final int TBProgressButton_btnColorStyle = 1;
-    public static final int TBProgressButton_btnText = 2;
-    public static final int TBProgressButton_btnTextSize = 3;
-    public static final int TBProgressButton_textColorInit = 4;
-    public static final int TBProgressButton_textColorProgress = 5;
+    public static final int TBProgressButton_btnBackgroundAlpha = 0;
+    public static final int TBProgressButton_btnBackgroundColor = 1;
+    public static final int TBProgressButton_btnColorStyle = 2;
+    public static final int TBProgressButton_btnText = 3;
+    public static final int TBProgressButton_btnTextSize = 4;
+    public static final int TBProgressButton_textColorInit = 5;
+    public static final int TBProgressButton_textColorProgress = 6;
     public static final int[] TabItem;
     public static final int TabItem_android_icon = 0;
     public static final int TabItem_android_layout = 1;
@@ -2400,7 +2401,7 @@ public final class R$styleable {
         SwitchButton = new int[]{R.attr.kswAnimationDuration, R.attr.kswBackColor, R.attr.kswBackDrawable, R.attr.kswBackRadius, R.attr.kswFadeBack, R.attr.kswTextAdjust, R.attr.kswTextExtra, R.attr.kswTextOff, R.attr.kswTextOn, R.attr.kswTextThumbInset, R.attr.kswThumbColor, R.attr.kswThumbDrawable, R.attr.kswThumbHeight, R.attr.kswThumbMargin, R.attr.kswThumbMarginBottom, R.attr.kswThumbMarginLeft, R.attr.kswThumbMarginRight, R.attr.kswThumbMarginTop, R.attr.kswThumbRadius, R.attr.kswThumbRangeRatio, R.attr.kswThumbWidth, R.attr.kswTintColor};
         SwitchCompat = new int[]{16843044, 16843045, 16843074, R.attr.showText, R.attr.splitTrack, R.attr.switchMinWidth, R.attr.switchPadding, R.attr.switchTextAppearance, R.attr.thumbTextPadding, R.attr.thumbTint, R.attr.thumbTintMode, R.attr.track, R.attr.trackTint, R.attr.trackTintMode};
         SwitchMaterial = new int[]{R.attr.useMaterialThemeColors};
-        TBProgressButton = new int[]{R.attr.btnBackgroundColor, R.attr.btnColorStyle, R.attr.btnText, R.attr.btnTextSize, R.attr.textColorInit, R.attr.textColorProgress};
+        TBProgressButton = new int[]{R.attr.btnBackgroundAlpha, R.attr.btnBackgroundColor, R.attr.btnColorStyle, R.attr.btnText, R.attr.btnTextSize, R.attr.textColorInit, R.attr.textColorProgress};
         TabItem = new int[]{16842754, 16842994, 16843087};
         TabLayout = new int[]{R.attr.tabBackground, R.attr.tabContentStart, R.attr.tabGravity, R.attr.tabIconTint, R.attr.tabIconTintMode, R.attr.tabIndicator, R.attr.tabIndicatorAnimationDuration, R.attr.tabIndicatorColor, R.attr.tabIndicatorFullWidth, R.attr.tabIndicatorGravity, R.attr.tabIndicatorHeight, R.attr.tabInlineLabel, R.attr.tabMaxWidth, R.attr.tabMinWidth, R.attr.tabMode, R.attr.tabPadding, R.attr.tabPaddingBottom, R.attr.tabPaddingEnd, R.attr.tabPaddingStart, R.attr.tabPaddingTop, R.attr.tabRippleColor, R.attr.tabSelectedTextColor, R.attr.tabTextAppearance, R.attr.tabTextColor, R.attr.tabUnboundedRipple};
         TbImageView = new int[]{R.attr.isShowGifTag};

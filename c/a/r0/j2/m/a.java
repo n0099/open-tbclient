@@ -100,7 +100,7 @@ public class a {
                 statisticItem.param("pid", postData.E() + "");
             }
             if (eVar.O() != null) {
-                statisticItem.param("thread_type", eVar.O().c0);
+                statisticItem.param("thread_type", eVar.O().i0);
                 BaijiahaoData L = eVar.O().L();
                 if (L != null) {
                     statisticItem.param(TiebaStatic.Params.UGC_NID, L.oriUgcNid);
@@ -120,7 +120,7 @@ public class a {
                 statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().q);
             }
             if (!eVar.f0()) {
-                int i5 = eVar.f19617g;
+                int i5 = eVar.f19632g;
                 if (i5 == 2) {
                     i4 = 1;
                 } else if (i5 == 1) {
@@ -178,8 +178,8 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, tbPageContext)) == null) {
             if (tbPageContext != null && tbPageContext.getPageActivity() != null && (tbPageContext.getPageActivity() instanceof AbsPbActivity)) {
                 AbsPbActivity absPbActivity = (AbsPbActivity) tbPageContext.getPageActivity();
-                if (absPbActivity.getPbModel() != null && absPbActivity.getPbModel().O0() != null) {
-                    return absPbActivity.getPbModel().O0().H();
+                if (absPbActivity.getPbModel() != null && absPbActivity.getPbModel().P0() != null) {
+                    return absPbActivity.getPbModel().P0().H();
                 }
             }
             return 0;
@@ -196,7 +196,7 @@ public class a {
         if (aVar.getThreadData().Y() != null) {
             statisticItem.param("obj_type", j(aVar.getThreadData().Y().f14382j));
         }
-        statisticItem.param("obj_locate", aVar.getThreadData().I2);
+        statisticItem.param("obj_locate", aVar.getThreadData().J2);
         statisticItem.param("tid", aVar.getThreadData().s1());
         statisticItem.param("fid", aVar.getThreadData().T());
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());

@@ -17,20 +17,20 @@ public class as {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final as f43257e;
+    public static final as f43319e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f43258a;
+    public boolean f43320a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f43259b;
+    public float f43321b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f43260c;
+    public long f43322c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f43261d;
+    public volatile boolean f43323d;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class as {
                 return;
             }
         }
-        f43257e = new as();
+        f43319e = new as();
     }
 
     public as() {
@@ -61,28 +61,28 @@ public class as {
                 return;
             }
         }
-        this.f43258a = false;
-        this.f43259b = 50.0f;
-        this.f43260c = 500L;
+        this.f43320a = false;
+        this.f43321b = 50.0f;
+        this.f43322c = 500L;
     }
 
     public static as a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43257e : (as) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43319e : (as) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43258a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43320a : invokeV.booleanValue;
     }
 
     public float c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            float f2 = this.f43259b;
+            float f2 = this.f43321b;
             if (f2 < 0.0f) {
                 f2 = 0.0f;
             } else if (f2 > 100.0f) {
@@ -96,7 +96,7 @@ public class as {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43260c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43322c : invokeV.longValue;
     }
 
     public void a(String str) {
@@ -110,19 +110,19 @@ public class as {
                 int optInt = jSONObject.optInt(IntentConfig.CLOSE);
                 String optString = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
                 String optString2 = jSONObject.optString("duration");
-                this.f43258a = optInt != 0;
+                this.f43320a = optInt != 0;
                 if (!TextUtils.isEmpty(optString)) {
                     try {
-                        this.f43259b = Float.valueOf(optString).floatValue();
+                        this.f43321b = Float.valueOf(optString).floatValue();
                     } catch (Exception unused) {
                     }
                 }
                 if (!TextUtils.isEmpty(optString2)) {
-                    this.f43260c = Long.valueOf(optString2).longValue();
+                    this.f43322c = Long.valueOf(optString2).longValue();
                 }
             }
         } catch (Exception unused2) {
         }
-        this.f43261d = true;
+        this.f43323d = true;
     }
 }

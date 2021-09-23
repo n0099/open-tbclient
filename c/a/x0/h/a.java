@@ -14,10 +14,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AudioPlayData f30735a;
+    public AudioPlayData f30756a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f30736b;
+    public b f30757b;
 
     public a(AudioPlayData audioPlayData) {
         Interceptable interceptable = $ic;
@@ -34,30 +34,30 @@ public class a {
                 return;
             }
         }
-        this.f30735a = audioPlayData;
+        this.f30756a = audioPlayData;
         if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
             return;
         }
-        this.f30736b = new b(audioPlayData.audioPath);
+        this.f30757b = new b(audioPlayData.audioPath);
     }
 
     public b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30736b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30757b : (b) invokeV.objValue;
     }
 
     public AudioPlayData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30735a : (AudioPlayData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30756a : (AudioPlayData) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b bVar = this.f30736b;
+            b bVar = this.f30757b;
             return bVar != null && bVar.i();
         }
         return invokeV.booleanValue;
@@ -66,7 +66,7 @@ public class a {
     public void d(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f30736b = bVar;
+            this.f30757b = bVar;
         }
     }
 }

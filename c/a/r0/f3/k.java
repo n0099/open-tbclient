@@ -12,10 +12,10 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f17741a;
+    public String f17751a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17742b;
+    public String f17752b;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class k {
             return;
         }
         try {
-            this.f17741a = jSONObject.optString("banner");
-            this.f17742b = jSONObject.optString("link");
+            this.f17751a = jSONObject.optString("banner");
+            this.f17752b = jSONObject.optString("link");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

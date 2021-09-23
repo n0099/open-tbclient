@@ -17,10 +17,10 @@ public class b extends WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayVcodeActivity f19426a;
+    public PayVcodeActivity f19441a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.j3.m0.c f19427b;
+    public c.a.r0.j3.m0.c f19442b;
 
     public b(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
@@ -37,13 +37,13 @@ public class b extends WebChromeClient {
                 return;
             }
         }
-        this.f19426a = payVcodeActivity;
+        this.f19441a = payVcodeActivity;
     }
 
     public void a(c.a.r0.j3.m0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f19427b = cVar;
+            this.f19442b = cVar;
         }
     }
 
@@ -53,8 +53,8 @@ public class b extends WebChromeClient {
         PayVcodeActivity payVcodeActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            c.a.r0.j3.m0.c cVar = this.f19427b;
-            if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (payVcodeActivity = this.f19426a) != null && g.f(payVcodeActivity.getPageContext())) {
+            c.a.r0.j3.m0.c cVar = this.f19442b;
+            if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (payVcodeActivity = this.f19441a) != null && g.f(payVcodeActivity.getPageContext())) {
                 return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }
             return true;

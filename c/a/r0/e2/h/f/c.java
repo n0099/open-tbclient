@@ -21,19 +21,19 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f17415a;
+    public View f17425a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f17416b;
+    public TextView f17426b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f17417c;
+    public View f17427c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f17418d;
+    public View f17428d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f17419e;
+    public LinearLayout f17429e;
 
     public c(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -51,43 +51,43 @@ public class c {
             }
         }
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.emotion_manage_header, (ViewGroup) null, false);
-        this.f17418d = inflate;
+        this.f17428d = inflate;
         LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.emotion_manage_header_content);
-        this.f17419e = linearLayout;
+        this.f17429e = linearLayout;
         linearLayout.setVisibility(8);
-        this.f17415a = this.f17418d.findViewById(R.id.emotion_manage_item_header);
-        this.f17416b = (TextView) this.f17418d.findViewById(R.id.emotion_manage_total_title);
-        View findViewById = this.f17418d.findViewById(R.id.emotion_manage_edit_lable);
-        this.f17417c = findViewById;
+        this.f17425a = this.f17428d.findViewById(R.id.emotion_manage_item_header);
+        this.f17426b = (TextView) this.f17428d.findViewById(R.id.emotion_manage_total_title);
+        View findViewById = this.f17428d.findViewById(R.id.emotion_manage_edit_lable);
+        this.f17427c = findViewById;
         findViewById.setVisibility(8);
     }
 
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17418d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17428d : (View) invokeV.objValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            View view = this.f17415a;
+            View view = this.f17425a;
             if (view != null) {
                 SkinManager.setBackgroundColor(view, R.color.CAM_X0204, i2);
             }
-            LinearLayout linearLayout = this.f17419e;
+            LinearLayout linearLayout = this.f17429e;
             if (linearLayout != null) {
                 SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0204, i2);
             }
-            TextView textView = this.f17416b;
+            TextView textView = this.f17426b;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i2);
-                SkinManager.setBackgroundColor(this.f17416b, R.color.CAM_X0204, i2);
+                SkinManager.setBackgroundColor(this.f17426b, R.color.CAM_X0204, i2);
             }
-            View view2 = this.f17417c;
+            View view2 = this.f17427c;
             if (view2 != null) {
                 SkinManager.setViewTextColor(view2, R.color.CAM_X0107, i2);
-                SkinManager.setBackgroundColor(this.f17417c, R.color.CAM_X0204, i2);
+                SkinManager.setBackgroundColor(this.f17427c, R.color.CAM_X0204, i2);
             }
         }
     }
@@ -96,9 +96,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (c.a.r0.e2.h.a.b().a()) {
-                this.f17417c.setVisibility(0);
+                this.f17427c.setVisibility(0);
             } else {
-                this.f17417c.setVisibility(8);
+                this.f17427c.setVisibility(8);
             }
         }
     }
@@ -109,15 +109,15 @@ public class c {
             return;
         }
         if (num.intValue() == 0) {
-            this.f17419e.setVisibility(8);
+            this.f17429e.setVisibility(8);
         } else {
-            this.f17416b.setText(String.format(h.a(R.string.emotion_manage_local_number), num));
-            this.f17419e.setVisibility(0);
+            this.f17426b.setText(String.format(h.a(R.string.emotion_manage_local_number), num));
+            this.f17429e.setVisibility(0);
         }
         if (c.a.r0.e2.h.a.b().a()) {
-            this.f17417c.setVisibility(0);
+            this.f17427c.setVisibility(0);
         } else {
-            this.f17417c.setVisibility(8);
+            this.f17427c.setVisibility(8);
         }
     }
 }

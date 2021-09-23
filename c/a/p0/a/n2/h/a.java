@@ -13,11 +13,11 @@ public class a implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f7711f;
+    public static volatile a f7719f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Thread.UncaughtExceptionHandler f7712e;
+    public final Thread.UncaughtExceptionHandler f7720e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,28 +32,28 @@ public class a implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f7712e = Thread.getDefaultUncaughtExceptionHandler();
+        this.f7720e = Thread.getDefaultUncaughtExceptionHandler();
     }
 
     @UiThread
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && f7711f == null) {
-            f7711f = new a();
-            Thread.setDefaultUncaughtExceptionHandler(f7711f);
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && f7719f == null) {
+            f7719f = new a();
+            Thread.setDefaultUncaughtExceptionHandler(f7719f);
         }
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f7711f == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f7719f == null) {
             return;
         }
         Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
-        a aVar = f7711f;
+        a aVar = f7719f;
         if (defaultUncaughtExceptionHandler == aVar) {
-            Thread.setDefaultUncaughtExceptionHandler(aVar.f7712e);
-            f7711f = null;
+            Thread.setDefaultUncaughtExceptionHandler(aVar.f7720e);
+            f7719f = null;
         }
     }
 
@@ -74,7 +74,7 @@ public class a implements Thread.UncaughtExceptionHandler {
                 } catch (Throwable unused) {
                 }
             }
-            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f7712e;
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f7720e;
             if (uncaughtExceptionHandler != null) {
                 uncaughtExceptionHandler.uncaughtException(thread, th);
             }

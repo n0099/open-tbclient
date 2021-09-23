@@ -80,7 +80,7 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.x = new d(this.o, this.f2961i);
+            this.x = new d(this.o, this.f2962i);
             return new FrsSchoolRecommendViewHolder(this, this.x);
         }
         return (FrsSchoolRecommendViewHolder) invokeL.objValue;
@@ -95,22 +95,22 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, t1Var, frsSchoolRecommendViewHolder})) == null) {
             super.a0(i2, view, viewGroup, t1Var, frsSchoolRecommendViewHolder);
             this.x = frsSchoolRecommendViewHolder.mCardView;
-            ArrayList<u1> O4 = t1Var.O4();
-            if (O4.size() <= 0) {
+            ArrayList<u1> N4 = t1Var.N4();
+            if (N4.size() <= 0) {
                 return null;
             }
             x xVar = new x();
             xVar.showTopDivider = true;
             xVar.mGroupTitle = t1Var.getTitle();
-            for (int i3 = 0; i3 != O4.size(); i3++) {
-                u1 u1Var = O4.get(i3);
+            for (int i3 = 0; i3 != N4.size(); i3++) {
+                u1 u1Var = N4.get(i3);
                 if (u1Var != null) {
                     z0 z0Var = new z0();
-                    z0Var.f28047a.setUserId(u1Var.d());
-                    z0Var.f28047a.setUserName(u1Var.e());
-                    z0Var.f28047a.setPortrait(u1Var.c());
-                    z0Var.f28047a.getGodUserData().setIsLike(u1Var.b() == 1);
-                    z0Var.f28047a.getGodUserData().setIntro(u1Var.a());
+                    z0Var.f28067a.setUserId(u1Var.d());
+                    z0Var.f28067a.setUserName(u1Var.e());
+                    z0Var.f28067a.setPortrait(u1Var.c());
+                    z0Var.f28067a.getGodUserData().setIsLike(u1Var.b() == 1);
+                    z0Var.f28067a.getGodUserData().setIntro(u1Var.a());
                     xVar.g(z0Var);
                 }
             }

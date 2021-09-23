@@ -33,7 +33,7 @@ public class c extends a {
                 return;
             }
         }
-        this.f62661b = 3;
+        this.f62959b = 3;
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.a, com.baidu.wallet.paysdk.presenter.e
@@ -42,9 +42,9 @@ public class c extends a {
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.a(z);
             if (z) {
-                this.f62661b = 3;
+                this.f62959b = 3;
             } else {
-                this.f62661b = 4;
+                this.f62959b = 4;
             }
         }
     }
@@ -54,18 +54,18 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.b();
-            AuthorizeSignActivity authorizeSignActivity = this.f62660a;
+            AuthorizeSignActivity authorizeSignActivity = this.f62958a;
             if (authorizeSignActivity == null) {
                 return;
             }
             AuthorizeInfoView.b authInfoViewAdapter = authorizeSignActivity.getAuthInfoViewAdapter(1);
-            DirectPayContentResponse payResponse = this.f62660a.getPayResponse();
+            DirectPayContentResponse payResponse = this.f62958a.getPayResponse();
             if (payResponse != null) {
                 authInfoViewAdapter.a(payResponse.authorize);
                 authInfoViewAdapter.a(payResponse.user);
                 Authorize authorize = payResponse.authorize;
                 if (authorize != null) {
-                    this.f62660a.initActionBarByString(authorize.top_title);
+                    this.f62958a.initActionBarByString(authorize.top_title);
                 }
             }
         }

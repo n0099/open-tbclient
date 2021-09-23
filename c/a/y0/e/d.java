@@ -13,11 +13,11 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f31214b;
+    public static boolean f31235b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.y0.e.f.c f31215a;
+    public c.a.y0.e.f.c f31236a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public class d {
                 return;
             }
         }
-        f31214b = a.e();
+        f31235b = a.e();
     }
 
     public d(Context context) {
@@ -51,22 +51,22 @@ public class d {
             }
         }
         int a2 = b.a();
-        if (f31214b) {
+        if (f31235b) {
             String str = "UnionIDFactory manufacturer:" + a2;
         }
         if (a2 == 10001) {
-            this.f31215a = new c.a.y0.e.g.a(context);
+            this.f31236a = new c.a.y0.e.g.a(context);
         } else if (a2 != 10002) {
-            this.f31215a = new c.a.y0.e.g.b(context);
+            this.f31236a = new c.a.y0.e.g.b(context);
         } else {
-            boolean z = f31214b;
-            this.f31215a = new c.a.y0.e.g.c(context);
+            boolean z = f31235b;
+            this.f31236a = new c.a.y0.e.g.c(context);
         }
     }
 
     public c.a.y0.e.f.c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31215a : (c.a.y0.e.f.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31236a : (c.a.y0.e.f.c) invokeV.objValue;
     }
 }

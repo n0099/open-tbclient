@@ -17,13 +17,13 @@ public class X0 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ boolean f76929a;
+    public final /* synthetic */ boolean f77248a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f76930b;
+    public final /* synthetic */ String f77249b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Y0 f76931c;
+    public final /* synthetic */ Y0 f77250c;
 
     public X0(Y0 y0, boolean z, String str) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class X0 implements Runnable {
                 return;
             }
         }
-        this.f76931c = y0;
-        this.f76929a = z;
-        this.f76930b = str;
+        this.f77250c = y0;
+        this.f77248a = z;
+        this.f77249b = str;
     }
 
     @Override // java.lang.Runnable
@@ -50,19 +50,19 @@ public class X0 implements Runnable {
         String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = this.f76929a ? s1.f77163b : s1.f77164c;
-            HashMap a2 = o1.a(this.f76931c.f76934a);
+            String str = this.f77248a ? s1.f77482b : s1.f77483c;
+            HashMap a2 = o1.a(this.f77250c.f77253a);
             try {
                 str = str + o1.a(a2);
             } catch (UnsupportedEncodingException unused) {
             }
-            String str2 = this.f76930b;
+            String str2 = this.f77249b;
             try {
                 U0 u0 = new U0(str, "POST", N.a((Map) null));
-                u0.f76907b = N.h(str2);
+                u0.f77226b = N.h(str2);
                 V0 a3 = u0.a();
-                byte[] bArr = a3.f76919b;
-                if (a3.f76918a == 200) {
+                byte[] bArr = a3.f77238b;
+                if (a3.f77237a == 200) {
                     JSONObject jSONObject = new JSONObject(new String(bArr, "UTF-8"));
                     jSONObject.optInt(Constants.KEYS.RET);
                     jSONObject.optString("msg");

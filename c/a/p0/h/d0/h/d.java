@@ -12,13 +12,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11159a;
+    public String f11167a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<long[]> f11160b;
+    public List<long[]> f11168b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11161c;
+    public String f11169c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "[ videoPath = " + this.f11159a + "; clipPath = " + this.f11161c + "; clipList = " + this.f11160b + " ]";
+            return "[ videoPath = " + this.f11167a + "; clipPath = " + this.f11169c + "; clipList = " + this.f11168b + " ]";
         }
         return (String) invokeV.objValue;
     }

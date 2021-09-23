@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.Map;
@@ -28,7 +29,7 @@ public class c extends k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f8109c;
+        public final /* synthetic */ c f8117c;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -45,7 +46,7 @@ public class c extends k {
                     return;
                 }
             }
-            this.f8109c = cVar;
+            this.f8117c = cVar;
         }
 
         @Override // c.a.p0.a.h0.j.a, c.a.p0.a.h0.j.d
@@ -55,12 +56,12 @@ public class c extends k {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 if (str != null && str.startsWith("https://etrade.baidu.com/cashier/create-qrcode/close")) {
                     Map<String, String> t = o0.t(o0.o(str));
-                    if (t != null && t.get("statusCode") != null) {
+                    if (t != null && t.get(EnterDxmPayServiceAction.SERVICE_STATUS_CODE) != null) {
                         try {
-                            e.a().onPayResult(Integer.valueOf(t.get("statusCode")).intValue(), URLDecoder.decode(t.get("result"), "UTF-8"));
+                            e.a().onPayResult(Integer.valueOf(t.get(EnterDxmPayServiceAction.SERVICE_STATUS_CODE)).intValue(), URLDecoder.decode(t.get("result"), "UTF-8"));
                         } catch (UnsupportedEncodingException e2) {
                             e2.printStackTrace();
-                            e.a().onPayResult(Integer.valueOf(t.get("statusCode")).intValue(), null);
+                            e.a().onPayResult(Integer.valueOf(t.get(EnterDxmPayServiceAction.SERVICE_STATUS_CODE)).intValue(), null);
                         }
                     } else {
                         e.a().onPayResult(6, null);

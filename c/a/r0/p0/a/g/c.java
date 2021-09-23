@@ -17,28 +17,28 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f23426a;
+    public int f23442a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23427b;
+    public int f23443b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MultiMediaData f23428c;
+    public MultiMediaData f23444c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f23429d;
+    public float f23445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f23430e;
+    public boolean f23446e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f23431f;
+    public String f23447f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f23432g;
+    public boolean f23448g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Buffer f23433h;
+    public Buffer f23449h;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -46,34 +46,34 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f23434a;
+        public int f23450a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f23435b;
+        public int f23451b;
 
         /* renamed from: c  reason: collision with root package name */
-        public MultiMediaData f23436c;
+        public MultiMediaData f23452c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<LocalAlbumInfo> f23437d;
+        public List<LocalAlbumInfo> f23453d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f23438e;
+        public float f23454e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f23439f;
+        public String f23455f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f23440g;
+        public boolean f23456g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f23441h;
+        public boolean f23457h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f23442i;
+        public String f23458i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f23443j;
+        public boolean f23459j;
         public Buffer k;
         public long l;
 
@@ -90,12 +90,12 @@ public class c {
                     return;
                 }
             }
-            this.f23434a = RecordConstants.VIDEO_CONSTANT_WIDTH;
-            this.f23435b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
-            this.f23438e = 0.0f;
-            this.f23440g = false;
-            this.f23441h = false;
-            this.f23443j = false;
+            this.f23450a = RecordConstants.VIDEO_CONSTANT_WIDTH;
+            this.f23451b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+            this.f23454e = 0.0f;
+            this.f23456g = false;
+            this.f23457h = false;
+            this.f23459j = false;
         }
 
         public c m() {
@@ -118,7 +118,7 @@ public class c {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.f23435b = i2;
+                this.f23451b = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -128,7 +128,7 @@ public class c {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.f23443j = z;
+                this.f23459j = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -138,7 +138,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, multiMediaData)) == null) {
-                this.f23436c = multiMediaData;
+                this.f23452c = multiMediaData;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -148,7 +148,7 @@ public class c {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f2)) == null) {
-                this.f23438e = f2;
+                this.f23454e = f2;
                 return this;
             }
             return (a) invokeF.objValue;
@@ -158,7 +158,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f23442i = str;
+                this.f23458i = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -168,7 +168,7 @@ public class c {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-                this.f23434a = i2;
+                this.f23450a = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -190,17 +190,17 @@ public class c {
                 return;
             }
         }
-        this.f23426a = aVar.f23434a;
-        this.f23427b = aVar.f23435b;
-        this.f23429d = aVar.f23438e;
-        String unused = aVar.f23439f;
-        this.f23428c = aVar.f23436c;
-        List unused2 = aVar.f23437d;
-        this.f23430e = aVar.f23440g;
-        boolean unused3 = aVar.f23441h;
-        this.f23431f = aVar.f23442i;
-        this.f23432g = aVar.f23443j;
-        this.f23433h = aVar.k;
+        this.f23442a = aVar.f23450a;
+        this.f23443b = aVar.f23451b;
+        this.f23445d = aVar.f23454e;
+        String unused = aVar.f23455f;
+        this.f23444c = aVar.f23452c;
+        List unused2 = aVar.f23453d;
+        this.f23446e = aVar.f23456g;
+        boolean unused3 = aVar.f23457h;
+        this.f23447f = aVar.f23458i;
+        this.f23448g = aVar.f23459j;
+        this.f23449h = aVar.k;
         long unused4 = aVar.l;
     }
 }

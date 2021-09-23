@@ -22,13 +22,13 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.b1.a f48497e;
+    public c.a.q0.b1.a f48605e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f48498f;
+    public ViewGroup f48606f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final CustomMessageListener f48499g;
+    public final CustomMessageListener f48607g;
 
     /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
@@ -36,7 +36,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BaseTemplateFragment f48500a;
+        public final /* synthetic */ BaseTemplateFragment f48608a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BaseTemplateFragment baseTemplateFragment, int i2) {
@@ -56,7 +56,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f48500a = baseTemplateFragment;
+            this.f48608a = baseTemplateFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,13 +67,13 @@ public abstract class BaseTemplateFragment extends BaseFragment {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof c.a.q0.b1.b.a.a) {
                     c.a.q0.b1.b.a.a aVar = (c.a.q0.b1.b.a.a) data;
-                    if (aVar.a() != this.f48500a.getUniqueId()) {
+                    if (aVar.a() != this.f48608a.getUniqueId()) {
                         return;
                     }
                     if (aVar.c()) {
-                        this.f48500a.onItemShowLog(aVar);
+                        this.f48608a.onItemShowLog(aVar);
                     } else if (aVar.b()) {
-                        this.f48500a.onItemClickLog(aVar);
+                        this.f48608a.onItemClickLog(aVar);
                     }
                 }
             }
@@ -93,7 +93,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
                 return;
             }
         }
-        this.f48499g = new a(this, 2001453);
+        this.f48607g = new a(this, 2001453);
     }
 
     public final String a(Object obj) {
@@ -140,7 +140,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             c.a.q0.b1.d.a.b("BaseTemplateFragment-->onChangeSkinType---- ");
             super.onChangeSkinType(i2);
-            c.a.q0.b1.a aVar = this.f48497e;
+            c.a.q0.b1.a aVar = this.f48605e;
             if (aVar != null) {
                 aVar.a(i2);
             }
@@ -165,19 +165,19 @@ public abstract class BaseTemplateFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             c.a.q0.b1.d.a.b("BaseTemplateFragment-->onCreateView---- ");
-            ViewGroup viewGroup2 = this.f48498f;
+            ViewGroup viewGroup2 = this.f48606f;
             if (viewGroup2 != null && (viewGroup2.getParent() instanceof ViewGroup)) {
-                ((ViewGroup) this.f48498f.getParent()).removeView(this.f48498f);
+                ((ViewGroup) this.f48606f.getParent()).removeView(this.f48606f);
             }
-            if (this.f48498f == null) {
-                this.f48498f = onCreateView();
+            if (this.f48606f == null) {
+                this.f48606f = onCreateView();
             }
-            if (this.f48497e == null) {
-                this.f48497e = onCreatePageLoader(this.f48498f);
+            if (this.f48605e == null) {
+                this.f48605e = onCreatePageLoader(this.f48606f);
             }
-            this.f48497e.f(getUniqueId());
-            registerListener(this.f48499g);
-            return this.f48498f;
+            this.f48605e.f(getUniqueId());
+            registerListener(this.f48607g);
+            return this.f48606f;
         }
         return (View) invokeLLL.objValue;
     }
@@ -190,7 +190,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             c.a.q0.b1.d.a.b("BaseTemplateFragment-->onDestroy---- ");
             super.onDestroy();
-            c.a.q0.b1.a aVar = this.f48497e;
+            c.a.q0.b1.a aVar = this.f48605e;
             if (aVar != null) {
                 aVar.b();
             }
@@ -252,7 +252,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             c.a.q0.b1.d.a.b("BaseTemplateFragment-->onPause---- ");
             super.onPause();
-            c.a.q0.b1.a aVar = this.f48497e;
+            c.a.q0.b1.a aVar = this.f48605e;
             if (aVar != null) {
                 aVar.c();
             }
@@ -266,14 +266,14 @@ public abstract class BaseTemplateFragment extends BaseFragment {
             c.a.q0.b1.d.a.b("BaseTemplateFragment-->onPrimary----isPrimary =" + isPrimary());
             super.onPrimary();
             if (isAdded() && isPrimary()) {
-                c.a.q0.b1.a aVar = this.f48497e;
+                c.a.q0.b1.a aVar = this.f48605e;
                 if (aVar != null) {
                     aVar.d();
                     return;
                 }
                 return;
             }
-            c.a.q0.b1.a aVar2 = this.f48497e;
+            c.a.q0.b1.a aVar2 = this.f48605e;
             if (aVar2 != null) {
                 aVar2.c();
             }
@@ -293,7 +293,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             c.a.q0.b1.d.a.b("BaseTemplateFragment-->sendReq----");
-            c.a.q0.b1.a aVar = this.f48497e;
+            c.a.q0.b1.a aVar = this.f48605e;
             if (aVar != null) {
                 aVar.e();
             }

@@ -23,7 +23,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f18848a;
+    public boolean f18857a;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 return;
             }
         }
-        this.f18848a = z;
+        this.f18857a = z;
         setPriority(4);
     }
 
@@ -61,7 +61,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collectionArr)) == null) {
             l<String> c2 = BdCacheService.l().c("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-            if (this.f18848a) {
+            if (this.f18857a) {
                 String str2 = c2.get("dnsproxycachedata");
                 if (str2 != null) {
                     DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) OrmObject.objectWithJsonStr(str2, DnsProxyResponseData.class);

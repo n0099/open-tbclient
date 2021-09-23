@@ -46,10 +46,10 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4492a;
+    public static final boolean f4500a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f4493b;
+    public static ExecutorService f4501b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -58,13 +58,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f4494e;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f4502e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f4495f;
+        public final /* synthetic */ JSONObject f4503f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a1.b f4496g;
+        public final /* synthetic */ c.a.p0.a.a1.b f4504g;
 
         public a(c.a.p0.a.f1.e.b bVar, JSONObject jSONObject, c.a.p0.a.a1.b bVar2) {
             Interceptable interceptable = $ic;
@@ -81,9 +81,9 @@ public class e {
                     return;
                 }
             }
-            this.f4494e = bVar;
-            this.f4495f = jSONObject;
-            this.f4496g = bVar2;
+            this.f4502e = bVar;
+            this.f4503f = jSONObject;
+            this.f4504g = bVar2;
         }
 
         @Override // java.lang.Runnable
@@ -93,13 +93,13 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.p0.a.v2.a1.b bVar = new c.a.p0.a.v2.a1.b();
-                if (c.a.p0.a.u1.a.a.A(this.f4494e)) {
-                    l = c.a.p0.a.u1.a.a.c(this.f4494e, bVar);
+                if (c.a.p0.a.u1.a.a.A(this.f4502e)) {
+                    l = c.a.p0.a.u1.a.a.c(this.f4502e, bVar);
                 } else {
-                    l = C0114e.l(this.f4494e, bVar, this.f4495f);
+                    l = C0114e.l(this.f4502e, bVar, this.f4503f);
                 }
-                if (l == null || (swanAppConfigData = l.f4499b) == null || swanAppConfigData.f46554b == null) {
-                    c.a.p0.a.q2.a aVar = bVar.f9289a;
+                if (l == null || (swanAppConfigData = l.f4507b) == null || swanAppConfigData.f46656b == null) {
+                    c.a.p0.a.q2.a aVar = bVar.f9297a;
                     if (aVar == null) {
                         aVar = new c.a.p0.a.q2.a();
                         aVar.j(5L);
@@ -107,14 +107,14 @@ public class e {
                         aVar.e("小程序loadbundle出错，loadinfo为空或者页面配置空 ");
                     }
                     c.a.p0.a.j2.p.d dVar = new c.a.p0.a.j2.p.d();
-                    c.a.p0.a.f1.e.b bVar2 = this.f4494e;
+                    c.a.p0.a.f1.e.b bVar2 = this.f4502e;
                     dVar.q(k.m(bVar2 != null ? bVar2.G() : 0));
                     dVar.p(aVar);
                     dVar.s("appjson_config_invalid");
-                    dVar.r(this.f4494e);
+                    dVar.r(this.f4502e);
                     k.L(dVar);
                 }
-                this.f4496g.a(0, l);
+                this.f4504g.a(0, l);
             }
         }
     }
@@ -141,8 +141,8 @@ public class e {
                         aVar.h(7L);
                         aVar.e("小程序bundle解压失败! for debug");
                         c.a.p0.a.q2.e.a().f(aVar);
-                        if (bVar2 != null && bVar2.f9289a == null) {
-                            bVar2.f9289a = aVar;
+                        if (bVar2 != null && bVar2.f9297a == null) {
+                            bVar2.f9297a = aVar;
                         }
                         return null;
                     }
@@ -157,8 +157,8 @@ public class e {
                             aVar2.h(7L);
                             aVar2.e("小程序bundle解压失败! for debug");
                             c.a.p0.a.q2.e.a().f(aVar2);
-                            if (bVar2 != null && bVar2.f9289a == null) {
-                                bVar2.f9289a = aVar2;
+                            if (bVar2 != null && bVar2.f9297a == null) {
+                                bVar2.f9297a = aVar2;
                             }
                             return null;
                         }
@@ -169,11 +169,11 @@ public class e {
                 File g2 = g();
                 File file = new File(g2, "app.json");
                 SwanAppConfigData b4 = c.a.p0.a.a2.n.d.b(g2.getAbsolutePath());
-                gVar.f4498a = g2.getPath() + File.separator;
-                gVar.f4499b = b4;
+                gVar.f4506a = g2.getPath() + File.separator;
+                gVar.f4507b = b4;
                 c.a.p0.a.t1.b.a.f(b4, true);
                 c.a.p0.a.t1.g.b.l(b4);
-                c.a.p0.a.e0.d.h("SwanAppBundleHelper", "configFile path: " + file.getPath() + "configFile exist: " + file.exists() + "info.mAppBundlePath path: " + gVar.f4498a);
+                c.a.p0.a.e0.d.h("SwanAppBundleHelper", "configFile path: " + file.getPath() + "configFile exist: " + file.exists() + "info.mAppBundlePath path: " + gVar.f4506a);
                 return gVar;
             }
             return (g) invokeLL.objValue;
@@ -196,7 +196,7 @@ public class e {
                 aVar.e("没有小程序包! for debug, bundle files are empty");
                 c.a.p0.a.q2.e.a().f(aVar);
                 if (bVar != null) {
-                    bVar.f9289a = aVar;
+                    bVar.f9297a = aVar;
                     return null;
                 }
                 return null;
@@ -208,7 +208,7 @@ public class e {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                File file = new File(c.a.p0.a.f1.c.a.d().get(0).f9358a, "/aiapps_debug/");
+                File file = new File(c.a.p0.a.f1.c.a.d().get(0).f9366a, "/aiapps_debug/");
                 if (!file.exists()) {
                     file.mkdirs();
                 }
@@ -220,7 +220,7 @@ public class e {
         public static String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new File(c.a.p0.a.f1.c.a.d().get(0).f9358a, "/aiapps_debug/").getAbsolutePath() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new File(c.a.p0.a.f1.c.a.d().get(0).f9366a, "/aiapps_debug/").getAbsolutePath() : (String) invokeV.objValue;
         }
 
         public static File e() {
@@ -280,7 +280,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4497a;
+        public String f4505a;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -424,7 +424,7 @@ public class e {
                 if (file.exists() && file.isFile()) {
                     return file;
                 }
-                if (e.f4492a && z) {
+                if (e.f4500a && z) {
                     Context appContext = AppRuntime.getAppContext();
                     c.a.p0.a.z1.b.f.e.g(appContext, h2.getPath() + " 没有小程序包!").F();
                 }
@@ -434,7 +434,7 @@ public class e {
                     aVar.h(4L);
                     aVar.e("没有小程序包! for release, no such bundle file");
                     c.a.p0.a.q2.e.a().f(aVar);
-                    bVar.f9289a = aVar;
+                    bVar.f9297a = aVar;
                 }
                 return null;
             }
@@ -476,13 +476,13 @@ public class e {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
-                if (e.f4492a) {
+                if (e.f4500a) {
                     String str3 = "curVersion:" + str + ",targetVersion:" + str2;
                 }
                 try {
                     return a(str, str2) > 0;
                 } catch (IllegalArgumentException e2) {
-                    if (e.f4492a) {
+                    if (e.f4500a) {
                         String str4 = "比较版本号Exception：" + e2.getMessage();
                     }
                     return false;
@@ -512,7 +512,7 @@ public class e {
                         dVar.p(aVar);
                         dVar.r(bVar);
                         k.L(dVar);
-                        boolean unused = e.f4492a;
+                        boolean unused = e.f4500a;
                         return null;
                     }
                     b(v);
@@ -523,8 +523,8 @@ public class e {
                         aVar2.h(7L);
                         aVar2.e("小程序bundle解压失败! for release");
                         c.a.p0.a.q2.e.a().f(aVar2);
-                        if (bVar2 != null && bVar2.f9289a == null) {
-                            bVar2.f9289a = aVar2;
+                        if (bVar2 != null && bVar2.f9297a == null) {
+                            bVar2.f9297a = aVar2;
                         }
                         return null;
                     }
@@ -536,11 +536,11 @@ public class e {
                 if (b2 == null) {
                     return null;
                 }
-                gVar.f4498a = i(bVar.H(), bVar.u1()).getPath() + File.separator;
-                gVar.f4499b = b2;
+                gVar.f4506a = i(bVar.H(), bVar.u1()).getPath() + File.separator;
+                gVar.f4507b = b2;
                 c.a.p0.a.t1.b.a.f(b2, true);
                 c.a.p0.a.t1.g.b.l(b2);
-                c.a.p0.a.e0.d.h("SwanAppBundleHelper", "configFile path: " + file.getPath() + "configFile exist: " + file.exists() + "info.mAppBundlePath path: " + gVar.f4498a);
+                c.a.p0.a.e0.d.h("SwanAppBundleHelper", "configFile path: " + file.getPath() + "configFile exist: " + file.exists() + "info.mAppBundlePath path: " + gVar.f4506a);
                 return gVar;
             }
             return (g) invokeLLL.objValue;
@@ -563,11 +563,11 @@ public class e {
                 g gVar = new g();
                 File file = new File(e2, "app.json");
                 SwanAppConfigData b2 = c.a.p0.a.a2.n.d.b(e2.getAbsolutePath());
-                gVar.f4498a = e2.getPath() + File.separator;
-                gVar.f4499b = b2;
+                gVar.f4506a = e2.getPath() + File.separator;
+                gVar.f4507b = b2;
                 c.a.p0.a.t1.b.a.f(b2, true);
                 c.a.p0.a.t1.g.b.l(b2);
-                c.a.p0.a.e0.d.h("SwanAppBundleHelper", "configFile path: " + file.getPath() + "configFile exist: " + file.exists() + "info.mAppBundlePath path: " + gVar.f4498a);
+                c.a.p0.a.e0.d.h("SwanAppBundleHelper", "configFile path: " + file.getPath() + "configFile exist: " + file.exists() + "info.mAppBundlePath path: " + gVar.f4506a);
                 return gVar;
             }
             return (g) invokeL.objValue;
@@ -630,10 +630,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4498a;
+        public String f4506a;
 
         /* renamed from: b  reason: collision with root package name */
-        public SwanAppConfigData f4499b;
+        public SwanAppConfigData f4507b;
 
         public g() {
             Interceptable interceptable = $ic;
@@ -663,8 +663,8 @@ public class e {
                 return;
             }
         }
-        f4492a = c.a.p0.a.k.f7077a;
-        f4493b = Executors.newSingleThreadExecutor();
+        f4500a = c.a.p0.a.k.f7085a;
+        f4501b = Executors.newSingleThreadExecutor();
     }
 
     public static boolean A(String str, String str2) {
@@ -697,7 +697,7 @@ public class e {
                 g2 = g2.substring(0, lastIndexOf);
             }
             boolean exists = new File(str, g2).exists();
-            if (f4492a) {
+            if (f4500a) {
                 String str3 = "pagePath - " + g2 + ", isExist - " + exists;
             }
             return exists;
@@ -726,7 +726,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, cVar) == null) {
             d dVar = new d();
-            dVar.f4497a = str;
+            dVar.f4505a = str;
             new c.a.p0.a.k0.a().e(dVar, c.a.p0.a.p0.f.b.j().getPath(), cVar);
         }
     }
@@ -735,7 +735,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, str, cVar) == null) {
             d dVar = new d();
-            dVar.f4497a = str;
+            dVar.f4505a = str;
             c.a.p0.a.p0.f.c.a();
             new c.a.p0.a.k0.a().e(dVar, c.a.p0.a.p0.f.c.c().getPath(), cVar);
         }
@@ -745,7 +745,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, cVar) == null) {
             d dVar = new d();
-            dVar.f4497a = str;
+            dVar.f4505a = str;
             c.a.p0.a.m2.d.a.a();
             new c.a.p0.a.k0.a().e(dVar, c.a.p0.a.m2.d.a.d().getPath(), cVar);
         }
@@ -792,15 +792,15 @@ public class e {
                     c.a.p0.a.r1.h.o().C(new UbcFlowEvent("package_start_unzip"));
                     long currentTimeMillis = System.currentTimeMillis();
                     a.b i3 = c.a.p0.a.a1.h.a.i(file);
-                    int i4 = i3.f4523b;
+                    int i4 = i3.f4531b;
                     if (i4 != -1) {
-                        T = c.a.p0.a.a1.h.a.c(i3.f4522a, file2, i4).f4520a;
-                        i2 = i3.f4523b;
+                        T = c.a.p0.a.a1.h.a.c(i3.f4530a, file2, i4).f4528a;
+                        i2 = i3.f4531b;
                     } else {
                         T = c.a.p0.t.d.T(file.getPath(), file2.getPath());
                     }
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    if (f4492a) {
+                    if (f4500a) {
                         c.a.p0.a.a1.h.a.g((int) (currentTimeMillis2 - currentTimeMillis));
                     }
                     if (!T) {
@@ -809,7 +809,7 @@ public class e {
                         aVar.h(7L);
                         aVar.e("小程序bundle解压失败! PkgType=" + i2);
                         if (bVar2 != null) {
-                            bVar2.f9289a = aVar;
+                            bVar2.f9297a = aVar;
                         }
                     }
                     HybridUbcFlow o = c.a.p0.a.r1.h.o();
@@ -822,7 +822,7 @@ public class e {
                 aVar2.h(4L);
                 aVar2.e("小程序bundle文件不存在或者空文件! ");
                 if (bVar2 != null) {
-                    bVar2.f9289a = aVar2;
+                    bVar2.f9297a = aVar2;
                 }
             }
             return false;
@@ -879,7 +879,7 @@ public class e {
                     try {
                         H1 = bVar.H1();
                     } catch (JSONException e2) {
-                        if (f4492a) {
+                        if (f4500a) {
                             e2.printStackTrace();
                         }
                     }
@@ -889,7 +889,7 @@ public class e {
             } else {
                 jSONObject = null;
             }
-            f4493b.execute(new a(bVar, jSONObject, bVar2));
+            f4501b.execute(new a(bVar, jSONObject, bVar2));
         }
     }
 
@@ -983,19 +983,19 @@ public class e {
                     Set<String> i2 = cVar.i();
                     if (!TextUtils.isEmpty(appId)) {
                         hashSet.add(appId);
-                        if (f4492a) {
+                        if (f4500a) {
                             String str = "appId in running - " + appId;
                         }
                     }
                     if (i2.size() > 0) {
                         hashSet.addAll(i2);
-                        if (f4492a) {
+                        if (f4500a) {
                             String str2 = "appId in prefetch - " + i2;
                         }
                     }
                 }
             }
-            if (f4492a) {
+            if (f4500a) {
                 String str3 = "active apps - " + hashSet;
             }
             return hashSet;
@@ -1060,17 +1060,17 @@ public class e {
                     return "";
                 }
                 String path = file.getPath();
-                if (f4492a) {
+                if (f4500a) {
                     String str = "getConfigContent path: " + path;
                 }
                 String str2 = (String) c.a.p0.a.h0.u.f.b().a(path, "");
                 if (TextUtils.isEmpty(str2)) {
-                    if (f4492a) {
+                    if (f4500a) {
                         String str3 = "getConfigContent read start: " + path;
                     }
                     String D = c.a.p0.t.d.D(file);
                     c.a.p0.a.h0.u.f.b().c(path, D);
-                    if (f4492a) {
+                    if (f4500a) {
                         String str4 = "getConfigContent read end: " + path;
                     }
                     return D;
@@ -1125,7 +1125,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                if (f4492a) {
+                if (f4500a) {
                     throw new IllegalArgumentException("plugin name can't be empty");
                 }
                 return null;
@@ -1142,7 +1142,7 @@ public class e {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 return new File(s(str), str2);
             }
-            if (f4492a) {
+            if (f4500a) {
                 throw new IllegalArgumentException("plugin name or version can't be empty");
             }
             return null;
@@ -1159,7 +1159,7 @@ public class e {
             }
             b.a L = eVar.L();
             File v = v(eVar.getAppId(), L.u1(), L.n0(), L.h0(), null);
-            if (f4492a) {
+            if (f4500a) {
                 String str = "sendLaunchEvent folderFile: " + v.getPath();
                 String str2 = "sendLaunchEvent file exists: " + v.exists();
             }

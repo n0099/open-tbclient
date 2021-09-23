@@ -12,11 +12,11 @@ public class j implements Executor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile j f68821a;
+    public static volatile j f69132a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f68822b;
+    public ExecutorService f69133b;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -31,21 +31,21 @@ public class j implements Executor {
                 return;
             }
         }
-        this.f68822b = com.bytedance.sdk.openadsdk.preload.geckox.b.r();
+        this.f69133b = com.bytedance.sdk.openadsdk.preload.geckox.b.r();
     }
 
     public static j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f68821a == null) {
+            if (f69132a == null) {
                 synchronized (j.class) {
-                    if (f68821a == null) {
-                        f68821a = new j();
+                    if (f69132a == null) {
+                        f69132a = new j();
                     }
                 }
             }
-            return f68821a;
+            return f69132a;
         }
         return (j) invokeV.objValue;
     }
@@ -54,7 +54,7 @@ public class j implements Executor {
     public void execute(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.f68822b.execute(runnable);
+            this.f69133b.execute(runnable);
         }
     }
 }

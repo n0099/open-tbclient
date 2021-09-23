@@ -16,7 +16,7 @@ public class d implements c.a.p0.a.e0.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5312a;
+    public static String f5320a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public d() {
@@ -46,14 +46,14 @@ public class d implements c.a.p0.a.e0.f.a {
     public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f5312a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f5320a : (String) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.e0.f.a
     public void a(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            f5312a = v.i(bundle, "extraWSUrl");
+            f5320a = v.i(bundle, "extraWSUrl");
             c.a.p0.a.e0.f.b.i(v.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
             c.a.p0.a.e0.f.b.j(v.i(bundle, "slavePreload"));
         }
@@ -63,7 +63,7 @@ public class d implements c.a.p0.a.e0.f.a {
     public void b(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            bundle.putString("extraWSUrl", f5312a);
+            bundle.putString("extraWSUrl", f5320a);
             bundle.putString("slavePreload", c.a.p0.a.e0.f.b.c());
             bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, c.a.p0.a.e0.f.b.a());
         }

@@ -21,7 +21,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f29596a;
+    public static String f29616a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -125,14 +125,14 @@ public class d {
     public static void h(AdvertAppInfo advertAppInfo, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65544, null, advertAppInfo, i2, i3) == null) {
-            i(advertAppInfo, i2, i3, BannerFocusImageViewGroup.f60675f, BannerFocusImageViewGroup.f60675f);
+            i(advertAppInfo, i2, i3, BannerFocusImageViewGroup.f60792f, BannerFocusImageViewGroup.f60792f);
         }
     }
 
     public static void i(AdvertAppInfo advertAppInfo, int i2, int i3, int i4, int i5) {
         int i6;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{advertAppInfo, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || advertAppInfo == null || (i6 = advertAppInfo.Y3) == 1001 || i6 == -1001) {
+        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{advertAppInfo, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || advertAppInfo == null || (i6 = advertAppInfo.Z3) == 1001 || i6 == -1001) {
             return;
         }
         c h2 = g.h(advertAppInfo, 5, i2, i3);
@@ -143,10 +143,10 @@ public class d {
             h2.m(i5);
         }
         if (i3 == 31) {
-            if (TextUtils.isEmpty(f29596a)) {
-                f29596a = c();
+            if (TextUtils.isEmpty(f29616a)) {
+                f29616a = c();
             }
-            h2.q(f29596a);
+            h2.q(f29616a);
         }
         e.b().d(h2);
     }
@@ -154,13 +154,13 @@ public class d {
     public static void j(p pVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65546, null, pVar, i2) == null) {
-            k(pVar, i2, BannerFocusImageViewGroup.f60675f, BannerFocusImageViewGroup.f60675f);
+            k(pVar, i2, BannerFocusImageViewGroup.f60792f, BannerFocusImageViewGroup.f60792f);
         }
     }
 
     public static void k(p pVar, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(65547, null, pVar, i2, i3, i4) == null) || pVar == null || pVar.getAdvertAppInfo() == null || pVar.getAdvertAppInfo().Y3 == 1001 || pVar.getAdvertAppInfo().Y3 == -1001) {
+        if (!(interceptable == null || interceptable.invokeLIII(65547, null, pVar, i2, i3, i4) == null) || pVar == null || pVar.getAdvertAppInfo() == null || pVar.getAdvertAppInfo().Z3 == 1001 || pVar.getAdvertAppInfo().Z3 == -1001) {
             return;
         }
         c e2 = g.e(pVar, 5);

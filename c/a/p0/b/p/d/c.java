@@ -12,10 +12,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static c.a.p0.a.m.a f10239a;
+    public static c.a.p0.a.m.a f10247a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.p0.a.m.a f10240b;
+    public static final c.a.p0.a.m.a f10248b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -58,15 +58,15 @@ public class c {
                 return;
             }
         }
-        f10240b = new a();
+        f10248b = new a();
     }
 
     public static c.a.p0.a.m.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            c.a.p0.a.m.a aVar = f10239a;
-            return aVar == null ? f10240b : aVar;
+            c.a.p0.a.m.a aVar = f10247a;
+            return aVar == null ? f10248b : aVar;
         }
         return (c.a.p0.a.m.a) invokeV.objValue;
     }
@@ -74,15 +74,15 @@ public class c {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            f10239a = null;
+            f10247a = null;
         }
     }
 
     public static void c(c.a.p0.a.m.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, aVar) == null) || f10239a == aVar) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, aVar) == null) || f10247a == aVar) {
             return;
         }
-        f10239a = aVar;
+        f10247a = aVar;
     }
 }

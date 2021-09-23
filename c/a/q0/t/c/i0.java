@@ -3,10 +3,13 @@ package c.a.q0.t.c;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,14 +24,14 @@ public class i0 {
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public static final i0 f14678c;
+    public static final i0 f14680c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f14679a;
+    public boolean f14681a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14680b;
+    public String f14682b;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +46,7 @@ public class i0 {
                 return;
             }
         }
-        f14678c = new i0();
+        f14680c = new i0();
     }
 
     public i0() {
@@ -60,69 +63,76 @@ public class i0 {
         }
     }
 
-    public static boolean a(TbPageContext<?> tbPageContext, String str) {
-        InterceptResult invokeLL;
-        String c2;
+    public static void a(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
+        if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
+            StatisticItem.make(TbadkCoreStatisticKey.KEY_THREAD_FIRE_CLICK).addParam("obj_locate", i2).eventStat();
+        }
+    }
+
+    public static boolean b(TbPageContext<?> tbPageContext, String str) {
+        InterceptResult invokeLL;
+        String d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, tbPageContext, str)) == null) {
             i0 tiebaPlusConfigData = TbSingleton.getInstance().getTiebaPlusConfigData();
-            if (tiebaPlusConfigData == null || str == null || (c2 = tiebaPlusConfigData.c(str)) == null) {
+            if (tiebaPlusConfigData == null || str == null || (d2 = tiebaPlusConfigData.d(str)) == null) {
                 return false;
             }
-            return UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{c2});
+            return UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{d2});
         }
         return invokeLL.booleanValue;
     }
 
-    public static boolean d() {
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             i0 tiebaPlusConfigData = TbSingleton.getInstance().getTiebaPlusConfigData();
             if (tiebaPlusConfigData != null) {
-                return tiebaPlusConfigData.e();
+                return tiebaPlusConfigData.f();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public String b() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14680b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14682b : (String) invokeV.objValue;
     }
 
     @Nullable
-    public String c(@NonNull String str) {
+    public String d(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(this.f14680b)) {
+            if (TextUtils.isEmpty(this.f14682b)) {
                 return null;
             }
-            return UrlUtils.appendParam(this.f14680b, "tid", str);
+            return UrlUtils.appendParam(this.f14682b, "tid", str);
         }
         return (String) invokeL.objValue;
     }
 
-    public boolean e() {
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14679a && !TextUtils.isEmpty(this.f14680b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14681a && !TextUtils.isEmpty(this.f14682b) : invokeV.booleanValue;
     }
 
-    public void f(String str) {
+    public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f14680b = str;
+            this.f14682b = str;
         }
     }
 
-    public void g(boolean z) {
+    public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f14679a = z;
+            this.f14681a = z;
         }
     }
 }

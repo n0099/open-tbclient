@@ -14,11 +14,11 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f79269b;
+    public static a f79588b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f79270a;
+    public Context f79589a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public final class a {
                 return;
             }
         }
-        f79269b = new a();
+        f79588b = new a();
     }
 
     public a() {
@@ -53,19 +53,19 @@ public final class a {
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f79269b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f79588b : (a) invokeV.objValue;
     }
 
     public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f79270a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f79589a : (Context) invokeV.objValue;
     }
 
     public void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f79270a = context != null ? context.getApplicationContext() : null;
+            this.f79589a = context != null ? context.getApplicationContext() : null;
         }
     }
 }

@@ -21,22 +21,22 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f24427a;
+    public TbPageContext f24443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f24428b;
+    public BdTypeListView f24444b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<c.a.e.l.e.a> f24429c;
+    public final List<c.a.e.l.e.a> f24445c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f24430d;
+    public b f24446d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f24431e;
+    public d f24447e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<n> f24432f;
+    public final List<n> f24448f;
 
     public c(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, ForumEmotionModel forumEmotionModel) {
         Interceptable interceptable = $ic;
@@ -53,10 +53,10 @@ public class c {
                 return;
             }
         }
-        this.f24429c = new ArrayList();
-        this.f24432f = new ArrayList();
-        this.f24427a = tbPageContext;
-        this.f24428b = bdTypeListView;
+        this.f24445c = new ArrayList();
+        this.f24448f = new ArrayList();
+        this.f24443a = tbPageContext;
+        this.f24444b = bdTypeListView;
         c(forumEmotionModel);
     }
 
@@ -65,9 +65,9 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        if (this.f24428b != null) {
-            this.f24432f.addAll(list);
-            this.f24428b.setData(this.f24432f);
+        if (this.f24444b != null) {
+            this.f24448f.addAll(list);
+            this.f24444b.setData(this.f24448f);
         }
         d();
     }
@@ -75,29 +75,29 @@ public class c {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24432f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24448f.size() : invokeV.intValue;
     }
 
     public final void c(ForumEmotionModel forumEmotionModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumEmotionModel) == null) {
-            b bVar = new b(this.f24427a, forumEmotionModel.y(), c.a.r0.r0.y.b.c.f24436f);
-            this.f24430d = bVar;
-            this.f24429c.add(bVar);
-            d dVar = new d(this.f24427a, forumEmotionModel.y(), c.a.r0.r0.y.b.a.f24433e);
-            this.f24431e = dVar;
-            this.f24429c.add(dVar);
-            this.f24428b.addAdapters(this.f24429c);
+            b bVar = new b(this.f24443a, forumEmotionModel.y(), c.a.r0.r0.y.b.c.f24452f);
+            this.f24446d = bVar;
+            this.f24445c.add(bVar);
+            d dVar = new d(this.f24443a, forumEmotionModel.y(), c.a.r0.r0.y.b.a.f24449e);
+            this.f24447e = dVar;
+            this.f24445c.add(dVar);
+            this.f24444b.addAdapters(this.f24445c);
         }
     }
 
     public void d() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bdTypeListView = this.f24428b) == null || bdTypeListView.getAdapter2() == null || !(this.f24428b.getAdapter2() instanceof BaseAdapter)) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bdTypeListView = this.f24444b) == null || bdTypeListView.getAdapter2() == null || !(this.f24444b.getAdapter2() instanceof BaseAdapter)) {
             return;
         }
-        this.f24428b.getAdapter2().notifyDataSetChanged();
+        this.f24444b.getAdapter2().notifyDataSetChanged();
     }
 
     public void e(List<n> list) {
@@ -105,13 +105,13 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        if (!ListUtils.isEmpty(this.f24432f)) {
-            this.f24432f.clear();
+        if (!ListUtils.isEmpty(this.f24448f)) {
+            this.f24448f.clear();
         }
-        BdTypeListView bdTypeListView = this.f24428b;
+        BdTypeListView bdTypeListView = this.f24444b;
         if (bdTypeListView != null) {
             bdTypeListView.setData(list);
-            this.f24432f.addAll(list);
+            this.f24448f.addAll(list);
         }
         d();
     }
@@ -119,19 +119,19 @@ public class c {
     public void f(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f24430d.j0(aVar);
-            this.f24431e.j0(aVar);
+            this.f24446d.j0(aVar);
+            this.f24447e.j0(aVar);
         }
     }
 
     public void g(ForumEmotionPackageData forumEmotionPackageData) {
         ForumEmotionPackageData forumEmotionPackageData2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, forumEmotionPackageData) == null) || forumEmotionPackageData == null || ListUtils.isEmpty(this.f24432f)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, forumEmotionPackageData) == null) || forumEmotionPackageData == null || ListUtils.isEmpty(this.f24448f)) {
             return;
         }
-        for (n nVar : this.f24432f) {
-            if (nVar != null && (nVar instanceof c.a.r0.r0.y.b.c) && (forumEmotionPackageData2 = ((c.a.r0.r0.y.b.c) nVar).f24437e) != null && forumEmotionPackageData2.id == forumEmotionPackageData.id) {
+        for (n nVar : this.f24448f) {
+            if (nVar != null && (nVar instanceof c.a.r0.r0.y.b.c) && (forumEmotionPackageData2 = ((c.a.r0.r0.y.b.c) nVar).f24453e) != null && forumEmotionPackageData2.id == forumEmotionPackageData.id) {
                 forumEmotionPackageData2.download = forumEmotionPackageData.download;
                 forumEmotionPackageData2.share = forumEmotionPackageData.share;
                 d();

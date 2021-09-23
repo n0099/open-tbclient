@@ -27,8 +27,6 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.fragment.VideoMiddleFragment;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +38,6 @@ import java.util.List;
 public class VideoPlayActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_VIDEO_PLAY = "nani_midpage";
-    public static boolean mIsNeedShowCommentFloat;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isFromBjhPb;
     public VideoMiddleFragment mFragment;
@@ -53,31 +50,16 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public long mStartTime;
     public List<VideoItemData> mVideoDataList;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1433750091, "Lcom/baidu/tieba/videoplay/VideoPlayActivity;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1433750091, "Lcom/baidu/tieba/videoplay/VideoPlayActivity;");
-        }
-    }
-
     public VideoPlayActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
@@ -87,7 +69,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
 
     private void doEnterStatistic() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ENTER_VIDEO_PAGE);
             if (TextUtils.isEmpty(this.mNid)) {
                 statisticItem.param("obj_type", "1");
@@ -101,20 +83,19 @@ public class VideoPlayActivity extends BaseFragmentActivity {
 
     private void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             this.mVideoDataList = (List) getIntent().getSerializableExtra("video_list");
             this.mFrom = getIntent().getStringExtra("page_from");
             this.mFromPage = getIntent().getStringExtra("from");
             this.mSourceFrom = getIntent().getStringExtra("source_from");
             this.isFromBjhPb = getIntent().getBooleanExtra("is_from_bjh_pb", false);
             this.mNid = getIntent().getStringExtra("key_nid");
-            mIsNeedShowCommentFloat = getIntent().getBooleanExtra(VideoPlayActivityConfig.IS_SHOW_PB_COMMENT_FLOAT, false);
         }
     }
 
     private void initFragment() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             if (ListUtils.isEmpty(this.mVideoDataList) && !ListUtils.isEmpty(VideoPlayActivityConfig.bigDataList)) {
                 ArrayList arrayList = new ArrayList();
                 this.mVideoDataList = arrayList;
@@ -186,7 +167,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.f().i("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -213,34 +194,12 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (aVar != null) {
                 aVar.h();
             }
-            if (d.R()) {
+            if (d.V()) {
                 c.a.r0.x0.a.i().d("6061002332-203360688");
             }
-            if (d.S()) {
+            if (d.W()) {
                 c.a.r0.x0.a.i().c("6061002410-390177882");
             }
-            String str = TextUtils.isEmpty(this.mNid) ? "0" : "1";
-            long currentTimeMillis = System.currentTimeMillis() - this.mStartTime;
-            if ("from_nani_video".equals(this.mFrom)) {
-                String str2 = "a002";
-                if (!"index".equals(this.mSourceFrom)) {
-                    if ("concern_tab".equals(this.mSourceFrom)) {
-                        str2 = "a038";
-                    } else if ("frs".equals(this.mSourceFrom)) {
-                        str2 = "a006";
-                    } else {
-                        "homepage".equals(this.mSourceFrom);
-                    }
-                }
-                if (this.isFromBjhPb) {
-                    TiebaStatic.log(new StatisticItem("stime").param("obj_type", "a023").param(TiebaStatic.Params.OBJ_DURATION, currentTimeMillis).param("obj_source", str2).param(TiebaStatic.Params.IS_VERTICAL, "1").param("is_dynamic", str).param("obj_location", this.mFromPage));
-                    return;
-                } else {
-                    TiebaStatic.log(new StatisticItem("stime").param("obj_type", "a023").param(TiebaStatic.Params.OBJ_DURATION, currentTimeMillis).param("obj_source", str2).param("is_dynamic", str).param(TiebaStatic.Params.IS_VERTICAL, "1"));
-                    return;
-                }
-            }
-            TiebaStatic.log(new StatisticItem("stime").param("obj_type", "a023").param(TiebaStatic.Params.OBJ_DURATION, currentTimeMillis).param("is_dynamic", str).param("obj_source", "a020"));
         }
     }
 

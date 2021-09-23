@@ -14,7 +14,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Set<n>> f29582a;
+    public static final Map<String, Set<n>> f29602a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,28 +30,28 @@ public class a {
                 return;
             }
         }
-        f29582a = new HashMap();
+        f29602a = new HashMap();
     }
 
     public static Set<n> a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? f29582a.get(str) : (Set) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? f29602a.get(str) : (Set) invokeL.objValue;
     }
 
     public static void b(String str, Set<n> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, set) == null) {
-            f29582a.put(str, set);
+            f29602a.put(str, set);
         }
     }
 
     public static void c(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || f29582a.get(str) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || f29602a.get(str) == null) {
             return;
         }
-        f29582a.get(str).clear();
-        f29582a.remove(str);
+        f29602a.get(str).clear();
+        f29602a.remove(str);
     }
 }

@@ -26,10 +26,10 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5154a;
+    public static final boolean f5162a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f5155b;
+    public static c f5163b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -69,7 +69,7 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.C0148e f5156e;
+        public final /* synthetic */ e.C0148e f5164e;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -77,7 +77,7 @@ public final class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f5157e;
+            public final /* synthetic */ b f5165e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public final class d {
                         return;
                     }
                 }
-                this.f5157e = bVar;
+                this.f5165e = bVar;
             }
 
             @Override // java.lang.Runnable
@@ -103,9 +103,9 @@ public final class d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (c.a.p0.a.v2.d.a()) {
-                        decodeFile = u.e(this.f5157e.f5156e.f5177b);
+                        decodeFile = u.e(this.f5165e.f5164e.f5185b);
                     } else {
-                        decodeFile = BitmapFactory.decodeFile(this.f5157e.f5156e.f5176a);
+                        decodeFile = BitmapFactory.decodeFile(this.f5165e.f5164e.f5184a);
                     }
                     File k = u.k("screenshot.jpg");
                     if (decodeFile != null) {
@@ -116,7 +116,7 @@ public final class d {
                         h2 = "";
                     }
                     d.f(h2);
-                    if (d.f5154a) {
+                    if (d.f5162a) {
                         String str = "saveScreenshot:" + TextUtils.isEmpty(h2) + ",path:" + k.getAbsolutePath();
                     }
                 }
@@ -138,7 +138,7 @@ public final class d {
                     return;
                 }
             }
-            this.f5156e = c0148e;
+            this.f5164e = c0148e;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -169,7 +169,7 @@ public final class d {
                 return;
             }
         }
-        f5154a = k.f7077a;
+        f5162a = k.f7085a;
     }
 
     public static void e(e.C0148e c0148e) {
@@ -196,11 +196,11 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             e.s(c.a.p0.a.c1.a.b());
-            boolean z = f5154a;
-            if (f5155b == null) {
-                f5155b = new a();
+            boolean z = f5162a;
+            if (f5163b == null) {
+                f5163b = new a();
             }
-            e.r(f5155b);
+            e.r(f5163b);
         }
     }
 
@@ -217,17 +217,17 @@ public final class d {
         if (!(interceptable == null || interceptable.invokeL(65545, null, c0148e) == null) || (activity = f.V().getActivity()) == null) {
             return;
         }
-        c.a.p0.a.c1.a.Y().b(activity, c0148e.f5176a, c0148e.f5177b);
+        c.a.p0.a.c1.a.Y().b(activity, c0148e.f5184a, c0148e.f5185b);
     }
 
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            boolean z = f5154a;
-            c cVar = f5155b;
+            boolean z = f5162a;
+            c cVar = f5163b;
             if (cVar != null) {
                 e.u(cVar);
-                f5155b = null;
+                f5163b = null;
             }
         }
     }

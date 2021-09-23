@@ -13,10 +13,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<Integer> f31211a;
+    public static ArrayList<Integer> f31232a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31212b;
+    public static String f31233b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,28 +33,28 @@ public class b {
             }
         }
         ArrayList<Integer> arrayList = new ArrayList<>(4);
-        f31211a = arrayList;
+        f31232a = arrayList;
         arrayList.add(10000);
-        f31211a.add(10001);
-        f31211a.add(10002);
-        f31211a.add(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT));
-        f31211a.add(-1);
+        f31232a.add(10001);
+        f31232a.add(10002);
+        f31232a.add(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT));
+        f31232a.add(-1);
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(f31212b)) {
-                f31212b = c.a.y0.e.h.d.a();
+            if (TextUtils.isEmpty(f31233b)) {
+                f31233b = c.a.y0.e.h.d.a();
             }
-            if (TextUtils.isEmpty(f31212b)) {
+            if (TextUtils.isEmpty(f31233b)) {
                 return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
             }
-            if (f31212b.toUpperCase().contains("HUAWEI")) {
+            if (f31233b.toUpperCase().contains("HUAWEI")) {
                 return 10001;
             }
-            if (f31212b.toUpperCase().contains("XIAOMI")) {
+            if (f31233b.toUpperCase().contains("XIAOMI")) {
                 return 10002;
             }
             return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;

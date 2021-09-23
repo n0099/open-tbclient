@@ -28,6 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 /* loaded from: classes3.dex */
 public final class b extends EventTargetImpl {
@@ -38,24 +39,24 @@ public final class b extends EventTargetImpl {
     public final String domain;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f11131e;
+    public c f11139e;
     @V8JavascriptField
     public c.a.p0.a.r0.a env;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f11132f;
+    public e f11140f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f11133g;
+    public d f11141g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.p0.h.z.b f11134h;
+    public c.a.p0.h.z.b f11142h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JsObject f11135i;
+    public JsObject f11143i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.p0.h.z.e f11136j;
+    public c.a.p0.h.z.e f11144j;
     public c.a.p0.h.u.a k;
     public c.a.p0.h.u.b l;
     public c.a.p0.h.g0.b m;
@@ -84,7 +85,7 @@ public final class b extends EventTargetImpl {
                 return;
             }
         }
-        y = k.f7077a;
+        y = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,8 +107,8 @@ public final class b extends EventTargetImpl {
             }
         }
         this.domain = FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
-        this.f11135i = null;
-        this.f11136j = null;
+        this.f11143i = null;
+        this.f11144j = null;
         this.k = null;
         this.l = null;
         this.n = null;
@@ -121,7 +122,7 @@ public final class b extends EventTargetImpl {
         this.v = null;
         this.w = null;
         this.x = null;
-        this.f11131e = cVar;
+        this.f11139e = cVar;
         this.env = new c.a.p0.a.r0.a();
         y();
     }
@@ -138,10 +139,10 @@ public final class b extends EventTargetImpl {
     public void checkIsUserAdvisedToRest(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
-            if (this.f11134h == null) {
-                this.f11134h = new c.a.p0.h.z.b(this.f11131e);
+            if (this.f11142h == null) {
+                this.f11142h = new c.a.p0.h.z.b(this.f11139e);
             }
-            this.f11134h.checkIsUserAdvisedToRest(jsObject);
+            this.f11142h.checkIsUserAdvisedToRest(jsObject);
         }
     }
 
@@ -157,7 +158,7 @@ public final class b extends EventTargetImpl {
     public void clearStorageSync() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.p0.h.g0.f.d.a(this.f11131e, "clearStorageSync", "", x().a());
+            c.a.p0.h.g0.f.d.a(this.f11139e, "clearStorageSync", "", x().a());
         }
     }
 
@@ -167,7 +168,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jsObject)) == null) {
             if (this.p == null) {
-                this.p = new c.a.p0.h.y.h.a(this.f11131e);
+                this.p = new c.a.p0.h.y.h.a(this.f11139e);
             }
             return this.p.a(jsObject);
         }
@@ -178,21 +179,21 @@ public final class b extends EventTargetImpl {
     public c.a.p0.h.a.e.d createBannerAd(JsObject jsObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jsObject)) == null) ? new c.a.p0.h.a.e.a(this.f11131e, jsObject) : (c.a.p0.h.a.e.d) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jsObject)) == null) ? new c.a.p0.h.a.e.a(this.f11139e, jsObject) : (c.a.p0.h.a.e.d) invokeL.objValue;
     }
 
     @JavascriptInterface
     public g createInnerAudioContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new g(this.f11131e) : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new g(this.f11139e) : (g) invokeV.objValue;
     }
 
     @JavascriptInterface
     public RecommendButtonApiProxy createRecommendationButton(JsObject jsObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject)) == null) ? new RecommendButtonApiProxy(this.f11131e, jsObject) : (RecommendButtonApiProxy) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject)) == null) ? new RecommendButtonApiProxy(this.f11139e, jsObject) : (RecommendButtonApiProxy) invokeL.objValue;
     }
 
     @JavascriptInterface
@@ -201,7 +202,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, jsObject)) == null) {
             if (this.o == null) {
-                this.o = new c.a.p0.h.a.f.e(this.f11131e, jsObject);
+                this.o = new c.a.p0.h.a.f.e(this.f11139e, jsObject);
             }
             return this.o;
         }
@@ -212,14 +213,14 @@ public final class b extends EventTargetImpl {
     public c.a.p0.h.k0.g createUDPSocket() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? j.f11303c.b(this.f11131e) : (c.a.p0.h.k0.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? j.f11311c.b(this.f11139e) : (c.a.p0.h.k0.g) invokeV.objValue;
     }
 
     @JavascriptInterface
     public c.a.p0.h.o0.d.b.b createUserInfoButton(JsObject jsObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, jsObject)) == null) ? new c.a.p0.h.o0.d.b.b(jsObject, this.f11131e) : (c.a.p0.h.o0.d.b.b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, jsObject)) == null) ? new c.a.p0.h.o0.d.b.b(jsObject, this.f11139e) : (c.a.p0.h.o0.d.b.b) invokeL.objValue;
     }
 
     @JavascriptInterface
@@ -228,13 +229,13 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, jsObject)) == null) {
             c.a.p0.a.y.b.a G = c.a.p0.a.y.b.a.G(jsObject);
-            c.a.p0.h.y.a d2 = c.a.p0.h.y.e.b.b().d(this.f11131e, G, 2);
+            c.a.p0.h.y.a d2 = c.a.p0.h.y.e.b.b().d(this.f11139e, G, 2);
             if (d2 instanceof c.a.p0.h.y.d.b) {
                 c.a.p0.h.y.d.b bVar = (c.a.p0.h.y.d.b) d2;
                 bVar.H(G);
                 return bVar;
             }
-            c.a.p0.h.y.d.b bVar2 = new c.a.p0.h.y.d.b(this.f11131e, G);
+            c.a.p0.h.y.d.b bVar2 = new c.a.p0.h.y.d.b(this.f11139e, G);
             bVar2.start();
             return bVar2;
         }
@@ -246,7 +247,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, jsObject) == null) {
             if (y) {
-                this.f11131e.z().b("exit from java side.");
+                this.f11139e.z().b("exit from java side.");
             }
             if (jsObject == null) {
                 return;
@@ -255,11 +256,11 @@ public final class b extends EventTargetImpl {
             c.a.p0.h.d.c.a e2 = c.a.p0.h.d.c.a.e(c.a.p0.a.y.b.a.G(jsObject));
             SwanAppActivity activity = c.a.p0.a.g1.f.V().getActivity();
             if (activity == null) {
-                bVar.errMsg = String.format("%s:%s", "exit", com.alipay.sdk.util.e.f36070a);
+                bVar.errMsg = String.format("%s:%s", "exit", com.alipay.sdk.util.f.f36105j);
                 e2.b(bVar);
                 return;
             }
-            bVar.errMsg = String.format("%s:%s", "exit", "ok");
+            bVar.errMsg = String.format("%s:%s", "exit", NewBindCardEntry.BING_CARD_SUCCESS_MSG);
             e2.d(bVar);
             activity.finishAndRemoveTask();
         }
@@ -270,7 +271,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, jsObject) == null) {
             if (this.x == null) {
-                this.x = c.a.p0.h.a0.b.f10978a.a();
+                this.x = c.a.p0.h.a0.b.f10986a.a();
             }
             this.x.d(jsObject);
         }
@@ -295,7 +296,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             if (this.v == null) {
-                this.v = new c.a.p0.h.b.b(this.f11131e);
+                this.v = new c.a.p0.h.b.b(this.f11139e);
             }
             return this.v;
         }
@@ -308,7 +309,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, jsObject)) == null) {
             if (this.w == null) {
-                this.w = new c.a.p0.h.i.a(this.f11131e, c.a.p0.a.y.b.a.G(jsObject));
+                this.w = new c.a.p0.h.i.a(this.f11139e, c.a.p0.a.y.b.a.G(jsObject));
             }
             return this.w;
         }
@@ -319,7 +320,7 @@ public final class b extends EventTargetImpl {
     public String getEnvVariables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? c.a.p0.a.d1.b.b.a(this.f11131e) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? c.a.p0.a.d1.b.b.a(this.f11139e) : (String) invokeV.objValue;
     }
 
     @JavascriptInterface
@@ -327,10 +328,10 @@ public final class b extends EventTargetImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.f11132f == null) {
-                this.f11132f = new e((c.a.p0.a.l0.a) this.f11131e);
+            if (this.f11140f == null) {
+                this.f11140f = new e((c.a.p0.a.l0.a) this.f11139e);
             }
-            return this.f11132f;
+            return this.f11140f;
         }
         return (e) invokeV.objValue;
     }
@@ -340,10 +341,10 @@ public final class b extends EventTargetImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (this.f11133g == null) {
-                this.f11133g = new d((c.a.p0.a.l0.a) this.f11131e);
+            if (this.f11141g == null) {
+                this.f11141g = new d((c.a.p0.a.l0.a) this.f11139e);
             }
-            return this.f11133g;
+            return this.f11141g;
         }
         return (d) invokeV.objValue;
     }
@@ -353,13 +354,13 @@ public final class b extends EventTargetImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            if (this.f11136j == null) {
-                c.a.p0.h.z.e eVar = new c.a.p0.h.z.e(this.f11131e);
-                this.f11136j = eVar;
-                eVar.canvas = this.f11135i;
-                this.f11135i = null;
+            if (this.f11144j == null) {
+                c.a.p0.h.z.e eVar = new c.a.p0.h.z.e(this.f11139e);
+                this.f11144j = eVar;
+                eVar.canvas = this.f11143i;
+                this.f11143i = null;
             }
-            return this.f11136j;
+            return this.f11144j;
         }
         return (c.a.p0.h.z.e) invokeV.objValue;
     }
@@ -391,7 +392,7 @@ public final class b extends EventTargetImpl {
     public Object getStorageSync(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) ? c.a.p0.h.g0.f.d.a(this.f11131e, "getStorageSync", str, x().c(str)) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) ? c.a.p0.h.g0.f.d.a(this.f11139e, "getStorageSync", str, x().c(str)) : invokeL.objValue;
     }
 
     @JavascriptInterface
@@ -429,7 +430,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             if (this.r == null) {
-                this.r = new c.a.p0.h.d0.a(this.f11131e);
+                this.r = new c.a.p0.h.d0.a(this.f11139e);
             }
             return this.r;
         }
@@ -442,7 +443,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             if (this.u == null) {
-                this.u = new c.a.p0.h.o0.h.a(this.f11131e);
+                this.u = new c.a.p0.h.o0.h.a(this.f11139e);
             }
             return this.u;
         }
@@ -464,7 +465,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, jsObject) == null) {
             if (this.x == null) {
-                this.x = c.a.p0.h.a0.b.f10978a.a();
+                this.x = c.a.p0.h.a0.b.f10986a.a();
             }
             this.x.b(jsObject);
         }
@@ -475,7 +476,7 @@ public final class b extends EventTargetImpl {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, jsObject)) == null) {
-            c.a.p0.h.i0.c cVar = new c.a.p0.h.i0.c(this.f11131e);
+            c.a.p0.h.i0.c cVar = new c.a.p0.h.i0.c(this.f11139e);
             cVar.E(jsObject);
             return cVar;
         }
@@ -497,7 +498,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, jsObject) == null) {
             if (this.x == null) {
-                this.x = c.a.p0.h.a0.b.f10978a.a();
+                this.x = c.a.p0.h.a0.b.f10986a.a();
             }
             this.x.a(jsObject);
         }
@@ -508,7 +509,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, jsObject) == null) {
             if (this.x == null) {
-                this.x = c.a.p0.h.a0.b.f10978a.a();
+                this.x = c.a.p0.h.a0.b.f10986a.a();
             }
             this.x.g(jsObject);
         }
@@ -519,7 +520,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, jsObject) == null) {
             if (this.x == null) {
-                this.x = c.a.p0.h.a0.b.f10978a.a();
+                this.x = c.a.p0.h.a0.b.f10986a.a();
             }
             this.x.i(jsObject);
         }
@@ -530,7 +531,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, jsObject) == null) {
             if (this.x == null) {
-                this.x = c.a.p0.h.a0.b.f10978a.a();
+                this.x = c.a.p0.h.a0.b.f10986a.a();
             }
             this.x.c(jsObject);
         }
@@ -541,7 +542,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, jsObject) == null) {
             if (this.x == null) {
-                this.x = c.a.p0.h.a0.b.f10978a.a();
+                this.x = c.a.p0.h.a0.b.f10986a.a();
             }
             this.x.h(jsObject);
         }
@@ -552,7 +553,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, jsObject) == null) {
             if (this.x == null) {
-                this.x = c.a.p0.h.a0.b.f10978a.a();
+                this.x = c.a.p0.h.a0.b.f10986a.a();
             }
             this.x.k(jsObject);
         }
@@ -562,7 +563,7 @@ public final class b extends EventTargetImpl {
     public void openCustomerServiceConversation(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, jsObject) == null) {
-            c.a.p0.h.g.a.a((b) this.f11131e.o(), jsObject);
+            c.a.p0.h.g.a.a((b) this.f11139e.o(), jsObject);
         }
     }
 
@@ -589,7 +590,7 @@ public final class b extends EventTargetImpl {
     public void removeStorageSync(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
-            c.a.p0.h.g0.f.d.a(this.f11131e, "removeStorageSync", str, x().e(str));
+            c.a.p0.h.g0.f.d.a(this.f11139e, "removeStorageSync", str, x().e(str));
         }
     }
 
@@ -599,13 +600,13 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, jsObject)) == null) {
             c.a.p0.a.y.b.a G = c.a.p0.a.y.b.a.G(jsObject);
-            c.a.p0.h.y.a d2 = c.a.p0.h.y.e.b.b().d(this.f11131e, G, 1);
+            c.a.p0.h.y.a d2 = c.a.p0.h.y.e.b.b().d(this.f11139e, G, 1);
             if (d2 instanceof c.a.p0.h.y.f.c) {
                 c.a.p0.h.y.f.c cVar = (c.a.p0.h.y.f.c) d2;
                 cVar.H(G);
                 return cVar;
             }
-            c.a.p0.h.y.f.c cVar2 = new c.a.p0.h.y.f.c(this.f11131e, G);
+            c.a.p0.h.y.f.c cVar2 = new c.a.p0.h.y.f.c(this.f11139e, G);
             cVar2.start();
             return cVar2;
         }
@@ -617,7 +618,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048624, this, jsObject) == null) {
             if (this.q == null) {
-                this.q = new f(this.f11131e);
+                this.q = new f(this.f11139e);
             }
             this.q.i(jsObject);
         }
@@ -637,7 +638,7 @@ public final class b extends EventTargetImpl {
         if (!(interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Short.valueOf(s)}) == null) || s < 1 || s > 60) {
             return;
         }
-        this.f11131e.setPreferredFramesPerSecond(s);
+        this.f11139e.setPreferredFramesPerSecond(s);
     }
 
     @JavascriptInterface
@@ -652,7 +653,7 @@ public final class b extends EventTargetImpl {
     public void setStorageSync(String str, JsSerializeValue jsSerializeValue) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048629, this, str, jsSerializeValue) == null) {
-            c.a.p0.h.g0.f.d.a(this.f11131e, "setStorageSync", str, x().f(str, jsSerializeValue));
+            c.a.p0.h.g0.f.d.a(this.f11139e, "setStorageSync", str, x().f(str, jsSerializeValue));
         }
     }
 
@@ -669,7 +670,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, jsObject) == null) {
             if (this.s == null) {
-                this.s = new DesktopGuideApi(this.f11131e);
+                this.s = new DesktopGuideApi(this.f11139e);
             }
             this.s.v(jsObject);
         }
@@ -680,7 +681,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048634, this, jsObject) == null) {
             if (this.k == null) {
-                this.k = new c.a.p0.h.u.a(this.f11131e, this.l);
+                this.k = new c.a.p0.h.u.a(this.f11139e, this.l);
             }
             this.k.l(jsObject);
         }
@@ -701,7 +702,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048637, this, jsObject) == null) {
             if (this.x == null) {
-                this.x = c.a.p0.h.a0.b.f10978a.a();
+                this.x = c.a.p0.h.a0.b.f10986a.a();
             }
             this.x.e(jsObject);
         }
@@ -712,7 +713,7 @@ public final class b extends EventTargetImpl {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, jsObject)) == null) {
-            c.a.p0.h.y.g.b bVar = new c.a.p0.h.y.g.b(this.f11131e, c.a.p0.a.y.b.a.G(jsObject));
+            c.a.p0.h.y.g.b bVar = new c.a.p0.h.y.g.b(this.f11139e, c.a.p0.a.y.b.a.G(jsObject));
             bVar.start();
             return bVar;
         }
@@ -725,7 +726,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
             if (this.m == null) {
-                this.m = new c.a.p0.h.g0.b(this.f11131e);
+                this.m = new c.a.p0.h.g0.b(this.f11139e);
             }
             return this.m;
         }
@@ -735,14 +736,14 @@ public final class b extends EventTargetImpl {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048640, this) == null) {
-            this.l = new c.a.p0.h.u.b(this.f11131e);
+            this.l = new c.a.p0.h.u.b(this.f11139e);
         }
     }
 
     public void z(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048641, this, jsObject) == null) {
-            this.f11135i = jsObject;
+            this.f11143i = jsObject;
         }
     }
 
@@ -767,7 +768,7 @@ public final class b extends EventTargetImpl {
     public void setStorageSync(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
-            c.a.p0.h.g0.f.d.a(this.f11131e, "setStorageSync", str, x().f(str, null));
+            c.a.p0.h.g0.f.d.a(this.f11139e, "setStorageSync", str, x().f(str, null));
         }
     }
 
@@ -802,7 +803,7 @@ public final class b extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
             if (this.k == null) {
-                this.k = new c.a.p0.h.u.a(this.f11131e, this.l);
+                this.k = new c.a.p0.h.u.a(this.f11139e, this.l);
             }
             this.k.l(null);
         }

@@ -95,16 +95,16 @@ public class m {
                     if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
                         k(decode);
                     }
-                    gVar.f27311a = matcher.group(2);
+                    gVar.f27331a = matcher.group(2);
                 } else {
                     k(decode);
                     int indexOf = decode.indexOf(FrsFragment.FORUM_KW);
                     if (indexOf < 0 || (i2 = indexOf + 3) > decode.length()) {
                         return null;
                     }
-                    gVar.f27311a = decode.substring(i2);
+                    gVar.f27331a = decode.substring(i2);
                     try {
-                        gVar.f27312b = uri.getQueryParameter("from");
+                        gVar.f27332b = uri.getQueryParameter("from");
                     } catch (Exception e2) {
                         BdLog.e(e2);
                     }
@@ -150,7 +150,7 @@ public class m {
         }
         String str = null;
         String valueOf = String.valueOf(d2Var.T());
-        OriginalForumInfo originalForumInfo = d2Var.I1;
+        OriginalForumInfo originalForumInfo = d2Var.J1;
         if (originalForumInfo != null) {
             valueOf = originalForumInfo.id;
             str = valueOf;
@@ -252,10 +252,10 @@ public class m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, d2Var)) == null) {
-            if (d2Var == null || d2Var.y1) {
+            if (d2Var == null || d2Var.z1) {
                 return false;
             }
-            int i2 = d2Var.c0;
+            int i2 = d2Var.i0;
             return i2 == 0 || i2 == 11 || i2 == 40 || d2Var.D2();
         }
         return invokeL.booleanValue;

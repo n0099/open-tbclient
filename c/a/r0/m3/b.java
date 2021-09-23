@@ -18,7 +18,7 @@ public class b implements c.a.q0.s.a0.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f22403a;
+    public a f22419a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class b implements c.a.q0.s.a0.a {
     public void g(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f22403a = aVar;
+            this.f22419a = aVar;
         }
     }
 
@@ -97,7 +97,7 @@ public class b implements c.a.q0.s.a0.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            a aVar = this.f22403a;
+            a aVar = this.f22419a;
             if (aVar != null) {
                 return aVar.getCurrentTabType();
             }

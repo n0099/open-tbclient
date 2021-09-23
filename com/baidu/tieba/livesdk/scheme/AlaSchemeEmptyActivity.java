@@ -46,7 +46,7 @@ public class AlaSchemeEmptyActivity extends BaseActivity {
             if (!"video".equals(host) || path == null || !path.startsWith("/live") || (uri = data.toString()) == null) {
                 return;
             }
-            String replace = uri.replace(g.f12601a + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
+            String replace = uri.replace(g.f12609a + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
             if (StringUtils.isNull(replace)) {
                 return;
             }

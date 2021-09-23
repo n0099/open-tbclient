@@ -24,11 +24,11 @@ public class k implements c.a.q0.i0.d.b, PersonPostModel.d, PersonPostModel.c {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonPostModel f23003e;
+    public PersonPostModel f23019e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a f23004f;
+    public b.a f23020f;
 
     public k(@NonNull TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -45,14 +45,14 @@ public class k implements c.a.q0.i0.d.b, PersonPostModel.d, PersonPostModel.c {
                 return;
             }
         }
-        this.f23003e = new PersonPostModel(tbPageContext, tbPageContext.getUniqueId(), this, false, PersonPostModel.FROM_PERSON_POLYMERIC);
+        this.f23019e = new PersonPostModel(tbPageContext, tbPageContext.getUniqueId(), this, false, PersonPostModel.FROM_PERSON_POLYMERIC);
     }
 
     @Override // c.a.q0.i0.d.b
     public void a(@Nullable b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f23004f = aVar;
+            this.f23020f = aVar;
         }
     }
 
@@ -60,7 +60,7 @@ public class k implements c.a.q0.i0.d.b, PersonPostModel.d, PersonPostModel.c {
     public void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, metaData, num, num2, num3, num4, l, num5}) == null) {
-            this.f23003e.fetchPostByBeginThreadId(str, this, metaData, num, num2, num3, num4, l, num5);
+            this.f23019e.fetchPostByBeginThreadId(str, this, metaData, num, num2, num3, num4, l, num5);
         }
     }
 
@@ -68,7 +68,7 @@ public class k implements c.a.q0.i0.d.b, PersonPostModel.d, PersonPostModel.c {
     public void on(PersonPostModel personPostModel, boolean z) {
         b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, personPostModel, z) == null) || (aVar = this.f23004f) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, personPostModel, z) == null) || (aVar = this.f23020f) == null) {
             return;
         }
         aVar.a();
@@ -77,7 +77,7 @@ public class k implements c.a.q0.i0.d.b, PersonPostModel.d, PersonPostModel.c {
     @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
     public void onResult(PersonPostModel personPostModel, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048579, this, personPostModel, z) == null) || this.f23004f == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048579, this, personPostModel, z) == null) || this.f23020f == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -91,7 +91,7 @@ public class k implements c.a.q0.i0.d.b, PersonPostModel.d, PersonPostModel.c {
                 }
             }
         }
-        this.f23004f.b(arrayList, personPostModel.getDataResMap());
-        this.f23004f.a();
+        this.f23020f.b(arrayList, personPostModel.getDataResMap());
+        this.f23020f.a();
     }
 }

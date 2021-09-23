@@ -27,19 +27,19 @@ public class a extends j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f11226j;
+    public static final boolean f11234j;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public b f11227g;
+    public b f11235g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.p0.h.f.k.a f11228h;
+    public c.a.p0.h.f.k.a f11236h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c<h> f11229i;
+    public c<h> f11237i;
 
     /* renamed from: c.a.p0.h.f.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -48,7 +48,7 @@ public class a extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11230e;
+        public final /* synthetic */ a f11238e;
 
         public C0570a(a aVar) {
             Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class a extends j {
                     return;
                 }
             }
-            this.f11230e = aVar;
+            this.f11238e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,7 +82,7 @@ public class a extends j {
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) ? this.f11230e.m(bundle, set) : (Bundle) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) ? this.f11238e.m(bundle, set) : (Bundle) invokeLL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -92,10 +92,10 @@ public class a extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, hVar, aVar) == null) {
                 super.e(hVar, aVar);
-                if (a.f11226j) {
+                if (a.f11234j) {
                     String str = "onDownloadError: " + aVar.toString();
                 }
-                this.f11230e.f11227g.a(false);
+                this.f11238e.f11235g.a(false);
             }
         }
 
@@ -106,26 +106,26 @@ public class a extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hVar) == null) {
                 super.i(hVar);
-                if (a.f11226j) {
+                if (a.f11234j) {
                     String str = "onDownloadFinish: " + hVar.toString();
                 }
-                if (!j0.a(new File(hVar.f11879a), hVar.m)) {
-                    boolean unused = a.f11226j;
-                    this.f11230e.f11227g.a(false);
+                if (!j0.a(new File(hVar.f11887a), hVar.m)) {
+                    boolean unused = a.f11234j;
+                    this.f11238e.f11235g.a(false);
                     return;
                 }
-                File a2 = this.f11230e.f11228h.a();
+                File a2 = this.f11238e.f11236h.a();
                 if (a2.exists()) {
                     d.i(a2);
                 } else {
                     d.k(a2);
                 }
-                boolean T = d.T(hVar.f11879a, a2.getAbsolutePath());
+                boolean T = d.T(hVar.f11887a, a2.getAbsolutePath());
                 if (T) {
-                    this.f11230e.f11228h.b(hVar.f11888j, hVar.f11887i);
+                    this.f11238e.f11236h.b(hVar.f11896j, hVar.f11895i);
                 }
-                d.j(hVar.f11879a);
-                this.f11230e.f11227g.a(T);
+                d.j(hVar.f11887a);
+                this.f11238e.f11235g.a(T);
             }
         }
 
@@ -136,7 +136,7 @@ public class a extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, hVar) == null) {
                 super.c(hVar);
-                if (a.f11226j) {
+                if (a.f11234j) {
                     String str = "onDownloadStart: " + hVar.toString();
                 }
             }
@@ -149,7 +149,7 @@ public class a extends j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, hVar) == null) {
                 super.f(hVar);
-                boolean unused = a.f11226j;
+                boolean unused = a.f11234j;
             }
         }
     }
@@ -167,7 +167,7 @@ public class a extends j {
                 return;
             }
         }
-        f11226j = k.f7077a;
+        f11234j = k.f7085a;
     }
 
     public a(@NonNull c.a.p0.h.f.k.a aVar, @NonNull b bVar) {
@@ -185,9 +185,9 @@ public class a extends j {
                 return;
             }
         }
-        this.f11229i = new C0570a(this);
-        this.f11227g = bVar;
-        this.f11228h = aVar;
+        this.f11237i = new C0570a(this);
+        this.f11235g = bVar;
+        this.f11236h = aVar;
     }
 
     @Override // c.a.p0.n.f.g
@@ -195,10 +195,10 @@ public class a extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.B(aVar);
-            if (f11226j) {
+            if (f11234j) {
                 String str = "onFetchError: " + aVar.toString();
             }
-            this.f11227g.a(false);
+            this.f11235g.a(false);
         }
     }
 
@@ -207,7 +207,7 @@ public class a extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.D();
-            boolean z = f11226j;
+            boolean z = f11234j;
         }
     }
 
@@ -216,8 +216,8 @@ public class a extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.E();
-            boolean z = f11226j;
-            this.f11227g.a(false);
+            boolean z = f11234j;
+            this.f11235g.a(false);
         }
     }
 
@@ -226,7 +226,7 @@ public class a extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
             super.F(fVar);
-            boolean z = f11226j;
+            boolean z = f11234j;
         }
     }
 
@@ -234,6 +234,6 @@ public class a extends j {
     public c<h> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11229i : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11237i : (c) invokeV.objValue;
     }
 }

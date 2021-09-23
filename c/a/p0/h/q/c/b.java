@@ -19,28 +19,28 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11517a;
+    public static final boolean f11525a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c.a.p0.h.q.c.c.b[] f11518b;
+    public static c.a.p0.h.q.c.c.b[] f11526b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Point f11519c;
+    public static Point f11527c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f11520d;
+    public static float f11528d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static float f11521e;
+    public static float f11529e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f11522f;
+    public static boolean f11530f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f11523g;
+    public static int f11531g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f11524h;
+    public static long f11532h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,41 +56,41 @@ public final class b {
                 return;
             }
         }
-        f11517a = k.f7077a;
-        f11519c = new Point();
-        f11520d = 1.0f;
-        f11521e = 1.0f;
-        f11522f = false;
+        f11525a = k.f7085a;
+        f11527c = new Point();
+        f11528d = 1.0f;
+        f11529e = 1.0f;
+        f11530f = false;
     }
 
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f11524h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f11532h : invokeV.longValue;
     }
 
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f11523g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f11531g : invokeV.intValue;
     }
 
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f11522f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f11530f : invokeV.booleanValue;
     }
 
     public static float d(MotionEvent motionEvent, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i2)) == null) ? g.b(motionEvent.getX(i2) * f11520d) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i2)) == null) ? g.b(motionEvent.getX(i2) * f11528d) : invokeLI.floatValue;
     }
 
     public static float e(MotionEvent motionEvent, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, motionEvent, i2)) == null) ? g.b(motionEvent.getY(i2) * f11521e) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, motionEvent, i2)) == null) ? g.b(motionEvent.getY(i2) * f11529e) : invokeLI.floatValue;
     }
 
     public static boolean f(EventTarget eventTarget) {
@@ -108,7 +108,7 @@ public final class b {
     public static void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            f11522f = z;
+            f11530f = z;
         }
     }
 
@@ -126,8 +126,8 @@ public final class b {
                     return;
                 }
                 int pointerCount = motionEvent.getPointerCount();
-                if (f11518b == null || f11518b.length != pointerCount) {
-                    f11518b = new c.a.p0.h.q.c.c.b[pointerCount];
+                if (f11526b == null || f11526b.length != pointerCount) {
+                    f11526b = new c.a.p0.h.q.c.c.b[pointerCount];
                 }
                 ArrayList arrayList = new ArrayList();
                 for (int i2 = 0; i2 < pointerCount; i2++) {
@@ -135,10 +135,10 @@ public final class b {
                     bVar.identifier = motionEvent.getPointerId(i2);
                     bVar.clientX = d(motionEvent, i2);
                     bVar.clientY = e(motionEvent, i2);
-                    if (!bVar.equals(f11518b[i2])) {
+                    if (!bVar.equals(f11526b[i2])) {
                         arrayList.add(bVar);
                     }
-                    f11518b[i2] = bVar;
+                    f11526b[i2] = bVar;
                 }
                 if (arrayList.size() != 0) {
                     c.a.p0.h.q.c.c.b[] bVarArr2 = new c.a.p0.h.q.c.c.b[arrayList.size()];
@@ -146,7 +146,7 @@ public final class b {
                     arrayList.toArray(bVarArr2);
                 }
             } catch (Exception e2) {
-                if (f11517a) {
+                if (f11525a) {
                     e2.printStackTrace();
                 }
             }
@@ -186,7 +186,7 @@ public final class b {
                 }
                 arrayList.toArray(aVar.touches);
             } catch (Exception e2) {
-                if (f11517a) {
+                if (f11525a) {
                     e2.printStackTrace();
                 }
             }
@@ -202,10 +202,10 @@ public final class b {
             String str = "touchend";
             if (actionMasked == 0) {
                 h(motionEvent, aVar, false);
-                int i2 = f11523g + 1;
-                f11523g = i2;
-                f11523g = Math.min(i2, 1000);
-                f11524h = System.currentTimeMillis();
+                int i2 = f11531g + 1;
+                f11531g = i2;
+                f11531g = Math.min(i2, 1000);
+                f11532h = System.currentTimeMillis();
             } else {
                 if (actionMasked == 1) {
                     h(motionEvent, aVar, false);
@@ -243,14 +243,14 @@ public final class b {
     public static void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            f11523g = 0;
+            f11531g = 0;
         }
     }
 
     public static void l(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65548, null, i2, i3) == null) {
-            Point point = f11519c;
+            Point point = f11527c;
             point.x = i2;
             point.y = i3;
         }
@@ -262,13 +262,13 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65549, null, i2, i3) == null) {
             float f2 = 1.0f;
-            f11520d = (i2 == 0 || (i5 = f11519c.x) == 0) ? 1.0f : i5 / i2;
-            if (i3 != 0 && (i4 = f11519c.y) != 0) {
+            f11528d = (i2 == 0 || (i5 = f11527c.x) == 0) ? 1.0f : i5 / i2;
+            if (i3 != 0 && (i4 = f11527c.y) != 0) {
                 f2 = i4 / i3;
             }
-            f11521e = f2;
-            if (f11517a) {
-                String.format("setSurfaceViewCurrentSize:%f,%f", Float.valueOf(f11520d), Float.valueOf(f11521e));
+            f11529e = f2;
+            if (f11525a) {
+                String.format("setSurfaceViewCurrentSize:%f,%f", Float.valueOf(f11528d), Float.valueOf(f11529e));
             }
         }
     }

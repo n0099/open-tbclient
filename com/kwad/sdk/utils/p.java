@@ -16,7 +16,7 @@ public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f73979a;
+    public static final Map<Class<?>, Class<?>> f74298a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -25,10 +25,10 @@ public class p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<? extends T> f73980a;
+        public final Class<? extends T> f74299a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f73981b;
+        public final T f74300b;
     }
 
     static {
@@ -45,37 +45,37 @@ public class p {
             }
         }
         HashMap hashMap = new HashMap();
-        f73979a = hashMap;
+        f74298a = hashMap;
         hashMap.put(Boolean.class, Boolean.TYPE);
-        f73979a.put(Byte.class, Byte.TYPE);
-        f73979a.put(Character.class, Character.TYPE);
-        f73979a.put(Short.class, Short.TYPE);
-        f73979a.put(Integer.class, Integer.TYPE);
-        f73979a.put(Float.class, Float.TYPE);
-        f73979a.put(Long.class, Long.TYPE);
-        f73979a.put(Double.class, Double.TYPE);
-        Map<Class<?>, Class<?>> map = f73979a;
+        f74298a.put(Byte.class, Byte.TYPE);
+        f74298a.put(Character.class, Character.TYPE);
+        f74298a.put(Short.class, Short.TYPE);
+        f74298a.put(Integer.class, Integer.TYPE);
+        f74298a.put(Float.class, Float.TYPE);
+        f74298a.put(Long.class, Long.TYPE);
+        f74298a.put(Double.class, Double.TYPE);
+        Map<Class<?>, Class<?>> map = f74298a;
         Class<?> cls = Boolean.TYPE;
         map.put(cls, cls);
-        Map<Class<?>, Class<?>> map2 = f73979a;
+        Map<Class<?>, Class<?>> map2 = f74298a;
         Class<?> cls2 = Byte.TYPE;
         map2.put(cls2, cls2);
-        Map<Class<?>, Class<?>> map3 = f73979a;
+        Map<Class<?>, Class<?>> map3 = f74298a;
         Class<?> cls3 = Character.TYPE;
         map3.put(cls3, cls3);
-        Map<Class<?>, Class<?>> map4 = f73979a;
+        Map<Class<?>, Class<?>> map4 = f74298a;
         Class<?> cls4 = Short.TYPE;
         map4.put(cls4, cls4);
-        Map<Class<?>, Class<?>> map5 = f73979a;
+        Map<Class<?>, Class<?>> map5 = f74298a;
         Class<?> cls5 = Integer.TYPE;
         map5.put(cls5, cls5);
-        Map<Class<?>, Class<?>> map6 = f73979a;
+        Map<Class<?>, Class<?>> map6 = f74298a;
         Class<?> cls6 = Float.TYPE;
         map6.put(cls6, cls6);
-        Map<Class<?>, Class<?>> map7 = f73979a;
+        Map<Class<?>, Class<?>> map7 = f74298a;
         Class<?> cls7 = Long.TYPE;
         map7.put(cls7, cls7);
-        Map<Class<?>, Class<?>> map8 = f73979a;
+        Map<Class<?>, Class<?>> map8 = f74298a;
         Class<?> cls8 = Double.TYPE;
         map8.put(cls8, cls8);
     }
@@ -177,7 +177,7 @@ public class p {
                 return false;
             } else {
                 for (int i2 = 0; i2 < clsArr.length; i2++) {
-                    if (!clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!f73979a.containsKey(clsArr[i2]) || !f73979a.get(clsArr[i2]).equals(f73979a.get(clsArr2[i2])))) {
+                    if (!clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!f74298a.containsKey(clsArr[i2]) || !f74298a.get(clsArr[i2]).equals(f74298a.get(clsArr2[i2])))) {
                         return false;
                     }
                 }
@@ -200,7 +200,7 @@ public class p {
                 if (obj == null || !(obj instanceof a)) {
                     clsArr[i2] = obj == null ? null : obj.getClass();
                 } else {
-                    clsArr[i2] = ((a) obj).f73980a;
+                    clsArr[i2] = ((a) obj).f74299a;
                 }
             }
             return clsArr;
@@ -252,7 +252,7 @@ public class p {
                 if (obj == null || !(obj instanceof a)) {
                     objArr2[i2] = obj;
                 } else {
-                    objArr2[i2] = ((a) obj).f73981b;
+                    objArr2[i2] = ((a) obj).f74300b;
                 }
             }
             return objArr2;

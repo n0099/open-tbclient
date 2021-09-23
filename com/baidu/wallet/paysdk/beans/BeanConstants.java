@@ -17,6 +17,7 @@ public abstract class BeanConstants {
     public static final String API_AUTHORIZE_ORDER = "/contract/0/wireless/0/sign/0";
     public static final String API_BANK_CARD_LIST_URL;
     public static final String API_BIND_CARD = "/_u/wireless/card_bind";
+    public static final String API_BIND_CARD_PROTOCOL = "/usercenter/protocol/protocol_preview";
     public static final String API_CALC_PAYMENT = "/_u/cashdesk/calc_mkt_pay";
     public static final String API_CARD_ADD = "/usercenter/card/cardadd";
     public static final String API_CHECK_CARD_INFO = "/_u/wireless/card_check/";
@@ -37,6 +38,7 @@ public abstract class BeanConstants {
     public static final String API_GET_PAY_ORDER_PREPAY = "/api/0/pay/0/wireless/0/cashdesk/0";
     public static final String API_GET_PAY_ORDER_TRANSFER = "/api/0/pay/0/wireless/0/transfer2card/0";
     public static final String API_GET_PRE_PAY_ORDER = "/cashdesk/wireless/cashier/direct";
+    public static final String API_H5_BIND_CARD_URL;
     public static final String API_HCE_APPLY_SMS_CODE = "/odp/o2o/hce/sendsms";
     public static final String API_HCE_CLOSE_HCE = "/odp/o2o/hce/close";
     public static final String API_HCE_QUERY_ACTIVITY = "/odp/o2o/hce/queryallactivities";
@@ -55,6 +57,7 @@ public abstract class BeanConstants {
     public static final String API_QUERY_BANK = "/android/0/bankCode/0";
     public static final String API_QUERY_BANK_INFO = "/cashdesk/wireless/querycardbin/";
     public static final String API_QUERY_TRANS_EASY = "/mc/0/wireless_interface/0";
+    public static final String API_QUICK_BIND_CARD_URL;
     public static final String API_REQUEST_SMS_CODE = "/cashdesk/wireless/pay/sendsms";
     public static final String API_SAVE_FEEDBACK = "/cashdesk/wireless/save_feedback";
     public static final String API_SECUITY_CENTER = "/odp/wireless/sdk/securitycenter";
@@ -97,6 +100,7 @@ public abstract class BeanConstants {
     public static boolean DEBUG = false;
     public static final String EVENT_AUTH_RESULT = "fill_nine_elements";
     public static final String EVENT_H5_AUTH_ADMIT_SUBMIT = "ev_h5_auth_admit_submit";
+    public static final String EVENT_H5_QUICK_BIND_CARD = "ev_h5_quick_bind_card";
     public static final String EVENT_H5_RN_AUTH_RESULT = "ev_h5_nine_elements";
     public static final String EVENT_KEY_TRANSFER_FINISHED = "event_key_transfer_finished";
     public static final String EVENT_PAY_SORT_SETTING = "ev_h5_setting_paymethod_submit";
@@ -198,7 +202,7 @@ public abstract class BeanConstants {
     public static final String TITLE_NO_PWD_PROTOL = "免密支付协议";
     public static final String TRANSACTION_RECORDS_URL;
     public static final String UPDATE_MOBILE_DESC = "update_mobile_desc";
-    public static String VERSION_NO = "9.3.0.124";
+    public static String VERSION_NO = "9.4.5.108";
     public static final String WALLET_PLUGIN_FROCE_UPDATE_FLAG = "2";
     public static final int WALLET_PLUGIN_LOAD_MODULE = 2;
     public static final int WALLET_PLUGIN_LOAD_STANDARD = 0;
@@ -229,6 +233,8 @@ public abstract class BeanConstants {
         API_PAY_PWD_SETTING_URL = DomainConfig.getInstance().getAppPayHost() + "/usercenter/static/station/entry/safe/#/pwd?is_from_sdk=1";
         API_FIND_PAY_PWD_URL = DomainConfig.getInstance().getAppPayHost() + "/static/wap/findpass/?is_from_sdk=1#/home";
         API_BANK_CARD_LIST_URL = DomainConfig.getInstance().getAppPayHost() + "/usercenter/static/h5-wallet-card/entry/list/#/index?is_from_sdk=1";
+        API_QUICK_BIND_CARD_URL = DomainConfig.getInstance().getAppPayHost() + "/usercenter/static/h5-wallet-card/entry/bindcard-plus/#/fast?";
+        API_H5_BIND_CARD_URL = DomainConfig.getInstance().getAppPayHost() + "/usercenter/static/h5-wallet-card/entry/bindcard-plus/?service_type=";
     }
 
     public BeanConstants() {

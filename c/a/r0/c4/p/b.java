@@ -25,13 +25,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f16802a;
+    public BdUniqueId f16812a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.c4.p.a f16803b;
+    public c.a.r0.c4.p.a f16813b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f16804c;
+    public HttpMessageListener f16814c;
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -39,7 +39,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f16805a;
+        public final /* synthetic */ b f16815a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -59,7 +59,7 @@ public class b {
                     return;
                 }
             }
-            this.f16805a = bVar;
+            this.f16815a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,8 +71,8 @@ public class b {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.share_sdk_check_no_resp));
                 }
-                if (this.f16805a.f16803b != null) {
-                    this.f16805a.f16803b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                if (this.f16815a.f16813b != null) {
+                    this.f16815a.f16813b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -93,8 +93,8 @@ public class b {
                 return;
             }
         }
-        this.f16804c = new a(this, CmdConfigHttp.CMD_CHECK_SHARE_SDK);
-        this.f16802a = bdUniqueId;
+        this.f16814c = new a(this, CmdConfigHttp.CMD_CHECK_SHARE_SDK);
+        this.f16812a = bdUniqueId;
         b();
     }
 
@@ -103,8 +103,8 @@ public class b {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
             messageManager.registerTask(c());
-            this.f16804c.setTag(this.f16802a);
-            messageManager.registerListener(this.f16804c);
+            this.f16814c.setTag(this.f16812a);
+            messageManager.registerListener(this.f16814c);
         }
     }
 
@@ -125,16 +125,16 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             if (StringUtils.isNull(str)) {
-                c.a.r0.c4.p.a aVar = this.f16803b;
+                c.a.r0.c4.p.a aVar = this.f16813b;
                 if (aVar != null) {
                     aVar.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.check_share_sdk_appkey_null));
                     return;
                 }
                 return;
             }
-            MessageManager.getInstance().removeHttpMessage(this.f16802a);
+            MessageManager.getInstance().removeHttpMessage(this.f16812a);
             CheckRequest checkRequest = new CheckRequest();
-            checkRequest.setTag(this.f16802a);
+            checkRequest.setTag(this.f16812a);
             checkRequest.setAppkey(str);
             checkRequest.setAppletsKey(str2);
             MessageManager.getInstance().sendMessage(checkRequest);
@@ -144,7 +144,7 @@ public class b {
     public void e(c.a.r0.c4.p.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f16803b = aVar;
+            this.f16813b = aVar;
         }
     }
 }

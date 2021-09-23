@@ -28,17 +28,17 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f21545d;
+    public static b f21559d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f21546a;
+    public String f21560a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f21547b;
+    public c f21561b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f21548c;
+    public CustomMessageListener f21562c;
 
     /* loaded from: classes3.dex */
     public class a extends c {
@@ -46,7 +46,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f21549a;
+        public final /* synthetic */ b f21563a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -66,7 +66,7 @@ public class b {
                     return;
                 }
             }
-            this.f21549a = bVar;
+            this.f21563a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,19 +74,19 @@ public class b {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 202006 && (socketResponsedMessage instanceof PushNotifyMessage)) {
-                this.f21549a.e((PushNotifyMessage) socketResponsedMessage);
+                this.f21563a.e((PushNotifyMessage) socketResponsedMessage);
             }
         }
     }
 
     /* renamed from: c.a.r0.k1.p.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1008b extends CustomMessageListener {
+    public class C1006b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1008b(b bVar, int i2) {
+        public C1006b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -149,8 +149,8 @@ public class b {
             }
         }
         new ArrayList();
-        this.f21547b = new a(this, 202006);
-        this.f21548c = new C1008b(this, 0);
+        this.f21561b = new a(this, 202006);
+        this.f21562c = new C1006b(this, 0);
     }
 
     public static synchronized b b() {
@@ -159,10 +159,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (b.class) {
-                if (f21545d == null) {
-                    f21545d = new b();
+                if (f21559d == null) {
+                    f21559d = new b();
                 }
-                bVar = f21545d;
+                bVar = f21559d;
             }
             return bVar;
         }
@@ -172,7 +172,7 @@ public class b {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21546a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21560a : (String) invokeV.objValue;
     }
 
     public void d() {
@@ -216,15 +216,15 @@ public class b {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(this.f21547b);
-            MessageManager.getInstance().registerListener(2016014, this.f21548c);
+            MessageManager.getInstance().registerListener(this.f21561b);
+            MessageManager.getInstance().registerListener(2016014, this.f21562c);
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f21546a = str;
+            this.f21560a = str;
         }
     }
 

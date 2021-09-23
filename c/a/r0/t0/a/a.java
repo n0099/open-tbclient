@@ -11,16 +11,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f24919a;
+    public long f24940a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24920b;
+    public String f24941b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24921c;
+    public String f24942c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f24922d;
+    public String f24943d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f24919a = jSONObject.optLong("id");
-        this.f24920b = jSONObject.optString("name");
-        this.f24921c = jSONObject.optString("name_show");
-        this.f24922d = jSONObject.optString("portrait");
+        this.f24940a = jSONObject.optLong("id");
+        this.f24941b = jSONObject.optString("name");
+        this.f24942c = jSONObject.optString("name_show");
+        this.f24943d = jSONObject.optString("portrait");
     }
 }

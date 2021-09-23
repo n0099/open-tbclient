@@ -31,34 +31,34 @@ public class o1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f79310a;
+    public static final String f79629a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f79311b;
+    public static final String f79630b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f79312c;
+    public static final String f79631c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f79313d;
+    public static final String f79632d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f79314e;
+    public static final String f79633e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f79315f;
+    public static final String f79634f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f79316g;
+    public static final String f79635g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f79317h;
+    public static final String f79636h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f79318i;
+    public static final String f79637i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final FileFilter f79319j;
+    public static final FileFilter f79638j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -101,16 +101,16 @@ public class o1 {
                 return;
             }
         }
-        f79310a = (String) h.a(16777217, 0, 0L, "27887c", new byte[]{19, 39, 68, 79, 13, 103, 34, 25, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2});
-        f79311b = (String) h.a(16777217, 0, 0L, "fa7e14", new byte[]{95, 98, 86, 21, 25, 34, 119, 69});
-        f79312c = (String) h.a(16777217, 0, 0L, "c4836c", new byte[]{84, 51, 74, 83, 28, 102, Constants.SHORT_PING_CMD_TYPE, 6});
-        f79313d = (String) h.a(16777217, 0, 0L, "e24a88", new byte[]{100, 51});
-        f79314e = (String) h.a(16777217, 0, 0L, "e94488", new byte[]{124, 44});
-        f79315f = (String) h.a(16777217, 0, 0L, "74bb76", new byte[]{32, 34});
-        f79316g = (String) h.a(16777217, 0, 0L, "4b9153", new byte[]{40, 97, 82});
-        f79317h = (String) h.a(16777217, 0, 0L, "15bfea", new byte[]{UtilsBlink.VER_TYPE_SEPARATOR, 62, 31});
-        f79318i = (String) h.a(16777217, 0, 0L, "2906a3", new byte[]{32, 52, 81, 71});
-        f79319j = new a();
+        f79629a = (String) h.a(16777217, 0, 0L, "27887c", new byte[]{19, 39, 68, 79, 13, 103, 34, 25, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2});
+        f79630b = (String) h.a(16777217, 0, 0L, "fa7e14", new byte[]{95, 98, 86, 21, 25, 34, 119, 69});
+        f79631c = (String) h.a(16777217, 0, 0L, "c4836c", new byte[]{84, 51, 74, 83, 28, 102, Constants.SHORT_PING_CMD_TYPE, 6});
+        f79632d = (String) h.a(16777217, 0, 0L, "e24a88", new byte[]{100, 51});
+        f79633e = (String) h.a(16777217, 0, 0L, "e94488", new byte[]{124, 44});
+        f79634f = (String) h.a(16777217, 0, 0L, "74bb76", new byte[]{32, 34});
+        f79635g = (String) h.a(16777217, 0, 0L, "4b9153", new byte[]{40, 97, 82});
+        f79636h = (String) h.a(16777217, 0, 0L, "15bfea", new byte[]{UtilsBlink.VER_TYPE_SEPARATOR, 62, 31});
+        f79637i = (String) h.a(16777217, 0, 0L, "2906a3", new byte[]{32, 52, 81, 71});
+        f79638j = new a();
     }
 
     public static int a() {
@@ -118,7 +118,7 @@ public class o1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                return new File((String) h.a(16777217, 0, 0L, "54f4d7", new byte[]{107, 37, StandardMessageCodec.LIST, 83, 20, 36, 51, 3, 62, 103, PublicSuffixDatabase.EXCEPTION_MARKER, 37, 90, 83, 66, 51, 34, 16, 58, 43, 39, 38, 0, 15})).listFiles(f79319j).length;
+                return new File((String) h.a(16777217, 0, 0L, "54f4d7", new byte[]{107, 37, StandardMessageCodec.LIST, 83, 20, 36, 51, 3, 62, 103, PublicSuffixDatabase.EXCEPTION_MARKER, 37, 90, 83, 66, 51, 34, 16, 58, 43, 39, 38, 0, 15})).listFiles(f79638j).length;
             } catch (Throwable unused) {
                 return -1;
             }
@@ -384,12 +384,12 @@ public class o1 {
             JSONObject jSONObject = new JSONObject();
             try {
                 HashMap<String, String> b2 = b();
-                jSONObject.put(f79318i, a());
-                jSONObject.put(f79313d, a(b2, f79310a));
-                jSONObject.put(f79314e, a(b2, f79311b));
-                jSONObject.put(f79316g, a((String) h.a(16777217, 0, 0L, "cee379", new byte[]{61, 116, 15, 84, 71, 42, Constants.SHORT_PING_CMD_TYPE, 82, 61, 96, 119, 116, 89, 84, 17, 61, 116, 65, 57, 44, 113, 119, 3, 8, 11, 62, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 20, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 96, 98, 114, 16, 85, 13, 63, 47, 71, 36, 118, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 105, 16, 72, 55, Base64.INTERNAL_PADDING, 97, 92, 11, Constants.SHORT_PING_CMD_TYPE, 96, 98, 7})));
-                jSONObject.put(f79317h, a((String) h.a(16777217, 0, 0L, "6a8225", new byte[]{104, 112, 82, 85, 66, 38, 48, 86, 96, 97, 34, 112, 4, 85, 20, 49, PublicSuffixDatabase.EXCEPTION_MARKER, 69, 100, UtilsBlink.VER_TYPE_SEPARATOR, 36, 115, 94, 9, 14, 50, 32, 16, 38, 97, 55, 118, 77, 84, 8, 51, 122, 67, 121, 119, 46, 109, 77, 73, 50, 47, 60, 78, 86, 100, 53, 102, 90})));
-                jSONObject.put(f79315f, a(b2, f79312c));
+                jSONObject.put(f79637i, a());
+                jSONObject.put(f79632d, a(b2, f79629a));
+                jSONObject.put(f79633e, a(b2, f79630b));
+                jSONObject.put(f79635g, a((String) h.a(16777217, 0, 0L, "cee379", new byte[]{61, 116, 15, 84, 71, 42, Constants.SHORT_PING_CMD_TYPE, 82, 61, 96, 119, 116, 89, 84, 17, 61, 116, 65, 57, 44, 113, 119, 3, 8, 11, 62, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 20, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 96, 98, 114, 16, 85, 13, 63, 47, 71, 36, 118, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 105, 16, 72, 55, Base64.INTERNAL_PADDING, 97, 92, 11, Constants.SHORT_PING_CMD_TYPE, 96, 98, 7})));
+                jSONObject.put(f79636h, a((String) h.a(16777217, 0, 0L, "6a8225", new byte[]{104, 112, 82, 85, 66, 38, 48, 86, 96, 97, 34, 112, 4, 85, 20, 49, PublicSuffixDatabase.EXCEPTION_MARKER, 69, 100, UtilsBlink.VER_TYPE_SEPARATOR, 36, 115, 94, 9, 14, 50, 32, 16, 38, 97, 55, 118, 77, 84, 8, 51, 122, 67, 121, 119, 46, 109, 77, 73, 50, 47, 60, 78, 86, 100, 53, 102, 90})));
+                jSONObject.put(f79634f, a(b2, f79631c));
             } catch (Throwable unused) {
             }
             String jSONObject2 = jSONObject.toString();

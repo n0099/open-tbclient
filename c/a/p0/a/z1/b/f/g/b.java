@@ -15,13 +15,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f10089a;
+    public View f10097a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f10090b;
+    public View f10098b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f10091c;
+    public Context f10099c;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -38,29 +38,29 @@ public class b {
                 return;
             }
         }
-        this.f10090b = null;
-        this.f10091c = context;
+        this.f10098b = null;
+        this.f10099c = context;
     }
 
     public b a(View view, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, view2)) == null) {
-            this.f10089a = view;
+            this.f10097a = view;
             if (view != null && (view.getParent() instanceof ViewGroup)) {
-                ViewGroup viewGroup = (ViewGroup) this.f10089a.getParent();
-                int indexOfChild = viewGroup.indexOfChild(this.f10089a);
-                View view3 = this.f10090b;
+                ViewGroup viewGroup = (ViewGroup) this.f10097a.getParent();
+                int indexOfChild = viewGroup.indexOfChild(this.f10097a);
+                View view3 = this.f10098b;
                 if (view3 != null) {
                     viewGroup.removeView(view3);
                 }
-                this.f10090b = view2;
-                view2.setLayoutParams(this.f10089a.getLayoutParams());
-                viewGroup.addView(this.f10090b, indexOfChild);
+                this.f10098b = view2;
+                view2.setLayoutParams(this.f10097a.getLayoutParams());
+                viewGroup.addView(this.f10098b, indexOfChild);
                 if (viewGroup instanceof RelativeLayout) {
-                    this.f10089a.setVisibility(4);
+                    this.f10097a.setVisibility(4);
                 } else {
-                    this.f10089a.setVisibility(8);
+                    this.f10097a.setVisibility(8);
                 }
                 return this;
             }

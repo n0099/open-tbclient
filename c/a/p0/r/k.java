@@ -15,34 +15,34 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12295a;
+    public String f12303a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12296b;
+    public int f12304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12297c;
+    public String f12305c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f12298d;
+    public JSONObject f12306d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f12299e;
+    public long f12307e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f12300f;
+    public long f12308f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12301g;
+    public int f12309g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12302h;
+    public String f12310h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12303i;
+    public String f12311i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f12304j;
+    public String f12312j;
     public JSONArray k;
     public boolean l;
 
@@ -64,8 +64,8 @@ public class k {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && d.g().a(this.f12295a)) {
-            this.f12303i = e.h().h();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && d.g().a(this.f12303a)) {
+            this.f12311i = e.h().h();
         }
     }
 
@@ -97,9 +97,9 @@ public class k {
             }
         }
         this.l = false;
-        this.f12295a = str;
-        this.f12296b = i2;
-        this.f12297c = str2;
-        this.f12301g = i3;
+        this.f12303a = str;
+        this.f12304b = i2;
+        this.f12305c = str2;
+        this.f12309g = i3;
     }
 }

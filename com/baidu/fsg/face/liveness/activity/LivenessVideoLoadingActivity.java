@@ -10,16 +10,21 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.restnet.beans.BeanManager;
 import com.baidu.fsg.base.statistics.RimStatisticsUtil;
 import com.baidu.fsg.base.utils.LogUtil;
+import com.baidu.fsg.face.base.c.a;
 import com.baidu.fsg.face.base.d.f;
 import com.baidu.fsg.face.liveness.SapiLivenessRecogManager;
 import com.baidu.fsg.face.liveness.beans.FaceSDKBeansFactory;
 import com.baidu.fsg.face.liveness.beans.o;
+import com.baidu.fsg.face.liveness.callback.LivenessRecogCallback;
 import com.baidu.fsg.face.liveness.d;
 import com.baidu.fsg.face.liveness.datamodel.VideoGetPortraitModel;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
 import com.baidu.fsg.face.liveness.view.LoadingDialog;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.biometrics.liveness.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,48 +36,82 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_VIDEOGETPORTRAITMODEL = "VideoGetPortraitModel";
     public static final String TAG = "LivenessVideoLoadingActivity";
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LoadingDialog f40119a;
+    public static boolean f40165a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: b  reason: collision with root package name */
+    public LoadingDialog f40166b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LivenessRecogCallback f40167c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1553933179, "Lcom/baidu/fsg/face/liveness/activity/LivenessVideoLoadingActivity;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1553933179, "Lcom/baidu/fsg/face/liveness/activity/LivenessVideoLoadingActivity;");
+        }
+    }
 
     public LivenessVideoLoadingActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            f.a(this, getResources().getColor(R.color.sapi_liveness_guide_bg_color));
-            a(this);
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            if (this.f40167c != null) {
+                LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
+                livenessRecogResult.setResultCode(a.ERROR_CODE_MANY_CALL);
+                livenessRecogResult.setResultMsg(a.ERROR_MSG_MANY_CALL);
+                this.f40167c.b(livenessRecogResult);
+            }
+            finish();
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.f40119a == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            f.a(this, getResources().getColor(R.color.sapi_liveness_guide_bg_color));
+            a(this);
         }
-        if (isFinishing() && this.f40119a.isShowing()) {
-            return;
-        }
-        this.f40119a.dismiss();
-        finish();
     }
 
     private void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || this.f40166b == null) {
+            return;
+        }
+        if (isFinishing() && this.f40166b.isShowing()) {
+            return;
+        }
+        this.f40166b.dismiss();
+        finish();
+    }
+
+    private void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
             o oVar = (o) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 9, TAG);
             oVar.setResponseCallback(this);
             oVar.execBean();
@@ -91,13 +130,16 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.livenessRecogDTO.getSpno() + "");
                 arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-                RimStatisticsUtil.onEventEndWithValues(d.f40238e, i3, arrayList);
+                RimStatisticsUtil.onEventEndWithValues(d.f40298e, i3, arrayList);
             }
-            b();
+            c();
             LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
             livenessRecogResult.setResultCode(i3);
             livenessRecogResult.setResultMsg(str);
-            SapiLivenessRecogManager.getInstance().getLivenessRecogCallback().b(livenessRecogResult);
+            LivenessRecogCallback livenessRecogCallback = this.f40167c;
+            if (livenessRecogCallback != null) {
+                livenessRecogCallback.b(livenessRecogResult);
+            }
             RimStatisticsUtil.getInstance().triggerSending();
             LogUtil.d("hello", "triggerSending():  发送日志");
         }
@@ -122,7 +164,7 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
                 return;
             }
             VideoGetPortraitModel videoGetPortraitModel = (VideoGetPortraitModel) obj;
-            b();
+            c();
             LivenessRecogDTO livenessRecogDTO = this.livenessRecogDTO;
             if (livenessRecogDTO != null && livenessRecogDTO.showGuidePage) {
                 Intent intent = new Intent(this, LivenessVideoGuidActivity.class);
@@ -131,7 +173,7 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
                 startActivity(intent);
                 return;
             }
-            b();
+            c();
             Intent intent2 = new Intent(this, LivenessVideoActivity.class);
             intent2.putExtra(KEY_VIDEOGETPORTRAITMODEL, videoGetPortraitModel);
             intent2.setFlags(268435456);
@@ -154,12 +196,27 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
+            if (f40165a) {
+                a();
+                LogUtil.d("hello", "loading callManyTimes");
+                return;
+            }
+            f40165a = true;
+            LivenessRecogCallback livenessRecogCallback = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
+            this.f40167c = livenessRecogCallback;
             if (this.livenessRecogDTO == null) {
+                if (livenessRecogCallback != null) {
+                    LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
+                    livenessRecogResult.setResultCode(-206);
+                    livenessRecogResult.setResultMsg(a.ERROR_MSG_SERVER_ERROR);
+                    this.f40167c.b(livenessRecogResult);
+                }
+                finish();
                 return;
             }
             setContentView(R.layout.layout_sapi_liveness_loading);
-            a();
-            c();
+            b();
+            d();
         }
     }
 
@@ -168,6 +225,7 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
+            f40165a = false;
             BeanManager.getInstance().removeAllBeans(TAG);
         }
     }
@@ -175,17 +233,17 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     private void a(Context context) {
         LoadingDialog loadingDialog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-            if (this.f40119a == null) {
+        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
+            if (this.f40166b == null) {
                 LoadingDialog loadingDialog2 = new LoadingDialog(context);
-                this.f40119a = loadingDialog2;
+                this.f40166b = loadingDialog2;
                 loadingDialog2.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-                this.f40119a.setCancelable(false);
+                this.f40166b.setCancelable(false);
             }
-            if (((Activity) context).isFinishing() || (loadingDialog = this.f40119a) == null || loadingDialog.isShowing()) {
+            if (((Activity) context).isFinishing() || (loadingDialog = this.f40166b) == null || loadingDialog.isShowing()) {
                 return;
             }
-            this.f40119a.show();
+            this.f40166b.show();
         }
     }
 }

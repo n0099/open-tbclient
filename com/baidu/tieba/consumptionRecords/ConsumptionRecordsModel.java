@@ -22,22 +22,22 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50029e;
+    public int f50140e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50030f;
+    public int f50141f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50031g;
+    public int f50142g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<c.a.r0.d0.a> f50032h;
+    public ArrayList<c.a.r0.d0.a> f50143h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.d0.b f50033i;
+    public c.a.r0.d0.b f50144i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f50034j;
+    public boolean f50145j;
     public b k;
     public HttpMessageListener l;
 
@@ -47,7 +47,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ConsumptionRecordsModel f50035a;
+        public final /* synthetic */ ConsumptionRecordsModel f50146a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ConsumptionRecordsModel consumptionRecordsModel, int i2) {
@@ -67,7 +67,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                     return;
                 }
             }
-            this.f50035a = consumptionRecordsModel;
+            this.f50146a = consumptionRecordsModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -79,17 +79,17 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                 if (httpResponsedMessage.getError() == 0) {
                     if (z) {
                         GetUserOrderHttpResponseMessage getUserOrderHttpResponseMessage = (GetUserOrderHttpResponseMessage) httpResponsedMessage;
-                        this.f50035a.E(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
+                        this.f50146a.E(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
                     }
-                    if (this.f50035a.k != null) {
-                        this.f50035a.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f50035a.f50032h, this.f50035a.f50033i, this.f50035a.f50034j);
+                    if (this.f50146a.k != null) {
+                        this.f50146a.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f50146a.f50143h, this.f50146a.f50144i, this.f50146a.f50145j);
                         return;
                     }
                     return;
                 }
-                ConsumptionRecordsModel.w(this.f50035a);
-                if (this.f50035a.k != null) {
-                    this.f50035a.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f50035a.f50032h, this.f50035a.f50033i, this.f50035a.f50034j);
+                ConsumptionRecordsModel.w(this.f50146a);
+                if (this.f50146a.k != null) {
+                    this.f50146a.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.f50146a.f50143h, this.f50146a.f50144i, this.f50146a.f50145j);
                 }
             }
         }
@@ -117,10 +117,10 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                 return;
             }
         }
-        this.f50029e = 0;
-        this.f50030f = 1;
-        this.f50031g = 1;
-        this.f50034j = false;
+        this.f50140e = 0;
+        this.f50141f = 1;
+        this.f50142g = 1;
+        this.f50145j = false;
         this.l = new a(this, CmdConfigHttp.CMD_GET_USER_ORDER);
         this.unique_id = bdUniqueId;
         registerTask();
@@ -129,8 +129,8 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     }
 
     public static /* synthetic */ int w(ConsumptionRecordsModel consumptionRecordsModel) {
-        int i2 = consumptionRecordsModel.f50029e;
-        consumptionRecordsModel.f50029e = i2 - 1;
+        int i2 = consumptionRecordsModel.f50140e;
+        consumptionRecordsModel.f50140e = i2 - 1;
         return i2;
     }
 
@@ -138,11 +138,11 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-            this.f50029e = 1;
+            this.f50140e = 1;
             newGetUserOrderRequestMessage.setPn(1);
             newGetUserOrderRequestMessage.setRn(10);
-            newGetUserOrderRequestMessage.setOrderType(this.f50030f);
-            newGetUserOrderRequestMessage.setShowMember(this.f50031g);
+            newGetUserOrderRequestMessage.setOrderType(this.f50141f);
+            newGetUserOrderRequestMessage.setShowMember(this.f50142g);
             sendMessage(newGetUserOrderRequestMessage);
         }
     }
@@ -150,7 +150,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.f50034j) {
+            if (!this.f50145j) {
                 b bVar = this.k;
                 if (bVar != null) {
                     bVar.b();
@@ -158,12 +158,12 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                 }
                 return;
             }
-            this.f50029e++;
+            this.f50140e++;
             NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-            newGetUserOrderRequestMessage.setPn(this.f50029e);
+            newGetUserOrderRequestMessage.setPn(this.f50140e);
             newGetUserOrderRequestMessage.setRn(10);
-            newGetUserOrderRequestMessage.setOrderType(this.f50030f);
-            newGetUserOrderRequestMessage.setShowMember(this.f50031g);
+            newGetUserOrderRequestMessage.setOrderType(this.f50141f);
+            newGetUserOrderRequestMessage.setShowMember(this.f50142g);
             sendMessage(newGetUserOrderRequestMessage);
         }
     }
@@ -172,19 +172,19 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, bVar, z) == null) {
             if (bVar != null) {
-                this.f50033i = bVar;
+                this.f50144i = bVar;
             }
-            this.f50034j = z;
+            this.f50145j = z;
             if (arrayList == null) {
                 return;
             }
-            if (this.f50032h == null) {
-                this.f50032h = new ArrayList<>();
+            if (this.f50143h == null) {
+                this.f50143h = new ArrayList<>();
             }
-            if (this.f50029e == 1) {
-                this.f50032h.clear();
+            if (this.f50140e == 1) {
+                this.f50143h.clear();
             }
-            this.f50032h.addAll(arrayList);
+            this.f50143h.addAll(arrayList);
         }
     }
 
@@ -238,14 +238,14 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public void setShowMember(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f50031g = i2;
+            this.f50142g = i2;
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f50030f = i2;
+            this.f50141f = i2;
         }
     }
 }

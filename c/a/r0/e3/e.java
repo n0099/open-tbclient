@@ -22,7 +22,7 @@ public class e implements c.a.n.c.c, ILokiIdentityContext {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f17443a = "";
+    public static String f17453a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -133,6 +133,6 @@ public class e implements c.a.n.c.c, ILokiIdentityContext {
     public String getZid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? f17443a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? f17453a : (String) invokeV.objValue;
     }
 }

@@ -14,17 +14,17 @@ public class d implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f22060h;
+    public static final BdUniqueId f22074h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22061e;
+    public int f22075e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22062f;
+    public int f22076f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22063g;
+    public int f22077g;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class d implements n {
                 return;
             }
         }
-        f22060h = BdUniqueId.gen();
+        f22074h = BdUniqueId.gen();
     }
 
     public d() {
@@ -60,7 +60,7 @@ public class d implements n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f22060h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f22074h : (BdUniqueId) invokeV.objValue;
     }
 
     public d(int i2, int i3) {
@@ -78,7 +78,7 @@ public class d implements n {
                 return;
             }
         }
-        this.f22062f = i2;
-        this.f22061e = i3;
+        this.f22076f = i2;
+        this.f22075e = i3;
     }
 }

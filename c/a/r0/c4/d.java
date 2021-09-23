@@ -25,13 +25,13 @@ public class d extends c.a.r0.c4.g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public ValueAnimator f16616h;
+    public ValueAnimator f16626h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ValueAnimator f16617i;
+    public ValueAnimator f16627i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f16618j;
+    public float f16628j;
     public float k;
     public ValueAnimator l;
     public ValueAnimator m;
@@ -51,7 +51,7 @@ public class d extends c.a.r0.c4.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16619e;
+        public final /* synthetic */ d f16629e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class d extends c.a.r0.c4.g {
                     return;
                 }
             }
-            this.f16619e = dVar;
+            this.f16629e = dVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -83,28 +83,28 @@ public class d extends c.a.r0.c4.g {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                c.a.r0.w.e eVar = new c.a.r0.w.e(this.f16619e.s);
+                c.a.r0.w.e eVar = new c.a.r0.w.e(this.f16629e.s);
                 eVar.d(0.5f);
                 eVar.f(800.0f);
-                d dVar = this.f16619e;
-                c.a.r0.w.d dVar2 = new c.a.r0.w.d(this.f16619e.u.C, c.a.r0.w.b.m);
+                d dVar = this.f16629e;
+                c.a.r0.w.d dVar2 = new c.a.r0.w.d(this.f16629e.u.C, c.a.r0.w.b.m);
                 dVar2.m(eVar);
                 dVar.v = dVar2;
-                this.f16619e.v.h();
-                this.f16619e.u.C.setTranslationY(0.0f);
-                d dVar3 = this.f16619e;
-                dVar3.f16658e = 2;
-                g.a aVar = dVar3.f16657d;
+                this.f16629e.v.h();
+                this.f16629e.u.C.setTranslationY(0.0f);
+                d dVar3 = this.f16629e;
+                dVar3.f16668e = 2;
+                g.a aVar = dVar3.f16667d;
                 if (aVar != null) {
                     aVar.a(2);
                 }
-                this.f16619e.u.q.setClickable(true);
-                this.f16619e.u.n.setClickable(true);
-                this.f16619e.u.k.setClickable(true);
-                this.f16619e.u.f16589h.setClickable(true);
-                this.f16619e.u.s.setClickable(true);
-                this.f16619e.u.v.setClickable(true);
-                this.f16619e.u.y.setClickable(true);
+                this.f16629e.u.q.setClickable(true);
+                this.f16629e.u.n.setClickable(true);
+                this.f16629e.u.k.setClickable(true);
+                this.f16629e.u.f16599h.setClickable(true);
+                this.f16629e.u.s.setClickable(true);
+                this.f16629e.u.v.setClickable(true);
+                this.f16629e.u.y.setClickable(true);
             }
         }
 
@@ -119,13 +119,13 @@ public class d extends c.a.r0.c4.g {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f16619e.u.q.setClickable(false);
-                this.f16619e.u.n.setClickable(false);
-                this.f16619e.u.k.setClickable(false);
-                this.f16619e.u.f16589h.setClickable(false);
-                this.f16619e.u.s.setClickable(false);
-                this.f16619e.u.v.setClickable(false);
-                this.f16619e.u.y.setClickable(false);
+                this.f16629e.u.q.setClickable(false);
+                this.f16629e.u.n.setClickable(false);
+                this.f16629e.u.k.setClickable(false);
+                this.f16629e.u.f16599h.setClickable(false);
+                this.f16629e.u.s.setClickable(false);
+                this.f16629e.u.v.setClickable(false);
+                this.f16629e.u.y.setClickable(false);
             }
         }
     }
@@ -136,7 +136,7 @@ public class d extends c.a.r0.c4.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16620e;
+        public final /* synthetic */ d f16630e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -153,15 +153,15 @@ public class d extends c.a.r0.c4.g {
                     return;
                 }
             }
-            this.f16620e = dVar;
+            this.f16630e = dVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning()) {
-                this.f16620e.u.C.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.f16620e.u.C.setTranslationY(this.f16620e.r * valueAnimator.getAnimatedFraction());
+                this.f16630e.u.C.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f16630e.u.C.setTranslationY(this.f16630e.r * valueAnimator.getAnimatedFraction());
             }
         }
     }
@@ -172,7 +172,7 @@ public class d extends c.a.r0.c4.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16621e;
+        public final /* synthetic */ d f16631e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -189,7 +189,7 @@ public class d extends c.a.r0.c4.g {
                     return;
                 }
             }
-            this.f16621e = dVar;
+            this.f16631e = dVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -204,16 +204,16 @@ public class d extends c.a.r0.c4.g {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f16621e.u.C.setAlpha(0.0f);
-                this.f16621e.u.C.setTranslationY(this.f16621e.r);
-                this.f16621e.y();
-                this.f16621e.u.q.setClickable(true);
-                this.f16621e.u.n.setClickable(true);
-                this.f16621e.u.k.setClickable(true);
-                this.f16621e.u.f16589h.setClickable(true);
-                this.f16621e.u.s.setClickable(true);
-                this.f16621e.u.v.setClickable(true);
-                this.f16621e.u.y.setClickable(true);
+                this.f16631e.u.C.setAlpha(0.0f);
+                this.f16631e.u.C.setTranslationY(this.f16631e.r);
+                this.f16631e.y();
+                this.f16631e.u.q.setClickable(true);
+                this.f16631e.u.n.setClickable(true);
+                this.f16631e.u.k.setClickable(true);
+                this.f16631e.u.f16599h.setClickable(true);
+                this.f16631e.u.s.setClickable(true);
+                this.f16631e.u.v.setClickable(true);
+                this.f16631e.u.y.setClickable(true);
             }
         }
 
@@ -228,27 +228,27 @@ public class d extends c.a.r0.c4.g {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f16621e.u.q.setClickable(false);
-                this.f16621e.u.n.setClickable(false);
-                this.f16621e.u.k.setClickable(false);
-                this.f16621e.u.f16589h.setClickable(false);
-                this.f16621e.u.s.setClickable(false);
-                this.f16621e.u.v.setClickable(false);
-                this.f16621e.u.y.setClickable(false);
+                this.f16631e.u.q.setClickable(false);
+                this.f16631e.u.n.setClickable(false);
+                this.f16631e.u.k.setClickable(false);
+                this.f16631e.u.f16599h.setClickable(false);
+                this.f16631e.u.s.setClickable(false);
+                this.f16631e.u.v.setClickable(false);
+                this.f16631e.u.y.setClickable(false);
             }
         }
     }
 
     /* renamed from: c.a.r0.c4.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0803d implements Runnable {
+    public class RunnableC0801d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16622e;
+        public final /* synthetic */ d f16632e;
 
-        public RunnableC0803d(d dVar) {
+        public RunnableC0801d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -263,30 +263,30 @@ public class d extends c.a.r0.c4.g {
                     return;
                 }
             }
-            this.f16622e = dVar;
+            this.f16632e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d dVar = this.f16622e;
-                if (dVar.f16659f != null && dVar.f16618j == 0.0f && this.f16622e.k == 0.0f) {
-                    this.f16622e.u.B.getGlobalVisibleRect(this.f16622e.f16660g);
-                    d dVar2 = this.f16622e;
-                    dVar2.f16618j = dVar2.f16659f.centerX() - this.f16622e.f16660g.centerX();
-                    d dVar3 = this.f16622e;
-                    dVar3.k = dVar3.f16659f.centerY() - this.f16622e.f16660g.centerY();
+                d dVar = this.f16632e;
+                if (dVar.f16669f != null && dVar.f16628j == 0.0f && this.f16632e.k == 0.0f) {
+                    this.f16632e.u.B.getGlobalVisibleRect(this.f16632e.f16670g);
+                    d dVar2 = this.f16632e;
+                    dVar2.f16628j = dVar2.f16669f.centerX() - this.f16632e.f16670g.centerX();
+                    d dVar3 = this.f16632e;
+                    dVar3.k = dVar3.f16669f.centerY() - this.f16632e.f16670g.centerY();
                 }
-                this.f16622e.u.B.setVisibility(0);
-                this.f16622e.u.B.setTranslationX(this.f16622e.f16618j);
-                this.f16622e.u.B.setTranslationY(this.f16622e.k);
-                d dVar4 = this.f16622e;
-                View view = dVar4.f16656c;
+                this.f16632e.u.B.setVisibility(0);
+                this.f16632e.u.B.setTranslationX(this.f16632e.f16628j);
+                this.f16632e.u.B.setTranslationY(this.f16632e.k);
+                d dVar4 = this.f16632e;
+                View view = dVar4.f16666c;
                 if (view instanceof OvalActionButton) {
                     ((OvalActionButton) view).cloneColor(dVar4.u.B);
                 }
-                this.f16622e.f16616h.start();
+                this.f16632e.f16626h.start();
             }
         }
     }
@@ -297,7 +297,7 @@ public class d extends c.a.r0.c4.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16623e;
+        public final /* synthetic */ d f16633e;
 
         public e(d dVar) {
             Interceptable interceptable = $ic;
@@ -314,18 +314,18 @@ public class d extends c.a.r0.c4.g {
                     return;
                 }
             }
-            this.f16623e = dVar;
+            this.f16633e = dVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                if (!(this.f16623e.f16618j == 0.0f && this.f16623e.k == 0.0f) && valueAnimator.isRunning()) {
-                    this.f16623e.u.B.setCrossFade(valueAnimator.getAnimatedFraction(), false);
-                    this.f16623e.u.B.setTranslationX(this.f16623e.f16618j - (this.f16623e.f16618j * valueAnimator.getAnimatedFraction()));
-                    this.f16623e.u.B.setTranslationY(this.f16623e.k - (this.f16623e.k * valueAnimator.getAnimatedFraction()));
-                    this.f16623e.u.B.setRotation(valueAnimator.getAnimatedFraction() * (-90.0f));
+                if (!(this.f16633e.f16628j == 0.0f && this.f16633e.k == 0.0f) && valueAnimator.isRunning()) {
+                    this.f16633e.u.B.setCrossFade(valueAnimator.getAnimatedFraction(), false);
+                    this.f16633e.u.B.setTranslationX(this.f16633e.f16628j - (this.f16633e.f16628j * valueAnimator.getAnimatedFraction()));
+                    this.f16633e.u.B.setTranslationY(this.f16633e.k - (this.f16633e.k * valueAnimator.getAnimatedFraction()));
+                    this.f16633e.u.B.setRotation(valueAnimator.getAnimatedFraction() * (-90.0f));
                 }
             }
         }
@@ -337,7 +337,7 @@ public class d extends c.a.r0.c4.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16624e;
+        public final /* synthetic */ d f16634e;
 
         public f(d dVar) {
             Interceptable interceptable = $ic;
@@ -354,7 +354,7 @@ public class d extends c.a.r0.c4.g {
                     return;
                 }
             }
-            this.f16624e = dVar;
+            this.f16634e = dVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -369,11 +369,11 @@ public class d extends c.a.r0.c4.g {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f16624e.u.B.setTranslationX(0.0f);
-                this.f16624e.u.B.setTranslationY(0.0f);
-                this.f16624e.u.B.setRotation(-90.0f);
-                this.f16624e.u.B.setEndIcon(R.drawable.icon_pure_frs_issue24, this.f16624e.t, OvalActionButton.WEBP);
-                this.f16624e.u.B.setCrossFade(1.0f, false);
+                this.f16634e.u.B.setTranslationX(0.0f);
+                this.f16634e.u.B.setTranslationY(0.0f);
+                this.f16634e.u.B.setRotation(-90.0f);
+                this.f16634e.u.B.setEndIcon(R.drawable.icon_pure_frs_issue24, this.f16634e.t, OvalActionButton.WEBP);
+                this.f16634e.u.B.setCrossFade(1.0f, false);
             }
         }
 
@@ -388,12 +388,12 @@ public class d extends c.a.r0.c4.g {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                View view = this.f16624e.f16656c;
+                View view = this.f16634e.f16666c;
                 if (view != null) {
                     view.setVisibility(4);
-                    this.f16624e.f16656c.setAlpha(0.0f);
+                    this.f16634e.f16666c.setAlpha(0.0f);
                 }
-                this.f16624e.u.B.setEndIcon(R.drawable.icon_pure_frs_issue24, this.f16624e.t, OvalActionButton.WEBP);
+                this.f16634e.u.B.setEndIcon(R.drawable.icon_pure_frs_issue24, this.f16634e.t, OvalActionButton.WEBP);
             }
         }
     }
@@ -404,7 +404,7 @@ public class d extends c.a.r0.c4.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16625e;
+        public final /* synthetic */ d f16635e;
 
         public g(d dVar) {
             Interceptable interceptable = $ic;
@@ -421,18 +421,18 @@ public class d extends c.a.r0.c4.g {
                     return;
                 }
             }
-            this.f16625e = dVar;
+            this.f16635e = dVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                if (!(this.f16625e.f16618j == 0.0f && this.f16625e.k == 0.0f) && valueAnimator.isRunning()) {
-                    this.f16625e.u.B.setCrossFade(valueAnimator.getAnimatedFraction(), true);
-                    this.f16625e.u.B.setTranslationX(this.f16625e.f16618j * valueAnimator.getAnimatedFraction());
-                    this.f16625e.u.B.setTranslationY(this.f16625e.k * valueAnimator.getAnimatedFraction());
-                    this.f16625e.u.B.setRotation((valueAnimator.getAnimatedFraction() * 90.0f) - 90.0f);
+                if (!(this.f16635e.f16628j == 0.0f && this.f16635e.k == 0.0f) && valueAnimator.isRunning()) {
+                    this.f16635e.u.B.setCrossFade(valueAnimator.getAnimatedFraction(), true);
+                    this.f16635e.u.B.setTranslationX(this.f16635e.f16628j * valueAnimator.getAnimatedFraction());
+                    this.f16635e.u.B.setTranslationY(this.f16635e.k * valueAnimator.getAnimatedFraction());
+                    this.f16635e.u.B.setRotation((valueAnimator.getAnimatedFraction() * 90.0f) - 90.0f);
                 }
             }
         }
@@ -444,7 +444,7 @@ public class d extends c.a.r0.c4.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16626e;
+        public final /* synthetic */ d f16636e;
 
         public h(d dVar) {
             Interceptable interceptable = $ic;
@@ -461,7 +461,7 @@ public class d extends c.a.r0.c4.g {
                     return;
                 }
             }
-            this.f16626e = dVar;
+            this.f16636e = dVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -476,11 +476,11 @@ public class d extends c.a.r0.c4.g {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f16626e.u.B.setTranslationX(this.f16626e.f16618j);
-                this.f16626e.u.B.setTranslationY(this.f16626e.k);
-                this.f16626e.u.B.setRotation(0.0f);
-                this.f16626e.u.B.setEndIcon(0, 0, "");
-                this.f16626e.u.B.setCrossFade(1.0f, true);
+                this.f16636e.u.B.setTranslationX(this.f16636e.f16628j);
+                this.f16636e.u.B.setTranslationY(this.f16636e.k);
+                this.f16636e.u.B.setRotation(0.0f);
+                this.f16636e.u.B.setEndIcon(0, 0, "");
+                this.f16636e.u.B.setCrossFade(1.0f, true);
             }
         }
 
@@ -495,7 +495,7 @@ public class d extends c.a.r0.c4.g {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f16626e.u.B.setEndIcon(R.drawable.icon_pure_frs_issue24, this.f16626e.t, OvalActionButton.WEBP);
+                this.f16636e.u.B.setEndIcon(R.drawable.icon_pure_frs_issue24, this.f16636e.t, OvalActionButton.WEBP);
             }
         }
     }
@@ -506,7 +506,7 @@ public class d extends c.a.r0.c4.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16627e;
+        public final /* synthetic */ d f16637e;
 
         public i(d dVar) {
             Interceptable interceptable = $ic;
@@ -523,16 +523,16 @@ public class d extends c.a.r0.c4.g {
                     return;
                 }
             }
-            this.f16627e = dVar;
+            this.f16637e = dVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning()) {
-                this.f16627e.u.C.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.f16627e.u.f16586e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.f16627e.u.f16587f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f16637e.u.C.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f16637e.u.f16596e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f16637e.u.f16597f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -543,7 +543,7 @@ public class d extends c.a.r0.c4.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16628e;
+        public final /* synthetic */ d f16638e;
 
         public j(d dVar) {
             Interceptable interceptable = $ic;
@@ -560,7 +560,7 @@ public class d extends c.a.r0.c4.g {
                     return;
                 }
             }
-            this.f16628e = dVar;
+            this.f16638e = dVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -575,9 +575,9 @@ public class d extends c.a.r0.c4.g {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f16628e.u.C.setAlpha(1.0f);
-                this.f16628e.u.f16586e.setAlpha(1.0f);
-                this.f16628e.u.f16587f.setAlpha(1.0f);
+                this.f16638e.u.C.setAlpha(1.0f);
+                this.f16638e.u.f16596e.setAlpha(1.0f);
+                this.f16638e.u.f16597f.setAlpha(1.0f);
             }
         }
 
@@ -602,7 +602,7 @@ public class d extends c.a.r0.c4.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16629e;
+        public final /* synthetic */ d f16639e;
 
         public k(d dVar) {
             Interceptable interceptable = $ic;
@@ -619,15 +619,15 @@ public class d extends c.a.r0.c4.g {
                     return;
                 }
             }
-            this.f16629e = dVar;
+            this.f16639e = dVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning()) {
-                this.f16629e.u.f16586e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.f16629e.u.f16587f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f16639e.u.f16596e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f16639e.u.f16597f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -638,7 +638,7 @@ public class d extends c.a.r0.c4.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16630e;
+        public final /* synthetic */ d f16640e;
 
         public l(d dVar) {
             Interceptable interceptable = $ic;
@@ -655,7 +655,7 @@ public class d extends c.a.r0.c4.g {
                     return;
                 }
             }
-            this.f16630e = dVar;
+            this.f16640e = dVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -670,8 +670,8 @@ public class d extends c.a.r0.c4.g {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f16630e.u.f16586e.setAlpha(0.0f);
-                this.f16630e.u.f16587f.setAlpha(0.0f);
+                this.f16640e.u.f16596e.setAlpha(0.0f);
+                this.f16640e.u.f16597f.setAlpha(0.0f);
             }
         }
 
@@ -696,7 +696,7 @@ public class d extends c.a.r0.c4.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16631e;
+        public final /* synthetic */ d f16641e;
 
         public m(d dVar) {
             Interceptable interceptable = $ic;
@@ -713,14 +713,14 @@ public class d extends c.a.r0.c4.g {
                     return;
                 }
             }
-            this.f16631e = dVar;
+            this.f16641e = dVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning()) {
-                this.f16631e.u.C.setTranslationY(this.f16631e.q - (this.f16631e.q * valueAnimator.getAnimatedFraction()));
+                this.f16641e.u.C.setTranslationY(this.f16641e.q - (this.f16641e.q * valueAnimator.getAnimatedFraction()));
             }
         }
     }
@@ -746,7 +746,7 @@ public class d extends c.a.r0.c4.g {
         }
         c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X009);
         this.u = cVar;
-        this.t = c.a.e.e.p.l.g(this.f16654a, R.dimen.tbds0);
+        this.t = c.a.e.e.p.l.g(this.f16664a, R.dimen.tbds0);
         x();
     }
 
@@ -769,9 +769,9 @@ public class d extends c.a.r0.c4.g {
     @Override // c.a.r0.c4.g
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f16658e == 4) {
-            this.f16658e = 1;
-            g.a aVar = this.f16657d;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f16668e == 4) {
+            this.f16668e = 1;
+            g.a aVar = this.f16667d;
             if (aVar != null) {
                 aVar.a(1);
             }
@@ -786,15 +786,15 @@ public class d extends c.a.r0.c4.g {
     @Override // c.a.r0.c4.g
     public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f16658e == 2) {
-            this.f16658e = 3;
-            g.a aVar = this.f16657d;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f16668e == 2) {
+            this.f16668e = 3;
+            g.a aVar = this.f16667d;
             if (aVar != null) {
                 aVar.a(3);
             }
             v();
             this.m.start();
-            this.f16617i.start();
+            this.f16627i.start();
             this.p.start();
         }
     }
@@ -802,8 +802,8 @@ public class d extends c.a.r0.c4.g {
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f16616h.cancel();
-            this.f16617i.cancel();
+            this.f16626h.cancel();
+            this.f16627i.cancel();
             this.m.cancel();
             this.l.cancel();
         }
@@ -812,7 +812,7 @@ public class d extends c.a.r0.c4.g {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.u.B.post(new RunnableC0803d(this));
+            this.u.B.post(new RunnableC0801d(this));
         }
     }
 
@@ -821,17 +821,17 @@ public class d extends c.a.r0.c4.g {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.n = new AnimatorSet();
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.f16616h = ofFloat;
+            this.f16626h = ofFloat;
             ofFloat.setDuration(450L);
-            this.f16616h.setInterpolator(new OvershootInterpolator());
-            this.f16616h.addUpdateListener(new e(this));
-            this.f16616h.addListener(new f(this));
+            this.f16626h.setInterpolator(new OvershootInterpolator());
+            this.f16626h.addUpdateListener(new e(this));
+            this.f16626h.addListener(new f(this));
             ValueAnimator ofFloat2 = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.f16617i = ofFloat2;
+            this.f16627i = ofFloat2;
             ofFloat2.setDuration(450L);
-            this.f16617i.setInterpolator(new AccelerateInterpolator());
-            this.f16617i.addUpdateListener(new g(this));
-            this.f16617i.addListener(new h(this));
+            this.f16627i.setInterpolator(new AccelerateInterpolator());
+            this.f16627i.addUpdateListener(new g(this));
+            this.f16627i.addListener(new h(this));
             ValueAnimator ofFloat3 = ValueAnimator.ofFloat(0.0f, 1.0f);
             this.l = ofFloat3;
             ofFloat3.setDuration(416L);
@@ -852,8 +852,8 @@ public class d extends c.a.r0.c4.g {
             ofFloat6.setDuration(200L);
             this.p.addUpdateListener(new b(this));
             this.p.addListener(new c(this));
-            this.u.f16591j.setVisibility(0);
-            this.u.f16588g.setVisibility(0);
+            this.u.f16601j.setVisibility(0);
+            this.u.f16598g.setVisibility(0);
             this.u.m.setVisibility(0);
             this.u.p.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
             this.u.s.setVisibility(0);
@@ -870,22 +870,22 @@ public class d extends c.a.r0.c4.g {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            View view = this.f16656c;
+            View view = this.f16666c;
             if (view != null) {
                 view.setVisibility(0);
             }
-            this.f16658e = 4;
+            this.f16668e = 4;
             v();
             z(8);
             this.u.B.setVisibility(4);
-            View view2 = this.f16656c;
+            View view2 = this.f16666c;
             if (view2 != null) {
                 view2.setVisibility(0);
-                this.f16656c.setAlpha(1.0f);
+                this.f16666c.setAlpha(1.0f);
             }
-            g.a aVar = this.f16657d;
+            g.a aVar = this.f16667d;
             if (aVar != null) {
-                aVar.a(this.f16658e);
+                aVar.a(this.f16668e);
             }
         }
     }
@@ -893,8 +893,8 @@ public class d extends c.a.r0.c4.g {
     public final void z(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.u.f16587f.setVisibility(i2);
-            this.u.f16586e.setVisibility(i2);
+            this.u.f16597f.setVisibility(i2);
+            this.u.f16596e.setVisibility(i2);
             this.u.C.setVisibility(i2);
         }
     }

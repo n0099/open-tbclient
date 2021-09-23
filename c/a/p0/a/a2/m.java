@@ -17,7 +17,7 @@ public class m extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h f4589e;
+    public final h f4597e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public m() {
@@ -60,7 +60,7 @@ public class m extends a {
     public h d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4589e : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4597e : (h) invokeV.objValue;
     }
 
     public String getAppId() {
@@ -191,6 +191,6 @@ public class m extends a {
                 return;
             }
         }
-        this.f4589e = hVar == null ? d.g() : hVar;
+        this.f4597e = hVar == null ? d.g() : hVar;
     }
 }

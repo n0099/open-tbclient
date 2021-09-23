@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.r0.j3.y;
+import c.a.r0.j3.z;
 import c.a.r0.w0.o1.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -71,7 +71,7 @@ public class d extends c.a.r0.w0.o1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f27353e;
+        public final /* synthetic */ d f27373e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class d extends c.a.r0.w0.o1.a {
                     return;
                 }
             }
-            this.f27353e = dVar;
+            this.f27373e = dVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -99,7 +99,7 @@ public class d extends c.a.r0.w0.o1.a {
                 if (motionEvent == null || motionEvent.getAction() != 2) {
                     return false;
                 }
-                l.x(this.f27353e.f27332e, view);
+                l.x(this.f27373e.f27352e, view);
                 return false;
             }
             return invokeLL.booleanValue;
@@ -112,7 +112,7 @@ public class d extends c.a.r0.w0.o1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f27354a;
+        public final /* synthetic */ d f27374a;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public class d extends c.a.r0.w0.o1.a {
                     return;
                 }
             }
-            this.f27354a = dVar;
+            this.f27374a = dVar;
         }
 
         @Override // c.a.r0.w0.o1.c.b
@@ -138,10 +138,10 @@ public class d extends c.a.r0.w0.o1.a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, inputMethodManager) == null) || inputMethodManager == null) {
                 return;
             }
-            d dVar = this.f27354a;
-            dVar.f27332e.HidenSoftKeyPad(inputMethodManager, dVar.z);
-            d dVar2 = this.f27354a;
-            dVar2.f27332e.HidenSoftKeyPad(inputMethodManager, dVar2.A);
+            d dVar = this.f27374a;
+            dVar.f27352e.HidenSoftKeyPad(inputMethodManager, dVar.z);
+            d dVar2 = this.f27374a;
+            dVar2.f27352e.HidenSoftKeyPad(inputMethodManager, dVar2.A);
         }
     }
 
@@ -151,7 +151,7 @@ public class d extends c.a.r0.w0.o1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f27355e;
+        public final /* synthetic */ d f27375e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -168,21 +168,21 @@ public class d extends c.a.r0.w0.o1.a {
                     return;
                 }
             }
-            this.f27355e = dVar;
+            this.f27375e = dVar;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f27355e.G = editable;
-                if (this.f27355e.G.length() <= 500) {
-                    this.f27355e.I.setVisibility(4);
+                this.f27375e.G = editable;
+                if (this.f27375e.G.length() <= 500) {
+                    this.f27375e.I.setVisibility(4);
                 } else {
-                    this.f27355e.I.setText((500 - this.f27355e.G.length()) + "/500");
-                    this.f27355e.I.setVisibility(0);
+                    this.f27375e.I.setText((500 - this.f27375e.G.length()) + "/500");
+                    this.f27375e.I.setVisibility(0);
                 }
-                this.f27355e.A();
+                this.f27375e.A();
             }
         }
 
@@ -203,14 +203,14 @@ public class d extends c.a.r0.w0.o1.a {
 
     /* renamed from: c.a.r0.w0.o1.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1285d implements TextWatcher {
+    public class C1283d implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f27356e;
+        public final /* synthetic */ d f27376e;
 
-        public C1285d(d dVar) {
+        public C1283d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -225,21 +225,21 @@ public class d extends c.a.r0.w0.o1.a {
                     return;
                 }
             }
-            this.f27356e = dVar;
+            this.f27376e = dVar;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f27356e.H = editable;
-                if (this.f27356e.H.length() <= 500) {
-                    this.f27356e.J.setVisibility(4);
+                this.f27376e.H = editable;
+                if (this.f27376e.H.length() <= 500) {
+                    this.f27376e.J.setVisibility(4);
                 } else {
-                    this.f27356e.J.setText((500 - this.f27356e.H.length()) + "/500");
-                    this.f27356e.J.setVisibility(0);
+                    this.f27376e.J.setText((500 - this.f27376e.H.length()) + "/500");
+                    this.f27376e.J.setVisibility(0);
                 }
-                this.f27356e.A();
+                this.f27376e.A();
             }
         }
 
@@ -264,7 +264,7 @@ public class d extends c.a.r0.w0.o1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f27357e;
+        public final /* synthetic */ d f27377e;
 
         public e(d dVar) {
             Interceptable interceptable = $ic;
@@ -281,7 +281,7 @@ public class d extends c.a.r0.w0.o1.a {
                     return;
                 }
             }
-            this.f27357e = dVar;
+            this.f27377e = dVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -290,7 +290,7 @@ public class d extends c.a.r0.w0.o1.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (view.getId() == R.id.university_comment) {
-                    d dVar = this.f27357e;
+                    d dVar = this.f27377e;
                     if (dVar.z(dVar.z)) {
                         view.getParent().requestDisallowInterceptTouchEvent(true);
                         if (motionEvent.getAction() == 1) {
@@ -310,7 +310,7 @@ public class d extends c.a.r0.w0.o1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f27358e;
+        public final /* synthetic */ d f27378e;
 
         public f(d dVar) {
             Interceptable interceptable = $ic;
@@ -327,7 +327,7 @@ public class d extends c.a.r0.w0.o1.a {
                     return;
                 }
             }
-            this.f27358e = dVar;
+            this.f27378e = dVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -336,7 +336,7 @@ public class d extends c.a.r0.w0.o1.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (view.getId() == R.id.university_subject_comment) {
-                    d dVar = this.f27358e;
+                    d dVar = this.f27378e;
                     if (dVar.z(dVar.A)) {
                         view.getParent().requestDisallowInterceptTouchEvent(true);
                         if (motionEvent.getAction() == 1) {
@@ -351,12 +351,12 @@ public class d extends c.a.r0.w0.o1.a {
     }
 
     /* loaded from: classes4.dex */
-    public class g implements y.e {
+    public class g implements z.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f27359e;
+        public final /* synthetic */ d f27379e;
 
         public g(d dVar) {
             Interceptable interceptable = $ic;
@@ -373,28 +373,28 @@ public class d extends c.a.r0.w0.o1.a {
                     return;
                 }
             }
-            this.f27359e = dVar;
+            this.f27379e = dVar;
         }
 
-        @Override // c.a.r0.j3.y.e
+        @Override // c.a.r0.j3.z.e
         public void onDraftLoaded(WriteData writeData) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) || writeData == null) {
                 return;
             }
             try {
-                this.f27359e.F.setStarCount(Integer.parseInt(writeData.getmUniversitySubjectGrade()));
+                this.f27379e.F.setStarCount(Integer.parseInt(writeData.getmUniversitySubjectGrade()));
             } catch (NumberFormatException unused) {
-                this.f27359e.F.setStarCount(0.0f);
+                this.f27379e.F.setStarCount(0.0f);
             }
             try {
-                this.f27359e.E.setStarCount(Integer.parseInt(writeData.getmUniversityGrade()));
+                this.f27379e.E.setStarCount(Integer.parseInt(writeData.getmUniversityGrade()));
             } catch (NumberFormatException unused2) {
-                this.f27359e.E.setStarCount(0.0f);
+                this.f27379e.E.setStarCount(0.0f);
             }
-            this.f27359e.v.setText(writeData.getmUniversitySubjectContent());
-            this.f27359e.z.setText(writeData.getmUniversityComment());
-            this.f27359e.A.setText(writeData.getmUniversitySubjectComment());
+            this.f27379e.v.setText(writeData.getmUniversitySubjectContent());
+            this.f27379e.z.setText(writeData.getmUniversityComment());
+            this.f27379e.A.setText(writeData.getmUniversitySubjectComment());
         }
     }
 
@@ -422,7 +422,7 @@ public class d extends c.a.r0.w0.o1.a {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!TextUtils.isEmpty(this.G) && this.G.length() >= 20 && !TextUtils.isEmpty(this.H) && this.H.length() >= 20 && !this.f27332e.getString(R.string.select_subject).equals(this.v.getText()) && this.G.length() <= 500 && this.H.length() <= 500) {
+            if (!TextUtils.isEmpty(this.G) && this.G.length() >= 20 && !TextUtils.isEmpty(this.H) && this.H.length() >= 20 && !this.f27352e.getString(R.string.select_subject).equals(this.v.getText()) && this.G.length() <= 500 && this.H.length() <= 500) {
                 this.k.setAlpha(1.0f);
             } else {
                 this.k.setAlpha(0.5f);
@@ -470,47 +470,47 @@ public class d extends c.a.r0.w0.o1.a {
     public void c() {
         ForumWriteData forumWriteData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (forumWriteData = this.f27333f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (forumWriteData = this.f27353f) == null) {
             return;
         }
-        y.n(String.valueOf(forumWriteData.forumId), new g(this));
+        z.n(String.valueOf(forumWriteData.forumId), new g(this));
     }
 
     @Override // c.a.r0.w0.o1.a
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = LayoutInflater.from(this.f27332e).inflate(R.layout.activity_university_evaluation, (ViewGroup) null);
-            this.f27334g = inflate;
-            this.f27335h = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
-            this.q = (TbImageView) this.f27334g.findViewById(R.id.university_icon);
-            this.r = (TextView) this.f27334g.findViewById(R.id.university_name);
-            this.s = (TextView) this.f27334g.findViewById(R.id.university_desc);
-            this.t = (TextView) this.f27334g.findViewById(R.id.university_grade);
-            this.u = (TextView) this.f27334g.findViewById(R.id.university_subject);
-            this.v = (TextView) this.f27334g.findViewById(R.id.university_subject_content);
-            this.B = (ImageView) this.f27334g.findViewById(R.id.subject_right_arrow);
-            this.w = (TextView) this.f27334g.findViewById(R.id.university_subject_grade);
-            this.x = (TextView) this.f27334g.findViewById(R.id.university_comment_title);
-            this.y = (TextView) this.f27334g.findViewById(R.id.subject_comment_title);
-            EditText editText = (EditText) this.f27334g.findViewById(R.id.university_comment);
+            View inflate = LayoutInflater.from(this.f27352e).inflate(R.layout.activity_university_evaluation, (ViewGroup) null);
+            this.f27354g = inflate;
+            this.f27355h = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
+            this.q = (TbImageView) this.f27354g.findViewById(R.id.university_icon);
+            this.r = (TextView) this.f27354g.findViewById(R.id.university_name);
+            this.s = (TextView) this.f27354g.findViewById(R.id.university_desc);
+            this.t = (TextView) this.f27354g.findViewById(R.id.university_grade);
+            this.u = (TextView) this.f27354g.findViewById(R.id.university_subject);
+            this.v = (TextView) this.f27354g.findViewById(R.id.university_subject_content);
+            this.B = (ImageView) this.f27354g.findViewById(R.id.subject_right_arrow);
+            this.w = (TextView) this.f27354g.findViewById(R.id.university_subject_grade);
+            this.x = (TextView) this.f27354g.findViewById(R.id.university_comment_title);
+            this.y = (TextView) this.f27354g.findViewById(R.id.subject_comment_title);
+            EditText editText = (EditText) this.f27354g.findViewById(R.id.university_comment);
             this.z = editText;
-            editText.setLineSpacing(l.g(this.f27332e, R.dimen.tbds16), 1.0f);
-            EditText editText2 = (EditText) this.f27334g.findViewById(R.id.university_subject_comment);
+            editText.setLineSpacing(l.g(this.f27352e, R.dimen.tbds16), 1.0f);
+            EditText editText2 = (EditText) this.f27354g.findViewById(R.id.university_subject_comment);
             this.A = editText2;
-            editText2.setLineSpacing(l.g(this.f27332e, R.dimen.tbds16), 1.0f);
-            this.I = (TextView) this.f27334g.findViewById(R.id.university_comment_counter);
-            this.J = (TextView) this.f27334g.findViewById(R.id.university_subject_comment_counter);
-            this.D = this.f27334g.findViewById(R.id.select_subject_layout);
-            RankStarView rankStarView = (RankStarView) this.f27334g.findViewById(R.id.university_grade_star);
+            editText2.setLineSpacing(l.g(this.f27352e, R.dimen.tbds16), 1.0f);
+            this.I = (TextView) this.f27354g.findViewById(R.id.university_comment_counter);
+            this.J = (TextView) this.f27354g.findViewById(R.id.university_subject_comment_counter);
+            this.D = this.f27354g.findViewById(R.id.select_subject_layout);
+            RankStarView rankStarView = (RankStarView) this.f27354g.findViewById(R.id.university_grade_star);
             this.E = rankStarView;
             rankStarView.setClickable(true);
-            this.E.setStarSpacing(l.g(this.f27332e, R.dimen.tbds24));
-            RankStarView rankStarView2 = (RankStarView) this.f27334g.findViewById(R.id.university_subject_grade_star);
+            this.E.setStarSpacing(l.g(this.f27352e, R.dimen.tbds24));
+            RankStarView rankStarView2 = (RankStarView) this.f27354g.findViewById(R.id.university_subject_grade_star);
             this.F = rankStarView2;
             rankStarView2.setClickable(true);
-            this.F.setStarSpacing(l.g(this.f27332e, R.dimen.tbds24));
-            this.C = this.f27334g.findViewById(R.id.divider);
+            this.F.setStarSpacing(l.g(this.f27352e, R.dimen.tbds24));
+            this.C = this.f27354g.findViewById(R.id.divider);
             SerializableItemInfo serializableItemInfo = this.l;
             if (serializableItemInfo != null) {
                 this.s.setText(D(serializableItemInfo.getTags()));
@@ -518,10 +518,10 @@ public class d extends c.a.r0.w0.o1.a {
                 this.q.startLoad(this.l.icon_url, 10, false);
             }
             this.q.setPlaceHolder(2);
-            this.q.setPageId(this.f27332e.getUniqueId());
+            this.q.setPageId(this.f27352e.getUniqueId());
             this.q.setConrers(15);
-            this.q.setRadius(l.g(this.f27332e, R.dimen.tbds10));
-            this.f27334g.findViewById(R.id.scroll_view).setOnTouchListener(new a(this));
+            this.q.setRadius(l.g(this.f27352e, R.dimen.tbds10));
+            this.f27354g.findViewById(R.id.scroll_view).setOnTouchListener(new a(this));
             this.m.h(new b(this));
         }
     }
@@ -530,11 +530,11 @@ public class d extends c.a.r0.w0.o1.a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f27337j.setOnClickListener(this);
+            this.f27357j.setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.D.setOnClickListener(this);
             this.z.addTextChangedListener(new c(this));
-            this.A.addTextChangedListener(new C1285d(this));
+            this.A.addTextChangedListener(new C1283d(this));
             this.z.setOnTouchListener(new e(this));
             this.A.setOnTouchListener(new f(this));
         }
@@ -565,7 +565,7 @@ public class d extends c.a.r0.w0.o1.a {
             SkinManager.setViewTextColor(this.s, R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0105);
-            if (this.f27332e.getString(R.string.select_subject).equals(this.v.getText())) {
+            if (this.f27352e.getString(R.string.select_subject).equals(this.v.getText())) {
                 SkinManager.setViewTextColor(this.v, R.color.CAM_X0109);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.B, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
@@ -592,7 +592,7 @@ public class d extends c.a.r0.w0.o1.a {
     @Override // c.a.r0.w0.o1.a
     public void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f27333f == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f27353f == null) {
             return;
         }
         WriteData writeData = new WriteData();
@@ -602,37 +602,37 @@ public class d extends c.a.r0.w0.o1.a {
         writeData.setmUniversitySubjectContent(this.v.getText().toString());
         writeData.setmUniversityComment(this.z.getText().toString());
         writeData.setmUniversitySubjectComment(this.A.getText().toString());
-        y.v(String.valueOf(this.f27333f.forumId), writeData);
+        z.v(String.valueOf(this.f27353f.forumId), writeData);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
-            if (view == this.f27337j) {
+            if (view == this.f27357j) {
                 l();
             } else if (view == this.D) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SearchMajorActivityConfig(this.f27332e, 25047)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SearchMajorActivityConfig(this.f27352e, 25047)));
             } else if (view == this.k) {
-                if (!TextUtils.isEmpty(this.G) && !TextUtils.isEmpty(this.H) && !this.f27332e.getString(R.string.select_subject).equals(this.v.getText())) {
+                if (!TextUtils.isEmpty(this.G) && !TextUtils.isEmpty(this.H) && !this.f27352e.getString(R.string.select_subject).equals(this.v.getText())) {
                     if (this.G.length() < 20) {
-                        l.L(this.f27332e, R.string.university_comment_size_error_tip);
+                        l.L(this.f27352e, R.string.university_comment_size_error_tip);
                         return;
                     } else if (this.H.length() < 20) {
-                        l.L(this.f27332e, R.string.subject_comment_size_error_tip);
+                        l.L(this.f27352e, R.string.subject_comment_size_error_tip);
                         return;
                     } else if (this.G.length() > 500) {
-                        l.L(this.f27332e, R.string.university_comment_lenght_error_tip);
+                        l.L(this.f27352e, R.string.university_comment_lenght_error_tip);
                         return;
                     } else if (this.H.length() > 500) {
-                        l.L(this.f27332e, R.string.subject_comment_lenght_error_tip);
+                        l.L(this.f27352e, R.string.subject_comment_lenght_error_tip);
                         return;
                     } else {
-                        this.m.g("学校评价：" + ((Object) this.G) + StringUtils.LF + "专业评价：" + ((Object) this.H), B(), this.f27333f);
+                        this.m.g("学校评价：" + ((Object) this.G) + StringUtils.LF + "专业评价：" + ((Object) this.H), B(), this.f27353f);
                         return;
                     }
                 }
-                l.L(this.f27332e, R.string.university_comment_must_write_tip);
+                l.L(this.f27352e, R.string.university_comment_must_write_tip);
             }
         }
     }

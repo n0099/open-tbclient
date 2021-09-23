@@ -25,13 +25,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24822a;
+    public String f24838a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f24823b;
+    public List<String> f24839b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f24824c;
+    public List<String> f24840c;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Void, Void, Void> {
@@ -60,11 +60,11 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                c.a.r0.z1.d.a(c.a.r0.z1.c.f29705b);
-                c.a.r0.z1.d.a(c.a.r0.z1.c.f29706c);
-                c.a.r0.z1.d.a(c.a.r0.z1.c.f29707d);
-                c.a.r0.z1.d.a(c.a.r0.z1.c.f29709f);
-                c.a.r0.z1.d.a(c.a.r0.z1.c.f29710g);
+                c.a.r0.z1.d.a(c.a.r0.z1.c.f29725b);
+                c.a.r0.z1.d.a(c.a.r0.z1.c.f29726c);
+                c.a.r0.z1.d.a(c.a.r0.z1.c.f29727d);
+                c.a.r0.z1.d.a(c.a.r0.z1.c.f29729f);
+                c.a.r0.z1.d.a(c.a.r0.z1.c.f29730g);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -77,7 +77,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f24825a;
+        public final /* synthetic */ e f24841a;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class e {
                     return;
                 }
             }
-            this.f24825a = eVar;
+            this.f24841a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -103,13 +103,13 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                List j2 = e.j(c.a.r0.z1.c.f29708e);
+                List j2 = e.j(c.a.r0.z1.c.f29728e);
                 if (j2 == null) {
                     return null;
                 }
                 int size = j2.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    this.f24825a.n((c.a.r0.s3.d) j2.get(i2));
+                    this.f24841a.n((c.a.r0.s3.d) j2.get(i2));
                 }
                 return null;
             }
@@ -123,7 +123,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f24826a;
+        public final /* synthetic */ e f24842a;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -140,7 +140,7 @@ public class e {
                     return;
                 }
             }
-            this.f24826a = eVar;
+            this.f24842a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -150,7 +150,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 if (strArr != null && strArr.length == 2 && !StringUtils.isNull(strArr[0]) && !StringUtils.isNull(strArr[1])) {
-                    this.f24826a.f(strArr[0], strArr[1]);
+                    this.f24842a.f(strArr[0], strArr[1]);
                 }
                 return null;
             }
@@ -164,7 +164,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f24827a;
+        public final /* synthetic */ e f24843a;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -181,7 +181,7 @@ public class e {
                     return;
                 }
             }
-            this.f24827a = eVar;
+            this.f24843a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -192,7 +192,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVarArr)) == null) {
                 if (dVarArr != null && dVarArr.length == 1 && dVarArr[0] != null) {
-                    this.f24827a.g(dVarArr[0]);
+                    this.f24843a.g(dVarArr[0]);
                 }
                 return null;
             }
@@ -202,11 +202,11 @@ public class e {
 
     /* renamed from: c.a.r0.s3.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1149e {
+    public static class C1147e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f24828a;
+        public static final e f24844a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -222,7 +222,7 @@ public class e {
                     return;
                 }
             }
-            f24828a = new e(null);
+            f24844a = new e(null);
         }
     }
 
@@ -233,7 +233,7 @@ public class e {
     public static e h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? C1149e.f24828a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? C1147e.f24844a : (e) invokeV.objValue;
     }
 
     public static List<c.a.r0.s3.d> j(String str) {
@@ -290,7 +290,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
             synchronized (this) {
-                if (this.f24824c.contains(str)) {
+                if (this.f24840c.contains(str)) {
                     return false;
                 }
                 File file = new File(str);
@@ -305,10 +305,10 @@ public class e {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
             synchronized (this) {
                 try {
-                    byte[] a2 = c.a.r0.s3.c.a(dVar.f24820a);
-                    if (c.a.r0.s3.c.c(a2, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.f24821b)) {
-                        FileHelper.deleteFile(new File(dVar.f24821b));
-                        this.f24824c.add(dVar.f24821b);
+                    byte[] a2 = c.a.r0.s3.c.a(dVar.f24836a);
+                    if (c.a.r0.s3.c.c(a2, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.f24837b)) {
+                        FileHelper.deleteFile(new File(dVar.f24837b));
+                        this.f24840c.add(dVar.f24837b);
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -321,13 +321,13 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (StringUtils.isNull(this.f24822a)) {
+            if (StringUtils.isNull(this.f24838a)) {
                 if (!f.c()) {
                     return null;
                 }
-                this.f24822a = String.valueOf(System.currentTimeMillis());
+                this.f24838a = String.valueOf(System.currentTimeMillis());
             }
-            return c.a.r0.z1.c.f29708e + this.f24822a;
+            return c.a.r0.z1.c.f29728e + this.f24838a;
         }
         return (String) invokeV.objValue;
     }
@@ -339,15 +339,15 @@ public class e {
                 if (jSONObject == null) {
                     return;
                 }
-                this.f24823b.add(jSONObject.toString());
+                this.f24839b.add(jSONObject.toString());
                 String i2 = i();
                 if (f.c()) {
                     l(jSONObject, i2);
                 }
-                if (this.f24823b.size() >= g.a() || z) {
-                    n(new c.a.r0.s3.d(this.f24823b, i2));
-                    this.f24823b.clear();
-                    this.f24822a = null;
+                if (this.f24839b.size() >= g.a() || z) {
+                    n(new c.a.r0.s3.d(this.f24839b, i2));
+                    this.f24839b.clear();
+                    this.f24838a = null;
                 }
             }
         }
@@ -388,8 +388,8 @@ public class e {
                 return;
             }
         }
-        this.f24823b = new ArrayList();
-        this.f24824c = new ArrayList();
+        this.f24839b = new ArrayList();
+        this.f24840c = new ArrayList();
         if (f.c()) {
             e();
         }

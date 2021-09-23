@@ -25,7 +25,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.e0.l.a f3125e;
+        public final /* synthetic */ c.a.e0.l.a f3126e;
 
         /* renamed from: c.a.e0.k.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -34,10 +34,10 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ JSONArray f3126a;
+            public final /* synthetic */ JSONArray f3127a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ RunnableC0055a f3127b;
+            public final /* synthetic */ RunnableC0055a f3128b;
 
             public C0056a(RunnableC0055a runnableC0055a, JSONArray jSONArray) {
                 Interceptable interceptable = $ic;
@@ -54,20 +54,20 @@ public class a {
                         return;
                     }
                 }
-                this.f3127b = runnableC0055a;
-                this.f3126a = jSONArray;
+                this.f3128b = runnableC0055a;
+                this.f3127a = jSONArray;
             }
 
             @Override // c.a.e0.l.a
             public void a(int i2, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                    c.a.e0.l.a aVar = this.f3127b.f3125e;
+                    c.a.e0.l.a aVar = this.f3128b.f3126e;
                     if (aVar != null) {
                         aVar.a(i2, str);
                     }
                     if (i2 == 1) {
-                        a.d(this.f3126a);
+                        a.d(this.f3127a);
                     }
                 }
             }
@@ -88,7 +88,7 @@ public class a {
                     return;
                 }
             }
-            this.f3125e = aVar;
+            this.f3126e = aVar;
         }
 
         @Override // java.lang.Runnable

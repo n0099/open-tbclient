@@ -17,7 +17,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f6276a;
+    public static int f6284a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,20 +33,20 @@ public class a {
                 return;
             }
         }
-        boolean z = k.f7077a;
-        f6276a = -1;
+        boolean z = k.f7085a;
+        f6284a = -1;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f6276a < 0) {
+            if (f6284a < 0) {
                 c.a.p0.a.c1.a.Z().getSwitch("swan_app_precreate_video_switch", 0);
-                f6276a = 0;
+                f6284a = 0;
             }
-            d.g("PreCreateVideoHelper", "getCacheVideoSwitch:" + f6276a);
-            return f6276a;
+            d.g("PreCreateVideoHelper", "getCacheVideoSwitch:" + f6284a);
+            return f6284a;
         }
         return invokeV.intValue;
     }

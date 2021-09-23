@@ -35,13 +35,13 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9680e;
+        public final /* synthetic */ CallbackHandler f9688e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9681f;
+        public final /* synthetic */ String f9689f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f9682g;
+        public final /* synthetic */ a f9690g;
 
         public C0454a(a aVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -58,9 +58,9 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f9682g = aVar;
-            this.f9680e = callbackHandler;
-            this.f9681f = str;
+            this.f9690g = aVar;
+            this.f9688e = callbackHandler;
+            this.f9689f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,9 +70,9 @@ public class a extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
                 if (map != null) {
-                    this.f9682g.l(this.f9681f, this.f9680e, map);
+                    this.f9690g.l(this.f9689f, this.f9688e, map);
                 } else {
-                    this.f9680e.handleSchemeDispatchCallback(this.f9681f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    this.f9688e.handleSchemeDispatchCallback(this.f9689f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 }
             }
         }
@@ -135,10 +135,10 @@ public class a extends a0 {
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 return;
             }
-            boolean z = fVar.f5541d;
+            boolean z = fVar.f5549d;
             int c2 = p0.c();
             long e2 = p0.e();
-            List<String> list = fVar.f5546i;
+            List<String> list = fVar.f5554i;
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
             try {
@@ -149,12 +149,12 @@ public class a extends a0 {
                 jSONObject.put("visitDuration", e2);
                 jSONObject.put("forbidden", z);
                 jSONObject.put("ext", jSONArray);
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str3 = "launchCount:" + c2 + " visitDuration:" + e2 + " forbidden:" + z + " ext:" + jSONArray.toString();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             } catch (JSONException e3) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e3.printStackTrace();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());

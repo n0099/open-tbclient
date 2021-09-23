@@ -16,16 +16,16 @@ public class g implements c.a.p0.a.l1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6559e;
+    public int f6567e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6560f;
+    public int f6568f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6561g;
+    public int f6569g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6562h;
+    public int f6570h;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -40,20 +40,20 @@ public class g implements c.a.p0.a.l1.a {
                 return;
             }
         }
-        this.f6559e = Integer.MIN_VALUE;
-        this.f6560f = Integer.MIN_VALUE;
-        this.f6561g = -1;
-        this.f6562h = -1;
+        this.f6567e = Integer.MIN_VALUE;
+        this.f6568f = Integer.MIN_VALUE;
+        this.f6569g = -1;
+        this.f6570h = -1;
     }
 
     @Override // c.a.p0.a.l1.a
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("left") && jSONObject.has(VerticalTranslateLayout.TOP)) {
-            this.f6559e = n0.g(jSONObject.optInt("left"));
-            this.f6560f = n0.g(jSONObject.optInt(VerticalTranslateLayout.TOP));
-            this.f6561g = jSONObject.has("width") ? Math.abs(n0.g(jSONObject.optInt("width"))) : -1;
-            this.f6562h = jSONObject.has("height") ? Math.abs(n0.g(jSONObject.optInt("height"))) : -1;
+            this.f6567e = n0.g(jSONObject.optInt("left"));
+            this.f6568f = n0.g(jSONObject.optInt(VerticalTranslateLayout.TOP));
+            this.f6569g = jSONObject.has("width") ? Math.abs(n0.g(jSONObject.optInt("width"))) : -1;
+            this.f6570h = jSONObject.has("height") ? Math.abs(n0.g(jSONObject.optInt("height"))) : -1;
         }
     }
 
@@ -61,6 +61,6 @@ public class g implements c.a.p0.a.l1.a {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f6559e == Integer.MIN_VALUE || this.f6560f == Integer.MIN_VALUE) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f6567e == Integer.MIN_VALUE || this.f6568f == Integer.MIN_VALUE) ? false : true : invokeV.booleanValue;
     }
 }

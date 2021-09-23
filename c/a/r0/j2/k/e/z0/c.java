@@ -27,13 +27,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c.a.r0.j2.o.b f20383a;
+    public final c.a.r0.j2.o.b f20398a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f20384b;
+    public final HttpMessageListener f20399b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f20385c;
+    public final HttpMessageListener f20400c;
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -41,7 +41,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f20386a;
+        public final /* synthetic */ c f20401a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2, boolean z) {
@@ -62,7 +62,7 @@ public class c {
                     return;
                 }
             }
-            this.f20386a = cVar;
+            this.f20401a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +70,7 @@ public class c {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f20386a.e(httpResponsedMessage, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+                this.f20401a.e(httpResponsedMessage, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             }
         }
     }
@@ -81,7 +81,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f20387a;
+        public final /* synthetic */ c f20402a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(c cVar, int i2) {
@@ -101,7 +101,7 @@ public class c {
                     return;
                 }
             }
-            this.f20387a = cVar;
+            this.f20402a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,7 +109,7 @@ public class c {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f20387a.e(httpResponsedMessage, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
+                this.f20402a.e(httpResponsedMessage, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
             }
         }
     }
@@ -129,10 +129,10 @@ public class c {
                 return;
             }
         }
-        this.f20384b = new a(this, CmdConfigHttp.CMD_PB_FLOOR_AGREE, true);
-        this.f20385c = new b(this, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
+        this.f20399b = new a(this, CmdConfigHttp.CMD_PB_FLOOR_AGREE, true);
+        this.f20400c = new b(this, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
         if (bVar != null) {
-            this.f20383a = bVar;
+            this.f20398a = bVar;
             f();
             return;
         }
@@ -169,7 +169,7 @@ public class c {
                 httpMessage.addParam("obj_type", agreeData.objType);
                 httpMessage.addParam("agree_type", agreeData.agreeType);
                 httpMessage.addParam("forum_id", agreeData.forumId);
-                k = TbPageExtraHelper.k(this.f20383a.getPbActivity());
+                k = TbPageExtraHelper.k(this.f20398a.getPbActivity());
                 if (k != null) {
                     httpMessage.addParam("obj_source", k.a());
                 }
@@ -191,12 +191,12 @@ public class c {
             agreeData.agreeType = 2;
             agreeData.hasAgree = true;
             agreeData.agreeNum++;
-            c.a.r0.x2.a.g().l(this.f20383a.getPageContext());
+            c.a.r0.x2.a.g().l(this.f20398a.getPageContext());
         } else {
             agreeData.agreeType = 2;
             agreeData.hasAgree = true;
             agreeData.agreeNum++;
-            c.a.r0.x2.a.g().l(this.f20383a.getPageContext());
+            c.a.r0.x2.a.g().l(this.f20398a.getPageContext());
         }
         i2 = 0;
         HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
@@ -208,7 +208,7 @@ public class c {
         httpMessage2.addParam("obj_type", agreeData.objType);
         httpMessage2.addParam("agree_type", agreeData.agreeType);
         httpMessage2.addParam("forum_id", agreeData.forumId);
-        k = TbPageExtraHelper.k(this.f20383a.getPbActivity());
+        k = TbPageExtraHelper.k(this.f20398a.getPbActivity());
         if (k != null) {
         }
         if (!TextUtils.isEmpty(agreeData.postId)) {
@@ -226,7 +226,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            TbPageContext pageContext = this.f20383a.getPageContext();
+            TbPageContext pageContext = this.f20398a.getPageContext();
             if (pageContext != null) {
                 return pageContext.getUniqueId();
             }
@@ -245,22 +245,22 @@ public class c {
     public final void e(HttpResponsedMessage httpResponsedMessage, int i2) {
         PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, httpResponsedMessage, i2) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != i2 || !(httpResponsedMessage instanceof PbFloorAgreeResponseMessage) || (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) == null || pbFloorAgreeResponseMessage.hasError() || this.f20383a == null || pbFloorAgreeResponseMessage.getActivityDialogData() == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, httpResponsedMessage, i2) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != i2 || !(httpResponsedMessage instanceof PbFloorAgreeResponseMessage) || (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) == null || pbFloorAgreeResponseMessage.hasError() || this.f20398a == null || pbFloorAgreeResponseMessage.getActivityDialogData() == null) {
             return;
         }
         CustomDialogData activityDialogData = pbFloorAgreeResponseMessage.getActivityDialogData();
         activityDialogData.type = 0;
-        c.a.r0.j2.j.c.a(this.f20383a.getPageContext(), activityDialogData).show();
+        c.a.r0.j2.j.c.a(this.f20398a.getPageContext(), activityDialogData).show();
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.a.r0.j2.o.b bVar = this.f20383a;
+            c.a.r0.j2.o.b bVar = this.f20398a;
             if (bVar != null) {
-                bVar.registerListener(this.f20384b);
-                this.f20383a.registerListener(this.f20385c);
+                bVar.registerListener(this.f20399b);
+                this.f20398a.registerListener(this.f20400c);
                 return true;
             }
             return true;
@@ -272,8 +272,8 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f20384b);
-            MessageManager.getInstance().unRegisterListener(this.f20385c);
+            MessageManager.getInstance().unRegisterListener(this.f20399b);
+            MessageManager.getInstance().unRegisterListener(this.f20400c);
             return true;
         }
         return invokeV.booleanValue;

@@ -40,7 +40,7 @@ public class DynamicVideoView extends DynamicBaseWidgetImp {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.b();
-            this.m.a(this.f66362a, this.f66363b, this.f66364c, this.f66365d, this.f66371j.m());
+            this.m.a(this.f66673a, this.f66674b, this.f66675c, this.f66676d, this.f66682j.m());
             return true;
         }
         return invokeV.booleanValue;

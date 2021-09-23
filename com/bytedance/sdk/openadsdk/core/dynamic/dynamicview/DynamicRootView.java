@@ -22,22 +22,22 @@ public class DynamicRootView extends FrameLayout implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public p f66373a;
+    public p f66684a;
 
     /* renamed from: b  reason: collision with root package name */
-    public o f66374b;
+    public o f66685b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i f66375c;
+    public i f66686c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DynamicBaseWidget f66376d;
+    public DynamicBaseWidget f66687d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.dynamic.d.a f66377e;
+    public com.bytedance.sdk.openadsdk.core.dynamic.d.a f66688e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ThemeStatusBroadcastReceiver f66378f;
+    public ThemeStatusBroadcastReceiver f66689f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DynamicRootView(@NonNull Context context, ThemeStatusBroadcastReceiver themeStatusBroadcastReceiver) {
@@ -58,12 +58,12 @@ public class DynamicRootView extends FrameLayout implements a {
             }
         }
         p pVar = new p();
-        this.f66373a = pVar;
+        this.f66684a = pVar;
         pVar.a(2);
         com.bytedance.sdk.openadsdk.core.dynamic.d.a aVar = new com.bytedance.sdk.openadsdk.core.dynamic.d.a();
-        this.f66377e = aVar;
+        this.f66688e = aVar;
         aVar.a(this);
-        this.f66378f = themeStatusBroadcastReceiver;
+        this.f66689f = themeStatusBroadcastReceiver;
         themeStatusBroadcastReceiver.a(this);
     }
 
@@ -71,8 +71,8 @@ public class DynamicRootView extends FrameLayout implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            DynamicBaseWidget dynamicBaseWidget = this.f66376d;
-            return dynamicBaseWidget.f66364c > 0.0f && dynamicBaseWidget.f66365d > 0.0f;
+            DynamicBaseWidget dynamicBaseWidget = this.f66687d;
+            return dynamicBaseWidget.f66675c > 0.0f && dynamicBaseWidget.f66676d > 0.0f;
         }
         return invokeV.booleanValue;
     }
@@ -80,79 +80,79 @@ public class DynamicRootView extends FrameLayout implements a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f66373a.a(this.f66376d.a() && c());
-            this.f66373a.a(this.f66376d.f66364c);
-            this.f66373a.b(this.f66376d.f66365d);
-            this.f66374b.a(this.f66373a);
+            this.f66684a.a(this.f66687d.a() && c());
+            this.f66684a.a(this.f66687d.f66675c);
+            this.f66684a.b(this.f66687d.f66676d);
+            this.f66685b.a(this.f66684a);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f66373a.a(false);
-            this.f66374b.a(this.f66373a);
+            this.f66684a.a(false);
+            this.f66685b.a(this.f66684a);
         }
     }
 
     public com.bytedance.sdk.openadsdk.core.dynamic.d.a getDynamicClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f66377e : (com.bytedance.sdk.openadsdk.core.dynamic.d.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f66688e : (com.bytedance.sdk.openadsdk.core.dynamic.d.a) invokeV.objValue;
     }
 
     public i getExpressVideoListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f66375c : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f66686c : (i) invokeV.objValue;
     }
 
     public o getRenderListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f66374b : (o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f66685b : (o) invokeV.objValue;
     }
 
     public void setDislikeView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
-            this.f66377e.b(view);
+            this.f66688e.b(view);
         }
     }
 
     public void setDynamicBaseWidget(DynamicBaseWidget dynamicBaseWidget) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dynamicBaseWidget) == null) {
-            this.f66376d = dynamicBaseWidget;
+            this.f66687d = dynamicBaseWidget;
         }
     }
 
     public void setExpressVideoListener(i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, iVar) == null) {
-            this.f66375c = iVar;
+            this.f66686c = iVar;
         }
     }
 
     public void setRenderListener(o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, oVar) == null) {
-            this.f66374b = oVar;
-            this.f66377e.a(oVar);
+            this.f66685b = oVar;
+            this.f66688e.a(oVar);
         }
     }
 
     public void a(double d2, double d3, double d4, double d5, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), Float.valueOf(f2)}) == null) {
-            this.f66373a.c(d2);
-            this.f66373a.d(d3);
-            this.f66373a.e(d4);
-            this.f66373a.f(d5);
-            this.f66373a.a(f2);
-            this.f66373a.b(f2);
-            this.f66373a.c(f2);
-            this.f66373a.d(f2);
+            this.f66684a.c(d2);
+            this.f66684a.d(d3);
+            this.f66684a.e(d4);
+            this.f66684a.f(d5);
+            this.f66684a.a(f2);
+            this.f66684a.b(f2);
+            this.f66684a.c(f2);
+            this.f66684a.d(f2);
         }
     }
 
@@ -160,7 +160,7 @@ public class DynamicRootView extends FrameLayout implements a {
     public void a(int i2) {
         DynamicBaseWidget dynamicBaseWidget;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (dynamicBaseWidget = this.f66376d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (dynamicBaseWidget = this.f66687d) == null) {
             return;
         }
         dynamicBaseWidget.a(i2);

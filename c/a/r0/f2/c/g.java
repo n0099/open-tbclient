@@ -11,10 +11,10 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RecommendForumInfo f17650a;
+    public RecommendForumInfo f17660a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f17651b;
+    public boolean f17661b;
 
     public g(RecommendForumInfo recommendForumInfo, boolean z) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class g {
                 return;
             }
         }
-        this.f17650a = recommendForumInfo;
-        this.f17651b = z;
+        this.f17660a = recommendForumInfo;
+        this.f17661b = z;
     }
 }

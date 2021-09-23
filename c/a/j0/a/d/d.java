@@ -42,84 +42,9 @@ public class d extends c.a.j0.a.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f3625a;
-
-        public a(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f3625a = dVar;
-        }
-
-        @Override // c.a.j0.a.i.a
-        public void playCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3625a.a0("time_end");
-            }
-        }
-
-        @Override // c.a.j0.a.i.a
-        public void playFailure() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f3625a.a0("video_onError");
-            }
-        }
-
-        @Override // c.a.j0.a.i.a
-        public void playPause() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f3625a.d0();
-            }
-        }
-
-        @Override // c.a.j0.a.i.a
-        public void playResume() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f3625a.e0();
-            }
-        }
-
-        @Override // c.a.j0.a.i.a
-        public void renderingStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                try {
-                    AdVideoView adVideoView = this.f3625a.c0;
-                    adVideoView.getLayoutParams().width = -1;
-                    adVideoView.getLayoutParams().height = -1;
-                    d.super.C();
-                    this.f3625a.K();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class b implements a.InterfaceC0087a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ d f3626a;
 
-        public b(d dVar) {
+        public a(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,25 +62,48 @@ public class d extends c.a.j0.a.d.a {
             this.f3626a = dVar;
         }
 
-        @Override // c.a.j0.a.i.a.InterfaceC0087a
-        public void onDestroyed() {
+        @Override // c.a.j0.a.i.a
+        public void playCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f3626a.a0("time_end");
+            }
+        }
+
+        @Override // c.a.j0.a.i.a
+        public void playFailure() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.f3626a.a0("video_onError");
+            }
+        }
+
+        @Override // c.a.j0.a.i.a
+        public void playPause() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.f3626a.d0();
+            }
+        }
+
+        @Override // c.a.j0.a.i.a
+        public void playResume() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.f3626a.e0();
+            }
+        }
+
+        @Override // c.a.j0.a.i.a
+        public void renderingStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 try {
-                    if (this.f3626a.c0 != null) {
-                        AdVideoView adVideoView = this.f3626a.c0;
-                        adVideoView.getLayoutParams().width = 1;
-                        adVideoView.getLayoutParams().height = 1;
-                    }
-                    if (this.f3626a.r != null) {
-                        this.f3626a.r.setVisibility(8);
-                    }
-                    if (this.f3626a.f3594g != null) {
-                        this.f3626a.f3594g.setVisibility(8);
-                    }
-                    if (this.f3626a.f3595h != null) {
-                        this.f3626a.f3595h.setVisibility(8);
-                    }
+                    AdVideoView adVideoView = this.f3626a.c0;
+                    adVideoView.getLayoutParams().width = -1;
+                    adVideoView.getLayoutParams().height = -1;
+                    d.super.C();
+                    this.f3626a.K();
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -164,14 +112,14 @@ public class d extends c.a.j0.a.d.a {
     }
 
     /* loaded from: classes.dex */
-    public class c implements a.b {
+    public class b implements a.InterfaceC0087a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ d f3627a;
 
-        public c(d dVar) {
+        public b(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,25 +137,41 @@ public class d extends c.a.j0.a.d.a {
             this.f3627a = dVar;
         }
 
-        @Override // c.a.j0.a.i.a.b
-        public void onPrepared() {
+        @Override // c.a.j0.a.i.a.InterfaceC0087a
+        public void onDestroyed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3627a.Z();
+                try {
+                    if (this.f3627a.c0 != null) {
+                        AdVideoView adVideoView = this.f3627a.c0;
+                        adVideoView.getLayoutParams().width = 1;
+                        adVideoView.getLayoutParams().height = 1;
+                    }
+                    if (this.f3627a.r != null) {
+                        this.f3627a.r.setVisibility(8);
+                    }
+                    if (this.f3627a.f3595g != null) {
+                        this.f3627a.f3595g.setVisibility(8);
+                    }
+                    if (this.f3627a.f3596h != null) {
+                        this.f3627a.f3596h.setVisibility(8);
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
         }
     }
 
-    /* renamed from: c.a.j0.a.d.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class View$OnClickListenerC0085d implements View.OnClickListener {
+    public class c implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f3628e;
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ d f3628a;
 
-        public View$OnClickListenerC0085d(d dVar) {
+        public c(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -222,27 +186,28 @@ public class d extends c.a.j0.a.d.a {
                     return;
                 }
             }
-            this.f3628e = dVar;
+            this.f3628a = dVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // c.a.j0.a.i.a.b
+        public void onPrepared() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f3628e.G();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f3628a.Z();
             }
         }
     }
 
+    /* renamed from: c.a.j0.a.d.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class e implements Runnable {
+    public class View$OnClickListenerC0085d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ d f3629e;
 
-        public e(d dVar) {
+        public View$OnClickListenerC0085d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -260,11 +225,46 @@ public class d extends c.a.j0.a.d.a {
             this.f3629e = dVar;
         }
 
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f3629e.G();
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d f3630e;
+
+        public e(d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f3630e = dVar;
+        }
+
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3629e.I();
+                this.f3630e.I();
             }
         }
     }
@@ -310,7 +310,7 @@ public class d extends c.a.j0.a.d.a {
         this.m0 = new c(this);
         this.w = "video";
         try {
-            AdVideoView adVideoView = new AdVideoView(this.f3592e);
+            AdVideoView adVideoView = new AdVideoView(this.f3593e);
             this.c0 = adVideoView;
             if (this.K == 17) {
                 adVideoView.setDisplayMode(7);
@@ -394,7 +394,7 @@ public class d extends c.a.j0.a.d.a {
                 try {
                     try {
                         try {
-                            mediaMetadataRetriever.setDataSource(this.f3592e, Uri.parse(c0()));
+                            mediaMetadataRetriever.setDataSource(this.f3593e, Uri.parse(c0()));
                             long j2 = currentPosition * 1000;
                             r3 = j2 > 0 ? mediaMetadataRetriever.getFrameAtTime(j2, 3) : null;
                             mediaMetadataRetriever.release();
@@ -402,11 +402,11 @@ public class d extends c.a.j0.a.d.a {
                             e2.fillInStackTrace();
                         }
                     } catch (RuntimeException e3) {
-                        this.f3597j.d(e3);
+                        this.f3598j.d(e3);
                         mediaMetadataRetriever.release();
                     }
                 } catch (IllegalArgumentException e4) {
-                    this.f3597j.d(e4);
+                    this.f3598j.d(e4);
                     mediaMetadataRetriever.release();
                 }
                 return r3;

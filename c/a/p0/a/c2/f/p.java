@@ -24,10 +24,10 @@ public class p extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f4970e;
+        public final /* synthetic */ String f4978e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f4971f;
+        public final /* synthetic */ JSONObject f4979f;
 
         public a(p pVar, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -44,15 +44,15 @@ public class p extends a0 {
                     return;
                 }
             }
-            this.f4970e = str;
-            this.f4971f = jSONObject;
+            this.f4978e = str;
+            this.f4979f = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.r.e.m(this.f4970e, this.f4971f);
+                c.a.p0.r.e.m(this.f4978e, this.f4979f);
             }
         }
     }
@@ -98,7 +98,7 @@ public class p extends a0 {
                 optParamsAsJo.putOpt("eventType", "0");
                 optParamsAsJo.putOpt("propagation", c.a.p0.a.v2.w.f(optParamsAsJo.optJSONObject("propagation"), "source", c.a.p0.a.a2.d.g().r().L().T()));
             } catch (JSONException e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e2.printStackTrace();
                 }
             }

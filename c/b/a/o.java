@@ -19,10 +19,10 @@ public class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f31384a;
+    public static final String[] f31405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f31385b;
+    public static final String[] f31406b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,8 +38,8 @@ public class o {
                 return;
             }
         }
-        f31384a = new String[]{"ab_version", "device_brand", "language", "os_api", "resolution", "google_aid", "build_serial", "carrier", "install_id", AsInstallService.SCHEME_PACKAGE_ADDED, "app_version", "device_model", "udid", "density_dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", "device_id", "openudid", "clientudid", "aid"};
-        f31385b = new String[]{"ab_version", "device_brand", "language", "os_api", "resolution", "google_aid", "build_serial", "carrier", "iid", "app_name", "version_name", HttpConstants.DEVICE_TYPE, "uuid", "dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", "device_id", "openudid", "clientudid", "aid"};
+        f31405a = new String[]{"ab_version", "device_brand", "language", "os_api", "resolution", "google_aid", "build_serial", "carrier", "install_id", AsInstallService.SCHEME_PACKAGE_ADDED, "app_version", "device_model", "udid", "density_dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", "device_id", "openudid", "clientudid", "aid"};
+        f31406b = new String[]{"ab_version", "device_brand", "language", "os_api", "resolution", "google_aid", "build_serial", "carrier", "iid", "app_name", "version_name", HttpConstants.DEVICE_TYPE, "uuid", "dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", "device_id", "openudid", "clientudid", "aid"};
     }
 
     public static String a(Context context, JSONObject jSONObject, String str, boolean z, IAppParam iAppParam) {
@@ -50,16 +50,16 @@ public class o {
             if (TextUtils.isEmpty(str)) {
                 return str;
             }
-            HashMap hashMap = new HashMap(f31384a.length + 10);
+            HashMap hashMap = new HashMap(f31405a.length + 10);
             int i2 = 0;
             while (true) {
-                String[] strArr = f31384a;
+                String[] strArr = f31405a;
                 if (i2 >= strArr.length) {
                     break;
                 }
                 String optString = jSONObject.optString(strArr[i2], null);
                 if (!TextUtils.isEmpty(optString)) {
-                    hashMap.put(f31385b[i2], optString);
+                    hashMap.put(f31406b[i2], optString);
                 }
                 i2++;
             }
@@ -147,7 +147,7 @@ public class o {
             String str = AppLog.getEncryptAndCompress() ? "?tt_data=a" : "?";
             for (int i2 = 0; i2 < sendUris.length; i2++) {
                 strArr[i2] = a(context, jSONObject, sendUris[i2] + str, true, AppLog.getIAppParam());
-                strArr[i2] = n.d(strArr[i2], n.f31377d);
+                strArr[i2] = n.d(strArr[i2], n.f31398d);
             }
             return strArr;
         }

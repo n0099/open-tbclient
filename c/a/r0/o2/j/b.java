@@ -3,7 +3,7 @@ package c.a.r0.o2.j;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
-import c.a.q0.d1.m0;
+import c.a.q0.d1.n0;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -50,7 +50,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.o2.e.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f23323a;
+        public final /* synthetic */ b f23339a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -70,29 +70,29 @@ public class b extends c.a.r0.a0.b<c.a.r0.o2.e.b> {
                     return;
                 }
             }
-            this.f23323a = bVar;
+            this.f23339a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f23323a.x) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f23339a.x) {
                 return;
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof c.a.r0.j3.r0.k) {
                 c.a.r0.j3.r0.k kVar = (c.a.r0.j3.r0.k) data;
-                if (kVar.f21117a == this.f23323a.v.f23189j) {
-                    if (kVar.f21118b) {
-                        this.f23323a.v.m = true;
-                        this.f23323a.u.setVisibility(0);
-                        this.f23323a.x(true);
-                        c.a.e.e.p.l.L(this.f23323a.f15550g, R.string.attention_success);
-                    } else if (StringUtils.isNull(kVar.f21119c)) {
-                        c.a.e.e.p.l.L(this.f23323a.f15550g, R.string.attention_fail);
+                if (kVar.f21129a == this.f23339a.v.f23205j) {
+                    if (kVar.f21130b) {
+                        this.f23339a.v.m = true;
+                        this.f23339a.u.setVisibility(0);
+                        this.f23339a.x(true);
+                        c.a.e.e.p.l.L(this.f23339a.f15559g, R.string.attention_success);
+                    } else if (StringUtils.isNull(kVar.f21131c)) {
+                        c.a.e.e.p.l.L(this.f23339a.f15559g, R.string.attention_fail);
                     } else {
-                        c.a.e.e.p.l.M(this.f23323a.f15550g, kVar.f21119c);
+                        c.a.e.e.p.l.M(this.f23339a.f15559g, kVar.f21131c);
                     }
                 }
             }
@@ -101,15 +101,15 @@ public class b extends c.a.r0.a0.b<c.a.r0.o2.e.b> {
 
     /* renamed from: c.a.r0.o2.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1087b extends CustomMessageListener {
+    public class C1085b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f23324a;
+        public final /* synthetic */ b f23340a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1087b(b bVar, int i2) {
+        public C1085b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -126,29 +126,29 @@ public class b extends c.a.r0.a0.b<c.a.r0.o2.e.b> {
                     return;
                 }
             }
-            this.f23324a = bVar;
+            this.f23340a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f23324a.x) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f23340a.x) {
                 return;
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof c.a.r0.j3.r0.k) {
                 c.a.r0.j3.r0.k kVar = (c.a.r0.j3.r0.k) data;
-                if (kVar.f21117a == this.f23324a.v.f23189j) {
-                    if (kVar.f21118b) {
-                        this.f23324a.v.m = false;
-                        this.f23324a.u.setVisibility(0);
-                        b bVar = this.f23324a;
+                if (kVar.f21129a == this.f23340a.v.f23205j) {
+                    if (kVar.f21130b) {
+                        this.f23340a.v.m = false;
+                        this.f23340a.u.setVisibility(0);
+                        b bVar = this.f23340a;
                         bVar.x(bVar.v.m);
-                        c.a.e.e.p.l.L(this.f23324a.f15550g, R.string.unlike_success);
+                        c.a.e.e.p.l.L(this.f23340a.f15559g, R.string.unlike_success);
                         return;
                     }
-                    c.a.e.e.p.l.L(this.f23324a.f15550g, R.string.unlike_failure);
+                    c.a.e.e.p.l.L(this.f23340a.f15559g, R.string.unlike_failure);
                 }
             }
         }
@@ -173,7 +173,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.o2.e.b> {
             }
         }
         this.y = new a(this, 2001437);
-        this.z = new C1087b(this, 2001438);
+        this.z = new C1085b(this, 2001438);
         u(j());
     }
 
@@ -188,7 +188,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.o2.e.b> {
     public void l(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f15548e != i2) {
+            if (this.f15557e != i2) {
                 SkinManager.setBackgroundResource(this.m, R.drawable.item_person_header_attention_bg_selector);
                 SkinManager.setViewTextColor(this.n, R.color.CAM_X0106, 1);
                 SkinManager.setViewTextColor(this.o, R.color.CAM_X0106, 1);
@@ -201,7 +201,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.o2.e.b> {
                     x(bVar.m);
                 }
             }
-            this.f15548e = i2;
+            this.f15557e = i2;
         }
     }
 
@@ -213,17 +213,17 @@ public class b extends c.a.r0.a0.b<c.a.r0.o2.e.b> {
                 if (!this.x) {
                     TiebaStatic.log(new StatisticItem("c11595"));
                 }
-                this.f15549f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15550g).createNormalCfg(this.v.l, "")));
+                this.f15558f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15559g).createNormalCfg(this.v.l, "")));
             } else if (this.u == view) {
                 TiebaStatic.log(new StatisticItem("c11596"));
                 if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                    ViewHelper.skipToLoginActivity(this.f15550g);
+                    ViewHelper.skipToLoginActivity(this.f15559g);
                 } else if (c.a.e.e.p.k.isForumName(this.v.l)) {
                     c.a.r0.o2.e.b bVar = this.v;
                     if (bVar.m) {
                         return;
                     }
-                    this.w.L(bVar.l, String.valueOf(bVar.f23189j));
+                    this.w.L(bVar.l, String.valueOf(bVar.f23205j));
                 }
             }
         }
@@ -243,8 +243,8 @@ public class b extends c.a.r0.a0.b<c.a.r0.o2.e.b> {
             this.u = (TextView) view.findViewById(R.id.card_polymeric_attention_btn);
             this.m.setOnClickListener(this);
             this.u.setOnClickListener(this);
-            this.f15549f.registerListener(this.y);
-            this.f15549f.registerListener(this.z);
+            this.f15558f.registerListener(this.y);
+            this.f15558f.registerListener(this.z);
         }
     }
 
@@ -265,20 +265,20 @@ public class b extends c.a.r0.a0.b<c.a.r0.o2.e.b> {
                 this.m.setVisibility(0);
             }
             this.v = bVar;
-            this.x = bVar.f23184e;
-            this.n.setVisibility(bVar.f23186g ? 0 : 4);
-            this.o.setVisibility(bVar.f23186g ? 0 : 4);
-            this.n.setText(bVar.f23188i);
-            this.o.setText(bVar.f23187h);
+            this.x = bVar.f23200e;
+            this.n.setVisibility(bVar.f23202g ? 0 : 4);
+            this.o.setVisibility(bVar.f23202g ? 0 : 4);
+            this.n.setText(bVar.f23204i);
+            this.o.setText(bVar.f23203h);
             TextView textView = this.p;
-            if (bVar.f23184e) {
-                string = this.f15550g.getString(R.string.me);
+            if (bVar.f23200e) {
+                string = this.f15559g.getString(R.string.me);
             } else {
-                if (bVar.f23185f == 2) {
-                    context = this.f15550g;
+                if (bVar.f23201f == 2) {
+                    context = this.f15559g;
                     i2 = R.string.she;
                 } else {
-                    context = this.f15550g;
+                    context = this.f15559g;
                     i2 = R.string.he;
                 }
                 string = context.getString(i2);
@@ -286,13 +286,13 @@ public class b extends c.a.r0.a0.b<c.a.r0.o2.e.b> {
             textView.setText(string);
             this.r.startLoad(bVar.k, 10, false);
             String str = bVar.l;
-            if (m0.b(str) > 10) {
-                str = m0.j(str, 0, 10) + "...";
+            if (n0.b(str) > 10) {
+                str = n0.j(str, 0, 10) + "...";
             }
-            this.s.setText(String.format(this.f15550g.getString(R.string.person_polymeric_bar_suffix), str));
+            this.s.setText(String.format(this.f15559g.getString(R.string.person_polymeric_bar_suffix), str));
             String numFormatOverWanNa = StringHelper.numFormatOverWanNa(bVar.n);
-            this.t.setText(bVar.f23184e ? String.format(this.f15550g.getString(R.string.person_polymeric_attention_post_host), numFormatOverWanNa, StringHelper.numFormatOverWanNa(bVar.o)) : String.format(this.f15550g.getString(R.string.person_polymeric_attention_post_guess), numFormatOverWanNa));
-            if (!bVar.m && !bVar.f23184e) {
+            this.t.setText(bVar.f23200e ? String.format(this.f15559g.getString(R.string.person_polymeric_attention_post_host), numFormatOverWanNa, StringHelper.numFormatOverWanNa(bVar.o)) : String.format(this.f15559g.getString(R.string.person_polymeric_attention_post_guess), numFormatOverWanNa));
+            if (!bVar.m && !bVar.f23200e) {
                 this.u.setVisibility(0);
                 x(bVar.m);
                 return;
@@ -312,13 +312,13 @@ public class b extends c.a.r0.a0.b<c.a.r0.o2.e.b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (z) {
-                this.u.setText(this.f15550g.getString(R.string.relate_forum_is_followed));
+                this.u.setText(this.f15559g.getString(R.string.relate_forum_is_followed));
                 SkinManager.setViewTextColor(this.u, R.color.CAM_X0110);
                 SkinManager.setBackgroundResource(this.u, R.color.transparent);
                 this.u.setClickable(false);
                 return;
             }
-            this.u.setText(this.f15550g.getString(R.string.focus_text));
+            this.u.setText(this.f15559g.getString(R.string.focus_text));
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0302, 1);
             SkinManager.setBackgroundResource(this.u, R.drawable.polymeric_attention_btn_bg);
             this.u.setClickable(true);

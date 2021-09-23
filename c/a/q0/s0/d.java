@@ -12,7 +12,6 @@ import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInf
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 import com.baidu.adp.plugin.util.Util;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.task.item.StrictModeTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
@@ -263,8 +262,8 @@ public class d implements c.a.e.h.j.f.b {
                         if (z) {
                             j2.k(c2);
                             l<String> c3 = j2.c("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-                            c3.e("time", String.valueOf(System.currentTimeMillis()), StrictModeTask.CLEAN_FILE_INTERVAL);
-                            c3.e(str4, str2, StrictModeTask.CLEAN_FILE_INTERVAL);
+                            c3.e("time", String.valueOf(System.currentTimeMillis()), 172800000L);
+                            c3.e(str4, str2, 172800000L);
                         }
                         return null;
                     }

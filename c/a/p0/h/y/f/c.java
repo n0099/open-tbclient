@@ -50,19 +50,19 @@ public class c extends c.a.p0.h.y.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f11619a;
+        public final /* synthetic */ String f11627a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f11620b;
+        public final /* synthetic */ long f11628b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f11621c;
+        public final /* synthetic */ String f11629c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.h.y.b f11622d;
+        public final /* synthetic */ c.a.p0.h.y.b f11630d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f11623e;
+        public final /* synthetic */ c f11631e;
 
         public a(c cVar, String str, long j2, String str2, c.a.p0.h.y.b bVar) {
             Interceptable interceptable = $ic;
@@ -79,19 +79,19 @@ public class c extends c.a.p0.h.y.a {
                     return;
                 }
             }
-            this.f11623e = cVar;
-            this.f11619a = str;
-            this.f11620b = j2;
-            this.f11621c = str2;
-            this.f11622d = bVar;
+            this.f11631e = cVar;
+            this.f11627a = str;
+            this.f11628b = j2;
+            this.f11629c = str2;
+            this.f11630d = bVar;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                this.f11622d.cancelTag(this.f11623e.f11590g);
-                this.f11623e.W(this.f11619a, 0, iOException.getMessage(), this.f11620b);
+                this.f11630d.cancelTag(this.f11631e.f11598g);
+                this.f11631e.W(this.f11627a, 0, iOException.getMessage(), this.f11628b);
             }
         }
 
@@ -100,19 +100,19 @@ public class c extends c.a.p0.h.y.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
                 if (!response.isSuccessful()) {
-                    this.f11623e.W(this.f11619a, response.code(), response.message(), this.f11620b);
+                    this.f11631e.W(this.f11627a, response.code(), response.message(), this.f11628b);
                     return;
                 }
                 try {
                     JSEvent jSEvent = new JSEvent("headersReceived");
-                    jSEvent.data = new e(this.f11623e.I(response.headers()));
-                    this.f11623e.dispatchEvent(jSEvent);
+                    jSEvent.data = new e(this.f11631e.I(response.headers()));
+                    this.f11631e.dispatchEvent(jSEvent);
                 } catch (JSONException e2) {
-                    if (c.a.p0.h.y.a.f11586i) {
+                    if (c.a.p0.h.y.a.f11594i) {
                         e2.printStackTrace();
                     }
                 }
-                String str = this.f11621c;
+                String str = this.f11629c;
                 char c2 = 65535;
                 int hashCode = str.hashCode();
                 if (hashCode != 3556653) {
@@ -123,16 +123,16 @@ public class c extends c.a.p0.h.y.a {
                     c2 = 1;
                 }
                 if (c2 != 0) {
-                    this.f11623e.X(this.f11619a, response);
+                    this.f11631e.X(this.f11627a, response);
                 } else {
-                    this.f11623e.V(this.f11619a, response);
+                    this.f11631e.V(this.f11627a, response);
                 }
                 int code = response.code();
                 String message = response.message();
-                if (c.a.p0.h.y.a.f11586i) {
-                    String str2 = "onResponse: id:" + this.f11623e.f11590g + ",respCode: " + code + ", url=" + this.f11619a + ", msg=" + message;
+                if (c.a.p0.h.y.a.f11594i) {
+                    String str2 = "onResponse: id:" + this.f11631e.f11598g + ",respCode: " + code + ", url=" + this.f11627a + ", msg=" + message;
                 }
-                k.J(code, this.f11619a, 1, message, this.f11620b, System.currentTimeMillis());
+                k.J(code, this.f11627a, 1, message, this.f11628b, System.currentTimeMillis());
             }
         }
     }
@@ -173,7 +173,7 @@ public class c extends c.a.p0.h.y.a {
                 return;
             }
         }
-        this.f11588e = 1;
+        this.f11596e = 1;
     }
 
     @NonNull
@@ -202,12 +202,12 @@ public class c extends c.a.p0.h.y.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String z = z();
             if (TextUtils.isEmpty(z)) {
-                if (c.a.p0.h.y.a.f11586i) {
+                if (c.a.p0.h.y.a.f11594i) {
                     String str = "buildRequest url =" + z;
                 }
                 return null;
             }
-            String C = this.f11589f.C("method");
+            String C = this.f11597f.C("method");
             if (TextUtils.isEmpty(C)) {
                 C = "GET";
             }
@@ -218,23 +218,23 @@ public class c extends c.a.p0.h.y.a {
             }
             HashMap hashMap = new HashMap();
             Request.Builder builder = new Request.Builder();
-            G(builder, this.f11589f.x("header"), hashMap, true);
-            if (c.a.p0.h.y.a.f11586i) {
+            G(builder, this.f11597f.x("header"), hashMap, true);
+            if (c.a.p0.h.y.a.f11594i) {
                 String str2 = "lowerCaseHeaderMap =" + hashMap;
             }
-            Object D = this.f11589f.D("data", null);
+            Object D = this.f11597f.D("data", null);
             if (D == null) {
-                D = this.f11589f.u("data", null);
+                D = this.f11597f.u("data", null);
             }
             boolean z2 = D != null;
             if (z2 && !HttpMethod.permitsRequestBody(upperCase)) {
-                return builder.url(z).method(upperCase, null).tag(this.f11590g).build();
+                return builder.url(z).method(upperCase, null).tag(this.f11598g).build();
             }
             RequestBody S = (z2 || HttpMethod.requiresRequestBody(upperCase)) ? S(D, hashMap) : null;
             if (HttpMethod.requiresRequestBody(upperCase) && S == null) {
                 return null;
             }
-            return builder.url(z).method(upperCase, S).tag(this.f11590g).build();
+            return builder.url(z).method(upperCase, S).tag(this.f11598g).build();
         }
         return (Request) invokeV.objValue;
     }
@@ -245,7 +245,7 @@ public class c extends c.a.p0.h.y.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, map)) == null) {
             String str = map.get("content-type");
-            MediaType mediaType = f.f7580a;
+            MediaType mediaType = f.f7588a;
             if (!TextUtils.isEmpty(str)) {
                 mediaType = MediaType.parse(str);
             }
@@ -256,7 +256,7 @@ public class c extends c.a.p0.h.y.a {
                 }
                 return RequestBody.create(mediaType, buffer);
             } else if (obj instanceof String) {
-                if (c.a.p0.h.y.a.f11586i) {
+                if (c.a.p0.h.y.a.f11594i) {
                     String str2 = "createBody = " + obj;
                 }
                 return RequestBody.create(mediaType, (String) obj);
@@ -270,7 +270,7 @@ public class c extends c.a.p0.h.y.a {
     public void T(Request request) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, request) == null) {
-            String U = U(this.f11589f);
+            String U = U(this.f11597f);
             String httpUrl = request.url().toString();
             if (c.a.p0.a.a2.e.i() == null) {
                 C("", -1, "request:swanApp is null");
@@ -299,7 +299,7 @@ public class c extends c.a.p0.h.y.a {
             }
             D(aVar);
         } catch (IOException | JSONException e2) {
-            if (c.a.p0.h.y.a.f11586i) {
+            if (c.a.p0.h.y.a.f11594i) {
                 Log.getStackTraceString(e2);
             }
             C(str, -1, e2.getMessage());
@@ -309,7 +309,7 @@ public class c extends c.a.p0.h.y.a {
     public final void W(String str, int i2, String str2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i2), str2, Long.valueOf(j2)}) == null) {
-            if (c.a.p0.h.y.a.f11586i) {
+            if (c.a.p0.h.y.a.f11594i) {
                 String str3 = "onFailure: " + str2;
             }
             if (ResponseException.CANCELED.equalsIgnoreCase(str2)) {
@@ -335,13 +335,13 @@ public class c extends c.a.p0.h.y.a {
             dVar.header = I(response.headers());
             if (body != null) {
                 dVar.data = body.string();
-                if (c.a.p0.h.y.a.f11586i) {
+                if (c.a.p0.h.y.a.f11594i) {
                     String str2 = "onStringResponse = " + dVar.data;
                 }
             }
             D(dVar);
         } catch (IOException | JSONException e2) {
-            if (c.a.p0.h.y.a.f11586i) {
+            if (c.a.p0.h.y.a.f11594i) {
                 Log.getStackTraceString(e2);
             }
             C(str, -1, e2.getMessage());
@@ -351,7 +351,7 @@ public class c extends c.a.p0.h.y.a {
     public void start() {
         Request R;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f11589f == null || (R = R()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f11597f == null || (R = R()) == null) {
             return;
         }
         T(R);

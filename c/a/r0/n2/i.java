@@ -18,13 +18,13 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f22989a;
+    public boolean f23005a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f22990b;
+    public b f23006b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.e.c.g.a f22991c;
+    public c.a.e.c.g.a f23007c;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.c.g.a {
@@ -32,7 +32,7 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f22992a;
+        public final /* synthetic */ i f23008a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(i iVar, int i2, int i3) {
@@ -53,20 +53,20 @@ public class i {
                     return;
                 }
             }
-            this.f22992a = iVar;
+            this.f23008a = iVar;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f22992a.f22989a = false;
+                this.f23008a.f23005a = false;
                 if (responsedMessage == null || responsedMessage.getError() != 0) {
-                    this.f22992a.c(false, null);
+                    this.f23008a.c(false, null);
                 } else if (responsedMessage instanceof SmartAppBrowseHistorySocketResponsedMessage) {
-                    this.f22992a.c(true, ((SmartAppBrowseHistorySocketResponsedMessage) responsedMessage).getData());
+                    this.f23008a.c(true, ((SmartAppBrowseHistorySocketResponsedMessage) responsedMessage).getData());
                 } else if (responsedMessage instanceof SmartAppBrowseHistoryHttpResponsedMessage) {
-                    this.f22992a.c(true, ((SmartAppBrowseHistoryHttpResponsedMessage) responsedMessage).getData());
+                    this.f23008a.c(true, ((SmartAppBrowseHistoryHttpResponsedMessage) responsedMessage).getData());
                 }
             }
         }
@@ -90,8 +90,8 @@ public class i {
                 return;
             }
         }
-        this.f22989a = false;
-        this.f22991c = new a(this, CmdConfigHttp.CMD_HISTORY_SWAN, 309638);
+        this.f23005a = false;
+        this.f23007c = new a(this, CmdConfigHttp.CMD_HISTORY_SWAN, 309638);
         e();
         d();
     }
@@ -99,7 +99,7 @@ public class i {
     public final void c(boolean z, c.a.r0.n2.a aVar) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, aVar) == null) || (bVar = this.f22990b) == null) {
+        if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, aVar) == null) || (bVar = this.f23006b) == null) {
             return;
         }
         bVar.a(z, aVar);
@@ -108,31 +108,31 @@ public class i {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().registerListener(this.f22991c);
+            MessageManager.getInstance().registerListener(this.f23007c);
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.r0.j3.d0.a.f(309638, SmartAppBrowseHistorySocketResponsedMessage.class, false);
-            c.a.r0.j3.d0.a.c(309638, CmdConfigHttp.CMD_HISTORY_SWAN, TbConfig.URL_HISTORY_SWAN, SmartAppBrowseHistoryHttpResponsedMessage.class, false, false, true, false);
+            c.a.r0.j3.e0.a.f(309638, SmartAppBrowseHistorySocketResponsedMessage.class, false);
+            c.a.r0.j3.e0.a.c(309638, CmdConfigHttp.CMD_HISTORY_SWAN, TbConfig.URL_HISTORY_SWAN, SmartAppBrowseHistoryHttpResponsedMessage.class, false, false, true, false);
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f22989a) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f23005a) {
             return;
         }
-        this.f22989a = true;
+        this.f23005a = true;
         MessageManager.getInstance().sendMessage(new SmartAppBrowseHistoryRequestMessage());
     }
 
     public void g(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f22990b = bVar;
+            this.f23006b = bVar;
         }
     }
 }

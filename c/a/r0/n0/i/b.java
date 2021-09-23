@@ -25,28 +25,28 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f22605a;
+    public TbPageContext f22621a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f22606b;
+    public View f22622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RankListViewController.RankListViewHolder f22607c;
+    public RankListViewController.RankListViewHolder f22623c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f22608d;
+    public TextView f22624d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f22609e;
+    public TextView f22625e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22610f;
+    public String f22626f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22611g;
+    public int f22627g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f22612h;
+    public View.OnClickListener f22628h;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -54,7 +54,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f22613e;
+        public final /* synthetic */ b f22629e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -71,23 +71,23 @@ public class b {
                     return;
                 }
             }
-            this.f22613e = bVar;
+            this.f22629e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (TextUtils.isEmpty(this.f22613e.f22610f)) {
-                    this.f22613e.f22605a.showToast(R.string.load_error_retry);
+                if (TextUtils.isEmpty(this.f22629e.f22626f)) {
+                    this.f22629e.f22621a.showToast(R.string.load_error_retry);
                     return;
                 }
-                UrlManager.getInstance().dealOneLink(this.f22613e.f22605a, new String[]{this.f22613e.f22610f});
-                if (this.f22613e.f22611g == 0) {
+                UrlManager.getInstance().dealOneLink(this.f22629e.f22621a, new String[]{this.f22629e.f22626f});
+                if (this.f22629e.f22627g == 0) {
                     return;
                 }
-                if (this.f22613e.f22611g != 2) {
-                    if (this.f22613e.f22611g == 1) {
+                if (this.f22629e.f22627g != 2) {
+                    if (this.f22629e.f22627g == 1) {
                         StatisticItem statisticItem = new StatisticItem("c13669");
                         statisticItem.param("obj_locate", 2);
                         TiebaStatic.log(statisticItem);
@@ -118,25 +118,25 @@ public class b {
                 return;
             }
         }
-        this.f22612h = new a(this);
-        this.f22605a = tbPageContext;
-        this.f22606b = view;
+        this.f22628h = new a(this);
+        this.f22621a = tbPageContext;
+        this.f22622b = view;
         RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view.findViewById(R.id.user_view));
-        this.f22607c = rankListViewHolder;
+        this.f22623c = rankListViewHolder;
         rankListViewHolder.setViewHolderType(1);
-        this.f22608d = (TextView) view.findViewById(R.id.get_influence);
+        this.f22624d = (TextView) view.findViewById(R.id.get_influence);
         TextView textView = (TextView) view.findViewById(R.id.rank_num);
-        this.f22609e = textView;
-        textView.setTextSize(0, l.g(this.f22605a.getPageActivity(), R.dimen.tbfontsize46));
-        this.f22608d.setOnClickListener(this.f22612h);
+        this.f22625e = textView;
+        textView.setTextSize(0, l.g(this.f22621a.getPageActivity(), R.dimen.tbfontsize46));
+        this.f22624d.setOnClickListener(this.f22628h);
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f22607c.onChangeSkinType(i2);
-            SkinManager.setBackgroundColor(this.f22607c.itemView, R.color.CAM_X0207);
-            SkinManager.setViewTextColor(this.f22608d, R.color.CAM_X0302);
+            this.f22623c.onChangeSkinType(i2);
+            SkinManager.setBackgroundColor(this.f22623c.itemView, R.color.CAM_X0207);
+            SkinManager.setViewTextColor(this.f22624d, R.color.CAM_X0302);
         }
     }
 
@@ -145,21 +145,21 @@ public class b {
         MetaData metaData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            if (cVar != null && (bVar = cVar.f22630c) != null && (metaData = bVar.f22625f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
-                this.f22606b.setVisibility(0);
-                this.f22607c.bindData(cVar.f22630c);
-                this.f22607c.hideIntroAndLikeButton();
-                this.f22610f = cVar.f22632e;
+            if (cVar != null && (bVar = cVar.f22646c) != null && (metaData = bVar.f22641f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
+                this.f22622b.setVisibility(0);
+                this.f22623c.bindData(cVar.f22646c);
+                this.f22623c.hideIntroAndLikeButton();
+                this.f22626f = cVar.f22648e;
                 return;
             }
-            this.f22606b.setVisibility(8);
+            this.f22622b.setVisibility(8);
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f22611g = i2;
+            this.f22627g = i2;
         }
     }
 }

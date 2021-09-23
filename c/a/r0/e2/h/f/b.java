@@ -20,13 +20,13 @@ public class b extends c.a.r0.e2.h.f.g.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f17412a;
+    public View f17422a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f17413b;
+    public TextView f17423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f17414c;
+    public ImageView f17424c;
 
     public b(View view, String str) {
         Interceptable interceptable = $ic;
@@ -43,32 +43,32 @@ public class b extends c.a.r0.e2.h.f.g.a {
                 return;
             }
         }
-        this.f17412a = view;
+        this.f17422a = view;
         TextView textView = (TextView) view.findViewById(R.id.emotion_empty_content);
-        this.f17413b = textView;
+        this.f17423b = textView;
         textView.setText(str);
-        this.f17414c = (ImageView) view.findViewById(R.id.emotion_empty_icon);
+        this.f17424c = (ImageView) view.findViewById(R.id.emotion_empty_icon);
         c();
     }
 
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17412a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17422a : (View) invokeV.objValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            TextView textView = this.f17413b;
+            TextView textView = this.f17423b;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i2);
             }
-            ImageView imageView = this.f17414c;
+            ImageView imageView = this.f17424c;
             if (imageView != null) {
                 SkinManager.setImageResource(imageView, R.drawable.new_pic_emotion_02, i2);
             }
-            View view = this.f17412a;
+            View view = this.f17422a;
             if (view != null) {
                 SkinManager.setBackgroundColor(view, R.color.CAM_X0201, i2);
             }
@@ -80,11 +80,11 @@ public class b extends c.a.r0.e2.h.f.g.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int i2 = l.i(TbadkCoreApplication.getInst());
             int dimensionPixelSize = i2 <= 0 ? TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds200) : (int) (i2 * 0.11d);
-            ViewGroup.LayoutParams layoutParams = this.f17414c.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f17424c.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = dimensionPixelSize;
-                this.f17414c.setLayoutParams(marginLayoutParams);
+                this.f17424c.setLayoutParams(marginLayoutParams);
             }
         }
     }

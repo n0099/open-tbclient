@@ -19,22 +19,22 @@ public class c extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f18487e;
+    public long f18496e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d2 f18488f;
+    public d2 f18497f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f18489g;
+    public long f18498g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f18490h;
+    public int f18499h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f18491i;
+    public int f18500i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f18492j;
+    public boolean f18501j;
 
     static {
         InterceptResult invokeClinit;
@@ -71,15 +71,15 @@ public class c extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, topicThread) == null) || topicThread == null) {
             return;
         }
-        this.f18487e = topicThread.feed_id.longValue();
+        this.f18496e = topicThread.feed_id.longValue();
         if (topicThread.thread_info != null) {
             d2 d2Var = new d2();
-            this.f18488f = d2Var;
+            this.f18497f = d2Var;
             d2Var.Y2(topicThread.thread_info);
-            this.f18488f.c3();
+            this.f18497f.c3();
         }
-        this.f18490h = topicThread.user_agree.intValue();
-        this.f18491i = topicThread.source.intValue();
+        this.f18499h = topicThread.user_agree.intValue();
+        this.f18500i = topicThread.source.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
@@ -94,14 +94,14 @@ public class c extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, topicThread) == null) || topicThread == null) {
             return;
         }
-        this.f18487e = topicThread.feed_id.longValue();
+        this.f18496e = topicThread.feed_id.longValue();
         if (topicThread.thread_info != null) {
             d2 d2Var = new d2();
-            this.f18488f = d2Var;
+            this.f18497f = d2Var;
             d2Var.Y2(topicThread.thread_info);
-            this.f18488f.c3();
+            this.f18497f.c3();
         }
-        this.f18490h = Integer.parseInt(topicThread.user_agree);
-        this.f18491i = topicThread.source.intValue();
+        this.f18499h = Integer.parseInt(topicThread.user_agree);
+        this.f18500i = topicThread.source.intValue();
     }
 }

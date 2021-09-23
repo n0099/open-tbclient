@@ -26,34 +26,34 @@ public class e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f79272a;
+    public String f79591a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f79273b;
+    public String f79592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f79274c;
+    public String f79593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f79275d;
+    public String f79594d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f79276e;
+    public String f79595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f79277f;
+    public String f79596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f79278g;
+    public String f79597g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f79279h;
+    public String f79598h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f79280i;
+    public String f79599i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f79281j;
+    public int f79600j;
     public int k;
     public Map<String, String> l;
     public Map<String, String> m;
@@ -78,9 +78,9 @@ public class e0 {
                     return;
                 }
             }
-            this.f79278g = str;
-            this.f79279h = str2;
-            this.f79280i = str3;
+            this.f79597g = str;
+            this.f79598h = str2;
+            this.f79599i = str3;
             if (TextUtils.isEmpty(str) || "0".equals(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                 throw new IllegalArgumentException("sdkID or license must be set.");
             }
@@ -90,7 +90,7 @@ public class e0 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f79281j != -1) {
+                if (this.f79600j != -1) {
                     return this;
                 }
                 throw new IllegalArgumentException("MSConfig init error");
@@ -102,7 +102,7 @@ public class e0 {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.f79281j = i2;
+                this.f79600j = i2;
                 return this;
             }
             return (T) invokeI.objValue;
@@ -112,7 +112,7 @@ public class e0 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f79274c = str;
+                this.f79593c = str;
                 return this;
             }
             return (T) invokeL.objValue;
@@ -136,16 +136,16 @@ public class e0 {
                 return;
             }
         }
-        this.f79272a = "";
-        this.f79273b = "";
-        this.f79274c = "";
-        this.f79275d = "";
-        this.f79276e = "";
-        this.f79277f = "";
-        this.f79278g = "";
-        this.f79279h = "";
-        this.f79280i = "";
-        this.f79281j = -1;
+        this.f79591a = "";
+        this.f79592b = "";
+        this.f79593c = "";
+        this.f79594d = "";
+        this.f79595e = "";
+        this.f79596f = "";
+        this.f79597g = "";
+        this.f79598h = "";
+        this.f79599i = "";
+        this.f79600j = -1;
         this.k = -1;
         this.l = new HashMap();
         this.m = new HashMap();
@@ -156,16 +156,16 @@ public class e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(a(this.f79272a));
-            jSONArray.put(a(this.f79279h));
-            jSONArray.put(a(this.f79278g));
-            jSONArray.put(a(this.f79280i));
-            jSONArray.put(a(this.f79273b));
-            jSONArray.put(a(this.f79274c));
-            jSONArray.put(a(this.f79275d));
-            jSONArray.put(a(this.f79276e));
-            jSONArray.put(a(this.f79277f));
-            jSONArray.put(String.valueOf(this.f79281j));
+            jSONArray.put(a(this.f79591a));
+            jSONArray.put(a(this.f79598h));
+            jSONArray.put(a(this.f79597g));
+            jSONArray.put(a(this.f79599i));
+            jSONArray.put(a(this.f79592b));
+            jSONArray.put(a(this.f79593c));
+            jSONArray.put(a(this.f79594d));
+            jSONArray.put(a(this.f79595e));
+            jSONArray.put(a(this.f79596f));
+            jSONArray.put(String.valueOf(this.f79600j));
             jSONArray.put(String.valueOf(this.k));
             JSONArray jSONArray2 = new JSONArray();
             for (Map.Entry<String, String> entry : this.l.entrySet()) {

@@ -13,7 +13,7 @@ import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.base.datamodel.PayData;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
-import com.baidu.wallet.paysdk.beans.c;
+import com.baidu.wallet.paysdk.beans.d;
 import com.baidu.wallet.paysdk.datamodel.CalcPaymentResponse;
 import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
@@ -88,10 +88,10 @@ public interface PayTypeContract {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payTypeItemViewData) == null) {
                 this.mActivity.showLoading(0);
                 this.mActivity.setPageClickable(false);
-                c cVar = (c) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 16, this.TAG);
-                cVar.a(payTypeItemViewData);
-                cVar.setResponseCallback(this);
-                cVar.execBean();
+                d dVar = (d) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 16, this.TAG);
+                dVar.a(payTypeItemViewData);
+                dVar.setResponseCallback(this);
+                dVar.execBean();
             }
         }
 
@@ -275,7 +275,7 @@ public interface PayTypeContract {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Presenter f62447a;
+                    public final /* synthetic */ Presenter f62725a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -292,7 +292,7 @@ public interface PayTypeContract {
                                 return;
                             }
                         }
-                        this.f62447a = this;
+                        this.f62725a = this;
                     }
 
                     @Override // java.util.Comparator

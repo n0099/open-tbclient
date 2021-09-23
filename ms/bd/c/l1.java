@@ -18,13 +18,13 @@ public final class l1 implements m1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f79290a;
+    public long f79609a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f79291b;
+    public Context f79610b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e0 f79292c;
+    public e0 f79611c;
 
     public l1(e0 e0Var, Context context, long j2) {
         Interceptable interceptable = $ic;
@@ -47,18 +47,18 @@ public final class l1 implements m1.a {
         if (context == null) {
             throw new NullPointerException("context could not be null");
         }
-        this.f79292c = e0Var;
-        this.f79291b = context.getApplicationContext();
-        this.f79290a = j2;
+        this.f79611c = e0Var;
+        this.f79610b = context.getApplicationContext();
+        this.f79609a = j2;
     }
 
     @Override // ms.bd.c.m1.a
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f79290a == -1 || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f79609a == -1 || TextUtils.isEmpty(str)) {
             return;
         }
-        b.a(InputDeviceCompat.SOURCE_HDMI, 0, this.f79290a, str, this.f79291b);
+        b.a(InputDeviceCompat.SOURCE_HDMI, 0, this.f79609a, str, this.f79610b);
     }
 
     @Override // ms.bd.c.m1.a
@@ -66,7 +66,7 @@ public final class l1 implements m1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.f79290a;
+            long j2 = this.f79609a;
             return j2 != -1 ? (String) b.a(33554439, 0, j2, null, null) : "";
         }
         return (String) invokeV.objValue;
@@ -79,7 +79,7 @@ public final class l1 implements m1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr)) == null) {
             HashMap hashMap = new HashMap();
-            if (str != null && str.length() != 0 && (strArr = (String[]) b.a(33554438, 0, this.f79290a, str, bArr)) != null && strArr.length % 2 == 0) {
+            if (str != null && str.length() != 0 && (strArr = (String[]) b.a(33554438, 0, this.f79609a, str, bArr)) != null && strArr.length % 2 == 0) {
                 for (int i2 = 0; i2 < strArr.length; i2 += 2) {
                     String str2 = strArr[i2];
                     String str3 = strArr[i2 + 1];
@@ -97,10 +97,10 @@ public final class l1 implements m1.a {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f79292c.f79274c = str;
-            long j2 = this.f79290a;
+            this.f79611c.f79593c = str;
+            long j2 = this.f79609a;
             if (j2 != -1) {
-                b.a(33554434, 0, j2, str, this.f79291b);
+                b.a(33554434, 0, j2, str, this.f79610b);
             }
         }
     }

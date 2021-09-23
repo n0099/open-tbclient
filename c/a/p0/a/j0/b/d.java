@@ -11,7 +11,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Uri f6924a;
+    public static Uri f6932a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
@@ -32,10 +32,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (d.class) {
-                if (f6924a == null) {
-                    f6924a = b.f6922c.buildUpon().appendPath("user_behavior").build();
+                if (f6932a == null) {
+                    f6932a = b.f6930c.buildUpon().appendPath("user_behavior").build();
                 }
-                uri = f6924a;
+                uri = f6932a;
             }
             return uri;
         }

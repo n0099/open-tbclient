@@ -14,25 +14,25 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f30416a;
+    public boolean f30437a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30417b;
+    public String f30438b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30418c;
+    public String f30439c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30419d;
+    public String f30440d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LiveHostInfo f30420e;
+    public LiveHostInfo f30441e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LiveStatInfo f30421f;
+    public LiveStatInfo f30442f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30422g;
+    public boolean f30443g;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -47,8 +47,8 @@ public class d {
                 return;
             }
         }
-        this.f30416a = false;
-        this.f30422g = true;
+        this.f30437a = false;
+        this.f30443g = true;
     }
 
     public void a(JSONObject jSONObject) {
@@ -56,23 +56,23 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f30416a = false;
+        this.f30437a = false;
         jSONObject.optString("feed_id");
-        this.f30417b = jSONObject.optString("nid");
-        this.f30418c = jSONObject.optString("room_id");
+        this.f30438b = jSONObject.optString("nid");
+        this.f30439c = jSONObject.optString("room_id");
         jSONObject.optString("title");
         jSONObject.optInt(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS);
-        this.f30419d = jSONObject.optString("cmd");
+        this.f30440d = jSONObject.optString("cmd");
         JSONObject optJSONObject = jSONObject.optJSONObject("host");
         if (optJSONObject != null) {
             LiveHostInfo liveHostInfo = new LiveHostInfo();
-            this.f30420e = liveHostInfo;
+            this.f30441e = liveHostInfo;
             liveHostInfo.parserJson(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("stat");
         if (optJSONObject2 != null) {
             LiveStatInfo liveStatInfo = new LiveStatInfo();
-            this.f30421f = liveStatInfo;
+            this.f30442f = liveStatInfo;
             liveStatInfo.parserJson(optJSONObject2);
         }
     }

@@ -26,31 +26,31 @@ public class d implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f21015a;
+    public long f21028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21016b;
+    public String f21029b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21017c;
+    public String f21030c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f21018d;
+    public final int f21031d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21019e;
+    public int f21032e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f21020f;
+    public e f21033f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21021g;
+    public boolean f21034g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.j3.p0.d.f.a f21022h;
+    public c.a.r0.j3.p0.d.f.a f21035h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f21023i;
+    public g f21036i;
 
     public d(String str, int i2, g gVar) {
         Interceptable interceptable = $ic;
@@ -67,19 +67,19 @@ public class d implements b {
                 return;
             }
         }
-        this.f21017c = str;
-        this.f21018d = i2;
-        this.f21023i = gVar;
+        this.f21030c = str;
+        this.f21031d = i2;
+        this.f21036i = gVar;
         File file = new File(str);
         if (file.exists()) {
-            this.f21015a = file.length();
-            this.f21016b = q.b(FileHelper.GetStreamFromFile(file));
-            long j2 = this.f21015a;
-            int i5 = this.f21018d;
+            this.f21028a = file.length();
+            this.f21029b = q.b(FileHelper.GetStreamFromFile(file));
+            long j2 = this.f21028a;
+            int i5 = this.f21031d;
             if (j2 % i5 == 0) {
-                this.f21019e = (int) (j2 / i5);
+                this.f21032e = (int) (j2 / i5);
             } else {
-                this.f21019e = ((int) (j2 / i5)) + 1;
+                this.f21032e = ((int) (j2 / i5)) + 1;
             }
         }
     }
@@ -88,7 +88,7 @@ public class d implements b {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f21020f = eVar;
+            this.f21033f = eVar;
         }
     }
 
@@ -98,70 +98,70 @@ public class d implements b {
         a c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
-            if (StringUtils.isNull(str) || this.f21015a <= 0 || StringUtils.isNull(this.f21016b) || i2 <= 0 || this.f21021g) {
+            if (StringUtils.isNull(str) || this.f21028a <= 0 || StringUtils.isNull(this.f21029b) || i2 <= 0 || this.f21034g) {
                 return null;
             }
             d(10);
             long j2 = i2;
-            a c3 = c(this.f21019e, j2, false, null);
-            if (c3 != null && !this.f21021g) {
-                if (c3.f21007e != 0) {
+            a c3 = c(this.f21032e, j2, false, null);
+            if (c3 != null && !this.f21034g) {
+                if (c3.f21020e != 0) {
                     VideoFinishResult videoFinishResult = new VideoFinishResult();
-                    videoFinishResult.setErrorNo(c3.f21007e);
-                    videoFinishResult.setUserMessage(c3.f21006d);
-                    e(302, c3.f21007e, c3.f21006d);
+                    videoFinishResult.setErrorNo(c3.f21020e);
+                    videoFinishResult.setUserMessage(c3.f21019d);
+                    e(302, c3.f21020e, c3.f21019d);
                     return videoFinishResult;
                 }
                 d(30);
-                if (!StringUtils.isNull(c3.f21005c)) {
+                if (!StringUtils.isNull(c3.f21018c)) {
                     VideoFinishResult videoFinishResult2 = new VideoFinishResult();
-                    videoFinishResult2.setVideoMd5(this.f21016b);
-                    videoFinishResult2.setVideoUrl(c3.f21005c);
+                    videoFinishResult2.setVideoMd5(this.f21029b);
+                    videoFinishResult2.setVideoUrl(c3.f21018c);
                     f();
                     return videoFinishResult2;
-                } else if (this.f21021g) {
+                } else if (this.f21034g) {
                     return null;
                 } else {
-                    ArrayList<Integer> arrayList = c3.f21003a;
+                    ArrayList<Integer> arrayList = c3.f21016a;
                     if (ListUtils.isEmpty(arrayList)) {
                         arrayList = new ArrayList<>();
                         int i3 = 0;
-                        while (i3 < this.f21019e) {
+                        while (i3 < this.f21032e) {
                             i3++;
                             arrayList.add(Integer.valueOf(i3));
                         }
                     }
-                    String str2 = c3.f21004b;
+                    String str2 = c3.f21017b;
                     c.a.r0.j3.p0.d.f.d g2 = g(arrayList, str2, i2);
-                    if (g2 != null && !this.f21021g) {
-                        if (g2.f21042b != 0) {
+                    if (g2 != null && !this.f21034g) {
+                        if (g2.f21055b != 0) {
                             VideoFinishResult videoFinishResult3 = new VideoFinishResult();
-                            videoFinishResult3.setErrorNo(g2.f21042b);
-                            videoFinishResult3.setUserMessage(g2.f21043c);
-                            e(303, g2.f21042b, g2.f21043c);
+                            videoFinishResult3.setErrorNo(g2.f21055b);
+                            videoFinishResult3.setUserMessage(g2.f21056c);
+                            e(303, g2.f21055b, g2.f21056c);
                             return videoFinishResult3;
                         }
                         d(85);
-                        if (!StringUtils.isNull(g2.f21041a)) {
+                        if (!StringUtils.isNull(g2.f21054a)) {
                             VideoFinishResult videoFinishResult4 = new VideoFinishResult();
-                            videoFinishResult4.setVideoUrl(g2.f21041a);
-                            videoFinishResult4.setVideoMd5(this.f21016b);
+                            videoFinishResult4.setVideoUrl(g2.f21054a);
+                            videoFinishResult4.setVideoMd5(this.f21029b);
                             f();
                             return videoFinishResult4;
-                        } else if (this.f21021g || (c2 = c(this.f21019e, j2, true, str2)) == null) {
+                        } else if (this.f21034g || (c2 = c(this.f21032e, j2, true, str2)) == null) {
                             return null;
                         } else {
                             VideoFinishResult videoFinishResult5 = new VideoFinishResult();
-                            int i4 = c2.f21007e;
+                            int i4 = c2.f21020e;
                             if (i4 == 0) {
-                                videoFinishResult5.setVideoUrl(c2.f21005c);
-                                videoFinishResult5.setVideoMd5(this.f21016b);
+                                videoFinishResult5.setVideoUrl(c2.f21018c);
+                                videoFinishResult5.setVideoMd5(this.f21029b);
                                 f();
                             } else {
                                 videoFinishResult5.setErrorNo(i4);
-                                videoFinishResult5.setUserMessage(c2.f21006d);
-                                e(304, c2.f21007e, c2.f21006d);
-                                TiebaStatic.log(new StatisticItem("c12024").param("params", c2.f21006d));
+                                videoFinishResult5.setUserMessage(c2.f21019d);
+                                e(304, c2.f21020e, c2.f21019d);
+                                TiebaStatic.log(new StatisticItem("c12024").param("params", c2.f21019d));
                             }
                             d(100);
                             return videoFinishResult5;
@@ -180,10 +180,10 @@ public class d implements b {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z), str})) == null) {
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_VIDEO_STATUS);
             netWork.addPostData("chunk_sum", String.valueOf(i2));
-            netWork.addPostData("video_size", String.valueOf(this.f21015a));
-            netWork.addPostData("chunk_size", String.valueOf(this.f21018d));
+            netWork.addPostData("video_size", String.valueOf(this.f21028a));
+            netWork.addPostData("chunk_size", String.valueOf(this.f21031d));
             netWork.addPostData("is_merge", String.valueOf(z ? 1 : 0));
-            netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.f21016b);
+            netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.f21029b);
             netWork.addPostData("video_len", String.valueOf(j2));
             netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
             if (!StringUtils.isNull(str)) {
@@ -200,11 +200,11 @@ public class d implements b {
             }
             a aVar2 = new a();
             if (netWork.getNetContext().getResponse().isNetSuccess()) {
-                aVar2.f21007e = netWork.getNetContext().getResponse().mServerErrorCode;
+                aVar2.f21020e = netWork.getNetContext().getResponse().mServerErrorCode;
             } else {
-                aVar2.f21007e = netWork.getNetContext().getResponse().mNetErrorCode;
+                aVar2.f21020e = netWork.getNetContext().getResponse().mNetErrorCode;
             }
-            aVar2.f21006d = netWork.getNetContext().getResponse().mErrorString;
+            aVar2.f21019d = netWork.getNetContext().getResponse().mErrorString;
             return aVar2;
         }
         return (a) invokeCommon.objValue;
@@ -214,8 +214,8 @@ public class d implements b {
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f21021g = true;
-            c.a.r0.j3.p0.d.f.a aVar = this.f21022h;
+            this.f21034g = true;
+            c.a.r0.j3.p0.d.f.a aVar = this.f21035h;
             if (aVar != null) {
                 aVar.a();
             }
@@ -225,7 +225,7 @@ public class d implements b {
     public final void d(int i2) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (eVar = this.f21020f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (eVar = this.f21033f) == null) {
             return;
         }
         eVar.onProgressUpdate(i2 / 100.0f);
@@ -234,7 +234,7 @@ public class d implements b {
     public final void e(int i2, int i3, String str) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, str) == null) || (gVar = this.f21023i) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, str) == null) || (gVar = this.f21036i) == null) {
             return;
         }
         gVar.f(i2, i3, str);
@@ -243,7 +243,7 @@ public class d implements b {
     public final void f() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (gVar = this.f21023i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (gVar = this.f21036i) == null) {
             return;
         }
         gVar.j();
@@ -257,13 +257,13 @@ public class d implements b {
                 return null;
             }
             if (arrayList.size() > 3) {
-                this.f21022h = new c.a.r0.j3.p0.d.f.b(this.f21017c, this.f21018d, this.f21019e, this.f21015a, this.f21016b);
+                this.f21035h = new c.a.r0.j3.p0.d.f.b(this.f21030c, this.f21031d, this.f21032e, this.f21028a, this.f21029b);
             } else {
-                this.f21022h = new c.a.r0.j3.p0.d.f.c(this.f21017c, this.f21018d, this.f21019e, this.f21015a, this.f21016b);
+                this.f21035h = new c.a.r0.j3.p0.d.f.c(this.f21030c, this.f21031d, this.f21032e, this.f21028a, this.f21029b);
             }
-            this.f21022h.f(this.f21020f);
-            c.a.r0.j3.p0.d.f.d g2 = this.f21022h.g(arrayList, str, i2);
-            this.f21022h = null;
+            this.f21035h.f(this.f21033f);
+            c.a.r0.j3.p0.d.f.d g2 = this.f21035h.g(arrayList, str, i2);
+            this.f21035h = null;
             return g2;
         }
         return (c.a.r0.j3.p0.d.f.d) invokeLLI.objValue;

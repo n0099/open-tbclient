@@ -16,7 +16,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<List<b>> f3879a;
+    public SparseArray<List<b>> f3880a;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -36,19 +36,19 @@ public class a {
                 return;
             }
         }
-        this.f3879a = new SparseArray<>();
+        this.f3880a = new SparseArray<>();
     }
 
     public void a(int i2, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bVar) == null) {
-            if (this.f3879a == null) {
-                this.f3879a = new SparseArray<>();
+            if (this.f3880a == null) {
+                this.f3880a = new SparseArray<>();
             }
-            List<b> list = this.f3879a.get(i2);
+            List<b> list = this.f3880a.get(i2);
             if (list == null) {
                 list = new ArrayList<>();
-                this.f3879a.put(i2, list);
+                this.f3880a.put(i2, list);
             }
             list.add(bVar);
         }
@@ -58,7 +58,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0095a)) == null) {
-            List<b> list = this.f3879a.get(c0095a.f3880a);
+            List<b> list = this.f3880a.get(c0095a.f3881a);
             if (ListUtils.isEmpty(list)) {
                 return false;
             }
@@ -79,10 +79,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3880a;
+        public int f3881a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f3881b;
+        public Object f3882b;
 
         public C0095a(int i2, Object obj) {
             Interceptable interceptable = $ic;
@@ -99,26 +99,26 @@ public class a {
                     return;
                 }
             }
-            this.f3880a = i2;
-            this.f3881b = obj;
+            this.f3881a = i2;
+            this.f3882b = obj;
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3880a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3881a : invokeV.intValue;
         }
 
         public Object c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3881b : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3882b : invokeV.objValue;
         }
 
         public void d(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.f3881b = obj;
+                this.f3882b = obj;
             }
         }
 
@@ -137,7 +137,7 @@ public class a {
                     return;
                 }
             }
-            this.f3880a = i2;
+            this.f3881a = i2;
         }
     }
 }

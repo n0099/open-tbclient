@@ -18,13 +18,13 @@ public class q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f20878a;
+    public String f20890a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MetaData f20879b;
+    public MetaData f20891b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<AbstractData> f20880c;
+    public List<AbstractData> f20892c;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -39,25 +39,25 @@ public class q {
                 return;
             }
         }
-        this.f20880c = new ArrayList();
+        this.f20892c = new ArrayList();
     }
 
     public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             try {
-                this.f20878a = jSONObject.optString("id");
+                this.f20890a = jSONObject.optString("id");
                 MetaData metaData = new MetaData();
-                this.f20879b = metaData;
+                this.f20891b = metaData;
                 metaData.parserJson(jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR));
                 JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
-                this.f20880c = new ArrayList();
+                this.f20892c = new ArrayList();
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i2 = 0; i2 < length; i2++) {
                         AbstractData abstractData = new AbstractData();
                         abstractData.parserJson(optJSONArray.getJSONObject(i2));
-                        this.f20880c.add(abstractData);
+                        this.f20892c.add(abstractData);
                     }
                 }
             } catch (JSONException e2) {

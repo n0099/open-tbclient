@@ -27,7 +27,7 @@ public final class Md5Utils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f39583a;
+    public static char[] f39640a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +43,7 @@ public final class Md5Utils {
                 return;
             }
         }
-        f39583a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f39640a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public Md5Utils() {
@@ -96,8 +96,8 @@ public final class Md5Utils {
                 if (i2 > 0 && ch != null) {
                     stringBuffer.append(ch.charValue());
                 }
-                stringBuffer.append(f39583a[i3]);
-                stringBuffer.append(f39583a[i4]);
+                stringBuffer.append(f39640a[i3]);
+                stringBuffer.append(f39640a[i4]);
             }
             return stringBuffer.toString();
         }
@@ -129,67 +129,58 @@ public final class Md5Utils {
         return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bArr)) == null) ? a().digest(bArr) : (byte[]) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x001d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x002b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x000b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x000b */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v10, types: [java.io.FileInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r1v11 */
-    /* JADX WARN: Type inference failed for: r1v12 */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    /* JADX WARN: Type inference failed for: r1v5 */
-    /* JADX WARN: Type inference failed for: r1v6 */
-    /* JADX WARN: Type inference failed for: r1v7, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r1v8 */
-    /* JADX WARN: Type inference failed for: r1v9 */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0031 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String getMd5FromFile(String str) {
-        Interceptable interceptable;
         InterceptResult invokeL;
-        Interceptable interceptable2 = $ic;
-        if (interceptable2 == null || (invokeL = (interceptable = interceptable2).invokeL(65543, null, str)) == null) {
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 throw new IllegalArgumentException("file path is empty");
             }
             String str2 = null;
             str2 = null;
             str2 = null;
-            FileInputStream fileInputStream = null;
-            try {
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = interceptable;
-            }
+            FileInputStream fileInputStream2 = null;
             try {
                 try {
-                    interceptable = new FileInputStream(str);
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-                try {
-                    str2 = getMd5FromInputStream(interceptable);
-                    interceptable.close();
-                    interceptable = interceptable;
-                } catch (FileNotFoundException e3) {
-                    e = e3;
-                    e.printStackTrace();
-                    if (interceptable != 0) {
-                        interceptable.close();
-                        interceptable = interceptable;
+                    fileInputStream = new FileInputStream(str);
+                    try {
+                        try {
+                            str2 = getMd5FromInputStream(fileInputStream);
+                            fileInputStream.close();
+                        } catch (FileNotFoundException e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            if (fileInputStream != null) {
+                                fileInputStream.close();
+                            }
+                            return str2;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        fileInputStream2 = fileInputStream;
+                        if (fileInputStream2 != null) {
+                            try {
+                                fileInputStream2.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        throw th;
                     }
-                    return str2;
+                } catch (IOException e4) {
+                    e4.printStackTrace();
                 }
-            } catch (FileNotFoundException e4) {
-                e = e4;
-                interceptable = 0;
+            } catch (FileNotFoundException e5) {
+                e = e5;
+                fileInputStream = null;
             } catch (Throwable th2) {
                 th = th2;
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
+                if (fileInputStream2 != null) {
                 }
                 throw th;
             }

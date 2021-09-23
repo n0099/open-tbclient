@@ -15,13 +15,13 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f29447a;
+    public h f29467a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f29448b;
+    public i f29468b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<e> f29449c;
+    public LinkedList<e> f29469c;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -36,27 +36,27 @@ public class g {
                 return;
             }
         }
-        this.f29447a = new h();
-        this.f29448b = new i();
-        this.f29449c = new LinkedList<>();
+        this.f29467a = new h();
+        this.f29468b = new i();
+        this.f29469c = new LinkedList<>();
     }
 
     public h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29447a : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29467a : (h) invokeV.objValue;
     }
 
     public i b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29448b : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29468b : (i) invokeV.objValue;
     }
 
     public List<e> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.f29449c) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.f29469c) : (List) invokeV.objValue;
     }
 
     public void d(e eVar) {
@@ -64,7 +64,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) || eVar == null) {
             return;
         }
-        this.f29449c.add(eVar);
+        this.f29469c.add(eVar);
     }
 
     public void e(e eVar) {

@@ -15,14 +15,14 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.n.a.b f8508a;
+    public c.a.p0.a.n.a.b f8516a;
 
     /* loaded from: classes.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f8509a;
+        public static final d f8517a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,7 +38,7 @@ public class d {
                     return;
                 }
             }
-            f8509a = new d();
+            f8517a = new d();
         }
     }
 
@@ -59,26 +59,26 @@ public class d {
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f8509a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f8517a : (d) invokeV.objValue;
     }
 
     public void b(int i2) {
         c.a.p0.a.n.a.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (bVar = this.f8508a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (bVar = this.f8516a) == null) {
             return;
         }
         bVar.a(i2);
-        this.f8508a = null;
+        this.f8516a = null;
     }
 
     public void c(JSONObject jSONObject) {
         c.a.p0.a.n.a.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || (bVar = this.f8508a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || (bVar = this.f8516a) == null) {
             return;
         }
         bVar.b(jSONObject);
-        this.f8508a = null;
+        this.f8516a = null;
     }
 }

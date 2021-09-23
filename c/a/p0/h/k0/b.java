@@ -13,10 +13,10 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DatagramPacket f11287a;
+    public DatagramPacket f11295a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f11288b;
+    public g f11296b;
 
     public b(DatagramPacket datagramPacket, g udpsocket) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class b {
             }
         }
         Intrinsics.checkNotNullParameter(udpsocket, "udpsocket");
-        this.f11287a = datagramPacket;
-        this.f11288b = udpsocket;
+        this.f11295a = datagramPacket;
+        this.f11296b = udpsocket;
     }
 
     public final void a() {
@@ -43,13 +43,13 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                g gVar = this.f11288b;
+                g gVar = this.f11296b;
                 if (gVar == null || (C = gVar.C()) == null) {
                     return;
                 }
-                C.send(this.f11287a);
+                C.send(this.f11295a);
             } catch (Throwable unused) {
-                g gVar2 = this.f11288b;
+                g gVar2 = this.f11296b;
                 if (gVar2 != null) {
                     gVar2.D("send", "send failed");
                 }

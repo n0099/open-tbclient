@@ -32,7 +32,7 @@ public class d extends k<c, CardViewHolder<c.a.r0.w0.g1.b>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f26733a;
+        public final /* synthetic */ d f26756a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class d extends k<c, CardViewHolder<c.a.r0.w0.g1.b>> {
                     return;
                 }
             }
-            this.f26733a = dVar;
+            this.f26756a = dVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -92,7 +92,7 @@ public class d extends k<c, CardViewHolder<c.a.r0.w0.g1.b>> {
         public ConstrainImageLayout d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f26733a.x.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f26756a.x.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
         }
 
         public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
@@ -108,7 +108,7 @@ public class d extends k<c, CardViewHolder<c.a.r0.w0.g1.b>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f26734a;
+        public final /* synthetic */ d f26757a;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class d extends k<c, CardViewHolder<c.a.r0.w0.g1.b>> {
                     return;
                 }
             }
-            this.f26734a = dVar;
+            this.f26757a = dVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -170,7 +170,7 @@ public class d extends k<c, CardViewHolder<c.a.r0.w0.g1.b>> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.f26734a.x.getPageActivity());
+                TbImageView tbImageView = new TbImageView(this.f26757a.x.getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(SkinManager.getColor(R.color.common_color_10264));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));

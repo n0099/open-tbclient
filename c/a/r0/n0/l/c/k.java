@@ -50,7 +50,7 @@ public class k extends c.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ k f22717b;
+        public final /* synthetic */ k f22733b;
 
         public a(k kVar) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class k extends c.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
                     return;
                 }
             }
-            this.f22717b = kVar;
+            this.f22733b = kVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,7 +77,7 @@ public class k extends c.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var) == null) {
                 t.b().d(true);
-                c.a.r0.n0.a.a(view, d2Var, this.f22717b.n);
+                c.a.r0.n0.a.a(view, d2Var, this.f22733b.n);
             }
         }
     }
@@ -125,7 +125,7 @@ public class k extends c.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f22718e;
+        public final /* synthetic */ k f22734e;
 
         public c(k kVar) {
             Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public class k extends c.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
                     return;
                 }
             }
-            this.f22718e = kVar;
+            this.f22734e = kVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -152,8 +152,8 @@ public class k extends c.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 d2 d2Var = ((c2) nVar).w;
                 d2Var.objType = 1;
-                if (this.f22718e.q != null) {
-                    this.f22718e.q.a(threadCardViewHolder.getView(), d2Var);
+                if (this.f22734e.q != null) {
+                    this.f22734e.q.a(threadCardViewHolder.getView(), d2Var);
                 }
                 ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) d2Var, view.getContext(), 2, false, c.a.l.e.a((s) viewGroup, view, i2));
                 threadCardViewHolder.getCardView().o(new a.C0095a(1));
@@ -167,7 +167,7 @@ public class k extends c.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f22719a;
+        public final /* synthetic */ k f22735a;
 
         public d(k kVar) {
             Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public class k extends c.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
                     return;
                 }
             }
-            this.f22719a = kVar;
+            this.f22735a = kVar;
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
@@ -205,7 +205,7 @@ public class k extends c.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
         public void onNEGFeedbackWindowShow(x0 x0Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x0Var) == null) {
-                TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadNEGFeedbackStatisticLog(x0Var, this.f22719a.n));
+                TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadNEGFeedbackStatisticLog(x0Var, this.f22735a.n));
             }
         }
     }
@@ -271,7 +271,7 @@ public class k extends c.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
             if (c2Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || (d2Var = c2Var.w) == null) {
                 return null;
             }
-            d2Var.S1 = D(i2) + 1;
+            d2Var.T1 = D(i2) + 1;
             threadCardViewHolder.getCardView().q(i2);
             threadCardViewHolder.showNEGFeedBackViewIfNeed(true, Align.ALIGN_RIGHT_TOP, this.r);
             threadCardViewHolder.onBindDataToView(c2Var.w);

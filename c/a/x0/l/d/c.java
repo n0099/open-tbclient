@@ -10,10 +10,10 @@ public abstract class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30934a;
+    public String f30955a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f30935b;
+    public a f30956b;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -26,7 +26,7 @@ public abstract class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f30936a;
+        public String f30957a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -58,6 +58,6 @@ public abstract class c {
                 return;
             }
         }
-        this.f30934a = str;
+        this.f30955a = str;
     }
 }

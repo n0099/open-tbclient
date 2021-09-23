@@ -35,9 +35,9 @@ public class InitArTask extends LaunchTask {
     public static void initAR(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            b.t(BdUploadHandler.MEDIA_SOURCE_KEY);
+            b.s(BdUploadHandler.MEDIA_SOURCE_KEY);
             b.k(context);
-            b.w(false);
+            b.v(false);
             d.a();
         }
     }

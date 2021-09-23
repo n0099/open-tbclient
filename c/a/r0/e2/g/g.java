@@ -30,22 +30,22 @@ public class g extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<ImageFileInfo> f17348e;
+    public List<ImageFileInfo> f17358e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedHashMap<String, ImageFileInfo> f17349f;
+    public LinkedHashMap<String, ImageFileInfo> f17359f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.q0.d0.b f17350g;
+    public c.a.q0.d0.b f17360g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BaseFragmentActivity f17351h;
+    public BaseFragmentActivity f17361h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f f17352i;
+    public f f17362i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f17353j;
+    public int f17363j;
     public int k;
     public int l;
     public int m;
@@ -59,7 +59,7 @@ public class g extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f17354e;
+        public final /* synthetic */ ViewGroup f17364e;
 
         public a(g gVar, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -76,14 +76,14 @@ public class g extends BaseAdapter {
                     return;
                 }
             }
-            this.f17354e = viewGroup;
+            this.f17364e = viewGroup;
         }
 
         @Override // c.a.q0.c0.b
         public void imageLoaded(c.a.e.l.d.a aVar, String str, boolean z) {
             HeadImageView headImageView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (headImageView = (HeadImageView) this.f17354e.findViewWithTag(str)) == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (headImageView = (HeadImageView) this.f17364e.findViewWithTag(str)) == null || aVar == null) {
                 return;
             }
             headImageView.invalidate();
@@ -96,16 +96,16 @@ public class g extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f17355a;
+        public View f17365a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f17356b;
+        public HeadImageView f17366b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f17357c;
+        public ImageView f17367c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ g f17358d;
+        public final /* synthetic */ g f17368d;
 
         /* loaded from: classes3.dex */
         public class a implements View.OnClickListener {
@@ -113,7 +113,7 @@ public class g extends BaseAdapter {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f17359e;
+            public final /* synthetic */ b f17369e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class g extends BaseAdapter {
                         return;
                     }
                 }
-                this.f17359e = bVar;
+                this.f17369e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
@@ -138,22 +138,22 @@ public class g extends BaseAdapter {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getTag(view.getId()) != null && (view.getTag(view.getId()) instanceof ImageFileInfo)) {
                     ImageFileInfo imageFileInfo = (ImageFileInfo) view.getTag(view.getId());
-                    if (this.f17359e.f17358d.f17349f.containsKey(imageFileInfo.getFilePath())) {
-                        this.f17359e.f17358d.f17349f.remove(imageFileInfo.getFilePath());
-                        SkinManager.setBackgroundResource(this.f17359e.f17357c, R.drawable.ic_post_image_selected_n);
-                        if (this.f17359e.f17358d.f17352i != null) {
-                            this.f17359e.f17358d.f17352i.onUnChoose();
+                    if (this.f17369e.f17368d.f17359f.containsKey(imageFileInfo.getFilePath())) {
+                        this.f17369e.f17368d.f17359f.remove(imageFileInfo.getFilePath());
+                        SkinManager.setBackgroundResource(this.f17369e.f17367c, R.drawable.ic_post_image_selected_n);
+                        if (this.f17369e.f17368d.f17362i != null) {
+                            this.f17369e.f17368d.f17362i.onUnChoose();
                         }
-                    } else if (this.f17359e.f17358d.f17352i != null) {
-                        if (this.f17359e.f17358d.f17352i.canChooseMore()) {
-                            this.f17359e.f17358d.f17349f.put(imageFileInfo.getFilePath(), imageFileInfo);
-                            SkinManager.setBackgroundResource(this.f17359e.f17357c, R.drawable.ic_post_image_selected_s);
-                            this.f17359e.f17358d.f17352i.onChoose();
+                    } else if (this.f17369e.f17368d.f17362i != null) {
+                        if (this.f17369e.f17368d.f17362i.canChooseMore()) {
+                            this.f17369e.f17368d.f17359f.put(imageFileInfo.getFilePath(), imageFileInfo);
+                            SkinManager.setBackgroundResource(this.f17369e.f17367c, R.drawable.ic_post_image_selected_s);
+                            this.f17369e.f17368d.f17362i.onChoose();
                             return;
                         }
-                        Activity pageActivity = this.f17359e.f17358d.f17351h.getPageContext().getPageActivity();
-                        if (!TextUtils.isEmpty(this.f17359e.f17358d.p)) {
-                            BdToast.c(pageActivity, this.f17359e.f17358d.p).q();
+                        Activity pageActivity = this.f17369e.f17368d.f17361h.getPageContext().getPageActivity();
+                        if (!TextUtils.isEmpty(this.f17369e.f17368d.p)) {
+                            BdToast.c(pageActivity, this.f17369e.f17368d.p).q();
                         } else {
                             BdToast.c(pageActivity, pageActivity.getText(R.string.face_group_add_pic_max)).q();
                         }
@@ -177,14 +177,14 @@ public class g extends BaseAdapter {
                     return;
                 }
             }
-            this.f17358d = gVar;
+            this.f17368d = gVar;
         }
 
         public final void b(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f17356b = (HeadImageView) view.findViewById(R.id.image);
-                this.f17357c = (ImageView) view.findViewById(R.id.select_icon);
+                this.f17366b = (HeadImageView) view.findViewById(R.id.image);
+                this.f17367c = (ImageView) view.findViewById(R.id.select_icon);
                 view.setOnClickListener(new a(this));
             }
         }
@@ -205,36 +205,36 @@ public class g extends BaseAdapter {
                 return;
             }
         }
-        this.f17351h = baseFragmentActivity;
-        this.f17348e = list;
-        this.f17349f = new LinkedHashMap<>();
-        this.f17353j = (int) baseFragmentActivity.getResources().getDimension(R.dimen.ds220);
+        this.f17361h = baseFragmentActivity;
+        this.f17358e = list;
+        this.f17359f = new LinkedHashMap<>();
+        this.f17363j = (int) baseFragmentActivity.getResources().getDimension(R.dimen.ds220);
         int k = l.k(baseFragmentActivity.getPageContext().getPageActivity());
         this.k = k;
         this.l = (k - l.g(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.ds16)) / 3;
         int g2 = l.g(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.ds8) / 3;
         this.m = g2;
         this.n = (g2 * 2) + 1;
-        this.f17350g = new c.a.q0.d0.b();
+        this.f17360g = new c.a.q0.d0.b();
     }
 
     public void e(Map<String, ImageFileInfo> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            this.f17349f.putAll(map);
+            this.f17359f.putAll(map);
         }
     }
 
     public LinkedHashMap<String, ImageFileInfo> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17349f : (LinkedHashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17359f : (LinkedHashMap) invokeV.objValue;
     }
 
     public c.a.q0.d0.b g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17350g : (c.a.q0.d0.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17360g : (c.a.q0.d0.b) invokeV.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -242,7 +242,7 @@ public class g extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ImageFileInfo> list = this.f17348e;
+            List<ImageFileInfo> list = this.f17358e;
             if (list != null) {
                 return list.size();
             }
@@ -277,40 +277,40 @@ public class g extends BaseAdapter {
                 view2 = view;
                 bVar = (b) view.getTag();
             }
-            bVar.f17355a = view2;
+            bVar.f17365a = view2;
             int paddingTop = view2.getPaddingTop();
             int i3 = i2 % 3;
             if (i3 == 0) {
-                bVar.f17355a.setPadding(0, paddingTop, this.n, 0);
+                bVar.f17365a.setPadding(0, paddingTop, this.n, 0);
             } else if (i3 == 1) {
-                View view3 = bVar.f17355a;
+                View view3 = bVar.f17365a;
                 int i4 = this.m;
                 view3.setPadding(i4, paddingTop, i4, 0);
             } else {
-                bVar.f17355a.setPadding(this.n, paddingTop, 0, 0);
+                bVar.f17365a.setPadding(this.n, paddingTop, 0, 0);
             }
-            bVar.f17356b.getLayoutParams().height = this.l;
-            bVar.f17356b.setTag(null);
-            bVar.f17356b.setRadius(1);
-            bVar.f17356b.setDefaultResource(R.drawable.img_default_100);
-            bVar.f17356b.startLoad(null, 12, false);
-            bVar.f17356b.invalidate();
-            ImageFileInfo imageFileInfo = this.f17348e.get(i2);
+            bVar.f17366b.getLayoutParams().height = this.l;
+            bVar.f17366b.setTag(null);
+            bVar.f17366b.setRadius(1);
+            bVar.f17366b.setDefaultResource(R.drawable.img_default_100);
+            bVar.f17366b.startLoad(null, 12, false);
+            bVar.f17366b.invalidate();
+            ImageFileInfo imageFileInfo = this.f17358e.get(i2);
             if (imageFileInfo != null) {
                 imageFileInfo.clearPageActions();
-                int i5 = this.f17353j;
+                int i5 = this.f17363j;
                 imageFileInfo.addPageAction(c.a.q0.d0.i.d.g(i5, i5));
-                c.a.e.l.d.a c2 = this.f17350g.c(imageFileInfo, false);
-                bVar.f17356b.setTag(imageFileInfo.toCachedKey(false));
+                c.a.e.l.d.a c2 = this.f17360g.c(imageFileInfo, false);
+                bVar.f17366b.setTag(imageFileInfo.toCachedKey(false));
                 if (c2 != null) {
-                    bVar.f17356b.invalidate();
+                    bVar.f17366b.invalidate();
                 } else {
-                    this.f17350g.e(imageFileInfo, new a(this, viewGroup), false, this.o);
+                    this.f17360g.e(imageFileInfo, new a(this, viewGroup), false, this.o);
                 }
-                if (this.f17349f.containsKey(imageFileInfo.getFilePath())) {
-                    SkinManager.setBackgroundResource(bVar.f17357c, R.drawable.ic_post_image_selected_s);
+                if (this.f17359f.containsKey(imageFileInfo.getFilePath())) {
+                    SkinManager.setBackgroundResource(bVar.f17367c, R.drawable.ic_post_image_selected_s);
                 } else {
-                    SkinManager.setBackgroundResource(bVar.f17357c, R.drawable.ic_post_image_selected_n);
+                    SkinManager.setBackgroundResource(bVar.f17367c, R.drawable.ic_post_image_selected_n);
                 }
                 view2.setTag(view2.getId(), imageFileInfo);
             }
@@ -326,11 +326,11 @@ public class g extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            List<ImageFileInfo> list = this.f17348e;
+            List<ImageFileInfo> list = this.f17358e;
             if (list == null || i2 > list.size() - 1) {
                 return null;
             }
-            return this.f17348e.get(i2);
+            return this.f17358e.get(i2);
         }
         return (ImageFileInfo) invokeI.objValue;
     }
@@ -344,7 +344,7 @@ public class g extends BaseAdapter {
     public void j(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, fVar) == null) {
-            this.f17352i = fVar;
+            this.f17362i = fVar;
         }
     }
 

@@ -19,22 +19,22 @@ public class b extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f18667e;
+    public long f18676e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18668f;
+    public String f18677f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18669g;
+    public String f18678g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18670h;
+    public boolean f18679h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f18671i;
+    public int f18680i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f18672j;
+    public int f18681j;
     public String k;
 
     static {
@@ -70,7 +70,7 @@ public class b extends BaseCardInfo {
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18669g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18678g : (String) invokeV.objValue;
     }
 
     public String getRecomReason() {
@@ -89,31 +89,31 @@ public class b extends BaseCardInfo {
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18667e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18676e : invokeV.longValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18668f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18677f : (String) invokeV.objValue;
     }
 
     public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f18671i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f18680i : invokeV.intValue;
     }
 
     public int p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f18672j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f18681j : invokeV.intValue;
     }
 
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f18670h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f18679h : invokeV.booleanValue;
     }
 
     public void t(RecommendForumInfo recommendForumInfo) {
@@ -121,12 +121,12 @@ public class b extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, recommendForumInfo) == null) || recommendForumInfo == null) {
             return;
         }
-        this.f18667e = recommendForumInfo.forum_id.longValue();
-        this.f18668f = recommendForumInfo.forum_name;
-        this.f18669g = recommendForumInfo.avatar;
-        this.f18671i = recommendForumInfo.member_count.intValue();
-        this.f18672j = recommendForumInfo.thread_count.intValue();
-        this.f18670h = recommendForumInfo.is_like.intValue() == 1;
+        this.f18676e = recommendForumInfo.forum_id.longValue();
+        this.f18677f = recommendForumInfo.forum_name;
+        this.f18678g = recommendForumInfo.avatar;
+        this.f18680i = recommendForumInfo.member_count.intValue();
+        this.f18681j = recommendForumInfo.thread_count.intValue();
+        this.f18679h = recommendForumInfo.is_like.intValue() == 1;
         this.k = recommendForumInfo.recom_reason;
         String str = recommendForumInfo.extra;
     }
@@ -134,7 +134,7 @@ public class b extends BaseCardInfo {
     public void w(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f18670h = z;
+            this.f18679h = z;
         }
     }
 }

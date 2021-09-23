@@ -25,24 +25,24 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragmentActivity f28347a;
+    public BaseFragmentActivity f28367a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f28348b;
+    public Context f28368b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f28349c;
+    public View f28369c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CoverFlowView<c.a.r0.x1.c.k.b> f28350d;
+    public CoverFlowView<c.a.r0.x1.c.k.b> f28370d;
 
     /* renamed from: c.a.r0.x1.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1336a implements c.a.q0.s.w.a {
+    public class C1334a implements c.a.q0.s.w.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1336a(a aVar) {
+        public C1334a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28351a;
+        public final /* synthetic */ a f28371a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class a {
                     return;
                 }
             }
-            this.f28351a = aVar;
+            this.f28371a = aVar;
         }
 
         @Override // c.a.q0.s.w.b.d
@@ -142,7 +142,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 TiebaStatic.log("c10446");
-                MemberCenterStatic.a((TbPageContext) j.a(this.f28351a.f28348b), new String[]{str});
+                MemberCenterStatic.a((TbPageContext) j.a(this.f28371a.f28368b), new String[]{str});
             }
         }
 
@@ -171,8 +171,8 @@ public class a {
                 return;
             }
         }
-        this.f28347a = baseFragmentActivity;
-        this.f28348b = baseFragmentActivity.getActivity();
+        this.f28367a = baseFragmentActivity;
+        this.f28368b = baseFragmentActivity.getActivity();
         c(view);
     }
 
@@ -185,8 +185,8 @@ public class a {
         if (b2.size() > 5) {
             b2 = b2.subList(0, 4);
         }
-        this.f28350d.setData(b2);
-        this.f28350d.setVisibility(0);
+        this.f28370d.setData(b2);
+        this.f28370d.setVisibility(0);
     }
 
     public final void c(View view) {
@@ -194,9 +194,9 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null) {
             return;
         }
-        this.f28349c = view;
+        this.f28369c = view;
         CoverFlowView<c.a.r0.x1.c.k.b> coverFlowView = (CoverFlowView) view.findViewById(R.id.coverflowview);
-        this.f28350d = coverFlowView;
+        this.f28370d = coverFlowView;
         coverFlowView.setDisableParentEvent(false);
         e();
     }
@@ -204,22 +204,22 @@ public class a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.q0.w0.a.a(this.f28347a.getPageContext(), this.f28349c);
-            CoverFlowView<c.a.r0.x1.c.k.b> coverFlowView = this.f28350d;
+            c.a.q0.w0.a.a(this.f28367a.getPageContext(), this.f28369c);
+            CoverFlowView<c.a.r0.x1.c.k.b> coverFlowView = this.f28370d;
             if (coverFlowView == null || coverFlowView.getVisibility() != 0) {
                 return;
             }
-            this.f28350d.onChangeSkinType();
+            this.f28370d.onChangeSkinType();
         }
     }
 
     public final void e() {
         CoverFlowView<c.a.r0.x1.c.k.b> coverFlowView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (coverFlowView = this.f28350d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (coverFlowView = this.f28370d) == null) {
             return;
         }
-        coverFlowView.setCoverFlowFactory(new C1336a(this));
-        this.f28350d.setCallback(new b(this));
+        coverFlowView.setCoverFlowFactory(new C1334a(this));
+        this.f28370d.setCallback(new b(this));
     }
 }

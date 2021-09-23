@@ -17,7 +17,7 @@ public class b extends c.a.p0.n.i.d<c.a.p0.n.i.l.b> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f11951h;
+    public final String f11959h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(String str, g gVar, c.a.p0.n.i.m.g gVar2) {
@@ -38,7 +38,7 @@ public class b extends c.a.p0.n.i.d<c.a.p0.n.i.l.b> {
                 return;
             }
         }
-        this.f11951h = str;
+        this.f11959h = str;
     }
 
     @Override // c.a.p0.n.i.d
@@ -59,12 +59,12 @@ public class b extends c.a.p0.n.i.d<c.a.p0.n.i.l.b> {
             if (bVar == null) {
                 return false;
             }
-            if (bVar.f11963a == null && (((list = bVar.f11964b) == null || list.isEmpty()) && bVar.f11965c == null && bVar.f11967e == null && bVar.f11966d == null)) {
+            if (bVar.f11971a == null && (((list = bVar.f11972b) == null || list.isEmpty()) && bVar.f11973c == null && bVar.f11975e == null && bVar.f11974d == null)) {
                 return false;
             }
-            f fVar = bVar.f11963a;
+            f fVar = bVar.f11971a;
             if (fVar == null || fVar.a()) {
-                List<c.a.p0.n.h.g> list2 = bVar.f11964b;
+                List<c.a.p0.n.h.g> list2 = bVar.f11972b;
                 if (list2 != null) {
                     for (c.a.p0.n.h.g gVar : list2) {
                         if (!gVar.a()) {
@@ -72,11 +72,11 @@ public class b extends c.a.p0.n.i.d<c.a.p0.n.i.l.b> {
                         }
                     }
                 }
-                c.a.p0.n.h.d dVar = bVar.f11965c;
+                c.a.p0.n.h.d dVar = bVar.f11973c;
                 if (dVar == null || dVar.a()) {
-                    c.a.p0.n.h.b bVar2 = bVar.f11967e;
+                    c.a.p0.n.h.b bVar2 = bVar.f11975e;
                     if (bVar2 == null || bVar2.a()) {
-                        PMSAppInfo pMSAppInfo = bVar.f11966d;
+                        PMSAppInfo pMSAppInfo = bVar.f11974d;
                         return pMSAppInfo == null || pMSAppInfo.checkValid();
                     }
                     return false;
@@ -95,19 +95,19 @@ public class b extends c.a.p0.n.i.d<c.a.p0.n.i.l.b> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
-            this.f11902e.D();
+            this.f11910e.D();
             c.a.p0.n.o.f fVar = new c.a.p0.n.o.f();
-            i(bVar.f11963a, fVar);
-            j(bVar.f11964b, fVar);
-            h(bVar.f11965c, fVar);
-            g(bVar.f11967e, fVar);
-            l(bVar.f11966d);
+            i(bVar.f11971a, fVar);
+            j(bVar.f11972b, fVar);
+            h(bVar.f11973c, fVar);
+            g(bVar.f11975e, fVar);
+            l(bVar.f11974d);
             if (fVar.l() == 0) {
-                this.f11902e.E();
+                this.f11910e.E();
                 return null;
             }
-            this.f11902e.F(fVar);
-            c.a.p0.n.i.i.a.b(bVar, this.f11902e);
+            this.f11910e.F(fVar);
+            c.a.p0.n.i.i.a.b(bVar, this.f11910e);
             return null;
         }
         return (c.a.p0.n.h.a) invokeL.objValue;
@@ -119,6 +119,6 @@ public class b extends c.a.p0.n.i.d<c.a.p0.n.i.l.b> {
     public c.a.p0.n.i.l.b n(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? c.a.p0.n.o.e.f(this.f11951h, jSONObject) : (c.a.p0.n.i.l.b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? c.a.p0.n.o.e.f(this.f11959h, jSONObject) : (c.a.p0.n.i.l.b) invokeL.objValue;
     }
 }

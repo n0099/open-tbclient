@@ -127,7 +127,7 @@ public class SpecHotTopicHelper {
                         bitmapDrawable.setBounds(0, 0, j3.getWidth(), j3.getHeight());
                     }
                     l lVar = new l(bitmapDrawable);
-                    lVar.b(c.a.e.e.p.l.e(TbadkCoreApplication.getInst(), d2Var.p));
+                    lVar.b(c.a.e.e.p.l.e(TbadkCoreApplication.getInst(), d2Var.q));
                     int i5 = i2 + i4;
                     spannableString.setSpan(lVar, i5, i5 + 1, 33);
                     i3++;
@@ -210,7 +210,7 @@ public class SpecHotTopicHelper {
         if (!(interceptable == null || interceptable.invokeJL(65543, null, j2, d2Var) == null) || (pair = mMap.get(Long.valueOf(j2))) == null) {
             return;
         }
-        d2Var.E3(j2);
-        d2Var.w4((String) pair.first, (String) pair.second);
+        d2Var.D3(j2);
+        d2Var.v4((String) pair.first, (String) pair.second);
     }
 }

@@ -19,11 +19,11 @@ public final class c<W extends d> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9723b;
+    public static final boolean f9731b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, a<W>> f9724a;
+    public final HashMap<String, a<W>> f9732a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public final class c<W extends d> {
                 return;
             }
         }
-        f9723b = k.f7077a;
+        f9731b = k.f7085a;
     }
 
     public c() {
@@ -54,16 +54,16 @@ public final class c<W extends d> {
                 return;
             }
         }
-        this.f9724a = new HashMap<>();
+        this.f9732a = new HashMap<>();
     }
 
     public void a(a<W> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (f9723b) {
+            if (f9731b) {
                 String str = aVar.b() + " command added to supported command list";
             }
-            this.f9724a.put(aVar.b(), aVar);
+            this.f9732a.put(aVar.b(), aVar);
         }
     }
 
@@ -71,19 +71,19 @@ public final class c<W extends d> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command, w) == null) {
             if (command == null || TextUtils.isEmpty(command.what)) {
-                boolean z = f9723b;
+                boolean z = f9731b;
             } else if (w == null) {
-                boolean z2 = f9723b;
+                boolean z2 = f9731b;
             } else {
-                a<W> aVar = this.f9724a.get(command.what);
+                a<W> aVar = this.f9732a.get(command.what);
                 if (aVar == null) {
-                    if (f9723b) {
+                    if (f9731b) {
                         String str = command.what + " command is not supported, haven't dispatched";
                         return;
                     }
                     return;
                 }
-                if (f9723b) {
+                if (f9731b) {
                     String str2 = command.what + " command dispatched";
                 }
                 aVar.a(command, w);
@@ -95,21 +95,21 @@ public final class c<W extends d> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
             if (command != null && !TextUtils.isEmpty(command.what)) {
-                a<W> aVar = this.f9724a.get(command.what);
+                a<W> aVar = this.f9732a.get(command.what);
                 if (aVar == null) {
-                    if (f9723b) {
+                    if (f9731b) {
                         String str = command.what + " command is not supported, haven't mocked";
                         return;
                     }
                     return;
                 }
-                if (f9723b) {
+                if (f9731b) {
                     String str2 = command.what + " cached command return value processed";
                 }
                 aVar.c(command);
                 return;
             }
-            boolean z = f9723b;
+            boolean z = f9731b;
         }
     }
 }

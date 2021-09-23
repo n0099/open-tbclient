@@ -11,13 +11,19 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f15171a;
+    public String f15178a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15172b;
+    public String f15179b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SpanGroupManager f15173c;
+    public SpanGroupManager f15180c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f15181d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f15182e;
 
     public j() {
         Interceptable interceptable = $ic;

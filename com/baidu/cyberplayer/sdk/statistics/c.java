@@ -15,10 +15,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39228a;
+    public int f39287a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<e> f39229b;
+    public ArrayList<e> f39288b;
 
     public c(int i2) {
         Interceptable interceptable = $ic;
@@ -35,14 +35,14 @@ public class c {
                 return;
             }
         }
-        this.f39228a = i2;
-        this.f39229b = new ArrayList<>();
+        this.f39287a = i2;
+        this.f39288b = new ArrayList<>();
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39228a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39287a : invokeV.intValue;
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {
@@ -52,13 +52,13 @@ public class c {
             if (jSONObject == null) {
                 return jSONObject;
             }
-            int i2 = this.f39228a;
+            int i2 = this.f39287a;
             if (i2 != 24321 && i2 != 24323 && i2 != 24322 && i2 != 20488) {
                 jSONObject.put("type", i2);
             }
-            int size = this.f39229b.size();
+            int size = this.f39288b.size();
             for (int i3 = 0; i3 < size; i3++) {
-                e eVar = this.f39229b.get(i3);
+                e eVar = this.f39288b.get(i3);
                 if (eVar != null) {
                     jSONObject.put(eVar.a(), eVar.b());
                 }
@@ -71,14 +71,14 @@ public class c {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f39229b.add(eVar);
+            this.f39288b.add(eVar);
         }
     }
 
     public void b() {
         ArrayList<e> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (arrayList = this.f39229b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (arrayList = this.f39288b) == null) {
             return;
         }
         arrayList.clear();

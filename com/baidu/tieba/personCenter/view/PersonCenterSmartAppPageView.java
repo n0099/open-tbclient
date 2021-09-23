@@ -22,13 +22,13 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c> f55831e;
+    public List<c> f55950e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<PersonCenterSmartAppItemView> f55832f;
+    public List<PersonCenterSmartAppItemView> f55951f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55833g;
+    public int f55952g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonCenterSmartAppPageView(Context context) {
@@ -53,11 +53,11 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
 
     public void addSmartApp(c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.f55831e.size() == this.f55833g) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.f55950e.size() == this.f55952g) {
             return;
         }
-        this.f55831e.add(cVar);
-        PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) ListUtils.getItem(this.f55832f, this.f55831e.size() - 1);
+        this.f55950e.add(cVar);
+        PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) ListUtils.getItem(this.f55951f, this.f55950e.size() - 1);
         personCenterSmartAppItemView.bindData(cVar);
         personCenterSmartAppItemView.setVisibility(0);
     }
@@ -65,13 +65,13 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
     public boolean isCanAddMoreSmartApp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55831e.size() < this.f55833g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55950e.size() < this.f55952g : invokeV.booleanValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (PersonCenterSmartAppItemView personCenterSmartAppItemView : this.f55832f) {
+            for (PersonCenterSmartAppItemView personCenterSmartAppItemView : this.f55951f) {
                 if (personCenterSmartAppItemView != null) {
                     personCenterSmartAppItemView.onChangeSkinType();
                 }
@@ -119,19 +119,19 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
                 return;
             }
         }
-        this.f55833g = 4;
+        this.f55952g = 4;
         ViewGroup.LayoutParams layoutParams = new ViewPager.LayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
         setLayoutParams(layoutParams);
         setOrientation(0);
-        this.f55831e = new ArrayList();
-        this.f55832f = new ArrayList();
-        for (int i5 = 0; i5 < this.f55833g; i5++) {
+        this.f55950e = new ArrayList();
+        this.f55951f = new ArrayList();
+        for (int i5 = 0; i5 < this.f55952g; i5++) {
             PersonCenterSmartAppItemView personCenterSmartAppItemView = new PersonCenterSmartAppItemView(getContext());
             addView(personCenterSmartAppItemView, new LinearLayout.LayoutParams(0, -1, 1.0f));
             personCenterSmartAppItemView.setVisibility(4);
-            this.f55832f.add(personCenterSmartAppItemView);
+            this.f55951f.add(personCenterSmartAppItemView);
         }
         onChangeSkinType();
     }

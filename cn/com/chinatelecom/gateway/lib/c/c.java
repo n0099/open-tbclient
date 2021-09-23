@@ -20,10 +20,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35671a = "cn.com.chinatelecom.gateway.lib.c.c";
+    public static final String f35694a = "cn.com.chinatelecom.gateway.lib.c.c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35672b = "";
+    public static String f35695b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -74,16 +74,16 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (TextUtils.isEmpty(f35672b)) {
+            if (TextUtils.isEmpty(f35695b)) {
                 String b2 = b(context);
-                f35672b = b2;
+                f35695b = b2;
                 if (TextUtils.isEmpty(b2)) {
                     String c2 = c(context);
-                    f35672b = c2;
+                    f35695b = c2;
                     a(context, c2);
                 }
             }
-            return f35672b;
+            return f35695b;
         }
         return (String) invokeL.objValue;
     }

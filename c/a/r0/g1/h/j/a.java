@@ -30,10 +30,10 @@ public class a extends c.a.r0.a0.d0.d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, app) == null) || app == null) {
             return;
         }
-        if (this.f15568e == null) {
-            this.f15568e = new AdvertAppInfo();
+        if (this.f15577e == null) {
+            this.f15577e = new AdvertAppInfo();
         }
-        this.f15568e.V4(app);
-        this.position = this.f15568e.position;
+        this.f15577e.U4(app);
+        this.position = this.f15577e.position;
     }
 }

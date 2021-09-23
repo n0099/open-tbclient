@@ -20,10 +20,10 @@ public class MenuKeyboardView extends LinearLayout implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditorTools f52904e;
+    public EditorTools f53017e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52905f;
+    public int f53018f;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -31,7 +31,7 @@ public class MenuKeyboardView extends LinearLayout implements n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MenuKeyboardView f52906e;
+        public final /* synthetic */ MenuKeyboardView f53019e;
 
         public a(MenuKeyboardView menuKeyboardView) {
             Interceptable interceptable = $ic;
@@ -48,14 +48,14 @@ public class MenuKeyboardView extends LinearLayout implements n {
                     return;
                 }
             }
-            this.f52906e = menuKeyboardView;
+            this.f53019e = menuKeyboardView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f52906e.sendAction(new c.a.q0.x.a(30, 0, null));
+                this.f53019e.sendAction(new c.a.q0.x.a(30, 0, null));
             }
         }
     }
@@ -78,7 +78,7 @@ public class MenuKeyboardView extends LinearLayout implements n {
                 return;
             }
         }
-        this.f52905f = 0;
+        this.f53018f = 0;
         LinearLayout.inflate(context, R.layout.official_bar_menu_toggle, this);
         setLayoutParams(new RawLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.ds100), -2));
         setOnClickListener(new a(this));
@@ -96,7 +96,7 @@ public class MenuKeyboardView extends LinearLayout implements n {
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52905f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53018f : invokeV.intValue;
     }
 
     @Override // c.a.q0.x.n
@@ -132,7 +132,7 @@ public class MenuKeyboardView extends LinearLayout implements n {
     public void sendAction(c.a.q0.x.a aVar) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || (editorTools = this.f52904e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || (editorTools = this.f53017e) == null) {
             return;
         }
         editorTools.sendAction(aVar);
@@ -142,7 +142,7 @@ public class MenuKeyboardView extends LinearLayout implements n {
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editorTools) == null) {
-            this.f52904e = editorTools;
+            this.f53017e = editorTools;
         }
     }
 
@@ -150,7 +150,7 @@ public class MenuKeyboardView extends LinearLayout implements n {
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f52905f = i2;
+            this.f53018f = i2;
         }
     }
 }

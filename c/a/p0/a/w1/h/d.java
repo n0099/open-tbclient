@@ -29,14 +29,14 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9525b;
+    public static final boolean f9533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f9526c;
+    public static d f9534c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<Activity> f9527a;
+    public WeakReference<Activity> f9535a;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class d {
                 return;
             }
         }
-        f9525b = k.f7077a;
+        f9533b = k.f7085a;
     }
 
     public d() {
@@ -72,14 +72,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f9526c == null) {
+            if (f9534c == null) {
                 synchronized (d.class) {
-                    if (f9526c == null) {
-                        f9526c = new d();
+                    if (f9534c == null) {
+                        f9534c = new d();
                     }
                 }
             }
-            return f9526c;
+            return f9534c;
         }
         return (d) invokeV.objValue;
     }
@@ -105,17 +105,17 @@ public class d {
                 illegalArgumentException = new IllegalArgumentException("focus view must be EditText");
             }
             if (illegalArgumentException != null) {
-                if (f9525b) {
+                if (f9533b) {
                     throw illegalArgumentException;
                 }
                 return false;
             } else if (TextUtils.isEmpty(str)) {
                 return false;
             } else {
-                if (f9525b) {
+                if (f9533b) {
                     String str4 = "start loading emoji " + str;
                 }
-                this.f9527a = new WeakReference<>(activity);
+                this.f9535a = new WeakReference<>(activity);
                 if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
                     File v = c.a.p0.a.a1.e.v(str2, str3, false, null, null);
                     b.c().f(v.getAbsolutePath() + File.separator + str);
@@ -128,8 +128,8 @@ public class d {
                     arrayList.add(a(activity.getApplicationContext()));
                     viewPager.setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
                     EditText editText = (EditText) view;
-                    if (this.f9527a.get() != null) {
-                        a.g(this.f9527a.get().getApplicationContext()).f(editText);
+                    if (this.f9535a.get() != null) {
+                        a.g(this.f9535a.get().getApplicationContext()).f(editText);
                         return true;
                     }
                 }

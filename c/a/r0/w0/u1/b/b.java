@@ -35,7 +35,7 @@ public class b extends c.a.e.l.e.a<c.a.r0.g0.a, CardViewHolder<c.a.r0.a0.d>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f27846b;
+        public final /* synthetic */ b f27866b;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class b extends c.a.e.l.e.a<c.a.r0.g0.a, CardViewHolder<c.a.r0.a0.d>> {
                     return;
                 }
             }
-            this.f27846b = bVar;
+            this.f27866b = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,15 +61,15 @@ public class b extends c.a.e.l.e.a<c.a.r0.g0.a, CardViewHolder<c.a.r0.a0.d>> {
         public void a(View view, c.a.r0.g0.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, aVar) == null) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 2).param("fid", this.f27846b.o));
-                this.f27846b.j0(view, aVar);
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 2).param("fid", this.f27866b.o));
+                this.f27866b.j0(view, aVar);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext tbPageContext, String str, String str2) {
-        super(tbPageContext.getPageActivity(), c.a.r0.g0.a.f17745f);
+        super(tbPageContext.getPageActivity(), c.a.r0.g0.a.f17755f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

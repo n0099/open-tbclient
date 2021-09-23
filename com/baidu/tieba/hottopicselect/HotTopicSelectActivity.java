@@ -73,7 +73,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f52817e;
+        public final /* synthetic */ HotTopicSelectActivity f52930e;
 
         public a(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -90,17 +90,17 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
                     return;
                 }
             }
-            this.f52817e = hotTopicSelectActivity;
+            this.f52930e = hotTopicSelectActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f52817e.mClearView) {
-                    this.f52817e.clearAllTextStatus();
-                } else if (view == this.f52817e.mCancelBtn) {
-                    this.f52817e.createIntent("");
+                if (view == this.f52930e.mClearView) {
+                    this.f52930e.clearAllTextStatus();
+                } else if (view == this.f52930e.mCancelBtn) {
+                    this.f52930e.createIntent("");
                 }
             }
         }
@@ -112,7 +112,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f52818e;
+        public final /* synthetic */ HotTopicSelectActivity f52931e;
 
         public b(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -129,19 +129,19 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
                     return;
                 }
             }
-            this.f52818e = hotTopicSelectActivity;
+            this.f52931e = hotTopicSelectActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             c.a.r0.j1.d dVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (dVar = (c.a.r0.j1.d) ListUtils.getItem(this.f52818e.mSuggestAdatper.d(), i2)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (dVar = (c.a.r0.j1.d) ListUtils.getItem(this.f52931e.mSuggestAdatper.d(), i2)) == null) {
                 return;
             }
             String b2 = dVar.b();
-            this.f52818e.createIntent(b2);
-            this.f52818e.addClickStats(b2, 3);
+            this.f52931e.createIntent(b2);
+            this.f52931e.addClickStats(b2, 3);
         }
     }
 
@@ -151,7 +151,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f52819a;
+        public final /* synthetic */ HotTopicSelectActivity f52932a;
 
         public c(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
                     return;
                 }
             }
-            this.f52819a = hotTopicSelectActivity;
+            this.f52932a = hotTopicSelectActivity;
         }
 
         @Override // android.widget.ExpandableListView.OnGroupClickListener
@@ -176,8 +176,8 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{expandableListView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-                if (this.f52819a.mLvNoSearch != null) {
-                    this.f52819a.mLvNoSearch.expandGroup(i2);
+                if (this.f52932a.mLvNoSearch != null) {
+                    this.f52932a.mLvNoSearch.expandGroup(i2);
                     return true;
                 }
                 return true;
@@ -192,7 +192,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f52820e;
+        public final /* synthetic */ HotTopicSelectActivity f52933e;
 
         public d(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -209,7 +209,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
                     return;
                 }
             }
-            this.f52820e = hotTopicSelectActivity;
+            this.f52933e = hotTopicSelectActivity;
         }
 
         @Override // android.widget.ExpandableListView.OnChildClickListener
@@ -218,14 +218,14 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
             c.a.r0.j1.d child;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{expandableListView, view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
-                if (this.f52820e.mNoSearchAdapter == null || (child = this.f52820e.mNoSearchAdapter.getChild(i2, i3)) == null) {
+                if (this.f52933e.mNoSearchAdapter == null || (child = this.f52933e.mNoSearchAdapter.getChild(i2, i3)) == null) {
                     return false;
                 }
                 String b2 = child.b();
-                this.f52820e.createIntent(b2);
-                c.a.r0.j1.c group = this.f52820e.mNoSearchAdapter.getGroup(i2);
+                this.f52933e.createIntent(b2);
+                c.a.r0.j1.c group = this.f52933e.mNoSearchAdapter.getGroup(i2);
                 if (group != null) {
-                    this.f52820e.addClickStats(b2, group.c() == 0 ? 1 : 2);
+                    this.f52933e.addClickStats(b2, group.c() == 0 ? 1 : 2);
                     return false;
                 }
                 return false;
@@ -240,7 +240,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f52821e;
+        public final /* synthetic */ HotTopicSelectActivity f52934e;
 
         public e(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -257,7 +257,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
                     return;
                 }
             }
-            this.f52821e = hotTopicSelectActivity;
+            this.f52934e = hotTopicSelectActivity;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -266,7 +266,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) || z) {
                 return;
             }
-            l.x(this.f52821e.getPageContext().getPageActivity(), view);
+            l.x(this.f52934e.getPageContext().getPageActivity(), view);
         }
     }
 
@@ -276,7 +276,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f52822a;
+        public final /* synthetic */ HotTopicSelectActivity f52935a;
 
         public f(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -293,7 +293,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
                     return;
                 }
             }
-            this.f52822a = hotTopicSelectActivity;
+            this.f52935a = hotTopicSelectActivity;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
@@ -302,11 +302,11 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
                 if (i2 == 6) {
-                    l.K(this.f52822a.getPageContext().getPageActivity(), textView);
-                    if (TextUtils.isEmpty(this.f52822a.getSearchKey())) {
+                    l.K(this.f52935a.getPageContext().getPageActivity(), textView);
+                    if (TextUtils.isEmpty(this.f52935a.getSearchKey())) {
                         return true;
                     }
-                    HotTopicSelectActivity hotTopicSelectActivity = this.f52822a;
+                    HotTopicSelectActivity hotTopicSelectActivity = this.f52935a;
                     hotTopicSelectActivity.createIntent(hotTopicSelectActivity.getSearchKey());
                     return true;
                 }
@@ -322,7 +322,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f52823e;
+        public final /* synthetic */ HotTopicSelectActivity f52936e;
 
         public g(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -339,7 +339,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
                     return;
                 }
             }
-            this.f52823e = hotTopicSelectActivity;
+            this.f52936e = hotTopicSelectActivity;
         }
 
         @Override // android.text.TextWatcher
@@ -348,15 +348,15 @@ public class HotTopicSelectActivity extends SuspendedActivity implements c.a.q0.
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 String obj = editable.toString();
                 if (obj == null || obj.trim().length() <= 0) {
-                    this.f52823e.afterDealText();
+                    this.f52936e.afterDealText();
                 } else {
-                    this.f52823e.mNoDataView.setVisibility(8);
-                    this.f52823e.mListCustomView.setVisibility(8);
-                    this.f52823e.showLoadingView();
-                    this.f52823e.mHotModel.K(obj);
+                    this.f52936e.mNoDataView.setVisibility(8);
+                    this.f52936e.mListCustomView.setVisibility(8);
+                    this.f52936e.showLoadingView();
+                    this.f52936e.mHotModel.K(obj);
                 }
-                this.f52823e.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
-                this.f52823e.setTopicTextViewColor();
+                this.f52936e.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
+                this.f52936e.setTopicTextViewColor();
             }
         }
 

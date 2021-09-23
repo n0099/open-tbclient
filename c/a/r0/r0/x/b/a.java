@@ -23,22 +23,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f24402a;
+    public f f24418a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f24403b;
+    public BdTypeListView f24419b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<c.a.e.l.e.a> f24404c;
+    public final List<c.a.e.l.e.a> f24420c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EmotionCategoryAdapter f24405d;
+    public EmotionCategoryAdapter f24421d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EmotionHorizontalAdapter f24406e;
+    public EmotionHorizontalAdapter f24422e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f24407f;
+    public List<n> f24423f;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -55,10 +55,10 @@ public class a {
                 return;
             }
         }
-        this.f24404c = new ArrayList();
-        this.f24407f = new ArrayList();
-        this.f24402a = tbPageContext;
-        this.f24403b = bdTypeListView;
+        this.f24420c = new ArrayList();
+        this.f24423f = new ArrayList();
+        this.f24418a = tbPageContext;
+        this.f24419b = bdTypeListView;
         b();
     }
 
@@ -67,9 +67,9 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        if (this.f24403b != null) {
-            this.f24407f.addAll(list);
-            this.f24403b.setData(this.f24407f);
+        if (this.f24419b != null) {
+            this.f24423f.addAll(list);
+            this.f24419b.setData(this.f24423f);
         }
         c();
     }
@@ -77,21 +77,21 @@ public class a {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f24405d = new EmotionCategoryAdapter((TbPageContext) this.f24402a, c.a.r0.r0.x.c.a.f24408e);
-            this.f24406e = new EmotionHorizontalAdapter((TbPageContext) this.f24402a, b.f24409f);
-            this.f24404c.add(this.f24405d);
-            this.f24404c.add(this.f24406e);
-            this.f24403b.addAdapters(this.f24404c);
+            this.f24421d = new EmotionCategoryAdapter((TbPageContext) this.f24418a, c.a.r0.r0.x.c.a.f24424e);
+            this.f24422e = new EmotionHorizontalAdapter((TbPageContext) this.f24418a, b.f24425f);
+            this.f24420c.add(this.f24421d);
+            this.f24420c.add(this.f24422e);
+            this.f24419b.addAdapters(this.f24420c);
         }
     }
 
     public void c() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeListView = this.f24403b) == null || bdTypeListView.getAdapter2() == null || !(this.f24403b.getAdapter2() instanceof BaseAdapter)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeListView = this.f24419b) == null || bdTypeListView.getAdapter2() == null || !(this.f24419b.getAdapter2() instanceof BaseAdapter)) {
             return;
         }
-        this.f24403b.getAdapter2().notifyDataSetChanged();
+        this.f24419b.getAdapter2().notifyDataSetChanged();
     }
 
     public void d(List<n> list) {
@@ -99,13 +99,13 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        if (!ListUtils.isEmpty(this.f24407f)) {
-            this.f24407f.clear();
+        if (!ListUtils.isEmpty(this.f24423f)) {
+            this.f24423f.clear();
         }
-        BdTypeListView bdTypeListView = this.f24403b;
+        BdTypeListView bdTypeListView = this.f24419b;
         if (bdTypeListView != null) {
             bdTypeListView.setData(list);
-            this.f24407f.addAll(list);
+            this.f24423f.addAll(list);
         }
         c();
     }
@@ -114,11 +114,11 @@ public class a {
         b bVar;
         EmotionPackageData emotionPackageData2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, emotionPackageData) == null) || emotionPackageData == null || ListUtils.isEmpty(this.f24407f)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, emotionPackageData) == null) || emotionPackageData == null || ListUtils.isEmpty(this.f24423f)) {
             return;
         }
-        for (n nVar : this.f24407f) {
-            if ((nVar instanceof b) && (bVar = (b) nVar) != null && (emotionPackageData2 = bVar.f24410e) != null && emotionPackageData2.id == emotionPackageData.id) {
+        for (n nVar : this.f24423f) {
+            if ((nVar instanceof b) && (bVar = (b) nVar) != null && (emotionPackageData2 = bVar.f24426e) != null && emotionPackageData2.id == emotionPackageData.id) {
                 emotionPackageData2.download = emotionPackageData.download;
                 emotionPackageData2.share = emotionPackageData.share;
                 c();

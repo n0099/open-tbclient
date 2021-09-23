@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
+import c.a.q0.s.d0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
@@ -21,6 +22,8 @@ import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -869,13 +872,20 @@ public class SpeedStats {
                     return;
                 }
                 asyncUploadSpeedInfo();
-                if (SmartLaunchStats.hasTriedToFindFirstAvailableTime() || hasForegroundToBackground()) {
-                    return;
+                if (!SmartLaunchStats.hasTriedToFindFirstAvailableTime() && !hasForegroundToBackground()) {
+                    SmartLaunchStats.tryToFindFirstIdleTimeStamp();
                 }
-                SmartLaunchStats.tryToFindFirstIdleTimeStamp();
-                return;
+            } else {
+                LaunchStatsUtils.setLaunchTypeDetail(this.mLaunchType, this.mIsStartAppFromLauncher, this.mHasSkin, this.mIntroductionType != -1);
             }
-            LaunchStatsUtils.setLaunchTypeDetail(this.mLaunchType, this.mIsStartAppFromLauncher, this.mHasSkin, this.mIntroductionType != -1);
+            int k = b.j().k("app_start_time", 0);
+            if (k > 0) {
+                for (int i2 = 0; i2 < k; i2++) {
+                    TiebaStatic.log(new StatisticItem("app_start"));
+                }
+                b.j().v("app_start_time", 0);
+            }
+            TiebaStatic.log(new StatisticItem("main_show").param("obj_type", System.currentTimeMillis() - SpeedStatsManager.getInstance().getAppLaunchStartTimeStamp()));
         }
     }
 

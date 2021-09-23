@@ -41,7 +41,7 @@ public class l extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f17857b;
+        public final /* synthetic */ l f17866b;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class l extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                     return;
                 }
             }
-            this.f17857b = lVar;
+            this.f17866b = lVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,7 +71,7 @@ public class l extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                 if (view == null || kVar == null || kVar.getThreadData() == null || StringUtils.isNull(kVar.getThreadData().s1())) {
                     return;
                 }
-                this.f17857b.m0(view, kVar);
+                this.f17866b.m0(view, kVar);
             }
         }
     }
@@ -82,7 +82,7 @@ public class l extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f17858e;
+        public final /* synthetic */ l f17867e;
 
         public b(l lVar) {
             Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class l extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                     return;
                 }
             }
-            this.f17858e = lVar;
+            this.f17867e = lVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -109,8 +109,8 @@ public class l extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 c.a.r0.a0.d0.k kVar = (c.a.r0.a0.d0.k) nVar;
                 kVar.k = 1;
-                if (this.f17858e.r != null) {
-                    this.f17858e.r.a(threadCardViewHolder.getView(), kVar);
+                if (this.f17867e.r != null) {
+                    this.f17867e.r.a(threadCardViewHolder.getView(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) kVar, view.getContext(), 2, false, c.a.l.e.a((c.a.e.l.e.s) viewGroup, view, i2));
                 threadCardViewHolder.getCardView().o(new a.C0095a(1));
@@ -193,7 +193,7 @@ public class l extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, threadCardViewHolder})) == null) {
-            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f15562e == null) {
+            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f15571e == null) {
                 return null;
             }
             kVar.K(kVar.position + 1);
@@ -205,7 +205,7 @@ public class l extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
             threadCardViewHolder.getCardView().p(this.r);
             c.a.r0.a0.t.b().a(kVar.B());
             c.a.r0.o.d.c().a(kVar.B());
-            c.a.r0.g1.h.m.a.f(kVar.f15562e, this.m, kVar.q());
+            c.a.r0.g1.h.m.a.f(kVar.f15571e, this.m, kVar.q());
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
@@ -235,7 +235,7 @@ public class l extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                 i2 = 9;
             }
             if (i2 != 0) {
-                c.a.r0.g1.h.m.a.c(kVar.f15562e, this.m, kVar.q(), i2);
+                c.a.r0.g1.h.m.a.c(kVar.f15571e, this.m, kVar.q(), i2);
             }
         }
     }

@@ -19,20 +19,20 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static h f28911e;
+    public static h f28931e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public VideoHolyCardModel f28912a;
+    public VideoHolyCardModel f28932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28913b;
+    public boolean f28933b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28914c;
+    public boolean f28934c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VideoHolyCardModel.c f28915d;
+    public VideoHolyCardModel.c f28935d;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -40,7 +40,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f28916a;
+        public final /* synthetic */ h f28936a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(h hVar, int i2) {
@@ -60,7 +60,7 @@ public class h {
                     return;
                 }
             }
-            this.f28916a = hVar;
+            this.f28936a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,7 +68,7 @@ public class h {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && j.x()) {
-                this.f28916a.c();
+                this.f28936a.c();
             }
         }
     }
@@ -79,7 +79,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f28917a;
+        public final /* synthetic */ h f28937a;
 
         public b(h hVar) {
             Interceptable interceptable = $ic;
@@ -96,14 +96,14 @@ public class h {
                     return;
                 }
             }
-            this.f28917a = hVar;
+            this.f28937a = hVar;
         }
 
         @Override // com.baidu.tieba.model.VideoHolyCardModel.c
         public void onResult(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f28917a.f28913b = z;
+                this.f28937a.f28933b = z;
             }
         }
     }
@@ -121,7 +121,7 @@ public class h {
                 return;
             }
         }
-        this.f28915d = new b(this);
+        this.f28935d = new b(this);
         f();
         c();
     }
@@ -130,14 +130,14 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f28911e == null) {
+            if (f28931e == null) {
                 synchronized (h.class) {
-                    if (f28911e == null) {
-                        f28911e = new h();
+                    if (f28931e == null) {
+                        f28931e = new h();
                     }
                 }
             }
-            return f28911e;
+            return f28931e;
         }
         return (h) invokeV.objValue;
     }
@@ -145,19 +145,19 @@ public class h {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f28912a == null) {
+            if (this.f28932a == null) {
                 VideoHolyCardModel videoHolyCardModel = new VideoHolyCardModel();
-                this.f28912a = videoHolyCardModel;
-                videoHolyCardModel.z(this.f28915d);
+                this.f28932a = videoHolyCardModel;
+                videoHolyCardModel.z(this.f28935d);
             }
-            this.f28912a.x();
+            this.f28932a.x();
         }
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28913b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28933b : invokeV.booleanValue;
     }
 
     public final void f() {
@@ -169,9 +169,9 @@ public class h {
 
     public void g(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && this.f28913b && !this.f28914c) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && this.f28933b && !this.f28934c) {
             l.L(context, R.string.free_data_tips);
-            this.f28914c = true;
+            this.f28934c = true;
         }
     }
 }

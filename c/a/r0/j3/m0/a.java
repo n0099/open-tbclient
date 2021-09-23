@@ -27,10 +27,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b> f20955a;
+    public ArrayList<b> f20967a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f20956b;
+    public f f20968b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -45,21 +45,21 @@ public class a {
                 return;
             }
         }
-        this.f20955a = new ArrayList<>();
-        this.f20956b = new f();
+        this.f20967a = new ArrayList<>();
+        this.f20968b = new f();
     }
 
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             if (bVar != null) {
-                this.f20955a.add(bVar);
+                this.f20967a.add(bVar);
             }
-            if (this.f20956b == null || bVar == null || bVar.getClass().getAnnotation(c.a.g.a.a.class) == null) {
+            if (this.f20968b == null || bVar == null || bVar.getClass().getAnnotation(c.a.g.a.a.class) == null) {
                 return;
             }
             try {
-                this.f20956b.a((c.a.r0.j3.m0.d.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + c.a.r0.j3.m0.d.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
+                this.f20968b.a((c.a.r0.j3.m0.d.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + c.a.r0.j3.m0.d.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
@@ -105,8 +105,8 @@ public class a {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, str2, str3, jsPromptResult)) == null) {
-            if (ListUtils.getCount(this.f20955a) > 0) {
-                Iterator<b> it = this.f20955a.iterator();
+            if (ListUtils.getCount(this.f20967a) > 0) {
+                Iterator<b> it = this.f20967a.iterator();
                 while (it.hasNext()) {
                     b next = it.next();
                     if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {
@@ -122,7 +122,7 @@ public class a {
 
     public final void e(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) || this.f20956b == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) || this.f20968b == null) {
             return;
         }
         e eVar = new e();
@@ -144,16 +144,16 @@ public class a {
         }
         eVar.i(g.e(str));
         eVar.g(g.c(str));
-        c.a.r0.j3.m0.d.c c2 = this.f20956b.c(eVar, cVar);
+        c.a.r0.j3.m0.d.c c2 = this.f20968b.c(eVar, cVar);
         if (c2.g()) {
-            this.f20956b.d(webView, c2);
+            this.f20968b.d(webView, c2);
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f20955a.clear();
+            this.f20967a.clear();
         }
     }
 
@@ -162,15 +162,15 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.f20955a.remove(bVar);
+        this.f20967a.remove(bVar);
     }
 
     public void h(WebView webView, String str, @Nullable HashMap hashMap) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, webView, str, hashMap) == null) || (fVar = this.f20956b) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, webView, str, hashMap) == null) || (fVar = this.f20968b) == null) {
             return;
         }
-        this.f20956b.e(webView, fVar.f(str, hashMap));
+        this.f20968b.e(webView, fVar.f(str, hashMap));
     }
 }

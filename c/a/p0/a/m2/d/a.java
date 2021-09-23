@@ -20,7 +20,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7383a;
+    public static final boolean f7391a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public final class a {
                 return;
             }
         }
-        f7383a = k.f7077a;
+        f7391a = k.f7085a;
     }
 
     public static void a() {
@@ -58,7 +58,7 @@ public final class a {
     public static File c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new File(c.a.p0.a.f1.c.a.d().get(0).f9358a, "/aiapps_debug_swan_core/") : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new File(c.a.p0.a.f1.c.a.d().get(0).f9366a, "/aiapps_debug_swan_core/") : (File) invokeV.objValue;
     }
 
     public static File d() {
@@ -84,7 +84,7 @@ public final class a {
                 try {
                     jSONObject = new JSONObject(d.D(file));
                 } catch (JSONException e2) {
-                    if (f7383a) {
+                    if (f7391a) {
                         e2.printStackTrace();
                     }
                 }

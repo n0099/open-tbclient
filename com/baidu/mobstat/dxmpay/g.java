@@ -17,7 +17,7 @@ public abstract class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f43826a = 2;
+    public static int f43888a = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -102,7 +102,7 @@ public abstract class g {
 
     private void a(int i2, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(65538, this, i2, str) == null) && b() && i2 >= f43826a) {
+        if ((interceptable == null || interceptable.invokeIL(65538, this, i2, str) == null) && b() && i2 >= f43888a) {
             Log.println(i2, a(), str);
         }
     }

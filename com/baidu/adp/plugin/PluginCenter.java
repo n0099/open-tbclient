@@ -47,7 +47,7 @@ public class PluginCenter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginCenter f36315e;
+        public final /* synthetic */ PluginCenter f36358e;
 
         public a(PluginCenter pluginCenter) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public class PluginCenter {
                     return;
                 }
             }
-            this.f36315e = pluginCenter;
+            this.f36358e = pluginCenter;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f36315e.retryLaunchPlugins();
+                this.f36358e.retryLaunchPlugins();
             }
         }
     }
@@ -82,7 +82,7 @@ public class PluginCenter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginCenter f36316e;
+        public final /* synthetic */ PluginCenter f36359e;
 
         public b(PluginCenter pluginCenter) {
             Interceptable interceptable = $ic;
@@ -99,14 +99,14 @@ public class PluginCenter {
                     return;
                 }
             }
-            this.f36316e = pluginCenter;
+            this.f36359e = pluginCenter;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f36316e.retryLaunchAllPlugins();
+                this.f36359e.retryLaunchAllPlugins();
             }
         }
     }
@@ -193,14 +193,14 @@ public class PluginCenter {
                             long j2 = 4001;
                             if (value != null && !value.isLoaded()) {
                                 j2 = System.currentTimeMillis() - value.getLastLaunchTime();
-                                if (j2 > 4000) {
+                                if (j2 > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
                                     cVar = value.initWithBroadcast(key);
-                                    if (cVar.f36311a) {
+                                    if (cVar.f36354a) {
                                         if (PluginPackageManager.O().c0()) {
                                             c.a.e.h.h.a.b().g("plugin_load_retry_succ");
                                         }
                                     } else if (PluginPackageManager.O().c0()) {
-                                        c.a.e.h.h.a.b().p("plugin_loaded_failed", key, cVar.f36312b, cVar.f36313c);
+                                        c.a.e.h.h.a.b().p("plugin_loaded_failed", key, cVar.f36355b, cVar.f36356c);
                                     }
                                 }
                             }
@@ -240,14 +240,14 @@ public class PluginCenter {
                                         }
                                         if (cVar != null) {
                                             sb.append("-");
-                                            sb.append(cVar.f36312b);
+                                            sb.append(cVar.f36355b);
                                             sb.append("-");
-                                            sb.append(cVar.f36313c);
+                                            sb.append(cVar.f36356c);
                                         } else {
                                             sb.append("-ret==null");
                                         }
                                     }
-                                    if (j2 > 4000) {
+                                    if (j2 > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
                                         c.a.e.h.j.h.a.b().f(value.getPackageName());
                                     }
                                 }
@@ -298,9 +298,9 @@ public class PluginCenter {
                                 }
                             }
                         }
-                        if (value != null && !value.isLoaded() && System.currentTimeMillis() - value.getLastLaunchTime() > 4000) {
+                        if (value != null && !value.isLoaded() && System.currentTimeMillis() - value.getLastLaunchTime() > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
                             Plugin.c initWithBroadcast = value.initWithBroadcast(key);
-                            if (initWithBroadcast.f36311a) {
+                            if (initWithBroadcast.f36354a) {
                                 if (PluginPackageManager.O().c0()) {
                                     c.a.e.h.h.a.b().g("plugin_load_retry_succ");
                                 }
@@ -336,9 +336,9 @@ public class PluginCenter {
                                         sb.append(value.getPluginApkFilePath());
                                     }
                                     sb.append("-");
-                                    sb.append(initWithBroadcast.f36312b);
+                                    sb.append(initWithBroadcast.f36355b);
                                     sb.append("-");
-                                    sb.append(initWithBroadcast.f36313c);
+                                    sb.append(initWithBroadcast.f36356c);
                                 }
                             }
                         }
@@ -608,20 +608,20 @@ public class PluginCenter {
             Plugin.c cVar = new Plugin.c();
             if (TextUtils.isEmpty(str)) {
                 if (!BdBaseApplication.getInst().isDebugMode()) {
-                    cVar.f36312b = "pluginName_is_null";
-                    cVar.f36311a = false;
+                    cVar.f36355b = "pluginName_is_null";
+                    cVar.f36354a = false;
                     return cVar;
                 }
                 throw new IllegalArgumentException("plugincenter launch args exception!");
             }
             PluginSetting h2 = d.k().h(str);
             if (h2 == null) {
-                cVar.f36312b = "pluginSetting_is_null";
-                cVar.f36311a = false;
+                cVar.f36355b = "pluginSetting_is_null";
+                cVar.f36354a = false;
                 return cVar;
             } else if (h2.versionCode < PluginPackageManager.L()) {
-                cVar.f36312b = "launch_lowversion";
-                cVar.f36311a = false;
+                cVar.f36355b = "launch_lowversion";
+                cVar.f36354a = false;
                 c.a.e.h.h.a.b().i("plugincenter_launch_lowversion", str);
                 c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
                 b2.o("plugin_load", "plugincenter_load_lowversion", str, h2.apkPath + "-" + h2.versionCode + "-" + h2.forbidden + "-" + h2.tempVersionCode + "-" + h2.installStatus);
@@ -631,13 +631,13 @@ public class PluginCenter {
                 }
                 return cVar;
             } else if (this.mPluginsMap.containsKey(str)) {
-                cVar.f36311a = false;
+                cVar.f36354a = false;
                 return cVar;
             } else {
                 Plugin plugin2 = new Plugin();
                 this.mPluginsMap.put(str, plugin2);
                 Plugin.c initWithBroadcast = plugin2.initWithBroadcast(str);
-                if (!initWithBroadcast.f36311a) {
+                if (!initWithBroadcast.f36354a) {
                     this.mHandler.removeCallbacks(this.mRunnable);
                     this.mHandler.postDelayed(this.mRunnable, 10000L);
                 }

@@ -20,22 +20,22 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f29277a;
+    public BdUniqueId f29297a;
 
     /* renamed from: b  reason: collision with root package name */
-    public q f29278b;
+    public q f29298b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f29279c;
+    public b f29299c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29280d;
+    public int f29300d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f29281e;
+    public boolean f29301e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.e.c.g.a f29282f;
+    public c.a.e.c.g.a f29302f;
 
     /* loaded from: classes4.dex */
     public class a extends c.a.e.c.g.a {
@@ -43,7 +43,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f29283a;
+        public final /* synthetic */ c f29303a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2, int i3) {
@@ -64,35 +64,35 @@ public class c {
                     return;
                 }
             }
-            this.f29283a = cVar;
+            this.f29303a = cVar;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f29283a.f29278b = null;
+                this.f29303a.f29298b = null;
                 if (responsedMessage == null) {
                     return;
                 }
-                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.f29283a.f29277a) {
+                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.f29303a.f29297a) {
                     if (responsedMessage instanceof RecommendGodSocketResponseMessage) {
-                        this.f29283a.f29278b = ((RecommendGodSocketResponseMessage) responsedMessage).recommendGodData;
+                        this.f29303a.f29298b = ((RecommendGodSocketResponseMessage) responsedMessage).recommendGodData;
                     } else if (responsedMessage instanceof RecommendGodHttpResponseMessage) {
-                        this.f29283a.f29278b = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
+                        this.f29303a.f29298b = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
                     }
-                    if (this.f29283a.f29278b != null) {
-                        c cVar = this.f29283a;
-                        cVar.f29280d = cVar.f29278b.f23240a;
+                    if (this.f29303a.f29298b != null) {
+                        c cVar = this.f29303a;
+                        cVar.f29300d = cVar.f29298b.f23256a;
                     }
                     int error = responsedMessage.getError();
-                    if (error != 0 || this.f29283a.f29278b == null) {
+                    if (error != 0 || this.f29303a.f29298b == null) {
                         error = 1;
-                    } else if (ListUtils.isEmpty(this.f29283a.f29278b.f23241b)) {
-                        error = this.f29283a.f29281e ? 3 : 2;
+                    } else if (ListUtils.isEmpty(this.f29303a.f29298b.f23257b)) {
+                        error = this.f29303a.f29301e ? 3 : 2;
                     }
-                    if (this.f29283a.f29279c != null) {
-                        this.f29283a.f29279c.a(this.f29283a.f29278b, error);
+                    if (this.f29303a.f29299c != null) {
+                        this.f29303a.f29299c.a(this.f29303a.f29298b, error);
                     }
                 }
             }
@@ -119,19 +119,19 @@ public class c {
                 return;
             }
         }
-        this.f29280d = 0;
+        this.f29300d = 0;
         a aVar = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, 309684);
-        this.f29282f = aVar;
-        this.f29277a = bdUniqueId;
+        this.f29302f = aVar;
+        this.f29297a = bdUniqueId;
         aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f29282f);
+        MessageManager.getInstance().registerListener(this.f29302f);
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().removeMessage(this.f29277a);
-            MessageManager.getInstance().unRegisterListener(this.f29277a);
+            MessageManager.getInstance().removeMessage(this.f29297a);
+            MessageManager.getInstance().unRegisterListener(this.f29297a);
         }
     }
 
@@ -140,13 +140,13 @@ public class c {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
             recommendGodReqMsg.portrait = str;
-            if (this.f29280d == 0) {
-                this.f29281e = false;
+            if (this.f29300d == 0) {
+                this.f29301e = false;
             } else {
-                this.f29281e = true;
+                this.f29301e = true;
             }
-            recommendGodReqMsg.pageNum = this.f29280d + 1;
-            recommendGodReqMsg.setTag(this.f29277a);
+            recommendGodReqMsg.pageNum = this.f29300d + 1;
+            recommendGodReqMsg.setTag(this.f29297a);
             MessageManager.getInstance().sendMessage(recommendGodReqMsg);
         }
     }
@@ -154,7 +154,7 @@ public class c {
     public void i(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
-            this.f29280d = i2;
+            this.f29300d = i2;
             h(str);
         }
     }
@@ -162,7 +162,7 @@ public class c {
     public void j(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f29279c = bVar;
+            this.f29299c = bVar;
         }
     }
 }

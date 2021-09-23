@@ -38,7 +38,7 @@ public class d extends c.a.e.l.e.a<c.a.r0.a0.d0.e, ThreadCardViewHolder<c.a.r0.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f17836b;
+        public final /* synthetic */ d f17845b;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class d extends c.a.e.l.e.a<c.a.r0.a0.d0.e, ThreadCardViewHolder<c.a.r0.a
                     return;
                 }
             }
-            this.f17836b = dVar;
+            this.f17845b = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public class d extends c.a.e.l.e.a<c.a.r0.a0.d0.e, ThreadCardViewHolder<c.a.r0.a
                 if (view == null || eVar == null || eVar.getThreadData() == null || StringUtils.isNull(eVar.getThreadData().s1())) {
                     return;
                 }
-                this.f17836b.m0(view, eVar);
+                this.f17845b.m0(view, eVar);
             }
         }
     }
@@ -80,7 +80,7 @@ public class d extends c.a.e.l.e.a<c.a.r0.a0.d0.e, ThreadCardViewHolder<c.a.r0.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f17837e;
+        public final /* synthetic */ d f17846e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -97,14 +97,14 @@ public class d extends c.a.e.l.e.a<c.a.r0.a0.d0.e, ThreadCardViewHolder<c.a.r0.a
                     return;
                 }
             }
-            this.f17837e = dVar;
+            this.f17846e = dVar;
         }
 
         @Override // c.a.e.l.e.w
         public void b(View view, c.a.e.l.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                this.f17837e.j0(view, nVar);
+                this.f17846e.j0(view, nVar);
             }
         }
     }

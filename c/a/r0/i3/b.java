@@ -23,10 +23,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<BdUniqueId, ArrayList<StatisticItem>> f19439a;
+    public Map<BdUniqueId, ArrayList<StatisticItem>> f19454a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String[] f19440b;
+    public String[] f19455b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public class b {
                 return;
             }
         }
-        this.f19440b = new String[]{TiebaStatic.Params.OBJ_FLOOR, TiebaStatic.Params.OBJ_ISAD, "obj_id", "tid", "pid", "thread_type", "fid", TiebaStatic.Params.POST_TYPE, TiebaStatic.Params.IS_OFFICIAL, TiebaStatic.Params.OBJ_AD_LOCATE, TiebaStatic.Params.RECOM_WEIGHT, "recom_source", TiebaStatic.Params.RECOM_AB_TAG, TiebaStatic.Params.RECOM_EXTRA, TiebaStatic.Params.RECOM_TYPE, TiebaStatic.Params.UGC_VID, TiebaStatic.Params.UGC_NID, TiebaStatic.Params.UGC_TYPE, "obj_locate", TiebaStatic.Params.LIST_ORDER};
-        if (this.f19439a == null) {
-            this.f19439a = new LinkedHashMap();
+        this.f19455b = new String[]{TiebaStatic.Params.OBJ_FLOOR, TiebaStatic.Params.OBJ_ISAD, "obj_id", "tid", "pid", "thread_type", "fid", TiebaStatic.Params.POST_TYPE, TiebaStatic.Params.IS_OFFICIAL, TiebaStatic.Params.OBJ_AD_LOCATE, TiebaStatic.Params.RECOM_WEIGHT, "recom_source", TiebaStatic.Params.RECOM_AB_TAG, TiebaStatic.Params.RECOM_EXTRA, TiebaStatic.Params.RECOM_TYPE, TiebaStatic.Params.UGC_VID, TiebaStatic.Params.UGC_NID, TiebaStatic.Params.UGC_TYPE, "obj_locate", TiebaStatic.Params.LIST_ORDER};
+        if (this.f19454a == null) {
+            this.f19454a = new LinkedHashMap();
         }
     }
 
@@ -52,10 +52,10 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, bdUniqueId, statisticItem) == null) || statisticItem == null || bdUniqueId == null) {
             return;
         }
-        ArrayList<StatisticItem> arrayList = this.f19439a.get(bdUniqueId);
+        ArrayList<StatisticItem> arrayList = this.f19454a.get(bdUniqueId);
         if (arrayList == null) {
             arrayList = new ArrayList<>();
-            this.f19439a.put(bdUniqueId, arrayList);
+            this.f19454a.put(bdUniqueId, arrayList);
         }
         arrayList.add(statisticItem);
     }
@@ -78,7 +78,7 @@ public class b {
     public boolean c(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId)) == null) ? this.f19439a.containsKey(bdUniqueId) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId)) == null) ? this.f19454a.containsKey(bdUniqueId) : invokeL.booleanValue;
     }
 
     public void d(BdUniqueId bdUniqueId, boolean z) {
@@ -86,7 +86,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLZ(1048579, this, bdUniqueId, z) == null) || bdUniqueId == null) {
             return;
         }
-        ArrayList<StatisticItem> arrayList = this.f19439a.get(bdUniqueId);
+        ArrayList<StatisticItem> arrayList = this.f19454a.get(bdUniqueId);
         if (ListUtils.getCount(arrayList) == 0) {
             return;
         }
@@ -118,17 +118,17 @@ public class b {
                 List list = (List) entry.getValue();
                 if (ListUtils.getCount(list) != 0) {
                     StatisticItem statisticItem2 = (StatisticItem) list.get(0);
-                    for (int i3 = 0; i3 < this.f19440b.length; i3++) {
+                    for (int i3 = 0; i3 < this.f19455b.length; i3++) {
                         StringBuilder sb = new StringBuilder();
                         for (int i4 = 0; i4 < list.size(); i4++) {
-                            sb.append(b(((StatisticItem) list.get(i4)).getParams(), this.f19440b[i3]));
+                            sb.append(b(((StatisticItem) list.get(i4)).getParams(), this.f19455b[i3]));
                             sb.append("|");
                         }
                         if (sb.length() > 0) {
                             sb.deleteCharAt(sb.length() - 1);
                         }
-                        statisticItem2.delete(this.f19440b[i3]);
-                        statisticItem2.param(this.f19440b[i3] + "s", sb.toString());
+                        statisticItem2.delete(this.f19455b[i3]);
+                        statisticItem2.param(this.f19455b[i3] + "s", sb.toString());
                     }
                     TiebaStatic.log(statisticItem2);
                 }
@@ -147,15 +147,15 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) || bdUniqueId == null) {
             return;
         }
-        this.f19439a.put(bdUniqueId, null);
+        this.f19454a.put(bdUniqueId, null);
     }
 
     public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f19439a.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f19454a.size() == 0) {
             return;
         }
-        for (Map.Entry<BdUniqueId, ArrayList<StatisticItem>> entry : this.f19439a.entrySet()) {
+        for (Map.Entry<BdUniqueId, ArrayList<StatisticItem>> entry : this.f19454a.entrySet()) {
             ArrayList<StatisticItem> value = entry.getValue();
             if (value != null) {
                 value.clear();
@@ -168,6 +168,6 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) || bdUniqueId == null) {
             return;
         }
-        this.f19439a.remove(bdUniqueId);
+        this.f19454a.remove(bdUniqueId);
     }
 }

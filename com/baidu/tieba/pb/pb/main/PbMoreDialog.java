@@ -45,7 +45,7 @@ public class PbMoreDialog extends PopupDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbMoreDialog f55191e;
+        public final /* synthetic */ PbMoreDialog f55306e;
 
         public a(PbMoreDialog pbMoreDialog) {
             Interceptable interceptable = $ic;
@@ -62,15 +62,15 @@ public class PbMoreDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f55191e = pbMoreDialog;
+            this.f55306e = pbMoreDialog;
         }
 
         @Override // c.a.q0.s.s.i.e
         public void onItemClick(i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                this.f55191e.dismiss();
-                this.f55191e.A.onClick(view);
+                this.f55306e.dismiss();
+                this.f55306e.A.onClick(view);
             }
         }
     }
@@ -424,7 +424,7 @@ public class PbMoreDialog extends PopupDialog {
             z3 = ((Boolean) sparseArray.get(R.id.tag_richtext_emotion)).booleanValue();
             if (this.z.getPageActivity() instanceof NewSubPbActivity) {
                 NewSubPbActivity newSubPbActivity = (NewSubPbActivity) this.z.getPageActivity();
-                if (z3 && newSubPbActivity.getSubPbModel() != null && newSubPbActivity.getSubPbModel().i0() != null && newSubPbActivity.getSubPbModel().i0().l() != null && !newSubPbActivity.getSubPbModel().i0().l().Q1()) {
+                if (z3 && newSubPbActivity.getSubPbModel() != null && newSubPbActivity.getSubPbModel().j0() != null && newSubPbActivity.getSubPbModel().j0().l() != null && !newSubPbActivity.getSubPbModel().j0().l().Q1()) {
                     z3 = true;
                 }
             }
@@ -450,7 +450,7 @@ public class PbMoreDialog extends PopupDialog {
                 getManageTextView().setVisibility(8);
                 getReportTextView().setVisibility(8);
             }
-            if (d.C()) {
+            if (d.E()) {
                 if (postData != null) {
                     SparseArray sparseArray7 = new SparseArray();
                     sparseArray7.put(R.id.tag_load_sub_data, postData);
@@ -499,7 +499,7 @@ public class PbMoreDialog extends PopupDialog {
         getDisagreeTextView().setVisibility(8);
         if (z2) {
         }
-        if (d.C()) {
+        if (d.E()) {
         }
         c.a.r0.j2.k.e.f1.a.l(this.w, postData, rVar);
     }
@@ -508,7 +508,7 @@ public class PbMoreDialog extends PopupDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             a aVar = new a(this);
-            if (d.C()) {
+            if (d.E()) {
                 setDefaultContentView(null, new String[]{this.z.getString(R.string.action_reply), this.z.getString(R.string.action_share), this.z.getString(R.string.action_dislike), this.z.getString(R.string.no_interesting), this.z.getString(R.string.save_to_emotion), this.z.getString(R.string.save_to_local), this.z.getString(R.string.copy), this.z.getString(R.string.mark), this.z.getString(R.string.report_text), this.z.getString(R.string.delete), this.z.getString(R.string.mute), this.z.getString(R.string.block_user)}, aVar);
                 this.x = h(getItemView(0));
                 this.y = h(getItemView(1));

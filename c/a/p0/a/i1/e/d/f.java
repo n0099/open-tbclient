@@ -27,14 +27,14 @@ public class f implements d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6775c;
+    public static final boolean f6783c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BitmapRegionDecoder f6776a;
+    public BitmapRegionDecoder f6784a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f6777b;
+    public final Object f6785b;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class f implements d {
                 return;
             }
         }
-        f6775c = k.f7077a;
+        f6783c = k.f7085a;
     }
 
     public f() {
@@ -65,7 +65,7 @@ public class f implements d {
                 return;
             }
         }
-        this.f6777b = new Object();
+        this.f6785b = new Object();
     }
 
     @Override // c.a.p0.a.i1.e.d.d
@@ -79,9 +79,9 @@ public class f implements d {
         try {
             inputStream = b(bitmap);
             try {
-                this.f6776a = BitmapRegionDecoder.newInstance(inputStream, false);
+                this.f6784a = BitmapRegionDecoder.newInstance(inputStream, false);
                 c.a.p0.t.d.d(inputStream);
-                return new Point(this.f6776a.getWidth(), this.f6776a.getHeight());
+                return new Point(this.f6784a.getWidth(), this.f6784a.getHeight());
             } catch (Throwable th) {
                 th = th;
                 c.a.p0.t.d.d(inputStream);
@@ -117,13 +117,13 @@ public class f implements d {
         Bitmap decodeRegion;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, rect, i2)) == null) {
-            synchronized (this.f6777b) {
+            synchronized (this.f6785b) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inSampleSize = i2;
                 options.inPreferredConfig = Bitmap.Config.RGB_565;
-                decodeRegion = this.f6776a.decodeRegion(rect, options);
+                decodeRegion = this.f6784a.decodeRegion(rect, options);
                 if (decodeRegion == null) {
-                    if (!f6775c) {
+                    if (!f6783c) {
                         c.a.p0.a.e0.d.h("SkiaImageRegionDecoder", "bitmap is null");
                     } else {
                         throw new RuntimeException("Skia image decoder returned null bitmap - image format may not be supported");
@@ -164,21 +164,21 @@ public class f implements d {
                     }
                     i2 = 0;
                 }
-                this.f6776a = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i2), false);
+                this.f6784a = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i2), false);
             } else if (uri2.startsWith("file:///android_asset/")) {
-                this.f6776a = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
+                this.f6784a = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
             } else if (uri2.startsWith("file://")) {
-                this.f6776a = BitmapRegionDecoder.newInstance(uri2.substring(7), false);
+                this.f6784a = BitmapRegionDecoder.newInstance(uri2.substring(7), false);
             } else {
                 InputStream inputStream = null;
                 try {
                     inputStream = context.getContentResolver().openInputStream(uri);
-                    this.f6776a = BitmapRegionDecoder.newInstance(inputStream, false);
+                    this.f6784a = BitmapRegionDecoder.newInstance(inputStream, false);
                 } finally {
                     c.a.p0.t.d.d(inputStream);
                 }
             }
-            return new Point(this.f6776a.getWidth(), this.f6776a.getHeight());
+            return new Point(this.f6784a.getWidth(), this.f6784a.getHeight());
         }
         return (Point) invokeLL.objValue;
     }
@@ -188,7 +188,7 @@ public class f implements d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BitmapRegionDecoder bitmapRegionDecoder = this.f6776a;
+            BitmapRegionDecoder bitmapRegionDecoder = this.f6784a;
             return (bitmapRegionDecoder == null || bitmapRegionDecoder.isRecycled()) ? false : true;
         }
         return invokeV.booleanValue;
@@ -198,7 +198,7 @@ public class f implements d {
     public void recycle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f6776a.recycle();
+            this.f6784a.recycle();
         }
     }
 }

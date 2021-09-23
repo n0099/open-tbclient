@@ -19,7 +19,7 @@ public class b extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18454f;
+    public String f18463f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class b extends d {
                 return;
             }
         }
-        this.f18454f = TbadkCoreApplication.getInst().getString(R.string.recommend_user_hot_topic_title);
+        this.f18463f = TbadkCoreApplication.getInst().getString(R.string.recommend_user_hot_topic_title);
     }
 
     public void k(HotTopic hotTopic) {

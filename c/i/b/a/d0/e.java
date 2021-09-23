@@ -12,7 +12,7 @@ public final class e implements p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final p[] f33046e;
+    public final p[] f33069e;
 
     public e(p[] pVarArr) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class e implements p {
                 return;
             }
         }
-        this.f33046e = pVarArr;
+        this.f33069e = pVarArr;
     }
 
     @Override // c.i.b.a.d0.p
@@ -46,7 +46,7 @@ public final class e implements p {
                     break;
                 }
                 z = false;
-                for (p pVar : this.f33046e) {
+                for (p pVar : this.f33069e) {
                     long d3 = pVar.d();
                     boolean z3 = d3 != Long.MIN_VALUE && d3 <= j2;
                     if (d3 == d2 || z3) {
@@ -66,7 +66,7 @@ public final class e implements p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             long j2 = Long.MAX_VALUE;
-            for (p pVar : this.f33046e) {
+            for (p pVar : this.f33069e) {
                 long c2 = pVar.c();
                 if (c2 != Long.MIN_VALUE) {
                     j2 = Math.min(j2, c2);
@@ -86,7 +86,7 @@ public final class e implements p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             long j2 = Long.MAX_VALUE;
-            for (p pVar : this.f33046e) {
+            for (p pVar : this.f33069e) {
                 long d2 = pVar.d();
                 if (d2 != Long.MIN_VALUE) {
                     j2 = Math.min(j2, d2);

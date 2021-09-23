@@ -48,39 +48,39 @@ public class b implements a {
     public transient boolean Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f34525a;
+    public long f34548a;
     public boolean a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f34526b;
+    public long f34549b;
     public boolean b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34527c;
+    public String f34550c;
     public boolean c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34528d;
+    public int f34551d;
     public boolean d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34529e;
+    public String f34552e;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34530f;
+    public String f34553f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f34531g;
+    public String f34554g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f34532h;
+    public String f34555h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f34533i;
+    public int f34556i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f34534j;
+    public int f34557j;
     public int k;
     public int l;
     public String m;
@@ -111,7 +111,7 @@ public class b implements a {
                 return;
             }
         }
-        this.f34528d = 1;
+        this.f34551d = 1;
         this.p = true;
         this.t = false;
         this.u = 0;
@@ -241,7 +241,7 @@ public class b implements a {
     public int D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34528d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34551d : invokeV.intValue;
     }
 
     public void D0(String str) {
@@ -345,13 +345,13 @@ public class b implements a {
     public int L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f34534j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f34557j : invokeV.intValue;
     }
 
     public void L0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.f34530f = str;
+            this.f34553f = str;
         }
     }
 
@@ -403,7 +403,7 @@ public class b implements a {
     public void P0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
-            this.f34531g = str;
+            this.f34554g = str;
         }
     }
 
@@ -429,7 +429,7 @@ public class b implements a {
     public void R0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.f34534j = i2;
+            this.f34557j = i2;
         }
     }
 
@@ -508,7 +508,7 @@ public class b implements a {
     public void X0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
-            this.f34533i = i2;
+            this.f34556i = i2;
         }
     }
 
@@ -544,7 +544,7 @@ public class b implements a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.f34530f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.f34553f : (String) invokeV.objValue;
     }
 
     public void a0(JSONObject jSONObject) {
@@ -565,7 +565,7 @@ public class b implements a {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.f34525a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.f34548a : invokeV.longValue;
     }
 
     public void b0(boolean z) {
@@ -606,7 +606,7 @@ public class b implements a {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.f34527c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.f34550c : (String) invokeV.objValue;
     }
 
     public boolean d0() {
@@ -626,7 +626,7 @@ public class b implements a {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.f34529e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.f34552e : (String) invokeV.objValue;
     }
 
     public boolean e0() {
@@ -646,7 +646,7 @@ public class b implements a {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) ? this.f34531g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) ? this.f34554g : (String) invokeV.objValue;
     }
 
     public boolean f0() {
@@ -675,11 +675,11 @@ public class b implements a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("mId", this.f34525a);
-                jSONObject.put("mExtValue", this.f34526b);
-                jSONObject.put("mLogExtra", this.f34527c);
-                jSONObject.put("mDownloadStatus", this.f34528d);
-                jSONObject.put("mPackageName", this.f34529e);
+                jSONObject.put("mId", this.f34548a);
+                jSONObject.put("mExtValue", this.f34549b);
+                jSONObject.put("mLogExtra", this.f34550c);
+                jSONObject.put("mDownloadStatus", this.f34551d);
+                jSONObject.put("mPackageName", this.f34552e);
                 jSONObject.put("mIsAd", this.p);
                 jSONObject.put("mTimeStamp", this.q);
                 jSONObject.put("mExtras", this.r);
@@ -690,16 +690,16 @@ public class b implements a {
                 jSONObject.put("mScene", this.P);
                 jSONObject.put("mEventTag", this.H);
                 jSONObject.put("mEventRefer", this.I);
-                jSONObject.put("mDownloadUrl", this.f34530f);
+                jSONObject.put("mDownloadUrl", this.f34553f);
                 jSONObject.put("mEnableBackDialog", this.t);
                 jSONObject.put("hasSendInstallFinish", this.N.get());
                 jSONObject.put("hasSendDownloadFailedFinally", this.O.get());
                 jSONObject.put("mLastFailedErrCode", this.A);
                 jSONObject.put("mLastFailedErrMsg", this.B);
-                jSONObject.put("mOpenUrl", this.f34531g);
-                jSONObject.put("mLinkMode", this.f34534j);
+                jSONObject.put("mOpenUrl", this.f34554g);
+                jSONObject.put("mLinkMode", this.f34557j);
                 jSONObject.put("mDownloadMode", this.k);
-                jSONObject.put("mModelType", this.f34533i);
+                jSONObject.put("mModelType", this.f34556i);
                 jSONObject.put("mAppName", this.n);
                 jSONObject.put("mAppIcon", this.o);
                 jSONObject.put("mDownloadFailedTimes", this.u);
@@ -716,7 +716,7 @@ public class b implements a {
                 jSONObject.put("clickDownloadSize", this.S);
                 jSONObject.put("installAfterCleanSpace", this.M);
                 jSONObject.put("funnelType", this.Q);
-                jSONObject.put(BaiduAppJsBridgeHandler.INPUT_PARAM_WEB_URL, this.f34532h);
+                jSONObject.put(BaiduAppJsBridgeHandler.INPUT_PARAM_WEB_URL, this.f34555h);
                 jSONObject.put("enableShowComplianceDialog", this.T);
                 jSONObject.put("isAutoDownloadOnCardShow", this.U);
                 int i2 = 1;
@@ -754,20 +754,20 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) {
             c.a aVar = new c.a();
-            aVar.b(this.f34525a);
-            aVar.m(this.f34526b);
-            aVar.e(this.f34527c);
-            aVar.k(this.f34529e);
+            aVar.b(this.f34548a);
+            aVar.m(this.f34549b);
+            aVar.e(this.f34550c);
+            aVar.k(this.f34552e);
             aVar.f(this.r);
             aVar.g(this.p);
             aVar.i(this.l);
             aVar.u(this.m);
-            aVar.p(this.f34530f);
-            aVar.a(this.f34533i);
+            aVar.p(this.f34553f);
+            aVar.a(this.f34556i);
             aVar.s(this.D);
             aVar.r(this.n);
             aVar.n(this.o);
-            aVar.c(new c.p.a.a.a.f.b(this.f34531g, this.f34532h, null));
+            aVar.c(new c.p.a.a.a.f.b(this.f34554g, this.f34555h, null));
             return aVar.h();
         }
         return (c) invokeV.objValue;
@@ -818,14 +818,14 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) {
-            a.C1520a c1520a = new a.C1520a();
-            c1520a.c(this.t);
-            c1520a.a(this.f34534j);
-            c1520a.e(this.k);
-            c1520a.i(this.T);
-            c1520a.j(this.K);
-            c1520a.k(this.L);
-            return c1520a.d();
+            a.C1519a c1519a = new a.C1519a();
+            c1519a.c(this.t);
+            c1519a.a(this.f34557j);
+            c1519a.e(this.k);
+            c1519a.i(this.T);
+            c1519a.j(this.K);
+            c1519a.k(this.L);
+            return c1519a.d();
         }
         return (c.p.a.b.a.a.a) invokeV.objValue;
     }
@@ -857,7 +857,7 @@ public class b implements a {
     public long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) ? this.f34526b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) ? this.f34549b : invokeV.longValue;
     }
 
     public void l0(int i2) {
@@ -909,7 +909,7 @@ public class b implements a {
     public void n0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048667, this, str) == null) {
-            this.f34529e = str;
+            this.f34552e = str;
         }
     }
 
@@ -974,7 +974,7 @@ public class b implements a {
     public void r0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048675, this, str) == null) {
-            this.f34527c = str;
+            this.f34550c = str;
         }
     }
 
@@ -1019,7 +1019,7 @@ public class b implements a {
     public void u0(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048681, this, j2) == null) {
-            this.f34525a = j2;
+            this.f34548a = j2;
         }
     }
 
@@ -1062,7 +1062,7 @@ public class b implements a {
     public void x0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048687, this, i2) == null) {
-            this.f34528d = i2;
+            this.f34551d = i2;
         }
     }
 
@@ -1079,7 +1079,7 @@ public class b implements a {
     public void y0(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048689, this, j2) == null) {
-            this.f34526b = j2;
+            this.f34549b = j2;
         }
     }
 
@@ -1092,7 +1092,7 @@ public class b implements a {
     public void z0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048691, this, str) == null) {
-            this.f34532h = str;
+            this.f34555h = str;
         }
     }
 
@@ -1132,7 +1132,7 @@ public class b implements a {
                 return;
             }
         }
-        this.f34528d = 1;
+        this.f34551d = 1;
         this.p = true;
         this.t = false;
         this.u = 0;
@@ -1148,20 +1148,20 @@ public class b implements a {
         this.Q = 1;
         this.T = true;
         this.Y = -1L;
-        this.f34525a = dVar.d();
-        this.f34526b = dVar.g();
-        this.f34527c = dVar.u();
-        this.f34529e = dVar.v();
+        this.f34548a = dVar.d();
+        this.f34549b = dVar.g();
+        this.f34550c = dVar.u();
+        this.f34552e = dVar.v();
         this.r = dVar.z();
         this.p = dVar.t();
         this.l = dVar.r();
         this.m = dVar.s();
-        this.f34530f = dVar.a();
+        this.f34553f = dVar.a();
         if (dVar.x() != null) {
-            this.f34531g = dVar.x().d();
-            this.f34532h = dVar.x().a();
+            this.f34554g = dVar.x().d();
+            this.f34555h = dVar.x().a();
         }
-        this.f34533i = dVar.A();
+        this.f34556i = dVar.A();
         this.n = dVar.h();
         this.o = dVar.w();
         this.D = dVar.i();
@@ -1169,7 +1169,7 @@ public class b implements a {
         this.I = cVar.a();
         this.J = cVar.m();
         this.t = bVar.c();
-        this.f34534j = bVar.a();
+        this.f34557j = bVar.a();
         this.k = bVar.b();
         this.T = bVar.e();
         this.U = bVar.f();

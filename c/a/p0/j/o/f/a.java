@@ -23,10 +23,10 @@ public class a extends c.a.p0.j.k.a<c.a.p0.a.h1.c.a> implements a.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f11784a;
+    public b f11792a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.a.h1.c.a f11785b;
+    public c.a.p0.a.h1.c.a f11793b;
 
     /* renamed from: c.a.p0.j.o.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -35,13 +35,13 @@ public class a extends c.a.p0.j.k.a<c.a.p0.a.h1.c.a> implements a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f11786a;
+        public final /* synthetic */ b f11794a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f11787b;
+        public final /* synthetic */ String f11795b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f11788c;
+        public final /* synthetic */ a f11796c;
 
         public C0616a(a aVar, b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -58,9 +58,9 @@ public class a extends c.a.p0.j.k.a<c.a.p0.a.h1.c.a> implements a.b {
                     return;
                 }
             }
-            this.f11788c = aVar;
-            this.f11786a = bVar;
-            this.f11787b = str;
+            this.f11796c = aVar;
+            this.f11794a = bVar;
+            this.f11795b = str;
         }
 
         @Override // c.a.p0.j.k.f.d.c
@@ -68,7 +68,7 @@ public class a extends c.a.p0.j.k.a<c.a.p0.a.h1.c.a> implements a.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.p0.a.e0.d.l("map", "location permission fail");
-                this.f11786a.b(this.f11787b, 1003, "location permission fail");
+                this.f11794a.b(this.f11795b, 1003, "location permission fail");
             }
         }
 
@@ -77,7 +77,7 @@ public class a extends c.a.p0.j.k.a<c.a.p0.a.h1.c.a> implements a.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 c.a.p0.a.e0.d.l("map", "location permission success");
-                this.f11788c.g();
+                this.f11796c.g();
             }
         }
     }
@@ -95,7 +95,7 @@ public class a extends c.a.p0.j.k.a<c.a.p0.a.h1.c.a> implements a.b {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public a() {
@@ -123,7 +123,7 @@ public class a extends c.a.p0.j.k.a<c.a.p0.a.h1.c.a> implements a.b {
         b bVar;
         c.a.p0.a.h1.c.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, selectedLocationInfo) == null) || (bVar = this.f11784a) == null || (aVar = this.f11785b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, selectedLocationInfo) == null) || (bVar = this.f11792a) == null || (aVar = this.f11793b) == null) {
             return;
         }
         bVar.c(aVar.D, selectedLocationInfo.toJson());
@@ -143,8 +143,8 @@ public class a extends c.a.p0.j.k.a<c.a.p0.a.h1.c.a> implements a.b {
                 c.a.p0.a.e0.d.b("map", "cb is empty");
                 return false;
             }
-            this.f11784a = bVar;
-            this.f11785b = aVar;
+            this.f11792a = bVar;
+            this.f11793b = aVar;
             d.b(context, new C0616a(this, bVar, str));
             c.a.p0.a.e0.d.g("map", "ChooseLocationAction end");
             return true;
@@ -176,8 +176,8 @@ public class a extends c.a.p0.j.k.a<c.a.p0.a.h1.c.a> implements a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             c.a.p0.a.e0.d.g("map", "choose location cancel");
-            b bVar = this.f11784a;
-            if (bVar == null || (aVar = this.f11785b) == null) {
+            b bVar = this.f11792a;
+            if (bVar == null || (aVar = this.f11793b) == null) {
                 return;
             }
             bVar.b(aVar.D, 1002, "choose location canceled");
@@ -190,8 +190,8 @@ public class a extends c.a.p0.j.k.a<c.a.p0.a.h1.c.a> implements a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             c.a.p0.a.e0.d.g("map", "choose location fail");
-            b bVar = this.f11784a;
-            if (bVar == null || (aVar = this.f11785b) == null) {
+            b bVar = this.f11792a;
+            if (bVar == null || (aVar = this.f11793b) == null) {
                 return;
             }
             bVar.b(aVar.D, 1007, "choose location failed");

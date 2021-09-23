@@ -29,7 +29,7 @@ public class c implements c.a.p0.a.m.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f9458e;
+    public static final boolean f9466e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -38,7 +38,7 @@ public class c implements c.a.p0.a.m.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f9459a;
+        public final /* synthetic */ String f9467a;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -55,14 +55,14 @@ public class c implements c.a.p0.a.m.c {
                     return;
                 }
             }
-            this.f9459a = str;
+            this.f9467a = str;
         }
 
         @Override // c.a.p0.a.w0.a
         public void onResult(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                c.a.p0.a.j0.c.b.s(AppRuntime.getAppContext().getContentResolver(), this.f9459a, 1);
+                c.a.p0.a.j0.c.b.s(AppRuntime.getAppContext().getContentResolver(), this.f9467a, 1);
             }
         }
     }
@@ -73,7 +73,7 @@ public class c implements c.a.p0.a.m.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.w0.a f9460a;
+        public final /* synthetic */ c.a.p0.a.w0.a f9468a;
 
         public b(c.a.p0.a.w0.a aVar) {
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class c implements c.a.p0.a.m.c {
                     return;
                 }
             }
-            this.f9460a = aVar;
+            this.f9468a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -99,18 +99,18 @@ public class c implements c.a.p0.a.m.c {
         public void onSuccess(JSONObject jSONObject, int i2) {
             c.a.p0.a.w0.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) || (aVar = this.f9460a) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) || (aVar = this.f9468a) == null) {
                 return;
             }
             if (jSONObject != null) {
-                if (c.f9458e) {
+                if (c.f9466e) {
                     String str = "上报数据 onSuccess: response=" + jSONObject;
                 }
                 if (jSONObject.optInt("errno", -1) == 0) {
-                    this.f9460a.onResult(true);
+                    this.f9468a.onResult(true);
                     return;
                 } else {
-                    this.f9460a.onResult(false);
+                    this.f9468a.onResult(false);
                     return;
                 }
             }
@@ -136,7 +136,7 @@ public class c implements c.a.p0.a.m.c {
         public void onFail(Exception exc) {
             c.a.p0.a.w0.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (aVar = this.f9460a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (aVar = this.f9468a) == null) {
                 return;
             }
             aVar.onResult(false);
@@ -156,7 +156,7 @@ public class c implements c.a.p0.a.m.c {
                 return;
             }
         }
-        f9458e = k.f7077a;
+        f9466e = k.f7085a;
     }
 
     @WorkerThread
@@ -170,16 +170,16 @@ public class c implements c.a.p0.a.m.c {
         if (TextUtils.equals("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u", H) || TextUtils.equals("g4X7FfGEDt7G1ksLibU22o0wB2p49W0D", H) || TextUtils.equals("VlKQRMSyT32ln2AG84dmTjW6qldpGsNk", H)) {
             return;
         }
-        if (f9458e) {
+        if (f9466e) {
             String str = "addHistory: " + L.K() + " / " + H;
         }
         c.a.p0.a.w0.b a2 = c.a.p0.a.w0.b.a(L);
         boolean c2 = c.a.p0.a.j0.c.b.c(AppRuntime.getAppContext().getContentResolver(), a2, c0315b);
         a aVar = new a(H);
         if (c2) {
-            e("ADD", a2.f9448a, a2.f9452e, a2.f9449b, a2.f9454g, a2.f9457j, aVar);
+            e("ADD", a2.f9456a, a2.f9460e, a2.f9457b, a2.f9462g, a2.f9465j, aVar);
         }
-        boolean z = f9458e;
+        boolean z = f9466e;
     }
 
     public static String d(String str, String str2, long j2, String str3, String str4, String str5) {
@@ -209,7 +209,7 @@ public class c implements c.a.p0.a.m.c {
                 jSONArray.put(jSONObject2);
                 jSONObject.put("items", jSONArray);
             } catch (JSONException e2) {
-                if (f9458e) {
+                if (f9466e) {
                     e2.printStackTrace();
                 }
             }
@@ -226,17 +226,17 @@ public class c implements c.a.p0.a.m.c {
             if (TextUtils.isEmpty(d2)) {
                 return;
             }
-            if (f9458e) {
+            if (f9466e) {
                 String str6 = "reportHistoryDataToServer: 上行参数" + d2;
             }
             b bVar = new b(aVar);
             c.a.p0.m.d.a aVar2 = new c.a.p0.m.d.a();
-            aVar2.f11841b = "POST";
-            aVar2.f11840a = c2;
-            aVar2.f11845f = true;
-            aVar2.f11846g = true;
-            aVar2.f11843d = RequestBody.create(f.f7580a, d2);
-            aVar2.f11844e = bVar;
+            aVar2.f11849b = "POST";
+            aVar2.f11848a = c2;
+            aVar2.f11853f = true;
+            aVar2.f11854g = true;
+            aVar2.f11851d = RequestBody.create(f.f7588a, d2);
+            aVar2.f11852e = bVar;
             c.a.p0.m.e.a.g().e(aVar2);
         }
     }

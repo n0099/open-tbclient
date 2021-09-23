@@ -47,7 +47,7 @@ public class SoftKeyBoardListener implements NoProguard {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SoftKeyBoardListener f63735a;
+            public final /* synthetic */ SoftKeyBoardListener f64046a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -64,7 +64,7 @@ public class SoftKeyBoardListener implements NoProguard {
                         return;
                     }
                 }
-                this.f63735a = this;
+                this.f64046a = this;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -72,9 +72,9 @@ public class SoftKeyBoardListener implements NoProguard {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     Rect rect = new Rect();
-                    this.f63735a.rootView.getWindowVisibleDisplayFrame(rect);
+                    this.f64046a.rootView.getWindowVisibleDisplayFrame(rect);
                     int height = rect.height();
-                    SoftKeyBoardListener softKeyBoardListener = this.f63735a;
+                    SoftKeyBoardListener softKeyBoardListener = this.f64046a;
                     int i4 = softKeyBoardListener.rootViewVisibleHeight;
                     if (i4 == 0) {
                         softKeyBoardListener.rootViewVisibleHeight = height;
@@ -82,14 +82,14 @@ public class SoftKeyBoardListener implements NoProguard {
                     } else {
                         if (i4 - height > 200) {
                             if (softKeyBoardListener.onSoftKeyBoardChangeListener != null) {
-                                this.f63735a.onSoftKeyBoardChangeListener.keyBoardShow(this.f63735a.rootViewVisibleHeight - height);
+                                this.f64046a.onSoftKeyBoardChangeListener.keyBoardShow(this.f64046a.rootViewVisibleHeight - height);
                             }
-                            this.f63735a.rootViewVisibleHeight = height;
+                            this.f64046a.rootViewVisibleHeight = height;
                         } else if (height - i4 > 200) {
                             if (softKeyBoardListener.onSoftKeyBoardChangeListener != null) {
-                                this.f63735a.onSoftKeyBoardChangeListener.keyBoardHide(height - this.f63735a.rootViewVisibleHeight);
+                                this.f64046a.onSoftKeyBoardChangeListener.keyBoardHide(height - this.f64046a.rootViewVisibleHeight);
                             }
-                            this.f63735a.rootViewVisibleHeight = height;
+                            this.f64046a.rootViewVisibleHeight = height;
                         }
                     }
                 }

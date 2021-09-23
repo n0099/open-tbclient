@@ -348,9 +348,9 @@ public class PbActivityConfig extends IntentConfig {
             String valueOf = String.valueOf(d2Var.T());
             String Z = d2Var.Z();
             setFromForumId(String.valueOf(d2Var.R()));
-            if (d2Var.I1 != null) {
+            if (d2Var.J1 != null) {
                 setFromForumId(valueOf);
-                OriginalForumInfo originalForumInfo = d2Var.I1;
+                OriginalForumInfo originalForumInfo = d2Var.J1;
                 String str3 = originalForumInfo.id;
                 Z = originalForumInfo.ori_fname;
                 valueOf = str3;
@@ -833,15 +833,15 @@ public class PbActivityConfig extends IntentConfig {
                     intent.putExtra("key_ori_ugc_type", L.oriUgcType);
                     intent.putExtra("key_ori_ugc_vid", L.oriUgcVid);
                 }
-                intent.putExtra("key_rec_weight", d2Var.X0);
-                intent.putExtra("key_rec_source", d2Var.W0);
-                intent.putExtra("key_rec_ab_tag", d2Var.Y0);
-                intent.putExtra("key_rec_extra", d2Var.Z0);
-                intent.putExtra("key_is_tieba_plus", d2Var.Q2);
-                intent.putExtra("key_tieba_plus_order_id", d2Var.R2);
-                intent.putExtra("key_tieba_plus_token", d2Var.S2);
-                intent.putExtra("key_tieba_extra_param", d2Var.T2);
-                intent.putExtra("key_tieba_plus_cant_delete", d2Var.U2);
+                intent.putExtra("key_rec_weight", d2Var.Y0);
+                intent.putExtra("key_rec_source", d2Var.X0);
+                intent.putExtra("key_rec_ab_tag", d2Var.Z0);
+                intent.putExtra("key_rec_extra", d2Var.a1);
+                intent.putExtra("key_is_tieba_plus", d2Var.R2);
+                intent.putExtra("key_tieba_plus_order_id", d2Var.S2);
+                intent.putExtra("key_tieba_plus_token", d2Var.T2);
+                intent.putExtra("key_tieba_extra_param", d2Var.U2);
+                intent.putExtra("key_tieba_plus_cant_delete", d2Var.V2);
             }
             return this;
         }

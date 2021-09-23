@@ -15,7 +15,7 @@ public final class dl implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f59844a;
+    public final /* synthetic */ FeedbackListActivity f59975a;
 
     public dl(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class dl implements View.OnClickListener {
                 return;
             }
         }
-        this.f59844a = feedbackListActivity;
+        this.f59975a = feedbackListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -44,21 +44,21 @@ public final class dl implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        if (!com.baidu.ufosdk.b.d.c(this.f59844a)) {
+        if (!com.baidu.ufosdk.b.d.c(this.f59975a)) {
             com.baidu.ufosdk.f.c.c("Network is not avaiable. Please try again later.");
             return;
         }
         try {
-            linearLayout = this.f59844a.f59682b;
+            linearLayout = this.f59975a.f59813b;
             linearLayout.setVisibility(8);
-            view2 = this.f59844a.v;
+            view2 = this.f59975a.v;
             view2.setVisibility(0);
             if (UfoSDK.clientid.length() == 0) {
                 new Thread(new dm(this)).start();
                 return;
             }
-            this.f59844a.y = Executors.newSingleThreadExecutor();
-            executorService = this.f59844a.y;
+            this.f59975a.y = Executors.newSingleThreadExecutor();
+            executorService = this.f59975a.y;
             executorService.execute(new dn(this));
         } catch (Exception e2) {
             e2.printStackTrace();

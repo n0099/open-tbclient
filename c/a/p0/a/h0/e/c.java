@@ -25,10 +25,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f5816a;
+        public final /* synthetic */ Context f5824a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f5817b;
+        public final /* synthetic */ b f5825b;
 
         public a(Context context, b bVar) {
             Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public class c {
                     return;
                 }
             }
-            this.f5816a = context;
-            this.f5817b = bVar;
+            this.f5824a = context;
+            this.f5825b = bVar;
         }
 
         @Override // c.a.p0.a.p.d.n.b
@@ -55,11 +55,11 @@ public class c {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (!z) {
                     c.a.p0.a.e0.d.b("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
-                    this.f5817b.a(false, this.f5816a.getString(h.aiapps_authenticate_fail));
+                    this.f5825b.a(false, this.f5824a.getString(h.aiapps_authenticate_fail));
                     return;
                 }
                 c.a.p0.a.e0.d.b("DeveloperAuthenticateHelper", "Authentication Success");
-                this.f5817b.a(true, "");
+                this.f5825b.a(true, "");
             }
         }
 
@@ -71,14 +71,14 @@ public class c {
                 c.a.p0.a.e0.d.c("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
                 String message = exc.getMessage();
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f5816a.getString(h.aiapps_authenticate_fail));
+                sb.append(this.f5824a.getString(h.aiapps_authenticate_fail));
                 if (TextUtils.isEmpty(message)) {
                     str = "";
                 } else {
                     str = StringUtils.LF + message;
                 }
                 sb.append(str);
-                this.f5817b.a(false, sb.toString());
+                this.f5825b.a(false, sb.toString());
             }
         }
     }

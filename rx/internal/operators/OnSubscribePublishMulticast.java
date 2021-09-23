@@ -103,7 +103,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final OnSubscribePublishMulticast<T> f79413e;
+        public final OnSubscribePublishMulticast<T> f79732e;
 
         public a(OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
             Interceptable interceptable = $ic;
@@ -120,14 +120,14 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                     return;
                 }
             }
-            this.f79413e = onSubscribePublishMulticast;
+            this.f79732e = onSubscribePublishMulticast;
         }
 
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f79413e.onCompleted();
+                this.f79732e.onCompleted();
             }
         }
 
@@ -135,7 +135,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.f79413e.onError(th);
+                this.f79732e.onError(th);
             }
         }
 
@@ -143,7 +143,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.f79413e.onNext(t);
+                this.f79732e.onNext(t);
             }
         }
 
@@ -151,7 +151,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         public void setProducer(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-                this.f79413e.setProducer(fVar);
+                this.f79732e.setProducer(fVar);
             }
         }
     }

@@ -51,18 +51,18 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoadingActivity f46861e;
+        public final /* synthetic */ LoadingActivity f46963e;
 
         /* renamed from: com.baidu.swan.facade.requred.webview.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC1738a implements Runnable {
+        public class RunnableC1741a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f46862e;
+            public final /* synthetic */ a f46964e;
 
-            public RunnableC1738a(a aVar) {
+            public RunnableC1741a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,14 +77,14 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
                         return;
                     }
                 }
-                this.f46862e = aVar;
+                this.f46964e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f46862e.f46861e.updateUiProgress();
+                    this.f46964e.f46963e.updateUiProgress();
                 }
             }
         }
@@ -104,7 +104,7 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
                     return;
                 }
             }
-            this.f46861e = loadingActivity;
+            this.f46963e = loadingActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,7 +113,7 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
         public void onCallback(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                q0.b0(new RunnableC1738a(this));
+                q0.b0(new RunnableC1741a(this));
             }
         }
     }
@@ -124,7 +124,7 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoadingActivity f46863e;
+        public final /* synthetic */ LoadingActivity f46965e;
 
         public b(LoadingActivity loadingActivity) {
             Interceptable interceptable = $ic;
@@ -141,7 +141,7 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
                     return;
                 }
             }
-            this.f46863e = loadingActivity;
+            this.f46965e = loadingActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -150,7 +150,7 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
         public void onCallback(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                this.f46863e.finish();
+                this.f46965e.finish();
             }
         }
     }
@@ -161,7 +161,7 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoadingActivity f46864e;
+        public final /* synthetic */ LoadingActivity f46966e;
 
         public c(LoadingActivity loadingActivity) {
             Interceptable interceptable = $ic;
@@ -178,7 +178,7 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
                     return;
                 }
             }
-            this.f46864e = loadingActivity;
+            this.f46966e = loadingActivity;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -186,7 +186,7 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                this.f46864e.startSecondAnim();
+                this.f46966e.startSecondAnim();
             }
         }
     }
@@ -197,7 +197,7 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoadingActivity f46865e;
+        public final /* synthetic */ LoadingActivity f46967e;
 
         public d(LoadingActivity loadingActivity) {
             Interceptable interceptable = $ic;
@@ -214,14 +214,14 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
                     return;
                 }
             }
-            this.f46865e = loadingActivity;
+            this.f46967e = loadingActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46865e.finish();
+                this.f46967e.finish();
             }
         }
     }
@@ -257,7 +257,7 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
                 this.mLogoView.setImageBitmap(d2);
             }
             String stringExtra = intent == null ? "" : intent.getStringExtra(EXT_SO_LIB_NAME);
-            e j2 = c.a.p0.a.n0.k.c.f7530d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
+            e j2 = c.a.p0.a.n0.k.c.f7538d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
             this.mUpdating = j2;
             if (j2 != null && !j2.n()) {
                 this.mUpdating.v(this.mProgressCallback);
@@ -367,7 +367,7 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
             if (m == null || !m.a()) {
                 return;
             }
-            int min = (int) ((Math.min(Math.max(m.f7540a, 0L), m.f7541b) / m.f7541b) * 100.0d);
+            int min = (int) ((Math.min(Math.max(m.f7548a, 0L), m.f7549b) / m.f7549b) * 100.0d);
             TextView textView = this.mProgressView;
             if (textView == null || min <= 0) {
                 return;
@@ -380,7 +380,7 @@ public class LoadingActivity extends Activity implements c.a.p0.a.v2.e1.b<i.a> {
     @Override // c.a.p0.a.v2.e1.b
     public void onCallback(i.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && TextUtils.equals(aVar.f4565f, EVENT_ID_HIDE)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && TextUtils.equals(aVar.f4573f, EVENT_ID_HIDE)) {
             finish();
         }
     }

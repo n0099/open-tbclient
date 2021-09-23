@@ -92,8 +92,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, c.a.f.
         b.a aVar = new b.a();
         this.parallelChargeInfo = aVar;
         aVar.a(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.f29484a)) {
-            this.operateData.f29484a = this.userName;
+        if (TextUtils.isEmpty(this.operateData.f29504a)) {
+            this.operateData.f29504a = this.userName;
         }
     }
 
@@ -124,7 +124,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, c.a.f.
                 jSONObject.put(AdWebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.d());
                 jSONObject.put("operate", this.operateData.b());
                 if (this.adFacadeData != null && this.adFacadeData.i() != null) {
-                    jSONObject.put("extraparams", this.adFacadeData.i().f3282b);
+                    jSONObject.put("extraparams", this.adFacadeData.i().f3283b);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -164,8 +164,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, c.a.f.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             a aVar = this.operateData;
-            if (aVar != null && !TextUtils.isEmpty(aVar.f29486c)) {
-                return this.operateData.f29486c;
+            if (aVar != null && !TextUtils.isEmpty(aVar.f29506c)) {
+                return this.operateData.f29506c;
             }
             return this.scheme;
         }

@@ -16,10 +16,10 @@ public class v {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ExecutorService f41139a;
+    public ExecutorService f41201a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f41140b;
+    public ExecutorService f41202b;
 
     /* renamed from: com.baidu.location.b.v$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -33,7 +33,7 @@ public class v {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static v f41141a;
+        public static v f41203a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +49,7 @@ public class v {
                     return;
                 }
             }
-            f41141a = new v(null);
+            f41203a = new v(null);
         }
     }
 
@@ -74,7 +74,7 @@ public class v {
     public static v a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f41141a : (v) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f41203a : (v) invokeV.objValue;
     }
 
     public synchronized ExecutorService b() {
@@ -83,11 +83,11 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                if (this.f41139a == null || this.f41139a.isShutdown()) {
-                    this.f41139a = null;
-                    this.f41139a = Executors.newSingleThreadExecutor();
+                if (this.f41201a == null || this.f41201a.isShutdown()) {
+                    this.f41201a = null;
+                    this.f41201a = Executors.newSingleThreadExecutor();
                 }
-                executorService = this.f41139a;
+                executorService = this.f41201a;
             }
             return executorService;
         }
@@ -100,11 +100,11 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (this.f41140b == null || this.f41140b.isShutdown()) {
-                    this.f41140b = null;
-                    this.f41140b = Executors.newFixedThreadPool(2);
+                if (this.f41202b == null || this.f41202b.isShutdown()) {
+                    this.f41202b = null;
+                    this.f41202b = Executors.newFixedThreadPool(2);
                 }
-                executorService = this.f41140b;
+                executorService = this.f41202b;
             }
             return executorService;
         }
@@ -114,11 +114,11 @@ public class v {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ExecutorService executorService = this.f41139a;
+            ExecutorService executorService = this.f41201a;
             if (executorService != null) {
                 executorService.shutdown();
             }
-            ExecutorService executorService2 = this.f41140b;
+            ExecutorService executorService2 = this.f41202b;
             if (executorService2 != null) {
                 executorService2.shutdown();
             }

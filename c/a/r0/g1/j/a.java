@@ -30,9 +30,9 @@ public class a {
                 n next = it.next();
                 if (next instanceof d2) {
                     d2 d2Var = (d2) next;
-                    d2Var.c2 = true;
+                    d2Var.d2 = true;
                     int[] g0 = d2Var.g0();
-                    if (d2Var.getType() == d2.Z2) {
+                    if (d2Var.getType() == d2.a3) {
                         if (d2Var != null && d2Var.Y() != null && !StringUtils.isNull(d2Var.Y().f14374b)) {
                             c2 c2Var = new c2();
                             c2Var.w = d2Var;
@@ -44,7 +44,7 @@ public class a {
                             c2 c2Var2 = new c2();
                             c2Var2.w = d2Var;
                             c2Var2.position = i2;
-                            c2Var2.f14122e = true;
+                            c2Var2.f14119e = true;
                             c2Var2.setSupportType(BaseCardInfo.SupportType.TOP);
                             arrayList2.add(c2Var2);
                         }
@@ -52,15 +52,15 @@ public class a {
                         c2Var3.w = d2Var;
                         c2Var3.position = i2;
                         if (d2Var.N1()) {
-                            c2Var3.f14127j = true;
+                            c2Var3.f14124j = true;
                         } else if (d2Var.d3() == 1) {
-                            c2Var3.f14125h = true;
+                            c2Var3.f14122h = true;
                             c2Var3.x = g0[0];
                             c2Var3.y = g0[1];
                         } else if (d2Var.d3() >= 2) {
-                            c2Var3.f14126i = true;
+                            c2Var3.f14123i = true;
                         } else {
-                            c2Var3.f14123f = true;
+                            c2Var3.f14120f = true;
                         }
                         c2Var3.w.setSupportType(BaseCardInfo.SupportType.CONTENT);
                         c2Var3.setSupportType(BaseCardInfo.SupportType.CONTENT);
@@ -96,7 +96,7 @@ public class a {
                         c2Var7.position = i2;
                         c2Var7.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                         arrayList2.add(c2Var7);
-                    } else if (d2Var.getType() == d2.w3) {
+                    } else if (d2Var.getType() == d2.x3) {
                         if (d2Var != null && d2Var.Y() != null && !StringUtils.isNull(d2Var.Y().f14374b)) {
                             c2 c2Var8 = new c2();
                             c2Var8.w = d2Var;
@@ -109,7 +109,7 @@ public class a {
                             c2Var9.w = d2Var;
                             c2Var9.position = i2;
                             c2Var9.setSupportType(BaseCardInfo.SupportType.TOP);
-                            c2Var9.f14122e = true;
+                            c2Var9.f14119e = true;
                             arrayList2.add(c2Var9);
                         }
                         c2 c2Var10 = new c2();
@@ -138,14 +138,14 @@ public class a {
                         c2Var13.position = i2;
                         c2Var13.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                         arrayList2.add(c2Var13);
-                    } else if (d2Var.getType() == d2.o3 && d2Var.M1()) {
+                    } else if (d2Var.getType() == d2.p3 && d2Var.M1()) {
                         d2Var.position = i2;
                         d2Var.setSupportType(BaseCardInfo.SupportType.FULL);
                         arrayList2.add(d2Var);
                     } else if (j.Y(d2Var)) {
                         j jVar = new j(d2Var);
                         jVar.l = d2Var.s1();
-                        jVar.feedBackReasonMap = d2Var.j1;
+                        jVar.feedBackReasonMap = d2Var.k1;
                         jVar.setSupportType(BaseCardInfo.SupportType.FULL);
                         arrayList2.add(jVar);
                     } else {
@@ -185,7 +185,7 @@ public class a {
                 } else if (item instanceof d2) {
                     d2Var = (d2) item;
                 } else if (item instanceof j) {
-                    d2Var = ((j) item).f15562e;
+                    d2Var = ((j) item).f15571e;
                 }
                 if (d2Var != null && d2Var.s1().equals(str)) {
                     if (!z) {

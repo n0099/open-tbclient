@@ -1,46 +1,27 @@
 package c.a.q0.d1;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static c f12907c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f12894a;
+    public c.a.q0.t.c.a f12908a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12895b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f12896c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f12897d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public float f12898e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public float f12899f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f12900g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f12901h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f12902i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f12903j;
-    public boolean k;
-    public String l;
-    public String m;
+    public ABTestExtraData f12909b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -53,6 +34,68 @@ public class c {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public static c d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f12907c == null) {
+                synchronized (c.class) {
+                    if (f12907c == null) {
+                        f12907c = new c();
+                    }
+                }
+            }
+            return f12907c;
+        }
+        return (c) invokeV.objValue;
+    }
+
+    public final void a(c.a.q0.t.c.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            boolean z = aVar == null || this.f12908a == null || aVar.a() != this.f12908a.a();
+            this.f12908a = aVar;
+            if (z) {
+                b("zan_or_cai_smallflow");
+            }
+        }
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
+        }
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f12909b == null) {
+                ABTestExtraData aBTestExtraData = new ABTestExtraData();
+                this.f12909b = aBTestExtraData;
+                aBTestExtraData.parserABTestExtraFormSharedPref();
+            }
+            return this.f12909b.getABTestResult();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void e(c.a.q0.t.c.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            a(aVar);
+        }
+    }
+
+    public void f(ABTestExtraData aBTestExtraData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
+            this.f12909b = aBTestExtraData;
         }
     }
 }

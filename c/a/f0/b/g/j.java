@@ -75,7 +75,7 @@ public class j {
                 if (jSONArray.length() > 0) {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                        if (TextUtils.equals(optJSONObject.optString("k"), hVar.f3415c)) {
+                        if (TextUtils.equals(optJSONObject.optString("k"), hVar.f3416c)) {
                             optJSONObject.put("t", TextUtils.concat(valueOf, "_", optJSONObject.optString("t")).toString());
                             jSONArray.put(i2, optJSONObject);
                             break;
@@ -85,7 +85,7 @@ public class j {
                 z = true;
                 if (z) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("k", hVar.f3415c);
+                    jSONObject.put("k", hVar.f3416c);
                     jSONObject.put("t", valueOf);
                     jSONArray.put(jSONObject);
                 }

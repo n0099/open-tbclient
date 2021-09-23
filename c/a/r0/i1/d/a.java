@@ -25,11 +25,11 @@ public class a extends k<d2, CardViewHolder<x>> implements y {
 
     /* renamed from: c.a.r0.i1.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0929a extends b0<d2> {
+    public class C0927a extends b0<d2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0929a(a aVar) {
+        public C0927a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +74,7 @@ public class a extends k<d2, CardViewHolder<x>> implements y {
                 return;
             }
         }
-        this.y = new C0929a(this);
+        this.y = new C0927a(this);
         this.x = tbPageContext;
     }
 
@@ -91,9 +91,9 @@ public class a extends k<d2, CardViewHolder<x>> implements y {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, bdUniqueId) == null) || tbPageContext == null) {
             return;
         }
-        this.f2957e = tbPageContext.getPageActivity();
+        this.f2958e = tbPageContext.getPageActivity();
         this.x = tbPageContext;
-        this.f2961i = bdUniqueId;
+        this.f2962i = bdUniqueId;
     }
 
     @Override // c.a.r0.w0.k, c.a.r0.a0.y

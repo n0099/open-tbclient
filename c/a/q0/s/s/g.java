@@ -176,15 +176,15 @@ public class g implements View.OnClickListener {
                 return this;
             }
             this.q = aVar;
-            if (c.a.e.e.p.k.isEmpty(aVar.f12552e)) {
+            if (c.a.e.e.p.k.isEmpty(aVar.f12560e)) {
                 this.f14438g.setText(this.f14436e.getResources().getString(R.string.task_already_finish));
             } else {
-                this.f14438g.setText(aVar.f12552e);
+                this.f14438g.setText(aVar.f12560e);
             }
-            if (c.a.e.e.p.k.isEmpty(aVar.f12553f)) {
+            if (c.a.e.e.p.k.isEmpty(aVar.f12561f)) {
                 this.f14439h.setText(this.f14436e.getResources().getString(R.string.back));
             } else {
-                this.f14439h.setText(aVar.f12553f);
+                this.f14439h.setText(aVar.f12561f);
             }
             if (c.a.e.e.p.k.isEmpty(aVar.p)) {
                 SkinManager.setViewTextColor(this.f14438g, R.color.CAM_X0302, 1);
@@ -199,10 +199,10 @@ public class g implements View.OnClickListener {
             if (!c.a.e.e.p.k.isEmpty(aVar.o)) {
                 this.f14439h.setBackgroundDrawable(b(aVar.o));
             }
-            if (!c.a.e.e.p.k.isEmpty(aVar.f12557j)) {
-                this.f14440i.startLoad(aVar.f12557j, 10, false);
+            if (!c.a.e.e.p.k.isEmpty(aVar.f12565j)) {
+                this.f14440i.startLoad(aVar.f12565j, 10, false);
             }
-            int i2 = aVar.f12556i;
+            int i2 = aVar.f12564i;
             if (i2 > 3) {
                 this.o = i2 * 1000;
             }
@@ -314,7 +314,7 @@ public class g implements View.OnClickListener {
                 c.a.e.e.m.e.a().removeCallbacks(this.p);
                 c.a.e.e.m.e.a().postDelayed(this.p, this.o);
                 if (this.q != null) {
-                    TiebaStatic.log(new StatisticItem("c13317").param("obj_source", this.q.f12548a).param("obj_type", this.q.f12549b));
+                    TiebaStatic.log(new StatisticItem("c13317").param("obj_source", this.q.f12556a).param("obj_type", this.q.f12557b));
                 }
             }
             return this;
@@ -329,7 +329,7 @@ public class g implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, view) == null) || (aVar = this.q) == null) {
             return;
         }
-        int i2 = aVar.f12551d;
+        int i2 = aVar.f12559d;
         if (i2 == c.a.q0.a.d0.a.D) {
             if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.q.l) && !c.a.e.e.p.k.isEmpty(this.q.k)) {
                 d(this.q.k);
@@ -337,6 +337,6 @@ public class g implements View.OnClickListener {
         } else if (i2 == c.a.q0.a.d0.a.E && !c.a.e.e.p.k.isEmpty(aVar.k)) {
             d(this.q.k);
         }
-        TiebaStatic.log(new StatisticItem("c13318").param("obj_source", this.q.f12548a).param("obj_type", this.q.f12549b));
+        TiebaStatic.log(new StatisticItem("c13318").param("obj_source", this.q.f12556a).param("obj_type", this.q.f12557b));
     }
 }

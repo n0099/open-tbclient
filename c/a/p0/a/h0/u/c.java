@@ -15,7 +15,7 @@ public class c extends c.a.p0.a.o0.d.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c.a.p0.a.o0.d.a> f6469d;
+    public List<c.a.p0.a.o0.d.a> f6477d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c() {
@@ -33,7 +33,7 @@ public class c extends c.a.p0.a.o0.d.b {
                 return;
             }
         }
-        this.f6469d = new ArrayList();
+        this.f6477d = new ArrayList();
     }
 
     @Override // c.a.p0.a.o0.d.a
@@ -43,19 +43,19 @@ public class c extends c.a.p0.a.o0.d.b {
         String c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            if (aVar == null || this.f6469d.size() <= 0) {
+            if (aVar == null || this.f6477d.size() <= 0) {
                 return null;
             }
             int i2 = 0;
             StringBuilder sb = new StringBuilder();
-            for (c.a.p0.a.o0.d.a aVar2 : this.f6469d) {
+            for (c.a.p0.a.o0.d.a aVar2 : this.f6477d) {
                 String str2 = "event" + i2;
                 if (aVar.isWebView()) {
-                    str = "var " + str2 + " = new Event('" + aVar2.f7795a + "');";
+                    str = "var " + str2 + " = new Event('" + aVar2.f7803a + "');";
                     c2 = "";
                 } else {
                     str = "var " + str2 + " = new Object();";
-                    c2 = c.a.p0.a.o0.a.c(str2, "type", aVar2.f7795a);
+                    c2 = c.a.p0.a.o0.a.c(str2, "type", aVar2.f7803a);
                 }
                 sb.append(str);
                 sb.append(c2);
@@ -70,7 +70,7 @@ public class c extends c.a.p0.a.o0.d.b {
             stringBuffer.append("javascript:(function(){");
             stringBuffer.append((CharSequence) sb);
             stringBuffer.append(XDetailPageJavaScript.STATIC_JAVASCRIPT_FUNC_OVER);
-            if (c.a.p0.a.o0.d.a.f7794b) {
+            if (c.a.p0.a.o0.d.a.f7802b) {
                 String str3 = "combine msg - " + stringBuffer.toString();
             }
             return stringBuffer.toString();
@@ -82,8 +82,8 @@ public class c extends c.a.p0.a.o0.d.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            if (aVar != null && !this.f6469d.contains(aVar)) {
-                this.f6469d.add(aVar);
+            if (aVar != null && !this.f6477d.contains(aVar)) {
+                this.f6477d.add(aVar);
             }
             return this;
         }

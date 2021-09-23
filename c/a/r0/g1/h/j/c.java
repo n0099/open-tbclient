@@ -30,12 +30,12 @@ public class c extends o {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, resource) == null) || resource == null) {
             return;
         }
-        this.f15595e = resource.res_id.longValue();
-        this.f15596f = resource.user_name;
-        this.f15597g = resource.user_image;
-        this.f15598h = resource.user_link;
-        this.f15599i = resource.res_title;
-        this.f15600j = resource.res_image;
+        this.f15604e = resource.res_id.longValue();
+        this.f15605f = resource.user_name;
+        this.f15606g = resource.user_image;
+        this.f15607h = resource.user_link;
+        this.f15608i = resource.res_title;
+        this.f15609j = resource.res_image;
         this.k = resource.res_link;
         this.l = resource.position.longValue();
         this.m = resource.icon_text;

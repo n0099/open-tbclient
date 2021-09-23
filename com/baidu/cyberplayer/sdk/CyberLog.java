@@ -14,7 +14,7 @@ public class CyberLog {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f38928a = 1;
+    public static int f38987a = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,14 +49,14 @@ public class CyberLog {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f38928a = i2;
+            f38987a = i2;
         }
     }
 
     @Keep
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - f38928a > 3) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - f38987a > 3) {
             return;
         }
         String str3 = "duplayer-" + str;
@@ -65,7 +65,7 @@ public class CyberLog {
     @Keep
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - f38928a > 6) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - f38987a > 6) {
             return;
         }
         String str3 = "duplayer-" + str;
@@ -74,7 +74,7 @@ public class CyberLog {
     @Keep
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) || 7 - f38928a > 6) {
+        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) || 7 - f38987a > 6) {
             return;
         }
         String str3 = "duplayer-" + str;
@@ -84,13 +84,13 @@ public class CyberLog {
     public static int getLogLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f38928a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f38987a : invokeV.intValue;
     }
 
     @Keep
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || 7 - f38928a > 4) {
+        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || 7 - f38987a > 4) {
             return;
         }
         String str3 = "duplayer-" + str;
@@ -99,7 +99,7 @@ public class CyberLog {
     @Keep
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || 7 - f38928a > 2) {
+        if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || 7 - f38987a > 2) {
             return;
         }
         String str3 = "duplayer-" + str;
@@ -108,7 +108,7 @@ public class CyberLog {
     @Keep
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || 7 - f38928a > 5) {
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || 7 - f38987a > 5) {
             return;
         }
         String str3 = "duplayer-" + str;

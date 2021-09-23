@@ -20,10 +20,10 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public w f32167e;
+    public w f32188e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.d.b.e0.d f32168f;
+    public c.d.b.e0.d f32189f;
 
     /* loaded from: classes4.dex */
     public class a extends URLStreamHandler {
@@ -31,10 +31,10 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f32169a;
+        public final /* synthetic */ String f32190a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ x f32170b;
+        public final /* synthetic */ x f32191b;
 
         public a(x xVar, String str) {
             Interceptable interceptable = $ic;
@@ -51,8 +51,8 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
                     return;
                 }
             }
-            this.f32170b = xVar;
-            this.f32169a = str;
+            this.f32191b = xVar;
+            this.f32190a = str;
         }
 
         @Override // java.net.URLStreamHandler
@@ -60,10 +60,10 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f32169a.equals("http")) {
+                if (this.f32190a.equals("http")) {
                     return 80;
                 }
-                if (this.f32169a.equals("https")) {
+                if (this.f32190a.equals("https")) {
                     return Constants.SOCKET_PORT_SSL;
                 }
                 throw new AssertionError();
@@ -75,14 +75,14 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
         public URLConnection openConnection(URL url) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) ? this.f32170b.f(url) : (URLConnection) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) ? this.f32191b.f(url) : (URLConnection) invokeL.objValue;
         }
 
         @Override // java.net.URLStreamHandler
         public URLConnection openConnection(URL url, Proxy proxy) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, url, proxy)) == null) ? this.f32170b.g(url, proxy) : (URLConnection) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, url, proxy)) == null) ? this.f32191b.g(url, proxy) : (URLConnection) invokeLL.objValue;
         }
     }
 
@@ -101,7 +101,7 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
                 return;
             }
         }
-        this.f32167e = wVar;
+        this.f32188e = wVar;
     }
 
     @Override // java.net.URLStreamHandlerFactory
@@ -120,7 +120,7 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
     public w d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32167e : (w) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32188e : (w) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -128,13 +128,13 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
     public x clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new x(this.f32167e) : (x) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new x(this.f32188e) : (x) invokeV.objValue;
     }
 
     public HttpURLConnection f(URL url) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, url)) == null) ? g(url, this.f32167e.A()) : (HttpURLConnection) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, url)) == null) ? g(url, this.f32188e.A()) : (HttpURLConnection) invokeL.objValue;
     }
 
     public HttpURLConnection g(URL url, Proxy proxy) {
@@ -142,14 +142,14 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, url, proxy)) == null) {
             String protocol = url.getProtocol();
-            w.b v = this.f32167e.v();
+            w.b v = this.f32188e.v();
             v.m(proxy);
             w a2 = v.a();
             if (protocol.equals("http")) {
-                return new OkHttpURLConnection(url, a2, this.f32168f);
+                return new OkHttpURLConnection(url, a2, this.f32189f);
             }
             if (protocol.equals("https")) {
-                return new c.d.b.e0.l.c(url, a2, this.f32168f);
+                return new c.d.b.e0.l.c(url, a2, this.f32189f);
             }
             throw new IllegalArgumentException("Unexpected protocol: " + protocol);
         }
@@ -160,7 +160,7 @@ public final class x implements URLStreamHandlerFactory, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, wVar)) == null) {
-            this.f32167e = wVar;
+            this.f32188e = wVar;
             return this;
         }
         return (x) invokeL.objValue;

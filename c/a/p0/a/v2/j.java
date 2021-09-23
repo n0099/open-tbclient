@@ -19,22 +19,22 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9346a;
+    public static final boolean f9354a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String> f9347b;
+    public static List<String> f9355b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<String> f9348c;
+    public static List<String> f9356c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f9349d;
+    public static final Object f9357d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f9350e;
+    public static int f9358e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f9351f;
+    public static int f9359f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -43,7 +43,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f9352a;
+        public final boolean f9360a;
 
         public a(boolean z) {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class j {
                     return;
                 }
             }
-            this.f9352a = z;
+            this.f9360a = z;
         }
     }
 
@@ -77,25 +77,25 @@ public class j {
                 return;
             }
         }
-        f9346a = c.a.p0.a.k.f7077a;
-        f9347b = new ArrayList();
-        f9348c = new ArrayList();
-        f9349d = new Object();
-        f9350e = 0;
-        f9351f = 0;
+        f9354a = c.a.p0.a.k.f7085a;
+        f9355b = new ArrayList();
+        f9356c = new ArrayList();
+        f9357d = new Object();
+        f9358e = 0;
+        f9359f = 0;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f9350e == 2) {
-                boolean z = f9346a;
+            if (f9358e == 2) {
+                boolean z = f9354a;
                 return true;
             } else if (!l0.f("3.230.0")) {
                 return c.a.p0.a.c1.a.Z().m() && !c.a.p0.a.k2.g.h.a().getBoolean("swan_app_js_native_ab_update_key", false);
             } else {
-                boolean z2 = f9346a;
+                boolean z2 = f9354a;
                 return false;
             }
         }
@@ -106,8 +106,8 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            c.a.p0.a.e0.d.b("JsNative", f9351f + "-true");
-            return f9351f + "-true-" + str + "-" + c();
+            c.a.p0.a.e0.d.b("JsNative", f9359f + "-true");
+            return f9359f + "-true-" + str + "-" + c();
         }
         return (String) invokeL.objValue;
     }
@@ -117,10 +117,10 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             StringBuilder sb = new StringBuilder();
-            synchronized (f9349d) {
-                if (f9347b != null) {
+            synchronized (f9357d) {
+                if (f9355b != null) {
                     sb.append("v8list:{");
-                    for (String str : f9347b) {
+                    for (String str : f9355b) {
                         if (!TextUtils.isEmpty(str)) {
                             if (str.length() > 100) {
                                 sb.append(str.substring(0, 99));
@@ -133,9 +133,9 @@ public class j {
                     }
                     sb.append("},");
                 }
-                if (f9348c != null) {
+                if (f9356c != null) {
                     sb.append("weblist:{");
-                    for (String str2 : f9348c) {
+                    for (String str2 : f9356c) {
                         if (!TextUtils.isEmpty(str2)) {
                             if (str2.length() > 100) {
                                 sb.append(str2.substring(0, 99));
@@ -159,34 +159,34 @@ public class j {
         List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            f9351f = 0;
+            f9359f = 0;
             String str = z ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
-            if (f9350e == 1) {
-                boolean z2 = f9346a;
-                f9351f = 1;
+            if (f9358e == 1) {
+                boolean z2 = f9354a;
+                f9359f = 1;
                 return SchemeCollecter.getSchemesDes(str, i2);
             }
             if (c.a.p0.a.u.e.j.d.b()) {
-                synchronized (f9349d) {
+                synchronized (f9357d) {
                     if (z) {
-                        list = f9347b;
+                        list = f9355b;
                     } else {
-                        list = f9348c;
+                        list = f9356c;
                     }
                     if (list != null && list.size() > 0) {
-                        boolean z3 = f9346a;
-                        f9350e = 2;
-                        f9351f = 2;
+                        boolean z3 = f9354a;
+                        f9358e = 2;
+                        f9359f = 2;
                         return list.get(i2);
                     } else if (list != null) {
-                        f9351f = 3;
+                        f9359f = 3;
                     } else {
-                        f9351f = 4;
+                        f9359f = 4;
                     }
                 }
             }
-            boolean z4 = f9346a;
-            f9350e = 1;
+            boolean z4 = f9354a;
+            f9358e = 1;
             return SchemeCollecter.getSchemesDes(str, i2);
         }
         return (String) invokeCommon.objValue;
@@ -201,7 +201,7 @@ public class j {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
-            boolean z = f9346a;
+            boolean z = f9354a;
             if (c.a.p0.n.c.b() != null && c.a.p0.n.j.i.m.b()) {
                 c.a.p0.n.c.b().j().putString("key_online_description_fix_version", "0");
             }
@@ -212,19 +212,19 @@ public class j {
 
     public static void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && f9346a) {
-            String str = f9351f + "-true";
+        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && f9354a) {
+            String str = f9359f + "-true";
         }
     }
 
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            boolean z = f9346a;
-            synchronized (f9349d) {
-                f9350e = 0;
-                f9347b = new ArrayList();
-                f9348c = new ArrayList();
+            boolean z = f9354a;
+            synchronized (f9357d) {
+                f9358e = 0;
+                f9355b = new ArrayList();
+                f9356c = new ArrayList();
             }
         }
     }
@@ -232,19 +232,19 @@ public class j {
     public static void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            boolean z = f9346a;
-            synchronized (f9349d) {
+            boolean z = f9354a;
+            synchronized (f9357d) {
                 j(true);
                 j(false);
             }
-            boolean z2 = f9346a;
+            boolean z2 = f9354a;
         }
     }
 
     public static void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            if (f9346a) {
+            if (f9354a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("start prepare ab description :");
                 sb.append(z ? V8Engine.TYPE_V8 : "webview");
@@ -266,13 +266,13 @@ public class j {
 
     public static void k(List<String> list, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65547, null, list, z) == null) && list != null && f9350e == 0) {
+        if ((interceptable == null || interceptable.invokeLZ(65547, null, list, z) == null) && list != null && f9358e == 0) {
             if (z) {
-                f9347b = list;
+                f9355b = list;
             } else {
-                f9348c = list;
+                f9356c = list;
             }
-            if (f9346a) {
+            if (f9354a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("has update descriptions, list :");
                 sb.append(list.toString());

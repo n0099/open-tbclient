@@ -15,11 +15,11 @@ public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10932b;
+    public static final boolean f10940b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f10933a;
+    public final String f10941a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public abstract class a {
                 return;
             }
         }
-        f10932b = k.f7077a;
+        f10940b = k.f7085a;
     }
 
     public a(String str) {
@@ -52,7 +52,7 @@ public abstract class a {
                 return;
             }
         }
-        this.f10933a = str;
+        this.f10941a = str;
     }
 
     public abstract c.a.p0.a.u.h.b a(@NonNull JSONObject jSONObject, @NonNull c.a.p0.a.u0.b bVar);

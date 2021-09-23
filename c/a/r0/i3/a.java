@@ -23,7 +23,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f19438a;
+    public static final List<String> f19453a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class a {
                 return;
             }
         }
-        f19438a = Arrays.asList("a006", "a005", "a008", "a002");
+        f19453a = Arrays.asList("a006", "a005", "a008", "a002");
     }
 
     public static String a(String str) {
@@ -127,7 +127,7 @@ public class a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             StatisticItem statisticItem = new StatisticItem(str2);
             statisticItem.param("page_type", str).param("ad_exp", z ? 1 : 0).param("ad_exp_cnt", i2).param(TiebaStatic.Params.OBJ_FLOOR, 0).param(TiebaStatic.Params.OBJ_AD_LOCATE, i3);
-            if (str != null && f19438a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            if (str != null && f19453a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
                 statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().q);
             }
             return statisticItem;
@@ -169,7 +169,7 @@ public class a {
                 str3 = str4;
             }
             param.param("obj_id", str3).param(TiebaStatic.Params.OBJ_AD_LOCATE, i4);
-            if (str != null && f19438a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            if (str != null && f19453a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
                 statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().q);
             }
             if (z) {
@@ -233,10 +233,10 @@ public class a {
             if (!k.isEmpty(d2Var.R0())) {
                 statisticItem.param("list_strategy", d2Var.R0());
             }
-            if (str != null && f19438a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().q)) {
+            if (str != null && f19453a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().q)) {
                 statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().q);
-            } else if (!k.isEmpty(d2Var.Y0)) {
-                statisticItem.param("ab_tag", d2Var.Y0);
+            } else if (!k.isEmpty(d2Var.Z0)) {
+                statisticItem.param("ab_tag", d2Var.Z0);
             }
             if (z) {
                 statisticItem.param("obj_locate", i2);

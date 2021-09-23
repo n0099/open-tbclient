@@ -15,16 +15,16 @@ public class n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f20975a;
+    public int f20987a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f20976b;
+    public long f20988b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f20977c;
+    public boolean f20989c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f20978d;
+    public String f20990d;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -39,22 +39,22 @@ public class n {
                 return;
             }
         }
-        this.f20975a = 0;
-        this.f20976b = 0L;
-        this.f20977c = false;
-        this.f20978d = null;
+        this.f20987a = 0;
+        this.f20988b = 0L;
+        this.f20989c = false;
+        this.f20990d = null;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20978d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20990d : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20975a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20987a : invokeV.intValue;
     }
 
     public void c(StarInfo starInfo) {
@@ -63,7 +63,7 @@ public class n {
             return;
         }
         int intValue = starInfo.has_frs_star.intValue();
-        this.f20975a = intValue;
+        this.f20987a = intValue;
         if (intValue == 1) {
             String str = starInfo.top;
             String str2 = starInfo.head;
@@ -72,7 +72,7 @@ public class n {
                 fans.is_get.intValue();
                 fans.num.intValue();
                 fans.open.intValue();
-                this.f20976b = fans.left_time.intValue();
+                this.f20988b = fans.left_time.intValue();
             }
             Size size = starInfo.top_size;
             if (size != null) {
@@ -86,7 +86,7 @@ public class n {
             }
         }
         boolean z = starInfo.trade != null;
-        this.f20977c = z;
+        this.f20989c = z;
         if (z) {
             Integer num = starInfo.trade.time;
             if (num != null) {
@@ -94,6 +94,6 @@ public class n {
             }
             String str3 = starInfo.trade.url;
         }
-        this.f20978d = starInfo.star_forum_headimg;
+        this.f20990d = starInfo.star_forum_headimg;
     }
 }

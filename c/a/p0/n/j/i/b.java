@@ -14,14 +14,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f12010c;
+    public static volatile b f12018c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f12011a;
+    public final a f12019a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.n.j.i.a f12012b;
+    public c.a.p0.n.j.i.a f12020b;
 
     /* loaded from: classes3.dex */
     public static class a extends c.a.p0.t.j {
@@ -60,21 +60,21 @@ public class b {
                 return;
             }
         }
-        this.f12011a = new a();
+        this.f12019a = new a();
     }
 
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12010c == null) {
+            if (f12018c == null) {
                 synchronized (b.class) {
-                    if (f12010c == null) {
-                        f12010c = new b();
+                    if (f12018c == null) {
+                        f12018c = new b();
                     }
                 }
             }
-            return f12010c;
+            return f12018c;
         }
         return (b) invokeV.objValue;
     }
@@ -84,14 +84,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f12012b == null) {
+            if (this.f12020b == null) {
                 synchronized (b.class) {
-                    if (this.f12012b == null) {
-                        this.f12012b = c.a.p0.n.j.i.a.b(this.f12011a.getString("data", ""));
+                    if (this.f12020b == null) {
+                        this.f12020b = c.a.p0.n.j.i.a.b(this.f12019a.getString("data", ""));
                     }
                 }
             }
-            return this.f12012b;
+            return this.f12020b;
         }
         return (c.a.p0.n.j.i.a) invokeV.objValue;
     }
@@ -99,7 +99,7 @@ public class b {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12011a.getString("version", "0") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12019a.getString("version", "0") : (String) invokeV.objValue;
     }
 
     public void d(JSONObject jSONObject) {
@@ -115,6 +115,6 @@ public class b {
         if (TextUtils.isEmpty(optString2)) {
             return;
         }
-        this.f12011a.edit().putString("version", optString).putString("data", optString2).apply();
+        this.f12019a.edit().putString("version", optString).putString("data", optString2).apply();
     }
 }

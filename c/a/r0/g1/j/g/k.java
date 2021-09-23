@@ -24,7 +24,7 @@ public class k extends c.a.e.l.e.a<c.a.r0.g1.j.h.b, AdapterViewHolder<HotTopicRa
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.r0.g1.f.a.e.a.f18093a);
+        super(tbPageContext.getPageActivity(), c.a.r0.g1.f.a.e.a.f18103a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

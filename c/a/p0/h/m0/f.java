@@ -22,31 +22,31 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11344a;
+    public static final boolean f11352a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f11345b;
+    public static String f11353b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f11346c;
+    public static String f11354c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f11347d;
+    public static String f11355d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f11348e;
+    public static String f11356e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f11349f;
+    public static String f11357f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f11350g;
+    public static String f11358g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f11351h;
+    public static String f11359h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f11352i;
+    public static String f11360i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -75,11 +75,11 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
                 if (200 != i2 || TextUtils.isEmpty(str)) {
-                    boolean unused = f.f11344a;
+                    boolean unused = f.f11352a;
                     return;
                 }
                 try {
-                    if (f.f11344a) {
+                    if (f.f11352a) {
                         String str2 = "回访引导配置信息 = " + str;
                     }
                     JSONObject jSONObject = new JSONObject(str);
@@ -91,9 +91,9 @@ public class f {
                     if (optJSONObject == null || optJSONObject.length() == 0) {
                         return;
                     }
-                    JSONArray optJSONArray = optJSONObject.optJSONArray(f.f11352i);
+                    JSONArray optJSONArray = optJSONObject.optJSONArray(f.f11360i);
                     if (optJSONArray != null) {
-                        h.a().putString(f.f11352i, optJSONArray.toString());
+                        h.a().putString(f.f11360i, optJSONArray.toString());
                     }
                     if (i3 == null) {
                         f.k(optJSONObject.toString());
@@ -112,7 +112,7 @@ public class f {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && f.f11344a) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && f.f11352a) {
                 String str = "请求配置信息失败，err = " + exc.getMessage();
             }
         }
@@ -124,7 +124,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11353e;
+        public final /* synthetic */ String f11361e;
 
         public b(String str) {
             Interceptable interceptable = $ic;
@@ -141,14 +141,14 @@ public class f {
                     return;
                 }
             }
-            this.f11353e = str;
+            this.f11361e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h.a().putString("swan_game_guide_toast", this.f11353e);
+                h.a().putString("swan_game_guide_toast", this.f11361e);
             }
         }
     }
@@ -166,15 +166,15 @@ public class f {
                 return;
             }
         }
-        f11344a = k.f7077a;
-        f11345b = "bbaspg_guide_";
-        f11346c = "custom_guide_list";
-        f11347d = "appid";
-        f11348e = "shown_count";
-        f11349f = "image_index";
-        f11350g = "last_time";
-        f11351h = "reset";
-        f11352i = "duration_permission_list";
+        f11352a = k.f7085a;
+        f11353b = "bbaspg_guide_";
+        f11354c = "custom_guide_list";
+        f11355d = "appid";
+        f11356e = "shown_count";
+        f11357f = "image_index";
+        f11358g = "last_time";
+        f11359h = "reset";
+        f11360i = "duration_permission_list";
     }
 
     public static void g(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -183,16 +183,16 @@ public class f {
             return;
         }
         try {
-            if (!TextUtils.equals(jSONObject.optString(f11345b + f11351h, "0"), jSONObject2.optString(f11345b + f11351h, "-1"))) {
-                jSONObject.put(f11345b + f11348e, "0");
-                jSONObject.put(f11345b + f11350g, "0");
-                jSONObject.put(f11345b + f11349f, "0");
+            if (!TextUtils.equals(jSONObject.optString(f11353b + f11359h, "0"), jSONObject2.optString(f11353b + f11359h, "-1"))) {
+                jSONObject.put(f11353b + f11356e, "0");
+                jSONObject.put(f11353b + f11358g, "0");
+                jSONObject.put(f11353b + f11357f, "0");
             } else {
-                jSONObject.put(f11345b + f11348e, jSONObject2.optString(f11345b + f11348e, "0"));
-                jSONObject.put(f11345b + f11350g, jSONObject2.optString(f11345b + f11350g, "0"));
+                jSONObject.put(f11353b + f11356e, jSONObject2.optString(f11353b + f11356e, "0"));
+                jSONObject.put(f11353b + f11358g, jSONObject2.optString(f11353b + f11358g, "0"));
             }
         } catch (JSONException e2) {
-            if (f11344a) {
+            if (f11352a) {
                 e2.printStackTrace();
             }
         }
@@ -202,34 +202,34 @@ public class f {
         JSONArray optJSONArray;
         JSONArray optJSONArray2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, jSONObject, jSONObject2) == null) || jSONObject == null || jSONObject2 == null || (optJSONArray = jSONObject2.optJSONArray(f11346c)) == null || optJSONArray.length() <= 0 || (optJSONArray2 = jSONObject.optJSONArray(f11346c)) == null || optJSONArray2.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65544, null, jSONObject, jSONObject2) == null) || jSONObject == null || jSONObject2 == null || (optJSONArray = jSONObject2.optJSONArray(f11354c)) == null || optJSONArray.length() <= 0 || (optJSONArray2 = jSONObject.optJSONArray(f11354c)) == null || optJSONArray2.length() <= 0) {
             return;
         }
         int length = optJSONArray2.length();
         for (int i2 = 0; i2 < length; i2++) {
             JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
-            String optString = optJSONObject.optString(f11347d, "");
-            String optString2 = optJSONObject.optString(f11351h, "0");
+            String optString = optJSONObject.optString(f11355d, "");
+            String optString2 = optJSONObject.optString(f11359h, "0");
             int length2 = optJSONArray.length();
             int i3 = 0;
             while (true) {
                 if (i3 < length2) {
                     JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
-                    String optString3 = optJSONObject2.optString(f11347d, "-1");
-                    String optString4 = optJSONObject2.optString(f11351h, "0");
+                    String optString3 = optJSONObject2.optString(f11355d, "-1");
+                    String optString4 = optJSONObject2.optString(f11359h, "0");
                     if (TextUtils.equals(optString3, optString)) {
                         try {
                             if (!TextUtils.equals(optString4, optString2)) {
-                                optJSONObject.put(f11348e, "0");
-                                optJSONObject.put(f11350g, "0");
-                                optJSONObject.put(f11349f, "0");
+                                optJSONObject.put(f11356e, "0");
+                                optJSONObject.put(f11358g, "0");
+                                optJSONObject.put(f11357f, "0");
                             } else {
-                                optJSONObject.put(f11348e, jSONObject2.optString(f11348e, "0"));
-                                optJSONObject.put(f11350g, jSONObject2.optString(f11350g, "0"));
-                                optJSONObject.put(f11349f, jSONObject2.optString(f11349f, "0"));
+                                optJSONObject.put(f11356e, jSONObject2.optString(f11356e, "0"));
+                                optJSONObject.put(f11358g, jSONObject2.optString(f11358g, "0"));
+                                optJSONObject.put(f11357f, jSONObject2.optString(f11357f, "0"));
                             }
                         } catch (JSONException e2) {
-                            if (f11344a) {
+                            if (f11352a) {
                                 e2.printStackTrace();
                             }
                         }
@@ -252,7 +252,7 @@ public class f {
             try {
                 return new JSONObject(string);
             } catch (JSONException e2) {
-                if (f11344a) {
+                if (f11352a) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -275,7 +275,7 @@ public class f {
         if (!(interceptable == null || interceptable.invokeL(65547, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (f11344a) {
+        if (f11352a) {
             String str2 = "回访引导配置信息存入 = " + str;
         }
         q.j(new b(str), "swanGameGuideUpdateRunnable");

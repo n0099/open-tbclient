@@ -27,7 +27,7 @@ public class CarUUID {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f43676a;
+    public static final Pattern f43738a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +43,7 @@ public class CarUUID {
                 return;
             }
         }
-        f43676a = Pattern.compile("(\\w{32})");
+        f43738a = Pattern.compile("(\\w{32})");
     }
 
     public CarUUID() {
@@ -92,7 +92,7 @@ public class CarUUID {
             List<ApplicationInfo> installedApplications = context.getPackageManager().getInstalledApplications(0);
             ApplicationInfo applicationInfo = context.getApplicationInfo();
             for (ApplicationInfo applicationInfo2 : installedApplications) {
-                if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, com.baidu.fsg.face.base.b.c.f39787g), "libdueros_uuid.so"))) != null) {
+                if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, com.baidu.fsg.face.base.b.c.f39841g), "libdueros_uuid.so"))) != null) {
                     return a2;
                 }
             }
@@ -217,7 +217,7 @@ public class CarUUID {
                     try {
                         byte[] bArr = new byte[1024];
                         String str = new String(bArr, 0, fileInputStream.read(bArr));
-                        String str2 = f43676a.matcher(str).matches() ? str : null;
+                        String str2 = f43738a.matcher(str).matches() ? str : null;
                         t.a(fileInputStream);
                         return str2;
                     } catch (Exception unused) {

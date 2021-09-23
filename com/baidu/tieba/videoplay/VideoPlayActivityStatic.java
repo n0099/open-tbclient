@@ -1,10 +1,11 @@
 package com.baidu.tieba.videoplay;
 
-import c.a.r0.j3.d0.a;
+import c.a.r0.j3.e0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -43,6 +44,7 @@ public class VideoPlayActivityStatic {
         }
         TbadkCoreApplication.getInst().RegisterIntent(VideoPlayActivityConfig.class, VideoPlayActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(VideoRecommentPlayActivityConfig.class, VideoRecommentPlayActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(FrsVideoTabPlayActivityConfig.class, FrsVideoTabPlayActivity.class);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_NANI_VIDEO, TbConfig.SERVER_ADDRESS + "c/f/video/getVideoMidPage");
         tbHttpMessageTask.setResponsedClass(ResponseGetNaniVideoMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

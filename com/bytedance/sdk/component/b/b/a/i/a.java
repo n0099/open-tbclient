@@ -20,7 +20,7 @@ public final class a extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final f f64805a;
+    public final f f65116a;
 
     public a(f fVar) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class a extends c {
                 return;
             }
         }
-        this.f64805a = fVar;
+        this.f65116a = fVar;
     }
 
     @Override // com.bytedance.sdk.component.b.b.a.i.c
@@ -51,7 +51,7 @@ public final class a extends c {
             boolean z = false;
             for (int i2 = 0; i2 < 9; i2++) {
                 X509Certificate x509Certificate = (X509Certificate) arrayList.get(arrayList.size() - 1);
-                X509Certificate a2 = this.f64805a.a(x509Certificate);
+                X509Certificate a2 = this.f65116a.a(x509Certificate);
                 if (a2 != null) {
                     if (arrayList.size() > 1 || !x509Certificate.equals(a2)) {
                         arrayList.add(a2);
@@ -87,7 +87,7 @@ public final class a extends c {
             if (obj == this) {
                 return true;
             }
-            return (obj instanceof a) && ((a) obj).f64805a.equals(this.f64805a);
+            return (obj instanceof a) && ((a) obj).f65116a.equals(this.f65116a);
         }
         return invokeL.booleanValue;
     }
@@ -95,7 +95,7 @@ public final class a extends c {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64805a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65116a.hashCode() : invokeV.intValue;
     }
 
     private boolean a(X509Certificate x509Certificate, X509Certificate x509Certificate2) {

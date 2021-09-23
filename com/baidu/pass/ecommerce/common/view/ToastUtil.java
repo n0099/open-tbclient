@@ -40,7 +40,7 @@ public class ToastUtil {
     public static void createToast(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            Toast toast = new Toast(context);
+            Toast toast = new Toast(context.getApplicationContext());
             mToast = toast;
             toast.setGravity(17, 0, 0);
             mToast.setDuration(0);

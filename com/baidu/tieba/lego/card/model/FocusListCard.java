@@ -29,25 +29,25 @@ public class FocusListCard extends BaseCardInfo {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53801a;
+        public String f53916a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53802b;
+        public String f53917b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f53803c;
+        public String f53918c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f53804d;
+        public int f53919d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f53805e;
+        public int f53920e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f53806f;
+        public String f53921f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f53807g;
+        public long f53922g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -96,18 +96,18 @@ public class FocusListCard extends BaseCardInfo {
                 a aVar = new a();
                 try {
                     if (optJSONArray.length() > 0) {
-                        aVar.f53801a = optJSONArray.getString(0);
+                        aVar.f53916a = optJSONArray.getString(0);
                     }
                     if (optJSONArray.length() > 1) {
-                        aVar.f53802b = optJSONArray.getString(1);
+                        aVar.f53917b = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.f53803c = optJSONArray.getString(2);
+                        aVar.f53918c = optJSONArray.getString(2);
                     }
-                    aVar.f53804d = b.b(optJSONObject.optString("focusColor", ""));
-                    aVar.f53805e = b.b(optJSONObject.optString("focusColorNight", ""));
-                    aVar.f53806f = optJSONObject.optString("scheme");
-                    aVar.f53807g = optJSONObject.optLong("resourceId");
+                    aVar.f53919d = b.b(optJSONObject.optString("focusColor", ""));
+                    aVar.f53920e = b.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.f53921f = optJSONObject.optString("scheme");
+                    aVar.f53922g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
                 } catch (Exception unused) {
                 }

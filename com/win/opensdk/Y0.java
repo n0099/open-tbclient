@@ -19,13 +19,13 @@ public class Y0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f76934a;
+    public Context f77253a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONStringer f76935b;
+    public JSONStringer f77254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f76936c;
+    public String f77255c;
 
     public Y0(Z0 z0, Context context) {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class Y0 {
                 return;
             }
         }
-        this.f76935b = new JSONStringer();
-        this.f76936c = "";
-        this.f76934a = context;
+        this.f77254b = new JSONStringer();
+        this.f77255c = "";
+        this.f77253a = context;
     }
 
     public Y0 a(int i2, long j2) {
@@ -52,7 +52,7 @@ public class Y0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             try {
-                this.f76935b = Z0.a();
+                this.f77254b = Z0.a();
                 a("e", "bce").a("timeis", Z0.b()).a("co", i2).a("dr", j2);
             } catch (JSONException unused) {
             }
@@ -66,7 +66,7 @@ public class Y0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a1Var)) == null) {
             try {
-                this.f76935b = Z0.a("ao", a1Var);
+                this.f77254b = Z0.a("ao", a1Var);
             } catch (JSONException unused) {
             }
             return this;
@@ -79,7 +79,7 @@ public class Y0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, a1Var, i2)) == null) {
             try {
-                this.f76935b = Z0.a("wde", a1Var);
+                this.f77254b = Z0.a("wde", a1Var);
                 a("co", i2);
             } catch (JSONException unused) {
             }
@@ -93,7 +93,7 @@ public class Y0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, a1Var, i2, i3)) == null) {
             try {
-                this.f76935b = Z0.a("asr", a1Var);
+                this.f77254b = Z0.a("asr", a1Var);
                 a("width", i2);
                 a("height", i3);
             } catch (JSONException unused) {
@@ -108,7 +108,7 @@ public class Y0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{a1Var, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             try {
-                this.f76935b = Z0.a("bpe", a1Var);
+                this.f77254b = Z0.a("bpe", a1Var);
                 a("co", i2).a("dr", j2);
             } catch (JSONException unused) {
             }
@@ -122,7 +122,7 @@ public class Y0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, a1Var, i2, str)) == null) {
             try {
-                this.f76935b = Z0.a("wbe", a1Var);
+                this.f77254b = Z0.a("wbe", a1Var);
                 a("co", i2).a("msg", Z0.a(str));
             } catch (JSONException unused) {
             }
@@ -136,7 +136,7 @@ public class Y0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{a1Var, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             try {
-                this.f76935b = Z0.a("be", a1Var);
+                this.f77254b = Z0.a("be", a1Var);
                 a("dr", j2).a("co", i2).a("num", i3);
             } catch (JSONException unused) {
             }
@@ -150,7 +150,7 @@ public class Y0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, a1Var, str)) == null) {
             try {
-                this.f76935b = Z0.a("ac", a1Var);
+                this.f77254b = Z0.a("ac", a1Var);
                 a("msg", Z0.a(str));
             } catch (JSONException unused) {
             }
@@ -164,7 +164,7 @@ public class Y0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, a1Var, str, i2)) == null) {
             try {
-                this.f76935b = Z0.a("dplop", a1Var);
+                this.f77254b = Z0.a("dplop", a1Var);
                 a("msg", Z0.a(str));
                 a("co", i2);
             } catch (JSONException unused) {
@@ -179,7 +179,7 @@ public class Y0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j2)) == null) {
             try {
-                this.f76935b.key(str).value(j2);
+                this.f77254b.key(str).value(j2);
             } catch (JSONException unused) {
             }
             return this;
@@ -193,7 +193,7 @@ public class Y0 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
             try {
                 if (!TextUtils.isEmpty(str2)) {
-                    this.f76935b.key(str).value(str2);
+                    this.f77254b.key(str).value(str2);
                 }
             } catch (JSONException unused) {
             }
@@ -206,10 +206,10 @@ public class Y0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (U1.m(this.f76934a) < 0) {
+            if (U1.m(this.f77253a) < 0) {
                 return false;
             }
-            return N.a(Z0.f76940a, str) ? U1.m(this.f76934a) < 1 : N.a(Z0.f76941b, str) ? U1.m(this.f76934a) < 2 : N.a(Z0.f76942c, str) ? U1.m(this.f76934a) < 3 : N.a(Z0.f76943d, str) && U1.m(this.f76934a) < 4;
+            return N.a(Z0.f77259a, str) ? U1.m(this.f77253a) < 1 : N.a(Z0.f77260b, str) ? U1.m(this.f77253a) < 2 : N.a(Z0.f77261c, str) ? U1.m(this.f77253a) < 3 : N.a(Z0.f77262d, str) && U1.m(this.f77253a) < 4;
         }
         return invokeL.booleanValue;
     }
@@ -219,7 +219,7 @@ public class Y0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, a1Var)) == null) {
             try {
-                this.f76935b = Z0.a("as", a1Var);
+                this.f77254b = Z0.a("as", a1Var);
             } catch (JSONException unused) {
             }
             return this;
@@ -232,7 +232,7 @@ public class Y0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, a1Var, i2)) == null) {
             try {
-                this.f76935b = Z0.a("wdin", a1Var);
+                this.f77254b = Z0.a("wdin", a1Var);
                 a("co", i2);
             } catch (JSONException unused) {
             }
@@ -246,16 +246,16 @@ public class Y0 {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             JSONArray jSONArray = new JSONArray();
             try {
-                if (!TextUtils.isEmpty(this.f76935b.toString())) {
-                    this.f76935b.endObject();
-                    this.f76936c = this.f76935b.toString();
+                if (!TextUtils.isEmpty(this.f77254b.toString())) {
+                    this.f77254b.endObject();
+                    this.f77255c = this.f77254b.toString();
                 }
-                JSONObject jSONObject = new JSONObject(this.f76936c);
+                JSONObject jSONObject = new JSONObject(this.f77255c);
                 String optString = jSONObject.optString("e");
                 if (a(optString)) {
                     return;
                 }
-                boolean z = !N.a(Z0.f76940a, optString);
+                boolean z = !N.a(Z0.f77259a, optString);
                 jSONArray.put(jSONObject);
                 W1.a(new X0(this, z, jSONArray.toString()));
             } catch (JSONException unused) {
@@ -268,7 +268,7 @@ public class Y0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048585, this, a1Var, str, i2, i3)) == null) {
             try {
-                this.f76935b = Z0.a("wdre", a1Var);
+                this.f77254b = Z0.a("wdre", a1Var);
                 try {
                     str = N.a(str);
                 } catch (Exception unused) {

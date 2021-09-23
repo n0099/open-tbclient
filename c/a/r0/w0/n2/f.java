@@ -16,7 +16,7 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SharedPreferences f27310a;
+    public final SharedPreferences f27330a;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class f {
                 return;
             }
         }
-        this.f27310a = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
+        this.f27330a = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
     }
 
     public final boolean a(String str, String str2) {
@@ -44,8 +44,8 @@ public class f {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && a(str, str2)) {
             String str3 = str + '_' + str2;
-            Set<String> keySet = this.f27310a.getAll().keySet();
-            SharedPreferences.Editor edit = this.f27310a.edit();
+            Set<String> keySet = this.f27330a.getAll().keySet();
+            SharedPreferences.Editor edit = this.f27330a.edit();
             for (String str4 : keySet) {
                 if (str4.startsWith(str3)) {
                     edit.remove(str4);
@@ -60,7 +60,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             if (a(str, str2)) {
-                return this.f27310a.getLong(str + '_' + str2 + "_visit_time", 0L);
+                return this.f27330a.getLong(str + '_' + str2 + "_visit_time", 0L);
             }
             return 0L;
         }
@@ -72,7 +72,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
             if (a(str, str2)) {
-                return this.f27310a.getBoolean(str + '_' + str2 + "_show", false);
+                return this.f27330a.getBoolean(str + '_' + str2 + "_show", false);
             }
             return false;
         }
@@ -84,7 +84,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
             if (a(str, str2)) {
-                return this.f27310a.getInt(str + '_' + str2 + "_show_cnt", 0);
+                return this.f27330a.getInt(str + '_' + str2 + "_show_cnt", 0);
             }
             return 0;
         }
@@ -96,7 +96,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
             if (a(str, str2)) {
-                return this.f27310a.getLong(str + '_' + str2 + "_show_time", 0L);
+                return this.f27330a.getLong(str + '_' + str2 + "_show_time", 0L);
             }
             return 0L;
         }
@@ -108,8 +108,8 @@ public class f {
         if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j2), Boolean.valueOf(z)}) == null) && a(str, str2)) {
             String str3 = str + '_' + str2 + "_show_time";
             String str4 = str + '_' + str2 + "_show_cnt";
-            int i2 = this.f27310a.getInt(str4, 0);
-            SharedPreferences.Editor edit = this.f27310a.edit();
+            int i2 = this.f27330a.getInt(str4, 0);
+            SharedPreferences.Editor edit = this.f27330a.edit();
             if (i2 > 3) {
                 edit.putInt(str4, i2 + 1);
             }
@@ -125,7 +125,7 @@ public class f {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) && a(str, str2)) {
             String str3 = str + '_' + str2 + "_visit_time";
-            SharedPreferences.Editor edit = this.f27310a.edit();
+            SharedPreferences.Editor edit = this.f27330a.edit();
             edit.putLong(str3, j2);
             edit.apply();
         }

@@ -14,19 +14,19 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17725a;
+    public int f17735a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f17726b;
+    public int f17736b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f17727c;
+    public int f17737c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f17728d;
+    public int f17738d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f17729e;
+    public a f17739e;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -41,37 +41,37 @@ public class i {
                 return;
             }
         }
-        this.f17729e = new a();
+        this.f17739e = new a();
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17728d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17738d : invokeV.intValue;
     }
 
     public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17729e : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17739e : (a) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17725a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17735a : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17727c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17737c : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17726b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17736b : invokeV.intValue;
     }
 
     public void f(JSONObject jSONObject) {
@@ -80,14 +80,14 @@ public class i {
             return;
         }
         try {
-            this.f17729e.c(jSONObject.optJSONObject("error"));
-            this.f17725a = jSONObject.optInt("forum_id");
+            this.f17739e.c(jSONObject.optJSONObject("error"));
+            this.f17735a = jSONObject.optInt("forum_id");
             jSONObject.optString("forum_name");
-            this.f17726b = jSONObject.optInt("signed");
+            this.f17736b = jSONObject.optInt("signed");
             jSONObject.optInt("is_on");
             jSONObject.optInt("is_filter");
-            this.f17727c = jSONObject.optInt("sign_day_count");
-            this.f17728d = jSONObject.optInt("cur_score");
+            this.f17737c = jSONObject.optInt("sign_day_count");
+            this.f17738d = jSONObject.optInt("cur_score");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

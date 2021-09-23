@@ -25,7 +25,7 @@ public class d0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             String a2 = a("https://smartapps.cn/%s/%s/page-frame.html");
-            if (c.a.p0.a.k.f7077a) {
+            if (c.a.p0.a.k.f7085a) {
                 String str = "getFixedReferer: " + a2;
             }
             return a2;
@@ -46,7 +46,7 @@ public class d0 {
             if (TextUtils.isEmpty(b2)) {
                 return;
             }
-            if (c.a.p0.a.k.f7077a) {
+            if (c.a.p0.a.k.f7085a) {
                 String str = "call setRefererPattern for Slave Webview; referer is " + b2;
             }
             WebSettingsGlobalBlink.setRefererPattern(b2, c.a.p0.a.a1.e.i());

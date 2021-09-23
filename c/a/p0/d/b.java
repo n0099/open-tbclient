@@ -28,7 +28,7 @@ public class b extends j {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f10383a;
+        public static final b f10391a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,7 +44,7 @@ public class b extends j {
                     return;
                 }
             }
-            f10383a = new b(null);
+            f10391a = new b(null);
         }
     }
 
@@ -55,7 +55,7 @@ public class b extends j {
     public static b g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0511b.f10383a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0511b.f10391a : (b) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

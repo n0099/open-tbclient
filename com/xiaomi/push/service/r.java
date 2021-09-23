@@ -15,7 +15,7 @@ public final class r extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ib f78230a;
+    public final /* synthetic */ ib f78549a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ XMPushService f973a;
@@ -39,7 +39,7 @@ public final class r extends XMPushService.i {
             }
         }
         this.f973a = xMPushService;
-        this.f78230a = ibVar;
+        this.f78549a = ibVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -54,7 +54,7 @@ public final class r extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                y.a(this.f973a, y.a(this.f78230a.b(), this.f78230a.m454a()));
+                y.a(this.f973a, y.a(this.f78549a.b(), this.f78549a.m454a()));
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
                 this.f973a.a(10, e2);

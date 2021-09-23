@@ -1,28 +1,20 @@
 package com.baidu.sofire.utility;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import com.android.internal.http.multipart.Part;
-import com.baidu.sofire.core.ApkInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.sofire.jni.Asc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f45434a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String[] f45435b;
+    public static Asc f45536a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,103 +30,119 @@ public final class h {
                 return;
             }
         }
-        f45434a = new String[]{"java.lang.UnsatisfiedLinkError"};
-        f45435b = new String[]{"space left"};
+        f45536a = new Asc();
     }
 
-    public static String a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        char c2;
-        ApkInfo d2;
-        String[] split;
+    public static byte[] a(byte[] bArr, byte[] bArr2, boolean z) {
+        InterceptResult invokeLLZ;
+        byte[] acn;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
-            try {
-                if (str.contains(f45434a[0])) {
-                    c2 = 1;
-                } else {
-                    c2 = str.contains(f45435b[0]) ? (char) 2 : (char) 0;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, bArr, bArr2, z)) == null) {
+            if (bArr != null) {
+                try {
+                } catch (Throwable unused) {
+                    c.a();
                 }
-                if (c2 != 1) {
-                    return c2 != 2 ? str : a(context, str);
-                }
-                String str3 = str + "\r\n{libpath=" + d2.libPath + "}";
-                for (String str4 : com.baidu.sofire.core.f.a().d(str2).libPath.split(":")) {
-                    if (str4.startsWith("/data/data/")) {
-                        File file = new File(str4);
-                        if (!file.exists()) {
-                            str3 = str3 + "\r\nsubLibPathFile " + str4 + " not exists";
-                        } else if (file.isDirectory()) {
-                            for (File file2 : file.listFiles()) {
-                                str3 = str3 + "\r\n{" + file2.getAbsolutePath() + ":" + o.a(file2) + "}\r\n";
-                            }
+                if (bArr.length > 0 && bArr2 != null && bArr2.length > 0) {
+                    if (f45536a != null) {
+                        if (z) {
+                            acn = f45536a.ac(bArr2, bArr);
                         } else {
-                            str3 = str3 + "\r\nsubLibPathFile " + str4 + " not a dir";
+                            acn = f45536a.acn(bArr2, bArr);
+                        }
+                        if (acn != null && acn.length > 0) {
+                            return acn;
                         }
                     }
+                    return new byte[0];
                 }
-                return str3;
-            } catch (Throwable unused) {
-                c.a();
-                return str;
             }
+            return new byte[0];
         }
-        return (String) invokeLLL.objValue;
+        return (byte[]) invokeLLZ.objValue;
     }
 
-    @SuppressLint({"NewApi"})
-    public static String a(Context context, String str) {
-        String str2;
-        File[] listFiles;
+    public static byte[] b(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
+        byte[] ar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            try {
-                File filesDir = context.getFilesDir();
-                if (Build.VERSION.SDK_INT >= 9) {
-                    long freeSpace = filesDir.getFreeSpace();
-                    str2 = ((str + "\r\nFreeSpace=" + freeSpace) + "  TotalSpace=" + filesDir.getTotalSpace()) + "  UsableSpace=" + filesDir.getUsableSpace();
-                } else {
-                    str2 = str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2)) == null) {
+            if (bArr2 != null) {
+                try {
+                } catch (Throwable unused) {
+                    c.a();
                 }
-                JSONArray jSONArray = new JSONArray();
-                long j2 = 0;
-                for (File file : filesDir.listFiles()) {
-                    if (file.isDirectory() && file.getName().startsWith(".")) {
-                        j2 += a(file, jSONArray);
+                if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
+                    if (f45536a != null && (ar = f45536a.ar(bArr, bArr2)) != null && ar.length > 0) {
+                        return ar;
                     }
+                    return new byte[0];
                 }
-                return ((str2 + Part.CRLF) + jSONArray.toString()) + "\r\nAllFileSize=" + j2;
-            } catch (Throwable unused) {
-                return str;
             }
+            return new byte[0];
         }
-        return (String) invokeLL.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    public static long a(File file, JSONArray jSONArray) throws JSONException {
+    public static byte[] c(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
-        File[] listFiles;
-        long length;
+        byte[] dr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, jSONArray)) == null) {
-            long j2 = 0;
-            if (file != null && jSONArray != null && file.isDirectory()) {
-                for (File file2 : file.listFiles()) {
-                    if (file2.isDirectory()) {
-                        length = a(file2, jSONArray);
-                    } else if (file2.exists()) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("path", file2.getAbsolutePath());
-                        jSONObject.put("size", file2.length());
-                        jSONArray.put(jSONObject);
-                        length = file2.length();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, bArr2)) == null) {
+            if (bArr2 != null) {
+                try {
+                } catch (Throwable unused) {
+                    c.a();
+                }
+                if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
+                    if (f45536a != null && (dr = f45536a.dr(bArr, bArr2)) != null && dr.length > 0) {
+                        return dr;
                     }
-                    j2 += length;
+                    return new byte[0];
                 }
             }
-            return j2;
+            return new byte[0];
         }
-        return invokeLL.longValue;
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] a(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        byte[] dc;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
+            if (bArr != null) {
+                try {
+                } catch (Throwable unused) {
+                    c.a();
+                }
+                if (bArr.length > 0 && bArr2 != null && bArr2.length > 0) {
+                    if (f45536a != null && (dc = f45536a.dc(bArr2, bArr)) != null && dc.length > 0) {
+                        return dc;
+                    }
+                    return new byte[0];
+                }
+            }
+            return new byte[0];
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static int a(File file, File file2, byte[] bArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, file, file2, bArr)) == null) {
+            if (bArr != null) {
+                try {
+                    if (bArr.length > 0 && file != null && file2 != null && f45536a != null) {
+                        return f45536a.df(file.getAbsolutePath(), file2.getAbsolutePath(), bArr);
+                    }
+                } catch (Throwable unused) {
+                    c.a();
+                }
+            }
+            return -1;
+        }
+        return invokeLLL.intValue;
     }
 }

@@ -51,7 +51,7 @@ public class SwanContentProvider extends ContentProvider {
                 return;
             }
         }
-        DEBUG = k.f7077a;
+        DEBUG = k.f7085a;
         AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".provider";
         sUriMatcher = new UriMatcher(-1);
         sAccreditedSet = new HashSet<>();

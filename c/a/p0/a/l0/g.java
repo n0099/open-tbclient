@@ -13,10 +13,10 @@ public final class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7188a;
+    public int f7196a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7189b;
+    public String f7197b;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -30,7 +30,7 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public g f7190a;
+        public g f7198a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -45,20 +45,20 @@ public final class g {
                     return;
                 }
             }
-            this.f7190a = new g(null);
+            this.f7198a = new g(null);
         }
 
         public g a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7190a : (g) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7198a : (g) invokeV.objValue;
         }
 
         public b b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f7190a.f7189b = str;
+                this.f7198a.f7197b = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -68,7 +68,7 @@ public final class g {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.f7190a.f7188a = i2;
+                this.f7198a.f7196a = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -82,20 +82,20 @@ public final class g {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7189b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7197b : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7188a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7196a : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "V8EngineModel{mType=" + this.f7188a + ", mID='" + this.f7189b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "V8EngineModel{mType=" + this.f7196a + ", mID='" + this.f7197b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

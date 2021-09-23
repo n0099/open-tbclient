@@ -18,22 +18,22 @@ public class d implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27945e;
+    public String f27965e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27946f;
+    public String f27966f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27947g;
+    public String f27967g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f27948h;
+    public String f27968h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f27949i;
+    public String f27969i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f27950j;
+    public String f27970j;
     public boolean k;
 
     static {
@@ -70,15 +70,15 @@ public class d implements n {
         if (jSONObject == null) {
             return;
         }
-        this.f27945e = jSONObject.optString("id");
-        this.f27946f = jSONObject.optString("main_tower_id");
+        this.f27965e = jSONObject.optString("id");
+        this.f27966f = jSONObject.optString("main_tower_id");
         jSONObject.optString("forum_id");
-        this.f27947g = jSONObject.optString("user_id");
-        this.f27948h = jSONObject.optString("user_name");
+        this.f27967g = jSONObject.optString("user_id");
+        this.f27968h = jSONObject.optString("user_name");
         jSONObject.optString("create_time");
-        this.f27949i = jSONObject.optString("content");
+        this.f27969i = jSONObject.optString("content");
         jSONObject.optString("reply_user_id");
-        this.f27950j = jSONObject.optString("time_passed");
+        this.f27970j = jSONObject.optString("time_passed");
         this.k = jSONObject.optInt("is_main_tower_user", 0) == 1;
     }
 
@@ -90,7 +90,7 @@ public class d implements n {
                 return true;
             }
             if (obj instanceof d) {
-                return this.f27945e.equals(((d) obj).f27945e);
+                return this.f27965e.equals(((d) obj).f27965e);
             }
             return false;
         }
@@ -107,6 +107,6 @@ public class d implements n {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (Integer.valueOf(this.f27945e).intValue() * 31) + 7 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (Integer.valueOf(this.f27965e).intValue() * 31) + 7 : invokeV.intValue;
     }
 }

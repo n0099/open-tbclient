@@ -82,7 +82,7 @@ public class a extends BaseBean<GetBindMobileResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DomainConfig.getInstance().getLifeHost() + "/callback";
+            return DomainConfig.getInstance().getLifeHost(this.tag) + "/callback";
         }
         return (String) invokeV.objValue;
     }

@@ -37,7 +37,7 @@ public class AdCardVideoView extends AdCardBaseView implements r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCardVideoView f56371e;
+        public final /* synthetic */ AdCardVideoView f56488e;
 
         public a(AdCardVideoView adCardVideoView) {
             Interceptable interceptable = $ic;
@@ -54,16 +54,16 @@ public class AdCardVideoView extends AdCardBaseView implements r {
                     return;
                 }
             }
-            this.f56371e = adCardVideoView;
+            this.f56488e = adCardVideoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int jump2DownloadDetailPage = this.f56371e.mVideoView.jump2DownloadDetailPage();
-                if (this.f56371e.afterClickSchemeListener != null) {
-                    this.f56371e.afterClickSchemeListener.a(jump2DownloadDetailPage, null);
+                int jump2DownloadDetailPage = this.f56488e.mVideoView.jump2DownloadDetailPage();
+                if (this.f56488e.afterClickSchemeListener != null) {
+                    this.f56488e.afterClickSchemeListener.a(jump2DownloadDetailPage, null);
                 }
             }
         }
@@ -148,8 +148,8 @@ public class AdCardVideoView extends AdCardBaseView implements r {
         this.mVideoView.updateTailFrameView(advertAppInfo);
         if (advertAppInfo != null) {
             int i2 = -1;
-            String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.g4) ? getPageTypeByBusiness() : advertAppInfo.g4;
-            e eVar = advertAppInfo.f4;
+            String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.h4) ? getPageTypeByBusiness() : advertAppInfo.h4;
+            e eVar = advertAppInfo.g4;
             if (eVar != null) {
                 i2 = eVar.f14144b;
                 pageTypeByBusiness = eVar.f14143a;

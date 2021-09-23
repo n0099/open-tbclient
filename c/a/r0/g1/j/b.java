@@ -31,34 +31,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HomePageTabFeedFragment f18403a;
+    public HomePageTabFeedFragment f18412a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f18404b;
+    public BdTypeRecyclerView f18413b;
 
     /* renamed from: c  reason: collision with root package name */
-    public q f18405c;
+    public q f18414c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j f18406d;
+    public j f18415d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.g1.j.g.e f18407e;
+    public c.a.r0.g1.j.g.e f18416e;
 
     /* renamed from: f  reason: collision with root package name */
-    public g f18408f;
+    public g f18417f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.g1.j.g.f f18409g;
+    public c.a.r0.g1.j.g.f f18418g;
 
     /* renamed from: h  reason: collision with root package name */
-    public h f18410h;
+    public h f18419h;
 
     /* renamed from: i  reason: collision with root package name */
-    public r f18411i;
+    public r f18420i;
 
     /* renamed from: j  reason: collision with root package name */
-    public i f18412j;
+    public i f18421j;
     public l k;
     public n l;
     public m m;
@@ -87,99 +87,99 @@ public class b {
             }
         }
         this.u = new LinkedList();
-        this.f18403a = homePageTabFeedFragment;
-        this.f18404b = bdTypeRecyclerView;
+        this.f18412a = homePageTabFeedFragment;
+        this.f18413b = bdTypeRecyclerView;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            q qVar = new q(this.f18403a.getPageContext(), d2.f3, this.f18403a.getUniqueId(), this.f18403a.getTabName());
-            this.f18405c = qVar;
-            qVar.l0(this.f18404b);
-            this.u.add(this.f18405c);
-            j jVar = new j(this.f18403a.getPageContext());
-            this.f18406d = jVar;
-            jVar.k0(this.f18404b);
-            this.u.add(this.f18406d);
-            c.a.r0.g1.j.g.e eVar = new c.a.r0.g1.j.g.e(this.f18403a.getPageContext(), d2.k3, this.f18403a.getUniqueId(), this.f18403a.getTabName());
-            this.f18407e = eVar;
-            eVar.m0(this.f18404b);
-            this.u.add(this.f18407e);
-            g gVar = new g(this.f18403a.getPageContext(), d2.i3, this.f18403a.getUniqueId(), this.f18403a.getTabName());
-            this.f18408f = gVar;
-            gVar.l0(this.f18404b);
-            this.u.add(this.f18408f);
-            c.a.r0.g1.j.g.f fVar = new c.a.r0.g1.j.g.f(this.f18403a.getPageContext(), d2.j3, this.f18403a.getUniqueId(), this.f18403a.getTabName());
-            this.f18409g = fVar;
-            fVar.l0(this.f18404b);
-            this.u.add(this.f18409g);
-            h hVar = new h(this.f18403a.getPageContext(), d2.g3, this.f18403a.getUniqueId(), this.f18403a.getTabName());
-            this.f18410h = hVar;
-            hVar.l0(this.f18404b);
-            this.u.add(this.f18410h);
-            r rVar = new r(this.f18403a.getPageContext(), d2.w3, this.f18403a.getUniqueId(), this.f18403a.getTabName());
-            this.f18411i = rVar;
-            rVar.o0(this.f18404b);
-            this.u.add(this.f18411i);
-            i iVar = new i(this.f18403a.getPageContext(), d2.p3, this.f18403a.getUniqueId(), this.f18403a.getTabName());
-            this.f18412j = iVar;
-            iVar.l0(this.f18404b);
-            l lVar = new l(this.f18403a.getPageContext(), d2.q3, this.f18403a.getUniqueId(), this.f18403a.getTabName());
+            q qVar = new q(this.f18412a.getPageContext(), d2.g3, this.f18412a.getUniqueId(), this.f18412a.getTabName());
+            this.f18414c = qVar;
+            qVar.l0(this.f18413b);
+            this.u.add(this.f18414c);
+            j jVar = new j(this.f18412a.getPageContext());
+            this.f18415d = jVar;
+            jVar.k0(this.f18413b);
+            this.u.add(this.f18415d);
+            c.a.r0.g1.j.g.e eVar = new c.a.r0.g1.j.g.e(this.f18412a.getPageContext(), d2.l3, this.f18412a.getUniqueId(), this.f18412a.getTabName());
+            this.f18416e = eVar;
+            eVar.m0(this.f18413b);
+            this.u.add(this.f18416e);
+            g gVar = new g(this.f18412a.getPageContext(), d2.j3, this.f18412a.getUniqueId(), this.f18412a.getTabName());
+            this.f18417f = gVar;
+            gVar.l0(this.f18413b);
+            this.u.add(this.f18417f);
+            c.a.r0.g1.j.g.f fVar = new c.a.r0.g1.j.g.f(this.f18412a.getPageContext(), d2.k3, this.f18412a.getUniqueId(), this.f18412a.getTabName());
+            this.f18418g = fVar;
+            fVar.l0(this.f18413b);
+            this.u.add(this.f18418g);
+            h hVar = new h(this.f18412a.getPageContext(), d2.h3, this.f18412a.getUniqueId(), this.f18412a.getTabName());
+            this.f18419h = hVar;
+            hVar.l0(this.f18413b);
+            this.u.add(this.f18419h);
+            r rVar = new r(this.f18412a.getPageContext(), d2.x3, this.f18412a.getUniqueId(), this.f18412a.getTabName());
+            this.f18420i = rVar;
+            rVar.o0(this.f18413b);
+            this.u.add(this.f18420i);
+            i iVar = new i(this.f18412a.getPageContext(), d2.q3, this.f18412a.getUniqueId(), this.f18412a.getTabName());
+            this.f18421j = iVar;
+            iVar.l0(this.f18413b);
+            l lVar = new l(this.f18412a.getPageContext(), d2.r3, this.f18412a.getUniqueId(), this.f18412a.getTabName());
             this.k = lVar;
-            lVar.j0(this.f18404b);
+            lVar.j0(this.f18413b);
             this.u.add(this.k);
-            n nVar = new n(this.f18403a.getPageContext(), d2.s3, this.f18403a.getUniqueId(), this.f18403a.getTabName());
+            n nVar = new n(this.f18412a.getPageContext(), d2.t3, this.f18412a.getUniqueId(), this.f18412a.getTabName());
             this.l = nVar;
-            nVar.k0(this.f18404b);
+            nVar.k0(this.f18413b);
             this.u.add(this.l);
-            m mVar = new m(this.f18403a.getPageContext(), d2.t3, this.f18403a.getUniqueId(), this.f18403a.getTabName());
+            m mVar = new m(this.f18412a.getPageContext(), d2.u3, this.f18412a.getUniqueId(), this.f18412a.getTabName());
             this.m = mVar;
-            mVar.j0(this.f18404b);
+            mVar.j0(this.f18413b);
             this.u.add(this.m);
-            p pVar = new p(this.f18403a.getPageContext(), d2.l3, this.f18403a.getUniqueId(), this.f18403a.getTabName());
+            p pVar = new p(this.f18412a.getPageContext(), d2.m3, this.f18412a.getUniqueId(), this.f18412a.getTabName());
             this.n = pVar;
-            pVar.k0(this.f18404b);
+            pVar.k0(this.f18413b);
             this.u.add(this.n);
-            c.a.r0.g1.j.g.d dVar = new c.a.r0.g1.j.g.d(this.f18403a.getPageContext(), d2.o3, this.f18403a.getUniqueId(), this.f18403a.getTabName());
+            c.a.r0.g1.j.g.d dVar = new c.a.r0.g1.j.g.d(this.f18412a.getPageContext(), d2.p3, this.f18412a.getUniqueId(), this.f18412a.getTabName());
             this.o = dVar;
-            dVar.m0(this.f18404b);
+            dVar.m0(this.f18413b);
             this.u.add(this.o);
-            c.a.r0.g1.j.g.c cVar = new c.a.r0.g1.j.g.c(this.f18403a.getPageContext(), c.a.r0.a0.d0.j.P0, this.f18403a.getTabName());
+            c.a.r0.g1.j.g.c cVar = new c.a.r0.g1.j.g.c(this.f18412a.getPageContext(), c.a.r0.a0.d0.j.P0, this.f18412a.getTabName());
             this.r = cVar;
             this.u.add(cVar);
-            c.a.r0.g1.j.g.b bVar = new c.a.r0.g1.j.g.b(this.f18403a.getPageContext(), v1.f14328i);
+            c.a.r0.g1.j.g.b bVar = new c.a.r0.g1.j.g.b(this.f18412a.getPageContext(), v1.f14328i);
             this.p = bVar;
-            bVar.k0(this.f18404b);
+            bVar.k0(this.f18413b);
             this.u.add(this.p);
-            c.a.r0.g1.j.g.a aVar = new c.a.r0.g1.j.g.a(this.f18403a.getPageContext(), x.f14342f);
+            c.a.r0.g1.j.g.a aVar = new c.a.r0.g1.j.g.a(this.f18412a.getPageContext(), x.f14342f);
             this.q = aVar;
-            aVar.n0(this.f18404b);
+            aVar.n0(this.f18413b);
             this.u.add(this.q);
-            k kVar = new k(this.f18403a.getPageContext());
+            k kVar = new k(this.f18412a.getPageContext());
             this.s = kVar;
-            kVar.j0(this.f18404b);
+            kVar.j0(this.f18413b);
             this.u.add(this.s);
-            o oVar = new o(this.f18403a.getPageContext());
+            o oVar = new o(this.f18412a.getPageContext());
             this.t = oVar;
-            oVar.j0(this.f18404b);
+            oVar.j0(this.f18413b);
             this.u.add(this.t);
-            this.f18404b.addAdapters(this.u);
+            this.f18413b.addAdapters(this.u);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f18404b.getAdapter().notifyDataSetChanged();
+            this.f18413b.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void c(ArrayList<c.a.e.l.e.n> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.f18404b.setData(arrayList);
+            this.f18413b.setData(arrayList);
         }
     }
 

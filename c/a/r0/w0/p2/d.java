@@ -17,19 +17,19 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public i f27525a;
+    public i f27545a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.w0.h1.g f27526b;
+    public c.a.r0.w0.h1.g f27546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.p2.c f27527c;
+    public c.a.r0.p2.c f27547c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f27528d;
+    public View f27548d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ValueAnimator f27529e;
+    public ValueAnimator f27549e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -52,21 +52,21 @@ public class d {
         }
         g.b bVar = new g.b();
         if (videoSerializeVideoThreadInfo.getAuthor() != null) {
-            bVar.f26815a = videoSerializeVideoThreadInfo.getAuthor().userId;
-            bVar.f26816b = videoSerializeVideoThreadInfo.getAuthor().userName;
-            bVar.f26817c = videoSerializeVideoThreadInfo.getAuthor().userNickname;
-            bVar.f26821g = videoSerializeVideoThreadInfo.getAuthor().isBigV;
-            bVar.f26820f = videoSerializeVideoThreadInfo.getAuthor().isGod;
-            bVar.f26818d = videoSerializeVideoThreadInfo.getAuthor().portrait;
-            bVar.f26819e = videoSerializeVideoThreadInfo.getAuthor().hasFocus;
+            bVar.f26835a = videoSerializeVideoThreadInfo.getAuthor().userId;
+            bVar.f26836b = videoSerializeVideoThreadInfo.getAuthor().userName;
+            bVar.f26837c = videoSerializeVideoThreadInfo.getAuthor().userNickname;
+            bVar.f26841g = videoSerializeVideoThreadInfo.getAuthor().isBigV;
+            bVar.f26840f = videoSerializeVideoThreadInfo.getAuthor().isGod;
+            bVar.f26838d = videoSerializeVideoThreadInfo.getAuthor().portrait;
+            bVar.f26839e = videoSerializeVideoThreadInfo.getAuthor().hasFocus;
             if (videoSerializeVideoThreadInfo.getAuthor().baijiahaoData != null) {
-                bVar.f26822h = new g.b.a();
+                bVar.f26842h = new g.b.a();
                 String str = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.name;
-                bVar.f26822h.f26827e = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.auth_id;
-                bVar.f26822h.f26828f = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.auth_desc;
-                bVar.f26822h.f26824b = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.avatar;
-                bVar.f26822h.f26825c = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.avatar_h;
-                bVar.f26822h.f26826d = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.brief;
+                bVar.f26842h.f26847e = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.auth_id;
+                bVar.f26842h.f26848f = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.auth_desc;
+                bVar.f26842h.f26844b = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.avatar;
+                bVar.f26842h.f26845c = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.avatar_h;
+                bVar.f26842h.f26846d = videoSerializeVideoThreadInfo.getAuthor().baijiahaoData.brief;
             }
         }
         gVar.y = bVar;
@@ -74,15 +74,15 @@ public class d {
         if (videoSerializeVideoThreadInfo.getThreadVideoInfo() != null) {
             String str2 = videoSerializeVideoThreadInfo.getThreadVideoInfo().thumbnailWidth;
             String str3 = videoSerializeVideoThreadInfo.getThreadVideoInfo().thumbnailHeight;
-            cVar.f26831c = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoMd5;
-            cVar.f26832d = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoUrl;
-            cVar.f26833e = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoDuration;
-            cVar.f26834f = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoWidth;
-            cVar.f26835g = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoHeight;
-            cVar.f26836h = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoSize;
-            cVar.f26838j = videoSerializeVideoThreadInfo.getThreadVideoInfo().thumbnailUrl;
+            cVar.f26851c = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoMd5;
+            cVar.f26852d = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoUrl;
+            cVar.f26853e = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoDuration;
+            cVar.f26854f = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoWidth;
+            cVar.f26855g = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoHeight;
+            cVar.f26856h = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoSize;
+            cVar.f26858j = videoSerializeVideoThreadInfo.getThreadVideoInfo().thumbnailUrl;
             String str4 = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoUrl;
-            gVar.f26808j = videoSerializeVideoThreadInfo.playCount;
+            gVar.f26828j = videoSerializeVideoThreadInfo.playCount;
         }
         gVar.z = cVar;
         if (videoSerializeVideoThreadInfo.getBaijiahaoData() != null) {
@@ -94,10 +94,10 @@ public class d {
             baijiahaoData.forwardUrl = videoSerializeVideoThreadInfo.getBaijiahaoData().forwardUrl;
             gVar.A = baijiahaoData;
         }
-        gVar.f26803e = videoSerializeVideoThreadInfo.forumId;
-        gVar.f26804f = videoSerializeVideoThreadInfo.threadId;
-        gVar.f26806h = videoSerializeVideoThreadInfo.firstPostId;
-        gVar.f26807i = videoSerializeVideoThreadInfo.createTime;
+        gVar.f26823e = videoSerializeVideoThreadInfo.forumId;
+        gVar.f26824f = videoSerializeVideoThreadInfo.threadId;
+        gVar.f26826h = videoSerializeVideoThreadInfo.firstPostId;
+        gVar.f26827i = videoSerializeVideoThreadInfo.createTime;
         gVar.k = videoSerializeVideoThreadInfo.postNum;
         gVar.m = videoSerializeVideoThreadInfo.agreeNum;
         gVar.n = videoSerializeVideoThreadInfo.disAgreeNum;
@@ -124,11 +124,11 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f27526b == null) {
-                this.f27526b = new c.a.r0.w0.h1.g();
+            if (this.f27546b == null) {
+                this.f27546b = new c.a.r0.w0.h1.g();
             }
-            a(this.f27526b, this.f27525a.e());
-            return this.f27526b;
+            a(this.f27546b, this.f27545a.e());
+            return this.f27546b;
         }
         return (c.a.r0.w0.h1.g) invokeV.objValue;
     }
@@ -136,12 +136,12 @@ public class d {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ValueAnimator valueAnimator = this.f27529e;
+            ValueAnimator valueAnimator = this.f27549e;
             if (valueAnimator != null) {
                 valueAnimator.cancel();
-                this.f27529e = null;
+                this.f27549e = null;
             }
-            View view = this.f27528d;
+            View view = this.f27548d;
             if (view != null) {
                 view.clearAnimation();
             }
@@ -152,17 +152,17 @@ public class d {
     public void d() {
         c.a.r0.p2.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cVar = this.f27527c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cVar = this.f27547c) == null) {
             return;
         }
         cVar.v0();
-        this.f27527c = null;
+        this.f27547c = null;
     }
 
     public void e(i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, iVar) == null) {
-            this.f27525a = iVar;
+            this.f27545a = iVar;
         }
     }
 }

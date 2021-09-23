@@ -22,48 +22,48 @@ public class a implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27360e;
+    public int f27380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27361f;
+    public boolean f27381f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext f27362g;
+    public TbPageContext f27382g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f27363h;
+    public View f27383h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PopupWindow f27364i;
+    public PopupWindow f27384i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Handler f27365j;
+    public Handler f27385j;
     public Runnable k;
 
     /* renamed from: c.a.r0.w0.o2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC1286a implements Runnable {
+    public class RunnableC1284a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27366e;
+        public final /* synthetic */ a f27386e;
 
         /* renamed from: c.a.r0.w0.o2.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC1287a implements Runnable {
+        public class RunnableC1285a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ RunnableC1286a f27367e;
+            public final /* synthetic */ RunnableC1284a f27387e;
 
-            public RunnableC1287a(RunnableC1286a runnableC1286a) {
+            public RunnableC1285a(RunnableC1284a runnableC1284a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC1286a};
+                    Object[] objArr = {runnableC1284a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -73,20 +73,20 @@ public class a implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f27367e = runnableC1286a;
+                this.f27387e = runnableC1284a;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27367e.f27366e.f27364i == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27387e.f27386e.f27384i == null) {
                     return;
                 }
-                this.f27367e.f27366e.j();
+                this.f27387e.f27386e.j();
             }
         }
 
-        public RunnableC1286a(a aVar) {
+        public RunnableC1284a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,26 +101,26 @@ public class a implements View.OnClickListener {
                     return;
                 }
             }
-            this.f27366e = aVar;
+            this.f27386e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27366e.f27362g == null || this.f27366e.f27363h == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27386e.f27382g == null || this.f27386e.f27383h == null) {
                 return;
             }
-            Activity pageActivity = this.f27366e.f27362g.getPageActivity();
+            Activity pageActivity = this.f27386e.f27382g.getPageActivity();
             int g2 = c.a.e.e.p.l.g(pageActivity, R.dimen.ds64);
-            a aVar = this.f27366e;
-            View h2 = aVar.h(pageActivity, aVar.f27360e);
+            a aVar = this.f27386e;
+            View h2 = aVar.h(pageActivity, aVar.f27380e);
             int[] iArr = new int[2];
-            this.f27366e.f27363h.getLocationInWindow(iArr);
+            this.f27386e.f27383h.getLocationInWindow(iArr);
             int g3 = c.a.e.e.p.l.g(pageActivity, R.dimen.ds32);
             int g4 = (iArr[1] - g2) + c.a.e.e.p.l.g(pageActivity, R.dimen.ds16);
-            this.f27366e.f27364i = new PopupWindow(h2, -2, g2);
-            this.f27366e.f27364i.showAtLocation(this.f27366e.f27363h, 53, g3, g4);
-            this.f27366e.f27365j.postDelayed(new RunnableC1287a(this), 3000L);
+            this.f27386e.f27384i = new PopupWindow(h2, -2, g2);
+            this.f27386e.f27384i.showAtLocation(this.f27386e.f27383h, 53, g3, g4);
+            this.f27386e.f27385j.postDelayed(new RunnableC1285a(this), 3000L);
         }
     }
 
@@ -139,11 +139,11 @@ public class a implements View.OnClickListener {
                 return;
             }
         }
-        this.f27360e = R.string.attention_post_update_tip;
-        this.f27365j = new Handler();
-        this.k = new RunnableC1286a(this);
-        this.f27362g = tbPageContext;
-        this.f27361f = z;
+        this.f27380e = R.string.attention_post_update_tip;
+        this.f27385j = new Handler();
+        this.k = new RunnableC1284a(this);
+        this.f27382g = tbPageContext;
+        this.f27381f = z;
     }
 
     public final View h(Activity activity, int i2) {
@@ -169,7 +169,7 @@ public class a implements View.OnClickListener {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f27365j.removeCallbacksAndMessages(null);
+            this.f27385j.removeCallbacksAndMessages(null);
             j();
         }
     }
@@ -177,32 +177,32 @@ public class a implements View.OnClickListener {
     public void j() {
         PopupWindow popupWindow;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (popupWindow = this.f27364i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (popupWindow = this.f27384i) == null) {
             return;
         }
         popupWindow.dismiss();
-        this.f27364i = null;
+        this.f27384i = null;
     }
 
     public void k(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (this.f27362g == null || view == null || StringUtils.isNull(currentAccount)) {
+            if (this.f27382g == null || view == null || StringUtils.isNull(currentAccount)) {
                 return;
             }
-            this.f27363h = view;
-            if (this.f27361f) {
-                this.f27360e = R.string.attention_post_update_tip;
+            this.f27383h = view;
+            if (this.f27381f) {
+                this.f27380e = R.string.attention_post_update_tip;
                 String str = currentAccount + "frs_god_new_post_tip_count";
                 int k = c.a.q0.s.d0.b.j().k(str, 0);
                 if (k >= 3) {
-                    this.f27361f = false;
+                    this.f27381f = false;
                     return;
                 }
                 c.a.q0.s.d0.b.j().v(str, k + 1);
-                this.f27361f = false;
-                this.f27365j.postDelayed(this.k, 500L);
+                this.f27381f = false;
+                this.f27385j.postDelayed(this.k, 500L);
             }
         }
     }

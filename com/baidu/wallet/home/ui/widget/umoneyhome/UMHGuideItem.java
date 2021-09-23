@@ -21,13 +21,13 @@ public class UMHGuideItem extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f61550a;
+    public NetImageView f61663a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f61551b;
+    public MaskTextView f61664b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f61552c;
+    public MaskTextView f61665c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UMHGuideItem(Context context) {
@@ -63,9 +63,9 @@ public class UMHGuideItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_umh_guide_item"), this);
-            this.f61550a = (NetImageView) findViewById(ResUtils.id(getContext(), "item_logo"));
-            this.f61551b = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_title"));
-            this.f61552c = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_desc"));
+            this.f61663a = (NetImageView) findViewById(ResUtils.id(getContext(), "item_logo"));
+            this.f61664b = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_title"));
+            this.f61665c = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_desc"));
         }
     }
 
@@ -74,9 +74,9 @@ public class UMHGuideItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f61550a, getData().logo);
-        this.f61551b.setMaskText(getData().name);
-        this.f61552c.setMaskText(getData().desc);
+        setNetImageViewUrl(this.f61663a, getData().logo);
+        this.f61664b.setMaskText(getData().name);
+        this.f61665c.setMaskText(getData().desc);
         handlePoint();
     }
 

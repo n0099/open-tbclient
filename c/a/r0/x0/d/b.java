@@ -19,11 +19,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f28317b;
+    public static volatile b f28337b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, FunAdSidConfigData> f28318a;
+    public Map<String, FunAdSidConfigData> f28338a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,23 +39,23 @@ public class b {
             }
         }
         HashMap hashMap = new HashMap();
-        this.f28318a = hashMap;
+        this.f28338a = hashMap;
         hashMap.clear();
-        this.f28318a.putAll(c());
+        this.f28338a.putAll(c());
     }
 
     public static b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f28317b == null) {
+            if (f28337b == null) {
                 synchronized (b.class) {
-                    if (f28317b == null) {
-                        f28317b = new b();
+                    if (f28337b == null) {
+                        f28337b = new b();
                     }
                 }
             }
-            return f28317b;
+            return f28337b;
         }
         return (b) invokeV.objValue;
     }
@@ -78,10 +78,10 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.f28318a == null || TextUtils.isEmpty(str) || !this.f28318a.containsKey(str)) {
+            if (this.f28338a == null || TextUtils.isEmpty(str) || !this.f28338a.containsKey(str)) {
                 return null;
             }
-            return this.f28318a.get(str);
+            return this.f28338a.get(str);
         }
         return (FunAdSidConfigData) invokeL.objValue;
     }
@@ -126,10 +126,10 @@ public class b {
 
     public void f(String str, FunAdSidConfigData funAdSidConfigData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) || this.f28318a == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) || this.f28338a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f28318a.put(str, funAdSidConfigData);
+        this.f28338a.put(str, funAdSidConfigData);
         g(str);
     }
 
@@ -137,7 +137,7 @@ public class b {
         FunAdSidConfigData funAdSidConfigData;
         JSONObject json;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f28318a == null || TextUtils.isEmpty(str) || !this.f28318a.containsKey(str) || (funAdSidConfigData = this.f28318a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f28338a == null || TextUtils.isEmpty(str) || !this.f28338a.containsKey(str) || (funAdSidConfigData = this.f28338a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
             return;
         }
         EditorHelper.putString(c.g(), str, json.toString());

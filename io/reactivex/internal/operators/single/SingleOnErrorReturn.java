@@ -12,7 +12,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class SingleOnErrorReturn<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public final class SingleOnErrorReturn<T> extends Single<T> {
     public final T value;
     public final Function<? super Throwable, ? extends T> valueSupplier;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public final class OnErrorReturn implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

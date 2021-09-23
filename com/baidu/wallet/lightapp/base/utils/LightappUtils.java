@@ -58,7 +58,7 @@ public final class LightappUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("errCode", str);
-            hashMap.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, str2);
+            hashMap.put("des", str2);
             HashMap hashMap2 = new HashMap();
             hashMap2.put("data", hashMap.toString());
             return assembleResult((Map<String, Object>) hashMap2, false);
@@ -119,7 +119,7 @@ public final class LightappUtils {
         }
         HashMap hashMap = new HashMap();
         hashMap.put("errCode", str2);
-        hashMap.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, str3);
+        hashMap.put("des", str3);
         iLightappInvokerCallback.onResult(1, assembleResult((Map<String, Object>) hashMap, false));
     }
 
@@ -163,7 +163,7 @@ public final class LightappUtils {
         }
         HashMap hashMap = new HashMap();
         hashMap.put("errCode", str);
-        hashMap.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, str2);
+        hashMap.put("des", str2);
         iLightappInvokerCallback.onResult(1, assembleResult((Map<String, Object>) hashMap, false));
     }
 

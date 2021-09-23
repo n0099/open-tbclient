@@ -13,7 +13,7 @@ public class f0 extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public k0 f4415a;
+    public k0 f4423a;
 
     public f0() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class f0 extends a {
     public void a(b bVar, Canvas canvas) {
         k0 k0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) && (k0Var = this.f4415a) != null && k0Var.d()) {
-            bVar.m = this.f4415a;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) && (k0Var = this.f4423a) != null && k0Var.d()) {
+            bVar.m = this.f4423a;
         }
     }
 
@@ -42,7 +42,7 @@ public class f0 extends a {
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            this.f4415a = new k0(jSONArray);
+            this.f4423a = new k0(jSONArray);
         }
     }
 }

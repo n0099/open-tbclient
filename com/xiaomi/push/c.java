@@ -19,7 +19,7 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f77420a;
+    public final int f77739a;
 
     /* renamed from: a  reason: collision with other field name */
     public final OutputStream f174a;
@@ -28,7 +28,7 @@ public final class c {
     public final byte[] f175a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f77421b;
+    public int f77740b;
 
     /* loaded from: classes10.dex */
     public static class a extends IOException {
@@ -71,8 +71,8 @@ public final class c {
         }
         this.f174a = outputStream;
         this.f175a = bArr;
-        this.f77421b = 0;
-        this.f77420a = bArr.length;
+        this.f77740b = 0;
+        this.f77739a = bArr.length;
     }
 
     public c(byte[] bArr, int i2, int i3) {
@@ -92,8 +92,8 @@ public final class c {
         }
         this.f174a = null;
         this.f175a = bArr;
-        this.f77421b = i2;
-        this.f77420a = i2 + i3;
+        this.f77740b = i2;
+        this.f77739a = i2 + i3;
     }
 
     public static int a(int i2) {
@@ -277,8 +277,8 @@ public final class c {
             if (outputStream == null) {
                 throw new a();
             }
-            outputStream.write(this.f175a, 0, this.f77421b);
-            this.f77421b = 0;
+            outputStream.write(this.f175a, 0, this.f77740b);
+            this.f77740b = 0;
         }
     }
 
@@ -286,7 +286,7 @@ public final class c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i2)) == null) {
-            if ((i2 & com.alipay.sdk.encrypt.a.f35987g) == 0) {
+            if ((i2 & com.alipay.sdk.encrypt.a.f36021g) == 0) {
                 return 1;
             }
             if ((i2 & (-16384)) == 0) {
@@ -305,7 +305,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.f174a == null) {
-                return this.f77420a - this.f77421b;
+                return this.f77739a - this.f77740b;
             }
             throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
         }
@@ -324,12 +324,12 @@ public final class c {
     public void a(byte b2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b2) == null) {
-            if (this.f77421b == this.f77420a) {
+            if (this.f77740b == this.f77739a) {
                 c();
             }
             byte[] bArr = this.f175a;
-            int i2 = this.f77421b;
-            this.f77421b = i2 + 1;
+            int i2 = this.f77740b;
+            this.f77740b = i2 + 1;
             bArr[i2] = b2;
         }
     }
@@ -456,25 +456,25 @@ public final class c {
     public void m209a(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048592, this, bArr, i2, i3) == null) {
-            int i4 = this.f77420a;
-            int i5 = this.f77421b;
+            int i4 = this.f77739a;
+            int i5 = this.f77740b;
             if (i4 - i5 >= i3) {
                 System.arraycopy(bArr, i2, this.f175a, i5, i3);
-                this.f77421b += i3;
+                this.f77740b += i3;
                 return;
             }
             int i6 = i4 - i5;
             System.arraycopy(bArr, i2, this.f175a, i5, i6);
             int i7 = i2 + i6;
             int i8 = i3 - i6;
-            this.f77421b = this.f77420a;
+            this.f77740b = this.f77739a;
             c();
-            if (i8 > this.f77420a) {
+            if (i8 > this.f77739a) {
                 this.f174a.write(bArr, i7, i8);
                 return;
             }
             System.arraycopy(bArr, i7, this.f175a, 0, i8);
-            this.f77421b = i8;
+            this.f77740b = i8;
         }
     }
 
@@ -550,7 +550,7 @@ public final class c {
     public void m216d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            while ((i2 & com.alipay.sdk.encrypt.a.f35987g) != 0) {
+            while ((i2 & com.alipay.sdk.encrypt.a.f36021g) != 0) {
                 m214c((i2 & 127) | 128);
                 i2 >>>= 7;
             }

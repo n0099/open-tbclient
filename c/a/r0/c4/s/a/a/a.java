@@ -32,33 +32,33 @@ public class a implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final NewVcodeView f16848a;
+    public final NewVcodeView f16858a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final NewWriteModel f16849b;
+    public final NewWriteModel f16859b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f16850c;
+    public boolean f16860c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PostWriteCallBackData f16851d;
+    public PostWriteCallBackData f16861d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final NewWriteModel.g f16852e;
+    public final NewWriteModel.g f16862e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewWriteModel.g f16853f;
+    public NewWriteModel.g f16863f;
 
     /* renamed from: c.a.r0.c4.s.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0813a implements NewWriteModel.g {
+    public class C0811a implements NewWriteModel.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f16854a;
+        public final /* synthetic */ a f16864a;
 
-        public C0813a(a aVar) {
+        public C0811a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public class a implements b {
                     return;
                 }
             }
-            this.f16854a = aVar;
+            this.f16864a = aVar;
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
@@ -81,13 +81,13 @@ public class a implements b {
             String str;
             String str2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, k0Var, writeData, antiData}) == null) || this.f16854a.f16848a == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, k0Var, writeData, antiData}) == null) || this.f16864a.f16858a == null) {
                 return;
             }
-            this.f16854a.f16848a.showPostThreadLoadingView(false);
+            this.f16864a.f16858a.showPostThreadLoadingView(false);
             if (z) {
-                this.f16854a.f16851d = postWriteCallBackData;
-                this.f16854a.f16850c = true;
+                this.f16864a.f16861d = postWriteCallBackData;
+                this.f16864a.f16860c = true;
                 String str3 = null;
                 if (k0Var == null || k0Var.a() == null) {
                     str = null;
@@ -99,14 +99,14 @@ public class a implements b {
                     str = str4;
                     str3 = str5;
                 }
-                this.f16854a.f16848a.runJsMethod("success", str3 + "," + str + "," + str2);
+                this.f16864a.f16858a.runJsMethod("success", str3 + "," + str + "," + str2);
             } else if (postWriteCallBackData == null || postWriteCallBackData.getErrorCode() != 227001) {
-                if (this.f16854a.f16853f != null) {
-                    this.f16854a.f16853f.callback(false, postWriteCallBackData, k0Var, writeData, antiData);
+                if (this.f16864a.f16863f != null) {
+                    this.f16864a.f16863f.callback(false, postWriteCallBackData, k0Var, writeData, antiData);
                 }
             } else {
-                this.f16854a.f16848a.getContext().setVisible(false);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.f16854a.f16848a.getContext().getActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, postWriteCallBackData.getAccessState())));
+                this.f16864a.f16858a.getContext().setVisible(false);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.f16864a.f16858a.getContext().getActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, postWriteCallBackData.getAccessState())));
             }
         }
     }
@@ -126,20 +126,20 @@ public class a implements b {
                 return;
             }
         }
-        C0813a c0813a = new C0813a(this);
-        this.f16852e = c0813a;
-        this.f16848a = newVcodeView;
-        this.f16849b = newWriteModel;
-        newWriteModel.h0(c0813a);
+        C0811a c0811a = new C0811a(this);
+        this.f16862e = c0811a;
+        this.f16858a = newVcodeView;
+        this.f16859b = newWriteModel;
+        newWriteModel.h0(c0811a);
     }
 
     @Override // c.a.r0.c4.s.a.a.b
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f16848a.setRatio(0.9433962f);
-            this.f16848a.showWebView(false);
-            this.f16848a.getWebView().loadUrl(TbConfig.SERVER_ADDRESS_WEB_VIEW + "n/captcha-drag");
+            this.f16858a.setRatio(0.9433962f);
+            this.f16858a.showWebView(false);
+            this.f16858a.getWebView().loadUrl(TbConfig.SERVER_ADDRESS_WEB_VIEW + "n/captcha-drag");
         }
     }
 
@@ -150,53 +150,53 @@ public class a implements b {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
-            if (this.f16849b.X() == null || StringUtils.isNull(str) || (X = this.f16849b.X()) == null) {
+            if (this.f16859b.X() == null || StringUtils.isNull(str) || (X = this.f16859b.X()) == null) {
                 return false;
             }
             if (str.contains("objc:loadReady")) {
                 if (X.getVcodeExtra() == null) {
                     return false;
                 }
-                this.f16848a.runJsMethod("handleFreshCaptcha", "'" + X.getVcodeUrl() + "','" + X.getVcodeExtra().slideImg + "','" + X.getVcodeExtra().textImg + "'");
+                this.f16858a.runJsMethod("handleFreshCaptcha", "'" + X.getVcodeUrl() + "','" + X.getVcodeExtra().slideImg + "','" + X.getVcodeExtra().textImg + "'");
                 return true;
             } else if (str.contains("objc:jsChangePosition")) {
                 j(c.a.q0.e1.a.a(str));
                 return true;
             } else if (str.contains("objc:finish")) {
                 if (X != null && X.getVideoReviewType() == 1) {
-                    NewVcodeView newVcodeView = this.f16848a;
+                    NewVcodeView newVcodeView = this.f16858a;
                     newVcodeView.showToast(true, newVcodeView.getContext().getResources().getString(R.string.video_send_success_under_review));
                 } else if (X != null && X.getVideoReviewType() == 2) {
-                    NewVcodeView newVcodeView2 = this.f16848a;
+                    NewVcodeView newVcodeView2 = this.f16858a;
                     newVcodeView2.showToast(true, newVcodeView2.getContext().getResources().getString(R.string.video_send_success));
                 } else {
-                    String string = this.f16848a.getContext().getResources().getString(R.string.send_success);
-                    PostWriteCallBackData postWriteCallBackData = this.f16851d;
+                    String string = this.f16858a.getContext().getResources().getString(R.string.send_success);
+                    PostWriteCallBackData postWriteCallBackData = this.f16861d;
                     String str3 = null;
                     if (postWriteCallBackData != null) {
                         str3 = postWriteCallBackData.getPreMsg();
-                        str2 = this.f16851d.getColorMsg();
-                        string = this.f16851d.getErrorString();
+                        str2 = this.f16861d.getColorMsg();
+                        string = this.f16861d.getErrorString();
                     } else {
                         str2 = null;
                     }
                     if (X.getType() != 7) {
-                        m.b(this.f16848a.getContext().getActivity(), string, str3, str2);
+                        m.b(this.f16858a.getContext().getActivity(), string, str3, str2);
                     }
                 }
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("post_write_callback_data", this.f16851d);
+                bundle.putSerializable("post_write_callback_data", this.f16861d);
                 intent.putExtras(bundle);
-                BaseActivity context = this.f16848a.getContext();
-                this.f16848a.getContext();
+                BaseActivity context = this.f16858a.getContext();
+                this.f16858a.getContext();
                 context.setResult(-1, intent);
-                this.f16848a.getContext().finish();
+                this.f16858a.getContext().finish();
                 return true;
             } else if (!str.contains("objc:jumpToFeedback()") || WriteActivityConfig.isAsyncWriting()) {
                 return false;
             } else {
-                WriteActivityConfig.newInstance(this.f16848a.getContext()).setType(0).setForumId(TbConfig.getPositionPagerId()).setForumName(TbConfig.getPositionPagerName()).setIsVcodeFeedBack().send();
+                WriteActivityConfig.newInstance(this.f16858a.getContext()).setType(0).setForumId(TbConfig.getPositionPagerId()).setForumName(TbConfig.getPositionPagerName()).setIsVcodeFeedBack().send();
                 return true;
             }
         }
@@ -207,7 +207,7 @@ public class a implements b {
     public void c(NewWriteModel.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
-            this.f16853f = gVar;
+            this.f16863f = gVar;
         }
     }
 
@@ -215,8 +215,8 @@ public class a implements b {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f16848a.showPostThreadLoadingView(false);
-            this.f16849b.cancelLoadData();
+            this.f16858a.showPostThreadLoadingView(false);
+            this.f16859b.cancelLoadData();
         }
     }
 
@@ -231,16 +231,16 @@ public class a implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (!l.D()) {
-                this.f16848a.getContext().showToast(R.string.neterror);
-                this.f16848a.getContext().finish();
+                this.f16858a.getContext().showToast(R.string.neterror);
+                this.f16858a.getContext().finish();
             } else if (!StringUtils.isNull(str)) {
-                this.f16848a.showPostThreadLoadingView(true);
-                this.f16849b.X().setVcode(str);
-                this.f16849b.X().setVcodeType("5");
-                this.f16849b.l0();
+                this.f16858a.showPostThreadLoadingView(true);
+                this.f16859b.X().setVcode(str);
+                this.f16859b.X().setVcodeType("5");
+                this.f16859b.l0();
             } else {
-                this.f16848a.getContext().showToast(R.string.neterror);
-                this.f16848a.getContext().finish();
+                this.f16858a.getContext().showToast(R.string.neterror);
+                this.f16858a.getContext().finish();
             }
         }
     }
@@ -256,7 +256,7 @@ public class a implements b {
     public void onPageFinished(WebView webView, String str) {
         NewVcodeView newVcodeView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) || (newVcodeView = this.f16848a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) || (newVcodeView = this.f16858a) == null) {
             return;
         }
         newVcodeView.showWebViewDelay(1000);

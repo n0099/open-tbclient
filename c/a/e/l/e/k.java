@@ -12,7 +12,7 @@ public class k extends OvershootInterpolator {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final float f3029a;
+    public final float f3030a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(float f2) {
@@ -32,7 +32,7 @@ public class k extends OvershootInterpolator {
                 return;
             }
         }
-        this.f3029a = f2;
+        this.f3030a = f2;
     }
 
     @Override // android.view.animation.OvershootInterpolator, android.animation.TimeInterpolator
@@ -41,7 +41,7 @@ public class k extends OvershootInterpolator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
             float f3 = f2 - 1.0f;
-            float f4 = this.f3029a;
+            float f4 = this.f3030a;
             return ((-0.5f) * f3 * (((f4 + 1.0f) * f3) + f4)) + 1.0f;
         }
         return invokeF.floatValue;

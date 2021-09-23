@@ -19,6 +19,7 @@ import com.baidu.sapi2.callback.inner.ExecuteJsCallback;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.utils.enums.AccountType;
+import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.FromType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -469,12 +470,21 @@ public class SapiCoreUtil {
                                 sapiAccountResponse2.livingUname = URLDecoder.decode(newPullParser.nextText());
                                 continue;
                             } else if (IWalletLoginListener.KEY_LOGIN_TYPE.equals(name)) {
-                                String nextText3 = newPullParser.nextText();
-                                if ("oneKeyLogin".equals(nextText3) || "business_from_one_key_login".equals(str)) {
-                                    nextText3 = new OneKeyLoginSdkCall().getOperatorType();
+                                if ("oneKeyLogin".equals(newPullParser.nextText()) || "business_from_one_key_login".equals(str)) {
+                                    String operatorType = new OneKeyLoginSdkCall().getOperatorType();
+                                    if (OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC.equals(operatorType)) {
+                                        SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CM.getName());
+                                        continue;
+                                    } else if (OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC.equals(operatorType)) {
+                                        SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CU.getName());
+                                        continue;
+                                    } else if (OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC.equals(operatorType)) {
+                                        SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CT.getName());
+                                        continue;
+                                    } else {
+                                        continue;
+                                    }
                                 }
-                                SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, nextText3);
-                                continue;
                             } else if (name.equals("mobilephone")) {
                                 SapiContext.getInstance().putEncryptStr(SapiContext.KEY_LAST_LOGIN_PHONE, newPullParser.nextText());
                                 continue;
@@ -518,7 +528,7 @@ public class SapiCoreUtil {
                 return null;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(r.f42280a, 4);
+            hashMap.put(r.f42342a, 4);
             hashMap.put("w", 2);
             int i2 = 1;
             hashMap.put("x", 1);

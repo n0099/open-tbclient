@@ -40,7 +40,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, c.a.r0.j3.d0.a.a(TbConfig.FINE_PB_PRAISE, 309095));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, c.a.r0.j3.e0.a.a(TbConfig.FINE_PB_PRAISE, 309095));
             tbHttpMessageTask.setResponsedClass(ChosenPbZanHttpResponse.class);
             messageManager.registerTask(tbHttpMessageTask);
         }

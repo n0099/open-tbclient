@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
 import c.a.q0.x.m;
-import c.a.r0.j3.u;
+import c.a.r0.j3.v;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,6 +21,8 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
@@ -41,19 +43,19 @@ public class g extends c.a.q0.x.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumData f15149a;
+    public ForumData f15156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15150b;
+    public String f15157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f15151c;
+    public String f15158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f15152d;
+    public boolean f15159d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DataModel<?> f15153e;
+    public DataModel<?> f15160e;
 
     /* loaded from: classes3.dex */
     public class a implements c.a.q0.x.b {
@@ -61,13 +63,13 @@ public class g extends c.a.q0.x.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f15154e;
+        public final /* synthetic */ e f15161e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f15155f;
+        public final /* synthetic */ EditorTools f15162f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f15156g;
+        public final /* synthetic */ g f15163g;
 
         public a(g gVar, e eVar, EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -84,9 +86,9 @@ public class g extends c.a.q0.x.c {
                     return;
                 }
             }
-            this.f15156g = gVar;
-            this.f15154e = eVar;
-            this.f15155f = editorTools;
+            this.f15163g = gVar;
+            this.f15161e = eVar;
+            this.f15162f = editorTools;
         }
 
         @Override // c.a.q0.x.b
@@ -94,127 +96,142 @@ public class g extends c.a.q0.x.c {
             e eVar;
             int size;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (eVar = this.f15154e) == null || eVar.a() == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (eVar = this.f15161e) == null || eVar.a() == null || aVar == null) {
                 return;
             }
-            int i2 = aVar.f15079a;
+            int i2 = aVar.f15086a;
             if (i2 == 4) {
-                this.f15154e.n0(aVar.f15081c.toString());
-                Object obj = aVar.f15081c;
+                this.f15161e.o0(aVar.f15088c.toString());
+                Object obj = aVar.f15088c;
                 if (obj instanceof SpanGroupManager) {
-                    this.f15154e.r0((SpanGroupManager) obj);
+                    this.f15161e.s0((SpanGroupManager) obj);
                 }
-                this.f15156g.f15152d = false;
+                this.f15163g.f15159d = false;
             } else if (i2 == 5) {
-                if (this.f15155f.isToolVisible()) {
+                if (this.f15162f.isToolVisible()) {
                     return;
                 }
-                TiebaStatic.eventStat(this.f15155f.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+                TiebaStatic.eventStat(this.f15162f.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
             } else if (i2 == 7) {
-                this.f15154e.s().showToast(R.string.over_limit_tip);
-                this.f15156g.f15152d = true;
+                this.f15161e.s().showToast(R.string.over_limit_tip);
+                this.f15163g.f15159d = true;
             } else if (i2 == 8) {
-                if (this.f15156g.j(this.f15154e.s(), CyberPlayerManager.MEDIA_INFO_DISABLE_FILECACHE)) {
-                    this.f15154e.M(null, null);
+                if (this.f15163g.k(this.f15161e.s(), CyberPlayerManager.MEDIA_INFO_DISABLE_FILECACHE)) {
+                    this.f15161e.N(null, null);
                 }
             } else if (i2 == 10) {
-                Object obj2 = aVar.f15081c;
+                Object obj2 = aVar.f15088c;
                 if (obj2 instanceof VoiceData$VoiceModel) {
-                    this.f15154e.u0((VoiceData$VoiceModel) obj2);
-                    this.f15154e.A(true, null);
+                    this.f15161e.v0((VoiceData$VoiceModel) obj2);
+                    this.f15161e.B(true, null);
                 }
             } else if (i2 == 11) {
-                this.f15154e.u0(null);
+                this.f15161e.v0(null);
             } else if (i2 == 18) {
-                if (aVar.f15081c != null) {
-                    this.f15154e.R();
+                if (aVar.f15088c != null) {
+                    this.f15161e.S();
                     return;
                 }
-                int u = this.f15154e.u();
+                int u = this.f15161e.u();
                 if (u == 0) {
-                    this.f15154e.K();
+                    this.f15161e.L();
                 } else if (u != 2) {
                 } else {
-                    this.f15154e.B();
+                    this.f15161e.C();
                 }
             } else if (i2 == 20) {
-                this.f15154e.a().sendAction(new c.a.q0.x.a(2, 7, null));
+                this.f15161e.a().sendAction(new c.a.q0.x.a(2, 7, null));
                 c.a.r0.j3.n0.b.a().f(true);
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
             } else if (i2 == 27) {
-                VideoInfo y = this.f15154e.y();
-                if (y != null && y.isAvaliable()) {
-                    this.f15154e.a().sendAction(new c.a.q0.x.a(28, 20, y));
-                } else if (this.f15154e.s() == null || this.f15154e.s().getResources() == null) {
+                VideoInfo z = this.f15161e.z();
+                if (z != null && z.isAvaliable()) {
+                    this.f15161e.a().sendAction(new c.a.q0.x.a(28, 20, z));
+                } else if (this.f15161e.s() == null || this.f15161e.s().getResources() == null) {
                 } else {
-                    Resources resources = this.f15154e.s().getResources();
+                    Resources resources = this.f15161e.s().getResources();
                     if (XiaoyingUtil.isXiaoyingInstalled()) {
                         if (XiaoyingUtil.isXiaoyingForbidden()) {
-                            XiaoyingUtil.showGoPluginDetailDialog(this.f15154e.s(), resources.getString(R.string.plugin_video_not_active), resources.getString(R.string.setup));
+                            XiaoyingUtil.showGoPluginDetailDialog(this.f15161e.s(), resources.getString(R.string.plugin_video_not_active), resources.getString(R.string.setup));
                             return;
                         } else {
-                            XiaoyingUtil.startXiaoying(this.f15154e.s().getPageActivity());
+                            XiaoyingUtil.startXiaoying(this.f15161e.s().getPageActivity());
                             return;
                         }
                     }
-                    XiaoyingUtil.showGoPluginDetailDialog(this.f15154e.s(), resources.getString(R.string.plugin_video_install_tips), resources.getString(R.string.plugin_go_install));
+                    XiaoyingUtil.showGoPluginDetailDialog(this.f15161e.s(), resources.getString(R.string.plugin_video_install_tips), resources.getString(R.string.plugin_go_install));
                 }
             } else if (i2 == 29) {
-                this.f15154e.a().sendAction(new c.a.q0.x.a(2, 19, null));
-                this.f15154e.a().sendAction(new c.a.q0.x.a(1, 2, null));
-                this.f15154e.m();
+                this.f15161e.a().sendAction(new c.a.q0.x.a(2, 19, null));
+                this.f15161e.a().sendAction(new c.a.q0.x.a(1, 2, null));
+                this.f15161e.m();
             } else if (i2 == 32) {
-                this.f15154e.a().sendAction(new c.a.q0.x.a(1, 11, null));
+                this.f15161e.a().sendAction(new c.a.q0.x.a(1, 11, null));
             } else if (i2 == 36) {
-                if (this.f15156g.j(this.f15154e.s(), 11040)) {
-                    this.f15154e.a0();
+                if (this.f15163g.k(this.f15161e.s(), 11040)) {
+                    this.f15161e.b0();
                 }
             } else if (i2 != 43) {
                 switch (i2) {
                     case 14:
-                        AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.f15154e.s().getPageActivity(), this.f15154e.z().toJsonString(), true, true);
-                        if (!StringUtils.isNull(this.f15156g.f15151c, true)) {
-                            albumFloatActivityConfig.getIntent().putExtra("from", this.f15156g.f15151c);
+                        AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.f15161e.s().getPageActivity(), this.f15161e.A().toJsonString(), true, true);
+                        if (!StringUtils.isNull(this.f15163g.f15158c, true)) {
+                            albumFloatActivityConfig.getIntent().putExtra("from", this.f15163g.f15158c);
                         }
-                        if (this.f15156g.f15149a != null && !StringUtils.isNull(this.f15156g.f15149a.getId(), true)) {
-                            albumFloatActivityConfig.getIntent().putExtra("forum_id", this.f15156g.f15149a.getId());
+                        if (this.f15163g.f15156a != null && !StringUtils.isNull(this.f15163g.f15156a.getId(), true)) {
+                            albumFloatActivityConfig.getIntent().putExtra("forum_id", this.f15163g.f15156a.getId());
                         }
                         albumFloatActivityConfig.setRequestCode(12002);
                         if (c.a.q0.x.w.a.a().b() == 1) {
                             albumFloatActivityConfig.setRequestFrom(2);
-                            if (this.f15154e.z() != null) {
-                                this.f15154e.z().setMaxImagesAllowed(1);
+                            if (this.f15161e.A() != null) {
+                                this.f15161e.A().setMaxImagesAllowed(1);
                             }
-                        } else if (this.f15154e.z() != null) {
-                            this.f15154e.z().setMaxImagesAllowed(9);
+                        } else if (this.f15161e.A() != null) {
+                            this.f15161e.A().setMaxImagesAllowed(9);
                         }
-                        l.x(this.f15154e.s().getPageActivity(), this.f15154e.s().getPageActivity().getCurrentFocus());
+                        l.x(this.f15161e.s().getPageActivity(), this.f15161e.s().getPageActivity().getCurrentFocus());
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
                         return;
                     case 15:
-                        int intValue = ((Integer) aVar.f15081c).intValue();
-                        if (this.f15154e.z() != null && this.f15154e.z().getChosedFiles() != null && (size = this.f15154e.z().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f15154e.s().getPageActivity(), 12012, this.f15154e.z(), intValue)));
+                        int intValue = ((Integer) aVar.f15088c).intValue();
+                        if (this.f15161e.A() != null && this.f15161e.A().getChosedFiles() != null && (size = this.f15161e.A().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f15161e.s().getPageActivity(), 12012, this.f15161e.A(), intValue)));
                             return;
                         }
                         return;
                     case 16:
-                        if (this.f15156g.f15152d) {
-                            this.f15154e.s().showToast(R.string.over_limit_tip);
+                        if (this.f15163g.f15159d) {
+                            this.f15161e.s().showToast(R.string.over_limit_tip);
                         }
-                        if (this.f15156g.j(this.f15154e.s(), 11025)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.f15154e.s().getPageActivity(), 12004, true)));
+                        if (this.f15163g.k(this.f15161e.s(), 11025)) {
+                            AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.f15161e.s().getPageActivity(), 12004, true);
+                            if (this.f15161e.y() != null) {
+                                atListActivityConfig.setSelectedAtList(this.f15161e.y().t());
+                            }
+                            if (this.f15163g.f15160e != null) {
+                                atListActivityConfig.setFromTid(this.f15163g.f15160e.z());
+                                atListActivityConfig.setFromFid(this.f15163g.f15160e.getForumId());
+                            }
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
+                            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
+                            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+                            if (this.f15163g.f15160e != null) {
+                                statisticItem.addParam("tid", this.f15163g.f15160e.z());
+                                statisticItem.addParam("fid", this.f15163g.f15160e.getForumId());
+                            }
+                            TiebaStatic.log(statisticItem);
                             return;
                         }
                         return;
                     default:
                         return;
                 }
-            } else if (c.a.q0.t0.b.c(this.f15154e.s(), true, false)) {
+            } else if (c.a.q0.t0.b.c(this.f15161e.s(), true, false)) {
             } else {
-                HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.f15154e.s().getPageActivity(), 25004, HotSelectActivityConfig.FROM_PB);
-                if (this.f15156g.f15149a != null) {
-                    hotSelectActivityConfig.setForumExtra(c.a.e.e.m.b.g(this.f15156g.f15149a.getId(), 0L), this.f15156g.f15149a.getFirst_class(), this.f15156g.f15149a.getSecond_class());
+                HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.f15161e.s().getPageActivity(), 25004, HotSelectActivityConfig.FROM_PB);
+                if (this.f15163g.f15156a != null) {
+                    hotSelectActivityConfig.setForumExtra(c.a.e.e.m.b.g(this.f15163g.f15156a.getId(), 0L), this.f15163g.f15156a.getFirst_class(), this.f15163g.f15156a.getSecond_class());
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotSelectActivityConfig));
             }
@@ -234,9 +251,9 @@ public class g extends c.a.q0.x.c {
                 return;
             }
         }
-        this.f15150b = null;
-        this.f15151c = null;
-        this.f15152d = false;
+        this.f15157b = null;
+        this.f15158c = null;
+        this.f15159d = false;
     }
 
     @Override // c.a.q0.x.c
@@ -253,7 +270,7 @@ public class g extends c.a.q0.x.c {
             editorTools.showLinePositionTop(false);
             editorTools.setMoreButtonAtEnd(true);
             e eVar = new e(editorTools);
-            eVar.k0(this.f15153e);
+            eVar.l0(this.f15160e);
             return eVar;
         }
         return (c.a.q0.x.e) invokeL.objValue;
@@ -297,24 +314,24 @@ public class g extends c.a.q0.x.c {
             arrayList.add(6);
             arrayList.add(9);
             a2.addTool(new c.a.q0.x.r.d(a2.getContext(), 1));
-            if (c.a.r0.j3.q0.c.a() && u.a(this.f15150b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
-                mVar.f15094j = 2;
+            if (c.a.r0.j3.q0.c.a() && v.a(this.f15157b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
+                mVar.f15101j = 2;
                 a2.addTool(mVar);
             }
             c.a.q0.x.o.a aVar = new c.a.q0.x.o.a(a2.getContext(), 4);
-            aVar.f15091g = false;
+            aVar.f15098g = false;
             a2.addTool(aVar);
             CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, a2.getContext()), m.class);
             if (runTask2 != null && runTask2.getData() != null) {
                 m mVar2 = (m) runTask2.getData();
-                mVar2.f15094j = 6;
+                mVar2.f15101j = 6;
                 a2.addTool(mVar2);
             }
-            a2.addTool(new f(a2.getContext(), false, true));
+            a2.addTool(new f(a2.getContext(), false, true, 12004));
             CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, a2.getContext()), m.class);
             if (runTask3 != null && runTask3.getData() != null) {
                 m mVar3 = (m) runTask3.getData();
-                mVar3.f15094j = 7;
+                mVar3.f15101j = 7;
                 a2.addTool(mVar3);
             }
             if (!"PbChosenActivity".equals(a2.getContext().getClass().getSimpleName())) {
@@ -323,13 +340,13 @@ public class g extends c.a.q0.x.c {
             a2.collect(arrayList);
             m findToolById = a2.findToolById(5);
             if (findToolById != null) {
-                findToolById.f15094j = 3;
+                findToolById.f15101j = 3;
             }
             a2.build();
         }
     }
 
-    public final boolean j(TbPageContext<?> tbPageContext, int i2) {
+    public final boolean k(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i2)) == null) {
@@ -343,49 +360,49 @@ public class g extends c.a.q0.x.c {
         return invokeLI.booleanValue;
     }
 
-    public ForumData k() {
+    public ForumData l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15149a : (ForumData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15156a : (ForumData) invokeV.objValue;
     }
 
-    public String l() {
+    public String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15151c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15158c : (String) invokeV.objValue;
     }
 
-    public DataModel<?> m() {
+    public DataModel<?> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15153e : (DataModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15160e : (DataModel) invokeV.objValue;
     }
 
-    public void n(ForumData forumData) {
+    public void o(ForumData forumData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, forumData) == null) {
-            this.f15149a = forumData;
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f15150b = str;
+            this.f15156a = forumData;
         }
     }
 
     public void p(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f15151c = str;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.f15157b = str;
         }
     }
 
-    public void q(DataModel<?> dataModel) {
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f15158c = str;
+        }
+    }
+
+    public void r(DataModel<?> dataModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, dataModel) == null) {
-            this.f15153e = dataModel;
+            this.f15160e = dataModel;
         }
     }
 }

@@ -11,10 +11,10 @@ public class G0 implements ViewTreeObserver.OnScrollChangedListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ N0 f76796a;
+    public final /* synthetic */ N0 f77115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ O0 f76797b;
+    public final /* synthetic */ O0 f77116b;
 
     public G0(O0 o0, N0 n0) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class G0 implements ViewTreeObserver.OnScrollChangedListener {
                 return;
             }
         }
-        this.f76797b = o0;
-        this.f76796a = n0;
+        this.f77116b = o0;
+        this.f77115a = n0;
     }
 
     @Override // android.view.ViewTreeObserver.OnScrollChangedListener
@@ -40,15 +40,15 @@ public class G0 implements ViewTreeObserver.OnScrollChangedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.f76797b.f76826b || !this.f76797b.a(this.f76797b.f76825a)) {
+                if (this.f77116b.f77145b || !this.f77116b.a(this.f77116b.f77144a)) {
                     return;
                 }
-                this.f76797b.f76829e.removeMessages(1101);
-                this.f76797b.f76825a.getViewTreeObserver().removeOnScrollChangedListener(this);
-                if (this.f76796a != null) {
-                    this.f76796a.a();
+                this.f77116b.f77148e.removeMessages(1101);
+                this.f77116b.f77144a.getViewTreeObserver().removeOnScrollChangedListener(this);
+                if (this.f77115a != null) {
+                    this.f77115a.a();
                 }
-                this.f76797b.f76826b = true;
+                this.f77116b.f77145b = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

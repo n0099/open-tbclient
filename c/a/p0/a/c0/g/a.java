@@ -15,7 +15,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4737a;
+    public static final boolean f4745a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class a {
                 return;
             }
         }
-        f4737a = k.f7077a;
+        f4745a = k.f7085a;
     }
 
     public static void a(@NonNull String str, @NonNull String str2) {
@@ -48,13 +48,13 @@ public class a {
         }
         if (th == null) {
             d.b(str, str2);
-            if (f4737a) {
+            if (f4745a) {
                 throw new RuntimeException(str2);
             }
             return;
         }
         d.c(str, str2, th);
-        if (f4737a) {
+        if (f4745a) {
             throw new RuntimeException(str2, th);
         }
     }

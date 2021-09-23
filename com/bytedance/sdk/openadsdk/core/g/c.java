@@ -13,16 +13,16 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f66594a;
+    public static final c f66905a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f66595b;
+    public static final c f66906b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f66596c;
+    public static final c f66907c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ c[] f66597d;
+    public static final /* synthetic */ c[] f66908d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,11 +38,11 @@ public final class c {
                 return;
             }
         }
-        f66594a = new c("GRANTED", 0);
-        f66595b = new c("DENIED", 1);
+        f66905a = new c("GRANTED", 0);
+        f66906b = new c("DENIED", 1);
         c cVar = new c("NOT_FOUND", 2);
-        f66596c = cVar;
-        f66597d = new c[]{f66594a, f66595b, cVar};
+        f66907c = cVar;
+        f66908d = new c[]{f66905a, f66906b, cVar};
     }
 
     public c(String str, int i2) {
@@ -73,6 +73,6 @@ public final class c {
     public static c[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (c[]) f66597d.clone() : (c[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (c[]) f66908d.clone() : (c[]) invokeV.objValue;
     }
 }

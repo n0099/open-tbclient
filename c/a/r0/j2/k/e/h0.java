@@ -53,7 +53,7 @@ public class h0 extends n<c.a.r0.j2.h.l, PbNoDataItemViewHolder> {
     public PbNoDataItemViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbNoDataItemViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.pb_no_data_item_layout, viewGroup, false), this.f2957e) : (PbNoDataItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbNoDataItemViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.pb_no_data_item_layout, viewGroup, false), this.f2958e) : (PbNoDataItemViewHolder) invokeL.objValue;
     }
 
     public View k0(int i2, View view, ViewGroup viewGroup, c.a.r0.j2.h.l lVar, PbNoDataItemViewHolder pbNoDataItemViewHolder) {

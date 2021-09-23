@@ -19,34 +19,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f4949a;
+    public final String f4957a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final double f4950b;
+    public final double f4958b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final double f4951c;
+    public final double f4959c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final float f4952d;
+    public final float f4960d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final double f4953e;
+    public final double f4961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final double f4954f;
+    public final double f4962f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final double f4955g;
+    public final double f4963g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final double f4956h;
+    public final double f4964h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f4957i;
+    public final String f4965i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final String f4958j;
+    public final String f4966j;
     public final String k;
     public final String l;
     public final String m;
@@ -67,7 +67,7 @@ public class b {
                 return;
             }
         }
-        q = k.f7077a;
+        q = k.f7085a;
         r = "LocationResult";
     }
 
@@ -86,16 +86,16 @@ public class b {
                 return;
             }
         }
-        this.f4949a = str;
-        this.f4950b = d2;
-        this.f4951c = d3;
-        this.f4952d = f2;
-        this.f4953e = d4;
-        this.f4954f = d5;
-        this.f4955g = 0.0d;
-        this.f4956h = d4;
-        this.f4957i = str2;
-        this.f4958j = str3;
+        this.f4957a = str;
+        this.f4958b = d2;
+        this.f4959c = d3;
+        this.f4960d = f2;
+        this.f4961e = d4;
+        this.f4962f = d5;
+        this.f4963g = 0.0d;
+        this.f4964h = d4;
+        this.f4965i = str2;
+        this.f4966j = str3;
         this.k = str4;
         this.l = str5;
         this.m = str6;
@@ -110,15 +110,15 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("longitude", this.f4950b);
-                jSONObject.put("latitude", this.f4951c);
-                jSONObject.put("speed", this.f4952d);
-                jSONObject.put("accuracy", this.f4953e);
-                jSONObject.put("altitude", this.f4954f);
-                jSONObject.put("verticalAccuracy", this.f4955g);
-                jSONObject.put("horizontalAccuracy", this.f4956h);
-                jSONObject.put("country", this.f4957i);
-                jSONObject.put("countryCode", this.f4958j);
+                jSONObject.put("longitude", this.f4958b);
+                jSONObject.put("latitude", this.f4959c);
+                jSONObject.put("speed", this.f4960d);
+                jSONObject.put("accuracy", this.f4961e);
+                jSONObject.put("altitude", this.f4962f);
+                jSONObject.put("verticalAccuracy", this.f4963g);
+                jSONObject.put("horizontalAccuracy", this.f4964h);
+                jSONObject.put("country", this.f4965i);
+                jSONObject.put("countryCode", this.f4966j);
                 jSONObject.put("city", this.k);
                 jSONObject.put("cityCode", this.l);
                 jSONObject.put("province", this.m);

@@ -8,10 +8,8 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
-import android.text.Selection;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -34,35 +32,35 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Button f39708a;
+    public Button f39757a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Button f39709b;
+    public Button f39758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f39710c;
+    public Button f39759c;
     public View contentView;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f39711d;
+    public Button f39760d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f39712e;
+    public Button f39761e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f39713f;
+    public Button f39762f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f39714g;
+    public Button f39763g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f39715h;
+    public Button f39764h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Button f39716i;
+    public Button f39765i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Button f39717j;
+    public Button f39766j;
     public ImageButton k;
     public a l;
     public boolean m;
@@ -77,7 +75,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<SafeKeyBoardPopupWindow> f39723a;
+        public WeakReference<SafeKeyBoardPopupWindow> f39767a;
 
         public a(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
             Interceptable interceptable = $ic;
@@ -94,7 +92,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
                     return;
                 }
             }
-            this.f39723a = new WeakReference<>(safeKeyBoardPopupWindow);
+            this.f39767a = new WeakReference<>(safeKeyBoardPopupWindow);
         }
 
         @Override // android.os.Handler
@@ -106,7 +104,7 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f39723a.get();
+                SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f39767a.get();
                 if (safeKeyBoardPopupWindow == null) {
                     return;
                 }
@@ -166,21 +164,18 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
             }
         }
         this.mContext = context;
-        b();
+        d();
     }
 
-    @TargetApi(24)
-    private boolean a() {
-        InterceptResult invokeV;
-        Context context;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (Build.VERSION.SDK_INT < 24 || (context = this.mContext) == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            if (this.l == null) {
+                this.l = new a(this);
             }
-            return ((Activity) context).isInMultiWindowMode();
+            this.l.removeCallbacksAndMessages(null);
         }
-        return invokeV.booleanValue;
     }
 
     private int[] a(boolean z) {
@@ -215,10 +210,35 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         return (int[]) invokeZ.objValue;
     }
 
-    private void b() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.m = a();
+            if (this.l == null) {
+                this.l = new a(this);
+            }
+            this.l.sendEmptyMessage(1);
+        }
+    }
+
+    @TargetApi(24)
+    private boolean c() {
+        InterceptResult invokeV;
+        Context context;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            if (Build.VERSION.SDK_INT < 24 || (context = this.mContext) == null) {
+                return false;
+            }
+            return ((Activity) context).isInMultiWindowMode();
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            this.m = c();
             View inflate = LayoutInflater.from(this.mContext).inflate(getLayoutId(), (ViewGroup) null);
             this.contentView = inflate;
             setContentView(inflate);
@@ -226,126 +246,31 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
             setWidth(-1);
             setBackgroundDrawable(new BitmapDrawable());
             setAnimationStyle(ResUtils.style(this.mContext, "rim_base_safekeyboard_popwindown_anim"));
-            this.f39717j = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn0"));
-            this.f39708a = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn1"));
-            this.f39709b = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn2"));
-            this.f39710c = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn3"));
-            this.f39711d = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn4"));
-            this.f39712e = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn5"));
-            this.f39713f = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn6"));
-            this.f39714g = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn7"));
-            this.f39715h = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn8"));
-            this.f39716i = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn9"));
+            this.f39766j = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn0"));
+            this.f39757a = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn1"));
+            this.f39758b = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn2"));
+            this.f39759c = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn3"));
+            this.f39760d = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn4"));
+            this.f39761e = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn5"));
+            this.f39762f = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn6"));
+            this.f39763g = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn7"));
+            this.f39764h = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn8"));
+            this.f39765i = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn9"));
             this.mButtonX = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn_x"));
             this.k = (ImageButton) this.contentView.findViewById(ResUtils.id(this.mContext, "btn_del"));
-            this.f39717j.setOnClickListener(this);
-            this.f39708a.setOnClickListener(this);
-            this.f39709b.setOnClickListener(this);
-            this.f39710c.setOnClickListener(this);
-            this.f39711d.setOnClickListener(this);
-            this.f39712e.setOnClickListener(this);
-            this.f39713f.setOnClickListener(this);
-            this.f39714g.setOnClickListener(this);
-            this.f39715h.setOnClickListener(this);
-            this.f39716i.setOnClickListener(this);
+            this.f39766j.setOnClickListener(this);
+            this.f39757a.setOnClickListener(this);
+            this.f39758b.setOnClickListener(this);
+            this.f39759c.setOnClickListener(this);
+            this.f39760d.setOnClickListener(this);
+            this.f39761e.setOnClickListener(this);
+            this.f39762f.setOnClickListener(this);
+            this.f39763g.setOnClickListener(this);
+            this.f39764h.setOnClickListener(this);
+            this.f39765i.setOnClickListener(this);
             this.mButtonX.setOnClickListener(this);
-            this.k.setOnFocusChangeListener(new View.OnFocusChangeListener(this) { // from class: com.baidu.fsg.base.widget.SafeKeyBoardPopupWindow.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SafeKeyBoardPopupWindow f39718a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f39718a = this;
-                }
-
-                @Override // android.view.View.OnFocusChangeListener
-                public void onFocusChange(View view, boolean z) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view, z) == null) {
-                    }
-                }
-            });
-            this.k.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.fsg.base.widget.SafeKeyBoardPopupWindow.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SafeKeyBoardPopupWindow f39719a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f39719a = this;
-                }
-
-                @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view, MotionEvent motionEvent) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
-                        if (motionEvent.getAction() == 0) {
-                            this.f39719a.d();
-                            return false;
-                        } else if (motionEvent.getAction() != 1 && (motionEvent.getAction() != 2 || this.f39719a.k.isPressed())) {
-                            return false;
-                        } else {
-                            this.f39719a.c();
-                            return false;
-                        }
-                    }
-                    return invokeLL.booleanValue;
-                }
-            });
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            if (this.l == null) {
-                this.l = new a(this);
-            }
-            this.l.removeCallbacksAndMessages(null);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            if (this.l == null) {
-                this.l = new a(this);
-            }
-            this.l.sendEmptyMessage(1);
+            this.k.setOnFocusChangeListener(new f(this));
+            this.k.setOnTouchListener(new g(this));
         }
     }
 
@@ -370,36 +295,36 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             int[] a2 = a(z);
-            Button button2 = this.f39717j;
+            Button button2 = this.f39766j;
             button2.setText("" + a2[0]);
-            this.f39717j.setTag(Integer.valueOf(a2[0]));
-            Button button3 = this.f39708a;
+            this.f39766j.setTag(Integer.valueOf(a2[0]));
+            Button button3 = this.f39757a;
             button3.setText("" + a2[1]);
-            this.f39708a.setTag(Integer.valueOf(a2[1]));
-            Button button4 = this.f39709b;
+            this.f39757a.setTag(Integer.valueOf(a2[1]));
+            Button button4 = this.f39758b;
             button4.setText("" + a2[2]);
-            this.f39709b.setTag(Integer.valueOf(a2[2]));
-            Button button5 = this.f39710c;
+            this.f39758b.setTag(Integer.valueOf(a2[2]));
+            Button button5 = this.f39759c;
             button5.setText("" + a2[3]);
-            this.f39710c.setTag(Integer.valueOf(a2[3]));
-            Button button6 = this.f39711d;
+            this.f39759c.setTag(Integer.valueOf(a2[3]));
+            Button button6 = this.f39760d;
             button6.setText("" + a2[4]);
-            this.f39711d.setTag(Integer.valueOf(a2[4]));
-            Button button7 = this.f39712e;
+            this.f39760d.setTag(Integer.valueOf(a2[4]));
+            Button button7 = this.f39761e;
             button7.setText("" + a2[5]);
-            this.f39712e.setTag(Integer.valueOf(a2[5]));
-            Button button8 = this.f39713f;
+            this.f39761e.setTag(Integer.valueOf(a2[5]));
+            Button button8 = this.f39762f;
             button8.setText("" + a2[6]);
-            this.f39713f.setTag(Integer.valueOf(a2[6]));
-            Button button9 = this.f39714g;
+            this.f39762f.setTag(Integer.valueOf(a2[6]));
+            Button button9 = this.f39763g;
             button9.setText("" + a2[7]);
-            this.f39714g.setTag(Integer.valueOf(a2[7]));
-            Button button10 = this.f39715h;
+            this.f39763g.setTag(Integer.valueOf(a2[7]));
+            Button button10 = this.f39764h;
             button10.setText("" + a2[8]);
-            this.f39715h.setTag(Integer.valueOf(a2[8]));
-            Button button11 = this.f39716i;
+            this.f39764h.setTag(Integer.valueOf(a2[8]));
+            Button button11 = this.f39765i;
             button11.setText("" + a2[9]);
-            this.f39716i.setTag(Integer.valueOf(a2[9]));
+            this.f39765i.setTag(Integer.valueOf(a2[9]));
             if (this.mySafeEditText.getUseKeyX()) {
                 this.mButtonX.setEnabled(true);
                 this.mButtonX.setBackgroundResource(ResUtils.drawable(this.mContext, "rim_base_safekeyboard_numkey_selector"));
@@ -426,138 +351,10 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             if (view.getId() != ResUtils.id(this.mContext, "btn_del")) {
-                new Handler().post(new Runnable(this, view) { // from class: com.baidu.fsg.base.widget.SafeKeyBoardPopupWindow.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ View f39721a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ SafeKeyBoardPopupWindow f39722b;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, view};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f39722b = this;
-                        this.f39721a = view;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        String obj;
-                        int i2;
-                        int length;
-                        Editable editable;
-                        int i3;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            int selectionStart = this.f39722b.mySafeEditText.getSelectionStart();
-                            int selectionEnd = this.f39722b.mySafeEditText.getSelectionEnd();
-                            Editable text = this.f39722b.mySafeEditText.getText();
-                            if (selectionStart >= 0) {
-                                if (selectionStart < selectionEnd) {
-                                    obj = this.f39721a.getTag().toString();
-                                    i2 = 0;
-                                    length = this.f39721a.getTag().toString().length();
-                                    editable = text;
-                                    i3 = selectionStart;
-                                    selectionStart = selectionEnd;
-                                } else if (selectionStart != selectionEnd) {
-                                    text.replace(selectionEnd, selectionStart, this.f39721a.getTag().toString(), 0, this.f39721a.getTag().toString().length());
-                                    int selectionEnd2 = this.f39722b.mySafeEditText.getSelectionEnd() + this.f39721a.getTag().toString().length();
-                                    if (selectionEnd2 >= 0 && selectionEnd2 <= this.f39722b.mySafeEditText.getText().toString().length()) {
-                                        Selection.setSelection(this.f39722b.mySafeEditText.getEditableText(), selectionEnd2);
-                                    }
-                                    Selection.setSelection(text, text.length());
-                                } else {
-                                    obj = this.f39721a.getTag().toString();
-                                    i2 = 0;
-                                    length = this.f39721a.getTag().toString().length();
-                                    editable = text;
-                                    i3 = selectionStart;
-                                }
-                                editable.replace(i3, selectionStart, obj, i2, length);
-                                Selection.setSelection(text, text.length());
-                            }
-                        }
-                    }
-                });
+                new Handler().post(new i(this, view));
             } else if (TextUtils.isEmpty(this.mySafeEditText.getText())) {
             } else {
-                new Handler().post(new Runnable(this) { // from class: com.baidu.fsg.base.widget.SafeKeyBoardPopupWindow.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ SafeKeyBoardPopupWindow f39720a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f39720a = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        int i2;
-                        int i3;
-                        String str;
-                        int i4;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            int selectionStart = this.f39720a.mySafeEditText.getSelectionStart();
-                            int selectionEnd = this.f39720a.mySafeEditText.getSelectionEnd();
-                            Editable text = this.f39720a.mySafeEditText.getText();
-                            if (selectionStart >= 0) {
-                                if (selectionStart < selectionEnd) {
-                                    i2 = 0;
-                                    i3 = 0;
-                                    str = "";
-                                    i4 = selectionStart;
-                                    selectionStart = selectionEnd;
-                                } else if (selectionStart != selectionEnd) {
-                                    i2 = 0;
-                                    i3 = 0;
-                                    str = "";
-                                    i4 = selectionEnd;
-                                } else if (selectionStart <= 0) {
-                                    return;
-                                } else {
-                                    i4 = selectionStart - 1;
-                                    i2 = 0;
-                                    i3 = 0;
-                                    str = "";
-                                }
-                                text.replace(i4, selectionStart, str, i2, i3);
-                            }
-                        }
-                    }
-                });
+                new Handler().post(new h(this));
             }
         }
     }

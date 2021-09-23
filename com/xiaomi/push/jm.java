@@ -11,7 +11,7 @@ public class jm extends iv {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f78057a;
+    public int f78376a;
 
     public jm() {
         Interceptable interceptable = $ic;
@@ -26,7 +26,7 @@ public class jm extends iv {
                 return;
             }
         }
-        this.f78057a = 0;
+        this.f78376a = 0;
     }
 
     public jm(int i2) {
@@ -44,8 +44,8 @@ public class jm extends iv {
                 return;
             }
         }
-        this.f78057a = 0;
-        this.f78057a = i2;
+        this.f78376a = 0;
+        this.f78376a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,8 +66,8 @@ public class jm extends iv {
                 return;
             }
         }
-        this.f78057a = 0;
-        this.f78057a = i2;
+        this.f78376a = 0;
+        this.f78376a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -88,8 +88,8 @@ public class jm extends iv {
                 return;
             }
         }
-        this.f78057a = 0;
-        this.f78057a = i2;
+        this.f78376a = 0;
+        this.f78376a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -110,6 +110,6 @@ public class jm extends iv {
                 return;
             }
         }
-        this.f78057a = 0;
+        this.f78376a = 0;
     }
 }

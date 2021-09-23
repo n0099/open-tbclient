@@ -59,34 +59,34 @@ public final class m extends l implements c.a.p0.o.a.d.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<Runnable> f12109a;
+    public ArrayList<Runnable> f12117a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Runnable[] f12110b;
+    public Runnable[] f12118b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12111c;
+    public boolean f12119c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<Fragment> f12112d;
+    public ArrayList<Fragment> f12120d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<Fragment> f12113e;
+    public ArrayList<Fragment> f12121e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<Integer> f12114f;
+    public ArrayList<Integer> f12122f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<c.a.p0.o.a.a.e> f12115g;
+    public ArrayList<c.a.p0.o.a.a.e> f12123g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<Fragment> f12116h;
+    public ArrayList<Fragment> f12124h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<c.a.p0.o.a.a.e> f12117i;
+    public ArrayList<c.a.p0.o.a.a.e> f12125i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ArrayList<Integer> f12118j;
+    public ArrayList<Integer> f12126j;
     public ArrayList<l.a> k;
     public int l;
     public k m;
@@ -107,7 +107,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f12119e;
+        public final /* synthetic */ m f12127e;
 
         public a(m mVar) {
             Interceptable interceptable = $ic;
@@ -124,14 +124,14 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                     return;
                 }
             }
-            this.f12119e = mVar;
+            this.f12127e = mVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f12119e.E();
+                this.f12127e.E();
             }
         }
     }
@@ -142,13 +142,13 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f12120e;
+        public final /* synthetic */ int f12128e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f12121f;
+        public final /* synthetic */ int f12129f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ m f12122g;
+        public final /* synthetic */ m f12130g;
 
         public b(m mVar, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -165,17 +165,17 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                     return;
                 }
             }
-            this.f12122g = mVar;
-            this.f12120e = i2;
-            this.f12121f = i3;
+            this.f12130g = mVar;
+            this.f12128e = i2;
+            this.f12129f = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                m mVar = this.f12122g;
-                mVar.X(mVar.m.j(), null, this.f12120e, this.f12121f);
+                m mVar = this.f12130g;
+                mVar.X(mVar.m.j(), null, this.f12128e, this.f12129f);
             }
         }
     }
@@ -186,10 +186,10 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Fragment f12123c;
+        public final /* synthetic */ Fragment f12131c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ m f12124d;
+        public final /* synthetic */ m f12132d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(m mVar, View view, Animation animation, Fragment fragment) {
@@ -210,8 +210,8 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                     return;
                 }
             }
-            this.f12124d = mVar;
-            this.f12123c = fragment;
+            this.f12132d = mVar;
+            this.f12131c = fragment;
         }
 
         @Override // c.a.p0.o.a.a.m.d, android.view.animation.Animation.AnimationListener
@@ -219,10 +219,10 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 super.onAnimationEnd(animation);
-                Fragment fragment = this.f12123c;
-                if (fragment.f47229f != null) {
-                    fragment.f47229f = null;
-                    this.f12124d.U(fragment, fragment.f47230g, 0, 0, false);
+                Fragment fragment = this.f12131c;
+                if (fragment.f47331f != null) {
+                    fragment.f47331f = null;
+                    this.f12132d.U(fragment, fragment.f47332g, 0, 0, false);
                 }
             }
         }
@@ -234,10 +234,10 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f12125a;
+        public boolean f12133a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f12126b;
+        public View f12134b;
 
         /* loaded from: classes3.dex */
         public class a implements Runnable {
@@ -245,7 +245,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f12127e;
+            public final /* synthetic */ d f12135e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -262,14 +262,14 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                         return;
                     }
                 }
-                this.f12127e = dVar;
+                this.f12135e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.p0.o.a.d.f.d(this.f12127e.f12126b, 2, null);
+                    c.a.p0.o.a.d.f.d(this.f12135e.f12134b, 2, null);
                 }
             }
         }
@@ -280,7 +280,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f12128e;
+            public final /* synthetic */ d f12136e;
 
             public b(d dVar) {
                 Interceptable interceptable = $ic;
@@ -297,14 +297,14 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                         return;
                     }
                 }
-                this.f12128e = dVar;
+                this.f12136e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.p0.o.a.d.f.d(this.f12128e.f12126b, 0, null);
+                    c.a.p0.o.a.d.f.d(this.f12136e.f12134b, 0, null);
                 }
             }
         }
@@ -324,19 +324,19 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                     return;
                 }
             }
-            this.f12125a = false;
+            this.f12133a = false;
             if (view == null || animation == null) {
                 return;
             }
-            this.f12126b = view;
+            this.f12134b = view;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         @CallSuper
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && this.f12125a) {
-                this.f12126b.post(new b(this));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && this.f12133a) {
+                this.f12134b.post(new b(this));
             }
         }
 
@@ -352,10 +352,10 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         public void onAnimationStart(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                boolean j0 = m.j0(this.f12126b, animation);
-                this.f12125a = j0;
+                boolean j0 = m.j0(this.f12134b, animation);
+                this.f12133a = j0;
                 if (j0) {
-                    this.f12126b.post(new a(this));
+                    this.f12134b.post(new a(this));
                 }
             }
         }
@@ -366,7 +366,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int[] f12129a;
+        public static final int[] f12137a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -382,7 +382,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                     return;
                 }
             }
-            f12129a = new int[]{16842755, 16842960, 16842961};
+            f12137a = new int[]{16842755, 16842960, 16842961};
         }
     }
 
@@ -545,11 +545,11 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             }
             synchronized (this) {
                 if (!this.r && this.m != null) {
-                    if (this.f12109a == null) {
-                        this.f12109a = new ArrayList<>();
+                    if (this.f12117a == null) {
+                        this.f12117a = new ArrayList<>();
                     }
-                    this.f12109a.add(runnable);
-                    if (this.f12109a.size() == 1) {
+                    this.f12117a.add(runnable);
+                    if (this.f12117a.size() == 1) {
                         this.m.j().removeCallbacks(this.w);
                         this.m.j().post(this.w);
                     }
@@ -561,15 +561,15 @@ public final class m extends l implements c.a.p0.o.a.d.e {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0054, code lost:
-        r6.f12111c = true;
+        r6.f12119c = true;
         r3 = 0;
      */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0057, code lost:
         if (r3 >= r2) goto L23;
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x0059, code lost:
-        r6.f12110b[r3].run();
-        r6.f12110b[r3] = null;
+        r6.f12118b[r3].run();
+        r6.f12118b[r3] = null;
         r3 = r3 + 1;
      */
     /*
@@ -580,29 +580,29 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         q qVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.f12111c) {
+            if (!this.f12119c) {
                 if (Looper.myLooper() == this.m.j().getLooper()) {
                     boolean z2 = false;
                     while (true) {
                         synchronized (this) {
-                            if (this.f12109a == null || this.f12109a.size() == 0) {
+                            if (this.f12117a == null || this.f12117a.size() == 0) {
                                 break;
                             }
-                            int size = this.f12109a.size();
-                            if (this.f12110b == null || this.f12110b.length < size) {
-                                this.f12110b = new Runnable[size];
+                            int size = this.f12117a.size();
+                            if (this.f12118b == null || this.f12118b.length < size) {
+                                this.f12118b = new Runnable[size];
                             }
-                            this.f12109a.toArray(this.f12110b);
-                            this.f12109a.clear();
+                            this.f12117a.toArray(this.f12118b);
+                            this.f12117a.clear();
                             this.m.j().removeCallbacks(this.w);
                         }
-                        this.f12111c = false;
+                        this.f12119c = false;
                         z2 = true;
                     }
                     if (this.t) {
                         boolean z3 = false;
-                        for (int i2 = 0; i2 < this.f12112d.size(); i2++) {
-                            Fragment fragment = this.f12112d.get(i2);
+                        for (int i2 = 0; i2 < this.f12120d.size(); i2++) {
+                            Fragment fragment = this.f12120d.get(i2);
                             if (fragment != null && (qVar = fragment.Q) != null) {
                                 z3 |= qVar.j();
                             }
@@ -625,19 +625,19 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            ArrayList<Fragment> arrayList = this.f12113e;
+            ArrayList<Fragment> arrayList = this.f12121e;
             if (arrayList != null) {
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
-                    Fragment fragment = this.f12113e.get(size);
+                    Fragment fragment = this.f12121e.get(size);
                     if (fragment != null && fragment.A == i2) {
                         return fragment;
                     }
                 }
             }
-            ArrayList<Fragment> arrayList2 = this.f12112d;
+            ArrayList<Fragment> arrayList2 = this.f12120d;
             if (arrayList2 != null) {
                 for (int size2 = arrayList2.size() - 1; size2 >= 0; size2--) {
-                    Fragment fragment2 = this.f12112d.get(size2);
+                    Fragment fragment2 = this.f12120d.get(size2);
                     if (fragment2 != null && fragment2.A == i2) {
                         return fragment2;
                     }
@@ -653,21 +653,21 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            ArrayList<Fragment> arrayList = this.f12113e;
+            ArrayList<Fragment> arrayList = this.f12121e;
             if (arrayList != null && str != null) {
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
-                    Fragment fragment = this.f12113e.get(size);
+                    Fragment fragment = this.f12121e.get(size);
                     if (fragment != null && str.equals(fragment.C)) {
                         return fragment;
                     }
                 }
             }
-            ArrayList<Fragment> arrayList2 = this.f12112d;
+            ArrayList<Fragment> arrayList2 = this.f12120d;
             if (arrayList2 == null || str == null) {
                 return null;
             }
             for (int size2 = arrayList2.size() - 1; size2 >= 0; size2--) {
-                Fragment fragment2 = this.f12112d.get(size2);
+                Fragment fragment2 = this.f12120d.get(size2);
                 if (fragment2 != null && str.equals(fragment2.C)) {
                     return fragment2;
                 }
@@ -681,14 +681,14 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             synchronized (this) {
-                this.f12117i.set(i2, null);
-                if (this.f12118j == null) {
-                    this.f12118j = new ArrayList<>();
+                this.f12125i.set(i2, null);
+                if (this.f12126j == null) {
+                    this.f12126j = new ArrayList<>();
                 }
                 if (x) {
                     String str = "Freeing back stack index " + i2;
                 }
-                this.f12118j.add(Integer.valueOf(i2));
+                this.f12126j.add(Integer.valueOf(i2));
             }
         }
     }
@@ -701,8 +701,8 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             if (i2 == -1) {
                 return null;
             }
-            if (i2 < this.f12112d.size()) {
-                Fragment fragment = this.f12112d.get(i2);
+            if (i2 < this.f12120d.size()) {
+                Fragment fragment = this.f12120d.get(i2);
                 if (fragment != null) {
                     return fragment;
                 }
@@ -790,19 +790,19 @@ public final class m extends l implements c.a.p0.o.a.d.e {
     public void M(Fragment fragment) {
         ArrayList<Integer> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, fragment) == null) || fragment.f47233j >= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, fragment) == null) || fragment.f47335j >= 0) {
             return;
         }
-        ArrayList<Integer> arrayList2 = this.f12114f;
+        ArrayList<Integer> arrayList2 = this.f12122f;
         if (arrayList2 != null && arrayList2.size() > 0) {
-            fragment.i1(this.f12114f.remove(arrayList.size() - 1).intValue(), this.o);
-            this.f12112d.set(fragment.f47233j, fragment);
+            fragment.i1(this.f12122f.remove(arrayList.size() - 1).intValue(), this.o);
+            this.f12120d.set(fragment.f47335j, fragment);
         } else {
-            if (this.f12112d == null) {
-                this.f12112d = new ArrayList<>();
+            if (this.f12120d == null) {
+                this.f12120d = new ArrayList<>();
             }
-            fragment.i1(this.f12112d.size(), this.o);
-            this.f12112d.add(fragment);
+            fragment.i1(this.f12120d.size(), this.o);
+            this.f12120d.add(fragment);
         }
         if (x) {
             String str = "Allocated fragment index " + fragment;
@@ -811,17 +811,17 @@ public final class m extends l implements c.a.p0.o.a.d.e {
 
     public void O(Fragment fragment) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, fragment) == null) || fragment.f47233j < 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, fragment) == null) || fragment.f47335j < 0) {
             return;
         }
         if (x) {
             String str = "Freeing fragment index " + fragment;
         }
-        this.f12112d.set(fragment.f47233j, null);
-        if (this.f12114f == null) {
-            this.f12114f = new ArrayList<>();
+        this.f12120d.set(fragment.f47335j, null);
+        if (this.f12122f == null) {
+            this.f12122f = new ArrayList<>();
         }
-        this.f12114f.add(Integer.valueOf(fragment.f47233j));
+        this.f12122f.add(Integer.valueOf(fragment.f47335j));
         this.m.m(fragment.k);
         fragment.j0();
     }
@@ -835,10 +835,10 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             }
             if (z2 || this.l != i2) {
                 this.l = i2;
-                if (this.f12112d != null) {
+                if (this.f12120d != null) {
                     boolean z3 = false;
-                    for (int i5 = 0; i5 < this.f12112d.size(); i5++) {
-                        Fragment fragment = this.f12112d.get(i5);
+                    for (int i5 = 0; i5 < this.f12120d.size(); i5++) {
+                        Fragment fragment = this.f12120d.get(i5);
                         if (fragment != null) {
                             U(fragment, i2, i3, i4, false);
                             q qVar = fragment.Q;
@@ -908,37 +908,37 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             } else {
                 i5 = i2;
             }
-            if (fragment.q && i5 > (i7 = fragment.f47228e)) {
+            if (fragment.q && i5 > (i7 = fragment.f47330e)) {
                 i5 = i7;
             }
-            int i9 = (!fragment.O || fragment.f47228e >= 4 || i5 <= 3) ? i5 : 3;
-            int i10 = fragment.f47228e;
+            int i9 = (!fragment.O || fragment.f47330e >= 4 || i5 <= 3) ? i5 : 3;
+            int i10 = fragment.f47330e;
             if (i10 < i9) {
                 if (fragment.s && !fragment.t) {
                     return;
                 }
-                if (fragment.f47229f != null) {
-                    fragment.f47229f = null;
-                    U(fragment, fragment.f47230g, 0, 0, true);
+                if (fragment.f47331f != null) {
+                    fragment.f47331f = null;
+                    U(fragment, fragment.f47332g, 0, 0, true);
                 }
-                int i11 = fragment.f47228e;
+                int i11 = fragment.f47330e;
                 if (i11 == 0) {
                     if (x) {
                         String str = "moveto CREATED: " + fragment;
                     }
-                    Bundle bundle = fragment.f47231h;
+                    Bundle bundle = fragment.f47333h;
                     if (bundle != null) {
                         bundle.setClassLoader(this.m.h().getClassLoader());
-                        fragment.f47232i = fragment.f47231h.getSparseParcelableArray(FragmentStateManager.VIEW_STATE_TAG);
-                        Fragment I = I(fragment.f47231h, FragmentStateManager.TARGET_STATE_TAG);
+                        fragment.f47334i = fragment.f47333h.getSparseParcelableArray(FragmentStateManager.VIEW_STATE_TAG);
+                        Fragment I = I(fragment.f47333h, FragmentStateManager.TARGET_STATE_TAG);
                         fragment.m = I;
                         if (I != null) {
                             z3 = false;
-                            fragment.o = fragment.f47231h.getInt(FragmentStateManager.TARGET_REQUEST_CODE_STATE_TAG, 0);
+                            fragment.o = fragment.f47333h.getInt(FragmentStateManager.TARGET_REQUEST_CODE_STATE_TAG, 0);
                         } else {
                             z3 = false;
                         }
-                        boolean z4 = fragment.f47231h.getBoolean(FragmentStateManager.USER_VISIBLE_HINT_TAG, true);
+                        boolean z4 = fragment.f47333h.getBoolean(FragmentStateManager.USER_VISIBLE_HINT_TAG, true);
                         fragment.P = z4;
                         if (!z4) {
                             fragment.O = true;
@@ -966,13 +966,13 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                             this.m.n(fragment);
                         }
                         if (!fragment.G) {
-                            fragment.Q0(fragment.f47231h);
+                            fragment.Q0(fragment.f47333h);
                         }
                         fragment.G = z3;
                         if (fragment.s) {
                             r5 = 0;
                             r5 = 0;
-                            View S0 = fragment.S0(fragment.v(fragment.f47231h), null, fragment.f47231h);
+                            View S0 = fragment.S0(fragment.v(fragment.f47333h), null, fragment.f47333h);
                             fragment.M = S0;
                             if (S0 != null) {
                                 fragment.N = S0;
@@ -984,7 +984,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                                 if (fragment.D) {
                                     fragment.M.setVisibility(8);
                                 }
-                                fragment.L0(fragment.M, fragment.f47231h);
+                                fragment.L0(fragment.M, fragment.f47333h);
                             } else {
                                 fragment.N = null;
                             }
@@ -1004,7 +1004,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                                         viewGroup = r5;
                                     }
                                     fragment.L = viewGroup;
-                                    View S02 = fragment.S0(fragment.v(fragment.f47231h), viewGroup, fragment.f47231h);
+                                    View S02 = fragment.S0(fragment.v(fragment.f47333h), viewGroup, fragment.f47333h);
                                     fragment.M = S02;
                                     if (S02 != null) {
                                         fragment.N = S02;
@@ -1024,16 +1024,16 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                                         if (fragment.D) {
                                             fragment.M.setVisibility(8);
                                         }
-                                        fragment.L0(fragment.M, fragment.f47231h);
+                                        fragment.L0(fragment.M, fragment.f47333h);
                                     } else {
                                         fragment.N = r5;
                                     }
                                 }
-                                fragment.N0(fragment.f47231h);
+                                fragment.N0(fragment.f47333h);
                                 if (fragment.M != null) {
-                                    fragment.g1(fragment.f47231h);
+                                    fragment.g1(fragment.f47333h);
                                 }
-                                fragment.f47231h = r5;
+                                fragment.f47333h = r5;
                             }
                             if (i9 > 3) {
                             }
@@ -1059,8 +1059,8 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                         }
                         fragment.r = true;
                         fragment.b1();
-                        fragment.f47231h = r5;
-                        fragment.f47232i = r5;
+                        fragment.f47333h = r5;
+                        fragment.f47334i = r5;
                     }
                 } else if (i11 == 4) {
                     r5 = 0;
@@ -1107,7 +1107,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                         if (x) {
                             String str8 = "movefrom ACTIVITY_CREATED: " + fragment;
                         }
-                        if (fragment.M != null && this.m.t(fragment) && fragment.f47232i == null) {
+                        if (fragment.M != null && this.m.t(fragment) && fragment.f47334i == null) {
                             g0(fragment);
                         }
                         fragment.U0();
@@ -1115,8 +1115,8 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                             Animation L2 = (this.l <= 0 || this.r) ? null : L(fragment, i3, false, i4);
                             if (L2 != null) {
                                 View view2 = fragment.M;
-                                fragment.f47229f = view2;
-                                fragment.f47230g = i9;
+                                fragment.f47331f = view2;
+                                fragment.f47332g = i9;
                                 L2.setAnimationListener(new c(this, view2, L2, fragment));
                                 fragment.M.startAnimation(L2);
                             }
@@ -1128,13 +1128,13 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                     }
                 }
                 if (i9 < 1) {
-                    if (this.r && (view = fragment.f47229f) != null) {
-                        fragment.f47229f = null;
+                    if (this.r && (view = fragment.f47331f) != null) {
+                        fragment.f47331f = null;
                         view.clearAnimation();
                     }
-                    if (fragment.f47229f != null) {
-                        fragment.f47230g = i9;
-                        fragment.f47228e = i8;
+                    if (fragment.f47331f != null) {
+                        fragment.f47332g = i9;
+                        fragment.f47330e = i8;
                     }
                     if (x) {
                         String str9 = "movefrom CREATED: " + fragment;
@@ -1159,7 +1159,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 }
             }
             i8 = i9;
-            fragment.f47228e = i8;
+            fragment.f47330e = i8;
         }
     }
 
@@ -1173,7 +1173,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
     public void W(Fragment fragment) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048595, this, fragment) == null) && fragment.O) {
-            if (this.f12111c) {
+            if (this.f12119c) {
                 this.t = true;
                 return;
             }
@@ -1187,7 +1187,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048596, this, handler, str, i2, i3)) == null) {
-            ArrayList<c.a.p0.o.a.a.e> arrayList = this.f12115g;
+            ArrayList<c.a.p0.o.a.a.e> arrayList = this.f12123g;
             if (arrayList == null) {
                 return false;
             }
@@ -1197,7 +1197,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 if (size2 < 0) {
                     return false;
                 }
-                c.a.p0.o.a.a.e remove = this.f12115g.remove(size2);
+                c.a.p0.o.a.a.e remove = this.f12123g.remove(size2);
                 SparseArray<Fragment> sparseArray = new SparseArray<>();
                 SparseArray<Fragment> sparseArray2 = new SparseArray<>();
                 remove.q(sparseArray, sparseArray2);
@@ -1205,9 +1205,9 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 a0();
             } else {
                 if (str != null || i2 >= 0) {
-                    size = this.f12115g.size() - 1;
+                    size = this.f12123g.size() - 1;
                     while (size >= 0) {
-                        c.a.p0.o.a.a.e eVar = this.f12115g.get(size);
+                        c.a.p0.o.a.a.e eVar = this.f12123g.get(size);
                         if ((str != null && str.equals(eVar.E())) || (i2 >= 0 && i2 == eVar.r)) {
                             break;
                         }
@@ -1222,7 +1222,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                             if (size < 0) {
                                 break;
                             }
-                            c.a.p0.o.a.a.e eVar2 = this.f12115g.get(size);
+                            c.a.p0.o.a.a.e eVar2 = this.f12123g.get(size);
                             if (str == null || !str.equals(eVar2.E())) {
                                 if (i2 < 0 || i2 != eVar2.r) {
                                     break;
@@ -1233,12 +1233,12 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 } else {
                     size = -1;
                 }
-                if (size == this.f12115g.size() - 1) {
+                if (size == this.f12123g.size() - 1) {
                     return false;
                 }
                 ArrayList arrayList2 = new ArrayList();
-                for (int size3 = this.f12115g.size() - 1; size3 > size; size3--) {
-                    arrayList2.add(this.f12115g.remove(size3));
+                for (int size3 = this.f12123g.size() - 1; size3 > size; size3--) {
+                    arrayList2.add(this.f12123g.remove(size3));
                 }
                 int size4 = arrayList2.size() - 1;
                 SparseArray<Fragment> sparseArray3 = new SparseArray<>();
@@ -1264,7 +1264,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
     public void Y(Bundle bundle, String str, Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048597, this, bundle, str, fragment) == null) {
-            int i2 = fragment.f47233j;
+            int i2 = fragment.f47335j;
             if (i2 >= 0) {
                 bundle.putInt(str, i2);
                 return;
@@ -1284,7 +1284,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             if (fragment.E && i4 == 0) {
                 return;
             }
-            ArrayList<Fragment> arrayList = this.f12113e;
+            ArrayList<Fragment> arrayList = this.f12121e;
             if (arrayList != null) {
                 arrayList.remove(fragment);
             }
@@ -1325,14 +1325,14 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048601, this, str, fileDescriptor, printWriter, strArr) == null) {
             String str2 = str + "    ";
-            ArrayList<Fragment> arrayList = this.f12112d;
+            ArrayList<Fragment> arrayList = this.f12120d;
             if (arrayList != null && (size6 = arrayList.size()) > 0) {
                 printWriter.print(str);
                 printWriter.print("Active Fragments in ");
                 printWriter.print(Integer.toHexString(System.identityHashCode(this)));
                 printWriter.println(":");
                 for (int i2 = 0; i2 < size6; i2++) {
-                    Fragment fragment = this.f12112d.get(i2);
+                    Fragment fragment = this.f12120d.get(i2);
                     printWriter.print(str);
                     printWriter.print("  #");
                     printWriter.print(i2);
@@ -1343,7 +1343,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                     }
                 }
             }
-            ArrayList<Fragment> arrayList2 = this.f12113e;
+            ArrayList<Fragment> arrayList2 = this.f12121e;
             if (arrayList2 != null && (size5 = arrayList2.size()) > 0) {
                 printWriter.print(str);
                 printWriter.println("Added Fragments:");
@@ -1352,10 +1352,10 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                     printWriter.print("  #");
                     printWriter.print(i3);
                     printWriter.print(": ");
-                    printWriter.println(this.f12113e.get(i3).toString());
+                    printWriter.println(this.f12121e.get(i3).toString());
                 }
             }
-            ArrayList<Fragment> arrayList3 = this.f12116h;
+            ArrayList<Fragment> arrayList3 = this.f12124h;
             if (arrayList3 != null && (size4 = arrayList3.size()) > 0) {
                 printWriter.print(str);
                 printWriter.println("Fragments Created Menus:");
@@ -1364,15 +1364,15 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                     printWriter.print("  #");
                     printWriter.print(i4);
                     printWriter.print(": ");
-                    printWriter.println(this.f12116h.get(i4).toString());
+                    printWriter.println(this.f12124h.get(i4).toString());
                 }
             }
-            ArrayList<c.a.p0.o.a.a.e> arrayList4 = this.f12115g;
+            ArrayList<c.a.p0.o.a.a.e> arrayList4 = this.f12123g;
             if (arrayList4 != null && (size3 = arrayList4.size()) > 0) {
                 printWriter.print(str);
                 printWriter.println("Back Stack:");
                 for (int i5 = 0; i5 < size3; i5++) {
-                    c.a.p0.o.a.a.e eVar = this.f12115g.get(i5);
+                    c.a.p0.o.a.a.e eVar = this.f12123g.get(i5);
                     printWriter.print(str);
                     printWriter.print("  #");
                     printWriter.print(i5);
@@ -1382,7 +1382,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 }
             }
             synchronized (this) {
-                if (this.f12117i != null && (size2 = this.f12117i.size()) > 0) {
+                if (this.f12125i != null && (size2 = this.f12125i.size()) > 0) {
                     printWriter.print(str);
                     printWriter.println("Back Stack Indices:");
                     for (int i6 = 0; i6 < size2; i6++) {
@@ -1390,16 +1390,16 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                         printWriter.print("  #");
                         printWriter.print(i6);
                         printWriter.print(": ");
-                        printWriter.println((c.a.p0.o.a.a.e) this.f12117i.get(i6));
+                        printWriter.println((c.a.p0.o.a.a.e) this.f12125i.get(i6));
                     }
                 }
-                if (this.f12118j != null && this.f12118j.size() > 0) {
+                if (this.f12126j != null && this.f12126j.size() > 0) {
                     printWriter.print(str);
                     printWriter.print("mAvailBackStackIndices: ");
-                    printWriter.println(Arrays.toString(this.f12118j.toArray()));
+                    printWriter.println(Arrays.toString(this.f12126j.toArray()));
                 }
             }
-            ArrayList<Runnable> arrayList5 = this.f12109a;
+            ArrayList<Runnable> arrayList5 = this.f12117a;
             if (arrayList5 != null && (size = arrayList5.size()) > 0) {
                 printWriter.print(str);
                 printWriter.println("Pending Actions:");
@@ -1408,7 +1408,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                     printWriter.print("  #");
                     printWriter.print(i7);
                     printWriter.print(": ");
-                    printWriter.println((Runnable) this.f12109a.get(i7));
+                    printWriter.println((Runnable) this.f12117a.get(i7));
                 }
             }
             printWriter.print(str);
@@ -1441,13 +1441,13 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 printWriter.print("  mNoTransactionsBecause=");
                 printWriter.println(this.s);
             }
-            ArrayList<Integer> arrayList6 = this.f12114f;
+            ArrayList<Integer> arrayList6 = this.f12122f;
             if (arrayList6 == null || arrayList6.size() <= 0) {
                 return;
             }
             printWriter.print(str);
             printWriter.print("  mAvailIndices: ");
-            printWriter.println(Arrays.toString(this.f12114f.toArray()));
+            printWriter.println(Arrays.toString(this.f12122f.toArray()));
         }
     }
 
@@ -1466,9 +1466,9 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 if (x) {
                     String str = "restoreAllState: re-attaching retained " + fragment;
                 }
-                FragmentState fragmentState = fragmentManagerState.mActive[fragment.f47233j];
+                FragmentState fragmentState = fragmentManagerState.mActive[fragment.f47335j];
                 fragmentState.mInstance = fragment;
-                fragment.f47232i = null;
+                fragment.f47334i = null;
                 fragment.v = 0;
                 fragment.t = false;
                 fragment.p = false;
@@ -1476,13 +1476,13 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 Bundle bundle = fragmentState.mSavedFragmentState;
                 if (bundle != null) {
                     bundle.setClassLoader(this.m.h().getClassLoader());
-                    fragment.f47232i = fragmentState.mSavedFragmentState.getSparseParcelableArray(FragmentStateManager.VIEW_STATE_TAG);
-                    fragment.f47231h = fragmentState.mSavedFragmentState;
+                    fragment.f47334i = fragmentState.mSavedFragmentState.getSparseParcelableArray(FragmentStateManager.VIEW_STATE_TAG);
+                    fragment.f47333h = fragmentState.mSavedFragmentState;
                 }
             }
         }
-        this.f12112d = new ArrayList<>(fragmentManagerState.mActive.length);
-        ArrayList<Integer> arrayList = this.f12114f;
+        this.f12120d = new ArrayList<>(fragmentManagerState.mActive.length);
+        ArrayList<Integer> arrayList = this.f12122f;
         if (arrayList != null) {
             arrayList.clear();
         }
@@ -1498,17 +1498,17 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 if (x) {
                     String str2 = "restoreAllState: active #" + i3 + ": " + instantiate;
                 }
-                this.f12112d.add(instantiate);
+                this.f12120d.add(instantiate);
                 fragmentState2.mInstance = null;
             } else {
-                this.f12112d.add(null);
-                if (this.f12114f == null) {
-                    this.f12114f = new ArrayList<>();
+                this.f12120d.add(null);
+                if (this.f12122f == null) {
+                    this.f12122f = new ArrayList<>();
                 }
                 if (x) {
                     String str3 = "restoreAllState: avail #" + i3;
                 }
-                this.f12114f.add(Integer.valueOf(i3));
+                this.f12122f.add(Integer.valueOf(i3));
             }
             i3++;
         }
@@ -1517,8 +1517,8 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 Fragment fragment2 = list.get(i4);
                 int i5 = fragment2.n;
                 if (i5 >= 0) {
-                    if (i5 < this.f12112d.size()) {
-                        fragment2.m = this.f12112d.get(fragment2.n);
+                    if (i5 < this.f12120d.size()) {
+                        fragment2.m = this.f12120d.get(fragment2.n);
                     } else {
                         String str4 = "Re-attaching retained fragment " + fragment2 + " target no longer exists: " + fragment2.n;
                         fragment2.m = null;
@@ -1527,21 +1527,21 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             }
         }
         if (fragmentManagerState.mAdded != null) {
-            this.f12113e = new ArrayList<>(fragmentManagerState.mAdded.length);
+            this.f12121e = new ArrayList<>(fragmentManagerState.mAdded.length);
             int i6 = 0;
             while (true) {
                 int[] iArr = fragmentManagerState.mAdded;
                 if (i6 >= iArr.length) {
                     break;
                 }
-                Fragment fragment3 = this.f12112d.get(iArr[i6]);
+                Fragment fragment3 = this.f12120d.get(iArr[i6]);
                 if (fragment3 != null) {
                     fragment3.p = true;
                     if (x) {
                         String str5 = "restoreAllState: added #" + i6 + ": " + fragment3;
                     }
-                    if (!this.f12113e.contains(fragment3)) {
-                        this.f12113e.add(fragment3);
+                    if (!this.f12121e.contains(fragment3)) {
+                        this.f12121e.add(fragment3);
                         i6++;
                     } else {
                         throw new IllegalStateException("Already added!");
@@ -1552,10 +1552,10 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 }
             }
         } else {
-            this.f12113e = null;
+            this.f12121e = null;
         }
         if (fragmentManagerState.mBackStack != null) {
-            this.f12115g = new ArrayList<>(fragmentManagerState.mBackStack.length);
+            this.f12123g = new ArrayList<>(fragmentManagerState.mBackStack.length);
             int i7 = 0;
             while (true) {
                 BackStackState[] backStackStateArr = fragmentManagerState.mBackStack;
@@ -1567,7 +1567,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                     String str6 = "restoreAllState: back stack #" + i7 + " (index " + instantiate2.r + "): " + instantiate2;
                     instantiate2.z(GlideException.IndentedAppendable.INDENT, new PrintWriter(new c.a.p0.o.a.c.d("FragmentManager")), false);
                 }
-                this.f12115g.add(instantiate2);
+                this.f12123g.add(instantiate2);
                 int i8 = instantiate2.r;
                 if (i8 >= 0) {
                     h0(i8, instantiate2);
@@ -1575,7 +1575,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 i7++;
             }
         } else {
-            this.f12115g = null;
+            this.f12123g = null;
         }
     }
 
@@ -1591,9 +1591,9 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             ArrayList<Fragment> arrayList = null;
-            if (this.f12112d != null) {
-                for (int i2 = 0; i2 < this.f12112d.size(); i2++) {
-                    Fragment fragment = this.f12112d.get(i2);
+            if (this.f12120d != null) {
+                for (int i2 = 0; i2 < this.f12120d.size(); i2++) {
+                    Fragment fragment = this.f12120d.get(i2);
                     if (fragment != null && fragment.F) {
                         if (arrayList == null) {
                             arrayList = new ArrayList<>();
@@ -1601,7 +1601,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                         arrayList.add(fragment);
                         fragment.G = true;
                         Fragment fragment2 = fragment.m;
-                        fragment.n = fragment2 != null ? fragment2.f47233j : -1;
+                        fragment.n = fragment2 != null ? fragment2.f47335j : -1;
                         if (x) {
                             String str = "retainNonConfig: keeping retained " + fragment;
                         }
@@ -1617,7 +1617,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
     public List<Fragment> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f12112d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f12120d : (List) invokeV.objValue;
     }
 
     @Override // c.a.p0.o.a.a.l
@@ -1643,26 +1643,26 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             if (y) {
                 this.q = true;
             }
-            ArrayList<Fragment> arrayList = this.f12112d;
+            ArrayList<Fragment> arrayList = this.f12120d;
             BackStackState[] backStackStateArr = null;
             if (arrayList == null || arrayList.size() <= 0) {
                 return null;
             }
-            int size3 = this.f12112d.size();
+            int size3 = this.f12120d.size();
             FragmentState[] fragmentStateArr = new FragmentState[size3];
             boolean z2 = false;
             for (int i2 = 0; i2 < size3; i2++) {
-                Fragment fragment = this.f12112d.get(i2);
+                Fragment fragment = this.f12120d.get(i2);
                 if (fragment != null) {
-                    if (fragment.f47233j >= 0) {
+                    if (fragment.f47335j >= 0) {
                         FragmentState fragmentState = new FragmentState(fragment);
                         fragmentStateArr[i2] = fragmentState;
-                        if (fragment.f47228e > 0 && fragmentState.mSavedFragmentState == null) {
+                        if (fragment.f47330e > 0 && fragmentState.mSavedFragmentState == null) {
                             Bundle f0 = f0(fragment);
                             fragmentState.mSavedFragmentState = f0;
                             Fragment fragment2 = fragment.m;
                             if (fragment2 != null) {
-                                if (fragment2.f47233j >= 0) {
+                                if (fragment2.f47335j >= 0) {
                                     if (f0 == null) {
                                         fragmentState.mSavedFragmentState = new Bundle();
                                     }
@@ -1677,14 +1677,14 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                                 }
                             }
                         } else {
-                            fragmentState.mSavedFragmentState = fragment.f47231h;
+                            fragmentState.mSavedFragmentState = fragment.f47333h;
                         }
                         if (x) {
                             String str = "Saved state of " + fragment + ": " + fragmentState.mSavedFragmentState;
                         }
                         z2 = true;
                     } else {
-                        m0(new IllegalStateException("Failure saving state: active " + fragment + " has cleared index: " + fragment.f47233j));
+                        m0(new IllegalStateException("Failure saving state: active " + fragment + " has cleared index: " + fragment.f47335j));
                         throw null;
                     }
                 }
@@ -1693,30 +1693,30 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 boolean z3 = x;
                 return null;
             }
-            ArrayList<Fragment> arrayList2 = this.f12113e;
+            ArrayList<Fragment> arrayList2 = this.f12121e;
             if (arrayList2 == null || (size2 = arrayList2.size()) <= 0) {
                 iArr = null;
             } else {
                 iArr = new int[size2];
                 for (int i4 = 0; i4 < size2; i4++) {
-                    iArr[i4] = this.f12113e.get(i4).f47233j;
+                    iArr[i4] = this.f12121e.get(i4).f47335j;
                     if (iArr[i4] >= 0) {
                         if (x) {
-                            String str2 = "saveAllState: adding fragment #" + i4 + ": " + this.f12113e.get(i4);
+                            String str2 = "saveAllState: adding fragment #" + i4 + ": " + this.f12121e.get(i4);
                         }
                     } else {
-                        m0(new IllegalStateException("Failure saving state: active " + this.f12113e.get(i4) + " has cleared index: " + iArr[i4]));
+                        m0(new IllegalStateException("Failure saving state: active " + this.f12121e.get(i4) + " has cleared index: " + iArr[i4]));
                         throw null;
                     }
                 }
             }
-            ArrayList<c.a.p0.o.a.a.e> arrayList3 = this.f12115g;
+            ArrayList<c.a.p0.o.a.a.e> arrayList3 = this.f12123g;
             if (arrayList3 != null && (size = arrayList3.size()) > 0) {
                 backStackStateArr = new BackStackState[size];
                 for (int i5 = 0; i5 < size; i5++) {
-                    backStackStateArr[i5] = new BackStackState(this.f12115g.get(i5));
+                    backStackStateArr[i5] = new BackStackState(this.f12123g.get(i5));
                     if (x) {
-                        String str3 = "saveAllState: adding back stack #" + i5 + ": " + this.f12115g.get(i5);
+                        String str3 = "saveAllState: adding back stack #" + i5 + ": " + this.f12123g.get(i5);
                     }
                 }
             }
@@ -1758,11 +1758,11 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             if (fragment.M != null) {
                 g0(fragment);
             }
-            if (fragment.f47232i != null) {
+            if (fragment.f47334i != null) {
                 if (bundle == null) {
                     bundle = new Bundle();
                 }
-                bundle.putSparseParcelableArray(FragmentStateManager.VIEW_STATE_TAG, fragment.f47232i);
+                bundle.putSparseParcelableArray(FragmentStateManager.VIEW_STATE_TAG, fragment.f47334i);
             }
             if (!fragment.P) {
                 if (bundle == null) {
@@ -1778,10 +1778,10 @@ public final class m extends l implements c.a.p0.o.a.d.e {
     public void g(c.a.p0.o.a.a.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, eVar) == null) {
-            if (this.f12115g == null) {
-                this.f12115g = new ArrayList<>();
+            if (this.f12123g == null) {
+                this.f12123g = new ArrayList<>();
             }
-            this.f12115g.add(eVar);
+            this.f12123g.add(eVar);
             a0();
         }
     }
@@ -1799,7 +1799,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         }
         fragment.N.saveHierarchyState(this.v);
         if (this.v.size() > 0) {
-            fragment.f47232i = this.v;
+            fragment.f47334i = this.v;
             this.v = null;
         }
     }
@@ -1807,8 +1807,8 @@ public final class m extends l implements c.a.p0.o.a.d.e {
     public void h(Fragment fragment, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048612, this, fragment, z2) == null) {
-            if (this.f12113e == null) {
-                this.f12113e = new ArrayList<>();
+            if (this.f12121e == null) {
+                this.f12121e = new ArrayList<>();
             }
             if (x) {
                 String str = "add: " + fragment;
@@ -1817,8 +1817,8 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             if (fragment.E) {
                 return;
             }
-            if (!this.f12113e.contains(fragment)) {
-                this.f12113e.add(fragment);
+            if (!this.f12121e.contains(fragment)) {
+                this.f12121e.add(fragment);
                 fragment.p = true;
                 fragment.q = false;
                 if (fragment.H && fragment.I) {
@@ -1838,31 +1838,31 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048613, this, i2, eVar) == null) {
             synchronized (this) {
-                if (this.f12117i == null) {
-                    this.f12117i = new ArrayList<>();
+                if (this.f12125i == null) {
+                    this.f12125i = new ArrayList<>();
                 }
-                int size = this.f12117i.size();
+                int size = this.f12125i.size();
                 if (i2 < size) {
                     if (x) {
                         String str = "Setting back stack index " + i2 + " to " + eVar;
                     }
-                    this.f12117i.set(i2, eVar);
+                    this.f12125i.set(i2, eVar);
                 } else {
                     while (size < i2) {
-                        this.f12117i.add(null);
-                        if (this.f12118j == null) {
-                            this.f12118j = new ArrayList<>();
+                        this.f12125i.add(null);
+                        if (this.f12126j == null) {
+                            this.f12126j = new ArrayList<>();
                         }
                         if (x) {
                             String str2 = "Adding available back stack index " + size;
                         }
-                        this.f12118j.add(Integer.valueOf(size));
+                        this.f12126j.add(Integer.valueOf(size));
                         size++;
                     }
                     if (x) {
                         String str3 = "Adding back stack index " + i2 + " with " + eVar;
                     }
-                    this.f12117i.add(eVar);
+                    this.f12125i.add(eVar);
                 }
             }
         }
@@ -1873,22 +1873,22 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, eVar)) == null) {
             synchronized (this) {
-                if (this.f12118j != null && this.f12118j.size() > 0) {
-                    int intValue = this.f12118j.remove(this.f12118j.size() - 1).intValue();
+                if (this.f12126j != null && this.f12126j.size() > 0) {
+                    int intValue = this.f12126j.remove(this.f12126j.size() - 1).intValue();
                     if (x) {
                         String str = "Adding back stack index " + intValue + " with " + eVar;
                     }
-                    this.f12117i.set(intValue, eVar);
+                    this.f12125i.set(intValue, eVar);
                     return intValue;
                 }
-                if (this.f12117i == null) {
-                    this.f12117i = new ArrayList<>();
+                if (this.f12125i == null) {
+                    this.f12125i = new ArrayList<>();
                 }
-                int size = this.f12117i.size();
+                int size = this.f12125i.size();
                 if (x) {
                     String str2 = "Setting back stack index " + size + " to " + eVar;
                 }
-                this.f12117i.add(eVar);
+                this.f12125i.add(eVar);
                 return size;
             }
         }
@@ -1927,14 +1927,14 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                 if (fragment.p) {
                     return;
                 }
-                if (this.f12113e == null) {
-                    this.f12113e = new ArrayList<>();
+                if (this.f12121e == null) {
+                    this.f12121e = new ArrayList<>();
                 }
-                if (!this.f12113e.contains(fragment)) {
+                if (!this.f12121e.contains(fragment)) {
                     if (x) {
                         String str2 = "add from attach: " + fragment;
                     }
-                    this.f12113e.add(fragment);
+                    this.f12121e.add(fragment);
                     fragment.p = true;
                     if (fragment.H && fragment.I) {
                         this.p = true;
@@ -1986,11 +1986,11 @@ public final class m extends l implements c.a.p0.o.a.d.e {
 
     public void l0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048620, this) == null) || this.f12112d == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048620, this) == null) || this.f12120d == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.f12112d.size(); i2++) {
-            Fragment fragment = this.f12112d.get(i2);
+        for (int i2 = 0; i2 < this.f12120d.size(); i2++) {
+            Fragment fragment = this.f12120d.get(i2);
             if (fragment != null) {
                 W(fragment);
             }
@@ -2008,11 +2008,11 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             }
             fragment.E = true;
             if (fragment.p) {
-                if (this.f12113e != null) {
+                if (this.f12121e != null) {
                     if (x) {
                         String str2 = "remove from detach: " + fragment;
                     }
-                    this.f12113e.remove(fragment);
+                    this.f12121e.remove(fragment);
                 }
                 if (fragment.H && fragment.I) {
                     this.p = true;
@@ -2057,11 +2057,11 @@ public final class m extends l implements c.a.p0.o.a.d.e {
 
     public void o(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048624, this, configuration) == null) || this.f12113e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048624, this, configuration) == null) || this.f12121e == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.f12113e.size(); i2++) {
-            Fragment fragment = this.f12113e.get(i2);
+        for (int i2 = 0; i2 < this.f12121e.size(); i2++) {
+            Fragment fragment = this.f12121e.get(i2);
             if (fragment != null) {
                 fragment.O0(configuration);
             }
@@ -2075,7 +2075,7 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048625, this, view, str, context, attributeSet)) == null) {
             if ("fragment".equals(str)) {
                 String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e.f12129a);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e.f12137a);
                 if (attributeValue == null) {
                     attributeValue = obtainStyledAttributes.getString(0);
                 }
@@ -2108,12 +2108,12 @@ public final class m extends l implements c.a.p0.o.a.d.e {
                         F.w = this;
                         k kVar = this.m;
                         F.x = kVar;
-                        F.F0(kVar.h(), attributeSet, F.f47231h);
+                        F.F0(kVar.h(), attributeSet, F.f47333h);
                         h(F, true);
                     } else if (!F.t) {
                         F.t = true;
                         if (!F.G) {
-                            F.F0(this.m.h(), attributeSet, F.f47231h);
+                            F.F0(this.m.h(), attributeSet, F.f47333h);
                         }
                     } else {
                         throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(resourceId) + ", tag " + string + ", or parent id 0x" + Integer.toHexString(id) + " with another fragment for " + str2);
@@ -2147,9 +2147,9 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, menuItem)) == null) {
-            if (this.f12113e != null) {
-                for (int i2 = 0; i2 < this.f12113e.size(); i2++) {
-                    Fragment fragment = this.f12113e.get(i2);
+            if (this.f12121e != null) {
+                for (int i2 = 0; i2 < this.f12121e.size(); i2++) {
+                    Fragment fragment = this.f12121e.get(i2);
                     if (fragment != null && fragment.P0(menuItem)) {
                         return true;
                     }
@@ -2174,10 +2174,10 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048628, this, menu, menuInflater)) == null) {
             ArrayList<Fragment> arrayList = null;
-            if (this.f12113e != null) {
+            if (this.f12121e != null) {
                 z2 = false;
-                for (int i2 = 0; i2 < this.f12113e.size(); i2++) {
-                    Fragment fragment = this.f12113e.get(i2);
+                for (int i2 = 0; i2 < this.f12121e.size(); i2++) {
+                    Fragment fragment = this.f12121e.get(i2);
                     if (fragment != null && fragment.R0(menu, menuInflater)) {
                         if (arrayList == null) {
                             arrayList = new ArrayList<>();
@@ -2189,15 +2189,15 @@ public final class m extends l implements c.a.p0.o.a.d.e {
             } else {
                 z2 = false;
             }
-            if (this.f12116h != null) {
-                for (int i3 = 0; i3 < this.f12116h.size(); i3++) {
-                    Fragment fragment2 = this.f12116h.get(i3);
+            if (this.f12124h != null) {
+                for (int i3 = 0; i3 < this.f12124h.size(); i3++) {
+                    Fragment fragment2 = this.f12124h.get(i3);
                     if (arrayList == null || !arrayList.contains(fragment2)) {
                         fragment2.A0();
                     }
                 }
             }
-            this.f12116h = arrayList;
+            this.f12124h = arrayList;
             return z2;
         }
         return invokeLL.booleanValue;
@@ -2244,11 +2244,11 @@ public final class m extends l implements c.a.p0.o.a.d.e {
 
     public void u() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048632, this) == null) || this.f12113e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048632, this) == null) || this.f12121e == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.f12113e.size(); i2++) {
-            Fragment fragment = this.f12113e.get(i2);
+        for (int i2 = 0; i2 < this.f12121e.size(); i2++) {
+            Fragment fragment = this.f12121e.get(i2);
             if (fragment != null) {
                 fragment.V0();
             }
@@ -2259,9 +2259,9 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, menuItem)) == null) {
-            if (this.f12113e != null) {
-                for (int i2 = 0; i2 < this.f12113e.size(); i2++) {
-                    Fragment fragment = this.f12113e.get(i2);
+            if (this.f12121e != null) {
+                for (int i2 = 0; i2 < this.f12121e.size(); i2++) {
+                    Fragment fragment = this.f12121e.get(i2);
                     if (fragment != null && fragment.W0(menuItem)) {
                         return true;
                     }
@@ -2274,11 +2274,11 @@ public final class m extends l implements c.a.p0.o.a.d.e {
 
     public void w(Menu menu) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048634, this, menu) == null) || this.f12113e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048634, this, menu) == null) || this.f12121e == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.f12113e.size(); i2++) {
-            Fragment fragment = this.f12113e.get(i2);
+        for (int i2 = 0; i2 < this.f12121e.size(); i2++) {
+            Fragment fragment = this.f12121e.get(i2);
             if (fragment != null) {
                 fragment.X0(menu);
             }
@@ -2296,10 +2296,10 @@ public final class m extends l implements c.a.p0.o.a.d.e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, menu)) == null) {
-            if (this.f12113e != null) {
+            if (this.f12121e != null) {
                 boolean z2 = false;
-                for (int i2 = 0; i2 < this.f12113e.size(); i2++) {
-                    Fragment fragment = this.f12113e.get(i2);
+                for (int i2 = 0; i2 < this.f12121e.size(); i2++) {
+                    Fragment fragment = this.f12121e.get(i2);
                     if (fragment != null && fragment.Z0(menu)) {
                         z2 = true;
                     }

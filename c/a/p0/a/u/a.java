@@ -25,22 +25,22 @@ public class a implements c.a.p0.a.u.c.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f8717e;
+    public static final boolean f8725e;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8718a;
+    public Context f8726a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public CallbackHandler f8719b;
+    public CallbackHandler f8727b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f8720c;
+    public WeakReference<Activity> f8728c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.a.h0.f.a f8721d;
+    public c.a.p0.a.h0.f.a f8729d;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +55,7 @@ public class a implements c.a.p0.a.u.c.b {
                 return;
             }
         }
-        f8717e = k.f7077a;
+        f8725e = k.f7085a;
     }
 
     public a(@NonNull Context context, @NonNull CallbackHandler callbackHandler, @NonNull c.a.p0.a.h0.f.a aVar) {
@@ -73,9 +73,9 @@ public class a implements c.a.p0.a.u.c.b {
                 return;
             }
         }
-        this.f8718a = context;
-        this.f8719b = callbackHandler;
-        this.f8721d = aVar;
+        this.f8726a = context;
+        this.f8727b = callbackHandler;
+        this.f8729d = aVar;
     }
 
     public void a(@NonNull c.a.p0.a.h0.f.a aVar) {
@@ -121,7 +121,7 @@ public class a implements c.a.p0.a.u.c.b {
                     try {
                         map.putAll(map2);
                     } catch (Exception e2) {
-                        if (f8717e) {
+                        if (f8725e) {
                             e2.printStackTrace();
                             throw new RuntimeException("doBindSwanApis fail: " + e2.getMessage());
                         }
@@ -130,7 +130,7 @@ public class a implements c.a.p0.a.u.c.b {
                 }
             }
             if (map == null) {
-                if (f8717e) {
+                if (f8725e) {
                     throw new RuntimeException("doBindSwanApis fail: api modules cannot be null");
                 }
                 return;
@@ -139,21 +139,21 @@ public class a implements c.a.p0.a.u.c.b {
                 String key = entry.getKey();
                 Object value = entry.getValue();
                 if (TextUtils.isEmpty(key)) {
-                    if (f8717e) {
+                    if (f8725e) {
                         throw new RuntimeException("doBindSwanApis fail: moduleName cannot be empty");
                     }
                 } else if (value == null) {
-                    if (f8717e) {
+                    if (f8725e) {
                         throw new RuntimeException("doBindSwanApis fail: module obj cannot be null");
                     }
                 } else {
                     aVar.addJavascriptInterface(value, key);
-                    if (f8717e) {
+                    if (f8725e) {
                         String str = "doBindSwanApis(" + (aVar instanceof c ? "V8" : "Webview") + "): bound " + key;
                     }
                 }
             }
-            if (f8717e) {
+            if (f8725e) {
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                 if (currentTimeMillis2 > 5) {
                     String str2 = "doBindSwanApis: 耗时 " + currentTimeMillis2 + "ms";
@@ -167,9 +167,9 @@ public class a implements c.a.p0.a.u.c.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            WeakReference<Activity> weakReference = this.f8720c;
+            WeakReference<Activity> weakReference = this.f8728c;
             Activity activity = weakReference != null ? weakReference.get() : null;
-            return activity == null ? this.f8718a : activity;
+            return activity == null ? this.f8726a : activity;
         }
         return (Context) invokeV.objValue;
     }
@@ -179,7 +179,7 @@ public class a implements c.a.p0.a.u.c.b {
     public c.a.p0.a.h0.f.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f8721d : (c.a.p0.a.h0.f.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f8729d : (c.a.p0.a.h0.f.a) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.u.c.b
@@ -195,7 +195,7 @@ public class a implements c.a.p0.a.u.c.b {
     public CallbackHandler h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f8719b : (CallbackHandler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f8727b : (CallbackHandler) invokeV.objValue;
     }
 
     public void i(Activity activity) {
@@ -203,6 +203,6 @@ public class a implements c.a.p0.a.u.c.b {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, activity) == null) || activity == null) {
             return;
         }
-        this.f8720c = new WeakReference<>(activity);
+        this.f8728c = new WeakReference<>(activity);
     }
 }

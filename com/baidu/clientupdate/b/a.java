@@ -12,10 +12,10 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f38866a;
+    public static final byte[] f38925a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f38867b;
+    public static final char[] f38926b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,14 +33,14 @@ public final class a {
                 return;
             }
         }
-        f38866a = new byte[128];
-        f38867b = new char[64];
+        f38925a = new byte[128];
+        f38926b = new char[64];
         int i4 = 0;
         for (int i5 = 0; i5 < 128; i5++) {
-            f38866a[i5] = -1;
+            f38925a[i5] = -1;
         }
         for (int i6 = 90; i6 >= 65; i6--) {
-            f38866a[i6] = (byte) (i6 - 65);
+            f38925a[i6] = (byte) (i6 - 65);
         }
         int i7 = 122;
         while (true) {
@@ -48,7 +48,7 @@ public final class a {
             if (i7 < 97) {
                 break;
             }
-            f38866a[i7] = (byte) ((i7 - 97) + 26);
+            f38925a[i7] = (byte) ((i7 - 97) + 26);
             i7--;
         }
         int i8 = 57;
@@ -57,27 +57,27 @@ public final class a {
             if (i8 < 48) {
                 break;
             }
-            f38866a[i8] = (byte) ((i8 - 48) + 52);
+            f38925a[i8] = (byte) ((i8 - 48) + 52);
             i8--;
         }
-        byte[] bArr = f38866a;
+        byte[] bArr = f38925a;
         bArr[43] = 62;
         bArr[47] = 63;
         for (int i9 = 0; i9 <= 25; i9++) {
-            f38867b[i9] = (char) (i9 + 65);
+            f38926b[i9] = (char) (i9 + 65);
         }
         int i10 = 0;
         while (i2 <= 51) {
-            f38867b[i2] = (char) (i10 + 97);
+            f38926b[i2] = (char) (i10 + 97);
             i2++;
             i10++;
         }
         while (i3 <= 61) {
-            f38867b[i3] = (char) (i4 + 48);
+            f38926b[i3] = (char) (i4 + 48);
             i3++;
             i4++;
         }
-        char[] cArr = f38867b;
+        char[] cArr = f38926b;
         cArr[62] = '+';
         cArr[63] = '/';
     }
@@ -141,7 +141,7 @@ public final class a {
                             int i9 = i8 + 1;
                             char c5 = charArray[i8];
                             if (c(c5)) {
-                                byte[] bArr2 = f38866a;
+                                byte[] bArr2 = f38925a;
                                 byte b2 = bArr2[c2];
                                 byte b3 = bArr2[c3];
                                 byte b4 = bArr2[c4];
@@ -166,14 +166,14 @@ public final class a {
                 int i13 = i12 + 1;
                 char c7 = charArray[i12];
                 if (c(c7)) {
-                    byte[] bArr3 = f38866a;
+                    byte[] bArr3 = f38925a;
                     byte b6 = bArr3[c6];
                     byte b7 = bArr3[c7];
                     int i14 = i13 + 1;
                     char c8 = charArray[i13];
                     char c9 = charArray[i14];
                     if (c(c8) && c(c9)) {
-                        byte[] bArr4 = f38866a;
+                        byte[] bArr4 = f38925a;
                         byte b8 = bArr4[c8];
                         byte b9 = bArr4[c9];
                         int i15 = i5 + 1;
@@ -193,7 +193,7 @@ public final class a {
                     } else if (b(c8) || !b(c9)) {
                         return null;
                     } else {
-                        byte b10 = f38866a[c8];
+                        byte b10 = f38925a[c8];
                         if ((b10 & 3) != 0) {
                             return null;
                         }
@@ -221,6 +221,6 @@ public final class a {
     public static boolean c(char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 < 128 && f38866a[c2] != -1 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 < 128 && f38925a[c2] != -1 : invokeCommon.booleanValue;
     }
 }

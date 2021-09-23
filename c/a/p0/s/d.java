@@ -11,7 +11,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f12378a;
+    public static String f12386a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,12 +27,12 @@ public class d {
                 return;
             }
         }
-        f12378a = b.g().getString("openstat_switch", "1");
+        f12386a = b.g().getString("openstat_switch", "1");
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? TextUtils.equals(f12378a, "1") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? TextUtils.equals(f12386a, "1") : invokeV.booleanValue;
     }
 }

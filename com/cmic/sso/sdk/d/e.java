@@ -14,7 +14,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConcurrentHashMap<String, TokenListener> f69183a;
+    public static ConcurrentHashMap<String, TokenListener> f69494a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,38 +30,38 @@ public class e {
                 return;
             }
         }
-        f69183a = new ConcurrentHashMap<>(16);
+        f69494a = new ConcurrentHashMap<>(16);
     }
 
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? !f69183a.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? !f69494a.containsKey(str) : invokeL.booleanValue;
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            f69183a.remove(str);
+            f69494a.remove(str);
         }
     }
 
     public static TokenListener c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? f69183a.get(str) : (TokenListener) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? f69494a.get(str) : (TokenListener) invokeL.objValue;
     }
 
     public static void a(String str, TokenListener tokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, tokenListener) == null) {
-            f69183a.put(str, tokenListener);
+            f69494a.put(str, tokenListener);
         }
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f69183a.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f69494a.isEmpty() : invokeV.booleanValue;
     }
 }

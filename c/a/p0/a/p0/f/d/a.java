@@ -30,16 +30,16 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7922e;
+        public final /* synthetic */ CallbackHandler f7930e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7923f;
+        public final /* synthetic */ String f7931f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f7924g;
+        public final /* synthetic */ String f7932g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f7925h;
+        public final /* synthetic */ a f7933h;
 
         public C0348a(a aVar, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -56,10 +56,10 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f7925h = aVar;
-            this.f7922e = callbackHandler;
-            this.f7923f = str;
-            this.f7924g = str2;
+            this.f7933h = aVar;
+            this.f7930e = callbackHandler;
+            this.f7931f = str;
+            this.f7932g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,9 +69,9 @@ public class a extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    this.f7925h.k(this.f7924g, this.f7923f, this.f7922e);
+                    this.f7933h.k(this.f7932g, this.f7931f, this.f7930e);
                 } else {
-                    c.a.p0.a.e2.c.d.p(iVar, this.f7922e, this.f7923f);
+                    c.a.p0.a.e2.c.d.p(iVar, this.f7930e, this.f7931f);
                 }
             }
         }
@@ -83,13 +83,13 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7926a;
+        public final /* synthetic */ CallbackHandler f7934a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f7927b;
+        public final /* synthetic */ JSONObject f7935b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f7928c;
+        public final /* synthetic */ String f7936c;
 
         public b(a aVar, CallbackHandler callbackHandler, JSONObject jSONObject, String str) {
             Interceptable interceptable = $ic;
@@ -106,27 +106,27 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f7926a = callbackHandler;
-            this.f7927b = jSONObject;
-            this.f7928c = str;
+            this.f7934a = callbackHandler;
+            this.f7935b = jSONObject;
+            this.f7936c = str;
         }
 
         @Override // c.a.p0.a.a1.e.c
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f7926a == null) {
+                if (this.f7934a == null) {
                     c.a.p0.a.e0.d.l("ExtCore-DebugDownload", "handler is null");
                     return;
                 }
                 try {
                     c.a.p0.a.e0.d.b("ExtCore-DebugDownload", "download failed");
                     c.a.p0.a.z1.b.f.e.f(c.a.p0.a.c1.a.b(), c.a.p0.a.h.aiapps_debug_extension_core_download_failed).F();
-                    this.f7927b.put("status", -1);
+                    this.f7935b.put("status", -1);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                this.f7926a.handleSchemeDispatchCallback(this.f7928c, UnitedSchemeUtility.wrapCallbackParams(this.f7927b, 1001).toString());
+                this.f7934a.handleSchemeDispatchCallback(this.f7936c, UnitedSchemeUtility.wrapCallbackParams(this.f7935b, 1001).toString());
             }
         }
 
@@ -141,7 +141,7 @@ public class a extends a0 {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.f7926a == null) {
+                if (this.f7934a == null) {
                     c.a.p0.a.e0.d.l("ExtCore-DebugDownload", "handler is null");
                     return;
                 }
@@ -151,18 +151,18 @@ public class a extends a0 {
                     if (c2.exists() && c.a.p0.t.d.T(c2.getPath(), b2.getPath())) {
                         c.a.p0.a.e0.d.b("ExtCore-DebugDownload", "download success");
                         c.a.p0.a.z1.b.f.e.f(c.a.p0.a.c1.a.b(), c.a.p0.a.h.aiapps_debug_extension_core_download_success).F();
-                        this.f7927b.put("status", 0);
-                        this.f7926a.handleSchemeDispatchCallback(this.f7928c, UnitedSchemeUtility.wrapCallbackParams(this.f7927b, 0).toString());
+                        this.f7935b.put("status", 0);
+                        this.f7934a.handleSchemeDispatchCallback(this.f7936c, UnitedSchemeUtility.wrapCallbackParams(this.f7935b, 0).toString());
                     } else {
                         c.a.p0.a.e0.d.b("ExtCore-DebugDownload", "download failed");
                         c.a.p0.a.z1.b.f.e.f(c.a.p0.a.c1.a.b(), c.a.p0.a.h.aiapps_debug_extension_core_download_failed).F();
-                        this.f7927b.put("status", -1);
-                        this.f7926a.handleSchemeDispatchCallback(this.f7928c, UnitedSchemeUtility.wrapCallbackParams(this.f7927b, 1001).toString());
+                        this.f7935b.put("status", -1);
+                        this.f7934a.handleSchemeDispatchCallback(this.f7936c, UnitedSchemeUtility.wrapCallbackParams(this.f7935b, 1001).toString());
                     }
                 } catch (JSONException e2) {
                     c.a.p0.a.e0.d.c("ExtCore-DebugDownload", "build result with exception", e2);
                     e2.printStackTrace();
-                    this.f7926a.handleSchemeDispatchCallback(this.f7928c, UnitedSchemeUtility.wrapCallbackParams(this.f7927b, 1001).toString());
+                    this.f7934a.handleSchemeDispatchCallback(this.f7936c, UnitedSchemeUtility.wrapCallbackParams(this.f7935b, 1001).toString());
                 }
             }
         }

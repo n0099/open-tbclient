@@ -40,22 +40,22 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BuyTBeanActivity f57214e;
+    public BuyTBeanActivity f57331e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f57215f;
+    public e f57332f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<c.a.r0.l3.e.b> f57216g;
+    public List<c.a.r0.l3.e.b> f57333g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<c.a.r0.l3.e.a> f57217h;
+    public List<c.a.r0.l3.e.a> f57334h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.l3.e.c f57218i;
+    public c.a.r0.l3.e.c f57335i;
 
     /* renamed from: j  reason: collision with root package name */
-    public UserInfo f57219j;
+    public UserInfo f57336j;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.c {
@@ -63,7 +63,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanModel f57220a;
+        public final /* synthetic */ BuyTBeanModel f57337a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BuyTBeanModel buyTBeanModel, int i2) {
@@ -83,7 +83,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                     return;
                 }
             }
-            this.f57220a = buyTBeanModel;
+            this.f57337a = buyTBeanModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -92,28 +92,28 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
                 if (socketResponsedMessage == null || !(socketResponsedMessage instanceof GetYinJiResponseMessage)) {
-                    this.f57220a.f57215f.onFailed(this.f57220a.f57214e.getPageContext().getString(R.string.neterror));
+                    this.f57337a.f57332f.onFailed(this.f57337a.f57331e.getPageContext().getString(R.string.neterror));
                     return;
                 }
                 GetYinJiResponseMessage getYinJiResponseMessage = (GetYinJiResponseMessage) socketResponsedMessage;
                 if (getYinJiResponseMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(getYinJiResponseMessage.getErrorString())) {
-                        this.f57220a.f57215f.onFailed(getYinJiResponseMessage.getErrorString());
+                        this.f57337a.f57332f.onFailed(getYinJiResponseMessage.getErrorString());
                     } else {
-                        this.f57220a.f57215f.onFailed(this.f57220a.f57214e.getPageContext().getString(R.string.neterror));
+                        this.f57337a.f57332f.onFailed(this.f57337a.f57331e.getPageContext().getString(R.string.neterror));
                     }
-                    if (this.f57220a.f57214e == null || getYinJiResponseMessage.getError() != 1990055) {
+                    if (this.f57337a.f57331e == null || getYinJiResponseMessage.getError() != 1990055) {
                         return;
                     }
-                    this.f57220a.f57214e.finish();
+                    this.f57337a.f57331e.finish();
                     return;
                 }
-                this.f57220a.f57219j = getYinJiResponseMessage.getUserInfo();
-                this.f57220a.A(getYinJiResponseMessage);
+                this.f57337a.f57336j = getYinJiResponseMessage.getUserInfo();
+                this.f57337a.A(getYinJiResponseMessage);
                 if (getYinJiResponseMessage.getUserInfo() == null || ListUtils.isEmpty(getYinJiResponseMessage.getIconInfoList())) {
-                    this.f57220a.f57215f.onFailed(this.f57220a.f57214e.getPageContext().getString(R.string.no_data_tip));
+                    this.f57337a.f57332f.onFailed(this.f57337a.f57331e.getPageContext().getString(R.string.no_data_tip));
                 } else {
-                    this.f57220a.f57215f.onSuccess();
+                    this.f57337a.f57332f.onSuccess();
                 }
             }
         }
@@ -125,7 +125,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanModel f57221a;
+        public final /* synthetic */ BuyTBeanModel f57338a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(BuyTBeanModel buyTBeanModel, int i2) {
@@ -145,7 +145,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                     return;
                 }
             }
-            this.f57221a = buyTBeanModel;
+            this.f57338a = buyTBeanModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -154,8 +154,8 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof GetBigTbeanWalletH5ResponseMessage)) {
                 GetBigTbeanWalletH5ResponseMessage getBigTbeanWalletH5ResponseMessage = (GetBigTbeanWalletH5ResponseMessage) httpResponsedMessage;
-                if (getBigTbeanWalletH5ResponseMessage.getError() == 0 && this.f57221a.f57215f != null) {
-                    this.f57221a.f57215f.onGetWalletUrl(getBigTbeanWalletH5ResponseMessage.url);
+                if (getBigTbeanWalletH5ResponseMessage.getError() == 0 && this.f57338a.f57332f != null) {
+                    this.f57338a.f57332f.onGetWalletUrl(getBigTbeanWalletH5ResponseMessage.url);
                 }
             }
         }
@@ -167,7 +167,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanModel f57222a;
+        public final /* synthetic */ BuyTBeanModel f57339a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(BuyTBeanModel buyTBeanModel, int i2) {
@@ -187,7 +187,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                     return;
                 }
             }
-            this.f57222a = buyTBeanModel;
+            this.f57339a = buyTBeanModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -196,28 +196,28 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof GetYinJiHttpResponseMessage)) {
-                    this.f57222a.f57215f.onFailed(this.f57222a.f57214e.getPageContext().getString(R.string.neterror));
+                    this.f57339a.f57332f.onFailed(this.f57339a.f57331e.getPageContext().getString(R.string.neterror));
                     return;
                 }
                 GetYinJiHttpResponseMessage getYinJiHttpResponseMessage = (GetYinJiHttpResponseMessage) httpResponsedMessage;
                 if (getYinJiHttpResponseMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(getYinJiHttpResponseMessage.getErrorString())) {
-                        this.f57222a.f57215f.onFailed(getYinJiHttpResponseMessage.getErrorString());
+                        this.f57339a.f57332f.onFailed(getYinJiHttpResponseMessage.getErrorString());
                     } else {
-                        this.f57222a.f57215f.onFailed(this.f57222a.f57214e.getPageContext().getString(R.string.neterror));
+                        this.f57339a.f57332f.onFailed(this.f57339a.f57331e.getPageContext().getString(R.string.neterror));
                     }
-                    if (this.f57222a.f57214e == null || getYinJiHttpResponseMessage.getError() != 1990055) {
+                    if (this.f57339a.f57331e == null || getYinJiHttpResponseMessage.getError() != 1990055) {
                         return;
                     }
-                    this.f57222a.f57214e.finish();
+                    this.f57339a.f57331e.finish();
                     return;
                 }
-                this.f57222a.f57219j = getYinJiHttpResponseMessage.getUserInfo();
-                this.f57222a.A(getYinJiHttpResponseMessage);
+                this.f57339a.f57336j = getYinJiHttpResponseMessage.getUserInfo();
+                this.f57339a.A(getYinJiHttpResponseMessage);
                 if (getYinJiHttpResponseMessage.getUserInfo() == null || ListUtils.isEmpty(getYinJiHttpResponseMessage.getIconInfoList())) {
-                    this.f57222a.f57215f.onFailed(this.f57222a.f57214e.getPageContext().getString(R.string.no_data_tip));
+                    this.f57339a.f57332f.onFailed(this.f57339a.f57331e.getPageContext().getString(R.string.no_data_tip));
                 } else {
-                    this.f57222a.f57215f.onSuccess();
+                    this.f57339a.f57332f.onSuccess();
                 }
             }
         }
@@ -229,7 +229,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanModel f57223a;
+        public final /* synthetic */ BuyTBeanModel f57340a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(BuyTBeanModel buyTBeanModel, int i2) {
@@ -249,7 +249,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                     return;
                 }
             }
-            this.f57223a = buyTBeanModel;
+            this.f57340a = buyTBeanModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -258,8 +258,8 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseGetPayinfoMessage) || httpResponsedMessage.getCmd() != 1001505) {
-                    if (this.f57223a.f57214e != null) {
-                        this.f57223a.f57214e.showToast(R.string.neterror);
+                    if (this.f57340a.f57331e != null) {
+                        this.f57340a.f57331e.showToast(R.string.neterror);
                         return;
                     }
                     return;
@@ -270,15 +270,15 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 HttpMessage httpMessage = (HttpMessage) responseGetPayinfoMessage.getOrginalMessage();
                 if (statusCode == 200 && error == 0) {
                     if (responseGetPayinfoMessage.getPayInfoResultData() == null) {
-                        if (this.f57223a.f57214e != null) {
-                            this.f57223a.f57214e.showToast(R.string.buy_tbean_failed_tip);
+                        if (this.f57340a.f57331e != null) {
+                            this.f57340a.f57331e.showToast(R.string.buy_tbean_failed_tip);
                             return;
                         }
                     } else {
                         int pay_status = responseGetPayinfoMessage.getPayInfoResultData().getPay_status();
                         if (pay_status != 0) {
-                            if (this.f57223a.f57214e != null) {
-                                this.f57223a.f57214e.showToast(R.string.buy_tbean_failed_tip);
+                            if (this.f57340a.f57331e != null) {
+                                this.f57340a.f57331e.showToast(R.string.buy_tbean_failed_tip);
                                 return;
                             }
                         } else {
@@ -287,19 +287,19 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                             g gVar = new g();
                             gVar.d(str);
                             gVar.c(pay_status);
-                            gVar.b(this.f57223a.f57214e.isFromDecreaseGiftStepStrategy());
+                            gVar.b(this.f57340a.f57331e.isFromDecreaseGiftStepStrategy());
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001227, gVar));
-                            if (this.f57223a.f57214e != null) {
-                                this.f57223a.f57214e.finish();
+                            if (this.f57340a.f57331e != null) {
+                                this.f57340a.f57331e.finish();
                                 return;
                             }
                         }
                     }
                 }
                 if (!TextUtils.isEmpty(responseGetPayinfoMessage.getErrorString())) {
-                    this.f57223a.f57214e.showToast(responseGetPayinfoMessage.getErrorString());
+                    this.f57340a.f57331e.showToast(responseGetPayinfoMessage.getErrorString());
                 } else {
-                    this.f57223a.f57214e.showToast(R.string.neterror);
+                    this.f57340a.f57331e.showToast(R.string.neterror);
                 }
             }
         }
@@ -332,10 +332,10 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 return;
             }
         }
-        this.f57216g = new LinkedList();
-        this.f57217h = new LinkedList();
-        this.f57214e = buyTBeanActivity;
-        this.f57215f = eVar;
+        this.f57333g = new LinkedList();
+        this.f57334h = new LinkedList();
+        this.f57331e = buyTBeanActivity;
+        this.f57332f = eVar;
     }
 
     public final void A(c.a.r0.l3.f.a aVar) {
@@ -343,11 +343,11 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || aVar.getUserInfo() == null || ListUtils.isEmpty(aVar.getIconInfoList())) {
             return;
         }
-        List<c.a.r0.l3.e.b> list = this.f57216g;
+        List<c.a.r0.l3.e.b> list = this.f57333g;
         if (list != null) {
             list.clear();
         }
-        List<c.a.r0.l3.e.a> list2 = this.f57217h;
+        List<c.a.r0.l3.e.a> list2 = this.f57334h;
         if (list2 != null) {
             list2.clear();
         }
@@ -357,61 +357,61 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             for (Custom custom : aVar.getCustomList()) {
                 if (custom.is_custom_price.intValue() == 1) {
                     c.a.r0.l3.e.c cVar = new c.a.r0.l3.e.c();
-                    cVar.f22136e = custom;
+                    cVar.f22150e = custom;
                     arrayList2.add(cVar);
                 } else if (custom.is_custom_price.intValue() == 0) {
                     c.a.r0.l3.e.a aVar2 = new c.a.r0.l3.e.a();
-                    aVar2.f22130e = custom;
+                    aVar2.f22144e = custom;
                     arrayList.add(aVar2);
                 }
             }
         }
         if (!ListUtils.isEmpty(arrayList)) {
             for (c.a.r0.l3.e.a aVar3 : arrayList) {
-                aVar3.f22131f = aVar.getSetting();
-                this.f57217h.add(aVar3);
+                aVar3.f22145f = aVar.getSetting();
+                this.f57334h.add(aVar3);
             }
         }
         if (!ListUtils.isEmpty(aVar.getIconInfoList())) {
             for (IconInfo iconInfo : aVar.getIconInfoList()) {
                 c.a.r0.l3.e.b bVar = new c.a.r0.l3.e.b();
-                bVar.f22134f = iconInfo;
+                bVar.f22148f = iconInfo;
                 aVar.getUserInfo();
-                bVar.f22133e = aVar.getSetting();
-                this.f57216g.add(bVar);
+                bVar.f22147e = aVar.getSetting();
+                this.f57333g.add(bVar);
             }
         }
         if (ListUtils.isEmpty(arrayList2)) {
             return;
         }
         c.a.r0.l3.e.c cVar2 = (c.a.r0.l3.e.c) ListUtils.getItem(arrayList2, 0);
-        this.f57218i = cVar2;
-        cVar2.f22138g = aVar.getSetting();
-        this.f57218i.f22137f = aVar.getUserInfo();
+        this.f57335i = cVar2;
+        cVar2.f22152g = aVar.getSetting();
+        this.f57335i.f22151f = aVar.getUserInfo();
     }
 
     public List<c.a.r0.l3.e.b> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57216g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57333g : (List) invokeV.objValue;
     }
 
     public List<c.a.r0.l3.e.a> C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f57217h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f57334h : (List) invokeV.objValue;
     }
 
     public c.a.r0.l3.e.c D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f57218i : (c.a.r0.l3.e.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f57335i : (c.a.r0.l3.e.c) invokeV.objValue;
     }
 
     public UserInfo E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57219j : (UserInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57336j : (UserInfo) invokeV.objValue;
     }
 
     public void F() {

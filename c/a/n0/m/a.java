@@ -15,14 +15,14 @@ public class a implements c.a.n0.n.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f4316c;
+    public static a f4323c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.n0.n.a f4317a;
+    public c.a.n0.n.a f4324a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4318b;
+    public boolean f4325b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,22 +37,22 @@ public class a implements c.a.n0.n.a {
                 return;
             }
         }
-        this.f4317a = null;
-        this.f4318b = false;
+        this.f4324a = null;
+        this.f4325b = false;
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f4316c == null) {
+            if (f4323c == null) {
                 synchronized (a.class) {
-                    if (f4316c == null) {
-                        f4316c = new a();
+                    if (f4323c == null) {
+                        f4323c = new a();
                     }
                 }
             }
-            return f4316c;
+            return f4323c;
         }
         return (a) invokeV.objValue;
     }
@@ -62,7 +62,7 @@ public class a implements c.a.n0.n.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.n0.n.a aVar = this.f4317a;
+            c.a.n0.n.a aVar = this.f4324a;
             if (aVar == null) {
                 return null;
             }
@@ -88,10 +88,10 @@ public class a implements c.a.n0.n.a {
             return;
         }
         try {
-            if (this.f4318b) {
+            if (this.f4325b) {
                 return;
             }
-            this.f4318b = true;
+            this.f4325b = true;
             int ordinal = com.baidu.sso.r.a.a(Build.MANUFACTURER).ordinal();
             if (ordinal == 0) {
                 aVar = null;
@@ -102,16 +102,16 @@ public class a implements c.a.n0.n.a {
             } else if (ordinal == 3) {
                 aVar = new c();
             } else if (ordinal != 4) {
-                if (this.f4317a == null) {
-                    this.f4317a.a(context, bVar);
+                if (this.f4324a == null) {
+                    this.f4324a.a(context, bVar);
                     return;
                 }
                 return;
             } else {
                 aVar = new c.a.n0.p.b();
             }
-            this.f4317a = aVar;
-            if (this.f4317a == null) {
+            this.f4324a = aVar;
+            if (this.f4324a == null) {
             }
         } catch (Throwable unused) {
         }

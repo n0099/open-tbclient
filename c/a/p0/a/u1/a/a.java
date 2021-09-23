@@ -30,13 +30,13 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9178a;
+    public static final boolean f9186a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c.a.p0.a.k2.g.a f9179b;
+    public static c.a.p0.a.k2.g.a f9187b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f9180c;
+    public static final Set<String> f9188c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,20 +52,20 @@ public final class a {
                 return;
             }
         }
-        f9178a = k.f7077a;
+        f9186a = k.f7085a;
         HashSet hashSet = new HashSet();
-        f9180c = hashSet;
+        f9188c = hashSet;
         hashSet.add("aiapps_websafe_debug_key");
-        f9180c.add("aiapps_server_domains_debug_key");
-        f9180c.add("aiapps_use_extension_debug_key");
-        f9180c.add("aiapps_emit_live_debug_key");
-        f9180c.add("aiapps_emit_https_debug_key");
-        f9180c.add("aiapps_emit_wss_debug_key");
-        f9180c.add("aiapps_load_cts_debug_key");
-        f9180c.add("aiapps_env_data");
-        f9180c.add("aiapps_js_native_switch_key");
-        f9180c.add("aiapps_emit_game_core_debug_key");
-        f9180c.add("aiapps_emit_game_launch_mode_key");
+        f9188c.add("aiapps_server_domains_debug_key");
+        f9188c.add("aiapps_use_extension_debug_key");
+        f9188c.add("aiapps_emit_live_debug_key");
+        f9188c.add("aiapps_emit_https_debug_key");
+        f9188c.add("aiapps_emit_wss_debug_key");
+        f9188c.add("aiapps_load_cts_debug_key");
+        f9188c.add("aiapps_env_data");
+        f9188c.add("aiapps_js_native_switch_key");
+        f9188c.add("aiapps_emit_game_core_debug_key");
+        f9188c.add("aiapps_emit_game_launch_mode_key");
     }
 
     public a() {
@@ -85,13 +85,13 @@ public final class a {
     public static boolean A(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bVar)) == null) ? (f9178a && bVar.m0()) || E(bVar.g0()) || c.a.p0.a.e0.f.b.e() || c.a.p0.a.e0.f.b.f() || bVar.o0() || (w() && bVar.R()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bVar)) == null) ? (f9186a && bVar.m0()) || E(bVar.g0()) || c.a.p0.a.e0.f.b.e() || c.a.p0.a.e0.f.b.f() || bVar.o0() || (w() && bVar.R()) : invokeL.booleanValue;
     }
 
     public static boolean B(c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cVar)) == null) ? (f9178a && cVar.m0()) || E(cVar.g0()) || c.a.p0.a.e0.f.b.e() || c.a.p0.a.e0.f.b.f() || cVar.o0() || (w() && cVar.R()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cVar)) == null) ? (f9186a && cVar.m0()) || E(cVar.g0()) || c.a.p0.a.e0.f.b.e() || c.a.p0.a.e0.f.b.f() || cVar.o0() || (w() && cVar.R()) : invokeL.booleanValue;
     }
 
     public static boolean C() {
@@ -284,7 +284,7 @@ public final class a {
                 return null;
             }
             extensionCore.extensionCoreVersionCode = 4294967297L;
-            extensionCore.extensionCoreVersionName = com.baidu.fsg.face.base.b.b.f39770e;
+            extensionCore.extensionCoreVersionName = com.baidu.fsg.face.base.b.b.f39824e;
             return extensionCore;
         }
         return (ExtensionCore) invokeL.objValue;
@@ -301,7 +301,7 @@ public final class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, bVar, bVar2)) == null) {
-            if (f9178a && bVar.m0()) {
+            if (f9186a && bVar.m0()) {
                 return e.b.a(bVar, bVar2);
             }
             if (E(bVar.g0())) {
@@ -373,7 +373,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, bVar)) == null) {
-            if (f9178a && bVar.m0()) {
+            if (f9186a && bVar.m0()) {
                 return e.b.g().getPath();
             }
             if (E(bVar.g0())) {
@@ -436,16 +436,16 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) {
-            if (f9179b == null) {
+            if (f9187b == null) {
                 synchronized (a.class) {
-                    if (f9179b == null) {
+                    if (f9187b == null) {
                         c.a.p0.a.k2.g.a aVar = new c.a.p0.a.k2.g.a("swan_app_debug");
-                        f9179b = aVar;
-                        aVar.f7120f.addAll(f9180c);
+                        f9187b = aVar;
+                        aVar.f7128f.addAll(f9188c);
                     }
                 }
             }
-            return f9179b;
+            return f9187b;
         }
         return (c.a.p0.a.k2.g.a) invokeV.objValue;
     }

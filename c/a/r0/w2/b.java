@@ -55,29 +55,29 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f28137f;
+    public static b f28157f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f28138g;
+    public static final String f28158g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f28139h;
+    public static int f28159h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f28140a;
+    public boolean f28160a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28141b;
+    public String f28161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f28142c;
+    public Map<String, String> f28162c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f28143d;
+    public CustomMessageListener f28163d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.e.c.g.a f28144e;
+    public c.a.e.c.g.a f28164e;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -85,7 +85,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f28145a;
+        public final /* synthetic */ b f28165a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -105,25 +105,25 @@ public class b {
                     return;
                 }
             }
-            this.f28145a = bVar;
+            this.f28165a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371 || this.f28145a.f28140a) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371 || this.f28165a.f28160a) {
                 return;
             }
-            this.f28145a.f28140a = true;
+            this.f28165a.f28160a = true;
             if (QuickWebViewSwitch.getInOn()) {
                 if (!TbSingleton.getInstance().isUploadOffPack() && !TbSingleton.getInstance().isClearOffPack()) {
-                    f fVar = new f(this.f28145a);
+                    f fVar = new f(this.f28165a);
                     fVar.setPriority(4);
                     fVar.execute(new Void[0]);
                     return;
                 }
-                c cVar = new c(this.f28145a, null);
+                c cVar = new c(this.f28165a, null);
                 cVar.setPriority(4);
                 cVar.execute(new Void[0]);
             }
@@ -132,12 +132,12 @@ public class b {
 
     /* renamed from: c.a.r0.w2.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1327b extends c.a.e.c.g.a {
+    public class C1325b extends c.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1327b(b bVar, int i2, int i3) {
+        public C1325b(b bVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -206,10 +206,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f28146a;
+        public NetWork f28166a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f28147b;
+        public final /* synthetic */ b f28167b;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -226,8 +226,8 @@ public class b {
                     return;
                 }
             }
-            this.f28147b = bVar;
-            this.f28146a = null;
+            this.f28167b = bVar;
+            this.f28166a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -239,16 +239,16 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 String modName = TbSingleton.getInstance().getModName();
-                if (TextUtils.isEmpty(modName) || (A = this.f28147b.A(modName)) == null) {
+                if (TextUtils.isEmpty(modName) || (A = this.f28167b.A(modName)) == null) {
                     return null;
                 }
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK_STATUS);
-                this.f28146a = netWork;
+                this.f28166a = netWork;
                 netWork.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
-                this.f28146a.addPostData("mod_name", modName);
-                this.f28146a.addPostData("status", A.f28155a ? "1" : "2");
-                this.f28146a.addPostData("fail_reason", A.f28155a ? "" : A.f28156b);
-                this.f28146a.postNetData();
+                this.f28166a.addPostData("mod_name", modName);
+                this.f28166a.addPostData("status", A.f28175a ? "1" : "2");
+                this.f28166a.addPostData("fail_reason", A.f28175a ? "" : A.f28176b);
+                this.f28166a.postNetData();
                 return null;
             }
             return (String) invokeL.objValue;
@@ -259,7 +259,7 @@ public class b {
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                f fVar = new f(this.f28147b);
+                f fVar = new f(this.f28167b);
                 fVar.setPriority(4);
                 fVar.execute(new Void[0]);
             }
@@ -276,25 +276,25 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f28148a;
+        public final String f28168a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final c.a.r0.w2.e.a f28149b;
+        public final c.a.r0.w2.e.a f28169b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f28150c;
+        public final String f28170c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f28151d;
+        public final String f28171d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f28152e;
+        public final String f28172e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f28153f;
+        public final boolean f28173f;
 
         /* renamed from: g  reason: collision with root package name */
-        public NetWork f28154g;
+        public NetWork f28174g;
 
         public d(String str, c.a.r0.w2.e.a aVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -311,12 +311,12 @@ public class b {
                     return;
                 }
             }
-            this.f28148a = str;
-            this.f28149b = aVar;
-            this.f28151d = aVar.c();
-            this.f28150c = this.f28149b.a();
-            this.f28152e = this.f28149b.b();
-            this.f28153f = z;
+            this.f28168a = str;
+            this.f28169b = aVar;
+            this.f28171d = aVar.c();
+            this.f28170c = this.f28169b.a();
+            this.f28172e = this.f28169b.b();
+            this.f28173f = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -336,30 +336,30 @@ public class b {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                b.m(this.f28148a);
-                b.q().k(this.f28148a);
-                if (this.f28153f) {
-                    if (!TextUtils.isEmpty(b.q().s(this.f28148a))) {
-                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.f28148a).param("obj_id", this.f28151d));
+                b.m(this.f28168a);
+                b.q().k(this.f28168a);
+                if (this.f28173f) {
+                    if (!TextUtils.isEmpty(b.q().s(this.f28168a))) {
+                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.f28168a).param("obj_id", this.f28171d));
                     }
                     return null;
                 }
                 NetWork netWork = new NetWork();
-                this.f28154g = netWork;
-                netWork.setUrl(this.f28150c);
-                new File(b.f28138g + "bdtbWCacheTemp/" + this.f28148a + "/").mkdirs();
-                String str2 = b.f28138g + "bdtbWCacheTemp/" + this.f28148a + "/bdtbNWCache.zip";
-                if (this.f28154g.downloadFile(str2, null, 0, 3, 0, true)) {
+                this.f28174g = netWork;
+                netWork.setUrl(this.f28170c);
+                new File(b.f28158g + "bdtbWCacheTemp/" + this.f28168a + "/").mkdirs();
+                String str2 = b.f28158g + "bdtbWCacheTemp/" + this.f28168a + "/bdtbNWCache.zip";
+                if (this.f28174g.downloadFile(str2, null, 0, 3, 0, true)) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "1"));
                     try {
                         fileInputStream2 = new FileInputStream(str2);
                         try {
                             try {
                                 String b2 = q.b(fileInputStream2);
-                                if (StringUtils.isNull(b2) || !b2.toLowerCase().equals(this.f28152e.toLowerCase())) {
-                                    b.f28139h = 2;
-                                    c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f28148a, "hybridResult", "md5 error");
-                                    b.m(this.f28148a);
+                                if (StringUtils.isNull(b2) || !b2.toLowerCase().equals(this.f28172e.toLowerCase())) {
+                                    b.f28159h = 2;
+                                    c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f28168a, "hybridResult", "md5 error");
+                                    b.m(this.f28168a);
                                     m.e(fileInputStream2);
                                     return null;
                                 }
@@ -367,17 +367,17 @@ public class b {
                                 e = e2;
                                 e.printStackTrace();
                                 m.e(fileInputStream2);
-                                str = b.f28138g + "bdtbWCacheTemp/" + this.f28148a + "/" + this.f28151d + "/";
+                                str = b.f28158g + "bdtbWCacheTemp/" + this.f28168a + "/" + this.f28171d + "/";
                                 new File(str).mkdirs();
                                 if (!r.b(str2, str)) {
                                 }
-                                b.m(this.f28148a);
-                                r = b.r(this.f28148a, this.f28151d);
+                                b.m(this.f28168a);
+                                r = b.r(this.f28168a, this.f28171d);
                                 if (r == null) {
                                 }
-                                b.f28139h = 5;
-                                c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f28148a, "hybridResult", "bundle incomplete");
-                                b.q().k(this.f28148a);
+                                b.f28159h = 5;
+                                c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f28168a, "hybridResult", "bundle incomplete");
+                                b.q().k(this.f28168a);
                                 return null;
                             }
                         } catch (Throwable th) {
@@ -396,33 +396,33 @@ public class b {
                         throw th;
                     }
                     m.e(fileInputStream2);
-                    str = b.f28138g + "bdtbWCacheTemp/" + this.f28148a + "/" + this.f28151d + "/";
+                    str = b.f28158g + "bdtbWCacheTemp/" + this.f28168a + "/" + this.f28171d + "/";
                     new File(str).mkdirs();
                     if (!r.b(str2, str)) {
-                        String str3 = b.f28138g + "bdtbNWCache/" + this.f28148a + "/" + this.f28151d + "/";
+                        String str3 = b.f28158g + "bdtbNWCache/" + this.f28168a + "/" + this.f28171d + "/";
                         new File(str3).mkdirs();
                         if (!FileHelper.CopyDir(str, str3, true)) {
-                            b.f28139h = 4;
-                            c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f28148a, "hybridResult", "write error");
+                            b.f28159h = 4;
+                            c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f28168a, "hybridResult", "write error");
                         }
                     } else {
-                        b.f28139h = 3;
-                        c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f28148a, "hybridResult", "unzip error");
+                        b.f28159h = 3;
+                        c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f28168a, "hybridResult", "unzip error");
                     }
                 } else {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "2"));
-                    b.f28139h = 1;
-                    c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f28148a, "hybridResult", "download error");
+                    b.f28159h = 1;
+                    c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f28168a, "hybridResult", "download error");
                 }
-                b.m(this.f28148a);
-                r = b.r(this.f28148a, this.f28151d);
-                if (r == null && !TextUtils.isEmpty(r.f28160a) && (hashMap = r.f28161b) != null && hashMap.size() != 0) {
-                    b.l(r.f28162c, this.f28148a);
+                b.m(this.f28168a);
+                r = b.r(this.f28168a, this.f28171d);
+                if (r == null && !TextUtils.isEmpty(r.f28180a) && (hashMap = r.f28181b) != null && hashMap.size() != 0) {
+                    b.l(r.f28182c, this.f28168a);
                     return r;
                 }
-                b.f28139h = 5;
-                c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f28148a, "hybridResult", "bundle incomplete");
-                b.q().k(this.f28148a);
+                b.f28159h = 5;
+                c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", this.f28168a, "hybridResult", "bundle incomplete");
+                b.q().k(this.f28168a);
                 return null;
             }
             return (h) invokeL.objValue;
@@ -436,16 +436,16 @@ public class b {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
                 super.onPostExecute(hVar);
                 if (hVar != null) {
-                    b.q().z(this.f28148a, hVar.f28162c);
+                    b.q().z(this.f28168a, hVar.f28182c);
                     b.q().y();
-                    c.a.r0.w2.c.a().h(this.f28148a, hVar.f28161b);
-                    c.a.r0.w2.c.a().f(true, this.f28148a);
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.f28148a).param("obj_id", hVar.f28162c));
+                    c.a.r0.w2.c.a().h(this.f28168a, hVar.f28181b);
+                    c.a.r0.w2.c.a().f(true, this.f28168a);
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.f28168a).param("obj_id", hVar.f28182c));
                     return;
                 }
-                b.q().j(this.f28148a);
+                b.q().j(this.f28168a);
                 b.q().y();
-                c.a.r0.w2.c.a().d(this.f28148a);
+                c.a.r0.w2.c.a().d(this.f28168a);
             }
         }
     }
@@ -456,10 +456,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f28155a;
+        public boolean f28175a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f28156b;
+        public String f28176b;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -482,7 +482,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f28157a;
+        public final /* synthetic */ b f28177a;
 
         public f(b bVar) {
             Interceptable interceptable = $ic;
@@ -499,7 +499,7 @@ public class b {
                     return;
                 }
             }
-            this.f28157a = bVar;
+            this.f28177a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -513,20 +513,20 @@ public class b {
                 g gVar = new g(null);
                 for (String str : b.q().t()) {
                     h r = b.r(str, b.q().s(str));
-                    if (r != null && !TextUtils.isEmpty(r.f28160a) && (hashMap = r.f28161b) != null && hashMap.size() != 0) {
-                        if (gVar.f28158a == null) {
-                            gVar.f28158a = new HashMap();
+                    if (r != null && !TextUtils.isEmpty(r.f28180a) && (hashMap = r.f28181b) != null && hashMap.size() != 0) {
+                        if (gVar.f28178a == null) {
+                            gVar.f28178a = new HashMap();
                         }
-                        gVar.f28158a.put(str, r);
-                        if (gVar.f28159b == null) {
-                            gVar.f28159b = new HashMap<>();
+                        gVar.f28178a.put(str, r);
+                        if (gVar.f28179b == null) {
+                            gVar.f28179b = new HashMap<>();
                         }
-                        gVar.f28159b.putAll(r.f28161b);
-                        b.l(r.f28162c, str);
+                        gVar.f28179b.putAll(r.f28181b);
+                        b.l(r.f28182c, str);
                     } else {
-                        b.f28139h = 5;
+                        b.f28159h = 5;
                         c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridModule", str, "hybridResult", "bundle incomplete");
-                        this.f28157a.k(str);
+                        this.f28177a.k(str);
                     }
                 }
                 return gVar;
@@ -543,7 +543,7 @@ public class b {
                 if (gVar == null) {
                     c.a.q0.s.z.a.a("OfflineCache", -1L, -1, "readFile", -1, "read error", new Object[0]);
                 } else {
-                    c.a.r0.w2.c.a().g(gVar.f28159b);
+                    c.a.r0.w2.c.a().g(gVar.f28179b);
                 }
                 MessageManager.getInstance().sendMessage(new WebViewCacheReqMsg("0.0.0.0"));
             }
@@ -556,10 +556,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, h> f28158a;
+        public Map<String, h> f28178a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, c.a.r0.w2.d.a> f28159b;
+        public HashMap<String, c.a.r0.w2.d.a> f28179b;
 
         public g() {
             Interceptable interceptable = $ic;
@@ -586,13 +586,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f28160a;
+        public String f28180a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, c.a.r0.w2.d.a> f28161b;
+        public HashMap<String, c.a.r0.w2.d.a> f28181b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f28162c;
+        public String f28182c;
 
         public h() {
             Interceptable interceptable = $ic;
@@ -627,8 +627,8 @@ public class b {
             }
         }
         r0 = b.class.getSimpleName() + " TestActivity";
-        f28138g = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/";
-        f28139h = 0;
+        f28158g = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/";
+        f28159h = 0;
     }
 
     public b() {
@@ -644,9 +644,9 @@ public class b {
                 return;
             }
         }
-        this.f28140a = false;
-        this.f28143d = new a(this, 2001371);
-        this.f28144e = new C1327b(this, CmdConfigHttp.WEBVIEW_CACHE_INFO, 309485);
+        this.f28160a = false;
+        this.f28163d = new a(this, 2001371);
+        this.f28164e = new C1325b(this, CmdConfigHttp.WEBVIEW_CACHE_INFO, 309485);
     }
 
     public static void l(String str, String str2) {
@@ -655,7 +655,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        String str3 = f28138g + "bdtbNWCache/" + str2;
+        String str3 = f28158g + "bdtbNWCache/" + str2;
         File file = new File(str3);
         if (!file.exists() || !file.isDirectory() || (list = file.list()) == null || list.length == 0) {
             return;
@@ -672,7 +672,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(65547, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        FileHelper.deleteFileOrDir(new File(f28138g + "bdtbWCacheTemp/" + str));
+        FileHelper.deleteFileOrDir(new File(f28158g + "bdtbWCacheTemp/" + str));
     }
 
     public static void o(String str, c.a.r0.w2.e.a aVar) {
@@ -702,14 +702,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (f28137f == null) {
+            if (f28157f == null) {
                 synchronized (b.class) {
-                    if (f28137f == null) {
-                        f28137f = new b();
+                    if (f28157f == null) {
+                        f28157f = new b();
                     }
                 }
             }
-            return f28137f;
+            return f28157f;
         }
         return (b) invokeV.objValue;
     }
@@ -721,15 +721,15 @@ public class b {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(65550, null, str, str2)) != null) {
             return (h) invokeLL.objValue;
         }
-        File file = new File(f28138g + "bdtbNWCache");
+        File file = new File(f28158g + "bdtbNWCache");
         FileInputStream fileInputStream2 = null;
         if (!file.exists() || TextUtils.isEmpty(str2)) {
             return null;
         }
         h hVar = new h(null);
         File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
-        hVar.f28160a = file.getAbsolutePath();
-        hVar.f28162c = str2;
+        hVar.f28180a = file.getAbsolutePath();
+        hVar.f28182c = str2;
         File file3 = new File(file2, "router.json");
         try {
             if (file3.exists()) {
@@ -739,7 +739,7 @@ public class b {
                     e = e2;
                 }
                 try {
-                    hVar.f28161b = x(fileInputStream);
+                    hVar.f28181b = x(fileInputStream);
                     m.e(fileInputStream);
                 } catch (FileNotFoundException e3) {
                     e = e3;
@@ -886,10 +886,10 @@ public class b {
                         }
                     }
                     c.a.r0.w2.d.a aVar = new c.a.r0.w2.d.a();
-                    aVar.f28165a = arrayList;
-                    aVar.f28166b = optString;
-                    aVar.f28167c = optString2;
-                    aVar.f28168d = arrayList2;
+                    aVar.f28185a = arrayList;
+                    aVar.f28186b = optString;
+                    aVar.f28187c = optString2;
+                    aVar.f28188d = arrayList2;
                     hashMap.put(next, aVar);
                     optJSONObject = jSONObject2;
                 }
@@ -911,23 +911,23 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             e eVar = new e();
             if (TextUtils.isEmpty(str)) {
-                eVar.f28156b = "module not exit";
+                eVar.f28176b = "module not exit";
                 return eVar;
             }
-            File file = new File(f28138g + "bdtbNWCache", str);
+            File file = new File(f28158g + "bdtbNWCache", str);
             String s = q().s(str);
             if (TbSingleton.getInstance().isUploadOffPack()) {
-                eVar.f28155a = false;
+                eVar.f28175a = false;
                 if (!file.exists()) {
-                    eVar.f28156b = "bundle not exist";
+                    eVar.f28176b = "bundle not exist";
                     return eVar;
                 } else if (TextUtils.isEmpty(s)) {
-                    eVar.f28156b = "the local has no valid version name";
+                    eVar.f28176b = "the local has no valid version name";
                     return eVar;
                 } else {
                     String str2 = file.getAbsolutePath() + "/" + s + "/";
                     if (!new File(str2).exists()) {
-                        eVar.f28156b = "bundle not exist";
+                        eVar.f28176b = "bundle not exist";
                         return eVar;
                     }
                     String str3 = file.getAbsolutePath() + "/" + s + ".zip";
@@ -942,16 +942,16 @@ public class b {
                         netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
                         netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
                         v(netWork.uploadFile("offline_pack_file_stream", str3), eVar);
-                        if (!eVar.f28155a) {
+                        if (!eVar.f28175a) {
                             return eVar;
                         }
                     } else {
-                        eVar.f28156b = "zip bundle error";
+                        eVar.f28176b = "zip bundle error";
                         return eVar;
                     }
                 }
             } else {
-                eVar.f28155a = true;
+                eVar.f28175a = true;
             }
             if (TbSingleton.getInstance().isClearOffPack()) {
                 k(str);
@@ -961,8 +961,8 @@ public class b {
                 if (!file.exists() || StringUtils.isNull(s) || !new File(file.getAbsolutePath(), s).exists()) {
                     return eVar;
                 }
-                eVar.f28156b = "delete fail";
-                eVar.f28155a = false;
+                eVar.f28176b = "delete fail";
+                eVar.f28175a = false;
             }
             return eVar;
         }
@@ -973,11 +973,11 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Map<String, String> map = this.f28142c;
+            Map<String, String> map = this.f28162c;
             if (map == null || map.isEmpty()) {
                 return null;
             }
-            return new JSONObject(this.f28142c);
+            return new JSONObject(this.f28162c);
         }
         return (JSONObject) invokeV.objValue;
     }
@@ -986,11 +986,11 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Map<String, String> map = this.f28142c;
+            Map<String, String> map = this.f28162c;
             if (map == null || map.isEmpty()) {
                 return null;
             }
-            return new JSONObject(this.f28142c).toString();
+            return new JSONObject(this.f28162c).toString();
         }
         return (String) invokeV.objValue;
     }
@@ -1001,7 +1001,7 @@ public class b {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             n();
             c.a.q0.s.d0.b.j().x("pref_key_quick_webview_versions", "");
-            String str = f28138g + "bdtbNWCache";
+            String str = f28158g + "bdtbNWCache";
             File file = new File(str);
             if (!file.exists() || !file.isDirectory() || (list = file.list()) == null || list.length == 0) {
                 return;
@@ -1017,7 +1017,7 @@ public class b {
     public void j(String str) {
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str) || (map = this.f28142c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str) || (map = this.f28162c) == null) {
             return;
         }
         map.remove(str);
@@ -1030,7 +1030,7 @@ public class b {
         }
         j(str);
         c.a.q0.s.d0.b.j().x("pref_key_quick_webview_versions", C());
-        File file = new File(f28138g + "bdtbNWCache/" + str);
+        File file = new File(f28158g + "bdtbNWCache/" + str);
         if (file.exists() && file.isDirectory()) {
             FileHelper.deleteFileOrDir(file);
         }
@@ -1039,27 +1039,27 @@ public class b {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f28142c == null) {
-                this.f28142c = new ConcurrentHashMap();
+            if (this.f28162c == null) {
+                this.f28162c = new ConcurrentHashMap();
             }
-            this.f28142c.clear();
+            this.f28162c.clear();
         }
     }
 
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28141b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28161b : (String) invokeV.objValue;
     }
 
     public String s(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (this.f28142c == null || TextUtils.isEmpty(str)) {
+            if (this.f28162c == null || TextUtils.isEmpty(str)) {
                 return null;
             }
-            return this.f28142c.get(str);
+            return this.f28162c.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -1068,10 +1068,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f28142c == null) {
-                this.f28142c = new ConcurrentHashMap();
+            if (this.f28162c == null) {
+                this.f28162c = new ConcurrentHashMap();
             }
-            return this.f28142c.keySet();
+            return this.f28162c.keySet();
         }
         return (Set) invokeV.objValue;
     }
@@ -1080,9 +1080,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             System.currentTimeMillis();
-            MessageManager.getInstance().registerListener(this.f28144e);
-            MessageManager.getInstance().registerListener(this.f28143d);
-            this.f28141b = new File(f28138g + "bdtbNWCache").getAbsolutePath();
+            MessageManager.getInstance().registerListener(this.f28164e);
+            MessageManager.getInstance().registerListener(this.f28163d);
+            this.f28161b = new File(f28158g + "bdtbNWCache").getAbsolutePath();
             w(c.a.q0.s.d0.b.j().p("pref_key_quick_webview_versions", ""));
         }
     }
@@ -1092,15 +1092,15 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, eVar)) == null) {
             if (StringUtils.isNull(str)) {
-                eVar.f28156b = "serve return is null";
+                eVar.f28176b = "serve return is null";
                 return eVar;
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                eVar.f28155a = jSONObject.optInt("error_code") == 0;
-                eVar.f28156b = jSONObject.optString("error_msg");
+                eVar.f28175a = jSONObject.optInt("error_code") == 0;
+                eVar.f28176b = jSONObject.optString("error_msg");
             } catch (JSONException e2) {
-                eVar.f28156b = "parse json exception";
+                eVar.f28176b = "parse json exception";
                 BdLog.e(e2);
             }
             return eVar;
@@ -1123,10 +1123,10 @@ public class b {
                 String next = keys.next();
                 String optString = jSONObject.optString(next);
                 if (!TextUtils.isEmpty(optString)) {
-                    if (this.f28142c == null) {
-                        this.f28142c = new ConcurrentHashMap();
+                    if (this.f28162c == null) {
+                        this.f28162c = new ConcurrentHashMap();
                     }
-                    this.f28142c.put(next, optString);
+                    this.f28162c.put(next, optString);
                 }
             }
         } catch (JSONException e2) {
@@ -1150,9 +1150,9 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (this.f28142c == null) {
-            this.f28142c = new ConcurrentHashMap();
+        if (this.f28162c == null) {
+            this.f28162c = new ConcurrentHashMap();
         }
-        this.f28142c.put(str, str2);
+        this.f28162c.put(str, str2);
     }
 }

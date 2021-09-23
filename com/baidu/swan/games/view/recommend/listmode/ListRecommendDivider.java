@@ -21,13 +21,13 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f47098a;
+    public int f47200a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f47099b;
+    public int f47201b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f47100c;
+    public Paint f47202c;
 
     public ListRecommendDivider(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
             }
         }
         Resources resources = context.getResources();
-        this.f47098a = resources.getDimensionPixelSize(c.swangame_recommend_dialog_list_divider_height);
-        this.f47099b = resources.getDimensionPixelSize(c.swangame_recommend_dialog_list_divider_margin);
+        this.f47200a = resources.getDimensionPixelSize(c.swangame_recommend_dialog_list_divider_height);
+        this.f47201b = resources.getDimensionPixelSize(c.swangame_recommend_dialog_list_divider_margin);
         Paint paint = new Paint();
-        this.f47100c = paint;
+        this.f47202c = paint;
         paint.setColor(resources.getColor(b.swangame_recommend_dialog_list_divider));
     }
 
@@ -56,7 +56,7 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
-            rect.set(0, 0, 0, this.f47098a);
+            rect.set(0, 0, 0, this.f47200a);
         }
     }
 
@@ -68,7 +68,7 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
             for (int i2 = 0; i2 < itemCount; i2++) {
                 View childAt = recyclerView.getChildAt(i2);
                 if (childAt != null && recyclerView.getChildAdapterPosition(childAt) != itemCount - 1) {
-                    canvas.drawRect(this.f47099b, childAt.getBottom(), childAt.getWidth() - this.f47099b, childAt.getBottom() + this.f47098a, this.f47100c);
+                    canvas.drawRect(this.f47201b, childAt.getBottom(), childAt.getWidth() - this.f47201b, childAt.getBottom() + this.f47200a, this.f47202c);
                 }
             }
         }

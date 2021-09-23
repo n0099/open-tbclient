@@ -44,13 +44,13 @@ public class z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<String> f29665a;
+    public static List<String> f29685a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f29666b;
+    public static final String[] f29686b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f29667c;
+    public static volatile boolean f29687c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -59,13 +59,13 @@ public class z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbImageView f29668a;
+        public final /* synthetic */ TbImageView f29688a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f29669b;
+        public final /* synthetic */ int f29689b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ float f29670c;
+        public final /* synthetic */ float f29690c;
 
         public a(TbImageView tbImageView, int i2, float f2) {
             Interceptable interceptable = $ic;
@@ -82,27 +82,27 @@ public class z {
                     return;
                 }
             }
-            this.f29668a = tbImageView;
-            this.f29669b = i2;
-            this.f29670c = f2;
+            this.f29688a = tbImageView;
+            this.f29689b = i2;
+            this.f29690c = f2;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void a(String str, boolean z) {
             ViewGroup.LayoutParams layoutParams;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || (layoutParams = this.f29668a.getLayoutParams()) == null) {
+            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || (layoutParams = this.f29688a.getLayoutParams()) == null) {
                 return;
             }
-            layoutParams.height = this.f29669b;
-            float f2 = this.f29670c;
+            layoutParams.height = this.f29689b;
+            float f2 = this.f29690c;
             if (f2 <= 0.0f) {
                 f2 = 2.0f;
             }
             layoutParams.width = (int) (layoutParams.height * f2);
-            this.f29668a.setLayoutParams(layoutParams);
+            this.f29688a.setLayoutParams(layoutParams);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.f29668a.setAlpha(0.8f);
+                this.f29688a.setAlpha(0.8f);
             }
         }
 
@@ -127,15 +127,15 @@ public class z {
                 return;
             }
         }
-        f29666b = new String[]{BaseWebViewActivity.SHOUBAI_SCHEME, "taobao", ThirdPartyUtil.TYPE_WEIXIN, "alipays"};
+        f29686b = new String[]{BaseWebViewActivity.SHOUBAI_SCHEME, "taobao", ThirdPartyUtil.TYPE_WEIXIN, "alipays"};
     }
 
     public static void A() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || c.a.r0.a.h().C() || f29667c) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || c.a.r0.a.h().C() || f29687c) {
             return;
         }
-        f29667c = true;
+        f29687c = true;
         String[] strArr = {"com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic"};
         for (int i2 = 0; i2 < 2; i2++) {
             try {
@@ -149,7 +149,7 @@ public class z {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, advertAppInfo, str)) == null) {
-            if (advertAppInfo == null || !advertAppInfo.Q4() || TextUtils.isEmpty(str) || !q(advertAppInfo.o4) || str.startsWith("tieba://deeplink?")) {
+            if (advertAppInfo == null || !advertAppInfo.P4() || TextUtils.isEmpty(str) || !q(advertAppInfo.p4) || str.startsWith("tieba://deeplink?")) {
                 return false;
             }
             return w(advertAppInfo);
@@ -160,7 +160,7 @@ public class z {
     public static final void a(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, advertAppInfo) == null) {
-            c.a.r0.y2.f0.e.n().g(advertAppInfo.n4, advertAppInfo.getDownloadId(), true);
+            c.a.r0.y2.f0.e.n().g(advertAppInfo.o4, advertAppInfo.getDownloadId(), true);
         }
     }
 
@@ -288,7 +288,7 @@ public class z {
             if (context == null || advertAppInfo == null) {
                 return false;
             }
-            String str = advertAppInfo.j4;
+            String str = advertAppInfo.k4;
             if (StringUtils.isNull(str)) {
                 str = "";
             }
@@ -305,8 +305,8 @@ public class z {
                 return false;
             }
             c.a.q0.v.a.k().h(advertAppInfo);
-            String str2 = advertAppInfo.j4;
-            c.a.r0.y2.f0.e.n().E(advertAppInfo.getDownloadId(), advertAppInfo.n4, StringUtils.isNull(str2) ? str : str2, i2, c.a.r0.y2.f0.e.o(advertAppInfo.o4).intValue(), null, true, false, true, advertAppInfo.k4, downloadStaticsData, advertAppInfo.j4);
+            String str2 = advertAppInfo.k4;
+            c.a.r0.y2.f0.e.n().E(advertAppInfo.getDownloadId(), advertAppInfo.o4, StringUtils.isNull(str2) ? str : str2, i2, c.a.r0.y2.f0.e.o(advertAppInfo.p4).intValue(), null, true, false, true, advertAppInfo.l4, downloadStaticsData, advertAppInfo.k4);
             return true;
         }
         return invokeCommon.booleanValue;
@@ -497,7 +497,7 @@ public class z {
             if (advertAppInfo == null) {
                 return false;
             }
-            return x(advertAppInfo.o4);
+            return x(advertAppInfo.p4);
         }
         return invokeL.booleanValue;
     }
@@ -528,15 +528,15 @@ public class z {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (c.a.r0.p1.o.k.a.e(f29665a)) {
+            if (c.a.r0.p1.o.k.a.e(f29685a)) {
                 List<String> a2 = c.a.q0.t.c.i.a();
-                f29665a = a2;
+                f29685a = a2;
                 if (a2 == null) {
-                    f29665a = new ArrayList();
+                    f29685a = new ArrayList();
                 }
-                f29665a.addAll(Arrays.asList(f29666b));
+                f29685a.addAll(Arrays.asList(f29686b));
             }
-            for (String str2 : f29665a) {
+            for (String str2 : f29685a) {
                 if (str.startsWith(str2)) {
                     return s(context, Uri.parse(str)) == 1000;
                 }

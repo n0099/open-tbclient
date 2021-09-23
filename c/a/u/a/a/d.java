@@ -22,17 +22,17 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile d f30137c;
+    public static volatile d f30158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static AtomicBoolean f30138d;
+    public static AtomicBoolean f30159d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.u.a.a.a f30139a;
+    public c.a.u.a.a.a f30160a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f30140b;
+    public f f30161b;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -40,16 +40,16 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f30141e;
+        public final /* synthetic */ Context f30162e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f30142f;
+        public final /* synthetic */ String f30163f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f30143g;
+        public final /* synthetic */ int f30164g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f30144h;
+        public final /* synthetic */ d f30165h;
 
         public a(d dVar, Context context, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -66,17 +66,17 @@ public class d {
                     return;
                 }
             }
-            this.f30144h = dVar;
-            this.f30141e = context;
-            this.f30142f = str;
-            this.f30143g = i2;
+            this.f30165h = dVar;
+            this.f30162e = context;
+            this.f30163f = str;
+            this.f30164g = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f30144h.j(this.f30141e, this.f30142f, this.f30143g);
+                this.f30165h.j(this.f30162e, this.f30163f, this.f30164g);
             }
         }
     }
@@ -87,19 +87,19 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f30145a;
+        public final /* synthetic */ Context f30166a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f30146b;
+        public final /* synthetic */ String f30167b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f30147c;
+        public final /* synthetic */ List f30168c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f30148d;
+        public final /* synthetic */ int f30169d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f30149e;
+        public final /* synthetic */ d f30170e;
 
         /* loaded from: classes4.dex */
         public class a implements Runnable {
@@ -107,7 +107,7 @@ public class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f30150e;
+            public final /* synthetic */ b f30171e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -124,15 +124,15 @@ public class d {
                         return;
                     }
                 }
-                this.f30150e = bVar;
+                this.f30171e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.f30150e;
-                    bVar.f30149e.g(bVar.f30145a, bVar.f30146b, bVar.f30147c, bVar.f30148d);
+                    b bVar = this.f30171e;
+                    bVar.f30170e.g(bVar.f30166a, bVar.f30167b, bVar.f30168c, bVar.f30169d);
                 }
             }
         }
@@ -152,20 +152,20 @@ public class d {
                     return;
                 }
             }
-            this.f30149e = dVar;
-            this.f30145a = context;
-            this.f30146b = str;
-            this.f30147c = list;
-            this.f30148d = i2;
+            this.f30170e = dVar;
+            this.f30166a = context;
+            this.f30167b = str;
+            this.f30168c = list;
+            this.f30169d = i2;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
         public void uploadResponse(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                d.f30138d.set(false);
+                d.f30159d.set(false);
                 if (i2 == 0) {
-                    this.f30149e.f30139a.f().execute(new a(this));
+                    this.f30170e.f30160a.f().execute(new a(this));
                 }
             }
         }
@@ -184,7 +184,7 @@ public class d {
                 return;
             }
         }
-        f30138d = new AtomicBoolean(false);
+        f30159d = new AtomicBoolean(false);
     }
 
     public d(Context context) {
@@ -202,22 +202,22 @@ public class d {
                 return;
             }
         }
-        this.f30139a = c.a.u.a.a.a.h(context);
-        this.f30140b = new f();
+        this.f30160a = c.a.u.a.a.a.h(context);
+        this.f30161b = new f();
     }
 
     public static d h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            if (f30137c == null) {
+            if (f30158c == null) {
                 synchronized (d.class) {
-                    if (f30137c == null) {
-                        f30137c = new d(context);
+                    if (f30158c == null) {
+                        f30158c = new d(context);
                     }
                 }
             }
-            return f30137c;
+            return f30158c;
         }
         return (d) invokeL.objValue;
     }
@@ -225,7 +225,7 @@ public class d {
     public static Boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Boolean.valueOf(f30138d.get()) : (Boolean) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Boolean.valueOf(f30159d.get()) : (Boolean) invokeV.objValue;
     }
 
     public synchronized void e(Context context, String str, int i2) {
@@ -237,8 +237,8 @@ public class d {
                     e2.printStackTrace();
                 }
                 if (!TextUtils.isEmpty(str) && context != null && RequsetNetworkUtils.isConnected(context) && g.f(context) && g.e(context, Integer.parseInt(str))) {
-                    if (this.f30139a != null) {
-                        this.f30139a.f().execute(new a(this, context, str, i2));
+                    if (this.f30160a != null) {
+                        this.f30160a.f().execute(new a(this, context, str, i2));
                     }
                     return;
                 }
@@ -250,7 +250,7 @@ public class d {
     public void f() {
         c.a.u.a.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f30139a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f30160a) == null) {
             return;
         }
         aVar.c();
@@ -278,22 +278,22 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, context, str, i2) == null) {
             c.a.u.a.h.e.a("FlowTrackManager", "flow begin uplodFlow~~~");
-            f30138d.set(true);
+            f30159d.set(true);
             ArrayList arrayList = new ArrayList();
-            f fVar = this.f30140b;
+            f fVar = this.f30161b;
             if (fVar != null) {
                 byte[] c2 = fVar.c(context, str, arrayList, i2);
                 if (c2 != null && arrayList.size() > 0) {
                     if (c2.length >= 307200) {
                         c.a.u.a.h.e.a("FlowTrackManager", "flow 上报数据长度超过300k");
-                        f30138d.set(false);
+                        f30159d.set(false);
                         return;
                     }
                     IMPushUploadManager.getInstance(context).requestUpload(null, c2, "", new b(this, context, str, arrayList, i2));
                     return;
                 }
                 c.a.u.a.h.e.a("FlowTrackManager", "flow 上报数据为空");
-                f30138d.set(false);
+                f30159d.set(false);
             }
         }
     }

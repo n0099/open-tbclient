@@ -1,7 +1,7 @@
 package com.baidu.tieba.aiapps.apps.share;
 
 import android.content.Intent;
-import com.alipay.sdk.util.e;
+import com.alipay.sdk.util.f;
 import com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,7 +44,7 @@ public class AiAppsShareDelegateActivity extends ProcessDelegateBaseActivity {
                 } else if (i4 == 2) {
                     this.mDelegation.mResult.putBoolean("share_result", false);
                     this.mDelegation.mResult.putString("callBack", this.mDelegation.mParams.getString("errorCallback", ""));
-                    this.mDelegation.mResult.putString("info", e.f36070a);
+                    this.mDelegation.mResult.putString("info", f.f36105j);
                 }
                 exit();
                 return;

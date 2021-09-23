@@ -28,22 +28,22 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f52439e;
+    public boolean f52552e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f52440f;
+    public boolean f52553f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52441g;
+    public int f52554g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f52442h;
+    public String f52555h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f52443i;
+    public String f52556i;
 
     /* renamed from: j  reason: collision with root package name */
-    public e f52444j;
+    public e f52557j;
     public c.a.r0.g1.j.j.a k;
     public c.a.e.c.g.a l;
 
@@ -53,7 +53,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TabFeedNetFeedModel f52445a;
+        public final /* synthetic */ TabFeedNetFeedModel f52558a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(TabFeedNetFeedModel tabFeedNetFeedModel, int i2, int i3) {
@@ -74,14 +74,14 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
                     return;
                 }
             }
-            this.f52445a = tabFeedNetFeedModel;
+            this.f52558a = tabFeedNetFeedModel;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f52445a.f52440f = false;
+                this.f52558a.f52553f = false;
                 if (responsedMessage == null) {
                     return;
                 }
@@ -91,18 +91,18 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
                 } else if (responsedMessage instanceof TabFeedListSocketResponsedMessage) {
                     aVar = ((TabFeedListSocketResponsedMessage) responsedMessage).tabFeedData;
                 }
-                this.f52445a.mErrorCode = responsedMessage.getError();
-                this.f52445a.mErrorString = responsedMessage.getErrorString();
+                this.f52558a.mErrorCode = responsedMessage.getError();
+                this.f52558a.mErrorString = responsedMessage.getErrorString();
                 ErrorData errorData = new ErrorData();
-                errorData.setError_code(this.f52445a.mErrorCode);
-                errorData.setError_msg(this.f52445a.mErrorString);
-                if (this.f52445a.f52444j == null) {
+                errorData.setError_code(this.f52558a.mErrorCode);
+                errorData.setError_msg(this.f52558a.mErrorString);
+                if (this.f52558a.f52557j == null) {
                     return;
                 }
-                if (this.f52445a.mErrorCode != 0 || aVar == null) {
-                    this.f52445a.f52444j.onServerError(errorData);
+                if (this.f52558a.mErrorCode != 0 || aVar == null) {
+                    this.f52558a.f52557j.onServerError(errorData);
                 } else {
-                    this.f52445a.F(aVar);
+                    this.f52558a.F(aVar);
                 }
             }
         }
@@ -126,14 +126,14 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
                 return;
             }
         }
-        this.f52439e = true;
-        this.f52440f = false;
-        this.f52441g = 1;
+        this.f52552e = true;
+        this.f52553f = false;
+        this.f52554g = 1;
         this.l = new a(this, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, 309655);
-        c.a.r0.j3.d0.a.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
-        c.a.r0.j3.d0.a.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
+        c.a.r0.j3.e0.a.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
+        c.a.r0.j3.e0.a.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
         this.k = new c.a.r0.g1.j.j.a();
-        this.f52444j = eVar;
+        this.f52557j = eVar;
     }
 
     public final void E(int i2) {
@@ -141,16 +141,16 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             TabFeedListRequestMessage tabFeedListRequestMessage = new TabFeedListRequestMessage();
             tabFeedListRequestMessage.loadType = i2;
-            tabFeedListRequestMessage.tabCode = this.f52443i;
-            tabFeedListRequestMessage.tabName = this.f52442h;
+            tabFeedListRequestMessage.tabCode = this.f52556i;
+            tabFeedListRequestMessage.tabName = this.f52555h;
             if (i2 == 2) {
-                tabFeedListRequestMessage.pn = this.f52441g + 1;
+                tabFeedListRequestMessage.pn = this.f52554g + 1;
             } else if (i2 != 1) {
                 return;
             } else {
                 tabFeedListRequestMessage.pn = 1;
             }
-            this.f52440f = true;
+            this.f52553f = true;
             tabFeedListRequestMessage.setTag(getUniqueId());
             sendMessage(tabFeedListRequestMessage);
         }
@@ -160,10 +160,10 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             if (aVar != null) {
-                this.f52441g = aVar.b();
+                this.f52554g = aVar.b();
             }
-            if (this.f52444j != null) {
-                this.f52444j.onNetCallback(this.k.a(this.f52439e, aVar));
+            if (this.f52557j != null) {
+                this.f52557j.onNetCallback(this.k.a(this.f52552e, aVar));
             }
         }
     }
@@ -194,7 +194,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.cancelMessage();
-            this.f52440f = false;
+            this.f52553f = false;
         }
     }
 
@@ -217,8 +217,8 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.l);
-            this.f52440f = false;
-            this.f52439e = true;
+            this.f52553f = false;
+            this.f52552e = true;
         }
     }
 
@@ -239,10 +239,10 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
     @Override // c.a.r0.g1.j.f
     public void loadMore() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f52440f) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f52553f) {
             return;
         }
-        this.f52439e = false;
+        this.f52552e = false;
         E(2);
     }
 
@@ -250,18 +250,18 @@ public class TabFeedNetFeedModel extends BdBaseModel implements f {
     public void o(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048585, this, str, str2, i2) == null) {
-            this.f52443i = str;
-            this.f52442h = str2;
+            this.f52556i = str;
+            this.f52555h = str2;
         }
     }
 
     @Override // c.a.r0.g1.j.f
     public void refresh() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f52440f) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f52553f) {
             return;
         }
-        this.f52439e = true;
+        this.f52552e = true;
         E(1);
     }
 

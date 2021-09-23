@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.base.b.a;
+import com.baidu.fsg.base.b.d;
 import com.baidu.fsg.base.restnet.RestMultipartEntity;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.RestResponseEntity;
@@ -168,6 +168,7 @@ public abstract class UploadBean extends NetworkBean {
 
     private RestMultipartEntity generateMultipartEntity() throws Exception {
         InterceptResult invokeV;
+        byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
             RestMultipartEntity restMultipartEntity = new RestMultipartEntity();
@@ -182,8 +183,8 @@ public abstract class UploadBean extends NetworkBean {
             while (i2 < this.files.size()) {
                 boolean z2 = i2 == this.files.size() - 1 ? true : z;
                 UploadFileModel uploadFileModel = this.files.get(i2);
-                if (uploadFileModel != null && uploadFileModel.filedata != null) {
-                    restMultipartEntity.addPart(uploadFileModel.name, uploadFileModel.fileName, new ByteArrayInputStream(uploadFileModel.filedata), uploadFileModel.contentType, z2);
+                if (uploadFileModel != null && (bArr = uploadFileModel.filedata) != null) {
+                    restMultipartEntity.addPart(uploadFileModel.name, uploadFileModel.fileName, new ByteArrayInputStream(bArr), uploadFileModel.contentType, z2);
                 }
                 i2++;
                 z = z2;
@@ -207,7 +208,7 @@ public abstract class UploadBean extends NetworkBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.mRspCallback = null;
-            a.a(UPLOAD_BEAN_TASK_MGR_KEY).a("UploadBean", this.mTskKey);
+            d.b(UPLOAD_BEAN_TASK_MGR_KEY).a("UploadBean", this.mTskKey);
             RestTemplate restTemplate = this.mRestTemplate;
             if (restTemplate != null) {
                 restTemplate.setRequestInterceptor(null);

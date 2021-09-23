@@ -19,10 +19,10 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ValidateActivity f21658e;
+    public ValidateActivity f21672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<ValidateItemData> f21659f;
+    public List<ValidateItemData> f21673f;
 
     public a(ValidateActivity validateActivity) {
         Interceptable interceptable = $ic;
@@ -39,21 +39,21 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f21659f = new ArrayList();
-        this.f21658e = validateActivity;
+        this.f21673f = new ArrayList();
+        this.f21672e = validateActivity;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21658e = null;
+            this.f21672e = null;
         }
     }
 
     public List<ValidateItemData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21659f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21673f : (List) invokeV.objValue;
     }
 
     public void c(List<ValidateItemData> list) {
@@ -61,7 +61,7 @@ public class a extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null) {
             return;
         }
-        this.f21659f.addAll(list);
+        this.f21673f.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -70,7 +70,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ValidateItemData> list = this.f21659f;
+            List<ValidateItemData> list = this.f21673f;
             if (list == null) {
                 return 0;
             }
@@ -83,7 +83,7 @@ public class a extends BaseAdapter {
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f21659f.get(i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f21673f.get(i2) : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -100,9 +100,9 @@ public class a extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
             b bVar = view != null ? (b) view.getTag() : null;
             if (bVar == null) {
-                bVar = new b(this.f21658e);
+                bVar = new b(this.f21672e);
             }
-            bVar.k(this.f21659f.get(i2));
+            bVar.k(this.f21673f.get(i2));
             return bVar.d();
         }
         return (View) invokeILL.objValue;

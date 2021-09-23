@@ -25,7 +25,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.a.w1.i.b f46221e;
+    public c.a.p0.a.w1.i.b f46323e;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
                 return;
             }
         }
-        DEBUG = k.f7077a;
+        DEBUG = k.f7085a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -67,7 +67,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f46221e = new c.a.p0.a.w1.i.b(this);
+            this.f46323e = new c.a.p0.a.w1.i.b(this);
         }
     }
 
@@ -75,7 +75,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f46221e.handleHide();
+            this.f46323e.handleHide();
         }
     }
 
@@ -90,13 +90,13 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public boolean isSoftInputShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46221e.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46323e.b() : invokeV.booleanValue;
     }
 
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f46221e.c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f46323e.c() : invokeV.booleanValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -106,7 +106,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
             if (DEBUG) {
                 String str = "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i3);
             }
-            int[] d2 = this.f46221e.d(i2, i3);
+            int[] d2 = this.f46323e.d(i2, i3);
             if (DEBUG) {
                 String str2 = "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(d2[1]);
             }
@@ -118,7 +118,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f46221e.f(z);
+            this.f46323e.f(z);
         }
     }
 
@@ -126,14 +126,14 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a, b {
     public void refreshHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f46221e.e(i2);
+            this.f46323e.e(i2);
         }
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.f46221e.a(i2)) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.f46323e.a(i2)) {
             return;
         }
         super.setVisibility(i2);

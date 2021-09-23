@@ -15,13 +15,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f22481a;
+    public String f22497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f22482b;
+    public int f22498b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f22483c;
+    public String f22499c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class b {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f22483c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f22499c) : invokeV.booleanValue;
     }
 
     public void b(JSONObject jSONObject) {
@@ -49,10 +49,10 @@ public class b {
             return;
         }
         jSONObject.optString("pic");
-        this.f22481a = jSONObject.optString("url");
+        this.f22497a = jSONObject.optString("url");
         jSONObject.optInt("server_time");
-        this.f22482b = jSONObject.optInt(XAdRemoteAPKDownloadExtraInfo.ADID);
-        this.f22483c = jSONObject.optString("big_pic");
+        this.f22498b = jSONObject.optInt(XAdRemoteAPKDownloadExtraInfo.ADID);
+        this.f22499c = jSONObject.optString("big_pic");
         jSONObject.optString("small_pic");
     }
 }

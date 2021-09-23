@@ -19,13 +19,13 @@ public class b extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f5151e;
+        public final /* synthetic */ boolean f5159e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5152f;
+        public final /* synthetic */ String f5160f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f5153g;
+        public final /* synthetic */ b f5161g;
 
         public a(b bVar, boolean z, String str) {
             Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class b extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f5153g = bVar;
-            this.f5151e = z;
-            this.f5152f = str;
+            this.f5161g = bVar;
+            this.f5159e = z;
+            this.f5160f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,11 +54,11 @@ public class b extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                 if (bool.booleanValue()) {
-                    c.a.p0.a.d2.a.e(this.f5151e);
-                    this.f5153g.d(this.f5152f, new c.a.p0.a.u.h.b(0));
+                    c.a.p0.a.d2.a.e(this.f5159e);
+                    this.f5161g.d(this.f5160f, new c.a.p0.a.u.h.b(0));
                     return;
                 }
-                this.f5153g.d(this.f5152f, new c.a.p0.a.u.h.b(10005, "system deny"));
+                this.f5161g.d(this.f5160f, new c.a.p0.a.u.h.b(10005, "system deny"));
             }
         }
     }
@@ -87,7 +87,7 @@ public class b extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str2 = "params: " + str;
             }
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-hideShareDialog", str);

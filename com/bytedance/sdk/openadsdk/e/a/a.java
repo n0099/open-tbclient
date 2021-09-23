@@ -36,7 +36,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final WeakHashMap<p, o> f67685a;
+    public static final WeakHashMap<p, o> f67996a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,7 +52,7 @@ public class a {
                 return;
             }
         }
-        f67685a = new WeakHashMap<>();
+        f67996a = new WeakHashMap<>();
     }
 
     public static JSONObject a(m mVar, String str, int i2) {
@@ -104,7 +104,7 @@ public class a {
     public static void e(Context context, p pVar, o.a aVar) {
         o oVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65549, null, context, pVar, aVar) == null) || context == null || pVar == null || aVar == null || (oVar = f67685a.get(pVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65549, null, context, pVar, aVar) == null) || context == null || pVar == null || aVar == null || (oVar = f67996a.get(pVar)) == null) {
             return;
         }
         b d2 = oVar.d();
@@ -137,7 +137,7 @@ public class a {
     public static void f(Context context, p pVar, o.a aVar) {
         o oVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65550, null, context, pVar, aVar) == null) || context == null || pVar == null || aVar == null || (oVar = f67685a.get(pVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65550, null, context, pVar, aVar) == null) || context == null || pVar == null || aVar == null || (oVar = f67996a.get(pVar)) == null) {
             return;
         }
         b d2 = oVar.d();
@@ -165,7 +165,7 @@ public class a {
         } catch (JSONException e3) {
             e3.printStackTrace();
         }
-        f67685a.remove(pVar);
+        f67996a.remove(pVar);
     }
 
     public static void g(Context context, p pVar, o.a aVar) {
@@ -174,7 +174,7 @@ public class a {
             return;
         }
         h(context, pVar, aVar);
-        o oVar = f67685a.get(pVar);
+        o oVar = f67996a.get(pVar);
         if (oVar == null) {
             return;
         }
@@ -202,7 +202,7 @@ public class a {
         } catch (JSONException e3) {
             e3.printStackTrace();
         }
-        f67685a.remove(pVar);
+        f67996a.remove(pVar);
     }
 
     public static void h(Context context, p pVar, o.a aVar) {
@@ -214,7 +214,7 @@ public class a {
             k.c("VideoEventManager", "Cancel log report when buffer count is 0");
             return;
         }
-        o oVar = f67685a.get(pVar);
+        o oVar = f67996a.get(pVar);
         if (oVar == null) {
             return;
         }
@@ -239,7 +239,7 @@ public class a {
     public static void b(Context context, p pVar, o.a aVar) {
         o oVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65543, null, context, pVar, aVar) == null) || context == null || pVar == null || aVar == null || (oVar = f67685a.get(pVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65543, null, context, pVar, aVar) == null) || context == null || pVar == null || aVar == null || (oVar = f67996a.get(pVar)) == null) {
             return;
         }
         b d2 = oVar.d();
@@ -270,7 +270,7 @@ public class a {
     public static void c(Context context, p pVar, o.a aVar) {
         o oVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65545, null, context, pVar, aVar) == null) || context == null || pVar == null || aVar == null || (oVar = f67685a.get(pVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65545, null, context, pVar, aVar) == null) || context == null || pVar == null || aVar == null || (oVar = f67996a.get(pVar)) == null) {
             return;
         }
         b d2 = oVar.d();
@@ -301,7 +301,7 @@ public class a {
     public static void d(Context context, p pVar, o.a aVar) {
         o oVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65547, null, context, pVar, aVar) == null) || context == null || pVar == null || aVar == null || (oVar = f67685a.get(pVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65547, null, context, pVar, aVar) == null) || context == null || pVar == null || aVar == null || (oVar = f67996a.get(pVar)) == null) {
             return;
         }
         b d2 = oVar.d();
@@ -345,7 +345,7 @@ public class a {
         }
         String uuid = UUID.randomUUID().toString();
         int i2 = bVar.m() ? 1 : 2;
-        f67685a.put(pVar, new o(SystemClock.elapsedRealtime(), uuid, i2, bVar, mVar));
+        f67996a.put(pVar, new o(SystemClock.elapsedRealtime(), uuid, i2, bVar, mVar));
         com.bytedance.sdk.openadsdk.e.b.a aVar = new com.bytedance.sdk.openadsdk.e.b.a(context, mVar, q.a(mVar), a(mVar, uuid, i2), null);
         aVar.a(bVar.o());
         a(aVar, "play_start");
@@ -354,7 +354,7 @@ public class a {
     public static void a(Context context, p pVar, o.a aVar) {
         o oVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, pVar, aVar) == null) || context == null || pVar == null || aVar == null || (oVar = f67685a.get(pVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, pVar, aVar) == null) || context == null || pVar == null || aVar == null || (oVar = f67996a.get(pVar)) == null) {
             return;
         }
         b d2 = oVar.d();

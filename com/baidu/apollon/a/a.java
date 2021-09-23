@@ -14,14 +14,14 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<ArrayList<b>> f37753a;
+    public final SparseArray<ArrayList<b>> f37801a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f37754b;
+    public int f37802b;
 
     /* renamed from: com.baidu.apollon.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1609a {
+    public interface InterfaceC1613a {
         void a();
     }
 
@@ -31,26 +31,26 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f37755a;
+        public int f37803a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f37756b;
+        public int f37804b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f37757c;
+        public int f37805c;
 
         /* renamed from: d  reason: collision with root package name */
-        public InterfaceC1609a f37758d;
+        public InterfaceC1613a f37806d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f37759e;
+        public final /* synthetic */ a f37807e;
 
-        public b(a aVar, int i2, int i3, int i4, InterfaceC1609a interfaceC1609a) {
+        public b(a aVar, int i2, int i3, int i4, InterfaceC1613a interfaceC1613a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), interfaceC1609a};
+                Object[] objArr = {aVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), interfaceC1613a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i5 = newInitContext.flag;
                 if ((i5 & 1) != 0) {
@@ -60,11 +60,11 @@ public class a {
                     return;
                 }
             }
-            this.f37759e = aVar;
-            this.f37755a = i2;
-            this.f37756b = i3;
-            this.f37757c = i4;
-            this.f37758d = interfaceC1609a;
+            this.f37807e = aVar;
+            this.f37803a = i2;
+            this.f37804b = i3;
+            this.f37805c = i4;
+            this.f37806d = interfaceC1613a;
         }
     }
 
@@ -83,21 +83,21 @@ public class a {
                 return;
             }
         }
-        this.f37753a = new SparseArray<>();
-        this.f37754b = 0;
-        this.f37754b = i2;
+        this.f37801a = new SparseArray<>();
+        this.f37802b = 0;
+        this.f37802b = i2;
     }
 
     public void a(b bVar) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || (i2 = bVar.f37755a) < 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || (i2 = bVar.f37803a) < 0) {
             return;
         }
-        ArrayList<b> arrayList = this.f37753a.get(i2);
+        ArrayList<b> arrayList = this.f37801a.get(i2);
         if (arrayList == null) {
             arrayList = new ArrayList<>();
-            this.f37753a.put(bVar.f37755a, arrayList);
+            this.f37801a.put(bVar.f37803a, arrayList);
         }
         arrayList.add(bVar);
     }
@@ -105,15 +105,15 @@ public class a {
     public void b(int i2) {
         ArrayList<b> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (arrayList = this.f37753a.get(this.f37754b)) == null || arrayList.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (arrayList = this.f37801a.get(this.f37802b)) == null || arrayList.size() == 0) {
             return;
         }
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next.f37757c == i2) {
-                this.f37754b = next.f37756b;
-                next.f37758d.a();
+            if (next.f37805c == i2) {
+                this.f37802b = next.f37804b;
+                next.f37806d.a();
                 return;
             }
         }
@@ -122,7 +122,7 @@ public class a {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f37754b = i2;
+            this.f37802b = i2;
         }
     }
 }

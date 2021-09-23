@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class a implements b.InterfaceC1428b {
+public abstract class a implements b.InterfaceC1426b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean o;
     public static boolean p;
@@ -20,34 +20,34 @@ public abstract class a implements b.InterfaceC1428b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f16233a;
+    public TbPageContext f16243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f16234b;
+    public boolean f16244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f16235c;
+    public boolean f16245c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f16236d;
+    public int f16246d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16237e;
+    public int f16247e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16238f;
+    public int f16248f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16239g;
+    public int f16249g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16240h;
+    public int f16250h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f16241i;
+    public int f16251i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f16242j;
+    public int f16252j;
     public int k;
     public SurfaceTexture l;
     public volatile boolean m;
@@ -81,19 +81,19 @@ public abstract class a implements b.InterfaceC1428b {
                 return;
             }
         }
-        this.f16242j = -1;
+        this.f16252j = -1;
         this.m = false;
         this.n = false;
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.m : invokeV.booleanValue;
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -101,7 +101,7 @@ public abstract class a implements b.InterfaceC1428b {
         }
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -109,25 +109,25 @@ public abstract class a implements b.InterfaceC1428b {
         }
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.n : invokeV.booleanValue;
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16241i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16251i : invokeV.intValue;
     }
 
-    @Override // c.a.x0.p.b.InterfaceC1428b
+    @Override // c.a.x0.p.b.InterfaceC1426b
     public int v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16240h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16250h : invokeV.intValue;
     }
 
     public boolean w() {

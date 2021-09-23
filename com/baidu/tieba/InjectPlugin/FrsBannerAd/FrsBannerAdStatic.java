@@ -32,11 +32,11 @@ public class FrsBannerAdStatic {
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C1747a implements a.InterfaceC0851a {
+        public class C1750a implements a.InterfaceC0849a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1747a(a aVar) {
+            public C1750a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public class FrsBannerAdStatic {
                 }
             }
 
-            @Override // c.a.r0.f.a.a.InterfaceC0851a
+            @Override // c.a.r0.f.a.a.InterfaceC0849a
             public void a(c cVar, View view) {
                 b a2;
                 Interceptable interceptable = $ic;
@@ -60,12 +60,12 @@ public class FrsBannerAdStatic {
                     return;
                 }
                 d dVar = new d();
-                dVar.f17465a = 2;
+                dVar.f17475a = 2;
                 dVar.b(view);
                 a2.dispatchInjectPluginMessage(dVar);
             }
 
-            @Override // c.a.r0.f.a.a.InterfaceC0851a
+            @Override // c.a.r0.f.a.a.InterfaceC0849a
             public void b(c cVar, View view) {
                 b a2;
                 Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class FrsBannerAdStatic {
                     return;
                 }
                 d dVar = new d();
-                dVar.f17465a = 3;
+                dVar.f17475a = 3;
                 dVar.b(view);
                 a2.dispatchInjectPluginMessage(dVar);
             }
@@ -117,7 +117,7 @@ public class FrsBannerAdStatic {
                     if (!(injectPlugin instanceof c.a.r0.f.a.a)) {
                         return;
                     }
-                    ((c.a.r0.f.a.a) injectPlugin).g(new C1747a(this));
+                    ((c.a.r0.f.a.a) injectPlugin).g(new C1750a(this));
                 }
                 if (injectPlugin instanceof c.a.r0.f.a.a) {
                     c.a.r0.f.a.a aVar2 = (c.a.r0.f.a.a) injectPlugin;

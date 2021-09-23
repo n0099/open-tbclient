@@ -26,11 +26,11 @@ public class a extends c.a.r0.a0.b<c.a.r0.v0.c.a> {
 
     /* renamed from: c.a.r0.v0.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1231a implements a.e {
+    public class C1229a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1231a(a aVar) {
+        public C1229a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,12 +133,12 @@ public class a extends c.a.r0.a0.b<c.a.r0.v0.c.a> {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view == this.m) {
-            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f15549f.getPageActivity());
+            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f15558f.getPageActivity());
             aVar.setTitle(R.string.confirm_delete_all_history);
             aVar.setCanceledOnTouchOutside(true);
-            aVar.setPositiveButton(R.string.confirm, new C1231a(this));
+            aVar.setPositiveButton(R.string.confirm, new C1229a(this));
             aVar.setNegativeButton(R.string.cancel, new b(this));
-            aVar.create(this.f15549f);
+            aVar.create(this.f15558f);
             aVar.show();
         }
     }

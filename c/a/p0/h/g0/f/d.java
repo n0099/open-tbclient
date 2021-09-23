@@ -21,10 +21,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f11254a;
+    public final String f11262a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f11255b;
+    public final Object f11263b;
 
     public d(String str, Object obj) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class d {
                 return;
             }
         }
-        this.f11254a = str;
-        this.f11255b = obj;
+        this.f11262a = str;
+        this.f11263b = obj;
     }
 
     public static Object a(c.a.p0.a.l0.c cVar, String str, String str2, d dVar) {
@@ -125,18 +125,18 @@ public class d {
     public Object d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11255b : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11263b : invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11254a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11262a : (String) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11254a == null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11262a == null : invokeV.booleanValue;
     }
 }

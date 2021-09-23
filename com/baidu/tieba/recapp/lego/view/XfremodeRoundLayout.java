@@ -22,13 +22,13 @@ public class XfremodeRoundLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Shape f56417e;
+    public Shape f56534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f56418f;
+    public Paint f56535f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f56419g;
+    public float[] f56536g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public XfremodeRoundLayout(Context context) {
@@ -56,9 +56,9 @@ public class XfremodeRoundLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            Shape shape = this.f56417e;
+            Shape shape = this.f56534e;
             if (shape != null) {
-                shape.draw(canvas, this.f56418f);
+                shape.draw(canvas, this.f56535f);
             }
         }
     }
@@ -69,13 +69,13 @@ public class XfremodeRoundLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                if (this.f56417e == null) {
+                if (this.f56534e == null) {
                     RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
                     float[] fArr = new float[8];
                     Arrays.fill(fArr, 0.0f);
-                    this.f56417e = new RoundRectShape(fArr, rectF, this.f56419g);
+                    this.f56534e = new RoundRectShape(fArr, rectF, this.f56536g);
                 }
-                this.f56417e.resize(getWidth(), getHeight());
+                this.f56534e.resize(getWidth(), getHeight());
             }
         }
     }
@@ -83,7 +83,7 @@ public class XfremodeRoundLayout extends RelativeLayout {
     public void setRoundLayoutRadius(float[] fArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, fArr) == null) && fArr != null && fArr.length == 8) {
-            this.f56419g = Arrays.copyOf(fArr, fArr.length);
+            this.f56536g = Arrays.copyOf(fArr, fArr.length);
         }
     }
 
@@ -129,11 +129,11 @@ public class XfremodeRoundLayout extends RelativeLayout {
         }
         setLayerType(1, null);
         Paint paint = new Paint();
-        this.f56418f = paint;
+        this.f56535f = paint;
         paint.setAntiAlias(true);
-        this.f56418f.setColor(-7829368);
-        this.f56418f.setStyle(Paint.Style.FILL);
-        this.f56418f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f56535f.setColor(-7829368);
+        this.f56535f.setStyle(Paint.Style.FILL);
+        this.f56535f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
     }
 
     public void setRoundLayoutRadius(float f2) {

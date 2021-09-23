@@ -19,12 +19,15 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
     public static final String CHECK_PLUGIN_ENTRANCE_STATE_DURATION = "checkPluginEntranceState";
     public static final String CHECK_REAL_NAME_DURATION = "checkRealName";
     public static final String CLEAR_CONCERN_CACHE_WHEN_VERSION_UPDATE_DURATION = "clearConcernCacheWhenVersionUpdate";
+    public static final String CREATE_START_GAP_DURATION = "onCreate2StartGap";
     public static final String FIRST_FRAGMENT_CREATE_DURATION = "fFlutterFragmentCreate";
     public static final String INIT_COOKIE_DURATION = "initCookie";
     public static final String INIT_HOME_FRAGMENT_CONTROLLER_DURATION = "initHomeFragmentController";
     public static final String INIT_TABS_ON_ACTIVITY_CREATED_DURATION = "initTabsOnActivityCreated";
+    public static final String LOGO_START_2_SPLASH_SHOW = "logoStart2SplashShow";
     public static final String MAINACTIVITY_ONCREATE_DURAION = "onCreate";
     public static final String MAINACTIVITY_SUPER_ONCREATE_DURAION = "superOnCreate";
+    public static final String MAIN_ACTIVITY_CREATE_END_DURATION = "mainActivityCreateEndTotal";
     public static final String MAIN_ACTIVITY_CREATE_TO_DATA_LOADED_DURATION = "sMainOnCreate2DataLoaded";
     public static final String MAIN_ACTIVITY_DATA_LOADED_TO_END_DURATION = "sMainDataLoaded2End";
     public static final String MAIN_ACTIVITY_TOTAL_DURATION = "mainActivityTotal";
@@ -37,9 +40,12 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
     public static final String SPLASH_AD_LOAD_AND_PREPARE_DURATION = "splashLoadAndPrepareAd";
     public static final String SPLASH_BES_LOADAD_DURATION = "splashBesLoadAd";
     public static final String SPLASH_CALL_AD_SHOW_DURATION = "splashCallShow";
+    public static final String SPLASH_FIRST_HANDLER_DURATION = "splashFirstHandler";
     public static final String SPLASH_ONCREATE_DURATION = "splashOnCreate";
+    public static final String SPLASH_ONRESUME_DURATION = "splashOnResume";
     public static final String SPLASH_SHOW_DURATION = "splashShow";
     public static final String SPLASH_TB_LOADAD_DURATION = "splashTbLoadAd";
+    public static final String START_RESUME_GAP_DURATION = "onStart2ResumeGap";
     public static final String START_TRACK_CONFIG_REQUEST_DURATION = "startTrackConfigRequest";
     public static final String TRY_LOAD_NATIVE_FUN_AD_DURATION = "tryLoadNativeFunAd";
     public static final String UPDATE_PROFILE_INFO_DURATION = "updateProfileInfo";
@@ -81,7 +87,10 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
     public long mSplashAdShowEndTimeStamp;
     public long mSplashAdShowStartTimeStamp;
     public long mSplashAdloadStartTimeStamp;
+    public long mSplashFirstHandlerRun;
     public long mSplashOnCreateEndTimeStamp;
+    public long mSplashOnResumeEndTimeStamp;
+    public long mSplashOnResumeStartTimeStamp;
     public long mSplashTbAdCallShowTimeStamp;
     public long mSplashTbAdloadEndTimeStamp;
     public long mStartTrackConfigRequestEndTimeStamp;
@@ -107,11 +116,14 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
         this.mSplashActivityStartTimeStamp = -1L;
         this.mSplashActivityEndTimeStamp = -1L;
         this.mSplashOnCreateEndTimeStamp = -1L;
+        this.mSplashOnResumeStartTimeStamp = -1L;
+        this.mSplashOnResumeEndTimeStamp = -1L;
         this.mSplashAdloadStartTimeStamp = -1L;
         this.mSplashTbAdloadEndTimeStamp = -1L;
         this.mSplashTbAdCallShowTimeStamp = -1L;
         this.mSplashAdShowStartTimeStamp = -1L;
         this.mSplashAdShowEndTimeStamp = -1L;
+        this.mSplashFirstHandlerRun = -1L;
         this.mMainActivityCreateStartTimeStamp = -1L;
         this.mMainActivitySuperCreateEndTimeStamp = -1L;
         this.mInitHomeFragmentControllerStartTimeStamp = -1L;
@@ -152,10 +164,16 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
         this.mMainActivityNetDataLoadedTimeStamp = -1L;
     }
 
+    private long getCreateEndTotalDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp() - this.mMainActivityCreateStartTimeStamp : invokeV.longValue;
+    }
+
     private long getMainDataLoaded2EndDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             long appLaunchEndTimeStamp = SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp();
             long j2 = this.mMainActivityCacheDataLoadedTimeStamp;
             if (j2 == -1) {
@@ -169,7 +187,7 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
     private long getMainOnCreate2DataLoadedDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             long j2 = this.mMainActivityCacheDataLoadedTimeStamp;
             if (j2 == -1) {
                 j2 = this.mMainActivityNetDataLoadedTimeStamp;
@@ -338,6 +356,15 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
                         return;
                     }
                     return;
+                case SpeedStatsStampTable.SPLASH_ACTIVITY_ON_RESUME_START_STAMP_KEY /* 3045 */:
+                    this.mSplashOnResumeStartTimeStamp = j2;
+                    return;
+                case SpeedStatsStampTable.SPLASH_ACTIVITY_ON_RESUME_END_STAMP_KEY /* 3046 */:
+                    this.mSplashOnResumeEndTimeStamp = j2;
+                    return;
+                case SpeedStatsStampTable.SPLASH_ACTIVITY_FIRST_HANDLER_RUN /* 3047 */:
+                    this.mSplashFirstHandlerRun = j2;
+                    return;
             }
         }
     }
@@ -401,92 +428,115 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
             long j10 = j8 - j9;
             long j11 = this.mSplashActivityEndTimeStamp - j9;
             long j12 = this.mSplashOnCreateEndTimeStamp - j9;
-            long j13 = this.mSplashAdShowStartTimeStamp;
-            if (j13 > 0) {
-                long j14 = this.mSplashTbAdloadEndTimeStamp;
-                j2 = j10;
-                j3 = j14 - this.mSplashAdloadStartTimeStamp;
-                long j15 = this.mSplashTbAdCallShowTimeStamp;
-                j5 = j15 - j14;
-                j4 = j13 - j15;
+            long j13 = this.mSplashOnResumeEndTimeStamp - this.mSplashOnResumeStartTimeStamp;
+            long j14 = this.mSplashAdShowStartTimeStamp;
+            if (j14 > 0) {
+                long j15 = this.mSplashTbAdloadEndTimeStamp;
+                long j16 = j15 - this.mSplashAdloadStartTimeStamp;
+                long j17 = this.mSplashTbAdCallShowTimeStamp;
+                j5 = j17 - j15;
+                long j18 = j14 - j17;
+                j2 = this.mSplashFirstHandlerRun - j15;
+                j3 = j16;
+                j4 = j18;
             } else {
-                j2 = j10;
+                j2 = 0;
                 j3 = 0;
                 j4 = 0;
                 j5 = 0;
             }
-            long j16 = this.mSplashAdShowStartTimeStamp;
-            if (j16 > 0) {
-                j6 = j4;
-                j7 = j16 - this.mSplashAdloadStartTimeStamp;
+            long j19 = this.mSplashAdShowStartTimeStamp;
+            if (j19 > 0) {
+                j6 = j2;
+                j7 = j19 - this.mSplashAdloadStartTimeStamp;
             } else {
-                j6 = j4;
+                j6 = j2;
                 j7 = this.mSplashActivityEndTimeStamp - this.mSplashAdloadStartTimeStamp;
             }
-            long j17 = j5;
-            long j18 = this.mSplashAdShowEndTimeStamp - this.mSplashAdShowStartTimeStamp;
-            if (j18 < 0) {
-                j18 = 0;
+            long j20 = j7;
+            long j21 = this.mSplashAdShowEndTimeStamp - this.mSplashAdShowStartTimeStamp;
+            if (j21 < 0) {
+                j21 = 0;
             }
-            long j19 = this.mMainActivityCreateStartTimeStamp;
-            long j20 = j18;
-            long j21 = j19 - this.mSplashActivityEndTimeStamp;
-            long j22 = j7;
-            long j23 = this.mMainActivityCreateEndTimeStamp - j19;
-            long j24 = j3;
-            long j25 = this.mMainActivitySuperCreateEndTimeStamp - j19;
-            long j26 = this.mInitHomeFragmentControllerEndTimeStamp - this.mInitHomeFragmentControllerStartTimeStamp;
-            long j27 = this.mCheckPluginEntranceStateEndTimeStamp - this.mCheckPluginEntranceStateStartTimeStamp;
-            long j28 = this.mRegReceiverEndTimeStamp - this.mRegReceiverStartTimeStamp;
-            long j29 = this.mCheckClientConfigMessageEndTimeStamp - this.mCheckClientConfigMessageStartTimeStamp;
-            long j30 = this.mCheckAndSendActiveConfigMessageEndTimeStamp - this.mCheckAndSendActiveConfigMessageStartTimeStamp;
-            long j31 = this.mInitTabsOnActivityCreatedEndTimeStamp - this.mInitTabsOnActivityCreatedStartTimeStamp;
-            long j32 = this.mInitCookieEndTimeStamp - this.mInitCookieStartTimeStamp;
-            long j33 = this.mStartTrackConfigRequestEndTimeStamp - this.mStartTrackConfigRequestStartTimeStamp;
-            long j34 = this.mCheckRealNameEndTimeStamp - this.mCheckRealNameStartTimeStamp;
-            long j35 = this.mClearConcernCacheWhenVersionUpdateEndTimeStamp - this.mClearConcernCacheWhenVersionUpdateStartTimeStamp;
-            long j36 = this.mUpdateProfileInfoEndTimeStamp - this.mUpdateProfileInfoStartTimeStamp;
-            long j37 = this.mTryLoadNativeFunAdEndTimeStamp - this.mTryLoadNativeFunAdStartTimeStamp;
-            long j38 = this.mMainActivityOnstartEndTimeStamp - this.mMainActivityOnstartStartTimeStamp;
-            long j39 = this.mMainActivityOnResumeEndTimeStamp - this.mMainActivityOnResumeStartTimeStamp;
-            long j40 = this.mFirstFlutterFragmentEndTimeStamp - this.mFirstFlutterFragmentStartTimeStamp;
-            long j41 = this.mSecondFlutterFragmentEndTimeStamp - this.mSecondFlutterFragmentStartTimeStamp;
+            long j22 = j21;
+            long j23 = this.mMainActivityCreateStartTimeStamp - this.mSplashAdShowEndTimeStamp;
+            if (j23 < 0 || j23 > 60000) {
+                j23 = this.mMainActivityCreateStartTimeStamp - this.mSplashActivityEndTimeStamp;
+            }
+            long j24 = this.mMainActivityCreateEndTimeStamp;
+            long j25 = j3;
+            long j26 = this.mMainActivityCreateStartTimeStamp;
+            long j27 = j24 - j26;
+            long j28 = j23;
+            long j29 = this.mMainActivitySuperCreateEndTimeStamp - j26;
+            long j30 = this.mInitHomeFragmentControllerEndTimeStamp - this.mInitHomeFragmentControllerStartTimeStamp;
+            long j31 = this.mCheckPluginEntranceStateEndTimeStamp - this.mCheckPluginEntranceStateStartTimeStamp;
+            long j32 = this.mRegReceiverEndTimeStamp - this.mRegReceiverStartTimeStamp;
+            long j33 = this.mCheckClientConfigMessageEndTimeStamp - this.mCheckClientConfigMessageStartTimeStamp;
+            long j34 = this.mCheckAndSendActiveConfigMessageEndTimeStamp - this.mCheckAndSendActiveConfigMessageStartTimeStamp;
+            long j35 = this.mInitTabsOnActivityCreatedEndTimeStamp - this.mInitTabsOnActivityCreatedStartTimeStamp;
+            long j36 = this.mInitCookieEndTimeStamp - this.mInitCookieStartTimeStamp;
+            long j37 = this.mStartTrackConfigRequestEndTimeStamp - this.mStartTrackConfigRequestStartTimeStamp;
+            long j38 = this.mCheckRealNameEndTimeStamp - this.mCheckRealNameStartTimeStamp;
+            long j39 = this.mClearConcernCacheWhenVersionUpdateEndTimeStamp - this.mClearConcernCacheWhenVersionUpdateStartTimeStamp;
+            long j40 = this.mUpdateProfileInfoEndTimeStamp - this.mUpdateProfileInfoStartTimeStamp;
+            long j41 = this.mTryLoadNativeFunAdEndTimeStamp - this.mTryLoadNativeFunAdStartTimeStamp;
+            long j42 = this.mMainActivityOnstartEndTimeStamp;
+            long j43 = this.mMainActivityOnstartStartTimeStamp;
+            long j44 = j42 - j43;
+            long j45 = j43 - j24;
+            long j46 = this.mMainActivityOnResumeEndTimeStamp;
+            long j47 = this.mMainActivityOnResumeStartTimeStamp;
+            long j48 = j46 - j47;
+            long j49 = j47 - j42;
+            long j50 = this.mFirstFlutterFragmentEndTimeStamp - this.mFirstFlutterFragmentStartTimeStamp;
+            long j51 = this.mSecondFlutterFragmentEndTimeStamp - this.mSecondFlutterFragmentStartTimeStamp;
             long mainOnCreate2DataLoadedDuration = getMainOnCreate2DataLoadedDuration();
             long mainDataLoaded2EndDuration = getMainDataLoaded2EndDuration();
-            if (j2 < 0 || j2 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j21 < 0 || j21 > 60000 || j23 < 0 || j23 > 60000 || j25 < 0 || j25 > 60000 || j26 < 0 || j26 > 60000 || j27 < 0 || j27 > 60000 || j28 < 0 || j28 > 60000 || j29 < 0 || j29 > 60000 || j30 < 0 || j30 > 60000 || j31 < 0 || j31 > 60000 || j32 < 0 || j32 > 60000 || j33 < 0 || j33 > 60000 || j34 < 0 || j34 > 60000 || j35 < 0 || j35 > 60000 || j36 < 0 || j36 > 60000 || j37 < 0 || j37 > 60000 || j38 < 0 || j38 > 60000 || j39 < 0 || j39 > 60000 || mainOnCreate2DataLoadedDuration < 0 || mainOnCreate2DataLoadedDuration > 60000 || mainDataLoaded2EndDuration < 0 || mainDataLoaded2EndDuration > 60000) {
+            long createEndTotalDuration = getCreateEndTotalDuration();
+            if (j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j28 < 0 || j28 > 60000 || j27 < 0 || j27 > 60000 || j29 < 0 || j29 > 60000 || j30 < 0 || j30 > 60000 || j31 < 0 || j31 > 60000 || j32 < 0 || j32 > 60000 || j33 < 0 || j33 > 60000 || j34 < 0 || j34 > 60000 || j35 < 0 || j35 > 60000 || j36 < 0 || j36 > 60000 || j37 < 0 || j37 > 60000 || j38 < 0 || j38 > 60000 || j39 < 0 || j39 > 60000 || j40 < 0 || j40 > 60000 || j41 < 0 || j41 > 60000 || j44 < 0 || j44 > 60000 || j48 < 0 || j48 > 60000 || j45 < 0 || j45 > 60000 || j49 < 0 || j49 > 60000 || mainOnCreate2DataLoadedDuration < 0 || mainOnCreate2DataLoadedDuration > 60000 || mainDataLoaded2EndDuration < 0 || mainDataLoaded2EndDuration > 60000) {
                 return false;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(MAIN_ACTIVITY_TOTAL_DURATION, String.valueOf(j2));
+            hashMap.put(MAIN_ACTIVITY_TOTAL_DURATION, String.valueOf(j10));
             hashMap.put("splash", String.valueOf(j11));
             hashMap.put(SPLASH_ONCREATE_DURATION, String.valueOf(j12));
-            hashMap.put(SPLASH_TB_LOADAD_DURATION, String.valueOf(j24));
-            hashMap.put(SPLASH_AD_LOAD_AND_PREPARE_DURATION, String.valueOf(j22));
-            hashMap.put(SPLASH_BES_LOADAD_DURATION, String.valueOf(j17));
-            hashMap.put(SPLASH_CALL_AD_SHOW_DURATION, String.valueOf(j6));
-            hashMap.put(SPLASH_SHOW_DURATION, String.valueOf(j20));
-            hashMap.put(SPLASH_ACTIVITY2MAINACTIVITY_GAP, String.valueOf(j21));
-            hashMap.put("onCreate", String.valueOf(j23));
-            hashMap.put(MAINACTIVITY_SUPER_ONCREATE_DURAION, String.valueOf(j25));
-            hashMap.put(INIT_HOME_FRAGMENT_CONTROLLER_DURATION, String.valueOf(j26));
-            hashMap.put(CHECK_PLUGIN_ENTRANCE_STATE_DURATION, String.valueOf(j27));
-            hashMap.put(REG_RECEIVER_DURATION, String.valueOf(j28));
-            hashMap.put(CHECK_CLIENT_CONFIG_MESSAGE_DURATION, String.valueOf(j29));
-            hashMap.put(CHECK_AND_SEND_ACTIVE_CONFIG_DURATION, String.valueOf(j30));
-            hashMap.put(INIT_TABS_ON_ACTIVITY_CREATED_DURATION, String.valueOf(j31));
-            hashMap.put(INIT_COOKIE_DURATION, String.valueOf(j32));
-            hashMap.put(START_TRACK_CONFIG_REQUEST_DURATION, String.valueOf(j33));
-            hashMap.put(CHECK_REAL_NAME_DURATION, String.valueOf(j34));
-            hashMap.put(CLEAR_CONCERN_CACHE_WHEN_VERSION_UPDATE_DURATION, String.valueOf(j35));
-            hashMap.put(UPDATE_PROFILE_INFO_DURATION, String.valueOf(j36));
-            hashMap.put(TRY_LOAD_NATIVE_FUN_AD_DURATION, String.valueOf(j37));
-            hashMap.put("onStart", String.valueOf(j38));
-            hashMap.put("onResume", String.valueOf(j39));
-            hashMap.put(FIRST_FRAGMENT_CREATE_DURATION, String.valueOf(j40));
-            hashMap.put(SECOND_FRAGMENT_CREATE_DURATION, String.valueOf(j41));
+            hashMap.put(SPLASH_ONRESUME_DURATION, String.valueOf(j13));
+            hashMap.put(SPLASH_TB_LOADAD_DURATION, String.valueOf(j25));
+            hashMap.put(SPLASH_AD_LOAD_AND_PREPARE_DURATION, String.valueOf(j20));
+            hashMap.put(SPLASH_BES_LOADAD_DURATION, String.valueOf(j5));
+            hashMap.put(SPLASH_FIRST_HANDLER_DURATION, String.valueOf(j6));
+            hashMap.put(SPLASH_CALL_AD_SHOW_DURATION, String.valueOf(j4));
+            hashMap.put(SPLASH_SHOW_DURATION, String.valueOf(j22));
+            hashMap.put(SPLASH_ACTIVITY2MAINACTIVITY_GAP, String.valueOf(j28));
+            hashMap.put("onCreate", String.valueOf(j27));
+            hashMap.put(MAINACTIVITY_SUPER_ONCREATE_DURAION, String.valueOf(j29));
+            hashMap.put(INIT_HOME_FRAGMENT_CONTROLLER_DURATION, String.valueOf(j30));
+            hashMap.put(CHECK_PLUGIN_ENTRANCE_STATE_DURATION, String.valueOf(j31));
+            hashMap.put(REG_RECEIVER_DURATION, String.valueOf(j32));
+            hashMap.put(CHECK_CLIENT_CONFIG_MESSAGE_DURATION, String.valueOf(j33));
+            hashMap.put(CHECK_AND_SEND_ACTIVE_CONFIG_DURATION, String.valueOf(j34));
+            hashMap.put(INIT_TABS_ON_ACTIVITY_CREATED_DURATION, String.valueOf(j35));
+            hashMap.put(INIT_COOKIE_DURATION, String.valueOf(j36));
+            hashMap.put(START_TRACK_CONFIG_REQUEST_DURATION, String.valueOf(j37));
+            hashMap.put(CHECK_REAL_NAME_DURATION, String.valueOf(j38));
+            hashMap.put(CLEAR_CONCERN_CACHE_WHEN_VERSION_UPDATE_DURATION, String.valueOf(j39));
+            hashMap.put(UPDATE_PROFILE_INFO_DURATION, String.valueOf(j40));
+            hashMap.put(TRY_LOAD_NATIVE_FUN_AD_DURATION, String.valueOf(j41));
+            hashMap.put("onStart", String.valueOf(j44));
+            hashMap.put("onResume", String.valueOf(j48));
+            hashMap.put(CREATE_START_GAP_DURATION, String.valueOf(j45));
+            hashMap.put(START_RESUME_GAP_DURATION, String.valueOf(j49));
+            hashMap.put(FIRST_FRAGMENT_CREATE_DURATION, String.valueOf(j50));
+            hashMap.put(SECOND_FRAGMENT_CREATE_DURATION, String.valueOf(j51));
             hashMap.put(MAIN_ACTIVITY_CREATE_TO_DATA_LOADED_DURATION, String.valueOf(mainOnCreate2DataLoadedDuration));
             hashMap.put(MAIN_ACTIVITY_DATA_LOADED_TO_END_DURATION, String.valueOf(mainDataLoaded2EndDuration));
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(j2, hashMap);
+            hashMap.put(MAIN_ACTIVITY_CREATE_END_DURATION, String.valueOf(createEndTotalDuration));
+            long j52 = this.mSplashAdShowStartTimeStamp - this.mSplashActivityStartTimeStamp;
+            if (j52 >= 0 && j52 < 60000) {
+                hashMap.put(LOGO_START_2_SPLASH_SHOW, String.valueOf(j52));
+            }
+            JSONObject jsonData = SpeedStatsUtils.getJsonData(j10, hashMap);
             if (jsonData != null) {
                 try {
                     jSONObject.put("activity", jsonData);

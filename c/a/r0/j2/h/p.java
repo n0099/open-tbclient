@@ -17,23 +17,23 @@ public class p implements c.a.e.l.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final BdUniqueId f19656j;
+    public static final BdUniqueId f19671j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f19657e;
+    public boolean f19672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19658f;
+    public boolean f19673f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f19659g;
+    public boolean f19674g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d2 f19660h;
+    public d2 f19675h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AntiData f19661i;
+    public AntiData f19676i;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class p implements c.a.e.l.e.n {
                 return;
             }
         }
-        f19656j = BdUniqueId.gen();
+        f19671j = BdUniqueId.gen();
     }
 
     public p(d2 d2Var, AntiData antiData) {
@@ -66,18 +66,18 @@ public class p implements c.a.e.l.e.n {
                 return;
             }
         }
-        this.f19657e = false;
-        this.f19658f = false;
-        this.f19659g = false;
-        this.f19660h = d2Var;
-        this.f19661i = antiData;
+        this.f19672e = false;
+        this.f19673f = false;
+        this.f19674g = false;
+        this.f19675h = d2Var;
+        this.f19676i = antiData;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d2 d2Var = this.f19660h;
+            d2 d2Var = this.f19675h;
             if (d2Var != null) {
                 return d2Var.D();
             }
@@ -89,20 +89,20 @@ public class p implements c.a.e.l.e.n {
     public AntiData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19661i : (AntiData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19676i : (AntiData) invokeV.objValue;
     }
 
     public d2 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19660h : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19675h : (d2) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            d2 d2Var = this.f19660h;
+            d2 d2Var = this.f19675h;
             return d2Var != null && d2Var.d0() == 1;
         }
         return invokeV.booleanValue;
@@ -112,32 +112,32 @@ public class p implements c.a.e.l.e.n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f19656j : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f19671j : (BdUniqueId) invokeV.objValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19657e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19672e : invokeV.booleanValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19659g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19674g : invokeV.booleanValue;
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f19657e = z;
+            this.f19672e = z;
         }
     }
 
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f19659g = z;
+            this.f19674g = z;
         }
     }
 }

@@ -12,10 +12,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f42555a;
+    public long f42617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JNICommonMemCache f42556b;
+    public JNICommonMemCache f42618b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -30,19 +30,19 @@ public class a {
                 return;
             }
         }
-        this.f42555a = 0L;
-        this.f42556b = null;
-        this.f42556b = new JNICommonMemCache();
+        this.f42617a = 0L;
+        this.f42618b = null;
+        this.f42618b = new JNICommonMemCache();
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f42555a == 0) {
-                this.f42555a = this.f42556b.Create();
+            if (this.f42617a == 0) {
+                this.f42617a = this.f42618b.Create();
             }
-            return this.f42555a;
+            return this.f42617a;
         }
         return invokeV.longValue;
     }
@@ -50,9 +50,9 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j2 = this.f42555a;
+            long j2 = this.f42617a;
             if (j2 != 0) {
-                this.f42556b.Init(j2);
+                this.f42618b.Init(j2);
             }
         }
     }

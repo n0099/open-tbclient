@@ -32,11 +32,11 @@ public class j extends m {
                 return;
             }
         }
-        this.f15086b = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.f15088d = R.drawable.icon_pure_post_more24;
-        this.f15089e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.f15091g = false;
-        this.f15092h = true;
+        this.f15093b = TbadkCoreApplication.getInst().getString(R.string.more_function);
+        this.f15095d = R.drawable.icon_pure_post_more24;
+        this.f15096e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.f15098g = false;
+        this.f15099h = true;
         this.k = new MoreDeskView(context);
         this.m = true;
         this.l = 6;
@@ -62,11 +62,11 @@ public class j extends m {
                 return;
             }
         }
-        this.f15086b = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.f15088d = R.drawable.icon_pure_post_more24;
-        this.f15089e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.f15091g = false;
-        this.f15092h = true;
+        this.f15093b = TbadkCoreApplication.getInst().getString(R.string.more_function);
+        this.f15095d = R.drawable.icon_pure_post_more24;
+        this.f15096e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.f15098g = false;
+        this.f15099h = true;
         this.k = new MoreDeskView(context, !z);
         this.m = true;
         this.l = 6;

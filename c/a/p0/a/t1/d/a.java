@@ -13,7 +13,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8703a;
+    public static final boolean f8711a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,12 +29,12 @@ public class a {
                 return;
             }
         }
-        f8703a = k.f7077a;
+        f8711a = k.f7085a;
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && f8703a && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && f8711a && !TextUtils.isEmpty(str)) {
             d.g("Module-Plugin", str);
         }
     }

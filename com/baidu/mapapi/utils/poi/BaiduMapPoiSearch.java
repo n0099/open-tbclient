@@ -24,7 +24,7 @@ public class BaiduMapPoiSearch {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f42025a = true;
+    public static boolean f42087a = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,7 +59,7 @@ public class BaiduMapPoiSearch {
     public static void a(PoiParaOption poiParaOption, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, poiParaOption, context) == null) {
-            Uri parse = Uri.parse("http://api.map.baidu.com/place/detail?uid=" + poiParaOption.f42026a + "&output=html&src=" + context.getPackageName());
+            Uri parse = Uri.parse("http://api.map.baidu.com/place/detail?uid=" + poiParaOption.f42088a + "&output=html&src=" + context.getPackageName());
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
             intent.setFlags(268435456);
@@ -74,9 +74,9 @@ public class BaiduMapPoiSearch {
             StringBuilder sb = new StringBuilder();
             sb.append("http://api.map.baidu.com/place/search?");
             sb.append("query=");
-            sb.append(poiParaOption.f42027b);
+            sb.append(poiParaOption.f42089b);
             sb.append("&location=");
-            LatLng latLng = poiParaOption.f42028c;
+            LatLng latLng = poiParaOption.f42090c;
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 latLng = CoordTrans.gcjToBaidu(latLng);
             }
@@ -84,7 +84,7 @@ public class BaiduMapPoiSearch {
             sb.append(",");
             sb.append(latLng.longitude);
             sb.append("&radius=");
-            sb.append(poiParaOption.f42029d);
+            sb.append(poiParaOption.f42091d);
             sb.append("&output=html");
             sb.append("&src=");
             sb.append(context.getPackageName());
@@ -163,14 +163,14 @@ public class BaiduMapPoiSearch {
             if (poiParaOption == null || context == null) {
                 throw new IllegalPoiSearchArgumentException("BDMapSDKException: para or context can not be null.");
             }
-            String str = poiParaOption.f42026a;
+            String str = poiParaOption.f42088a;
             if (str != null) {
                 if (str.equals("")) {
                     return false;
                 }
                 int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
                 if (baiduMapVersion == 0) {
-                    if (f42025a) {
+                    if (f42087a) {
                         a(poiParaOption, context);
                         return true;
                     }
@@ -178,7 +178,7 @@ public class BaiduMapPoiSearch {
                 } else if (baiduMapVersion >= 810) {
                     return com.baidu.mapapi.utils.b.a(poiParaOption, context, 3);
                 } else {
-                    if (f42025a) {
+                    if (f42087a) {
                         a(poiParaOption, context);
                         return true;
                     }
@@ -197,20 +197,20 @@ public class BaiduMapPoiSearch {
             if (poiParaOption == null || context == null) {
                 throw new IllegalPoiSearchArgumentException("BDMapSDKException: para or context can not be null.");
             }
-            String str = poiParaOption.f42027b;
+            String str = poiParaOption.f42089b;
             if (str != null) {
-                LatLng latLng = poiParaOption.f42028c;
+                LatLng latLng = poiParaOption.f42090c;
                 if (latLng != null) {
                     if (latLng.longitude == 0.0d || latLng.latitude == 0.0d) {
                         throw new IllegalPoiSearchArgumentException("BDMapSDKException: poi search center longitude or latitude can not be 0.");
                     }
-                    if (poiParaOption.f42029d != 0) {
+                    if (poiParaOption.f42091d != 0) {
                         if (str.equals("")) {
                             return false;
                         }
                         int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
                         if (baiduMapVersion == 0) {
-                            if (f42025a) {
+                            if (f42087a) {
                                 b(poiParaOption, context);
                                 return true;
                             }
@@ -218,7 +218,7 @@ public class BaiduMapPoiSearch {
                         } else if (baiduMapVersion >= 810) {
                             return com.baidu.mapapi.utils.b.a(poiParaOption, context, 4);
                         } else {
-                            if (f42025a) {
+                            if (f42087a) {
                                 b(poiParaOption, context);
                                 return true;
                             }
@@ -237,7 +237,7 @@ public class BaiduMapPoiSearch {
     public static void setSupportWebPoi(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            f42025a = z;
+            f42087a = z;
         }
     }
 }

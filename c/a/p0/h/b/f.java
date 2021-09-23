@@ -13,10 +13,10 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11009a;
+    public int f11017a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11010b;
+    public String f11018b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             f fVar = new f();
-            fVar.f11009a = jSONObject.optInt("state");
-            fVar.f11010b = jSONObject.optString("msg");
+            fVar.f11017a = jSONObject.optInt("state");
+            fVar.f11018b = jSONObject.optString("msg");
             return fVar;
         }
         return (f) invokeL.objValue;
@@ -48,7 +48,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CheckPayAuthModel{state=" + this.f11009a + ", msg='" + this.f11010b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "CheckPayAuthModel{state=" + this.f11017a + ", msg='" + this.f11018b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

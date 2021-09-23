@@ -40,7 +40,7 @@ public class d extends c.a.p0.a.t0.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f11390a;
+        public final /* synthetic */ d f11398a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -57,21 +57,21 @@ public class d extends c.a.p0.a.t0.c {
                     return;
                 }
             }
-            this.f11390a = dVar;
+            this.f11398a = dVar;
         }
 
         @Override // c.a.p0.a.a1.b
         public void a(int i2, c.a.p0.a.a1.a aVar) {
             a.c cVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, aVar) == null) || (cVar = (a.c) aVar) == null || TextUtils.isEmpty(cVar.f11540a)) {
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, aVar) == null) || (cVar = (a.c) aVar) == null || TextUtils.isEmpty(cVar.f11548a)) {
                 return;
             }
-            c.a.p0.h.o.c.m().I(this.f11390a.O());
+            c.a.p0.h.o.c.m().I(this.f11398a.O());
             c.a.p0.h.o.c.m().x(cVar);
             c.a.p0.h.c.j.b.h();
-            this.f11390a.Z0();
-            this.f11390a.Y0();
+            this.f11398a.Z0();
+            this.f11398a.Y0();
         }
     }
 
@@ -81,7 +81,7 @@ public class d extends c.a.p0.a.t0.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f11391a;
+        public final /* synthetic */ d f11399a;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class d extends c.a.p0.a.t0.c {
                     return;
                 }
             }
-            this.f11391a = dVar;
+            this.f11399a = dVar;
         }
 
         @Override // c.a.p0.a.v1.c.e.a.c
@@ -109,15 +109,15 @@ public class d extends c.a.p0.a.t0.c {
                 int i2 = message.what;
                 if (i2 == 100) {
                     c.a.p0.a.v1.c.a.e().h(new c.a.p0.a.v1.c.c(4));
-                    this.f11391a.G0();
+                    this.f11399a.G0();
                     c.a.p0.h.o.c.m().H();
                     c.a.p0.a.a2.d.g().t();
                     return true;
                 } else if (i2 == 102) {
                     boolean a2 = c.a.p0.a.c1.a.H().a();
                     c.a.p0.a.c1.a.H().d(a2);
-                    if (this.f11391a.f8629f != null) {
-                        this.f11391a.f8629f.onNightModeCoverChanged(a2, false);
+                    if (this.f11399a.f8637f != null) {
+                        this.f11399a.f8637f.onNightModeCoverChanged(a2, false);
                     }
                     return true;
                 } else if (i2 == 103) {
@@ -126,7 +126,7 @@ public class d extends c.a.p0.a.t0.c {
                         i3.T().i();
                         c.a.p0.a.n1.q.a.g().v();
                     }
-                    this.f11391a.G0();
+                    this.f11399a.G0();
                     c.a.p0.h.o.c.m().H();
                     return true;
                 } else if (i2 == 106) {
@@ -164,7 +164,7 @@ public class d extends c.a.p0.a.t0.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f11392e;
+        public final /* synthetic */ d f11400e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -181,7 +181,7 @@ public class d extends c.a.p0.a.t0.c {
                     return;
                 }
             }
-            this.f11392e = dVar;
+            this.f11400e = dVar;
         }
 
         @Override // java.lang.Runnable
@@ -189,9 +189,9 @@ public class d extends c.a.p0.a.t0.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean unused = d.w;
-                this.f11392e.v = System.currentTimeMillis();
-                c.a.p0.h.f0.h.f(this.f11392e.O());
-                this.f11392e.f8629f.finishLoadingAnimator();
+                this.f11400e.v = System.currentTimeMillis();
+                c.a.p0.h.f0.h.f(this.f11400e.O());
+                this.f11400e.f8637f.finishLoadingAnimator();
                 c.a.p0.a.r1.h.h("preload", "startup");
                 int j2 = c.a.p0.h.o.c.m().j();
                 HybridUbcFlow p = c.a.p0.a.r1.h.p("startup");
@@ -223,7 +223,7 @@ public class d extends c.a.p0.a.t0.c {
                 return;
             }
         }
-        w = k.f7077a;
+        w = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -269,7 +269,7 @@ public class d extends c.a.p0.a.t0.c {
             if (c.a.p0.a.a2.d.g().C()) {
                 f.V().G(O(), new a(this));
                 if (c.a.p0.h.o.c.m().v() && c.a.p0.h.o.c.m().q()) {
-                    c.a.p0.h.o.c.m().F(this.f8629f);
+                    c.a.p0.h.o.c.m().F(this.f8637f);
                 }
             }
         }
@@ -298,22 +298,22 @@ public class d extends c.a.p0.a.t0.c {
     public void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.p0.a.e0.d.g("SwanApp", "onBackPressed back stack count:" + this.f8630g.k());
+            c.a.p0.a.e0.d.g("SwanApp", "onBackPressed back stack count:" + this.f8638g.k());
             c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-            fVar.f7067e = com.alipay.sdk.widget.d.l;
+            fVar.f7075e = com.alipay.sdk.widget.d.u;
             F(fVar);
-            c.a.p0.a.h0.g.d m = this.f8630g.m();
+            c.a.p0.a.h0.g.d m = this.f8638g.m();
             if (m == null || !m.J()) {
                 if (T()) {
                     c.a.p0.a.a2.e i2 = c.a.p0.a.a2.e.i();
                     if (i2 != null) {
                         i2.E().E();
                     }
-                    c.a.p0.h.f0.h.e(com.alipay.sdk.widget.d.l, O());
+                    c.a.p0.h.f0.h.e(com.alipay.sdk.widget.d.u, O());
                     return;
                 }
-                g.b i3 = this.f8630g.i("navigateBack");
-                i3.n(g.f5930i, g.f5929h);
+                g.b i3 = this.f8638g.i("navigateBack");
+                i3.n(g.f5938i, g.f5937h);
                 i3.g();
                 i3.a();
             }
@@ -369,7 +369,7 @@ public class d extends c.a.p0.a.t0.c {
             c.a.p0.h.b.d.w();
             i.i();
             c.a.p0.h.f0.h.e("exit", O());
-            f.V().k(this.f8629f);
+            f.V().k(this.f8637f);
             f.c0();
             c.a.p0.h.l0.a.a().b();
             SwanInspectorEndpoint.v().q();
@@ -401,7 +401,7 @@ public class d extends c.a.p0.a.t0.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.h0();
-            c.a.p0.h.o.c.m().h(this.f8629f);
+            c.a.p0.h.o.c.m().h(this.f8637f);
         }
     }
 
@@ -426,7 +426,7 @@ public class d extends c.a.p0.a.t0.c {
     public void l0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            f.V().E(this.f8629f);
+            f.V().E(this.f8637f);
         }
     }
 

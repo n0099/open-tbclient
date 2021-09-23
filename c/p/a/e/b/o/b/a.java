@@ -19,14 +19,14 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, c> f35383a;
+    public final Map<String, c> f35406a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, d> f35384b;
+    public final Map<String, d> f35407b;
 
     /* renamed from: c.p.a.e.b.o.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1554a {
+    public static /* synthetic */ class C1553a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -36,7 +36,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f35385a;
+        public static final a f35408a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,18 +52,18 @@ public class a {
                     return;
                 }
             }
-            f35385a = new a(null);
+            f35408a = new a(null);
         }
     }
 
-    public /* synthetic */ a(C1554a c1554a) {
+    public /* synthetic */ a(C1553a c1553a) {
         this();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f35385a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f35408a : (a) invokeV.objValue;
     }
 
     public c b(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
@@ -71,8 +71,8 @@ public class a {
         c remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, list)) == null) {
-            synchronized (this.f35383a) {
-                remove = this.f35383a.remove(str);
+            synchronized (this.f35406a) {
+                remove = this.f35406a.remove(str);
             }
             if (remove != null) {
                 if (f.S(remove.k(), list)) {
@@ -106,8 +106,8 @@ public class a {
     public void d(String str, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) {
-            synchronized (this.f35383a) {
-                this.f35383a.put(str, cVar);
+            synchronized (this.f35406a) {
+                this.f35406a.put(str, cVar);
             }
         }
     }
@@ -116,7 +116,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            c cVar = this.f35383a.get(str);
+            c cVar = this.f35406a.get(str);
             if (cVar != null) {
                 if (cVar.j()) {
                     return true;
@@ -133,8 +133,8 @@ public class a {
         d remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, list)) == null) {
-            synchronized (this.f35384b) {
-                remove = this.f35384b.remove(str);
+            synchronized (this.f35407b) {
+                remove = this.f35407b.remove(str);
             }
             if (remove != null) {
                 if (f.S(remove.f(), list)) {
@@ -172,7 +172,7 @@ public class a {
                 return;
             }
         }
-        this.f35383a = new HashMap();
-        this.f35384b = new LinkedHashMap(3);
+        this.f35406a = new HashMap();
+        this.f35407b = new LinkedHashMap(3);
     }
 }

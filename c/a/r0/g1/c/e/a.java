@@ -33,14 +33,14 @@ public class a extends c.a.e.l.e.a<c.a.r0.a0.d0.j, CardViewHolder<c.a.r0.a0.j>> 
 
     /* renamed from: c.a.r0.g1.c.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0869a extends b0<c.a.r0.a0.d0.j> {
+    public class C0867a extends b0<c.a.r0.a0.d0.j> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f17824b;
+        public final /* synthetic */ a f17833b;
 
-        public C0869a(a aVar) {
+        public C0867a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +55,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.a0.d0.j, CardViewHolder<c.a.r0.a0.j>> 
                     return;
                 }
             }
-            this.f17824b = aVar;
+            this.f17833b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,11 +63,11 @@ public class a extends c.a.e.l.e.a<c.a.r0.a0.d0.j, CardViewHolder<c.a.r0.a0.j>> 
         /* renamed from: d */
         public void a(View view, c.a.r0.a0.d0.j jVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) || view == null || this.f17824b.o == null || this.f17824b.o.j() == null || jVar == null || jVar.getThreadData() == null || StringUtils.isNull(jVar.getThreadData().s1())) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) || view == null || this.f17833b.o == null || this.f17833b.o.j() == null || jVar == null || jVar.getThreadData() == null || StringUtils.isNull(jVar.getThreadData().s1())) {
                 return;
             }
-            c.a.r0.g1.c.c.b(view, jVar, view == this.f17824b.o.N() ? 1 : 2);
-            if (view == this.f17824b.o.p.getCommentContainer() || view == this.f17824b.o.q.getCommentContainer()) {
+            c.a.r0.g1.c.c.b(view, jVar, view == this.f17833b.o.P() ? 1 : 2);
+            if (view == this.f17833b.o.p.getCommentContainer() || view == this.f17833b.o.q.getCommentContainer()) {
                 StatisticItem statisticItem = new StatisticItem("c12942");
                 statisticItem.param("obj_locate", 7);
                 statisticItem.param("obj_type", 5);
@@ -104,7 +104,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.a0.d0.j, CardViewHolder<c.a.r0.a0.j>> 
                 return;
             }
         }
-        this.q = new C0869a(this);
+        this.q = new C0867a(this);
         this.n = tbPageContext;
     }
 
@@ -125,10 +125,10 @@ public class a extends c.a.e.l.e.a<c.a.r0.a0.d0.j, CardViewHolder<c.a.r0.a0.j>> 
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             c.a.r0.a0.j jVar = new c.a.r0.a0.j(this.n, this.m);
             this.o = jVar;
-            jVar.V(true);
+            jVar.X(true);
             BdUniqueId bdUniqueId = this.m;
             if (bdUniqueId != null) {
-                this.o.U(bdUniqueId);
+                this.o.W(bdUniqueId);
             }
             return new CardViewHolder<>(this.o);
         }

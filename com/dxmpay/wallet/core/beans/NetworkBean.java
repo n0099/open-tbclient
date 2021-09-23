@@ -42,7 +42,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public abstract class NetworkBean<T> extends ApollonBean<T> {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String PARAM_CUID = "cuid_1";
+    public static final String PARAM_CUID_2 = "cuid_2";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -118,7 +120,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static final SessionCache f69802a;
+            public static final SessionCache f70119a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -134,7 +136,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
                         return;
                     }
                 }
-                f69802a = new SessionCache(null);
+                f70119a = new SessionCache(null);
             }
         }
 
@@ -145,7 +147,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         public static SessionCache getInstance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f69802a : (SessionCache) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f70119a : (SessionCache) invokeV.objValue;
         }
 
         public static synchronized void sync(SessionCache sessionCache) {
@@ -153,7 +155,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
             if (interceptable == null || interceptable.invokeL(65539, null, sessionCache) == null) {
                 synchronized (SessionCache.class) {
                     if (sessionCache != null) {
-                        a.f69802a.mCache = sessionCache.mCache;
+                        a.f70119a.mCache = sessionCache.mCache;
                     }
                 }
             }
@@ -296,6 +298,10 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
                 jSONObject.put("cuid_1", PayUtils.encrypt("phone_number", PhoneUtils.getCUID(context)));
                 jSONObject.put("cuid_2", PayUtils.encrypt("phone_number", PhoneUtils.getCUID2(context)));
                 jSONObject.put("fk_wcp", PayUtils.encrypt("phone_number", (((("fp=" + BdWalletUtils.getDeviceFP(this.mContext)) + "&lastModify=" + BdWalletUtils.getFPFileLastModified(this.mContext)) + "&cpuInfo=" + PhoneUtils.getSystemCPUInfo().getCpuPath() + "_" + PhoneUtils.getNumCores()) + "&diskCapacity=" + PhoneUtils.getTotalInternalMemorySize()) + "&upTime=" + (SystemClock.elapsedRealtime() / 1000)));
+                StringBuilder sb = new StringBuilder();
+                sb.append("NetworkType:");
+                sb.append(NetworkUtils.getNetworkType(context));
+                sb.toString();
                 jSONObject.put("nettype", NetworkUtils.getNetworkType(context));
             } catch (JSONException e2) {
                 e2.printStackTrace();

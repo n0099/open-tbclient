@@ -34,7 +34,7 @@ public class i extends l {
                 return;
             }
         }
-        p = c.a.p0.a.k.f7077a;
+        p = c.a.p0.a.k.f7085a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -64,12 +64,12 @@ public class i extends l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Map<String, String> A = super.A();
-            if (this.o && c.a.p0.n.j.i.l.f12029a) {
+            if (this.o && c.a.p0.n.j.i.l.f12037a) {
                 if (A == null) {
                     A = new HashMap<>();
                 }
                 A.put("hb_type", "1");
-                A.put("lastsynctime", String.valueOf(c.a.p0.n.j.i.l.f12031c));
+                A.put("lastsynctime", String.valueOf(c.a.p0.n.j.i.l.f12039c));
                 A.put("SWAN-TIMEOUT-SETTING", String.valueOf(c.a.p0.n.j.i.l.b(60) * 1000));
             }
             return A;
@@ -121,10 +121,10 @@ public class i extends l {
                 return aVar;
             }
             c.a.p0.a.p0.g.a aVar2 = new c.a.p0.a.p0.g.a();
-            aVar2.f7981b = bVar.f11887i;
-            aVar2.f7980a = bVar.f11888j;
-            aVar2.f7982c = bVar.f11879a;
-            aVar2.f7983d = bVar.m;
+            aVar2.f7989b = bVar.f11895i;
+            aVar2.f7988a = bVar.f11896j;
+            aVar2.f7990c = bVar.f11887a;
+            aVar2.f7991d = bVar.m;
             if (c.a.p0.a.p0.b.b(0, aVar2) == null) {
                 boolean z = p;
                 boolean n = c.a.p0.a.c1.a.Z().n();
@@ -171,7 +171,7 @@ public class i extends l {
             }
             a.b c2 = c.a.p0.a.m2.f.a.c(dVar, 0);
             c.a.p0.a.e0.d.h("SwanAppUpdateCore", "SwanCore RemoteCoreUpdateStatus: " + c2);
-            c.a.p0.t.d.j(dVar.f11879a);
+            c.a.p0.t.d.j(dVar.f11887a);
             if (c2.c()) {
                 long e2 = c.a.p0.a.m2.f.a.e(0);
                 if (e2 > 0) {

@@ -28,7 +28,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9570a;
+    public static final boolean f9578a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -37,19 +37,19 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f9571a;
+        public final /* synthetic */ int f9579a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f9572b;
+        public final /* synthetic */ boolean f9580b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Activity f9573c;
+        public final /* synthetic */ Activity f9581c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.i1.d.d.c f9574d;
+        public final /* synthetic */ c.a.p0.a.i1.d.d.c f9582d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f9575e;
+        public final /* synthetic */ Context f9583e;
 
         public a(int i2, boolean z, Activity activity, c.a.p0.a.i1.d.d.c cVar, Context context) {
             Interceptable interceptable = $ic;
@@ -66,11 +66,11 @@ public class g {
                     return;
                 }
             }
-            this.f9571a = i2;
-            this.f9572b = z;
-            this.f9573c = activity;
-            this.f9574d = cVar;
-            this.f9575e = context;
+            this.f9579a = i2;
+            this.f9580b = z;
+            this.f9581c = activity;
+            this.f9582d = cVar;
+            this.f9583e = context;
         }
 
         @Override // c.a.p0.a.s1.f
@@ -79,11 +79,11 @@ public class g {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 Bundle bundle = new Bundle();
                 bundle.putString("swanAppId", c.a.p0.a.a2.e.V());
-                bundle.putInt("count", this.f9571a);
-                bundle.putBoolean("compressed", this.f9572b);
+                bundle.putInt("count", this.f9579a);
+                bundle.putBoolean("compressed", this.f9580b);
                 bundle.putString("launchType", "Image");
                 bundle.putString("swanTmpPath", c.a.p0.a.g1.f.V().I().k());
-                c.a.p0.a.i1.d.c.d.l(this.f9573c, bundle, this.f9574d);
+                c.a.p0.a.i1.d.c.d.l(this.f9581c, bundle, this.f9582d);
             }
         }
 
@@ -91,10 +91,10 @@ public class g {
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                if (g.f9570a) {
+                if (g.f9578a) {
                     String str2 = str + "";
                 }
-                Toast.makeText(this.f9575e, str, 1).show();
+                Toast.makeText(this.f9583e, str, 1).show();
             }
         }
     }
@@ -112,7 +112,7 @@ public class g {
                 return;
             }
         }
-        f9570a = k.f7077a;
+        f9578a = k.f7085a;
     }
 
     public static View b(View view) {
@@ -144,7 +144,7 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
             View b2 = b(activity.getWindow().getDecorView());
             if (b2 == null) {
-                boolean z = f9570a;
+                boolean z = f9578a;
                 return false;
             }
             return b2.getFitsSystemWindows();
@@ -177,7 +177,7 @@ public class g {
             if (view.getHeight() == i2) {
                 return false;
             }
-            if (f9570a) {
+            if (f9578a) {
                 String str = "refreshHeight, originalHeight: " + view.getHeight() + ", aimHeight: " + i2;
             }
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
@@ -187,7 +187,7 @@ public class g {
                 layoutParams.height = i2;
                 view.requestLayout();
             }
-            if (f9570a) {
+            if (f9578a) {
                 String str2 = "refreshHeight, newHeight: " + view.getHeight();
                 return true;
             }

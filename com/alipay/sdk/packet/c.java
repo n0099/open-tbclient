@@ -1,7 +1,7 @@
 package com.alipay.sdk.packet;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.util.k;
+import com.alipay.sdk.util.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,10 +19,10 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f36005a;
+    public boolean f36039a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36006b;
+    public String f36040b;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public final class c {
                 return;
             }
         }
-        this.f36005a = z;
-        this.f36006b = k.a(24);
+        this.f36039a = z;
+        this.f36040b = l.a(24);
     }
 
     public static byte[] b(String str, byte[] bArr, String str2) {
@@ -57,8 +57,8 @@ public final class c {
             if (bVar == null) {
                 return null;
             }
-            byte[] bytes = bVar.a().getBytes();
-            byte[] bytes2 = bVar.b().getBytes();
+            byte[] bytes = bVar.b().getBytes();
+            byte[] bytes2 = bVar.a().getBytes();
             if (z) {
                 try {
                     bytes2 = com.alipay.sdk.encrypt.b.a(bytes2);
@@ -66,8 +66,8 @@ public final class c {
                     z = false;
                 }
             }
-            if (this.f36005a) {
-                a2 = a(bytes, a(this.f36006b, com.alipay.sdk.cons.a.f35927e), a(this.f36006b, bytes2, str));
+            if (this.f36039a) {
+                a2 = a(bytes, a(this.f36040b, com.alipay.sdk.cons.a.f35961e), b(this.f36040b, bytes2, str));
             } else {
                 a2 = a(bytes, bytes2);
             }
@@ -89,7 +89,7 @@ public final class c {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dVar, str)) == null) {
             ByteArrayInputStream byteArrayInputStream2 = null;
             try {
-                byteArrayInputStream = new ByteArrayInputStream(dVar.b());
+                byteArrayInputStream = new ByteArrayInputStream(dVar.a());
                 try {
                     try {
                         byte[] bArr = new byte[5];
@@ -108,10 +108,10 @@ public final class c {
                         if (a2 > 0) {
                             byte[] bArr4 = new byte[a2];
                             byteArrayInputStream.read(bArr4);
-                            if (this.f36005a) {
-                                bArr4 = b(this.f36006b, bArr4, str);
+                            if (this.f36039a) {
+                                bArr4 = a(this.f36040b, bArr4, str);
                             }
-                            if (dVar.a()) {
+                            if (dVar.b()) {
                                 bArr4 = com.alipay.sdk.encrypt.b.b(bArr4);
                             }
                             str3 = new String(bArr4);
@@ -177,11 +177,11 @@ public final class c {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bArr, str2)) == null) ? com.alipay.sdk.encrypt.e.a(str, bArr, str2) : (byte[]) invokeLLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0054, code lost:
-        if (r2 == null) goto L26;
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0053, code lost:
+        if (r2 == null) goto L23;
      */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x005c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0063 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0064 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x005d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -190,89 +190,90 @@ public final class c {
         DataOutputStream dataOutputStream;
         ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
-        r0 = null;
-        byte[] bArr2 = null;
-        if (bArr == null || bArr.length == 0) {
-            return null;
-        }
-        try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
-        } catch (Exception e2) {
-            e = e2;
-            byteArrayOutputStream = null;
-            dataOutputStream = null;
-        } catch (Throwable th) {
-            th = th;
-            dataOutputStream = null;
-            if (byteArrayOutputStream2 != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream2 = null;
+            r0 = null;
+            byte[] bArr2 = null;
+            if (bArr == null || bArr.length == 0) {
+                return null;
             }
-            if (dataOutputStream != null) {
-            }
-            throw th;
-        }
-        try {
-            dataOutputStream = new DataOutputStream(byteArrayOutputStream);
             try {
+                byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
-                    for (byte[] bArr3 : bArr) {
-                        dataOutputStream.write(a(bArr3.length).getBytes());
-                        dataOutputStream.write(bArr3);
-                    }
-                    dataOutputStream.flush();
-                    bArr2 = byteArrayOutputStream.toByteArray();
+                    dataOutputStream = new DataOutputStream(byteArrayOutputStream);
                     try {
-                        byteArrayOutputStream.close();
-                    } catch (Exception unused) {
+                        try {
+                            for (byte[] bArr3 : bArr) {
+                                dataOutputStream.write(a(bArr3.length).getBytes());
+                                dataOutputStream.write(bArr3);
+                            }
+                            dataOutputStream.flush();
+                            byte[] byteArray = byteArrayOutputStream.toByteArray();
+                            try {
+                                byteArrayOutputStream.close();
+                            } catch (Exception unused) {
+                            }
+                            bArr2 = byteArray;
+                        } catch (Exception e2) {
+                            e = e2;
+                            com.alipay.sdk.util.c.a(e);
+                            if (byteArrayOutputStream != null) {
+                                try {
+                                    byteArrayOutputStream.close();
+                                } catch (Exception unused2) {
+                                }
+                            }
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        byteArrayOutputStream2 = byteArrayOutputStream;
+                        if (byteArrayOutputStream2 != null) {
+                            try {
+                                byteArrayOutputStream2.close();
+                            } catch (Exception unused3) {
+                            }
+                        }
+                        if (dataOutputStream != null) {
+                            try {
+                                dataOutputStream.close();
+                            } catch (Exception unused4) {
+                            }
+                        }
+                        throw th;
                     }
                 } catch (Exception e3) {
                     e = e3;
-                    com.alipay.sdk.util.c.a(e);
-                    if (byteArrayOutputStream != null) {
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (Exception unused2) {
-                        }
+                    dataOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    dataOutputStream = null;
+                    byteArrayOutputStream2 = byteArrayOutputStream;
+                    if (byteArrayOutputStream2 != null) {
                     }
+                    if (dataOutputStream != null) {
+                    }
+                    throw th;
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                byteArrayOutputStream2 = byteArrayOutputStream;
+            } catch (Exception e4) {
+                e = e4;
+                byteArrayOutputStream = null;
+                dataOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                dataOutputStream = null;
                 if (byteArrayOutputStream2 != null) {
-                    try {
-                        byteArrayOutputStream2.close();
-                    } catch (Exception unused3) {
-                    }
                 }
                 if (dataOutputStream != null) {
-                    try {
-                        dataOutputStream.close();
-                    } catch (Exception unused4) {
-                    }
                 }
                 throw th;
             }
-        } catch (Exception e4) {
-            e = e4;
-            dataOutputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            dataOutputStream = null;
-            byteArrayOutputStream2 = byteArrayOutputStream;
-            if (byteArrayOutputStream2 != null) {
+            try {
+                dataOutputStream.close();
+            } catch (Exception unused5) {
             }
-            if (dataOutputStream != null) {
-            }
-            throw th;
-        }
-        try {
-            dataOutputStream.close();
-        } catch (Exception unused5) {
             return bArr2;
         }
+        return (byte[]) invokeL.objValue;
     }
 
     public static String a(int i2) {

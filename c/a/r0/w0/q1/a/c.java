@@ -37,10 +37,10 @@ public class c extends c.a.e.l.e.a<c.a.r0.w0.q1.c.c, ForumRuleDetailItemVH> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f27584e;
+        public final /* synthetic */ int f27604e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f27585f;
+        public final /* synthetic */ c f27605f;
 
         public a(c cVar, int i2) {
             Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public class c extends c.a.e.l.e.a<c.a.r0.w0.q1.c.c, ForumRuleDetailItemVH> {
                     return;
                 }
             }
-            this.f27585f = cVar;
-            this.f27584e = i2;
+            this.f27605f = cVar;
+            this.f27604e = i2;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -66,14 +66,14 @@ public class c extends c.a.e.l.e.a<c.a.r0.w0.q1.c.c, ForumRuleDetailItemVH> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (this.f27585f.o != null) {
-                    n nVar = (n) this.f27585f.o.get(this.f27584e);
+                if (this.f27605f.o != null) {
+                    n nVar = (n) this.f27605f.o.get(this.f27604e);
                     if (nVar instanceof c.a.r0.w0.q1.c.c) {
-                        TbRichText parser = TbRichTextView.parser(this.f27585f.m, ((c.a.r0.w0.q1.c.c) nVar).c(), false);
-                        ClipboardManager clipboardManager = (ClipboardManager) this.f27585f.m.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+                        TbRichText parser = TbRichTextView.parser(this.f27605f.m, ((c.a.r0.w0.q1.c.c) nVar).c(), false);
+                        ClipboardManager clipboardManager = (ClipboardManager) this.f27605f.m.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
                         clipboardManager.setText(parser.toString());
                         if (clipboardManager.getText() != null) {
-                            l.L(this.f27585f.m, R.string.forum_rules_copy_clip);
+                            l.L(this.f27605f.m, R.string.forum_rules_copy_clip);
                         }
                     }
                 }

@@ -19,7 +19,7 @@ public class AsyncTaskExecutor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ThreadPoolExecutor f76971a;
+    public static final ThreadPoolExecutor f77290a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class AsyncTaskExecutor {
                 return;
             }
         }
-        f76971a = new ThreadPoolExecutor(3, 3, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
+        f77290a = new ThreadPoolExecutor(3, 3, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
     }
 
     public AsyncTaskExecutor() {
@@ -63,7 +63,7 @@ public class AsyncTaskExecutor {
         if (!(interceptable == null || interceptable.invokeL(65539, null, runnable) == null) || runnable == null) {
             return;
         }
-        f76971a.execute(runnable);
+        f77290a.execute(runnable);
     }
 
     public static void runOnMainThread(Runnable runnable) {
@@ -77,9 +77,9 @@ public class AsyncTaskExecutor {
     public static void shutDown() {
         ThreadPoolExecutor threadPoolExecutor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) || (threadPoolExecutor = f76971a) == null || threadPoolExecutor.isShutdown() || f76971a.isTerminating()) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) || (threadPoolExecutor = f77290a) == null || threadPoolExecutor.isShutdown() || f77290a.isTerminating()) {
             return;
         }
-        f76971a.shutdown();
+        f77290a.shutdown();
     }
 }

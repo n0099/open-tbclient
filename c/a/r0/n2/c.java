@@ -32,22 +32,22 @@ public class c extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonBarActivity f22952e;
+    public PersonBarActivity f22968e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.n2.b f22953f;
+    public c.a.r0.n2.b f22969f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<ForumData> f22954g;
+    public ArrayList<ForumData> f22970g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f22955h;
+    public boolean f22971h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f22956i;
+    public View.OnClickListener f22972i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f22957j;
+    public boolean f22973j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -66,34 +66,34 @@ public class c extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public BarImageView f22958a;
+        public BarImageView f22974a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f22959b;
+        public TextView f22975b;
 
         /* renamed from: c  reason: collision with root package name */
-        public StringBuffer f22960c;
+        public StringBuffer f22976c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f22961d;
+        public TextView f22977d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f22962e;
+        public TextView f22978e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ImageView f22963f;
+        public ImageView f22979f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f22964g;
+        public TextView f22980g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f22965h;
+        public TextView f22981h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TextView f22966i;
+        public TextView f22982i;
 
         /* renamed from: j  reason: collision with root package name */
-        public Button f22967j;
+        public Button f22983j;
         public ImageView k;
         public ImageView l;
         public ImageView m;
@@ -134,16 +134,16 @@ public class c extends BaseAdapter {
                 return;
             }
         }
-        this.f22953f = null;
-        this.f22954g = null;
-        this.f22955h = false;
-        this.f22956i = null;
-        this.f22957j = false;
+        this.f22969f = null;
+        this.f22970g = null;
+        this.f22971h = false;
+        this.f22972i = null;
+        this.f22973j = false;
         this.k = true;
         this.l = false;
         this.m = true;
-        this.f22952e = personBarActivity;
-        this.f22953f = bVar;
+        this.f22968e = personBarActivity;
+        this.f22969f = bVar;
         this.k = z;
         this.l = z2;
         this.m = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
@@ -152,18 +152,18 @@ public class c extends BaseAdapter {
     public final void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f22952e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f22952e.getLayoutMode().j(view);
+            this.f22968e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.f22968e.getLayoutMode().j(view);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f22957j = false;
-            ArrayList<ForumData> arrayList = this.f22954g;
+            this.f22973j = false;
+            ArrayList<ForumData> arrayList = this.f22970g;
             if (arrayList == null || arrayList.size() == 0) {
-                this.f22957j = true;
+                this.f22973j = true;
             }
         }
     }
@@ -171,26 +171,26 @@ public class c extends BaseAdapter {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22955h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22971h : invokeV.booleanValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22957j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22973j : invokeV.booleanValue;
     }
 
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f22956i = onClickListener;
+            this.f22972i = onClickListener;
         }
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f22955h = z;
+            this.f22971h = z;
             notifyDataSetChanged();
         }
     }
@@ -198,7 +198,7 @@ public class c extends BaseAdapter {
     public void g(ArrayList<ForumData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
-            this.f22954g = arrayList;
+            this.f22970g = arrayList;
         }
     }
 
@@ -207,10 +207,10 @@ public class c extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f22957j) {
+            if (this.f22973j) {
                 return 1;
             }
-            ArrayList<ForumData> arrayList = this.f22954g;
+            ArrayList<ForumData> arrayList = this.f22970g;
             if (arrayList != null) {
                 return arrayList.size();
             }
@@ -224,11 +224,11 @@ public class c extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            ArrayList<ForumData> arrayList = this.f22954g;
+            ArrayList<ForumData> arrayList = this.f22970g;
             if (arrayList == null || i2 < 0 || i2 >= arrayList.size()) {
                 return null;
             }
-            return this.f22954g.get(i2);
+            return this.f22970g.get(i2);
         }
         return invokeI.objValue;
     }
@@ -249,23 +249,23 @@ public class c extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i2, view, viewGroup)) == null) {
             try {
                 if (view == null) {
-                    view = LayoutInflater.from(this.f22952e.getPageContext().getContext()).inflate(R.layout.edit_bar_item, (ViewGroup) null);
+                    view = LayoutInflater.from(this.f22968e.getPageContext().getContext()).inflate(R.layout.edit_bar_item, (ViewGroup) null);
                     bVar = new b(this, null);
                     BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
-                    bVar.f22958a = barImageView;
+                    bVar.f22974a = barImageView;
                     barImageView.setGifIconSupport(false);
-                    bVar.f22958a.setRadius(l.g(this.f22952e, R.dimen.tbds10));
-                    bVar.f22958a.setConrers(15);
-                    bVar.f22958a.setPlaceHolder(2);
-                    bVar.f22959b = (TextView) view.findViewById(R.id.name);
-                    bVar.f22960c = new StringBuffer(10);
-                    bVar.f22961d = (TextView) view.findViewById(R.id.degree);
-                    bVar.f22962e = (TextView) view.findViewById(R.id.degree_text);
-                    bVar.f22966i = (TextView) view.findViewById(R.id.experience);
-                    bVar.f22964g = (TextView) view.findViewById(R.id.experience_title);
-                    bVar.f22967j = (Button) view.findViewById(R.id.item_delete);
-                    bVar.f22963f = (ImageView) view.findViewById(R.id.degree_text_ta);
-                    bVar.f22965h = (TextView) view.findViewById(R.id.intro_ta);
+                    bVar.f22974a.setRadius(l.g(this.f22968e, R.dimen.tbds10));
+                    bVar.f22974a.setConrers(15);
+                    bVar.f22974a.setPlaceHolder(2);
+                    bVar.f22975b = (TextView) view.findViewById(R.id.name);
+                    bVar.f22976c = new StringBuffer(10);
+                    bVar.f22977d = (TextView) view.findViewById(R.id.degree);
+                    bVar.f22978e = (TextView) view.findViewById(R.id.degree_text);
+                    bVar.f22982i = (TextView) view.findViewById(R.id.experience);
+                    bVar.f22980g = (TextView) view.findViewById(R.id.experience_title);
+                    bVar.f22983j = (Button) view.findViewById(R.id.item_delete);
+                    bVar.f22979f = (ImageView) view.findViewById(R.id.degree_text_ta);
+                    bVar.f22981h = (TextView) view.findViewById(R.id.intro_ta);
                     bVar.k = (ImageView) view.findViewById(R.id.item_talk);
                     ImageView imageView = (ImageView) view.findViewById(R.id.diver_buttom_px);
                     bVar.l = imageView;
@@ -275,87 +275,87 @@ public class c extends BaseAdapter {
                 } else {
                     bVar = (b) view.getTag();
                 }
-                if (this.f22957j) {
-                    bVar.f22961d.setVisibility(8);
-                    bVar.f22967j.setVisibility(8);
-                    bVar.f22959b.setVisibility(8);
-                    bVar.f22958a.setVisibility(8);
-                    bVar.f22962e.setVisibility(8);
-                    bVar.f22966i.setVisibility(8);
-                    bVar.f22964g.setVisibility(8);
-                    bVar.f22963f.setVisibility(8);
-                    bVar.f22965h.setVisibility(8);
+                if (this.f22973j) {
+                    bVar.f22977d.setVisibility(8);
+                    bVar.f22983j.setVisibility(8);
+                    bVar.f22975b.setVisibility(8);
+                    bVar.f22974a.setVisibility(8);
+                    bVar.f22978e.setVisibility(8);
+                    bVar.f22982i.setVisibility(8);
+                    bVar.f22980g.setVisibility(8);
+                    bVar.f22979f.setVisibility(8);
+                    bVar.f22981h.setVisibility(8);
                     bVar.k.setVisibility(8);
                     bVar.l.setVisibility(8);
                 } else {
-                    bVar.f22959b.setVisibility(0);
-                    bVar.f22958a.setVisibility(0);
+                    bVar.f22975b.setVisibility(0);
+                    bVar.f22974a.setVisibility(0);
                     if (this.k) {
-                        bVar.f22961d.setVisibility(8);
-                        bVar.f22962e.setVisibility(8);
-                        bVar.f22966i.setVisibility(0);
-                        bVar.f22964g.setVisibility(0);
-                        bVar.f22963f.setVisibility(0);
-                        bVar.f22965h.setVisibility(8);
+                        bVar.f22977d.setVisibility(8);
+                        bVar.f22978e.setVisibility(8);
+                        bVar.f22982i.setVisibility(0);
+                        bVar.f22980g.setVisibility(0);
+                        bVar.f22979f.setVisibility(0);
+                        bVar.f22981h.setVisibility(8);
                         bVar.l.setVisibility(0);
                     } else {
-                        bVar.f22961d.setVisibility(8);
-                        bVar.f22962e.setVisibility(8);
-                        bVar.f22966i.setVisibility(8);
-                        bVar.f22964g.setVisibility(8);
-                        bVar.f22963f.setVisibility(0);
-                        bVar.f22965h.setVisibility(0);
+                        bVar.f22977d.setVisibility(8);
+                        bVar.f22978e.setVisibility(8);
+                        bVar.f22982i.setVisibility(8);
+                        bVar.f22980g.setVisibility(8);
+                        bVar.f22979f.setVisibility(0);
+                        bVar.f22981h.setVisibility(0);
                         bVar.l.setVisibility(0);
                     }
                 }
-                if (this.f22954g != null && i2 >= 0 && i2 < this.f22954g.size() && (forumData = this.f22954g.get(i2)) != null) {
+                if (this.f22970g != null && i2 >= 0 && i2 < this.f22970g.size() && (forumData = this.f22970g.get(i2)) != null) {
                     String image_url = forumData.getImage_url();
-                    bVar.f22958a.setTag(image_url);
-                    bVar.f22958a.setImageDrawable(null);
-                    bVar.f22958a.startLoad(image_url, 10, false);
-                    bVar.f22960c.delete(0, bVar.f22960c.length());
-                    bVar.f22960c.append(forumData.getName());
-                    bVar.f22960c.append(this.f22952e.getPageContext().getString(R.string.forum));
-                    bVar.f22959b.setText(bVar.f22960c);
+                    bVar.f22974a.setTag(image_url);
+                    bVar.f22974a.setImageDrawable(null);
+                    bVar.f22974a.startLoad(image_url, 10, false);
+                    bVar.f22976c.delete(0, bVar.f22976c.length());
+                    bVar.f22976c.append(forumData.getName());
+                    bVar.f22976c.append(this.f22968e.getPageContext().getString(R.string.forum));
+                    bVar.f22975b.setText(bVar.f22976c);
                     if (this.k) {
-                        SkinManager.setImageResource(bVar.f22963f, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
-                        bVar.f22966i.setText(String.format(this.f22952e.getPageContext().getString(R.string.sign_point_new), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
-                        bVar.f22967j.setOnClickListener(this.f22956i);
-                        bVar.f22967j.setTag(Integer.valueOf(i2));
-                        if (i2 < this.f22953f.k()) {
-                            bVar.f22959b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_v), (Drawable) null);
+                        SkinManager.setImageResource(bVar.f22979f, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
+                        bVar.f22982i.setText(String.format(this.f22968e.getPageContext().getString(R.string.sign_point_new), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
+                        bVar.f22983j.setOnClickListener(this.f22972i);
+                        bVar.f22983j.setTag(Integer.valueOf(i2));
+                        if (i2 < this.f22969f.k()) {
+                            bVar.f22975b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_v), (Drawable) null);
                             if (!this.l && this.m) {
                                 bVar.k.setVisibility(0);
                                 bVar.k.setTag(Integer.valueOf(i2));
                             }
                         } else {
-                            bVar.f22959b.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                            bVar.f22975b.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                             bVar.k.setVisibility(8);
                         }
                         bVar.k.setOnClickListener(this.n);
                         bVar.m.setVisibility(8);
-                        if (this.l && this.f22952e.getRequestCode() == 23011 && !TextUtils.isEmpty(forumData.getId()) && forumData.getId().equals(this.o)) {
+                        if (this.l && this.f22968e.getRequestCode() == 23011 && !TextUtils.isEmpty(forumData.getId()) && forumData.getId().equals(this.o)) {
                             bVar.m.setVisibility(0);
                         }
                     } else {
-                        if ((this.f22952e.getCurrentPageType() == 0 && i2 < this.f22953f.k()) || (this.f22952e.getCurrentPageType() == 1 && i2 < this.f22953f.g())) {
-                            bVar.f22959b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_v), (Drawable) null);
+                        if ((this.f22968e.getCurrentPageType() == 0 && i2 < this.f22969f.k()) || (this.f22968e.getCurrentPageType() == 1 && i2 < this.f22969f.g())) {
+                            bVar.f22975b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_v), (Drawable) null);
                         } else {
-                            bVar.f22959b.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                            bVar.f22975b.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                         }
-                        if (this.f22952e.getCurrentPageType() == 1) {
-                            bVar.f22963f.setVisibility(8);
+                        if (this.f22968e.getCurrentPageType() == 1) {
+                            bVar.f22979f.setVisibility(8);
                         }
                         bVar.k.setVisibility(8);
-                        SkinManager.setImageResource(bVar.f22963f, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
-                        bVar.f22965h.setText(forumData.getSlogan());
+                        SkinManager.setImageResource(bVar.f22979f, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
+                        bVar.f22981h.setText(forumData.getSlogan());
                     }
-                    if (this.f22955h) {
-                        bVar.f22967j.setVisibility(0);
+                    if (this.f22971h) {
+                        bVar.f22983j.setVisibility(0);
                         bVar.k.setVisibility(8);
                     } else {
-                        bVar.f22967j.setVisibility(8);
-                        if (i2 < this.f22953f.k() && this.k && !this.l && this.m) {
+                        bVar.f22983j.setVisibility(8);
+                        if (i2 < this.f22969f.k() && this.k && !this.l && this.m) {
                             bVar.k.setVisibility(0);
                         } else {
                             bVar.k.setVisibility(8);
@@ -390,7 +390,7 @@ public class c extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            if (this.f22957j) {
+            if (this.f22973j) {
                 return false;
             }
             return super.isEnabled(i2);

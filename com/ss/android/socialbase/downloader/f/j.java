@@ -12,7 +12,7 @@ public class j extends BaseException {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f75909a;
+    public int f76228a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(int i2, String str) {
@@ -33,6 +33,6 @@ public class j extends BaseException {
                 return;
             }
         }
-        this.f75909a = i2;
+        this.f76228a = i2;
     }
 }

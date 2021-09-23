@@ -16,14 +16,14 @@ public class m implements b<a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6125c;
+    public static final boolean f6133c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile Boolean f6126a;
+    public volatile Boolean f6134a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile b<a> f6127b;
+    public volatile b<a> f6135b;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class m implements b<a> {
                 return;
             }
         }
-        f6125c = c.a.p0.a.k.f7077a;
+        f6133c = c.a.p0.a.k.f7085a;
     }
 
     public m() {
@@ -54,7 +54,7 @@ public class m implements b<a> {
                 return;
             }
         }
-        this.f6126a = null;
+        this.f6134a = null;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: c.a.p0.a.h0.l.g.d<c.a.p0.a.h0.l.g.a> */
@@ -132,17 +132,17 @@ public class m implements b<a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f6127b == null) {
+            if (this.f6135b == null) {
                 synchronized (this) {
-                    if (this.f6127b == null) {
-                        this.f6127b = m() ? new c.a.p0.a.h0.l.g.o.c() : new l();
-                        if (f6125c) {
-                            String str = "provider - " + this.f6127b.getClass().getSimpleName();
+                    if (this.f6135b == null) {
+                        this.f6135b = m() ? new c.a.p0.a.h0.l.g.o.c() : new l();
+                        if (f6133c) {
+                            String str = "provider - " + this.f6135b.getClass().getSimpleName();
                         }
                     }
                 }
             }
-            return this.f6127b;
+            return this.f6135b;
         }
         return (b) invokeV.objValue;
     }
@@ -151,14 +151,14 @@ public class m implements b<a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f6126a == null) {
-                this.f6126a = Boolean.valueOf(c.a.p0.a.h0.o.e.a.j() > 0 && c.a.p0.a.h0.o.e.a.g());
+            if (this.f6134a == null) {
+                this.f6134a = Boolean.valueOf(c.a.p0.a.h0.o.e.a.j() > 0 && c.a.p0.a.h0.o.e.a.g());
             }
-            if (f6125c) {
+            if (f6133c) {
                 String str = "loaded swan core version - " + c.a.p0.a.h0.u.g.N().V();
-                String str2 = "use multi preload - " + this.f6126a;
+                String str2 = "use multi preload - " + this.f6134a;
             }
-            return this.f6126a.booleanValue();
+            return this.f6134a.booleanValue();
         }
         return invokeV.booleanValue;
     }
@@ -178,8 +178,8 @@ public class m implements b<a> {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             l().reset();
             synchronized (this) {
-                this.f6126a = null;
-                this.f6127b = null;
+                this.f6134a = null;
+                this.f6135b = null;
             }
         }
     }

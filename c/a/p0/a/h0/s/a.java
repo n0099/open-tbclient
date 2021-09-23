@@ -26,16 +26,16 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6411a;
+    public static final boolean f6419a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f6412b;
+    public static final String f6420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f6413c;
+    public static final String f6421c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f6414d;
+    public static final String f6422d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,14 +51,14 @@ public class a {
                 return;
             }
         }
-        f6411a = k.f7077a;
-        f6412b = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+        f6419a = k.f7085a;
+        f6420b = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
         StringBuilder sb = new StringBuilder();
         sb.append(AppRuntime.getAppContext().getFilesDir().getAbsolutePath());
         sb.append(File.separator);
         sb.append("libs");
-        f6413c = sb.toString();
-        f6414d = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+        f6421c = sb.toString();
+        f6422d = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
     }
 
     /* JADX WARN: Removed duplicated region for block: B:100:0x011e A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -74,23 +74,23 @@ public class a {
         if (interceptable != null && interceptable.invokeV(65537, null) != null) {
             return;
         }
-        boolean z = f6411a;
-        File file = new File(f6412b + File.separator + GlobalConstants.LIB_ZEUS_V8);
+        boolean z = f6419a;
+        File file = new File(f6420b + File.separator + GlobalConstants.LIB_ZEUS_V8);
         if (file.exists() && file.length() > 0) {
-            File file2 = new File(f6413c);
+            File file2 = new File(f6421c);
             if (!file2.exists()) {
                 file2.mkdirs();
             }
             File file3 = new File(file2, GlobalConstants.LIB_ZEUS_V8);
             long j2 = h.a().getLong("zeus_v8_modified_time", -1L);
             if (file.lastModified() == j2 && file.length() == file3.length()) {
-                if (f6411a) {
+                if (f6419a) {
                     String str = "fixSoLoadCrash: srcModifiedTime=" + file.lastModified() + ";savedModifiedTime=" + j2 + ";srcFileLength=" + file.length() + ";destFileLength=" + file3.length();
                     return;
                 }
                 return;
             }
-            boolean z2 = f6411a;
+            boolean z2 = f6419a;
             FileInputStream fileInputStream = null;
             try {
                 File file4 = new File(file2, "libzeusv8.so.lock");
@@ -223,7 +223,7 @@ public class a {
                 fileLock = null;
             }
         } else {
-            boolean z3 = f6411a;
+            boolean z3 = f6419a;
         }
     }
 
@@ -243,10 +243,10 @@ public class a {
             boolean z2 = true;
             if (b()) {
                 a();
-                d.g(AppRuntime.getAppContext(), f6412b);
-                boolean h2 = d.h("zeusv8", f6413c, true);
-                if (new File(f6412b + File.separator + "libv8.engine.so").exists()) {
-                    if (!d.h("arcore_sdk_c", f6412b, false) || !d.h("arcore_sdk_jni", f6412b, false) || !d.h("c++_shared", f6412b, false) || !d.h("v8.engine", f6412b, false)) {
+                d.g(AppRuntime.getAppContext(), f6420b);
+                boolean h2 = d.h("zeusv8", f6421c, true);
+                if (new File(f6420b + File.separator + "libv8.engine.so").exists()) {
+                    if (!d.h("arcore_sdk_c", f6420b, false) || !d.h("arcore_sdk_jni", f6420b, false) || !d.h("c++_shared", f6420b, false) || !d.h("v8.engine", f6420b, false)) {
                         z2 = false;
                     }
                 } else {
@@ -254,8 +254,8 @@ public class a {
                 }
                 return f.d(h2, z2);
             }
-            d.h("zeusv8", f6414d, true);
-            return f.c(d.h("v8.engine", f6414d, true));
+            d.h("zeusv8", f6422d, true);
+            return f.c(d.h("v8.engine", f6422d, true));
         }
         return (f) invokeZ.objValue;
     }
@@ -264,7 +264,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             h.a().putLong("zeus_v8_modified_time", -1L);
-            boolean z = f6411a;
+            boolean z = f6419a;
         }
     }
 }

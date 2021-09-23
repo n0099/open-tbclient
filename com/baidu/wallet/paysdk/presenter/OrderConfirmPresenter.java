@@ -294,7 +294,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OrderConfirmPresenter f62657a;
+                public final /* synthetic */ OrderConfirmPresenter f62955a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -311,14 +311,14 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                             return;
                         }
                     }
-                    this.f62657a = this;
+                    this.f62955a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f62657a.getViewData();
+                        this.f62955a.getViewData();
                     }
                 }
             }, 800L);
@@ -420,7 +420,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OrderConfirmPresenter f62656a;
+                public final /* synthetic */ OrderConfirmPresenter f62954a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -437,32 +437,33 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                             return;
                         }
                     }
-                    this.f62656a = this;
+                    this.f62954a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.fingerprint.b
                 public void a(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                        StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_CHECK_FINGERPRINT_DURATION, null, new String[0]);
                         if (i2 == 0) {
                             StatHelper.cacheCodeAndMsg(i2 + "", StatHelper.SENSOR_OK);
                         } else {
                             StatHelper.cacheCodeAndMsg(i2 + "", str);
                         }
                         if (i2 == 0) {
-                            StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_CHECK_FINGERPRINT_DURATION, null, new String[0]);
-                            this.f62656a.onFpCheckSucces(str);
+                            this.f62954a.onFpCheckSucces(str);
                         } else if (i2 == -5) {
-                            this.f62656a.onFpCheckError();
+                            this.f62954a.onFpCheckError();
                         } else if (i2 == -3) {
-                            this.f62656a.gotoPayUsePwd(true, str);
+                            this.f62954a.gotoPayUsePwd(true, str);
                         } else if (i2 == -1) {
-                            StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_CHECK_FINGERPRINT_DURATION, null, new String[0]);
-                            this.f62656a.changePwdMode();
+                            this.f62954a.changePwdMode();
                         } else if (i2 == -4 || i2 == -6) {
-                            this.f62656a.gotoPayUsePwd(true, str);
+                            this.f62954a.gotoPayUsePwd(true, str);
+                        } else if (i2 == -7) {
+                            this.f62954a.gotoPayUsePwd(true, str);
                         } else if (i2 == -2) {
-                            this.f62656a.gotoPayUsePwd(true, "");
+                            this.f62954a.gotoPayUsePwd(true, "");
                         }
                     }
                 }

@@ -27,7 +27,7 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 import com.google.protobuf.CodedInputStream;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(24)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class InstallActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BOX_SIZE_DP = 280;
@@ -58,7 +58,7 @@ public class InstallActivity extends Activity {
             }
         }
         this.themeWrapper = new ContextThemeWrapper(this, 16974394);
-        this.lastEvent = p.f70264b;
+        this.lastEvent = p.f70583b;
     }
 
     /* JADX DEBUG: Marked for inline */
@@ -117,7 +117,7 @@ public class InstallActivity extends Activity {
     public void finishWithFailure(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, exc) == null) {
-            c.i.c.a.f.d().f34113a = exc;
+            c.i.c.a.f.d().f34136a = exc;
             c.i.c.a.f.d().g();
             this.finished = true;
             super.finish();
@@ -181,7 +181,7 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             this.installStarted = true;
-            this.lastEvent = p.f70264b;
+            this.lastEvent = p.f70583b;
             c.i.c.a.f.d().e(this).c(this, new m(this));
         }
     }
@@ -274,12 +274,12 @@ public class InstallActivity extends Activity {
             } else if (this.finished) {
             } else {
                 synchronized (this) {
-                    if (this.lastEvent == p.f70264b) {
+                    if (this.lastEvent == p.f70583b) {
                         finish();
-                    } else if (this.lastEvent == p.f70263a) {
+                    } else if (this.lastEvent == p.f70582a) {
                         this.waitingForCompletion = true;
                     } else {
-                        finishWithFailure(c.i.c.a.f.d().f34113a);
+                        finishWithFailure(c.i.c.a.f.d().f34136a);
                     }
                 }
             }

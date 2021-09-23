@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.json.JSONException;
@@ -23,7 +24,7 @@ public class b extends c.a.p0.h.z.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.a.l0.c f11637b;
+    public c.a.p0.a.l0.c f11645b;
 
     /* loaded from: classes3.dex */
     public class a extends ResponseCallback<c.a.p0.h.z.g.a> {
@@ -31,13 +32,13 @@ public class b extends c.a.p0.h.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.h.z.g.c f11638a;
+        public final /* synthetic */ c.a.p0.h.z.g.c f11646a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.y.b.a f11639b;
+        public final /* synthetic */ c.a.p0.a.y.b.a f11647b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f11640c;
+        public final /* synthetic */ b f11648c;
 
         /* renamed from: c.a.p0.h.z.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
@@ -46,10 +47,10 @@ public class b extends c.a.p0.h.z.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.p0.h.z.g.a f11641e;
+            public final /* synthetic */ c.a.p0.h.z.g.a f11649e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f11642f;
+            public final /* synthetic */ a f11650f;
 
             public RunnableC0605a(a aVar, c.a.p0.h.z.g.a aVar2) {
                 Interceptable interceptable = $ic;
@@ -66,15 +67,15 @@ public class b extends c.a.p0.h.z.a {
                         return;
                     }
                 }
-                this.f11642f = aVar;
-                this.f11641e = aVar2;
+                this.f11650f = aVar;
+                this.f11649e = aVar2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.p0.h.m0.c.a(this.f11642f.f11639b, true, this.f11641e);
+                    c.a.p0.h.m0.c.a(this.f11650f.f11647b, true, this.f11649e);
                 }
             }
         }
@@ -86,7 +87,7 @@ public class b extends c.a.p0.h.z.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f11643e;
+            public final /* synthetic */ a f11651e;
 
             public RunnableC0606b(a aVar) {
                 Interceptable interceptable = $ic;
@@ -103,15 +104,15 @@ public class b extends c.a.p0.h.z.a {
                         return;
                     }
                 }
-                this.f11643e = aVar;
+                this.f11651e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.f11643e;
-                    c.a.p0.h.m0.c.a(aVar.f11639b, false, aVar.f11638a);
+                    a aVar = this.f11651e;
+                    c.a.p0.h.m0.c.a(aVar.f11647b, false, aVar.f11646a);
                 }
             }
         }
@@ -131,9 +132,9 @@ public class b extends c.a.p0.h.z.a {
                     return;
                 }
             }
-            this.f11640c = bVar;
-            this.f11638a = cVar;
-            this.f11639b = aVar;
+            this.f11648c = bVar;
+            this.f11646a = cVar;
+            this.f11647b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -142,8 +143,8 @@ public class b extends c.a.p0.h.z.a {
         public void onSuccess(c.a.p0.h.z.g.a aVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) {
-                boolean z = c.a.p0.h.z.a.f11636a;
-                this.f11640c.f11637b.post(new RunnableC0605a(this, aVar));
+                boolean z = c.a.p0.h.z.a.f11644a;
+                this.f11648c.f11645b.post(new RunnableC0605a(this, aVar));
             }
         }
 
@@ -159,16 +160,16 @@ public class b extends c.a.p0.h.z.a {
                     return null;
                 }
                 String string = body.string();
-                if (c.a.p0.h.z.a.f11636a) {
+                if (c.a.p0.h.z.a.f11644a) {
                     String str = "parse response: " + string;
                 }
                 JSONObject jSONObject = new JSONObject(string);
                 String optString = jSONObject.optString("errno");
                 if (!TextUtils.equals(optString, "0")) {
-                    if (c.a.p0.h.z.a.f11636a) {
+                    if (c.a.p0.h.z.a.f11644a) {
                         String str2 = "errno = " + optString;
                     }
-                    c.a.p0.h.z.g.c cVar = this.f11638a;
+                    c.a.p0.h.z.g.c cVar = this.f11646a;
                     cVar.errNo = optString;
                     cVar.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", jSONObject.optString("errmsg"));
                     return null;
@@ -177,7 +178,7 @@ public class b extends c.a.p0.h.z.a {
                 c.a.p0.h.z.g.a aVar = new c.a.p0.h.z.g.a();
                 aVar.result = !TextUtils.equals(optString2, "0");
                 aVar.errNo = "0";
-                aVar.errMsg = c.a.p0.h.m0.c.c("checkIsUserAdvisedToRest", "ok");
+                aVar.errMsg = c.a.p0.h.m0.c.c("checkIsUserAdvisedToRest", NewBindCardEntry.BING_CARD_SUCCESS_MSG);
                 return aVar;
             }
             return (c.a.p0.h.z.g.a) invokeLI.objValue;
@@ -187,13 +188,13 @@ public class b extends c.a.p0.h.z.a {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                boolean z = c.a.p0.h.z.a.f11636a;
-                if (TextUtils.isEmpty(this.f11638a.errMsg)) {
-                    c.a.p0.h.z.g.c cVar = this.f11638a;
+                boolean z = c.a.p0.h.z.a.f11644a;
+                if (TextUtils.isEmpty(this.f11646a.errMsg)) {
+                    c.a.p0.h.z.g.c cVar = this.f11646a;
                     cVar.errNo = "100";
                     cVar.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", exc.getMessage());
                 }
-                this.f11640c.f11637b.post(new RunnableC0606b(this));
+                this.f11648c.f11645b.post(new RunnableC0606b(this));
             }
         }
     }
@@ -213,14 +214,14 @@ public class b extends c.a.p0.h.z.a {
                 return;
             }
         }
-        this.f11637b = cVar;
+        this.f11645b = cVar;
     }
 
     @JavascriptInterface
     public void checkIsUserAdvisedToRest(JsObject jsObject) {
         c.a.p0.a.y.b.a G;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) || (G = c.a.p0.a.y.b.a.G(jsObject)) == null || this.f11637b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) || (G = c.a.p0.a.y.b.a.G(jsObject)) == null || this.f11645b == null) {
             return;
         }
         c.a.p0.h.z.g.c cVar = new c.a.p0.h.z.g.c();
@@ -231,13 +232,13 @@ public class b extends c.a.p0.h.z.a {
                 jSONObject.put("ma_id", c.a.p0.a.a2.e.V());
                 jSONObject.put("todayPlayedTime", String.valueOf(d2));
             } catch (JSONException e2) {
-                if (c.a.p0.h.z.a.f11636a) {
+                if (c.a.p0.h.z.a.f11644a) {
                     e2.printStackTrace();
                 }
             }
             a(c.a.p0.h.t.a.b().e(), jSONObject.toString(), new a(this, cVar, G));
         } catch (JSTypeMismatchException e3) {
-            if (c.a.p0.h.z.a.f11636a) {
+            if (c.a.p0.h.z.a.f11644a) {
                 e3.printStackTrace();
             }
             cVar.errNo = FontParser.sFontWeightDefault;

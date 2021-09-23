@@ -22,11 +22,11 @@ public class h extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f8160b;
+    public static final boolean f8168b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f8161a;
+    public final File f8169a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class h extends RequestBody {
                 return;
             }
         }
-        f8160b = k.f7077a;
+        f8168b = k.f7085a;
     }
 
     public h(File file) {
@@ -59,7 +59,7 @@ public class h extends RequestBody {
                 return;
             }
         }
-        this.f8161a = file;
+        this.f8169a = file;
     }
 
     public static String a(String str) {
@@ -80,24 +80,24 @@ public class h extends RequestBody {
                                 try {
                                     mediaMetadataRetriever.release();
                                 } catch (Exception e2) {
-                                    if (f8160b) {
+                                    if (f8168b) {
                                         e2.printStackTrace();
                                     }
                                 }
                             } catch (Exception e3) {
-                                if (f8160b) {
+                                if (f8168b) {
                                     e3.printStackTrace();
                                 }
                                 return "image/jpeg";
                             }
                         } catch (Exception e4) {
-                            if (f8160b) {
+                            if (f8168b) {
                                 e4.printStackTrace();
                             }
                             return "image/jpeg";
                         }
                     } catch (Exception e5) {
-                        if (f8160b) {
+                        if (f8168b) {
                             e5.printStackTrace();
                         }
                     }
@@ -113,7 +113,7 @@ public class h extends RequestBody {
                     try {
                         mediaMetadataRetriever.release();
                     } catch (Exception e6) {
-                        if (f8160b) {
+                        if (f8168b) {
                             e6.printStackTrace();
                         }
                     }
@@ -129,14 +129,14 @@ public class h extends RequestBody {
     public long contentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8161a.length() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8169a.length() : invokeV.longValue;
     }
 
     @Override // okhttp3.RequestBody
     public MediaType contentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MediaType.parse(a(this.f8161a.getPath())) : (MediaType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MediaType.parse(a(this.f8169a.getPath())) : (MediaType) invokeV.objValue;
     }
 
     @Override // okhttp3.RequestBody
@@ -145,7 +145,7 @@ public class h extends RequestBody {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
             Source source = null;
             try {
-                source = Okio.source(this.f8161a);
+                source = Okio.source(this.f8169a);
                 while (source.read(bufferedSink.buffer(), 2048L) != -1) {
                     bufferedSink.flush();
                 }

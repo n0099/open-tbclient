@@ -15,26 +15,26 @@ public abstract class d<IN, OUT> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static AtomicLong f68611d;
+    public static AtomicLong f68922d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f68612a;
+    public d f68923a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IN f68613b;
+    public IN f68924b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OUT f68614c;
+    public OUT f68925c;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.b.b.a f68615e;
+    public com.bytedance.sdk.openadsdk.preload.b.b.a f68926e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f68616f;
+    public b f68927f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f68617g;
+    public long f68928g;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public abstract class d<IN, OUT> {
                 return;
             }
         }
-        f68611d = new AtomicLong();
+        f68922d = new AtomicLong();
     }
 
     public d() {
@@ -69,10 +69,10 @@ public abstract class d<IN, OUT> {
     public final void a(b bVar, d dVar, IN in, com.bytedance.sdk.openadsdk.preload.b.b.a aVar, Object[] objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048576, this, bVar, dVar, in, aVar, objArr) == null) {
-            this.f68616f = new m(bVar);
-            this.f68612a = dVar;
-            this.f68613b = in;
-            this.f68615e = aVar;
+            this.f68927f = new m(bVar);
+            this.f68923a = dVar;
+            this.f68924b = in;
+            this.f68926e = aVar;
             a();
             a(objArr);
         }
@@ -89,73 +89,73 @@ public abstract class d<IN, OUT> {
     public final void b(Throwable th) {
         com.bytedance.sdk.openadsdk.preload.b.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, th) == null) || (aVar = this.f68615e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, th) == null) || (aVar = this.f68926e) == null) {
             return;
         }
-        aVar.c(this.f68616f, this, th);
+        aVar.c(this.f68927f, this, th);
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68617g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68928g : invokeV.longValue;
     }
 
     public final void d() {
         com.bytedance.sdk.openadsdk.preload.b.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f68615e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f68926e) == null) {
             return;
         }
-        aVar.d(this.f68616f, this);
+        aVar.d(this.f68927f, this);
     }
 
     public final void e() {
         com.bytedance.sdk.openadsdk.preload.b.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (aVar = this.f68615e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (aVar = this.f68926e) == null) {
             return;
         }
-        aVar.f(this.f68616f, this);
+        aVar.f(this.f68927f, this);
     }
 
     public final void f() {
         com.bytedance.sdk.openadsdk.preload.b.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (aVar = this.f68615e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (aVar = this.f68926e) == null) {
             return;
         }
-        aVar.e(this.f68616f, this);
+        aVar.e(this.f68927f, this);
     }
 
     public final void c(Throwable th) {
         com.bytedance.sdk.openadsdk.preload.b.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, th) == null) || (aVar = this.f68615e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, th) == null) || (aVar = this.f68926e) == null) {
             return;
         }
-        aVar.e(this.f68616f, this, th);
+        aVar.e(this.f68927f, this, th);
     }
 
     public final void d(Throwable th) {
         com.bytedance.sdk.openadsdk.preload.b.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, th) == null) || (aVar = this.f68615e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, th) == null) || (aVar = this.f68926e) == null) {
             return;
         }
-        aVar.d(this.f68616f, this, th);
+        aVar.d(this.f68927f, this, th);
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            d dVar = this.f68612a;
+            d dVar = this.f68923a;
             if (dVar != null) {
-                this.f68617g = dVar.f68617g;
+                this.f68928g = dVar.f68928g;
                 return;
             }
-            long andIncrement = f68611d.getAndIncrement();
-            this.f68617g = andIncrement;
+            long andIncrement = f68922d.getAndIncrement();
+            this.f68928g = andIncrement;
             if (andIncrement < 0) {
                 throw new RuntimeException("Pipeline ID use up!");
             }

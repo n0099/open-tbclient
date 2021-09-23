@@ -36,22 +36,22 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f20550a;
+    public static final int f20565a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.j2.n.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0974a extends ClickableSpan {
+    public static class C0972a extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20551e;
+        public final /* synthetic */ String f20566e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f20552f;
+        public final /* synthetic */ String f20567f;
 
-        public C0974a(String str, String str2) {
+        public C0972a(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,20 +66,20 @@ public class a {
                     return;
                 }
             }
-            this.f20551e = str;
-            this.f20552f = str2;
+            this.f20566e = str;
+            this.f20567f = str2;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || StringUtils.isNull(this.f20551e)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || StringUtils.isNull(this.f20566e)) {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem("c13313");
-            statisticItem.param("tid", this.f20552f);
+            statisticItem.param("tid", this.f20567f);
             TiebaStatic.log(statisticItem);
-            c.a.q0.m.a.s(TbadkCoreApplication.getInst().getApplicationContext(), false, this.f20551e);
+            c.a.q0.m.a.s(TbadkCoreApplication.getInst().getApplicationContext(), false, this.f20566e);
         }
     }
 
@@ -151,10 +151,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f20553e;
+        public int f20568e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f20554f;
+        public int f20569f;
 
         public c(int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -171,8 +171,8 @@ public class a {
                     return;
                 }
             }
-            this.f20553e = i2;
-            this.f20554f = i3;
+            this.f20568e = i2;
+            this.f20569f = i3;
         }
 
         public final TextPaint a(Paint paint) {
@@ -180,8 +180,8 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, paint)) == null) {
                 TextPaint textPaint = new TextPaint(paint);
-                textPaint.setTextSize(this.f20553e);
-                textPaint.setColor(this.f20554f);
+                textPaint.setTextSize(this.f20568e);
+                textPaint.setColor(this.f20569f);
                 return textPaint;
             }
             return (TextPaint) invokeL.objValue;
@@ -219,7 +219,7 @@ public class a {
                 return;
             }
         }
-        f20550a = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds33);
+        f20565a = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds33);
     }
 
     public static void a(Context context, TextView textView, String str, String str2, String str3) {
@@ -248,10 +248,10 @@ public class a {
         Drawable drawable = SkinManager.getDrawable(R.drawable.icon_video_pb_ad_link);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         spannableString.setSpan(new b(drawable, 0), 0, 1, 17);
-        spannableString.setSpan(new C0974a(str2, str3), 0, 1, 17);
+        spannableString.setSpan(new C0972a(str2, str3), 0, 1, 17);
         spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
         SpannableString spannableString2 = new SpannableString(" 广告");
-        spannableString2.setSpan(new c(f20550a, color), 0, 3, 17);
+        spannableString2.setSpan(new c(f20565a, color), 0, 3, 17);
         spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
         textView.setHighlightColor(0);
         textView.setText(spannableStringBuilder);

@@ -7,7 +7,7 @@ public interface a {
 
     /* renamed from: c.a.r0.f0.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0858a {
+    public interface InterfaceC0856a {
         void b(long j2);
     }
 
@@ -26,17 +26,17 @@ public interface a {
 
     boolean d();
 
-    boolean e();
+    c.a.r0.y.c.a e();
 
-    c.a.r0.y.c.a f();
-
-    c.a.r0.y.b.a g();
+    c.a.r0.y.b.a f();
 
     boolean onDestroy();
 
     boolean onPause();
 
     boolean onResume();
+
+    boolean startRecord();
 
     boolean stopRecord();
 }

@@ -14,16 +14,16 @@ public interface a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3224a;
+        public int f3225a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3225b;
+        public String f3226b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f3226c;
+        public long f3227c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f3227d;
+        public String f3228d;
 
         public C0062a() {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public interface a {
                     return;
                 }
             }
-            this.f3224a = 2;
+            this.f3225a = 2;
         }
     }
 

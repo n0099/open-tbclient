@@ -141,7 +141,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                 sendMesage(i2, B);
             }
             e eVar = new e();
-            eVar.f20841b = B;
+            eVar.f20853b = B;
             if (d2Var.L() != null) {
                 B.nid = d2Var.L().oriUgcNid;
             }

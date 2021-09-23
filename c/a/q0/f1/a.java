@@ -27,19 +27,19 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f13068e;
+    public Context f13085e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13069f;
+    public int f13086f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<String> f13070g;
+    public List<String> f13087g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f13071h;
+    public List<String> f13088h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<String> f13072i;
+    public List<String> f13089i;
 
     /* renamed from: c.a.q0.f1.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -48,13 +48,13 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f13073a;
+        public TbImageView f13090a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f13074b;
+        public TextView f13091b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f13075c;
+        public TextView f13092c;
 
         public C0651a(a aVar, View view) {
             Interceptable interceptable = $ic;
@@ -72,10 +72,10 @@ public class a extends BaseAdapter {
                 }
             }
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.bar_select_rule_head_view);
-            this.f13073a = tbImageView;
+            this.f13090a = tbImageView;
             tbImageView.setDefaultBgResource(R.color.CAM_X0206);
-            this.f13074b = (TextView) view.findViewById(R.id.bar_select_rule_title);
-            this.f13075c = (TextView) view.findViewById(R.id.bar_select_rule_content);
+            this.f13091b = (TextView) view.findViewById(R.id.bar_select_rule_title);
+            this.f13092c = (TextView) view.findViewById(R.id.bar_select_rule_content);
         }
     }
 
@@ -85,10 +85,10 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f13076a;
+        public TextView f13093a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f13077b;
+        public TextView f13094b;
 
         public b(a aVar, View view) {
             Interceptable interceptable = $ic;
@@ -105,8 +105,8 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f13076a = (TextView) view.findViewById(R.id.pb_vote_select_rule_title);
-            this.f13077b = (TextView) view.findViewById(R.id.pb_vote_select_rule_content);
+            this.f13093a = (TextView) view.findViewById(R.id.pb_vote_select_rule_title);
+            this.f13094b = (TextView) view.findViewById(R.id.pb_vote_select_rule_content);
         }
     }
 
@@ -125,11 +125,11 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f13069f = 0;
-        this.f13068e = context;
-        this.f13070g = new ArrayList();
-        this.f13071h = new ArrayList();
-        this.f13072i = new ArrayList();
+        this.f13086f = 0;
+        this.f13085e = context;
+        this.f13087g = new ArrayList();
+        this.f13088h = new ArrayList();
+        this.f13089i = new ArrayList();
     }
 
     public void a(C0651a c0651a) {
@@ -137,8 +137,8 @@ public class a extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, c0651a) == null) || c0651a == null) {
             return;
         }
-        SkinManager.setViewTextColor(c0651a.f13074b, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(c0651a.f13075c, R.color.CAM_X0109, 1);
+        SkinManager.setViewTextColor(c0651a.f13091b, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(c0651a.f13092c, R.color.CAM_X0109, 1);
     }
 
     public void b(b bVar) {
@@ -146,18 +146,18 @@ public class a extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || bVar == null) {
             return;
         }
-        SkinManager.setViewTextColor(bVar.f13076a, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(bVar.f13077b, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(bVar.f13093a, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(bVar.f13094b, R.color.CAM_X0109);
     }
 
     public void c(List<String> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, list2) == null) {
-            this.f13071h.clear();
-            this.f13072i.clear();
+            this.f13088h.clear();
+            this.f13089i.clear();
             if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
-                this.f13071h.addAll(list);
-                this.f13072i.addAll(list2);
+                this.f13088h.addAll(list);
+                this.f13089i.addAll(list2);
             }
             notifyDataSetChanged();
         }
@@ -166,9 +166,9 @@ public class a extends BaseAdapter {
     public void d(List<String> list, List<String> list2, List<String> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, list, list2, list3) == null) {
-            this.f13070g.clear();
+            this.f13087g.clear();
             if (!ListUtils.isEmpty(list)) {
-                this.f13070g.addAll(list);
+                this.f13087g.addAll(list);
             }
             c(list2, list3);
         }
@@ -177,7 +177,7 @@ public class a extends BaseAdapter {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f13069f = i2;
+            this.f13086f = i2;
         }
     }
 
@@ -186,10 +186,10 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (ListUtils.isEmpty(this.f13071h)) {
+            if (ListUtils.isEmpty(this.f13088h)) {
                 return 0;
             }
-            return this.f13071h.size();
+            return this.f13088h.size();
         }
         return invokeV.intValue;
     }
@@ -226,44 +226,44 @@ public class a extends BaseAdapter {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i2, view, viewGroup)) == null) {
-            int i3 = this.f13069f;
+            int i3 = this.f13086f;
             if (i3 == 0) {
-                view = LayoutInflater.from(this.f13068e).inflate(R.layout.pb_vote_select_rule_item, (ViewGroup) null, false);
+                view = LayoutInflater.from(this.f13085e).inflate(R.layout.pb_vote_select_rule_item, (ViewGroup) null, false);
                 b bVar = new b(this, view);
-                if (!ListUtils.isEmpty(this.f13071h) && this.f13071h.size() > i2 && !TextUtils.isEmpty(this.f13071h.get(i2))) {
-                    bVar.f13076a.setText(this.f13071h.get(i2));
-                    bVar.f13076a.setVisibility(0);
+                if (!ListUtils.isEmpty(this.f13088h) && this.f13088h.size() > i2 && !TextUtils.isEmpty(this.f13088h.get(i2))) {
+                    bVar.f13093a.setText(this.f13088h.get(i2));
+                    bVar.f13093a.setVisibility(0);
                 } else {
-                    bVar.f13076a.setVisibility(8);
+                    bVar.f13093a.setVisibility(8);
                 }
-                if (!ListUtils.isEmpty(this.f13072i) && this.f13072i.size() > i2 && !TextUtils.isEmpty(this.f13072i.get(i2))) {
-                    bVar.f13077b.setText(this.f13072i.get(i2));
-                    bVar.f13077b.setVisibility(0);
+                if (!ListUtils.isEmpty(this.f13089i) && this.f13089i.size() > i2 && !TextUtils.isEmpty(this.f13089i.get(i2))) {
+                    bVar.f13094b.setText(this.f13089i.get(i2));
+                    bVar.f13094b.setVisibility(0);
                 } else {
-                    bVar.f13077b.setVisibility(8);
+                    bVar.f13094b.setVisibility(8);
                 }
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
                 layoutParams.weight = 1.0f;
                 view.setLayoutParams(layoutParams);
                 b(bVar);
             } else if (i3 == 1) {
-                view = LayoutInflater.from(this.f13068e).inflate(R.layout.bar_select_rule_item, (ViewGroup) null, false);
+                view = LayoutInflater.from(this.f13085e).inflate(R.layout.bar_select_rule_item, (ViewGroup) null, false);
                 C0651a c0651a = new C0651a(this, view);
-                if (!ListUtils.isEmpty(this.f13070g) && this.f13070g.size() > i2 && !TextUtils.isEmpty(this.f13070g.get(i2))) {
-                    c0651a.f13073a.setDefaultResource(R.drawable.transparent_bg);
-                    c0651a.f13073a.startLoad(this.f13070g.get(i2), 10, false);
+                if (!ListUtils.isEmpty(this.f13087g) && this.f13087g.size() > i2 && !TextUtils.isEmpty(this.f13087g.get(i2))) {
+                    c0651a.f13090a.setDefaultResource(R.drawable.transparent_bg);
+                    c0651a.f13090a.startLoad(this.f13087g.get(i2), 10, false);
                 }
-                if (!ListUtils.isEmpty(this.f13071h) && this.f13071h.size() > i2 && !TextUtils.isEmpty(this.f13071h.get(i2))) {
-                    c0651a.f13074b.setText(this.f13071h.get(i2));
-                    c0651a.f13074b.setVisibility(0);
+                if (!ListUtils.isEmpty(this.f13088h) && this.f13088h.size() > i2 && !TextUtils.isEmpty(this.f13088h.get(i2))) {
+                    c0651a.f13091b.setText(this.f13088h.get(i2));
+                    c0651a.f13091b.setVisibility(0);
                 } else {
-                    c0651a.f13074b.setVisibility(8);
+                    c0651a.f13091b.setVisibility(8);
                 }
-                if (!ListUtils.isEmpty(this.f13072i) && this.f13072i.size() > i2 && !TextUtils.isEmpty(this.f13072i.get(i2))) {
-                    c0651a.f13075c.setText(this.f13072i.get(i2));
-                    c0651a.f13075c.setVisibility(0);
+                if (!ListUtils.isEmpty(this.f13089i) && this.f13089i.size() > i2 && !TextUtils.isEmpty(this.f13089i.get(i2))) {
+                    c0651a.f13092c.setText(this.f13089i.get(i2));
+                    c0651a.f13092c.setVisibility(0);
                 } else {
-                    c0651a.f13075c.setVisibility(8);
+                    c0651a.f13092c.setVisibility(8);
                 }
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -2);
                 layoutParams2.weight = 1.0f;

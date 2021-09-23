@@ -10,16 +10,16 @@ public abstract class d0<E> extends e0<E> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f78876e;
+    public int f79195e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f78877f;
+    public long f79196f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f78878g;
+    public long f79197g;
 
     /* renamed from: h  reason: collision with root package name */
-    public E[] f78879h;
+    public E[] f79198h;
 
     public d0() {
         Interceptable interceptable = $ic;

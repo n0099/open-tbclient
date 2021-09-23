@@ -20,7 +20,7 @@ public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3437a;
+    public static final boolean f3438a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public final class j {
                 return;
             }
         }
-        f3437a = f.f3425b;
+        f3438a = f.f3426b;
     }
 
     public static String a(int i2) {
@@ -104,7 +104,7 @@ public final class j {
                     try {
                         hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
                     } catch (IllegalArgumentException e2) {
-                        if (f3437a) {
+                        if (f3438a) {
                             e2.printStackTrace();
                         }
                     }
@@ -160,7 +160,7 @@ public final class j {
             if (uri == null) {
                 return false;
             }
-            return TextUtils.equals(f.f3424a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
+            return TextUtils.equals(f.f3425a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
         }
         return invokeL.booleanValue;
     }

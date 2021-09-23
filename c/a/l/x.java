@@ -16,7 +16,7 @@ public class x extends a<c.a.q0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public MutiImgSingleHorizontalLayout f3884j;
+    public MutiImgSingleHorizontalLayout f3885j;
     public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -38,14 +38,14 @@ public class x extends a<c.a.q0.s.q.a> {
             }
         }
         this.k = 3;
-        this.f3884j = new MutiImgSingleHorizontalLayout(context);
+        this.f3885j = new MutiImgSingleHorizontalLayout(context);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3884j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3885j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
@@ -59,7 +59,7 @@ public class x extends a<c.a.q0.s.q.a> {
     public void k(c.a.r0.a0.b0<c.a.q0.s.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
-            this.f3884j.setSubClickListener(b0Var);
+            this.f3885j.setSubClickListener(b0Var);
         }
     }
 
@@ -69,7 +69,7 @@ public class x extends a<c.a.q0.s.q.a> {
     public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f3884j.onBindDataToView(aVar);
+            this.f3885j.onBindDataToView(aVar);
         }
     }
 
@@ -90,7 +90,7 @@ public class x extends a<c.a.q0.s.q.a> {
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f3884j.setFromCDN(z);
+            this.f3885j.setFromCDN(z);
         }
     }
 }

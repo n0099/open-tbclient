@@ -9,37 +9,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final int f36195c = 1;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int f36196d = 2;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final int f36197e = 3;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f36198f = "APPKEY_ERROR";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final String f36199g = "SUCCESS";
+    public static final int l = 1;
+    public static final int m = 2;
+    public static final int n = 3;
+    public static final String o = "APPKEY_ERROR";
+    public static final String p = "SUCCESS";
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: c  reason: collision with root package name */
+    public String f36238c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f36239d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f36240e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f36241f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f36242g;
+
     /* renamed from: h  reason: collision with root package name */
-    public String f36200h;
+    public String f36243h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f36201i;
+    public String f36244i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f36202j;
+    public String f36245j;
     public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -54,28 +54,28 @@ public class c extends a {
                 return;
             }
         }
-        this.p = "";
+        this.k = "";
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36193a ? com.alipay.security.mobile.module.a.a.a(this.f36200h) ? 2 : 1 : f36198f.equals(this.f36194b) ? 3 : 2 : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.f36241f;
+            return str == null ? "0" : str;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.f36202j) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.f36240e) : invokeV.booleanValue;
     }
 
-    public String c() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.k;
-            return str == null ? "0" : str;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36236a ? com.alipay.security.mobile.module.a.a.a(this.f36238c) ? 2 : 1 : o.equals(this.f36237b) ? 3 : 2 : invokeV.intValue;
     }
 }

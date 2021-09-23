@@ -19,7 +19,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static u f67451a;
+    public static u f67762a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a() {
@@ -39,14 +39,14 @@ public class f {
                             fileInputStream.read(bArr);
                             u a2 = u.a(new JSONObject(new String(bArr, "utf-8")));
                             if (a2 != null) {
-                                f67451a = a2;
-                                k.b(com.alipay.sdk.packet.e.f36013e, "old version read success: " + f67451a.b());
+                                f67762a = a2;
+                                k.b(com.alipay.sdk.packet.e.f36047g, "old version read success: " + f67762a.b());
                             }
                             fileInputStream2 = fileInputStream;
                         } catch (Throwable th2) {
                             th = th2;
                             try {
-                                k.c(com.alipay.sdk.packet.e.f36013e, "version init error", th);
+                                k.c(com.alipay.sdk.packet.e.f36047g, "version init error", th);
                                 if (fileInputStream != null) {
                                     fileInputStream.close();
                                 }
@@ -62,7 +62,7 @@ public class f {
                             }
                         }
                     } else {
-                        k.b(com.alipay.sdk.packet.e.f36013e, "version pkg json file does not exist");
+                        k.b(com.alipay.sdk.packet.e.f36047g, "version pkg json file does not exist");
                     }
                 } catch (IOException unused2) {
                     return;
@@ -83,7 +83,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (f.class) {
-                uVar = f67451a;
+                uVar = f67762a;
             }
             return uVar;
         }
@@ -93,14 +93,14 @@ public class f {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            u uVar = f67451a;
+            u uVar = f67762a;
             if (uVar == null) {
-                k.b(com.alipay.sdk.packet.e.f36013e, "version save error1");
+                k.b(com.alipay.sdk.packet.e.f36047g, "version save error1");
                 return;
             }
             String g2 = uVar.g();
             if (TextUtils.isEmpty(g2)) {
-                k.b(com.alipay.sdk.packet.e.f36013e, "version save error2");
+                k.b(com.alipay.sdk.packet.e.f36047g, "version save error2");
                 return;
             }
             File file = new File(b.e(), "temp_pkg_info.json");
@@ -123,7 +123,7 @@ public class f {
                         th = th;
                         fileOutputStream = fileOutputStream2;
                         try {
-                            k.c(com.alipay.sdk.packet.e.f36013e, "version save error3", th);
+                            k.c(com.alipay.sdk.packet.e.f36047g, "version save error3", th);
                             if (fileOutputStream != null) {
                                 fileOutputStream.close();
                             }
@@ -164,7 +164,7 @@ public class f {
                 }
             }
         }
-        f67451a = null;
+        f67762a = null;
     }
 
     public static boolean b(String str) {
@@ -208,7 +208,7 @@ public class f {
             synchronized (f.class) {
                 if (uVar != null) {
                     if (uVar.f()) {
-                        f67451a = uVar;
+                        f67762a = uVar;
                     }
                 }
             }

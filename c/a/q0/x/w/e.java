@@ -13,7 +13,7 @@ import c.a.q0.s.q.d2;
 import c.a.q0.s.s.a;
 import c.a.q0.t.c.k0;
 import c.a.q0.t.c.v;
-import c.a.r0.j3.y;
+import c.a.r0.j3.z;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -39,6 +39,7 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.FileHelper;
@@ -53,6 +54,7 @@ import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.editortools.BLauncher;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.pb.DataModel;
@@ -74,7 +76,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class e extends c.a.q0.x.e implements y.e {
+public class e extends c.a.q0.x.e implements z.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NewWriteModel.g A;
@@ -92,19 +94,19 @@ public class e extends c.a.q0.x.e implements y.e {
     public final c.a.e.a.e M;
 
     /* renamed from: f  reason: collision with root package name */
-    public WriteImagesInfo f15137f;
+    public WriteImagesInfo f15144f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15138g;
+    public String f15145g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SpanGroupManager f15139h;
+    public SpanGroupManager f15146h;
 
     /* renamed from: i  reason: collision with root package name */
-    public VoiceData$VoiceModel f15140i;
+    public VoiceData$VoiceModel f15147i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f15141j;
+    public String f15148j;
     public LocationModel k;
     public NewWriteModel l;
     public ImageModel m;
@@ -128,7 +130,7 @@ public class e extends c.a.q0.x.e implements y.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f15142a;
+        public final /* synthetic */ e f15149a;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -145,15 +147,15 @@ public class e extends c.a.q0.x.e implements y.e {
                     return;
                 }
             }
-            this.f15142a = eVar;
+            this.f15149a = eVar;
         }
 
         @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f15142a.r.showToast(R.string.no_network_guide);
-                this.f15142a.c0(0, false, null);
+                this.f15149a.r.showToast(R.string.no_network_guide);
+                this.f15149a.d0(0, false, null);
             }
         }
 
@@ -162,7 +164,7 @@ public class e extends c.a.q0.x.e implements y.e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locationData) == null) {
                 if (locationData != null && !StringUtils.isNull(locationData.getFormatted_address())) {
-                    this.f15142a.c0(2, true, locationData.getFormatted_address());
+                    this.f15149a.d0(2, true, locationData.getFormatted_address());
                 } else {
                     onFail(null);
                 }
@@ -173,14 +175,14 @@ public class e extends c.a.q0.x.e implements y.e {
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                if (this.f15142a.I) {
-                    TbPageContext tbPageContext = this.f15142a.r;
+                if (this.f15149a.I) {
+                    TbPageContext tbPageContext = this.f15149a.r;
                     if (StringUtils.isNull(str)) {
-                        str = this.f15142a.a().getContext().getString(R.string.location_fail);
+                        str = this.f15149a.a().getContext().getString(R.string.location_fail);
                     }
                     tbPageContext.showToast(str);
                 }
-                this.f15142a.c0(0, false, null);
+                this.f15149a.d0(0, false, null);
             }
         }
     }
@@ -191,7 +193,7 @@ public class e extends c.a.q0.x.e implements y.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f15143a;
+        public final /* synthetic */ e f15150a;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -208,14 +210,14 @@ public class e extends c.a.q0.x.e implements y.e {
                     return;
                 }
             }
-            this.f15143a = eVar;
+            this.f15150a = eVar;
         }
 
         @Override // com.baidu.tieba.tbadkCore.location.LocationModel.f
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f15143a.c0(0, false, null);
+                this.f15150a.d0(0, false, null);
             }
         }
 
@@ -223,7 +225,7 @@ public class e extends c.a.q0.x.e implements y.e {
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f15143a.c0(2, true, str);
+                this.f15150a.d0(2, true, str);
             }
         }
     }
@@ -234,7 +236,7 @@ public class e extends c.a.q0.x.e implements y.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f15144e;
+        public final /* synthetic */ e f15151e;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -251,14 +253,14 @@ public class e extends c.a.q0.x.e implements y.e {
                     return;
                 }
             }
-            this.f15144e = eVar;
+            this.f15151e = eVar;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f15144e.c0(0, true, null);
+                this.f15151e.d0(0, true, null);
                 aVar.dismiss();
             }
         }
@@ -270,7 +272,7 @@ public class e extends c.a.q0.x.e implements y.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f15145e;
+        public final /* synthetic */ e f15152e;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -287,7 +289,7 @@ public class e extends c.a.q0.x.e implements y.e {
                     return;
                 }
             }
-            this.f15145e = eVar;
+            this.f15152e = eVar;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -295,10 +297,10 @@ public class e extends c.a.q0.x.e implements y.e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (c.a.e.e.p.j.z()) {
-                    this.f15145e.c0(1, true, null);
-                    this.f15145e.k.K();
+                    this.f15152e.d0(1, true, null);
+                    this.f15152e.k.K();
                 } else {
-                    this.f15145e.J.a();
+                    this.f15152e.J.a();
                 }
                 aVar.dismiss();
             }
@@ -307,14 +309,14 @@ public class e extends c.a.q0.x.e implements y.e {
 
     /* renamed from: c.a.q0.x.w.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0719e implements NewWriteModel.g {
+    public class C0717e implements NewWriteModel.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f15146a;
+        public final /* synthetic */ e f15153a;
 
-        public C0719e(e eVar) {
+        public C0717e(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -329,7 +331,7 @@ public class e extends c.a.q0.x.e implements y.e {
                     return;
                 }
             }
-            this.f15146a = eVar;
+            this.f15153a = eVar;
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
@@ -337,37 +339,37 @@ public class e extends c.a.q0.x.e implements y.e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, k0Var, writeData, antiData}) == null) {
                 if (writeData == null) {
-                    writeData = this.f15146a.l.X();
+                    writeData = this.f15153a.l.X();
                 }
                 if (z) {
-                    this.f15146a.Z(true);
-                    WriteData X = this.f15146a.l.X();
-                    this.f15146a.T();
-                    y.s(this.f15146a.q, null);
+                    this.f15153a.a0(true);
+                    WriteData X = this.f15153a.l.X();
+                    this.f15153a.U();
+                    z.s(this.f15153a.q, null);
                     if (X == null) {
                         return;
                     }
                     if (X.getType() == 2) {
-                        y.k(X.getThreadId(), this.f15146a);
+                        z.k(X.getThreadId(), this.f15153a);
                     }
                 } else if (writeData != null && k0Var != null && !TextUtils.isEmpty(k0Var.d())) {
                     writeData.setVcodeMD5(k0Var.b());
                     writeData.setVcodeUrl(k0Var.c());
                     writeData.setVcodeExtra(k0Var.a());
-                    if (this.f15146a.p != null) {
-                        writeData.setBaijiahaoData(this.f15146a.p.L());
+                    if (this.f15153a.p != null) {
+                        writeData.setBaijiahaoData(this.f15153a.p.L());
                     }
                     if (c.a.q0.e1.a.b(k0Var.d())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.f15146a.r.getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, false, k0Var.d())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.f15153a.r.getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, false, k0Var.d())));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.f15146a.r.getPageActivity(), writeData, CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.f15153a.r.getPageActivity(), writeData, CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE)));
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.f15146a.r.getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, postWriteCallBackData.getAccessState())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.f15153a.r.getPageActivity(), CyberPlayerManager.MEDIA_INFO_PRERENDER_COMPLETE, writeData, postWriteCallBackData.getAccessState())));
                 }
-                e eVar = this.f15146a;
-                eVar.H(eVar.l.X());
-                NewWriteModel.g gVar = this.f15146a.A;
+                e eVar = this.f15153a;
+                eVar.I(eVar.l.X());
+                NewWriteModel.g gVar = this.f15153a.A;
                 if (gVar != null) {
                     gVar.callback(z, postWriteCallBackData, k0Var, writeData, antiData);
                 }
@@ -381,7 +383,7 @@ public class e extends c.a.q0.x.e implements y.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f15147a;
+        public final /* synthetic */ e f15154a;
 
         public f(e eVar) {
             Interceptable interceptable = $ic;
@@ -398,7 +400,7 @@ public class e extends c.a.q0.x.e implements y.e {
                     return;
                 }
             }
-            this.f15147a = eVar;
+            this.f15154a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -407,7 +409,7 @@ public class e extends c.a.q0.x.e implements y.e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                FileHelper.deleteFile(new File(Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + this.f15147a.f15141j));
+                FileHelper.deleteFile(new File(Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + this.f15154a.f15148j));
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -420,7 +422,7 @@ public class e extends c.a.q0.x.e implements y.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f15148a;
+        public final /* synthetic */ e f15155a;
 
         public g(e eVar) {
             Interceptable interceptable = $ic;
@@ -437,14 +439,14 @@ public class e extends c.a.q0.x.e implements y.e {
                     return;
                 }
             }
-            this.f15148a = eVar;
+            this.f15155a = eVar;
         }
 
         @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof Bitmap)) {
-                this.f15148a.l.d0(true);
+                this.f15155a.l.d0(true);
             }
         }
     }
@@ -467,8 +469,8 @@ public class e extends c.a.q0.x.e implements y.e {
                 return;
             }
         }
-        this.f15137f = new WriteImagesInfo();
-        this.f15138g = "";
+        this.f15144f = new WriteImagesInfo();
+        this.f15145g = "";
         this.l = null;
         this.m = null;
         this.q = null;
@@ -479,19 +481,25 @@ public class e extends c.a.q0.x.e implements y.e {
         this.I = true;
         this.J = new a(this);
         this.K = new b(this);
-        this.L = new C0719e(this);
+        this.L = new C0717e(this);
         this.M = new g(this);
         this.H = editorTools;
     }
 
-    public void A(boolean z, PostWriteCallBackData postWriteCallBackData) {
+    public WriteImagesInfo A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, postWriteCallBackData) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15144f : (WriteImagesInfo) invokeV.objValue;
+    }
+
+    public void B(boolean z, PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, postWriteCallBackData) == null) {
             PbEditorData pbEditorData = new PbEditorData();
             pbEditorData.setEditorType(0);
-            pbEditorData.setContent(this.f15138g);
-            pbEditorData.setWriteImagesInfo(this.f15137f);
-            pbEditorData.setVoiceModel(this.f15140i);
+            pbEditorData.setContent(this.f15145g);
+            pbEditorData.setWriteImagesInfo(this.f15144f);
+            pbEditorData.setVoiceModel(this.f15147i);
             PbEditorData.ThreadData threadData = new PbEditorData.ThreadData();
             ForumData forumData = this.o;
             if (forumData != null) {
@@ -513,32 +521,32 @@ public class e extends c.a.q0.x.e implements y.e {
         }
     }
 
-    public void B() {
+    public void C() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectLocationActivityConfig(this.r.getPageActivity())));
         }
     }
 
-    public boolean C() {
+    public boolean D() {
         InterceptResult invokeV;
         LinkedList<ImageFileInfo> chosedFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            WriteImagesInfo writeImagesInfo = this.f15137f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            WriteImagesInfo writeImagesInfo = this.f15144f;
             return (writeImagesInfo == null || (chosedFiles = writeImagesInfo.getChosedFiles()) == null || chosedFiles.isEmpty()) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean D() {
+    public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (StringUtils.isNull(this.f15138g)) {
-                WriteImagesInfo writeImagesInfo = this.f15137f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (StringUtils.isNull(this.f15145g)) {
+                WriteImagesInfo writeImagesInfo = this.f15144f;
                 if (writeImagesInfo == null || writeImagesInfo.size() <= 0) {
-                    VoiceData$VoiceModel voiceData$VoiceModel = this.f15140i;
+                    VoiceData$VoiceModel voiceData$VoiceModel = this.f15147i;
                     if (voiceData$VoiceModel == null || StringUtils.isNull(voiceData$VoiceModel.getId())) {
                         VideoInfo videoInfo = this.y;
                         return videoInfo != null && videoInfo.isAvaliable();
@@ -552,26 +560,26 @@ public class e extends c.a.q0.x.e implements y.e {
         return invokeV.booleanValue;
     }
 
-    public boolean E() {
+    public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            VoiceData$VoiceModel voiceData$VoiceModel = this.f15140i;
-            return (voiceData$VoiceModel == null || TextUtils.isEmpty(voiceData$VoiceModel.voiceId) || this.f15140i.duration <= 0) ? false : true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            VoiceData$VoiceModel voiceData$VoiceModel = this.f15147i;
+            return (voiceData$VoiceModel == null || TextUtils.isEmpty(voiceData$VoiceModel.voiceId) || this.f15147i.duration <= 0) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
-    public void F() {
+    public void G() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.I = false;
         }
     }
 
-    public void G(TbPageContext tbPageContext, Bundle bundle) {
+    public void H(TbPageContext tbPageContext, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, tbPageContext, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, tbPageContext, bundle) == null) {
             NewWriteModel newWriteModel = new NewWriteModel(tbPageContext);
             this.l = newWriteModel;
             newWriteModel.h0(this.L);
@@ -583,10 +591,10 @@ public class e extends c.a.q0.x.e implements y.e {
             locationModel.N(this.J);
             this.k.O(this.K);
             if (bundle != null) {
-                this.f15137f.parseJson(bundle.getString("write_images"));
-                this.f15141j = bundle.getString(WriteActivityConfig.PHOTO_NAME);
+                this.f15144f.parseJson(bundle.getString("write_images"));
+                this.f15148j = bundle.getString(WriteActivityConfig.PHOTO_NAME);
             }
-            WriteImagesInfo writeImagesInfo = this.f15137f;
+            WriteImagesInfo writeImagesInfo = this.f15144f;
             if (writeImagesInfo != null) {
                 writeImagesInfo.setMaxImagesAllowed(this.z ? 1 : 9);
             }
@@ -596,43 +604,43 @@ public class e extends c.a.q0.x.e implements y.e {
             if (!this.k.z() && a() != null) {
                 a().sendAction(new c.a.q0.x.a(20, 8, null));
             }
-            WriteImagesInfo writeImagesInfo2 = this.f15137f;
-            if (writeImagesInfo2 == null || writeImagesInfo2.getChosedFiles() == null || this.f15137f.getChosedFiles().size() <= 0) {
+            WriteImagesInfo writeImagesInfo2 = this.f15144f;
+            if (writeImagesInfo2 == null || writeImagesInfo2.getChosedFiles() == null || this.f15144f.getChosedFiles().size() <= 0) {
                 return;
             }
             EditorTools a2 = a();
-            a2.sendAction(new c.a.q0.x.a(2, 10, this.f15137f.getChosedFiles().size() + ""));
+            a2.sendAction(new c.a.q0.x.a(2, 10, this.f15144f.getChosedFiles().size() + ""));
         }
     }
 
-    public void H(WriteData writeData) {
+    public void I(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) || writeData == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, writeData) == null) || writeData == null) {
             return;
         }
-        this.f15137f = new WriteImagesInfo();
+        this.f15144f = new WriteImagesInfo();
         if (writeData.getWriteImagesInfo() != null) {
-            this.f15137f.copyFrom(writeData.getWriteImagesInfo());
-            WriteImagesInfo writeImagesInfo = this.f15137f;
-            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.f15137f.getChosedFiles().size() > 0) {
+            this.f15144f.copyFrom(writeData.getWriteImagesInfo());
+            WriteImagesInfo writeImagesInfo = this.f15144f;
+            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.f15144f.getChosedFiles().size() > 0) {
                 EditorTools a2 = a();
-                a2.sendAction(new c.a.q0.x.a(2, 10, this.f15137f.getChosedFiles().size() + ""));
+                a2.sendAction(new c.a.q0.x.a(2, 10, this.f15144f.getChosedFiles().size() + ""));
             }
         }
-        WriteImagesInfo writeImagesInfo2 = this.f15137f;
+        WriteImagesInfo writeImagesInfo2 = this.f15144f;
         if (writeImagesInfo2 == null || writeImagesInfo2.size() == 0) {
             a().sendAction(new c.a.q0.x.a(2, 10, null));
         }
         String content = writeData.getContent();
-        this.f15138g = content;
-        b0(content);
+        this.f15145g = content;
+        c0(content);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004008));
     }
 
-    public void I(int i2, int i3, Intent intent) {
-        ArrayList<String> stringArrayListExtra;
+    public void J(int i2, int i3, Intent intent) {
+        ArrayList<AtSelectData> parcelableArrayListExtra;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048585, this, i2, i3, intent) == null) {
             PostWriteCallBackData postWriteCallBackData = null;
             if (i3 != -1) {
                 if (i2 == 12001) {
@@ -641,7 +649,7 @@ public class e extends c.a.q0.x.e implements y.e {
                     if (intent == null || !intent.hasExtra(AlbumActivityConfig.LAST_ALBUM_ID)) {
                         return;
                     }
-                    this.f15137f.setLastAlbumId(intent.getStringExtra(AlbumActivityConfig.LAST_ALBUM_ID));
+                    this.f15144f.setLastAlbumId(intent.getStringExtra(AlbumActivityConfig.LAST_ALBUM_ID));
                 } else if (i2 != 12006) {
                 } else {
                     if (intent != null && (intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) {
@@ -654,7 +662,7 @@ public class e extends c.a.q0.x.e implements y.e {
                     }
                 }
             } else if (i2 == 11001) {
-                M(null, null);
+                N(null, null);
             } else if (i2 == 12006) {
                 WriteData X = this.l.X();
                 PostWriteCallBackData postWriteCallBackData3 = (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
@@ -663,12 +671,12 @@ public class e extends c.a.q0.x.e implements y.e {
                 }
                 this.l.setWriteData(null);
                 this.l.d0(false);
-                this.f15140i = null;
+                this.f15147i = null;
                 this.y = null;
                 if (!TextUtils.isEmpty(this.q)) {
-                    y.s(this.q, null);
+                    z.s(this.q, null);
                 }
-                Z(true);
+                a0(true);
                 NewWriteModel.g gVar2 = this.A;
                 if (gVar2 != null) {
                     gVar2.callback(true, postWriteCallBackData3, null, X, null);
@@ -686,7 +694,7 @@ public class e extends c.a.q0.x.e implements y.e {
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.XIAOYING_DURATION);
                     statisticItem.param("duration", this.y.getVideoDuration());
                     TiebaStatic.log(statisticItem);
-                    d0();
+                    e0();
                     a().sendAction(new c.a.q0.x.a(28, 20, this.y));
                     a().sendAction(new c.a.q0.x.a(28, -1, this.y));
                 }
@@ -694,12 +702,46 @@ public class e extends c.a.q0.x.e implements y.e {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010040));
             } else if (i2 == 25004) {
                 if (intent != null) {
-                    X(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
+                    Y(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
                 }
             } else if (i2 == 11025) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.r.getPageActivity(), 12004, true)));
+                AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.r.getPageActivity(), 12004, true);
+                if (y() != null) {
+                    atListActivityConfig.setSelectedAtList(y().t());
+                }
+                d2 d2Var = this.p;
+                if (d2Var != null) {
+                    atListActivityConfig.setFromTid(d2Var.s1());
+                    atListActivityConfig.setFromFid(String.valueOf(this.p.T()));
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
+                StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
+                statisticItem2.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+                d2 d2Var2 = this.p;
+                if (d2Var2 != null) {
+                    statisticItem2.addParam("tid", d2Var2.s1());
+                    statisticItem2.addParam("fid", this.p.T());
+                }
+                TiebaStatic.log(statisticItem2);
             } else if (i2 == 11026) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.r.getPageActivity(), CyberPlayerManager.MEDIA_INFO_WEAK_NETWORK_BEST_RANK, true)));
+                AtListActivityConfig atListActivityConfig2 = new AtListActivityConfig(this.r.getPageActivity(), CyberPlayerManager.MEDIA_INFO_WEAK_NETWORK_BEST_RANK, true);
+                if (y() != null) {
+                    atListActivityConfig2.setSelectedAtList(y().t());
+                }
+                d2 d2Var3 = this.p;
+                if (d2Var3 != null) {
+                    atListActivityConfig2.setFromTid(d2Var3.s1());
+                    atListActivityConfig2.setFromFid(String.valueOf(this.p.T()));
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig2));
+                StatisticItem statisticItem3 = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
+                statisticItem3.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+                d2 d2Var4 = this.p;
+                if (d2Var4 != null) {
+                    statisticItem3.addParam("tid", d2Var4.s1());
+                    statisticItem3.addParam("fid", this.p.T());
+                }
+                TiebaStatic.log(statisticItem3);
             } else if (i2 == 12009 || i2 == 12010) {
                 if (i2 == 12010) {
                     r(intent);
@@ -722,17 +764,17 @@ public class e extends c.a.q0.x.e implements y.e {
                             return;
                         }
                         if (intent.getBooleanExtra("delete", false)) {
-                            Y();
+                            Z();
                             this.l.d0(false);
                             return;
                         }
                         this.m.B(intent.getStringExtra("file_name"));
                         return;
                     case 12004:
-                        if (intent == null || (stringArrayListExtra = intent.getStringArrayListExtra("name_show")) == null) {
+                        if (intent == null || (parcelableArrayListExtra = intent.getParcelableArrayListExtra(IntentConfig.AT_SELECT_LIST_DATA)) == null) {
                             return;
                         }
-                        W(stringArrayListExtra);
+                        X(parcelableArrayListExtra);
                         return;
                     default:
                         return;
@@ -741,52 +783,52 @@ public class e extends c.a.q0.x.e implements y.e {
         }
     }
 
-    public void J() {
+    public void K() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.l.cancelLoadData();
             this.m.cancelLoadData();
             this.k.cancelLoadData();
         }
     }
 
-    public void K() {
+    public void L() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             if (!PermissionUtil.checkLocationForGoogle(this.r.getPageActivity())) {
                 PermissionUtil.reuqestLocation(this.r.getPageActivity(), 0);
             } else {
-                w0();
+                x0();
             }
         }
     }
 
-    public void L(Bundle bundle) {
+    public void M(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
-            WriteImagesInfo writeImagesInfo = this.f15137f;
+        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
+            WriteImagesInfo writeImagesInfo = this.f15144f;
             if (writeImagesInfo != null) {
                 bundle.putString("write_images", writeImagesInfo.toJsonString());
             }
-            bundle.putString(WriteActivityConfig.PHOTO_NAME, this.f15141j);
+            bundle.putString(WriteActivityConfig.PHOTO_NAME, this.f15148j);
         }
     }
 
-    public void M(String str, WriteData writeData) {
+    public void N(String str, WriteData writeData) {
         d2 d2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, writeData) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048589, this, str, writeData) == null) {
             if (this.l.X() == null) {
-                WriteData C = this.n.C(str);
-                if (C != null && (d2Var = this.p) != null) {
-                    C.setBaijiahaoData(d2Var.L());
+                WriteData D = this.n.D(str);
+                if (D != null && (d2Var = this.p) != null) {
+                    D.setBaijiahaoData(d2Var.L());
                 }
-                this.l.setWriteData(C);
+                this.l.setWriteData(D);
             }
             if (this.l.X() == null) {
                 return;
             }
-            this.l.setSpanGroupManager(this.f15139h);
+            this.l.setSpanGroupManager(this.f15146h);
             boolean z = true;
             if (this.D) {
                 this.l.X().setCanNoForum(true);
@@ -800,20 +842,20 @@ public class e extends c.a.q0.x.e implements y.e {
                 this.l.X().setVForumName("");
             }
             this.l.X().setIsBJHPost(this.z);
-            this.l.X().setWriteImagesInfo(this.f15137f);
+            this.l.X().setWriteImagesInfo(this.f15144f);
             this.l.X().setVideoInfo(this.y);
-            this.l.d0(this.f15137f.size() > 0);
+            this.l.d0(this.f15144f.size() > 0);
             WriteData X = this.l.X();
             LocationModel locationModel = this.k;
             X.setHasLocationData((locationModel == null || !locationModel.z()) ? false : false);
             if (str == null) {
-                this.l.X().setContent(this.f15138g);
+                this.l.X().setContent(this.f15145g);
             }
-            VoiceData$VoiceModel voiceData$VoiceModel = this.f15140i;
+            VoiceData$VoiceModel voiceData$VoiceModel = this.f15147i;
             if (voiceData$VoiceModel != null) {
                 if (voiceData$VoiceModel.getId() != null) {
-                    this.l.X().setVoice(this.f15140i.getId());
-                    this.l.X().setVoiceDuringTime(this.f15140i.duration);
+                    this.l.X().setVoice(this.f15147i.getId());
+                    this.l.X().setVoiceDuringTime(this.f15147i.duration);
                 } else {
                     this.l.X().setVoice(null);
                     this.l.X().setVoiceDuringTime(-1);
@@ -840,24 +882,24 @@ public class e extends c.a.q0.x.e implements y.e {
         }
     }
 
-    public void N(AntiData antiData) {
+    public void O(AntiData antiData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, antiData) == null) || antiData == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, antiData) == null) || antiData == null) {
             return;
         }
         this.s = antiData.getVoice_message();
     }
 
-    public void O(ForumData forumData, UserData userData) {
+    public void P(ForumData forumData, UserData userData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, forumData, userData) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048591, this, forumData, userData) == null) {
             this.o = forumData;
         }
     }
 
-    public void P(MetaData metaData, String str, String str2) {
+    public void Q(MetaData metaData, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048591, this, metaData, str, str2) == null) || a() == null || metaData == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048592, this, metaData, str, str2) == null) || a() == null || metaData == null) {
             return;
         }
         this.v = metaData.getUserIdLong();
@@ -867,17 +909,17 @@ public class e extends c.a.q0.x.e implements y.e {
         this.w = str2;
     }
 
-    public void Q() {
+    public void R() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || this.z || this.k == null || c.a.r0.j3.n0.b.a().d() || !UtilHelper.isSystemLocationProviderEnabled(this.r.getPageActivity()) || !TbadkCoreApplication.getInst().getLocationShared()) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || this.z || this.k == null || c.a.r0.j3.n0.b.a().d() || !UtilHelper.isSystemLocationProviderEnabled(this.r.getPageActivity()) || !TbadkCoreApplication.getInst().getLocationShared()) {
             return;
         }
         this.k.H();
     }
 
-    public void R() {
+    public void S() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             if (this.k.z()) {
                 if (this.k.D()) {
                     this.J.b(c.a.r0.j3.n0.b.a().b());
@@ -886,86 +928,86 @@ public class e extends c.a.q0.x.e implements y.e {
                 if (l.D()) {
                     this.k.H();
                 }
-                c0(0, true, null);
+                d0(0, true, null);
                 return;
             }
-            c0(0, false, null);
+            d0(0, false, null);
         }
     }
 
-    public void S() {
+    public void T() {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (editorTools = this.H) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (editorTools = this.H) == null) {
             return;
         }
         editorTools.resetChangeToLauncher();
     }
 
-    public void T() {
+    public void U() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             this.l.setWriteData(null);
             this.l.d0(false);
-            this.f15140i = null;
+            this.f15147i = null;
             this.y = null;
-            this.f15137f.clear();
+            this.f15144f.clear();
         }
     }
 
-    public void U() {
+    public void V() {
         c.a.q0.x.w.f fVar;
         TextWatcher textWatcher;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (fVar = this.F) == null || (textWatcher = this.E) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (fVar = this.F) == null || (textWatcher = this.E) == null) {
             return;
         }
         fVar.j(textWatcher);
     }
 
-    public void V(String str) {
+    public void W(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
             WriteData X = this.l.X();
             if (X == null) {
                 X = new WriteData(1);
                 X.setThreadId(str);
-                X.setWriteImagesInfo(this.f15137f);
+                X.setWriteImagesInfo(this.f15144f);
             }
-            X.setContent(this.f15138g);
+            X.setContent(this.f15145g);
             X.setVideoInfo(this.y);
-            X.setVoiceModel(this.f15140i);
-            y.s(str, X);
+            X.setVoiceModel(this.f15147i);
+            z.s(str, X);
         }
     }
 
-    public final void W(ArrayList<String> arrayList) {
+    public final void X(ArrayList<AtSelectData> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, arrayList) == null) || a() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048599, this, arrayList) == null) || a() == null) {
             return;
         }
         a().sendAction(new c.a.q0.x.a(17, 27, arrayList));
     }
 
-    public void X(String str) {
+    public void Y(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, str) == null) || a() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, str) == null) || a() == null) {
             return;
         }
         a().sendAction(new c.a.q0.x.a(44, 27, str));
     }
 
-    public final void Y() {
+    public final void Z() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || a() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || a() == null) {
             return;
         }
         a().sendAction(new c.a.q0.x.a(13, -1, null));
     }
 
-    public final void Z(boolean z) {
+    public final void a0(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048601, this, z) == null) || a() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || a() == null) {
             return;
         }
         if (z) {
@@ -975,9 +1017,9 @@ public class e extends c.a.q0.x.e implements y.e {
         a().sendAction(new c.a.q0.x.a(9, -1, Boolean.valueOf(z)));
     }
 
-    public void a0() {
+    public void b0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || StringUtils.isNull(this.t)) {
+        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || StringUtils.isNull(this.t)) {
             return;
         }
         long j2 = this.v;
@@ -991,17 +1033,17 @@ public class e extends c.a.q0.x.e implements y.e {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.r.getPageActivity(), this.v, this.t, this.u, GiftTabActivityConfig.FROM_PB, c.a.e.e.m.b.g(this.q, 0L), c.a.e.e.m.b.g(this.w, 0L))));
     }
 
-    public final void b0(String str) {
+    public final void c0(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, str) == null) || a() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, str) == null) || a() == null) {
             return;
         }
         a().sendAction(new c.a.q0.x.a(6, 27, str));
     }
 
-    public final void c0(int i2, boolean z, String str) {
+    public final void d0(int i2, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), str}) == null) {
             this.x = i2;
             if (a() != null) {
                 a().sendAction(new c.a.q0.x.a(19, 27, new c.a.q0.x.u.a(i2, z, str)));
@@ -1009,35 +1051,26 @@ public class e extends c.a.q0.x.e implements y.e {
         }
     }
 
-    public final void d0() {
+    public final void e0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048605, this) == null) || a() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || a() == null) {
             return;
         }
         a().sendAction(new c.a.q0.x.a(2, 19, " "));
     }
 
-    public void e0(c.a.q0.x.w.b bVar) {
+    public void f0(c.a.q0.x.w.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, bVar) == null) {
             this.C = bVar;
         }
     }
 
-    public void f0(TbPageContext tbPageContext) {
+    public void g0(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, tbPageContext) == null) {
+        if (interceptable == null || interceptable.invokeL(1048608, this, tbPageContext) == null) {
             this.r = tbPageContext;
         }
-    }
-
-    public void g0(boolean z) {
-        BLauncher bLauncher;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048608, this, z) == null) || a() == null || (bLauncher = (BLauncher) a().findLauncherById(5)) == null) {
-            return;
-        }
-        bLauncher.setOutSetVisibilty(z);
     }
 
     public void h(v vVar) {
@@ -1051,16 +1084,18 @@ public class e extends c.a.q0.x.e implements y.e {
             imageFileInfo.setFilePath(vVar.c());
             imageFileInfo.width = vVar.h();
             imageFileInfo.height = vVar.b();
-            this.f15137f.addChooseFile(imageFileInfo);
-            this.f15137f.updateQuality();
+            this.f15144f.addChooseFile(imageFileInfo);
+            this.f15144f.updateQuality();
         }
     }
 
-    public void h0(int i2) {
+    public void h0(boolean z) {
+        BLauncher bLauncher;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.G = i2;
+        if (!(interceptable == null || interceptable.invokeZ(1048610, this, z) == null) || a() == null || (bLauncher = (BLauncher) a().findLauncherById(5)) == null) {
+            return;
         }
+        bLauncher.setOutSetVisibilty(z);
     }
 
     public void i(TextWatcher textWatcher) {
@@ -1075,10 +1110,10 @@ public class e extends c.a.q0.x.e implements y.e {
         }
     }
 
-    public void i0(boolean z) {
+    public void i0(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
-            this.D = z;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
+            this.G = i2;
         }
     }
 
@@ -1096,12 +1131,10 @@ public class e extends c.a.q0.x.e implements y.e {
     }
 
     public void j0(boolean z) {
-        BLauncher bLauncher;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048614, this, z) == null) || a() == null || (bLauncher = (BLauncher) a().findLauncherById(23)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
+            this.D = z;
         }
-        bLauncher.setOutSetVisibilty(z);
     }
 
     public final void k() {
@@ -1111,47 +1144,43 @@ public class e extends c.a.q0.x.e implements y.e {
         }
     }
 
-    public void k0(DataModel<?> dataModel) {
+    public void k0(boolean z) {
+        BLauncher bLauncher;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, dataModel) == null) {
-            this.n = dataModel;
+        if (!(interceptable == null || interceptable.invokeZ(1048616, this, z) == null) || a() == null || (bLauncher = (BLauncher) a().findLauncherById(23)) == null) {
+            return;
         }
+        bLauncher.setOutSetVisibilty(z);
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            WriteImagesInfo writeImagesInfo = this.f15137f;
+            WriteImagesInfo writeImagesInfo = this.f15144f;
             if (writeImagesInfo != null && writeImagesInfo.size() > 0) {
-                this.f15137f.clear();
+                this.f15144f.clear();
             }
             VideoInfo videoInfo = this.y;
             if (videoInfo != null && videoInfo.isAvaliable()) {
                 this.y = null;
             }
             a().sendAction(new c.a.q0.x.a(2, 19, null));
-            u0(null);
+            v0(null);
             a().sendAction(new c.a.q0.x.a(2, 6, null));
             a().sendAction(new c.a.q0.x.a(33, 6, null));
-            if (!StringUtils.isNull(this.f15138g)) {
-                this.f15138g = "";
+            if (!StringUtils.isNull(this.f15145g)) {
+                this.f15145g = "";
             }
-            b0("");
+            c0("");
             this.l.setWriteData(null);
             this.l.d0(false);
         }
     }
 
-    public void l0(String str) {
+    public void l0(DataModel<?> dataModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
-            if (this.F == null && a() != null) {
-                this.F = (c.a.q0.x.w.f) a().findToolById(27);
-            }
-            c.a.q0.x.w.f fVar = this.F;
-            if (fVar != null) {
-                fVar.l(str);
-            }
+        if (interceptable == null || interceptable.invokeL(1048618, this, dataModel) == null) {
+            this.n = dataModel;
         }
     }
 
@@ -1162,15 +1191,15 @@ public class e extends c.a.q0.x.e implements y.e {
         }
     }
 
-    public void m0(int i2) {
+    public void m0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
             if (this.F == null && a() != null) {
                 this.F = (c.a.q0.x.w.f) a().findToolById(27);
             }
             c.a.q0.x.w.f fVar = this.F;
             if (fVar != null) {
-                fVar.m(i2);
+                fVar.l(str);
             }
         }
     }
@@ -1182,17 +1211,23 @@ public class e extends c.a.q0.x.e implements y.e {
         }
     }
 
-    public void n0(String str) {
+    public void n0(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
-            this.f15138g = str;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
+            if (this.F == null && a() != null) {
+                this.F = (c.a.q0.x.w.f) a().findToolById(27);
+            }
+            c.a.q0.x.w.f fVar = this.F;
+            if (fVar != null) {
+                fVar.m(i2);
+            }
         }
     }
 
     public final void o() {
         DataModel<?> dataModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048623, this) == null) || this.p == null || (dataModel = this.n) == null || !dataModel.E()) {
+        if (!(interceptable == null || interceptable.invokeV(1048623, this) == null) || this.p == null || (dataModel = this.n) == null || !dataModel.F()) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_HEATING_THREAD_COMMENT);
@@ -1208,17 +1243,17 @@ public class e extends c.a.q0.x.e implements y.e {
         statisticItem.addParam(TiebaStatic.Params.FID_1, this.p.T());
         statisticItem.addParam(TiebaStatic.Params.FID_2, this.n.getFromForumId());
         TiebaStatic.log(statisticItem);
-        c.a.q0.d.a.a(c.a.q0.d.a.f12812f, c.a.q0.d.a.f12809c, this.n.A(), this.n.B(), this.n.z(), this.p.S1);
+        c.a.q0.d.a.a(c.a.q0.d.a.f12826f, c.a.q0.d.a.f12823c, this.n.B(), this.n.C(), this.n.A(), this.p.T1);
     }
 
-    public void o0(NewWriteModel.g gVar) {
+    public void o0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, gVar) == null) {
-            this.A = gVar;
+        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
+            this.f15145g = str;
         }
     }
 
-    @Override // c.a.r0.j3.y.e
+    @Override // c.a.r0.j3.z.e
     public void onDraftLoaded(WriteData writeData) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048625, this, writeData) == null) || writeData == null) {
@@ -1229,31 +1264,31 @@ public class e extends c.a.q0.x.e implements y.e {
                 this.y = new VideoInfo();
             }
             this.y.copy(writeData.getVideoInfo());
-            d0();
+            e0();
             a().sendAction(new c.a.q0.x.a(39, -1, this.y));
         }
-        if (writeData.getWriteImagesInfo() != null && this.f15137f.size() == 0) {
-            this.f15137f.copyFrom(writeData.getWriteImagesInfo());
-            WriteImagesInfo writeImagesInfo = this.f15137f;
-            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.f15137f.getChosedFiles().size() > 0) {
+        if (writeData.getWriteImagesInfo() != null && this.f15144f.size() == 0) {
+            this.f15144f.copyFrom(writeData.getWriteImagesInfo());
+            WriteImagesInfo writeImagesInfo = this.f15144f;
+            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.f15144f.getChosedFiles().size() > 0) {
                 EditorTools a2 = a();
-                a2.sendAction(new c.a.q0.x.a(2, 10, this.f15137f.getChosedFiles().size() + ""));
+                a2.sendAction(new c.a.q0.x.a(2, 10, this.f15144f.getChosedFiles().size() + ""));
             }
         }
-        WriteImagesInfo writeImagesInfo2 = this.f15137f;
+        WriteImagesInfo writeImagesInfo2 = this.f15144f;
         if (writeImagesInfo2 == null || writeImagesInfo2.size() == 0) {
             a().sendAction(new c.a.q0.x.a(2, 10, null));
         }
         if (writeData.getVoiceModel() != null && writeData.getVoiceModel().voiceId != null && writeData.getVoiceModel().duration != -1) {
-            if (this.f15140i == null) {
-                this.f15140i = new VoiceData$VoiceModel();
+            if (this.f15147i == null) {
+                this.f15147i = new VoiceData$VoiceModel();
             }
-            this.f15140i.copy(writeData.getVoiceModel());
+            this.f15147i.copy(writeData.getVoiceModel());
         }
-        if (!k.isEmpty(writeData.getContent()) && k.isEmpty(this.f15138g)) {
+        if (!k.isEmpty(writeData.getContent()) && k.isEmpty(this.f15145g)) {
             String content = writeData.getContent();
-            this.f15138g = content;
-            b0(content);
+            this.f15145g = content;
+            c0(content);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004008));
     }
@@ -1297,10 +1332,10 @@ public class e extends c.a.q0.x.e implements y.e {
         TiebaStatic.log(statisticItem2);
     }
 
-    public void p0(c.a.q0.x.w.c cVar) {
+    public void p0(NewWriteModel.g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, cVar) == null) {
-            this.B = cVar;
+        if (interceptable == null || interceptable.invokeL(1048627, this, gVar) == null) {
+            this.A = gVar;
         }
     }
 
@@ -1311,20 +1346,18 @@ public class e extends c.a.q0.x.e implements y.e {
         }
     }
 
-    public void q0(boolean z) {
-        BLauncher bLauncher;
+    public void q0(c.a.q0.x.w.c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048629, this, z) == null) || a() == null || (bLauncher = (BLauncher) a().findLauncherById(2)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048629, this, cVar) == null) {
+            this.B = cVar;
         }
-        bLauncher.setOutSetVisibilty(z);
     }
 
     public final void r(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048630, this, intent) == null) {
-            this.f15141j = intent.getStringExtra(AlbumActivityConfig.CAMERA_PHOTO_NAME);
-            String str = Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR + "/" + this.f15141j;
+            this.f15148j = intent.getStringExtra(AlbumActivityConfig.CAMERA_PHOTO_NAME);
+            String str = Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR + "/" + this.f15148j;
             if (TextUtils.isEmpty(str)) {
                 return;
             }
@@ -1336,7 +1369,7 @@ public class e extends c.a.q0.x.e implements y.e {
                     if (loadResizedBitmap != rotateBitmapBydegree) {
                         loadResizedBitmap.recycle();
                     }
-                    FileHelper.SaveFile(TbConfig.LOCAL_CAMERA_DIR, this.f15141j, rotateBitmapBydegree, 100);
+                    FileHelper.SaveFile(TbConfig.LOCAL_CAMERA_DIR, this.f15148j, rotateBitmapBydegree, 100);
                     rotateBitmapBydegree.recycle();
                 }
             } catch (Exception unused) {
@@ -1344,17 +1377,19 @@ public class e extends c.a.q0.x.e implements y.e {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath(str);
             imageFileInfo.setTempFile(true);
-            this.f15137f.addChooseFile(imageFileInfo);
-            this.f15137f.updateQuality();
-            A(false, null);
+            this.f15144f.addChooseFile(imageFileInfo);
+            this.f15144f.updateQuality();
+            B(false, null);
         }
     }
 
-    public void r0(SpanGroupManager spanGroupManager) {
+    public void r0(boolean z) {
+        BLauncher bLauncher;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, spanGroupManager) == null) {
-            this.f15139h = spanGroupManager;
+        if (!(interceptable == null || interceptable.invokeZ(1048631, this, z) == null) || a() == null || (bLauncher = (BLauncher) a().findLauncherById(2)) == null) {
+            return;
         }
+        bLauncher.setOutSetVisibilty(z);
     }
 
     public TbPageContext s() {
@@ -1363,9 +1398,23 @@ public class e extends c.a.q0.x.e implements y.e {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.r : (TbPageContext) invokeV.objValue;
     }
 
-    public void s0(d2 d2Var) {
+    public void s0(SpanGroupManager spanGroupManager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, d2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048633, this, spanGroupManager) == null) {
+            this.f15146h = spanGroupManager;
+        }
+    }
+
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048634, this, str) == null) {
+            z.k(str, this);
+        }
+    }
+
+    public void t0(d2 d2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048635, this, d2Var) == null) {
             this.p = d2Var;
             if (a() == null || this.p == null) {
                 return;
@@ -1375,30 +1424,16 @@ public class e extends c.a.q0.x.e implements y.e {
         }
     }
 
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, str) == null) {
-            y.k(str, this);
-        }
-    }
-
-    public void t0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
-            this.q = str;
-        }
-    }
-
     public int u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.x : invokeV.intValue;
     }
 
-    public void u0(VoiceData$VoiceModel voiceData$VoiceModel) {
+    public void u0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, voiceData$VoiceModel) == null) {
-            this.f15140i = voiceData$VoiceModel;
+        if (interceptable == null || interceptable.invokeL(1048637, this, str) == null) {
+            this.q = str;
         }
     }
 
@@ -1409,12 +1444,10 @@ public class e extends c.a.q0.x.e implements y.e {
         }
     }
 
-    public final void v0() {
+    public void v0(VoiceData$VoiceModel voiceData$VoiceModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
-            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.r.getPageActivity());
-            aVar.setMessageId(R.string.location_app_permission_prompt).setPositiveButton(R.string.isopen, new d(this)).setNegativeButton(R.string.cancel, new c(this)).create(this.r);
-            aVar.show();
+        if (interceptable == null || interceptable.invokeL(1048639, this, voiceData$VoiceModel) == null) {
+            this.f15147i = voiceData$VoiceModel;
         }
     }
 
@@ -1430,20 +1463,12 @@ public class e extends c.a.q0.x.e implements y.e {
         return (c.a.q0.x.w.f) invokeV.objValue;
     }
 
-    public void w0() {
+    public final void w0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048641, this) == null) {
-            if (!UtilHelper.isSystemLocationProviderEnabled(this.r.getPageActivity())) {
-                this.r.showToast(R.string.location_system_permission_prompt);
-            } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
-                v0();
-            } else if (this.k.D()) {
-                B();
-            } else {
-                this.k.M(false);
-                c0(1, true, null);
-                this.k.H();
-            }
+            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.r.getPageActivity());
+            aVar.setMessageId(R.string.location_app_permission_prompt).setPositiveButton(R.string.isopen, new d(this)).setNegativeButton(R.string.cancel, new c(this)).create(this.r);
+            aVar.show();
         }
     }
 
@@ -1453,22 +1478,39 @@ public class e extends c.a.q0.x.e implements y.e {
         if (!(interceptable == null || interceptable.invokeLZ(1048642, this, intent, z) == null) || intent == null || (stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT)) == null) {
             return;
         }
-        this.f15137f.parseJson(stringExtra);
-        this.f15137f.updateQuality();
-        if (this.f15137f.getChosedFiles() != null) {
-            A(false, null);
+        this.f15144f.parseJson(stringExtra);
+        this.f15144f.updateQuality();
+        if (this.f15144f.getChosedFiles() != null) {
+            B(false, null);
         }
     }
 
-    public VideoInfo y() {
-        InterceptResult invokeV;
+    public void x0() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) ? this.y : (VideoInfo) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
+            if (!UtilHelper.isSystemLocationProviderEnabled(this.r.getPageActivity())) {
+                this.r.showToast(R.string.location_system_permission_prompt);
+            } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
+                w0();
+            } else if (this.k.D()) {
+                C();
+            } else {
+                this.k.M(false);
+                d0(1, true, null);
+                this.k.H();
+            }
+        }
     }
 
-    public WriteImagesInfo z() {
+    public SpanGroupManager y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? this.f15137f : (WriteImagesInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? this.f15146h : (SpanGroupManager) invokeV.objValue;
+    }
+
+    public VideoInfo z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) ? this.y : (VideoInfo) invokeV.objValue;
     }
 }

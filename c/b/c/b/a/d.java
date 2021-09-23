@@ -14,13 +14,13 @@ public class d implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c f31486e;
+    public final c f31507e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f31487f;
+    public volatile boolean f31508f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f31488g;
+    public Runnable f31509g;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -28,7 +28,7 @@ public class d implements Runnable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f31489e;
+        public final /* synthetic */ d f31510e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -45,14 +45,14 @@ public class d implements Runnable {
                     return;
                 }
             }
-            this.f31489e = dVar;
+            this.f31510e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f31489e.f31487f = false;
+                this.f31510e.f31508f = false;
             }
         }
     }
@@ -72,12 +72,12 @@ public class d implements Runnable {
                 return;
             }
         }
-        this.f31487f = false;
-        this.f31488g = new a(this);
-        this.f31486e = cVar;
+        this.f31508f = false;
+        this.f31509g = new a(this);
+        this.f31507e = cVar;
         a();
         h.a(2L);
-        c.b.c.b.h.g.a().b(4500L, this.f31488g);
+        c.b.c.b.h.g.a().b(4500L, this.f31509g);
         c.b.c.b.h.g.a().c(5000L, this, 40, 5000L);
     }
 
@@ -109,7 +109,7 @@ public class d implements Runnable {
         String str;
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f31487f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f31508f) {
             return;
         }
         if (c()) {
@@ -119,8 +119,8 @@ public class d implements Runnable {
             str = null;
             i2 = 100;
         }
-        if (this.f31486e.e(i2, str, 25)) {
-            this.f31487f = true;
+        if (this.f31507e.e(i2, str, 25)) {
+            this.f31508f = true;
         }
     }
 }

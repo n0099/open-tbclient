@@ -28,14 +28,14 @@ public final class f implements d.InterfaceC0311d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7472c;
+    public static final boolean f7480c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f7473a;
+    public d f7481a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f7474b;
+    public volatile boolean f7482b;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -43,7 +43,7 @@ public final class f implements d.InterfaceC0311d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ v0 f7475e;
+        public final /* synthetic */ v0 f7483e;
 
         public a(f fVar, v0 v0Var) {
             Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public final class f implements d.InterfaceC0311d {
                     return;
                 }
             }
-            this.f7475e = v0Var;
+            this.f7483e = v0Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7475e.b();
+                this.f7483e.b();
             }
         }
     }
@@ -78,13 +78,13 @@ public final class f implements d.InterfaceC0311d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f7476e;
+        public final /* synthetic */ int f7484e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bundle f7477f;
+        public final /* synthetic */ Bundle f7485f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f7478g;
+        public final /* synthetic */ f f7486g;
 
         public b(f fVar, int i2, Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -101,19 +101,19 @@ public final class f implements d.InterfaceC0311d {
                     return;
                 }
             }
-            this.f7478g = fVar;
-            this.f7476e = i2;
-            this.f7477f = bundle;
+            this.f7486g = fVar;
+            this.f7484e = i2;
+            this.f7485f = bundle;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (f.f7472c) {
-                    String str = "zygoteSwanProcess delay - run. switch: " + this.f7476e;
+                if (f.f7480c) {
+                    String str = "zygoteSwanProcess delay - run. switch: " + this.f7484e;
                 }
-                c.a.p0.a.v1.c.f.b.k(this.f7478g.a(), this.f7477f);
+                c.a.p0.a.v1.c.f.b.k(this.f7486g.a(), this.f7485f);
             }
         }
     }
@@ -123,7 +123,7 @@ public final class f implements d.InterfaceC0311d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final f f7479a;
+        public static final f f7487a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -139,7 +139,7 @@ public final class f implements d.InterfaceC0311d {
                     return;
                 }
             }
-            f7479a = new f(null);
+            f7487a = new f(null);
         }
     }
 
@@ -156,7 +156,7 @@ public final class f implements d.InterfaceC0311d {
                 return;
             }
         }
-        f7472c = k.f7077a;
+        f7480c = k.f7085a;
     }
 
     public /* synthetic */ f(a aVar) {
@@ -166,7 +166,7 @@ public final class f implements d.InterfaceC0311d {
     public static f c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.f7479a : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.f7487a : (f) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.n0.b
@@ -180,18 +180,18 @@ public final class f implements d.InterfaceC0311d {
     public d d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7473a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7481a : (d) invokeV.objValue;
     }
 
     public void e(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) || this.f7474b) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) || this.f7482b) {
             return;
         }
         synchronized (this) {
-            if (!this.f7474b) {
+            if (!this.f7482b) {
                 f(bundle);
-                this.f7474b = true;
+                this.f7482b = true;
             }
         }
     }
@@ -210,13 +210,13 @@ public final class f implements d.InterfaceC0311d {
     public final void g(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            boolean z = f7472c;
+            boolean z = f7480c;
             t f2 = c.a.p0.a.c1.a.f();
             if (f2 == null) {
                 return;
             }
             int a2 = f2.a();
-            if (f7472c) {
+            if (f7480c) {
                 String str = "zygoteSwanProcess switch : " + a2;
             }
             if (f2.e()) {
@@ -229,13 +229,13 @@ public final class f implements d.InterfaceC0311d {
                 bundle.putString("bundle_key_preload_preload_scene", "0");
             }
             if (bundle.getBoolean("bundle_key_preload_delay", false) && f2.f()) {
-                if (f7472c) {
+                if (f7480c) {
                     String str2 = "zygoteSwanProcess delay - start. switch: " + a2;
                 }
                 q0.Y(new b(this, a2, bundle), c.a.p0.a.c1.a.f().c());
                 return;
             }
-            if (f7472c) {
+            if (f7480c) {
                 String str3 = "zygoteSwanProcess start. switch: " + a2;
             }
             c.a.p0.a.v1.c.f.b.k(a(), bundle);
@@ -255,8 +255,8 @@ public final class f implements d.InterfaceC0311d {
                 return;
             }
         }
-        this.f7474b = false;
-        this.f7473a = new d(this);
+        this.f7482b = false;
+        this.f7481a = new d(this);
         c.a.p0.a.p0.e.a.d().f();
     }
 }

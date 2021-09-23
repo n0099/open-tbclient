@@ -27,7 +27,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6005a;
+    public static final boolean f6013a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -36,10 +36,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6006e;
+        public final /* synthetic */ String f6014e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f6007f;
+        public final /* synthetic */ File f6015f;
 
         public a(String str, File file) {
             Interceptable interceptable = $ic;
@@ -56,8 +56,8 @@ public class b {
                     return;
                 }
             }
-            this.f6006e = str;
-            this.f6007f = file;
+            this.f6014e = str;
+            this.f6015f = file;
         }
 
         @Override // java.lang.Runnable
@@ -65,7 +65,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (b.class) {
-                    c.a.p0.t.d.R(this.f6006e, this.f6007f, true);
+                    c.a.p0.t.d.R(this.f6014e, this.f6015f, true);
                 }
                 b.c();
             }
@@ -115,7 +115,7 @@ public class b {
                 return;
             }
         }
-        f6005a = k.f7077a;
+        f6013a = k.f7085a;
     }
 
     public b() {
@@ -273,7 +273,7 @@ public class b {
         if (interceptable == null || interceptable.invokeJL(65545, null, j2, str) == null) {
             long i2 = i(j2);
             if (i2 == -1) {
-                boolean z = f6005a;
+                boolean z = f6013a;
                 return;
             }
             File d2 = d(i2);
@@ -296,7 +296,7 @@ public class b {
                 }
                 return parse.getTime();
             } catch (ParseException e2) {
-                if (k.f7077a) {
+                if (k.f7085a) {
                     e2.printStackTrace();
                 }
                 return -1L;

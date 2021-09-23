@@ -19,7 +19,7 @@ public final class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile Set<String> f7611a;
+    public volatile Set<String> f7619a;
 
     static {
         InterceptResult invokeClinit;
@@ -56,7 +56,7 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                Set<String> set = this.f7611a;
+                Set<String> set = this.f7619a;
                 z = (set != null ? set.size() : 0) < 5;
             }
             return z;
@@ -69,10 +69,10 @@ public final class k {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
             synchronized (this) {
                 Intrinsics.checkNotNullParameter(task, "task");
-                if (this.f7611a == null) {
-                    this.f7611a = new LinkedHashSet();
+                if (this.f7619a == null) {
+                    this.f7619a = new LinkedHashSet();
                 }
-                Set<String> set = this.f7611a;
+                Set<String> set = this.f7619a;
                 if (set != null) {
                     set.add(task.getTaskId());
                 }
@@ -85,7 +85,7 @@ public final class k {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
             synchronized (this) {
                 Intrinsics.checkNotNullParameter(taskId, "taskId");
-                Set<String> set = this.f7611a;
+                Set<String> set = this.f7619a;
                 if (set != null) {
                     set.remove(taskId);
                 }
@@ -97,7 +97,7 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                Set<String> set = this.f7611a;
+                Set<String> set = this.f7619a;
                 if (set != null) {
                     for (String str : set) {
                         try {
@@ -107,7 +107,7 @@ public final class k {
                         }
                     }
                 }
-                Set<String> set2 = this.f7611a;
+                Set<String> set2 = this.f7619a;
                 if (set2 != null) {
                     set2.clear();
                 }

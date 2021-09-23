@@ -13,13 +13,13 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f13064a;
+    public List<a> f13081a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<MediaFileInfo> f13065b;
+    public List<MediaFileInfo> f13082b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<VideoFileInfo> f13066c;
+    public List<VideoFileInfo> f13083c;
 
     public g() {
         Interceptable interceptable = $ic;

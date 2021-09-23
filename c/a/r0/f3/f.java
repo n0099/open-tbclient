@@ -14,10 +14,10 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f17694a;
+    public String f17704a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17695b;
+    public String f17705b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class f {
                 return;
             }
             try {
-                this.f17694a = jSONObject.optString("banner_pic");
-                this.f17695b = jSONObject.optString("banner_url");
+                this.f17704a = jSONObject.optString("banner_pic");
+                this.f17705b = jSONObject.optString("banner_url");
             } catch (Exception e2) {
                 BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", e2.toString());
                 BdLog.e(e2.getMessage());

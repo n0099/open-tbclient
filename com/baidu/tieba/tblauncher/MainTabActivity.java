@@ -247,7 +247,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57244a;
+        public final /* synthetic */ MainTabActivity f57361a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MainTabActivity mainTabActivity, int i2) {
@@ -267,7 +267,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57244a = mainTabActivity;
+            this.f57361a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -278,11 +278,11 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                 return;
             }
             UserData b2 = c.a.q0.a0.b.a().b();
-            if (TbadkCoreApplication.isLogin() && b2 != null && b2.getUserId() != null && !b2.getUserId().equals(this.f57244a.mPreUserId) && b2.getIsGodInvited()) {
-                this.f57244a.mPreUserId = b2.getUserId();
-                this.f57244a.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f57244a.getPageContext().getPageActivity(), "", TbWebViewActivityConfig.GOD_INVITE_JUMP_URL + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, true)));
+            if (TbadkCoreApplication.isLogin() && b2 != null && b2.getUserId() != null && !b2.getUserId().equals(this.f57361a.mPreUserId) && b2.getIsGodInvited()) {
+                this.f57361a.mPreUserId = b2.getUserId();
+                this.f57361a.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f57361a.getPageContext().getPageActivity(), "", TbWebViewActivityConfig.GOD_INVITE_JUMP_URL + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, true)));
             }
-            if (c.a.q0.s.d0.b.j().g("key_new_god_invited_my_tab_red_tip_showed", false) || !TbadkCoreApplication.isLogin() || b2 == null || b2.getUserId() == null || b2.getUserId().equals(this.f57244a.mPreUserId) || b2.getNewGodData() == null || !b2.getNewGodData().isNewGodInvited()) {
+            if (c.a.q0.s.d0.b.j().g("key_new_god_invited_my_tab_red_tip_showed", false) || !TbadkCoreApplication.isLogin() || b2 == null || b2.getUserId() == null || b2.getUserId().equals(this.f57361a.mPreUserId) || b2.getNewGodData() == null || !b2.getNewGodData().isNewGodInvited()) {
                 return;
             }
             c.a.r0.z2.a.v().L(11, true, true);
@@ -297,10 +297,10 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f57245e;
+        public final /* synthetic */ String f57362e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57246f;
+        public final /* synthetic */ MainTabActivity f57363f;
 
         public a0(MainTabActivity mainTabActivity, String str) {
             Interceptable interceptable = $ic;
@@ -317,15 +317,15 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57246f = mainTabActivity;
-            this.f57245e = str;
+            this.f57363f = mainTabActivity;
+            this.f57362e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                UrlManager.getInstance().dealOneLink(this.f57246f.getPageContext(), new String[]{this.f57245e});
+                UrlManager.getInstance().dealOneLink(this.f57363f.getPageContext(), new String[]{this.f57362e});
             }
         }
     }
@@ -336,7 +336,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57247a;
+        public final /* synthetic */ MainTabActivity f57364a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a1(MainTabActivity mainTabActivity, int i2) {
@@ -356,7 +356,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57247a = mainTabActivity;
+            this.f57364a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -364,18 +364,18 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                int intValue = this.f57247a.mCurrentTabIndex.intValue();
-                this.f57247a.mCurrentTabIndex = (Integer) customResponsedMessage.getData();
-                if (this.f57247a.mCurrentTabIndex.intValue() == 1) {
-                    this.f57247a.clearLikeFirstForumTips();
+                int intValue = this.f57364a.mCurrentTabIndex.intValue();
+                this.f57364a.mCurrentTabIndex = (Integer) customResponsedMessage.getData();
+                if (this.f57364a.mCurrentTabIndex.intValue() == 1) {
+                    this.f57364a.clearLikeFirstForumTips();
                 } else if (intValue == 1) {
-                    this.f57247a.showLikeFirstForumTips();
+                    this.f57364a.showLikeFirstForumTips();
                 }
-                if (this.f57247a.mCurrentTabIndex.intValue() == 2) {
-                    this.f57247a.clearNewCategoryTips();
+                if (this.f57364a.mCurrentTabIndex.intValue() == 2) {
+                    this.f57364a.clearNewCategoryTips();
                 }
-                if (this.f57247a.mCurrentTabIndex.intValue() == 4) {
-                    this.f57247a.clearMyCreateCenterTips();
+                if (this.f57364a.mCurrentTabIndex.intValue() == 4) {
+                    this.f57364a.clearMyCreateCenterTips();
                 }
             }
         }
@@ -387,7 +387,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57248a;
+        public final /* synthetic */ MainTabActivity f57365a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(MainTabActivity mainTabActivity, int i2) {
@@ -407,7 +407,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57248a = mainTabActivity;
+            this.f57365a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -417,7 +417,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PostWriteCallBackData) || ((PostWriteCallBackData) customResponsedMessage.getData()).isDyamicCallback()) {
                 return;
             }
-            this.f57248a.mViewController.O((PostWriteCallBackData) customResponsedMessage.getData());
+            this.f57365a.mViewController.O((PostWriteCallBackData) customResponsedMessage.getData());
         }
     }
 
@@ -427,7 +427,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57249e;
+        public final /* synthetic */ MainTabActivity f57366e;
 
         public b0(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
@@ -444,7 +444,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57249e = mainTabActivity;
+            this.f57366e = mainTabActivity;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -452,7 +452,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f57249e.processBeforeGoBack();
+                this.f57366e.processBeforeGoBack();
             }
         }
     }
@@ -463,7 +463,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57250a;
+        public final /* synthetic */ MainTabActivity f57367a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b1(MainTabActivity mainTabActivity, int i2) {
@@ -483,7 +483,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57250a = mainTabActivity;
+            this.f57367a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -496,7 +496,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                 if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
                     return;
                 }
-                this.f57250a.checkVersion(configVersion.sync);
+                this.f57367a.checkVersion(configVersion.sync);
             }
         }
     }
@@ -507,7 +507,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57251a;
+        public final /* synthetic */ MainTabActivity f57368a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(MainTabActivity mainTabActivity, int i2) {
@@ -527,7 +527,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57251a = mainTabActivity;
+            this.f57368a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -535,12 +535,12 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             VideoClickTabData videoClickTabData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921610 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof VideoClickTabData) && (videoClickTabData = (VideoClickTabData) customResponsedMessage.getData()) != null && this.f57251a.isResumed) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921610 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof VideoClickTabData) && (videoClickTabData = (VideoClickTabData) customResponsedMessage.getData()) != null && this.f57368a.isResumed) {
                 TbSingleton.getInstance().setFromFeedVideoClick(true);
-                this.f57251a.mViewController.y().getTabSpecByType(22);
-                this.f57251a.mViewController.y().refreshVideoFragment(true, videoClickTabData.getMiddleFragment());
+                this.f57368a.mViewController.y().getTabSpecByType(22);
+                this.f57368a.mViewController.y().refreshVideoFragment(true, videoClickTabData.getMiddleFragment());
                 TbSingleton.getInstance().setVideoChannelAttentionRedIcon(TbSingleton.getInstance().getVideoChannelAttentionRedIcon());
-                this.f57251a.mViewController.y().setCurrentTabByType(22);
+                this.f57368a.mViewController.y().setCurrentTabByType(22);
             }
         }
     }
@@ -551,7 +551,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57252e;
+        public final /* synthetic */ MainTabActivity f57369e;
 
         public c0(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
@@ -568,7 +568,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57252e = mainTabActivity;
+            this.f57369e = mainTabActivity;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -576,10 +576,10 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 try {
-                    this.f57252e.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
+                    this.f57369e.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
                     aVar.dismiss();
                 } catch (Exception unused) {
-                    this.f57252e.showToast(R.string.goto_developActivity_error_toast);
+                    this.f57369e.showToast(R.string.goto_developActivity_error_toast);
                 }
             }
         }
@@ -591,7 +591,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57253a;
+        public final /* synthetic */ MainTabActivity f57370a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c1(MainTabActivity mainTabActivity, int i2) {
@@ -611,7 +611,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57253a = mainTabActivity;
+            this.f57370a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -637,18 +637,18 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                 if (!StringUtils.isNull(queryParameter3)) {
                     int e2 = c.a.e.e.m.b.e(queryParameter3, 0);
                     if (hVar.b() != null) {
-                        c.a.q0.d1.t.a(queryParameter2, queryParameter, queryParameter4, e2, hVar.b(), baijiahaoData);
+                        c.a.q0.d1.w.a(queryParameter2, queryParameter, queryParameter4, e2, hVar.b(), baijiahaoData);
                     } else {
-                        c.a.q0.d1.t.a(queryParameter2, queryParameter, queryParameter4, e2, this.f57253a.getPageContext(), baijiahaoData);
+                        c.a.q0.d1.w.a(queryParameter2, queryParameter, queryParameter4, e2, this.f57370a.getPageContext(), baijiahaoData);
                     }
                 } else {
                     if (StringUtils.isNull(queryParameter2)) {
                         queryParameter2 = "0";
                     }
                     if (hVar.b() != null) {
-                        c.a.q0.d1.t.a(queryParameter2, queryParameter, queryParameter4, 0, hVar.b(), baijiahaoData);
+                        c.a.q0.d1.w.a(queryParameter2, queryParameter, queryParameter4, 0, hVar.b(), baijiahaoData);
                     } else {
-                        c.a.q0.d1.t.a(queryParameter2, queryParameter, queryParameter4, 0, this.f57253a.getPageContext(), baijiahaoData);
+                        c.a.q0.d1.w.a(queryParameter2, queryParameter, queryParameter4, 0, this.f57370a.getPageContext(), baijiahaoData);
                     }
                 }
             } catch (Exception e3) {
@@ -663,7 +663,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57254a;
+        public final /* synthetic */ MainTabActivity f57371a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(MainTabActivity mainTabActivity, int i2) {
@@ -683,7 +683,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57254a = mainTabActivity;
+            this.f57371a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -691,7 +691,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921611) {
-                this.f57254a.mViewController.y().tbSelectionChanged(0, false);
+                this.f57371a.mViewController.y().tbSelectionChanged(0, false);
             }
         }
     }
@@ -702,7 +702,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57255a;
+        public final /* synthetic */ MainTabActivity f57372a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d0(MainTabActivity mainTabActivity, int i2) {
@@ -722,7 +722,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57255a = mainTabActivity;
+            this.f57372a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -732,11 +732,11 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Integer)) {
                 Integer num = (Integer) customResponsedMessage.getData();
                 if (num.intValue() == 2) {
-                    this.f57255a.mViewController.s(true);
+                    this.f57372a.mViewController.s(true);
                 } else if (num.intValue() == 1) {
-                    this.f57255a.mViewController.s(false);
+                    this.f57372a.mViewController.s(false);
                 } else {
-                    this.f57255a.mViewController.s(false);
+                    this.f57372a.mViewController.s(false);
                 }
             }
         }
@@ -785,7 +785,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57256a;
+        public final /* synthetic */ MainTabActivity f57373a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(MainTabActivity mainTabActivity, int i2) {
@@ -805,7 +805,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57256a = mainTabActivity;
+            this.f57373a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -814,20 +814,20 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             ArrayList<c.a.q0.h0.b> c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f57256a.mIsAdd = false;
+                this.f57373a.mIsAdd = false;
                 if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null || (c2 = ((c.a.q0.h0.d) customResponsedMessage.getData()).c()) == null || c2.size() == 0) {
                     return;
                 }
-                this.f57256a.mViewController.z(c2);
-                if (this.f57256a.isUseCurrType) {
-                    this.f57256a.mViewController.y().setCurrentTabByType(this.f57256a.reloginGotoType);
-                } else if (this.f57256a.getActivity().getIntent() != null && this.f57256a.getActivity().getIntent().getDataString() != null && this.f57256a.getActivity().getIntent().getDataString().startsWith(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
-                    this.f57256a.mViewController.y().setCurrentTabByType(2);
+                this.f57373a.mViewController.z(c2);
+                if (this.f57373a.isUseCurrType) {
+                    this.f57373a.mViewController.y().setCurrentTabByType(this.f57373a.reloginGotoType);
+                } else if (this.f57373a.getActivity().getIntent() != null && this.f57373a.getActivity().getIntent().getDataString() != null && this.f57373a.getActivity().getIntent().getDataString().startsWith(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
+                    this.f57373a.mViewController.y().setCurrentTabByType(2);
                 } else {
-                    MainTabActivity mainTabActivity = this.f57256a;
+                    MainTabActivity mainTabActivity = this.f57373a;
                     mainTabActivity.setupIntent(mainTabActivity.getIntent());
                 }
-                this.f57256a.isUseCurrType = false;
+                this.f57373a.isUseCurrType = false;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921333, null));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921543, null));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921567, null));
@@ -842,7 +842,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57257a;
+        public final /* synthetic */ MainTabActivity f57374a;
 
         /* loaded from: classes7.dex */
         public class a implements Runnable {
@@ -850,10 +850,10 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomDialogData f57258e;
+            public final /* synthetic */ CustomDialogData f57375e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ e0 f57259f;
+            public final /* synthetic */ e0 f57376f;
 
             public a(e0 e0Var, CustomDialogData customDialogData) {
                 Interceptable interceptable = $ic;
@@ -870,15 +870,15 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                         return;
                     }
                 }
-                this.f57259f = e0Var;
-                this.f57258e = customDialogData;
+                this.f57376f = e0Var;
+                this.f57375e = customDialogData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.r0.j2.j.c.a(this.f57259f.f57257a.getPageContext(), this.f57258e).show();
+                    c.a.r0.j2.j.c.a(this.f57376f.f57374a.getPageContext(), this.f57375e).show();
                 }
             }
         }
@@ -898,7 +898,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57257a = mainTabActivity;
+            this.f57374a = mainTabActivity;
         }
 
         @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.b
@@ -923,7 +923,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57260a;
+        public final /* synthetic */ MainTabActivity f57377a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(MainTabActivity mainTabActivity, int i2) {
@@ -943,7 +943,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57260a = mainTabActivity;
+            this.f57377a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -951,12 +951,12 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007013) {
-                this.f57260a.initTabsOnActivityCreated();
-                if (this.f57260a.mViewController != null && this.f57260a.mViewController.y() != null) {
-                    MainTabActivity mainTabActivity = this.f57260a;
+                this.f57377a.initTabsOnActivityCreated();
+                if (this.f57377a.mViewController != null && this.f57377a.mViewController.y() != null) {
+                    MainTabActivity mainTabActivity = this.f57377a;
                     mainTabActivity.reloginGotoType = mainTabActivity.mViewController.y().getCurrentTabType();
                 }
-                this.f57260a.isUseCurrType = true;
+                this.f57377a.isUseCurrType = true;
             }
         }
     }
@@ -967,22 +967,22 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f57261e;
+        public final /* synthetic */ Thread2GroupShareView f57378e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f57262f;
+        public final /* synthetic */ long f57379f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f57263g;
+        public final /* synthetic */ String f57380g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f57264h;
+        public final /* synthetic */ String f57381h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f57265i;
+        public final /* synthetic */ String f57382i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ ShareFromPBMsgData f57266j;
+        public final /* synthetic */ ShareFromPBMsgData f57383j;
         public final /* synthetic */ MainTabActivity k;
 
         public f0(MainTabActivity mainTabActivity, Thread2GroupShareView thread2GroupShareView, long j2, String str, String str2, String str3, ShareFromPBMsgData shareFromPBMsgData) {
@@ -1001,20 +1001,20 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                 }
             }
             this.k = mainTabActivity;
-            this.f57261e = thread2GroupShareView;
-            this.f57262f = j2;
-            this.f57263g = str;
-            this.f57264h = str2;
-            this.f57265i = str3;
-            this.f57266j = shareFromPBMsgData;
+            this.f57378e = thread2GroupShareView;
+            this.f57379f = j2;
+            this.f57380g = str;
+            this.f57381h = str2;
+            this.f57382i = str3;
+            this.f57383j = shareFromPBMsgData;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.k.HidenSoftKeyPad((InputMethodManager) this.k.getSystemService("input_method"), this.f57261e.getChatMsgView());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.k.getPageContext().getPageActivity(), this.f57262f, this.f57263g, this.f57264h, this.f57265i, 0, this.f57261e.getLeaveMsg(), this.f57266j.toChatMessageContent())));
+                this.k.HidenSoftKeyPad((InputMethodManager) this.k.getSystemService("input_method"), this.f57378e.getChatMsgView());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.k.getPageContext().getPageActivity(), this.f57379f, this.f57380g, this.f57381h, this.f57382i, 0, this.f57378e.getLeaveMsg(), this.f57383j.toChatMessageContent())));
                 aVar.dismiss();
                 ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                 if (shareItem == null || shareItem.e() == null) {
@@ -1032,7 +1032,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57267a;
+        public final /* synthetic */ MainTabActivity f57384a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(MainTabActivity mainTabActivity, int i2) {
@@ -1052,7 +1052,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57267a = mainTabActivity;
+            this.f57384a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1062,14 +1062,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            if (this.f57267a.mRecomPostTopic != null || (customResponsedMessage.getData() instanceof o1)) {
+            if (this.f57384a.mRecomPostTopic != null || (customResponsedMessage.getData() instanceof o1)) {
                 if (customResponsedMessage.getData() != null) {
-                    this.f57267a.mRecomPostTopic = (o1) customResponsedMessage.getData();
+                    this.f57384a.mRecomPostTopic = (o1) customResponsedMessage.getData();
                 }
-                if (this.f57267a.mIsAdd || this.f57267a.mRecomPostTopic == null || !TbadkCoreApplication.isLogin()) {
+                if (this.f57384a.mIsAdd || this.f57384a.mRecomPostTopic == null || !TbadkCoreApplication.isLogin()) {
                     return;
                 }
-                this.f57267a.mMainTabTopicTipController.j(this.f57267a.mRecomPostTopic.f14273a, this.f57267a.mRecomPostTopic.f14274b, this.f57267a.mRecomPostTopic.f14275c);
+                this.f57384a.mMainTabTopicTipController.j(this.f57384a.mRecomPostTopic.f14273a, this.f57384a.mRecomPostTopic.f14274b, this.f57384a.mRecomPostTopic.f14275c);
             }
         }
     }
@@ -1080,7 +1080,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57268a;
+        public final /* synthetic */ MainTabActivity f57385a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g0(MainTabActivity mainTabActivity, int i2) {
@@ -1100,7 +1100,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57268a = mainTabActivity;
+            this.f57385a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1118,11 +1118,11 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     z = true;
                 }
                 if (z) {
-                    this.f57268a.mViewController.y().changeStyle(1);
+                    this.f57385a.mViewController.y().changeStyle(1);
                 } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
-                    this.f57268a.mViewController.y().changeStyle(2);
+                    this.f57385a.mViewController.y().changeStyle(2);
                 } else {
-                    this.f57268a.mViewController.y().changeStyle(1);
+                    this.f57385a.mViewController.y().changeStyle(1);
                 }
             }
         }
@@ -1134,7 +1134,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57269a;
+        public final /* synthetic */ MainTabActivity f57386a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(MainTabActivity mainTabActivity, int i2) {
@@ -1154,7 +1154,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57269a = mainTabActivity;
+            this.f57386a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1164,8 +1164,8 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            c.a.e.e.m.e.a().removeCallbacks(this.f57269a.startPollVideoMsg);
-            c.a.e.e.m.e.a().postDelayed(this.f57269a.startPollVideoMsg, (customResponsedMessage.getData() instanceof Integer ? ((Integer) customResponsedMessage.getData()).intValue() : 0) * 1000);
+            c.a.e.e.m.e.a().removeCallbacks(this.f57386a.startPollVideoMsg);
+            c.a.e.e.m.e.a().postDelayed(this.f57386a.startPollVideoMsg, (customResponsedMessage.getData() instanceof Integer ? ((Integer) customResponsedMessage.getData()).intValue() : 0) * 1000);
         }
     }
 
@@ -1175,10 +1175,10 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f57270e;
+        public final /* synthetic */ Thread2GroupShareView f57387e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57271f;
+        public final /* synthetic */ MainTabActivity f57388f;
 
         public h0(MainTabActivity mainTabActivity, Thread2GroupShareView thread2GroupShareView) {
             Interceptable interceptable = $ic;
@@ -1195,15 +1195,15 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57271f = mainTabActivity;
-            this.f57270e = thread2GroupShareView;
+            this.f57388f = mainTabActivity;
+            this.f57387e = thread2GroupShareView;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f57271f.HidenSoftKeyPad((InputMethodManager) this.f57271f.getSystemService("input_method"), this.f57270e.getChatMsgView());
+                this.f57388f.HidenSoftKeyPad((InputMethodManager) this.f57388f.getSystemService("input_method"), this.f57387e.getChatMsgView());
                 aVar.dismiss();
             }
         }
@@ -1215,7 +1215,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57272e;
+        public final /* synthetic */ MainTabActivity f57389e;
 
         public i(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
@@ -1232,23 +1232,23 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57272e = mainTabActivity;
+            this.f57389e = mainTabActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!c.a.q0.g1.b.e.d()) {
+                if (!c.a.q0.g1.b.c.d()) {
                     VideoRedIconRequest videoRedIconRequest = new VideoRedIconRequest();
-                    if (this.f57272e.mViewController != null && this.f57272e.mViewController.y() != null && this.f57272e.mViewController.y().getCurrentTabType() == 22) {
+                    if (this.f57389e.mViewController != null && this.f57389e.mViewController.y() != null && this.f57389e.mViewController.y().getCurrentTabType() == 22) {
                         videoRedIconRequest.setCallFrom("video_tab");
                     }
-                    this.f57272e.sendMessage(videoRedIconRequest);
+                    this.f57389e.sendMessage(videoRedIconRequest);
                 }
                 int videoRedIconInterval = TbSingleton.getInstance().getVideoRedIconInterval();
                 if (videoRedIconInterval > 5) {
-                    c.a.e.e.m.e.a().postDelayed(this.f57272e.startPollVideoMsg, videoRedIconInterval * 1000);
+                    c.a.e.e.m.e.a().postDelayed(this.f57389e.startPollVideoMsg, videoRedIconInterval * 1000);
                 }
             }
         }
@@ -1260,7 +1260,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57273a;
+        public final /* synthetic */ MainTabActivity f57390a;
 
         public i0(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
@@ -1277,7 +1277,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57273a = mainTabActivity;
+            this.f57390a = mainTabActivity;
         }
 
         @Override // c.a.q0.o0.b
@@ -1314,7 +1314,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57274a;
+        public final /* synthetic */ MainTabActivity f57391a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(MainTabActivity mainTabActivity, int i2) {
@@ -1334,7 +1334,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57274a = mainTabActivity;
+            this.f57391a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1344,7 +1344,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f57274a.dealForceConfirmSwitchTDouToYBean();
+            this.f57391a.dealForceConfirmSwitchTDouToYBean();
         }
     }
 
@@ -1354,7 +1354,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57275a;
+        public final /* synthetic */ MainTabActivity f57392a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j0(MainTabActivity mainTabActivity, int i2) {
@@ -1374,7 +1374,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57275a = mainTabActivity;
+            this.f57392a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1382,20 +1382,20 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                this.f57275a.isAccountStatChanged = true;
+                this.f57392a.isAccountStatChanged = true;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
                 c.a.q0.s.d0.b.j().C("key_feedback_tip");
                 c.a.q0.s.d0.b.j().C("key_feedback_tip_show");
                 c.a.q0.s.d0.b.j().C("key_feedback_tip_tab_show");
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
-                if (this.f57275a.mBdTokenController != null) {
-                    this.f57275a.mBdTokenController.l(UtilHelper.getClipBoardContent());
+                if (this.f57392a.mBdTokenController != null) {
+                    this.f57392a.mBdTokenController.l(UtilHelper.getClipBoardContent());
                 }
-                if (this.f57275a.mViewController != null) {
-                    this.f57275a.mViewController.A();
+                if (this.f57392a.mViewController != null) {
+                    this.f57392a.mViewController.A();
                 }
-                this.f57275a.clearConcernCacheWhenVersionUpdate();
-                this.f57275a.checkCommitInterestInfo();
+                this.f57392a.clearConcernCacheWhenVersionUpdate();
+                this.f57392a.checkCommitInterestInfo();
             }
         }
     }
@@ -1406,7 +1406,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57276a;
+        public final /* synthetic */ MainTabActivity f57393a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k(MainTabActivity mainTabActivity, int i2) {
@@ -1426,23 +1426,23 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57276a = mainTabActivity;
+            this.f57393a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || this.f57276a.mViewController == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || this.f57393a.mViewController == null) {
                 return;
             }
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            MainTabActivity mainTabActivity = this.f57276a;
+            MainTabActivity mainTabActivity = this.f57393a;
             if (currentActivity == mainTabActivity) {
                 boolean z = false;
                 mainTabActivity.isEditorVisible = c.a.e.e.m.b.b(customResponsedMessage.getData().toString(), false);
-                MainTabActivity mainTabActivity2 = this.f57276a;
-                this.f57276a.mViewController.E((mainTabActivity2.isEditorVisible || mainTabActivity2.isKeyboardVisible) ? true : true);
+                MainTabActivity mainTabActivity2 = this.f57393a;
+                this.f57393a.mViewController.E((mainTabActivity2.isEditorVisible || mainTabActivity2.isKeyboardVisible) ? true : true);
             }
         }
     }
@@ -1453,7 +1453,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57277a;
+        public final /* synthetic */ MainTabActivity f57394a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k0(MainTabActivity mainTabActivity, int i2) {
@@ -1473,7 +1473,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57277a = mainTabActivity;
+            this.f57394a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1482,7 +1482,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 GameCenterHelper.isGamePluginInit = ((Boolean) customResponsedMessage.getData()).booleanValue();
-                this.f57277a.checkPluginEntranceState();
+                this.f57394a.checkPluginEntranceState();
             }
         }
     }
@@ -1493,7 +1493,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57278a;
+        public final /* synthetic */ MainTabActivity f57395a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public l(MainTabActivity mainTabActivity, int i2) {
@@ -1513,7 +1513,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57278a = mainTabActivity;
+            this.f57395a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1522,7 +1522,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && c.a.q0.s.a0.b.b() == null) {
                 c.a.r0.m3.b bVar = new c.a.r0.m3.b();
-                bVar.g(this.f57278a);
+                bVar.g(this.f57395a);
                 c.a.q0.s.a0.b.h(bVar);
             }
         }
@@ -1534,7 +1534,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57279a;
+        public final /* synthetic */ MainTabActivity f57396a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public l0(MainTabActivity mainTabActivity, int i2) {
@@ -1554,7 +1554,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57279a = mainTabActivity;
+            this.f57396a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1564,12 +1564,12 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
                 boolean unused = MainTabActivity.syncHasFinish = true;
                 TbadkCoreApplication.getInst().syncHasFinish = true;
-                if (this.f57279a.mViewController != null && this.f57279a.mViewController.x() != null && this.f57279a.mViewController.x().getAnimationView() != null && this.f57279a.mViewController.x().getAnimationView().getVisibility() != 0) {
-                    this.f57279a.mViewController.x().setLottieView(false);
+                if (this.f57396a.mViewController != null && this.f57396a.mViewController.x() != null && this.f57396a.mViewController.x().getAnimationView() != null && this.f57396a.mViewController.x().getAnimationView().getVisibility() != 0) {
+                    this.f57396a.mViewController.x().setLottieView(false);
                 }
                 if (!TbadkCoreApplication.getInst().getActivityPrizeData().g()) {
-                    if (this.f57279a.mViewController != null) {
-                        this.f57279a.mViewController.K(null);
+                    if (this.f57396a.mViewController != null) {
+                        this.f57396a.mViewController.K(null);
                     }
                 } else {
                     if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getInst().getActivityPrizeData().h()) {
@@ -1577,38 +1577,38 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                         if (!StringUtils.isNull(c2)) {
                             c.a.q0.s.d0.b j2 = c.a.q0.s.d0.b.j();
                             if (j2.g("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f57279a.getPageContext(), new String[]{c2}, true);
+                                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f57396a.getPageContext(), new String[]{c2}, true);
                                 c.a.q0.s.d0.b j3 = c.a.q0.s.d0.b.j();
                                 j3.t("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), false);
                             }
                         }
                     }
                     if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                        if (this.f57279a.mViewController != null) {
-                            this.f57279a.mViewController.K(null);
+                        if (this.f57396a.mViewController != null) {
+                            this.f57396a.mViewController.K(null);
                         }
                     } else {
                         String d2 = TbadkCoreApplication.getInst().getActivityPrizeData().d();
                         if (!StringUtils.isNull(d2)) {
-                            if (this.f57279a.mViewController != null) {
-                                this.f57279a.mViewController.K(d2);
+                            if (this.f57396a.mViewController != null) {
+                                this.f57396a.mViewController.K(d2);
                             }
-                        } else if (this.f57279a.mViewController != null) {
-                            this.f57279a.mViewController.K(null);
+                        } else if (this.f57396a.mViewController != null) {
+                            this.f57396a.mViewController.K(null);
                         }
                     }
                 }
                 if (TbSingleton.getInstance().canShowPermDialog()) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921360, this.f57279a));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921360, this.f57396a));
                 }
                 c.a.q0.s.o.a.b().l("1", "");
                 if (TbSingleton.getInstance().hasPerformedFirstLoginTest() && TbSingleton.getInstance().isNeedShowInterestGuide()) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InterestGuideActivityConfig(this.f57279a)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InterestGuideActivityConfig(this.f57396a)));
                 }
                 c.a.q0.s.d0.b.j().w("key_app_launch_time", System.currentTimeMillis());
-                this.f57279a.firstLoginTest();
-                this.f57279a.dealForceConfirmSwitchTDouToYBean();
-                this.f57279a.checkCreateCenterTip();
+                this.f57396a.firstLoginTest();
+                this.f57396a.dealForceConfirmSwitchTDouToYBean();
+                this.f57396a.checkCreateCenterTip();
             }
         }
     }
@@ -1619,7 +1619,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57280a;
+        public final /* synthetic */ MainTabActivity f57397a;
 
         /* loaded from: classes7.dex */
         public class a implements c.a.q0.s.e {
@@ -1670,7 +1670,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57280a = mainTabActivity;
+            this.f57397a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1683,7 +1683,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             String str = (String) customResponsedMessage.getData();
             if (KuangFloatingViewController.getInstance().init()) {
                 KuangFloatingViewController.getInstance().setInfo(str);
-                this.f57280a.getPageContext().getOrignalPage().grantWindowPermission(new a(this), false);
+                this.f57397a.getPageContext().getOrignalPage().grantWindowPermission(new a(this), false);
             }
         }
     }
@@ -1694,7 +1694,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57281a;
+        public final /* synthetic */ MainTabActivity f57398a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public m0(MainTabActivity mainTabActivity, int i2) {
@@ -1714,7 +1714,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57281a = mainTabActivity;
+            this.f57398a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1726,42 +1726,42 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                     c.a.e.g.c.d();
                     c.a.e.g.c.j();
-                    this.f57281a.lastDay = UtilHelper.getCurrentDay();
+                    this.f57398a.lastDay = UtilHelper.getCurrentDay();
                     c.a.q0.s.d0.b.j().w("last_resume_time", TbSingleton.getInstance().getLastResumeTime());
-                    if (!this.f57281a.isEnterImageViewActivity) {
-                        this.f57281a.stopYoungsterUseTimeTask();
+                    if (!this.f57398a.isEnterImageViewActivity) {
+                        this.f57398a.stopYoungsterUseTimeTask();
                         return;
                     } else {
-                        this.f57281a.isEnterImageViewActivity = false;
+                        this.f57398a.isEnterImageViewActivity = false;
                         return;
                     }
                 }
                 String currentDay = UtilHelper.getCurrentDay();
-                if (!StringUtils.isNull(currentDay) && !currentDay.equals(this.f57281a.lastDay)) {
+                if (!StringUtils.isNull(currentDay) && !currentDay.equals(this.f57398a.lastDay)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
                 }
-                if (this.f57281a.mCancelController == null) {
-                    this.f57281a.mCancelController = new c.a.r0.r3.b();
+                if (this.f57398a.mCancelController == null) {
+                    this.f57398a.mCancelController = new c.a.r0.r3.b();
                 }
-                this.f57281a.mCancelController.c(this.f57281a.mCancelController.f24483c);
-                this.f57281a.mCancelController.f24483c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
-                if (c.a.q0.g1.b.e.d()) {
+                this.f57398a.mCancelController.c(this.f57398a.mCancelController.f24499c);
+                this.f57398a.mCancelController.f24499c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
+                if (c.a.q0.g1.b.c.d()) {
                     int i2 = Calendar.getInstance().get(11);
-                    c.a.q0.g1.b.e.f13462a = (i2 >= 23 || i2 < 7) ? true : true;
-                    this.f57281a.stopYoungsterUseTimeTask();
-                    this.f57281a.startYoungsterUseTimeTask();
+                    c.a.q0.g1.b.c.f13458a = (i2 >= 23 || i2 < 7) ? true : true;
+                    this.f57398a.stopYoungsterUseTimeTask();
+                    this.f57398a.startYoungsterUseTimeTask();
                 }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class n extends c.a.q0.d1.i0<Object> {
+    public class n extends c.a.q0.d1.j0<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57282a;
+        public final /* synthetic */ MainTabActivity f57399a;
 
         public n(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
@@ -1778,10 +1778,10 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57282a = mainTabActivity;
+            this.f57399a = mainTabActivity;
         }
 
-        @Override // c.a.q0.d1.i0
+        @Override // c.a.q0.d1.j0
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1799,7 +1799,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57283a;
+        public final /* synthetic */ MainTabActivity f57400a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public n0(MainTabActivity mainTabActivity, int i2) {
@@ -1819,7 +1819,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57283a = mainTabActivity;
+            this.f57400a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1827,7 +1827,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f57283a.isEnterImageViewActivity = true;
+                this.f57400a.isEnterImageViewActivity = true;
             }
         }
     }
@@ -1838,7 +1838,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57284e;
+        public final /* synthetic */ MainTabActivity f57401e;
 
         public o(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
@@ -1855,14 +1855,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57284e = mainTabActivity;
+            this.f57401e = mainTabActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f57284e.mTouchable = true;
+                this.f57401e.mTouchable = true;
             }
         }
     }
@@ -1873,7 +1873,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57285a;
+        public final /* synthetic */ MainTabActivity f57402a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public o0(MainTabActivity mainTabActivity, int i2) {
@@ -1893,7 +1893,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57285a = mainTabActivity;
+            this.f57402a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1902,9 +1902,8 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
-                if ((data instanceof Integer ? ((Integer) data).intValue() : 0) == 6) {
-                    this.f57285a.stopYoungsterUseTimeTask();
-                    this.f57285a.startYoungsterUseTimeTask();
+                if (data instanceof Integer) {
+                    ((Integer) data).intValue();
                 }
             }
         }
@@ -1916,7 +1915,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57286e;
+        public final /* synthetic */ MainTabActivity f57403e;
 
         public p(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
@@ -1933,7 +1932,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57286e = mainTabActivity;
+            this.f57403e = mainTabActivity;
         }
 
         @Override // java.lang.Runnable
@@ -1951,7 +1950,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57287a;
+        public final /* synthetic */ MainTabActivity f57404a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public p0(MainTabActivity mainTabActivity, int i2) {
@@ -1971,26 +1970,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57287a = mainTabActivity;
+            this.f57404a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
-                return;
-            }
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            this.f57287a.stopYoungsterUseTimeTask();
-            if (booleanValue) {
-                if (!this.f57287a.handlerYoungsterNightTask()) {
-                    this.f57287a.startYoungsterUseTimeTask();
-                }
-                c.a.q0.g1.b.d.d(this.f57287a, null);
-                TbSingleton.getInstance().setVideoChannelRecommendRedIcon(null);
-                TbSingleton.getInstance().setVideoChannelAttentionRedIcon(null);
-                MainTabActivity.clearVideoChannelTabImg();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
             }
         }
     }
@@ -2001,7 +1988,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57288e;
+        public final /* synthetic */ MainTabActivity f57405e;
 
         /* loaded from: classes7.dex */
         public class a implements Runnable {
@@ -2048,7 +2035,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57288e = mainTabActivity;
+            this.f57405e = mainTabActivity;
         }
 
         @Override // java.lang.Runnable
@@ -2066,7 +2053,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57289e;
+        public final /* synthetic */ MainTabActivity f57406e;
 
         public q0(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
@@ -2083,18 +2070,18 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57289e = mainTabActivity;
+            this.f57406e = mainTabActivity;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.q0.g1.b.e.f13462a = true;
-                this.f57289e.stopYoungsterUseTimeTask();
-                this.f57289e.startYoungsterUseTimePeriodTask();
-                this.f57289e.youngsterNightTimer.cancel();
-                this.f57289e.youngsterNightTimer = null;
+                c.a.q0.g1.b.c.f13458a = true;
+                this.f57406e.stopYoungsterUseTimeTask();
+                this.f57406e.startYoungsterUseTimePeriodTask();
+                this.f57406e.youngsterNightTimer.cancel();
+                this.f57406e.youngsterNightTimer = null;
             }
         }
     }
@@ -2105,7 +2092,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57290a;
+        public final /* synthetic */ MainTabActivity f57407a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public r(MainTabActivity mainTabActivity, int i2, int i3) {
@@ -2126,7 +2113,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57290a = mainTabActivity;
+            this.f57407a = mainTabActivity;
         }
 
         @Override // c.a.e.c.g.a
@@ -2136,13 +2123,13 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                 boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
                 if (z || (responsedMessage instanceof ProfileHttpResponseMessage)) {
                     if (responsedMessage.getOrginalMessage() != null) {
-                        this.f57290a.getUniqueId();
+                        this.f57407a.getUniqueId();
                     }
                     if (z) {
-                        this.f57290a.onResponseMessage((ProfileSocketResponseMessage) responsedMessage);
+                        this.f57407a.onResponseMessage((ProfileSocketResponseMessage) responsedMessage);
                     }
                     if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                        this.f57290a.onResponseMessage((ProfileHttpResponseMessage) responsedMessage);
+                        this.f57407a.onResponseMessage((ProfileHttpResponseMessage) responsedMessage);
                     }
                 }
             }
@@ -2155,7 +2142,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57291a;
+        public final /* synthetic */ MainTabActivity f57408a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public r0(MainTabActivity mainTabActivity, int i2) {
@@ -2175,20 +2162,20 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57291a = mainTabActivity;
+            this.f57408a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean) || this.f57291a.mViewController == null || this.f57291a.mViewController.y() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean) || this.f57408a.mViewController == null || this.f57408a.mViewController.y() == null) {
                 return;
             }
             if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.f57291a.mViewController.y().getTabWrapper().animate().translationY(this.f57291a.mViewController.y().getTabWrapper().getHeight()).setDuration(200L).start();
+                this.f57408a.mViewController.y().getTabWrapper().animate().translationY(this.f57408a.mViewController.y().getTabWrapper().getHeight()).setDuration(200L).start();
             } else {
-                this.f57291a.mViewController.y().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
+                this.f57408a.mViewController.y().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
             }
         }
     }
@@ -2199,7 +2186,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57292a;
+        public final /* synthetic */ MainTabActivity f57409a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public s(MainTabActivity mainTabActivity, int i2) {
@@ -2219,7 +2206,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57292a = mainTabActivity;
+            this.f57409a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2227,7 +2214,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f57292a.updateProfileInfo();
+                this.f57409a.updateProfileInfo();
             }
         }
     }
@@ -2238,7 +2225,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57293e;
+        public final /* synthetic */ MainTabActivity f57410e;
 
         /* loaded from: classes7.dex */
         public class a implements Runnable {
@@ -2246,7 +2233,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ s0 f57294e;
+            public final /* synthetic */ s0 f57411e;
 
             public a(s0 s0Var) {
                 Interceptable interceptable = $ic;
@@ -2263,18 +2250,18 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                         return;
                     }
                 }
-                this.f57294e = s0Var;
+                this.f57411e = s0Var;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f57294e.f57293e.stopYoungsterUseTimeTask();
-                    if (c.a.q0.g1.b.d.f()) {
+                    this.f57411e.f57410e.stopYoungsterUseTimeTask();
+                    if (c.a.q0.g1.b.b.e()) {
                         return;
                     }
-                    this.f57294e.f57293e.startYoungsterUseTimePeriodTask();
+                    this.f57411e.f57410e.startYoungsterUseTimePeriodTask();
                 }
             }
         }
@@ -2294,7 +2281,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57293e = mainTabActivity;
+            this.f57410e = mainTabActivity;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -2312,7 +2299,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57295a;
+        public final /* synthetic */ MainTabActivity f57412a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public t(MainTabActivity mainTabActivity, int i2) {
@@ -2332,37 +2319,37 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57295a = mainTabActivity;
+            this.f57412a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || this.f57295a.mViewController == null || this.f57295a.mViewController.y() == null || this.f57295a.mViewController.y().getCurrentTabType() == 21) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || this.f57412a.mViewController == null || this.f57412a.mViewController.y() == null || this.f57412a.mViewController.y().getCurrentTabType() == 21) {
                 return;
             }
             String str = (String) customResponsedMessage.getData();
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            FragmentTabWidget fragmentTabWidget = this.f57295a.mViewController.y().getFragmentTabWidget();
+            FragmentTabWidget fragmentTabWidget = this.f57412a.mViewController.y().getFragmentTabWidget();
             if (fragmentTabWidget.getChildCount() < 2) {
                 return;
             }
-            MainTabActivity mainTabActivity = this.f57295a;
+            MainTabActivity mainTabActivity = this.f57412a;
             mainTabActivity.mCategoryTipController = new c.a.r0.e0.e(mainTabActivity.getPageContext(), fragmentTabWidget.getChildAt(2));
-            this.f57295a.mCategoryTipController.g0(R.drawable.bg_tip_blue_down);
-            this.f57295a.mCategoryTipController.L(2);
-            this.f57295a.mCategoryTipController.O(32);
-            this.f57295a.mCategoryTipController.h0(true);
-            this.f57295a.mCategoryTipController.k0(-c.a.e.e.p.l.g(this.f57295a, R.dimen.tbds10));
-            this.f57295a.mCategoryTipController.X(R.color.CAM_X0101);
-            this.f57295a.mCategoryTipController.P(R.dimen.tbds54);
-            this.f57295a.mCategoryTipController.T(999);
-            this.f57295a.mCategoryTipController.N(5000);
-            this.f57295a.mCategoryTipController.a0(c.a.e.e.p.l.g(this.f57295a, R.dimen.tbds44));
-            this.f57295a.mCategoryTipController.o0(str, "categoryUpdate", false, true);
+            this.f57412a.mCategoryTipController.g0(R.drawable.bg_tip_blue_down);
+            this.f57412a.mCategoryTipController.L(2);
+            this.f57412a.mCategoryTipController.O(32);
+            this.f57412a.mCategoryTipController.h0(true);
+            this.f57412a.mCategoryTipController.k0(-c.a.e.e.p.l.g(this.f57412a, R.dimen.tbds10));
+            this.f57412a.mCategoryTipController.X(R.color.CAM_X0101);
+            this.f57412a.mCategoryTipController.P(R.dimen.tbds54);
+            this.f57412a.mCategoryTipController.T(999);
+            this.f57412a.mCategoryTipController.N(5000);
+            this.f57412a.mCategoryTipController.a0(c.a.e.e.p.l.g(this.f57412a, R.dimen.tbds44));
+            this.f57412a.mCategoryTipController.o0(str, "categoryUpdate", false, true);
         }
     }
 
@@ -2372,7 +2359,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57296e;
+        public final /* synthetic */ MainTabActivity f57413e;
 
         /* loaded from: classes7.dex */
         public class a implements Runnable {
@@ -2380,7 +2367,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ t0 f57297e;
+            public final /* synthetic */ t0 f57414e;
 
             public a(t0 t0Var) {
                 Interceptable interceptable = $ic;
@@ -2397,14 +2384,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                         return;
                     }
                 }
-                this.f57297e = t0Var;
+                this.f57414e = t0Var;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.q0.g1.b.d.f()) {
-                    this.f57297e.f57296e.stopYoungsterUseTimeTask();
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.q0.g1.b.b.e()) {
+                    this.f57414e.f57413e.stopYoungsterUseTimeTask();
                 }
             }
         }
@@ -2424,7 +2411,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57296e = mainTabActivity;
+            this.f57413e = mainTabActivity;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -2442,7 +2429,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57298a;
+        public final /* synthetic */ MainTabActivity f57415a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public u(MainTabActivity mainTabActivity, int i2) {
@@ -2462,37 +2449,37 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57298a = mainTabActivity;
+            this.f57415a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f57298a.mViewController == null || this.f57298a.mViewController.y() == null || this.f57298a.mViewController.y().getCurrentTabType() == 22) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f57415a.mViewController == null || this.f57415a.mViewController.y() == null || this.f57415a.mViewController.y().getCurrentTabType() == 22) {
                 return;
             }
-            String string = this.f57298a.getString(R.string.tieba_video_channel_is_comming);
+            String string = this.f57415a.getString(R.string.tieba_video_channel_is_comming);
             if (TextUtils.isEmpty(string)) {
                 return;
             }
-            FragmentTabWidget fragmentTabWidget = this.f57298a.mViewController.y().getFragmentTabWidget();
+            FragmentTabWidget fragmentTabWidget = this.f57415a.mViewController.y().getFragmentTabWidget();
             if (fragmentTabWidget.getChildCount() < 2) {
                 return;
             }
-            MainTabActivity mainTabActivity = this.f57298a;
+            MainTabActivity mainTabActivity = this.f57415a;
             mainTabActivity.mCategoryTipController = new c.a.r0.e0.e(mainTabActivity.getPageContext(), fragmentTabWidget.getChildAt(2));
-            this.f57298a.mCategoryTipController.g0(R.drawable.bg_tip_blue_left);
-            this.f57298a.mCategoryTipController.L(2);
-            this.f57298a.mCategoryTipController.O(32);
-            this.f57298a.mCategoryTipController.h0(true);
-            this.f57298a.mCategoryTipController.k0(-c.a.e.e.p.l.g(this.f57298a, R.dimen.tbds10));
-            this.f57298a.mCategoryTipController.X(R.color.CAM_X0101);
-            this.f57298a.mCategoryTipController.P(R.dimen.tbds109);
-            this.f57298a.mCategoryTipController.T(1);
-            this.f57298a.mCategoryTipController.N(3000);
-            this.f57298a.mCategoryTipController.a0(c.a.e.e.p.l.g(this.f57298a, R.dimen.tbds44));
-            this.f57298a.mCategoryTipController.o0(string, "videoChannelComming", true, false);
+            this.f57415a.mCategoryTipController.g0(R.drawable.bg_tip_blue_left);
+            this.f57415a.mCategoryTipController.L(2);
+            this.f57415a.mCategoryTipController.O(32);
+            this.f57415a.mCategoryTipController.h0(true);
+            this.f57415a.mCategoryTipController.k0(-c.a.e.e.p.l.g(this.f57415a, R.dimen.tbds10));
+            this.f57415a.mCategoryTipController.X(R.color.CAM_X0101);
+            this.f57415a.mCategoryTipController.P(R.dimen.tbds109);
+            this.f57415a.mCategoryTipController.T(1);
+            this.f57415a.mCategoryTipController.N(3000);
+            this.f57415a.mCategoryTipController.a0(c.a.e.e.p.l.g(this.f57415a, R.dimen.tbds44));
+            this.f57415a.mCategoryTipController.o0(string, "videoChannelComming", true, false);
         }
     }
 
@@ -2502,7 +2489,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57299a;
+        public final /* synthetic */ MainTabActivity f57416a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public u0(MainTabActivity mainTabActivity, int i2) {
@@ -2522,7 +2509,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57299a = mainTabActivity;
+            this.f57416a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2530,14 +2517,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             c.a.q0.u.l lVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.q0.u.l) || (lVar = (c.a.q0.u.l) customResponsedMessage.getData()) == null || StringUtils.isNull(lVar.f15042a)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.q0.u.l) || (lVar = (c.a.q0.u.l) customResponsedMessage.getData()) == null || StringUtils.isNull(lVar.f15049a)) {
                 return;
             }
             c.a.q0.t0.b.i(lVar);
-            if (StringUtils.isNull(lVar.f15044c)) {
-                UrlManager.getInstance().dealOneLink(this.f57299a.getPageContext(), new String[]{lVar.f15042a});
+            if (StringUtils.isNull(lVar.f15051c)) {
+                UrlManager.getInstance().dealOneLink(this.f57416a.getPageContext(), new String[]{lVar.f15049a});
             } else {
-                UrlManager.getInstance().dealOneLink(this.f57299a.getPageContext(), new String[]{lVar.f15042a, lVar.f15044c});
+                UrlManager.getInstance().dealOneLink(this.f57416a.getPageContext(), new String[]{lVar.f15049a, lVar.f15051c});
             }
         }
     }
@@ -2548,7 +2535,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57300a;
+        public final /* synthetic */ MainTabActivity f57417a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public v(MainTabActivity mainTabActivity, int i2) {
@@ -2568,7 +2555,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57300a = mainTabActivity;
+            this.f57417a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2576,7 +2563,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001377) {
-                this.f57300a.finish();
+                this.f57417a.finish();
             }
         }
     }
@@ -2587,7 +2574,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57301a;
+        public final /* synthetic */ MainTabActivity f57418a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public v0(MainTabActivity mainTabActivity, int i2) {
@@ -2607,17 +2594,17 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57301a = mainTabActivity;
+            this.f57418a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f57301a.mWriteTab == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f57418a.mWriteTab == null) {
                 return;
             }
-            this.f57301a.mWriteTab.z();
+            this.f57418a.mWriteTab.z();
         }
     }
 
@@ -2627,7 +2614,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57302a;
+        public final /* synthetic */ MainTabActivity f57419a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public w(MainTabActivity mainTabActivity, int i2) {
@@ -2647,37 +2634,37 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57302a = mainTabActivity;
+            this.f57419a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f57302a.mViewController == null || this.f57302a.mViewController.y() == null || this.f57302a.mViewController.y().getCurrentTabType() == 8) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f57419a.mViewController == null || this.f57419a.mViewController.y() == null || this.f57419a.mViewController.y().getCurrentTabType() == 8) {
                 return;
             }
-            FragmentTabWidget fragmentTabWidget = this.f57302a.mViewController.y().getFragmentTabWidget();
+            FragmentTabWidget fragmentTabWidget = this.f57419a.mViewController.y().getFragmentTabWidget();
             if (fragmentTabWidget.getChildCount() < 4) {
                 return;
             }
-            String string = this.f57302a.getString(R.string.my_create_center_tips);
-            MainTabActivity mainTabActivity = this.f57302a;
+            String string = this.f57419a.getString(R.string.my_create_center_tips);
+            MainTabActivity mainTabActivity = this.f57419a;
             mainTabActivity.mMyTipController = new c.a.r0.e0.e(mainTabActivity.getPageContext(), fragmentTabWidget.getChildAt(4));
-            this.f57302a.mMyTipController.g0(R.drawable.bg_tip_blue_dropdown_right);
-            this.f57302a.mMyTipController.L(2);
-            this.f57302a.mMyTipController.O(48);
-            this.f57302a.mMyTipController.h0(true);
-            this.f57302a.mMyTipController.j0(-c.a.e.e.p.l.g(this.f57302a, R.dimen.tbds62));
-            this.f57302a.mMyTipController.X(R.color.CAM_X0101);
-            this.f57302a.mMyTipController.e0(R.dimen.T_X08);
-            this.f57302a.mMyTipController.T(1);
-            this.f57302a.mMyTipController.N(3000);
-            this.f57302a.mMyTipController.d0(c.a.e.e.p.l.g(this.f57302a, R.dimen.tbds25));
-            this.f57302a.mMyTipController.a0(c.a.e.e.p.l.g(this.f57302a, R.dimen.tbds33));
-            this.f57302a.mMyTipController.b0(c.a.e.e.p.l.g(this.f57302a, R.dimen.tbds36));
-            this.f57302a.mMyTipController.c0(c.a.e.e.p.l.g(this.f57302a, R.dimen.tbds36));
-            this.f57302a.mMyTipController.o0(string, "mycreatecentertip", true, true);
+            this.f57419a.mMyTipController.g0(R.drawable.bg_tip_blue_dropdown_right);
+            this.f57419a.mMyTipController.L(2);
+            this.f57419a.mMyTipController.O(48);
+            this.f57419a.mMyTipController.h0(true);
+            this.f57419a.mMyTipController.j0(-c.a.e.e.p.l.g(this.f57419a, R.dimen.tbds62));
+            this.f57419a.mMyTipController.X(R.color.CAM_X0101);
+            this.f57419a.mMyTipController.e0(R.dimen.T_X08);
+            this.f57419a.mMyTipController.T(1);
+            this.f57419a.mMyTipController.N(3000);
+            this.f57419a.mMyTipController.d0(c.a.e.e.p.l.g(this.f57419a, R.dimen.tbds25));
+            this.f57419a.mMyTipController.a0(c.a.e.e.p.l.g(this.f57419a, R.dimen.tbds33));
+            this.f57419a.mMyTipController.b0(c.a.e.e.p.l.g(this.f57419a, R.dimen.tbds36));
+            this.f57419a.mMyTipController.c0(c.a.e.e.p.l.g(this.f57419a, R.dimen.tbds36));
+            this.f57419a.mMyTipController.o0(string, "mycreatecentertip", true, true);
         }
     }
 
@@ -2687,7 +2674,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57303e;
+        public final /* synthetic */ MainTabActivity f57420e;
 
         public w0(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
@@ -2704,7 +2691,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57303e = mainTabActivity;
+            this.f57420e = mainTabActivity;
         }
 
         @Override // java.lang.Runnable
@@ -2714,7 +2701,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                 return;
             }
             TbSingleton.getInstance().setNewUserRedPackageShowed(true);
-            this.f57303e.sendMessage(new CustomMessage(2002001, new NewUserRedPackageActivityConfig(this.f57303e, TbSingleton.getInstance().getNewUserRedPackageData())));
+            this.f57420e.sendMessage(new CustomMessage(2002001, new NewUserRedPackageActivityConfig(this.f57420e, TbSingleton.getInstance().getNewUserRedPackageData())));
             TbSingleton.getInstance().setNewUserRedPackageData(null);
         }
     }
@@ -2725,7 +2712,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57304a;
+        public final /* synthetic */ MainTabActivity f57421a;
 
         public x(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
@@ -2742,7 +2729,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57304a = mainTabActivity;
+            this.f57421a = mainTabActivity;
         }
 
         @Override // com.baidu.tieba.model.CheckRealNameModel.b
@@ -2750,7 +2737,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, obj}) == null) && CheckRealNameModel.TYPE_APP_FIRST_START.equals(str2) && i2 == 1990055) {
                 TiebaStatic.log("c12138");
-                this.f57304a.mViewController.M(this.f57304a.getResources().getString(R.string.check_real_name_message));
+                this.f57421a.mViewController.M(this.f57421a.getResources().getString(R.string.check_real_name_message));
             }
         }
     }
@@ -2761,7 +2748,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57305a;
+        public final /* synthetic */ MainTabActivity f57422a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public x0(MainTabActivity mainTabActivity, int i2) {
@@ -2781,16 +2768,16 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57305a = mainTabActivity;
+            this.f57422a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && !TbSingleton.getInstance().isNewUserRedPackageShowed() && this.f57305a.isResumed && TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
-                c.a.e.e.m.e.a().removeCallbacks(this.f57305a.mCheckNewUserRedPackageRunnable);
-                c.a.e.e.m.e.a().postDelayed(this.f57305a.mCheckNewUserRedPackageRunnable, 200L);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && !TbSingleton.getInstance().isNewUserRedPackageShowed() && this.f57422a.isResumed && TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
+                c.a.e.e.m.e.a().removeCallbacks(this.f57422a.mCheckNewUserRedPackageRunnable);
+                c.a.e.e.m.e.a().postDelayed(this.f57422a.mCheckNewUserRedPackageRunnable, 200L);
             }
         }
     }
@@ -2801,7 +2788,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57306a;
+        public final /* synthetic */ MainTabActivity f57423a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public y(MainTabActivity mainTabActivity, int i2) {
@@ -2821,7 +2808,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57306a = mainTabActivity;
+            this.f57423a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -2829,7 +2816,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && c.a.e.e.p.l.D()) {
-                this.f57306a.checkRealName();
+                this.f57423a.checkRealName();
                 if (MainTabActivity.syncHasFinish) {
                     return;
                 }
@@ -2844,7 +2831,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57307a;
+        public final /* synthetic */ MainTabActivity f57424a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public y0(MainTabActivity mainTabActivity, int i2) {
@@ -2864,15 +2851,15 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57307a = mainTabActivity;
+            this.f57424a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.q0.u.j) && ViewHelper.checkUpIsLogin(this.f57307a.getPageContext().getPageActivity())) {
-                this.f57307a.showWriteThreadView();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.q0.u.j) && ViewHelper.checkUpIsLogin(this.f57424a.getPageContext().getPageActivity())) {
+                this.f57424a.showWriteThreadView();
             }
         }
     }
@@ -2883,10 +2870,10 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Intent f57308a;
+        public final /* synthetic */ Intent f57425a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57309b;
+        public final /* synthetic */ MainTabActivity f57426b;
 
         public z(MainTabActivity mainTabActivity, Intent intent) {
             Interceptable interceptable = $ic;
@@ -2903,14 +2890,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57309b = mainTabActivity;
-            this.f57308a = intent;
+            this.f57426b = mainTabActivity;
+            this.f57425a = intent;
         }
 
         @Override // c.a.q0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) || hashMap == null || this.f57308a == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) || hashMap == null || this.f57425a == null) {
                 return;
             }
             Object obj = hashMap.get(c.a.q0.a.g.B);
@@ -2920,21 +2907,21 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             Object obj3 = hashMap.get(c.a.q0.a.g.A);
             String str2 = obj3 instanceof String ? (String) obj3 : null;
             if (intValue != -1) {
-                this.f57308a.putExtra("is_from_scheme", true);
-                this.f57308a.putExtra("locate_type", intValue);
-                this.f57308a.putExtra("sub_locate_type", str);
-                this.f57308a.putExtra("sub_tab_name", str2);
-                c.a.q0.s.a0.b.f13741b = intValue;
+                this.f57425a.putExtra("is_from_scheme", true);
+                this.f57425a.putExtra("locate_type", intValue);
+                this.f57425a.putExtra("sub_locate_type", str);
+                this.f57425a.putExtra("sub_tab_name", str2);
+                c.a.q0.s.a0.b.f13737b = intValue;
                 Object obj4 = hashMap.get(c.a.q0.a.g.D);
                 String str3 = obj4 instanceof String ? (String) obj4 : null;
                 Object obj5 = hashMap.get(c.a.q0.a.g.E);
                 String str4 = obj5 instanceof String ? (String) obj5 : null;
-                this.f57308a.putExtra(c.a.q0.a.g.D, str3);
-                this.f57308a.putExtra(c.a.q0.a.g.E, str4);
+                this.f57425a.putExtra(c.a.q0.a.g.D, str3);
+                this.f57425a.putExtra(c.a.q0.a.g.E, str4);
             }
             c.a.q0.a.d.y().L(true);
             if (intValue == 1 && "ForumSquare".equals(str)) {
-                c.a.q0.s.a0.b.f13742c = c.a.q0.s.a0.b.f13744e;
+                c.a.q0.s.a0.b.f13738c = c.a.q0.s.a0.b.f13740e;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921528));
             }
         }
@@ -2946,7 +2933,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f57310a;
+        public final /* synthetic */ MainTabActivity f57427a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public z0(MainTabActivity mainTabActivity, int i2) {
@@ -2966,15 +2953,15 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                     return;
                 }
             }
-            this.f57310a = mainTabActivity;
+            this.f57427a = mainTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.r0.j3.r0.k) && ((c.a.r0.j3.r0.k) customResponsedMessage.getData()).f21118b && this.f57310a.mLikeForumNum == 0) {
-                this.f57310a.createLikeFirstForumTips();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.r0.j3.r0.k) && ((c.a.r0.j3.r0.k) customResponsedMessage.getData()).f21130b && this.f57427a.mLikeForumNum == 0) {
+                this.f57427a.createLikeFirstForumTips();
             }
         }
     }
@@ -3200,7 +3187,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{dataString2});
                 c.a.q0.a.d.y().L(true);
             }
-        } else if (!StringUtils.isNULL(dataString) && dataString.startsWith(c.a.q0.a.g.f12601a)) {
+        } else if (!StringUtils.isNULL(dataString) && dataString.startsWith(c.a.q0.a.g.f12609a)) {
             c.a.q0.a.g.b().e(intent.getData(), new z(this, intent));
         }
         String stringExtra = intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME);
@@ -3253,8 +3240,8 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65602, null) == null) {
             c.a.q0.h0.c cVar = new c.a.q0.h0.c();
-            cVar.f13473g = "";
-            cVar.f13471e = 22;
+            cVar.f13469g = "";
+            cVar.f13467e = 22;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, cVar));
         }
     }
@@ -3398,7 +3385,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
         if (interceptable == null || (invokeV = interceptable.invokeV(65611, this)) == null) {
             int i2 = Calendar.getInstance().get(11);
             if (i2 < 23 && i2 >= 7) {
-                c.a.q0.g1.b.e.f13462a = false;
+                c.a.q0.g1.b.c.f13458a = false;
                 Timer timer = this.youngsterNightTimer;
                 if (timer != null) {
                     timer.cancel();
@@ -3414,7 +3401,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                 timer2.schedule(new q0(this), time, 1000L);
                 return false;
             }
-            c.a.q0.g1.b.e.f13462a = true;
+            c.a.q0.g1.b.c.f13458a = true;
             stopYoungsterUseTimeTask();
             startYoungsterUseTimePeriodTask();
             return true;
@@ -3583,7 +3570,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             this.youngsterUseTimer = new Timer();
             s0 s0Var = new s0(this);
             this.youngsterUseTimeTask = s0Var;
-            this.youngsterUseTimer.schedule(s0Var, c.a.q0.g1.b.d.c() ? 1000L : YOUNGSTER_USE_TIME_MAX);
+            this.youngsterUseTimer.schedule(s0Var, c.a.q0.g1.b.b.c() ? 1000L : YOUNGSTER_USE_TIME_MAX);
         }
     }
 
@@ -4030,7 +4017,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             SpeedStatsManager.getInstance().addStatsTimeStamp(3002);
             c.a.q0.q0.l.b().x(System.currentTimeMillis());
             if (TbadkCoreApplication.getInst().getIsFirstUse()) {
-                c.a.q0.d1.l0.b(new n(this), null);
+                c.a.q0.d1.m0.b(new n(this), null);
             }
             setIsAddSwipeBackLayout(false);
             Window window = getWindow();
@@ -4045,7 +4032,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             if (handlerExitApp(getIntent())) {
                 return;
             }
-            c.a.q0.s.a0.b.f13742c = c.a.q0.s.a0.b.f13743d;
+            c.a.q0.s.a0.b.f13738c = c.a.q0.s.a0.b.f13739d;
             if (getIntent() != null) {
                 c.a.r0.m3.e eVar = new c.a.r0.m3.e(getPageContext());
                 this.mPushInsertThreadController = eVar;
@@ -4178,7 +4165,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.UPDATE_PROFILE_INFO_START_STAMP_KEY);
             updateProfileInfo();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.UPDATE_PROFILE_INFO_END_STAMP_KEY);
-            if (c.a.q0.b.d.G()) {
+            if (c.a.q0.b.d.I()) {
                 c.a.r0.x0.a.i().B(this, "6051001980-1210572494", c.a.r0.x0.a.b("personalize", "1"));
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.TRY_LOAD_NATIVE_FUN_START_STAMP_KEY);
@@ -4188,9 +4175,9 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.TRY_LOAD_NATIVE_FUN_END_STAMP_KEY);
             TbSingleton.getInstance().getChannelConfigModel().e();
             TbSingleton.getInstance().setActiveTimeStamp();
-            if (c.a.q0.g1.b.e.d()) {
-                c.a.q0.g1.b.d.f13445a = false;
-                c.a.q0.g1.b.c.a();
+            if (c.a.q0.g1.b.c.d()) {
+                c.a.q0.g1.b.b.f13442a = false;
+                c.a.q0.g1.b.a.a();
                 if (!handlerYoungsterNightTask()) {
                     startYoungsterUseTimeTask();
                 }
@@ -4269,16 +4256,17 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             if (dVar2 != null && dVar2.x() != null) {
                 this.mViewController.x().onDestory();
             }
-            if (c.a.q0.b.d.R()) {
+            if (c.a.q0.b.d.V()) {
                 c.a.r0.x0.a.i().d("6061002332-203360688");
             }
-            if (c.a.q0.b.d.S()) {
+            if (c.a.q0.b.d.W()) {
                 c.a.r0.x0.a.i().c("6061002410-390177882");
             }
             if (this.tiePlusEventController != null) {
                 getLifecycle().removeObserver(this.tiePlusEventController);
             }
             c.a.r0.o1.c.b().c();
+            c.a.e.j.e.c().cancel();
             c.a.e.e.m.e.a().removeCallbacks(this.mCheckNewUserRedPackageRunnable);
             c.a.e.e.m.e.a().removeCallbacks(this.startPollVideoMsg);
             System.gc();
@@ -4388,7 +4376,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
                 }
                 c.a.r0.m3.d dVar3 = this.mViewController;
                 if (dVar3 != null && dVar3.y() != null && (tabSpecByType = this.mViewController.y().getTabSpecByType(intExtra)) != null) {
-                    Fragment fragment = tabSpecByType.f47569c;
+                    Fragment fragment = tabSpecByType.f47671c;
                     if (fragment instanceof c.a.q0.s.g) {
                         ((c.a.q0.s.g) fragment).setCurrentSubTab(intent);
                     }
@@ -4465,7 +4453,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             super.onResume();
             this.isResumed = true;
             if (this.doRefresh) {
-                c.a.q0.d1.s0.f(this.mWeakContext);
+                c.a.q0.d1.t0.g(this.mWeakContext);
                 this.doRefresh = false;
             }
             c.a.r0.m3.d dVar = this.mViewController;
@@ -4608,7 +4596,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
             if (dVar != null && dVar.y() != null) {
                 FragmentTabHost y2 = this.mViewController.y();
                 FragmentTabHost.b tabSpec = y2.getTabSpec(y2.getCurrentTabIndex());
-                if (tabSpec != null && tabSpec.f47567a == 22) {
+                if (tabSpec != null && tabSpec.f47669a == 22) {
                     return false;
                 }
             }
@@ -4693,7 +4681,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.r0.m3.a
     public boolean videoNeedPreload() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? c.a.q0.d1.s0.a(1) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? c.a.q0.d1.t0.a(1) : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

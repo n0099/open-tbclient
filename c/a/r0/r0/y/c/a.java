@@ -36,34 +36,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f24438a;
+    public TbPageContext f24454a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f24439b;
+    public BdTypeListView f24455b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f24440c;
+    public g f24456c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f24441d;
+    public RelativeLayout f24457d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f24442e;
+    public NoNetworkView f24458e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PbListView f24443f;
+    public PbListView f24459f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.r0.x.a f24444g;
+    public c.a.r0.r0.x.a f24460g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ForumEmotionVoteEntryView f24445h;
+    public ForumEmotionVoteEntryView f24461h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.q0.g0.g f24446i;
+    public c.a.q0.g0.g f24462i;
 
     /* renamed from: j  reason: collision with root package name */
-    public NoDataView f24447j;
+    public NoDataView f24463j;
     public LinearLayout k;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -81,20 +81,20 @@ public class a {
                 return;
             }
         }
-        this.f24438a = tbPageContext;
+        this.f24454a = tbPageContext;
         RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_forum_emotion_center, (ViewGroup) null);
-        this.f24441d = relativeLayout;
-        this.f24442e = (NoNetworkView) relativeLayout.findViewById(R.id.no_network_view);
-        BdTypeListView bdTypeListView = (BdTypeListView) this.f24441d.findViewById(R.id.forum_emotion_list);
-        this.f24439b = bdTypeListView;
+        this.f24457d = relativeLayout;
+        this.f24458e = (NoNetworkView) relativeLayout.findViewById(R.id.no_network_view);
+        BdTypeListView bdTypeListView = (BdTypeListView) this.f24457d.findViewById(R.id.forum_emotion_list);
+        this.f24455b = bdTypeListView;
         bdTypeListView.addHeaderView(this.k);
-        this.f24439b.setDivider(null);
-        g gVar = new g(this.f24438a);
-        this.f24440c = gVar;
+        this.f24455b.setDivider(null);
+        g gVar = new g(this.f24454a);
+        this.f24456c = gVar;
         gVar.V(bdUniqueId);
-        this.f24439b.setPullRefresh(this.f24440c);
+        this.f24455b.setPullRefresh(this.f24456c);
         PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
-        this.f24443f = pbListView;
+        this.f24459f = pbListView;
         pbListView.a();
         j();
         i();
@@ -105,106 +105,106 @@ public class a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f24439b.completePullRefresh();
+            this.f24455b.completePullRefresh();
         }
     }
 
     public BdTypeListView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24439b : (BdTypeListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24455b : (BdTypeListView) invokeV.objValue;
     }
 
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24442e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24458e : (View) invokeV.objValue;
     }
 
     public ViewGroup d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24441d : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24457d : (ViewGroup) invokeV.objValue;
     }
 
     public ForumEmotionVoteEntryView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24445h : (ForumEmotionVoteEntryView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24461h : (ForumEmotionVoteEntryView) invokeV.objValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            PbListView pbListView = this.f24443f;
+            PbListView pbListView = this.f24459f;
             if (pbListView != null) {
                 pbListView.f();
             }
-            this.f24439b.setNextPage(null);
+            this.f24455b.setNextPage(null);
         }
     }
 
     public void g() {
         c.a.q0.g0.g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (gVar = this.f24446i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (gVar = this.f24462i) == null) {
             return;
         }
-        gVar.dettachView(this.f24441d);
-        this.f24446i = null;
+        gVar.dettachView(this.f24457d);
+        this.f24462i = null;
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            NoDataView noDataView = this.f24447j;
+            NoDataView noDataView = this.f24463j;
             if (noDataView != null) {
                 noDataView.setVisibility(8);
             }
-            this.f24444g.c().setVisibility(0);
-            this.f24445h.setVisibility(0);
+            this.f24460g.c().setVisibility(0);
+            this.f24461h.setVisibility(0);
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            c.a.r0.r0.x.a aVar = new c.a.r0.r0.x.a(this.f24438a);
-            this.f24444g = aVar;
+            c.a.r0.r0.x.a aVar = new c.a.r0.r0.x.a(this.f24454a);
+            this.f24460g = aVar;
             aVar.c().setVisibility(8);
-            this.f24439b.addHeaderView(this.f24444g.c());
+            this.f24455b.addHeaderView(this.f24460g.c());
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f24438a.getPageActivity());
+            LinearLayout linearLayout = new LinearLayout(this.f24454a.getPageActivity());
             this.k = linearLayout;
             linearLayout.setGravity(17);
-            this.f24439b.addHeaderView(this.k);
+            this.f24455b.addHeaderView(this.k);
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ForumEmotionVoteEntryView forumEmotionVoteEntryView = new ForumEmotionVoteEntryView(this.f24438a.getPageActivity());
-            this.f24445h = forumEmotionVoteEntryView;
-            this.f24439b.addHeaderView(forumEmotionVoteEntryView);
+            ForumEmotionVoteEntryView forumEmotionVoteEntryView = new ForumEmotionVoteEntryView(this.f24454a.getPageActivity());
+            this.f24461h = forumEmotionVoteEntryView;
+            this.f24455b.addHeaderView(forumEmotionVoteEntryView);
         }
     }
 
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f24443f.o(R.color.CAM_X0204);
-            this.f24443f.d(i2);
-            this.f24440c.D(i2);
-            this.f24439b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
-            SkinManager.setBackgroundColor(this.f24441d, R.color.CAM_X0201);
-            this.f24442e.onChangeSkinType(this.f24438a, i2);
-            ForumEmotionVoteEntryView forumEmotionVoteEntryView = this.f24445h;
+            this.f24459f.o(R.color.CAM_X0204);
+            this.f24459f.d(i2);
+            this.f24456c.D(i2);
+            this.f24455b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
+            SkinManager.setBackgroundColor(this.f24457d, R.color.CAM_X0201);
+            this.f24458e.onChangeSkinType(this.f24454a, i2);
+            ForumEmotionVoteEntryView forumEmotionVoteEntryView = this.f24461h;
             if (forumEmotionVoteEntryView != null) {
                 forumEmotionVoteEntryView.onChangeSkin(i2);
             }
@@ -218,79 +218,79 @@ public class a {
         }
         g();
         if (forumEmotionData.banner != null) {
-            this.f24444g.c().setVisibility(0);
-            this.f24444g.f(this.f24438a.getUniqueId());
-            this.f24444g.e(new c(forumEmotionData.banner));
-            this.f24444g.g();
+            this.f24460g.c().setVisibility(0);
+            this.f24460g.f(this.f24454a.getUniqueId());
+            this.f24460g.e(new c(forumEmotionData.banner));
+            this.f24460g.g();
         }
         List<String> list = forumEmotionData.forum_avatar;
         if (list != null) {
-            this.f24445h.setAvatarList(list);
+            this.f24461h.setAvatarList(list);
         }
     }
 
     public void n(f.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, gVar) == null) {
-            this.f24440c.a(gVar);
+            this.f24456c.a(gVar);
         }
     }
 
     public void o(BdListView.p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, pVar) == null) {
-            this.f24439b.setOnSrollToBottomListener(pVar);
+            this.f24455b.setOnSrollToBottomListener(pVar);
         }
     }
 
     public void p() {
         PbListView pbListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (pbListView = this.f24443f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (pbListView = this.f24459f) == null) {
             return;
         }
         if (pbListView.b().getParent() == null) {
-            this.f24439b.setNextPage(this.f24443f);
+            this.f24455b.setNextPage(this.f24459f);
         }
-        this.f24443f.M();
-        this.f24443f.O();
+        this.f24459f.M();
+        this.f24459f.O();
     }
 
     public void q() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (tbPageContext = this.f24438a) == null || this.f24441d == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (tbPageContext = this.f24454a) == null || this.f24457d == null) {
             return;
         }
         c.a.q0.g0.g gVar = new c.a.q0.g0.g(tbPageContext.getPageActivity());
-        this.f24446i = gVar;
-        gVar.attachView(this.f24441d, false);
-        this.f24446i.onChangeSkinType();
+        this.f24462i = gVar;
+        gVar.attachView(this.f24457d, false);
+        this.f24462i.onChangeSkinType();
     }
 
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            if (this.f24447j == null) {
-                this.f24447j = NoDataViewFactory.b(this.f24438a.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f24438a.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f24438a.getString(R.string.emotion_error_net_tip)), null, true);
+            if (this.f24463j == null) {
+                this.f24463j = NoDataViewFactory.b(this.f24454a.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f24454a.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f24454a.getString(R.string.emotion_error_net_tip)), null, true);
             }
-            this.f24447j.setVisibility(0);
-            this.f24444g.c().setVisibility(4);
-            this.f24445h.setVisibility(4);
-            this.f24447j.onChangeSkinType(this.f24438a, TbadkCoreApplication.getInst().getSkinType());
+            this.f24463j.setVisibility(0);
+            this.f24460g.c().setVisibility(4);
+            this.f24461h.setVisibility(4);
+            this.f24463j.onChangeSkinType(this.f24454a, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void s() {
         PbListView pbListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (pbListView = this.f24443f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (pbListView = this.f24459f) == null) {
             return;
         }
         if (pbListView.b().getParent() == null) {
-            this.f24439b.setNextPage(this.f24443f);
+            this.f24455b.setNextPage(this.f24459f);
         }
-        this.f24443f.A(this.f24438a.getResources().getString(R.string.list_no_more));
-        this.f24443f.f();
+        this.f24459f.A(this.f24454a.getResources().getString(R.string.list_no_more));
+        this.f24459f.f();
     }
 }

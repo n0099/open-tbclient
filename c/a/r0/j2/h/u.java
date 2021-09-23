@@ -14,16 +14,16 @@ public class u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<PostData> f19679a;
+    public final List<PostData> f19694a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<Long> f19680b;
+    public final List<Long> f19695b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f19681c;
+    public String f19696c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f19682d;
+    public int f19697d;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public class u {
                 return;
             }
         }
-        this.f19679a = new ArrayList();
-        this.f19680b = new ArrayList();
-        this.f19682d = 0;
+        this.f19694a = new ArrayList();
+        this.f19695b = new ArrayList();
+        this.f19697d = 0;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19682d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19697d : invokeV.intValue;
     }
 }

@@ -23,6 +23,7 @@ import c.a.p0.a.v2.n0;
 import c.a.p0.a.v2.q0;
 import c.a.p0.a.v2.t;
 import c.a.p0.a.v2.x0;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
@@ -58,34 +59,34 @@ public class e {
     public int B;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f9606a;
+    public View f9614a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f9607b;
+    public TextView f9615b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanAppRoundedImageView f9608c;
+    public SwanAppRoundedImageView f9616c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f9609d;
+    public ImageView f9617d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f9610e;
+    public ImageView f9618e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f9611f;
+    public ImageView f9619f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f9612g;
+    public ImageView f9620g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f9613h;
+    public RelativeLayout f9621h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdBaseImageView f9614i;
+    public BdBaseImageView f9622i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f9615j;
+    public TextView f9623j;
     public View k;
     public c.a.p0.a.t.a l;
     public SwanAppActivity m;
@@ -155,316 +156,9 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f9616e;
-
-        public b(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f9616e = eVar;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (floatValue > 0.9f || floatValue - this.f9616e.u > 0.05d) {
-                    this.f9616e.u = floatValue;
-                    this.f9616e.O();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class c implements t.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f9617a;
-
-        public c(e eVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f9617a = str;
-        }
-
-        @Override // c.a.p0.a.v2.t.b
-        public void a(String str, Bitmap bitmap) {
-            SwanAppActivity x;
-            e loadingView;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) || bitmap == null || (x = c.a.p0.a.a2.d.g().x()) == null || x.isDestroyed() || (loadingView = x.getLoadingView()) == null || !TextUtils.equals(this.f9617a, c.a.p0.a.a2.d.g().getAppId())) {
-                return;
-            }
-            loadingView.L(bitmap);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f9618e;
-
-        public d(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f9618e = context;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.z(this.f9618e);
-            }
-        }
-    }
-
-    /* renamed from: c.a.p0.a.w2.e$e  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public class RunnableC0449e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f9619e;
-
-        public RunnableC0449e(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f9619e = eVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int e2 = f0.e(this.f9619e.m);
-                if (!f0.q(this.f9619e.m, this.f9619e.k) || this.f9619e.m.isLandScape()) {
-                    return;
-                }
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f9619e.k.getLayoutParams();
-                layoutParams.topMargin = this.f9619e.k.getTop() + e2;
-                this.f9619e.k.setLayoutParams(layoutParams);
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f9620e;
-
-        public f(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f9620e = eVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9620e.q == null) {
-                return;
-            }
-            this.f9620e.q.setVisibility(0);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f9621e;
-
-        public g(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f9621e = eVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9621e.A == null) {
-                return;
-            }
-            this.f9621e.A.setVisibility(0);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class h implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f9622e;
-
-        public h(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f9622e = eVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int e2 = f0.e(this.f9622e.m);
-                if (!f0.q(this.f9622e.m, this.f9622e.k) || this.f9622e.m.isLandScape()) {
-                    return;
-                }
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f9622e.k.getLayoutParams();
-                layoutParams.topMargin = this.f9622e.k.getTop() + e2;
-                this.f9622e.k.setLayoutParams(layoutParams);
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class i implements Function0<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f9623e;
-
-        public i(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f9623e = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // kotlin.jvm.functions.Function0
-        /* renamed from: a */
-        public Unit invoke() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f9623e.E();
-                return null;
-            }
-            return (Unit) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class j implements View.OnAttachStateChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ e f9624e;
 
-        public j(e eVar) {
+        public b(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -482,11 +176,318 @@ public class e {
             this.f9624e = eVar;
         }
 
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                if (floatValue > 0.9f || floatValue - this.f9624e.u > 0.05d) {
+                    this.f9624e.u = floatValue;
+                    this.f9624e.O();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c implements t.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ String f9625a;
+
+        public c(e eVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9625a = str;
+        }
+
+        @Override // c.a.p0.a.v2.t.b
+        public void a(String str, Bitmap bitmap) {
+            SwanAppActivity x;
+            e loadingView;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) || bitmap == null || (x = c.a.p0.a.a2.d.g().x()) == null || x.isDestroyed() || (loadingView = x.getLoadingView()) == null || !TextUtils.equals(this.f9625a, c.a.p0.a.a2.d.g().getAppId())) {
+                return;
+            }
+            loadingView.L(bitmap);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Context f9626e;
+
+        public d(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9626e = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                e.z(this.f9626e);
+            }
+        }
+    }
+
+    /* renamed from: c.a.p0.a.w2.e$e  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public class RunnableC0449e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f9627e;
+
+        public RunnableC0449e(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9627e = eVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int e2 = f0.e(this.f9627e.m);
+                if (!f0.q(this.f9627e.m, this.f9627e.k) || this.f9627e.m.isLandScape()) {
+                    return;
+                }
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f9627e.k.getLayoutParams();
+                layoutParams.topMargin = this.f9627e.k.getTop() + e2;
+                this.f9627e.k.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f9628e;
+
+        public f(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9628e = eVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9628e.q == null) {
+                return;
+            }
+            this.f9628e.q.setVisibility(0);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f9629e;
+
+        public g(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9629e = eVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9629e.A == null) {
+                return;
+            }
+            this.f9629e.A.setVisibility(0);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class h implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f9630e;
+
+        public h(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9630e = eVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int e2 = f0.e(this.f9630e.m);
+                if (!f0.q(this.f9630e.m, this.f9630e.k) || this.f9630e.m.isLandScape()) {
+                    return;
+                }
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f9630e.k.getLayoutParams();
+                layoutParams.topMargin = this.f9630e.k.getTop() + e2;
+                this.f9630e.k.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class i implements Function0<Unit> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f9631e;
+
+        public i(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9631e = eVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function0
+        /* renamed from: a */
+        public Unit invoke() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.f9631e.E();
+                return null;
+            }
+            return (Unit) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class j implements View.OnAttachStateChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f9632e;
+
+        public j(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f9632e = eVar;
+        }
+
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewAttachedToWindow(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f9624e.E();
+                this.f9632e.E();
             }
         }
 
@@ -504,7 +505,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f9625e;
+        public final /* synthetic */ e f9633e;
 
         public k(e eVar) {
             Interceptable interceptable = $ic;
@@ -521,13 +522,13 @@ public class e {
                     return;
                 }
             }
-            this.f9625e = eVar;
+            this.f9633e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f9625e.m == null || this.f9625e.m.isFinishing()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f9633e.m == null || this.f9633e.m.isFinishing()) {
                 return;
             }
             HybridUbcFlow m = c.a.p0.a.r1.h.m();
@@ -536,9 +537,9 @@ public class e {
                 m.B("value", QueryResponse.Options.CANCEL);
                 m.l();
             }
-            this.f9625e.m.moveTaskToBack(true);
+            this.f9633e.m.moveTaskToBack(true);
             x0.b().e(2);
-            this.f9625e.r();
+            this.f9633e.r();
         }
     }
 
@@ -548,10 +549,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f9626e;
+        public final /* synthetic */ int f9634e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f9627f;
+        public final /* synthetic */ e f9635f;
 
         public l(e eVar, int i2) {
             Interceptable interceptable = $ic;
@@ -568,8 +569,8 @@ public class e {
                     return;
                 }
             }
-            this.f9627f = eVar;
-            this.f9626e = i2;
+            this.f9635f = eVar;
+            this.f9634e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -579,10 +580,10 @@ public class e {
                 synchronized (e.class) {
                     c.a.p0.a.r1.h.o().C(new UbcFlowEvent("first_anim_end"));
                     c.a.p0.a.i2.a.d().i("first_anim_end");
-                    if (this.f9627f.l != null) {
-                        this.f9627f.l.n(this.f9627f.m, this.f9626e);
+                    if (this.f9635f.l != null) {
+                        this.f9635f.l.n(this.f9635f.m, this.f9634e);
                     }
-                    this.f9627f.s = false;
+                    this.f9635f.s = false;
                 }
             }
         }
@@ -594,22 +595,22 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f9628e;
+        public final boolean f9636e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f9629f;
+        public final String f9637f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f9630g;
+        public boolean f9638g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f9631h;
+        public boolean f9639h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final c.a.p0.a.a2.b f9632i;
+        public final c.a.p0.a.a2.b f9640i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f9633j;
+        public int f9641j;
         public int k;
         public boolean l;
         public final /* synthetic */ e m;
@@ -620,7 +621,7 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ m f9634e;
+            public final /* synthetic */ m f9642e;
 
             public a(m mVar, e eVar) {
                 Interceptable interceptable = $ic;
@@ -637,7 +638,7 @@ public class e {
                         return;
                     }
                 }
-                this.f9634e = mVar;
+                this.f9642e = mVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -647,8 +648,8 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     boolean unused = e.C;
-                    this.f9634e.k = aVar.i("KEY_PRELOAD_STATE");
-                    this.f9634e.e();
+                    this.f9642e.k = aVar.i("KEY_PRELOAD_STATE");
+                    this.f9642e.e();
                 }
             }
         }
@@ -723,7 +724,7 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ m f9635e;
+            public final /* synthetic */ m f9643e;
 
             public d(m mVar, e eVar) {
                 Interceptable interceptable = $ic;
@@ -740,7 +741,7 @@ public class e {
                         return;
                     }
                 }
-                this.f9635e = mVar;
+                this.f9643e = mVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -750,8 +751,8 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     boolean unused = e.C;
-                    this.f9635e.l = true;
-                    this.f9635e.e();
+                    this.f9643e.l = true;
+                    this.f9643e.e();
                 }
             }
         }
@@ -795,7 +796,7 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ m f9636e;
+            public final /* synthetic */ m f9644e;
 
             public f(m mVar, e eVar) {
                 Interceptable interceptable = $ic;
@@ -812,7 +813,7 @@ public class e {
                         return;
                     }
                 }
-                this.f9636e = mVar;
+                this.f9644e = mVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -822,8 +823,8 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     boolean unused = e.C;
-                    this.f9636e.f9633j = aVar.j("KEY_PKG_STATE", -1);
-                    this.f9636e.e();
+                    this.f9644e.f9641j = aVar.j("KEY_PKG_STATE", -1);
+                    this.f9644e.e();
                 }
             }
         }
@@ -834,7 +835,7 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ m f9637e;
+            public final /* synthetic */ m f9645e;
 
             public g(m mVar, e eVar) {
                 Interceptable interceptable = $ic;
@@ -851,7 +852,7 @@ public class e {
                         return;
                     }
                 }
-                this.f9637e = mVar;
+                this.f9645e = mVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -861,8 +862,8 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     boolean unused = e.C;
-                    this.f9637e.f9633j = aVar.j("KEY_PKG_STATE", -1);
-                    this.f9637e.e();
+                    this.f9645e.f9641j = aVar.j("KEY_PKG_STATE", -1);
+                    this.f9645e.e();
                 }
             }
         }
@@ -883,11 +884,11 @@ public class e {
                 }
             }
             this.m = eVar;
-            this.f9630g = false;
-            this.f9631h = false;
-            this.f9633j = -1;
-            this.f9629f = str;
-            this.f9628e = z;
+            this.f9638g = false;
+            this.f9639h = false;
+            this.f9641j = -1;
+            this.f9637f = str;
+            this.f9636e = z;
             c.a.p0.a.a2.b bVar = new c.a.p0.a.a2.b();
             bVar.e(new g(this, eVar), "event_pms_check_start");
             bVar.e(new f(this, eVar), "event_pms_check_finish");
@@ -896,8 +897,8 @@ public class e {
             bVar.e(new c(this, eVar), "event_preload_start");
             bVar.e(new b(this, eVar), "event_preload_error");
             bVar.e(new a(this, eVar), "event_preload_finish");
-            this.f9632i = bVar;
-            c.a.p0.a.a2.d.g().v(this.f9632i);
+            this.f9640i = bVar;
+            c.a.p0.a.a2.d.g().v(this.f9640i);
         }
 
         public void e() {
@@ -928,25 +929,25 @@ public class e {
                     sb.append(z ? "post" : Log.getStackTraceString(new Exception()));
                     sb.toString();
                 }
-                this.f9631h = true;
-                boolean z2 = this.f9628e;
+                this.f9639h = true;
+                boolean z2 = this.f9636e;
                 if (z2) {
-                    this.m.y(z2, this.f9630g);
+                    this.m.y(z2, this.f9638g);
                     return;
                 }
                 int d2 = c.a.p0.a.r1.l.b.d();
                 if (d2 == 0) {
-                    this.m.y(this.f9628e, this.f9630g);
+                    this.m.y(this.f9636e, this.f9638g);
                 } else if (d2 == 1) {
-                    this.m.x(this.f9628e, this.f9630g, true);
+                    this.m.x(this.f9636e, this.f9638g, true);
                 } else if (d2 == 2) {
-                    this.m.x(this.f9628e, this.f9630g, false);
+                    this.m.x(this.f9636e, this.f9638g, false);
                 } else if (d2 != 3) {
                     if (e.C) {
                         String str = "ViewStarter exec : invalid animationType = " + c.a.p0.a.r1.l.b.d();
                     }
                 } else {
-                    this.m.x(this.f9628e, this.f9630g, true);
+                    this.m.x(this.f9636e, this.f9638g, true);
                 }
             }
         }
@@ -972,7 +973,7 @@ public class e {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int i2 = this.f9633j;
+                int i2 = this.f9641j;
                 boolean z = true;
                 if (i2 != 3 && i2 != 1) {
                     z = false;
@@ -1002,7 +1003,7 @@ public class e {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                boolean z = this.f9633j == 4;
+                boolean z = this.f9641j == 4;
                 boolean i2 = i();
                 if (e.C) {
                     String str = "isRuntimeLoading: isLocalPackage " + z;
@@ -1017,7 +1018,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 boolean unused = e.C;
-                c.a.p0.a.a2.d.g().p(this.f9632i);
+                c.a.p0.a.a2.d.g().p(this.f9640i);
             }
         }
 
@@ -1025,7 +1026,7 @@ public class e {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                this.f9630g = true;
+                this.f9638g = true;
                 return this;
             }
             return (m) invokeV.objValue;
@@ -1053,7 +1054,7 @@ public class e {
                 return;
             }
         }
-        C = c.a.p0.a.k.f7077a;
+        C = c.a.p0.a.k.f7085a;
     }
 
     public e(SwanAppActivity swanAppActivity) {
@@ -1139,7 +1140,7 @@ public class e {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f9612g.setOnClickListener(new k(this));
+            this.f9620g.setOnClickListener(new k(this));
         }
     }
 
@@ -1162,7 +1163,7 @@ public class e {
         }
         sb.append(str2);
         m mVar = this.x;
-        if (mVar != null && !mVar.f9628e) {
+        if (mVar != null && !mVar.f9636e) {
             if (mVar.j()) {
                 boolean z = C;
                 if (this.B == 0) {
@@ -1240,14 +1241,14 @@ public class e {
             String V = c.a.p0.a.a2.d.g().r().L().V();
             this.B = c.a.p0.a.r1.l.b.d();
             m mVar = this.x;
-            boolean z4 = mVar == null || (mVar.f9628e ^ z) || TextUtils.isEmpty(V) || !TextUtils.equals(V, this.x.f9629f);
+            boolean z4 = mVar == null || (mVar.f9636e ^ z) || TextUtils.isEmpty(V) || !TextUtils.equals(V, this.x.f9637f);
             if (C) {
                 String str = "showSwanAppStartView: newLaunchId = " + V + " newIsGameLoading = " + z + " reCreateStarter = " + z4 + " mViewStarter = " + this.x;
             }
             Handler i2 = c.a.p0.a.a2.d.i();
             if (this.x != null) {
                 if (C) {
-                    String str2 = "showSwanAppStartView: oldLaunchId = " + this.x.f9629f + " oldIsGameLoading = " + this.x.f9628e;
+                    String str2 = "showSwanAppStartView: oldLaunchId = " + this.x.f9637f + " oldIsGameLoading = " + this.x.f9636e;
                 }
                 i2.removeCallbacks(this.x);
             }
@@ -1259,7 +1260,7 @@ public class e {
             }
             z3 = (aVar == null || !aVar.e(" event_params_pkg_update", false)) ? false : false;
             m mVar2 = this.x;
-            if (mVar2.f9631h) {
+            if (mVar2.f9639h) {
                 if (C) {
                     String str3 = "showSwanAppStartView: return by executing pkgUpdating = " + z3 + " trace = " + Log.getStackTraceString(new Exception());
                 }
@@ -1323,7 +1324,7 @@ public class e {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             this.r = ofFloat;
             ofFloat.addUpdateListener(new b(this));
-            this.r.setDuration(4000L);
+            this.r.setDuration(PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
             this.r.start();
         }
     }
@@ -1379,7 +1380,7 @@ public class e {
                 String str2 = "updateIcon: icon=" + str;
             }
             String appId = c.a.p0.a.a2.d.g().getAppId();
-            if (!this.s || (swanAppRoundedImageView = this.f9608c) == null) {
+            if (!this.s || (swanAppRoundedImageView = this.f9616c) == null) {
                 return;
             }
             swanAppRoundedImageView.setImageBitmap(q0.k(str, "SwanAppLoadingView", true, new c(this, appId)));
@@ -1389,7 +1390,7 @@ public class e {
     public final void L(Bitmap bitmap) {
         SwanAppRoundedImageView swanAppRoundedImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, bitmap) == null) || bitmap == null || (swanAppRoundedImageView = this.f9608c) == null || swanAppRoundedImageView == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, bitmap) == null) || bitmap == null || (swanAppRoundedImageView = this.f9616c) == null || swanAppRoundedImageView == null) {
             return;
         }
         swanAppRoundedImageView.setImageBitmap(bitmap);
@@ -1398,7 +1399,7 @@ public class e {
     public void M(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || !this.s || TextUtils.isEmpty(str) || (textView = this.f9607b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || !this.s || TextUtils.isEmpty(str) || (textView = this.f9615b) == null) {
             return;
         }
         textView.setText(str);
@@ -1408,7 +1409,7 @@ public class e {
         View view;
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || i2 != PMSConstants.PayProtected.PAY_PROTECTED.type || (view = this.f9606a) == null || (relativeLayout = (RelativeLayout) view.findViewById(c.a.p0.a.f.guarantee_plan_rl)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || i2 != PMSConstants.PayProtected.PAY_PROTECTED.type || (view = this.f9614a) == null || (relativeLayout = (RelativeLayout) view.findViewById(c.a.p0.a.f.guarantee_plan_rl)) == null) {
             return;
         }
         relativeLayout.setVisibility(0);
@@ -1469,8 +1470,8 @@ public class e {
         }
         String valueOf = String.valueOf(System.currentTimeMillis() - launchInfo.l("launch_time", 0L));
         c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-        fVar.f7064b = "launch";
-        fVar.f7067e = "realcancel";
+        fVar.f7072b = "launch";
+        fVar.f7075e = "realcancel";
         fVar.q = valueOf;
         fVar.a("reason", IntentConfig.CLOSE);
         if (launchInfo.G() == 1) {
@@ -1483,18 +1484,18 @@ public class e {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            SwanLoadingTipsView swanLoadingTipsView = (SwanLoadingTipsView) this.f9606a.findViewById(c.a.p0.a.f.aigames_loading_game_tips);
+            SwanLoadingTipsView swanLoadingTipsView = (SwanLoadingTipsView) this.f9614a.findViewById(c.a.p0.a.f.aigames_loading_game_tips);
             this.o = swanLoadingTipsView;
             swanLoadingTipsView.setTipsAnimationFinishCallback(new i(this));
             this.p = new SwanLoadingTips();
-            this.f9606a.addOnAttachStateChangeListener(new j(this));
+            this.f9614a.addOnAttachStateChangeListener(new j(this));
         }
     }
 
     public final void t(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            n0.J(this.f9614i, this.f9615j, String.valueOf(i2));
+            n0.J(this.f9622i, this.f9623j, String.valueOf(i2));
         }
     }
 
@@ -1574,51 +1575,51 @@ public class e {
                     this.l = new c.a.p0.a.t.a();
                 }
                 View u = u(this.m, z);
-                this.f9606a = u;
+                this.f9614a = u;
                 if (!z) {
-                    u.setPadding(0, c.a.p0.a.z1.b.a.f9990b ? n0.u() : 0, 0, 0);
+                    u.setPadding(0, c.a.p0.a.z1.b.a.f9998b ? n0.u() : 0, 0, 0);
                 } else {
                     s();
                 }
                 Handler i2 = c.a.p0.a.a2.d.i();
                 b.a L = c.a.p0.a.a2.d.g().r().L();
-                this.m.getFloatLayer().k(this.f9606a);
+                this.m.getFloatLayer().k(this.f9614a);
                 this.s = true;
-                this.f9611f = (ImageView) this.f9606a.findViewById(c.a.p0.a.f.titlebar_right_menu_img);
-                this.f9612g = (ImageView) this.f9606a.findViewById(c.a.p0.a.f.titlebar_right_menu_exit);
-                this.k = this.f9606a.findViewById(c.a.p0.a.f.titlebar_right_menu);
+                this.f9619f = (ImageView) this.f9614a.findViewById(c.a.p0.a.f.titlebar_right_menu_img);
+                this.f9620g = (ImageView) this.f9614a.findViewById(c.a.p0.a.f.titlebar_right_menu_exit);
+                this.k = this.f9614a.findViewById(c.a.p0.a.f.titlebar_right_menu);
                 if (z) {
-                    this.f9611f.setClickable(true);
-                    this.f9611f.setImageResource(c.a.p0.a.e.aiapps_action_bar_single_menu_white_selector);
-                    this.f9612g.setImageResource(c.a.p0.a.e.aiapps_action_bar_exit_white_selector);
+                    this.f9619f.setClickable(true);
+                    this.f9619f.setImageResource(c.a.p0.a.e.aiapps_action_bar_single_menu_white_selector);
+                    this.f9620g.setImageResource(c.a.p0.a.e.aiapps_action_bar_exit_white_selector);
                     this.k.setBackgroundResource(c.a.p0.a.e.aiapps_action_bar_right_menu_bg_solid);
-                    View findViewById = this.f9606a.findViewById(c.a.p0.a.f.titlebar_right_menu_line);
+                    View findViewById = this.f9614a.findViewById(c.a.p0.a.f.titlebar_right_menu_line);
                     this.n = findViewById;
                     findViewById.setBackgroundResource(c.a.p0.a.c.aiapps_action_bar_menu_line_white);
                     this.k.post(new RunnableC0449e(this));
                 } else {
-                    this.f9611f.setImageResource(c.a.p0.a.e.aiapps_action_bar_menu_black_selector);
-                    this.f9612g.setImageResource(c.a.p0.a.e.aiapps_action_bar_exit_black_selector);
+                    this.f9619f.setImageResource(c.a.p0.a.e.aiapps_action_bar_menu_black_selector);
+                    this.f9620g.setImageResource(c.a.p0.a.e.aiapps_action_bar_exit_black_selector);
                     this.k.setBackgroundResource(c.a.p0.a.e.aiapps_action_bar_right_menu_bg);
                     N(L.n1());
                 }
                 if (z3) {
-                    this.q = (TextView) this.f9606a.findViewById(c.a.p0.a.f.aiapps_loading_progress);
+                    this.q = (TextView) this.f9614a.findViewById(c.a.p0.a.f.aiapps_loading_progress);
                     i2.postDelayed(new f(this), 2000L);
                     I(z, z2);
-                    TextView textView = (TextView) this.f9606a.findViewById(c.a.p0.a.f.aiapps_title);
-                    this.f9607b = textView;
+                    TextView textView = (TextView) this.f9614a.findViewById(c.a.p0.a.f.aiapps_title);
+                    this.f9615b = textView;
                     textView.getPaint().setFakeBoldText(true);
-                    this.f9608c = (SwanAppRoundedImageView) this.f9606a.findViewById(c.a.p0.a.f.aiapps_icon);
-                    this.f9614i = (BdBaseImageView) this.f9606a.findViewById(c.a.p0.a.f.aiapps_label_bg);
-                    this.f9615j = (TextView) this.f9606a.findViewById(c.a.p0.a.f.aiapps_label_tv);
-                    this.f9613h = (RelativeLayout) this.f9606a.findViewById(c.a.p0.a.f.aiapps_icon_rl);
+                    this.f9616c = (SwanAppRoundedImageView) this.f9614a.findViewById(c.a.p0.a.f.aiapps_icon);
+                    this.f9622i = (BdBaseImageView) this.f9614a.findViewById(c.a.p0.a.f.aiapps_label_bg);
+                    this.f9623j = (TextView) this.f9614a.findViewById(c.a.p0.a.f.aiapps_label_tv);
+                    this.f9621h = (RelativeLayout) this.f9614a.findViewById(c.a.p0.a.f.aiapps_icon_rl);
                     M(L.K());
                     K(L.Q());
                     t(L.t1());
                     this.l.l(this.m);
                 } else {
-                    this.A = (TextView) this.f9606a.findViewById(c.a.p0.a.f.aiapps_loading_shimmer_poor_network_notice);
+                    this.A = (TextView) this.f9614a.findViewById(c.a.p0.a.f.aiapps_loading_shimmer_poor_network_notice);
                     i2.postDelayed(new g(this), c.a.p0.a.r1.l.b.c());
                     this.l.p(this.m);
                 }
@@ -1635,47 +1636,47 @@ public class e {
                     this.l = new c.a.p0.a.t.a();
                 }
                 View u = u(this.m, z);
-                this.f9606a = u;
+                this.f9614a = u;
                 if (!z) {
-                    u.setPadding(0, c.a.p0.a.z1.b.a.f9990b ? n0.u() : 0, 0, 0);
+                    u.setPadding(0, c.a.p0.a.z1.b.a.f9998b ? n0.u() : 0, 0, 0);
                 } else {
                     s();
                 }
-                this.q = (TextView) this.f9606a.findViewById(c.a.p0.a.f.aiapps_loading_progress);
+                this.q = (TextView) this.f9614a.findViewById(c.a.p0.a.f.aiapps_loading_progress);
                 b.a L = c.a.p0.a.a2.d.g().r().L();
                 L.f0();
                 I(z, z2);
-                this.m.getFloatLayer().k(this.f9606a);
+                this.m.getFloatLayer().k(this.f9614a);
                 this.s = true;
-                this.f9607b = (TextView) this.f9606a.findViewById(c.a.p0.a.f.aiapps_title);
-                this.f9608c = (SwanAppRoundedImageView) this.f9606a.findViewById(c.a.p0.a.f.aiapps_icon);
-                this.f9614i = (BdBaseImageView) this.f9606a.findViewById(c.a.p0.a.f.aiapps_label_bg);
-                this.f9615j = (TextView) this.f9606a.findViewById(c.a.p0.a.f.aiapps_label_tv);
-                this.f9613h = (RelativeLayout) this.f9606a.findViewById(c.a.p0.a.f.aiapps_icon_rl);
+                this.f9615b = (TextView) this.f9614a.findViewById(c.a.p0.a.f.aiapps_title);
+                this.f9616c = (SwanAppRoundedImageView) this.f9614a.findViewById(c.a.p0.a.f.aiapps_icon);
+                this.f9622i = (BdBaseImageView) this.f9614a.findViewById(c.a.p0.a.f.aiapps_label_bg);
+                this.f9623j = (TextView) this.f9614a.findViewById(c.a.p0.a.f.aiapps_label_tv);
+                this.f9621h = (RelativeLayout) this.f9614a.findViewById(c.a.p0.a.f.aiapps_icon_rl);
                 M(L.K());
                 K(L.Q());
                 t(L.t1());
-                this.f9609d = (ImageView) this.f9606a.findViewById(c.a.p0.a.f.light_print);
-                this.f9610e = (ImageView) this.f9606a.findViewById(c.a.p0.a.f.dark_print);
-                this.f9611f = (ImageView) this.f9606a.findViewById(c.a.p0.a.f.titlebar_right_menu_img);
-                this.f9612g = (ImageView) this.f9606a.findViewById(c.a.p0.a.f.titlebar_right_menu_exit);
-                this.k = this.f9606a.findViewById(c.a.p0.a.f.titlebar_right_menu);
+                this.f9617d = (ImageView) this.f9614a.findViewById(c.a.p0.a.f.light_print);
+                this.f9618e = (ImageView) this.f9614a.findViewById(c.a.p0.a.f.dark_print);
+                this.f9619f = (ImageView) this.f9614a.findViewById(c.a.p0.a.f.titlebar_right_menu_img);
+                this.f9620g = (ImageView) this.f9614a.findViewById(c.a.p0.a.f.titlebar_right_menu_exit);
+                this.k = this.f9614a.findViewById(c.a.p0.a.f.titlebar_right_menu);
                 if (z) {
-                    this.f9611f.setClickable(true);
-                    this.f9611f.setImageResource(c.a.p0.a.e.aiapps_action_bar_single_menu_white_selector);
-                    this.f9612g.setImageResource(c.a.p0.a.e.aiapps_action_bar_exit_white_selector);
+                    this.f9619f.setClickable(true);
+                    this.f9619f.setImageResource(c.a.p0.a.e.aiapps_action_bar_single_menu_white_selector);
+                    this.f9620g.setImageResource(c.a.p0.a.e.aiapps_action_bar_exit_white_selector);
                     this.k.setBackgroundResource(c.a.p0.a.e.aiapps_action_bar_right_menu_bg_solid);
-                    View findViewById = this.f9606a.findViewById(c.a.p0.a.f.titlebar_right_menu_line);
+                    View findViewById = this.f9614a.findViewById(c.a.p0.a.f.titlebar_right_menu_line);
                     this.n = findViewById;
                     findViewById.setBackgroundResource(c.a.p0.a.c.aiapps_action_bar_menu_line_white);
                     this.k.post(new h(this));
                 } else {
-                    this.f9611f.setImageResource(c.a.p0.a.e.aiapps_action_bar_menu_black_selector);
-                    this.f9612g.setImageResource(c.a.p0.a.e.aiapps_action_bar_exit_black_selector);
+                    this.f9619f.setImageResource(c.a.p0.a.e.aiapps_action_bar_menu_black_selector);
+                    this.f9620g.setImageResource(c.a.p0.a.e.aiapps_action_bar_exit_black_selector);
                     this.k.setBackgroundResource(c.a.p0.a.e.aiapps_action_bar_right_menu_bg);
                     N(L.n1());
                 }
-                this.f9610e.setAlpha(0.0f);
+                this.f9618e.setAlpha(0.0f);
                 this.l.o(this.m);
                 C();
             }

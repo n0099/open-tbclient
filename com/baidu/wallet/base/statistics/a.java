@@ -3,7 +3,6 @@ package com.baidu.wallet.base.statistics;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.utils.PhoneUtils;
@@ -26,11 +25,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f60330a = "a";
+    public static final String f60455a = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Pattern f60331b;
+    public Pattern f60456b;
 
     /* renamed from: com.baidu.wallet.base.statistics.a$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -41,11 +40,11 @@ public class a {
 
     /* renamed from: com.baidu.wallet.base.statistics.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1818a {
+    public static class C1821a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f60332a;
+        public static a f60457a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,10 +60,10 @@ public class a {
                     return;
                 }
             }
-            f60332a = new a(null);
+            f60457a = new a(null);
         }
 
-        public C1818a() {
+        public C1821a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +100,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1818a.f60332a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1821a.f60457a : (a) invokeV.objValue;
     }
 
     public String b(Context context) {
@@ -113,10 +112,10 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f60331b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+                return this.f60456b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
-                LogUtil.d(f60330a, e.getMessage());
+                LogUtil.d(f60455a, e.getMessage());
                 return null;
             }
         }
@@ -143,7 +142,7 @@ public class a {
             try {
                 return ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
             } catch (Exception e2) {
-                LogUtil.d(f60330a, e2.getMessage());
+                LogUtil.d(f60455a, e2.getMessage());
                 return null;
             }
         }
@@ -154,26 +153,6 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            try {
-                if (AccountManager.getInstance(context).getLoginType() == 0) {
-                    String bduss = AccountManager.getInstance(context).getBduss();
-                    if (bduss != null) {
-                        bduss = SafePay.getInstance().encryptProxy(bduss);
-                    }
-                    return bduss;
-                }
-                return null;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
             if (AccountManager.getInstance(context).getLoginType() == 0) {
                 return SafePay.getInstance().getpwProxy();
             }
@@ -182,10 +161,10 @@ public class a {
         return (String) invokeL.objValue;
     }
 
-    public String g(Context context) {
+    public String f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
             String gPSLocation = PhoneUtils.getGPSLocation(context);
             if (TextUtils.isEmpty(gPSLocation)) {
                 return null;
@@ -195,10 +174,10 @@ public class a {
         return (String) invokeL.objValue;
     }
 
-    public String h(Context context) {
+    public String g(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
             JSONObject connectedWifi = NetUtils.getConnectedWifi(context);
             if (connectedWifi != null) {
                 String optString = connectedWifi.optString("ssid", null);
@@ -222,7 +201,7 @@ public class a {
                 return;
             }
         }
-        this.f60331b = Pattern.compile("\\s*|\t|\r|\n");
+        this.f60456b = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public String a(Context context) {
@@ -234,10 +213,10 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f60331b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+                return this.f60456b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
-                LogUtil.d(f60330a, e.getMessage());
+                LogUtil.d(f60455a, e.getMessage());
                 return null;
             }
         }

@@ -16,7 +16,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, ArrayList<String>> f65235a;
+    public static HashMap<String, ArrayList<String>> f65546a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class c {
                 return;
             }
         }
-        f65235a = new HashMap<>();
+        f65546a = new HashMap<>();
     }
 
     public static ArrayList<String> a(Context context, String str) {
@@ -46,8 +46,8 @@ public class c {
                 if (packageName == null) {
                     return null;
                 }
-                if (f65235a.get(str) != null) {
-                    return f65235a.get(str);
+                if (f65546a.get(str) != null) {
+                    return f65546a.get(str);
                 }
                 arrayList = new ArrayList<>();
                 try {
@@ -65,7 +65,7 @@ public class c {
                 } catch (Exception e2) {
                     k.c(e2.toString());
                 }
-                f65235a.put(str, arrayList);
+                f65546a.put(str, arrayList);
             }
             return arrayList;
         }

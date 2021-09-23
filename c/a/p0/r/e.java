@@ -31,13 +31,13 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile IRemoteUBCService f12264a;
+    public static volatile IRemoteUBCService f12272a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, Integer> f12265b;
+    public static final Map<String, Integer> f12273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f12266c;
+    public static final Set<String> f12274c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,13 +53,13 @@ public class e {
                 return;
             }
         }
-        f12265b = new HashMap();
+        f12273b = new HashMap();
         HashSet hashSet = new HashSet();
-        f12266c = hashSet;
+        f12274c = hashSet;
         hashSet.add("606");
-        f12266c.add("671");
-        f12265b.put("606", -1);
-        f12265b.put("671", -1);
+        f12274c.add("671");
+        f12273b.put("606", -1);
+        f12273b.put("671", -1);
     }
 
     public e() {
@@ -81,7 +81,7 @@ public class e {
         int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            Integer num = f12265b.get(str);
+            Integer num = f12273b.get(str);
             if (num == null) {
                 num = -1;
             }
@@ -104,7 +104,7 @@ public class e {
         l h2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (f12266c.contains(str) && (h2 = h()) != null && h2.q()) {
+            if (f12274c.contains(str) && (h2 = h()) != null && h2.q()) {
                 synchronized (e.class) {
                     String str3 = "ubc_counter" + str;
                     int a2 = a(str, str3);
@@ -113,7 +113,7 @@ public class e {
                         jSONObject.put("counter", a2);
                         str2 = jSONObject.toString();
                         t.g().putInt(str3, a2);
-                        f12265b.put(str, Integer.valueOf(a2));
+                        f12273b.put(str, Integer.valueOf(a2));
                     } catch (JSONException unused) {
                     }
                 }
@@ -129,14 +129,14 @@ public class e {
         l h2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
-            if (f12266c.contains(str) && (h2 = h()) != null && h2.q()) {
+            if (f12274c.contains(str) && (h2 = h()) != null && h2.q()) {
                 synchronized (e.class) {
                     String str2 = "ubc_counter" + str;
                     int a2 = a(str, str2);
                     try {
                         jSONObject.put("counter", a2);
                         t.g().putInt(str2, a2);
-                        f12265b.put(str, Integer.valueOf(a2));
+                        f12273b.put(str, Integer.valueOf(a2));
                     } catch (JSONException unused) {
                     }
                 }
@@ -170,20 +170,20 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f12264a == null) {
+            if (f12272a == null) {
                 synchronized (e.class) {
-                    if (f12264a == null) {
+                    if (f12272a == null) {
                         IBinder f2 = IPCServiceManager.f("open_log", true);
                         if (f2 == null) {
                             throw new RemoteException("Ceres get remote service empty !");
                         }
                         if (f2 != null) {
-                            f12264a = IRemoteUBCService.Stub.asInterface(f2);
+                            f12272a = IRemoteUBCService.Stub.asInterface(f2);
                         }
                     }
                 }
             }
-            return f12264a;
+            return f12272a;
         }
         return (IRemoteUBCService) invokeV.objValue;
     }

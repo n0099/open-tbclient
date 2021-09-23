@@ -20,13 +20,13 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f28838a;
+    public View f28858a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f28839b;
+    public TextView f28859b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f28840c;
+    public TextView f28860c;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -47,11 +47,11 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.tail_tool_member_guide_item, (ViewGroup) null);
-            this.f28838a = inflate;
+            this.f28858a = inflate;
             inflate.setTag(this);
-            this.f28839b = (TextView) this.f28838a.findViewById(R.id.tail_tool_member_guide_button);
-            this.f28840c = (TextView) this.f28838a.findViewById(R.id.tail_tool_member_guide_text);
-            return this.f28838a;
+            this.f28859b = (TextView) this.f28858a.findViewById(R.id.tail_tool_member_guide_button);
+            this.f28860c = (TextView) this.f28858a.findViewById(R.id.tail_tool_member_guide_text);
+            return this.f28858a;
         }
         return (View) invokeL.objValue;
     }
@@ -60,16 +60,16 @@ public class f {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this.f28839b, R.drawable.member_privilege_button_new_selector);
-            SkinManager.setViewTextColor(this.f28839b, R.color.CAM_X0101, 1);
-            SkinManager.setViewTextColor(this.f28840c, R.color.CAM_X0108, 1);
+            SkinManager.setBackgroundResource(this.f28859b, R.drawable.member_privilege_button_new_selector);
+            SkinManager.setViewTextColor(this.f28859b, R.color.CAM_X0101, 1);
+            SkinManager.setViewTextColor(this.f28860c, R.color.CAM_X0108, 1);
         }
     }
 
     public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f28839b.setOnClickListener(onClickListener);
+            this.f28859b.setOnClickListener(onClickListener);
         }
     }
 }

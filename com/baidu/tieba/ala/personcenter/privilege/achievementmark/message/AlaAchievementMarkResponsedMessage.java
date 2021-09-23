@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.personcenter.privilege.achievementmark.message;
 
-import c.a.r0.v.j.g.c.b.c;
+import c.a.r0.v.l.g.c.b.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.data.AlaUserInfoData;

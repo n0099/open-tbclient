@@ -11,20 +11,20 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f59561a;
+    public static Context f59692a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f59562b;
+    public static PackageManager f59693b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static PackageInfo f59563c;
+    public static PackageInfo f59694c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context context = f59561a;
+            Context context = f59692a;
             return context == null ? "N/A" : context.getPackageName();
         }
         return (String) invokeV.objValue;
@@ -32,12 +32,12 @@ public final class e {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f59561a == null) {
-            f59561a = context;
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f59692a == null) {
+            f59692a = context;
             PackageManager packageManager = context.getPackageManager();
-            f59562b = packageManager;
+            f59693b = packageManager;
             try {
-                f59563c = packageManager.getPackageInfo(f59561a.getPackageName(), 0);
+                f59694c = packageManager.getPackageInfo(f59692a.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e2) {
                 com.baidu.ufosdk.f.c.a("PackageCollector.init fail.", e2);
             }
@@ -48,7 +48,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            PackageInfo packageInfo = f59563c;
+            PackageInfo packageInfo = f59694c;
             return packageInfo == null ? "N/A" : packageInfo.versionName;
         }
         return (String) invokeV.objValue;

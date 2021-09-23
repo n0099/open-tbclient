@@ -497,7 +497,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             TbadkCoreApplication.setIsAppRunning(true);
             TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
             TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
-            c.a.e.a.b.f().o(getPageContext().getPageActivity());
+            c.a.e.a.b.f().n(getPageContext().getPageActivity());
             if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
                 z = false;
             }
@@ -525,7 +525,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
             super.onDestroy();
-            c.a.e.a.b.f().m(getPageContext().getPageActivity());
+            c.a.e.a.b.f().l(getPageContext().getPageActivity());
         }
     }
 

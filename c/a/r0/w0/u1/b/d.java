@@ -31,7 +31,7 @@ public class d extends c.a.e.l.e.a<c.a.r0.g0.d, CardViewHolder<c.a.r0.a0.f>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f27848a;
+        public final /* synthetic */ d f27868a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -48,22 +48,22 @@ public class d extends c.a.e.l.e.a<c.a.r0.g0.d, CardViewHolder<c.a.r0.a0.f>> {
                     return;
                 }
             }
-            this.f27848a = dVar;
+            this.f27868a = dVar;
         }
 
         @Override // c.a.r0.a0.f.a
         public void a(View view, BaseCardInfo baseCardInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || this.f27848a.o == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || this.f27868a.o == null) {
                 return;
             }
-            this.f27848a.o.a(view, baseCardInfo);
+            this.f27868a.o.a(view, baseCardInfo);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), c.a.r0.g0.d.f17751f);
+        super(tbPageContext.getPageActivity(), c.a.r0.g0.d.f17761f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

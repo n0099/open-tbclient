@@ -18,10 +18,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f17289a;
+    public static final String f17299a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f17290b;
+    public static final String f17300b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,14 +37,14 @@ public class c {
                 return;
             }
         }
-        f17289a = c.a.r0.e2.c.f17248c + "draft/";
-        f17290b = f17289a + "upload_draft";
+        f17299a = c.a.r0.e2.c.f17258c + "draft/";
+        f17300b = f17299a + "upload_draft";
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File file = new File(f17290b);
+            File file = new File(f17300b);
             if (file.exists()) {
                 file.delete();
             }
@@ -63,7 +63,7 @@ public class c {
         if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
             return (FaceGroupDraft) invokeV.objValue;
         }
-        File file = new File(f17290b);
+        File file = new File(f17300b);
         ?? r2 = 0;
         r2 = null;
         r2 = null;
@@ -138,12 +138,12 @@ public class c {
             ObjectOutputStream objectOutputStream2 = null;
             try {
                 try {
-                    File file = new File(f17289a);
+                    File file = new File(f17299a);
                     if (!file.exists()) {
                         file.mkdirs();
                     }
                     a();
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(f17290b));
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(f17300b));
                 } finally {
                     c.a.e.e.m.a.d(objectOutputStream2);
                 }

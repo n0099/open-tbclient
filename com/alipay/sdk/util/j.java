@@ -1,21 +1,28 @@
 package com.alipay.sdk.util;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.alipay.sdk.app.EnvUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36097a = "content://com.alipay.android.app.settings.data.ServerProvider/current_server";
+    public static final String f36132a = "resultStatus";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f36133b = "memo";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f36134c = "result";
     public transient /* synthetic */ FieldHolder $fh;
 
     public j() {
@@ -32,33 +39,74 @@ public class j {
         }
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public static Map<String, String> a(com.alipay.sdk.sys.a aVar, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (EnvUtils.isSandBox()) {
-                return com.alipay.sdk.cons.a.f35924b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, aVar, str)) == null) {
+            Map<String, String> a2 = a();
+            try {
+                return a(str);
+            } catch (Throwable th) {
+                com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.r, th);
+                return a2;
             }
-            if (context == null) {
-                return com.alipay.sdk.cons.a.f35923a;
-            }
-            String str = com.alipay.sdk.cons.a.f35923a;
-            return TextUtils.isEmpty(str) ? com.alipay.sdk.cons.a.f35923a : str;
         }
-        return (String) invokeL.objValue;
+        return (Map) invokeLL.objValue;
     }
 
-    public static String b(Context context) {
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+            String str3 = str2 + "={";
+            return str.substring(str.indexOf(str3) + str3.length(), str.lastIndexOf("}"));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static Map<String, String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f35931e.b());
+            HashMap hashMap = new HashMap();
+            hashMap.put("resultStatus", Integer.toString(b2.b()));
+            hashMap.put("memo", b2.a());
+            hashMap.put("result", "");
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public static Map<String, String> a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Cursor query = context.getContentResolver().query(Uri.parse(f36097a), null, null, null, null);
-            if (query != null && query.getCount() > 0) {
-                r0 = query.moveToFirst() ? query.getString(query.getColumnIndex("url")) : null;
-                query.close();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String[] split = str.split(";");
+            HashMap hashMap = new HashMap();
+            for (String str2 : split) {
+                String substring = str2.substring(0, str2.indexOf("={"));
+                hashMap.put(substring, b(str2, substring));
             }
-            return r0;
+            return hashMap;
         }
-        return (String) invokeL.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            try {
+                Matcher matcher = Pattern.compile("(^|;)" + str2 + "=\\{([^}]*?)\\}").matcher(str);
+                if (matcher.find()) {
+                    return matcher.group(2);
+                }
+            } catch (Throwable th) {
+                c.a(th);
+            }
+            return "?";
+        }
+        return (String) invokeLL.objValue;
     }
 }

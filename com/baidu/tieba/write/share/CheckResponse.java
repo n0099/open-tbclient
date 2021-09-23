@@ -45,12 +45,12 @@ public class CheckResponse extends JsonHttpResponsedMessage {
             }
             c cVar = new c();
             this.mCheckResponseData = cVar;
-            cVar.f16806a = jSONObject.optString("tbopen_app_key");
-            this.mCheckResponseData.f16808c = jSONObject.optString("tbopen_app_name");
-            this.mCheckResponseData.f16809d = jSONObject.optString("tbopen_app_icon");
+            cVar.f16816a = jSONObject.optString("tbopen_app_key");
+            this.mCheckResponseData.f16818c = jSONObject.optString("tbopen_app_name");
+            this.mCheckResponseData.f16819d = jSONObject.optString("tbopen_app_icon");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
             if (optJSONObject != null) {
-                this.mCheckResponseData.f16815j = optJSONObject.optString("default_pic");
+                this.mCheckResponseData.f16825j = optJSONObject.optString("default_pic");
             }
         }
     }

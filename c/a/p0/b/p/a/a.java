@@ -34,7 +34,7 @@ public class a extends c.a.p0.a.n1.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f10153e;
+    public static final boolean f10161e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.b.p.a.a$a  reason: collision with other inner class name */
@@ -44,22 +44,22 @@ public class a extends c.a.p0.a.n1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10154e;
+        public final /* synthetic */ String f10162e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10155f;
+        public final /* synthetic */ String f10163f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10156g;
+        public final /* synthetic */ String f10164g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10157h;
+        public final /* synthetic */ CallbackHandler f10165h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f10158i;
+        public final /* synthetic */ c.a.p0.a.a2.e f10166i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ a f10159j;
+        public final /* synthetic */ a f10167j;
 
         public C0495a(a aVar, String str, String str2, String str3, CallbackHandler callbackHandler, c.a.p0.a.a2.e eVar) {
             Interceptable interceptable = $ic;
@@ -76,12 +76,12 @@ public class a extends c.a.p0.a.n1.a {
                     return;
                 }
             }
-            this.f10159j = aVar;
-            this.f10154e = str;
-            this.f10155f = str2;
-            this.f10156g = str3;
-            this.f10157h = callbackHandler;
-            this.f10158i = eVar;
+            this.f10167j = aVar;
+            this.f10162e = str;
+            this.f10163f = str2;
+            this.f10164g = str3;
+            this.f10165h = callbackHandler;
+            this.f10166i = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -92,13 +92,13 @@ public class a extends c.a.p0.a.n1.a {
             if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                 if (bundle != null && !TextUtils.isEmpty(bundle.getString(BdZeusUtil.URL_KEY_MACHINE))) {
                     String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE);
-                    if (a.f10153e) {
+                    if (a.f10161e) {
                         String str = "stoken=" + string;
                     }
-                    this.f10159j.z(this.f10154e, string, this.f10155f, this.f10156g, this.f10157h, this.f10158i);
+                    this.f10167j.z(this.f10162e, string, this.f10163f, this.f10164g, this.f10165h, this.f10166i);
                     return;
                 }
-                this.f10157h.handleSchemeDispatchCallback(this.f10156g, UnitedSchemeUtility.wrapCallbackParams(1001, "stoken is null").toString());
+                this.f10165h.handleSchemeDispatchCallback(this.f10164g, UnitedSchemeUtility.wrapCallbackParams(1001, "stoken is null").toString());
             }
         }
     }
@@ -109,16 +109,16 @@ public class a extends c.a.p0.a.n1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f10160a;
+        public final /* synthetic */ String f10168a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10161b;
+        public final /* synthetic */ CallbackHandler f10169b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Request f10162c;
+        public final /* synthetic */ Request f10170c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f10163d;
+        public final /* synthetic */ a f10171d;
 
         public b(a aVar, String str, CallbackHandler callbackHandler, Request request) {
             Interceptable interceptable = $ic;
@@ -135,18 +135,18 @@ public class a extends c.a.p0.a.n1.a {
                     return;
                 }
             }
-            this.f10163d = aVar;
-            this.f10160a = str;
-            this.f10161b = callbackHandler;
-            this.f10162c = request;
+            this.f10171d = aVar;
+            this.f10168a = str;
+            this.f10169b = callbackHandler;
+            this.f10170c = request;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f10163d.A(exc == null ? "" : exc.getMessage(), this.f10160a, this.f10161b);
-                c.a.p0.a.j2.q.a.b(SwanInterfaceType.FACE_CHECK, 2101, this.f10162c.url().toString(), null, exc != null ? exc.getMessage() : "");
+                this.f10171d.A(exc == null ? "" : exc.getMessage(), this.f10168a, this.f10169b);
+                c.a.p0.a.j2.q.a.b(SwanInterfaceType.FACE_CHECK, 2101, this.f10170c.url().toString(), null, exc != null ? exc.getMessage() : "");
             }
         }
 
@@ -162,7 +162,7 @@ public class a extends c.a.p0.a.n1.a {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f10163d.D(response, this.f10160a, this.f10161b);
+                this.f10171d.D(response, this.f10168a, this.f10169b);
                 return response;
             }
             return invokeLI.objValue;
@@ -182,7 +182,7 @@ public class a extends c.a.p0.a.n1.a {
                 return;
             }
         }
-        f10153e = k.f7077a;
+        f10161e = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -226,10 +226,10 @@ public class a extends c.a.p0.a.n1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, request, str, callbackHandler) == null) {
             c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(request.url().toString(), request.body(), new b(this, str, callbackHandler, request));
-            aVar.f11848i = request.tag();
-            aVar.f11845f = true;
-            aVar.f11846g = true;
-            aVar.f11847h = true;
+            aVar.f11856i = request.tag();
+            aVar.f11853f = true;
+            aVar.f11854g = true;
+            aVar.f11855h = true;
             c.a.p0.m.e.a.g().e(aVar);
             c.a.p0.a.j2.q.a.a(SwanInterfaceType.FACE_CHECK);
         }
@@ -255,7 +255,7 @@ public class a extends c.a.p0.a.n1.a {
                     e2.printStackTrace();
                 }
                 String str3 = str2;
-                if (f10153e) {
+                if (f10161e) {
                     String str4 = "response body : " + str3;
                 }
                 if (TextUtils.isEmpty(str3)) {
@@ -276,7 +276,7 @@ public class a extends c.a.p0.a.n1.a {
                         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0).toString());
                     }
                 } catch (JSONException e3) {
-                    if (f10153e) {
+                    if (f10161e) {
                         e3.printStackTrace();
                     }
                     B("body format error", str, callbackHandler, 2103, str3, response);
@@ -312,7 +312,7 @@ public class a extends c.a.p0.a.n1.a {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in");
                 return false;
             } else {
-                String a2 = c.a.p0.a.u.e.j.h.a(eVar.f4558f);
+                String a2 = c.a.p0.a.u.e.j.h.a(eVar.f4566f);
                 JSONObject n = n(a2);
                 c.a.p0.b.l.a.t(eVar.x(), new C0495a(this, optString2, a2, optString, callbackHandler, eVar), BdZeusUtil.URL_KEY_MACHINE);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(n, 0));
@@ -327,12 +327,12 @@ public class a extends c.a.p0.a.n1.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, map)) == null) {
-            HttpUrl parse = HttpUrl.parse(c.a.p0.a.d0.c.f5140a);
+            HttpUrl parse = HttpUrl.parse(c.a.p0.a.d0.c.f5148a);
             if (parse == null) {
                 return null;
             }
             HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments("ma/authentication/facecheck");
-            for (Map.Entry<String, String> entry : c.a.p0.a.d0.b.b().f5139d.entrySet()) {
+            for (Map.Entry<String, String> entry : c.a.p0.a.d0.b.b().f5147d.entrySet()) {
                 addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
             }
             HttpUrl build = addPathSegments.build();
@@ -355,14 +355,14 @@ public class a extends c.a.p0.a.n1.a {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject.put("callbackkey", str);
-                jSONObject.put("client_id", eVar.f4558f);
+                jSONObject.put("client_id", eVar.f4566f);
                 jSONObject2.put("stoken", str2);
                 jSONObject2.put("app_key", eVar.D());
                 jSONObject2.put("host_pkgname", c.a.p0.a.e2.c.d.e().getPackageName());
                 jSONObject2.put("host_key_hash", c.a.p0.a.e2.c.d.g());
                 jSONObject.put("open", jSONObject2);
             } catch (JSONException e2) {
-                if (f10153e) {
+                if (f10161e) {
                     e2.printStackTrace();
                 }
             }

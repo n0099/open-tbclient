@@ -15,14 +15,14 @@ public class b extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BdUniqueId f12704c;
+    public static final BdUniqueId f12715c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<String> f12705a;
+    public final ArrayList<String> f12716a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.q0.b.e f12706b;
+    public c.a.q0.b.e f12717b;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class b extends a {
                 return;
             }
         }
-        f12704c = BdUniqueId.gen();
+        f12715c = BdUniqueId.gen();
     }
 
     public b() {
@@ -53,37 +53,40 @@ public class b extends a {
                 return;
             }
         }
-        ArrayList<String> arrayList = new ArrayList<>();
-        this.f12705a = arrayList;
-        arrayList.add("11_9_backuser_a");
+        ArrayList<String> arrayList = new ArrayList<>(4);
+        this.f12716a = arrayList;
+        arrayList.add("12_11_tieba_videofeed_v_a");
+        this.f12716a.add("12_11_tieba_videofeed_v_b");
+        this.f12716a.add("12_11_tieba_videofeed_v_c");
+        this.f12716a.add("12_11_tieba_videofeed_v_d");
     }
 
     @Override // c.a.q0.b.f.a
     public ArrayList<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12705a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12716a : (ArrayList) invokeV.objValue;
     }
 
     @Override // c.a.q0.b.f.a
     public c.a.q0.b.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12706b : (c.a.q0.b.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12717b : (c.a.q0.b.e) invokeV.objValue;
     }
 
     @Override // c.a.q0.b.f.a
     public BdUniqueId c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f12704c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f12715c : (BdUniqueId) invokeV.objValue;
     }
 
     @Override // c.a.q0.b.f.a
     public void f(c.a.q0.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f12706b = eVar;
+            this.f12717b = eVar;
         }
     }
 }

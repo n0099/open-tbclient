@@ -15,13 +15,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.e.e.n.a f20921a;
+    public c.a.e.e.n.a f20933a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20922b;
+    public String f20934b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f20923c;
+    public boolean f20935c;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -38,22 +38,22 @@ public class b {
                 return;
             }
         }
-        this.f20922b = null;
-        this.f20923c = false;
+        this.f20934b = null;
+        this.f20935c = false;
         e(str, false);
     }
 
     public void a() {
         e c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f20921a == null || (c2 = c()) == null || c2.f20934f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f20933a == null || (c2 = c()) == null || c2.f20946f == null) {
             return;
         }
-        long e2 = this.f20921a.e();
+        long e2 = this.f20933a.e();
         if (e2 > 3000) {
-            d dVar = c2.f20934f;
-            dVar.f20925a += e2;
-            dVar.f20926b++;
+            d dVar = c2.f20946f;
+            dVar.f20937a += e2;
+            dVar.f20938b++;
             c.b(c2, 10);
         }
     }
@@ -61,40 +61,40 @@ public class b {
     public void b(boolean z, boolean z2, int i2, String str, long j2, long j3, long j4) {
         e c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) || this.f20921a == null || (c2 = c()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) || this.f20933a == null || (c2 = c()) == null) {
             return;
         }
         if (z) {
-            d dVar = c2.f20932d;
+            d dVar = c2.f20944d;
             if (dVar == null) {
                 return;
             }
-            dVar.f20926b++;
+            dVar.f20938b++;
             if (z2) {
-                dVar.f20925a += j3;
-                dVar.f20928d += j2;
+                dVar.f20937a += j3;
+                dVar.f20940d += j2;
             } else {
-                dVar.f20927c++;
+                dVar.f20939c++;
             }
         } else {
-            d dVar2 = c2.f20933e;
+            d dVar2 = c2.f20945e;
             if (dVar2 == null) {
                 return;
             }
-            dVar2.f20926b++;
+            dVar2.f20938b++;
             if (z2) {
-                dVar2.f20925a += j4;
-                dVar2.f20928d += j2;
+                dVar2.f20937a += j4;
+                dVar2.f20940d += j2;
             } else {
-                dVar2.f20927c++;
+                dVar2.f20939c++;
             }
             j3 = j4;
         }
-        this.f20921a = null;
+        this.f20933a = null;
         if (z2) {
             c.b(c2, 10);
         }
-        if (this.f20922b == "frsStat") {
+        if (this.f20934b == "frsStat") {
             if (!z2 || j3 > 3000) {
                 c.a.e.e.n.a aVar = new c.a.e.e.n.a("dbg");
                 aVar.b("act", "frs");
@@ -112,7 +112,7 @@ public class b {
     public final e c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.e(this.f20922b, d(), this.f20923c) : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.e(this.f20934b, d(), this.f20935c) : (e) invokeV.objValue;
     }
 
     public final String d() {
@@ -128,9 +128,9 @@ public class b {
     public void e(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
-            this.f20922b = str;
-            this.f20923c = z;
-            this.f20921a = new c.a.e.e.n.a("dbg");
+            this.f20934b = str;
+            this.f20935c = z;
+            this.f20933a = new c.a.e.e.n.a("dbg");
             c.c(str, d(), z);
         }
     }
@@ -138,7 +138,7 @@ public class b {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f20921a.g();
+            this.f20933a.g();
         }
     }
 }

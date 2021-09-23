@@ -24,31 +24,31 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f16607a;
+    public ArrayList<String> f16617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f16608b;
+    public String f16618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f16609c;
+    public int f16619c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f16610d;
+    public int f16620d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16611e;
+    public int f16621e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16612f;
+    public int f16622f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16613g;
+    public int f16623g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16614h;
+    public boolean f16624h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f16615i;
+    public boolean f16625i;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -63,60 +63,60 @@ public class c {
                 return;
             }
         }
-        this.f16613g = -1;
-        this.f16614h = false;
-        this.f16615i = false;
+        this.f16623g = -1;
+        this.f16624h = false;
+        this.f16625i = false;
     }
 
     public ArrayList<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16607a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16617a : (ArrayList) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16613g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16623g : invokeV.intValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16608b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16618b : (String) invokeV.objValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16614h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16624h : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16615i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16625i : invokeV.booleanValue;
     }
 
     public SpannableStringBuilder f(Editable editable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, editable)) == null) {
-            if (editable == null || StringUtils.isNull(editable.toString()) || ListUtils.isEmpty(this.f16607a)) {
+            if (editable == null || StringUtils.isNull(editable.toString()) || ListUtils.isEmpty(this.f16617a)) {
                 return null;
             }
             String obj = editable.toString();
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-            boolean z = this.f16613g >= 0;
-            this.f16613g = -1;
-            Iterator<String> it = this.f16607a.iterator();
+            boolean z = this.f16623g >= 0;
+            this.f16623g = -1;
+            Iterator<String> it = this.f16617a.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 if (!StringUtils.isNull(next)) {
                     m(spannableStringBuilder, obj, next);
                 }
             }
-            if (this.f16613g >= 0 || z) {
+            if (this.f16623g >= 0 || z) {
                 ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
                 if (imageSpanArr != null) {
                     for (ImageSpan imageSpan : imageSpanArr) {
@@ -135,13 +135,13 @@ public class c {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int i2 = this.f16609c;
+            int i2 = this.f16619c;
             if (i2 != 0) {
-                this.f16611e = SkinManager.getColor(i2);
+                this.f16621e = SkinManager.getColor(i2);
             }
-            int i3 = this.f16610d;
+            int i3 = this.f16620d;
             if (i3 != 0) {
-                this.f16612f = SkinManager.getColor(i3);
+                this.f16622f = SkinManager.getColor(i3);
             }
         }
     }
@@ -149,37 +149,37 @@ public class c {
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f16610d = i2;
-            this.f16612f = SkinManager.getColor(i2);
+            this.f16620d = i2;
+            this.f16622f = SkinManager.getColor(i2);
         }
     }
 
     public void i(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
-            this.f16607a = arrayList;
+            this.f16617a = arrayList;
         }
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f16609c = i2;
-            this.f16611e = SkinManager.getColor(i2);
+            this.f16619c = i2;
+            this.f16621e = SkinManager.getColor(i2);
         }
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f16614h = z;
+            this.f16624h = z;
         }
     }
 
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f16615i = z;
+            this.f16625i = z;
         }
     }
 
@@ -188,28 +188,28 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLLL(1048588, this, spannableStringBuilder, str, str2) == null) || spannableStringBuilder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (this.f16611e == 0 && this.f16612f == 0) {
+        if (this.f16621e == 0 && this.f16622f == 0) {
             return;
         }
         int indexOf = str.indexOf(str2);
         int length = str2.length();
         if (indexOf >= 0) {
-            int i2 = this.f16613g;
+            int i2 = this.f16623g;
             if (i2 == -1) {
-                this.f16613g = indexOf + length;
+                this.f16623g = indexOf + length;
             } else {
                 int i3 = indexOf + length;
                 if (i3 < i2) {
-                    this.f16613g = i3;
+                    this.f16623g = i3;
                 }
             }
         }
         while (indexOf >= 0) {
-            if (this.f16611e != 0) {
-                spannableStringBuilder.setSpan(new ForegroundColorSpan(this.f16611e), indexOf, indexOf + length, 33);
+            if (this.f16621e != 0) {
+                spannableStringBuilder.setSpan(new ForegroundColorSpan(this.f16621e), indexOf, indexOf + length, 33);
             }
-            if (this.f16612f != 0) {
-                spannableStringBuilder.setSpan(new BackgroundColorSpan(this.f16612f), indexOf, indexOf + length, 33);
+            if (this.f16622f != 0) {
+                spannableStringBuilder.setSpan(new BackgroundColorSpan(this.f16622f), indexOf, indexOf + length, 33);
             }
             indexOf = str.indexOf(str2, indexOf + 1);
         }
@@ -218,7 +218,7 @@ public class c {
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f16608b = str;
+            this.f16618b = str;
         }
     }
 }

@@ -13,19 +13,19 @@ public final class m extends HttpDataSource.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f33753b;
+    public final String f33776b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final p<? super e> f33754c;
+    public final p<? super e> f33777c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f33755d;
+    public final int f33778d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f33756e;
+    public final int f33779e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f33757f;
+    public final boolean f33780f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public m(String str, p<? super e> pVar) {
@@ -54,7 +54,7 @@ public final class m extends HttpDataSource.a {
     public l c(HttpDataSource.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? new l(this.f33753b, null, this.f33754c, this.f33755d, this.f33756e, this.f33757f, bVar) : (l) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? new l(this.f33776b, null, this.f33777c, this.f33778d, this.f33779e, this.f33780f, bVar) : (l) invokeL.objValue;
     }
 
     public m(String str, p<? super e> pVar, int i2, int i3, boolean z) {
@@ -72,10 +72,10 @@ public final class m extends HttpDataSource.a {
                 return;
             }
         }
-        this.f33753b = str;
-        this.f33754c = pVar;
-        this.f33755d = i2;
-        this.f33756e = i3;
-        this.f33757f = z;
+        this.f33776b = str;
+        this.f33777c = pVar;
+        this.f33778d = i2;
+        this.f33779e = i3;
+        this.f33780f = z;
     }
 }

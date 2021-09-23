@@ -16,7 +16,7 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public CardItemHotVideoLayout f26507j;
+    public CardItemHotVideoLayout f26530j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -36,14 +36,14 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
                 return;
             }
         }
-        this.f26507j = new CardItemHotVideoLayout(context);
+        this.f26530j = new CardItemHotVideoLayout(context);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26507j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26530j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +52,7 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
     public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f26507j.setData((c.a.r0.w0.b2.g.c) aVar);
+            this.f26530j.setData((c.a.r0.w0.b2.g.c) aVar);
         }
     }
 
@@ -60,7 +60,7 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            this.f26507j.onChangeSkinType(tbPageContext, i2);
+            this.f26530j.onChangeSkinType(tbPageContext, i2);
         }
     }
 }

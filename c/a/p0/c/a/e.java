@@ -15,7 +15,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f10318a;
+    public static volatile e f10326a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public e() {
@@ -68,14 +68,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f10318a == null) {
+            if (f10326a == null) {
                 synchronized (e.class) {
-                    if (f10318a == null) {
-                        f10318a = new e();
+                    if (f10326a == null) {
+                        f10326a = new e();
                     }
                 }
             }
-            return f10318a;
+            return f10326a;
         }
         return (e) invokeV.objValue;
     }
@@ -94,7 +94,7 @@ public class e {
                 return null;
             }
             try {
-                c.a.p0.c.a.i.e a2 = c.a.p0.c.a.i.e.f10334j.a();
+                c.a.p0.c.a.i.e a2 = c.a.p0.c.a.i.e.f10342j.a();
                 a2.r((byte) 23);
                 byte[] i2 = gVar.i();
                 if (i2 != null && i2.length > 0 && i2.length <= 32767) {
@@ -109,7 +109,7 @@ public class e {
                 a2.l(c.a.p0.n.j.j.b.c().b().longValue());
                 return c.a.p0.c.a.j.b.b(a2);
             } catch (Exception e2) {
-                if (a.f10311a) {
+                if (a.f10319a) {
                     e2.printStackTrace();
                     String str2 = "exception=" + e2.getMessage();
                     return null;
@@ -132,7 +132,7 @@ public class e {
                     Bdtls$Alert parseFrom = Bdtls$Alert.parseFrom(a2.f());
                     if (parseFrom != null) {
                         String str = new String(parseFrom.getDescription().toByteArray());
-                        if (a.f10311a) {
+                        if (a.f10319a) {
                             String str2 = "bdtls ubc application alert : " + str;
                         }
                         f.b(gVar, parseFrom);
@@ -143,13 +143,13 @@ public class e {
                         } else {
                             fVar.d(-1);
                         }
-                        if (a.f10311a) {
+                        if (a.f10319a) {
                             if (parseFrom.getDescription() != null) {
-                                if (a.f10311a) {
+                                if (a.f10319a) {
                                     String str3 = "BdtlsPostRequest response alert message=" + str;
                                 }
                             } else {
-                                boolean z = a.f10311a;
+                                boolean z = a.f10319a;
                             }
                         }
                     } else {
@@ -160,7 +160,7 @@ public class e {
                     fVar.d(1);
                 }
             } catch (Exception e2) {
-                if (a.f10311a) {
+                if (a.f10319a) {
                     e2.printStackTrace();
                     String str4 = "exception=" + e2.getMessage();
                 }
@@ -183,14 +183,14 @@ public class e {
                 if (b2 == null) {
                     return null;
                 }
-                c.a.p0.c.a.i.e a2 = c.a.p0.c.a.i.e.f10334j.a();
+                c.a.p0.c.a.i.e a2 = c.a.p0.c.a.i.e.f10342j.a();
                 a2.r((byte) 22);
                 a2.q((short) b2.length);
                 a2.l(c.a.p0.n.j.j.b.c().b().longValue());
                 a2.o(b2);
                 return c.a.p0.c.a.j.b.b(a2);
             } catch (Exception e2) {
-                if (a.f10311a) {
+                if (a.f10319a) {
                     e2.printStackTrace();
                     String str = "exception=" + e2.getMessage();
                 }

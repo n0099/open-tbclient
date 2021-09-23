@@ -22,14 +22,14 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f12021c;
+    public static boolean f12029c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f12022a;
+    public c f12030a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f12023b;
+    public Map<String, String> f12031b;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -42,7 +42,7 @@ public class i {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final i f12024a;
+        public static final i f12032a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,7 +58,7 @@ public class i {
                     return;
                 }
             }
-            f12024a = new i(null);
+            f12032a = new i(null);
         }
     }
 
@@ -99,7 +99,7 @@ public class i {
                 return;
             }
         }
-        f12021c = c.a.p0.n.c.f11856a;
+        f12029c = c.a.p0.n.c.f11864a;
     }
 
     public /* synthetic */ i(a aVar) {
@@ -109,7 +109,7 @@ public class i {
     public static i b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f12024a : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f12032a : (i) invokeV.objValue;
     }
 
     @NonNull
@@ -123,7 +123,7 @@ public class i {
             try {
                 return new JSONObject(str);
             } catch (JSONException unused) {
-                boolean z = f12021c;
+                boolean z = f12029c;
                 return new JSONObject();
             }
         }
@@ -133,22 +133,22 @@ public class i {
     public final void a() {
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (map = this.f12023b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (map = this.f12031b) == null) {
             return;
         }
         map.clear();
-        this.f12023b = null;
+        this.f12031b = null;
     }
 
     public Map<String, String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Map<String, String> map = this.f12023b;
+            Map<String, String> map = this.f12031b;
             if (map == null || map.size() < 1) {
                 h();
             }
-            return this.f12023b;
+            return this.f12031b;
         }
         return (Map) invokeV.objValue;
     }
@@ -156,7 +156,7 @@ public class i {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12022a.getString("version", "0") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12030a.getString("version", "0") : (String) invokeV.objValue;
     }
 
     public final void e(JSONObject jSONObject) {
@@ -164,25 +164,25 @@ public class i {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f12023b = new HashMap();
+        this.f12031b = new HashMap();
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
             JSONObject optJSONObject = jSONObject.optJSONObject(next);
             if (optJSONObject != null) {
                 String optString = optJSONObject.optString("tips");
-                Map<String, String> map = this.f12023b;
+                Map<String, String> map = this.f12031b;
                 map.put(next + "_tips", optString);
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("button");
                 if (optJSONObject2 != null) {
                     String optString2 = optJSONObject2.optString("cmd");
                     if (!TextUtils.isEmpty(optString2)) {
-                        Map<String, String> map2 = this.f12023b;
+                        Map<String, String> map2 = this.f12031b;
                         map2.put(next + "_btn_cmd", optString2);
                     }
                     String optString3 = optJSONObject2.optString("text");
                     if (!TextUtils.isEmpty(optString3)) {
-                        Map<String, String> map3 = this.f12023b;
+                        Map<String, String> map3 = this.f12031b;
                         map3.put(next + "_btn_text", optString3);
                     }
                 }
@@ -208,7 +208,7 @@ public class i {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            JSONObject f2 = f(this.f12022a.getString("page_error_tips", ""));
+            JSONObject f2 = f(this.f12030a.getString("page_error_tips", ""));
             a();
             e(f2);
         }
@@ -219,12 +219,12 @@ public class i {
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || str == null || str.isEmpty() || TextUtils.isEmpty(str2)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f12022a.edit();
+        SharedPreferences.Editor edit = this.f12030a.edit();
         edit.clear();
         edit.putString("version", str2);
         edit.putString("page_error_tips", str);
         edit.apply();
-        boolean z = f12021c;
+        boolean z = f12029c;
     }
 
     public i() {
@@ -240,6 +240,6 @@ public class i {
                 return;
             }
         }
-        this.f12022a = new c();
+        this.f12030a = new c();
     }
 }

@@ -19,10 +19,10 @@ public class d extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f29624i;
+    public RelativeLayout f29644i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RoundTbImageView f29625j;
+    public RoundTbImageView f29645j;
     public TextView k;
     public TextView l;
     public TextView m;
@@ -64,7 +64,7 @@ public class d extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f29626e;
+        public final /* synthetic */ d f29646e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -81,18 +81,18 @@ public class d extends g {
                     return;
                 }
             }
-            this.f29626e = dVar;
+            this.f29646e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             View.OnClickListener onClickListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f29626e.f29643h) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f29646e.f29663h) == null) {
                 return;
             }
             onClickListener.onClick(view);
-            this.f29626e.o.countStop();
+            this.f29646e.o.countStop();
         }
     }
 
@@ -102,10 +102,10 @@ public class d extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.y2.i0.b.g f29627e;
+        public final /* synthetic */ c.a.r0.y2.i0.b.g f29647e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f29628f;
+        public final /* synthetic */ d f29648f;
 
         public c(d dVar, c.a.r0.y2.i0.b.g gVar) {
             Interceptable interceptable = $ic;
@@ -122,8 +122,8 @@ public class d extends g {
                     return;
                 }
             }
-            this.f29628f = dVar;
-            this.f29627e = gVar;
+            this.f29648f = dVar;
+            this.f29647e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -131,22 +131,22 @@ public class d extends g {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                String str = this.f29627e.f29511d;
-                if (z.B(this.f29628f.f29639d, str)) {
+                String str = this.f29647e.f29531d;
+                if (z.B(this.f29648f.f29659d, str)) {
                     i2 = 3;
                 } else {
-                    AdvertAppInfo advertAppInfo = this.f29628f.f29639d;
-                    i2 = z.e(this.f29628f.f29641f, str, advertAppInfo.Q4() ? this.f29628f.f29639d.getDownloadId() : this.f29628f.f29639d.W3, advertAppInfo.d4);
+                    AdvertAppInfo advertAppInfo = this.f29648f.f29659d;
+                    i2 = z.e(this.f29648f.f29661f, str, advertAppInfo.P4() ? this.f29648f.f29659d.getDownloadId() : this.f29648f.f29659d.X3, advertAppInfo.e4);
                 }
                 if (i2 == 0) {
                     return;
                 }
-                AdvertAppInfo advertAppInfo2 = this.f29628f.f29639d;
+                AdvertAppInfo advertAppInfo2 = this.f29648f.f29659d;
                 c.a.r0.y2.l0.c b2 = c.a.r0.y2.l0.g.b(advertAppInfo2, 2, advertAppInfo2.position);
                 b2.h("VIDEO_FLOW_TAIL");
                 c.a.r0.y2.l0.e.b().d(b2);
-                c.a.r0.p1.o.h.c.h(c.a.r0.p1.o.h.c.e(this.f29628f.f29639d));
-                this.f29628f.o.countStop();
+                c.a.r0.p1.o.h.c.h(c.a.r0.p1.o.h.c.e(this.f29648f.f29659d));
+                this.f29648f.o.countStop();
             }
         }
     }
@@ -181,13 +181,13 @@ public class d extends g {
             if (gVar == null) {
                 return;
             }
-            this.f29625j.startLoad(gVar.f29510c, 30, false);
-            this.k.setText(gVar.f29509b);
-            this.l.setText(gVar.f29516i);
-            this.m.setText(gVar.f29512e);
+            this.f29645j.startLoad(gVar.f29530c, 30, false);
+            this.k.setText(gVar.f29529b);
+            this.l.setText(gVar.f29536i);
+            this.m.setText(gVar.f29532e);
             this.n.setOnClickListener(new b(this));
-            this.o.setFormatString(this.f29641f.getResources().getString(R.string.ad_video_flow_count_down));
-            this.f29624i.setOnClickListener(new c(this, gVar));
+            this.o.setFormatString(this.f29661f.getResources().getString(R.string.ad_video_flow_count_down));
+            this.f29644i.setOnClickListener(new c(this, gVar));
         }
     }
 
@@ -198,7 +198,7 @@ public class d extends g {
             super.e();
             this.o.update(5);
             this.o.startCountDown();
-            AdvertAppInfo advertAppInfo = this.f29639d;
+            AdvertAppInfo advertAppInfo = this.f29659d;
             c.a.r0.y2.l0.e.b().d(c.a.r0.y2.l0.g.b(advertAppInfo, 103, advertAppInfo.position));
         }
     }
@@ -215,9 +215,9 @@ public class d extends g {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f29637b.setOnClickListener(new a(this));
-            this.f29624i = (RelativeLayout) b(R.id.ad_container);
-            this.f29625j = (RoundTbImageView) b(R.id.user_head);
+            this.f29657b.setOnClickListener(new a(this));
+            this.f29644i = (RelativeLayout) b(R.id.ad_container);
+            this.f29645j = (RoundTbImageView) b(R.id.user_head);
             this.k = (TextView) b(R.id.user_name);
             this.l = (TextView) b(R.id.user_content);
             this.m = (TextView) b(R.id.transform_btn);

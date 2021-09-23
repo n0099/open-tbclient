@@ -12,34 +12,34 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f16349a;
+    public String f16359a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f16350b;
+    public String f16360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f16351c;
+    public float f16361c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f16352d;
+    public long f16362d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f16353e;
+    public Bitmap f16363e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16354f;
+    public int f16364f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16355g;
+    public int f16365g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16356h;
+    public int f16366h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f16357i;
+    public int f16367i;
 
     /* renamed from: j  reason: collision with root package name */
-    public f f16358j;
+    public f f16368j;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -47,7 +47,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f16359e;
+        public final /* synthetic */ h f16369e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class h {
                     return;
                 }
             }
-            this.f16359e = hVar;
+            this.f16369e = hVar;
         }
 
         @Override // java.lang.Runnable
@@ -72,12 +72,12 @@ public class h {
             Bitmap bitmap;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h hVar = this.f16359e;
-                if (hVar.f16358j == null || (bitmap = hVar.f16353e) == null || bitmap.isRecycled()) {
+                h hVar = this.f16369e;
+                if (hVar.f16368j == null || (bitmap = hVar.f16363e) == null || bitmap.isRecycled()) {
                     return;
                 }
-                h hVar2 = this.f16359e;
-                hVar2.f16358j.onFrameResult(hVar2.f16354f, hVar2.f16353e);
+                h hVar2 = this.f16369e;
+                hVar2.f16368j.onFrameResult(hVar2.f16364f, hVar2.f16363e);
             }
         }
     }

@@ -18,7 +18,7 @@ public class d extends UniversalPlayer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f28086e;
+    public Context f28106e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(@Nullable Context context, @NonNull String str) {
@@ -39,7 +39,7 @@ public class d extends UniversalPlayer {
                 return;
             }
         }
-        this.f28086e = context;
+        this.f28106e = context;
     }
 
     @Override // com.baidu.searchbox.player.BDVideoPlayer

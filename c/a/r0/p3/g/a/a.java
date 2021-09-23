@@ -16,10 +16,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24004a;
+    public String f24020a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<c.a.r0.p3.a> f24005b;
+    public ArrayList<c.a.r0.p3.a> f24021b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,13 +38,13 @@ public class a {
     public ArrayList<c.a.r0.p3.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24005b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24021b : (ArrayList) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24004a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24020a : (String) invokeV.objValue;
     }
 
     public void c(ThemeCardInMain themeCardInMain) {
@@ -52,17 +52,17 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeCardInMain) == null) || themeCardInMain == null) {
             return;
         }
-        this.f24004a = themeCardInMain.card_category;
+        this.f24020a = themeCardInMain.card_category;
         List<ThemeCardPropMain> list = themeCardInMain.props;
         if (list == null || list.size() <= 0) {
             return;
         }
-        this.f24005b = new ArrayList<>();
+        this.f24021b = new ArrayList<>();
         for (ThemeCardPropMain themeCardPropMain : list) {
             if (themeCardPropMain != null) {
                 c.a.r0.p3.a aVar = new c.a.r0.p3.a();
                 aVar.k(themeCardPropMain);
-                this.f24005b.add(aVar);
+                this.f24021b.add(aVar);
             }
         }
     }

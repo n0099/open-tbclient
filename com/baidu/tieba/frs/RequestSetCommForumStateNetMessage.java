@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -46,7 +46,7 @@ public class RequestSetCommForumStateNetMessage extends NetMessage {
             builder.forum_id = Long.valueOf(this.mForumId);
             builder.operation = Integer.valueOf(this.operation);
             if (z) {
-                x.a(builder, true);
+                a0.a(builder, true);
             }
             SetCommonForumStateReqIdl.Builder builder2 = new SetCommonForumStateReqIdl.Builder();
             builder2.data = builder.build(false);

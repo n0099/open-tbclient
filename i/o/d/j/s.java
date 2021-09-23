@@ -12,7 +12,7 @@ public abstract class s<E> extends f<E> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Integer f78888j;
+    public static final Integer f79207j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public abstract class s<E> extends f<E> {
                 return;
             }
         }
-        f78888j = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+        f79207j = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,6 +49,6 @@ public abstract class s<E> extends f<E> {
                 return;
             }
         }
-        Math.min(i2 / 4, f78888j.intValue());
+        Math.min(i2 / 4, f79207j.intValue());
     }
 }

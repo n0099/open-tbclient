@@ -269,7 +269,7 @@ public final class SapiConfiguration implements NoProguard {
     public boolean isSupportTouchLogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.supportTouchLogin && SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_GINGER).meetGray : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.supportTouchLogin && SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName("finger").meetGray : invokeV.booleanValue;
     }
 
     public boolean isValidateSpCommit() {

@@ -2,7 +2,7 @@ package com.baidu.sapi2.utils;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.fsg.base.statistics.f;
+import com.baidu.fsg.base.statistics.h;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
@@ -224,7 +224,7 @@ public class ParamsUtil implements NoProguard {
                 hashMap.put("connect", "1");
             }
             if (sapiConfiguration.language == Language.ENGLISH) {
-                hashMap.put("lang", f.f39499a);
+                hashMap.put("lang", h.f39556a);
             }
             hashMap.put("suppcheck", "1");
             if (sapiConfiguration.supportFaceLogin) {

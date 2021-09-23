@@ -40,34 +40,34 @@ public class a {
     public BlurDrawable J;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f27888a;
+    public FrameLayout f27908a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f27889b;
+    public FrameLayout f27909b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f27890c;
+    public ImageView f27910c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f27891d;
+    public LinearLayout f27911d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f27892e;
+    public FrameLayout f27912e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ColumnLayout f27893f;
+    public ColumnLayout f27913f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f27894g;
+    public TbImageView f27914g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f27895h;
+    public TbImageView f27915h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f27896i;
+    public TextView f27916i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f27897j;
+    public TextView f27917j;
     public TextView k;
     public RadioButton l;
     public RadioButton m;
@@ -87,14 +87,14 @@ public class a {
 
     /* renamed from: c.a.r0.w0.v1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1313a implements TbImageView.g {
+    public class C1311a implements TbImageView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27898a;
+        public final /* synthetic */ a f27918a;
 
-        public C1313a(a aVar) {
+        public C1311a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,14 +109,14 @@ public class a {
                     return;
                 }
             }
-            this.f27898a = aVar;
+            this.f27918a = aVar;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z) {
-                this.f27898a.f27894g.setVisibility(0);
+                this.f27918a.f27914g.setVisibility(0);
             }
         }
 
@@ -134,7 +134,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27899e;
+        public final /* synthetic */ a f27919e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -151,17 +151,17 @@ public class a {
                     return;
                 }
             }
-            this.f27899e = aVar;
+            this.f27919e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Bitmap g2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f27899e.g()) == null || this.f27899e.I == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f27919e.g()) == null || this.f27919e.I == null) {
                 return;
             }
-            this.f27899e.I.onWeixinShare(g2);
+            this.f27919e.I.onWeixinShare(g2);
         }
     }
 
@@ -171,7 +171,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27900e;
+        public final /* synthetic */ a f27920e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -188,17 +188,17 @@ public class a {
                     return;
                 }
             }
-            this.f27900e = aVar;
+            this.f27920e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Bitmap g2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f27900e.g()) == null || this.f27900e.I == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f27920e.g()) == null || this.f27920e.I == null) {
                 return;
             }
-            this.f27900e.I.onWxFriendsShare(g2);
+            this.f27920e.I.onWxFriendsShare(g2);
         }
     }
 
@@ -208,7 +208,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27901e;
+        public final /* synthetic */ a f27921e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -225,17 +225,17 @@ public class a {
                     return;
                 }
             }
-            this.f27901e = aVar;
+            this.f27921e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Bitmap g2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f27901e.g()) == null || this.f27901e.I == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f27921e.g()) == null || this.f27921e.I == null) {
                 return;
             }
-            this.f27901e.I.onQQShare(g2);
+            this.f27921e.I.onQQShare(g2);
         }
     }
 
@@ -245,7 +245,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27902e;
+        public final /* synthetic */ a f27922e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -262,17 +262,17 @@ public class a {
                     return;
                 }
             }
-            this.f27902e = aVar;
+            this.f27922e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Bitmap g2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f27902e.g()) == null || this.f27902e.I == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f27922e.g()) == null || this.f27922e.I == null) {
                 return;
             }
-            this.f27902e.I.onSinaShare(g2);
+            this.f27922e.I.onSinaShare(g2);
         }
     }
 
@@ -282,7 +282,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27903e;
+        public final /* synthetic */ a f27923e;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -299,16 +299,16 @@ public class a {
                     return;
                 }
             }
-            this.f27903e = aVar;
+            this.f27923e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27903e.I == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27923e.I == null) {
                 return;
             }
-            this.f27903e.I.onCancel();
+            this.f27923e.I.onCancel();
         }
     }
 
@@ -318,7 +318,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27904a;
+        public final /* synthetic */ a f27924a;
 
         public g(a aVar) {
             Interceptable interceptable = $ic;
@@ -335,7 +335,7 @@ public class a {
                     return;
                 }
             }
-            this.f27904a = aVar;
+            this.f27924a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -345,15 +345,15 @@ public class a {
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((g) aVar, str, i2);
                 if (aVar == null || aVar.p() == null) {
-                    UtilHelper.showToast(this.f27904a.f27888a.getContext(), R.string.share_failed);
-                    if (this.f27904a.I != null) {
-                        this.f27904a.I.onCancel();
+                    UtilHelper.showToast(this.f27924a.f27908a.getContext(), R.string.share_failed);
+                    if (this.f27924a.I != null) {
+                        this.f27924a.I.onCancel();
                     }
                 }
-                this.f27904a.J = new BlurDrawable(this.f27904a.f27888a.getContext());
-                this.f27904a.J.init(2, 4, aVar.p());
-                this.f27904a.J.drawBlur();
-                this.f27904a.f27890c.setImageBitmap(this.f27904a.J.getBlurredBitmap());
+                this.f27924a.J = new BlurDrawable(this.f27924a.f27908a.getContext());
+                this.f27924a.J.init(2, 4, aVar.p());
+                this.f27924a.J.drawBlur();
+                this.f27924a.f27910c.setImageBitmap(this.f27924a.J.getBlurredBitmap());
             }
         }
     }
@@ -388,62 +388,62 @@ public class a {
         }
         this.I = hVar;
         FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.activity_game_share_layout, (ViewGroup) null);
-        this.f27888a = frameLayout;
-        this.f27889b = (FrameLayout) frameLayout.findViewById(R.id.game_share_content_layout);
-        this.f27890c = (ImageView) this.f27888a.findViewById(R.id.game_share_content_bg_view);
-        this.f27891d = (LinearLayout) this.f27888a.findViewById(R.id.game_share_card_layout);
-        this.f27892e = (FrameLayout) this.f27888a.findViewById(R.id.game_share_header_root);
-        this.f27893f = (ColumnLayout) this.f27888a.findViewById(R.id.game_share_header_layout);
-        TbImageView tbImageView = (TbImageView) this.f27888a.findViewById(R.id.game_share_header_bg_view);
-        this.f27894g = tbImageView;
+        this.f27908a = frameLayout;
+        this.f27909b = (FrameLayout) frameLayout.findViewById(R.id.game_share_content_layout);
+        this.f27910c = (ImageView) this.f27908a.findViewById(R.id.game_share_content_bg_view);
+        this.f27911d = (LinearLayout) this.f27908a.findViewById(R.id.game_share_card_layout);
+        this.f27912e = (FrameLayout) this.f27908a.findViewById(R.id.game_share_header_root);
+        this.f27913f = (ColumnLayout) this.f27908a.findViewById(R.id.game_share_header_layout);
+        TbImageView tbImageView = (TbImageView) this.f27908a.findViewById(R.id.game_share_header_bg_view);
+        this.f27914g = tbImageView;
         tbImageView.setVisibility(4);
-        this.f27894g.setDefaultBg(new ColorDrawable(this.f27888a.getResources().getColor(R.color.transparent)));
-        this.f27894g.setDrawerType(1);
-        this.f27894g.setRadius(context.getResources().getDimensionPixelSize(R.dimen.ds20));
-        this.f27894g.setEvent(new C1313a(this));
-        TbImageView tbImageView2 = (TbImageView) this.f27888a.findViewById(R.id.game_share_game_icon);
-        this.f27895h = tbImageView2;
+        this.f27914g.setDefaultBg(new ColorDrawable(this.f27908a.getResources().getColor(R.color.transparent)));
+        this.f27914g.setDrawerType(1);
+        this.f27914g.setRadius(context.getResources().getDimensionPixelSize(R.dimen.ds20));
+        this.f27914g.setEvent(new C1311a(this));
+        TbImageView tbImageView2 = (TbImageView) this.f27908a.findViewById(R.id.game_share_game_icon);
+        this.f27915h = tbImageView2;
         tbImageView2.setDrawerType(1);
-        this.f27895h.setRadius(context.getResources().getDimensionPixelSize(R.dimen.ds20));
-        this.f27896i = (TextView) this.f27888a.findViewById(R.id.game_share_game_name);
-        this.f27897j = (TextView) this.f27888a.findViewById(R.id.game_share_game_description);
-        this.k = (TextView) this.f27888a.findViewById(R.id.game_share_game_score);
-        this.l = (RadioButton) this.f27888a.findViewById(R.id.game_share_score_grade_1);
-        this.m = (RadioButton) this.f27888a.findViewById(R.id.game_share_score_grade_2);
-        this.n = (RadioButton) this.f27888a.findViewById(R.id.game_share_score_grade_3);
-        this.o = (RadioButton) this.f27888a.findViewById(R.id.game_share_score_grade_4);
-        RadioButton radioButton = (RadioButton) this.f27888a.findViewById(R.id.game_share_score_grade_5);
+        this.f27915h.setRadius(context.getResources().getDimensionPixelSize(R.dimen.ds20));
+        this.f27916i = (TextView) this.f27908a.findViewById(R.id.game_share_game_name);
+        this.f27917j = (TextView) this.f27908a.findViewById(R.id.game_share_game_description);
+        this.k = (TextView) this.f27908a.findViewById(R.id.game_share_game_score);
+        this.l = (RadioButton) this.f27908a.findViewById(R.id.game_share_score_grade_1);
+        this.m = (RadioButton) this.f27908a.findViewById(R.id.game_share_score_grade_2);
+        this.n = (RadioButton) this.f27908a.findViewById(R.id.game_share_score_grade_3);
+        this.o = (RadioButton) this.f27908a.findViewById(R.id.game_share_score_grade_4);
+        RadioButton radioButton = (RadioButton) this.f27908a.findViewById(R.id.game_share_score_grade_5);
         this.p = radioButton;
         this.q = new RadioButton[]{this.l, this.m, this.n, this.o, radioButton};
-        this.r = (TextView) this.f27888a.findViewById(R.id.game_share_comment);
-        TbImageView tbImageView3 = (TbImageView) this.f27888a.findViewById(R.id.game_share_user_protrait);
+        this.r = (TextView) this.f27908a.findViewById(R.id.game_share_comment);
+        TbImageView tbImageView3 = (TbImageView) this.f27908a.findViewById(R.id.game_share_user_protrait);
         this.s = tbImageView3;
         tbImageView3.setDrawerType(1);
         this.s.setIsRound(true);
-        this.t = (TextView) this.f27888a.findViewById(R.id.game_share_user_name);
-        this.u = (RadioButton) this.f27888a.findViewById(R.id.game_share_user_score_grade_1);
-        this.v = (RadioButton) this.f27888a.findViewById(R.id.game_share_user_score_grade_2);
-        this.w = (RadioButton) this.f27888a.findViewById(R.id.game_share_user_score_grade_3);
-        this.x = (RadioButton) this.f27888a.findViewById(R.id.game_share_user_score_grade_4);
-        RadioButton radioButton2 = (RadioButton) this.f27888a.findViewById(R.id.game_share_user_score_grade_5);
+        this.t = (TextView) this.f27908a.findViewById(R.id.game_share_user_name);
+        this.u = (RadioButton) this.f27908a.findViewById(R.id.game_share_user_score_grade_1);
+        this.v = (RadioButton) this.f27908a.findViewById(R.id.game_share_user_score_grade_2);
+        this.w = (RadioButton) this.f27908a.findViewById(R.id.game_share_user_score_grade_3);
+        this.x = (RadioButton) this.f27908a.findViewById(R.id.game_share_user_score_grade_4);
+        RadioButton radioButton2 = (RadioButton) this.f27908a.findViewById(R.id.game_share_user_score_grade_5);
         this.y = radioButton2;
         this.z = new RadioButton[]{this.u, this.v, this.w, this.x, radioButton2};
-        this.A = (TextView) this.f27888a.findViewById(R.id.game_share_qr_txt);
-        this.B = (TbImageView) this.f27888a.findViewById(R.id.game_share_qr_img);
-        this.C = (LinearLayout) this.f27888a.findViewById(R.id.game_share_entry_layout);
-        TextView textView = (TextView) this.f27888a.findViewById(R.id.game_share_entry_weixin);
+        this.A = (TextView) this.f27908a.findViewById(R.id.game_share_qr_txt);
+        this.B = (TbImageView) this.f27908a.findViewById(R.id.game_share_qr_img);
+        this.C = (LinearLayout) this.f27908a.findViewById(R.id.game_share_entry_layout);
+        TextView textView = (TextView) this.f27908a.findViewById(R.id.game_share_entry_weixin);
         this.D = textView;
         textView.setOnClickListener(new b(this));
-        TextView textView2 = (TextView) this.f27888a.findViewById(R.id.game_share_entry_wxfriends);
+        TextView textView2 = (TextView) this.f27908a.findViewById(R.id.game_share_entry_wxfriends);
         this.E = textView2;
         textView2.setOnClickListener(new c(this));
-        TextView textView3 = (TextView) this.f27888a.findViewById(R.id.game_share_entry_qq);
+        TextView textView3 = (TextView) this.f27908a.findViewById(R.id.game_share_entry_qq);
         this.F = textView3;
         textView3.setOnClickListener(new d(this));
-        TextView textView4 = (TextView) this.f27888a.findViewById(R.id.game_share_entry_sina);
+        TextView textView4 = (TextView) this.f27908a.findViewById(R.id.game_share_entry_sina);
         this.G = textView4;
         textView4.setOnClickListener(new e(this));
-        TextView textView5 = (TextView) this.f27888a.findViewById(R.id.game_share_cancel);
+        TextView textView5 = (TextView) this.f27908a.findViewById(R.id.game_share_cancel);
         this.H = textView5;
         textView5.setOnClickListener(new f(this));
     }
@@ -452,8 +452,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f27889b.buildDrawingCache();
-            return this.f27889b.getDrawingCache();
+            this.f27909b.buildDrawingCache();
+            return this.f27909b.getDrawingCache();
         }
         return (Bitmap) invokeV.objValue;
     }
@@ -461,13 +461,13 @@ public class a {
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27891d.getBottom() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27911d.getBottom() : invokeV.intValue;
     }
 
     public View i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27888a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27908a : (View) invokeV.objValue;
     }
 
     public void j() {
@@ -506,9 +506,9 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, gameShareData) == null) || gameShareData == null) {
             return;
         }
-        this.f27895h.startLoad(gameShareData.gameIconUrl, 10, false);
-        this.f27896i.setText(gameShareData.gameName);
-        this.f27897j.setText(gameShareData.gameDescription);
+        this.f27915h.startLoad(gameShareData.gameIconUrl, 10, false);
+        this.f27916i.setText(gameShareData.gameName);
+        this.f27917j.setText(gameShareData.gameDescription);
         this.k.setText(new DecimalFormat(".0").format(gameShareData.gameScore));
         k((int) gameShareData.gameScore, this.q);
     }
@@ -526,7 +526,7 @@ public class a {
             if (this.J == null) {
                 c.a.e.e.l.d.h().m(gameShareData.gameIconUrl, 10, new g(this), null);
             }
-            this.f27894g.startLoad(gameShareData.headBgUrl, 10, false);
+            this.f27914g.startLoad(gameShareData.headBgUrl, 10, false);
             this.B.startLoad(gameShareData.shareQRCodeUrl, 10, false);
         }
     }

@@ -44,7 +44,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends c.a.p0.
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f4638a;
+        public static final /* synthetic */ int[] f4646a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,21 +61,21 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends c.a.p0.
                 }
             }
             int[] iArr = new int[PathType.values().length];
-            f4638a = iArr;
+            f4646a = iArr;
             try {
                 iArr[PathType.BD_FILE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f4638a[PathType.RELATIVE.ordinal()] = 2;
+                f4646a[PathType.RELATIVE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f4638a[PathType.NETWORK.ordinal()] = 3;
+                f4646a[PathType.NETWORK.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f4638a[PathType.ERROR.ordinal()] = 4;
+                f4646a[PathType.ERROR.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -111,7 +111,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends c.a.p0.
             PathType s = c.a.p0.a.k2.b.s(str);
             e i2 = e.i();
             if (i2 != null) {
-                str2 = i2.f4558f;
+                str2 = i2.f4566f;
                 str3 = i2.Z();
             } else {
                 str2 = null;
@@ -120,7 +120,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends c.a.p0.
             if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                 return null;
             }
-            int i3 = C0122a.f4638a[s.ordinal()];
+            int i3 = C0122a.f4646a[s.ordinal()];
             if (i3 == 1) {
                 String M = c.a.p0.a.k2.b.M(str, str2);
                 if (TextUtils.isEmpty(M)) {
@@ -179,7 +179,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends c.a.p0.
         if (!(interceptable == null || interceptable.invokeLLL(1048579, this, v, m, baseControllerListener) == null) || m.n == null) {
             return;
         }
-        boolean z = c.a.p0.a.c0.b.a.f4644h;
+        boolean z = c.a.p0.a.c0.b.a.f4652h;
         String str = m.x;
         if (TextUtils.isEmpty(str) || (Y = Y(str)) == null) {
             return;

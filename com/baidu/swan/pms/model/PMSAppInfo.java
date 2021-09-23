@@ -166,9 +166,9 @@ public class PMSAppInfo implements Parcelable {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) || fVar == null) {
             return;
         }
-        this.appId = fVar.f11885g;
-        this.versionCode = fVar.f11887i;
-        this.versionName = fVar.f11888j;
+        this.appId = fVar.f11893g;
+        this.versionCode = fVar.f11895i;
+        this.versionName = fVar.f11896j;
         this.type = fVar.o;
         this.pkgSize = fVar.k;
     }
@@ -179,8 +179,8 @@ public class PMSAppInfo implements Parcelable {
             return;
         }
         this.appId = gVar.o;
-        this.versionCode = gVar.f11887i;
-        this.versionName = gVar.f11888j;
+        this.versionCode = gVar.f11895i;
+        this.versionName = gVar.f11896j;
         this.type = gVar.q;
         this.pkgSize = gVar.k;
     }

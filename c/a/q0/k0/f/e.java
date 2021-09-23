@@ -6,7 +6,7 @@ import android.content.res.Resources;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import c.a.q0.k0.d.b;
-import c.a.r0.j3.t;
+import c.a.r0.j3.u;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -17,24 +17,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class e<D, S extends c.a.q0.k0.d.b> implements t {
+public abstract class e<D, S extends c.a.q0.k0.d.b> implements u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ViewEventCenter f13549e;
+    public final ViewEventCenter f13545e;
 
     /* renamed from: f  reason: collision with root package name */
-    public D f13550f;
+    public D f13546f;
 
     /* renamed from: g  reason: collision with root package name */
-    public S f13551g;
+    public S f13547g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final View f13552h;
+    public final View f13548h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext<?> f13553i;
+    public TbPageContext<?> f13549i;
 
     public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         Interceptable interceptable = $ic;
@@ -51,57 +51,57 @@ public abstract class e<D, S extends c.a.q0.k0.d.b> implements t {
                 return;
             }
         }
-        this.f13553i = tbPageContext;
-        this.f13552h = view;
-        this.f13549e = viewEventCenter;
+        this.f13549i = tbPageContext;
+        this.f13548h = view;
+        this.f13545e = viewEventCenter;
     }
 
     public Activity a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13553i.getPageActivity() : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13549i.getPageActivity() : (Activity) invokeV.objValue;
     }
 
     public Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13553i.getContext() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13549i.getContext() : (Context) invokeV.objValue;
     }
 
     public D c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13550f : (D) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13546f : (D) invokeV.objValue;
     }
 
     public ViewEventCenter d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13549e : (ViewEventCenter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13545e : (ViewEventCenter) invokeV.objValue;
     }
 
     public TbPageContext<?> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13553i : (TbPageContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13549i : (TbPageContext) invokeV.objValue;
     }
 
     public Resources f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13553i.getResources() : (Resources) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13549i.getResources() : (Resources) invokeV.objValue;
     }
 
     public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13552h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13548h : (View) invokeV.objValue;
     }
 
     public S h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13551g : (S) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13547g : (S) invokeV.objValue;
     }
 
     public String i(int i2) {
@@ -113,13 +113,13 @@ public abstract class e<D, S extends c.a.q0.k0.d.b> implements t {
     public BdUniqueId j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f13553i.getUniqueId() : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f13549i.getUniqueId() : (BdUniqueId) invokeV.objValue;
     }
 
     public void k(D d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, d2) == null) {
-            this.f13550f = d2;
+            this.f13546f = d2;
         }
     }
 
@@ -134,7 +134,7 @@ public abstract class e<D, S extends c.a.q0.k0.d.b> implements t {
     public void m(S s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, s) == null) {
-            this.f13551g = s;
+            this.f13547g = s;
         }
     }
 }

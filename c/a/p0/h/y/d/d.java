@@ -19,10 +19,10 @@ public class d implements Interceptor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f11611a;
+    public a.b f11619a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f11612b;
+    public final e f11620b;
 
     /* loaded from: classes3.dex */
     public class a implements e {
@@ -30,7 +30,7 @@ public class d implements Interceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f11613a;
+        public final /* synthetic */ d f11621a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -47,27 +47,27 @@ public class d implements Interceptor {
                     return;
                 }
             }
-            this.f11613a = dVar;
+            this.f11621a = dVar;
         }
 
         @Override // c.a.p0.a.n1.e
         public void a(long j2, long j3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
-                if (this.f11613a.f11611a == null) {
-                    boolean z2 = k.f7077a;
+                if (this.f11621a.f11619a == null) {
+                    boolean z2 = k.f7085a;
                 } else if (j3 == -1 && j2 != 0) {
-                    this.f11613a.f11611a.b(0, j2, j3);
+                    this.f11621a.f11619a.b(0, j2, j3);
                 } else if (j3 > 52428800) {
-                    this.f11613a.f11611a.a(j3);
-                    this.f11613a.f11611a = null;
+                    this.f11621a.f11619a.a(j3);
+                    this.f11621a.f11619a = null;
                 } else if (j3 <= 0 || j2 > j3 || j2 == 0) {
-                    this.f11613a.f11611a.c(j2, j3);
-                    this.f11613a.f11611a = null;
+                    this.f11621a.f11619a.c(j2, j3);
+                    this.f11621a.f11619a = null;
                 } else {
                     int floor = (int) Math.floor((100 * j2) / j3);
                     if (floor <= 100) {
-                        this.f11613a.f11611a.b(floor, j2, j3);
+                        this.f11621a.f11619a.b(floor, j2, j3);
                     }
                 }
             }
@@ -87,13 +87,13 @@ public class d implements Interceptor {
                 return;
             }
         }
-        this.f11612b = new a(this);
+        this.f11620b = new a(this);
     }
 
     public void c(a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f11611a = bVar;
+            this.f11619a = bVar;
         }
     }
 
@@ -103,7 +103,7 @@ public class d implements Interceptor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
             Response proceed = chain.proceed(chain.request());
-            return proceed.newBuilder().body(new h(proceed.body(), this.f11612b)).build();
+            return proceed.newBuilder().body(new h(proceed.body(), this.f11620b)).build();
         }
         return (Response) invokeL.objValue;
     }

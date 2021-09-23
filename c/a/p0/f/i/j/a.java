@@ -12,34 +12,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10547a;
+    public String f10555a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f10548b;
+    public boolean f10556b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10549c;
+    public String f10557c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f10550d;
+    public int f10558d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f10551e;
+    public int f10559e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f10552f;
+    public boolean f10560f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10553g;
+    public boolean f10561g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f10554h;
+    public String f10562h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f10555i;
+    public int f10563i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f10556j;
+    public boolean f10564j;
     public String k;
     public String l;
     public boolean m;
@@ -70,15 +70,15 @@ public class a {
                 return;
             }
         }
-        this.f10547a = "";
-        this.f10548b = false;
-        this.f10549c = "";
-        this.f10550d = 0;
-        this.f10551e = 0;
-        this.f10552f = false;
-        this.f10553g = false;
-        this.f10554h = "";
-        this.f10555i = 0;
+        this.f10555a = "";
+        this.f10556b = false;
+        this.f10557c = "";
+        this.f10558d = 0;
+        this.f10559e = 0;
+        this.f10560f = false;
+        this.f10561g = false;
+        this.f10562h = "";
+        this.f10563i = 0;
         this.k = "";
         this.l = "";
         this.m = false;
@@ -98,7 +98,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "VideoPlayerParams{mPlayerId='" + this.f10547a + ExtendedMessageFormat.QUOTE + ", mMute=" + this.f10548b + ", mPoster='" + this.f10549c + ExtendedMessageFormat.QUOTE + ", mInitialTime=" + this.f10550d + ", duration=" + this.f10551e + ", mAutoPlay=" + this.f10552f + ", mLoop=" + this.f10553g + ", mObjectFit='" + this.f10554h + ExtendedMessageFormat.QUOTE + ", mPos=" + this.f10555i + ", mFullScreen=" + this.f10556j + ", mDanmu='" + this.k + ExtendedMessageFormat.QUOTE + ", mDanmuList='" + this.l + ExtendedMessageFormat.QUOTE + ", mEnableDanmu=" + this.m + ", mShowDanmuBtn=" + this.n + ", mShowControlPanel=" + this.o + ", mSrc='" + this.p + ExtendedMessageFormat.QUOTE + ", mSanId='" + this.q + ExtendedMessageFormat.QUOTE + ", mShowPlayBtn=" + this.r + ", mShowMuteBtn=" + this.s + ", mShowCenterPlayBtn=" + this.t + ", mPageGesture=" + this.u + ", mShowProgress=" + this.v + ", mDirection=" + this.w + ", mShowFullscreenBtn=" + this.x + ", mEnableProgressGesture=" + this.y + ", mIsRemoteFile=" + this.z + ExtendedMessageFormat.END_FE;
+            return "VideoPlayerParams{mPlayerId='" + this.f10555a + ExtendedMessageFormat.QUOTE + ", mMute=" + this.f10556b + ", mPoster='" + this.f10557c + ExtendedMessageFormat.QUOTE + ", mInitialTime=" + this.f10558d + ", duration=" + this.f10559e + ", mAutoPlay=" + this.f10560f + ", mLoop=" + this.f10561g + ", mObjectFit='" + this.f10562h + ExtendedMessageFormat.QUOTE + ", mPos=" + this.f10563i + ", mFullScreen=" + this.f10564j + ", mDanmu='" + this.k + ExtendedMessageFormat.QUOTE + ", mDanmuList='" + this.l + ExtendedMessageFormat.QUOTE + ", mEnableDanmu=" + this.m + ", mShowDanmuBtn=" + this.n + ", mShowControlPanel=" + this.o + ", mSrc='" + this.p + ExtendedMessageFormat.QUOTE + ", mSanId='" + this.q + ExtendedMessageFormat.QUOTE + ", mShowPlayBtn=" + this.r + ", mShowMuteBtn=" + this.s + ", mShowCenterPlayBtn=" + this.t + ", mPageGesture=" + this.u + ", mShowProgress=" + this.v + ", mDirection=" + this.w + ", mShowFullscreenBtn=" + this.x + ", mEnableProgressGesture=" + this.y + ", mIsRemoteFile=" + this.z + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

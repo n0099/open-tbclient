@@ -20,7 +20,7 @@ public class c extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile HashMap<String, Long> f20985d;
+    public volatile HashMap<String, Long> f20998d;
 
     /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
@@ -92,15 +92,15 @@ public class c extends d {
                 return;
             }
         }
-        this.f20985d = new HashMap<>();
+        this.f20998d = new HashMap<>();
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                this.f20988c.clear();
-                this.f20985d.clear();
+                this.f21001c.clear();
+                this.f20998d.clear();
             }
         }
     }
@@ -111,8 +111,8 @@ public class c extends d {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             try {
                 synchronized (this) {
-                    if (this.f20985d.get(str) != null) {
-                        return this.f20985d.get(str).longValue();
+                    if (this.f20998d.get(str) != null) {
+                        return this.f20998d.get(str).longValue();
                     }
                     return 0L;
                 }

@@ -130,7 +130,7 @@ public class i extends c.a.e.l.e.a<l, AutoVideoCardViewHolder<l>> implements c.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f23101e;
+        public final /* synthetic */ i f23117e;
 
         public c(i iVar) {
             Interceptable interceptable = $ic;
@@ -147,7 +147,7 @@ public class i extends c.a.e.l.e.a<l, AutoVideoCardViewHolder<l>> implements c.a
                     return;
                 }
             }
-            this.f23101e = iVar;
+            this.f23117e = iVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -157,8 +157,8 @@ public class i extends c.a.e.l.e.a<l, AutoVideoCardViewHolder<l>> implements c.a
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 l lVar = (l) nVar;
                 lVar.k = 1;
-                if (this.f23101e.s != null) {
-                    this.f23101e.s.a(threadCardViewHolder.getView(), lVar);
+                if (this.f23117e.s != null) {
+                    this.f23117e.s.a(threadCardViewHolder.getView(), lVar);
                 }
                 ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) lVar, view.getContext(), 4, false, c.a.l.e.a((s) viewGroup, view, i2));
                 threadCardViewHolder.getCardView().o(new a.C0095a(1));
@@ -172,13 +172,13 @@ public class i extends c.a.e.l.e.a<l, AutoVideoCardViewHolder<l>> implements c.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f23102a;
+        public final /* synthetic */ ViewGroup f23118a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f23103b;
+        public final /* synthetic */ View f23119b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f23104c;
+        public final /* synthetic */ int f23120c;
 
         public d(i iVar, ViewGroup viewGroup, View view, int i2) {
             Interceptable interceptable = $ic;
@@ -195,16 +195,16 @@ public class i extends c.a.e.l.e.a<l, AutoVideoCardViewHolder<l>> implements c.a
                     return;
                 }
             }
-            this.f23102a = viewGroup;
-            this.f23103b = view;
-            this.f23104c = i2;
+            this.f23118a = viewGroup;
+            this.f23119b = view;
+            this.f23120c = i2;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, intentConfig) == null) && (intentConfig instanceof PbActivityConfig)) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(c.a.l.e.a((s) this.f23102a, this.f23103b, this.f23104c));
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(c.a.l.e.a((s) this.f23118a, this.f23119b, this.f23120c));
             }
         }
     }
@@ -275,7 +275,7 @@ public class i extends c.a.e.l.e.a<l, AutoVideoCardViewHolder<l>> implements c.a
             mVar.t("profile");
             mVar.x(null);
             bVar.n(mVar);
-            bVar.l().g(c.a.e.e.p.l.g(this.f2957e, R.dimen.tbds25));
+            bVar.l().g(c.a.e.e.p.l.g(this.f2958e, R.dimen.tbds25));
             c.a.l.s sVar = new c.a.l.s(this.n.getPageActivity());
             sVar.t(true);
             bVar.h(sVar);

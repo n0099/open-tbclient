@@ -40,9 +40,9 @@ public class a {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, list, iVar, postData, pbModel)) == null) {
-            if (list != null && postData != null && pbModel != null && pbModel.O0() != null) {
-                e O0 = pbModel.O0();
-                if (O0.g0() && TbadkCoreApplication.isLogin() && !j(postData) && !O0.f0()) {
+            if (list != null && postData != null && pbModel != null && pbModel.P0() != null) {
+                e P0 = pbModel.P0();
+                if (P0.g0() && TbadkCoreApplication.isLogin() && !j(postData) && !P0.f0()) {
                     f fVar = new f(9, TbadkCoreApplication.getInst().getString(R.string.block_user), iVar);
                     list.add(fVar);
                     c.a.r0.t3.a.e(fVar.f14428d, postData);
@@ -271,7 +271,7 @@ public class a {
     public static boolean h(PbModel pbModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pbModel)) == null) ? (pbModel == null || pbModel.O0() == null || !pbModel.O0().g0()) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pbModel)) == null) ? (pbModel == null || pbModel.P0() == null || !pbModel.P0().g0()) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean i(r rVar) {

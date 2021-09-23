@@ -26,29 +26,29 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Boolean f11747h;
+    public static final Boolean f11755h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f11748a;
+    public d f11756a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Marker f11749b;
+    public Marker f11757b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Marker f11750c;
+    public Marker f11758c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f11751d;
+    public View f11759d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f11752e;
+    public ViewGroup f11760e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Marker f11753f;
+    public Marker f11761f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ValueAnimator f11754g;
+    public ValueAnimator f11762g;
 
     /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
@@ -56,16 +56,16 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f11755e;
+        public boolean f11763e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f11756f;
+        public final /* synthetic */ c f11764f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0614b f11757g;
+        public final /* synthetic */ InterfaceC0614b f11765g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f11758h;
+        public final /* synthetic */ b f11766h;
 
         public a(b bVar, c cVar, InterfaceC0614b interfaceC0614b) {
             Interceptable interceptable = $ic;
@@ -82,10 +82,10 @@ public class b {
                     return;
                 }
             }
-            this.f11758h = bVar;
-            this.f11756f = cVar;
-            this.f11757g = interfaceC0614b;
-            this.f11755e = false;
+            this.f11766h = bVar;
+            this.f11764f = cVar;
+            this.f11765g = interfaceC0614b;
+            this.f11763e = false;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -93,12 +93,12 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
-                this.f11758h.a(this.f11756f, (LatLng) valueAnimator.getAnimatedValue());
-                if (this.f11755e || animatedFraction <= 0.99d) {
+                this.f11766h.a(this.f11764f, (LatLng) valueAnimator.getAnimatedValue());
+                if (this.f11763e || animatedFraction <= 0.99d) {
                     return;
                 }
-                this.f11755e = true;
-                InterfaceC0614b interfaceC0614b = this.f11757g;
+                this.f11763e = true;
+                InterfaceC0614b interfaceC0614b = this.f11765g;
                 if (interfaceC0614b != null) {
                     interfaceC0614b.onAnimationEnd();
                 }
@@ -125,7 +125,7 @@ public class b {
                 return;
             }
         }
-        f11747h = Boolean.TRUE;
+        f11755h = Boolean.TRUE;
     }
 
     public b() {
@@ -145,30 +145,30 @@ public class b {
     public void a(c cVar, LatLng latLng) {
         Marker marker;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, cVar, latLng) == null) || (marker = this.f11749b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, cVar, latLng) == null) || (marker = this.f11757b) == null) {
             return;
         }
         marker.setPosition(latLng);
-        c.a.p0.a.h1.c.h.c cVar2 = this.f11748a.f6536f;
-        cVar2.f6533e = latLng.latitude;
-        cVar2.f6534f = latLng.longitude;
-        Marker marker2 = this.f11753f;
+        c.a.p0.a.h1.c.h.c cVar2 = this.f11756a.f6544f;
+        cVar2.f6541e = latLng.latitude;
+        cVar2.f6542f = latLng.longitude;
+        Marker marker2 = this.f11761f;
         if (marker2 != null) {
             marker2.setPosition(latLng);
         }
-        if (f11747h.booleanValue()) {
-            Marker marker3 = this.f11750c;
+        if (f11755h.booleanValue()) {
+            Marker marker3 = this.f11758c;
             if (marker3 != null) {
                 marker3.setPosition(latLng);
             }
-            ViewGroup viewGroup = this.f11752e;
+            ViewGroup viewGroup = this.f11760e;
             if (viewGroup != null) {
                 cVar.l.removeView(viewGroup);
                 MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
                 builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
                 builder.position(latLng);
-                cVar.l.addView(this.f11752e, builder.build());
-                this.f11752e.setAlpha(0.0f);
+                cVar.l.addView(this.f11760e, builder.build());
+                this.f11760e.setAlpha(0.0f);
             }
         }
     }
@@ -177,31 +177,31 @@ public class b {
         d dVar;
         d.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || (dVar = this.f11748a) == null || (bVar = dVar.m) == null || !bVar.isValid()) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || (dVar = this.f11756a) == null || (bVar = dVar.m) == null || !bVar.isValid()) {
             return;
         }
-        d dVar2 = this.f11748a;
-        if (dVar2.o == null || this.f11751d != null || TextUtils.equals(dVar2.m.k, "ALWAYS")) {
+        d dVar2 = this.f11756a;
+        if (dVar2.o == null || this.f11759d != null || TextUtils.equals(dVar2.m.k, "ALWAYS")) {
             return;
         }
-        cVar.l.removeView(this.f11752e);
-        this.f11752e.removeView(this.f11751d);
-        View a2 = c.a.p0.j.k.f.a.a(cVar, this.f11748a);
-        this.f11751d = a2;
-        this.f11752e.addView(a2, 0);
-        this.f11752e.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+        cVar.l.removeView(this.f11760e);
+        this.f11760e.removeView(this.f11759d);
+        View a2 = c.a.p0.j.k.f.a.a(cVar, this.f11756a);
+        this.f11759d = a2;
+        this.f11760e.addView(a2, 0);
+        this.f11760e.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
         builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-        builder.position(this.f11749b.getPosition());
-        Bitmap bitmap = this.f11749b.getIcon().getBitmap();
-        builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.f11748a.o.f6542f)) + 0.0d));
-        cVar.l.addView(this.f11752e, builder.build());
-        this.f11752e.setAlpha(0.0f);
-        Marker marker = this.f11753f;
+        builder.position(this.f11757b.getPosition());
+        Bitmap bitmap = this.f11757b.getIcon().getBitmap();
+        builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.f11756a.o.f6550f)) + 0.0d));
+        cVar.l.addView(this.f11760e, builder.build());
+        this.f11760e.setAlpha(0.0f);
+        Marker marker = this.f11761f;
         if (marker != null) {
             marker.remove();
         }
-        BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.f11752e);
+        BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.f11760e);
         if (fromView == null) {
             return;
         }
@@ -209,19 +209,19 @@ public class b {
         if (bitmap2.getHeight() <= 0 || bitmap2.getWidth() <= 0) {
             return;
         }
-        float width = ((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.f11748a.o.f6541e * bitmap.getWidth()))) / bitmap2.getWidth();
-        float height = ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.f11748a.o.f6542f * bitmap.getHeight()))) / fromView.getBitmap().getHeight();
+        float width = ((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.f11756a.o.f6549e * bitmap.getWidth()))) / bitmap2.getWidth();
+        float height = ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.f11756a.o.f6550f * bitmap.getHeight()))) / fromView.getBitmap().getHeight();
         MarkerOptions markerOptions = new MarkerOptions();
-        c.a.p0.a.h1.c.h.c cVar2 = this.f11748a.f6536f;
-        this.f11753f = (Marker) cVar.l.getMap().addOverlay(markerOptions.position(new LatLng(cVar2.f6533e, cVar2.f6534f)).icon(fromView).zIndex(66).anchor(width, height));
+        c.a.p0.a.h1.c.h.c cVar2 = this.f11756a.f6544f;
+        this.f11761f = (Marker) cVar.l.getMap().addOverlay(markerOptions.position(new LatLng(cVar2.f6541e, cVar2.f6542f)).icon(fromView).zIndex(66).anchor(width, height));
     }
 
     public void c(c cVar, LatLng latLng, f fVar, InterfaceC0614b interfaceC0614b) {
         Marker marker;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, cVar, latLng, fVar, interfaceC0614b) == null) {
-            ValueAnimator valueAnimator = this.f11754g;
-            if ((valueAnimator == null || !valueAnimator.isRunning()) && (marker = this.f11749b) != null) {
+            ValueAnimator valueAnimator = this.f11762g;
+            if ((valueAnimator == null || !valueAnimator.isRunning()) && (marker = this.f11757b) != null) {
                 float f2 = 360.0f - ((float) fVar.F);
                 if (f2 >= 0.0f && f2 <= 360.0f) {
                     marker.setRotate(f2);
@@ -230,11 +230,11 @@ public class b {
                 if (i2 < 0) {
                     i2 = -i2;
                 }
-                ValueAnimator ofObject = ValueAnimator.ofObject(new c.a.p0.j.k.e.h.a(), this.f11749b.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
-                this.f11754g = ofObject;
+                ValueAnimator ofObject = ValueAnimator.ofObject(new c.a.p0.j.k.e.h.a(), this.f11757b.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
+                this.f11762g = ofObject;
                 ofObject.setDuration(i2);
-                this.f11754g.addUpdateListener(new a(this, cVar, interfaceC0614b));
-                this.f11754g.start();
+                this.f11762g.addUpdateListener(new a(this, cVar, interfaceC0614b));
+                this.f11762g.start();
             }
         }
     }

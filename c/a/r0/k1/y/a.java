@@ -18,10 +18,10 @@ public class a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f21679a;
+    public int f21693a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f21680b;
+    public T f21694b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,13 +40,13 @@ public class a<T> {
     public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21680b : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21694b : (T) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21679a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21693a : invokeV.intValue;
     }
 
     /* JADX WARN: Type inference failed for: r1v8, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
@@ -63,9 +63,9 @@ public class a<T> {
                 JSONArray jSONArray = new JSONArray(str);
                 if (jSONArray.length() == 3) {
                     jSONArray.optString(0);
-                    this.f21679a = jSONArray.optInt(1);
+                    this.f21693a = jSONArray.optInt(1);
                     JSONObject optJSONObject = jSONArray.optJSONObject(2);
-                    if (1 == this.f21679a) {
+                    if (1 == this.f21693a) {
                         String optString = optJSONObject.optString("button");
                         String optString2 = optJSONObject.optString("shareSourceIcon");
                         String optString3 = optJSONObject.optString("shareSource");
@@ -81,7 +81,7 @@ public class a<T> {
                             r4.setTitle(optJSONObject.optString("themeTitle"));
                             r4.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
                             r4.setThreadType(optJSONObject.optInt("threadType"));
-                            this.f21680b = r4;
+                            this.f21694b = r4;
                             return 0;
                         }
                         ?? r1 = (T) new ShareFromGameCenterMsgData();
@@ -96,15 +96,15 @@ public class a<T> {
                         r1.setShareSourceIcon(optString2);
                         r1.setShareSourceUrl(optString5);
                         r1.setShareUrl(optString4);
-                        this.f21680b = r1;
+                        this.f21694b = r1;
                         return 1;
-                    } else if (4 == this.f21679a) {
+                    } else if (4 == this.f21693a) {
                         ?? r12 = (T) new ShareFromFrsMsgData();
                         r12.setName(optJSONObject.optString("forumName"));
                         r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
                         r12.setMemberNum(optJSONObject.optInt("memberNum"));
                         r12.setPostNum(optJSONObject.optInt("postNum"));
-                        this.f21680b = r12;
+                        this.f21694b = r12;
                         return 2;
                     } else {
                         return -1;

@@ -73,10 +73,10 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f53077e;
+        public final /* synthetic */ c.a.q0.s.s.a f53190e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f53078f;
+        public final /* synthetic */ ForumDetailActivity f53191f;
 
         public a(ForumDetailActivity forumDetailActivity, c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -93,15 +93,15 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     return;
                 }
             }
-            this.f53078f = forumDetailActivity;
-            this.f53077e = aVar;
+            this.f53191f = forumDetailActivity;
+            this.f53190e = aVar;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f53077e.dismiss();
+                this.f53190e.dismiss();
             }
         }
     }
@@ -112,7 +112,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f53079e;
+        public final /* synthetic */ ForumDetailActivity f53192e;
 
         public b(ForumDetailActivity forumDetailActivity) {
             Interceptable interceptable = $ic;
@@ -129,14 +129,14 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     return;
                 }
             }
-            this.f53079e = forumDetailActivity;
+            this.f53192e = forumDetailActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53079e.mView.n(false);
+                this.f53192e.mView.n(false);
             }
         }
     }
@@ -147,7 +147,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f53080e;
+        public final /* synthetic */ ForumDetailActivity f53193e;
 
         public c(ForumDetailActivity forumDetailActivity) {
             Interceptable interceptable = $ic;
@@ -164,14 +164,14 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     return;
                 }
             }
-            this.f53080e = forumDetailActivity;
+            this.f53193e = forumDetailActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53080e.mView.n(false);
+                this.f53193e.mView.n(false);
             }
         }
     }
@@ -182,7 +182,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f53081e;
+        public final /* synthetic */ ForumDetailActivity f53194e;
 
         public d(ForumDetailActivity forumDetailActivity) {
             Interceptable interceptable = $ic;
@@ -199,14 +199,14 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     return;
                 }
             }
-            this.f53081e = forumDetailActivity;
+            this.f53194e = forumDetailActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53081e.mView.n(true);
+                this.f53194e.mView.n(true);
             }
         }
     }
@@ -217,10 +217,10 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f53082a;
+        public final /* synthetic */ boolean f53195a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f53083b;
+        public final /* synthetic */ ForumDetailActivity f53196b;
 
         public e(ForumDetailActivity forumDetailActivity, boolean z) {
             Interceptable interceptable = $ic;
@@ -237,8 +237,8 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     return;
                 }
             }
-            this.f53083b = forumDetailActivity;
-            this.f53082a = z;
+            this.f53196b = forumDetailActivity;
+            this.f53195a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -247,10 +247,10 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                if (TextUtils.isEmpty(this.f53083b.mForumId)) {
+                if (TextUtils.isEmpty(this.f53196b.mForumId)) {
                     return null;
                 }
-                c.a.r0.k1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f53083b.mForumId), this.f53082a);
+                c.a.r0.k1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f53196b.mForumId), this.f53195a);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -263,7 +263,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f53084e;
+        public final /* synthetic */ ForumDetailActivity f53197e;
 
         public f(ForumDetailActivity forumDetailActivity) {
             Interceptable interceptable = $ic;
@@ -280,25 +280,25 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     return;
                 }
             }
-            this.f53084e = forumDetailActivity;
+            this.f53197e = forumDetailActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                ForumDetailActivity forumDetailActivity = this.f53084e;
+                ForumDetailActivity forumDetailActivity = this.f53197e;
                 if (forumDetailActivity.mIsHasData) {
                     return;
                 }
                 if (z) {
                     forumDetailActivity.mView.h();
-                    this.f53084e.mView.q();
-                    this.f53084e.mModel.F(this.f53084e.mForumId);
+                    this.f53197e.mView.q();
+                    this.f53197e.mModel.F(this.f53197e.mForumId);
                     return;
                 }
                 forumDetailActivity.mView.g();
-                this.f53084e.mView.r(R.string.refresh_view_title_text);
+                this.f53197e.mView.r(R.string.refresh_view_title_text);
             }
         }
     }
@@ -309,7 +309,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumDetailActivity f53085e;
+        public final /* synthetic */ ForumDetailActivity f53198e;
 
         public g(ForumDetailActivity forumDetailActivity) {
             Interceptable interceptable = $ic;
@@ -326,16 +326,16 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     return;
                 }
             }
-            this.f53085e = forumDetailActivity;
+            this.f53198e = forumDetailActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && l.D()) {
-                this.f53085e.mView.h();
-                this.f53085e.mView.q();
-                this.f53085e.mModel.F(this.f53085e.mForumId);
+                this.f53198e.mView.h();
+                this.f53198e.mView.q();
+                this.f53198e.mModel.F(this.f53198e.mForumId);
             }
         }
     }

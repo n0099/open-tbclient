@@ -1,5 +1,5 @@
 package io.reactivex.internal.observers;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public interface InnerQueuedObserverSupport<T> {
     void drain();
 

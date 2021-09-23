@@ -13,10 +13,10 @@ public class c<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<T> f11835a;
+    public ArrayList<T> f11843a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f11836b;
+    public final int f11844b;
 
     public c(int i2) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class c<T> {
                 return;
             }
         }
-        this.f11835a = new ArrayList<>();
-        this.f11836b = i2;
+        this.f11843a = new ArrayList<>();
+        this.f11844b = i2;
     }
 
     public synchronized T a() {
@@ -44,10 +44,10 @@ public class c<T> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
                 do {
-                    if (this.f11835a.size() <= 0) {
+                    if (this.f11843a.size() <= 0) {
                         return null;
                     }
-                    remove = this.f11835a.remove(this.f11835a.size() - 1);
+                    remove = this.f11843a.remove(this.f11843a.size() - 1);
                 } while (remove == null);
                 return remove;
             }
@@ -60,10 +60,10 @@ public class c<T> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             synchronized (this) {
                 if (t != null) {
-                    if (this.f11835a.size() >= this.f11836b) {
-                        this.f11835a.remove(this.f11835a.size() - 1);
+                    if (this.f11843a.size() >= this.f11844b) {
+                        this.f11843a.remove(this.f11843a.size() - 1);
                     }
-                    this.f11835a.add(t);
+                    this.f11843a.add(t);
                 }
             }
         }

@@ -12,7 +12,7 @@ public class h implements c.a.q0.s.w.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26782a;
+    public String f26802a;
 
     public h(String str) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class h implements c.a.q0.s.w.b.a {
                 return;
             }
         }
-        this.f26782a = str;
+        this.f26802a = str;
     }
 
     @Override // c.a.q0.s.w.b.a
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26782a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26802a : (String) invokeV.objValue;
     }
 
     @Override // c.a.q0.s.w.b.a

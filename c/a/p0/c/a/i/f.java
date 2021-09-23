@@ -15,10 +15,10 @@ public final class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10344a;
+    public String f10352a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Integer f10345b;
+    public Integer f10353b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public f() {
@@ -54,33 +54,33 @@ public final class f {
                 return;
             }
         }
-        this.f10344a = str;
-        this.f10345b = num;
+        this.f10352a = str;
+        this.f10353b = num;
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10344a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10352a : (String) invokeV.objValue;
     }
 
     public final Integer b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10345b : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10353b : (Integer) invokeV.objValue;
     }
 
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f10344a = str;
+            this.f10352a = str;
         }
     }
 
     public final void d(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, num) == null) {
-            this.f10345b = num;
+            this.f10353b = num;
         }
     }
 
@@ -91,7 +91,7 @@ public final class f {
             if (this != obj) {
                 if (obj instanceof f) {
                     f fVar = (f) obj;
-                    return Intrinsics.areEqual(this.f10344a, fVar.f10344a) && Intrinsics.areEqual(this.f10345b, fVar.f10345b);
+                    return Intrinsics.areEqual(this.f10352a, fVar.f10352a) && Intrinsics.areEqual(this.f10353b, fVar.f10353b);
                 }
                 return false;
             }
@@ -104,9 +104,9 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String str = this.f10344a;
+            String str = this.f10352a;
             int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            Integer num = this.f10345b;
+            Integer num = this.f10353b;
             return hashCode + (num != null ? num.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -116,7 +116,7 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "ResponseParams(responseMessage=" + this.f10344a + ", responseStatusCode=" + this.f10345b + SmallTailInfo.EMOTION_SUFFIX;
+            return "ResponseParams(responseMessage=" + this.f10352a + ", responseStatusCode=" + this.f10353b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

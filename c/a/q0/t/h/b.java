@@ -20,10 +20,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRewardDialogView f14922e;
+        public final /* synthetic */ NewUserRewardDialogView f14924e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f14923f;
+        public final /* synthetic */ c.a.q0.s.s.a f14925f;
 
         public a(NewUserRewardDialogView newUserRewardDialogView, c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -40,16 +40,16 @@ public class b {
                     return;
                 }
             }
-            this.f14922e = newUserRewardDialogView;
-            this.f14923f = aVar;
+            this.f14924e = newUserRewardDialogView;
+            this.f14925f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f14922e.onDestroy();
-                this.f14923f.dismiss();
+                this.f14924e.onDestroy();
+                this.f14925f.dismiss();
             }
         }
     }

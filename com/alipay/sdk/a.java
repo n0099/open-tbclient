@@ -9,31 +9,35 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f35825a = false;
+    public static final boolean f35848a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35826b = "com.alipay.sdk";
+    public static final String f35849b = "com.alipay.sdk";
+    @Deprecated
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f35827c = "release";
+    public static final String f35850c = "com.alipay.sdk";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35828d = "utdidSec";
+    public static final String f35851d = "release";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f35829e = 1;
+    public static final String f35852e = "alipaySdk";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f35830f = "15.7.7";
+    public static final int f35853f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f35831g = "726a7a5-clean";
+    public static final String f35854g = "15.8.02";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f35832h = "15.7.7";
+    public static final String f35855h = "ad163e0-clean";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f35833i = "h.a.3.7.7";
+    public static final String f35856i = "15.8.02";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f35857j = "h.a.3.8.02";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

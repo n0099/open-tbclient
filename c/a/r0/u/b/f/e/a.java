@@ -21,19 +21,19 @@ public class a extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f25147a;
+    public static final boolean f25168a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.u.b.f.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1174a implements c.a.r0.u.b.f.d.a {
+    public class C1172a implements c.a.r0.u.b.f.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f25148a;
+        public final /* synthetic */ a f25169a;
 
-        public C1174a(a aVar) {
+        public C1172a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,16 +48,16 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f25148a = aVar;
+            this.f25169a = aVar;
         }
 
         @Override // c.a.r0.u.b.f.d.a
         public void a(Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                this.f25148a.mResult.putInt("status_code", bundle.getInt("result_code"));
-                this.f25148a.mResult.putString("params", bundle.getString(AbstractThirdPartyService.EXTRA_RESULT_MSG));
-                this.f25148a.finish();
+                this.f25169a.mResult.putInt("status_code", bundle.getInt("result_code"));
+                this.f25169a.mResult.putString("params", bundle.getString(AbstractThirdPartyService.EXTRA_RESULT_MSG));
+                this.f25169a.finish();
             }
         }
     }
@@ -75,7 +75,7 @@ public class a extends ActivityDelegation {
                 return;
             }
         }
-        f25147a = k.f7077a;
+        f25168a = k.f7085a;
     }
 
     public a() {
@@ -109,10 +109,10 @@ public class a extends ActivityDelegation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.mParams.isEmpty()) {
-                boolean z = f25147a;
+                boolean z = f25168a;
                 return false;
             }
-            boolean z2 = f25147a;
+            boolean z2 = f25168a;
             if (!d.c().g()) {
                 l.L(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
                 return false;
@@ -121,7 +121,7 @@ public class a extends ActivityDelegation {
                 aVar.mParams.putInt("type", 1);
                 aVar.mParams.putString("orderInfo", this.mParams.getString("order_info"));
                 aVar.b(getAgent());
-                aVar.c(new C1174a(this));
+                aVar.c(new C1172a(this));
                 aVar.onExec();
                 return false;
             } else {

@@ -15,17 +15,17 @@ public class f implements e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f8382c;
+    public static final boolean f8390c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile f f8383d;
+    public static volatile f f8391d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile d f8384a;
+    public volatile d f8392a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile c.a.p0.a.r1.o.a f8385b;
+    public volatile c.a.p0.a.r1.o.a f8393b;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class f implements e {
                 return;
             }
         }
-        f8382c = k.f7077a;
+        f8390c = k.f7085a;
     }
 
     public f() {
@@ -63,14 +63,14 @@ public class f implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f8383d == null) {
+            if (f8391d == null) {
                 synchronized (f.class) {
-                    if (f8383d == null) {
-                        f8383d = new f();
+                    if (f8391d == null) {
+                        f8391d = new f();
                     }
                 }
             }
-            return f8383d;
+            return f8391d;
         }
         return (f) invokeV.objValue;
     }
@@ -79,11 +79,11 @@ public class f implements e {
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) && m()) {
-            if (f8382c) {
+            if (f8390c) {
                 String str = "aiapp start at - " + j2;
             }
-            this.f8384a.b(j2);
-            this.f8385b.b(j2);
+            this.f8392a.b(j2);
+            this.f8393b.b(j2);
         }
     }
 
@@ -91,11 +91,11 @@ public class f implements e {
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && m()) {
-            if (f8382c) {
+            if (f8390c) {
                 String str = "aiapp start cost at - " + j2;
             }
-            this.f8384a.c(j2);
-            this.f8385b.c(j2);
+            this.f8392a.c(j2);
+            this.f8393b.c(j2);
             o(j2);
         }
     }
@@ -103,17 +103,17 @@ public class f implements e {
     public d i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8384a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8392a : (d) invokeV.objValue;
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f8384a == null) {
-                this.f8384a = new b();
+            if (this.f8392a == null) {
+                this.f8392a = new b();
             }
-            if (this.f8385b == null) {
-                this.f8385b = new c.a.p0.a.r1.o.c();
+            if (this.f8393b == null) {
+                this.f8393b = new c.a.p0.a.r1.o.c();
             }
         }
     }
@@ -122,7 +122,7 @@ public class f implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (f8382c) {
+            if (f8390c) {
                 return true;
             }
             c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
@@ -144,13 +144,13 @@ public class f implements e {
     public c.a.p0.a.r1.o.a n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f8385b : (c.a.p0.a.r1.o.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f8393b : (c.a.p0.a.r1.o.a) invokeV.objValue;
     }
 
     public final void o(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            c.a.p0.a.q2.d.f8132i.d(Long.valueOf(j2));
+            c.a.p0.a.q2.d.f8140i.d(Long.valueOf(j2));
         }
     }
 }

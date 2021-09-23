@@ -22,22 +22,22 @@ public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f60937a = "EbpayClientHttpRequestInterceptor";
+    public static final String f61054a = "EbpayClientHttpRequestInterceptor";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f60938b = "wims";
+    public static final String f61055b = "wims";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f60939c = "wloc";
+    public static final String f61056c = "wloc";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f60940d = "wssn";
+    public static final String f61057d = "wssn";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f60941e = "cuid_1";
+    public static final String f61058e = "cuid_1";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f60942f = "wmip";
+    public static final String f61059f = "wmip";
     public transient /* synthetic */ FieldHolder $fh;
 
     public EbpayHttpRequestInterceptor() {
@@ -57,10 +57,6 @@ public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
     private void a(StringBuffer stringBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, stringBuffer) == null) {
-            stringBuffer.append("BDUSS");
-            stringBuffer.append("=");
-            stringBuffer.append(WalletLoginHelper.getInstance().getLoginToken());
-            stringBuffer.append(";");
             stringBuffer.append(BeanConstants.COOKIE_OPENBDUSS);
             stringBuffer.append("=");
             stringBuffer.append(WalletLoginHelper.getInstance().getOpenLoginToken());

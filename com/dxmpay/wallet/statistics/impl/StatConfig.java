@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.f.a.g.d.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
-import com.baidu.fsg.base.statistics.h;
+import com.baidu.fsg.base.statistics.k;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.api.BaiduWallet;
 import com.duxiaoman.dxmpay.statistics.internal.IStatConfig;
 import com.dxmpay.apollon.ApollonConstants;
 import com.dxmpay.apollon.NoProguard;
@@ -37,7 +38,7 @@ public class StatConfig implements IStatConfig, NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f69908e;
+    public Context f70227e;
 
     /* loaded from: classes9.dex */
     public class a implements RestHttpRequestInterceptor {
@@ -74,7 +75,7 @@ public class StatConfig implements IStatConfig, NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatConfig f69909a;
+        public static StatConfig f70228a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -90,7 +91,7 @@ public class StatConfig implements IStatConfig, NoProguard {
                     return;
                 }
             }
-            f69909a = new StatConfig(null);
+            f70228a = new StatConfig(null);
         }
     }
 
@@ -102,8 +103,8 @@ public class StatConfig implements IStatConfig, NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            b.f69909a.setContext(context);
-            return b.f69909a;
+            b.f70228a.setContext(context);
+            return b.f70228a;
         }
         return (StatConfig) invokeL.objValue;
     }
@@ -144,14 +145,14 @@ public class StatConfig implements IStatConfig, NoProguard {
     public String getAppVersionCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(PhoneUtils.getAppVersionCode(this.f69908e)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(PhoneUtils.getAppVersionCode(this.f70227e)) : (String) invokeV.objValue;
     }
 
     @Override // com.duxiaoman.dxmpay.statistics.internal.IStatConfig
     public String getAppVersionName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PhoneUtils.getAppVersionName(this.f69908e) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PhoneUtils.getAppVersionName(this.f70227e) : (String) invokeV.objValue;
     }
 
     @Override // com.duxiaoman.dxmpay.statistics.internal.IStatConfig
@@ -176,7 +177,7 @@ public class StatConfig implements IStatConfig, NoProguard {
             if (isLogin() && !TextUtils.isEmpty(WalletLoginHelper.getInstance().getUnionId())) {
                 return SecurePay.getInstance().encryptProxy(WalletLoginHelper.getInstance().getUnionId());
             }
-            return SecurePay.getInstance().encryptProxy(c.f.b.f.a.a.a().c(this.f69908e));
+            return SecurePay.getInstance().encryptProxy(c.f.b.f.a.a.a().c(this.f70227e));
         }
         return (String) invokeV.objValue;
     }
@@ -195,12 +196,12 @@ public class StatConfig implements IStatConfig, NoProguard {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.f69908e != null) {
+                if (this.f70227e != null) {
                     c.f.b.f.a.a a2 = c.f.b.f.a.a.a();
-                    jSONObject.putOpt("ua", a2.d(this.f69908e));
-                    jSONObject.putOpt(h.f39518a, a2.b(this.f69908e));
-                    jSONObject.putOpt("op", a2.e(this.f69908e));
-                    jSONObject.put(h.f39519b, a2.c(this.f69908e));
+                    jSONObject.putOpt("ua", a2.d(this.f70227e));
+                    jSONObject.putOpt(k.f39576b, a2.b(this.f70227e));
+                    jSONObject.putOpt("op", a2.e(this.f70227e));
+                    jSONObject.put(k.f39577c, a2.c(this.f70227e));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -214,7 +215,7 @@ public class StatConfig implements IStatConfig, NoProguard {
     public String getProductName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "BaiduWallet" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? BaiduWallet.TAG : (String) invokeV.objValue;
     }
 
     @Override // com.duxiaoman.dxmpay.statistics.internal.IStatConfig
@@ -253,7 +254,7 @@ public class StatConfig implements IStatConfig, NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return a(this.f69908e, 0, DomainConfig.getInstance().getAppPayHost() + "/aif/sdk/category");
+            return a(this.f70227e, 0, DomainConfig.getInstance().getAppPayHost() + "/aif/sdk/category");
         }
         return (String) invokeV.objValue;
     }
@@ -261,8 +262,8 @@ public class StatConfig implements IStatConfig, NoProguard {
     @Override // com.duxiaoman.dxmpay.statistics.internal.IStatConfig
     public void setContext(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, context) == null) && this.f69908e == null && context != null) {
-            this.f69908e = context.getApplicationContext();
+        if ((interceptable == null || interceptable.invokeL(1048590, this, context) == null) && this.f70227e == null && context != null) {
+            this.f70227e = context.getApplicationContext();
         }
     }
 

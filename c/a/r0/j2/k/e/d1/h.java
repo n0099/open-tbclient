@@ -23,16 +23,16 @@ public class h extends c.a.r0.j2.k.e.d1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public d2 f20023f;
+    public d2 f20038f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.q0.s.q.a f20024g;
+    public c.a.q0.s.q.a f20039g;
 
     /* renamed from: h  reason: collision with root package name */
-    public o f20025h;
+    public o f20040h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f20026i;
+    public View f20041i;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.q0.s.q.a {
@@ -40,7 +40,7 @@ public class h extends c.a.r0.j2.k.e.d1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f20027e;
+        public final /* synthetic */ h f20042e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class h extends c.a.r0.j2.k.e.d1.a {
                     return;
                 }
             }
-            this.f20027e = hVar;
+            this.f20042e = hVar;
         }
 
         @Override // c.a.q0.s.q.a
@@ -74,7 +74,7 @@ public class h extends c.a.r0.j2.k.e.d1.a {
         public d2 getThreadData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20027e.f20023f : (d2) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20042e.f20038f : (d2) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
@@ -94,7 +94,7 @@ public class h extends c.a.r0.j2.k.e.d1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f20028e;
+        public final /* synthetic */ h f20043e;
 
         public b(h hVar) {
             Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class h extends c.a.r0.j2.k.e.d1.a {
                     return;
                 }
             }
-            this.f20028e = hVar;
+            this.f20043e = hVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -119,10 +119,10 @@ public class h extends c.a.r0.j2.k.e.d1.a {
             h hVar;
             a.InterfaceC0093a interfaceC0093a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (hVar = this.f20028e).f19985c) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (hVar = this.f20043e).f20000c) == null) {
                 return;
             }
-            interfaceC0093a.a(hVar.f20024g);
+            interfaceC0093a.a(hVar.f20039g);
         }
     }
 
@@ -151,18 +151,18 @@ public class h extends c.a.r0.j2.k.e.d1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f20025h == null) {
-                o oVar = new o(this.f19983a.getPageActivity());
-                this.f20025h = oVar;
+            if (this.f20040h == null) {
+                o oVar = new o(this.f19998a.getPageActivity());
+                this.f20040h = oVar;
                 oVar.m(Boolean.TRUE);
-                this.f20025h.w("pb");
-                this.f20025h.y(0);
-                this.f20025h.D(this.f19983a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.f19983a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.f19983a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.f19983a.getResources().getDimensionPixelSize(R.dimen.M_H_X005));
-                this.f20025h.E(false);
-                this.f20025h.C(true);
+                this.f20040h.w("pb");
+                this.f20040h.y(0);
+                this.f20040h.D(this.f19998a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.f19998a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.f19998a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.f19998a.getResources().getDimensionPixelSize(R.dimen.M_H_X005));
+                this.f20040h.E(false);
+                this.f20040h.C(true);
             }
-            View f2 = this.f20025h.f();
-            this.f20026i = f2;
+            View f2 = this.f20040h.f();
+            this.f20041i = f2;
             return f2;
         }
         return (View) invokeV.objValue;
@@ -171,12 +171,12 @@ public class h extends c.a.r0.j2.k.e.d1.a {
     @Override // c.a.r0.j2.k.e.d1.a
     public void b(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) || this.f19987e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) || this.f20002e == i2) {
             return;
         }
-        this.f19987e = i2;
-        SkinManager.setBackgroundColor(this.f20026i, R.color.CAM_X0204);
-        o oVar = this.f20025h;
+        this.f20002e = i2;
+        SkinManager.setBackgroundColor(this.f20041i, R.color.CAM_X0204);
+        o oVar = this.f20040h;
         if (oVar != null) {
             oVar.onChangeSkinType(tbPageContext, i2);
         }
@@ -186,11 +186,11 @@ public class h extends c.a.r0.j2.k.e.d1.a {
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.f19986d = originalThreadInfo;
-            this.f20023f = originalThreadInfo == null ? null : originalThreadInfo.a();
+            this.f20001d = originalThreadInfo;
+            this.f20038f = originalThreadInfo == null ? null : originalThreadInfo.a();
             a aVar = new a(this);
-            this.f20024g = aVar;
-            o oVar = this.f20025h;
+            this.f20039g = aVar;
+            o oVar = this.f20040h;
             if (oVar != null) {
                 oVar.onBindDataToView(aVar);
             }
@@ -202,11 +202,11 @@ public class h extends c.a.r0.j2.k.e.d1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0093a) == null) {
             super.d(interfaceC0093a);
-            o oVar = this.f20025h;
+            o oVar = this.f20040h;
             if (oVar != null) {
                 oVar.z(interfaceC0093a);
             }
-            View view = this.f20026i;
+            View view = this.f20041i;
             if (view != null) {
                 view.setOnClickListener(new b(this));
             }
@@ -218,9 +218,9 @@ public class h extends c.a.r0.j2.k.e.d1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, b0Var) == null) {
             super.e(b0Var);
-            o oVar = this.f20025h;
+            o oVar = this.f20040h;
             if (oVar != null) {
-                oVar.k(this.f19984b);
+                oVar.k(this.f19999b);
             }
         }
     }

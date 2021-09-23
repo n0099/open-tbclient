@@ -24,6 +24,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.callback.GetUserInfoCallback;
 import com.baidu.sapi2.result.GetUserInfoResult;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
@@ -51,17 +52,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import java.io.File;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class SwanAppAbTestStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f49332a;
+    public static boolean f49442a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static i f49333b;
+    public static i f49443b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -129,11 +129,11 @@ public class SwanAppAbTestStatic {
                         l.L(TbadkCoreApplication.getInst(), R.string.ai_apps_not_support);
                         return null;
                     }
-                    if (!new File(BdBaseApplication.getInst().getFilesDir() + File.separator + "so_cache" + File.separator + "libBaiduMapSDK_map_v5_4_4.so").exists()) {
+                    if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK_map_v5_4_4.so"))) {
                         RequestParams requestParams = new RequestParams();
                         requestParams.setRunType(c.a.e.j.d.f2895a);
                         requestParams.setRunNode("aps");
-                        requestParams.addChannel(new c.a.e.j.c(null));
+                        requestParams.addChannel(new c.a.e.j.c("com.baidu.tieba.soloader.libbaidumap", (DefaultDownloadCallback) null));
                         PmsManager.getInstance().execute(requestParams);
                     }
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START);
@@ -478,11 +478,11 @@ public class SwanAppAbTestStatic {
                 return;
             }
         }
-        f49333b = new a();
+        f49443b = new a();
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             c();
         } else {
-            c.a.q0.j0.h.f().m(PrivacyPolicyEvent.class, f49333b, BdUniqueId.gen());
+            c.a.q0.j0.h.f().m(PrivacyPolicyEvent.class, f49443b, BdUniqueId.gen());
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -513,10 +513,10 @@ public class SwanAppAbTestStatic {
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f49332a) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f49442a) {
             return;
         }
-        f49332a = true;
+        f49442a = true;
         SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
         if (Build.VERSION.SDK_INT <= 21 || TbadkCoreApplication.getInst().isRemoteProcess()) {
             return;

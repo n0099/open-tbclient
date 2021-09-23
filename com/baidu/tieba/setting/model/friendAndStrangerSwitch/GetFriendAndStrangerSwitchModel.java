@@ -23,7 +23,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f56685e;
+    public HttpMessageListener f56802e;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -95,7 +95,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH);
-        this.f56685e = aVar;
+        this.f56802e = aVar;
         registerListener(aVar);
         LoadData();
     }

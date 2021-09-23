@@ -13,19 +13,19 @@ public class e extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7807c;
+    public String f7815c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7808d;
+    public String f7816d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7809e;
+    public String f7817e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7810f;
+    public String f7818f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f7811g;
+    public String f7819g;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class e extends a {
                 return;
             }
         }
-        this.f7795a = FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE;
+        this.f7803a = FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE;
     }
 
     @Override // c.a.p0.a.o0.d.a
@@ -48,14 +48,14 @@ public class e extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = (c.a.p0.a.o0.a.c(str, "fromId", this.f7807c) + c.a.p0.a.o0.a.c(str, "toId", this.f7808d)) + c.a.p0.a.o0.a.c(str, "toTabIndex", this.f7811g);
-            if (!TextUtils.isEmpty(this.f7809e)) {
-                str2 = str2 + c.a.p0.a.o0.a.c(str, "routeType", this.f7809e);
+            String str2 = (c.a.p0.a.o0.a.c(str, "fromId", this.f7815c) + c.a.p0.a.o0.a.c(str, "toId", this.f7816d)) + c.a.p0.a.o0.a.c(str, "toTabIndex", this.f7819g);
+            if (!TextUtils.isEmpty(this.f7817e)) {
+                str2 = str2 + c.a.p0.a.o0.a.c(str, "routeType", this.f7817e);
             }
-            if (TextUtils.isEmpty(this.f7810f)) {
+            if (TextUtils.isEmpty(this.f7818f)) {
                 return str2;
             }
-            return str2 + c.a.p0.a.o0.a.c(str, "toPage", this.f7810f);
+            return str2 + c.a.p0.a.o0.a.c(str, "toPage", this.f7818f);
         }
         return (String) invokeL.objValue;
     }

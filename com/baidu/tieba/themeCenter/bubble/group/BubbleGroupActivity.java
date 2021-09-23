@@ -29,7 +29,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BubbleGroupActivity f57455a;
+        public final /* synthetic */ BubbleGroupActivity f57572a;
 
         public a(BubbleGroupActivity bubbleGroupActivity) {
             Interceptable interceptable = $ic;
@@ -46,22 +46,22 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
                     return;
                 }
             }
-            this.f57455a = bubbleGroupActivity;
+            this.f57572a = bubbleGroupActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.c
         public void a(int i2, String str, e eVar, List<b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                BubbleGroupActivity bubbleGroupActivity = this.f57455a;
+                BubbleGroupActivity bubbleGroupActivity = this.f57572a;
                 bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.mView.d());
-                this.f57455a.mView.i();
+                this.f57572a.mView.i();
                 if (i2 == 0) {
-                    this.f57455a.mView.k(eVar, list, this.f57455a.mModel.D());
+                    this.f57572a.mView.k(eVar, list, this.f57572a.mModel.D());
                     return;
                 }
-                this.f57455a.showToast(str);
-                this.f57455a.mView.j();
+                this.f57572a.showToast(str);
+                this.f57572a.mView.j();
             }
         }
     }
@@ -96,7 +96,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f13628a = true;
+                pageStayDurationItem.f13624a = true;
             }
             return pageStayDurationItem;
         }

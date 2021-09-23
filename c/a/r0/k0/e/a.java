@@ -17,13 +17,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f21179a;
+    public String f21193a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f21180b;
+    public HashMap<String, String> f21194b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f21181c;
+    public boolean f21195c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,25 +38,25 @@ public class a {
                 return;
             }
         }
-        this.f21179a = "";
+        this.f21193a = "";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21179a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21193a : (String) invokeV.objValue;
     }
 
     public HashMap<String, String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21180b : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21194b : (HashMap) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21181c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21195c : invokeV.booleanValue;
     }
 
     public void d(JSONObject jSONObject) {
@@ -66,20 +66,20 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONObject2 = optJSONObject.optJSONObject("hotmonitor")) == null) {
             return;
         }
-        this.f21179a = optJSONObject2.optString("link");
-        this.f21181c = optJSONObject2.optInt("open", 0) == 1;
+        this.f21193a = optJSONObject2.optString("link");
+        this.f21195c = optJSONObject2.optInt("open", 0) == 1;
         JSONArray optJSONArray = optJSONObject2.optJSONArray("config");
         if (optJSONArray == null || optJSONArray.length() == 0) {
             return;
         }
-        this.f21180b = new HashMap<>();
+        this.f21194b = new HashMap<>();
         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
             JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
             if (optJSONObject3 != null) {
                 String optString = optJSONObject3.optString("event");
                 String optString2 = optJSONObject3.optString(Message.RULE);
                 if (!k.isEmpty(optString) && !k.isEmpty(optString2)) {
-                    this.f21180b.put(optString, optString2);
+                    this.f21194b.put(optString, optString2);
                 }
             }
         }

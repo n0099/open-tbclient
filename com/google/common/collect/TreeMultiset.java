@@ -89,7 +89,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                 public int nodeAggregate(e<?> eVar) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, eVar)) == null) ? eVar.f70762b : invokeL.intValue;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, eVar)) == null) ? eVar.f71081b : invokeL.intValue;
                 }
 
                 @Override // com.google.common.collect.TreeMultiset.Aggregate
@@ -100,7 +100,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                         if (eVar == null) {
                             return 0L;
                         }
-                        return eVar.f70764d;
+                        return eVar.f71083d;
                     }
                     return invokeL.longValue;
                 }
@@ -148,7 +148,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                         if (eVar == null) {
                             return 0L;
                         }
-                        return eVar.f70763c;
+                        return eVar.f71082c;
                     }
                     return invokeL.longValue;
                 }
@@ -203,10 +203,10 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f70752e;
+        public final /* synthetic */ e f71071e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TreeMultiset f70753f;
+        public final /* synthetic */ TreeMultiset f71072f;
 
         public a(TreeMultiset treeMultiset, e eVar) {
             Interceptable interceptable = $ic;
@@ -223,8 +223,8 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                     return;
                 }
             }
-            this.f70753f = treeMultiset;
-            this.f70752e = eVar;
+            this.f71072f = treeMultiset;
+            this.f71071e = eVar;
         }
 
         @Override // c.i.d.c.s0.a
@@ -232,8 +232,8 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int x = this.f70752e.x();
-                return x == 0 ? this.f70753f.count(getElement()) : x;
+                int x = this.f71071e.x();
+                return x == 0 ? this.f71072f.count(getElement()) : x;
             }
             return invokeV.intValue;
         }
@@ -242,7 +242,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public E getElement() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (E) this.f70752e.y() : (E) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (E) this.f71071e.y() : (E) invokeV.objValue;
         }
     }
 
@@ -252,13 +252,13 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public e<E> f70754e;
+        public e<E> f71073e;
 
         /* renamed from: f  reason: collision with root package name */
-        public s0.a<E> f70755f;
+        public s0.a<E> f71074f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ TreeMultiset f70756g;
+        public final /* synthetic */ TreeMultiset f71075g;
 
         public b(TreeMultiset treeMultiset) {
             Interceptable interceptable = $ic;
@@ -275,8 +275,8 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                     return;
                 }
             }
-            this.f70756g = treeMultiset;
-            this.f70754e = this.f70756g.firstNode();
+            this.f71075g = treeMultiset;
+            this.f71073e = this.f71075g.firstNode();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -287,12 +287,12 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (hasNext()) {
-                    s0.a<E> wrapEntry = this.f70756g.wrapEntry(this.f70754e);
-                    this.f70755f = wrapEntry;
-                    if (this.f70754e.f70769i != this.f70756g.header) {
-                        this.f70754e = this.f70754e.f70769i;
+                    s0.a<E> wrapEntry = this.f71075g.wrapEntry(this.f71073e);
+                    this.f71074f = wrapEntry;
+                    if (this.f71073e.f71088i != this.f71075g.header) {
+                        this.f71073e = this.f71073e.f71088i;
                     } else {
-                        this.f70754e = null;
+                        this.f71073e = null;
                     }
                     return wrapEntry;
                 }
@@ -306,11 +306,11 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f70754e == null) {
+                if (this.f71073e == null) {
                     return false;
                 }
-                if (this.f70756g.range.tooHigh(this.f70754e.y())) {
-                    this.f70754e = null;
+                if (this.f71075g.range.tooHigh(this.f71073e.y())) {
+                    this.f71073e = null;
                     return false;
                 }
                 return true;
@@ -322,9 +322,9 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                m.e(this.f70755f != null);
-                this.f70756g.setCount(this.f70755f.getElement(), 0);
-                this.f70755f = null;
+                m.e(this.f71074f != null);
+                this.f71075g.setCount(this.f71074f.getElement(), 0);
+                this.f71074f = null;
             }
         }
     }
@@ -335,13 +335,13 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public e<E> f70757e;
+        public e<E> f71076e;
 
         /* renamed from: f  reason: collision with root package name */
-        public s0.a<E> f70758f;
+        public s0.a<E> f71077f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ TreeMultiset f70759g;
+        public final /* synthetic */ TreeMultiset f71078g;
 
         public c(TreeMultiset treeMultiset) {
             Interceptable interceptable = $ic;
@@ -358,9 +358,9 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                     return;
                 }
             }
-            this.f70759g = treeMultiset;
-            this.f70757e = this.f70759g.lastNode();
-            this.f70758f = null;
+            this.f71078g = treeMultiset;
+            this.f71076e = this.f71078g.lastNode();
+            this.f71077f = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -371,12 +371,12 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (hasNext()) {
-                    s0.a<E> wrapEntry = this.f70759g.wrapEntry(this.f70757e);
-                    this.f70758f = wrapEntry;
-                    if (this.f70757e.f70768h != this.f70759g.header) {
-                        this.f70757e = this.f70757e.f70768h;
+                    s0.a<E> wrapEntry = this.f71078g.wrapEntry(this.f71076e);
+                    this.f71077f = wrapEntry;
+                    if (this.f71076e.f71087h != this.f71078g.header) {
+                        this.f71076e = this.f71076e.f71087h;
                     } else {
-                        this.f70757e = null;
+                        this.f71076e = null;
                     }
                     return wrapEntry;
                 }
@@ -390,11 +390,11 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f70757e == null) {
+                if (this.f71076e == null) {
                     return false;
                 }
-                if (this.f70759g.range.tooLow(this.f70757e.y())) {
-                    this.f70757e = null;
+                if (this.f71078g.range.tooLow(this.f71076e.y())) {
+                    this.f71076e = null;
                     return false;
                 }
                 return true;
@@ -406,9 +406,9 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                m.e(this.f70758f != null);
-                this.f70759g.setCount(this.f70758f.getElement(), 0);
-                this.f70758f = null;
+                m.e(this.f71077f != null);
+                this.f71078g.setCount(this.f71077f.getElement(), 0);
+                this.f71077f = null;
             }
         }
     }
@@ -418,7 +418,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f70760a;
+        public static final /* synthetic */ int[] f71079a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -435,13 +435,13 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                 }
             }
             int[] iArr = new int[BoundType.values().length];
-            f70760a = iArr;
+            f71079a = iArr;
             try {
                 iArr[BoundType.OPEN.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f70760a[BoundType.CLOSED.ordinal()] = 2;
+                f71079a[BoundType.CLOSED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -453,31 +453,31 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final E f70761a;
+        public final E f71080a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f70762b;
+        public int f71081b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f70763c;
+        public int f71082c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f70764d;
+        public long f71083d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f70765e;
+        public int f71084e;
 
         /* renamed from: f  reason: collision with root package name */
-        public e<E> f70766f;
+        public e<E> f71085f;
 
         /* renamed from: g  reason: collision with root package name */
-        public e<E> f70767g;
+        public e<E> f71086g;
 
         /* renamed from: h  reason: collision with root package name */
-        public e<E> f70768h;
+        public e<E> f71087h;
 
         /* renamed from: i  reason: collision with root package name */
-        public e<E> f70769i;
+        public e<E> f71088i;
 
         public e(E e2, int i2) {
             Interceptable interceptable = $ic;
@@ -495,13 +495,13 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                 }
             }
             n.d(i2 > 0);
-            this.f70761a = e2;
-            this.f70762b = i2;
-            this.f70764d = i2;
-            this.f70763c = 1;
-            this.f70765e = 1;
-            this.f70766f = null;
-            this.f70767g = null;
+            this.f71080a = e2;
+            this.f71081b = i2;
+            this.f71083d = i2;
+            this.f71082c = 1;
+            this.f71084e = 1;
+            this.f71085f = null;
+            this.f71086g = null;
         }
 
         public static long L(e<?> eVar) {
@@ -511,7 +511,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                 if (eVar == null) {
                     return 0L;
                 }
-                return eVar.f70764d;
+                return eVar.f71083d;
             }
             return invokeL.longValue;
         }
@@ -523,7 +523,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                 if (eVar == null) {
                     return 0;
                 }
-                return eVar.f70765e;
+                return eVar.f71084e;
             }
             return invokeL.intValue;
         }
@@ -534,16 +534,16 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 int s = s();
                 if (s == -2) {
-                    if (this.f70767g.s() > 0) {
-                        this.f70767g = this.f70767g.I();
+                    if (this.f71086g.s() > 0) {
+                        this.f71086g = this.f71086g.I();
                     }
                     return H();
                 } else if (s != 2) {
                     C();
                     return this;
                 } else {
-                    if (this.f70766f.s() < 0) {
-                        this.f70766f = this.f70766f.H();
+                    if (this.f71085f.s() < 0) {
+                        this.f71085f = this.f71085f.H();
                     }
                     return I();
                 }
@@ -562,15 +562,15 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public final void C() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f70765e = Math.max(z(this.f70766f), z(this.f70767g)) + 1;
+                this.f71084e = Math.max(z(this.f71085f), z(this.f71086g)) + 1;
             }
         }
 
         public final void D() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f70763c = TreeMultiset.distinctElements(this.f70766f) + 1 + TreeMultiset.distinctElements(this.f70767g);
-                this.f70764d = this.f70762b + L(this.f70766f) + L(this.f70767g);
+                this.f71082c = TreeMultiset.distinctElements(this.f71085f) + 1 + TreeMultiset.distinctElements(this.f71086g);
+                this.f71083d = this.f71081b + L(this.f71085f) + L(this.f71086g);
             }
         }
 
@@ -581,47 +581,47 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeLLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048580, this, comparator, e2, i2, iArr)) == null) {
-                int compare = comparator.compare(e2, (E) this.f70761a);
+                int compare = comparator.compare(e2, (E) this.f71080a);
                 if (compare < 0) {
-                    e<E> eVar = this.f70766f;
+                    e<E> eVar = this.f71085f;
                     if (eVar == null) {
                         iArr[0] = 0;
                         return this;
                     }
-                    this.f70766f = eVar.E(comparator, e2, i2, iArr);
+                    this.f71085f = eVar.E(comparator, e2, i2, iArr);
                     if (iArr[0] > 0) {
                         if (i2 >= iArr[0]) {
-                            this.f70763c--;
-                            this.f70764d -= iArr[0];
+                            this.f71082c--;
+                            this.f71083d -= iArr[0];
                         } else {
-                            this.f70764d -= i2;
+                            this.f71083d -= i2;
                         }
                     }
                     return iArr[0] == 0 ? this : A();
                 } else if (compare > 0) {
-                    e<E> eVar2 = this.f70767g;
+                    e<E> eVar2 = this.f71086g;
                     if (eVar2 == null) {
                         iArr[0] = 0;
                         return this;
                     }
-                    this.f70767g = eVar2.E(comparator, e2, i2, iArr);
+                    this.f71086g = eVar2.E(comparator, e2, i2, iArr);
                     if (iArr[0] > 0) {
                         if (i2 >= iArr[0]) {
-                            this.f70763c--;
-                            this.f70764d -= iArr[0];
+                            this.f71082c--;
+                            this.f71083d -= iArr[0];
                         } else {
-                            this.f70764d -= i2;
+                            this.f71083d -= i2;
                         }
                     }
                     return A();
                 } else {
-                    int i3 = this.f70762b;
+                    int i3 = this.f71081b;
                     iArr[0] = i3;
                     if (i2 >= i3) {
                         return v();
                     }
-                    this.f70762b = i3 - i2;
-                    this.f70764d -= i2;
+                    this.f71081b = i3 - i2;
+                    this.f71083d -= i2;
                     return this;
                 }
             }
@@ -632,13 +632,13 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, eVar)) == null) {
-                e<E> eVar2 = this.f70767g;
+                e<E> eVar2 = this.f71086g;
                 if (eVar2 == null) {
-                    return this.f70766f;
+                    return this.f71085f;
                 }
-                this.f70767g = eVar2.F(eVar);
-                this.f70763c--;
-                this.f70764d -= eVar.f70762b;
+                this.f71086g = eVar2.F(eVar);
+                this.f71082c--;
+                this.f71083d -= eVar.f71081b;
                 return A();
             }
             return (e) invokeL.objValue;
@@ -648,13 +648,13 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, eVar)) == null) {
-                e<E> eVar2 = this.f70766f;
+                e<E> eVar2 = this.f71085f;
                 if (eVar2 == null) {
-                    return this.f70767g;
+                    return this.f71086g;
                 }
-                this.f70766f = eVar2.G(eVar);
-                this.f70763c--;
-                this.f70764d -= eVar.f70762b;
+                this.f71085f = eVar2.G(eVar);
+                this.f71082c--;
+                this.f71083d -= eVar.f71081b;
                 return A();
             }
             return (e) invokeL.objValue;
@@ -664,12 +664,12 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                n.w(this.f70767g != null);
-                e<E> eVar = this.f70767g;
-                this.f70767g = eVar.f70766f;
-                eVar.f70766f = this;
-                eVar.f70764d = this.f70764d;
-                eVar.f70763c = this.f70763c;
+                n.w(this.f71086g != null);
+                e<E> eVar = this.f71086g;
+                this.f71086g = eVar.f71085f;
+                eVar.f71085f = this;
+                eVar.f71083d = this.f71083d;
+                eVar.f71082c = this.f71082c;
                 B();
                 eVar.C();
                 return eVar;
@@ -681,12 +681,12 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                n.w(this.f70766f != null);
-                e<E> eVar = this.f70766f;
-                this.f70766f = eVar.f70767g;
-                eVar.f70767g = this;
-                eVar.f70764d = this.f70764d;
-                eVar.f70763c = this.f70763c;
+                n.w(this.f71085f != null);
+                e<E> eVar = this.f71085f;
+                this.f71085f = eVar.f71086g;
+                eVar.f71086g = this;
+                eVar.f71083d = this.f71083d;
+                eVar.f71082c = this.f71082c;
                 B();
                 eVar.C();
                 return eVar;
@@ -699,9 +699,9 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{comparator, e2, Integer.valueOf(i2), Integer.valueOf(i3), iArr})) == null) {
-                int compare = comparator.compare(e2, (E) this.f70761a);
+                int compare = comparator.compare(e2, (E) this.f71080a);
                 if (compare < 0) {
-                    e<E> eVar = this.f70766f;
+                    e<E> eVar = this.f71085f;
                     if (eVar == null) {
                         iArr[0] = 0;
                         if (i2 == 0 && i3 > 0) {
@@ -709,18 +709,18 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                         }
                         return this;
                     }
-                    this.f70766f = eVar.J(comparator, e2, i2, i3, iArr);
+                    this.f71085f = eVar.J(comparator, e2, i2, i3, iArr);
                     if (iArr[0] == i2) {
                         if (i3 == 0 && iArr[0] != 0) {
-                            this.f70763c--;
+                            this.f71082c--;
                         } else if (i3 > 0 && iArr[0] == 0) {
-                            this.f70763c++;
+                            this.f71082c++;
                         }
-                        this.f70764d += i3 - iArr[0];
+                        this.f71083d += i3 - iArr[0];
                     }
                     return A();
                 } else if (compare > 0) {
-                    e<E> eVar2 = this.f70767g;
+                    e<E> eVar2 = this.f71086g;
                     if (eVar2 == null) {
                         iArr[0] = 0;
                         if (i2 == 0 && i3 > 0) {
@@ -728,25 +728,25 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                         }
                         return this;
                     }
-                    this.f70767g = eVar2.J(comparator, e2, i2, i3, iArr);
+                    this.f71086g = eVar2.J(comparator, e2, i2, i3, iArr);
                     if (iArr[0] == i2) {
                         if (i3 == 0 && iArr[0] != 0) {
-                            this.f70763c--;
+                            this.f71082c--;
                         } else if (i3 > 0 && iArr[0] == 0) {
-                            this.f70763c++;
+                            this.f71082c++;
                         }
-                        this.f70764d += i3 - iArr[0];
+                        this.f71083d += i3 - iArr[0];
                     }
                     return A();
                 } else {
-                    int i4 = this.f70762b;
+                    int i4 = this.f71081b;
                     iArr[0] = i4;
                     if (i2 == i4) {
                         if (i3 == 0) {
                             return v();
                         }
-                        this.f70764d += i3 - i4;
-                        this.f70762b = i3;
+                        this.f71083d += i3 - i4;
+                        this.f71081b = i3;
                     }
                     return this;
                 }
@@ -762,9 +762,9 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             int i3;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048586, this, comparator, e2, i2, iArr)) == null) {
-                int compare = comparator.compare(e2, (E) this.f70761a);
+                int compare = comparator.compare(e2, (E) this.f71080a);
                 if (compare < 0) {
-                    e<E> eVar = this.f70766f;
+                    e<E> eVar = this.f71085f;
                     if (eVar == null) {
                         iArr[0] = 0;
                         if (i2 > 0) {
@@ -772,16 +772,16 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                         }
                         return this;
                     }
-                    this.f70766f = eVar.K(comparator, e2, i2, iArr);
+                    this.f71085f = eVar.K(comparator, e2, i2, iArr);
                     if (i2 == 0 && iArr[0] != 0) {
-                        this.f70763c--;
+                        this.f71082c--;
                     } else if (i2 > 0 && iArr[0] == 0) {
-                        this.f70763c++;
+                        this.f71082c++;
                     }
-                    this.f70764d += i2 - iArr[0];
+                    this.f71083d += i2 - iArr[0];
                     return A();
                 } else if (compare > 0) {
-                    e<E> eVar2 = this.f70767g;
+                    e<E> eVar2 = this.f71086g;
                     if (eVar2 == null) {
                         iArr[0] = 0;
                         if (i2 > 0) {
@@ -789,21 +789,21 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                         }
                         return this;
                     }
-                    this.f70767g = eVar2.K(comparator, e2, i2, iArr);
+                    this.f71086g = eVar2.K(comparator, e2, i2, iArr);
                     if (i2 == 0 && iArr[0] != 0) {
-                        this.f70763c--;
+                        this.f71082c--;
                     } else if (i2 > 0 && iArr[0] == 0) {
-                        this.f70763c++;
+                        this.f71082c++;
                     }
-                    this.f70764d += i2 - iArr[0];
+                    this.f71083d += i2 - iArr[0];
                     return A();
                 } else {
-                    iArr[0] = this.f70762b;
+                    iArr[0] = this.f71081b;
                     if (i2 == 0) {
                         return v();
                     }
-                    this.f70764d += i2 - i3;
-                    this.f70762b = i2;
+                    this.f71083d += i2 - i3;
+                    this.f71081b = i2;
                     return this;
                 }
             }
@@ -817,42 +817,42 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeLLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048587, this, comparator, e2, i2, iArr)) == null) {
-                int compare = comparator.compare(e2, (E) this.f70761a);
+                int compare = comparator.compare(e2, (E) this.f71080a);
                 if (compare < 0) {
-                    e<E> eVar = this.f70766f;
+                    e<E> eVar = this.f71085f;
                     if (eVar == null) {
                         iArr[0] = 0;
                         q(e2, i2);
                         return this;
                     }
-                    int i3 = eVar.f70765e;
-                    this.f70766f = eVar.p(comparator, e2, i2, iArr);
+                    int i3 = eVar.f71084e;
+                    this.f71085f = eVar.p(comparator, e2, i2, iArr);
                     if (iArr[0] == 0) {
-                        this.f70763c++;
+                        this.f71082c++;
                     }
-                    this.f70764d += i2;
-                    return this.f70766f.f70765e == i3 ? this : A();
+                    this.f71083d += i2;
+                    return this.f71085f.f71084e == i3 ? this : A();
                 } else if (compare > 0) {
-                    e<E> eVar2 = this.f70767g;
+                    e<E> eVar2 = this.f71086g;
                     if (eVar2 == null) {
                         iArr[0] = 0;
                         r(e2, i2);
                         return this;
                     }
-                    int i4 = eVar2.f70765e;
-                    this.f70767g = eVar2.p(comparator, e2, i2, iArr);
+                    int i4 = eVar2.f71084e;
+                    this.f71086g = eVar2.p(comparator, e2, i2, iArr);
                     if (iArr[0] == 0) {
-                        this.f70763c++;
+                        this.f71082c++;
                     }
-                    this.f70764d += i2;
-                    return this.f70767g.f70765e == i4 ? this : A();
+                    this.f71083d += i2;
+                    return this.f71086g.f71084e == i4 ? this : A();
                 } else {
-                    int i5 = this.f70762b;
+                    int i5 = this.f71081b;
                     iArr[0] = i5;
                     long j2 = i2;
                     n.d(((long) i5) + j2 <= 2147483647L);
-                    this.f70762b += i2;
-                    this.f70764d += j2;
+                    this.f71081b += i2;
+                    this.f71083d += j2;
                     return this;
                 }
             }
@@ -864,11 +864,11 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, e2, i2)) == null) {
                 e<E> eVar = new e<>(e2, i2);
-                this.f70766f = eVar;
-                TreeMultiset.successor(this.f70768h, eVar, this);
-                this.f70765e = Math.max(2, this.f70765e);
-                this.f70763c++;
-                this.f70764d += i2;
+                this.f71085f = eVar;
+                TreeMultiset.successor(this.f71087h, eVar, this);
+                this.f71084e = Math.max(2, this.f71084e);
+                this.f71082c++;
+                this.f71083d += i2;
                 return this;
             }
             return (e) invokeLI.objValue;
@@ -879,11 +879,11 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, e2, i2)) == null) {
                 e<E> eVar = new e<>(e2, i2);
-                this.f70767g = eVar;
-                TreeMultiset.successor(this, eVar, this.f70769i);
-                this.f70765e = Math.max(2, this.f70765e);
-                this.f70763c++;
-                this.f70764d += i2;
+                this.f71086g = eVar;
+                TreeMultiset.successor(this, eVar, this.f71088i);
+                this.f71084e = Math.max(2, this.f71084e);
+                this.f71082c++;
+                this.f71083d += i2;
                 return this;
             }
             return (e) invokeLI.objValue;
@@ -892,7 +892,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public final int s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? z(this.f70766f) - z(this.f70767g) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? z(this.f71085f) - z(this.f71086g) : invokeV.intValue;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: E */
@@ -902,14 +902,14 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, comparator, e2)) == null) {
-                int compare = comparator.compare(e2, (E) this.f70761a);
+                int compare = comparator.compare(e2, (E) this.f71080a);
                 if (compare < 0) {
-                    e<E> eVar = this.f70766f;
+                    e<E> eVar = this.f71085f;
                     return eVar == null ? this : (e) j.a(eVar.t(comparator, e2), this);
                 } else if (compare == 0) {
                     return this;
                 } else {
-                    e<E> eVar2 = this.f70767g;
+                    e<E> eVar2 = this.f71086g;
                     if (eVar2 == null) {
                         return null;
                     }
@@ -932,21 +932,21 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, comparator, e2)) == null) {
-                int compare = comparator.compare(e2, (E) this.f70761a);
+                int compare = comparator.compare(e2, (E) this.f71080a);
                 if (compare < 0) {
-                    e<E> eVar = this.f70766f;
+                    e<E> eVar = this.f71085f;
                     if (eVar == null) {
                         return 0;
                     }
                     return eVar.u(comparator, e2);
                 } else if (compare > 0) {
-                    e<E> eVar2 = this.f70767g;
+                    e<E> eVar2 = this.f71086g;
                     if (eVar2 == null) {
                         return 0;
                     }
                     return eVar2.u(comparator, e2);
                 } else {
-                    return this.f70762b;
+                    return this.f71081b;
                 }
             }
             return invokeLL.intValue;
@@ -956,30 +956,30 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                int i2 = this.f70762b;
-                this.f70762b = 0;
-                TreeMultiset.successor(this.f70768h, this.f70769i);
-                e<E> eVar = this.f70766f;
+                int i2 = this.f71081b;
+                this.f71081b = 0;
+                TreeMultiset.successor(this.f71087h, this.f71088i);
+                e<E> eVar = this.f71085f;
                 if (eVar == null) {
-                    return this.f70767g;
+                    return this.f71086g;
                 }
-                e<E> eVar2 = this.f70767g;
+                e<E> eVar2 = this.f71086g;
                 if (eVar2 == null) {
                     return eVar;
                 }
-                if (eVar.f70765e >= eVar2.f70765e) {
-                    e<E> eVar3 = this.f70768h;
-                    eVar3.f70766f = eVar.F(eVar3);
-                    eVar3.f70767g = this.f70767g;
-                    eVar3.f70763c = this.f70763c - 1;
-                    eVar3.f70764d = this.f70764d - i2;
+                if (eVar.f71084e >= eVar2.f71084e) {
+                    e<E> eVar3 = this.f71087h;
+                    eVar3.f71085f = eVar.F(eVar3);
+                    eVar3.f71086g = this.f71086g;
+                    eVar3.f71082c = this.f71082c - 1;
+                    eVar3.f71083d = this.f71083d - i2;
                     return eVar3.A();
                 }
-                e<E> eVar4 = this.f70769i;
-                eVar4.f70767g = eVar2.G(eVar4);
-                eVar4.f70766f = this.f70766f;
-                eVar4.f70763c = this.f70763c - 1;
-                eVar4.f70764d = this.f70764d - i2;
+                e<E> eVar4 = this.f71088i;
+                eVar4.f71086g = eVar2.G(eVar4);
+                eVar4.f71085f = this.f71085f;
+                eVar4.f71082c = this.f71082c - 1;
+                eVar4.f71083d = this.f71083d - i2;
                 return eVar4.A();
             }
             return (e) invokeV.objValue;
@@ -992,14 +992,14 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, comparator, e2)) == null) {
-                int compare = comparator.compare(e2, (E) this.f70761a);
+                int compare = comparator.compare(e2, (E) this.f71080a);
                 if (compare > 0) {
-                    e<E> eVar = this.f70767g;
+                    e<E> eVar = this.f71086g;
                     return eVar == null ? this : (e) j.a(eVar.w(comparator, e2), this);
                 } else if (compare == 0) {
                     return this;
                 } else {
-                    e<E> eVar2 = this.f70766f;
+                    e<E> eVar2 = this.f71085f;
                     if (eVar2 == null) {
                         return null;
                     }
@@ -1012,13 +1012,13 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public int x() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f70762b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f71081b : invokeV.intValue;
         }
 
         public E y() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f70761a : (E) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f71080a : (E) invokeV.objValue;
         }
     }
 
@@ -1028,7 +1028,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public T f70770a;
+        public T f71089a;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -1047,8 +1047,8 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public void a(T t, T t2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, t, t2) == null) {
-                if (this.f70770a == t) {
-                    this.f70770a = t2;
+                if (this.f71089a == t) {
+                    this.f71089a = t2;
                     return;
                 }
                 throw new ConcurrentModificationException();
@@ -1058,14 +1058,14 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f70770a = null;
+                this.f71089a = null;
             }
         }
 
         public T c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70770a : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71089a : (T) invokeV.objValue;
         }
 
         public /* synthetic */ f(a aVar) {
@@ -1105,23 +1105,23 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             if (eVar == null) {
                 return 0L;
             }
-            int compare = comparator().compare(this.range.getUpperEndpoint(), eVar.f70761a);
+            int compare = comparator().compare(this.range.getUpperEndpoint(), eVar.f71080a);
             if (compare > 0) {
-                return aggregateAboveRange(aggregate, eVar.f70767g);
+                return aggregateAboveRange(aggregate, eVar.f71086g);
             }
             if (compare == 0) {
-                int i2 = d.f70760a[this.range.getUpperBoundType().ordinal()];
+                int i2 = d.f71079a[this.range.getUpperBoundType().ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2) {
-                        return aggregate.treeAggregate(eVar.f70767g);
+                        return aggregate.treeAggregate(eVar.f71086g);
                     }
                     throw new AssertionError();
                 }
                 treeAggregate = aggregate.nodeAggregate(eVar);
-                aggregateAboveRange = aggregate.treeAggregate(eVar.f70767g);
+                aggregateAboveRange = aggregate.treeAggregate(eVar.f71086g);
             } else {
-                treeAggregate = aggregate.treeAggregate(eVar.f70767g) + aggregate.nodeAggregate(eVar);
-                aggregateAboveRange = aggregateAboveRange(aggregate, eVar.f70766f);
+                treeAggregate = aggregate.treeAggregate(eVar.f71086g) + aggregate.nodeAggregate(eVar);
+                aggregateAboveRange = aggregateAboveRange(aggregate, eVar.f71085f);
             }
             return treeAggregate + aggregateAboveRange;
         }
@@ -1137,23 +1137,23 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             if (eVar == null) {
                 return 0L;
             }
-            int compare = comparator().compare(this.range.getLowerEndpoint(), eVar.f70761a);
+            int compare = comparator().compare(this.range.getLowerEndpoint(), eVar.f71080a);
             if (compare < 0) {
-                return aggregateBelowRange(aggregate, eVar.f70766f);
+                return aggregateBelowRange(aggregate, eVar.f71085f);
             }
             if (compare == 0) {
-                int i2 = d.f70760a[this.range.getLowerBoundType().ordinal()];
+                int i2 = d.f71079a[this.range.getLowerBoundType().ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2) {
-                        return aggregate.treeAggregate(eVar.f70766f);
+                        return aggregate.treeAggregate(eVar.f71085f);
                     }
                     throw new AssertionError();
                 }
                 treeAggregate = aggregate.nodeAggregate(eVar);
-                aggregateBelowRange = aggregate.treeAggregate(eVar.f70766f);
+                aggregateBelowRange = aggregate.treeAggregate(eVar.f71085f);
             } else {
-                treeAggregate = aggregate.treeAggregate(eVar.f70766f) + aggregate.nodeAggregate(eVar);
-                aggregateBelowRange = aggregateBelowRange(aggregate, eVar.f70767g);
+                treeAggregate = aggregate.treeAggregate(eVar.f71085f) + aggregate.nodeAggregate(eVar);
+                aggregateBelowRange = aggregateBelowRange(aggregate, eVar.f71086g);
             }
             return treeAggregate + aggregateBelowRange;
         }
@@ -1190,7 +1190,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                 return null;
             }
             if (!this.range.hasLowerBound()) {
-                eVar = this.header.f70769i;
+                eVar = this.header.f71088i;
             } else {
                 E lowerEndpoint = this.range.getLowerEndpoint();
                 eVar = this.rootReference.c().t(comparator(), lowerEndpoint);
@@ -1198,7 +1198,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                     return null;
                 }
                 if (this.range.getLowerBoundType() == BoundType.OPEN && comparator().compare(lowerEndpoint, eVar.y()) == 0) {
-                    eVar = eVar.f70769i;
+                    eVar = eVar.f71088i;
                 }
             }
             if (eVar == this.header || !this.range.contains(eVar.y())) {
@@ -1219,7 +1219,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                 return null;
             }
             if (!this.range.hasUpperBound()) {
-                eVar = this.header.f70768h;
+                eVar = this.header.f71087h;
             } else {
                 E upperEndpoint = this.range.getUpperEndpoint();
                 eVar = this.rootReference.c().w(comparator(), upperEndpoint);
@@ -1227,7 +1227,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
                     return null;
                 }
                 if (this.range.getUpperBoundType() == BoundType.OPEN && comparator().compare(upperEndpoint, eVar.y()) == 0) {
-                    eVar = eVar.f70768h;
+                    eVar = eVar.f71087h;
                 }
             }
             if (eVar == this.header || !this.range.contains(eVar.y())) {
@@ -1256,8 +1256,8 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
     public static <T> void successor(e<T> eVar, e<T> eVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65555, null, eVar, eVar2) == null) {
-            eVar.f70769i = eVar2;
-            eVar2.f70768h = eVar;
+            eVar.f71088i = eVar2;
+            eVar2.f71087h = eVar;
         }
     }
 
@@ -1310,16 +1310,16 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             return;
         }
         if (!this.range.hasLowerBound() && !this.range.hasUpperBound()) {
-            e<E> eVar = this.header.f70769i;
+            e<E> eVar = this.header.f71088i;
             while (true) {
                 e<E> eVar2 = this.header;
                 if (eVar != eVar2) {
-                    e<E> eVar3 = eVar.f70769i;
-                    eVar.f70762b = 0;
-                    eVar.f70766f = null;
-                    eVar.f70767g = null;
-                    eVar.f70768h = null;
-                    eVar.f70769i = null;
+                    e<E> eVar3 = eVar.f71088i;
+                    eVar.f71081b = 0;
+                    eVar.f71085f = null;
+                    eVar.f71086g = null;
+                    eVar.f71087h = null;
+                    eVar.f71088i = null;
                     eVar = eVar3;
                 } else {
                     successor(eVar2, eVar2);
@@ -1523,7 +1523,7 @@ public final class TreeMultiset<E> extends h<E> implements Serializable {
             if (eVar == null) {
                 return 0;
             }
-            return eVar.f70763c;
+            return eVar.f71082c;
         }
         return invokeL.intValue;
     }

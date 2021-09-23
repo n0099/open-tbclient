@@ -22,7 +22,7 @@ public class e implements PermissionProxy {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7215a;
+    public static final boolean f7223a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -31,16 +31,16 @@ public class e implements PermissionProxy {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f7216e;
+        public final /* synthetic */ String f7224e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7217f;
+        public final /* synthetic */ String f7225f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PermissionListener f7218g;
+        public final /* synthetic */ PermissionListener f7226g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f7219h;
+        public final /* synthetic */ e f7227h;
 
         public a(e eVar, String str, String str2, PermissionListener permissionListener) {
             Interceptable interceptable = $ic;
@@ -57,10 +57,10 @@ public class e implements PermissionProxy {
                     return;
                 }
             }
-            this.f7219h = eVar;
-            this.f7216e = str;
-            this.f7217f = str2;
-            this.f7218g = permissionListener;
+            this.f7227h = eVar;
+            this.f7224e = str;
+            this.f7225f = str2;
+            this.f7226g = permissionListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,9 +70,9 @@ public class e implements PermissionProxy {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    this.f7219h.b(this.f7216e, this.f7217f, this.f7218g);
+                    this.f7227h.b(this.f7224e, this.f7225f, this.f7226g);
                 } else {
-                    this.f7218g.onPermissionResult(this.f7216e, 2);
+                    this.f7226g.onPermissionResult(this.f7224e, 2);
                 }
             }
         }
@@ -84,10 +84,10 @@ public class e implements PermissionProxy {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PermissionListener f7220a;
+        public final /* synthetic */ PermissionListener f7228a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f7221b;
+        public final /* synthetic */ String f7229b;
 
         public b(e eVar, PermissionListener permissionListener, String str) {
             Interceptable interceptable = $ic;
@@ -104,15 +104,15 @@ public class e implements PermissionProxy {
                     return;
                 }
             }
-            this.f7220a = permissionListener;
-            this.f7221b = str;
+            this.f7228a = permissionListener;
+            this.f7229b = str;
         }
 
         @Override // c.a.p0.a.s1.f
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f7220a.onPermissionResult(this.f7221b, 0);
+                this.f7228a.onPermissionResult(this.f7229b, 0);
             }
         }
 
@@ -120,7 +120,7 @@ public class e implements PermissionProxy {
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f7220a.onPermissionResult(this.f7221b, 1);
+                this.f7228a.onPermissionResult(this.f7229b, 1);
             }
         }
     }
@@ -138,7 +138,7 @@ public class e implements PermissionProxy {
                 return;
             }
         }
-        f7215a = k.f7077a;
+        f7223a = k.f7085a;
     }
 
     public e() {
@@ -194,11 +194,11 @@ public class e implements PermissionProxy {
     public void requestPermission(String str, PermissionListener permissionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, permissionListener) == null) {
-            if (f7215a) {
+            if (f7223a) {
                 String str2 = "requestPermission : " + str;
             }
             if (permissionListener == null) {
-                boolean z = f7215a;
+                boolean z = f7223a;
                 return;
             }
             String c2 = c(str);

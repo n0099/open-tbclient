@@ -28,7 +28,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.f.i.l.d f10681a;
+        public final /* synthetic */ c.a.p0.f.i.l.d f10689a;
 
         public a(c.a.p0.f.i.l.d dVar) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class d {
                     return;
                 }
             }
-            this.f10681a = dVar;
+            this.f10689a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,10 +54,10 @@ public class d {
         public void onSuccess(c.a.p0.f.i.k.a aVar, int i2) {
             c.a.p0.f.i.l.d dVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || aVar == null || (dVar = this.f10681a) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || aVar == null || (dVar = this.f10689a) == null) {
                 return;
             }
-            dVar.d(aVar.f10557a, aVar.f10558b);
+            dVar.d(aVar.f10565a, aVar.f10566b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,8 +78,8 @@ public class d {
                             JSONObject jSONObject = new JSONObject(string);
                             if (TextUtils.equals(jSONObject.optString(Constants.KEYS.RET, ""), "0") && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
                                 c.a.p0.f.i.k.a aVar = new c.a.p0.f.i.k.a();
-                                aVar.f10557a = optJSONObject.optString("clickid");
-                                aVar.f10558b = optJSONObject.optString("dstlink");
+                                aVar.f10565a = optJSONObject.optString("clickid");
+                                aVar.f10566b = optJSONObject.optString("dstlink");
                                 return aVar;
                             }
                             return null;
@@ -125,7 +125,7 @@ public class d {
     public static String c(String str, c.a.p0.f.i.q.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, aVar)) == null) ? aVar == null ? str : str.replaceAll("\\{REQ_WIDTH\\}", aVar.f10669a).replaceAll("\\{REQ_HEIGHT\\}", aVar.f10670b).replaceAll("\\{WIDTH\\}", aVar.f10671c).replaceAll("\\{HEIGHT\\}", aVar.f10672d).replaceAll("\\{DOWN_X\\}", aVar.f10673e).replaceAll("\\{DOWN_Y\\}", aVar.f10674f).replaceAll("\\{UP_X\\}", aVar.f10675g).replaceAll("\\{UP_Y\\}", aVar.f10676h).replaceAll("\\{VIDEO_TIME\\}", aVar.f10677i).replaceAll("\\{BEGIN_TIME\\}", aVar.f10678j).replaceAll("\\{END_TIME\\}", aVar.k).replaceAll("\\{PLAY_FIRST_FRAME\\}", aVar.l).replaceAll("\\{PLAY_LAST_FRAME\\}", aVar.m).replaceAll("\\{SCENE\\}", aVar.n).replaceAll("\\{TYPE\\}", aVar.o).replaceAll("\\{BEHAVIOR\\}", aVar.p).replaceAll("\\{STATUS\\}", aVar.q).replaceAll("\\{CONVERSION_ACTION\\}", aVar.r).replaceAll("\\{CLICK_ID\\}", aVar.s) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, aVar)) == null) ? aVar == null ? str : str.replaceAll("\\{REQ_WIDTH\\}", aVar.f10677a).replaceAll("\\{REQ_HEIGHT\\}", aVar.f10678b).replaceAll("\\{WIDTH\\}", aVar.f10679c).replaceAll("\\{HEIGHT\\}", aVar.f10680d).replaceAll("\\{DOWN_X\\}", aVar.f10681e).replaceAll("\\{DOWN_Y\\}", aVar.f10682f).replaceAll("\\{UP_X\\}", aVar.f10683g).replaceAll("\\{UP_Y\\}", aVar.f10684h).replaceAll("\\{VIDEO_TIME\\}", aVar.f10685i).replaceAll("\\{BEGIN_TIME\\}", aVar.f10686j).replaceAll("\\{END_TIME\\}", aVar.k).replaceAll("\\{PLAY_FIRST_FRAME\\}", aVar.l).replaceAll("\\{PLAY_LAST_FRAME\\}", aVar.m).replaceAll("\\{SCENE\\}", aVar.n).replaceAll("\\{TYPE\\}", aVar.o).replaceAll("\\{BEHAVIOR\\}", aVar.p).replaceAll("\\{STATUS\\}", aVar.q).replaceAll("\\{CONVERSION_ACTION\\}", aVar.r).replaceAll("\\{CLICK_ID\\}", aVar.s) : (String) invokeLL.objValue;
     }
 
     public static void d(AdElementInfo adElementInfo, g gVar) {

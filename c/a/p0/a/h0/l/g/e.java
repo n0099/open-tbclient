@@ -11,10 +11,10 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6103a;
+    public static final boolean f6111a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AtomicInteger f6104b;
+    public static AtomicInteger f6112b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,8 +30,8 @@ public class e {
                 return;
             }
         }
-        f6103a = c.a.p0.a.k.f7077a;
-        f6104b = new AtomicInteger(0);
+        f6111a = c.a.p0.a.k.f7085a;
+        f6112b = new AtomicInteger(0);
     }
 
     public static boolean a(String str) {
@@ -46,11 +46,11 @@ public class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             String str = "master";
             if (c.a.p0.a.h0.o.e.a.f()) {
-                int andIncrement = f6104b.getAndIncrement();
+                int andIncrement = f6112b.getAndIncrement();
                 if (andIncrement >= 1) {
                     str = "master" + andIncrement;
                 }
-                if (f6103a) {
+                if (f6111a) {
                     String str2 = "next master id - " + str;
                 }
                 return str;
@@ -64,8 +64,8 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int andSet = f6104b.getAndSet(0);
-            if (f6103a) {
+            int andSet = f6112b.getAndSet(0);
+            if (f6111a) {
                 String str = "last master id - " + andSet;
             }
             return andSet;

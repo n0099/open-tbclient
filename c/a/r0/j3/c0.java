@@ -4,23 +4,38 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SmartApp;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class c0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f20779a;
+    public String f20782a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20780b;
+    public String f20783b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f20781c;
+    public String f20784c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Integer f20782d;
+    public String f20785d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f20786e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d0 f20787f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f20788g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f20789h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public List<String> f20790i;
 
     public c0() {
         Interceptable interceptable = $ic;
@@ -34,17 +49,5 @@ public class c0 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public void a(SmartApp smartApp) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) || smartApp == null) {
-            return;
-        }
-        String str = smartApp.avatar;
-        this.f20779a = smartApp.name;
-        this.f20780b = smartApp.id;
-        this.f20781c = smartApp.link;
-        this.f20782d = smartApp.is_game;
     }
 }

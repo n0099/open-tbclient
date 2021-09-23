@@ -13,7 +13,7 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f6061a;
+    public c f6069a;
 
     /* loaded from: classes.dex */
     public class a implements j {
@@ -21,7 +21,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ j f6062a;
+        public final /* synthetic */ j f6070a;
 
         public a(f fVar, j jVar) {
             Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public class f {
                     return;
                 }
             }
-            this.f6062a = jVar;
+            this.f6070a = jVar;
         }
 
         @Override // c.a.p0.a.l0.j
         public void a(c.a.p0.a.l0.a aVar) {
             j jVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (jVar = this.f6062a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (jVar = this.f6070a) == null) {
                 return;
             }
             jVar.a(aVar);
@@ -65,14 +65,14 @@ public class f {
                 return;
             }
         }
-        this.f6061a = new c(c.a.p0.a.e0.f.d.b.d().getPath(), c.a.p0.a.e0.f.d.b.f5207b);
+        this.f6069a = new c(c.a.p0.a.e0.f.d.b.d().getPath(), c.a.p0.a.e0.f.d.b.f5215b);
     }
 
     public c.a.p0.a.l0.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c cVar = this.f6061a;
+            c cVar = this.f6069a;
             if (cVar != null) {
                 return cVar.d();
             }
@@ -84,17 +84,17 @@ public class f {
     public void b() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f6061a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f6069a) == null) {
             return;
         }
         cVar.e();
-        this.f6061a = null;
+        this.f6069a = null;
     }
 
     public void c(j jVar) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) || (cVar = this.f6061a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) || (cVar = this.f6069a) == null) {
             return;
         }
         cVar.f(new a(this, jVar));

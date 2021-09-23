@@ -72,22 +72,22 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
     public ViewPager.OnPageChangeListener C;
 
     /* renamed from: e  reason: collision with root package name */
-    public EnterForumTabFragment f22566e;
+    public EnterForumTabFragment f22582e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f22567f;
+    public LinearLayout f22583f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ForumHeaderView f22568g;
+    public ForumHeaderView f22584g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NewPagerSlidingTabBaseStrip f22569h;
+    public NewPagerSlidingTabBaseStrip f22585h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PullLeftViewPager f22570i;
+    public PullLeftViewPager f22586i;
 
     /* renamed from: j  reason: collision with root package name */
-    public EnterForumTabPagerAdapter f22571j;
+    public EnterForumTabPagerAdapter f22587j;
     public List<EnterForumTabPagerAdapter.a> k;
     public View l;
     public AlphaAnimation m;
@@ -111,7 +111,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f22572a;
+        public final /* synthetic */ c f22588a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2, int i3) {
@@ -132,7 +132,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
                     return;
                 }
             }
-            this.f22572a = cVar;
+            this.f22588a = cVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -152,7 +152,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
                     }
                 }
                 if (TextUtils.isEmpty(str)) {
-                    str = this.f22572a.mContext.getResources().getString(R.string.enter_forum_search_tip);
+                    str = this.f22588a.mContext.getResources().getString(R.string.enter_forum_search_tip);
                 }
                 TbSingleton.getInstance().setHotSearch(str);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921396));
@@ -166,7 +166,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f22573a;
+        public final /* synthetic */ c f22589a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(c cVar, int i2) {
@@ -186,7 +186,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
                     return;
                 }
             }
-            this.f22573a = cVar;
+            this.f22589a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -195,9 +195,9 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    this.f22573a.W();
+                    this.f22589a.W();
                 } else {
-                    this.f22573a.n();
+                    this.f22589a.n();
                 }
             }
         }
@@ -205,14 +205,14 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
 
     /* renamed from: c.a.r0.n0.h.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1055c implements ViewPager.OnPageChangeListener {
+    public class C1053c implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f22574e;
+        public final /* synthetic */ c f22590e;
 
-        public C1055c(c cVar) {
+        public C1053c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -227,7 +227,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
                     return;
                 }
             }
-            this.f22574e = cVar;
+            this.f22590e = cVar;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -241,7 +241,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         public void onPageScrolled(int i2, float f2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
-                this.f22574e.O(i2, f2, i3);
+                this.f22590e.O(i2, f2, i3);
             }
         }
 
@@ -251,31 +251,31 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f22574e.N(i2);
-                if (this.f22574e.k == null || this.f22574e.k.size() <= i2) {
+                this.f22590e.N(i2);
+                if (this.f22590e.k == null || this.f22590e.k.size() <= i2) {
                     return;
                 }
-                if (this.f22574e.w != null) {
-                    this.f22574e.w.N();
+                if (this.f22590e.w != null) {
+                    this.f22590e.w.N();
                 }
-                EnterForumTabPagerAdapter.a aVar = (EnterForumTabPagerAdapter.a) this.f22574e.k.get(i2);
-                if (aVar == null || (fragment = aVar.f50195a) == null) {
+                EnterForumTabPagerAdapter.a aVar = (EnterForumTabPagerAdapter.a) this.f22590e.k.get(i2);
+                if (aVar == null || (fragment = aVar.f50308a) == null) {
                     return;
                 }
                 if (fragment instanceof EnterForumFragment) {
                     z = ((EnterForumFragment) fragment).isAtTop();
                 } else if (fragment instanceof EnterForumTabFeedFragment) {
                     t.b().e(false);
-                    boolean isAtTop = ((EnterForumTabFeedFragment) aVar.f50195a).isAtTop();
-                    TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 3).param(TiebaStatic.Params.RESOURCE_ID, ((EnterForumTabFeedFragment) aVar.f50195a).getTabName()));
+                    boolean isAtTop = ((EnterForumTabFeedFragment) aVar.f50308a).isAtTop();
+                    TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 3).param(TiebaStatic.Params.RESOURCE_ID, ((EnterForumTabFeedFragment) aVar.f50308a).getTabName()));
                     z = isAtTop;
                 } else {
                     z = true;
                 }
                 if (!z) {
-                    this.f22574e.W();
+                    this.f22590e.W();
                 } else {
-                    this.f22574e.n();
+                    this.f22590e.n();
                 }
                 if (i2 == 0) {
                     TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 1));
@@ -293,7 +293,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f22575e;
+        public final /* synthetic */ c f22591e;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -310,19 +310,19 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
                     return;
                 }
             }
-            this.f22575e = cVar;
+            this.f22591e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (FileHelper.CheckFile("scan_flag") && PermissionUtil.checkCamera(this.f22575e.mContext.getPageActivity())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new QRCodeScanActivityConfig(this.f22575e.mContext.getPageActivity())));
+                if (FileHelper.CheckFile("scan_flag") && PermissionUtil.checkCamera(this.f22591e.mContext.getPageActivity())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new QRCodeScanActivityConfig(this.f22591e.mContext.getPageActivity())));
                 } else if (!TbadkCoreApplication.isLogin()) {
-                    ViewHelper.skipToLoginActivity(this.f22575e.getPageContext().getPageActivity());
+                    ViewHelper.skipToLoginActivity(this.f22591e.getPageContext().getPageActivity());
                 } else {
-                    this.f22575e.f22566e.sendMessage(new CustomMessage(2002001, new SignAllForumActivityConfig(this.f22575e.getPageContext().getPageActivity())));
+                    this.f22591e.f22582e.sendMessage(new CustomMessage(2002001, new SignAllForumActivityConfig(this.f22591e.getPageContext().getPageActivity())));
                 }
             }
         }
@@ -334,7 +334,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f22576a;
+        public final /* synthetic */ c f22592a;
 
         public e(c cVar) {
             Interceptable interceptable = $ic;
@@ -351,14 +351,14 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
                     return;
                 }
             }
-            this.f22576a = cVar;
+            this.f22592a = cVar;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f22576a.u.setVisibility(8);
+                this.f22592a.u.setVisibility(8);
             }
         }
 
@@ -398,10 +398,10 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         this.z = false;
         this.A = new a(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
         this.B = new b(this, 2001630);
-        this.C = new C1055c(this);
-        this.f22566e = enterForumTabFragment;
+        this.C = new C1053c(this);
+        this.f22582e = enterForumTabFragment;
         enterForumTabFragment.registerListener(this.A);
-        this.f22566e.registerListener(this.B);
+        this.f22582e.registerListener(this.B);
         this.x = l.g(this.mContext.getPageActivity(), R.dimen.tbds228);
         this.y = UtilHelper.getStatusBarHeight() + l.g(this.mContext.getPageActivity(), R.dimen.tbds229);
     }
@@ -426,11 +426,11 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         PullLeftViewPager pullLeftViewPager;
         Fragment fragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, intent) == null) || (list = this.k) == null || list.size() <= 0 || (pullLeftViewPager = this.f22570i) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, intent) == null) || (list = this.k) == null || list.size() <= 0 || (pullLeftViewPager = this.f22586i) == null) {
             return;
         }
         EnterForumTabPagerAdapter.a aVar = this.k.get(pullLeftViewPager.getCurrentItem());
-        if (aVar == null || (fragment = aVar.f50195a) == null) {
+        if (aVar == null || (fragment = aVar.f50308a) == null) {
             return;
         }
         fragment.onActivityResult(i2, i3, intent);
@@ -439,15 +439,15 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
     public void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            EnterForumTabFragment enterForumTabFragment = this.f22566e;
-            if (enterForumTabFragment != null && this.k != null && this.f22570i != null && this.f22571j != null) {
+            EnterForumTabFragment enterForumTabFragment = this.f22582e;
+            if (enterForumTabFragment != null && this.k != null && this.f22586i != null && this.f22587j != null) {
                 FragmentManager supportFragmentManager = enterForumTabFragment.getActivity().getSupportFragmentManager();
                 if (supportFragmentManager.isDestroyed()) {
                     return;
                 }
                 FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
                 for (int i2 = 0; i2 < this.k.size(); i2++) {
-                    Fragment findFragmentByTag = supportFragmentManager.findFragmentByTag(A(this.f22570i.getId(), this.f22571j.getItemId(i2)));
+                    Fragment findFragmentByTag = supportFragmentManager.findFragmentByTag(A(this.f22586i.getId(), this.f22587j.getItemId(i2)));
                     if (findFragmentByTag != null) {
                         beginTransaction.remove(findFragmentByTag);
                     }
@@ -466,9 +466,9 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             if (i2 == 0) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001631, getPageContext().getUniqueId()));
-            } else if (ListUtils.getItem(this.k, i2) == null || !(this.k.get(i2).f50195a instanceof EnterForumTabFeedFragment)) {
+            } else if (ListUtils.getItem(this.k, i2) == null || !(this.k.get(i2).f50308a instanceof EnterForumTabFeedFragment)) {
             } else {
-                ((EnterForumTabFeedFragment) this.k.get(i2).f50195a).callRefresh(true);
+                ((EnterForumTabFeedFragment) this.k.get(i2).f50308a).callRefresh(true);
             }
         }
     }
@@ -476,7 +476,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
     public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            N(this.f22570i.getCurrentItem());
+            N(this.f22586i.getCurrentItem());
         }
     }
 
@@ -489,14 +489,14 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
             if (this.q != null) {
                 if (i2 == 0) {
                     c.a.r0.n0.d.c cVar2 = this.o;
-                    if (cVar2 != null && cVar2.f22484a && cVar2.f22486c > 0) {
+                    if (cVar2 != null && cVar2.f22500a && cVar2.f22502c > 0) {
                         c.a.r0.n0.m.b bVar = this.w;
                         if (bVar != null && bVar.M() != null && this.w.M().isViewAttached()) {
                             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.icon_pure_topbar_sign44_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                         } else {
                             c.a.r0.n0.d.c cVar3 = this.o;
-                            int i5 = cVar3.f22487d;
-                            if (i5 > 0 && cVar3.f22486c > i5 / 2) {
+                            int i5 = cVar3.f22503d;
+                            if (i5 > 0 && cVar3.f22502c > i5 / 2) {
                                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.icon_pure_topbar_sign44_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                             } else {
                                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.icon_pure_topbar_sign44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -514,15 +514,15 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
                 navigationBar.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
                 if (i2 == 0) {
                     c.a.r0.n0.d.c cVar4 = this.o;
-                    if (cVar4 != null && cVar4.f22484a && cVar4.f22486c > 0) {
+                    if (cVar4 != null && cVar4.f22500a && cVar4.f22502c > 0) {
                         c.a.r0.n0.m.b bVar2 = this.w;
                         if (bVar2 != null && bVar2.M() != null && this.w.M().isViewAttached()) {
                             SkinManager.setBackgroundColor(this.t.getBarBgView(), R.color.CAM_X0207, TbadkCoreApplication.getInst().getSkinType());
                         } else {
                             c.a.r0.n0.d.c cVar5 = this.o;
-                            int i6 = cVar5.f22487d;
+                            int i6 = cVar5.f22503d;
                             if (i6 > 0) {
-                                int i7 = (cVar5.f22486c * 255) / i6;
+                                int i7 = (cVar5.f22502c * 255) / i6;
                                 if (i7 > 255) {
                                     i7 = 255;
                                 }
@@ -542,42 +542,42 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
             }
             if (i2 == 0) {
                 c.a.r0.n0.d.c cVar6 = this.o;
-                if (cVar6 != null && cVar6.f22484a && (i3 = cVar6.f22486c) > 0) {
-                    int i8 = cVar6.f22487d;
+                if (cVar6 != null && cVar6.f22500a && (i3 = cVar6.f22502c) > 0) {
+                    int i8 = cVar6.f22503d;
                     if (i8 > 0 && i3 > i8 / 2) {
                         c.a.r0.n0.m.b bVar3 = this.w;
                         if (bVar3 != null && bVar3.M() != null && this.w.M().isViewAttached()) {
-                            this.f22569h.setWhiteStyle(false);
+                            this.f22585h.setWhiteStyle(false);
                         } else {
-                            this.f22569h.setWhiteStyle(true);
+                            this.f22585h.setWhiteStyle(true);
                         }
                     } else {
-                        this.f22569h.setWhiteStyle(false);
+                        this.f22585h.setWhiteStyle(false);
                     }
                 } else {
-                    this.f22569h.setWhiteStyle(false);
+                    this.f22585h.setWhiteStyle(false);
                 }
             } else {
-                this.f22569h.setWhiteStyle(false);
+                this.f22585h.setWhiteStyle(false);
             }
             if (i2 == 0) {
-                this.f22568g.setAdState(this.o);
+                this.f22584g.setAdState(this.o);
             } else {
-                this.f22568g.setAdState(null);
+                this.f22584g.setAdState(null);
             }
-            if (i2 == 0 && TbadkCoreApplication.getInst().getSkinType() != 1 && this.f22566e.isPrimary() && (cVar = this.o) != null && cVar.f22484a && i2 == 0) {
-                int i9 = cVar.f22486c;
-                int i10 = cVar.f22487d;
+            if (i2 == 0 && TbadkCoreApplication.getInst().getSkinType() != 1 && this.f22582e.isPrimary() && (cVar = this.o) != null && cVar.f22500a && i2 == 0) {
+                int i9 = cVar.f22502c;
+                int i10 = cVar.f22503d;
                 if (i9 > i10 / 2) {
                     c.a.r0.n0.d.c cVar7 = this.p;
-                    if (cVar7 == null || cVar7.f22486c > i10 / 2) {
+                    if (cVar7 == null || cVar7.f22502c > i10 / 2) {
                         return;
                     }
                     StatusbarColorUtils.setStatusBarDarkIcon(getPageContext().getPageActivity().getWindow(), false);
                     return;
                 }
                 c.a.r0.n0.d.c cVar8 = this.p;
-                if (cVar8 == null || cVar8.f22486c < i10 / 2) {
+                if (cVar8 == null || cVar8.f22502c < i10 / 2) {
                     return;
                 }
                 StatusbarColorUtils.setStatusBarDarkIcon(getPageContext().getPageActivity().getWindow(), true);
@@ -596,7 +596,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
                 return;
             }
             c.a.r0.n0.d.c cVar = this.o;
-            if (cVar == null || !cVar.f22484a || cVar.f22486c <= 0) {
+            if (cVar == null || !cVar.f22500a || cVar.f22502c <= 0) {
                 return;
             }
             c.a.r0.n0.m.b bVar = this.w;
@@ -610,7 +610,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
             N(i2);
         } else {
             c.a.r0.n0.d.c cVar2 = this.o;
-            if (cVar2 == null || !cVar2.f22484a || cVar2.f22486c <= 0) {
+            if (cVar2 == null || !cVar2.f22500a || cVar2.f22502c <= 0) {
                 return;
             }
             c.a.r0.n0.m.b bVar2 = this.w;
@@ -627,16 +627,16 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                if (this.f22570i.getCurrentItem() == 0 && this.f22566e.isPrimary()) {
+                if (this.f22586i.getCurrentItem() == 0 && this.f22582e.isPrimary()) {
                     c.a.r0.n0.m.b bVar = this.w;
                     if (bVar != null && bVar.M() != null && this.w.M().isViewAttached()) {
                         StatusbarColorUtils.setStatusBarDarkIcon(getPageContext().getPageActivity().getWindow(), true);
                         return;
                     }
                     c.a.r0.n0.d.c cVar = this.o;
-                    if (cVar != null && cVar.f22484a) {
-                        int i2 = cVar.f22486c;
-                        if (i2 <= cVar.f22487d / 2 && i2 != 0) {
+                    if (cVar != null && cVar.f22500a) {
+                        int i2 = cVar.f22502c;
+                        if (i2 <= cVar.f22503d / 2 && i2 != 0) {
                             StatusbarColorUtils.setStatusBarDarkIcon(getPageContext().getPageActivity().getWindow(), true);
                             return;
                         } else {
@@ -661,7 +661,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
             if (i2 < 0 || i2 > this.k.size()) {
                 return false;
             }
-            this.f22570i.setCurrentItem(i2, true);
+            this.f22586i.setCurrentItem(i2, true);
             return true;
         }
         return invokeI.booleanValue;
@@ -672,8 +672,8 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
             this.p = this.o;
             this.o = cVar;
-            this.f22568g.setAdState(cVar);
-            N(this.f22570i.getCurrentItem());
+            this.f22584g.setAdState(cVar);
+            N(this.f22586i.getCurrentItem());
         }
     }
 
@@ -689,16 +689,16 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         Fragment fragment;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            EnterForumTabPagerAdapter enterForumTabPagerAdapter = this.f22571j;
+            EnterForumTabPagerAdapter enterForumTabPagerAdapter = this.f22587j;
             if (enterForumTabPagerAdapter != null) {
                 enterForumTabPagerAdapter.setPrimary(z);
             }
             List<EnterForumTabPagerAdapter.a> list = this.k;
-            if (list == null || list.size() <= 0 || (pullLeftViewPager = this.f22570i) == null) {
+            if (list == null || list.size() <= 0 || (pullLeftViewPager = this.f22586i) == null) {
                 return;
             }
             EnterForumTabPagerAdapter.a aVar = this.k.get(pullLeftViewPager.getCurrentItem());
-            if (aVar == null || (fragment = aVar.f50195a) == null || !(fragment instanceof BaseFragment)) {
+            if (aVar == null || (fragment = aVar.f50308a) == null || !(fragment instanceof BaseFragment)) {
                 return;
             }
             ((BaseFragment) fragment).setPrimary(z);
@@ -714,14 +714,14 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
     public void V(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f22568g.setSearchHint(str);
+            this.f22584g.setSearchHint(str);
         }
     }
 
     public final void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            LinearLayout linearLayout = this.f22567f;
+            LinearLayout linearLayout = this.f22583f;
             if (linearLayout != null && linearLayout.getPaddingTop() < 0) {
                 o();
                 return;
@@ -757,7 +757,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
     public void m(NewPagerSlidingTabBaseStrip.c cVar) {
         NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, cVar) == null) || (newPagerSlidingTabBaseStrip = this.f22569h) == null || cVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, cVar) == null) || (newPagerSlidingTabBaseStrip = this.f22585h) == null || cVar == null) {
             return;
         }
         newPagerSlidingTabBaseStrip.setOnTabItemClickListener(cVar);
@@ -793,7 +793,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         Fragment fragment;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            N(this.f22570i.getCurrentItem());
+            N(this.f22586i.getCurrentItem());
             NoNetworkView noNetworkView = this.v;
             if (noNetworkView != null) {
                 noNetworkView.onChangeSkinType(getPageContext(), i2);
@@ -802,14 +802,14 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
             if (list != null && list.size() > 0) {
                 for (int i3 = 0; i3 < this.k.size(); i3++) {
                     EnterForumTabPagerAdapter.a aVar = this.k.get(i3);
-                    if (aVar != null && (fragment = aVar.f50195a) != null && (fragment instanceof BaseFragment)) {
+                    if (aVar != null && (fragment = aVar.f50308a) != null && (fragment instanceof BaseFragment)) {
                         ((BaseFragment) fragment).onChangeSkinType(i2);
                     }
                 }
             }
             SkinManager.setBackgroundResource(this.u, R.drawable.personalize_tab_shadow);
-            this.f22569h.onChangeSkinType();
-            this.f22568g.onChangeSkinType();
+            this.f22585h.onChangeSkinType();
+            this.f22584g.onChangeSkinType();
             SkinManager.setBackgroundColorToTransparent(this.s, R.color.CAM_X0207, GradientDrawable.Orientation.LEFT_RIGHT);
             SkinManager.setBackgroundColorToTransparent(this.r, R.color.CAM_X0207, GradientDrawable.Orientation.RIGHT_LEFT);
         }
@@ -824,12 +824,12 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
             if (list != null && list.size() > 0) {
                 for (int i2 = 0; i2 < this.k.size(); i2++) {
                     EnterForumTabPagerAdapter.a aVar = this.k.get(i2);
-                    if (aVar != null && (fragment = aVar.f50195a) != null && (fragment instanceof NoNetworkView.b)) {
+                    if (aVar != null && (fragment = aVar.f50308a) != null && (fragment instanceof NoNetworkView.b)) {
                         ((NoNetworkView.b) fragment).onNetworkChange(z);
                     }
                 }
             }
-            N(this.f22570i.getCurrentItem());
+            N(this.f22586i.getCurrentItem());
         }
     }
 
@@ -843,11 +843,11 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
             }
             int i2 = -1;
             for (int i3 = 0; i3 < this.k.size(); i3++) {
-                if (str.equals(this.k.get(i3).f50198d)) {
+                if (str.equals(this.k.get(i3).f50311d)) {
                     i2 = i3;
                 }
             }
-            if (i2 == -1 && this.f22566e.getResources().getString(R.string.my_forum).equals(str)) {
+            if (i2 == -1 && this.f22582e.getResources().getString(R.string.my_forum).equals(str)) {
                 return 0;
             }
             return i2;
@@ -859,7 +859,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            EnterForumTabPagerAdapter enterForumTabPagerAdapter = this.f22571j;
+            EnterForumTabPagerAdapter enterForumTabPagerAdapter = this.f22587j;
             if (enterForumTabPagerAdapter != null) {
                 return enterForumTabPagerAdapter.getCurrentPageKey();
             }
@@ -871,7 +871,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
     public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f22570i.getCurrentItem() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f22586i.getCurrentItem() : invokeV.intValue;
     }
 
     public View s() {
@@ -886,7 +886,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
             EnterForumTabPagerAdapter.a aVar = (EnterForumTabPagerAdapter.a) ListUtils.getItem(this.k, i2);
             if (aVar != null) {
-                Fragment fragment = aVar.f50195a;
+                Fragment fragment = aVar.f50308a;
                 return fragment instanceof EnterForumTabFeedFragment ? ((EnterForumTabFeedFragment) fragment).getTabName() : "";
             }
             return "";
@@ -897,7 +897,7 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
     public View u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f22567f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f22583f : (View) invokeV.objValue;
     }
 
     public final void v(Bundle bundle) {
@@ -909,12 +909,12 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
             this.t.hideBottomLine();
             this.u = this.l.findViewById(R.id.divider_shadow);
             X(0);
-            ImageView imageView = (ImageView) this.f22567f.findViewById(R.id.navigationBarGoSignall);
+            ImageView imageView = (ImageView) this.f22583f.findViewById(R.id.navigationBarGoSignall);
             this.q = imageView;
             imageView.setOnClickListener(new d(this));
-            if (this.f22569h != null) {
-                this.t.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, this.f22567f, (View.OnClickListener) null);
-                ViewGroup viewGroup = (ViewGroup) this.f22567f.getParent();
+            if (this.f22585h != null) {
+                this.t.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, this.f22583f, (View.OnClickListener) null);
+                ViewGroup viewGroup = (ViewGroup) this.f22583f.getParent();
                 if (viewGroup instanceof LinearLayout) {
                     ((LinearLayout) viewGroup).setGravity(3);
                 } else if (viewGroup instanceof RelativeLayout) {
@@ -924,8 +924,8 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
                     layoutParams.gravity = 3;
                     viewGroup.setLayoutParams(layoutParams);
                 }
-                NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = this.f22569h;
-                newPagerSlidingTabBaseStrip.setPadding(newPagerSlidingTabBaseStrip.getPaddingLeft(), this.f22569h.getPaddingTop(), this.f22569h.getPaddingRight(), this.f22569h.getPaddingBottom());
+                NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = this.f22585h;
+                newPagerSlidingTabBaseStrip.setPadding(newPagerSlidingTabBaseStrip.getPaddingLeft(), this.f22585h.getPaddingTop(), this.f22585h.getPaddingRight(), this.f22585h.getPaddingBottom());
             }
         }
     }
@@ -933,27 +933,27 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
     public final void w(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, bundle) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f22566e.getContext()).inflate(R.layout.enter_forum_tab_layout, (ViewGroup) null);
-            this.f22567f = linearLayout;
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f22582e.getContext()).inflate(R.layout.enter_forum_tab_layout, (ViewGroup) null);
+            this.f22583f = linearLayout;
             ForumHeaderView forumHeaderView = (ForumHeaderView) linearLayout.findViewById(R.id.recommend_forum_header_serch_view);
-            this.f22568g = forumHeaderView;
+            this.f22584g = forumHeaderView;
             forumHeaderView.setFrom(0);
-            this.f22568g.onChangeSkinType();
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.f22567f.findViewById(R.id.tab_layout);
-            this.f22569h = newPagerSlidingTabBaseStrip;
+            this.f22584g.onChangeSkinType();
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.f22583f.findViewById(R.id.tab_layout);
+            this.f22585h = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setDefaultSelectorColorResourceId(R.color.CAM_X0105);
-            this.f22569h.setRectPaintColor(R.color.CAM_X0302);
-            this.f22569h.init(l.g(this.f22566e.getContext(), R.dimen.tbds46), l.g(this.f22566e.getContext(), R.dimen.tbds46), l.g(this.f22566e.getContext(), R.dimen.tbds10), l.g(this.f22566e.getContext(), R.dimen.tbds46), true);
-            this.f22569h.setmIndicatorWidth(l.g(this.mContext.getPageActivity(), R.dimen.tbds42));
-            this.f22569h.setIndicatorOvershot(l.g(this.mContext.getPageActivity(), R.dimen.tbds8));
-            this.f22569h.setIndicatorRadius(l.g(this.mContext.getPageActivity(), R.dimen.tbds8));
-            this.f22569h.setIndicatorMarginBottom(l.g(this.f22566e.getContext(), R.dimen.tbds0));
-            this.f22569h.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(-2, -1));
-            this.f22569h.setTabPadding(l.g(this.f22566e.getContext(), R.dimen.tbds36), 0, l.g(this.f22566e.getContext(), R.dimen.tbds36), 0);
-            this.f22569h.setViewPager(this.f22570i);
-            this.f22569h.setOnPageChangeListener(this.C);
-            this.s = this.f22567f.findViewById(R.id.enter_forum_tab_left_grandient);
-            this.r = this.f22567f.findViewById(R.id.enter_forum_tab_right_grandient);
+            this.f22585h.setRectPaintColor(R.color.CAM_X0302);
+            this.f22585h.init(l.g(this.f22582e.getContext(), R.dimen.tbds46), l.g(this.f22582e.getContext(), R.dimen.tbds46), l.g(this.f22582e.getContext(), R.dimen.tbds10), l.g(this.f22582e.getContext(), R.dimen.tbds46), true);
+            this.f22585h.setmIndicatorWidth(l.g(this.mContext.getPageActivity(), R.dimen.tbds42));
+            this.f22585h.setIndicatorOvershot(l.g(this.mContext.getPageActivity(), R.dimen.tbds8));
+            this.f22585h.setIndicatorRadius(l.g(this.mContext.getPageActivity(), R.dimen.tbds8));
+            this.f22585h.setIndicatorMarginBottom(l.g(this.f22582e.getContext(), R.dimen.tbds0));
+            this.f22585h.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(-2, -1));
+            this.f22585h.setTabPadding(l.g(this.f22582e.getContext(), R.dimen.tbds36), 0, l.g(this.f22582e.getContext(), R.dimen.tbds36), 0);
+            this.f22585h.setViewPager(this.f22586i);
+            this.f22585h.setOnPageChangeListener(this.C);
+            this.s = this.f22583f.findViewById(R.id.enter_forum_tab_left_grandient);
+            this.r = this.f22583f.findViewById(R.id.enter_forum_tab_right_grandient);
         }
     }
 
@@ -974,18 +974,18 @@ public class c extends c.a.e.a.d implements NoNetworkView.b {
     public final void y(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, bundle) == null) {
-            this.f22570i = (PullLeftViewPager) this.l.findViewById(R.id.enter_forum_viewpager);
+            this.f22586i = (PullLeftViewPager) this.l.findViewById(R.id.enter_forum_viewpager);
             EnterForumTabPagerAdapter.a aVar = new EnterForumTabPagerAdapter.a();
-            aVar.f50195a = new EnterForumFragment();
-            aVar.f50196b = this.f22566e.getResources().getString(R.string.my_forum);
-            ((EnterForumFragment) aVar.f50195a).setTabViewController(this);
+            aVar.f50308a = new EnterForumFragment();
+            aVar.f50309b = this.f22582e.getResources().getString(R.string.my_forum);
+            ((EnterForumFragment) aVar.f50308a).setTabViewController(this);
             ArrayList arrayList = new ArrayList();
             this.k = arrayList;
             arrayList.add(aVar);
-            EnterForumTabPagerAdapter enterForumTabPagerAdapter = new EnterForumTabPagerAdapter(this.f22566e.getActivity().getSupportFragmentManager(), this.k);
-            this.f22571j = enterForumTabPagerAdapter;
-            this.f22570i.setAdapter(enterForumTabPagerAdapter);
-            this.f22570i.setOffscreenPageLimit(this.k.size());
+            EnterForumTabPagerAdapter enterForumTabPagerAdapter = new EnterForumTabPagerAdapter(this.f22582e.getActivity().getSupportFragmentManager(), this.k);
+            this.f22587j = enterForumTabPagerAdapter;
+            this.f22586i.setAdapter(enterForumTabPagerAdapter);
+            this.f22586i.setOffscreenPageLimit(this.k.size());
         }
     }
 

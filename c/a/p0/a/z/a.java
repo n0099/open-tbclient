@@ -37,14 +37,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f9851c;
+    public static final boolean f9859c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Timer f9852a;
+    public Timer f9860a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.a.z.c.b f9853b;
+    public c.a.p0.a.z.c.b f9861b;
 
     /* renamed from: c.a.p0.a.z.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -53,10 +53,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.z.c.b f9854e;
+        public final /* synthetic */ c.a.p0.a.z.c.b f9862e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f9855f;
+        public final /* synthetic */ a f9863f;
 
         public C0475a(a aVar, c.a.p0.a.z.c.b bVar) {
             Interceptable interceptable = $ic;
@@ -73,19 +73,19 @@ public class a {
                     return;
                 }
             }
-            this.f9855f = aVar;
-            this.f9854e = bVar;
+            this.f9863f = aVar;
+            this.f9862e = bVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.a.z.c.b bVar = this.f9854e;
+                c.a.p0.a.z.c.b bVar = this.f9862e;
                 if (bVar != null) {
                     bVar.a();
                 }
-                this.f9855f.j();
+                this.f9863f.j();
             }
         }
     }
@@ -95,7 +95,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f9856a;
+        public static final a f9864a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -111,7 +111,7 @@ public class a {
                     return;
                 }
             }
-            f9856a = new a(null);
+            f9864a = new a(null);
         }
     }
 
@@ -128,7 +128,7 @@ public class a {
                 return;
             }
         }
-        f9851c = k.f7077a;
+        f9859c = k.f7085a;
     }
 
     public /* synthetic */ a(C0475a c0475a) {
@@ -138,13 +138,13 @@ public class a {
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f9856a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f9864a : (a) invokeV.objValue;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.p0.a.z.c.b bVar = this.f9853b;
+            c.a.p0.a.z.c.b bVar = this.f9861b;
             if (bVar != null) {
                 bVar.cancel();
             }
@@ -186,7 +186,7 @@ public class a {
                 }
                 jSONObject.put("eType", str3);
             } catch (JSONException e2) {
-                if (f9851c) {
+                if (f9859c) {
                     e2.printStackTrace();
                 }
             }
@@ -200,7 +200,7 @@ public class a {
             try {
                 CameraPreview.releaseCamera();
             } catch (Exception e2) {
-                if (f9851c) {
+                if (f9859c) {
                     e2.printStackTrace();
                 }
             }
@@ -225,18 +225,18 @@ public class a {
                 File file = new File(str);
                 if (file.exists()) {
                     boolean delete = file.delete();
-                    if (f9851c) {
+                    if (f9859c) {
                         String str2 = "delete = " + delete;
                     }
                 }
                 if (file.getParentFile() != null) {
                     boolean mkdirs = file.getParentFile().mkdirs();
-                    if (f9851c) {
+                    if (f9859c) {
                         String str3 = "mkdirs = " + mkdirs;
                     }
                 }
                 boolean createNewFile = file.createNewFile();
-                if (f9851c) {
+                if (f9859c) {
                     String str4 = "createNewFile = " + createNewFile;
                 }
                 Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
@@ -257,13 +257,13 @@ public class a {
                 d.d(bufferedOutputStream);
                 return true;
             } catch (Exception e2) {
-                if (f9851c) {
+                if (f9859c) {
                     e2.printStackTrace();
                     return false;
                 }
                 return false;
             } catch (OutOfMemoryError e3) {
-                if (f9851c) {
+                if (f9859c) {
                     e3.printStackTrace();
                     return false;
                 }
@@ -276,9 +276,9 @@ public class a {
     public void i(int i2, c.a.p0.a.z.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i2, bVar) == null) {
-            this.f9853b = bVar;
+            this.f9861b = bVar;
             Timer timer = new Timer();
-            this.f9852a = timer;
+            this.f9860a = timer;
             timer.schedule(new C0475a(this, bVar), i2);
         }
     }
@@ -286,8 +286,8 @@ public class a {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f9853b = null;
-            Timer timer = this.f9852a;
+            this.f9861b = null;
+            Timer timer = this.f9860a;
             if (timer != null) {
                 timer.cancel();
             }

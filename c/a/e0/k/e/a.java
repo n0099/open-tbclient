@@ -21,7 +21,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.e0.k.f.a f3144a;
+    public c.a.e0.k.f.a f3145a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class a {
             b2.mkdirs();
         }
         try {
-            this.f3144a = c.a.e0.k.f.a.j(b2, 1, 1, 10485760L);
+            this.f3145a = c.a.e0.k.f.a.j(b2, 1, 1, 10485760L);
         } catch (IOException e2) {
             e2.printStackTrace();
         }
@@ -53,10 +53,10 @@ public class a {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i2, i3)) == null) {
-            if (this.f3144a == null) {
+            if (this.f3145a == null) {
                 return null;
             }
-            a.e w = this.f3144a.w(c.a.e0.k.g.b.b(str));
+            a.e w = this.f3145a.w(c.a.e0.k.g.b.b(str));
             if (w != null) {
                 FileInputStream fileInputStream = (FileInputStream) w.a(0);
                 if (i2 > 0 && i3 > 0) {
@@ -86,11 +86,11 @@ public class a {
 
     public void c(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f3144a == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f3145a == null) {
             return;
         }
         try {
-            a.c u = this.f3144a.u(c.a.e0.k.g.b.b(str));
+            a.c u = this.f3145a.u(c.a.e0.k.g.b.b(str));
             if (u == null) {
                 return;
             }
@@ -99,7 +99,7 @@ public class a {
             } else {
                 u.c();
             }
-            this.f3144a.flush();
+            this.f3145a.flush();
         } catch (IOException e2) {
             e2.printStackTrace();
         }

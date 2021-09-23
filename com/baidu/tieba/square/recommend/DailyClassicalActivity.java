@@ -47,22 +47,22 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f56948e;
+    public ImageView f57065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f56949f;
+    public RelativeLayout f57066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f56950g;
+    public RelativeLayout f57067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f56951h;
+    public TextView f57068h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f56952i;
+    public View.OnClickListener f57069i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BaseWebView f56953j;
+    public BaseWebView f57070j;
     public ProgressBar k;
     public LinearLayout l;
     public c m;
@@ -112,7 +112,7 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DailyClassicalActivity f56954e;
+        public final /* synthetic */ DailyClassicalActivity f57071e;
 
         public b(DailyClassicalActivity dailyClassicalActivity) {
             Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
                     return;
                 }
             }
-            this.f56954e = dailyClassicalActivity;
+            this.f57071e = dailyClassicalActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -138,9 +138,9 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 int id = view.getId();
                 if (id == R.id.back) {
-                    this.f56954e.finish();
+                    this.f57071e.finish();
                 } else if (id == R.id.tag_webview_item) {
-                    this.f56954e.y();
+                    this.f57071e.y();
                 }
             }
         }
@@ -152,13 +152,13 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f56955a;
+        public NetWork f57072a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56956b;
+        public String f57073b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ DailyClassicalActivity f56957c;
+        public final /* synthetic */ DailyClassicalActivity f57074c;
 
         public c(DailyClassicalActivity dailyClassicalActivity) {
             Interceptable interceptable = $ic;
@@ -175,19 +175,19 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
                     return;
                 }
             }
-            this.f56957c = dailyClassicalActivity;
-            this.f56955a = null;
+            this.f57074c = dailyClassicalActivity;
+            this.f57072a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NetWork netWork = this.f56955a;
+                NetWork netWork = this.f57072a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f56957c.r = false;
+                this.f57074c.r = false;
                 super.cancel(true);
             }
         }
@@ -199,28 +199,28 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr)) == null) {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/tag/gettogether");
-                this.f56955a = netWork;
+                this.f57072a = netWork;
                 netWork.getNetContext().getRequest().getNetWorkParam().mIsJson = false;
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    this.f56955a.addPostData("night_type", "1");
+                    this.f57072a.addPostData("night_type", "1");
                 }
-                this.f56955a.addPostData("pn", this.f56957c.s);
-                this.f56955a.addPostData("_version_more", "1");
-                this.f56955a.addPostData(com.tencent.connect.common.Constants.PARAM_PLATFORM, "android");
+                this.f57072a.addPostData("pn", this.f57074c.s);
+                this.f57072a.addPostData("_version_more", "1");
+                this.f57072a.addPostData(com.tencent.connect.common.Constants.PARAM_PLATFORM, "android");
                 if (DailyClassicalActivity.t) {
                     boolean unused = DailyClassicalActivity.t = false;
-                    this.f56955a.addPostData("msg_click", "1");
-                    this.f56955a.addPostData("message_id", String.valueOf(DailyClassicalActivity.u));
+                    this.f57072a.addPostData("msg_click", "1");
+                    this.f57072a.addPostData("message_id", String.valueOf(DailyClassicalActivity.u));
                 }
                 Address h2 = c.a.e.e.i.a.l().h(false);
-                if (h2 != null && this.f56957c.u()) {
-                    NetWork netWork2 = this.f56955a;
+                if (h2 != null && this.f57074c.u()) {
+                    NetWork netWork2 = this.f57072a;
                     netWork2.addPostData("lbs", String.valueOf(h2.getLatitude()) + "," + String.valueOf(h2.getLongitude()));
                 }
                 try {
-                    this.f56956b = this.f56955a.postNetData();
-                    if (this.f56955a.isNetSuccess()) {
-                        return this.f56956b;
+                    this.f57073b = this.f57072a.postNetData();
+                    if (this.f57072a.isNetSuccess()) {
+                        return this.f57073b;
                     }
                     return null;
                 } catch (Exception e2) {
@@ -236,21 +236,21 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f56957c.m = null;
-                this.f56957c.l.setOnClickListener(null);
-                NetWork netWork = this.f56955a;
+                this.f57074c.m = null;
+                this.f57074c.l.setOnClickListener(null);
+                NetWork netWork = this.f57072a;
                 if (netWork == null || !netWork.isNetSuccess() || str == null || str.length() <= 0) {
-                    this.f56957c.o = false;
-                    this.f56957c.p.setVisibility(0);
-                    this.f56957c.f56953j.setVisibility(8);
-                    this.f56957c.l.setOnClickListener(this.f56957c.f56952i);
+                    this.f57074c.o = false;
+                    this.f57074c.p.setVisibility(0);
+                    this.f57074c.f57070j.setVisibility(8);
+                    this.f57074c.l.setOnClickListener(this.f57074c.f57069i);
                 } else {
-                    this.f56957c.f56953j.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.DATA_MIME_TYPE, "utf-8", "");
-                    this.f56957c.p.setVisibility(8);
-                    this.f56957c.f56953j.setVisibility(0);
+                    this.f57074c.f57070j.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.DATA_MIME_TYPE, "utf-8", "");
+                    this.f57074c.p.setVisibility(8);
+                    this.f57074c.f57070j.setVisibility(0);
                 }
-                this.f56957c.n = true;
-                this.f56957c.x();
+                this.f57074c.n = true;
+                this.f57074c.x();
             }
         }
 
@@ -290,12 +290,12 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
                 return;
             }
         }
-        this.f56948e = null;
-        this.f56949f = null;
-        this.f56950g = null;
-        this.f56951h = null;
-        this.f56952i = null;
-        this.f56953j = null;
+        this.f57065e = null;
+        this.f57066f = null;
+        this.f57067g = null;
+        this.f57068h = null;
+        this.f57069i = null;
+        this.f57070j = null;
         this.k = null;
         this.l = null;
         this.m = null;
@@ -319,11 +319,11 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            SkinManager.setBgColor(this.f56949f, i2);
-            SkinManager.setTopBarBgImage(this.f56950g, i2);
-            SkinManager.setTopBarTitleColor(this.f56951h, i2);
-            SkinManager.setTopBarBackBgImage(this.f56948e, i2);
-            BaseWebView baseWebView = this.f56953j;
+            SkinManager.setBgColor(this.f57066f, i2);
+            SkinManager.setTopBarBgImage(this.f57067g, i2);
+            SkinManager.setTopBarTitleColor(this.f57068h, i2);
+            SkinManager.setTopBarBackBgImage(this.f57065e, i2);
+            BaseWebView baseWebView = this.f57070j;
             if (baseWebView != null) {
                 SkinManager.setBgColor(baseWebView, i2);
                 y();
@@ -396,21 +396,21 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f56953j == null) {
+            if (this.f57070j == null) {
                 try {
                     if (UtilHelper.webViewIsProbablyCorrupt(this)) {
                         super.showToast(getString(R.string.web_view_corrupted));
                         return false;
                     }
                     BaseWebView baseWebView = new BaseWebView(this);
-                    this.f56953j = baseWebView;
+                    this.f57070j = baseWebView;
                     SkinManager.setBgColor(baseWebView, TbadkCoreApplication.getInst().getSkinType());
-                    this.f56953j.setOnLoadUrlListener(this);
-                    this.f56953j.setHorizontalScrollBarEnabled(false);
-                    this.f56953j.setHorizontalScrollbarOverlay(false);
-                    this.f56953j.setScrollBarStyle(33554432);
-                    this.f56953j.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-                    this.l.addView(this.f56953j);
+                    this.f57070j.setOnLoadUrlListener(this);
+                    this.f57070j.setHorizontalScrollBarEnabled(false);
+                    this.f57070j.setHorizontalScrollbarOverlay(false);
+                    this.f57070j.setScrollBarStyle(33554432);
+                    this.f57070j.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                    this.l.addView(this.f57070j);
                     return true;
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
@@ -452,17 +452,17 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f56949f = (RelativeLayout) findViewById(R.id.parent);
-            this.f56950g = (RelativeLayout) findViewById(R.id.title);
-            this.f56951h = (TextView) findViewById(R.id.title_text);
+            this.f57066f = (RelativeLayout) findViewById(R.id.parent);
+            this.f57067g = (RelativeLayout) findViewById(R.id.title);
+            this.f57068h = (TextView) findViewById(R.id.title_text);
             this.l = (LinearLayout) findViewById(R.id.tag_webview_item);
-            this.f56948e = (ImageView) findViewById(R.id.back);
+            this.f57065e = (ImageView) findViewById(R.id.back);
             this.p = (TextView) this.l.findViewById(R.id.webview_fail);
             this.q = (TextView) this.l.findViewById(R.id.webview_crash_tip);
             this.k = (ProgressBar) findViewById(R.id.tag_progress);
             b bVar = new b(this);
-            this.f56952i = bVar;
-            this.f56948e.setOnClickListener(bVar);
+            this.f57069i = bVar;
+            this.f57065e.setOnClickListener(bVar);
             if (t()) {
                 this.q.setVisibility(8);
                 y();

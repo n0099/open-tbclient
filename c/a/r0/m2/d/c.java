@@ -16,10 +16,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdTypeListView f22329a;
+    public BdTypeListView f22345a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f22330b;
+    public a f22346b;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
@@ -36,42 +36,42 @@ public class c {
                 return;
             }
         }
-        this.f22329a = bdTypeListView;
-        this.f22330b = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.f22345a = bdTypeListView;
+        this.f22346b = new a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f22330b.a();
+            this.f22346b.a();
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f22330b.c();
+            this.f22346b.c();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f22330b.c();
+            this.f22346b.c();
         }
     }
 
     public void d(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f22329a.setData(list);
+            this.f22345a.setData(list);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f22330b.d();
+            this.f22346b.d();
         }
     }
 }

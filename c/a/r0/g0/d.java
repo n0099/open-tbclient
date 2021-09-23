@@ -15,11 +15,11 @@ public class d extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f17751f;
+    public static final BdUniqueId f17761f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.w0.u1.c.b f17752e;
+    public c.a.r0.w0.u1.c.b f17762e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class d extends BaseCardInfo {
                 return;
             }
         }
-        f17751f = BdUniqueId.gen();
+        f17761f = BdUniqueId.gen();
     }
 
     public d() {
@@ -54,20 +54,20 @@ public class d extends BaseCardInfo {
     public c.a.r0.w0.u1.c.b g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17752e : (c.a.r0.w0.u1.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17762e : (c.a.r0.w0.u1.c.b) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f17751f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f17761f : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(c.a.r0.w0.u1.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f17752e = bVar;
+            this.f17762e = bVar;
         }
     }
 }

@@ -24,20 +24,20 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f11069e;
+    public static final boolean f11077e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.h.y.b f11070a;
+    public c.a.p0.h.y.b f11078a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11071b;
+    public String f11079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11072c;
+    public String f11080c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.h.c.i.a f11073d;
+    public c.a.p0.h.c.i.a f11081d;
 
     /* loaded from: classes3.dex */
     public class a implements Callback {
@@ -45,7 +45,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f11074a;
+        public final /* synthetic */ c f11082a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -62,19 +62,19 @@ public class c {
                     return;
                 }
             }
-            this.f11074a = cVar;
+            this.f11082a = cVar;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (c.f11069e) {
-                    String str = this.f11074a.f11071b + " load failed";
+                if (c.f11077e) {
+                    String str = this.f11082a.f11079b + " load failed";
                     iOException.printStackTrace();
                 }
-                if (this.f11074a.f11073d != null) {
-                    this.f11074a.f11073d.fail(-1, this.f11074a.f11071b);
+                if (this.f11082a.f11081d != null) {
+                    this.f11082a.f11081d.fail(-1, this.f11082a.f11079b);
                 }
             }
         }
@@ -91,8 +91,8 @@ public class c {
                     InputStream byteStream = response.body().byteStream();
                     try {
                         try {
-                            String d2 = f.d(this.f11074a.f11071b);
-                            String str = this.f11074a.f11072c + d2.substring(0, d2.lastIndexOf("/"));
+                            String d2 = f.d(this.f11082a.f11079b);
+                            String str = this.f11082a.f11080c + d2.substring(0, d2.lastIndexOf("/"));
                             File file2 = new File(str);
                             if (!file2.exists() || !file2.isDirectory()) {
                                 file2.mkdirs();
@@ -111,14 +111,14 @@ public class c {
                                     } catch (Exception unused) {
                                         inputStream = byteStream;
                                         try {
-                                            if (c.f11069e) {
-                                                String str2 = this.f11074a.f11071b + " load failed";
+                                            if (c.f11077e) {
+                                                String str2 = this.f11082a.f11079b + " load failed";
                                             }
                                             if (file != null) {
                                                 file.delete();
                                             }
-                                            if (this.f11074a.f11073d != null) {
-                                                this.f11074a.f11073d.fail(-1, this.f11074a.f11071b);
+                                            if (this.f11082a.f11081d != null) {
+                                                this.f11082a.f11081d.fail(-1, this.f11082a.f11079b);
                                             }
                                             d.d(inputStream);
                                             d.d(fileOutputStream);
@@ -146,19 +146,19 @@ public class c {
                                 }
                                 String absolutePath = file3.getAbsolutePath();
                                 if (file.renameTo(file3)) {
-                                    if (c.f11069e) {
-                                        String str3 = this.f11074a.f11071b + " load rename success path = " + absolutePath;
+                                    if (c.f11077e) {
+                                        String str3 = this.f11082a.f11079b + " load rename success path = " + absolutePath;
                                     }
-                                    if (this.f11074a.f11073d != null) {
-                                        this.f11074a.f11073d.a(this.f11074a.f11071b, absolutePath);
+                                    if (this.f11082a.f11081d != null) {
+                                        this.f11082a.f11081d.a(this.f11082a.f11079b, absolutePath);
                                     }
                                 } else {
-                                    if (c.f11069e) {
-                                        String str4 = this.f11074a.f11071b + " load rename error path = " + absolutePath;
+                                    if (c.f11077e) {
+                                        String str4 = this.f11082a.f11079b + " load rename error path = " + absolutePath;
                                     }
                                     file.delete();
-                                    if (this.f11074a.f11073d != null) {
-                                        this.f11074a.f11073d.fail(-1, absolutePath);
+                                    if (this.f11082a.f11081d != null) {
+                                        this.f11082a.f11081d.fail(-1, absolutePath);
                                     }
                                 }
                                 d.d(byteStream);
@@ -199,7 +199,7 @@ public class c {
                 return;
             }
         }
-        f11069e = k.f7077a;
+        f11077e = k.f7085a;
     }
 
     public c(c.a.p0.h.y.b bVar, String str, String str2, c.a.p0.h.c.i.a aVar) {
@@ -217,18 +217,18 @@ public class c {
                 return;
             }
         }
-        this.f11071b = "";
-        this.f11072c = "";
-        this.f11070a = bVar;
-        this.f11072c = str;
-        this.f11071b = str2;
-        this.f11073d = aVar;
+        this.f11079b = "";
+        this.f11080c = "";
+        this.f11078a = bVar;
+        this.f11080c = str;
+        this.f11079b = str2;
+        this.f11081d = aVar;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f11070a.b(new Request.Builder().url(this.f11071b).build(), new a(this));
+            this.f11078a.b(new Request.Builder().url(this.f11079b).build(), new a(this));
         }
     }
 }

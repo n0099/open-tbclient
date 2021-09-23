@@ -10,34 +10,34 @@ public class p0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77128a;
+    public int f77447a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f77129b;
+    public int f77448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f77130c;
+    public int f77449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f77131d;
+    public int f77450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f77132e;
+    public boolean f77451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f77133f;
+    public boolean f77452f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f77134g;
+    public int f77453g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f77135h;
+    public int f77454h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f77136i;
+    public int f77455i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f77137j;
+    public int f77456j;
     public int[] k;
 
     public p0() {

@@ -67,7 +67,7 @@ public class s extends b<c.a.r0.a0.d0.o> {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f15548e != i2) {
+            if (this.f15557e != i2) {
                 SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
                 SkinManager.setBackgroundResource(this.r, R.drawable.label_bg_gray);
                 SkinManager.setBackgroundResource(this.s, R.color.CAM_X0204);
@@ -77,7 +77,7 @@ public class s extends b<c.a.r0.a0.d0.o> {
                 this.n.setPlaceHolder(1);
                 this.q.setPlaceHolder(2);
             }
-            this.f15548e = i2;
+            this.f15557e = i2;
         }
     }
 
@@ -85,11 +85,11 @@ public class s extends b<c.a.r0.a0.d0.o> {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            if ((view == this.n || view == this.o || view == this.r) && !StringUtils.isNull(this.t.f15598h)) {
-                TiebaStatic.log(new StatisticItem(this.v).param("obj_id", String.valueOf(this.t.f15595e)));
-                UrlManager.getInstance().dealOneLink(i(), new String[]{this.t.f15598h});
+            if ((view == this.n || view == this.o || view == this.r) && !StringUtils.isNull(this.t.f15607h)) {
+                TiebaStatic.log(new StatisticItem(this.v).param("obj_id", String.valueOf(this.t.f15604e)));
+                UrlManager.getInstance().dealOneLink(i(), new String[]{this.t.f15607h});
             } else if ((view == this.m || view == this.p || view == this.q) && !StringUtils.isNull(this.t.k)) {
-                TiebaStatic.log(new StatisticItem(this.w).param("obj_id", String.valueOf(this.t.f15595e)));
+                TiebaStatic.log(new StatisticItem(this.w).param("obj_id", String.valueOf(this.t.f15604e)));
                 UrlManager.getInstance().dealOneLink(i(), new String[]{this.t.k});
             }
         }
@@ -132,18 +132,18 @@ public class s extends b<c.a.r0.a0.d0.o> {
                 this.m.setVisibility(0);
             }
             this.t = oVar;
-            this.n.startLoad(oVar.f15597g, 10, false);
-            this.o.setText(UtilHelper.getFixedText(oVar.f15596f, 7, true));
+            this.n.startLoad(oVar.f15606g, 10, false);
+            this.o.setText(UtilHelper.getFixedText(oVar.f15605f, 7, true));
             if (StringUtils.isNull(oVar.m)) {
                 this.r.setVisibility(8);
             } else {
                 this.r.setVisibility(0);
                 this.r.setText(oVar.m);
             }
-            this.p.setText(oVar.f15599i);
+            this.p.setText(oVar.f15608i);
             if (c.a.q0.s.k.c().g()) {
                 this.q.setVisibility(0);
-                this.q.startLoad(oVar.f15600j, 10, false);
+                this.q.startLoad(oVar.f15609j, 10, false);
                 return;
             }
             this.q.setVisibility(8);

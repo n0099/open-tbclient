@@ -27,10 +27,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4974a;
+    public static final boolean f4982a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4975b;
+    public static String f4983b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -39,19 +39,19 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.e0.h.a f4976e;
+        public final /* synthetic */ c.a.p0.a.e0.h.a f4984e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.l.a f4977f;
+        public final /* synthetic */ c.a.p0.a.h0.l.a f4985f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.p.e.b f4978g;
+        public final /* synthetic */ c.a.p0.a.p.e.b f4986g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f4979h;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f4987h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e.g f4980i;
+        public final /* synthetic */ e.g f4988i;
 
         public a(c.a.p0.a.e0.h.a aVar, c.a.p0.a.h0.l.a aVar2, c.a.p0.a.p.e.b bVar, c.a.p0.a.f1.e.b bVar2, e.g gVar) {
             Interceptable interceptable = $ic;
@@ -68,20 +68,20 @@ public class c {
                     return;
                 }
             }
-            this.f4976e = aVar;
-            this.f4977f = aVar2;
-            this.f4978g = bVar;
-            this.f4979h = bVar2;
-            this.f4980i = gVar;
+            this.f4984e = aVar;
+            this.f4985f = aVar2;
+            this.f4986g = bVar;
+            this.f4987h = bVar2;
+            this.f4988i = gVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                this.f4976e.i();
+                this.f4984e.i();
                 c.a.p0.a.e0.h.a.g(0);
-                c.a(this.f4977f, this.f4978g, this.f4979h, this.f4980i);
+                c.a(this.f4985f, this.f4986g, this.f4987h, this.f4988i);
             }
         }
     }
@@ -92,19 +92,19 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.l.a f4981a;
+        public final /* synthetic */ c.a.p0.a.h0.l.a f4989a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.p.e.b f4982b;
+        public final /* synthetic */ c.a.p0.a.p.e.b f4990b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f4983c;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f4991c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ e.g f4984d;
+        public final /* synthetic */ e.g f4992d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAlertDialog f4985e;
+        public final /* synthetic */ SwanAppAlertDialog f4993e;
 
         public b(c.a.p0.a.h0.l.a aVar, c.a.p0.a.p.e.b bVar, c.a.p0.a.f1.e.b bVar2, e.g gVar, SwanAppAlertDialog swanAppAlertDialog) {
             Interceptable interceptable = $ic;
@@ -121,19 +121,19 @@ public class c {
                     return;
                 }
             }
-            this.f4981a = aVar;
-            this.f4982b = bVar;
-            this.f4983c = bVar2;
-            this.f4984d = gVar;
-            this.f4985e = swanAppAlertDialog;
+            this.f4989a = aVar;
+            this.f4990b = bVar;
+            this.f4991c = bVar2;
+            this.f4992d = gVar;
+            this.f4993e = swanAppAlertDialog;
         }
 
         @Override // c.a.p0.a.e0.h.a.b
         public void onConnected() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a(this.f4981a, this.f4982b, this.f4983c, this.f4984d);
-                this.f4985e.dismiss();
+                c.a(this.f4989a, this.f4990b, this.f4991c, this.f4992d);
+                this.f4993e.dismiss();
             }
         }
     }
@@ -151,7 +151,7 @@ public class c {
                 return;
             }
         }
-        f4974a = c.a.p0.a.k.f7077a;
+        f4982a = c.a.p0.a.k.f7085a;
     }
 
     public static void a(c.a.p0.a.h0.l.a aVar, c.a.p0.a.p.e.b bVar, c.a.p0.a.f1.e.b bVar2, e.g gVar) {
@@ -162,19 +162,19 @@ public class c {
             ubcFlowEvent.a(true);
             o.C(ubcFlowEvent);
             c.a.p0.a.g1.f V = c.a.p0.a.g1.f.V();
-            SwanAppConfigData swanAppConfigData = gVar.f4499b;
+            SwanAppConfigData swanAppConfigData = gVar.f4507b;
             if (swanAppConfigData == null) {
-                if (f4974a) {
+                if (f4982a) {
                     Log.getStackTraceString(new Exception("loadInfo.mConfigData is null."));
                     return;
                 }
                 return;
             }
             String c2 = c(V, bVar2, swanAppConfigData);
-            String g2 = gVar.f4499b.g(c2);
+            String g2 = gVar.f4507b.g(c2);
             SwanAppActivity activity = V.getActivity();
             if (activity != null && !activity.isFinishing()) {
-                c.a.p0.a.h0.p.b.c().b(aVar, bVar, bVar2, gVar.f4499b, gVar, false);
+                c.a.p0.a.h0.p.b.c().b(aVar, bVar, bVar2, gVar.f4507b, gVar, false);
                 aVar.f(activity);
                 bVar.f(activity);
                 c.a.p0.a.h0.g.g W = V.W();
@@ -182,7 +182,7 @@ public class c {
                     return;
                 }
                 c.a.p0.a.l1.b g3 = c.a.p0.a.l1.b.g(c2, V.A());
-                c.a.p0.a.h0.t.a.m(q0.a(g3.f7238g, g3.f7236e, g3.f7237f), bVar);
+                c.a.p0.a.h0.t.a.m(q0.a(g3.f7246g, g3.f7244e, g3.f7245f), bVar);
                 d(W, c2);
                 c.a.p0.a.j2.k.A();
                 c.a.p0.a.m1.f.e(bVar.c());
@@ -191,7 +191,7 @@ public class c {
                 }
                 c.a.p0.a.j2.k.B(true, bVar2.T());
                 c.a.p0.a.w2.e loadingView = activity.getLoadingView();
-                if (f4974a) {
+                if (f4982a) {
                     String str = "startFirstPage:: loadingView=" + loadingView;
                 }
                 if (loadingView != null) {
@@ -202,7 +202,7 @@ public class c {
                     g4.r().f(true);
                 }
                 c.a.p0.a.h0.i.i.h(true);
-            } else if (f4974a) {
+            } else if (f4982a) {
                 Log.getStackTraceString(new Exception("activity is invalid."));
             }
         }
@@ -211,7 +211,7 @@ public class c {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f4975b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f4983b : (String) invokeV.objValue;
     }
 
     public static String c(c.a.p0.a.g1.f fVar, c.a.p0.a.f1.e.b bVar, SwanAppConfigData swanAppConfigData) {
@@ -226,7 +226,7 @@ public class c {
                     a2 = fVar.f();
                 }
             }
-            f4975b = a2;
+            f4983b = a2;
             return a2;
         }
         return (String) invokeLLL.objValue;
@@ -240,7 +240,7 @@ public class c {
         c.a.p0.a.h0.g.f.C3(null);
         c.a.p0.a.g1.f V = c.a.p0.a.g1.f.V();
         g.b i2 = gVar.i("init");
-        int i3 = c.a.p0.a.h0.g.g.f5930i;
+        int i3 = c.a.p0.a.h0.g.g.f5938i;
         i2.n(i3, i3);
         i2.f();
         i2.l("normal", c.a.p0.a.l1.b.g(str, V.A()), true).a();

@@ -14,10 +14,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f12001a;
+    public JSONArray f12009a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f12002b;
+    public JSONObject f12010b;
 
     public a(JSONArray jSONArray, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -34,19 +34,19 @@ public class a {
                 return;
             }
         }
-        this.f12001a = jSONArray;
-        this.f12002b = jSONObject;
+        this.f12009a = jSONArray;
+        this.f12010b = jSONObject;
     }
 
     public JSONArray a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12001a : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12009a : (JSONArray) invokeV.objValue;
     }
 
     public JSONObject b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12002b : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12010b : (JSONObject) invokeV.objValue;
     }
 }

@@ -24,11 +24,11 @@ public class a extends c.a.e.l.e.a<c.a.r0.d2.e.b, b> {
 
     /* renamed from: c.a.r0.d2.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0826a implements f<c.a.r0.d2.e.b> {
+    public class C0824a implements f<c.a.r0.d2.e.b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0826a(a aVar) {
+        public C0824a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,7 +71,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.d2.e.b, b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HotTopicDetailSpecialItem f17091a;
+        public HotTopicDetailSpecialItem f17101a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
@@ -91,7 +91,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.d2.e.b, b> {
                     return;
                 }
             }
-            this.f17091a = hotTopicDetailSpecialItem;
+            this.f17101a = hotTopicDetailSpecialItem;
         }
 
         public void a(c.a.r0.d2.e.b bVar) {
@@ -99,27 +99,27 @@ public class a extends c.a.e.l.e.a<c.a.r0.d2.e.b, b> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
                 return;
             }
-            this.f17091a.bindData(bVar);
+            this.f17101a.bindData(bVar);
         }
 
         public void b(f<c.a.r0.d2.e.b> fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                this.f17091a.setOnItemCoverListener(fVar);
+                this.f17101a.setOnItemCoverListener(fVar);
             }
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f17091a.onChangeSkinType(i2);
+                this.f17101a.onChangeSkinType(i2);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.r0.d2.e.a.f17135a);
+        super(tbPageContext.getPageActivity(), c.a.r0.d2.e.a.f17145a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,7 +136,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.d2.e.b, b> {
                 return;
             }
         }
-        this.m = new C0826a(this);
+        this.m = new C0824a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -13,10 +13,10 @@ public class y0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Queue<Runnable> f9443a;
+    public final Queue<Runnable> f9451a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Runnable f9444b;
+    public Runnable f9452b;
 
     public y0() {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class y0 {
                 return;
             }
         }
-        this.f9443a = new ArrayDeque();
-        this.f9444b = null;
+        this.f9451a = new ArrayDeque();
+        this.f9452b = null;
     }
 
     public synchronized boolean a(Runnable runnable) {
@@ -44,17 +44,17 @@ public class y0 {
                 z = true;
                 boolean z2 = runnable == null;
                 if (!z2) {
-                    this.f9443a.offer(runnable);
+                    this.f9451a.offer(runnable);
                 }
-                boolean z3 = this.f9444b == null && !this.f9443a.isEmpty();
+                boolean z3 = this.f9452b == null && !this.f9451a.isEmpty();
                 if (z3) {
-                    while (!this.f9443a.isEmpty()) {
-                        Runnable poll = this.f9443a.poll();
-                        this.f9444b = poll;
+                    while (!this.f9451a.isEmpty()) {
+                        Runnable poll = this.f9451a.poll();
+                        this.f9452b = poll;
                         if (poll != null) {
                             poll.run();
                         }
-                        this.f9444b = null;
+                        this.f9452b = null;
                     }
                 }
                 z = (z2 || !z3) ? false : false;

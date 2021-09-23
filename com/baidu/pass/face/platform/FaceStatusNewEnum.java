@@ -18,6 +18,7 @@ public final class FaceStatusNewEnum {
     public static final FaceStatusNewEnum DetectRemindCodeLeftEyeClosed;
     public static final FaceStatusNewEnum DetectRemindCodeMuchIllumination;
     public static final FaceStatusNewEnum DetectRemindCodeNoFaceDetected;
+    public static final FaceStatusNewEnum DetectRemindCodeNoPreviewFrameCenter;
     public static final FaceStatusNewEnum DetectRemindCodeOcclusionChinContour;
     public static final FaceStatusNewEnum DetectRemindCodeOcclusionLeftContour;
     public static final FaceStatusNewEnum DetectRemindCodeOcclusionLeftEye;
@@ -89,9 +90,10 @@ public final class FaceStatusNewEnum {
         FaceLivenessActionComplete = new FaceStatusNewEnum("FaceLivenessActionComplete", 27);
         FaceLivenessActionCodeTimeout = new FaceStatusNewEnum("FaceLivenessActionCodeTimeout", 28);
         DetectRemindCodeLeftEyeClosed = new FaceStatusNewEnum("DetectRemindCodeLeftEyeClosed", 29);
-        FaceStatusNewEnum faceStatusNewEnum = new FaceStatusNewEnum("DetectRemindCodeRightEyeClosed", 30);
-        DetectRemindCodeRightEyeClosed = faceStatusNewEnum;
-        $VALUES = new FaceStatusNewEnum[]{OK, DetectRemindCodeBeyondPreviewFrame, DetectRemindCodeNoFaceDetected, DetectRemindCodeMuchIllumination, DetectRemindCodePoorIllumination, DetectRemindCodeImageBlured, DetectRemindCodeTooFar, DetectRemindCodeTooClose, DetectRemindCodePitchOutofDownRange, DetectRemindCodePitchOutofUpRange, DetectRemindCodeYawOutofLeftRange, DetectRemindCodeYawOutofRightRange, DetectRemindCodeOcclusionLeftEye, DetectRemindCodeOcclusionRightEye, DetectRemindCodeOcclusionNose, DetectRemindCodeOcclusionMouth, DetectRemindCodeOcclusionLeftContour, DetectRemindCodeOcclusionRightContour, DetectRemindCodeOcclusionChinContour, DetectRemindCodeTimeout, FaceLivenessActionTypeLiveEye, FaceLivenessActionTypeLiveMouth, FaceLivenessActionTypeLiveYawRight, FaceLivenessActionTypeLiveYawLeft, FaceLivenessActionTypeLivePitchUp, FaceLivenessActionTypeLivePitchDown, FaceLivenessActionTypeLiveYaw, FaceLivenessActionComplete, FaceLivenessActionCodeTimeout, DetectRemindCodeLeftEyeClosed, faceStatusNewEnum};
+        DetectRemindCodeRightEyeClosed = new FaceStatusNewEnum("DetectRemindCodeRightEyeClosed", 30);
+        FaceStatusNewEnum faceStatusNewEnum = new FaceStatusNewEnum("DetectRemindCodeNoPreviewFrameCenter", 31);
+        DetectRemindCodeNoPreviewFrameCenter = faceStatusNewEnum;
+        $VALUES = new FaceStatusNewEnum[]{OK, DetectRemindCodeBeyondPreviewFrame, DetectRemindCodeNoFaceDetected, DetectRemindCodeMuchIllumination, DetectRemindCodePoorIllumination, DetectRemindCodeImageBlured, DetectRemindCodeTooFar, DetectRemindCodeTooClose, DetectRemindCodePitchOutofDownRange, DetectRemindCodePitchOutofUpRange, DetectRemindCodeYawOutofLeftRange, DetectRemindCodeYawOutofRightRange, DetectRemindCodeOcclusionLeftEye, DetectRemindCodeOcclusionRightEye, DetectRemindCodeOcclusionNose, DetectRemindCodeOcclusionMouth, DetectRemindCodeOcclusionLeftContour, DetectRemindCodeOcclusionRightContour, DetectRemindCodeOcclusionChinContour, DetectRemindCodeTimeout, FaceLivenessActionTypeLiveEye, FaceLivenessActionTypeLiveMouth, FaceLivenessActionTypeLiveYawRight, FaceLivenessActionTypeLiveYawLeft, FaceLivenessActionTypeLivePitchUp, FaceLivenessActionTypeLivePitchDown, FaceLivenessActionTypeLiveYaw, FaceLivenessActionComplete, FaceLivenessActionCodeTimeout, DetectRemindCodeLeftEyeClosed, DetectRemindCodeRightEyeClosed, faceStatusNewEnum};
     }
 
     public FaceStatusNewEnum(String str, int i2) {

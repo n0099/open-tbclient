@@ -12,12 +12,12 @@ import com.baidu.wallet.paysdk.contract.a;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 /* loaded from: classes8.dex */
-public class a implements a.InterfaceC1850a {
+public class a implements a.InterfaceC1853a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f62666a;
+    public a.b f62964a;
 
     public a(a.b bVar) {
         Interceptable interceptable = $ic;
@@ -34,24 +34,24 @@ public class a implements a.InterfaceC1850a {
                 return;
             }
         }
-        this.f62666a = bVar;
+        this.f62964a = bVar;
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1850a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1853a
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1850a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1853a
     public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) && str.trim().replace(" ", "").length() >= 9 : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1850a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1853a
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {

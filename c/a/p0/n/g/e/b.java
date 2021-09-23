@@ -27,35 +27,35 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f11865b;
+    public static final String f11873b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Uri f11866c;
+    public static final Uri f11874c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Uri f11867d;
+    public static final Uri f11875d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Uri f11868e;
+    public static final Uri f11876e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Uri f11869f;
+    public static final Uri f11877f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Uri f11870g;
+    public static final Uri f11878g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Uri f11871h;
+    public static final Uri f11879h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Uri f11872i;
+    public static final Uri f11880i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static UriMatcher f11873j;
+    public static UriMatcher f11881j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f11874a;
+    public Context f11882a;
 
     static {
         InterceptResult invokeClinit;
@@ -70,23 +70,23 @@ public class b {
                 return;
             }
         }
-        f11865b = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
-        f11866c = Uri.parse("content://" + f11865b + "/framework");
-        f11867d = Uri.parse("content://" + f11865b + "/swan_app");
-        f11868e = Uri.parse("content://" + f11865b + "/pkg_main");
-        f11869f = Uri.parse("content://" + f11865b + "/pkg_sub");
-        f11870g = Uri.parse("content://" + f11865b + "/" + ETAG.KEY_EXTENSION);
-        f11871h = Uri.parse("content://" + f11865b + "/swan_plugin");
-        f11872i = Uri.parse("content://" + f11865b + "/so_lib");
+        f11873b = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+        f11874c = Uri.parse("content://" + f11873b + "/framework");
+        f11875d = Uri.parse("content://" + f11873b + "/swan_app");
+        f11876e = Uri.parse("content://" + f11873b + "/pkg_main");
+        f11877f = Uri.parse("content://" + f11873b + "/pkg_sub");
+        f11878g = Uri.parse("content://" + f11873b + "/" + ETAG.KEY_EXTENSION);
+        f11879h = Uri.parse("content://" + f11873b + "/swan_plugin");
+        f11880i = Uri.parse("content://" + f11873b + "/so_lib");
         UriMatcher uriMatcher = new UriMatcher(-1);
-        f11873j = uriMatcher;
-        uriMatcher.addURI(f11865b, "framework", 2);
-        f11873j.addURI(f11865b, "pkg_main", 0);
-        f11873j.addURI(f11865b, "pkg_sub", 1);
-        f11873j.addURI(f11865b, ETAG.KEY_EXTENSION, 3);
-        f11873j.addURI(f11865b, "swan_app", 4);
-        f11873j.addURI(f11865b, "swan_plugin", 5);
-        f11873j.addURI(f11865b, "so_lib", 7);
+        f11881j = uriMatcher;
+        uriMatcher.addURI(f11873b, "framework", 2);
+        f11881j.addURI(f11873b, "pkg_main", 0);
+        f11881j.addURI(f11873b, "pkg_sub", 1);
+        f11881j.addURI(f11873b, ETAG.KEY_EXTENSION, 3);
+        f11881j.addURI(f11873b, "swan_app", 4);
+        f11881j.addURI(f11873b, "swan_plugin", 5);
+        f11881j.addURI(f11873b, "so_lib", 7);
     }
 
     public b(Context context) {
@@ -104,7 +104,7 @@ public class b {
                 return;
             }
         }
-        this.f11874a = context;
+        this.f11882a = context;
     }
 
     public int a(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
@@ -115,15 +115,15 @@ public class b {
             if (TextUtils.isEmpty(c2)) {
                 return 0;
             }
-            boolean z = c.f11856a;
+            boolean z = c.f11864a;
             try {
                 int delete = b().getWritableDatabase().delete(c2, str, strArr);
                 if (delete > 0) {
-                    this.f11874a.getContentResolver().notifyChange(uri, null);
+                    this.f11882a.getContentResolver().notifyChange(uri, null);
                 }
                 return delete;
             } catch (SQLException e2) {
-                if (c.f11856a) {
+                if (c.f11864a) {
                     e2.printStackTrace();
                     return 0;
                 }
@@ -143,7 +143,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
-            int match = f11873j.match(uri);
+            int match = f11881j.match(uri);
             if (match != 0) {
                 if (match != 1) {
                     if (match != 2) {
@@ -188,19 +188,19 @@ public class b {
             String str = "name:" + Thread.currentThread().getName();
             String c2 = c(uri);
             if (!TextUtils.isEmpty(c2) && contentValues != null) {
-                if (c.f11856a) {
+                if (c.f11864a) {
                     String str2 = "insert:" + contentValues.toString();
                 }
                 try {
                     long insertWithOnConflict = b().getWritableDatabase().insertWithOnConflict(c2, null, contentValues, 5);
                     if (insertWithOnConflict > 0) {
                         Uri withAppendedId = ContentUris.withAppendedId(uri, insertWithOnConflict);
-                        this.f11874a.getContentResolver().notifyChange(withAppendedId, null);
+                        this.f11882a.getContentResolver().notifyChange(withAppendedId, null);
                         return withAppendedId;
                     }
                     return uri;
                 } catch (SQLException e2) {
-                    if (c.f11856a) {
+                    if (c.f11864a) {
                         e2.printStackTrace();
                     }
                 }
@@ -222,11 +222,11 @@ public class b {
             if (TextUtils.isEmpty(c2)) {
                 return null;
             }
-            boolean z = c.f11856a;
+            boolean z = c.f11864a;
             try {
                 return b().getReadableDatabase().query(c2, strArr, str, strArr2, null, null, str2, null);
             } catch (SQLException e2) {
-                if (c.f11856a) {
+                if (c.f11864a) {
                     e2.printStackTrace();
                     return null;
                 }
@@ -242,11 +242,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, uri, str)) == null) {
             if (!TextUtils.isEmpty(c(uri))) {
-                boolean z = c.f11856a;
+                boolean z = c.f11864a;
                 try {
                     return b().getReadableDatabase().rawQuery(str, null);
                 } catch (SQLException e2) {
-                    if (c.f11856a) {
+                    if (c.f11864a) {
                         e2.printStackTrace();
                     }
                 }
@@ -264,15 +264,15 @@ public class b {
             if (TextUtils.isEmpty(c2)) {
                 return 0;
             }
-            boolean z = c.f11856a;
+            boolean z = c.f11864a;
             try {
                 int update = b().getWritableDatabase().update(c2, contentValues, str, strArr);
                 if (update > 0) {
-                    this.f11874a.getContentResolver().notifyChange(uri, null);
+                    this.f11882a.getContentResolver().notifyChange(uri, null);
                 }
                 return update;
             } catch (SQLException e2) {
-                if (c.f11856a) {
+                if (c.f11864a) {
                     e2.printStackTrace();
                     return 0;
                 }

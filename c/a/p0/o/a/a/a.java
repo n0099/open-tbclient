@@ -34,13 +34,13 @@ public class a extends c.a.p0.o.a.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String[] f12064e;
+        public final /* synthetic */ String[] f12072e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f12065f;
+        public final /* synthetic */ Activity f12073f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f12066g;
+        public final /* synthetic */ int f12074g;
 
         public RunnableC0624a(String[] strArr, Activity activity, int i2) {
             Interceptable interceptable = $ic;
@@ -57,23 +57,23 @@ public class a extends c.a.p0.o.a.b.a {
                     return;
                 }
             }
-            this.f12064e = strArr;
-            this.f12065f = activity;
-            this.f12066g = i2;
+            this.f12072e = strArr;
+            this.f12073f = activity;
+            this.f12074g = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] iArr = new int[this.f12064e.length];
-                PackageManager packageManager = this.f12065f.getPackageManager();
-                String packageName = this.f12065f.getPackageName();
-                int length = this.f12064e.length;
+                int[] iArr = new int[this.f12072e.length];
+                PackageManager packageManager = this.f12073f.getPackageManager();
+                String packageName = this.f12073f.getPackageName();
+                int length = this.f12072e.length;
                 for (int i2 = 0; i2 < length; i2++) {
-                    iArr[i2] = packageManager.checkPermission(this.f12064e[i2], packageName);
+                    iArr[i2] = packageManager.checkPermission(this.f12072e[i2], packageName);
                 }
-                ((b) this.f12065f).onRequestPermissionsResult(this.f12066g, this.f12064e, iArr);
+                ((b) this.f12073f).onRequestPermissionsResult(this.f12074g, this.f12072e, iArr);
             }
         }
     }
@@ -89,7 +89,7 @@ public class a extends c.a.p0.o.a.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public s f12067a;
+        public s f12075a;
 
         public c(s sVar) {
             Interceptable interceptable = $ic;
@@ -106,28 +106,28 @@ public class a extends c.a.p0.o.a.b.a {
                     return;
                 }
             }
-            this.f12067a = sVar;
+            this.f12075a = sVar;
         }
 
         @Override // c.a.p0.o.a.a.b.a
         public Parcelable a(View view, Matrix matrix, RectF rectF) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, view, matrix, rectF)) == null) ? this.f12067a.a(view, matrix, rectF) : (Parcelable) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, view, matrix, rectF)) == null) ? this.f12075a.a(view, matrix, rectF) : (Parcelable) invokeLLL.objValue;
         }
 
         @Override // c.a.p0.o.a.a.b.a
         public View b(Context context, Parcelable parcelable) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, parcelable)) == null) ? this.f12067a.b(context, parcelable) : (View) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, parcelable)) == null) ? this.f12075a.b(context, parcelable) : (View) invokeLL.objValue;
         }
 
         @Override // c.a.p0.o.a.a.b.a
         public void c(List<String> list, Map<String, View> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, map) == null) {
-                this.f12067a.c(list, map);
+                this.f12075a.c(list, map);
             }
         }
 
@@ -135,7 +135,7 @@ public class a extends c.a.p0.o.a.b.a {
         public void d(List<View> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-                this.f12067a.d(list);
+                this.f12075a.d(list);
             }
         }
 
@@ -143,7 +143,7 @@ public class a extends c.a.p0.o.a.b.a {
         public void e(List<String> list, List<View> list2, List<View> list3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048580, this, list, list2, list3) == null) {
-                this.f12067a.e(list, list2, list3);
+                this.f12075a.e(list, list2, list3);
             }
         }
 
@@ -151,7 +151,7 @@ public class a extends c.a.p0.o.a.b.a {
         public void f(List<String> list, List<View> list2, List<View> list3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048581, this, list, list2, list3) == null) {
-                this.f12067a.f(list, list2, list3);
+                this.f12075a.f(list, list2, list3);
             }
         }
     }

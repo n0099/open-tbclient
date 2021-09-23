@@ -28,13 +28,13 @@ public class h extends j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public d2 f26692h;
+    public d2 f26715h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f26693i;
+    public boolean f26716i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f26694j;
+    public String f26717j;
     public PraiseModel k;
     public final CustomMessageListener l;
 
@@ -44,7 +44,7 @@ public class h extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f26695a;
+        public final /* synthetic */ h f26718a;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -61,19 +61,19 @@ public class h extends j {
                     return;
                 }
             }
-            this.f26695a = hVar;
+            this.f26718a = hVar;
         }
 
         @Override // com.baidu.tieba.tbadkCore.PraiseModel.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (this.f26695a.f26693i) {
+                if (this.f26718a.f26716i) {
                     int i2 = 1;
-                    if (this.f26695a.f26692h != null && this.f26695a.f26692h.L0().getIsLike() == 1) {
+                    if (this.f26718a.f26715h != null && this.f26718a.f26715h.L0().getIsLike() == 1) {
                         i2 = 0;
                     }
-                    this.f26695a.h(i2);
+                    this.f26718a.h(i2);
                 }
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
             }
@@ -83,13 +83,13 @@ public class h extends j {
         public void b(int i2, String str) {
             FrsFragment frsFragment;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (frsFragment = this.f26695a.f26698b) == null || frsFragment.getPageContext() == null || !this.f26695a.f26693i || TextUtils.isEmpty(str)) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (frsFragment = this.f26718a.f26721b) == null || frsFragment.getPageContext() == null || !this.f26718a.f26716i || TextUtils.isEmpty(str)) {
                 return;
             }
             if (AntiHelper.m(i2, str)) {
-                AntiHelper.u(this.f26695a.f26698b.getPageContext().getPageActivity(), str);
+                AntiHelper.u(this.f26718a.f26721b.getPageContext().getPageActivity(), str);
             } else {
-                this.f26695a.f26698b.showToast(str);
+                this.f26718a.f26721b.showToast(str);
             }
         }
     }
@@ -100,7 +100,7 @@ public class h extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f26696a;
+        public final /* synthetic */ h f26719a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(h hVar, int i2) {
@@ -120,7 +120,7 @@ public class h extends j {
                     return;
                 }
             }
-            this.f26696a = hVar;
+            this.f26719a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,11 +129,11 @@ public class h extends j {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof d2)) {
                 d2 d2Var = (d2) customResponsedMessage.getData();
-                this.f26696a.f26694j = d2Var.f0();
-                if (TextUtils.isEmpty(this.f26696a.f26694j) || d2Var.L0() == null) {
+                this.f26719a.f26717j = d2Var.f0();
+                if (TextUtils.isEmpty(this.f26719a.f26717j) || d2Var.L0() == null) {
                     return;
                 }
-                this.f26696a.h(d2Var.L0().getIsLike());
+                this.f26719a.h(d2Var.L0().getIsLike());
             }
         }
     }
@@ -158,7 +158,7 @@ public class h extends j {
         }
         b bVar = new b(this, 2004004);
         this.l = bVar;
-        this.f26698b.registerListener(bVar);
+        this.f26721b.registerListener(bVar);
         this.k = e();
     }
 
@@ -167,7 +167,7 @@ public class h extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.k == null) {
-                this.k = new PraiseModel(this.f26698b.getPageContext(), new a(this));
+                this.k = new PraiseModel(this.f26721b.getPageContext(), new a(this));
             }
             return this.k;
         }
@@ -177,7 +177,7 @@ public class h extends j {
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f26693i = z;
+            this.f26716i = z;
         }
     }
 
@@ -199,7 +199,7 @@ public class h extends j {
                     praiseData.setIsLike(i2);
                     praiseData.setNum(1L);
                     praiseData.getUser().add(0, metaData);
-                    d2Var.m4(praiseData);
+                    d2Var.l4(praiseData);
                     return;
                 }
                 d2Var.L0().getUser().add(0, metaData);
@@ -227,7 +227,7 @@ public class h extends j {
         FrsViewData frsViewData;
         ArrayList<c.a.e.l.e.n> threadList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (frsViewData = this.f26698b.getFrsViewData()) == null || this.f26697a == null || (threadList = frsViewData.getThreadList()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (frsViewData = this.f26721b.getFrsViewData()) == null || this.f26720a == null || (threadList = frsViewData.getThreadList()) == null) {
             return;
         }
         Iterator<c.a.e.l.e.n> it = threadList.iterator();
@@ -238,18 +238,18 @@ public class h extends j {
             c.a.e.l.e.n next = it.next();
             if (next instanceof c2) {
                 d2 d2Var = ((c2) next).w;
-                if (d2Var == this.f26692h) {
+                if (d2Var == this.f26715h) {
                     g(d2Var, i2);
-                    this.f26692h = null;
+                    this.f26715h = null;
                     break;
-                } else if (d2Var.f0() != null && d2Var.f0().equals(this.f26694j)) {
+                } else if (d2Var.f0() != null && d2Var.f0().equals(this.f26717j)) {
                     g(d2Var, i2);
-                    this.f26694j = null;
+                    this.f26717j = null;
                     break;
                 }
             }
         }
-        this.f26697a.W().h(threadList, frsViewData);
-        this.f26697a.W().notifyDataSetChanged();
+        this.f26720a.W().h(threadList, frsViewData);
+        this.f26720a.W().notifyDataSetChanged();
     }
 }

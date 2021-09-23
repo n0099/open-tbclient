@@ -44,15 +44,15 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f17918h;
+    public d f17927h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f17919i;
+    public boolean f17928i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LikeModel f17920j;
+    public LikeModel f17929j;
     public g0 k;
-    public C0872b l;
+    public C0870b l;
     public c.a.q0.s.f0.n.b m;
     public c.a.q0.s.f0.n.b n;
     public TbPageContext<?> o;
@@ -76,20 +76,20 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
 
     /* renamed from: c.a.r0.g1.c.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0872b extends e implements g0.a {
+    public class C0870b extends e implements g0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a f17921a;
+        public d.a f17930a;
 
         /* renamed from: b  reason: collision with root package name */
-        public FollowUserButton f17922b;
+        public FollowUserButton f17931b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f17923c;
+        public final /* synthetic */ b f17932c;
 
-        public C0872b(b bVar) {
+        public C0870b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,14 +104,14 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
                     return;
                 }
             }
-            this.f17923c = bVar;
+            this.f17932c = bVar;
         }
 
         @Override // c.a.r0.j3.g0.a
         public void a(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
-                this.f17923c.f17919i = false;
+                this.f17932c.f17928i = false;
             }
         }
 
@@ -119,9 +119,9 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         public void b(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
-                this.f17923c.f17919i = false;
-                this.f17923c.o(this.f17922b, false);
-                this.f17921a.o(false);
+                this.f17932c.f17928i = false;
+                this.f17932c.o(this.f17931b, false);
+                this.f17930a.o(false);
             }
         }
 
@@ -129,17 +129,17 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.f17923c.f17919i = false;
-                if (this.f17923c.f17920j.getErrorCode() == 22) {
-                    l.M(this.f17923c.o.getPageActivity(), this.f17923c.o.getString(R.string.had_liked_forum));
+                this.f17932c.f17928i = false;
+                if (this.f17932c.f17929j.getErrorCode() == 22) {
+                    l.M(this.f17932c.o.getPageActivity(), this.f17932c.o.getString(R.string.had_liked_forum));
                 } else if (obj == null) {
                 } else {
-                    if (this.f17923c.f17920j.getErrorCode() != 0) {
-                        l.M(this.f17923c.o.getPageActivity(), this.f17923c.f17920j.getErrorString());
+                    if (this.f17932c.f17929j.getErrorCode() != 0) {
+                        l.M(this.f17932c.o.getPageActivity(), this.f17932c.f17929j.getErrorString());
                         return;
                     }
-                    this.f17923c.o(this.f17922b, true);
-                    this.f17921a.o(true);
+                    this.f17932c.o(this.f17931b, true);
+                    this.f17930a.o(true);
                 }
             }
         }
@@ -147,12 +147,12 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         public void d(FollowUserButton followUserButton, d.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, followUserButton, aVar) == null) {
-                this.f17921a = aVar;
-                this.f17922b = followUserButton;
+                this.f17930a = aVar;
+                this.f17931b = followUserButton;
             }
         }
 
-        public /* synthetic */ C0872b(b bVar, a aVar) {
+        public /* synthetic */ C0870b(b bVar, a aVar) {
             this(bVar);
         }
     }
@@ -175,7 +175,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
                 return;
             }
         }
-        this.f17919i = false;
+        this.f17928i = false;
         this.m = new c.a.q0.s.f0.n.b();
         this.n = new c.a.q0.s.f0.n.b();
         this.r = new BarImageView[3];
@@ -197,21 +197,21 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) && (nVar instanceof d)) {
             d dVar = (d) nVar;
-            this.f17918h = dVar;
-            this.q.setText(dVar.f17907e);
+            this.f17927h = dVar;
+            this.q.setText(dVar.f17916e);
             for (int i2 = 0; i2 < 3; i2++) {
-                this.r[i2].startLoad(this.f17918h.f17910h[i2].c(), 10, false);
-                this.t[i2].setText(this.f17918h.f17910h[i2].d());
-                this.w[i2].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_thread, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.f17918h.f17910h[i2].g())}));
-                this.v[i2].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_concern, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.f17918h.f17910h[i2].b())}));
+                this.r[i2].startLoad(this.f17927h.f17919h[i2].c(), 10, false);
+                this.t[i2].setText(this.f17927h.f17919h[i2].d());
+                this.w[i2].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_thread, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.f17927h.f17919h[i2].g())}));
+                this.v[i2].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_concern, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.f17927h.f17919h[i2].b())}));
                 this.x[i2].setTag(Integer.valueOf(i2));
-                o(this.x[i2], this.f17918h.f17910h[i2].n());
-                this.s[i2].setVisibility(this.f17918h.f17908f ? 0 : 8);
-                ((LinearLayout.LayoutParams) this.t[i2].getLayoutParams()).leftMargin = l.g(this.o.getPageActivity(), this.f17918h.f17908f ? R.dimen.tbds15 : R.dimen.tbds0);
-                if (!StringUtils.isNull(this.f17918h.f17910h[i2].l()) && c.a.q0.b.d.J()) {
-                    this.u[i2].setText(this.f17918h.f17910h[i2].l());
-                } else if (!StringUtils.isNull(this.f17918h.f17910h[i2].i()) && c.a.q0.b.d.I()) {
-                    this.u[i2].setText(this.f17918h.f17910h[i2].i());
+                o(this.x[i2], this.f17927h.f17919h[i2].n());
+                this.s[i2].setVisibility(this.f17927h.f17917f ? 0 : 8);
+                ((LinearLayout.LayoutParams) this.t[i2].getLayoutParams()).leftMargin = l.g(this.o.getPageActivity(), this.f17927h.f17917f ? R.dimen.tbds15 : R.dimen.tbds0);
+                if (!StringUtils.isNull(this.f17927h.f17919h[i2].l()) && c.a.q0.b.d.L()) {
+                    this.u[i2].setText(this.f17927h.f17919h[i2].l());
+                } else if (!StringUtils.isNull(this.f17927h.f17919h[i2].i()) && c.a.q0.b.d.K()) {
+                    this.u[i2].setText(this.f17927h.f17919h[i2].i());
                 } else {
                     this.u[i2].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_desc));
                 }
@@ -221,7 +221,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
 
     public final void h(d.a aVar, FollowUserButton followUserButton) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, followUserButton) == null) || this.f17919i) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, followUserButton) == null) || this.f17928i) {
             return;
         }
         if (!l.D()) {
@@ -229,25 +229,25 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         } else if (aVar == null || StringUtils.isNull(aVar.d()) || aVar.h() <= 0 || !ViewHelper.checkUpIsLogin(this.o.getPageActivity())) {
         } else {
             if (this.l == null) {
-                this.l = new C0872b(this, null);
+                this.l = new C0870b(this, null);
             }
-            if (this.f17920j == null) {
+            if (this.f17929j == null) {
                 LikeModel likeModel = new LikeModel(this.o);
-                this.f17920j = likeModel;
+                this.f17929j = likeModel;
                 likeModel.setLoadDataCallBack(this.l);
             }
             this.l.d(followUserButton, aVar);
             if (k.isForumName(aVar.d())) {
-                this.f17919i = true;
-                this.f17920j.I();
-                this.f17920j.L(aVar.d(), String.valueOf(aVar.h()));
+                this.f17928i = true;
+                this.f17929j.I();
+                this.f17929j.L(aVar.d(), String.valueOf(aVar.h()));
             }
         }
     }
 
     public final void i(d.a aVar, FollowUserButton followUserButton) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, followUserButton) == null) || this.f17919i) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, followUserButton) == null) || this.f17928i) {
             return;
         }
         if (!l.D()) {
@@ -255,7 +255,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         } else if (aVar == null || StringUtils.isNull(aVar.d()) || aVar.h() <= 0 || !ViewHelper.checkUpIsLogin(this.o.getPageActivity())) {
         } else {
             if (this.l == null) {
-                this.l = new C0872b(this, null);
+                this.l = new C0870b(this, null);
             }
             if (this.k == null) {
                 g0 g0Var = new g0();
@@ -263,7 +263,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
                 g0Var.b(this.l);
             }
             this.l.d(followUserButton, aVar);
-            this.f17919i = true;
+            this.f17928i = true;
             this.k.c(aVar.d(), aVar.h());
         }
     }
@@ -271,7 +271,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
     public d j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17918h : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17927h : (d) invokeV.objValue;
     }
 
     public final void k(View view) {
@@ -313,10 +313,10 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
 
     public void l(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || this.f48048e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || this.f48156e == i2) {
             return;
         }
-        this.f48048e = i2;
+        this.f48156e = i2;
         SkinManager.setViewTextColor(this.q, R.color.CAM_X0108);
         for (int i3 = 0; i3 < 3; i3++) {
             if (this.s[i3].getVisibility() == 0) {
@@ -340,16 +340,16 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
 
     public void n(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f17918h == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f17927h == null) {
             return;
         }
         if (z) {
             o(this.x[i2], true);
-            this.f17918h.f17910h[i2].o(true);
+            this.f17927h.f17919h[i2].o(true);
             return;
         }
         o(this.x[i2], false);
-        this.f17918h.f17910h[i2].o(false);
+        this.f17927h.f17919h[i2].o(false);
     }
 
     public final void o(FollowUserButton followUserButton, boolean z) {
@@ -365,12 +365,12 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, view) == null) || this.f17918h == null || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, view) == null) || this.f17927h == null || view == null) {
             return;
         }
         int id = view.getId();
         int intValue = ((Integer) view.getTag()).intValue();
-        d.a aVar = this.f17918h.f17910h[intValue];
+        d.a aVar = this.f17927h.f17919h[intValue];
         if (view instanceof TBSpecificationBtn) {
             if (aVar.n()) {
                 i(aVar, this.x[intValue]);
@@ -378,13 +378,13 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
             }
             h(aVar, this.x[intValue]);
             StatisticItem param = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_BAR_CONCERN).param("fid", aVar.h()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.p);
-            if (!StringUtils.isNull(this.f17918h.f17907e)) {
-                param = param.param("obj_name", this.f17918h.f17907e);
+            if (!StringUtils.isNull(this.f17927h.f17916e)) {
+                param = param.param("obj_name", this.f17927h.f17916e);
             }
             TiebaStatic.log(param);
         } else if (id == R.id.recommend_bar_info_1 || id == R.id.recommend_bar_info_2 || id == R.id.recommend_bar_info_3) {
             FrsActivityConfig callFrom = new FrsActivityConfig(this.o.getPageActivity()).createNormalCfg(aVar.d(), FrsActivityConfig.FRS_FROM_RECOMMEND_BAR_CAR).setCallFrom(3);
-            if (c.a.q0.b.d.I()) {
+            if (c.a.q0.b.d.K()) {
                 Intent intent = callFrom.getIntent();
                 if (aVar.k() != 0 && intent != null) {
                     intent.putExtra("transition_type", 0);
@@ -393,8 +393,8 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
             }
             this.o.sendMessage(new CustomMessage(2003000, callFrom));
             StatisticItem param2 = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_BAR_FORUM).param("fid", aVar.h()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.p);
-            if (!StringUtils.isNull(this.f17918h.f17907e)) {
-                param2 = param2.param("obj_name", this.f17918h.f17907e);
+            if (!StringUtils.isNull(this.f17927h.f17916e)) {
+                param2 = param2.param("obj_name", this.f17927h.f17916e);
             }
             TiebaStatic.log(param2);
         }

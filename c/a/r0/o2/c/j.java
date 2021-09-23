@@ -22,7 +22,7 @@ public class j extends c.a.e.l.e.a<c.a.r0.o2.e.j, CardViewHolder<c.a.r0.o2.j.h>>
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), c.a.r0.o2.e.j.f23220f, bdUniqueId);
+        super(tbPageContext.getPageActivity(), c.a.r0.o2.e.j.f23236f, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

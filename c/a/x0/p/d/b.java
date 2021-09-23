@@ -26,10 +26,10 @@ public class b extends c.a.x0.p.d.a implements IDataSourceView.IPlayerDataSource
     public int E;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f31011i;
+    public int f31032i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f31012j;
+    public int f31033j;
     public int k;
     public int l;
     public int m;
@@ -62,7 +62,7 @@ public class b extends c.a.x0.p.d.a implements IDataSourceView.IPlayerDataSource
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             float x = motionEvent.getX();
             float y = motionEvent.getY();
-            int i4 = this.f31012j;
+            int i4 = this.f31033j;
             int i5 = this.k;
             int i6 = (this.D ? this.l : this.n) + i4;
             if (this.D) {
@@ -253,7 +253,7 @@ public class b extends c.a.x0.p.d.a implements IDataSourceView.IPlayerDataSource
         if (!(interceptable == null || interceptable.invokeII(1048594, this, i2, i3) == null) || i2 == 0 || i3 == 0) {
             return;
         }
-        int i6 = this.f31011i;
+        int i6 = this.f31032i;
         if (i6 == 90 || i6 == 270) {
             i3 = i2;
             i2 = i3;

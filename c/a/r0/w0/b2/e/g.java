@@ -40,7 +40,7 @@ public class g extends k<c.a.r0.w0.b2.g.e, ThreadCardViewHolder<c.a.r0.w0.b2.g.e
             }
         }
         this.o = tbPageContext;
-        this.f2961i = bdUniqueId2;
+        this.f2962i = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +59,7 @@ public class g extends k<c.a.r0.w0.b2.g.e, ThreadCardViewHolder<c.a.r0.w0.b2.g.e
             bVar.l().h(0);
             bVar.l().g(0);
             ThreadCardViewHolder<c.a.r0.w0.b2.g.e> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.q));
-            threadCardViewHolder.setPageId(this.f2961i);
+            threadCardViewHolder.setPageId(this.f2962i);
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;

@@ -13,13 +13,13 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17470a;
+    public int f17480a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f17471b;
+    public TbPageContext f17481b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f17472c;
+    public b f17482c;
 
     public g(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
@@ -36,26 +36,26 @@ public class g {
                 return;
             }
         }
-        this.f17471b = tbPageContext;
-        this.f17470a = i2;
+        this.f17481b = tbPageContext;
+        this.f17480a = i2;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17470a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17480a : invokeV.intValue;
     }
 
     public TbPageContext b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17471b : (TbPageContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17481b : (TbPageContext) invokeV.objValue;
     }
 
     public b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17472c : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17482c : (b) invokeV.objValue;
     }
 
     public g(b bVar, int i2) {
@@ -73,7 +73,7 @@ public class g {
                 return;
             }
         }
-        this.f17472c = bVar;
-        this.f17470a = i2;
+        this.f17482c = bVar;
+        this.f17480a = i2;
     }
 }

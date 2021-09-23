@@ -14,7 +14,7 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f22073a;
+    public List<a> f22087a;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -22,13 +22,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f22074a;
+        public String f22088a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f22075b;
+        public long f22089b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f22076c;
+        public boolean f22090c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,11 +49,11 @@ public class f {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, ucCardInfo) == null) || ucCardInfo == null) {
                 return;
             }
-            this.f22074a = ucCardInfo.title;
+            this.f22088a = ucCardInfo.title;
             String str = ucCardInfo.pic;
             String str2 = ucCardInfo.jmp;
             String str3 = ucCardInfo.tip;
-            this.f22075b = ucCardInfo.st.intValue();
+            this.f22089b = ucCardInfo.st.intValue();
         }
     }
 
@@ -80,14 +80,14 @@ public class f {
         String str2 = ucCard.icon;
         String str3 = ucCard.doc;
         String str4 = ucCard.jmp;
-        this.f22073a = new ArrayList();
+        this.f22087a = new ArrayList();
         List<UcCardInfo> list = ucCard.uc_cards;
         if (list != null) {
             for (UcCardInfo ucCardInfo : list) {
                 if (ucCardInfo != null) {
                     a aVar = new a();
                     aVar.a(ucCardInfo);
-                    this.f22073a.add(aVar);
+                    this.f22087a.add(aVar);
                 }
             }
         }

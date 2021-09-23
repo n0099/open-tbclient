@@ -19,15 +19,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f36055a = "00:00:00:00:00:00";
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f36089b = "00:00:00:00:00:00";
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f36056c;
+    public static a f36090c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f36057b;
+    /* renamed from: a  reason: collision with root package name */
+    public String f36091a;
 
     static {
         InterceptResult invokeClinit;
@@ -62,93 +62,41 @@ public class a {
         try {
             try {
                 String macAddress = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
-                this.f36057b = macAddress;
+                this.f36091a = macAddress;
                 if (!TextUtils.isEmpty(macAddress)) {
                     return;
                 }
             } catch (Exception e2) {
                 c.a(e2);
-                if (!TextUtils.isEmpty(this.f36057b)) {
+                if (!TextUtils.isEmpty(this.f36091a)) {
                     return;
                 }
             }
-            this.f36057b = f36055a;
+            this.f36091a = f36089b;
         } catch (Throwable th) {
-            if (TextUtils.isEmpty(this.f36057b)) {
-                this.f36057b = f36055a;
+            if (TextUtils.isEmpty(this.f36091a)) {
+                this.f36091a = f36089b;
             }
             throw th;
         }
     }
 
-    public static a a(Context context) {
+    public static a b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f36056c == null) {
-                f36056c = new a(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (f36090c == null) {
+                f36090c = new a(context);
             }
-            return f36056c;
+            return f36090c;
         }
         return (a) invokeL.objValue;
     }
 
-    public static d b(Context context) {
+    public static String c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
-                if (activeNetworkInfo != null && activeNetworkInfo.getType() == 0) {
-                    return d.a(activeNetworkInfo.getSubtype());
-                }
-                if (activeNetworkInfo != null && activeNetworkInfo.getType() == 1) {
-                    return d.f36060a;
-                }
-                return d.p;
-            } catch (Exception unused) {
-                return d.p;
-            }
-        }
-        return (d) invokeL.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "000000000000000" : (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "000000000000000" : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = b() + "|";
-            String a2 = a();
-            if (TextUtils.isEmpty(a2)) {
-                return str + "000000000000000";
-            }
-            return str + a2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36057b : (String) invokeV.objValue;
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (context == null) {
                 return "";
             }
@@ -161,9 +109,61 @@ public class a {
         return (String) invokeL.objValue;
     }
 
-    public static String c(Context context) {
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = b() + "|";
+            String c2 = c();
+            if (TextUtils.isEmpty(c2)) {
+                return str + "000000000000000";
+            }
+            return str + c2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "000000000000000" : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "000000000000000" : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36091a : (String) invokeV.objValue;
+    }
+
+    public static e d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? a(context).c().substring(0, 8) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+            try {
+                NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
+                if (activeNetworkInfo != null && activeNetworkInfo.getType() == 0) {
+                    return e.a(activeNetworkInfo.getSubtype());
+                }
+                if (activeNetworkInfo != null && activeNetworkInfo.getType() == 1) {
+                    return e.f36095c;
+                }
+                return e.r;
+            } catch (Exception unused) {
+                return e.r;
+            }
+        }
+        return (e) invokeL.objValue;
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? b(context).a().substring(0, 8) : (String) invokeL.objValue;
     }
 }

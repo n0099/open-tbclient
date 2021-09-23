@@ -13,19 +13,19 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f13740a = null;
+    public static a f13736a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f13741b = 0;
+    public static int f13737b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f13742c = 0;
+    public static int f13738c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f13743d = 0;
+    public static int f13739d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f13744e = 1;
+    public static int f13740e = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            a aVar = f13740a;
+            a aVar = f13736a;
             if (aVar == null) {
                 return -1;
             }
@@ -60,7 +60,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            a aVar = f13740a;
+            a aVar = f13736a;
             if (aVar == null) {
                 return null;
             }
@@ -73,7 +73,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            a aVar = f13740a;
+            a aVar = f13736a;
             if (aVar == null) {
                 return null;
             }
@@ -85,7 +85,7 @@ public class b {
     public static void d(Context context) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || (aVar = f13740a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || (aVar = f13736a) == null) {
             return;
         }
         aVar.a(context);
@@ -94,7 +94,7 @@ public class b {
     public static void e(Context context, int i2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, context, i2) == null) || (aVar = f13740a) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, context, i2) == null) || (aVar = f13736a) == null) {
             return;
         }
         aVar.b(context, i2);
@@ -103,7 +103,7 @@ public class b {
     public static void f(Context context, int i2, boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = f13740a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = f13736a) == null) {
             return;
         }
         aVar.c(context, i2, z);
@@ -112,7 +112,7 @@ public class b {
     public static void g(Context context, int i2, boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = f13740a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = f13736a) == null) {
             return;
         }
         aVar.e(context, i2, z);
@@ -121,7 +121,7 @@ public class b {
     public static void h(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, aVar) == null) {
-            f13740a = aVar;
+            f13736a = aVar;
         }
     }
 }

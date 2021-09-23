@@ -18,7 +18,7 @@ public class b extends c.a.p0.a.h0.o.h.g.a implements c.a.p0.a.h0.o.h.e.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.a.h0.o.h.d.b.a f6308e;
+    public c.a.p0.a.h0.o.h.d.b.a f6316e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(@NonNull Context context, c.a.p0.a.h0.o.h.c.a aVar) {
@@ -39,7 +39,7 @@ public class b extends c.a.p0.a.h0.o.h.g.a implements c.a.p0.a.h0.o.h.e.a {
                 return;
             }
         }
-        this.f6308e = c.a.p0.a.h0.o.h.d.a.a().f();
+        this.f6316e = c.a.p0.a.h0.o.h.d.a.a().f();
     }
 
     @Override // c.a.p0.a.h0.o.h.g.a
@@ -61,7 +61,7 @@ public class b extends c.a.p0.a.h0.o.h.g.a implements c.a.p0.a.h0.o.h.e.a {
             String f2 = c.a.p0.a.l2.b.l().f(e(gVar.d()), requestHeaders.get("Cookie"));
             if (!TextUtils.isEmpty(f2)) {
                 requestHeaders.put("Cookie", f2);
-                if (c.a.p0.a.h0.o.h.e.a.f6322a) {
+                if (c.a.p0.a.h0.o.h.e.a.f6330a) {
                     String str = "addCookiesToHeader cookie: " + f2;
                 }
             }
@@ -78,7 +78,7 @@ public class b extends c.a.p0.a.h0.o.h.g.a implements c.a.p0.a.h0.o.h.e.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar)) == null) {
             if (gVar.c()) {
-                return this.f6308e.a(gVar) && (requestHeaders = gVar.getRequestHeaders()) != null && requestHeaders.containsKey("Accept") && (str = requestHeaders.get("Accept")) != null && str.startsWith("image");
+                return this.f6316e.a(gVar) && (requestHeaders = gVar.getRequestHeaders()) != null && requestHeaders.containsKey("Accept") && (str = requestHeaders.get("Accept")) != null && str.startsWith("image");
             }
             return true;
         }

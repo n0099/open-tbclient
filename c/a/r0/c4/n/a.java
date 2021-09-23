@@ -13,7 +13,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f16793a;
+    public b f16803a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -28,19 +28,19 @@ public class a {
                 return;
             }
         }
-        this.f16793a = null;
+        this.f16803a = null;
     }
 
     public b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16793a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16803a : (b) invokeV.objValue;
     }
 
     public void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f16793a = bVar;
+            this.f16803a = bVar;
         }
     }
 }

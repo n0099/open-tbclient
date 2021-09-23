@@ -24,14 +24,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f9709c;
+    public static final boolean f9717c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, Object> f9710a;
+    public Map<String, Object> f9718a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Integer> f9711b;
+    public Map<String, Integer> f9719b;
 
     /* renamed from: c.a.p0.a.y.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -180,7 +180,7 @@ public class a {
                 return;
             }
         }
-        f9709c = k.f7077a;
+        f9717c = k.f7085a;
     }
 
     public a() {
@@ -202,7 +202,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jsObject)) == null) {
             if (jsObject == null) {
-                boolean z = f9709c;
+                boolean z = f9717c;
                 return null;
             }
             a aVar = new a();
@@ -261,7 +261,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jsObjectArr)) == null) {
             b d2 = C0458a.d(f().get(str));
-            return d2 != null ? d2.f9713b.toObjectArray(d2.f9712a) : jsObjectArr;
+            return d2 != null ? d2.f9721b.toObjectArray(d2.f9720a) : jsObjectArr;
         }
         return (JsObject[]) invokeLL.objValue;
     }
@@ -293,7 +293,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, strArr)) == null) {
             b d2 = C0458a.d(f().get(str));
-            return d2 != null ? d2.f9713b.toStringArray(d2.f9712a) : strArr;
+            return d2 != null ? d2.f9721b.toStringArray(d2.f9720a) : strArr;
         }
         return (String[]) invokeLL.objValue;
     }
@@ -350,7 +350,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
             b d2 = C0458a.d(f().get(str));
             if (d2 != null) {
-                return d2.f9713b.toObjectArray(d2.f9712a);
+                return d2.f9721b.toObjectArray(d2.f9720a);
             }
             throw C0458a.j(this, str, 6);
         }
@@ -361,10 +361,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f9710a == null) {
-                this.f9710a = new TreeMap();
+            if (this.f9718a == null) {
+                this.f9718a = new TreeMap();
             }
-            return this.f9710a;
+            return this.f9718a;
         }
         return (Map) invokeV.objValue;
     }
@@ -388,7 +388,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
             b d2 = C0458a.d(f().get(str));
             if (d2 != null) {
-                return d2.f9713b.toStringArray(d2.f9712a);
+                return d2.f9721b.toStringArray(d2.f9720a);
             }
             throw C0458a.j(this, str, 6);
         }
@@ -412,10 +412,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.f9711b == null) {
-                this.f9711b = new TreeMap();
+            if (this.f9719b == null) {
+                this.f9719b = new TreeMap();
             }
-            return this.f9711b;
+            return this.f9719b;
         }
         return (Map) invokeV.objValue;
     }
@@ -469,7 +469,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, str, dArr)) == null) {
             b d2 = C0458a.d(f().get(str));
-            return d2 != null ? d2.f9713b.toDoubleArray(d2.f9712a) : dArr;
+            return d2 != null ? d2.f9721b.toDoubleArray(d2.f9720a) : dArr;
         }
         return (double[]) invokeLL.objValue;
     }

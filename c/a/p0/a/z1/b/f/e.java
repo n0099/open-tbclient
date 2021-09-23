@@ -32,34 +32,34 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10061a;
+    public Context f10069a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f10062b;
+    public CharSequence f10070b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CharSequence f10063c;
+    public CharSequence f10071c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CharSequence f10064d;
+    public CharSequence f10072d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f10065e;
+    public Drawable f10073e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f10066f;
+    public Drawable f10074f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Uri f10067g;
+    public Uri f10075g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f10068h;
+    public int f10076h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f10069i;
+    public int f10077i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c f10070j;
+    public c f10078j;
     public int k;
     public b l;
     public boolean m;
@@ -76,7 +76,7 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f10071a;
+        public static final /* synthetic */ int[] f10079a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -93,21 +93,21 @@ public class e {
                 }
             }
             int[] iArr = new int[ToastTemplate.values().length];
-            f10071a = iArr;
+            f10079a = iArr;
             try {
                 iArr[ToastTemplate.T1.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f10071a[ToastTemplate.T2.ordinal()] = 2;
+                f10079a[ToastTemplate.T2.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f10071a[ToastTemplate.T3.ordinal()] = 3;
+                f10079a[ToastTemplate.T3.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f10071a[ToastTemplate.T4.ordinal()] = 4;
+                f10079a[ToastTemplate.T4.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -136,7 +136,7 @@ public class e {
                 return;
             }
         }
-        u = k.f7077a;
+        u = k.f7085a;
     }
 
     public e(Context context) {
@@ -159,8 +159,8 @@ public class e {
         this.r = ToastLocation.MIDDLE;
         this.s = ToastTemplate.T1;
         this.t = false;
-        this.f10061a = context;
-        this.f10068h = 2;
+        this.f10069a = context;
+        this.f10076h = 2;
     }
 
     public static void a() {
@@ -194,7 +194,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, context, i2)) == null) {
             e eVar = new e(context);
-            eVar.f10062b = context.getText(i2);
+            eVar.f10070b = context.getText(i2);
             return eVar;
         }
         return (e) invokeLI.objValue;
@@ -205,7 +205,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, charSequence)) == null) {
             e eVar = new e(context);
-            eVar.f10062b = charSequence;
+            eVar.f10070b = charSequence;
             return eVar;
         }
         return (e) invokeLL.objValue;
@@ -223,13 +223,13 @@ public class e {
         if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && b()) {
             a();
             if (!z) {
-                Context context = this.f10061a;
+                Context context = this.f10069a;
                 if (context instanceof Activity) {
-                    f.n((Activity) context, this.f10062b, this.f10065e, this.n, this.f10068h, this.m);
+                    f.n((Activity) context, this.f10070b, this.f10073e, this.n, this.f10076h, this.m);
                     return;
                 }
             }
-            c.a.p0.a.z1.b.f.a.j(this.f10061a, this.f10062b, this.f10065e, this.n, this.f10068h, this.m);
+            c.a.p0.a.z1.b.f.a.j(this.f10069a, this.f10070b, this.f10073e, this.n, this.f10076h, this.m);
         }
     }
 
@@ -247,8 +247,8 @@ public class e {
         if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && b()) {
             a();
             if (z) {
-                x(this.f10061a, this.f10063c);
-            } else if (this.f10061a instanceof Activity) {
+                x(this.f10069a, this.f10071c);
+            } else if (this.f10069a instanceof Activity) {
                 b bVar = this.l;
                 if (bVar != null) {
                     f.l(bVar);
@@ -259,24 +259,24 @@ public class e {
                 } else {
                     this.o = ToastRightAreaStyle.BUTTON;
                 }
-                if (TextUtils.isEmpty(this.f10064d)) {
-                    f.o((Activity) this.f10061a, null, null, null, this.f10062b, null, this.f10068h, this.r, this.f10070j, this.m);
+                if (TextUtils.isEmpty(this.f10072d)) {
+                    f.o((Activity) this.f10069a, null, null, null, this.f10070b, null, this.f10076h, this.r, this.f10078j, this.m);
                     return;
                 }
-                CharSequence charSequence = this.f10063c;
-                CharSequence charSequence2 = this.f10062b;
-                if (TextUtils.isEmpty(charSequence) && !TextUtils.isEmpty(this.f10062b)) {
-                    charSequence = this.f10062b;
+                CharSequence charSequence = this.f10071c;
+                CharSequence charSequence2 = this.f10070b;
+                if (TextUtils.isEmpty(charSequence) && !TextUtils.isEmpty(this.f10070b)) {
+                    charSequence = this.f10070b;
                     charSequence2 = "";
                 }
-                f.p((Activity) this.f10061a, this.f10067g, null, null, charSequence, charSequence2, this.f10064d, this.o, this.f10068h, false, this.f10070j);
+                f.p((Activity) this.f10069a, this.f10075g, null, null, charSequence, charSequence2, this.f10072d, this.o, this.f10076h, false, this.f10078j);
             } else {
                 b bVar2 = this.l;
                 if (bVar2 != null) {
                     c.a.p0.a.z1.b.f.a.f(bVar2);
                     this.l = null;
                 }
-                x(this.f10061a, this.f10063c);
+                x(this.f10069a, this.f10071c);
             }
         }
     }
@@ -285,7 +285,7 @@ public class e {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && b()) {
             a();
-            c.a.p0.a.z1.b.f.a.h(this.f10061a, this.f10062b, this.f10068h, false, this.f10069i, this.m);
+            c.a.p0.a.z1.b.f.a.h(this.f10069a, this.f10070b, this.f10076h, false, this.f10077i, this.m);
         }
     }
 
@@ -300,7 +300,7 @@ public class e {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && b()) {
             a();
-            if (!z && (this.f10061a instanceof Activity)) {
+            if (!z && (this.f10069a instanceof Activity)) {
                 if (u) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("给View set 的mOnDismissListener是不是空?");
@@ -312,7 +312,7 @@ public class e {
                     f.l(bVar);
                     this.l = null;
                 }
-                f.o((Activity) this.f10061a, null, null, null, this.f10062b, null, this.f10068h, this.r, this.f10070j, this.m);
+                f.o((Activity) this.f10069a, null, null, null, this.f10070b, null, this.f10076h, this.r, this.f10078j, this.m);
                 return;
             }
             b bVar2 = this.l;
@@ -320,7 +320,7 @@ public class e {
                 c.a.p0.a.z1.b.f.a.f(bVar2);
                 this.l = null;
             }
-            x(this.f10061a, this.f10062b);
+            x(this.f10069a, this.f10070b);
         }
     }
 
@@ -336,13 +336,13 @@ public class e {
         if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && b()) {
             a();
             if (!z) {
-                Context context = this.f10061a;
+                Context context = this.f10069a;
                 if (context instanceof Activity) {
-                    f.o((Activity) context, null, null, null, this.f10062b, null, this.f10068h, ToastLocation.BOTTOM, this.f10070j, this.m);
+                    f.o((Activity) context, null, null, null, this.f10070b, null, this.f10076h, ToastLocation.BOTTOM, this.f10078j, this.m);
                     return;
                 }
             }
-            x(this.f10061a, this.f10062b);
+            x(this.f10069a, this.f10070b);
         }
     }
 
@@ -350,12 +350,12 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f10061a == null) {
+            if (this.f10069a == null) {
                 if (u) {
                     throw new IllegalArgumentException("UniversalToast mContext is null!!!");
                 }
                 return false;
-            } else if (this.f10062b == null) {
+            } else if (this.f10070b == null) {
                 if (u) {
                     throw new IllegalArgumentException("UniversalToast toast text is null!!!");
                 }
@@ -395,7 +395,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, charSequence)) == null) {
-            this.f10064d = charSequence;
+            this.f10072d = charSequence;
             return this;
         }
         return (e) invokeL.objValue;
@@ -405,7 +405,7 @@ public class e {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-            this.f10068h = Math.max(i2, 1);
+            this.f10076h = Math.max(i2, 1);
             return this;
         }
         return (e) invokeI.objValue;
@@ -415,9 +415,9 @@ public class e {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            Context context = this.f10061a;
+            Context context = this.f10069a;
             if (context != null && context.getResources() != null) {
-                this.f10065e = this.f10061a.getResources().getDrawable(i2);
+                this.f10073e = this.f10069a.getResources().getDrawable(i2);
             }
             return this;
         }
@@ -428,7 +428,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, drawable)) == null) {
-            this.f10065e = drawable;
+            this.f10073e = drawable;
             return this;
         }
         return (e) invokeL.objValue;
@@ -438,7 +438,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, uri)) == null) {
-            this.f10067g = uri;
+            this.f10075g = uri;
             return this;
         }
         return (e) invokeL.objValue;
@@ -448,7 +448,7 @@ public class e {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
-            this.f10069i = i2;
+            this.f10077i = i2;
             return this;
         }
         return (e) invokeI.objValue;
@@ -458,7 +458,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, charSequence)) == null) {
-            this.f10062b = charSequence;
+            this.f10070b = charSequence;
             return this;
         }
         return (e) invokeL.objValue;
@@ -478,7 +478,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, charSequence)) == null) {
-            this.f10063c = charSequence;
+            this.f10071c = charSequence;
             return this;
         }
         return (e) invokeL.objValue;
@@ -488,7 +488,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, cVar)) == null) {
-            this.f10070j = cVar;
+            this.f10078j = cVar;
             return this;
         }
         return (e) invokeL.objValue;
@@ -497,45 +497,45 @@ public class e {
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            if (this.f10061a != null && (!TextUtils.isEmpty(this.f10062b) || !TextUtils.isEmpty(this.f10063c))) {
+            if (this.f10069a != null && (!TextUtils.isEmpty(this.f10070b) || !TextUtils.isEmpty(this.f10071c))) {
                 a();
-                if (this.f10061a instanceof Activity) {
-                    int i2 = a.f10071a[this.s.ordinal()];
+                if (this.f10069a instanceof Activity) {
+                    int i2 = a.f10079a[this.s.ordinal()];
                     if (i2 == 2) {
-                        if (TextUtils.isEmpty(this.f10062b)) {
+                        if (TextUtils.isEmpty(this.f10070b)) {
                             return;
                         }
-                        f.o((Activity) this.f10061a, this.f10067g, this.f10066f, this.n, this.f10062b, this.q, this.f10068h, this.r, this.f10070j, this.m);
+                        f.o((Activity) this.f10069a, this.f10075g, this.f10074f, this.n, this.f10070b, this.q, this.f10076h, this.r, this.f10078j, this.m);
                         return;
                     } else if (i2 == 3) {
-                        if (TextUtils.isEmpty(this.q) && !TextUtils.isEmpty(this.f10062b)) {
-                            f.o((Activity) this.f10061a, this.f10067g, this.f10066f, this.n, this.f10062b, this.q, this.f10068h, this.r, this.f10070j, this.m);
+                        if (TextUtils.isEmpty(this.q) && !TextUtils.isEmpty(this.f10070b)) {
+                            f.o((Activity) this.f10069a, this.f10075g, this.f10074f, this.n, this.f10070b, this.q, this.f10076h, this.r, this.f10078j, this.m);
                             return;
-                        } else if (TextUtils.isEmpty(this.f10063c)) {
+                        } else if (TextUtils.isEmpty(this.f10071c)) {
                             return;
                         } else {
-                            f.p((Activity) this.f10061a, this.f10067g, this.f10066f, this.n, this.f10063c, this.p, this.q, this.o, this.f10068h, this.t, this.f10070j);
+                            f.p((Activity) this.f10069a, this.f10075g, this.f10074f, this.n, this.f10071c, this.p, this.q, this.o, this.f10076h, this.t, this.f10078j);
                             return;
                         }
                     } else if (i2 != 4) {
-                        if (TextUtils.isEmpty(this.f10062b)) {
+                        if (TextUtils.isEmpty(this.f10070b)) {
                             return;
                         }
-                        f.o((Activity) this.f10061a, null, null, null, this.f10062b, null, this.f10068h, this.r, null, this.m);
+                        f.o((Activity) this.f10069a, null, null, null, this.f10070b, null, this.f10076h, this.r, null, this.m);
                         return;
-                    } else if (TextUtils.isEmpty(this.f10062b)) {
+                    } else if (TextUtils.isEmpty(this.f10070b)) {
                         return;
                     } else {
-                        f.n((Activity) this.f10061a, this.f10062b, this.f10065e, this.n, this.f10068h, this.m);
+                        f.n((Activity) this.f10069a, this.f10070b, this.f10073e, this.n, this.f10076h, this.m);
                         return;
                     }
-                } else if (a.f10071a[this.s.ordinal()] != 4) {
-                    x(this.f10061a, TextUtils.isEmpty(this.f10062b) ? this.f10063c : this.f10062b);
+                } else if (a.f10079a[this.s.ordinal()] != 4) {
+                    x(this.f10069a, TextUtils.isEmpty(this.f10070b) ? this.f10071c : this.f10070b);
                     return;
-                } else if (TextUtils.isEmpty(this.f10062b)) {
+                } else if (TextUtils.isEmpty(this.f10070b)) {
                     return;
                 } else {
-                    c.a.p0.a.z1.b.f.a.j(this.f10061a, this.f10062b, this.f10065e, this.n, this.f10068h, this.m);
+                    c.a.p0.a.z1.b.f.a.j(this.f10069a, this.f10070b, this.f10073e, this.n, this.f10076h, this.m);
                     return;
                 }
             }
@@ -556,16 +556,16 @@ public class e {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && b()) {
             a();
-            if (!z && (this.f10061a instanceof Activity)) {
+            if (!z && (this.f10069a instanceof Activity)) {
                 b bVar = this.l;
                 if (bVar != null) {
                     f.l(bVar);
                     this.l = null;
                 }
-                if (TextUtils.isEmpty(this.f10064d)) {
-                    this.f10064d = c.a.p0.a.c1.a.b().getResources().getText(h.aiapps_check_action_text);
+                if (TextUtils.isEmpty(this.f10072d)) {
+                    this.f10072d = c.a.p0.a.c1.a.b().getResources().getText(h.aiapps_check_action_text);
                 }
-                f.o((Activity) this.f10061a, null, null, null, this.f10062b, this.f10064d, this.f10068h, ToastLocation.BOTTOM, this.f10070j, this.m);
+                f.o((Activity) this.f10069a, null, null, null, this.f10070b, this.f10072d, this.f10076h, ToastLocation.BOTTOM, this.f10078j, this.m);
                 return;
             }
             b bVar2 = this.l;
@@ -573,7 +573,7 @@ public class e {
                 c.a.p0.a.z1.b.f.a.f(bVar2);
                 this.l = null;
             }
-            x(this.f10061a, this.f10062b);
+            x(this.f10069a, this.f10070b);
         }
     }
 
@@ -582,7 +582,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeLL(1048602, this, context, charSequence) == null) || TextUtils.isEmpty(charSequence)) {
             return;
         }
-        c.a.p0.a.z1.b.f.a.k(context, null, null, null, charSequence, null, this.f10068h, this.r, null, this.m);
+        c.a.p0.a.z1.b.f.a.k(context, null, null, null, charSequence, null, this.f10076h, this.r, null, this.m);
     }
 
     public void y() {
@@ -597,13 +597,13 @@ public class e {
         if ((interceptable == null || interceptable.invokeZ(1048604, this, z) == null) && b()) {
             a();
             if (!z) {
-                Context context = this.f10061a;
+                Context context = this.f10069a;
                 if (context instanceof Activity) {
-                    f.m((Activity) context, this.f10062b, this.f10068h, this.m);
+                    f.m((Activity) context, this.f10070b, this.f10076h, this.m);
                     return;
                 }
             }
-            c.a.p0.a.z1.b.f.a.i(this.f10061a, this.f10062b, this.f10068h, this.m);
+            c.a.p0.a.z1.b.f.a.i(this.f10069a, this.f10070b, this.f10076h, this.m);
         }
     }
 }

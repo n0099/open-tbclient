@@ -20,7 +20,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6273a;
+    public static final boolean f6281a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class b {
                 return;
             }
         }
-        f6273a = k.f7077a;
+        f6281a = k.f7085a;
     }
 
     public static String a(String str) {
@@ -107,7 +107,7 @@ public class b {
             if (gVar == null || TextUtils.isEmpty(gVar.o)) {
                 return false;
             }
-            return h(new File(gVar.f11879a), new File(e.C0114e.i(gVar.o, String.valueOf(gVar.f11887i)).getPath(), gVar.p));
+            return h(new File(gVar.f11887a), new File(e.C0114e.i(gVar.o, String.valueOf(gVar.f11895i)).getPath(), gVar.p));
         }
         return invokeL.booleanValue;
     }
@@ -119,23 +119,23 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, file, file2)) == null) {
             if (file != null && file2 != null) {
                 if (!file.exists()) {
-                    boolean z = f6273a;
+                    boolean z = f6281a;
                     return false;
                 } else if (!file2.exists() && !file2.mkdirs()) {
-                    boolean z2 = f6273a;
+                    boolean z2 = f6281a;
                     return false;
                 } else {
                     a.b i2 = c.a.p0.a.a1.h.a.i(file);
-                    int i3 = i2.f4523b;
+                    int i3 = i2.f4531b;
                     if (i3 != -1) {
-                        T = c.a.p0.a.a1.h.a.c(i2.f4522a, file2, i3).f4520a;
+                        T = c.a.p0.a.a1.h.a.c(i2.f4530a, file2, i3).f4528a;
                     } else {
                         T = d.T(file.getAbsolutePath(), file2.getAbsolutePath());
                     }
                     if (T) {
-                        boolean z3 = f6273a;
+                        boolean z3 = f6281a;
                         return true;
-                    } else if (f6273a) {
+                    } else if (f6281a) {
                         String str = "分包解压文件失败, file:" + file.getAbsolutePath() + " folder:" + file2.getAbsolutePath();
                     }
                 }

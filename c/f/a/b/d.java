@@ -16,7 +16,7 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final X509TrustManager f32231a;
+    public static final X509TrustManager f32252a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,13 +32,13 @@ public final class d {
                 return;
             }
         }
-        f32231a = b();
+        f32252a = b();
     }
 
     public static X509TrustManager a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f32231a : (X509TrustManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f32252a : (X509TrustManager) invokeV.objValue;
     }
 
     public static X509TrustManager b() {

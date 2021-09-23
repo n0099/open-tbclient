@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public interface c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8423a = k.f7077a;
+    public static final boolean f8431a = k.f7085a;
 
     List<c.a.p0.a.r1.k.a> a(JSONObject jSONObject);
 }

@@ -19,7 +19,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0584a f11416a;
+    public InterfaceC0584a f11424a;
     @V8JavascriptField
     public String backgroundColor;
     @V8JavascriptField
@@ -105,7 +105,7 @@ public class a {
             this.hidden = aVar.n("hidden", this.hidden);
             this.opacity = aVar.o("opacity", this.opacity);
             this.color = aVar.D("color", this.color);
-            if (k.f7077a) {
+            if (k.f7085a) {
                 String str = "parseApiButtonStyle = " + toString();
             }
         }
@@ -114,7 +114,7 @@ public class a {
     public void b(InterfaceC0584a interfaceC0584a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0584a) == null) {
-            this.f11416a = interfaceC0584a;
+            this.f11424a = interfaceC0584a;
         }
     }
 
@@ -122,10 +122,10 @@ public class a {
     public void onFieldChangedCallback(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (k.f7077a) {
+            if (k.f7085a) {
                 String str2 = "onFieldChangedCallback fieldName=" + str;
             }
-            InterfaceC0584a interfaceC0584a = this.f11416a;
+            InterfaceC0584a interfaceC0584a = this.f11424a;
             if (interfaceC0584a != null) {
                 interfaceC0584a.r();
             }

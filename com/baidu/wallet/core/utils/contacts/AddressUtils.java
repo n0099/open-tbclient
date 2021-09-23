@@ -17,7 +17,7 @@ public class AddressUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f61024a = "AddressUtils";
+    public static final String f61137a = "AddressUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

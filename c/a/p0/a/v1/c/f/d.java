@@ -26,7 +26,7 @@ public class d implements a.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, Deque<Message>> f9270a;
+    public final Map<String, Deque<Message>> f9278a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public class d implements a.c {
                 return;
             }
         }
-        this.f9270a = new HashMap();
+        this.f9278a = new HashMap();
     }
 
     @Override // c.a.p0.a.v1.c.a.c
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (String str : this.f9270a.keySet()) {
+            for (String str : this.f9278a.keySet()) {
                 c(str);
             }
         }
@@ -69,7 +69,7 @@ public class d implements a.c {
                 while (it.hasNext()) {
                     c next = it.next();
                     boolean g2 = g(next, k);
-                    if (l.contains(next.f9264f) || g2) {
+                    if (l.contains(next.f9272f) || g2) {
                         next.U(h2);
                         if (g2) {
                             k.remove(next.getAppId());
@@ -82,7 +82,7 @@ public class d implements a.c {
             Iterator<c> it2 = e.k().q().iterator();
             while (it2.hasNext()) {
                 c next2 = it2.next();
-                if (next2 != null && next2.H() && (l.contains(next2.f9264f) || g(next2, k))) {
+                if (next2 != null && next2.H() && (l.contains(next2.f9272f) || g(next2, k))) {
                     next2.U(h2);
                 }
             }
@@ -93,7 +93,7 @@ public class d implements a.c {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Deque<Message> deque = this.f9270a.get(str);
+            Deque<Message> deque = this.f9278a.get(str);
             c.a.p0.a.v1.c.a.f("flushMsg:: appid=" + str + " msgQueue=" + deque);
             if (deque == null || deque.isEmpty()) {
                 return;
@@ -114,7 +114,7 @@ public class d implements a.c {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f9270a.remove(str);
+            this.f9278a.remove(str);
         }
     }
 
@@ -123,10 +123,10 @@ public class d implements a.c {
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, message) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        Deque<Message> deque = this.f9270a.get(str);
+        Deque<Message> deque = this.f9278a.get(str);
         if (deque == null) {
             deque = new ArrayDeque<>();
-            this.f9270a.put(str, deque);
+            this.f9278a.put(str, deque);
         }
         deque.offer(message);
     }
@@ -150,7 +150,7 @@ public class d implements a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, message) == null) {
             try {
-                e.k().f9277e.send(message);
+                e.k().f9285e.send(message);
             } catch (RemoteException e2) {
                 c.a.p0.a.v1.c.a.f(Log.getStackTraceString(e2));
             }

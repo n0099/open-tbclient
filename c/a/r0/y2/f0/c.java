@@ -17,10 +17,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public INetWorkCore f29349a;
+    public INetWorkCore f29369a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpNetContext f29350b;
+    public HttpNetContext f29370b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class c {
                 return;
             }
         }
-        this.f29349a = null;
-        this.f29350b = null;
+        this.f29369a = null;
+        this.f29370b = null;
         d();
     }
 
@@ -50,8 +50,8 @@ public class c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, handler, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
-            c().getRequest().addBdussData(this.f29349a);
-            return this.f29349a.downloadFile(str, handler, i2, i3, i4, z);
+            c().getRequest().addBdussData(this.f29369a);
+            return this.f29369a.downloadFile(str, handler, i2, i3, i4, z);
         }
         return invokeCommon.booleanValue;
     }
@@ -59,15 +59,15 @@ public class c {
     public HttpNetContext c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29350b : (HttpNetContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29370b : (HttpNetContext) invokeV.objValue;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f29350b = new HttpNetContext();
-            this.f29349a = new d(this.f29350b);
-            this.f29350b.getRequest().getNetWorkParam().mNetType = NetWorkUtil.getNetType();
+            this.f29370b = new HttpNetContext();
+            this.f29369a = new d(this.f29370b);
+            this.f29370b.getRequest().getNetWorkParam().mNetType = NetWorkUtil.getNetType();
             c.a.e.e.j.b.a.o(TbadkCoreApplication.getInst().getCuid());
             c.a.e.e.j.b.a.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
             c.a.e.e.j.b.a.r(TbadkCoreApplication.getInst().getCuidGid());
@@ -77,7 +77,7 @@ public class c {
     public void e() {
         INetWorkCore iNetWorkCore;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (iNetWorkCore = this.f29349a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (iNetWorkCore = this.f29369a) == null) {
             return;
         }
         iNetWorkCore.setCancel();
@@ -86,7 +86,7 @@ public class c {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f29350b.getRequest().getNetWorkParam().mUrl = str;
+            this.f29370b.getRequest().getNetWorkParam().mUrl = str;
         }
     }
 }

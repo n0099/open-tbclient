@@ -63,12 +63,12 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             super.afterDispatchInBackGround(i2, (int) bArr);
             a aVar = this.mData;
-            if (aVar == null || (eVar = aVar.f28690a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.f28704a)) {
+            if (aVar == null || (eVar = aVar.f28710a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.f28724a)) {
                 return;
             }
-            a.b bVar = eVar.f28707d;
-            if (bVar != null && bVar.f28697b > bVar.f28698c && !StringUtils.isNull(bVar.f28699d)) {
-                currentAccountObj.setMemberIconUrl(bVar.f28699d);
+            a.b bVar = eVar.f28727d;
+            if (bVar != null && bVar.f28717b > bVar.f28718c && !StringUtils.isNull(bVar.f28719d)) {
+                currentAccountObj.setMemberIconUrl(bVar.f28719d);
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }

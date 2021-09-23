@@ -26,7 +26,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f48102e;
+    public HttpMessageListener f48210e;
 
     /* loaded from: classes6.dex */
     public static class ShareSuccessReplySeverResponseMessage extends JsonHttpResponsedMessage {
@@ -138,12 +138,12 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48102e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
+        this.f48210e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f48102e.setTag(getUniqueId());
-        this.f48102e.setSelfListener(true);
-        registerListener(this.f48102e);
+        this.f48210e.setTag(getUniqueId());
+        this.f48210e.setSelfListener(true);
+        registerListener(this.f48210e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -161,7 +161,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f48102e);
+            MessageManager.getInstance().unRegisterListener(this.f48210e);
             return false;
         }
         return invokeV.booleanValue;

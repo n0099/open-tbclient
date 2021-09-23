@@ -60,28 +60,28 @@ public class f {
 
     public static void b(PostData postData, AbsPbActivity.e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, postData, eVar) == null) || postData == null || postData.K() == null || postData.K().y() == null || eVar == null || eVar.f54938a == null || eVar.f54939b == null || postData.K().y().size() == 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, postData, eVar) == null) || postData == null || postData.K() == null || postData.K().y() == null || eVar == null || eVar.f55053a == null || eVar.f55054b == null || postData.K().y().size() == 0) {
             return;
         }
-        String str = (String) ListUtils.getItem(eVar.f54938a, eVar.f54947j);
+        String str = (String) ListUtils.getItem(eVar.f55053a, eVar.f55062j);
         if (StringUtils.isNull(str)) {
             return;
         }
-        eVar.f54938a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.f54939b;
-        eVar.f54939b = new ConcurrentHashMap<>();
+        eVar.f55053a = new ArrayList<>();
+        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.f55054b;
+        eVar.f55054b = new ConcurrentHashMap<>();
         Iterator<TbRichTextData> it = postData.K().y().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null && next.getType() == 8) {
                 String a2 = a(next);
                 if (!StringUtils.isNull(a2) && concurrentHashMap.get(a2) != null) {
-                    eVar.f54938a.add(a2);
-                    eVar.f54939b.put(a2, concurrentHashMap.get(a2));
+                    eVar.f55053a.add(a2);
+                    eVar.f55054b.put(a2, concurrentHashMap.get(a2));
                 }
             }
         }
-        eVar.f54947j = ListUtils.getPosition(eVar.f54938a, str);
+        eVar.f55062j = ListUtils.getPosition(eVar.f55053a, str);
     }
 
     public static PostData c(e eVar, boolean z, int i2) {
@@ -115,11 +115,11 @@ public class f {
             if (A1 != null && (metaData = A1.get(userId)) != null && metaData.getUserId() != null) {
                 J = metaData;
             }
-            postData.i0(1);
-            postData.l0(eVar.O().W());
-            postData.x0(eVar.O().getTitle());
-            postData.w0(eVar.O().P());
-            postData.g0(J);
+            postData.k0(1);
+            postData.n0(eVar.O().W());
+            postData.z0(eVar.O().getTitle());
+            postData.y0(eVar.O().P());
+            postData.i0(J);
             return postData;
         }
         return (PostData) invokeL.objValue;

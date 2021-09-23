@@ -12,13 +12,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11479a;
+    public int f11487a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11480b;
+    public String f11488b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f11481c;
+    public JSONObject f11489c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -37,6 +37,6 @@ public class c {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11479a == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11487a == 0 : invokeV.booleanValue;
     }
 }

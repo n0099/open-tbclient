@@ -27,7 +27,7 @@ public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
     public static final int VIDEO_UPLOAD_BEAN = 11;
 
     /* renamed from: a  reason: collision with root package name */
-    public static FaceSDKBeansFactory f40130a;
+    public static FaceSDKBeansFactory f40178a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public FaceSDKBeansFactory() {
@@ -48,10 +48,10 @@ public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f40130a == null) {
-                f40130a = new FaceSDKBeansFactory();
+            if (f40178a == null) {
+                f40178a = new FaceSDKBeansFactory();
             }
-            return f40130a;
+            return f40178a;
         }
         return (FaceSDKBeansFactory) invokeV.objValue;
     }

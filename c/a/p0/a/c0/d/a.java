@@ -30,7 +30,7 @@ public class a {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     @Nullable
@@ -44,7 +44,7 @@ public class a {
                 return null;
             }
             String f2 = bVar.f();
-            String str = bVar.f4658g;
+            String str = bVar.f4666g;
             if (TextUtils.isEmpty(str)) {
                 d.b("Component-Finder", "find a null " + f2 + " : slaveId is empty");
                 return null;
@@ -54,10 +54,10 @@ public class a {
                 d.b("Component-Finder", "find a null " + f2 + " : null component context");
                 return null;
             }
-            String str2 = bVar.f4657f;
+            String str2 = bVar.f4665f;
             if (TextUtils.isEmpty(str2)) {
                 d.l("Component-Finder", "find " + f2 + " with a empty componentId");
-                List<c.a.p0.a.c0.b.a> list = d2.a().f4730c.get(bVar.f4656e);
+                List<c.a.p0.a.c0.b.a> list = d2.a().f4738c.get(bVar.f4664e);
                 if (list == null) {
                     d.b("Component-Finder", "find a null " + f2 + " with a empty componentId: fallbackComponents are null ");
                     return null;
@@ -69,7 +69,7 @@ public class a {
                     c2 = (C) list.get(0);
                 }
             } else {
-                c2 = (C) d2.a().f4729b.get(str2);
+                c2 = (C) d2.a().f4737b.get(str2);
             }
             if (c2 == null) {
                 d.b("Component-Finder", "find a null " + f2 + " : not exist");
@@ -93,7 +93,7 @@ public class a {
                 d.b("Component-Finder", "find a null " + str2 + " : null component context");
                 return null;
             }
-            C c2 = (C) d2.a().f4729b.get(str2);
+            C c2 = (C) d2.a().f4737b.get(str2);
             if (c2 == null) {
                 d.b("Component-Finder", "find a null " + str2 + " : not exist");
                 return null;
@@ -112,7 +112,7 @@ public class a {
                 c.a.p0.a.c0.g.a.a("Component-Finder", "find component context with a null model");
                 return null;
             }
-            return d(bVar.f4658g);
+            return d(bVar.f4666g);
         }
         return (c.a.p0.a.c0.e.a) invokeL.objValue;
     }

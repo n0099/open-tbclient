@@ -24,33 +24,33 @@ public class a extends c.a.r.e.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.C0737a f15325f;
+    public a.C0735a f15334f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f15326g;
+    public b f15335g;
 
     /* renamed from: c.a.r.e.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0734a {
+    public static class C0732a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static boolean a(a.C0737a c0737a, c.a.r.g.d.a aVar) {
+        public static boolean a(a.C0735a c0735a, c.a.r.g.d.a aVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, c0737a, aVar)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, c0735a, aVar)) == null) {
                 if (Build.VERSION.SDK_INT < 23) {
-                    while (c0737a != null && !c0737a.b().equals(aVar.b())) {
-                        c0737a.b().setExecutable(true, false);
-                        c0737a = c0737a.e();
+                    while (c0735a != null && !c0735a.b().equals(aVar.b())) {
+                        c0735a.b().setExecutable(true, false);
+                        c0735a = c0735a.e();
                     }
                     return true;
                 }
-                while (c0737a != null) {
-                    if (!b(c0737a.b())) {
+                while (c0735a != null) {
+                    if (!b(c0735a.b())) {
                         return false;
                     }
-                    c0737a = c0737a.e();
+                    c0735a = c0735a.e();
                 }
                 return b(aVar.b());
             }
@@ -83,22 +83,22 @@ public class a extends c.a.r.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public e f15327a;
+        public e f15336a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f15328b;
+        public long f15337b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f15329c;
+        public String f15338c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f15330d;
+        public boolean f15339d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f15331e;
+        public boolean f15340e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f15332f;
+        public final /* synthetic */ a f15341f;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -115,48 +115,48 @@ public class a extends c.a.r.e.a {
                     return;
                 }
             }
-            this.f15332f = aVar;
-            this.f15327a = new e();
-            this.f15331e = true;
+            this.f15341f = aVar;
+            this.f15336a = new e();
+            this.f15340e = true;
         }
 
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15328b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15337b : invokeV.longValue;
         }
 
         public void b(long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || this.f15328b == j2) {
+            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || this.f15337b == j2) {
                 return;
             }
-            this.f15328b = j2;
-            this.f15330d = true;
+            this.f15337b = j2;
+            this.f15339d = true;
         }
 
         public void c(long j2, long j3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) && this.f15327a.c(j2, j3)) {
-                this.f15330d = true;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) && this.f15336a.c(j2, j3)) {
+                this.f15339d = true;
             }
         }
 
         public void d(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str.equals(this.f15329c)) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str.equals(this.f15338c)) {
                 return;
             }
-            this.f15329c = str;
-            this.f15330d = true;
+            this.f15338c = str;
+            this.f15339d = true;
         }
 
         public boolean e(PackageInfo packageInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, packageInfo)) == null) {
-                String g2 = this.f15332f.f15325f.h(new File(packageInfo.applicationInfo.dataDir)).g("pub.dat", true);
-                this.f15331e = false;
+                String g2 = this.f15341f.f15334f.h(new File(packageInfo.applicationInfo.dataDir)).g("pub.dat", true);
+                this.f15340e = false;
                 return g(g2);
             }
             return invokeL.booleanValue;
@@ -165,7 +165,7 @@ public class a extends c.a.r.e.a {
         public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15329c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15338c : (String) invokeV.objValue;
         }
 
         public final boolean g(String str) {
@@ -175,10 +175,10 @@ public class a extends c.a.r.e.a {
                 if (!TextUtils.isEmpty(str)) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
-                        this.f15328b = jSONObject.getLong("pub_lst_ts");
-                        this.f15329c = jSONObject.getString("pub_id");
+                        this.f15337b = jSONObject.getLong("pub_lst_ts");
+                        this.f15338c = jSONObject.getString("pub_id");
                         jSONObject.getInt("d_form_ver");
-                        this.f15330d = false;
+                        this.f15339d = false;
                         return true;
                     } catch (Exception unused) {
                     }
@@ -191,22 +191,22 @@ public class a extends c.a.r.e.a {
         public boolean h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? g(this.f15332f.f15325f.g("pub.dat", true)) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? g(this.f15341f.f15334f.g("pub.dat", true)) : invokeV.booleanValue;
         }
 
         public boolean i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                if (this.f15331e) {
-                    if (this.f15330d) {
+                if (this.f15340e) {
+                    if (this.f15339d) {
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("pub_id", this.f15329c);
-                            jSONObject.put("pub_lst_ts", this.f15328b);
+                            jSONObject.put("pub_id", this.f15338c);
+                            jSONObject.put("pub_lst_ts", this.f15337b);
                             jSONObject.put("d_form_ver", 1);
-                            this.f15332f.f15325f.i("pub.dat", jSONObject.toString(), true);
-                            this.f15330d = false;
+                            this.f15341f.f15334f.i("pub.dat", jSONObject.toString(), true);
+                            this.f15339d = false;
                             return true;
                         } catch (Exception unused) {
                         }
@@ -221,7 +221,7 @@ public class a extends c.a.r.e.a {
         public boolean j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? a.k(this.f15332f.f15325f.d("pub.dat"), true) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? a.k(this.f15341f.f15334f.d("pub.dat"), true) : invokeV.booleanValue;
         }
     }
 
@@ -231,23 +231,23 @@ public class a extends c.a.r.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f15333d;
+        public String f15342d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f15334e;
+        public long f15343e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f15335f;
+        public long f15344f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f15336g;
+        public long f15345g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f15337h;
+        public String f15346h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(a aVar, String str) {
-            super(aVar.f15325f, str);
+            super(aVar.f15334f, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -258,7 +258,7 @@ public class a extends c.a.r.e.a {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((a.C0737a) objArr2[0], (String) objArr2[1]);
+                    super((a.C0735a) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -270,11 +270,11 @@ public class a extends c.a.r.e.a {
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f15333d = jSONObject.getString("pkg");
-                this.f15335f = jSONObject.getInt("tar_pkg_lst_pub_ts");
-                this.f15334e = jSONObject.getLong("last_fe_ts");
-                this.f15337h = jSONObject.getString("id");
-                this.f15336g = jSONObject.getLong("tar_pkg_lst_up_ts");
+                this.f15342d = jSONObject.getString("pkg");
+                this.f15344f = jSONObject.getInt("tar_pkg_lst_pub_ts");
+                this.f15343e = jSONObject.getLong("last_fe_ts");
+                this.f15346h = jSONObject.getString("id");
+                this.f15345g = jSONObject.getLong("tar_pkg_lst_up_ts");
                 jSONObject.getInt("d_form_ver");
             }
         }
@@ -283,11 +283,11 @@ public class a extends c.a.r.e.a {
         public void e(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-                jSONObject.put("pkg", this.f15333d);
-                jSONObject.put("last_fe_ts", this.f15334e);
-                jSONObject.put("tar_pkg_lst_pub_ts", this.f15335f);
-                jSONObject.put("id", this.f15337h);
-                jSONObject.put("tar_pkg_lst_up_ts", this.f15336g);
+                jSONObject.put("pkg", this.f15342d);
+                jSONObject.put("last_fe_ts", this.f15343e);
+                jSONObject.put("tar_pkg_lst_pub_ts", this.f15344f);
+                jSONObject.put("id", this.f15346h);
+                jSONObject.put("tar_pkg_lst_up_ts", this.f15345g);
                 jSONObject.put("d_form_ver", 1);
             }
         }
@@ -295,7 +295,7 @@ public class a extends c.a.r.e.a {
         public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15333d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15342d : (String) invokeV.objValue;
         }
 
         public void g(b bVar) {
@@ -310,8 +310,8 @@ public class a extends c.a.r.e.a {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-                if (this.f15334e != j2) {
-                    this.f15334e = j2;
+                if (this.f15343e != j2) {
+                    this.f15343e = j2;
                     a(true);
                     return true;
                 }
@@ -324,10 +324,10 @@ public class a extends c.a.r.e.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                if (str.equals(this.f15333d)) {
+                if (str.equals(this.f15342d)) {
                     return false;
                 }
-                this.f15333d = str;
+                this.f15342d = str;
                 a(true);
                 return true;
             }
@@ -337,15 +337,15 @@ public class a extends c.a.r.e.a {
         public String j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15337h : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15346h : (String) invokeV.objValue;
         }
 
         public boolean k(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-                if (this.f15335f != j2) {
-                    this.f15335f = j2;
+                if (this.f15344f != j2) {
+                    this.f15344f = j2;
                     a(true);
                     return true;
                 }
@@ -358,10 +358,10 @@ public class a extends c.a.r.e.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                if (str.equals(this.f15337h)) {
+                if (str.equals(this.f15346h)) {
                     return false;
                 }
-                this.f15337h = str;
+                this.f15346h = str;
                 a(true);
                 return true;
             }
@@ -371,15 +371,15 @@ public class a extends c.a.r.e.a {
         public long m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f15336g : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f15345g : invokeV.longValue;
         }
 
         public boolean n(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
-                if (this.f15336g != j2) {
-                    this.f15336g = j2;
+                if (this.f15345g != j2) {
+                    this.f15345g = j2;
                     a(true);
                     return true;
                 }
@@ -406,7 +406,7 @@ public class a extends c.a.r.e.a {
                 return;
             }
         }
-        this.f15326g = new b(this);
+        this.f15335g = new b(this);
     }
 
     public static boolean k(File file, boolean z) {
@@ -442,14 +442,14 @@ public class a extends c.a.r.e.a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, gVar)) == null) {
             c cVar = null;
             try {
-                packageInfo = this.f15286a.f15290a.getPackageManager().getPackageInfo(str, 0);
+                packageInfo = this.f15295a.f15299a.getPackageManager().getPackageInfo(str, 0);
             } catch (PackageManager.NameNotFoundException unused) {
                 packageInfo = null;
             }
             if (packageInfo == null) {
                 return a.h.a(-2);
             }
-            if (gVar.f15296a) {
+            if (gVar.f15305a) {
                 cVar = new c(this, str);
                 cVar.d();
                 if (str.equals(cVar.f()) && packageInfo.lastUpdateTime == cVar.m()) {
@@ -459,7 +459,7 @@ public class a extends c.a.r.e.a {
             }
             b bVar = new b(this);
             if (bVar.e(packageInfo)) {
-                if (gVar.f15296a && cVar != null) {
+                if (gVar.f15305a && cVar != null) {
                     cVar.g(bVar);
                     cVar.h(System.currentTimeMillis());
                     cVar.n(packageInfo.lastUpdateTime);
@@ -478,7 +478,7 @@ public class a extends c.a.r.e.a {
     public void e(a.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            this.f15325f = this.f15287b.f("isc");
+            this.f15334f = this.f15296b.f("isc");
         }
     }
 
@@ -487,16 +487,16 @@ public class a extends c.a.r.e.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
-            Context context = this.f15286a.f15290a;
+            Context context = this.f15295a.f15299a;
             if (Build.VERSION.SDK_INT < 28 || context.getApplicationInfo().targetSdkVersion < 28) {
-                this.f15326g.h();
+                this.f15335g.h();
                 try {
                     return h(eVar);
                 } finally {
-                    this.f15326g.i();
+                    this.f15335g.i();
                     i();
-                    this.f15326g.i();
-                    this.f15326g.j();
+                    this.f15335g.i();
+                    this.f15335g.j();
                 }
             }
             return a.f.b(-100);
@@ -508,14 +508,14 @@ public class a extends c.a.r.e.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eVar)) == null) {
-            this.f15326g.h();
-            this.f15325f.a();
-            String c2 = this.f15286a.f15292c.a("aid").c();
-            if (c2.equals(this.f15326g.f())) {
+            this.f15335g.h();
+            this.f15334f.a();
+            String c2 = this.f15295a.f15301c.a("aid").c();
+            if (c2.equals(this.f15335g.f())) {
                 return a.f.d();
             }
-            this.f15326g.d(c2);
-            this.f15326g.b(System.currentTimeMillis());
+            this.f15335g.d(c2);
+            this.f15335g.b(System.currentTimeMillis());
             return a.f.d();
         }
         return (a.f) invokeL.objValue;
@@ -524,7 +524,7 @@ public class a extends c.a.r.e.a {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f15326g.c(C0734a.a(this.f15325f, this.f15286a.f15291b) ? 1 : 2, 3L);
+            this.f15335g.c(C0732a.a(this.f15334f, this.f15295a.f15300b) ? 1 : 2, 3L);
         }
     }
 }

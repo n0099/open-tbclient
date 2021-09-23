@@ -24,26 +24,26 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile c f4131g;
+    public static volatile c f4138g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<Integer, i> f4132a;
+    public Map<Integer, i> f4139a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4133b;
+    public boolean f4140b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.sso.g.h f4134c;
+    public com.baidu.sso.g.h f4141c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f4135d;
+    public Context f4142d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4136e;
+    public int f4143e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<a.InterfaceC0102a> f4137f;
+    public ArrayList<a.InterfaceC0102a> f4144f;
 
     /* loaded from: classes.dex */
     public class a implements a.InterfaceC0102a {
@@ -51,19 +51,19 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f4138a;
+        public final /* synthetic */ i f4145a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f4139b;
+        public final /* synthetic */ Context f4146b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f4140c;
+        public final /* synthetic */ int f4147c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ long f4141d;
+        public final /* synthetic */ long f4148d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC0102a f4142e;
+        public final /* synthetic */ a.InterfaceC0102a f4149e;
 
         public a(c cVar, i iVar, Context context, int i2, long j2, a.InterfaceC0102a interfaceC0102a) {
             Interceptable interceptable = $ic;
@@ -80,11 +80,11 @@ public class c {
                     return;
                 }
             }
-            this.f4138a = iVar;
-            this.f4139b = context;
-            this.f4140c = i2;
-            this.f4141d = j2;
-            this.f4142e = interfaceC0102a;
+            this.f4145a = iVar;
+            this.f4146b = context;
+            this.f4147c = i2;
+            this.f4148d = j2;
+            this.f4149e = interfaceC0102a;
         }
 
         @Override // c.a.n0.a.InterfaceC0102a
@@ -93,15 +93,15 @@ public class c {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 try {
                     if (new JSONObject(str).optInt("0", -1) == 0) {
-                        this.f4138a.i(this.f4139b, this.f4140c, this.f4141d);
+                        this.f4145a.i(this.f4146b, this.f4147c, this.f4148d);
                         return;
                     }
-                    if (this.f4142e != null) {
-                        this.f4142e.onFinish(str);
+                    if (this.f4149e != null) {
+                        this.f4149e.onFinish(str);
                     }
                     c.a.n0.c.a.c().d(false);
                 } catch (Throwable unused) {
-                    a.InterfaceC0102a interfaceC0102a = this.f4142e;
+                    a.InterfaceC0102a interfaceC0102a = this.f4149e;
                     if (interfaceC0102a != null) {
                         interfaceC0102a.onFinish(str);
                     }
@@ -117,19 +117,19 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f4143a;
+        public final /* synthetic */ i f4150a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f4144b;
+        public final /* synthetic */ Context f4151b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f4145c;
+        public final /* synthetic */ int f4152c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ long f4146d;
+        public final /* synthetic */ long f4153d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC0102a f4147e;
+        public final /* synthetic */ a.InterfaceC0102a f4154e;
 
         public b(c cVar, i iVar, Context context, int i2, long j2, a.InterfaceC0102a interfaceC0102a) {
             Interceptable interceptable = $ic;
@@ -146,11 +146,11 @@ public class c {
                     return;
                 }
             }
-            this.f4143a = iVar;
-            this.f4144b = context;
-            this.f4145c = i2;
-            this.f4146d = j2;
-            this.f4147e = interfaceC0102a;
+            this.f4150a = iVar;
+            this.f4151b = context;
+            this.f4152c = i2;
+            this.f4153d = j2;
+            this.f4154e = interfaceC0102a;
         }
 
         @Override // c.a.n0.a.InterfaceC0102a
@@ -159,15 +159,15 @@ public class c {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 try {
                     if (new JSONObject(str).optInt("0", -1) == 0) {
-                        this.f4143a.p(this.f4144b, this.f4145c, this.f4146d);
+                        this.f4150a.p(this.f4151b, this.f4152c, this.f4153d);
                         return;
                     }
-                    if (this.f4147e != null) {
-                        this.f4147e.onFinish(str);
+                    if (this.f4154e != null) {
+                        this.f4154e.onFinish(str);
                     }
                     c.a.n0.c.a.c().m(false);
                 } catch (Throwable unused) {
-                    a.InterfaceC0102a interfaceC0102a = this.f4147e;
+                    a.InterfaceC0102a interfaceC0102a = this.f4154e;
                     if (interfaceC0102a != null) {
                         interfaceC0102a.onFinish(str);
                     }
@@ -190,23 +190,23 @@ public class c {
                 return;
             }
         }
-        this.f4132a = new HashMap();
-        this.f4136e = -1;
-        this.f4137f = new ArrayList<>();
+        this.f4139a = new HashMap();
+        this.f4143e = -1;
+        this.f4144f = new ArrayList<>();
     }
 
     public static c j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f4131g == null) {
+            if (f4138g == null) {
                 synchronized (c.class) {
-                    if (f4131g == null) {
-                        f4131g = new c();
+                    if (f4138g == null) {
+                        f4138g = new c();
                     }
                 }
             }
-            return f4131g;
+            return f4138g;
         }
         return (c) invokeV.objValue;
     }
@@ -214,17 +214,17 @@ public class c {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4136e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4143e : invokeV.intValue;
     }
 
     public final int b(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-            if (this.f4132a.size() == 1) {
-                return Integer.valueOf(this.f4132a.get(this.f4132a.keySet().iterator().next()).f4208c).intValue();
+            if (this.f4139a.size() == 1) {
+                return Integer.valueOf(this.f4139a.get(this.f4139a.keySet().iterator().next()).f4215c).intValue();
             }
-            return (this.f4132a.size() != 2 || i3 >= 4 || i3 <= 0) ? i2 : i3;
+            return (this.f4139a.size() != 2 || i3 >= 4 || i3 <= 0) ? i2 : i3;
         }
         return invokeII.intValue;
     }
@@ -239,28 +239,28 @@ public class c {
                 Pair<Boolean, a.InterfaceC0102a> b2 = c.a.n0.c.a.c().b(i2);
                 if (((Boolean) b2.first).booleanValue()) {
                     d.a().b(i2);
-                    h((a.InterfaceC0102a) b2.second, new h(i3, i4, i5, str), bVar.f4127a, z);
+                    h((a.InterfaceC0102a) b2.second, new h(i3, i4, i5, str), bVar.f4134a, z);
                     if (i3 == 1) {
-                        bVar.f4128b = 1;
+                        bVar.f4135b = 1;
                     }
                     if (z) {
-                        int i6 = bVar.f4127a;
+                        int i6 = bVar.f4134a;
                         if (i6 == 1) {
-                            c.a.n0.h.d.e(this.f4135d, i5, bVar.f4128b, i4, str);
+                            c.a.n0.h.d.e(this.f4142d, i5, bVar.f4135b, i4, str);
                         } else if (i6 == 3) {
-                            c.a.n0.h.d.b(this.f4135d, i5, bVar.f4128b, i4, str);
+                            c.a.n0.h.d.b(this.f4142d, i5, bVar.f4135b, i4, str);
                         } else if (i6 == 2) {
                             if (i3 == 3 && i4 == 2019) {
-                                c.a.n0.b.a.h(this.f4135d).A(System.currentTimeMillis());
-                                c.a.n0.b.a.h(this.f4135d).k(i4);
+                                c.a.n0.b.a.h(this.f4142d).A(System.currentTimeMillis());
+                                c.a.n0.b.a.h(this.f4142d).k(i4);
                             }
-                            c.a.n0.h.d.a(this.f4135d, i5, i3, i4, bVar.f4129c, bVar.f4130d);
+                            c.a.n0.h.d.a(this.f4142d, i5, i3, i4, bVar.f4136c, bVar.f4137d);
                         } else {
                             if (i3 == 3 && i4 == 2019) {
-                                c.a.n0.b.a.h(this.f4135d).K(System.currentTimeMillis());
-                                c.a.n0.b.a.h(this.f4135d).q(i4);
+                                c.a.n0.b.a.h(this.f4142d).K(System.currentTimeMillis());
+                                c.a.n0.b.a.h(this.f4142d).q(i4);
                             }
-                            c.a.n0.h.d.d(this.f4135d, i5, i3, i4, bVar.f4129c, bVar.f4130d);
+                            c.a.n0.h.d.d(this.f4142d, i5, i3, i4, bVar.f4136c, bVar.f4137d);
                         }
                     }
                 }
@@ -273,21 +273,21 @@ public class c {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             synchronized (this) {
                 try {
-                    if (this.f4133b) {
+                    if (this.f4140b) {
                         return;
                     }
-                    this.f4135d = context.getApplicationContext();
-                    c.a.n0.m.a.b().a(this.f4135d, null);
+                    this.f4142d = context.getApplicationContext();
+                    c.a.n0.m.a.b().a(this.f4142d, null);
                     boolean z = false;
-                    if (!c.a.n0.b.c.b(this.f4135d).f() && c.a.n0.l.c.k(this.f4135d) == 0) {
+                    if (!c.a.n0.b.c.b(this.f4142d).f() && c.a.n0.l.c.k(this.f4142d) == 0) {
                         z = true;
                     }
-                    g(this.f4135d, z);
-                    c.a.n0.l.c.m(this.f4135d);
-                    this.f4132a.put(1, new e(this.f4135d));
-                    this.f4132a.put(3, new f(this.f4135d));
-                    this.f4132a.put(2, new g(this.f4135d));
-                    this.f4133b = true;
+                    g(this.f4142d, z);
+                    c.a.n0.l.c.m(this.f4142d);
+                    this.f4139a.put(1, new e(this.f4142d));
+                    this.f4139a.put(3, new f(this.f4142d));
+                    this.f4139a.put(2, new g(this.f4142d));
+                    this.f4140b = true;
                 }
             }
         }
@@ -302,17 +302,17 @@ public class c {
             synchronized (this) {
                 int i3 = -1;
                 if (c.a.n0.c.a.c().g()) {
-                    this.f4137f.add(interfaceC0102a);
+                    this.f4144f.add(interfaceC0102a);
                     return;
                 }
-                this.f4137f.clear();
+                this.f4144f.clear();
                 int a2 = c.a.n0.c.a.c().a(interfaceC0102a);
                 try {
                     Message message = new Message();
                     message.what = a2;
                     message.arg1 = -1;
                     message.arg2 = 1;
-                    this.f4136e = -1;
+                    this.f4143e = -1;
                     d.a().c(message, j2);
                     Pair<Integer, Integer> d2 = pair == null ? k.d(context) : pair;
                     intValue = ((Integer) d2.first).intValue();
@@ -321,24 +321,24 @@ public class c {
                 } catch (Throwable unused) {
                     i3 = a2;
                     c.a.n0.e.b bVar = new c.a.n0.e.b();
-                    bVar.f4127a = 1;
+                    bVar.f4134a = 1;
                     c(i3, 3, 2009, -1, "auth login unknown error.", bVar, true);
                 }
                 if (i(a2, intValue2, intValue, 1)) {
                     int b2 = b(intValue2, i2);
-                    this.f4136e = b2;
+                    this.f4143e = b2;
                     c.a.n0.c.a.c().i(false, true);
                     if (b2 != 1 && b2 != 2 && b2 != 3) {
                         c.a.n0.e.b bVar2 = new c.a.n0.e.b();
-                        bVar2.f4127a = 1;
+                        bVar2.f4134a = 1;
                         c(a2, 3, 2004, b2, "has no op.", bVar2, true);
                         return;
                     }
-                    c.a.n0.b.c.b(this.f4135d).d();
-                    i iVar = this.f4132a.get(Integer.valueOf(b2));
+                    c.a.n0.b.c.b(this.f4142d).d();
+                    i iVar = this.f4139a.get(Integer.valueOf(b2));
                     if (iVar == null) {
                         c.a.n0.e.b bVar3 = new c.a.n0.e.b();
-                        bVar3.f4127a = 1;
+                        bVar3.f4134a = 1;
                         c(a2, 3, 2002, b2, "not support current operator", bVar3, true);
                     } else {
                         iVar.l(intValue3);
@@ -360,18 +360,18 @@ public class c {
             if (i(a2, intValue2, intValue, 2)) {
                 if (intValue2 != 1 && intValue2 != 2 && intValue2 != 3) {
                     c.a.n0.e.b bVar = new c.a.n0.e.b();
-                    bVar.f4127a = 2;
+                    bVar.f4134a = 2;
                     c(a2, 3, 2004, intValue2, "has no op.", bVar, true);
                     return;
                 }
-                i iVar = this.f4132a.get(Integer.valueOf(intValue2));
+                i iVar = this.f4139a.get(Integer.valueOf(intValue2));
                 if (iVar == null) {
                     c.a.n0.e.b bVar2 = new c.a.n0.e.b();
-                    bVar2.f4127a = 2;
+                    bVar2.f4134a = 2;
                     c(a2, 3, 2002, intValue2, "not support current operator", bVar2, true);
                 } else if (!c.a.n0.c.a.c().e(false, true)) {
                     c.a.n0.e.b bVar3 = new c.a.n0.e.b();
-                    bVar3.f4127a = 2;
+                    bVar3.f4134a = 2;
                     c(a2, 3, 998, intValue2, "is doing auth login.", bVar3, false);
                 } else {
                     c.a.n0.h.d.c(context, intValue2, 2, i.q);
@@ -391,13 +391,13 @@ public class c {
                                 } catch (Throwable th) {
                                     c.a.n0.l.c.d(th);
                                     c.a.n0.e.b bVar4 = new c.a.n0.e.b();
-                                    bVar4.f4127a = 2;
+                                    bVar4.f4134a = 2;
                                     c(a2, 3, SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, intValue2, "auth out time", bVar4, true);
                                     return;
                                 }
                             } else {
                                 c.a.n0.e.b bVar5 = new c.a.n0.e.b();
-                                bVar5.f4127a = 2;
+                                bVar5.f4134a = 2;
                                 c(a2, 3, SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, intValue2, "auth out time", bVar5, true);
                                 return;
                             }
@@ -416,13 +416,13 @@ public class c {
             synchronized (this) {
                 try {
                     m(context);
-                    this.f4134c = new com.baidu.sso.g.h();
+                    this.f4141c = new com.baidu.sso.g.h();
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction("sso_action_t_m");
                     if (z) {
                         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
                     }
-                    context.registerReceiver(this.f4134c, intentFilter);
+                    context.registerReceiver(this.f4141c, intentFilter);
                 } catch (Throwable th) {
                     c.a.n0.l.c.d(th);
                 }
@@ -434,8 +434,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{interfaceC0102a, hVar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (i2 == 1) {
-                this.f4137f.clear();
-                c.a.n0.e.a.b(interfaceC0102a, hVar, i2, (ArrayList) this.f4137f.clone(), z);
+                this.f4144f.clear();
+                c.a.n0.e.a.b(interfaceC0102a, hVar, i2, (ArrayList) this.f4144f.clone(), z);
                 return;
             }
             c.a.n0.e.a.b(interfaceC0102a, hVar, i2, null, z);
@@ -447,14 +447,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4, i5)) == null) {
             c.a.n0.e.b bVar = new c.a.n0.e.b();
-            bVar.f4127a = i5;
-            if (!this.f4133b) {
+            bVar.f4134a = i5;
+            if (!this.f4140b) {
                 c(i2, 3, 2001, i3, "has no init.", bVar, false);
                 return false;
-            } else if (TextUtils.isEmpty(c.a.n0.a.f4078b) && TextUtils.isEmpty(c.a.n0.a.f4079c)) {
+            } else if (TextUtils.isEmpty(c.a.n0.a.f4085b) && TextUtils.isEmpty(c.a.n0.a.f4086c)) {
                 c(i2, 3, 2007, i3, "has no key.", bVar, false);
                 return false;
-            } else if (this.f4132a.isEmpty()) {
+            } else if (this.f4139a.isEmpty()) {
                 c(i2, 3, 2002, i3, "has no sdk.", bVar, false);
                 return false;
             } else if (i4 == 0) {
@@ -476,7 +476,7 @@ public class c {
                 message.what = a2;
                 message.arg1 = -1;
                 message.arg2 = 3;
-                this.f4136e = -1;
+                this.f4143e = -1;
                 d.a().c(message, j2);
                 if (pair == null) {
                     pair = k.d(context);
@@ -486,21 +486,21 @@ public class c {
                 int intValue3 = ((Integer) pair.second).intValue();
                 if (i(a2, intValue2, intValue, 3)) {
                     int b2 = b(intValue2, i2);
-                    this.f4136e = b2;
+                    this.f4143e = b2;
                     if (!c.a.n0.c.a.c().l(false, true)) {
                         c.a.n0.e.b bVar = new c.a.n0.e.b();
-                        bVar.f4127a = 3;
+                        bVar.f4134a = 3;
                         c(a2, 3, 998, b2, "is doing auth prelogin.", bVar, false);
                     } else if (b2 != 1 && b2 != 2 && b2 != 3) {
                         c.a.n0.e.b bVar2 = new c.a.n0.e.b();
-                        bVar2.f4127a = 3;
+                        bVar2.f4134a = 3;
                         c(a2, 3, 2004, b2, "has no op.", bVar2, true);
                     } else {
-                        c.a.n0.b.c.b(this.f4135d).d();
-                        i iVar = this.f4132a.get(Integer.valueOf(b2));
+                        c.a.n0.b.c.b(this.f4142d).d();
+                        i iVar = this.f4139a.get(Integer.valueOf(b2));
                         if (iVar == null) {
                             c.a.n0.e.b bVar3 = new c.a.n0.e.b();
-                            bVar3.f4127a = 3;
+                            bVar3.f4134a = 3;
                             c(a2, 3, 2002, b2, "not support current operator", bVar3, true);
                             return;
                         }
@@ -511,7 +511,7 @@ public class c {
                 }
             } catch (Throwable unused) {
                 c.a.n0.e.b bVar4 = new c.a.n0.e.b();
-                bVar4.f4127a = 3;
+                bVar4.f4134a = 3;
                 c(a2, 3, 2009, -1, "auth login unknown error.", bVar4, true);
             }
         }
@@ -527,18 +527,18 @@ public class c {
             if (i(a2, intValue2, intValue, 4)) {
                 if (intValue2 != 1 && intValue2 != 2 && intValue2 != 3) {
                     c.a.n0.e.b bVar = new c.a.n0.e.b();
-                    bVar.f4127a = 4;
+                    bVar.f4134a = 4;
                     c(a2, 3, 2004, intValue2, "has no op.", bVar, true);
                     return;
                 }
-                i iVar = this.f4132a.get(Integer.valueOf(intValue2));
+                i iVar = this.f4139a.get(Integer.valueOf(intValue2));
                 if (iVar == null) {
                     c.a.n0.e.b bVar2 = new c.a.n0.e.b();
-                    bVar2.f4127a = 4;
+                    bVar2.f4134a = 4;
                     c(a2, 3, 2002, intValue2, "not support current operator", bVar2, true);
                 } else if (!c.a.n0.c.a.c().n(false, true)) {
                     c.a.n0.e.b bVar3 = new c.a.n0.e.b();
-                    bVar3.f4127a = 4;
+                    bVar3.f4134a = 4;
                     c(a2, 3, 998, intValue2, "is doing auth verify.", bVar3, false);
                 } else {
                     c.a.n0.h.d.c(context, intValue2, 4, i.r);
@@ -558,13 +558,13 @@ public class c {
                                 } catch (Throwable th) {
                                     c.a.n0.l.c.d(th);
                                     c.a.n0.e.b bVar4 = new c.a.n0.e.b();
-                                    bVar4.f4127a = 4;
+                                    bVar4.f4134a = 4;
                                     c(a2, 3, SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, intValue2, "auth out time", bVar4, true);
                                     return;
                                 }
                             } else {
                                 c.a.n0.e.b bVar5 = new c.a.n0.e.b();
-                                bVar5.f4127a = 4;
+                                bVar5.f4134a = 4;
                                 c(a2, 3, SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, intValue2, "auth out time", bVar5, true);
                                 return;
                             }
@@ -581,10 +581,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
             try {
-                if (this.f4134c != null) {
-                    context.unregisterReceiver(this.f4134c);
+                if (this.f4141c != null) {
+                    context.unregisterReceiver(this.f4141c);
                 }
-                this.f4134c = null;
+                this.f4141c = null;
             } catch (Throwable th) {
                 c.a.n0.l.c.d(th);
             }

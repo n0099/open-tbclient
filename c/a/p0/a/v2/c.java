@@ -39,31 +39,31 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f9296f;
+    public static final boolean f9304f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f9297g;
+    public static final boolean f9305g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile c f9298h;
+    public static volatile c f9306h;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public ActivityManager f9299a;
+    public ActivityManager f9307a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<ActivityManager.AppTask> f9300b;
+    public List<ActivityManager.AppTask> f9308b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<Integer> f9301c;
+    public ArrayList<Integer> f9309c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final SparseIntArray f9302d;
+    public final SparseIntArray f9310d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SparseArray<SwanTaskDeadEvent> f9303e;
+    public final SparseArray<SwanTaskDeadEvent> f9311e;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -71,13 +71,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a f9304e;
+        public final /* synthetic */ b.a f9312e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f9305f;
+        public final /* synthetic */ int f9313f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f9306g;
+        public final /* synthetic */ c f9314g;
 
         public a(c cVar, b.a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -94,48 +94,48 @@ public class c {
                     return;
                 }
             }
-            this.f9306g = cVar;
-            this.f9304e = aVar;
-            this.f9305f = i2;
+            this.f9314g = cVar;
+            this.f9312e = aVar;
+            this.f9313f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9306g.i();
-                b.a aVar = this.f9304e;
+                this.f9314g.i();
+                b.a aVar = this.f9312e;
                 if (aVar != null && "1202000800000000".equals(aVar.T())) {
-                    SwanTaskDeadEvent swanTaskDeadEvent = (SwanTaskDeadEvent) this.f9304e.m("key_stack_info");
+                    SwanTaskDeadEvent swanTaskDeadEvent = (SwanTaskDeadEvent) this.f9312e.m("key_stack_info");
                     if (swanTaskDeadEvent != null) {
-                        this.f9306g.f9301c = swanTaskDeadEvent.getStackList();
+                        this.f9314g.f9309c = swanTaskDeadEvent.getStackList();
                         SparseArray<SwanTaskDeadEvent> historyCache = swanTaskDeadEvent.getHistoryCache();
                         if (historyCache != null) {
                             for (int i2 = 0; i2 < historyCache.size(); i2++) {
                                 int keyAt = historyCache.keyAt(i2);
                                 SwanTaskDeadEvent valueAt = historyCache.valueAt(i2);
                                 if (valueAt != null && valueAt.getAppId() != null) {
-                                    this.f9306g.f9303e.put(keyAt, valueAt);
-                                    this.f9306g.f9302d.put(valueAt.getAppId().hashCode(), keyAt);
+                                    this.f9314g.f9311e.put(keyAt, valueAt);
+                                    this.f9314g.f9310d.put(valueAt.getAppId().hashCode(), keyAt);
                                 }
                             }
                         }
-                        this.f9306g.h(null, swanTaskDeadEvent.getTaskId(), this.f9305f);
+                        this.f9314g.h(null, swanTaskDeadEvent.getTaskId(), this.f9313f);
                     }
-                    if (c.f9296f) {
-                        String str = "stack back: " + this.f9306g.f9301c;
+                    if (c.f9304f) {
+                        String str = "stack back: " + this.f9314g.f9309c;
                         return;
                     }
                     return;
                 }
-                b.a aVar2 = this.f9304e;
+                b.a aVar2 = this.f9312e;
                 if (aVar2 != null) {
-                    this.f9306g.h(aVar2.H(), -1, this.f9305f);
+                    this.f9314g.h(aVar2.H(), -1, this.f9313f);
                 }
-                c cVar = this.f9306g;
-                cVar.f9301c = cVar.o();
-                if (c.f9296f) {
-                    String str2 = "getLaunchTask=" + this.f9306g.f9301c;
+                c cVar = this.f9314g;
+                cVar.f9309c = cVar.o();
+                if (c.f9304f) {
+                    String str2 = "getLaunchTask=" + this.f9314g.f9309c;
                 }
             }
         }
@@ -154,8 +154,8 @@ public class c {
                 return;
             }
         }
-        f9296f = c.a.p0.a.k.f7077a;
-        f9297g = d.f();
+        f9304f = c.a.p0.a.k.f7085a;
+        f9305g = d.f();
     }
 
     public c() {
@@ -171,11 +171,11 @@ public class c {
                 return;
             }
         }
-        this.f9302d = new SparseIntArray();
-        this.f9303e = new SparseArray<>();
+        this.f9310d = new SparseIntArray();
+        this.f9311e = new SparseArray<>();
         Application b2 = c.a.p0.a.c1.a.b();
         if (b2 != null) {
-            this.f9299a = (ActivityManager) b2.getSystemService("activity");
+            this.f9307a = (ActivityManager) b2.getSystemService("activity");
         }
     }
 
@@ -201,14 +201,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (f9298h == null) {
+            if (f9306h == null) {
                 synchronized (c.class) {
-                    if (f9298h == null) {
-                        f9298h = new c();
+                    if (f9306h == null) {
+                        f9306h = new c();
                     }
                 }
             }
-            return f9298h;
+            return f9306h;
         }
         return (c) invokeV.objValue;
     }
@@ -226,9 +226,9 @@ public class c {
                 if (swanTaskDeadEvent == null || TextUtils.isEmpty(swanTaskDeadEvent.getAppId())) {
                     return;
                 }
-                if (ProcessUtils.isMainProcess() || ((arrayList = m.f9301c) != null && arrayList.contains(Integer.valueOf(swanTaskDeadEvent.getTaskId())))) {
-                    m.f9302d.put(swanTaskDeadEvent.getAppId().hashCode(), swanTaskDeadEvent.getTaskId());
-                    m.f9303e.put(swanTaskDeadEvent.getTaskId(), swanTaskDeadEvent);
+                if (ProcessUtils.isMainProcess() || ((arrayList = m.f9309c) != null && arrayList.contains(Integer.valueOf(swanTaskDeadEvent.getTaskId())))) {
+                    m.f9310d.put(swanTaskDeadEvent.getAppId().hashCode(), swanTaskDeadEvent.getTaskId());
+                    m.f9311e.put(swanTaskDeadEvent.getTaskId(), swanTaskDeadEvent);
                 }
             }
         }
@@ -243,49 +243,49 @@ public class c {
 
     public final void A(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || bundle == null || this.f9301c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || bundle == null || this.f9309c == null) {
             return;
         }
         String string = bundle.getString("app_id");
         int i2 = bundle.getInt("key_task_id", -1);
         if (!TextUtils.isEmpty(string)) {
-            int i3 = this.f9302d.get(string.hashCode(), -1);
+            int i3 = this.f9310d.get(string.hashCode(), -1);
             if (i3 > -1) {
-                this.f9301c.remove(Integer.valueOf(i3));
-                this.f9302d.delete(string.hashCode());
-                this.f9303e.remove(i3);
-                if (f9296f) {
+                this.f9309c.remove(Integer.valueOf(i3));
+                this.f9310d.delete(string.hashCode());
+                this.f9311e.remove(i3);
+                if (f9304f) {
                     String str = "removeTaskFromCache: " + string + ", oldTask=" + i3;
                 }
             }
-            this.f9301c.remove(Integer.valueOf(i2));
+            this.f9309c.remove(Integer.valueOf(i2));
             return;
         }
         int i4 = bundle.getInt("key_task_id_old", -1);
         if (i4 == -1) {
-            this.f9301c.remove(Integer.valueOf(i2));
+            this.f9309c.remove(Integer.valueOf(i2));
         } else {
             int i5 = 0;
             while (true) {
-                if (i5 >= this.f9301c.size()) {
+                if (i5 >= this.f9309c.size()) {
                     break;
-                } else if (this.f9301c.get(i5).intValue() == i4) {
-                    this.f9301c.set(i5, Integer.valueOf(i2));
+                } else if (this.f9309c.get(i5).intValue() == i4) {
+                    this.f9309c.set(i5, Integer.valueOf(i2));
                     break;
                 } else {
                     i5++;
                 }
             }
-            SwanTaskDeadEvent swanTaskDeadEvent = this.f9303e.get(i4);
+            SwanTaskDeadEvent swanTaskDeadEvent = this.f9311e.get(i4);
             if (swanTaskDeadEvent != null) {
                 if (swanTaskDeadEvent.getAppId() != null) {
-                    this.f9302d.delete(swanTaskDeadEvent.getAppId().hashCode());
+                    this.f9310d.delete(swanTaskDeadEvent.getAppId().hashCode());
                 }
-                this.f9303e.remove(i4);
+                this.f9311e.remove(i4);
             }
         }
-        if (f9296f) {
-            String str2 = "removeTaskFromCache nowTask=" + i2 + ", old=" + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f9301c;
+        if (f9304f) {
+            String str2 = "removeTaskFromCache nowTask=" + i2 + ", old=" + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f9309c;
         }
     }
 
@@ -306,8 +306,8 @@ public class c {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f9303e.clear();
-            this.f9302d.clear();
+            this.f9311e.clear();
+            this.f9310d.clear();
         }
     }
 
@@ -317,7 +317,7 @@ public class c {
         List<ActivityManager.AppTask> appTasks;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (j() && f9297g && (activityManager = this.f9299a) != null && (appTasks = activityManager.getAppTasks()) != null) {
+            if (j() && f9305g && (activityManager = this.f9307a) != null && (appTasks = activityManager.getAppTasks()) != null) {
                 int i3 = 0;
                 for (ActivityManager.AppTask appTask : appTasks) {
                     if (i3 > 0 && n(appTask) == i2) {
@@ -346,7 +346,7 @@ public class c {
                     }
                     return -1;
                 } catch (Exception unused) {
-                    boolean z = f9296f;
+                    boolean z = f9304f;
                     return -1;
                 }
             }
@@ -361,8 +361,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ArrayList<Integer> arrayList = null;
-            if (f9297g) {
-                ActivityManager activityManager = this.f9299a;
+            if (f9305g) {
+                ActivityManager activityManager = this.f9307a;
                 if (activityManager != null) {
                     List<ActivityManager.AppTask> appTasks = activityManager.getAppTasks();
                     int size = appTasks.size();
@@ -389,11 +389,11 @@ public class c {
         ActivityManager activityManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (f9297g && (activityManager = this.f9299a) != null) {
+            if (f9305g && (activityManager = this.f9307a) != null) {
                 try {
                     return n(activityManager.getAppTasks().get(0));
                 } catch (Exception unused) {
-                    boolean z = f9296f;
+                    boolean z = f9304f;
                 }
             }
             return -1;
@@ -406,12 +406,12 @@ public class c {
         ActivityManager activityManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (f9297g) {
-                List<ActivityManager.AppTask> list = this.f9300b;
-                if ((!z || list == null) && (activityManager = this.f9299a) != null) {
+            if (f9305g) {
+                List<ActivityManager.AppTask> list = this.f9308b;
+                if ((!z || list == null) && (activityManager = this.f9307a) != null) {
                     list = activityManager.getAppTasks();
                     if (z) {
-                        this.f9300b = list;
+                        this.f9308b = list;
                     }
                 }
                 if (list != null) {
@@ -452,19 +452,19 @@ public class c {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             synchronized (this) {
                 if (i2 > -1) {
-                    if (this.f9299a != null) {
+                    if (this.f9307a != null) {
                         if (s(i2, z)) {
-                            if (f9296f) {
+                            if (f9304f) {
                                 String str = "moveTaskToFront:" + i2;
                             }
                             try {
-                                this.f9299a.moveTaskToFront(i2, 2, null);
+                                this.f9307a.moveTaskToFront(i2, 2, null);
                                 return true;
                             } catch (Exception e2) {
                                 c.a.p0.a.e0.d.c("SwanActivityTaskManager", "moveTaskToFront", e2);
                             }
-                        } else if (this.f9303e.indexOfKey(i2) >= 0) {
-                            SwanTaskDeadEvent swanTaskDeadEvent = this.f9303e.get(i2);
+                        } else if (this.f9311e.indexOfKey(i2) >= 0) {
+                            SwanTaskDeadEvent swanTaskDeadEvent = this.f9311e.get(i2);
                             if (swanTaskDeadEvent != null) {
                                 c.a aVar = (c.a) ((c.a) ((c.a) new c.a().u0(swanTaskDeadEvent.getAppId())).Q0(swanTaskDeadEvent.getPageScheme())).H0("1202000800000000");
                                 Bundle bundle = new Bundle();
@@ -474,7 +474,7 @@ public class c {
                                     Iterator<Integer> it = stackList.iterator();
                                     while (it.hasNext()) {
                                         Integer next = it.next();
-                                        SwanTaskDeadEvent swanTaskDeadEvent2 = this.f9303e.get(next.intValue(), null);
+                                        SwanTaskDeadEvent swanTaskDeadEvent2 = this.f9311e.get(next.intValue(), null);
                                         if (swanTaskDeadEvent2 != null) {
                                             sparseArray.put(next.intValue(), swanTaskDeadEvent2);
                                         }
@@ -483,13 +483,13 @@ public class c {
                                 }
                                 bundle.putParcelable("key_stack_info", swanTaskDeadEvent);
                                 SwanLauncher.j().n(aVar, bundle);
-                                if (f9296f) {
+                                if (f9304f) {
                                     String str2 = "launch dead app:" + swanTaskDeadEvent.getAppId();
                                 }
                                 return true;
                             }
-                        } else if (f9296f) {
-                            String str3 = "Not Found taskId:" + i2 + " cacheSize:" + this.f9303e.size();
+                        } else if (f9304f) {
+                            String str3 = "Not Found taskId:" + i2 + " cacheSize:" + this.f9311e.size();
                         }
                         return false;
                     }
@@ -505,12 +505,12 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
             synchronized (this) {
-                ArrayList<Integer> arrayList = this.f9301c;
+                ArrayList<Integer> arrayList = this.f9309c;
                 if (z) {
                     arrayList = o();
                 }
-                if (arrayList != null && !arrayList.isEmpty() && this.f9299a != null) {
-                    this.f9300b = null;
+                if (arrayList != null && !arrayList.isEmpty() && this.f9307a != null) {
+                    this.f9308b = null;
                     Iterator<Integer> it = arrayList.iterator();
                     while (it.hasNext()) {
                         if (u(it.next().intValue(), true, true)) {
@@ -535,7 +535,7 @@ public class c {
                 PendingIntent.getActivity(context, 0, intent, 134217728).send();
                 return true;
             } catch (Exception unused) {
-                boolean z2 = f9296f;
+                boolean z2 = f9304f;
                 return u(i2, z, false);
             }
         }
@@ -551,13 +551,13 @@ public class c {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putParcelable("key_stack_info", new SwanTaskDeadEvent(swanAppActivity.getActivedAppId(), swanAppActivity.getTaskId(), I1.g() + "?" + I1.h(), this.f9301c));
+        bundle.putParcelable("key_stack_info", new SwanTaskDeadEvent(swanAppActivity.getActivedAppId(), swanAppActivity.getTaskId(), I1.g() + "?" + I1.h(), this.f9309c));
         bundle.setClassLoader(SwanTaskDeadEvent.class.getClassLoader());
         c.a.p0.a.v1.c.a e2 = c.a.p0.a.v1.c.a.e();
         c.a.p0.a.v1.c.c cVar = new c.a.p0.a.v1.c.c(124, bundle);
         cVar.f(true);
         e2.h(cVar);
-        if (f9296f) {
+        if (f9304f) {
             String str = "notify dead " + swanAppActivity.getActivedAppId() + StringUtil.ARRAY_ELEMENT_SEPARATOR + swanAppActivity.getTaskId();
         }
     }
@@ -573,14 +573,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048590, this, intent, i2) == null) {
             ArrayList<Integer> o = o();
-            if (!t(this.f9301c, o)) {
+            if (!t(this.f9309c, o)) {
                 i();
                 h(null, -1, i2);
             }
-            if (f9296f) {
-                String str = "onNewIntent: " + i2 + ", newTaskList=" + o + ", mLaunchTaskList=" + this.f9301c + ", flag=" + (intent != null ? intent.getFlags() : -1);
+            if (f9304f) {
+                String str = "onNewIntent: " + i2 + ", newTaskList=" + o + ", mLaunchTaskList=" + this.f9309c + ", flag=" + (intent != null ? intent.getFlags() : -1);
             }
-            this.f9301c = o;
+            this.f9309c = o;
         }
     }
 }

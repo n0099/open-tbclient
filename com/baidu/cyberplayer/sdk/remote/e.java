@@ -20,10 +20,10 @@ public class e implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Uri f39162a;
+    public Uri f39221a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f39163b;
+    public Map<String, String> f39222b;
 
     static {
         InterceptResult invokeClinit;
@@ -91,8 +91,8 @@ public class e implements Parcelable {
                 return;
             }
         }
-        this.f39162a = uri;
-        this.f39163b = map;
+        this.f39221a = uri;
+        this.f39222b = map;
     }
 
     public e(Parcel parcel) {
@@ -110,24 +110,24 @@ public class e implements Parcelable {
                 return;
             }
         }
-        this.f39162a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
-        this.f39163b = new HashMap();
+        this.f39221a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
+        this.f39222b = new HashMap();
         int readInt = parcel.readInt();
         for (int i4 = 0; i4 < readInt; i4++) {
-            this.f39163b.put(parcel.readString(), parcel.readString());
+            this.f39222b.put(parcel.readString(), parcel.readString());
         }
     }
 
     public Uri a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39162a : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39221a : (Uri) invokeV.objValue;
     }
 
     public Map<String, String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39163b : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39222b : (Map) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -144,14 +144,14 @@ public class e implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
-            parcel.writeParcelable(this.f39162a, i2);
-            Map<String, String> map = this.f39163b;
+            parcel.writeParcelable(this.f39221a, i2);
+            Map<String, String> map = this.f39222b;
             if (map == null || map.size() <= 0) {
                 parcel.writeInt(0);
                 return;
             }
-            parcel.writeInt(this.f39163b.size());
-            for (Map.Entry<String, String> entry : this.f39163b.entrySet()) {
+            parcel.writeInt(this.f39222b.size());
+            for (Map.Entry<String, String> entry : this.f39222b.entrySet()) {
                 parcel.writeString(entry.getKey());
                 parcel.writeString(entry.getValue());
             }

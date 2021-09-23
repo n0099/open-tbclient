@@ -25,34 +25,34 @@ public class l implements b<a>, j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f6115a;
+    public final g f6123a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<c.a.p0.a.o0.d.a> f6116b;
+    public final LinkedList<c.a.p0.a.o0.d.a> f6124b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<d<a>> f6117c;
+    public final List<d<a>> f6125c;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f6118d;
+    public k f6126d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f6119e;
+    public volatile boolean f6127e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f6120f;
+    public volatile boolean f6128f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f6121g;
+    public volatile boolean f6129g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f6122h;
+    public volatile boolean f6130h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f6123i;
+    public boolean f6131i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Object f6124j;
+    public final Object f6132j;
 
     static {
         InterceptResult invokeClinit;
@@ -67,7 +67,7 @@ public class l implements b<a>, j {
                 return;
             }
         }
-        k = c.a.p0.a.k.f7077a;
+        k = c.a.p0.a.k.f7085a;
         l = 2;
     }
 
@@ -84,15 +84,15 @@ public class l implements b<a>, j {
                 return;
             }
         }
-        this.f6116b = new LinkedList<>();
-        this.f6117c = new LinkedList();
-        this.f6115a = new g(l);
-        this.f6124j = new Object();
-        this.f6119e = false;
-        this.f6120f = false;
-        this.f6121g = false;
-        this.f6123i = false;
-        this.f6122h = false;
+        this.f6124b = new LinkedList<>();
+        this.f6125c = new LinkedList();
+        this.f6123a = new g(l);
+        this.f6132j = new Object();
+        this.f6127e = false;
+        this.f6128f = false;
+        this.f6129g = false;
+        this.f6131i = false;
+        this.f6130h = false;
     }
 
     @Override // c.a.p0.a.h0.l.g.c
@@ -101,14 +101,14 @@ public class l implements b<a>, j {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) || dVar == null) {
             return;
         }
-        synchronized (this.f6124j) {
-            if (this.f6120f) {
+        synchronized (this.f6132j) {
+            if (this.f6128f) {
                 boolean z = k;
-                dVar.a(this.f6122h, this.f6118d);
+                dVar.a(this.f6130h, this.f6126d);
                 return;
             }
-            if (!this.f6117c.contains(dVar)) {
-                this.f6117c.add(dVar);
+            if (!this.f6125c.contains(dVar)) {
+                this.f6125c.add(dVar);
             }
         }
     }
@@ -128,14 +128,14 @@ public class l implements b<a>, j {
             String str2 = pMSAppInfo.appId;
             if (TextUtils.isEmpty(str2)) {
                 boolean z2 = k;
-            } else if (this.f6120f) {
+            } else if (this.f6128f) {
                 c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
                 if (Q == null) {
                     return;
                 }
                 if (TextUtils.equals(str2, Q.getAppId())) {
                     c.a.p0.a.e0.d.l(PrefetchEvent.MODULE, "prefetch after app start");
-                    this.f6118d.r(cVar, pMSAppInfo);
+                    this.f6126d.r(cVar, pMSAppInfo);
                     if (k) {
                         String str3 = "prefetch after app start - " + str2;
                         return;
@@ -143,24 +143,24 @@ public class l implements b<a>, j {
                     return;
                 }
                 boolean z3 = k;
-            } else if (!this.f6119e) {
+            } else if (!this.f6127e) {
                 boolean z4 = k;
             } else {
-                synchronized (this.f6124j) {
-                    if (this.f6120f) {
+                synchronized (this.f6132j) {
+                    if (this.f6128f) {
                         return;
                     }
-                    k d2 = this.f6115a.d(str2);
+                    k d2 = this.f6123a.d(str2);
                     if (d2 == null) {
-                        d2 = k(false, this.f6123i);
-                        this.f6115a.f(d2);
+                        d2 = k(false, this.f6131i);
+                        this.f6123a.f(d2);
                     }
                     if (d2.w(pMSAppInfo, cVar)) {
-                        this.f6115a.c(str2);
-                        d2 = k(false, this.f6123i);
-                        this.f6115a.f(d2);
+                        this.f6123a.c(str2);
+                        d2 = k(false, this.f6131i);
+                        this.f6123a.f(d2);
                     }
-                    this.f6115a.g(Collections.singletonList(d2));
+                    this.f6123a.g(Collections.singletonList(d2));
                     d2.r(cVar, pMSAppInfo);
                 }
             }
@@ -170,11 +170,11 @@ public class l implements b<a>, j {
     @Override // c.a.p0.a.h0.l.g.b
     public void d(c.a.p0.a.o0.d.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || aVar == null || this.f6120f) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || aVar == null || this.f6128f) {
             return;
         }
-        synchronized (this.f6124j) {
-            this.f6116b.add(aVar);
+        synchronized (this.f6132j) {
+            this.f6124b.add(aVar);
         }
     }
 
@@ -182,49 +182,49 @@ public class l implements b<a>, j {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6121g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6129g : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.a.h0.l.g.c
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6120f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6128f : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.a.h0.l.g.c
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f6119e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f6127e : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.a.h0.l.g.b
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f6123i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f6131i : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.a.h0.l.g.b
     public void j(boolean z, j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048585, this, z, jVar) == null) {
-            if (!this.f6121g) {
-                synchronized (this.f6124j) {
-                    if (!this.f6121g) {
-                        this.f6123i = z;
+            if (!this.f6129g) {
+                synchronized (this.f6132j) {
+                    if (!this.f6129g) {
+                        this.f6131i = z;
                         k k2 = k(true, z);
                         k2.c(this);
                         k2.c(jVar);
-                        this.f6115a.f(k2);
-                        this.f6121g = true;
+                        this.f6123a.f(k2);
+                        this.f6129g = true;
                         return;
                     }
                 }
             }
             boolean z2 = k;
-            k d2 = this.f6120f ? this.f6118d : this.f6115a.d("_default_id_");
+            k d2 = this.f6128f ? this.f6126d : this.f6123a.d("_default_id_");
             if (d2 != null) {
                 d2.c(jVar);
             }
@@ -239,17 +239,17 @@ public class l implements b<a>, j {
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !this.f6116b.isEmpty() && this.f6120f) {
-            synchronized (this.f6124j) {
-                Iterator<c.a.p0.a.o0.d.a> it = this.f6116b.iterator();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !this.f6124b.isEmpty() && this.f6128f) {
+            synchronized (this.f6132j) {
+                Iterator<c.a.p0.a.o0.d.a> it = this.f6124b.iterator();
                 while (it.hasNext()) {
                     c.a.p0.a.o0.d.a next = it.next();
                     if (k) {
-                        String str = "dispatchPendingEvents event: " + next.f7795a;
+                        String str = "dispatchPendingEvents event: " + next.f7803a;
                     }
                     c.a.p0.a.h0.u.g.N().H0(next);
                 }
-                this.f6116b.clear();
+                this.f6124b.clear();
             }
         }
     }
@@ -257,13 +257,13 @@ public class l implements b<a>, j {
     public final void m(boolean z, k kVar, PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), kVar, pMSAppInfo}) == null) {
-            this.f6122h = z;
-            this.f6118d = kVar;
+            this.f6130h = z;
+            this.f6126d = kVar;
             kVar.p(pMSAppInfo);
-            this.f6120f = true;
+            this.f6128f = true;
             l();
             long currentTimeMillis = k ? System.currentTimeMillis() : 0L;
-            this.f6115a.a(Collections.singletonList(kVar));
+            this.f6123a.a(Collections.singletonList(kVar));
             if (k) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str = "clear useless master cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
@@ -279,7 +279,7 @@ public class l implements b<a>, j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (!this.f6120f) {
+            if (!this.f6128f) {
                 if (k) {
                     String str = "master not final confirmed, has default - " + f();
                     Log.getStackTraceString(new RuntimeException("throw by debug"));
@@ -287,21 +287,21 @@ public class l implements b<a>, j {
                 }
                 return null;
             }
-            return this.f6118d;
+            return this.f6126d;
         }
         return (k) invokeV.objValue;
     }
 
     public final void o(boolean z, k kVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048590, this, z, kVar) == null) || this.f6117c.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeZL(1048590, this, z, kVar) == null) || this.f6125c.size() <= 0) {
             return;
         }
-        synchronized (this.f6124j) {
-            for (d<a> dVar : this.f6117c) {
+        synchronized (this.f6132j) {
+            for (d<a> dVar : this.f6125c) {
                 dVar.a(z, kVar);
             }
-            this.f6117c.clear();
+            this.f6125c.clear();
         }
         if (k) {
             String str = "is hit prefetch env - " + z;
@@ -312,7 +312,7 @@ public class l implements b<a>, j {
     public void onReady() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f6119e = true;
+            this.f6127e = true;
         }
     }
 
@@ -331,35 +331,35 @@ public class l implements b<a>, j {
             if (k) {
                 String str = "real start a swan app - " + pMSAppInfo;
             }
-            if (!this.f6119e && k) {
+            if (!this.f6127e && k) {
                 throw new RuntimeException("should call startApp after preload finished");
             }
             String str2 = pMSAppInfo == null ? null : pMSAppInfo.appId;
-            if (this.f6120f) {
-                return this.f6118d;
+            if (this.f6128f) {
+                return this.f6126d;
             }
-            synchronized (this.f6124j) {
-                if (!this.f6120f) {
+            synchronized (this.f6132j) {
+                if (!this.f6128f) {
                     boolean z = false;
                     if (!TextUtils.isEmpty(str2) && pMSAppInfo != null) {
-                        d2 = this.f6115a.d(str2);
+                        d2 = this.f6123a.d(str2);
                         if (d2 == null || !d2.n() || d2.w(pMSAppInfo, null)) {
-                            d2 = this.f6115a.d("_default_id_");
+                            d2 = this.f6123a.d("_default_id_");
                         } else {
                             z = true;
                         }
                         m(z, d2, pMSAppInfo);
                     }
-                    d2 = this.f6115a.d("_default_id_");
+                    d2 = this.f6123a.d("_default_id_");
                     m(z, d2, pMSAppInfo);
                 }
             }
             if (k) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str3 = "get right master cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
-                String str4 = "final master id - " + this.f6118d.i().c();
+                String str4 = "final master id - " + this.f6126d.i().c();
             }
-            return this.f6118d;
+            return this.f6126d;
         }
         return (k) invokeL.objValue;
     }
@@ -368,16 +368,16 @@ public class l implements b<a>, j {
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f6119e = false;
-            this.f6120f = false;
-            this.f6121g = false;
-            this.f6123i = false;
-            this.f6122h = false;
-            this.f6118d = null;
-            this.f6115a.a(null);
-            synchronized (this.f6124j) {
-                this.f6116b.clear();
-                this.f6117c.clear();
+            this.f6127e = false;
+            this.f6128f = false;
+            this.f6129g = false;
+            this.f6131i = false;
+            this.f6130h = false;
+            this.f6126d = null;
+            this.f6123a.a(null);
+            synchronized (this.f6132j) {
+                this.f6124b.clear();
+                this.f6125c.clear();
             }
             e.c();
             h.b().d();

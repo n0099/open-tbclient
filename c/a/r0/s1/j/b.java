@@ -27,20 +27,20 @@ public class b implements IConnectListener {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f24752i = "imlog";
+    public static String f24768i = "imlog";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f24753e;
+    public boolean f24769e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f24754f;
+    public c f24770f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f24755g;
+    public CustomMessageListener f24771g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f24756h;
+    public boolean f24772h;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -48,7 +48,7 @@ public class b implements IConnectListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f24757a;
+        public final /* synthetic */ b f24773a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -68,7 +68,7 @@ public class b implements IConnectListener {
                     return;
                 }
             }
-            this.f24757a = bVar;
+            this.f24773a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,21 +76,21 @@ public class b implements IConnectListener {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                this.f24757a.c();
+                this.f24773a.c();
             }
         }
     }
 
     /* renamed from: c.a.r0.s1.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1145b implements a.b {
+    public class C1143b implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f24758a;
+        public final /* synthetic */ b f24774a;
 
-        public C1145b(b bVar) {
+        public C1143b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class b implements IConnectListener {
                     return;
                 }
             }
-            this.f24758a = bVar;
+            this.f24774a = bVar;
         }
 
         @Override // c.a.r0.s1.j.a.b
@@ -113,11 +113,11 @@ public class b implements IConnectListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 String str2 = "@@ updateImsdk LiveIMManager.loginToIm -> loginResult errno=" + i2 + ", errMsg=" + str;
-                LogUtils.d(b.f24752i + "LiveIMManager", "LiveIMManager onLoginResult errno = " + i2 + ", errMsg = " + str + ", isConnected = " + this.f24758a.f24753e);
-                if (i2 != 0 || this.f24758a.f24753e) {
+                LogUtils.d(b.f24768i + "LiveIMManager", "LiveIMManager onLoginResult errno = " + i2 + ", errMsg = " + str + ", isConnected = " + this.f24774a.f24769e);
+                if (i2 != 0 || this.f24774a.f24769e) {
                     return;
                 }
-                this.f24758a.onResult(0);
+                this.f24774a.onResult(0);
             }
         }
     }
@@ -225,42 +225,42 @@ public class b implements IConnectListener {
                 return;
             }
         }
-        this.f24753e = false;
-        this.f24755g = new a(this, 2005016);
-        this.f24756h = false;
+        this.f24769e = false;
+        this.f24771g = new a(this, 2005016);
+        this.f24772h = false;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             String str2 = "@@ updateImsdk LiveIMManager.init id =" + str;
-            if (this.f24756h) {
+            if (this.f24772h) {
                 return;
             }
-            this.f24756h = true;
+            this.f24772h = true;
             c.a.r0.s1.j.a.a().b(TbadkCoreApplication.getInst());
             d();
             c();
-            if (this.f24754f == null) {
-                this.f24754f = new c(this, null);
+            if (this.f24770f == null) {
+                this.f24770f = new c(this, null);
             }
-            this.f24754f.register();
-            MessageManager.getInstance().registerListener(this.f24755g);
+            this.f24770f.register();
+            MessageManager.getInstance().registerListener(this.f24771g);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.r0.s1.j.a.a().d(new C1145b(this));
+            c.a.r0.s1.j.a.a().d(new C1143b(this));
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogUtils.d(f24752i + "LiveIMManager", "registerIMConnectListener");
-            this.f24753e = false;
+            LogUtils.d(f24768i + "LiveIMManager", "registerIMConnectListener");
+            this.f24769e = false;
             BIMManager.unregisterConnectListener();
             BIMManager.registerConnectListener(this);
         }
@@ -271,12 +271,12 @@ public class b implements IConnectListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             String str = "@@ updateImsdk LiveIMManager.onResult statuscode=" + i2;
-            LogUtils.d(f24752i + "LiveIMManager", "IConnectListener onResult statusCode=" + i2);
-            this.f24753e = true;
+            LogUtils.d(f24768i + "LiveIMManager", "IConnectListener onResult statusCode=" + i2);
+            this.f24769e = true;
             if (i2 == 0) {
-                LogUtils.d(f24752i + "LiveIMManager", "IConnectListener net connect");
+                LogUtils.d(f24768i + "LiveIMManager", "IConnectListener net connect");
             } else if (i2 == 1) {
-                LogUtils.d(f24752i + "LiveIMManager", "IConnectListener net disconnect");
+                LogUtils.d(f24768i + "LiveIMManager", "IConnectListener net disconnect");
             }
         }
     }

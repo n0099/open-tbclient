@@ -14,7 +14,7 @@ public final class a extends c.a.p0.a.y0.b<c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.f f9786h;
+    public final c.f f9794h;
 
     /* renamed from: c.a.p0.a.y0.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public final class a extends c.a.p0.a.y0.b<c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f9787a;
+        public final /* synthetic */ a f9795a;
 
         public C0467a(a aVar) {
             Interceptable interceptable = $ic;
@@ -40,16 +40,16 @@ public final class a extends c.a.p0.a.y0.b<c> {
                     return;
                 }
             }
-            this.f9787a = aVar;
+            this.f9795a = aVar;
         }
 
         @Override // c.a.p0.a.y0.i.c.f
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9787a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9795a.f9725b == null) {
                 return;
             }
-            this.f9787a.f9717b.onCallback(this.f9787a, "onConfirmBtnClick", null);
+            this.f9795a.f9725b.onCallback(this.f9795a, "onConfirmBtnClick", null);
         }
     }
 
@@ -72,12 +72,12 @@ public final class a extends c.a.p0.a.y0.b<c> {
             }
         }
         C0467a c0467a = new C0467a(this);
-        this.f9786h = c0467a;
+        this.f9794h = c0467a;
         cVar.D0(c0467a);
-        this.f9716a.a(new c.a.p0.a.y0.i.d.d());
-        this.f9716a.a(new c.a.p0.a.y0.i.d.c());
-        this.f9716a.a(new e());
-        this.f9716a.a(new c.a.p0.a.y0.i.d.a());
-        this.f9716a.a(new c.a.p0.a.y0.i.d.b());
+        this.f9724a.a(new c.a.p0.a.y0.i.d.d());
+        this.f9724a.a(new c.a.p0.a.y0.i.d.c());
+        this.f9724a.a(new e());
+        this.f9724a.a(new c.a.p0.a.y0.i.d.a());
+        this.f9724a.a(new c.a.p0.a.y0.i.d.b());
     }
 }

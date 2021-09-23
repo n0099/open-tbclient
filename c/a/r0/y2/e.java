@@ -18,13 +18,13 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f29321a;
+    public static final long f29341a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f29322b;
+    public static final long f29342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f29323c;
+    public static final long f29343c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,10 +40,10 @@ public class e {
                 return;
             }
         }
-        f29321a = TimeUnit.DAYS.toMillis(1L);
+        f29341a = TimeUnit.DAYS.toMillis(1L);
         TimeUnit.HOURS.toMillis(1L);
-        f29322b = TimeUnit.MINUTES.toMillis(1L);
-        f29323c = TimeUnit.SECONDS.toMillis(1L);
+        f29342b = TimeUnit.MINUTES.toMillis(1L);
+        f29343c = TimeUnit.SECONDS.toMillis(1L);
     }
 
     public static int a(@NonNull String str) {
@@ -104,14 +104,14 @@ public class e {
     public static boolean e(long j2, long j3, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)})) == null) ? j2 - j3 > ((long) i2) * f29322b : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)})) == null) ? j2 - j3 > ((long) i2) * f29342b : invokeCommon.booleanValue;
     }
 
     public static boolean f(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            long j4 = f29321a;
+            long j4 = f29341a;
             return j2 / j4 == j3 / j4;
         }
         return invokeCommon.booleanValue;

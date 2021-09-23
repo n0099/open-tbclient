@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
+import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -85,30 +86,31 @@ public class PassSdkModel {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                Map<String, String> authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
-                String packageSign = SapiUtils.getPackageSign(context, str);
-                if (!TextUtils.isEmpty(packageSign)) {
-                    Iterator<String> it = authorizedPackages.keySet().iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
+            if (context == null || TextUtils.isEmpty(str) || ServiceManager.getInstance().getIsAccountManager().getConfignation() == null) {
+                return false;
+            }
+            Map<String, String> authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
+            String packageSign = SapiUtils.getPackageSign(context, str);
+            if (!TextUtils.isEmpty(packageSign)) {
+                Iterator<String> it = authorizedPackages.keySet().iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    String next = it.next();
+                    if (str.matches(next)) {
+                        if (packageSign.equals(authorizedPackages.get(next))) {
+                            String str2 = TAG;
+                            Log.d(str2, "checkPkgSign pkgName=" + str + " is true, sign is true");
+                            return true;
                         }
-                        String next = it.next();
-                        if (str.matches(next)) {
-                            if (packageSign.equals(authorizedPackages.get(next))) {
-                                String str2 = TAG;
-                                Log.d(str2, "checkPkgSign pkgName=" + str + " is true, sign is true");
-                                return true;
-                            }
-                            String str3 = TAG;
-                            Log.d(str3, "checkPkgSign pkgName=" + str + " is true, sign is error, sign=" + packageSign);
-                        }
+                        String str3 = TAG;
+                        Log.d(str3, "checkPkgSign pkgName=" + str + " is true, sign is error, sign=" + packageSign);
                     }
                 }
-                String str4 = TAG;
-                Log.d(str4, "checkPkgSign is fail pkgName=" + str + " sign=" + packageSign);
             }
+            String str4 = TAG;
+            Log.d(str4, "checkPkgSign is fail pkgName=" + str + " sign=" + packageSign);
             return false;
         }
         return invokeLL.booleanValue;

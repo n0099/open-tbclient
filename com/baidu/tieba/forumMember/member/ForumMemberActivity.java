@@ -39,7 +39,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumMemberActivity f50756a;
+        public final /* synthetic */ ForumMemberActivity f50869a;
 
         public a(ForumMemberActivity forumMemberActivity) {
             Interceptable interceptable = $ic;
@@ -56,15 +56,15 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     return;
                 }
             }
-            this.f50756a = forumMemberActivity;
+            this.f50869a = forumMemberActivity;
         }
 
         @Override // c.a.r0.w0.s0
         public void a(int i2, int i3, b1 b1Var, ArrayList<n> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), b1Var, arrayList}) == null) {
-                this.f50756a.mView.d();
-                this.f50756a.mView.c();
+                this.f50869a.mView.d();
+                this.f50869a.mView.c();
                 if (arrayList != null) {
                     Iterator<n> it = arrayList.iterator();
                     while (it.hasNext()) {
@@ -74,12 +74,12 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     }
                 }
                 if (!ListUtils.isEmpty(arrayList)) {
-                    this.f50756a.mView.e();
-                    this.f50756a.mListViewData = arrayList;
-                    this.f50756a.mView.f(this.f50756a.mListViewData);
-                } else if (!ListUtils.isEmpty(this.f50756a.mListViewData) || b1Var == null) {
+                    this.f50869a.mView.e();
+                    this.f50869a.mListViewData = arrayList;
+                    this.f50869a.mView.f(this.f50869a.mListViewData);
+                } else if (!ListUtils.isEmpty(this.f50869a.mListViewData) || b1Var == null) {
                 } else {
-                    this.f50756a.mView.l(b1Var.f26460f);
+                    this.f50869a.mView.l(b1Var.f26483f);
                 }
             }
         }
@@ -91,7 +91,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumMemberActivity f50757e;
+        public final /* synthetic */ ForumMemberActivity f50870e;
 
         public b(ForumMemberActivity forumMemberActivity) {
             Interceptable interceptable = $ic;
@@ -108,19 +108,19 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     return;
                 }
             }
-            this.f50757e = forumMemberActivity;
+            this.f50870e = forumMemberActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f50757e.mView.b(z);
+                this.f50870e.mView.b(z);
                 if (z) {
-                    if (ListUtils.isEmpty(this.f50757e.mListViewData)) {
-                        this.f50757e.startFirstTimeLoad();
+                    if (ListUtils.isEmpty(this.f50870e.mListViewData)) {
+                        this.f50870e.startFirstTimeLoad();
                     } else {
-                        this.f50757e.mView.m();
+                        this.f50870e.mView.m();
                     }
                 }
             }
@@ -160,8 +160,8 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             }
             y0 y0Var = new y0();
             this.mPageInfo = y0Var;
-            y0Var.f28026b = this.mForumId;
-            y0Var.f28025a = this.mForumName;
+            y0Var.f28046b = this.mForumId;
+            y0Var.f28045a = this.mForumName;
         }
     }
 
